@@ -8,17 +8,16 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/08/2017
+ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 56dd68e328abd6c1dacdf7a8e051ca6b3cd07083
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 623d728cf70a5aa0b91b6acd9e314ca5c009c0aa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="create-and-publish-an-azure-managed-application"></a>Azure Managed Application 만들기 및 게시 
+# <a name="create-and-publish-service-catalog-managed-application"></a>서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시
 
 [Managed Application 개요](managed-application-overview.md) 문서에서 설명한 대로 종단 간 환경에는 두 가지 시나리오가 있습니다. 하나는 관리되는 응용 프로그램을 만들어 고객이 사용할 수 있게 하려는 게시자 또는 ISV입니다. 다른 하나는 관리되는 응용 프로그램의 고객 또는 소비자입니다. 이 문서에서는 첫 번째 시나리오를 중점적으로 다루며, ISV에서 관리되는 응용 프로그램을 만들고 게시하는 방법에 대해 설명합니다. 
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/11/2017
 
 ## <a name="create-managed-application-package"></a>관리되는 응용 프로그램 패키지 만들기
 
-첫 번째 단계는 기본 템플릿 파일이 포함된 관리되는 응용 프로그램 패키지를 만드는 것입니다. 게시자 또는 ISV에서 세 개의 파일을 만듭니다. 
+첫 번째 단계는 기본 템플릿 파일이 포함된 관리되는 응용 프로그램 패키지를 만드는 것입니다. 게시자 또는 ISV에서 세 개의 파일을 만듭니다. 세 파일을 모두 하나의 .zip 파일로 패키지하고 액세스할 수 있는 위치에 업로드해야 합니다.
 
 * 첫 번째 파일은 **applianceMainTemplate.json**입니다. 이 템플릿 파일은 관리되는 응용 프로그램의 일부로 프로비전되는 실제 리소스를 정의합니다. 예를 들어 관리되는 응용 프로그램을 사용하여 저장소 계정을 만들기 위해 applianceMainTemplate.json에서 다음을 포함합니다. 
 
@@ -208,6 +207,8 @@ az managedapp definition create -n ravtestAppDef4 -l "westcentralus"
 
 * 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](managed-application-overview.md)를 참조하세요.
 * 파일의 예제는 [Managed Application 샘플](https://github.com/Azure/azure-managedapp-samples/tree/master/samples)을 참조하세요.
-* 소비자 환경을 이해하려면 [Azure Managed Application 사용](managed-application-consumption.md)을 참조하세요.
+* 서비스 카탈로그 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 사용](managed-application-consumption.md)을 참조하세요.
+* Marketplace에 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [Marketplace의 Azure Managed Application](managed-application-author-marketplace.md)을 참조하세요.
+* Marketplace의 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [Marketplace의 Azure Managed Application 사용](managed-application-consume-marketplace.md)을 참조하세요.
 * 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](managed-application-createuidefinition-overview.md)을 참조하세요.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7055e207cfbcc9de02669be9f0e97045769ef217
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a5528e01ca7ad9bc807b621e08de991ce1ab9fd8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>IoT Hub 장치-클라우드 메시지 처리(Java)
@@ -33,11 +32,16 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 이 자습서의 끝 부분에서는 다음의 세 가지 Java 콘솔 앱을 실행합니다.
 
 * **simulated-device**, [simulated-device] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQP 프로토콜을 사용합니다.
-* **read-d2c-messages**는 시뮬레이션된 장치 앱에서 보낸 원격 분석을 표시합니다.
+* **read-d2c-messages**는 장치 앱에서 보낸 원격 분석을 표시합니다.
 * **read-critical-queue**는 IoT Hub에 연결된 Service Bus 큐에서 중요한 메시지를 큐에서 제거합니다.
 
 > [!NOTE]
+<<<<<<< HEAD IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대한 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> 
+> 
+=======
 > IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대한 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+>>>>>>> master
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -48,9 +52,14 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
+<<<<<<< HEAD
+## <a name="send-interactive-messages-from-a-device-app"></a>장치 앱에서 대화형 메시지 보내기
+<a name="in-this-section-you-modify-the-device-app-you-created-in-the-get-started-with-iot-hub-tutorial-to-occasionally-send-messages-that-require-immediate-processing"></a>이 섹션에서는 [simulated-device] 자습서에서 만든 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
+=======
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>시뮬레이션된 장치 앱에서 대화형 메시지 보내기
 
 이 섹션에서는 [simulated-device] 자습서에서 만든 시뮬레이션된 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
+>>>>>>> master
 
 1. 텍스트 편집기를 사용하여 simulated-device\src\main\java\com\mycompany\app\App.java 파일을 엽니다. 이 파일에는 **IoT Hub 시작** 자습서에서 만든 [simulated-device] 앱이 포함되어 있습니다.
 
@@ -101,11 +110,21 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
         }
     }
     ```
+<<<<<<< HEAD
+   
+    This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+   
+   > [!NOTE]
+   > 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.
+   > 
+   > 
+=======
 
-    이 메서드는 시뮬레이션된 장치에서 보낸 메시지에 `"level": "critical"` 속성을 임의로 추가합니다. 그러면 응용 프로그램 백 엔드에 의한 즉각적인 작업을 요구하는 메시지를 시뮬레이션합니다. 응용 프로그램에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
+    This method randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
     > [!NOTE]
-    > 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.
+    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
+>>>>>>> master
 
 2. simulated-device\src\main\java\com\mycompany\app\App.java 파일을 저장한 후 닫습니다.
 
@@ -128,7 +147,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
     ![IoT Hub의 끝점][30]
 
-3. **끝점** 블레이드 위쪽에서 **추가**를 클릭하여 IoT Hub에 큐를 추가합니다. 끝점 이름을 **CriticalQueue**로 지정하고 드롭다운을 사용하여 **Service Bus 큐**, 큐가 있는 Service Bus 네임스페이스 및 큐 이름을 선택합니다. 완료되면 아래쪽의 **저장**을 클릭합니다.
+3. **끝점** 블레이드 위쪽에서 **추가**를 클릭하여 IoT Hub에 큐를 추가합니다. 끝점 이름을 **CriticalQueue**로 지정하고 드롭다운을 사용하여 **Service Bus 큐**, 큐가 있는 Service Bus 네임스페이스 및 큐 이름을 선택합니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
 
     ![끝점 추가][31]
 

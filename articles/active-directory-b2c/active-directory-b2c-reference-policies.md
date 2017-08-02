@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: e6943eb619963dd56b1c3909a57ae7d6cefd0ddc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2b92d8343918075f1469c5b8cc0b042e5f418382
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: 기본 제공 정책
@@ -202,7 +201,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 5. **ID 공급자**를 선택한 다음 **이메일 주소를 사용하여 암호 재설정**을 선택합니다. **확인**을 클릭합니다.
 
-6. **응용 프로그램 클레임**을 선택합니다. 여기서 암호 재설정 환경이 성공적이면 응용 프로그램으로 다시 보낸 토큰에서 반환하려는 클레임을 선택합니다. 예를 들어 **사용자의 개체 ID**를 선택합니다.
+6. **응용 프로그램 클레임**을 선택합니다. 여기서 암호 재설정 환경이 성공적이면 응용 프로그램으로 다시 보낸 토큰에서 반환하려는 클레임을 선택합니다. 예를 들어 **표시 이름** 및 **사용자 개체 ID**를 선택합니다.
 
 7. **만들기**를 선택합니다. **암호 재설정 정책** 블레이드에서 만든 정책이 **B2C_1_SSPR**(**B2C\_1\_** 조각이 자동으로 추가됨)로 표시됩니다.
 

@@ -3,7 +3,7 @@ title: "Azure Active Directory 감사 API 참조 | Microsoft Docs"
 description: "Azure Active Directory 감사 API를 시작하는 방법"
 services: active-directory
 documentationcenter: 
-author: markusvi
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 감사 API 참조
@@ -29,10 +29,17 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 다음을 참조하세요.
 
-* 자세한 개념 정보는 [감사 로그](active-directory-reporting-azure-portal.md#audit-logs)를 참조하세요.
+* 자세한 개념 정보는 [감사 로그](active-directory-reporting-azure-portal.md#activity-reports)를 참조하세요.
+
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
-질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
+
+관련 작업:
+
+- 질문과 대답(FAQ)은 [FAQ](active-directory-reporting-faq.md)를 읽어보세요. 
+
+- 문제는 [지원 티켓을 파일로 저장하세요](active-directory-troubleshooting-support-howto.md). 
+
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리 또는 보안 판독기 역할의 사용자

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 69ead621c179bf49f17ed3274be4b625fc587556
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 응용 프로그램의 성능 모니터링
@@ -26,7 +25,7 @@ ms.lasthandoff: 06/14/2017
 
 응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
-Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 컴퓨터에서 또는 Microsoft Azure 웹 사이트로 호스팅할 수 있습니다. 
+Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 컴퓨터에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
 Application Insights는 클라이언트쪽에서 iOS, Android 및 Windows 스토어 앱을 포함하여 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 

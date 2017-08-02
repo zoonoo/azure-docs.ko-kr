@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e3f8db4560efc4c1425e1e88f2afee97ba7a8fea
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Azure AD와 Windows Phone 앱 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Windows Phone 8.1 및 이전 버전 프로젝트는 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
 
 Windows Phone 8.1 앱을 개발하는 경우 Azure AD를 사용하면 간단하고 편리하게 Active Directory 계정에 사용하여 사용자를 인증할 수 있습니다.  또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 

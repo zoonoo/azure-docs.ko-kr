@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>대규모 병렬 처리(MPP)에 대한 분산 데이터 및 분산 테이블
@@ -68,7 +67,7 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 ## <a name="Replicated"></a>복제된 테이블
 복제된 테이블에는 각 계산 노드에 저장된 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 계산 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블 복제는 테이블 크기가 작은 경우에만 가능합니다. 각 계산 노드의 전체 테이블을 저장하려면 추가 저장소가 필요하기 때문입니다.  
 
-다음은 각 계산 노드에 저장된 복제 테이블을 보여 주는 다이어그램입니다. SQL Data Warehouse의 경우 복제된 테이블은 라운드 로빈 테이블에서 유지 관리되고 각 계산 노드의 첫 번째 배포 데이터베이스에 완벽하게 복사됩니다. 병렬 데이터 웨어하우스의 경우 복제된 테이블은 해당 계산 노드에 할당된 모든 디스크에 저장됩니다.  이 디스크 전략은 SQL Server 파일 그룹을 사용하여 구현됩니다.  
+다음은 각 계산 노드에 저장된 복제 테이블을 보여 주는 다이어그램입니다. SQL Data Warehouse의 경우 복제된 테이블은 각 Compute 노드의 첫 번째 배포 데이터베이스에 완벽하게 복사됩니다. 병렬 데이터 웨어하우스의 경우 복제된 테이블은 해당 계산 노드에 할당된 모든 디스크에 저장됩니다.  이 디스크 전략은 SQL Server 파일 그룹을 사용하여 구현됩니다.  
 
 ![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "복제 테이블") 
 

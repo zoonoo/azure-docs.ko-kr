@@ -5,24 +5,25 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0479f3c4bb65d208cae2424071dface5606a6fa6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기
-특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스](role-based-access-control-manage-access-azure-cli.md)(CLI) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되며 해당 테넌트를 구독에 대한 Azure AD 디렉터리로 사용하는 모든 구독에서 공유할 수 있습니다.
+특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스](role-based-access-control-manage-access-azure-cli.md)(CLI) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되고 구독에서 공유할 수 있습니다.
 
 각 테넌트는 최대 2000개의 사용자 지정 역할을 만들 수 있습니다. 
 

@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 가상 컴퓨터 프로비전
-Microsoft 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Azure VM(가상 컴퓨터) 이미지입니다. 포함된 도구는 다음과 같습니다.
+Microsoft 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 컴퓨터) 이미지입니다. 포함된 도구는 다음과 같습니다.
 
 * Microsoft R Server Developer Edition
 * Enthought Python 배포
@@ -42,7 +41,13 @@ Microsoft 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학�
 * GitHub, Visual Studio Team Services를 포함하는 소스 코드 리포지토리에 작동하는 Git Bash를 포함하는 Git
 * 명령 프롬프트를 통해 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티(awk, sed, perl, grep, find, wget, curl 등 포함)의 Windows 포트 
 
-데이터 과학은 찾기, 로딩 및 전처리 데이터 등 작업 순서의 반복, 모델 구축 및 테스트, 지능형 응용 프로그램에서 사용을 위해 모델 배포와 관련이 있습니다. 데이터 과학자는 다양한 도구를 사용하여 이러한 작업을 완료합니다. 소프트웨어의 적합한 버전을 찾고 다운로드하여 설치하는 데 소비되는 시간이 상당히 걸릴 수 있습니다. Microsoft 데이터 과학 가상 컴퓨터는 몇 가지 인기 있는 도구가 미리 설치되고 구성된 상태로 Azure에 프로비정될 수 있는 사용 가능 이미지를 제공하여 이러한 부담을 덜어줄 수 있습니다. 
+데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
+
+1. 데이터 찾기, 로드 및 전처리
+2. 모델 빌드 및 테스트
+3. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+
+데이터 과학자는 다양한 도구를 사용하여 이러한 작업을 완료합니다. 소프트웨어의 적합한 버전을 찾고 다운로드하여 설치하는 데 소비되는 시간이 상당히 걸릴 수 있습니다. Microsoft 데이터 과학 가상 컴퓨터는 몇 가지 인기 있는 도구가 미리 설치되고 구성된 상태로 Azure에 프로비정될 수 있는 사용 가능 이미지를 제공하여 이러한 부담을 덜어줄 수 있습니다. 
 
 Microsoft 데이터 과학 가상 컴퓨터는 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C# 등의 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 응용 프로그램을 빌드할 수 있습니다. 
 
@@ -104,6 +109,7 @@ VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도�
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 가상 컴퓨터에 설치된 도구
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
 분석에 R을 사용하려는 경우 VM에는 Microsoft R Server Developer Edition이 설치됩니다. Microsoft R Server는 지원되고 확장 가능하며 안전한 R에 따라 광범위하게 배포 가능한 엔터프라이즈급 분석 플랫폼입니다. R Server는 다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능을 지원하며 분석-탐색, 분석, 시각화 및 모델링의 전체 범위를 지원합니다. Microsoft R Server는 오픈 소스 R을 사용하고 확장하여 엔터프라이즈 규모에서 데이터를 분석하기 위해 R 스크립트, 함수 및 CRAN 패키지와 완전히 호환됩니다. 또한 데이터의 병렬 및 청크된 처리를 추가하여 오픈 소스 R의 메모리 내 한계를 해결합니다. 이렇게 하면 사용자가 주 메모리에 맞는 것보다 훨씬 큰 데이터에서 분석을 실행할 수 있습니다.  VM에 포함된 Visual Studio Community Edition에는 R을 사용하기 위한 전체 IDE를 제공하는 Visual Studio용 R 도구 확장이 포함되어 있습니다. [RStudio](http://www.rstudio.com) 등의 다른 IDE를 다운로드하여 사용할 수도 있습니다. 
 

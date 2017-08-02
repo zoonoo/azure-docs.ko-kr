@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 00b19fdb0a4cac44fc1d338a580fe4500ac50463
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7e8d7a53623219864dc2d5c9ace86f36f3db889
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -66,12 +66,12 @@ Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Visual Studio 2015에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
+Visual Studio 2015에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
 
 다음 명령은 응용 프로그램 패키지의 내용을 나열합니다.
 
 ```powershell
-PS C:\> $path = 'C:\Users\\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
 PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393

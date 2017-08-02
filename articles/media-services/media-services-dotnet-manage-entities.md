@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
-ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리
@@ -33,7 +34,8 @@ ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
 > 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[환경 설정](media-services-set-up-computer.md)
+
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
 ## <a name="get-an-asset-reference"></a>자산 참조 가져오기
 자주 수행하는 작업은 미디어 서비스에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기준으로 서버 컨텍스트 개체에 대한 Assets 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다.
@@ -403,10 +405,5 @@ ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

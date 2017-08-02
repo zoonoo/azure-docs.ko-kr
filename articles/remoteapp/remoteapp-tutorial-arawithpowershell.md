@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e6338dc283b5a26f20a467df9582181381967931
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Azure RemoteApp에서 Windows PowerShell cmdlet 사용
@@ -45,9 +45,20 @@ Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](/powers
 2. Microsoft Azure PowerShell을 시작합니다.
 3. **Add-AzureAccount** 를 실행하여 Azure 구독을 인증합니다. 메시지가 나타나면 Azure 포털에 로그인하는 데 사용하는 것과 동일한 사용자 이름 및 암호를 입력합니다.  
 4. **Get-AzureSubscription** 을 실행하여 사용자 계정과 연경된 구독을 나열합니다. 
-5. **Select-AzureSubscription** 을 실행하고 PowerShell 콘솔에서 사용할 구독 이름 또는 ID를 지정합니다.
+5. **Select-AzureSubscription -SubscriptionName &lt;구독 이름&gt;** 또는 **Select-AzureSubscription -SubscriptionId &lt;구독 ID&gt;**를 실행하여 사용할 구독을 지정합니다.
 
 축하합니다. Azure PowerShell 콘솔이 사용할 수 있도록 구성되었습니다. Azure PowerShell 콘솔을 시작할 때마다 2~5단계를 반복해야 합니다.  
+
+
+## <a name="list-all-collections"></a>모든 컬렉션 나열
+- - -
+     Get-AzureRemoteAppCollection
+
+## <a name="delete-a-collection"></a>컬렉션 삭제
+- - -
+    Remove-AzureRemoteAppCollection <enter collection name>
+
+예제: `Remove-AzureRemoteAppCollection ContosoProduction`.
 
 ## <a name="create-a-cloud-collection"></a>클라우드 컬렉션 만들기
 - - -

@@ -16,15 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 7450938198c6bf5e8e1522d08df00f677961713e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e36dfd2754931710cd616f3b7b316b1198bf3c26
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-applications-remotely-on-hdinsight-spark-through-vpn"></a>IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 HDInsight Spark에서 원격으로 응용 프로그램 디버그
+
+ssh를 통해 원격으로 spark 응용 프로그램을 디버그하는 것이 좋습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+
 이 문서에서는 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에서 Spark 작업을 제출한 다음 데스크톱 컴퓨터에서 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 이렇게 하려면 다음과 같은 개략적인 단계를 수행해야 합니다.
 
 1. 사이트 간 또는 지점 및 사이트 간 Azure 가상 네트워크를 만듭니다. 이 문서의 단계에서는 사이트 간 네트워크를 사용하는 것으로 가정합니다.
@@ -92,7 +94,7 @@ ms.lasthandoff: 06/23/2017
 2. 다음 창에서 다음 프로젝트 세부 정보를 제공하고 **마침**을 클릭합니다.  
    - 프로젝트 이름과 프로젝트 위치를 제공합니다.
    - **프로젝트 SDK**의 경우 Spark 2.x 클러스터에 Java 1.8을 사용하고 Spark 1.x 클러스터에 Java 1.7을 사용합니다.
-   - **Spark 버전**의 경우 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala IDE에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 Spark 1.x을 선택합니다. 그렇지 않으면 Spark 2.x를 선택해야 합니다. 이 예제에서는 Spark 2.0.2(Scala 2.11.8)를 사용합니다.
+   - **Spark 버전**의 경우 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK.에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 Spark 1.x을 선택합니다. 그렇지 않으면 Spark 2.x를 선택해야 합니다. 이 예제에서는 Spark 2.0.2(Scala 2.11.8)를 사용합니다.
        ![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-scala-project-details.png)
   
 3. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 아티팩트를 확인하려면 이 단계를 따릅니다.
@@ -198,7 +200,7 @@ ms.lasthandoff: 06/23/2017
                                      .setMaster("yarn-client")
                                      .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
                                      .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
-                                     .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
+                                     .setJars(Seq("""C:\workspace\IdeaProjects\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
                                      .set("spark.hadoop.validateOutputSpecs", "false")
            val sc = new SparkContext(conf)
 
@@ -252,6 +254,10 @@ ms.lasthandoff: 06/23/2017
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
+### <a name="demo"></a>데모
+* Scala 프로젝트 만들기(비디오): [Spark Scala 응용 프로그램 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* 원격 디버그(비디오): [IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
 * [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
@@ -266,6 +272,7 @@ ms.lasthandoff: 06/23/2017
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)

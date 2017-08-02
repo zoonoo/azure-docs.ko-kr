@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/20/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d5e63e7079b652e69a089aef495952d29cae67a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -42,7 +41,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 설치했는지 확인합니다. 
+이 자습서를 완료하려면 다음을 설치했어야 합니다.
+- 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 설치합니다.
+- 최신 버전의 [BCP 및 SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433]
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
 
@@ -110,7 +111,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    > 이후 빠른 시작에서 서버 및 해당 데이터베이스에 연결하려면 이 정규화된 서버 이름이 필요합니다.
    > 
 
-   ![서버 이름](./media/sql-database-get-started-portal/server-name.png) 
+   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. 이전 이미지에 표시된 대로 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
 
@@ -130,7 +131,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 > [!IMPORTANT]
 > SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **끄기**를 클릭하여 모든 Azure 서비스에 대해 사용하지 않도록 설정합니다.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Azure Portal에서 연결 정보 가져오기
+## <a name="sql-server-connection-information-in-the-azure-portal"></a>Azure Portal의 SQL 서버 연결 정보
 
 Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 SQL Server Management Studio를 사용하는 서버에 연결합니다.
 
@@ -138,7 +139,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
 
-   ![연결 정보](./media/sql-database-get-started-portal/server-name.png)
+   ![연결 정보](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>SSMS로 데이터베이스에 연결
 

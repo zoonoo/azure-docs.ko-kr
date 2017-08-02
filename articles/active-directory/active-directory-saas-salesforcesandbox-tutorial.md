@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 7ddce64d7ce6107f530b970235bc33a05f49480f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory 통합
@@ -144,7 +143,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 10. 왼쪽의 탐색 창에서 **보안 제어**를 클릭한 다음 **Single Sign-On 설정**을 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
-11. Single Sign-On 설정 섹션에서  ![Single Sign-On 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png) 단계를 수행합니다.
+11. Single Sign-On 설정 섹션에서 ![Single Sign-On 구성](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png) 단계를 수행합니다.
      
      a.  **SAML 사용**을 선택합니다. 
 
@@ -168,7 +167,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     g. **Single Sign-On 서비스 URL**을 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다. 
 
-    h. SFDC는 SAML 로그아웃을 지원하지 않습니다.  해결 방법으로 **ID 공급자 로그아웃 URL** 텍스트 상자에 'https://login.windows.net/common/wsfederation?wa=wsignout1.0'을 붙여 넣습니다.
+    h. SFDC는 SAML 로그아웃을 지원하지 않습니다.  해결 방법으로 **ID 공급자 로그아웃 URL** 텍스트 상자에 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0'을 붙여 넣습니다.
 
     i. **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP Post**를 선택합니다. 
 

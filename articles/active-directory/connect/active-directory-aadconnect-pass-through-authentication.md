@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: f16299407a905b51b6e3f22dfb214cc71c1b9f9a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2f76d23fc80e0050bf5fb1460a58f56dee57a90b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - *보안*
   - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
   - 에이전트는 네트워크 내에서만 아웃바운드 연결을 만듭니다. 따라서 DMZ라고도 하는 경계 네트워크에 에이전트를 설치할 필요가 없습니다.
-  - MFA(Multi-Factor Authentication)를 포함하여 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하여 사용자 계정을 보호합니다.
+  - MFA(Multi-Factor Authentication)를 포함하여 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [무차별 암호 대입 공격을 필터링](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)하여 사용자 계정을 보호합니다.
 - *고가용성*
   - 로그인 요청의 고가용성을 제공하기 위해 여러 온-프레미스 서버에 에이전트를 추가로 설치할 수 있습니다.
 
@@ -61,6 +61,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - [Azure AD Connect](active-directory-aadconnect.md)를 통해 사용하도록 설정할 수 있습니다.
 - 암호 유효성 검사 요청을 수신하고 이에 응답하는 간단한 온-프레미스 에이전트를 사용합니다.
 - 여러 에이전트를 설치하면 로그인 요청의 고가용성을 제공합니다.
+- 이렇게 하면 클라우드의 무차별 암호 대입 공격으로부터 온-프레미스 계정이 [보호](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

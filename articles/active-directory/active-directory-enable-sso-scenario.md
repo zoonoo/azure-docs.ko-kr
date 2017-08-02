@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory로 응용 프로그램 관리
@@ -55,7 +55,7 @@ Azure Active Directory는 Microsoft의 포괄적인 IDaaS(Identity as a Service)
 * 중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공 
 * Salesforce, Google Apps, Box, Concur 등을 포함하여 응용 프로그램 갤러리에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/) 에 대한 통합된 액세스 관리를 지원합니다. 
 
-Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다.<br>  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다.<br> 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 응용 프로그램 갤러리에 아직 나열되지 않은 응용 프로그램을 구현해야 하는 경우 어떻게 합니까? 응용 프로그램 갤러리에서 응용 프로그램에 SSO를 구성하는 것 보다 약간 더 시간이 걸리지만 Azure AD는 구성에 도움이 되는 마법사를 제공합니다.
 

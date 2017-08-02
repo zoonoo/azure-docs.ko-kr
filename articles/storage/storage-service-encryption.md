@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcd843ae1ba768ce02256dcc91c61693730c60e4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화
@@ -40,7 +39,7 @@ SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 
 
 자세히 알아보려면 FAQ를 참조하세요.
 
-저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://azure.portal.com) 에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.
+저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com) 에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.
 
 ![암호화 옵션을 보여 주는 포털 스크린샷](./media/storage-service-encryption/image1.png)
 <br/>*그림 1: Blob Service에 SSE 사용(1단계)*
@@ -85,7 +84,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azur
 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
 #### <a name="using-smb"></a>SMB 사용
-Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 온-프레미스 또는 Azure의 클라이언트에서 파일 공유를 마운트할 수 있습니다. 마운트되면 Azure 파일 공유에 파일을 복사하는 데 Robocopy와 같은 도구를 사용할 수 있습니다. 자세한 내용은 [Windows에서 Azure 파일 공유를 마운트하는 방법](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) 및 [Linux에서 Azure 파일 공유를 마운트하는 방법](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share)을 참조하세요.
+Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 온-프레미스 또는 Azure의 클라이언트에서 파일 공유를 마운트할 수 있습니다. 마운트되면 Azure 파일 공유에 파일을 복사하는 데 Robocopy와 같은 도구를 사용할 수 있습니다. 자세한 내용은 [Windows에서 Azure 파일 공유를 마운트하는 방법](storage-file-how-to-use-files-windows.md) 및 [Linux에서 Azure 파일 공유를 마운트하는 방법](storage-how-to-use-files-linux.md)을 참조하세요.
 
 
 #### <a name="using-the-storage-client-libraries"></a>저장소 클라이언트 라이브러리 사용

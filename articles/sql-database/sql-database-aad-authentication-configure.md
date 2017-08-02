@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 65966f3adf8abee6d1476e9241b35247599ab1af
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d2dc4ae7af95a93d3c4031c7d3e11f617a5666c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리
@@ -153,6 +152,17 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 REST API를 사용하여 Azure Active Directory 관리자를 프로비전할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조 및 Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### <a name="cli"></a>CLI  
+또한 다음 CLI 명령을 호출하여 Azure AD 관리자를 구축할 수도 있습니다.
+| 명령 | 설명 |
+| --- | --- |
+|az sql server ad-admin create |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독 설정에서 수행되어야 함). |
+|az sql server ad-admin delete |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 제거합니다. |
+|az sql server ad-admin list |현재 Azure SQL Server 또는 Azure SQL Data Warehouse에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+
+CLI 명령에 대한 자세한 내용은 [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server)을 참조하세요.  
+
 
 ## <a name="configure-your-client-computers"></a>클라이언트 컴퓨터 구성
 모든 클라이언트 컴퓨터에서 Azure AD를 사용하여 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에 연결하는 응용 프로그램 또는 사용자를 통해 다음 소프트웨어를 설치해야 합니다.

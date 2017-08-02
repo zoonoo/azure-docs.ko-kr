@@ -4,7 +4,7 @@ description: "단일 데이터베이스에 대한 SQL Database 서비스 계층�
 keywords: "데이터베이스 옵션, 데이터베이스 성능"
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,18 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 68d55d2dd088ce6350bd65b79206f161f9d3d788
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a3c287c5317bd7db2b560e37ddacc9e43d7292d1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="what-performance-options-are-available-for-an-azure-sql-database" class="xliff"></a>
-
-# Azure SQL Database에서 사용할 수 있는 성능 옵션은 무엇입니까?
+# <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Azure SQL Database에서 사용할 수 있는 성능 옵션은 무엇입니까?
 
 [Azure SQL Database](sql-database-technical-overview.md)는 단일 및 [풀링된](sql-database-elastic-pool.md) 데이터베이스 모두에 대해 네 개의 서비스 계층, 즉 **기본**, **표준**, **프리미엄** 및 **프리미엄 RS**를 제공합니다. 각 서비스 계층에는 여러 성능 수준([DTU](sql-database-what-is-a-dtu.md)) 및 다양한 워크로드와 데이터 크기를 처리할 수 있는 저장소 옵션이 있습니다. 높은 성능 수준이 높을 수록 점점 더 많은 처리량과 용량을 제공하도록 설계된 추가 계산 및 저장소 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층, 성능 수준 및 저장소를 동적으로 변경할 수 있습니다. 
 - **기본**, **표준** 및 **프리미엄** 서비스 계층에는 모두 99.99%의 작동 시간 SLA, 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간별 요금 청구가 있습니다. 
@@ -35,9 +32,7 @@ ms.lasthandoff: 07/06/2017
 > [!IMPORTANT]
 > Azure SQL 데이터베이스는 보장된 리소스 집합을 가지고 있으며 데이터베이스의 예상 성능 특징은 Azure 내 다른 데이터베이스의 영향을 받지 않습니다. 
 
-<a id="choosing-a-service-tier" class="xliff"></a>
-
-## 서비스 계층 선택
+## <a name="choosing-a-service-tier"></a>서비스 계층 선택
 다음 표에서 다양한 응용 프로그램 워크로드에 가장 적합한 계층의 예제를 제공합니다.
 
 | 서비스 계층 | 대상 워크로드 |
@@ -80,16 +75,12 @@ ms.lasthandoff: 07/06/2017
 > 데이터베이스를 SQL 탄력적 풀로 그룹화하여 계산 및 저장소 리소스를 공유하는 방법에 대한 자세한 내용은 [SQL 탄력적 풀](sql-database-elastic-pool.md) 항목을 검토하세요. 이 항목의 나머지 부분에서는 단일 데이터베이스의 서비스 계층과 성능 수준에 중점을 두고 있습니다.
 >
 
-<a id="single-database-service-tiers-and-performance-levels" class="xliff"></a>
-
-## 단일 데이터베이스 서비스 계층 및 성능 수준
+## <a name="single-database-service-tiers-and-performance-levels"></a>단일 데이터베이스 서비스 계층 및 성능 수준
 단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준과 저장소 용량이 있습니다. 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-<a id="scaling-up-or-scaling-down-a-single-database" class="xliff"></a>
-
-## 단일 데이터베이스 확장 및 축소
+## <a name="scaling-up-or-scaling-down-a-single-database"></a>단일 데이터베이스 확장 및 축소
 
 처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다.  
 
@@ -100,6 +91,10 @@ ms.lasthandoff: 07/06/2017
 
 전체 확장 프로세스 기간은 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 표준 서비스 계층 내에서 변경되고 있는 250GB 데이터베이스는 6시간 내에 완료되어야 합니다. 프리미엄 서비스 계층 내의 성능 수준을 변경하고 있는 동일한 크기의 데이터베이스의 경우 3시간 이내에 완료되어야 합니다.
 
+> [!TIP]
+> 진행 중인 SQL Database 크기 조정 작업의 상태를 확인하려면 ```select * from sys.dm_operation_status``` 쿼리를 사용할 수 있습니다.
+>
+
 * 상위 서비스 계층이나 성능 수준으로 업그레이드하는 경우 더 큰 최대 크기를 명시적으로 지정하지 않는 한 최대 데이터베이스 크기는 증가하지 않습니다.
 * 데이터베이스를 다운그레이드하려면 데이터베이스가 대상 서비스 계층의 최대 허용 크기보다 작아야 합니다. 
 * [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드합니다(일반 지침).
@@ -108,9 +103,7 @@ ms.lasthandoff: 07/06/2017
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
 
-<a id="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize" class="xliff"></a>
-
-## 4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항
+## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항
 
 일부 지역에서는 P11 및 P15 데이터베이스의 최대 크기인 4TB를 지원합니다(앞에서 설명한 대로). 다음 고려 사항 및 제한 사항은 최대 크기가 4TB인 P11 및 P15 데이터베이스에 적용됩니다.
 
@@ -125,9 +118,7 @@ ms.lasthandoff: 07/06/2017
    - 지역에서 복제 관계에서 주 데이터베이스 업그레이드: 주 데이터베이스에서 최대 크기를 4TB로 변경하면 보조 데이터베이스에서도 동일한 변경 사항이 트리거됩니다. 변경 내용을 적용하려면 주 데이터베이스에서 두 가지 업그레이드에 성공해야 합니다. 4TB 옵션에 대한 지역 제한 사항이 적용됩니다(위 참조). 4TB를 지원하지 않는 지역에 보조 데이터베이스가 있는 경우 주 데이터베이스는 업그레이드되지 않습니다.
 - P11-4TB/P15-4TB 데이터베이스 로드에 대한 Import/Export 서비스 사용은 지원되지 않습니다. SqlPackage.exe를 사용하여 데이터를 [가져오기](sql-database-import.md) 및 [내보내기](sql-database-export.md)합니다.
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal" class="xliff"></a>
-
-## Azure Portal을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Azure Portal을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
 
 Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 또는 저장소 용량을 설정하거나 변경하려면 다음 스크린샷과 같이 **가격 책정 계층(DTU 조정)**을 클릭하여 데이터베이스에 대한 **성능 구성** 창을 엽니다. 
 
@@ -141,44 +132,38 @@ Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 �
 > P11 또는 P15 서비스 계층을 선택하는 경우 [4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 검토하세요.
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-powershell" class="xliff"></a>
-
-## PowerShell을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-powershell"></a>PowerShell을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
 
 PowerShell을 사용하여 Azure SQL 데이터베이스 서비스 계층, 성능 수준 및 저장소 용량을 설정하거나 변경하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|데이터베이스를 만듭니다. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|하나 이상의 데이터베이스를 가져옵니다.|
+|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|데이터베이스 만들기 |
+|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|하나 이상의 데이터베이스 가져오기|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|데이터베이스의 속성을 설정하거나 기존 데이터베이스를 탄력적 풀로 이동합니다.|
 
 
 > [!TIP]
 > 데이터베이스의 성능 메트릭을 모니터링하고 성능 수준을 더 높이고 성능 메트릭 중 하나에 대한 경고 규칙을 만드는 PowerShell 예제 스크립트는 [PowerShell을 사용하여 단일 SQL 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli" class="xliff"></a>
-
-## Azure CLI를 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Azure CLI를 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
 
 Azure CLI를 사용하여 Azure SQL 데이터베이스 서비스 계층, 성능 수준 및 저장소 용량을 설정하거나 변경하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. SQL 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |데이터베이스를 만듭니다.|
-|[az sql db list](/cli/azure/sql/db#list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스를 나열합니다.|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한을 나열합니다.|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|데이터베이스 사용 정보를 반환합니다.|
-|[az sql db show](/cli/azure/sql/db#show)|데이터베이스 또는 데이터 웨어하우스를 가져옵니다.|
-|[az sql db update](/cli/azure/sql/db#update)|데이터베이스를 업데이트합니다.|
+|[az sql db create](/cli/azure/sql/db#create) |데이터베이스 만들기|
+|[az sql db list](/cli/azure/sql/db#list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
+|[az sql db list-editions](/cli/azure/sql/db#list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
+|[az sql db list-usages](/cli/azure/sql/db#list-usages)|데이터베이스 사용 정보 반환|
+|[az sql db show](/cli/azure/sql/db#show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
+|[az sql db update](/cli/azure/sql/db#update)|데이터베이스 업데이트|
 
 > [!TIP]
-> 데이터베이스의 크기 정보를 쿼리한 후 단일 Azure SQL 데이터베이스를 다른 성능 수준으로 크기 조정하는 Azure CLI 예제 스크립트는 [CLI를 사용하여 단일 SQL 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
+> 데이터베이스의 크기 정보를 쿼리한 후 단일 Azure SQL Database를 다른 성능 수준으로 크기 조정하는 Azure CLI 예제 스크립트는 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-transact-sql" class="xliff"></a>
-
-## Transact-SQL을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-transact-sql"></a>Transact-SQL을 사용하여 단일 데이터베이스 서비스 계층 및 성능 수준 관리
 
 Transact-SQL을 사용하여 Azure SQL 데이터베이스 서비스 계층, 성능 수준 및 저장소 용량을 설정하거나 변경하려면 다음 T-SQL 명령을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . 
 
@@ -186,8 +171,8 @@ Transact-SQL을 사용하여 Azure SQL 데이터베이스 서비스 계층, 성�
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
 | [ALTER DATABASE (Azure SQL 데이터베이스)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL 데이터베이스 또는 Azure SQL Data Warehouse의 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다(있는 경우). Azure SQL Database 서버의 master 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 master 데이터베이스에 연결되어 있어야 합니다.|
-|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Azure SQL Database 서버의 데이터베이스 수, 유형 및 기간을 나열합니다.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
+|[sys.database_usage(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Azure SQL Database 서버의 데이터베이스 수, 유형 및 기간을 나열합니다.|
 
 다음 예제에서는 ALTER DATABASE 명령을 사용하여 변경되는 최대 크기를 보여 줍니다.
 
@@ -196,15 +181,11 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-<a id="manage-single-databases-using-the-rest-api" class="xliff"></a>
-
-## REST API를 사용하여 단일 데이터베이스 관리
+## <a name="manage-single-databases-using-the-rest-api"></a>REST API를 사용하여 단일 데이터베이스 관리
 
 REST API를 사용하여 Azure SQL 데이터베이스 서비스 계층, 성능 수준 및 저장소 용량을 설정하거나 변경하려면 [Azure SQL Database REST API](/rest/api/sql/)를 참조하세요.
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * [DTU](sql-database-what-is-a-dtu.md)에 대해 자세히 알아봅니다.
 * DTU 사용 모니터링에 대한 자세한 내용은 [모니터링 및 성능 튜닝](sql-database-troubleshoot-performance.md)을 참조하세요.

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
-ms.lasthandoff: 04/18/2017
-
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -67,11 +68,11 @@ ms.lasthandoff: 04/18/2017
 
 -   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
+-   Windows 10 Anniversary Edition 이상 Edge
+
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
 -   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
-
-**참고**: 브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 
@@ -91,11 +92,11 @@ ms.lasthandoff: 04/18/2017
 
 7.  액세스 패널에 로그인하고 암호 SSO 응용 프로그램을 **시작**할 수 있는지 확인합니다.
 
-아래와 같은 직접 링크에서 Chrome 및 Firefox의 확장을 다운로드할 수 있습니다.
+아래와 같은 직접 링크에서 Chrome 및 Edge에 대한 확장을 다운로드할 수 있습니다.
 
 -   [Chrome 액세스 패널 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox 액세스 패널 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Edge 액세스 패널 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -123,7 +124,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -147,7 +148,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -193,7 +194,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -228,7 +229,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -264,7 +265,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -306,7 +307,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -341,7 +342,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -373,7 +374,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -397,7 +398,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -431,7 +432,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -451,7 +452,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -479,7 +480,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 

@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/20/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 7acd83cf477f9294c75e1bf11f093be50c32e786
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 790f49f222826290b6ecf5fdf3e0c26e5c4f68cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
@@ -135,14 +134,14 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 5. 다른 헤드 노드에서도 이 단계를 반복합니다.
 
 ## <a name="my-jupyter-notebooks-are-not-running-as-expected-how-can-i-restart-the-service"></a>내 Jupyter Notebook이 예상대로 실행되지 않습니다. 서비스를 다시 시작하려면 어떻게 해야 하나요?
-1. 아래와 같이 Ambari 웹 UI를 시작합니다. 왼쪽의 탐색 창에서 **Jupyter**, **서비스 작업**, **모두 다시 시작**을 차례로 클릭합니다. 그러면 모든 헤드 노드에서 Jupyter 서비스가 시작됩니다.
+아래와 같이 Ambari 웹 UI를 시작합니다. 왼쪽의 탐색 창에서 **Jupyter**, **서비스 작업**, **모두 다시 시작**을 차례로 클릭합니다. 그러면 모든 헤드 노드에서 Jupyter 서비스가 시작됩니다.
 
-    ![Jupyter 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Jupyter 다시 시작")
+    ![Restart Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
 
-## <a name="how-do-i-know-if-i-am-running-out-of-resource"></a>리소스가 부족한지 어떻게 알 수 있나요?
-1. 위와 같이 Yarn UI를 시작합니다. 화면 위쪽의 클러스터 메트릭 테이블에서 **사용된 메모리** 및 **총 메모리** 열 값을 확인합니다. 두 값이 매우 비슷하면 리소스가 충분하지 않아 다음 응용 프로그램을 시작하지 못할 수 있습니다. 동일한 현상이 **사용된 VCore** 및 **총 VCore** 열에도 적용됩니다. 또한 기본 보기에서 **수락** 상태이고 **실행 중** 또는 **실패** 상태로 전환되지 않은 응용 프로그램이 있는 경우에도 리소스가 충분하지 않아 시작하지 못함을 나타낼 수 있습니다.
+## <a name="how-do-i-know-if-i-am-running-out-of-resources"></a>리소스가 부족한지 어떻게 알 수 있나요?
+위와 같이 Yarn UI를 시작합니다. 화면 위쪽의 클러스터 메트릭 테이블에서 **사용된 메모리** 및 **총 메모리** 열 값을 확인합니다. 두 값이 매우 비슷하면 리소스가 충분하지 않아 다음 응용 프로그램을 시작하지 못할 수 있습니다. 동일한 현상이 **사용된 VCore** 및 **총 VCore** 열에도 적용됩니다. 또한 기본 보기에서 **수락** 상태이고 **실행 중** 또는 **실패** 상태로 전환되지 않은 응용 프로그램이 있는 경우에도 리소스가 충분하지 않아 시작하지 못함을 나타낼 수 있습니다.
 
-    ![리소스 제한](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "리소스 제한")
+    ![Resource Limit](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "Resource Limit")
 
 ## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>리소스 확보를 위해 실행 중인 응용 프로그램을 종료하려면 어떻게 해야 하나요?
 1. Yarn UI의 왼쪽 패널에서 **실행 중**을 클릭합니다. 실행 중인 응용 프로그램 목록에서 종료할 응용 프로그램을 결정하고 **ID**를 클릭합니다.
@@ -153,38 +152,6 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 
     ![App2 종료](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "App2 종료")
 
-## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
+## <a name="see-also"></a>참고 항목
 
-### <a name="scenarios"></a>시나리오
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>리소스 관리
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
-

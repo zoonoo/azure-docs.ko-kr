@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 4ed240c0e636bb0b482c103bbe8462d86769ecc3
-ms.openlocfilehash: 13fa1bc8278460c1195ec553c32ff79d11240be3
-ms.lasthandoff: 01/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,27 +35,27 @@ ms.lasthandoff: 01/05/2017
 
 Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문제가 있는지 확인할 수 있습니다. 문제가 있을 경우 이 섹션의 해결 방법을 시도하여 문제를 해결할 수 있습니다.
 
-### <a name="solution-1-improve-table-partitioning"></a>해결 방법 1: 테이블 분할 향상
+## <a name="solution-1-improve-table-partitioning"></a>해결 방법 1: 테이블 분할 향상
 
-#### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>옵션 1: 불균형된 키 값을 미리 필터링
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>옵션 1: 불균형된 키 값을 미리 필터링
 
 비즈니스 논리에 영향을 주지 않으면 사전에 높은 빈도 값을 필터링할 수 있습니다. 예를 들어, GUID 열에 000-000-000이 많은 경우 해당 값을 집계하지 않는 것이 좋습니다. 집계하기 전에 “WHERE GUID != “000-000-000””을 작성하면 높은 빈도 값을 필터링할 수 있습니다.
 
-#### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>옵션 2: 다른 파티션 또는 배포 키 선택
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>옵션 2: 다른 파티션 또는 배포 키 선택
 
 앞의 예제에서 해당 국가 전역의 세금 감사 워크로드만 확인하려면 ID 번호를 키로 선택하여 데이터 배포를 개선할 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
 
-#### <a name="option-3-add-more-partition-or-distribution-keys"></a>옵션 3: 더 많은 파티션 또는 배포 키 추가
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>옵션 3: 더 많은 파티션 또는 배포 키 추가
 
 _주_만 파티션 키로 사용하는 대신 두 개 이상의 키를 분할에 사용할 수 있습니다. 예를 들어, 데이터 파티션 크기를 줄이고 데이터를 더 고르게 배포하려면 _우편 번호_를 추가 파티션 키로 추가하는 것이 좋습니다.
 
-#### <a name="option-4-use-round-robin-distribution"></a>옵션 4: 라운드 로빈 배포 사용
+### <a name="option-4-use-round-robin-distribution"></a>옵션 4: 라운드 로빈 배포 사용
 
 파티션 및 배포에 적합한 키가 없는 경우 라운드 로빈 배포를 사용할 수 있습니다. 라운드 로빈 배포는 모든 행을 동등하게 처리하고 임의로 해당 버킷에 넣습니다. 데이터는 고르게 배포되지만 지역(구/군/시) 정보를 잃어 버리고 일부 작업에 대한 작업 성능도 저하될 수 있다는 문제가 있습니다. 또한 어떻게 해서라도 기울어진 키에 대한 집계를 수행할 경우 데이터 기울이기 문제가 지속됩니다. 라운드 로빈 배포에 대해 자세히 알아보려면 [REATE TABLE(U-SQL): 스키마로 테이블 만들기](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch)에서 U-SQL 테이블 배포 섹션을 참조하세요.
 
-### <a name="solution-2-improve-the-query-plan"></a>해결 방법 2: 쿼리 계획 향상
+## <a name="solution-2-improve-the-query-plan"></a>해결 방법 2: 쿼리 계획 향상
 
-#### <a name="option-1-use-the-create-statistics-statement"></a>옵션 1: CREATE STATISTICS 문 사용
+### <a name="option-1-use-the-create-statistics-statement"></a>옵션 1: CREATE STATISTICS 문 사용
 
 U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼리 최적화 프로그램에 데이터 특성에 대한 자세한 정보(예: 테이블에 저장된 값 분포)를 제공합니다. 대부분의 쿼리에서 쿼리 최적화 프로그램은 고품질 쿼리 계획을 위해 필요한 통계를 이미 생성합니다. 경우에 따라 CREATE STATISTICS로 추가 통계를 만들거나 쿼리 디자인을 수정하여 쿼리 성능을 개선해야 할 수도 있습니다. 자세한 내용은 [CREATE STATISTICS(U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) 페이지를 참조하세요.
 
@@ -66,7 +66,7 @@ U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼�
 >[!NOTE]
 >통계 정보는 자동으로 업데이트되지 않습니다. 통계를 다시 만들지 않고 테이블의 데이터를 업데이트할 경우 쿼리 성능이 저하될 수 있습니다.
 
-#### <a name="option-2-use-skewfactor"></a>옵션 2: SKEWFACTOR 사용
+### <a name="option-2-use-skewfactor"></a>옵션 2: SKEWFACTOR 사용
 
 각 주의 세금 합계를 계산하려는 경우 데이터 기울이기 문제를 방지하는 접근 방식인 GROUP BY 문을 사용해야 합니다. 그러나 최적화 프로그램에서 실행 계획을 준비할 수 있도록 쿼리에 데이터 힌트를 제공하여 키의 데이터 기울이기를 식별할 수 있습니다.
 
@@ -104,6 +104,7 @@ U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼�
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
+### <a name="option-3-use-rowcount"></a>옵션 3: ROWCOUNT 사용  
 SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조인된 행 집합이 작다는 것을 알고 있는 경우 U-SQL 문에서 JOIN 앞에 ROWCOUNT 힌트를 추가하여 최적화 프로그램에 이 사실을 알려줄 수 있습니다. 그러면 최적화 프로그램에서 성능 향상에 도움이 될 수 있는 브로드캐스트 조인 전략을 선택할 수 있습니다. ROWCOUNT는 데이터 기울이기 문제를 해결하지 않지만 몇 가지 추가 도움을 줄 수 있습니다.
 
     OPTION(ROWCOUNT = n)
@@ -128,11 +129,11 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>해결 방법 3: 사용자 정의 리듀서 및 결합자 향상
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>해결 방법 3: 사용자 정의 리듀서 및 결합자 향상
 
 때로는 사용자 정의 연산자를 작성하여 복잡한 프로세스 논리를 처리할 수 있으며 잘 작성된 리듀서와 결합자는 경우에 따라 데이터 기울이기 문제를 완화할 수 있습니다.
 
-#### <a name="option-1-use-a-recursive-reducer-if-possible"></a>옵션 1: 가능한 경우 재귀적(recursive) 리듀서 사용
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>옵션 1: 가능한 경우 재귀적(recursive) 리듀서 사용
 
 기본적으로 사용자 정의 리듀서는 비재귀 모드로 실행됩니다. 즉, 키에 대한 작업을 줄이면 단일 꼭짓점으로 배포됩니다. 그러나 기울어진 데이터인 경우 대량 데이터 집합이 단일 꼭짓점에서 처리되어 오랫동안 실행될 수 있습니다.
 
@@ -156,7 +157,7 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
         }
     }
 
-#### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>옵션 2: 가능한 경우 행 수준 결합자 모드 사용
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>옵션 2: 가능한 경우 행 수준 결합자 모드 사용
 
 특정 기울어진 키 조인의 경우 ROWCOUNT 힌트와 마찬가지로 결합자 모드는 여러 꼭짓점에 설정된 기울어진 대량 키 값을 배포하여 작업을 동시에 실행할 수 있도록 시도합니다. 결합자 모드는 데이터 기울이기 문제를 해결할 수는 없지만 기울어진 대량 키 값 집합에 추가적인 도움을 줄 수 있습니다.
 

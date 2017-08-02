@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7c30f5164b9fe7ff6044bbf23767a5db9a0f7c30
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 89b12ce7af1e810f72e14f67ec5b11390ac3e72f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -63,16 +62,35 @@ ms.lasthandoff: 06/15/2017
 
 #### <a name="windows"></a>Windows
 
-- 64비트 Windows Server 2012 R2
+- Windows Server 2016(Server Core 및 데스크톱 경험이 포함된 Server)*
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1 이상
 
+>[!NOTE]
+>
+> \* Windows Server 2016 Nano Server는 지원되지 않습니다.
+
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
+
+>[!NOTE]
+>
+> 암호 기반 인증 및 로그인을 사용하고, 클라우드 init 패키지를 사용하여 클라우드 가상 컴퓨터를 구성하는 Ubuntu 서버의 암호 기반 로그인은 장애 조치(failover) 시 사용되지 않도록 설정될 수 있습니다(cloudinit 구성에 따라 다름). Azure Portal에서 장애 조치(failover)된 가상 컴퓨터의 설정 메뉴(지원 + 문제 해결 섹션 아래)에서 암호를 재설정하여 암호 기반 로그인을 다시 사용하도록 설정할 수 있습니다.
+
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Ubuntu 커널 버전
+
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Linux OS를 실행하는 Azure Virtual Machines에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -113,16 +131,16 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
-최대 OS 디스크 크기 | Azure에서 지원하는 최대 OS 디스크 크기| [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
-최대 데이터 디스크 크기 | Azure에서 지원하는 최대 데이터 디스크 크기| [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
+최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
+최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
 임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)를 참조하세요.
-디스크의 데이터 변경률 | 디스크당 최대 6Mbps | 디스크의 평균 데이터 변경률이 지속적으로 6Mbps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6Mbps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
+디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
 표준 Managed Disks | 지원되지 않음 |  
 프리미엄 Managed Disks | 지원되지 않음 |
-저장소 공간 | 지원되지 않음 |         
+저장소 공간 | 지원됨 |         
 미사용 암호화(SSE) | 지원됨 | 캐시 및 대상 저장소 계정에 대해 SSE 사용 저장소 계정을 선택할 수 있습니다.     
 ADE(Azure Disk Encryption) | 지원되지 않음 |
 디스크 핫 추가/제거 | 지원되지 않음 | VM에서 데이터 디스크를 추가하거나 제거하는 경우 해당 VM에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.

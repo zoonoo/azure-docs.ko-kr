@@ -1,8 +1,8 @@
 ---
 title: "자동 크기 조정에 대한 모범 사례 | Microsoft Docs"
-description: "가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스의 크기를 효과적으로 자동 조정하기 위한 원칙을 알아봅니다."
-author: kamathashwin
-manager: carmonm
+description: "Azure에서 웹앱, 가상 컴퓨터 크기 집합 및 Cloud Services에 대한 자동 크기 조정 패턴"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.date: 07/07/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
@@ -151,4 +150,10 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 * 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우
 * 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우
   위 조건 외에 성공적인 크기 조정 동작에 대한 알림을 받도록 메일 또는 webhook 알림을 구성할 수 있습니다.
+  
+또한 활동 로그 경고를 사용하여 자동 크기 조정 엔진의 상태를 모니터링할 수도 있습니다. 다음은 [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) 또는 [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert) 예제입니다.
+
+## <a name="next-steps"></a>다음 단계
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

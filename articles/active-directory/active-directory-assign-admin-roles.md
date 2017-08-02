@@ -12,14 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 07/20/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
+ms.reviewer: 
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: e7444e153c2ee7b4669fb814ae62b152a0fd89d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
@@ -79,7 +81,7 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **권한 있는 역할 관리자**: 이 역할의 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management 내에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
-* **보안 관리자**: 이 역할의 사용자는 보안 읽기 역할의 모든 읽기 전용 권한 및 보안 관련 서비스(Azure Active Directory ID 보호, Privileged Identity Management 및 Office 365 보안 및 규정 준수 센터)에 대한 구성을 관리하는 기능을 가집니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
+* **보안 관리자**: 이 역할의 사용자는 보안 읽기 역할의 모든 읽기 전용 권한 및 보안 관련 서비스(Azure Active Directory ID 보호, Azure Information Protection, Privileged Identity Management 및 Office 365 보안 및 규정 준수 센터)에 대한 구성을 관리하는 기능을 가집니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
 * **보안 판독기**: 이 역할의 사용자는 Azure Active Directory, ID 보호, Privileged Identity Management의 모든 정보를 포함한 전역 읽기 전용 액세스와 Azure Active Directory 로그인 보고서 및 감사 로그를 읽는 기능을 가집니다. 또한 역할은 Office 365 보안 및 규정 준수 센터의 읽기 전용 권한을 부여합니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 

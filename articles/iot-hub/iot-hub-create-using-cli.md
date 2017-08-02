@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 IoT Hub 만들기
@@ -79,14 +78,17 @@ Azure CLI를 사용하여 리소스 그룹을 만든 다음 IoT Hub를 추가합
     >
     >
 
-2. 리소스 그룹에서 다음 [IoT Hub를 만드는 명령][lnk-az-iot-command]을 실행합니다.
+2. 리소스 그룹에서 IoT Hub에 대해 전역 고유 이름을 사용하여 다음 [IoT Hub를 만드는 명령][lnk-az-iot-command]을 실행합니다.
     
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+
 > [!NOTE]
-> IoT hub의 이름은 전역적으로 고유해야 합니다. 이전 명령은 청구 대상인 S1 가격 책정 계층에 IoT Hub를 만듭니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-iot-pricing]을 참조하세요.
+> 이전 명령은 청구 대상인 S1 가격 책정 계층에 IoT Hub를 만듭니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-iot-pricing]을 참조하세요.
 >
 >
 

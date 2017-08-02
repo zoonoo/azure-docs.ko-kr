@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -35,8 +36,6 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-### <a name="determine-the-home-page-url"></a>홈 페이지 URL 확인
-
 홈페이지 URL을 설정하기 전에 다음 사항에 유의하세요.
 
 * 사용자가 지정한 경로가 루트 도메인 URL의 하위 도메인 경로인지 확인합니다.
@@ -44,6 +43,16 @@ ms.lasthandoff: 04/21/2017
   예를 들어, 루트 도메인 URL이 https://apps.contoso.com/app1/이면 구성한 홈페이지 URL은 https://apps.contoso.com/app1/로 시작해야 합니다.
 
 * 게시된 앱을 변경하는 경우 이로 인해 홈페이지 URL 값을 다시 설정할 수 있습니다. 나중에 앱을 업데이트할 경우 홈페이지 URL을 다시 확인하고 필요한 경우 업데이트해야 합니다.
+
+## <a name="change-the-home-page-in-the-azure-portal"></a>Azure Portal에서 홈페이지 변경
+
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **앱 등록**으로 이동한 후 목록에서 응용 프로그램을 선택합니다. 
+3. 설정에서 **속성**을 선택합니다.
+4. **홈페이지 URL** 필드를 새 경로로 업데이트합니다. 
+5. **저장**을 선택합니다.
+
+## <a name="change-the-home-page-with-powershell"></a>PowerShell을 사용하여 홈페이지 변경
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell 모듈 설치
 
@@ -59,7 +68,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
     관리자가 아닌 사용자로 명령을 실행하는 경우 `-scope currentuser` 옵션을 사용합니다.
 2. 설치 도중 Nuget.org에서 두 개의 패키지를 설치하려면 **Y**를 선택합니다. 두 개의 패키지가 모두 필요합니다. 
 
-## <a name="step-1-find-the-objectid-of-the-app"></a>1단계: 앱의 ObjectID 찾기
+### <a name="find-the-objectid-of-the-app"></a>앱의 ObjectID 찾기
 
 앱의 ObjectID를 받은 다음 해당 홈 페이지에서 앱을 검색합니다.
 
@@ -87,7 +96,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## <a name="step-2-update-the-home-page-url"></a>2단계: 홈페이지 URL 업데이트
+### <a name="update-the-home-page-url"></a>홈페이지 URL 업데이트
 
 1단계에서 사용한 것과 동일한 PowerShell 모듈에서 다음을 수행합니다.
 

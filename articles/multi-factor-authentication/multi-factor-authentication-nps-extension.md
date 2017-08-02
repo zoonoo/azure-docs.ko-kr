@@ -5,24 +5,24 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017,it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 46f5761caf2883d6083245a9a1fe689ea0529212
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017; it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1615f1ebbc4ade9dddbab3bd964bc27e6150a4c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
 Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, SMS 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
 
@@ -108,8 +108,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
    - **PAP**는 클라우드에서 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
-   - **CHAPV2**는 전화 통화 및 모바일 앱 알림을 지원합니다.
-   - **EAP**는 지원되지 않습니다.
+   - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 2. 클라이언트 응용 프로그램(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
 NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
@@ -121,9 +120,9 @@ Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정]
 전체 NPS 확장을 배포하기 전에 2단계 확인을 수행하려는 사용자에 대한 MFA를 사용하도록 설정해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
-1. [MFA에 대한 계정을 사용하도록 설정합니다](multi-factor-authentication-get-started-user-states.md).
-2. https://portal.azure.com과 같은 Azure AD 인증을 시작하는 웹 사이트로 이동합니다.
-3. [2단계 인증에 등록합니다](./end-user/multi-factor-authentication-end-user-first-time.md).
+1. 테스트 계정을 사용하여 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 
+2. 지시에 따라 확인 방법을 설정합니다.
+3. 조건부 액세스 정책을 만들거나 [사용자 상태를 변경](multi-factor-authentication-get-started-user-states.md)하여 테스트 계정에 대한 2단계 인증을 요구합니다. 
 
 사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
 
@@ -169,14 +168,13 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 이 섹션에는 성공적인 NPS 확장 배포를 위한 디자인 고려 사항 및 제안 사항이 포함되어 있습니다.
 
-### <a name="configurations-limitations"></a>구성 제한 사항
+### <a name="configuration-limitations"></a>구성 제한 사항
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드의 MFA 세부 정보를 채워야 합니다.  
 - NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 AD 필드와 같은 다른 식별자를 사용하도록 구성될 수 없습니다.  
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
-   - **CHAPV2**는 전화 통화 및 모바일 앱 알림을 지원합니다.
-   - **EAP**는 지원되지 않습니다.
+   - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 
 ### <a name="control-radius-clients-that-require-mfa"></a>MFA가 필요한 RADIUS 클라이언트 제어
 
@@ -225,7 +223,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.windows.net/에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/에 액세스할 수 있는지 확인합니다.
 
 -------------------------------------------------------------
 
@@ -242,5 +240,7 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure MFA를 [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md) 및 [LDAP 인증](multi-factor-authentication-get-started-server-ldap.md)과 통합하는 방법을 참조하세요.
+- [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](nps-extension-advanced-configuration.md)에서 2단계 확인을 수행하지 않아야 하는 IP 예외 목록 설정 또는 로그인에 대한 대체 ID 구성
+
+- [Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결](multi-factor-authentication-nps-errors.md)
 

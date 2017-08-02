@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
@@ -27,6 +28,7 @@ ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
+이 항목에서는 Media Services에서 REST v2를 사용하는 방법에 대한 개요를 제공합니다.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -109,15 +111,14 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
 브라우저에서 메타데이터를 보려면 "? api version=2.x"를 URI의 끝에 추가하거나 귀하의 요청에 x-ms-version 헤더를 포함하지 말아야 합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+REST를 사용하여 AMS API에 액세스하려면 [Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스](media-services-rest-connect-with-aad.md)를 참조하세요.
+
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

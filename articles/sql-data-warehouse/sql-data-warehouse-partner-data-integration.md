@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 01/30/2017
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: ea9c6be4dce0b0812ac780257732321444a57beb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 892a7f2727ab899ef539ac4ae06a8669512e6fef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 데이터 웨어하우스 데이터 통합 파트너
@@ -34,7 +33,7 @@ ms.lasthandoff: 01/31/2017
 | ![Bryte Systems][3] |**Bryte Systems**<br>Bryte Systems는 다양한 데이터베이스와 소스에서 SQL 데이터 웨어하우스로 데이터 전송을 자동화합니다. Bryte Systems는 데이터 이동 및 통합 기술을 전문으로 합니다. 확장 가능한 클라우드 기반 데이터 웨어하우스와 데이터 레이크를 빌드하여 파악할 수 있습니다. |[마켓플레이스][bryte_systems_marketplace]<br>[웹 사이트][bryte_systems_azure_website] | |
 | ![Informatica][4] |**Azure – 종량제에 대한 Informatica Cloud Services**<br> Azure 서비스의 가치를 최적화하고 Azure – 종량제에 대한 Informatica Cloud Services와 모든 하이브리드 데이터 집합에서 실행 가능한 통찰력을 도출합니다. Informatica 클라우드는 데이터 통합, 클라우드 분석, 응용 프로그램 통합 및 데이터 관리에 대한 최고 수준의 솔루션을 제공합니다. 셀프서비스 데이터 마이그레이션, 통합 및 관리 기능으로 고객은 SaaS 응용 프로그램, Hadoop 기반 Data Lake, 및 다른 온-프레미스 데이터 원본(Oracle, SAP)과 같은 다양한 원본에서 페타바이트의 데이터를 Azure로 빠르고 안정적으로 가져오거나 내보내고, 동기화 및 예약할 수 있습니다.  Azure 용 Informatica Cloud Services는 Azure SQL Data Warehouse, Sgl 데이터베이스, Blob Storage, Data Lake Store 및 DocumentDB에 네이티브, 대용량 및 고성능 연결을 제공합니다. |[마켓플레이스][informatica_Cloud_Services_marketplace]<br>[무료 평가판][informatica_cloud_free_trial]<br>[구성 가이드][informatica_cloud_services_config]<br>[웹 사이트][informatica_Cloud_Services_website]<br>[데이터 시트][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] |**Informatica PowerCenter**<br>Informatica는 세계에서 가장 인식할만한 데이터 통합 소프트웨어의 독립적인 공급자 중 하나입니다. PowerCenter는 모든 데이터 통합 이니셔티브의 토대를 형성합니다. 분석, 데이터 웨어하우징, 응용 프로그램 마이그레이션, 통합 또는 데이터 관리를 위해 PowerCenter를 사용합니다. |[마켓플레이스 (표준)][informatica_PowerCenter_std_marketplace]<br>[마켓플레이스 (고급)][informatica_PowerCenter_adv_marketplace]<br>[웹 사이트][informatica_PowerCenter_website]<br>[데이터 시트][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
-| ![Redgate][5] |**Redgate Data Platform Studio(미리 보기)**<br>Redgate의 Data Platform Studio는 온-프레미스 SQL 데이터베이스를 Azure SQL 데이터 웨어하우스에 마이그레이션하는 간단하고 신뢰할 수 있는 방법을 제공합니다. 이 제품은 완전히 자동화된 마이그레이션 위한 스마트 결정을 내릴 수 있도록 설계되어 있고 일회성 마이그레이션을 위해 무료로 사용할 수 있습니다. |[웹 사이트][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate 비디오](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
+| ![Redgate][5] |**Redgate Data Platform Studio(미리 보기)**<br>Redgate의 Data Platform Studio는 온-프레미스 SQL Database를 Azure SQL Data Warehouse에 마이그레이션하는 간단하고 신뢰할 수 있는 방법을 제공합니다. 이 제품은 완전히 자동화된 마이그레이션 위한 스마트 결정을 내릴 수 있도록 설계되어 있고 일회성 마이그레이션을 위해 무료로 사용할 수 있습니다. |[웹 사이트][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate 비디오](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
 | ![SnapLogic][6] |**SnapLogic**<br>서비스(iPaaS)로서의 SnapLogic 통합 플랫폼을 사용하여 고객은 Microsoft Azure SQL 데이터 웨어하우스 내부 및 외부로 데이터를 신속하게 전송할 수 있습니다.  SnapLogic은 수백 개의 응용 프로그램, 서비스 및 IoT 시나리오 한 솔루션에 통합하는 기능을 제공합니다. SnapLogic을 사용하여 클라우드, 온-프레미스 또는 하이브리드 모드에서 빠르고 효과적인 통찰력을 제공할 수 있습니다. |[마켓플레이스][snaplogic_marketplace]<br>[웹 사이트][snaplogic_website]<br>[데이터 시트][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic 비디오](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## <a name="next-steps"></a>다음 단계

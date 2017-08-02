@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 18a2f6fba707ad920df96117f1c5fb4c8cf9142a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f632d94222590f97b7a95edf9d4941a66b0710e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
@@ -194,7 +193,7 @@ Cosmos DB는 진정한 스키마 없는 데이터베이스 시스템입니다. J
 인덱싱 정책은 컬렉션에서 PUT를 실행하여 변경할 수 있습니다. [클라이언트 SDK](documentdb-sdk-dotnet.md), [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/documentdb/)를 통해 달성할 수 있습니다.
 
 ### <a name="querying-a-collection"></a>컬렉션 쿼리
-컬렉션 내의 문서는 임의 스키마를 포함할 수 있으며, 스키마 또는 보조 인덱스를 미리 제공하지 않고 컬렉션 내의 문서를 쿼리할 수 있습니다. JavaScript 기반 UDF를 통해 풍부한 계층적, 관계형 및 공간 연산자와 확장성을 제공하는 [DocumentDB API SQL 구문](https://msdn.microsoft.com/library/azure/dn782250.aspx)을 사용하여 컬렉션을 쿼리할 수 있습니다. JSON 문법을 통해 JSON 문서를 트리로 모델링하고 레이블을 트리 노드로 사용할 수 있습니다. 이 기능은 DocumentDB API의 자동 인덱싱 기술과 DocumentDB API의 SQL 언어 둘 다에서 사용됩니다. DocumentDB API 쿼리 언어는 다음 세 가지 주요 측면으로 구성됩니다.   
+컬렉션 내의 문서는 임의 스키마를 포함할 수 있으며, 스키마 또는 보조 인덱스를 미리 제공하지 않고 컬렉션 내의 문서를 쿼리할 수 있습니다. JavaScript 기반 UDF를 통해 풍부한 계층적, 관계형 및 공간 연산자와 확장성을 제공하는 [Azure Cosmos DB DocumentDB API: SQL 구문 참조](https://msdn.microsoft.com/library/azure/dn782250.aspx)를 사용하여 컬렉션을 쿼리할 수 있습니다. JSON 문법을 통해 JSON 문서를 트리로 모델링하고 레이블을 트리 노드로 사용할 수 있습니다. 이 기능은 DocumentDB API의 자동 인덱싱 기술과 DocumentDB API의 SQL 언어 둘 다에서 사용됩니다. DocumentDB API 쿼리 언어는 다음 세 가지 주요 측면으로 구성됩니다.   
 
 1. 기본적으로 계층적 쿼리 및 프로젝션을 포함하는 트리 구조에 매핑되는 작은 쿼리 작업 집합 
 2. 컴퍼지션, 필터, 프로젝션, 집계 및 자체 조인을 포함하는 관계형 작업 하위 집합 

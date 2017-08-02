@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
-ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
@@ -41,6 +40,18 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory의 보안 그룹 만들기
 AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
 
+> [!NOTE] 
+> Azure Portal을 사용하여 Azure AD에서 그룹에 사용자 및 다른 그룹을 추가할 수 있습니다. 그러나 서비스 사용자를 그룹에 추가하기 위해서는 [Azure AD PowerShell 모듈](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)을 사용하세요.
+> 
+> ```powershell
+> # Get the desired group and service principal and identify the correct object IDs
+> Get-AzureADGroup -SearchString "<group name>"
+> Get-AzureADServicePrincipal -SearchString "<SPI name>"
+> 
+> # Add the service principal to the group
+> Add-AzureADGroupMember -ObjectId <Group object ID> -RefObjectId <SPI object ID>
+> ```
+ 
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당
 사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당하는 경우 Azure 포털 및 Azure 리소스 관리자 API를 사용하여 계정의 관리 작업에 대한 액세스를 제어합니다. 
 
@@ -60,7 +71,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
    
     ![사용자에 대한 역할 추가](./media/data-lake-store-secure-data/adl.add.user.1.png "사용자에 대한 역할 추가")
    
-    **소유자** 및 **참가자** 역할은 데이터 레이크 계정에 다양한 관리 기능에 대한 액세스를 제공합니다. Data Lake의 데이터와 상호 작용하는 사용자의 경우 **리더** 역할에 추가할 수 있습니다. 이러한 역할의 범위는 Azure 데이터 레이크 저장소 계정에 관련된 관리 작업으로 제한됩니다.
+    **소유자** 및 **참가자** 역할은 데이터 레이크 계정에 다양한 관리 기능에 대한 액세스를 제공합니다. Data Lake의 데이터와 상호 작용하는 사용자의 경우 **보기 권한자** 역할에 추가할 수 있습니다. 이러한 역할의 범위는 Azure 데이터 레이크 저장소 계정에 관련된 관리 작업으로 제한됩니다.
    
     데이터 작업의 경우 개별 파일 시스템 권한은 사용자가 수행할 수 있는 것을 정의합니다. 따라서 리더 역할을 가진 사용자는 계정에 연결된 관리 설정만 볼 수 있지만 잠재적으로 할당된 파일 시스템 권한을 기반으로 데이터를 읽고 쓸 수 있습니다. 데이터 레이크 저장소 파일 시스템 권한은 [ACL로 보안 그룹을 Azure 데이터 레이크 저장소 파일 시스템에 할당](#filepermissions)에 설명되어 있습니다.
 5. **액세스 추가** 블레이드에서 **사용자 추가**를 클릭하여 **사용자 추가** 블레이드를 엽니다. 이 블레이드에 Azure Active Directory에서 이전에 만든 보안 그룹을 찾습니다. 검색할 그룹이 많을 경우 위쪽의 텍스트 상자를 사용하여 그룹 이름을 필터링합니다. **선택**을 클릭합니다.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-an-enterprise-web-app-to-azure-app-service"></a>Azure 앱 서비스에서 엔터프라이즈 웹 앱 마이그레이션

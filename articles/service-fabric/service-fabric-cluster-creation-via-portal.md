@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2017
+ms.date: 06/21/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: c413f415cb056f079ed30cf444af4edbe20364ea
-ms.lasthandoff: 01/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 37e8d04f1786187a947a435b3cfd299546617c8b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
@@ -211,7 +211,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 2. **새로 만들기** 를 클릭하여 새 리소스 템플릿을 추가합니다. **마켓플레이스**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 3. 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 4. **Service Fabric 클러스터** 블레이드로 이동하여 **만들기**를 클릭합니다.
-5. **Service Fabric 클러스터 만들기** 블레이드는 다음&4;단계를 포함합니다.
+5. **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
 
 #### <a name="1-basics"></a>1. 기본 사항
 ![새 리소스 그룹 만들기 스크린샷][CreateRG]
@@ -232,7 +232,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 #### <a name="2-cluster-configuration"></a>2. 클러스터 구성
 ![노드 형식 만들기][CreateNodeType]
 
-클러스터 노드를 구성합니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 클러스터는 둘 이상의 노드 형식을 가질 수 있지만 주 노드 형식(포털에서 정의하는 첫 번째 노드)에는 최소한&5;개의 VM이 있어야 하며, 서비스 패브릭 시스템 서비스가 배치된 노드 형식입니다. "NodeTypeName"의 기본 배치 속성은 자동으로 추가되므로 **배치 속성** 을 구성하지 마세요.
+클러스터 노드를 구성합니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 클러스터는 둘 이상의 노드 형식을 가질 수 있지만 주 노드 형식(포털에서 정의하는 첫 번째 노드)에는 최소한 5개의 VM이 있어야 하며, 서비스 패브릭 시스템 서비스가 배치된 노드 형식입니다. "NodeTypeName"의 기본 배치 속성은 자동으로 추가되므로 **배치 속성** 을 구성하지 마세요.
 
 > [!NOTE]
 > 여러 노드 형식 사용에 대한 일반적인 시나리오는 프런트 엔드 서비스 및 백 엔드 서비스를 포함하는 응용 프로그램입니다. 인터넷에 열려 있는 포트를 포함하고 비교적 작은 VM(D2 같은 VM 크기)에 프런트 엔드 서비스를 배치하고, 열려 있는 인터넷 연결 포트가 없고 비교적 큰 VM(D4, D6, D15 등과 같은 VM 크기)에 백 엔드 서비스를 배치하려고 합니다.
@@ -297,7 +297,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 > 
 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결
-클러스터에서 지정한 각 NodeType에 따라 VM 크기 집합이 설정됩니다. 자세한 내용은 [VM 크기 집합 인스턴스에 원격 연결][remote-connect-to-a-vm-scale-set]을 참조하세요.
+클러스터에서 지정한 각 NodeType에 따라 가상 컴퓨터 크기 집합이 설정됩니다. 자세한 내용은 [가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결][remote-connect-to-a-vm-scale-set]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.

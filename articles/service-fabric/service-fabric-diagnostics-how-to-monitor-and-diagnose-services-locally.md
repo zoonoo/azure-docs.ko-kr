@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 29dd21511b23e6dffdb1daf8b75ece28989c16e7
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08998340afb2f242b9a268331607b0d1ddb9b0c6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -66,6 +67,6 @@ ms.lasthandoff: 04/26/2017
 위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
 
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
-* [서비스 프로세스에서 직접 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+* [EventFlow를 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
 

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c1e28c5ad7fd3236899ac0ffe9f3d43241061897
-ms.openlocfilehash: 5f253c3a10e5bfdfa9fe36912b5ebcbc9abae3eb
-ms.lasthandoff: 02/15/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
@@ -48,7 +49,7 @@ ServiceNow 및 ServiceNow Express와의 Azure AD 통합을 구성하려면 다�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -116,7 +117,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. **식별자** 텍스트 상자에 다음 패턴 `https://<instance-name>.service-now.com`을 따라 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.
    
-    c. 페이지 맨 아래에 있는 **다음**
+    c. **다음**을 누릅니다
 
 4. Azure AD에서 SAML 기반 인증용으로 ServiceNow를 자동으로 구성하도록 하려면 ServiceNow 인스턴스 이름, 관리자 사용자 이름 및 관리자 암호를 **Single Sign-On 자동 구성** 양식에 입력하고 *구성*을 클릭합니다. 입력하는 관리자 사용자 이름에 ServiceNow의 **security_admin** 역할이 할당되어 있어야 이 절차를 수행할 수 있습니다. 이 방법을 사용하지 않고 ServiceNow가 SAML ID 공급자로 Azure AD를 사용하도록 수동으로 구성하려면 **응용 프로그램을 Single Sign-On에 대해 수동 구성**을 클릭하고 **다음**을 클릭하여 다음 단계를 완료합니다.
    
@@ -263,7 +264,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. **발급자 URL** 텍스트 상자에 다음 패턴 `https://<instance-name>.service-now.com`을 따라 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.
    
-    c. **다음**
+    c. **다음**을 누릅니다
 
 4. **Single Sign-On에 대한 응용 프로그램을 수동으로 구성**을 클릭한 후 **다음**을 클릭하고 다음 단계를 완료합니다.
    
@@ -432,7 +433,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
-    c. **다음**을 클릭합니다.
+    c. **다음**을 누릅니다.
 
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
@@ -446,7 +447,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+   e. **다음**을 누릅니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    

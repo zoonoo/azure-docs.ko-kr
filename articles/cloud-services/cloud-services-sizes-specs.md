@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/12/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: aee9d9b735358c3800f8f97f78dd2d3ad1e5e8a8
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sizes-for-cloud-services"></a>클라우드 서비스에 적합한 크기
@@ -42,7 +42,7 @@ Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * Dv2 시리즈, D 시리즈, G 시리즈는 더 빠른 CPU와 더 좋은 로컬 디스크 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다. 이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
 * Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 컴퓨터를 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 컴퓨터의 크기를 새 크기로 조정하거나 2013년 4월 16일 이전에 만들어진 가상 네트워크에서 새 가상 컴퓨터를 만들거나 새 가상 컴퓨터를 기존 클라우드 서비스에 추가하려고 하면 **{machine name} 가상 컴퓨터를 구성하지 못했습니다** 또는 **{machine name} 가상 컴퓨터를 만들지 못했습니다**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 컴퓨터를 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 를 참조하세요.
 * 구독에 따라서도 특정 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량을 늘리려면 Azure 지원에 문의하세요.
@@ -93,7 +93,7 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | A7              | 8         | 56           | 2040                 | 4/높음 |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
-이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 | 크기            | CPU 코어 | 메모리: GiB  | 로컬 HDD: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -197,5 +197,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
-* HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 에 대해 자세히 알아보세요.
+* 자세한 내용은 HPC 워크로드의 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.
 

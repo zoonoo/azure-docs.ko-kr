@@ -1,21 +1,24 @@
 ---
-title: "Azure AD 전자 메일 보안 EMS 및 Office 365 서비스 설명 | Microsoft Docs"
-description: "전자 메일 정책 및 구성을 적용하는 방법에 대한 EMS 및 Office 365 Microsoft 권장 사항을 설명합니다."
+title: "EMS 및 Office 365 서비스 개요 | Microsoft Docs"
+description: "이 문서는 EMS 및 Office 365 서비스의 개요를 제공합니다."
 author: jeffgilb
+manager: femila
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
-ms.author: pnp
+ms.date: 07/12/2017
+ms.author: jeffgilb
+ms.reviewer: jsnow
+ms.custom: it-pro
 pnp.series.title: Best Practices
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 26c708608cab54f2a97173bcaf38f7a2c6d6d6a0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 288ac3f9ec6354d4108461f32618eb95d3b3ab14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="ems-and-office-365-service-descriptions"></a>EMS 및 Office 365 서비스 설명
+# <a name="ems-and-office-365-services-overview"></a>EMS 및 Office 365 서비스 개요
 
 이 문서는 명시된 권장 사항에서 활용되는 EMS 및 Office 365 서비스에 대한 개요를 제공하고 Azure 전자 메일 보호 기능을 이해하는 데 필요한 핵심 개념에 대해 설명합니다. 이러한 기능을 통해 Microsoft 클라우드 엔터프라이즈 관리자는 회사 직원의 신원과 장치를 보호할 수 있을 뿐만 아니라 전송 중이거나 미사용 중인 회사 데이터 자체에 대한 액세스도 제어할 수 있습니다.
 

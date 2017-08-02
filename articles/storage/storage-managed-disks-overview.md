@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 1eef8d38e33f80880d54ce6019eb837b82aba341
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
@@ -48,7 +47,7 @@ Managed Disks는 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](
 [Azure 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-what-is.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원
-Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
+Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재 Azure Backup에서는 최대 1TB의 데이터 디스크 크기를 백업하도록 지원합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -89,7 +88,7 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
-**Managed Disk 스냅숏(전체 디스크 복사)**: 관리 스냅숏은 표준 관리 디스크로 저장되는 관리 디스크의 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 관리 스냅숏의 비용은 표준 관리 디스크의 비용과 동일합니다. 예를 들어 128GB 프리미엄 관리 디스크의 스냅숏을 만드는 경우 관리 스냅숏 비용은 128GB 표준 관리 디스크 비용과 같습니다.
+**Managed Disk 스냅숏(전체 디스크 복사)**: 관리 스냅숏은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
 
 [증분 스냅숏](storage-incremental-snapshots.md)은 현재 Managed Disks에 지원되지 않지만 나중에 지원될 예정입니다.
 

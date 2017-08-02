@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3337e3ad36792c1dcd0eaf183a2b695503b8f02c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e1eff2abf8512870661cbe539bd34aa5c33ded14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -45,7 +44,7 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ## <a name="log-and-event-sources"></a>로그 및 이벤트 원본
 
-### <a name="service-fabric-infrastructure-events"></a>Service Fabric 인프라 이벤트
+### <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
 [이 문서](service-fabric-diagnostics-event-generation-infra.md)의 설명대로 Service Fabric은 WAD를 사용하여 모니터링 및 진단 데이터를 저장소 테이블이나 다른 곳에 보내도록 다음 채널을 쉽게 구성할 수 있는 몇 가지 기본 제공 로깅 채널을 소개합니다.
   * 작업 이벤트: Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 응용 프로그램 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
   * [Reliable Actors 프로그래밍 모델 이벤트](service-fabric-reliable-actors-diagnostics.md)

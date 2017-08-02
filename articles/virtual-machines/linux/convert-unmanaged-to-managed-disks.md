@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Linux VM을 비관리 디스크에서 Managed Disks로 변환 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 Azure CLI 2.0을 사용하여 Linux VM을 비관리 디스크에서 Azure Managed Disks로 변환하는 방법"
+title: "Azure의 Linux 가상 컴퓨터를 비관리 디스크에서 Managed Disks로 변환 - Azure Managed Disks | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 Azure CLI 2.0을 사용하여 Linux VM을 비관리 디스크에서 Managed Disks로 변환하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,19 +15,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 37c47061b0774d9670b9a2d304d069d5f683c2d2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 118d1efaaa0a962c7d13fae6ad5f447a60c4e85b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="convert-a-linux-vm-from-unmanaged-disks-to-azure-managed-disks"></a>Linux VM을 비관리 디스크에서 Azure Managed Disks로 변환
+# <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 컴퓨터를 비관리 디스크에서 Managed Disks로 변환
 
-비관리 디스크를 사용하는 기존 Linux VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](../../storage/storage-managed-disks-overview.md)를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
+비관리 디스크를 사용하는 기존 Linux VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) 서비스를 통해 Managed Disks를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
-이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli.md)를 참조하세요. 
+이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli.md)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,21 +35,21 @@ ms.lasthandoff: 07/01/2017
 
 
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
-이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. VM이 가용성 집합에 있는 경우 다음 섹션을 참조하세요. 이 프로세스를 사용하여 프리미엄(SSD) 관리되지 않는 디스크에서 프리미엄 Managed Disks로 또는 표준(HDD) 관리되지 않는 디스크에서 표준 Managed Disks로 변환할 수 있습니다.
+이 섹션에서는 단일 인스턴스 Azure VM을 비관리 디스크에서 Managed Disks로 변환하는 방법을 설명합니다. VM이 가용성 집합에 있는 경우 다음 섹션을 참조하세요. 이 프로세스를 사용하여 프리미엄(SSD) 비관리 디스크에서 프리미엄 Managed Disks로 또는 표준(HDD) 비관리 디스크에서 표준 Managed Disks로 변환할 수 있습니다.
 
-1. [az vm deallocate](/cli/azure/vm#deallocate)로 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
+1. [az vm deallocate](/cli/azure/vm#deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. [az vm convert](/cli/azure/vm#convert)를 사용하여 관리되는 디스크로 VM을 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하여 `myVM`이라는 VM을 변환합니다.
+2. [az vm convert](/cli/azure/vm#convert)를 사용하여 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. [az vm start](/cli/azure/vm#start)를 사용하여 관리되는 디스크로 변환한 후 VM을 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
+3. [az vm start](/cli/azure/vm#start)를 사용하여 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/01/2017
 
 관리되는 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리되는 가용성 집합으로 변환해야 합니다.
 
-가용성 집합을 변환하기 전에 가용성 집합에 있는 모든 VM의 할당을 취소해야 합니다. 가용성이 관리되는 가용성 집합으로 변환된 후 모든 VM을 관리되는 디스크로 변환하려고 합니다. 그런 다음 모든 VM을 시작하고 정상적으로 운영을 계속합니다.
+가용성 집합을 변환하기 전에 가용성 집합에 있는 모든 VM의 할당을 취소해야 합니다. 가용성 집합이 관리되는 가용성 집합으로 변환된 후 모든 VM을 관리되는 디스크로 변환하려고 합니다. 그런 다음 모든 VM을 시작하고 정상적으로 운영을 계속합니다.
 
 1. [az vm availability-set list](/cli/azure/vm/availability-set#list)를 사용하여 가용성 집합의 모든 VM을 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`에 있는 모든 VM을 나열합니다.
 
@@ -85,28 +85,28 @@ ms.lasthandoff: 07/01/2017
         --name myAvailabilitySet
     ```
 
-4. [az vm convert](/cli/azure/vm#convert)를 사용하여 관리되는 디스크로 모든 VM을 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하여 `myVM`이라는 VM을 변환합니다.
+4. [az vm convert](/cli/azure/vm#convert)를 사용하여 모든 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. [az vm start](/cli/azure/vm#start)를 사용하여 관리되는 디스크로 변환한 후 모든 VM을 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
+5. [az vm start](/cli/azure/vm#start)를 사용하여 모든 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 ## <a name="managed-disks-and-azure-storage-service-encryption"></a>Managed Disks 및 Azure Storage 서비스 암호화
-[Azure Storage 서비스 암호화](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 적이 있는 저장소 계정에 비관리 디스크가 있는 경우 앞의 단계를 사용하여 비관리 디스크를 관리 디스크로 변환할 수 없습니다. 다음 단계에서는 암호화된 저장소 계정에 있는 비관리 디스크를 복사하고 사용하는 방법을 자세히 설명합니다.
+[Azure Storage 서비스 암호화](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 적이 있는 저장소 계정에 비관리 디스크가 있는 경우 앞의 단계를 사용하여 비관리 디스크를 Managed Disks로 변환할 수 없습니다. 다음 단계에서는 암호화된 저장소 계정에 있는 비관리 디스크를 복사하고 사용하는 방법을 자세히 설명합니다.
 
-1. [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage 서비스 암호화를 사용하도록 설정되지 않은 저장소 계정으로 VHD(가상 하드 디스크)를 복사합니다.
+1. [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage 서비스 암호화를 사용하도록 설정되지 않은 저장소 계정으로 VHD를 복사합니다.
 
 2. 복사된 VM을 다음 방법 중 하나로 사용합니다.
 
-* Managed Disks를 사용하는 VM을 만들고 [az vm create](/cli/azure/vm#create)로 생성되는 동안 해당 VHD 파일을 지정합니다.
+   * Managed Disks를 사용하는 VM을 만들고 [az vm create](/cli/azure/vm#create)로 생성되는 동안 해당 VHD 파일을 지정합니다.
 
-* [az vm disk attach](/cli/azure/vm/disk#attach)로 복사된 VHD를 관리되는 디스크가 있는 실행 중인 VM에 연결합니다.
+   * [az vm disk attach](/cli/azure/vm/disk#attach)로 복사된 VHD를 Managed Disks가 있는 실행 중인 VM에 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 저장소 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요.

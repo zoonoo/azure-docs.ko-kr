@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcc7c088d7b6db7af334977315f122dca3c17f69
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server 또는 Linux에서 Service Fabric 클러스터 만들기
@@ -36,7 +36,7 @@ Azure에서 클러스터 만들기는 리소스 모델 템플릿 또는 Azure Po
 * Windows Server 2016 
 * Linux Ubuntu 16.04(공개 미리 보기 상태) 
 
-## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>온-프레미스에서 또는 클라우드 공급자를 사용하여 Service Fabric 독립 실행형 클러스터 만들기
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>온-프레미스에서 또는 클라우드 공급자를 사용하여 Service Fabric 독립 실행형 클러스터 만들기
 Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 실행형 Service Fabric 클러스터를 만들 수 있는 설치 패키지를 제공합니다.
 
 Windows Server에서 독립 실행형 Service Fabric 클러스터 설치에 자세한 내용은 [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)

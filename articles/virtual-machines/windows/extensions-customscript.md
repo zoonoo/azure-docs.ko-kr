@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aeddf1aba1e8df74750538ba798d34a1a957e83f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
@@ -37,7 +36,7 @@ Windows용 사용자 지정 스크립트 확장은 Windows Server 2008 R2, 2012,
 
 ### <a name="script-location"></a>스크립트 위치
 
-이 스크립트는 Azure Storage 또는 유효한 URL을 통해 액세스 가능한 기타 위치에 보관해야 합니다.
+이 스크립트는 Azure Blob Storage 또는 유효한 URL을 통해 액세스 가능한 기타 위치에 보관해야 합니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

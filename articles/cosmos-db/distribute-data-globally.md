@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c579b003052045cb78c922265ff1fc6d321a6f86
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md)는 업무에 중요한 응용 프로그램에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 [턴키 전역 분산](distribute-data-globally.md), 전 세계적으로 [처리량 및 저장소의 탄력적인 확장](../cosmos-db/partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, [잘 정의된 5개 일관성 수준](consistency-levels.md), 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. 클라우드 서비스인 Azure Cosmos DB는 다중 테넌트 및 전역 배포를 사용하여 처음부터 세심하게 설계되었습니다.
+[Azure Cosmos DB](../cosmos-db/introduction.md)는 업무에 중요한 응용 프로그램에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 턴키 전역 분산, 전 세계적으로 [처리량 및 저장소의 탄력적인 확장](../cosmos-db/partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, [잘 정의된 5개 일관성 수준](consistency-levels.md), 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다. 클라우드 서비스인 Azure Cosmos DB는 다중 테넌트 및 전역 배포를 사용하여 처음부터 세심하게 설계되었습니다.
 
-**단일 Azure Cosmos DB 컬렉션을 분할하여 세 Azure 하위 지역에 분산**
+**단일 Azure Cosmos DB 컬렉션을 분할하여 여러 Azure 하위 지역에 분산**
 
 ![Azure Cosmos DB 컬렉션을 분할하여 세 하위 지역에 분산](./media/distribute-data-globally/global-apps.png)
 
@@ -41,7 +40,7 @@ Azure Cosmos DB의 턴키 전역 분산을 사용하면 개발자는 데이터�
 Azure Cosmos DB는 세계 규모의 응용 프로그램을 손쉽게 작성할 수 있도록 다음과 같은 기능을 제공합니다. 이러한 기능은 Azure Cosmos DB의 리소스 공급자 기반 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)와 Azure Portal을 통해 제공됩니다.
 
 ### <a id="RegionalPresence"></a>어느 지역에나 존재 
-Azure는 새 지역을 온라인으로 연결하여 지리적 존재 영역을 지속적으로 늘려가고 있습니다. Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다. 따라서 Azure가 새로운 비즈니스 영역을 개통하는 즉시 지리적 지역을 Azure Cosmos DB 데이터베이스 계정과 연결할 수 있습니다.
+Azure는 [새 하위 지역](https://azure.microsoft.com/regions/)을 온라인으로 연결하여 지리적 존재 영역을 지속적으로 늘려가고 있습니다. Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다. 따라서 Azure가 새로운 비즈니스 영역을 개통하는 즉시 지리적 지역을 Azure Cosmos DB 데이터베이스 계정과 연결할 수 있습니다.
 
 **Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다**.
 
@@ -228,7 +227,7 @@ Azure Cosmos DB는 처리량, 대기 시간, 일관성 및 가용성 메트릭�
 ![Azure Cosmos DB 고객에게 표시되는 SLA 메트릭](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>다음 단계
-* Azure Portal을 사용하여 Azure Cosmos DB 계정에 전역 복제를 구현하려면 [Azure Portal을 사용하여 Azure Cosmos DB 전역 데이터베이스 복제를 수행하는 방법](../cosmos-db/tutorial-global-distribution-documentdb.md)을 참조하세요.
+* Azure Portal을 사용하여 Azure Cosmos DB 계정에 전역 복제를 구현하려면 [Azure Portal을 사용하여 Azure Cosmos DB 전역 데이터베이스 복제를 수행하는 방법](tutorial-global-distribution-documentdb.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 다중 마스터 아키텍처를 구현하는 방법을 알아보려면 [Azure Cosmos DB를 사용하는 다중 마스터 데이터베이스 아키텍처](multi-region-writers.md)를 참조하세요.
 * Azure Cosmos DB에서 자동 및 수동 장애 조치(failover)가 작동하는 방식을 알아보려면 [Azure Cosmos DB의 지역별 장애 조치(failover)](regional-failover.md)를 참조하세요.
 

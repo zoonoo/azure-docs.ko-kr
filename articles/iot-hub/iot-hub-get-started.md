@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub - 클라우드에 IoT 장치 연결 시작 | Microsoft Docs"
-description: "Azure IoT Hub에 IoT 장치를 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
+description: "Azure IoT Hub에 IoT 보드 및 시작 키트를 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d3d74d44bdd7ce6b49ec58b70c7ddb8081e11f96
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c02b4bb6e01bc6e6e5b7e373a8d6d2ab2d2395da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---

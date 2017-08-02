@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server Business Intelligence
@@ -227,7 +226,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 2. 가상 컴퓨터의 방화벽에서 포트 80을 엽니다.
 3. Azure 가상 컴퓨터 **DNS 이름** 을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예:
    
-    **보고서 서버**: http://uebi.cloudapp.net/reportserver  **웹 포털**: http://uebi.cloudapp.net/reports
+    **보고서 서버**: http://uebi.cloudapp.net/reportserver **웹 포털**: http://uebi.cloudapp.net/reports
    
     [보고서 서버 액세스를 위한 방화벽 구성](https://msdn.microsoft.com/library/bb934283.aspx)
 

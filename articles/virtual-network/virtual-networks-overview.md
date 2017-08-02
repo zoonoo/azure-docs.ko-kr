@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b820491107372551896bf37d04cf995e6a8bd0e7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-virtual-network"></a>Azure 가상 네트워크
@@ -92,4 +91,5 @@ Virtual Network에 대한 질문과 대답을 검토하려면 [Virtual Network F
 
 - [첫 번째 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
 - [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 VNet에 대해 지점 및 사이트 간 연결을 만듭니다.
+- Azure의 다른 주요 [네트워크 기능](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 알아봅니다.
 

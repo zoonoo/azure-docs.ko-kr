@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 07/04/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: d42527fc661d320c6279fe3b74791983edc5cd33
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -43,7 +42,7 @@ ms.lasthandoff: 06/15/2017
 
 **배포웹사이트를** | **지원**
 --- | ---
-**VMware VM/물리적 서버** | 최신 업데이트가 설치된 vSphere 6.0, 5.5 또는 5.1
+**VMware VM/물리적 서버** | vCenter 6.5, 6.0 또는 5.5
 **Hyper-V(Virtual Machine Manager 있음)** | System Center Virtual Machine Manager 2016 및 System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -53,7 +52,7 @@ ms.lasthandoff: 06/15/2017
 
 **배포웹사이트를** | **지원**
 --- | ---
-**VMware VM/물리적 서버** | vCenter 5.5 또는 6.0(5.5 기능만 지원) 
+**VMware VM/물리적 서버** | vSphere 6.5, 6.0, 5.5
 **Hyper-V(Virtual Machine Manager 있음/없음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2<br></br>SCVMM을 사용하는 경우 Windows Server 2016 호스트는 SCVMM 2016을 통해 관리되어야 합니다.
 
 
@@ -67,7 +66,7 @@ Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사�
 
  **VMware/물리적 서버** | **Hyper-V(VMM 포함/제외)** |
 --- | --- |
-64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
+64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/>*Windows Server 2016* - VMware 가상 컴퓨터 및 물리적 서버에서 현재 지원되지 않습니다. <br/><br/> Red Hat Enterprise Linux : 5.2 ~ 5.11, 6.1 ~ 6.8, 7.0 ~ 7.3 <br/><br/>Cent OS : 5.2 ~ 5.11, 6.1 ~ 6.8, 7.0 ~ 7.3 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
 
 
 >[!IMPORTANT]
@@ -82,19 +81,24 @@ Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사�
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
+
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux(VMware/물리적 서버)에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
 다음 파일 시스템 및 저장소 구성 소프트웨어는 VMware 또는 물리적 서버에서 실행되는 Linux 서버에서 지원됩니다.
-* 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS(v4까지만)
+* 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS
 * 볼륨 관리자: LVM2
 * 다중 경로 소프트웨어: 장치 매퍼
 
-HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않습니다.
+반가상화된 저장 장치(반가상화된 드라이버에서 내보낸 장치)는 지원되지 않습니다.<br/>
+다중 큐 블록 IO 장치는 지원되지 않습니다.<br/>
+HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않습니다.<br/>
 
 >[!Note]
 > Linux 서버에서 /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>
-> 메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.
+> 버전 9.10의 모바일 서비스부터 메타데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원됩니다. XFSv5 기능을 사용하는 경우 9.10 이상 버전의 모바일 서비스를 실행하고 있어야 합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.
 >
 
 
@@ -105,7 +109,7 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않�
 
 **구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | ---
-NIC 팀 | 예<br/><br/>물리적 컴퓨터에서 지원되지 않음| 예
+NIC 팀 | 예<br/><br/>물리적 컴퓨터가 복제되는 경우 지원되지 않음| 예
 VLAN | 예 | 예
 IPv4 | 예 | 예
 IPv6 | 아니요 | 아니요
@@ -118,7 +122,7 @@ NIC 팀 | 아니요 | 아니요
 IPv4 | 예 | 예
 IPv6 | 아니요 | 아니요
 고정 IP(Windows) | 예 | 예
-고정 IP(Linux) | 아니요 | 아니요
+고정 IP(Linux) | 예 <br/><br/>가상 컴퓨터가 장애 복구(failback) 시 DHCP를 사용하도록 구성됨  | 아니요
 다중 NIC | 예 | 예
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>장애 조치(Failover)된 Azure VM 네트워크 구성
@@ -155,12 +159,13 @@ VMDK | 예 | 해당 없음
 VHD/VHDX | 해당 없음 | 예
 2세대 VM | 해당 없음 | 예
 EFI/UEFI| 아니요 | 예
-공유 클러스터 디스크 | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음 | 아니요
+공유 클러스터 디스크 | 아니요 | 아니요
 암호화된 디스크 | 아니요 | 아니요
 NFS | 아니요 | 해당 없음
 SMB 3.0 | 아니요 | 아니요
 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
-디스크 > 1TB | 아니요 | 아니요
+디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
+4K 섹터 크기 디스크 | 아니요 | 아니요
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
 저장소 공간 | 아니요 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요
@@ -182,9 +187,10 @@ Import/Export 서비스 | 아니요 | 아니요
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
 
 **Compute 기능** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
---- | --- | --- | ---
+--- | --- | --- 
 가용성 집합 | 예 | 예
 HUB | 예 | 예  
+관리 디스크 | 예 | 예<br/><br/>관리되는 디스크를 사용한 Azure VM에서 온-프레미스로의 장애 복구(failback)는 현재 지원되지 않습니다.
 
 ## <a name="failed-over-azure-vm-requirements"></a>장애 조치(Failover)된 Azure VM 요구 사항
 
@@ -192,12 +198,12 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 **엔터티** | **요구 사항** | **세부 정보**
 --- | --- | ---
-**게스트 운영 체제** | Hyper-V에서 Azure로 복제: Site Recovery에서는 [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)모든 운영 체제를 지원합니다. <br/><br/> VMware 및 물리적 서버 복제의 경우: Windows 및 Linux [필수 구성 요소](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
+**게스트 운영 체제** | Hyper-V에서 Azure로 복제: Site Recovery에서는 [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)모든 운영 체제를 지원합니다. <br/><br/> VMware 및 물리적 서버 복제의 경우: Windows 및 Linux [필수 구성 요소](site-recovery-vmware-to-azure-classic.md) | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **게스트 운영 체제 아키텍처** | 64비트 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
-**운영 체제 디스크 크기** | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
+**운영 체제 디스크 크기** | **VMware VM 또는 물리적 서버를 Azure**로 복제하는 경우 최대 2048GB<br/><br/>**Hyper-V 1세대** VM에 대해 최대 2048GB<br/><br/>**Hyper-V 2세대** VM에 대해 최대 300GB  | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **운영 체제 디스크 수** | 1 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **데이터 디스크 수** | **Azure에 VMware VM**을 복제하는 경우 64개 이하, **Azure에 Hyper-V VM**을 복제하는 경우 16개 이하 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
-**데이터 디스크 VHD 크기** | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
+**데이터 디스크 VHD 크기** | 최대 4095GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **네트워크 어댑터** | 여러 어댑터가 지원됩니다. |
 **공유 VHD** | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **FC 디스크** | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.

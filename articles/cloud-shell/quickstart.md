@@ -7,18 +7,18 @@ author: jluk
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 6fbe0dbe159fecb73833260d18aade7d294f040f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a2ed1c890eb22b3aff9aaadf2b420eeb21dd207
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -29,8 +29,7 @@ ms.lasthandoff: 06/09/2017
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
 ![](media/shell-icon.png)
-2. 구독을 선택하여 저장소 계정 및 Azure 파일 공유를 만듭니다. <br>
-![](media/storage-prompt.png)
+2. 구독을 선택하여 저장소 계정 및 Azure 파일 공유 만들기
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]
@@ -43,7 +42,7 @@ ms.lasthandoff: 06/09/2017
 `az account set --subscription my-subscription-name`
 
 > [!TIP]
-> $Home 디렉터리에 보관된 `azureProfile.json`을 사용하여 이후 세션에서 구독을 기억합니다.
+> `/home/<user>/.azure/azureProfile.json`을 사용하여 이후 세션에서 구독을 기억합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 미국 서부에 "MyRG"라는 새 리소스 그룹을 만듭니다. <br>
@@ -74,4 +73,4 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell의 저장소 유지 알아보기](persisting-shell-storage.md) <br>
 [Azure CLI 2.0에 대해 알아보기](https://docs.microsoft.com/cli/azure/) <br>
-[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Azure File Storage에 대해 알아보기](../storage/storage-files-introduction.md) <br>

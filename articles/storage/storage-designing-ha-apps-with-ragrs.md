@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
@@ -37,7 +37,7 @@ RA-GRS 저장소 사용법에 대해 언급하기 전에 속성과 동작에 대
 
 * 읽기 전용 복사본은 주 지역의 데이터와 [결과적으로 일치](https://en.wikipedia.org/wiki/Eventual_consistency)합니다.
 
-* Blob, 테이블 및 큐에 대해 주 지역에서 보조 지역으로 마지막 복제가 발생한 시간을 알려주는 *Last Sync Time* 값을 보조 지역에 쿼리할 수 있습니다. (현재 RA-GRS 중복 옵션이 없는 Azure 파일에 대해서는 지원되지 않습니다.)
+* Blob, 테이블 및 큐에 대해 주 지역에서 보조 지역으로 마지막 복제가 발생한 시간을 알려주는 *Last Sync Time* 값을 보조 지역에 쿼리할 수 있습니다. (현재 RA-GRS 중복 옵션이 없는 Azure File Storage에 대해서는 지원되지 않습니다.)
 
 * 저장소 클라이언트 라이브러리를 사용하여 주 지역 또는 보조 지역의 데이터와 상호 작용할 수 있습니다. 주 지역에 대한 읽기 요청의 시간이 초과되면 읽기 요청을 보조 지역에 자동으로 리디렉션할 수도 있습니다.
 

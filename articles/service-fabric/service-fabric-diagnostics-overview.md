@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 571c31b9e6514b44d6a8a69fe8a6a0806e4b80e3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/01/2017
 
 모니터링 및 진단의 전체 워크플로는 다음 세 단계로 구성됩니다.
 
-1. **이벤트 생성**: 인프라(클러스터) 및 응용 프로그램/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 모두 포함됩니다.
+1. **이벤트 생성**: 인프라, 클러스터 및 응용 프로그램/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 포함됩니다.
 2. **이벤트 집계**: 생성된 이벤트를 표시하려면 먼저 수집하고 집계해야 합니다.
 3. **분석**: 필요에 따라 분석하고 표시할 수 있도록 이벤트를 특정 형식으로 시각화하고 액세스할 수 있어야 합니다.
 
@@ -45,9 +44,9 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="event-generation"></a>이벤트 생성
 
-모니터링 및 진단 워크플로의 첫 번째 단계는 이벤트 및 로그 생성입니다. 인프라 계층(클러스터, 컴퓨터 또는 Service Fabric 작업) 또는 응용 프로그램 계층(앱에 추가된 계측 및 클러스터에 배포된 서비스)과 같은 두 수준에서 이러한 이벤트, 로그 및 추적을 생성할 수 있습니다. Service Fabric은 기본적으로 일부 계측을 제공하지만 각 수준의 이벤트를 사용자 지정할 수 있습니다.
+모니터링 및 진단 워크플로의 첫 번째 단계는 이벤트 및 로그 생성입니다. 플랫폼 계층(클러스터, 컴퓨터 또는 Service Fabric 작업 포함) 또는 응용 프로그램 계층(앱에 추가된 계측 및 클러스터에 배포된 서비스)과 같은 두 수준에서 이러한 이벤트, 로그 및 추적을 생성할 수 있습니다. Service Fabric은 기본적으로 일부 계측을 제공하지만 각 수준의 이벤트를 사용자 지정할 수 있습니다.
 
-제공되는 계측 및 계측을 추가하는 방법은 [인프라 수준 이벤트](service-fabric-diagnostics-event-generation-infra.md) 및 [응용 프로그램 수준 이벤트](service-fabric-diagnostics-event-generation-app.md)를 참조하세요.
+제공되는 계측 및 계측을 추가하는 방법은 [플랫폼 수준 이벤트](service-fabric-diagnostics-event-generation-infra.md) 및 [응용 프로그램 수준 이벤트](service-fabric-diagnostics-event-generation-app.md)를 참조하세요.
 
 사용하려는 로깅 공급자를 결정한 후에는 로그를 올바르게 집계하고 저장해야 합니다.
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/01/2017
 * 내부 응용 프로그램 데이터 및 컨텍스트에 대한 액세스
     * 응용 프로그램/서비스 프로세스 내에서 실행되는 진단 하위 시스템은 컨텍스트 정보와 함께 추적을 쉽게 보강할 수 있습니다.
 
-한 가지 주의해야 할 점은 이 두 가지 옵션은 상호 배타적이지 않으므로 두 옵션을 각각 사용하여 유사한 작업을 수행할 수도 있지만 둘 다 설정할 수도 있습니다. 대부분의 경우 에이전트를 In-Process 컬렉션과 결합하면 보다 안정적인 모니터링 워크플로를 만들 수 있습니다. 인프라 수준 로그를 위해 Azure 진단 확장(에이전트)을 선택할 수 있는 반면 응용 프로그램 수준 로그를 위해 EventFlow(In-Process 컬렉션)를 사용할 수 있습니다. 가장 적합한 방법을 파악한 후에는 데이터를 표시하고 분석하는 방법을 결정해야 합니다.
+한 가지 주의해야 할 점은 이 두 가지 옵션은 상호 배타적이지 않으므로 두 옵션을 각각 사용하여 유사한 작업을 수행할 수도 있지만 둘 다 설정할 수도 있습니다. 대부분의 경우 에이전트를 In-Process 컬렉션과 결합하면 보다 안정적인 모니터링 워크플로를 만들 수 있습니다. 플랫폼 수준 로그를 위해 Azure 진단 확장(에이전트)을 선택할 수 있는 반면 응용 프로그램 수준 로그를 위해 EventFlow(In-Process 컬렉션)를 사용할 수 있습니다. 가장 적합한 방법을 파악한 후에는 데이터를 표시하고 분석하는 방법을 결정해야 합니다.
 
 ## <a name="event-analysis"></a>이벤트 분석
 
@@ -93,4 +92,4 @@ ms.lasthandoff: 06/01/2017
 
 Watchdog은 서비스 전체에서 상태와 부하를 감시하고 상태 모델 계층 구조 상의 모든 항목에 대한 상태를 보고할 수 있는 별도의 서비스입니다. 이렇게 하면 단일 서비스 보기를 기반으로 하여 감지되지 않는 오류를 방지할 수 있습니다. Watchdog은 사용자 상호 작용 없이 교정 작업을 수행하는 코드(예: 특정 시간 간격으로 저장소의 로그 파일 정리)를 호스트하는 데 적합합니다. [여기](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 샘플 watchdog 서비스 구현을 찾을 수 있습니다.
 
-[인프라 수준](service-fabric-diagnostics-event-generation-infra.md) 및 [응용 프로그램 수준](service-fabric-diagnostics-event-generation-app.md)에서 이벤트 및 로그를 생성하는 방법에 대해 알아봅니다.
+[플랫폼 수준](service-fabric-diagnostics-event-generation-infra.md) 및 [응용 프로그램 수준](service-fabric-diagnostics-event-generation-app.md)에서 이벤트 및 로그를 생성하는 방법에 대해 알아봅니다.

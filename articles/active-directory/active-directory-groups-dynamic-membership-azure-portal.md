@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 특성 기반 동적 그룹 멤버 자격 | Microsoft Docs"
 description: "지원되는 식 규칙 연산자 및 매개 변수를 포함하는 동적 그룹 멤버 자격에 대한 고급 규칙을 만드는 방법."
 services: active-directory
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2f1d68c7127324477cfc8b87df0fd82dee7cd1d6
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 31c7e517673d7a0df9dec32b3882e7e022ac83d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
@@ -90,7 +88,8 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
 
-괄호는 항상 필요한 것이 아니지만, 우선 순위가 요구 사항을 충족하지 못할 경우 괄호를 추가하면 됩니다. 예를 들면 다음과 같습니다.
+괄호는 항상 필요한 것이 아니지만, 우선 순위가 요구 사항을 충족하지 못할 경우 괄호를 추가하면 됩니다.
+예:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```

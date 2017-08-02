@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Azure Functions Queue Storage 바인딩
@@ -75,7 +74,7 @@ Node.js 함수에서는 `context.bindings.<name>`을 사용하여 큐 데이터�
 * **ExpirationTime** - `DateTimeOffset?` 형식입니다. 메시지가 만료되는 시간입니다.
 * **Id** - `string` 형식입니다. 큐 메시지 ID입니다.
 * **InsertionTime** - `DateTimeOffset?` 형식입니다. 메시지가 큐에 추가된 시간입니다.
-* **NextVisibleTime** - `DateTimeOffset? 형식입니다. 다음에 메시지가 표시되는 시간입니다.
+* **NextVisibleTime** - `DateTimeOffset?` 형식입니다. 다음에 메시지가 표시되는 시간입니다.
 * **PopReceipt** - `string` 형식입니다. 메시지의 PopReceipt입니다.
 
 [트리거 샘플](#triggersample)에서 큐 메타데이터를 사용하는 방법을 참조하세요.
@@ -294,3 +293,4 @@ Queue Storage 트리거 및 바인딩을 사용하는 함수의 예제는 [Azure
 <!-- LINKS -->
 
 [`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

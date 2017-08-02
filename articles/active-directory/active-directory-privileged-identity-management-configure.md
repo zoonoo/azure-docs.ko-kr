@@ -16,10 +16,10 @@ ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44867f16acb620fd29957eae90311ef6c8fde559
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 Azure Active Directory(AD) Privileged Identity Management를 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. Azure AD의 리소스 및 Office 365 또는 Microsoft Intune과 같은 다른 Microsoft 온라인 서비스에 대한 액세스를 포함합니다.  
 
 > [!NOTE]
-> Privileged Identity Management는 Azure Active Directory의 Premium P2 버전에만 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> Privileged Identity Management는 Premium P2 버전의 Azure Active Directory로 관리자에게 사용을 허가할 때 전체 조직에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 조직에서는 악의적인 사용자가 해당 액세스 권한을 갖게 될 가능성을 줄일 수 있기 때문에 보안 정보 또는 리소스에 액세스하는 사용자 수를 최소화하려고 합니다. 하지만, 사용자는 여전히 Azure, Office 365 또는 SaaS 앱에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure AD에서 권한 있는 액세스를 제공하며 사용자가 자신의 관리자 권한을 가지고 무엇을 하는지 모니터링하지 않습니다. Azure AD Privileged Identity Management는 이 위험을 해결하는 데 도움이 됩니다.  
 
@@ -37,6 +37,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 * Office 365 및 Intune 등의 Microsoft Online Services에 대해 주문형으로 “Just-In-Time”에 관리 권한을 사용하도록 설정할 수 있습니다.
 * 관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서 가져오기
 * 권한 있는 역할의 액세스에 대한 알림을 받을 수 있습니다.
+* 활성화하기 위해 승인 필요(미리 보기)
 
 Azure AD Privileged Identity Management는 다음을 포함하여 기본 제공된 Azure AD 조직 역할을 관리할 수 있습니다(여기에 제한되지 않음).  
 
@@ -64,13 +65,13 @@ Azure AD Privileged Identity Management는 다음을 포함하여 기본 제공�
 
 권한 있는 역할 관리자만 다른 관리자의 액세스 권한을 관리할 수 있습니다. [PIM 관리 기능을 다른 사용자에게 제공](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)할 수 있습니다.
 
-## <a name="privileged-identity-management-dashboard"></a>Privileged Identity Management 대시보드
-Azure AD 권한 있는 ID 관리자는 다음과 같은 중요한 정보를 전달하는 대시보드를 제공합니다.
+## <a name="privileged-identity-management-admin-dashboard"></a>Privileged Identity Management 관리 대시보드
+Azure AD 권한 있는 ID 관리자는 다음과 같은 중요한 정보를 전달하는 관리 대시보드를 제공합니다.
 
 * 보안을 향상시킬 기회를 알려주는 경고
 * 각 권한 있는 역할에 할당된 사용자 수  
 * 적격 및 영구 관리자 수
-* 지속적인 액세스 검토
+* 디렉터리의 권한 있는 역할 활성화 그래프
 
 ![PIM 대시보드 - 스크린샷][2]
 
@@ -84,7 +85,9 @@ Azure AD Privileged Identity Management로 각 역할에 영구 또는 적격 �
 
 * 역할 활성화 기간
 * 역할 활성화 알림
-* 역할 활성화 프로세스 중 사용자가 제공해야 하는 정보  
+* 역할 활성화 프로세스 중 사용자가 제공해야 하는 정보
+* 서비스 티켓 또는 인시던트 번호
+* [승인 워크플로 요구 사항 - 미리 보기](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
 ![PIM 설정 - 관리자 활성화 - 스크린샷][4]
 
@@ -100,14 +103,14 @@ Azure AD Privileged Identity Management로 각 역할에 영구 또는 적격 �
 ![PIM 관리자 요청 역할 활성화 - 스크린샷][5]
 
 ## <a name="review-role-activity"></a>역할 작업 검토
-직원 및 관리자가 권한 있는 역할을 사용하는 방법을 추적하는 방법은 두 가지가 있습니다. 첫 번째 옵션은 [감사 기록](active-directory-privileged-identity-management-how-to-use-audit-log.md)을 사용하는 것입니다. 감사 기록 로그는 권한 있는 역할 할당 및 역할 활성화 기록의 변경 내용을 추적합니다.
+직원 및 관리자가 권한 있는 역할을 사용하는 방법을 추적하는 방법은 두 가지가 있습니다. 첫 번째 옵션은 [디렉터리 역할 감사 기록](active-directory-privileged-identity-management-how-to-use-audit-log.md)을 사용하는 것입니다. 감사 기록 로그는 권한 있는 역할 할당 및 역할 활성화 기록의 변경 내용을 추적합니다.
 
 ![PIM 활성화 기록 - 스크린샷][6]
 
 두 번째 옵션은 정기적인 [액세스 검토](active-directory-privileged-identity-management-how-to-start-security-review.md)를 설정하는 것입니다. 이러한 액세스 검토는 할당된 검토자(예: 팀 관리자) 또는 자체적으로 검토할 수 있는 직원에 의해 수행될 수 있습니다. 사용자의 액세스 필요 여부를 모니터링하는 가장 좋은 방법입니다.
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>구독 만료 시 Azure AD PIM
-일반적 가용성에 도달하기 전에 Azure AD PIM은 미리 보기에 있었으며, 테넌트에서 Azure AD PIM을 미리 볼 수 있는 라이선스 검사가 없었습니다.  Azure AD PIM이 일반적 가용성에 도달했으므로 2016년 12월 이후 PIM을 계속 사용하려면 평가판 구독이나 유료 구독이 있어야 합니다.  조직에서 Azure AD Premium P2를 구입하지 않았거나 구독이 만료된 경우에는 테넌트에서 Azure AD PIM을 더 이상 사용할 수 없게 됩니다.  [Azure AD PIM 구독 요구 사항](./privileged-identity-management/subscription-requirements.md)에서 자세히 살펴볼 수 있습니다.
+일반적 가용성에 도달하기 전에 Azure AD PIM은 미리 보기에 있었으며, 테넌트에서 Azure AD PIM을 미리 볼 수 있는 라이선스 검사가 없었습니다.  Azure AD PIM이 일반 공급 상태가 되면 PIM을 계속 사용할 수 있게 테넌트 관리자에게 평가판 또는 유료 라이선스를 할당해야 합니다.  조직에서 Azure AD Premium P2를 구입하지 않았거나 평가 기간이 만료된 경우에는 테넌트에서 Azure AD PIM 기능 거의 대부분을 더 이상 사용할 수 없게 됩니다.  [Azure AD PIM 구독 요구 사항](./privileged-identity-management/subscription-requirements.md)에서 자세히 살펴볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -115,9 +118,9 @@ Azure AD Privileged Identity Management로 각 역할에 영구 또는 적격 �
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
 [3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
+[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 

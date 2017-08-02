@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 456d3e4e81b9773545d194b38a5f58ff97cc7b25
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -395,6 +395,54 @@ ms.lasthandoff: 06/21/2017
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Cassandra 테이블</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>일반 ODBC 자산으로 게시</font></td>
+    </tr>
+    <tr>
+      <td>Cassandra 뷰</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>일반 ODBC 자산으로 게시</font></td>
+    </tr>
+    <tr>
+      <td>Sybase 테이블</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Sybase 뷰</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>MongoDB 테이블</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>일반 ODBC 자산으로 게시</font></td>
+    </tr>
+    <tr>
+      <td>MongoDB 뷰</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>일반 ODBC 자산으로 게시</font></td>
     </tr>
 </table>
 
@@ -906,6 +954,22 @@ ms.lasthandoff: 06/21/2017
       <td>테이블, 뷰</td>
       <td>
         <font size=2> 프로토콜: odbc <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 옵션 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>컨테이너</td>
+      <td>데이터베이스</td>
+      <td>
+        <font size=2> 프로토콜: sybase <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>테이블</td>
+      <td>테이블, 뷰</td>
+      <td>
+        <font size=2> 프로토콜: sybase <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 서버 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 </font>
       </td>
     </tr>
     <tr>

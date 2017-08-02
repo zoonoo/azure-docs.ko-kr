@@ -1,10 +1,10 @@
 ---
 title: "ESP8266에서 클라우드로 - Feather HUZZAH ESP8266을 Azure IoT Hub에 연결 | Microsoft Docs"
-description: "IoT 자산을 관리하는 데 도움이 되는 Microsoft 클라우드 서비스인 Azure IoT Hub에 Arduino 장치(Adfruit Feather HUZZAH ESP8266)를 연결하는 방법을 설명합니다."
+description: "이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Adafruit Feather HUZZAH ESP8266를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0969e78a69c73c29ecfddcf0de0ebeeeed8acd60
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -84,7 +84,16 @@ Local network gateway = ClassicVNetLocal <br>
 
 ## <a name="classicvnet"></a>1. 클래식 VNet 설정 구성
 
-이 섹션에서는 클래식 VNet에 대한 로컬 네트워크(로컬 사이트) 및 가상 네트워크 게이트웨이를 만듭니다. 클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다. VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우에는 먼저 VPN 게이트웨이를 삭제한 후 진행합니다.
+이 섹션에서는 클래식 VNet에 대한 로컬 네트워크(로컬 사이트) 및 가상 네트워크 게이트웨이를 만듭니다. 클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
+
+포털을 사용하여 클래식 가상 네트워크를 만들 때 다음 단계를 사용하여 가상 네트워크 블레이드로 이동해야 합니다. 그렇지 않으면 가상 네트워크를 만드는 옵션이 표시되지 않습니다.
+
+1. '+'를 클릭하여 '새로 만들기' 블레이드를 엽니다.
+2. ‘Marketplace 검색’ 필드에 ‘가상 네트워크’를 입력합니다. 대신, 네트워킹 -> 가상 네트워크를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
+3. 반환된 목록에서 ‘가상 네트워크’를 찾아서 클릭하여 가상 네트워크 블레이드를 엽니다. 
+4. 가상 네트워크 블레이드에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 
+
+VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우에는 먼저 VPN 게이트웨이를 삭제한 후 진행합니다.
 
 스크린샷은 예제로 제공됩니다. 값을 사용자의 값으로 대체하거나 [예제](#values) 값을 사용합니다.
 

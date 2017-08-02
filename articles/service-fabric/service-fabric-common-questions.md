@@ -3,7 +3,7 @@ title: "Microsoft Azure Service Fabric에 대한 일반적인 질문 | Microsoft
 description: "다음은 Service Fabric에 대해 자주 묻는 몇 가지 질문과 그에 대한 답변입니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: chackdan
 manager: timlt
 editor: 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
+ms.date: 06/20/2017
+ms.author: chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f9a8984400378d154a504af8a41609900128d052
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>AD FS 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기
@@ -105,7 +104,7 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
    &lt;add key="ClientValidationEnabled" value="true" /&gt;
    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
    <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-   <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:AADInstance" value="https://login.microsoftonline.com" /&gt;</del></mark>
    <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
    <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
@@ -349,7 +348,7 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
 ## <a name="connect-to-on-premises-data"></a>온-프레미스 데이터 연결
 Azure Active Directory 대신 AD FS를 사용하여 LOB(기간 업무) 응용 프로그램을 구현하는 이유는 조직의 데이터를 오프-프레미스로 유지하는 경우의 규정 준수 문제 때문입니다. 이는 [SQL 데이터베이스](/services/sql-database/) 를 웹앱의 데이터 계층으로 사용할 수 없어 Azure의 웹앱에서 온-프레미스 데이터베이스에 액세스해야 함을 의미할 수도 있습니다.
 
-Azure App Service Web Apps은 [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [가상 네트워크](web-sites-integrate-with-vnet.md)의 두 가지 방법으로 온-프레미스 데이터베이스 액세스를 지원합니다. 자세한 내용은 [Azure App Service Web Apps에서 VNET 통합 및 하이브리드 연결 사용](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)을 참조하세요.
+Azure App Service Web Apps는 [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [가상 네트워크](web-sites-integrate-with-vnet.md)의 두 가지 방법으로 온-프레미스 데이터베이스 액세스를 지원합니다. 자세한 내용은 [Azure App Service Web Apps에서 VNET 통합 및 하이브리드 연결 사용](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)을 참조하세요.
 
 <a name="bkmk_resources"></a>
 

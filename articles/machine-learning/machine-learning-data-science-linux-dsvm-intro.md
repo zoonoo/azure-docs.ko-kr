@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 프로비전
@@ -130,7 +129,7 @@ R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중
 
 R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi, gedit 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
-또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R**을 입력하여 이 스크립트를 실행할 수 있습니다.  
+또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
@@ -313,7 +312,7 @@ Vowpal Wabbit은 온라인, 해시, allreduce, 축소, learning2search, 활성 �
 
 R 라이브러리뿐만 아니라 명령줄로도 제공됩니다.
 
-R에서 이 라이브러리를 사용하려면 셸에서 **R**을 입력하여 대화형 R 세션을 시작하고 라이브러리를 로드합니다.
+R에서 이 라이브러리를 사용하려면 셸에서 **R** 을 입력하여 대화형 R 세션을 시작하고 라이브러리를 로드합니다.
 
 R 프롬프트에서 실행할 수 있는 간단한 예제는 다음과 같습니다.
 
@@ -341,7 +340,7 @@ xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgbo
 #### <a name="rattle"></a>Rattle
 Rattle(**R** **A**nalytical **T**ool **T**o **L**earn **E**asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
 
-Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 ```R```을 입력하여 R 환경을 설정합니다. R 프롬프트에서 다음 명령을 입력합니다.
+Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 ```R``` 을 입력하여 R 환경을 설정합니다. R 프롬프트에서 다음 명령을 입력합니다.
 
     library(rattle)
     rattle()
@@ -356,8 +355,8 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 1. **실행**을 클릭합니다.
 2. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
 3. **모델** 탭을 클릭합니다.
-4. **실행**을 클릭하여 의사 결정 트리를 빌드합니다.
-5. **그리기**를 클릭하여 의사 결정 트리를 표시합니다.
+4. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
+5. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
 6. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
 7. **평가** 탭을 클릭합니다.
 8. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
@@ -373,6 +372,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * [Linux 데이터 과학 가상 컴퓨터의 데이터 과학](machine-learning-data-science-linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
-* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
+* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 
 

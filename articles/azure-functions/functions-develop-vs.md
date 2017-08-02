@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/13/2017
 ms.author: glenga, donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8b569727c51589bd622d41465bb3565220c19fca
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0de18c51914409df0bb690c2a4e3d8bf429cce66
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -56,7 +56,7 @@ Azure Functions 도구를 설치하기 전에 다음 워크로드 중 하나를 
 
 ## <a name="create-an-azure-functions-project"></a>Azure Functions 프로젝트 만들기 
 
-[!INCLUDE [Create a project using the Azure Functions ](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 
 ## <a name="configure-the-project-for-local-development"></a>로컬 개발에 대한 프로젝트 구성
@@ -65,13 +65,17 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
 
 * **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) 참조 문서를 참조하세요.
     
-* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, Azure Functions 핵심 도구에서 사용됩니다. 이 파일을 사용하여 연결 문자열과 같은 설정을 다른 Azure 서비스에 지정합니다. 프로젝트에서 함수에 필요한 각 연결에 대한 **값** 배열에 새 키를 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 토픽의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
+* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용하여 연결 문자열과 같은 설정을 다른 Azure 서비스에 지정합니다. 프로젝트에서 함수에 필요한 각 연결에 대한 **값** 배열에 새 키를 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 토픽의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
 
-함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 저장소 계정 연결 문자열을 설정하려면 다음을 수행합니다.
+함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정으로 이동하고 **모든 설정** > **액세스 키**를 클릭한 다음, 사용자 키 중 하나에 대한 **연결 문자열**을 복사합니다. 
+[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-2. Visual Studio의 사용자 프로젝트에서 local.settings.json 프로젝트 파일을 열고 **AzureWebJobsStorage** 키의 값을 복사한 연결 문자열로 설정합니다.
+ 저장소 계정 연결 문자열을 설정하려면 다음을 수행합니다.
+
+1. Visual Studio에서 **클라우드 탐색기**를 열고 **저장소 계정** > **저장소 계정**을 확장한 후 **속성**을 선택하고 **기본 연결 문자열** 값을 복사합니다.   
+
+2. 사용자 프로젝트에서 local.settings.json 프로젝트 파일을 열고 **AzureWebJobsStorage** 키의 값을 복사한 연결 문자열로 설정합니다.
 
 3. 이전 단계를 반복하여 사용자의 함수에 필요한 다른 연결에 대한 **값** 배열에 고유 키를 추가합니다.  
 
@@ -85,7 +89,7 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    local.settings.json 파일에 정의된 **QueueStorage**라고 명명된 연결 문자열 키가 제공됩니다. 클래스 이름 
+    local.settings.json 파일에 정의된 **QueueStorage**라고 명명된 연결 문자열 키가 제공됩니다. 
  
 3. 새로 추가된 클래스를 검사합니다. **FunctionName** 특성으로 보이는 정적 **실행** 메서드가 표시됩니다. 이 특성은 메서드가 함수에 대한 진입점임을 나타냅니다. 
 
@@ -125,8 +129,17 @@ Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functi
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+>[!NOTE]  
+>local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 자동으로 추가되지 않습니다. 다음 방법 중 하나로 필요한 설정을 함수 앱에 추가할 수 있습니다.
+>
+>* [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
+>* [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용
+>* [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#set) 
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions 도구에 대한 자세한 내용은 [Azure Functions에 대한 Visual Studio 2017 도구](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) 블로그 게시물의 일반적인 질문 섹션을 참조하세요.
 
-Azure Functions 핵심 도구에 대한 자세한 내용은 [Azure Functions를 로컬로 코딩 및 테스트](functions-run-local.md)를 참조하세요.
+Azure Functions 핵심 도구에 대한 자세한 내용은 [Azure Functions를 로컬로 코딩 및 테스트](functions-run-local.md)를 참조하세요.  
+.NET 클래스 라이브러리로 기능을 개발하는 방법에 대해 자세히 알아보려면 [Azure Functions에서 .NET 클래스 라이브러리 사용](functions-dotnet-class-library.md)을 참조하세요. 이 항목에서는 특성을 사용하여 Azure Functions에서 지원하는 다양한 유형의 바인딩을 선언하는 방법의 예를 제공합니다.    
+

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -94,7 +96,7 @@ ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
    |:--- |:--- |
    |  이름 |**이름** 열에는 검색된 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
    |  장치 |**장치** 열은 호스트 컴퓨터에 연결된 장치의 IP 주소를 포함합니다. |
-   |  장치 볼륨 이름 |**장치 볼륨 이름** 열은 선택한 볼륨이 속한 장치 볼륨의 이름을 포함합니다. 이 이름은 해당 특정 볼륨에 대해 Azure 클래식 포털에서 정의한 볼륨 이름입니다. |
+   |  장치 볼륨 이름 |**장치 볼륨 이름** 열은 선택한 볼륨이 속한 장치 볼륨의 이름을 포함합니다. 이 이름은 해당 특정 볼륨에 대해 Azure Portal에서 정의한 볼륨 이름입니다. |
    |  액세스 경로 |**액세스 경로** 열은 볼륨에 대한 액세스 경로를 표시합니다. 호스트 컴퓨터에서 볼륨에 액세스할 수 있는 드라이브 문자 또는 탑재 지점입니다. |
 
 ## <a name="delete-a-volume"></a>볼륨 삭제
@@ -102,8 +104,6 @@ ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 > [!NOTE]
 > 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
-> 
-> 
 
 #### <a name="to-delete-a-volume"></a>볼륨을 삭제하려면
 1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
@@ -162,7 +162,7 @@ ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 ### <a name="prerequisites"></a>필수 조건
 시작하기 전에
 
-* StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
+* StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
 * StorSimple Snapshot Manager 설치 및 구성 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 * StorSimple 장치에 두 볼륨을 구성합니다. (예제에서 사용할 수 있는 볼륨은 **디스크 1** 및 **디스크 2**입니다.) 
 
@@ -212,9 +212,4 @@ ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

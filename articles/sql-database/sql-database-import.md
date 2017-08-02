@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/07/2017
+ms.date: 06/26/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4ddbeb78208d8e32fe5e505f396fbfec4e5d6c0a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -48,8 +48,7 @@ Azure Portal을 사용하여 가져오려면 해당 데이터베이스의 페이
 
 가져오기 작업의 진행률을 모니터링하려면 가져올 데이터베이스에 논리 서버의 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **가져오기/내보내기** 기록을 클릭합니다.
    
-   ![가져오기](./media/sql-database-import/import-history.png)
-   ![가져오기 상태](./media/sql-database-import/import-status.png)
+   ![가져오기](./media/sql-database-import/import-history.png) ![가져오기 상태](./media/sql-database-import/import-status.png)
 
 데이터베이스가 서버에서 라이브 상태인지 확인하려면 **SQL 데이터베이스**를 클릭하고 새 데이터베이스를 **온라인** 상태인지 확인합니다.
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 07/11/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,30 +48,14 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 * **[가상 네트워크 게이트웨이 및 연결 문제 해결](network-watcher-troubleshoot-manage-rest.md)** - 가상 네트워크 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
 * **[네트워크 구독 제한](#network-subscription-limits)** - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 * **[진단 로그 구성](#diagnostic-logs)** – 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
+* **[연결(미리 보기)](network-watcher-connectivity-overview.md)** - 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지 확인합니다.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Network Watcher의 RBAC(역할 기반 액세스 제어)
 
 Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
 
-|리소스| 사용 권한|
-|---|---|
-|Microsoft.Storage/ |읽기|
-|Microsoft.Authorization/| 읽기|
-|Microsoft.Resources/subscriptions/resourceGroups/| 읽기|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | 작업|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |작업|
-|Microsoft.Storage/storageAccounts/listKeys/ | 작업|
-|Microsoft.Compute/virtualMachines/ |읽기|
-|Microsoft.Compute/virtualMachines/ |쓰기|
-|Microsoft.Compute/virtualMachineScaleSets/ |읽기|
-|Microsoft.Compute/virtualMachineScaleSets/ |쓰기|
-|Microsoft.Network/networkWatchers/packetCaptures/| 읽기|
-|Microsoft.Network/networkWatchers/packetCaptures/| 쓰기|
-|Microsoft.Network/networkWatchers/packetCaptures/| 삭제|
-|Microsoft.Network/networkWatchers/ |쓰기|
-|Microsoft.Network/networkWatchers/| 읽기|
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Resource| Permission| | |---|---| | |Microsoft.
+|Microsoft.Storage/ |Read| | |Microsoft.Authorization/| Read| | |Microsoft.Resources/subscriptions/resourceGroups/| Read| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Action| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Action| | |Microsoft.Storage/storageAccounts/listKeys/ | Action| | |Microsoft.Compute/virtualMachines/ |Read| | |Microsoft.Compute/virtualMachines/ |Write| | |Microsoft.Compute/virtualMachineScaleSets/ |Read| | |Microsoft.Compute/virtualMachineScaleSets/ |Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Read| | |Microsoft.Network/networkWatchers/packetCaptures/| Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Delete| | |Microsoft.Network/networkWatchers/ |Write| | |Microsoft.Network/networkWatchers/| Read| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
 
 ### <a name="network-subscription-limits"></a>네트워크 구독 제한
 
@@ -123,6 +108,8 @@ Network Watcher에 대해 알아보았으면 다음을 익힐 수 있습니다.
 [경고로 인해 발생한 패킷 캡처](network-watcher-alert-triggered-packet-capture.md)를 사용하여 자동 관리 모니터링 및 진단을 수행합니다.
 
 오픈 소스 도구를 사용하는 [Wireshark로 패킷 캡처 분석](network-watcher-deep-packet-inspection.md)을 통해 보안 취약점을 감지합니다.
+
+Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

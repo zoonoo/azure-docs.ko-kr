@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5c22c2d8c00882c45ecc2991916e389b2a00586d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 62cd62ec3a2900f06acacc0852a48b5e3ff1c8cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Linux에서 Azure File Storage 문제 해결
@@ -84,11 +83,11 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 ### <a name="cause"></a>원인
 
-Linux 배포는 아직 SMB 3.0의 암호화 기능을 지원하지 않습니다. 일부 배포에서는 사용자가 SMB 3.0을 사용하여 Azure File Storage를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다.
+일부 Linux 배포에서는 SMB 3.0의 암호화 기능이 아직 지원되지 않으므로 사용자가 SMB 3.0을 사용하여 Azure File Storage를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다.
 
 ### <a name="solution"></a>해결 방법
 
-Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storage 계정과 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure File Storage를 탑재합니다.
+Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 게시 당시, 이 기능은 Ubuntu 17.04 및 Ubuntu 16.10으로 백포팅되었습니다. Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storage 계정과 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure File Storage를 탑재합니다.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM에 탑재된 Azure 파일 공유의 성능 저하
@@ -111,18 +110,7 @@ Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storag
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](storage-how-to-use-files-linux.md#mount-the-file-share)의 mount 명령을 실행하여 은 Azure File Storage를 분리했다가 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
-
-<a id="error11"></a>
-## <a name="mount-error11-resource-temporarily-unavailable-when-youre-mounting-to-an-ubuntu-48-kernel"></a>Ubuntu 4.8 커널에 탑재하는 경우 “탑재 오류(11): 리소스를 일시적으로 사용할 수 없음”
-
-### <a name="cause"></a>원인
-
-Ubuntu 16.10 커널(버전 4.8)에서 클라이언트는 암호화를 지원하는 것으로 문서화되어 있지만 실제로는 그렇지 않습니다.
-
-### <a name="solution"></a>해결 방법
-
-Ubuntu 16.10이 수정될 때까지 `vers=2.1` 탑재 옵션을 지정하거나 Ubuntu 16.04를 사용합니다.
+**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 은 Azure File Storage를 분리했다가 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Windows에서 Linux로 파일을 복사할 때 타임 스탬프 손실됨

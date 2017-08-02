@@ -1,5 +1,4 @@
 ---
-
 title: "Azure 보안 기술 기능 | Microsoft Docs"
 description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 549f11d3d55d13f3a2ddf7bd0a2bc58e527d1d11
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -196,7 +194,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 | ----------------  | ----------------- | ----------------- | --------------- |
 | 서버 암호화 | 서버 암호화 | 서버 암호화 | 클라이언트 암호화
 | 서비스 관리 키를 사용하는 서버 쪽 암호화 | Azure Key Vault의 고객 관리 키를 사용하는 서버 쪽 암호화 | 온-프레미스 고객 관리 키를 사용하는 서버 쪽 암호화 |
-| •    Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행 <br> •    Microsoft에서 키 관리 <br>•    전체 클라우드 기능 | •    Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행<br>•    고객이 Azure Key Vault를 통해 키 제어<br>•    전체 클라우드 기능 | •    Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행 <br>•    고객이 온-프레미스에서 키 제어 <br> •    전체 클라우드 기능| •    Azure 서비스에서 해독된 데이터를 볼 수 없음 <br>•    고객이 온-프레미스(또는 다른 보안 저장소)에서 키 유지. 키를 Azure 서비스에서 사용할 수 없습니다. <br>•    클라우드 기능 제한|
+| • Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행 <br> •    Microsoft에서 키 관리 <br>•    전체 클라우드 기능 | •    Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행<br>•  고객이 Azure Key Vault를 통해 키 제어<br>• 전체 클라우드 기능 | •    Azure 리소스 공급자가 암호화 및 암호 해독 작업 수행 <br>• 고객이 온-프레미스에서 키 제어 <br> •  전체 클라우드 기능| • Azure 서비스에서 해독된 데이터를 볼 수 없음 <br>•  고객이 온-프레미스(또는 다른 보안 저장소)에서 키 유지. 키를 Azure 서비스에서 사용할 수 없습니다. <br>• 클라우드 기능 제한|
 
 ### <a name="enabling-encryption-at-rest"></a>휴지 상태의 암호화 사용
 
@@ -419,7 +417,7 @@ OMS를 사용하면 경쟁력 있는 솔루션보다 저렴한 비용으로 온-
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
-이 방법을 사용하면 다양한 소스의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
+이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

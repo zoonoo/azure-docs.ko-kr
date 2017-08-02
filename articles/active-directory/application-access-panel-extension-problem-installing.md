@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,11 +36,11 @@ ms.lasthandoff: 05/26/2017
 
 -   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
+-   Windows 10 Anniversary Edition 이상 Edge 
+
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
 -   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
-
-**참고**: 브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 
@@ -60,11 +60,11 @@ ms.lasthandoff: 05/26/2017
 
 7.  액세스 패널에 로그인하고 암호 SSO 응용 프로그램을 **시작**할 수 있는지 확인합니다.
 
-아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
+아래와 같은 직접 링크에서 Chrome 및 Edge에 대한 확장을 다운로드할 수 있습니다.
 
 -   [Chrome 액세스 패널 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox 액세스 패널 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Edge 액세스 패널 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Internet Explorer에 대한 그룹 정책 설정
 

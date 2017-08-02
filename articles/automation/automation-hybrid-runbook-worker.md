@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/29/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 5cd863c3e357b67d281adb8484376295ad9099ec
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9faa1c9d40c50b2ed70d5574f3fde79dad71c9e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -57,9 +57,9 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 * 작업이 완료되면 작업 데이터가 Azure 자동화로 다시 전송되므로 자동화 계정 지역이나 그와 가까운 위치에 있는 컴퓨터를 사용하는 것이 좋습니다.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>프록시 및 방화벽 설정 구성
-온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md#network) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft OMS(Operations Management Suite) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md#network) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
-아래 정보는 Hybrid Runbook Worker에서 자동화와 통신하는 데 필요한 포트 및 URL을 나열합니다.
+아래 정보는 Hybrid Runbook Worker에서 Automation과 통신하는 데 필요한 포트 및 URL을 나열합니다.
 
 * 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
 * 글로벌 URL: *.azure-automation.net

@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: a1b824ce7898323c007ee24e852f9649da24e741
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET 변경 피드](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -52,6 +52,10 @@ ms.lasthandoff: 06/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
+* 파티션 분할 동안 요청 처리에 대한 중요한 버그 수정.
+* Strong 및 BoundedStaleness 일관성 수준 관련 문제를 수정했습니다.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * 분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
@@ -167,6 +171,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |2017년 7월 11일 |--- |
 | [1.11.0](#1.11.0) |2017년 5월 10일 |--- |
 | [1.10.0](#1.10.0) |2017년 3월 11일 |--- |
 | [1.9.6](#1.9.6) |2017년 2월 21일 |--- |

@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 146495393d5ed356a2ad3b6ce181a30e8b2ae997
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c0b5968189512d3ca936c0e916274e1df057afb9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sap-netweaver-on-azure-windows-virtual-machines-vms--planning-and-implementation-guide"></a>Azure Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 계획 및 구현 가이드
@@ -440,8 +439,8 @@ Azure에 SAP 시스템을 성공적으로 배포하려면 온-프레미스 SAP �
 
 각 집합의 VM은 동시에 배포해야 하며 각 집합의 VM 이름이 동일해야 합니다.
 
-### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>프레미스 간 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포
-![사이트 간 연결이 있는 VPN(프레미스 간)][planning-guide-figure-300]
+### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포
+![사이트 간 연결이 있는 VPN(크로스 프레미스)][planning-guide-figure-300]
 
 이 시나리오는 가능한 여러 배포 패턴을 포함하는 프레미스 간 시나리오입니다. 간단히 말해서 온-프레미스에서 SAP 지형의 일부를 실행하고 SAP 지형의 다른 부분을 Azure에서 실행하는 것으로 설명할 수 있습니다. SAP 구성 요소 중 일부가 Azure에서 실행된다는 사실의 모든 측면이 최종 사용자에게 투명하게 공개되어야 합니다. 따라서 SAP Transport Correction System(STMS), RFC 통신, 인쇄, 보안(예: SSO) 등은 Azure에서 실행되는 SAP 시스템에서 원활하게 작동합니다. 그러나 프레미스 간 시나리오도 고객의 도메인 및 DNS가 Azure로 확장된 상태로 Azure에서 전체 SAP 지형이 실행되는 시나리오를 설명합니다.
 
@@ -733,7 +732,7 @@ Express 경로는 여기에 설명된 것처럼 단일 Express 경로 회로를 
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
-#### <a name="forced-tunneling-in-case-of-cross-premise"></a>프레미스 간 강제 터널링
+#### <a name="forced-tunneling-in-case-of-cross-premises"></a>크로스 프레미스 강제 터널링
 사이트 간, 지점 및 사이트 간 또는 Express 경로를 통해 온-프레미스 도메인에 가입된 VM의 경우 모든 사용자를 위해 인터넷 프록시 설정이 배포되는지 확인해야 합니다. 기본적으로 해당 VM에서 실행되는 소프트웨어나 브라우저를 사용하여 인터넷에 액세스하는 사용자는 회사 프록시를 거치지 않으며 Azure를 통해 인터넷에 바로 연결됩니다. 하지만 프록시를 확인하는 것은 소프트웨어 및 서비스의 책임이므로 프록시 설정만으로 트래픽이 회사 프록시를 통과해서 전송되도록 할 수 있는 것은 아닙니다. VM에서 실행되는 소프트웨어가 이러한 작업을 수행하지 않으며 관리자가 설정을 조작하므로 인터넷에 대한 트래픽은 다시 Azure에서 인터넷으로 직접 우회될 수 있습니다.
 
 이 문제를 방지하기 위해 온-프레미스와 Azure 사이에 사이트 간 연결이 사용되는 강제 터널링을 구성할 수 있습니다. 강제 터널링 기능에 대한 자세한 설명은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>에 게시되어 있습니다.
@@ -873,7 +872,7 @@ Azure 마켓플레이스에서 Microsoft 또는 타사에서 제공한 VM 이미
 VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충족하는지 확인해야 합니다. 사용되는 배포 방법에 따라 약간의 차이가 있습니다.
 
 #### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비
-일반적인 배포 방법은 SAP 시스템을 실행하는 기존 VM을 온-프레미스에서 Azure으로 이동하는 것입니다. 해당 VM 및 VM의 SAP 시스템은 동일한 호스트 이름과 거의 동일한 SAP SID를 사용하여 Azure에서 실행되어야 합니다. 이 경우 다중 배포를 위해 VM의 게스트 OS를 일반화해야 합니다. 온-프레미스 네트워크가 Azure로 확장된 경우(이 문서의 [프레미스 간 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장 참조) 온-프레미스 이전에 사용된 것과 같은 동일한 도메인 계정을 VM 내에서 사용할 수도 있습니다.
+일반적인 배포 방법은 SAP 시스템을 실행하는 기존 VM을 온-프레미스에서 Azure으로 이동하는 것입니다. 해당 VM 및 VM의 SAP 시스템은 동일한 호스트 이름과 거의 동일한 SAP SID를 사용하여 Azure에서 실행되어야 합니다. 이 경우 다중 배포를 위해 VM의 게스트 OS를 일반화해야 합니다. 온-프레미스 네트워크가 Azure로 확장된 경우(이 문서의 [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장 참조) 온-프레미스 이전에 사용된 것과 같은 동일한 도메인 계정을 VM 내에서 사용할 수도 있습니다.
 
 고유한 Azure VM 디스크를 준비할 때의 요구 사항은 다음과 같습니다.
 
@@ -883,7 +882,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. OS 디스크의 동일한 크기 제한이 데이터 디스크에도 적용됩니다. VHD의 최대 크기는 1TB일 수 있습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * Microsoft 기술 지원 서비스에서 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 응용 프로그램이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
-* 이 배포 방법과 함께 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포][planning-guide-2.1] 장 참조)를 사용하는 경우 Azure 디스크가 Azure에 배포되면 도메인 계정이 작동하지 않을 수 있습니다. DBMS 또는 SAP 응용 프로그램과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. [프레미스 간 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 프레미스 간 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 되지 않습니다.
+* 이 배포 방법과 함께 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포][planning-guide-2.1] 장 참조)를 사용하는 경우 Azure 디스크가 Azure에 배포되면 도메인 계정이 작동하지 않을 수 있습니다. DBMS 또는 SAP 응용 프로그램과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 크로스 프레미스 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 되지 않습니다.
 * 시스템을 온-프레미스에서 실행할 때 도메인 계정을 DBMS 로그인 또는 사용자로 사용하고 해당 VM을 클라우드 전용 시나리오에서 배포해야 할 경우 도메인 사용자를 삭제해야 합니다. 로컬 관리자와 다른 VM 로컬 사용자가 관리자 권한이 있는 로그인/사용자로 DBMS에 추가되는지도 확인해야 합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 
@@ -911,7 +910,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 [comment]: <> (MShermannd TODO - CLI가 static으로 변환되는지도 확인해야 합니다.)
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. OS 디스크의 동일한 크기 제한이 데이터 디스크에도 적용됩니다. VHD의 최대 크기는 1TB일 수 있습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
-* VM에 사용자로 등록된 모든 도메인 사용자가 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포][planning-guide-2.1] 장 참조)에 존재하는 것은 아니므로 이미지가 Azure에 배포되면 이러한 도메인 계정을 사용하는 서비스가 작동하지 않을 수 있습니다. DBMS 또는 SAP 응용 프로그램과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. 이 문서의 [프레미스 간 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 프레미스 간 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 않을 수 있습니다.
+* VM에 사용자로 등록된 모든 도메인 사용자가 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포][planning-guide-2.1] 장 참조)에 존재하는 것은 아니므로 이미지가 Azure에 배포되면 이러한 도메인 계정을 사용하는 서비스가 작동하지 않을 수 있습니다. DBMS 또는 SAP 응용 프로그램과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 크로스 프레미스 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 되지 않습니다.
 * Microsoft 기술 지원 서비스에서 문제를 조사하는 데 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 응용 프로그램이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
 * 클라우드 전용 배포이면서 시스템을 온-프레미스에서 실행할 때 도메인 계정을 DBMS 로그인 또는 사용자로 사용하는 경우 도메인 사용자를 삭제해야 합니다. 로컬 관리자와 다른 VM 로컬 사용자가 관리자 권한이 있는 로그인/사용자로 DBMS에 추가되는지도 확인해야 합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
@@ -1916,7 +1915,7 @@ SAP 시스템 내의 다른 VM은 Azure 가상 컴퓨터 백업 기능을 사용
 >
 
 ### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>프로덕션 SAP 지형에 대한 DR 사이트로 사용되는 Azure
-2014년 중순부터 Hyper-V, System Center 및 Azure와 관련한 다양한 구성 요소가 확장되면서 Azure를 Hyper-V를 기준으로 온-프레미스에서 실행되는 VM에 대한 DR 사이트로 사용할 수 있게 되었습니다.
+2014년 중반부터 Hyper-V, System Center 및 Azure와 관련한 다양한 구성 요소가 확장되면서 Azure를 Hyper-V를 기준으로 온-프레미스에서 실행되는 VM에 대한 DR 사이트로 사용할 수 있게 되었습니다.
 
 이 솔루션을 배포하는 방법을 자세하게 설명하는 블로그는 다음에 설명되어 있습니다. <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>
 

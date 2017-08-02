@@ -7,18 +7,18 @@ documentationcenter: na
 author: luywang
 manager: kavithag
 ms.assetid: 
-ms.service: <service per approved list>
+ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 522fd46e8c0ccc64eb97ee6622e9886bb51f1e24
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8cd91893003e3c24f7e3be99d457c0cb98775e89
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/15/2017
 
 Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치(failover)하여 응용 프로그램과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치(failover)를 제공합니다. 데이터 손상을 최소화하면서(복제 빈도에 따라) 예기치 않은 재해에 대해 장애 조치(failover)를 실행할 수 있습니다. Premium Storage로의 마이그레이션 시나리오에서 Azure Site Recovery의 [Site Recovery에서 장애 조치(Failover)](../site-recovery/site-recovery-failover.md)를 사용하여 대상 디스크를 프리미엄 저장소 계정으로 마이그레이션할 수 있습니다.
 
-이 옵션은 최소한의 가동 중지 시간을 제공하고 디스크를 복사하고 새 VM을 만드는 수동 실행을 방지하기 때문에 Site Recovery를 사용하여 Premium Storage로 마이그레이션하는 것이 좋습니다. Site Recovery는 체계적으로 디스크를 복사하고 장애 조치(failover) 중 새 VM을 만듭니다. Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 없이 다양한 유형의 장애 조치(failover)를 지원합니다. 가동 중지 시간을 계획하고 데이터 손실을 예상하려면 Site Recovery에서 [장애 조치(failover) 유형](../site-recovery/site-recovery-failover.md) 테이블을 참조하세요. [장애 조치(failover) 후 Azure VM에 연결을 준비](../site-recovery/site-recovery-vmware-to-azure.md#prepare-vms-for-replication)하는 경우 장애 조치(failover) 후 RDP를 사용하여 Azure VM에 연결할 수 있어야 합니다.
+이 옵션은 최소한의 가동 중지 시간을 제공하고 디스크를 복사하고 새 VM을 만드는 수동 실행을 방지하기 때문에 Site Recovery를 사용하여 Premium Storage로 마이그레이션하는 것이 좋습니다. Site Recovery는 체계적으로 디스크를 복사하고 장애 조치(failover) 중 새 VM을 만듭니다. Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 없이 다양한 유형의 장애 조치(failover)를 지원합니다. 가동 중지 시간을 계획하고 데이터 손실을 예상하려면 Site Recovery에서 [장애 조치(failover) 유형](../site-recovery/site-recovery-failover.md) 테이블을 참조하세요. [장애 조치(failover) 후 Azure VM에 연결을 준비](../site-recovery/site-recovery-vmware-to-azure.md)하는 경우 장애 조치(failover) 후 RDP를 사용하여 Azure VM에 연결할 수 있어야 합니다.
 
 ![][1]
 
@@ -35,11 +35,11 @@ Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 
 
 다음은 이 마이그레이션 시나리오와 관련된 Site Recovery 구성 요소입니다.
 
-* **구성 서버**는 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리하는 Azure VM입니다. 이 VM에서 단일 설치 파일을 실행하여 구성 서버 및 복제 게이트웨이로 프로세스 서버라는 추가 구성 요소를 설치합니다. [구성 서버 필수 조건](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites)을 읽어보세요. 구성 서버는 한 번만 구성되어야 하고 동일한 지역에 대한 모든 마이그레이션에 사용할 수 있습니다.
+* **구성 서버**는 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리하는 Azure VM입니다. 이 VM에서 단일 설치 파일을 실행하여 구성 서버 및 복제 게이트웨이로 프로세스 서버라는 추가 구성 요소를 설치합니다. [구성 서버 필수 조건](../site-recovery/site-recovery-vmware-to-azure.md)을 읽어보세요. 구성 서버는 한 번만 구성되어야 하고 동일한 지역에 대한 모든 마이그레이션에 사용할 수 있습니다.
 
 * **프로세스 서버**는 원본 VM에서 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 데이터를 최적화하고 이를 저장소 계정에 보내는 복제 게이트웨이입니다. 또한 원본 VM에 대한 모바일 서비스의 푸시 설치를 처리하며 원본 VM의 자동 복구를 수행합니다. 기본 프로세스 서버가 구성 서버에 설치됩니다. 추가 독립 실행형 프로세스 서버를 배포하여 배포를 확장할 수 있습니다. [프로세스 서버 배포에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) 및 [추가 프로세스 서버 배포](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)를 읽어보세요. 프로세스 서버는 한 번만 구성되어야 하고 동일한 지역에 대한 모든 마이그레이션에 사용할 수 있습니다.
 
-* **모바일 서비스**는 복제하려는 모든 표준 VM에 배포되는 구성 요소입니다. 표준 VM에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다. [복제된 컴퓨터 필수 조건](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites)을 읽어보세요.
+* **모바일 서비스**는 복제하려는 모든 표준 VM에 배포되는 구성 요소입니다. 표준 VM에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다. [복제된 컴퓨터 필수 조건](../site-recovery/site-recovery-vmware-to-azure.md)을 읽어보세요.
 
 이 그래픽은 이러한 구성 요소가 어떻게 상호 작용하는지 보여 줍니다.
 
@@ -90,7 +90,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
     ![][5]
 
-    3c. 구성 서버로 사용 중인 VM에서 통합 설치 프로그램을 실행하여 구성 서버 및 프로세스 서버를 설치합니다. [여기](../site-recovery/site-recovery-vmware-to-azure.md#set-up-the-source-environment)의 스크린샷을 따라 설치를 완료할 수 있습니다. 이 마이그레이션 시나리오에 지정된 단계에 다음 스크린샷을 참조할 수 있습니다.
+    3c. 구성 서버로 사용 중인 VM에서 통합 설치 프로그램을 실행하여 구성 서버 및 프로세스 서버를 설치합니다. [여기](../site-recovery/site-recovery-vmware-to-azure.md)의 스크린샷을 따라 설치를 완료할 수 있습니다. 이 마이그레이션 시나리오에 지정된 단계에 다음 스크린샷을 참조할 수 있습니다.
 
     **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택합니다.
 
@@ -114,7 +114,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
     Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 복제된 데이터에 Premium Storage 계정을 사용하는 경우 복제 로그를 저장하는 추가 Standard 저장소 계정을 설정해야 합니다.
 
-5. **복제 설정을 지정합니다**. [복제 설정 지정](../site-recovery/site-recovery-vmware-to-azure.md#set-up-replication-settings)의 단계를 따라 구성 서버가 사용자가 만든 복제 정책에 성공적으로 연결되었는지 확인합니다.
+5. **복제 설정을 지정합니다**. [복제 설정 지정](../site-recovery/site-recovery-vmware-to-azure.md)의 단계를 따라 구성 서버가 사용자가 만든 복제 정책에 성공적으로 연결되었는지 확인합니다.
 
 6. **용량 계획**. [Capacity Planner](../site-recovery/site-recovery-capacity-planner.md)를 사용하여 복제 요구 사항에 맞도록 네트워크 대역폭, 저장소 및 기타 요구 사항을 정확하게 예측합니다. 작업을 마쳤으면 **용량 계획을 완료하셨나요?**에서 **예**를 선택합니다.
 
@@ -122,11 +122,11 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 7. 다음은 **모바일 서비스를 설치하고 복제를 사용하도록 설정**하는 단계입니다.
 
-    7a. 원본 VM에 [강제 설치](../site-recovery/site-recovery-vmware-to-azure.md#prepare-for-automatic-discovery-and-push-installation)하거나 또는 원본 VM에 [모바일 서비스를 수동으로 설치](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md)하도록 선택할 수 있습니다. 제공된 링크에서 강제 설치의 요구 사항 및 수동 설치 관리자의 경로를 확인할 수 있습니다. 수동 설치를 수행하는 경우 구성 서버를 찾기 위해 내부 IP 주소를 사용해야 할 수 있습니다.
+    7a. 원본 VM에 [강제 설치](../site-recovery/site-recovery-vmware-to-azure.md)하거나 또는 원본 VM에 [모바일 서비스를 수동으로 설치](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md)하도록 선택할 수 있습니다. 제공된 링크에서 강제 설치의 요구 사항 및 수동 설치 관리자의 경로를 확인할 수 있습니다. 수동 설치를 수행하는 경우 구성 서버를 찾기 위해 내부 IP 주소를 사용해야 할 수 있습니다.
 
     ![][12]
 
-    실패한 VM에는 두 개의 임시 디스크(주 VM의 임시 디스크 및 복구 영역에서 VM의 프로비전 중 만들어진 임시 디스크)가 있습니다. 복제하기 전에 임시 디스크를 제외하려면 복제를 활성화하기 전에 모바일 서비스를 설치합니다. 임시 디스크를 제외하는 방법에 대한 자세한 내용은 [복제에서 디스크 제외](../site-recovery/site-recovery-vmware-to-azure.md#exclude-disks-from-replication)를 참조하세요.
+    실패한 VM에는 두 개의 임시 디스크(주 VM의 임시 디스크 및 복구 영역에서 VM의 프로비전 중 만들어진 임시 디스크)가 있습니다. 복제하기 전에 임시 디스크를 제외하려면 복제를 활성화하기 전에 모바일 서비스를 설치합니다. 임시 디스크를 제외하는 방법에 대한 자세한 내용은 [복제에서 디스크 제외](../site-recovery/site-recovery-vmware-to-azure.md)를 참조하세요.
 
     7b. 이제 다음과 같이 복제를 활성화합니다.
       * **응용 프로그램 복제** > **원본**을 클릭합니다. 처음으로 복제를 활성화한 후 자격 증명 모음에서 +복제를 클릭하여 추가 컴퓨터에 대해 복제를 활성화합니다.
@@ -144,7 +144,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
     Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 저장소 계정을 사용하는 것이 좋습니다. [각 가용성 집합에 여러 저장소 계정 사용](../virtual-machines/windows/manage-availability.md)을 위해서는 저장소 계층의 모범 사례를 따는 것이 좋습니다. 여러 저장소 계정에 VM 디스크를 배포하면 저장소의 가용성이 향상되고 Azure 저장소 인프라 전반에 걸쳐 I/O가 배포됩니다. VM이 모든 VM의 디스크를 하나의 저장소 계정으로 복제하는 대신 가용성 집합에 있는 경우 동일한 가용성 집합에 있는 VM이 단일 저장소 계정을 공유하지 않도록 여러 VM을 여러 번 마이그레이션하는 것이 좋습니다. **복제 활성화** 블레이드를 사용하여 한 번에 하나씩 각 VM에 대해 대상 저장소 계정을 설정합니다. 필요에 따라 장애 조치(failover) 후 배포 모델을 선택할 수 있습니다. 장애 조치(failover) 후 배포 모델로 RM(리소스 관리자)을 선택하는 경우 RM VM을 RM VM으로 장애 조치(failover)하거나 클래식 VM을 RM VM으로 장애 조치(failover)할 수 있습니다.
 
-8. **테스트 장애 조치(failover)를 실행합니다**. 복제가 완료되었는지 여부를 확인하려면 해당 Site Recovery를 클릭한 다음 **설정** > **복제된 항목**을 클릭합니다. 복제 프로세스의 상태 및 백분율이 표시됩니다. 초기 복제가 완료된 후 테스트 장애 조치(Failover)를 실행하여 복제 전략의 유효성을 검사합니다. 테스트 장애 조치(failover)의 자세한 단계는 [Site Recovery에서 테스트 장애 조치(failover) 실행](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover)을 참조하세요. **설정** > **작업** > **YOUR_FAILOVER_PLAN_NAME**에서 테스트 장애 조치(failover)의 상태를 볼 수 있습니다. 블레이드에 단계의 분석 및 성공/실패 결과가 표시됩니다. 어느 단계에서 테스트 장애 조치(failover)가 실패하는 경우 단계를 클릭하여 오류 메시지를 확인합니다. 장애 조치(failover)를 실행하기 전에 VM 및 복제 전략이 요구 사항을 충족해야 합니다. 테스트 장애 조치(failover)에 대한 자세한 내용 및 지침을 보려면 [Azure Site Recovery로의 테스트 장애 조치(failover)](../site-recovery/site-recovery-test-failover-to-azure.md)를 읽어보세요.
+8. **테스트 장애 조치(failover)를 실행합니다**. 복제가 완료되었는지 여부를 확인하려면 해당 Site Recovery를 클릭한 다음 **설정** > **복제된 항목**을 클릭합니다. 복제 프로세스의 상태 및 백분율이 표시됩니다. 초기 복제가 완료된 후 테스트 장애 조치(Failover)를 실행하여 복제 전략의 유효성을 검사합니다. 테스트 장애 조치(failover)의 자세한 단계는 [Site Recovery에서 테스트 장애 조치(failover) 실행](../site-recovery/site-recovery-vmware-to-azure.md)을 참조하세요. **설정** > **작업** > **YOUR_FAILOVER_PLAN_NAME**에서 테스트 장애 조치(failover)의 상태를 볼 수 있습니다. 블레이드에 단계의 분석 및 성공/실패 결과가 표시됩니다. 어느 단계에서 테스트 장애 조치(failover)가 실패하는 경우 단계를 클릭하여 오류 메시지를 확인합니다. 장애 조치(failover)를 실행하기 전에 VM 및 복제 전략이 요구 사항을 충족해야 합니다. 테스트 장애 조치(failover)에 대한 자세한 내용 및 지침을 보려면 [Azure Site Recovery로의 테스트 장애 조치(failover)](../site-recovery/site-recovery-test-failover-to-azure.md)를 읽어보세요.
 
 9. **장애 조치(Failover) 실행**. 테스트 장애 조치(failover)가 완료되면 장애 조치(failover)를 실행하여 Premium Storage로 디스크를 마이그레이션하고 VM 인스턴스를 복제합니다. [장애 조치(Failover) 실행](../site-recovery/site-recovery-failover.md#run-a-failover)에 나와 있는 자세한 단계를 따르세요. **VM 종료 및 최신 데이터 동기화**를 선택하여 Site Recovery가 보호된 VM을 종료하고 데이터를 동기화하여 최신 버전의 데이터가 장애 조치되도록 지정해야 합니다. 이 옵션을 선택하지 않거나 시도가 성공하지 못하면 장애 조치(failover)가 VM에 대해 사용 가능한 최신 복구 지점에서 시작됩니다. Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 유사한 VM 인스턴스를 만듭니다. [Windows Virtual Machines 가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 또는 [Linux Virtual Machines 가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)으로 이동하여 다양한 VM 인스턴스의 성능 및 가격을 확인할 수 있습니다.
 
@@ -154,7 +154,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
   * 클래식 배포 모델을 사용하여 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 컴퓨터를 가용성 집합에 추가](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set)로 이동하세요.
   * 리소스 관리자 배포 모델의 경우: VM의 구성을 저장한 다음 가용성 집합에서 VM을 삭제하고 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트의 한계를 확인하고 스크립트를 실행하기 전에 가동 중지 시간을 계획합니다.
 
-2. **이전 VM 및 디스크를 삭제합니다**. 삭제하기 전에 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행하는지 확인하세요. RM(리소스 관리자) 배포 모델에서 VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. 클래식 배포 모델에서 클래식 포털 또는 Azure Portal의 VM 및 디스크를 삭제할 수 있습니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 있는 경우 [RM 배포에서 VHD를 삭제할 때 오류 문제 해결](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) 또는 [클래식 배포에서 VHD 삭제 문제 해결](storage-cannot-delete-storage-account-container-vhd.md)을 참조하세요.
+2. **이전 VM 및 디스크를 삭제합니다**. 삭제하기 전에 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행하는지 확인하세요. RM(리소스 관리자) 배포 모델에서 VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. 클래식 배포 모델에서 클래식 포털 또는 Azure Portal의 VM 및 디스크를 삭제할 수 있습니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 있는 경우 [RM 배포에서 VHD를 삭제할 때 오류 문제 해결](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)을 참조하세요.
 
 3. **Azure Site Recovery 인프라를 정리합니다**. Site Recovery가 더 이상 필요하지 않은 경우 복제된 항목, 구성 서버 및 복구 정책을 삭제한 후 Azure Site Recovery 자격 증명 모음을 삭제하여 해당 인프라를 정리할 수 있습니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -32,12 +32,6 @@ ms.lasthandoff: 07/06/2017
 
 | 카운터 범주 | 카운터 이름 |
 | --- | --- |
-| PhysicalDisk(합계) | 평균 디스크 읽기 큐 길이 |
-| PhysicalDisk(합계) | 평균 디스크 쓰기 큐 길이 |
-| PhysicalDisk(합계) | 디스크 읽기/초  |
-| PhysicalDisk(합계) | 디스크 읽기 바이트/초  |
-| PhysicalDisk(합계) | 디스크 쓰기/초 |
-| PhysicalDisk(합계) | 디스크 쓰기 바이트/초 |
 | PhysicalDisk(디스크당) | 평균 디스크 읽기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 쓰기 큐 길이 |
 | PhysicalDisk(디스크당) | 평균 디스크 초/읽기 |
@@ -85,6 +79,6 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Service Fabric에서 [인프라 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대한 자세한 내용
+* Service Fabric에서 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
 * [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 통해 성능 메트릭 수집
 

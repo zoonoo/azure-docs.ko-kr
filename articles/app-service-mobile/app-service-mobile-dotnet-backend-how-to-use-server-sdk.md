@@ -4,8 +4,8 @@ description: "Azure 앱 서비스 모바일 앱용 .NET 백 엔드 서버 SDK를
 keywords: "앱 서비스, Azure 앱 서비스, 모바일 앱, 모바일 서비스, 규모, 확장성, 앱 배포, Azure 앱 배포"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fcbaa0df29fac22917695046ebc4015f3abf108f
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 657fea16e47c15efd262c86d6a150a721476134a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용
@@ -118,17 +117,12 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. 이 패키지는 Azure 포털에서 사용할 수 있는 Mobile Apps 빠른 시작에서 사용됩니다.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
-   웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지*를 구현합니다. bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2">  **</bpt>AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)
-   데이터로 작업하기 위한 클래스를 포함하고 데이터 파이프라인을 설정합니다. **AddTables** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/)
-   SQL Database에서 데이터를 액세스하는 Entity Framework를 사용할 수 있도록 합니다. **AddTablesWithEntityFramework** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.Authentication] 인증을 사용할 수 있도록 하고 토큰의 유효성을 검사하는 데 사용되는 OWIN 미들웨어를 설정합니다. **AddAppServiceAuthentication**
-   및 **IAppBuilder**.**UseAppServiceAuthentication** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지* 를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 데이터로 작업하기 위한 클래스를 포함하고 데이터 파이프라인을 설정합니다. **AddTables** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL 데이터베이스에서 데이터를 액세스하는 Entity Framework를 사용할 수 있도록 합니다. **AddTablesWithEntityFramework** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.Authentication] 인증을 사용할 수 있도록 하고 토큰의 유효성을 검사하는 데 사용되는 OWIN 미들웨어를 설정합니다. **AddAppServiceAuthentication** 및 **IAppBuilder**.**UseAppServiceAuthentication** 확장 메서드를 호출하여 구성에 추가합니다.
 * [Microsoft.Azure.Mobile.Server.Notifications] 푸시 알림을 사용할 수 있도록 하며 푸시 등록 끝점을 정의합니다. **AddPushNotifications** 확장 메서드를 호출하여 구성에 추가합니다.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)
-   모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2">  **</bpt>MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. **MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
 * [Microsoft.Azure.Mobile.Server.Login]은 사용자 지정 인증 시나리오 동안 사용되는 정적 메서드인 AppServiceLoginHandler.CreateToken() 메서드를 제공합니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
@@ -478,5 +472,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-
 

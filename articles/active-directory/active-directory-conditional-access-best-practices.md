@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 07/12/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
@@ -29,11 +29,28 @@ ms.lasthandoff: 06/22/2017
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>내 정책에 사용자를 할당해야 합니까?
+### <a name="whats-required-to-make-a-policy-work"></a>정책을 작동하는 데 무엇이 필요한가요?
 
-조건부 액세스 정책을 구성할 때는 적어도 하나의 그룹을 할당해야 합니다. 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다.
+새 정책을 만들 경우 선택된 사용자, 그룹, 앱 또는 액세스 제어가 없습니다.
 
-여러 사용자와 그룹을 정책에 할당하려는 경우 하나의 사용자 또는 그룹을 할당하여 소규모로 시작한 후에 구성을 테스트해야 합니다. 그런 다음 정책이 예상대로 작동하면 해당 정책에 추가로 할당할 수 있습니다.  
+![클라우드 앱](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+정책이 작동되려면 다음을 구성해야 합니다.
+
+
+|대상           | 방법                                  | 이유|
+|:--            | :--                                  | :-- |
+|**클라우드 앱** |앱을 하나 이상 선택해야 합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 앱에 액세스하는 방법을 구체적으로 조정할 수 있도록 하는 것입니다.|
+| **사용자 및 그룹** | 선택한 클라우드 앱에 액세스할 수 있도록 허가된 사용자 또는 그룹을 하나 이상 선택해야 합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
+| **액세스 제어** | 하나 이상의 액세스 제어를 선택해야 합니다. | 정책 프로세서는 조건이 충족될 경우 수행할 작업을 알고 있어야 합니다.|
+
+
+이러한 기본 요구 사항 외에도 대부분의 경우 조건도 구성해야 합니다. 구성된 조건 없이도 정책이 작동할 수 있지만 조건은 앱에 대한 액세스 권한을 보다 구체적으로 조정하기 위한 구동 요인입니다.
+
+
+![클라우드 앱](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### <a name="how-are-assignments-evaluated"></a>할당은 어떻게 평가됩니까?

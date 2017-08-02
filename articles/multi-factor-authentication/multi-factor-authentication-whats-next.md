@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
-ms.lasthandoff: 04/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 92e4c7d5a873cd75cdc32e1feeede71bd5e37f40
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정

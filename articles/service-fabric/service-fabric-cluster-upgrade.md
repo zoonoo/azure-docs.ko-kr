@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
@@ -207,7 +206,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 을 참조하세요.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 패치
-[패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows Update에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
+[패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows 업데이트에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 업그레이드
 클러스터의 가상 컴퓨터의 OS 이미지를 업그레이드해야 하는 경우 한 번에 하나의 VM에 이 작업을 수행하고 이 업그레이드에 대한 책임을 져야 합니다. 현재 자동화 기능은 없습니다.

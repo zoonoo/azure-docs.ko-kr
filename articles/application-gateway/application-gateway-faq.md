@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dbf870ca6e0ab85c96290a93eafd47d4b574dbc7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -57,7 +56,11 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 **Q. HTTP->HTTPS 리디렉션이 지원되나요?**
 
-현재는 지원되지 않습니다.
+리디렉션은 지원됩니다. 자세한 내용은 [Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 참조하세요.
+
+**Q. 수신기는 어떤 순서로 처리되나요?**
+
+수신기는 표시된 순서대로 처리됩니다. 따라서 기본 수신기가 들어오는 요청과 일치하는 경우 맨 먼저 처리됩니다.  트래픽이 올바른 백 엔드로 라우팅되려면 다중 사이트 수신기를 기본 수신기보다 먼저 구성해야 합니다.
 
 **Q. Application Gateway의 IP 및 DNS는 어디에서 확인하나요?**
 
@@ -130,6 +133,10 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 **Q. 사용자 지정 프로브가 응답 데이터에 와일드 카드/regex를 지원하나요?**
 
 사용자 지정 프로브는 응답 데이터에 와일드 카드 또는 regex를 지원하지 않습니다.
+
+**Q. 규칙은 어떻게 처리되나요?**
+
+규칙은 구성된 순서대로 처리됩니다. 기본 규칙은 다중 사이트 규칙보다 먼저 포트를 기준으로 트래픽과 일치하는지 평가되므로 트래픽이 잘못된 백 엔드로 라우팅될 가능성을 줄이려면 기본 규칙보다 먼저 다중 사이트 규칙을 구성하는 것이 좋습니다.
 
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 

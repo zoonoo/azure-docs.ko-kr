@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/19/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 47fc62c767230f56c88a453fce168d74eb762a50
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 79b0405f57fd2221f897ded042a111236006c6e0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop을 사용하여 HDInsight의 Hadoop과 SQL Database 간에 데이터 가져오기 및 내보내기
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/09/2017
 Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL Database 또는 Microsoft SQL Server Database 사이에서 가져오기 및 내보내기를 수행하는 방법을 알아봅니다. 이 문서의 단계에서는 Hadoop 클러스터의 헤드에서 직접 `sqoop` 명령을 사용합니다. SSH를 사용하여 헤드 노드에 연결하고 이 문서의 명령을 실행합니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="install-freetds"></a>FreeTDS 설치
 
@@ -110,28 +109,33 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 1. SSH와 클러스터 간 연결에서 다음 명령을 사용하여 Sqoop이 SQL Database를 볼 수 있는지 확인합니다.
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
     ```
+    확인 메시지가 표시되면 SQL Database 로그인의 암호를 입력합니다.
 
     이 명령은 앞에서 만든 **sqooptest** 데이터베이스를 포함한 데이터베이스 목록이 반환됩니다.
 
 2. **hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보내려면 다음 명령을 사용합니다.
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
     이 명령은 Sqoop에 **sqooptest** 데이터베이스에 연결하도록 지시합니다. 그러면 Sqoop은 **wasbs:///hive/warehouse/hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보냅니다.
 
+    > [!IMPORTANT]
+    > 클러스터의 기본 저장소가 Azure Storage 계정이면 `wasb:///`를 사용합니다. Azure Data Lake Store이면 `adl:///`을 사용합니다.
+
 3. 명령이 완료되면 다음 명령과 TSQL을 사용하여 데이터베이스에 연결합니다.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P -p 1433 -D sqooptest
     ```
 
     연결되면 다음 명령문을 사용하여 데이터가 **mobiledata** 테이블로 내보내기되었는지 확인합니다.
 
     ```sql
+    SET ROWCOUNT 50;
     SELECT * FROM mobiledata
     GO
     ```
@@ -160,10 +164,7 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 
 * HDInsight와 SQL Server가 모두 동일한 Azure Virtual Network에 있어야 합니다.
 
-    데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
-
-  > [!NOTE]
-  > **지점 및 사이트 간** 가상 네트워크를 사용할 경우 SQL Server는 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. VPN 클라이언트는 Azure Virtual Network 구성의 **대시보드**에서 사용할 수 있습니다.
+    예제를 보려면 [온-프레미스 네트워크에 HDInsight 연결](./connect-on-premises-network.md) 문서를 참조하세요.
 
     HDInsight와 함께 Azure Virtual Network를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요. Azure Virtual Network에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md) 문서를 참조하세요.
 

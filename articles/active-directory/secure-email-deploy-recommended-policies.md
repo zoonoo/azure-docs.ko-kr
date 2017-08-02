@@ -1,22 +1,25 @@
 ---
-title: "Azure AD 전자 메일 보안에 대한 권장 정책 배포 | Microsoft Docs"
-description: "전자 메일 정책 및 구성을 적용하는 방법에 대한 Microsoft 권장 사항 배포에 대해 설명합니다."
+title: "보안 전자 메일에 대한 권장 정책 배포 | Microsoft Docs"
+description: "전자 메일 보안 정책 및 구성을 배포하기 위한 Microsoft 권장 사항 및 핵심 개념을 설명합니다."
 author: jeffgilb
+manager: femila
+editor: jsnow
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
-ms.author: pnp
+ms.date: 07/12/2017
+ms.author: jeffgilb
+ms.reviewer: jsnow
+ms.custom: it-pro
 pnp.series.title: Best Practices
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 08f72f1ba219946486a0fc62ea74cb338f5a85b6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a5eb77c68c48e9cca2805fa64075279560179e14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="deploy-recommended-policies"></a>권장되는 정책 배포
+# <a name="deploy-recommended-secure-email-policies"></a>권장되는 보안 전자 메일 정책 배포
 
 이 섹션에서는 새로 프로비저닝된 환경에 권장 정책을 배포하는 방법을 설명합니다. 이러한 정책을 별도의 랩 환경에서 설정하면 사전 프로덕션 및 프로덕션 환경에 롤아웃을 준비하기 전에 권장 정책을 이해하고 평가할 수 있습니다. 새로 프로비저닝된 환경은 클라우드 전용 또는 하이브리드일 수 있습니다.  
 
@@ -27,7 +30,7 @@ ms.lasthandoff: 06/07/2017
 
 특정 사용자 그룹에 대해 Azure AD 및 Intune 정책 모두를 지정할 수 있습니다. 앞서 정의한 정책을 단계별로 진행하는 것이 좋습니다. 이렇게 하면 정책 및 정책 대비 지원 팀의 성과의 유효성을 점진적으로 검사할 수 있습니다.
 
-## <a name="baseline-ca-policy"></a>기준 CA 정책
+## <a name="baseline-conditional-access-policy"></a>기본 조건부 액세스 정책
 
 새로운 조건부 액세스 정책을 만들려면 관리자 자격 증명으로 Microsoft Azure Portal에 로그인합니다. 그런 다음 **Azure Active Directory > 보안 > 조건부 액세스**로 이동합니다. 
 
@@ -95,7 +98,7 @@ Intune 관리 포털에서 Exchange Online 전용 조건부 액세스 정책을 
 
 파일럿 프로젝트가 완료되면 조직의 모든 사용자에게 이러한 정책을 적용해야 합니다.
 
-## <a name="sensitive-ca-policy"></a>중요한 CA 정책
+## <a name="sensitive-conditional-access-policy"></a>중요 조건부 액세스 정책
 
 ### <a name="low-and-above-risk-requires-mfa"></a>낮음 이상 위험에 MFA 필요
 다음 테이블에서는 낮음 이상 위험 정책에 구현할 조건부 액세스 정책 설정을 설명합니다.
@@ -126,7 +129,7 @@ Intune 관리 포털에서 Exchange Online 전용 조건부 액세스 정책을 
 
 파일럿 프로젝트가 완료되면 중요한 것으로 간주되는 전자 메일에 대한 액세스가 필요한 조직 내 사용자에게 이러한 정책을 적용해야 합니다.
 
-## <a name="highly-regulated-ca-policy"></a>강력하게 규제되는 CA 정책
+## <a name="highly-regulated-conditional-access-policy"></a>강력 규제 조건부 액세스 정책
 ### <a name="mfa-required"></a>필요한 MFA
 
 다음 테이블에서는 강력하게 규제되는 정책에 구현할 조건부 액세스 정책 설정을 설명합니다.
@@ -329,5 +332,5 @@ Intune 관리 포털에서 Exchange Online 전용 조건부 액세스 정책을 
 전역 관리자 또는 보안 관리자 역할을 갖는 조직 내의 사용자는 Azure AD ID 보호를 사용하여 계산된 위험 점수에 기여한 위험한 이벤트를 검토할 수 있습니다. 의심스러운 것으로 플래그가 표시된 일부 이벤트를 식별했지만 유효한 것으로 확인된 경우(예: 직원이 휴가 중에 생소한 위치에서 로그인) 관리자는 해당 이벤트가 위험 점수에 더 이상 기여하지 않도록 이벤트를 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[EMS 및 Office 365 서비스 설명](secure-email-ems-office365-service-descriptions.md)
+[Office 365 및 EMS 서비스에 대해 자세히 알아보기](secure-email-ems-office365-service-descriptions.md)
 

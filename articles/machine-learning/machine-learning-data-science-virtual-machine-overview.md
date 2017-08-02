@@ -1,6 +1,6 @@
 ---
 title: "데이터 과학 가상 컴퓨터란? | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터를 시작하는 방법, 주요 시나리오, 기능 및 분석을 위해 준비된 환경과 도구 키트에 대해 알아봅니다."
+description: "데이터 과학 가상 컴퓨터에서 주요 분석 시나리오를 수행하는 방법"
 keywords: "데이터 과학 도구, 데이터 과학 가상 컴퓨터, 데이터 과학용 도구, linux 데이터 과학"
 services: machine-learning
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: gokuma
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
-ms.lasthandoff: 04/15/2017
-
+ms.date: 07/21/2017
+ms.author: gokuma;bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 6a1bde07ea04445849674712361892f5783c0f2d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 클라우드 기반 데이터 과학 가상 컴퓨터에 대한 소개
@@ -119,7 +119,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 
 
 
-## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM을 시작하는 방법
+## <a name="get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM 시작
 * [이 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/)로 이동하고 녹색 **가상 컴퓨터 만들기**를 선택하여 Windows에서 VM 인스턴스를 생성합니다.
 * VM을 생성할 때 지정해둔 자격 증명을 사용하여 원격 데스크톱에서 VM에 로그인합니다.
 * 사용할 수 있는 도구를 검색하고 시작하려면 **시작** 메뉴를 클릭합니다.

@@ -1,6 +1,6 @@
 ---
-title: "Azure의 데이터 과학 가상 컴퓨터 | Microsoft Docs"
-description: "데이터 과학 가상 컴퓨터 설정"
+title: "Azure 데이터 과학 가상 컴퓨터를 IPython Notebook 서버로 프로비전 | Microsoft Docs"
+description: "지원 도구를 사용하여 데이터 과학 가상 컴퓨터를 IPython Notebook 서버로 설정합니다."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 12/20/2016
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Azure의 데이터 과학 가상 컴퓨터
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Azure 데이터 과학 가상 컴퓨터를 IPython Notebook 서버로 프로비전
 Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정하는 방법을 설명하는 지침이 제공됩니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure 저장소로 데이터를 업로드하거나 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다. 
 
 이 메뉴는 [TDSP(팀 데이터 과학 프로세스)](data-science-process-overview.md)에서 사용되는 다양한 데이터 과학 환경의 설정 방법을 설명하는 항목에 연결됩니다.

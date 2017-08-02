@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b8c60d60862ecc546d60043508fe2b500c86818c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3ff3e5aab679f8ee610c98f8a4089308adcce48f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>자습서: Azure Active Directory와 FreshGrade 통합
@@ -112,7 +111,7 @@ FreshGrade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. 
+    a. **로그온 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |    
@@ -141,7 +140,27 @@ FreshGrade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png) 
 
-7. **FreshGrade** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 **SAML Single Sign-On 서비스 URL**을 [FreshGrade 지원 팀](mailTo:support@freshgrade.com)으로 보내야 합니다. 그러면 SAML SSO 연결이 양쪽에 제대로 설정되도록 지정합니다.
+7. **메타데이터** URL을 생성하려면 다음 단계를 수행합니다.
+
+    a. **앱 등록**을 클릭합니다.
+    
+    ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appregistrations.png)
+   
+    b. **끝점**을 클릭하여 **끝점** 대화 상자를 엽니다.  
+    
+    ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpointicon.png)
+
+    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여넣습니다.
+    
+    ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpoint.png)
+     
+    ㄹ. 이제 **FreshGrade**의 속성 페이지로 이동하고 **복사** 단추를 사용하여 **응용 프로그램 ID**를 복사하여 메모장에 붙여 넣습니다.
+ 
+    ![Single Sign-on 구성](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appid.png)
+
+    e. `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 패턴을 사용하여 **메타데이터 URL**을 생성합니다.
+
+8. **FreshGrade** 쪽에서 Single Sign-On을 구성하려면 **메타데이터 URL** 및 **SAML Single Sign-On 서비스 URL**을 [FreshGrade 지원 팀](mailTo:support@freshgrade.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

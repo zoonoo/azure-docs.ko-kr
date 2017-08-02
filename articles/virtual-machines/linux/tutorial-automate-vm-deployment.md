@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 8d7d69fb6a27dfac3c96fb6bc811cad6a531e24e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: facead3c038ad9ba8c7b8a9c0e02e38f9f92fd96
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -101,7 +101,7 @@ runcmd:
   - nodejs index.js
 ```
 
-cloud-init 구성 옵션에 대한 자세한 내용은 [cloud-init 구성 예제](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]를 참조하세요.
+cloud-init 구성 옵션에 대한 자세한 내용은 [cloud-init 구성 예제](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)를 참조하세요.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 VM을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.

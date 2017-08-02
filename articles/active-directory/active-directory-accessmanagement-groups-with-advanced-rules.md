@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: dac95b5866aa165587009062064ca135b9255ab2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 720fd28f7ff5d1bc1c3a32cb98d5d7e1eb88e816
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -255,7 +254,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | managementType |임의의 문자열 값입니다. |(device.managementType -eq "") |
 | organizationalUnit |임의의 문자열 값입니다. |(device.organizationalUnit -eq "") |
 | deviceId |유효한 deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId |유효한 AAD objectId입니다. |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| objectId |유효한 AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bacd2ccb08d20c4e0457d9fc83468e747cde870
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a0cc641d5c2667b22ded2da8f803199cc959dc58
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure 자동화에서 Runbook 시작
@@ -190,10 +191,5 @@ jsmith
 ## <a name="next-steps"></a>다음 단계
 * 현재 문서의 Runbook 아키텍처는 Hybrid Runbook Worker를 사용하여 Azure 및 온-프레미스에서 리소스를 관리하는 runbook의 대략적인 개요를 제공합니다.  데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
 * 특정 또는 일반 함수에 대해 다른 Runbook에서 사용될 모듈식 Runbook 만들기에 대한 자세한 내용은 [자식 Runbook](automation-child-runbooks.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

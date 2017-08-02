@@ -2,7 +2,7 @@
 title: "Azure 진단 로그 | Microsoft Docs"
 description: "Azure 진단 로그란 무엇이고 Azure 리소스 내에서 발생하는 이벤트를 파악하는 데 어떻게 사용할 수 있는지 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: johnkem; magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2517972b63bbd1a552fe591e937c9e34db580865
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Azure 리소스에서 진단 데이터 수집 및 소비
@@ -45,7 +44,7 @@ ms.lasthandoff: 07/06/2017
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hubs**로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
 * [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
+로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비-계산 리소스에 대한 진단 로그를 구성합니다. **진단 설정** :
@@ -86,7 +85,7 @@ Windows 또는 Linux Azure 진단 확장을 사용하여 계산 리소스 유형
 비-계산 리소스에 대해, 다음을 수행하여 리소스를 만든 후 Azure 포털에서 진단 로그를 사용하도록 설정할 수 있습니다.
 
 1. 리소스에 대한 블레이드로 이동하고 **진단** 블레이드를 엽니다.
-2. **켜기** 를 클릭하고 저장소 계정 및/또는 이벤트 허브를 선택합니다.
+2. **켜기**를 클릭하고 저장소 계정 및/또는 이벤트 허브를 선택합니다.
 
    ![리소스 생성 후에 진단 로그 사용](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3. **로그** 아래에서 수집 또는 스트림할 **로그 범주**를 선택합니다.
@@ -98,23 +97,23 @@ Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하려�
 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
 
-이벤트 허브로 진단 로그의 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
+이벤트 허브로의 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-서비스 버스 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다.
+서비스 버스 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다.
 
 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 다음 명령을 사용하여 Log Analytics 작업 공간의 리소스 ID를 가져올 수 있습니다.
@@ -131,23 +130,23 @@ Azure CLI를 통해 진단 로그를 사용하도록 설정하려면 다음 명�
 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 ```
 
 저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
 
-이벤트 허브로 진단 로그의 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
+이벤트 허브로의 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
-서비스 버스 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다.
+서비스 버스 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다.
 
 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 ```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.

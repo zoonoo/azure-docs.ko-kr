@@ -12,15 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
-ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Azure Mobile Engagement iOS SDK 릴리스 정보
+
+## <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* 백그라운드에서 지워진 배지를 수정했습니다.
+* 기본 큐에서 호출되지 않는 API에 대한 XCode 9의 경고를 수정했습니다.
+* 도달률 설문에서 메모리 누수를 해결했습니다.
+* iOS 6.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로그램의 배포 대상은 iOS 7 이상이어야 합니다.
+
 ## <a name="401-12132016"></a>4.0.1 (12/13/2016)
 * 백그라운드에서 로그 전달을 개선하였습니다.
 
@@ -28,7 +36,7 @@ ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 * iOS 10 장치에서 알림이 작동하지 않는 문제를 해결했습니다.
 * XCode 7은 더 이상 사용되지 않습니다.
 
-## <a name="324-06302016"></a>3.2.4(2016년&6;월&30;일)
+## <a name="324-06302016"></a>3.2.4(2016년 6월 30일)
 * 기술 로그 및 기타 로그 간 집계를 수정했습니다.
 
 ## <a name="323-06072016"></a>3.2.3(06/07/2016)
@@ -70,10 +78,4 @@ ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 * 장치 간에 메시지를 보내고 받기 위한 API가 제거되었습니다.
 * 보안이 개선되었습니다.
 * SmartAd 추적 기능이 제거되었습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

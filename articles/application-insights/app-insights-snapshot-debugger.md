@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a499f1d5f3a53a0cafb9056c9b5a4d164f80d8c5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcc5cc0be4c03ad661cf1539cb98a7d4fc94e778
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
@@ -71,16 +70,39 @@ ms.lasthandoff: 07/04/2017
 
 2. [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
-3. 응용 프로그램의 `Startup` 클래스에서 `ConfigureServices` 메서드를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가합니다.
+3. 응용 프로그램의 `Startup` 클래스에서 `ConfigureServices` 메서드를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가합니다. 추가해야 하는 코드는 Microsoft.ApplicationInsights.ASPNETCore NuGet 패키지의 참조된 버전에 따라 달라집니다.
+
+   Microsoft.ApplicationInsights.AspNetCore 2.1.0의 경우 다음을 추가합니다.
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
    class Startup
    {
-       // This method gets called by the runtime. Use this method to add services to the container.
+       // This method is called by the runtime. Use it to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
            services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
+           // TODO: Add any other services your application needs here.
+       }
+   }
+   ```
+
+   Microsoft.ApplicationInsights.AspNetCore 2.1.1의 경우 다음을 추가합니다.
+   ```C#
+   using Microsoft.ApplicationInsights.SnapshotCollector;
+   ...
+   class Startup
+   {
+       private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
+       {
+           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
+               new SnapshotCollectorTelemetryProcessor(next);
+       }
+
+       // This method is called by the runtime. Use it to add services to the container.
+       public void ConfigureServices(IServiceCollection services)
+       {
+            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
            // TODO: Add any other services your application needs here.
        }
    }
@@ -117,11 +139,14 @@ Owners of the Azure subscription can inspect snapshots. Other users must be gran
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. On the Application Insights navigation menu, select **Access Control (IAM)**.
-2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user or group.
+1. Open the Access Control (IAM) blade.
+1. Click the +Add button.
+1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Search for and enter a name for the user to add.
+1. Click the Save button to add the user to the role.
 
-    >[!IMPORTANT] 
+
+[!IMPORTANT]
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal

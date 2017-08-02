@@ -1,10 +1,10 @@
 ---
-title: "Node.js 알아보기 - Azure Cosmos DB Node.js 자습서 | Microsoft Docs"
-description: "Node.js에 대해 알아봅니다. 자습서에서는 Microsoft Azure Cosmos DB를 사용하여 Azure Websites에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다."
-keywords: "응용 프로그램 개발, 데이터베이스 자습서, node.js 알아보기, node.js 자습서, documentdb, azure, Microsoft azure"
+title: "Azure Cosmos DB용 Node.js 웹앱 빌드 | Microsoft Docs"
+description: "이 Node.js 자습서에서는 Microsoft Azure Cosmos DB를 사용하여 Azure Websites에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다."
+keywords: "응용 프로그램 개발, 데이터베이스 자습서, node.js 알아보기, node.js 자습서"
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 511c9e4d6f68b3e063559acb5996111acd3c653f
+ms.date: 07/06/2017
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dd5ba797fe973dddc16231f42d5f561e1956b91c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
@@ -50,7 +49,7 @@ ms.lasthandoff: 05/31/2017
 
    또는
 
-   [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 로컬 설치
+   [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 로컬 설치(Windows만 해당)
 * [Node.js][Node.js] 버전 v0.10.29 이상
 * [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 * [Git][Git].
@@ -62,7 +61,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램을 만드는 방법 알아보기
+## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램 만들기
 이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
 1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
@@ -435,69 +434,76 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 
 1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다. 
 2. **views** 폴더에 있는 **layout.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     이렇게 하면 응용 프로그램에 대한 일부 HTML을 렌더링하고 콘텐츠 페이지의 레이아웃을 제공할 수 있는 **콘텐츠**라는 **블록**을 만들도록 **Jade** 엔진에 알립니다.
+
     이 **layout.jade** 파일을 저장하고 닫습니다.
 
 3. 이제 응용 프로그램에 사용되는 뷰인 **index.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
-   
-        extends layout
-        block content
-           h1 #{title}
-           br
-        
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
-   
+
+    ```
+    extends layout
+    block content
+      h1 #{title}
+      br
+    
+      form(action="/completetask", method="post")
+        table.table.table-striped.table-bordered
+          tr
+            td Name
+            td Category
+            td Date
+            td Complete
+          if (typeof tasks === "undefined")
+            tr
+              td
+          else
+            each task in tasks
+              tr
+                td #{task.name}
+                td #{task.category}
+                - var date  = new Date(task.date);
+                - var day   = date.getDate();
+                - var month = date.getMonth() + 1;
+                - var year  = date.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+        button.btn(type="submit") Update tasks
+      hr
+      form.well(action="/addtask", method="post")
+        label Item Name:
+        input(name="name", type="textbox")
+        label Item Category:
+        input(name="category", type="textbox")
+        br
+        button.btn(type="submit") Add item
+    ```
+
     이렇게 하면 레이아웃이 확장되고 앞에서 **layout.jade** 파일에 있던 **content** 자리 표시자의 콘텐츠가 제공됩니다.
    
-    이 레이아웃에서 HTML 폼 두 개를 만들었습니다. 
+    이 레이아웃에서 HTML 폼 두 개를 만들었습니다.
+
     첫 번째 폼에는 데이터에 대한 테이블 및 컨트롤러의 **/completetask** 메서드에 게시하여 항목을 업데이트할 수 있게 해주는 단추 및 데이터 테이블이 포함됩니다.
+    
     두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다.
-   
+
     응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 4. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
    

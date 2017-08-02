@@ -3,8 +3,8 @@ title: "UWP(유니버설 Windows 플랫폼) 앱에 인증 추가 | Microsoft Doc
 description: "Azure 앱 서비스 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 사용해서 UWP(유지버설 Windows 플랫폼) 앱 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
-ms.lasthandoff: 03/09/2017
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Windows 앱에 인증 추가
@@ -31,6 +31,20 @@ ms.lasthandoff: 03/09/2017
 ## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+
+보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 응용 프로그램에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
+
+1. [Azure Portal]에서 해당 App Service를 선택합니다.
+
+2. **인증/권한 부여** 메뉴 옵션을 클릭합니다.
+
+3. **허용되는 외부 리디렉션 URL**에서 `url_scheme_of_your_app://easyauth.callback`을 입력합니다.  이 문자열의 **url_scheme_of_your_app**은 모바일 응용 프로그램에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 응용 프로그램 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
+
+4. **확인**을 클릭합니다.
+
+5. **저장**을 클릭합니다.
+
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -39,7 +53,7 @@ ms.lasthandoff: 03/09/2017
 다음에는 앱 서비스에서 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
 ## <a name="add-authentication"></a>앱에 인증 추가
-1. UWP 프로젝트 파일 MainPage.cs에서 MainPage 클래스에 다음 코드 조각을 추가합니다.
+1. UWP 앱 프로젝트 파일 MainPage.xaml.cs에서 다음 코드 조각을 추가합니다.
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -55,7 +69,7 @@ ms.lasthandoff: 03/09/2017
                 // Change 'MobileService' to the name of your MobileServiceClient instance.
                 // Sign-in using Facebook authentication.
                 user = await App.MobileService
-                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                 message =
                     string.Format("You are now signed in - {0}", user.UserId);
    
@@ -73,8 +87,17 @@ ms.lasthandoff: 03/09/2017
         }
    
     이 코드는 Facebook 로그인으로 사용자를 인증합니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **MobileServiceAuthenticationProvider** 값을 공급자에 대한 값으로 변경합니다.
-2. 기존 **OnNavigatedTo** 메서드 재정의에서 **ButtonRefresh_Click** 메서드(또는 **InitLocalStoreAsync** 메서드)에 대한 호출을 주석 처리하거나 삭제합니다. 그러면 사용자가 인증되기 전에 데이터가 로드되지 않습니다. 다음으로, 인증을 트리거하는 앱에 **로그인** 단추를 추가합니다.
-3. MainPage 클래스에 다음 코드 조각을 추가합니다.
+2. MainPage.xaml.cs에서 **OnNavigatedTo()** 메서드를 바꿉니다. 다음으로, 인증을 트리거하는 앱에 **로그인** 단추를 추가합니다.
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Uri)
+            {
+                App.MobileService.ResumeWithURL(e.Parameter as Uri);
+            }
+        }
+
+3. MainPage.xaml.cs에 다음 코드 조각을 추가합니다.
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +127,24 @@ ms.lasthandoff: 03/09/2017
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. F5 키를 눌러 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다. 성공적으로 로그인되고 나면 앱이 오류 없이 실행되고 백 엔드를 쿼리하여 데이터를 업데이트할 수 있습니다.
+5. App.xaml.cs에 다음 코드 조각을 추가합니다.
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
+                Frame content = Window.Current.Content as Frame;
+                if (content.Content.GetType() == typeof(MainPage))
+                {
+                    content.Navigate(typeof(MainPage), protocolArgs.Uri);
+                }
+            }
+            Window.Current.Activate();
+            base.OnActivated(args);
+        }
+6. Package.appxmanifest 파일을 열고 **선언**으로 이동한 후 **사용 가능한 선언** 드롭다운 목록에서 **프로토콜**을 선택하고 **추가** 단추를 클릭합니다. 이제 **프로토콜** 선언의 **속성**을 구성합니다. **표시 이름**에서 응용 프로그램의 사용자에게 표시할 이름을 추가합니다. **이름**에 {url_scheme_of_your_app}를 추가합니다.
+7. F5 키를 눌러 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다. 성공적으로 로그인되고 나면 앱이 오류 없이 실행되고 백 엔드를 쿼리하여 데이터를 업데이트할 수 있습니다.
 
 ## <a name="tokens"></a>클라이언트에 인증 토큰 저장
 이전 예제에서는 앱이 시작될 때마다 클라이언트가 ID 공급자와 앱 서비스 둘 다에 접근해야 하는 표준 로그인을 보여 주었습니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 더 나은 접근 방법은 앱 서비스에서 반환된 권한 부여 토큰을 캐시한 다음 공급자 기반 로그인을 사용하기 전에 이 토큰을 먼저 사용하는 것입니다.
@@ -126,5 +166,4 @@ ms.lasthandoff: 03/09/2017
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
-
 

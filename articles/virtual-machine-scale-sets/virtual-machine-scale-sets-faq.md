@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>동일한 구독 및 동일한 지역에서 가상 컴퓨터 크기 집합에 대해 VIP 교환을 수행하려면 어떻게 합니까?
 
-Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 컴퓨터 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. 예제는 [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 또 다른 옵션은 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/en-us/services/app-service/)를 사용하여 응용 프로그램을 호스트하는 것입니다.
+Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 컴퓨터 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. 예제는 [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 더 빠른 옵션은 두 개의 백 엔드 풀 및 라우팅 규칙과 함께 Azure Application Gateway를 사용하는 것입니다. 또는 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/en-us/services/app-service/)를 사용하여 응용 프로그램을 호스트할 수도 있습니다.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>정적 개인 IP 주소를 할당하는 데 사용할 개인 IP 주소의 범위를 지정하려면 어떻게 하나요?
 
@@ -571,7 +570,11 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
     }
 ```
 
-## <a name="scale"></a>크기 조정
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>여러 Application Gateway를 사용하도록 크기 집합을 구성할 수 있나요?
+
+예. 여러 Application Gateway 백 엔드 주소 풀에 대한 리소스 ID를 크기 집합 네트워크 프로필의 _ipConfigurations_ 섹션에 있는 _applicationGatewayBackendAddressPools_ 목록에 추가할 수 있습니다.
+
+## <a name="scale"></a>확장
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>어떤 경우에 VM이 2개 미만인 가상 컴퓨터 크기 집합을 만들어야 하나요?
 

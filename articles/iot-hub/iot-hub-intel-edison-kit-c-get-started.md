@@ -1,10 +1,10 @@
 ---
 title: "Intel Edison - 클라우드(C) - Azure IoT Hub에 Intel Edison 연결 | Microsoft Docs"
-description: "Azure 클라우드로 데이터를 보내기 위해 Intel Edison용 Azure IoT Hub에 Intel Edison을 연결합니다."
+description: "이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Intel Edison을 설정하고 Intel Edison용 Azure IoT Hub에 연결하는 방법을 알아봅니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "azure iot intel edison, intel edison iot hub, intel edison에서 클라우드로 데이터 보내기, intel edison - 클라우드"
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fd6d04159c46439b5f1a91be7d2fa1b500bc92b3
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Azure IoT Hub에 Intel Edison 연결(C)
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/20/2017
 * Intel Edison 보드
 * Arduino 확장 보드
 * 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
-* Windows 또는 Linux를 실행하는 Mac 또는 PC.
+* Windows 또는 Linux를 실행하는 Mac 또는 PC
 * 인터넷 연결
 * Micro B-A형 USB 케이블
 * DC(직류) 전원 공급 장치 전원 공급 장치 정격은 다음과 같아야 합니다.
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/20/2017
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Intel Edison에 연결합니다. IP 주소는 구성 도구에서 가져오며, 암호는 해당 도구에서 설정한 것입니다.
     - Windows용 [PuTTY](http://www.putty.org/)
-    - Ubuntu 또는 macOS에 있는 기본 제공 SSH 클라이언트
+    - Ubuntu 또는 macOS에 있는 기본 제공 SSH 클라이언트(`ssh root@"the IP address"` 실행)
 
 2. 장치에 샘플 클라이언트 앱을 복제합니다. 
    
@@ -241,3 +241,4 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -13,16 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 8793744f63388c5df04a167585d5f7b99ec7acee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe769fb433d65374109fec60c6c6d032b1ad97fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
-
 
 응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 장치 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
 
@@ -42,7 +40,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
 ## <a name="prep"></a>시작하기 전에
-다음 작업을 아직 수행하지 않은 경우
+Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 * 프로젝트에 Application Insights SDK 추가:
 
@@ -58,7 +56,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
 ## <a name="constructing-a-telemetryclient-instance"></a>TelemetryClient 인스턴스 생성
-TelemetryClient의 인스턴스를 생성합니다(웹 페이지의 JavaScript는 제외).
+`TelemetryClient`의 인스턴스를 생성합니다(웹 페이지의 JavaScript는 제외).
 
 *C#*
 
@@ -79,7 +77,7 @@ TelemetryClient는 스레드로부터 안전합니다.
 ## <a name="trackevent"></a>TrackEvent
 Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](app-insights-metrics-explorer.md)에 집계된 개수로 표시하고 [진단 검색](app-insights-diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
-코드에 TrackEvent 호출을 삽입하여 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지 계산할 수 있습니다.
+다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
 
 예를 들어 게임 앱은 사용자가 이길 때마다 이벤트를 보냅니다.
 
@@ -99,8 +97,7 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
     telemetry.trackEvent("WinGame");
 
-
-### <a name="view-your-events-in-the-azure-portal"></a>Azure 포털에서 이벤트 보기
+### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Microsoft Azure Portal에서 이벤트 보기
 이벤트의 수를 보려면 [메트릭 탐색기](app-insights-metrics-explorer.md) 블레이드를 열고 새 차트를 추가한 다음 **이벤트**를 선택합니다.  
 
 ![사용자 지정 이벤트 수 보기](./media/app-insights-api-custom-events-metrics/01-custom.png)
@@ -109,7 +106,7 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
 ![차트 종류 및 그룹화 설정](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-그리드에서 이벤트 이름을 클릭하여 해당 이벤트의 개별 항목을 살펴봅니다. 원하는 항목을 클릭하여 자세히 살펴볼 수 있습니다.
+그리드에서 이벤트 이름을 클릭하여 해당 이벤트의 개별 항목을 살펴봅니다. 목록에서 해당 항목을 클릭하여 자세히 살펴볼 수 있습니다.
 
 ![이벤트를 드릴스루합니다.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
@@ -130,7 +127,7 @@ Application Insights에서는 특정 이벤트에 연결되지 않은 메트릭�
 
 Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사용할 수 있습니다. 메트릭을 전송하는 방법에는 다음 두 가지가 있습니다. 
 
-* 단일 값. 응용 프로그램에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 사용자 대신 두 값을 저장합니다. 
+* 단일 값. 응용 프로그램에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다. 
 
 * 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
@@ -405,21 +402,20 @@ ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨
 *C#*
 
 ```C#
+// Establish an operation context and associated telemetry item:
+using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+{
+    // Telemetry sent in here will use the same operation ID.
+    ...
+    telemetry.TrackTrace(...); // or other Track* calls
+    ...
+    // Set properties of containing telemetry item--for example:
+    operation.Telemetry.ResponseCode = "200";
 
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item--for example:
-        operation.Telemetry.ResponseCode = "200";
+    // Optional: explicitly send telemetry item:
+    telemetry.StopOperation(operation);
 
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
+} // When operation is disposed, telemetry item is sent.
 ```
 
 작업 컨텍스트 설정과 함께 `StartOperation`은 지정하는 유형의 원격 분석 항목을 만듭니다. 작업을 삭제할 때 또는 명시적으로 `StopOperation`을 호출하는 경우 원격 분석 항목을 보냅니다. 원격 분석 형식으로 `RequestTelemetry`를 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
@@ -429,6 +425,8 @@ ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨
 검색에서 작업 컨텍스트는 **관련 항목** 목록을 만드는 데 사용됩니다.
 
 ![관련 항목](./media/app-insights-api-custom-events-metrics/21.png)
+
+사용자 지정 작업 추적에 대한 자세한 내용은 [application-insights-custom-operations-tracking.md]를 참조하세요.
 
 ### <a name="requests-in-analytics"></a>분석의 요청 
 
@@ -488,13 +486,13 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
 [Application Insights 분석](app-insights-analytics.md)에서 예외는 `exceptions` 테이블에 표시됩니다.
 
-[샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
+[샘플링](app-insights-sampling.md)이 작동 중이면 `itemCount` 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
 ```
 exceptions | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 'details' 구조를 분리할 수 있습니다. 이 구조는 동적 구조이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
 
 ```AIQL
 exceptions
@@ -537,25 +535,24 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 [Application Insights 분석](app-insights-analytics.md)에서 TrackTrace에 대한 호출은 `traces` 테이블에 표시됩니다.
 
-[샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackTrace()에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
+[샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 `trackTrace()`에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="trackdependency"></a>TrackDependency
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
 
 ```C#
-
-            var success = false;
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-            }
+var success = false;
+var startTime = DateTime.UtcNow;
+var timer = System.Diagnostics.Stopwatch.StartNew();
+try
+{
+    success = dependency.Call();
+}
+finally
+{
+    timer.Stop();
+    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+}
 ```
 
 서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](app-insights-asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착하지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
@@ -599,12 +596,12 @@ dependencies
 *JavaScript*
 
 ```JS
-    // Called when my app has identified the user.
-    function Authenticated(signInId) {
-      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
-      appInsights.setAuthenticatedUserContext(validatedId);
-      ...
-    }
+// Called when my app has identified the user.
+function Authenticated(signInId) {
+    var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+    appInsights.setAuthenticatedUserContext(validatedId);
+    ...
+}
 ```
 
 ASP.NET 웹 MVC 응용 프로그램에서의 예:

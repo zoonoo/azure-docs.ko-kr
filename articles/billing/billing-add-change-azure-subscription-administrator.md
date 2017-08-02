@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경
@@ -38,16 +37,22 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 
     ![선택한 구독을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. 구독 블레이드에서 **액세스 제어(IAM)**> **추가**를 선택합니다.
+3. 구독 블레이드에서 **액세스 제어(IAM)**를 선택합니다.
+4. **추가** > **역할** > **소유자**를 선택합니다. 소유자로 추가하려는 사용자의 메일 주소를 입력하고 사용자를 선택한 후 **저장**을 선택합니다.
 
-    ![선택한 추가 단추를 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. **역할 선택** > **소유자**를 선택합니다.
+    ![선택한 소유자 역할을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![선택한 소유자 역할을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. 소유자 계정을 공동 관리자로 추가하려는 경우 **액세스 제어(IAM)** 페이지에서 사용자를 마우스 오른쪽 단추로 클릭한 다음 **공동 관리자로 추가**를 선택합니다. 이 기능은 이제 [Azure 미리 보기 포털](https://preview.portal.azure.com/)에서 사용할 수 있습니다. 
 
-5. 소유자로 추가하려는 사용자의 메일 주소를 입력하고 사용자를 클릭한 후 **선택**을 클릭합니다.
+     ![공동 관리자를 추가하는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![추가하고 선택한 사용자 전자 메일을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >[Azure 클래식 포털](https://manage.windowsazure.com/)에서 Azure 서비스를 관리해야 하는 경우 "소유자" 사용자를 공동 관리자로 추가해야 합니다.
+
+    공동 관리자 권한을 제거하려면 "공동 관리자" 사용자를 마우스 오른쪽 단추로 클릭한 다음 **공동 관리자 제거**를 선택합니다.
+
+    ![공동 관리자를 제거하는 스크린샷](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **Azure 클래식 포털**
 
@@ -68,14 +73,12 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 
     user@&lt;도메인&gt;.onmicrosoft.com
 
-
-
 ## <a name="change-service-administrator-for-a-subscription"></a>구독에 대한 서비스 관리자 변경
 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
 
 1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자를 사용하여 로그온합니다.
 2. 변경하려는 구독을 선택합니다.
-3. 오른쪽에서 **구독 세부 사항 편집** 을 클릭합니다. </br>
+3. 오른쪽에서 **구독 세부 사항 편집**을 선택합니다. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. **서비스 관리자** 상자에서 새 서비스 관리자의 메일 주소를 입력합니다. </br>

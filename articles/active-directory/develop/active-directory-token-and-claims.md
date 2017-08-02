@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
-ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
@@ -98,7 +97,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 
-id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
+id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
 
 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플이 제공됩니다. 아래 정보는 단순히 기본 프로세스를 이해하려는 사용자를 위한 것입니다.  JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 옵션이 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대한 자세한 내용은 [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 

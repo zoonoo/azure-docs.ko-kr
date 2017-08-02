@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 13268f14388e511f2ad106939b0913388b89e16c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
@@ -42,13 +41,69 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 > 
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md) 를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
 
+## <a name="supported-authentication-types"></a>지원되는 인증 형식
+U-SQL 작업은 Data Lake Analytics에 대해 아래 인증 유형을 지원합니다.
+* 서비스 주체 인증
+* 사용자 자격 증명(OAuth) 인증 
+
+특히 예약된 U-SQL 실행의 경우 서비스 주체 인증을 사용하는 것이 좋습니다. 사용자 자격 증명 인증의 경우 토큰 만료 동작이 발생할 수 있습니다. 구성 세부 정보에서 [연결된 서비스 속성](#azure-data-lake-analytics-linked-service) 섹션을 참조하세요.
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure 데이터 레이크 분석 연결된 서비스
 Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연결하는 **Azure 데이터 레이크 분석** 연결된 서비스를 만듭니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
 
-다음 예제에서는 Azure 데이터 레이크 분석 연결된 서비스에 JSON 정의를 제공합니다. 
+다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 서비스 주체와 사용자 자격 증명 인증 중에서 추가로 선택할 수 있습니다.
 
-```JSON
+| 속성 | 설명 | 필수 |
+| --- | --- | --- |
+| **type** |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
+| **accountName** |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
+| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니요 |
+| **subscriptionId** |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
+| **resourceGroupName** |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
+
+### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+* 응용 프로그램 UI
+* 응용 프로그램 키 
+* 테넌트 ID
+
+다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
+| **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
+| **테넌트** | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+
+**예제: 서비스 주체 인증**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
+또는 다음 속성을 지정하여 Data Lake Analytics에 대해 사용자 자격 증명 인증을 사용할 수 있습니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
+| **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
+
+**예제: 사용자 자격 증명 인증**
+```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
     "properties": {
@@ -58,25 +113,14 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
             "sessionId": "<session ID>", 
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-다음 표에는 JSON 정의에서 사용하는 JSON 속성이 나와 있습니다. 
-
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| 형식 |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
-| accountName |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
-| dataLakeAnalyticsUri |Azure 데이터 레이크 분석 URI입니다. |아니요 |
-| 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
-| subscriptionId |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
-| resourceGroupName |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
-| sessionId |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며  세션 ID는 Data Factory 편집기에서 자동으로 생성됩니다. |예 |
-
+#### <a name="token-expiration"></a>토큰 만료
 **권한 부여** 단추를 사용하여 생성된 인증 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. 자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명 유효성 검사 오류. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
 
 | 사용자 유형 | 다음 시간 후에 만료 |
@@ -84,9 +128,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
-
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음과 같은 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -118,7 +160,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 다음 JSON 조각은 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 정의합니다. 작업 정의에 앞에서 만든 Azure Data Lake Analytics 연결된 서비스에 대한 참조가 있습니다.   
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -189,7 +231,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ### <a name="input-dataset"></a>입력 데이터 집합
 이 예제에서 입력 데이터는 Azure Data Lake Store(datalake/input 폴더의 SearchLog.tsv 파일)에 있습니다. 
 
-```JSON
+```json
 {
     "name": "DataLakeTable",
     "properties": {
@@ -215,7 +257,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ### <a name="output-dataset"></a>출력 데이터 집합
 이 예제에서 U-SQL 스크립트에서 생성한 출력 데이터는 Azure Data Lake Store(datalake/output 폴더)에 저장됩니다. 
 
-```JSON
+```json
 {
     "name": "EventsByRegionTable",
     "properties": {
@@ -235,15 +277,16 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ### <a name="sample-data-lake-store-linked-service"></a>샘플 Azure Data Lake Store 연결된 서비스
 다음은 입/출력 데이터 집합에서 사용되는 Azure Data Lake Store 연결된 서비스 샘플의 정의입니다. 
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
         }
     }
 }
@@ -287,7 +330,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 ## <a name="dynamic-parameters"></a>동적 매개 변수
 샘플 파이프라인 정의에서 in 및 out 매개 변수는 하드 코드된 값으로 할당됩니다. 
 
-```JSON
+```json
 "parameters": {
     "in": "/datalake/input/SearchLog.tsv",
     "out": "/datalake/output/Result.tsv"
@@ -296,7 +339,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 
 동적 매개 변수를 대신 사용할 수 있습니다. 예: 
 
-```JSON
+```json
 "parameters": {
     "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
     "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fe513adfe40b675b1154e24388316eb7ee09a37d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -123,7 +123,6 @@ ms.lasthandoff: 05/10/2017
 ### <a name="slice-and-dice-events"></a>이벤트 분석 및 분할
 
 사용자, 세션 및 이벤트 도구에서 사용자, 이벤트 이름 및 속성별로 사용자 지정 이벤트를 분석 및 분할할 수 있습니다.
-
 ![사용자](./media/app-insights-usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>앱을 사용하여 원격 분석 디자인

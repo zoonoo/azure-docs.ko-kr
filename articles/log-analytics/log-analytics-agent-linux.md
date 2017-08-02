@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 07/06/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 79bbb4dfe03a6c1ae782abc1404e22343bde22a0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24d970faa0b4b1a74629b55efb034e9d79eddb1d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -55,8 +55,8 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |------|---------|  
 |*.ods.opinsights.azure.com | 포트 443|   
 |*.oms.opinsights.azure.com | 포트 443|   
-|ods.systemcenteradvisor.com | 포트 443|   
 |*.blob.core.windows.net/ | 포트 443|   
+|*.azure-automation.net | 포트 443|  
 
 ### <a name="package-requirements"></a>패키지 요구 사항
 
@@ -66,7 +66,7 @@ Glibc | GNU C 라이브러리   | 2.5-12
 Openssl | OpenSSL 라이브러리 | 0.9.8e 또는 1.0
 Curl | cURL 웹 클라이언트 | 7.15.5
 Python-ctypes | | 
-PAM | 플러그형 인증 모듈   | 
+PAM | 플러그형 인증 모듈 | 
 
 > [!NOTE]
 >  Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다. 
@@ -75,7 +75,7 @@ PAM | 플러그형 인증 모듈   |
 
 **패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
-omsagent | 1.3.4 | Linux용 Operations Management Suite 에이전트
+omsagent | 1.4.0 | Linux용 Operations Management Suite 에이전트
 omsconfig | 1.1.1 | OMS 에이전트용 구성 에이전트
 omi | 1.2.0 | Open Management Infrastructure(OMI) -- 경량 CIM 서버
 scx | 1.6.3 | 운영 체제 성능 메트릭용 OMI CIM 공급자
@@ -142,22 +142,22 @@ Options:
 
 #### <a name="to-install-and-onboard-directly"></a>직접 설치하고 직접 등록하려면
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
 #### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>미국 정부 클라우드의 작업 영역에 설치하고 등록하려면
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
 #### <a name="to-install-the-agent-packages-and-onboard-at-a-later-time"></a>에이전트 패키지를 설치하고 나중에 등록하려면
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
 #### <a name="to-extract-the-agent-packages-from-the-bundle-without-installing"></a>설치하지 않고 번들에서 에이전트 패키지의 압축을 풀려면
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
+sudo sh ./omsagent-<version>.universal.x64.sh --extract
 ```
 
 ## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>HTTP 프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성
@@ -184,7 +184,7 @@ proxyhost|프록시 서버/OMS 게이트웨이의 주소 또는 FQDN
 omsagent 설치 번들에 대한 `-p` 또는 `--proxy` 인수는 사용할 프록시 구성을 지정합니다. 
 
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>파일에 프록시 구성 정의
@@ -217,9 +217,8 @@ OMS Agent for Linux에서 System Center Operations Manager 관리 그룹에 보�
 작업 영역에 대한 작업 영역 ID 및 키를 제공하여 omsadmin.sh 명령을 실행합니다. 이 명령은 루트 권한(sudo 권한 상승)으로 실행해야 합니다.
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
-옵션 -v 스위치를 통해 등록 프로세스 중에 자세한 로깅 정보 표시를 사용할 수 있습니다. 모든 정보는 셸 스크립트가 실행된 화면에 표시됩니다.
 
 ### <a name="onboarding-using-a-file"></a>파일을 사용하는 등록
 1.  파일 `/etc/omsagent-onboard.conf`를 만듭니다. 이 파일은 루트에 대해 읽을 수 있고 쓸 수 있어야 합니다.
@@ -328,4 +327,3 @@ dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh
 4. OMS Agent for Linux가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 OMS Agent for Linux를 다시 시작해야 합니다. 
 > [!NOTE]
 > 이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
-
