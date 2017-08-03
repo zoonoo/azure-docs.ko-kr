@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31b4f69a2870e619255feac6bed3679efb03f568
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
@@ -95,7 +95,7 @@ VNET에 게이트웨이가 없거나 Point to Site(지점과 사이트 간)가 �
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager VNET에서 Point to Site(지점과 사이트 간) 활성화
-게이트웨이 및 지점-사이트 간 연결을 사용하여 Resource Manager VNET을 구성하려면 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성][V2VNETP2S]에 설명된 대로 PowerShell을 사용하거나 [Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성][V2VNETPortal]에 설명된 대로 Azure Portal을 사용할 수 있습니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
+게이트웨이 및 지점-사이트 간 연결을 사용하여 Resource Manager VNET을 구성하려면 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성][V2VNETP2S]에 설명된 대로 PowerShell을 사용하거나 [Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성][V2VNETPortal]에 설명된 대로 Azure Portal을 사용할 수 있습니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 지점과 사이트 간 구성에 대한 인증서를 만들지 않아도 됩니다. WebApp을 VNET에 연결할 때 자동으로 구성됩니다. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>미리 구성된 VNET 만들기
 게이트웨이 및 Point to Site(지점과 사이트 간)를 통해 구성되는 새 VNET을 만들려는 경우 앱 서비스 네트워킹 UI의 기능을 사용하면 됩니다. 단, 이 기능은 Resource Manager VNET에만 해당됩니다.  클래식 게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 클래식 VNET을 만들려면 네트워킹 사용자 인터페이스를 통해 이 작업을 수동으로 진행해야 합니다. 
@@ -177,11 +177,11 @@ VNETs integrated with(통합된 VNET)는 ASP 내에 앱과 통합되어 있는 V
 **인증서** 인증서 상태는 VPN 연결에 사용 중인 인증서가 유효한지를 검사하기 위해 앱 서비스에 의해 수행 중인 검사를 반영합니다.  VNET 통합을 사용하도록 설정한 후에, ASP 내의 앱에서 VNET에 대해 첫 번째 통합을 수행하는 경우에는 연결에 대한 보안을 보장하기 위해 인증서 교환이 필요합니다.  인증서와 더불어 DNS 구성, 경로 및 네트워크를 설명하는 기타 유사한 데이터를 가져옵니다.
 인증서나 네트워크 정보가 변경되면 "Sync Network"(네트워크 동기화)를 클릭해야 합니다.  **참고**: "Sync Network"(네트워크 동기화)를 클릭하면 앱과 VNET 간의 연결이 잠시 중단됩니다.  앱이 다시 시작되지는 않지만 연결 손실로 인해 사이트가 제대로 작동하지 않을 수 있습니다.  
 
-## <a name="accessing-on-premise-resources"></a>온-프레미스 리소스 액세스
+## <a name="accessing-on-premises-resources"></a>온-프레미스 리소스 액세스
 VNET 통합 기능의 장점 중 하나는 VNET이 사이트 간 VPN으로 온-프레미스 네트워크에 연결되는 경우 앱에서 온-프레미스 리소스에 액세스할 수 있다는 점입니다.  하지만 이 작업을 수행하려면 온-프레미스 VPN 게이트웨이를 지점과 사이트 간 IP 범위의 경로로 업데이트하는 것이 필요할 수 있습니다.  사이트 간 VPN이 처음으로 설정되면 설정을 구성하는 데 사용된 스크립트는 지점과 사이트 간 VPN을 포함하는 경로를 설정합니다.  사이트 간 VPN을 만든 후에 지점과 사이트 간 VPN을 추가하는 경우에는 경로를 수동으로 업데이트해야 합니다.  이 작업을 수행하는 방법에 대한 세부 정보는 게이트웨이마다 다르며 여기에 설명되어 있지 않습니다.  
 
 > [!NOTE]
-> VNET 통합 기능은 사이트 간 VPN을 통해 온-프레미스 리소스에 액세스하지만, Express 경로 VPN을 사용하면 현 시점에서는 동일하게 작동하지 않습니다.  이는 클래식 또는 Resource Manager VNET과 통합할 때 적용됩니다.  Express 경로 VPN을 통해 리소스에 액세스해야 하는 경우에는 VNET에서 실행 가능한 ASE를 사용할 수 있습니다. 
+> VNET 통합 기능은 ExpressRoute 게이트웨이가 있는 VNet에 앱을 통합하지 않습니다. ExpressRoute 게이트웨이가 [동시 사용 모드][VPNERCoex]로 구성되어 있더라도 작동하지 않습니다. ExpressRoute 연결을 통해 리소스에 액세스해야 하는 경우에는 VNet에서 실행되는 [App Service Environment][ASE]를 사용할 수 있습니다.
 > 
 > 
 
@@ -249,7 +249,7 @@ nameresolver를 사용하여 앱이 의존하는 호스트 이름을 확인합�
 
 * VNET의 다른 VM에 로그인하여 그 위치에서 리소스 호스트:포트에 대한 액세스를 시도합니다.  이러한 용도로 사용할 수 있는 TCP ping 유틸리티가 있고 필요한 경우에는 telnet을 사용할 수도 있습니다.  여기서는 다른 VM으로부터 연결이 존재하는 지만 판단하면 됩니다. 
 * 다른 VM에서 응용 프로그램을 실행하고 앱과 콘솔에서 해당 호스트와 포트에 대한 액세스를 테스트합니다.  
-  ####<a name="on-premise-resources"></a>온-프레미스 리소스####
+  ####<a name="on-premises-resources"></a>온-프레미스 리소스####
   온-프레미스 리소스에 도달할 수 없는 경우 먼저 확인할 사항은 VNET에 속하는 리소스에 도달할 수 있는지 여부입니다.  도달할 수 있다면 다음 단계는 매우 쉽습니다.  VNET의 VM에서 온-프레미스 응용 프로그램에 액세스를 시도합니다.  telnet 또는 TCP ping 유틸리티를 사용할 수 있습니다.  VM이 온-프레미스 리소스에 도달할 수 없으면 우선 사이트 간 VPN 연결이 작동하는지 확인합니다.  제대로 작동하는 경우에는, 앞서 언급한 사항을 확인하고 온-프레미스 게이트웨이 구성 및 상태를 확인합니다.  
 
 이제 VNET 호스트된 VM이 온-프레미스 시스템에 연결할 수 있지만 앱이 연결할 수 없다면 그 이유는 다음 중 하나일 가능성이 있습니다.
@@ -276,7 +276,7 @@ VNET에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 * 다수의 웹 속성을 공용 클라우드에 보관해 놓고 자사의 네트워크에서 해당 속성을 관리하기를 원하는 규모가 큰 조직의 경우 앱 서비스 환경이 적합합니다.  
 * 앱 서비스에서 호스팅되는 앱이 많고 VNET 내의 리소스에 액세스하기만을 원한다면 VNET 통합을 선택하는 것이 바람직합니다.  
 
-사용 사례 외에 간결성과 관련된 측면이 있습니다.  VNET이 온-프레미스 네트워크에 이미 연결되어 있는 경우 VNET 통합이나 앱 서비스 환경을 사용하는 것이 온-프레미스 리소스를 사용하는 손쉬운 방법입니다.  반면에 VNET이 온-프레미스 네트워크에 연결되어 있지 않은 경우에는 VNET과 사이트 간 VPN을 설정하는 것이 HCM을 설치하는 것과 비교하면 비용이 훨씬 더 많이 듭니다.  
+사용 사례 외에 간결성과 관련된 측면이 있습니다.  VNET이 온-프레미스 네트워크에 이미 연결되어 있는 경우 VNET 통합이나 App Service Environment를 사용하는 것이 온-프레미스 리소스를 사용하는 손쉬운 방법입니다.  반면에 VNET이 온-프레미스 네트워크에 연결되어 있지 않은 경우에는 VNET과 사이트 간 VPN을 설정하는 것이 HCM을 설치하는 것과 비교하면 비용이 훨씬 더 많이 듭니다.  
 
 기능적인 차이 외에 가격의 차이도 있습니다.  앱 서비스 환경 기능은 프리미엄 서비스 제품이지만 대부분의 네트워크 구성 가능성을 제공하고 다른 좋은 기능도 추가적으로 제공합니다.  VNET 통합은 표준 또는 프리미엄 ASP에서 사용할 수 있으며 다중 테넌트 앱 서비스에서 VNET의 리소스를 안전하게 사용하기에 가장 적합한 환경입니다.  하이브리드 연결은 현재 BizTalk 계정에 의존하고 있으며, BizTalk의 가격 수준은 무료에서 시작해서 필요한 양에 따라 점차적으로 비용이 높아집니다.  하지만 수많은 네트워크에서 작업이 진행되는 경우, 100개가 훨씬 넘는 네트워크(분리된)의 리소스에 액세스하기에는 하이브리드 연결만한 기능이 없습니다.    
 
@@ -301,4 +301,6 @@ VNET에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
 

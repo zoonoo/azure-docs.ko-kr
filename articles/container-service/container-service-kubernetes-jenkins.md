@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 3d206ebb6deeaa40f8e792ec12304c99c0abe684
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dfbf4d90bed4e60cc6c1663ee3743b320319a881
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -58,9 +58,9 @@ CLUSTER_NAME=any-acs-cluster-name
 
 az acs create \
 --orchestrator-type=kubernetes \
---resource-group $RESOURCE_GROUP \ 
+--resource-group $RESOURCE_GROUP \
 --name=$CLUSTER_NAME \
---dns-prefix=$DNS_PREFIX \ 
+--dns-prefix=$DNS_PREFIX \
 --ssh-key-value ~/.ssh/id_rsa.pub \
 --admin-username=azureuser \
 --master-count=1 \
@@ -71,18 +71,17 @@ az acs create \
 ## <a name="set-up-jenkins-and-configure-access-to-container-service"></a>Jenkins 설정 및 Container Service에 대한 액세스 구성
 
 ### <a name="step-1-install-jenkins"></a>1단계: Jenkins 설치
-1. Ubuntu 16.04 LTS로 Azure VM을 만듭니다 
-2. 다음 [지침](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu)을 통해 Jenkins를 설치합니다.
-3. 자세한 자습서는 [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04)에 있습니다.
-4. 포트 8080을 허용하도록 Azure 네트워크 보안 그룹을 업데이트한 후 포트 8080에서 공용 IP를 검색하여 브라우저에서 Jenkins를 관리합니다.
-5. 초기 Jenkins 관리자 암호는 /var/lib/jenkins/secrets/initialAdminPassword에 저장됩니다.
-6. 이러한 [지침](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts)을 통해 Jenkins 컴퓨터에 Docker를 설치합니다. 그러면 Jenkins 작업에 Docker 명령을 실행할 수 있습니다.
-7. Jenkins에서 끝점에 액세스할 수 있도록 Docker 권한을 구성합니다.
+1. Ubuntu 16.04 LTS로 Azure VM을 만듭니다  단계의 뒷부분에서 로컬 컴퓨터의 bash를 사용하여 이 VM에 연결해야 하므로 'SSH 공개 키'를 '인증 형식’으로 설정하고 ~/.ssh 폴더에 로컬로 저장된 SSH 공개 키를 붙여넣습니다.  또한 지정하는 '사용자 이름'을 기록해 둡니다. Jenkins 대시보드를 보거나 나중 단계에서 Jenkins VM에 연결하는 데 이 사용자 이름이 필요하기 때문입니다.
+2. 다음 [지침](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu)을 통해 Jenkins를 설치합니다. 자세한 자습서는 [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04)에 있습니다.
+3. 로컬 컴퓨터에서 Jenkins 대시보드를 보려면 포트 8080에 대한 액세스를 허용하는 인바운드 규칙을 추가하여 포트 8080을 허용하도록 Azure 네트워크 보안 그룹을 업데이트합니다.  또는 `ssh -i ~/.ssh/id_rsa -L 8080:localhost:8080 <your_jenkins_user>@<your_jenkins_public_ip` 명령을 실행하여 포트 전달을 설정할 수 있습니다.
+4. 공용 IP(http://<your_jenkins_public_ip>:8080)로 이동하여 브라우저로 Jenkins 서버에 연결하고 초기 관리자 암호와 함께 처음으로 Jenkins 대시보드 잠금을 해제합니다.  관리자 암호는 Jenkins VM의 /var/lib/jenkins/secrets/initialAdminPassword에 저장됩니다.  쉽게 이 암호를 가져오는 방법은 다음과 같이 Jenkins VM으로 SSH하는 것입니다. `ssh <your_jenkins_user>@<your_jenkins_public_ip>`  그런 다음, `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`를 실행합니다.
+5. 이러한 [지침](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts)을 통해 Jenkins 컴퓨터에 Docker를 설치합니다. 그러면 Jenkins 작업에 Docker 명령을 실행할 수 있습니다.
+6. Jenkins에서 Docker 끝점에 액세스할 수 있도록 Docker 권한을 구성합니다.
 
     ```bash
     sudo chmod 777 /run/docker.sock
     ```
-8. Jenkins에 `kubectl` CLI를 설치합니다. 자세한 내용은 [kubectl 설치 및 설정](https://kubernetes.io/docs/tasks/kubectl/install/)에 나와 있습니다.
+8. Jenkins에 `kubectl` CLI를 설치합니다. 자세한 내용은 [kubectl 설치 및 설정](https://kubernetes.io/docs/tasks/kubectl/install/)에 나와 있습니다.  Jenkins 작업에서는 'kubectl'을 사용하여 Kubernetes 클러스터에 배포하고 관리합니다.
 
     ```bash
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -98,21 +97,19 @@ az acs create \
 > 다음 단계를 수행하는 여러 가지 방법이 있습니다. 가장 쉽게 여겨지는 방법을 사용하면 됩니다.
 >
 
-1. `kubectl` 구성 파일을 Jenkins 컴퓨터에 복사합니다.
+1. Jenkins 작업에서 Kubernetes 클러스터에 액세스할 수 있도록 `kubectl` 구성 파일을 Jenkins 컴퓨터로 복사합니다. 이러한 지침에서는 Jenkins VM과 다른 컴퓨터에서 bash를 사용하며 로컬 SSH 공개 키는 컴퓨터의 ~/.ssh 폴더에 저장된다고 가정합니다.
 
-    ```bash
-    export KUBE_MASTER=<your_cluster_master_fqdn>
+```bash
+export KUBE_MASTER=<your_cluster_master_fqdn>
+export JENKINS_USER=<your_jenkins_user>
+export JENKINS_SERVER=<your_jenkins_public_ip>
+sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.kube/ \
+&& sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir /var/lib/jenkins/.kube/ \
+&& sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config $JENKINS_USER@$JENKINS_SERVER:~/.kube/config \
+&& sudo ssh -i ~/.ssh/id_rsa $JENKINS_USER@$JENKINS_SERVER sudo cp /home/$JENKINS_USER/.kube/config /var/lib/jenkins/.kube/config \
+```
         
-    sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config user@<your_jenkins_server>:~/.kube/config
-        
-    sudo ssh user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-        
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo cp /home/user/.kube/config /var/lib/jenkins/config
-    ```
-        
-2. Jenkins에서 Kubernetes 클러스터에 액세스할 수 있는지 확인합니다.
+2. Jenkins에서 Kubernetes 클러스터에 액세스할 수 있는지 확인합니다.  이렇게 하려면 `ssh <your_jenkins_user>@<your_jenkins_public_ip>`와 같이 Jenkins VM으로 SSH합니다.  그런 다음, `kubectl cluster-info`를 통해 Jenkins가 클러스터에 연결할 수 있는지 확인합니다.
     
 
 ## <a name="create-a-jenkins-workflow"></a>Jenkins 워크플로 만들기

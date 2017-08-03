@@ -3,8 +3,8 @@ title: "Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리 | Micr
 description: "Data Lake Analytics 계정, 데이터 원본, 작업 및 카탈로그 항목을 관리하는 방법을 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: mahi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 86648ebc5e13570050bb142158bf1aa356d466b3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d4e4bb5e18b63a9d9494a2294743fa9f45b64fa1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -49,12 +48,27 @@ $location = "<Location>"
 
 ## <a name="log-in"></a>로그인
 
+구독 ID를 사용하여 로그인합니다.
+
 ```powershell
 Login-AzureRmAccount -SubscriptionId $subId
 ```
 
-> [!NOTE]
-> 나중에 사용할 수 있도록 로그인 세션을 저장하려면 ``Save-AzureRmProfile``을 사용합니다. 로그인 세션을 다시 로드하려면 ``Select-AzureRmProfile``을 사용합니다.
+구독 이름을 사용하여 로그인합니다.
+
+```
+Login-AzureRmAccount -SubscriptionName $subname 
+```
+
+`Login-AzureRmAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
+
+```powershell
+# Save login session information
+Save-AzureRmProfile -Path D:\profile.json  
+
+# Load login session information
+Select-AzureRmProfile -Path D:\profile.json 
+```
 
 ## <a name="managing-accounts"></a>계정 관리
 
@@ -90,6 +104,12 @@ Get-AdlAnalyticsAccount -Name $adla
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
+```
+
+특정 Data Lake Store 계정이 있는지 확인합니다. 이 cmdlet은 `True` 또는 `False`를 반환합니다.
+
+```powershell
+Test-AdlStoreAccount -Name $adls
 ```
 
 ### <a name="listing-accounts"></a>계정 나열
@@ -169,7 +189,14 @@ Analytics 계정을 만들 때 Data Lake Store 계정이 기본 데이터 원본
 ### <a name="find-the-default-data-lake-store-account"></a>기본 데이터 레이크 저장소 계정 찾기
 
 ```powershell
-$dataLakeStoreName = (Get-AdlAnalyticsAccount -Name $adla).DefaultDataLakeAccount
+$adla_acct = Get-AdlAnalyticsAccount -Name $adla
+$dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
+```
+
+또는 데이터 원본 목록을 열거하는 경우 다음 패턴을 사용하여 기본 Data Lake Store 계정을 찾을 수 있습니다.
+
+```powershell
+Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
 ```
 
 ### <a name="add-data-sources"></a>데이터 원본 추가
@@ -192,31 +219,25 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 
 ### <a name="list-data-sources"></a>데이터 원본 나열
 
-모든 연결된 데이터 원본을 나열합니다.
-
 ```powershell
+# List all the data sources
 Get-AdlAnalyticsDataSource -Name $adla
-```
 
-연결된 Data Lake Store 계정을 나열합니다.
-
-```powershell
+# List attached Data Lake Store accounts
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore"
-```
 
-연결된 저장소 계정을 나열합니다.
-
-```powershell
+# List attached Storage accounts
 Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 ```
 
 ## <a name="managing-jobs"></a>작업 관리
 
-### <a name="submit-a-job"></a>작업 제출
+### <a name="submit-a-u-sql-job"></a>U-SQL 작업 제출
 
-다음 U-SQL 스크립트가 포함된 로컬 텍스트 파일을 만듭니다.
+문자열을 U-SQL 스크립트로 제출합니다.
 
-```
+```powershell
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -226,12 +247,21 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+"@
+
+$scriptpath = "d:\test.usql"
+$script | Out-File $scriptpath 
+
+Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-스크립트를 제출합니다.
+
+파일을 U-SQL 스크립트로 제출합니다.
 
 ```powershell
-Submit-AdlJob -AccountName $adla –ScriptPath "<LocalPathToScriptFile>"
+$scriptpath = "d:\test.usql"
+$script | Out-File $scriptpath 
+Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
 ### <a name="list-jobs"></a>작업 나열
@@ -242,6 +272,42 @@ Submit-AdlJob -AccountName $adla –ScriptPath "<LocalPathToScriptFile>"
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-a-specific-number-of-jobs"></a>특정 수의 작업 나열
+
+기본적으로 작업 목록은 제출 시간을 기준으로 정렬됩니다. 따라서 최근에 제출한 작업이 먼저 표시됩니다. 기본적으로 ADLA 계정에서는 180일 동안의 작업을 저장하지만 Ge-AdlJob cmdlet은 기본적으로 처음 500개 작업만 반환합니다. 특정 수의 작업을 나열하려면 -Top 매개 변수를 사용합니다.
+
+```powershell
+$jobs = Get-AdlJob -Account $adla -Top 10
+```
+
+### <a name="list-jobs-based-on-the-value-of-job-property"></a>작업 속성 값을 기준으로 작업 나열
+
+어제 제출된 작업을 나열합니다.
+
+```
+$d = [DateTime]::Now.AddDays(-1)
+Get-AdlJob -Account $adla -SubmittedAfter $d
+```
+
+지난 5일 동안에 제출되고 완료된 작업을 나열합니다.
+
+```
+$d = (Get-Date).AddDays(-5)
+Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
+```
+
+성공한 작업을 나열합니다.
+
+```
+Get-AdlJob -Account $adla -State Ended -Result Succeeded
+```
+
+실패한 작업을 나열합니다.
+
+```powershell
+Get-AdlJob -Account $adla -State Ended -Result Failed
+```
+
 지난 7일 이내에 "joe@contoso.com"이 제출한 실패한 작업을 모두 나열합니다.
 
 ```powershell
@@ -249,6 +315,72 @@ Get-AdlJob -Account $adla `
     -Submitter "joe@contoso.com" `
     -SubmittedAfter (Get-Date).AddDays(-7) `
     -Result Failed
+```
+
+### <a name="filtering-a-list-of-jobs"></a>작업 목록 필터링
+
+현재 PowerShell 세션에 작업 목록이 있으면, 일반 PowerShell cmdlet을 사용하여 목록을 필터링할 수 있습니다.
+
+지난 24시간 동안에 제출된 작업으로 작업 목록을 필터링합니다.
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.EndTime -ge $lowerdate }
+```
+
+지난 24시간 동안에 종료된 작업으로 작업 목록을 필터링합니다.
+
+```
+$upperdate = Get-Date
+$lowerdate = $upperdate.AddHours(-24)
+$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
+```
+
+실행이 시작된 작업으로 작업 목록을 필터링합니다. 컴파일 시 작업이 실패할 수 있습니다. 따라서 작업은 시작되지 않습니다. 실제로 실행이 시작되었지만 실패로 끝난 실패한 작업을 살펴보겠습니다.
+
+```powershell
+$jobs | Where-Object { $_.StartTime -ne $null }
+```
+
+### <a name="analyzing-a-list-of-jobs"></a>작업 목록 분석
+
+`Group-Object` cmdlet을 사용하여 작업 목록을 분석할 수 있습니다.
+
+```
+# Count the number of jobs by Submitter
+$jobs | Group-Object Submitter | Select -Property Count,Name
+
+# Count the number of jobs by Result
+$jobs | Group-Object Result | Select -Property Count,Name
+
+# Count the number of jobs by State
+$jobs | Group-Object State | Select -Property Count,Name
+
+#  Count the number of jobs by DegreeOfParallelism
+$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
+```
+분석을 수행할 때 Job 개체에 속성을 추가하여 필터링과 그룹화를 더 간단하게 만들면 유용할 수 있습니다. 다음 코드 조각에서는 계산된 속성으로 JobInfo에 주석을 다는 방법을 보여 줍니다.
+
+```
+function annotate_job( $j )
+{
+    $dic1 = @{
+        Label='AUHours';
+        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
+    $dic2 = @{
+        Label='DurationSeconds';
+        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
+    $dic3 = @{
+        Label='DidRun';
+        Expression={ ($_.StartTime -ne $null)}}
+
+    $j2 = $j | select *, $dic1, $dic2, $dic3
+    $j2
+}
+
+$jobs = Get-AdlJob -Account $adla -Top 10
+$jobs = $jobs | %{ annotate_job( $_ ) }
 ```
 
 ### <a name="get-information-about-a-job"></a>작업 정보 가져오기
@@ -264,6 +396,8 @@ Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
+
+### <a name="examine-the-job-outputs"></a>작업 출력 검토
 
 작업이 종료되면 폴더의 파일을 나열하여 출력 파일이 있는지 확인합니다.
 
@@ -288,35 +422,25 @@ Stop-AdlJob -Account $adls -JobID $jobID
 파일을 업로드합니다.
 
 ```powershell
-Import-AdlStoreItem -AccountName $adls `
-    -Path "<LocalPath>\data.tsv" `
-    -Destination "/data_copy.csv" 
+Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv" 
 ```
 
-전체 폴더를 업로드합니다.
+전체 폴더를 재귀적으로 업로드합니다.
 
 ```powershell
-Import-AdlStoreItem -AccountName $adls `
-    -Path "<LocalPath>\myData\" `
-    -Destination "/myData/" `
-    -Recurse
+Import-AdlStoreItem -AccountName $adls -Path "c:\myData\" -Destination "/myData/" -Recurse
 ```
 
 파일을 다운로드합니다.
 
 ```powershell
-Export-AdlStoreItem -AccountName $adls `
-    -Path "/data.csv" `
-    -Destination "<LocalPath>\data.csv"
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "c:\data.csv"
 ```
 
-전체 폴더를 다운로드합니다.
+전체 폴더를 재귀적으로 다운로드합니다.
 
 ```powershell
-Export-AdlStoreItem -AccountName $adls `
-    -Path "/" `
-    -Destination "<LocalPath>\myData\" `
-    -Recurse
+Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recurse
 ```
 
 > [!NOTE]
@@ -325,47 +449,48 @@ Export-AdlStoreItem -AccountName $adls `
 ## <a name="manage-catalog-items"></a>카탈로그 항목 관리
 U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터 및 코드를 구성하는 데 사용됩니다. 카탈로그를 사용하면 가능한 가장 높은 성능으로 Azure 데이터 레이크의 데이터를 사용할 수 있습니다. 자세한 내용은 [U-SQL 카탈로그 사용](data-lake-analytics-use-u-sql-catalog.md)을 참조하세요.
 
-### <a name="list-items"></a>항목 나열
+### <a name="list-items-in-the-u-sql-catalog"></a>U-SQL 카탈로그의 항목 나열
 
-U-SQL 데이터베이스를 나열합니다.
 
 ```powershell
+# List U-SQL databases
 Get-AdlCatalogItem -Account $adla -ItemType Database 
+
+# List tables within a database
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
+
+# List tables within a schema.
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-데이터베이스 내 테이블을 나열합니다.
+ADLA 계정에 있는 모든 데이터베이스의 모든 어셈블리를 나열합니다.
 
 ```powershell
-Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master"
+$dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
+
+foreach ($db in $dbs)
+{
+    $asms = Get-AdlCatalogItem -Account $adla -ItemType Assembly -Path $db.Name
+
+    foreach ($asm in $asms)
+    {
+        $asmname = "[" + $db.Name + "].[" + $asm.Name + "]"
+        Write-Host $asmname
+    }
+}
 ```
 
-스키마 내 테이블을 나열합니다.
+### <a name="get-details-about-a-catalog-item"></a>카탈로그 항목에 대한 세부 정보 가져오기
 
 ```powershell
-Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master.dbo"
-```
-
-### <a name="get-information-about-a-catalog-item"></a>카탈로그 항목에 대한 정보 가져오기
-
-U-SQL 데이터베이스의 세부 정보를 가져옵니다.
-
-```powershell
-Get-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
-```
-
-U-SQL 데이터베이스의 테이블에 대한 세부 정보를 가져옵니다.
-
-```powershell
+# Get details of a table
 Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
-```
 
-U-SQL 데이터베이스의 존재 여부를 테스트합니다.
-
-```powershell
+# Test existence of a U-SQL database.
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### <a name="create-catalog-items"></a>카탈로그 항목 만들기
+### <a name="create-credentials-in-a-catalog"></a>카탈로그에 자격 증명 만들기
 
 U-SQL 데이터베이스 내에서 Azure에서 호스트되는 데이터베이스에 대한 자격 증명 개체를 만듭니다. 현재 U-SQL 자격 증명은 PowerShell을 통해 만들 수 있는 유일한 유형의 카탈로그 항목입니다.
 
@@ -379,6 +504,101 @@ New-AdlCatalogCredential -AccountName $adla `
           -CredentialName $credentialName `
           -Credential (Get-Credential) `
           -Uri $dbUri
+```
+
+### <a name="get-basic-information-about-an-adla-account"></a>ADLA 계정에 대한 기본 정보 가져오기
+
+계정 이름을 지정하는 경우 다음 코드는 계정에 대한 기본 정보를 조회합니다.
+
+```
+$adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
+$adla_name = $adla_acct.Name
+$adla_subid = $adla_acct.Id.Split("/")[2]
+$adla_sub = Get-AzureRmSubscription -SubscriptionId $adla_subid
+$adla_subname = $adla_sub.Name
+$adla_defadls_datasource = Get-AdlAnalyticsDataSource -Account $adla_name  | ? { $_.IsDefault } 
+$adla_defadlsname = $adla_defadls_datasource.Name
+
+Write-Host "ADLA Account Name" $adla_name
+Write-Host "Subscription Id" $adla_subid
+Write-Host "Subscription Name" $adla_subname
+Write-Host "Defautl ADLS Store" $adla_defadlsname
+Write-Host 
+
+Write-Host '$subname' " = ""$adla_subname"" "
+Write-Host '$subid' " = ""$adla_subid"" "
+Write-Host '$adla' " = ""$adla_name"" "
+Write-Host '$adls' " = ""$adla_defadlsname"" "
+```
+## <a name="working-with-azure"></a>Azure 작업
+
+### <a name="get-details-of-azurerm-errors"></a>AzureRm 오류에 대한 세부 정보 가져오기
+
+```powershell
+Resolve-AzureRmError -Last
+```
+
+### <a name="verify-if-you-are-running-as-an-administrator"></a>관리자로 실행 중인지 확인
+
+```powershell
+function Test-Administrator  
+{  
+    $user = [Security.Principal.WindowsIdentity]::GetCurrent();
+    $p = New-Object Security.Principal.WindowsPrincipal $user
+    $p.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
+}
+```
+
+### <a name="find-a-tenantid"></a>TenantID 찾기
+
+구독 이름에서
+
+```powershell
+function Get-TenantIdFromSubcriptionName( [string] $subname )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub.TenantId
+}
+
+Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+```
+
+구독 ID에서
+
+```powershell
+function Get-TenantIdFromSubcriptionId( [string] $subid )
+{
+    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub.TenantId
+}
+
+$subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Get-TenantIdFromSubcriptionId $subid
+```
+
+"contoso.com"과 같은 도메인 주소에서
+
+
+```powershell
+function Get-TenantIdFromDomain( $domain )
+{
+    $url = "https://login.windows.net/" + $domain + "/.well-known/openid-configuration"
+    return (Invoke-WebRequest $url|ConvertFrom-Json).token_endpoint.Split('/')[3]
+}
+
+$domain = "contoso.com"
+Get-TenantIdFromDomain $domain
+```
+
+### <a name="list-all-your-subscriptions-and-tenant-ids"></a>모든 구독 및 테넌트 ID 나열
+
+```powershell
+$subs = Get-AzureRmSubscription
+foreach ($sub in $subs)
+{
+    Write-Host $sub.Name "("  $sub.Id ")"
+    Write-Host "`tTenant Id" $sub.TenantId
+}
 ```
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>템플릿을 사용하여 Data Lake Analytics 계정 만들기
@@ -471,5 +691,5 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $rg 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)을 사용하여 Data Lake Analytics 시작
-* [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  [Azure portal](data-lake-analytics-manage-use-portal.md) | [CLI](data-lake-analytics-manage-use-cli.md)를 사용하여 Azure Data Lake Analytics 관리 
+* [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md)를 사용하여 Azure Data Lake Analytics 관리 
 

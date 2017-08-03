@@ -4,7 +4,7 @@ description: "이 개요에서는 Azure SQL 데이터 동기화(미리 보기)�
 services: sql-database
 documentationcenter: 
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 075b5563688158289d51f2f0b5da4a3441ddd13a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
@@ -29,7 +28,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 데이터 동기화는 동기화 그룹의 개념에 기반합니다. 동기화 그룹은 동기화하려는 데이터베이스의 그룹입니다.
 
-동기화 그룹에는 다음과 같은 여러 가지 속성이 있습니다.
+동기화 그룹의 속성은 다음과 같습니다.
 
 -   **동기화 스키마**는 동기화할 데이터에 대해 설명합니다.
 
@@ -39,7 +38,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   **충돌 해결 정책**은 그룹 수준 정책으로 *허브 우선*일 수도 있고 *구성원 우선*일 수도 있습니다.
 
-데이터 동기화는 허브 및 스포크 토폴로지를 사용하여 데이터를 동기화합니다. 그룹의 데이터베이스 중 하나를 허브 데이터베이스로 정의해야 합니다. 데이터베이스의 나머지 부분은 구성원 데이터베이스입니다. 동기화는 허브 및 개별 구성원 사이에서만 발생합니다.
+데이터 동기화는 허브 및 스포크 토폴로지를 사용하여 데이터를 동기화합니다. 그룹의 데이터베이스 중 하나를 허브 데이터베이스로 정의합니다. 데이터베이스의 나머지 부분은 구성원 데이터베이스입니다. 동기화는 허브 및 개별 구성원 사이에서만 발생합니다.
 -   **허브 데이터베이스**는 Azure SQL Database여야 합니다.
 -   **구성원 데이터베이스**는 SQL Database, 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 인스턴스일 수 있습니다.
 -   **동기화 데이터베이스**는 데이터 동기화에 대한 메타데이터 및 로그를 포함합니다. 동기화 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database여야 합니다. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
@@ -82,7 +81,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 ### <a name="performance-impact"></a>성능에 미치는 영향
-데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 사용자 데이터베이스에서 추가 표를 만듭니다. 이러한 작업은 데이터베이스 워크로드에 영향을 주므로 서비스 계층을 평가하고 필요한 경우를 업그레이드합니다.
+데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
 
 ### <a name="eventual-consistency"></a>결과적 일관성
 데이터 동기화가 트리거 기반이기 때문에 트랜잭션 일관성이 보장되지 않습니다. Microsoft는 결과적으로 모든 변경 내용을 적용하고 데이터 동기화가 데이터 손실을 발생하지 않도록 보장합니다.
@@ -101,9 +100,9 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   각 표에는 기본 키가 있어야 합니다.
 
--   표에는 기본 키가 없는 ID 열이 있을 수 없습니다.
+-   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
 
--   데이터베이스 이름은 특수 문자를 포함할 수 없습니다.
+-   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
 
@@ -119,6 +118,28 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 | 표의 데이터 행 크기                                        | 24Mb                  |                             |
 | 최소 동기화 간격                                           | 5분              |                             |
 
+## <a name="common-questions"></a>일반적인 질문
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>데이터 동기화에서 데이터를 동기화하는 빈도는 어떻게 되나요? 
+최소 빈도는 5분마다입니다.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>데이터 동기화를 사용하여 SQL Server 온-프레미스 데이터베이스 사이에서 동기화할 수 있나요? 
+직접 끌 수는 없습니다. 그러나 Azure에서 허브 데이터베이스를 만든 다음 온-프레미스 데이터베이스를 동기화 그룹에 추가하여 간접적으로 SQL Server 온-프레미스 데이터베이스 사이에서 동기화할 수 있습니다.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>데이터 동기화를 사용하여 프로덕션 데이터베이스에서 빈 데이터베이스로 데이터를 시드한 다음 동기화된 상태로 유지할 수 있나요? 
+예. 원본에서 스크립팅하여 수동으로 새 데이터베이스에 스키마를 만듭니다. 스키마를 만든 후 테이블을 동기화 그룹에 추가하여 데이터를 복사하고 동기화된 상태로 유지합니다.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>내가 만들지 않은 테이블이 표시되는 이유는 무엇인가요?  
+데이터 동기화는 변경 내용 추적을 위해 데이터베이스에 추가 테이블을 만듭니다. 해당 테이블을 삭제하지 마세요. 삭제하면 데이터 동기화의 작동이 중지됩니다.
+   
+### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>"\<column\> 열에 NULL 값을 삽입할 수 없습니다. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
+이 오류 메시지는 다음 두 가지 문제 중 하나를 나타냅니다.
+1.  기본 키가 없는 테이블이 있을 수 있습니다. 이 문제를 해결하려면 동기화하는 모든 테이블에 기본 키를 추가합니다.
+2.  CREATE INDEX 문에 WHERE 절이 있을 수 있습니다. 동기화에서는 이 조건이 처리되지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
+ 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우 어떻게 처리되나요?
+데이터 동기화에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 SQL Database 및 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
@@ -132,6 +153,4 @@ SQL Database 및 SQL 데이터 동기화에 대한 자세한 내용은 다음을
 -   [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
-
-
 
