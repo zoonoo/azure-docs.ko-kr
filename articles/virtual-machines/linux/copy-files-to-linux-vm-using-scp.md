@@ -1,9 +1,9 @@
 ---
-title: "SCP를 사용하여 Linux VM에서 파일 송수신 | Microsoft Docs"
-description: "SCP 및 SSH 키 쌍을 사용하여 Linux VM에서 파일을 안전하게 송수신합니다."
+title: "SCP를 사용하여 Azure Linux VM 간에 파일 이동 | Microsoft Docs"
+description: "SCP 및 SSH 키 쌍을 사용하여 Azure에서 Linux VM 간에 안전하게 파일을 이동합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,64 +13,64 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1935bde486d8f6f8e80a73447c4b0ea5d4671b45
-ms.lasthandoff: 04/03/2017
-
+ms.date: 07/12/2017
+ms.author: danlep
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8eb958bb5c8450baecb0b7b4c24db1778a1dec1d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="moving-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM에서 파일 송수신
+# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM 간에 파일 이동
 
-이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다.  예를 들어 Linux VM까지 Azure 구성 파일을 이동하고 로그 파일 디렉터리를 끌어오는 경우 모두 SCP 및 SSH 키를 사용하여 수행합니다.   
+이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다. 워크스테이션과 Linux VM 간에 신속하고 안전하게 파일을 이동하는 것은 Azure 인프라 관리의 중요한 부분입니다. 
 
-이 문서에 필요한 요구 사항은 다음과 같습니다.
-
-- [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-
-- [SSH 공용 및 개인 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+이 문서의 경우 [SSH 공개 및 개인 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 
 Linux VM으로 파일 복사
 
 ```bash
-scp file user@host:directory/targetfile
+scp file azureuser@azurehost:directory/targetfile
 ```
 
 Linux VM에서 파일 복사
 
 ```bash
-scp user@host:directory/file targetfile
+scp azureuser@azurehost:directory/file targetfile
 ```
 
 ## <a name="detailed-walkthrough"></a>자세한 연습
 
-파일을 워크스테이션 및 Linux VM 간에 앞뒤로 신속하고 안전하게 이동하는 것은 Azure 인프라의 중요한 부분입니다.  이 문서에서는 SSH 위에 구축되었고 Linux, Mac 및 Windows의 기본 Bash 셸에 포함되어 있는 도구인 SCP 사용 과정을 연습해봅니다.
+예를 들어 Linux VM까지 Azure 구성 파일을 이동하고 로그 파일 디렉터리를 끌어오는 경우 모두 SCP 및 SSH 키를 사용하여 수행합니다.   
 
 ## <a name="ssh-key-pair-authentication"></a>SSH 키 쌍 인증
 
-SCP는 전송 계층에 대해 SSH를 사용합니다.  전송에 대해 SSH를 사용할 경우 SSH는 기본적으로 SSH가 제공되는 암호화된 터널에서 파일을 이동하면서 대상 호스트의 인증을 처리합니다.  SSH 인증의 경우, 사용자 이름 및 암호를 사용할 수 있지만 보안 모범 사례로 SSH 공용 및 개인 키 인증이 강력히 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사 프로세스를 시작합니다.  적절히 구성된 `~/.ssh/config`, SSH 공용 및 개인 키를 사용하면 사용자 이름을 사용하지 않고, 서버 이름만 사용해서 SCP 연결을 설정할 수 있습니다.  SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 기본적으로 VM에 로그인하는 데 사용합니다.
+SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트에서 인증을 처리하고 SSH와 함께 기본적으로 제공되는 암호화된 터널에서 파일을 이동합니다. SSH 인증에는 사용자 이름 및 암호를 사용할 수 있습니다. 그러나 SSH 공개 및 개인 키 인증이 보안 모범 사례로 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사를 시작합니다. 적절히 구성된 `~/.ssh/config`와 SSH 공개 및 개인 키를 사용하면 서버 이름(또는 IP 주소)만 사용해서 SCP 연결을 설정할 수 있습니다. SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 VM에 로그인하는 데 기본적으로 사용합니다.
 
-`~/.ssh/config`, SSH 공용 및 개인 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서를 참조하세요.
+`~/.ssh/config`와 SSH 공개 및 개인 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>파일을 Linux VM으로 SCP
 
-첫 번째 예제에서는 Azure 자격 증명 파일을 Automation 배포에 사용되는 Linux VM까지 복사합니다.  이 파일에는 암호를 포함하는 Azure API 자격 증명이 포함되므로 보안이 매우 중요하고 암호화된 터널 SSH는 파일 내용을 제공하고 보호합니다.
+첫 번째 예제에서는 Azure 구성 파일을 Automation 배포에 사용되는 Linux VM까지 복사합니다. 이 파일에는 비밀이 포함된 Azure API 자격 증명이 있으므로 보안이 중요합니다. SSH에서 제공하는 암호화된 터널은 파일의 콘텐츠를 보호합니다.
+
+다음 명령에서는 로컬 *.azure/config* 파일을 FQDN *myserver.eastus.cloudapp.azure.com*을 사용하여 Azure VM에 복사합니다. Azure VM의 관리자 사용자 이름은 *azureuser*입니다. 파일은 */home/azureuser/* 디렉터리로 대상이 지정됩니다. 이 명령에서 고유한 값을 대체합니다.
 
 ```bash
-scp ~/.azure/credentials myserver:/home/ahmet/.azure/credentials
+scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
 ## <a name="scp-a-directory-from-a-linux-vm"></a>디렉터리를 Linux VM에서 SCP
 
-이 예제에서는 Linux VM에서 워크스테이션으로 로그 파일로 꽉 찬 디렉터리를 복사합니다.  로그 파일에는 중요한 비밀 데이터가 포함되어 있을 수도 있으며 SCP를 사용하면 로그 파일 내용이 암호화됩니다.  SCP를 사용하여 파일을 안전하게 전송하는 것이 로그 디렉터리 및 파일을 안전하게 워크스테이션으로 가져오는 가장 쉬운 방법입니다.
+이 예제에서는 Linux VM에서 워크스테이션으로 로그 파일 디렉터리를 복사합니다. 로그 파일에는 중요한 데이터 및 비밀 데이터가 있을 수도 있고 없을 수도 있습니다. 그러나 SCP를 사용하면 로그 파일의 콘텐츠가 암호화됩니다. SCP를 사용하여 파일을 전송하는 것이 로그 디렉터리 및 파일을 안전하게 워크스테이션으로 가져오는 가장 쉬우면서도 안전한 방법입니다.
+
+다음 명령에서는 Azure VM에서 */home/azureuser/logs/* 디렉터리의 파일을 local/tmp 디렉터리로 복사합니다.
 
 ```bash
-scp -r myserver:/home/ahmet/logs/ /tmp/.
+scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
 `-r` cli 플래그는 명령에 나열된 디렉터리의 시점부터 파일 및 디렉터리를 재귀적으로 복사하도록 SCP에 지시합니다.  또한 명령줄 구문은 `cp` 복사 명령과 비슷합니다.

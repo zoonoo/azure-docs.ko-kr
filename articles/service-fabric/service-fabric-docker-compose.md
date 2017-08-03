@@ -12,64 +12,65 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2017
+ms.date: 7/27/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 91b6e98df5df98bb557d7fac0475354322d95640
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f4899748ee191a64156c0e2fae87c195ae4dbc8c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="compose-application-support-in-service-fabric-preview"></a>Service Fabric의 Compose 응용 프로그램 지원(미리 보기)
+# <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 응용 프로그램 지원(미리 보기)
 
-Docker는 다중 컨테이너 응용 프로그램을 정의하기 위해 [docker-compose.yml](https://docs.docker.com/compose) 파일을 사용합니다.
-Docker에 익숙한 고객이 Service Fabric에서 기존 컨테이너 응용 프로그램을 쉽게 조정하도록 하기 위해 플랫폼에 기본적으로 Docker Compose에 대한 미리 보기 지원을 포함했습니다. Service Fabric은 `docker-compose.yml` 파일의 버전 3(+)을 수락할 수 있습니다. 이 지원은 미리 보기로 제공되므로 Compose 지시문의 하위 집합만 지원됩니다. 예를 들어 응용 프로그램 업그레이드는 지원되지 않습니다. 그러나 응용 프로그램을 업그레이드하는 대신 항상 제거한 후 배포할 수 있습니다.
+Docker는 다중 컨테이너 응용 프로그램을 정의하기 위해 [docker-compose.yml](https://docs.docker.com/compose) 파일을 사용합니다. Docker에 익숙한 고객이 Azure Service Fabric에서 기존 컨테이너 응용 프로그램을 쉽게 조정하도록 하기 위해 플랫폼에 기본적으로 Docker Compose에 대한 미리 보기 지원을 포함했습니다. Service Fabric은 `docker-compose.yml` 파일의 버전 3 이상을 수락할 수 있습니다. 
 
-이 미리 보기를 사용하려면 포털을 통해 미리 보기 SDK(버전 255.255.x.x)를 설치한 클러스터를 만들어야 합니다. 
+이 지원은 미리 보기로 제공되므로 Compose 지시문의 하위 집합만 지원됩니다. 예를 들어 응용 프로그램 업그레이드는 지원되지 않습니다. 그러나 응용 프로그램을 업그레이드하는 대신 항상 제거한 후 배포할 수 있습니다.
+
+이 미리 보기를 사용하려면 Azure Portal을 통해 미리 보기 SDK(버전 255.255.x.x)를 설치한 클러스터를 만듭니다. 
 
 > [!NOTE]
 > 이 기능은 미리 보기로 제공되며 지원되지 않습니다.
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Service Fabric에서 Docker Compose 파일 배포
 
-다음과 같은 명령은 Service Fabric 응용 프로그램과 유사하게 모니터링하고 관리할 수 있는 Service Fabric 응용 프로그램(이전 예제의 `fabric:/TestContainerApp`)을 만듭니다. 상태 쿼리에 지정된 응용 프로그램 이름을 사용할 수 있습니다.
+다음 명령은 다른 Service Fabric 응용 프로그램과 유사하게 모니터링하고 관리할 수 있는 Service Fabric 응용 프로그램(이전 예제의 `fabric:/TestContainerApp`)을 만듭니다. 상태 쿼리에 대해서는 지정된 응용 프로그램 이름을 사용할 수 있습니다.
 
-### <a name="using-powershell"></a>PowerShell 사용
+### <a name="use-powershell"></a>PowerShell 사용
 
-PS에서 다음 명령을 실행하여 docker-compose.yml 파일에서 Service Fabric 작성 응용 프로그램을 만듭니다.
+PowerShell에서 다음 명령을 실행하여 docker-compose.yml 파일에서 Service Fabric Compose 응용 프로그램을 만듭니다.
 
 ```powershell
-New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEnctypted]
+New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RepositoryUserName` 및 `RepoistoryPassword`는 컨테이너 레지스트리 사용자 이름 및 암호를 가리킵니다. 응용 프로그램이 완료되면 다음 명령을 사용하여 응용 프로그램의 상태를 확인할 수 있습니다.
+`RegistryUserName` 및 `RegistryPassword`는 컨테이너 레지스트리 사용자 이름 및 암호를 가리킵니다. 응용 프로그램을 완료한 후에는 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
 
 ```powershell
 Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
 ```
 
-PS를 통해 작성 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
+PowerShell을 통해 Compose 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
 
 ```powershell
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
-### <a name="using-azure-cli-20"></a>Azure CLI 2.0 사용
+### <a name="use-azure-cli-20"></a>Azure CLI 2.0 사용
 
-또는 다음 Azure CLI 명령을 사용합니다.
+또는 다음 Azure CLI 명령을 사용할 수 있습니다.
 
 ```azurecli
 az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
-응용 프로그램을 만들면 다음 명령을 사용하여 응용 프로그램의 상태를 확인할 수 있습니다.
+응용 프로그램을 만든 후에는 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
 
 ```azurecli
 az sf compose status --application-id TestContainerApp [ --timeout ]
 ```
 
-작성 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
+Compose 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az sf compose remove  --application-id TestContainerApp [ --timeout ]
@@ -77,38 +78,39 @@ az sf compose remove  --application-id TestContainerApp [ --timeout ]
 
 ## <a name="supported-compose-directives"></a>지원되는 Compose 지시문
 
-Compose V3 형식의 구성 옵션 하위 집합은 이 미리 보기에서 지원됩니다. 다음과 같은 기본 형식이 지원됩니다.
+이 미리 보기에서는 다음과 같은 기본 형식을 포함하여 Compose 버전 3형식의 구성 옵션 하위 집합을 지원합니다.
 
-* Services->Deploy->replicas
-* Services->Deploy->Placement->Constraints
-* Services->Deploy->Resources->Limits
-*         -cpu-shares
-*         -memory
-*         -memory-swap
-* Services->Commands
-* Services->Environment
-* Services->Ports
-* Services->image
-* Services->Isolation(Windows만 해당)
-* Services->logging->driver
-* Services->logging->driver->options
-* Volume & Deploy->Volume
+* 서비스 > 배포 > 복제본
+* 서비스 > 배포 > 배치 > 제약 조건
+* 서비스 > 배포 > 리소스 > 제한
+    * -cpu-shares
+    * -memory
+    * -memory-swap
+* 서비스 > 명령
+* 서비스 > 환경
+* 서비스 > 포트
+* 서비스 > 이미지
+* 서비스 > 격리(Windows에만 해당)
+* 서비스 > 로깅 > 드라이버
+* 서비스 > 로깅 > 드라이버 > 옵션
+* 볼륨 및 배포 > 볼륨
 
-클러스터는 [Service Fabric 리소스 관리](service-fabric-resource-governance.md)에 설명된 대로 리소스 제한을 적용하도록 설정되어야 합니다. 다른 모든 docker compose 지시문은 이 미리 보기에서 지원되지 않습니다.
+클러스터는 [Service Fabric 리소스 관리](service-fabric-resource-governance.md)에 설명된 대로 리소스 제한을 적용하도록 설정합니다. 다른 모든 Docker Compose 지시문은 이 미리 보기에서 지원되지 않습니다.
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName 계산
 
-compose 파일에 지정된 서비스 이름이 정규화된 도메인 이름(즉, 마침표 ‘.’ 포함)인 경우 Service Fabric에서 등록된 DNS 이름은 마침표를 포함하는 `<ServiceName>`입니다. 정규화된 도메인 이름이 아니면 ApplicationName의 각 경로 세그먼트는 첫 번재째 경로가 최상위 도메인 레이블에 해당하는 서비스 DNS 이름의 도메인 레이블이 됩니다.
+Compose 파일에 지정하는 서비스 이름이 정규화된 도메인 이름(즉, 마침표 [.] 포함)인 경우 Service Fabric에서 등록된 DNS 이름은 `<ServiceName>`(마침표 포함)입니다. 정규화된 도메인 이름이 아닌 경우 응용 프로그램 이름의 각 경로 세그먼트는 서비스 DNS 이름의 도메인 레이블이 됩니다. 이때 첫 번째 경로 세그먼트가 최상위 도메인 레이블이 됩니다.
 
-예를 들어 응용 프로그램 이름을 `fabric:/SampleApp/MyComposeApp`으로 지정하면 `<ServiceName>.MyComposeApp.SampleApp`은 등록된 DNS 이름이 됩니다.
+예를 들어 지정된 응용 프로그램 이름이 `fabric:/SampleApp/MyComposeApp`인 경우 `<ServiceName>.MyComposeApp.SampleApp`은 등록된 DNS 이름이 됩니다.
 
 ## <a name="differences-between-compose-instance-definition-and-service-fabric-application-model-type-definition"></a>Compose(인스턴스 정의) 및 Service Fabric 응용 프로그램 모델(형식 정의) 간 차이
 
 docker-compose.yml 파일은 해당 속성 및 구성을 포함하는 컨테이너의 배포 가능 집합을 설명합니다.
-예를 들어 파일에는 환경 변수 및 포트가 포함될 수 있습니다. 배치 제약 조건, 리소스 제한, DNS 이름과 같은 배포 매개 변수는 docker-compose.yml 파일에도 지정될 수 있습니다.
+예를 들어 파일에는 환경 변수 및 포트가 포함될 수 있습니다. 배치 제약 조건, 리소스 제한, DNS 이름과 같은 배포 매개 변수는 docker-compose.yml 파일에도 지정할 수 있습니다.
 
-[Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)은 서비스 형식 및 응용 프로그램 형식을 사용합니다. 여기서 동일한 형식의 여러 응용 프로그램 인스턴스를 유지할 수 있습니다. 예를 들어 고객이 각자 하나의 응용 프로그램 인스턴스를 사용할 수 있습니다. 이 형식 기반 모델은 동일한 응용 프로그램 유형의 여러 버전을 런타임에 등록하도록 지원합니다.
-예를 들어 고객 A에는 1.0 형식의 AppTypeA로 인스턴스화된 응용 프로그램이 있고, 고객 B에는 동일한 형식 및 버전으로 인스턴스화된 다른 응용 프로그램을 유지할 수 있습니다. 응용 프로그램 형식은 응용 프로그램 매니페스트에 정의되고, 응용 프로그램 이름 및 배포 매개 변수는 응용 프로그램 생성 시에 지정됩니다.
+[Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)은 서비스 형식 및 응용 프로그램 형식을 사용합니다. 여기서 동일한 형식의 여러 응용 프로그램 인스턴스를 유지할 수 있습니다. 예를 들어 고객이 각자 하나의 응용 프로그램 인스턴스를 사용할 수 있습니다. 이 형식 기반 모델은 런타임에 등록된 동일한 응용 프로그램 유형의 여러 버전을 지원합니다.
+
+예를 들어 고객 A에는 1.0 형식의 AppTypeA로 인스턴스화된 응용 프로그램이 있고, 고객 B에는 동일한 형식 및 버전으로 인스턴스화된 다른 응용 프로그램을 유지할 수 있습니다. 응용 프로그램 유형은 응용 프로그램 매니페스트에서 정의하고, 응용 프로그램 이름 및 배포 매개 변수는 응용 프로그램을 만들 때 지정합니다.
 
 이 모델을 사용하면 유연하게 작업할 수 있지만 매니페스트 파일에서 형식이 암시되는 좀 더 간단한 인스턴스 기반 모델을 지원하려고 합니다. 이 모델에서 각 응용 프로그램은 자체의 독립적인 매니페스트를 갖게 됩니다. 인스턴스 기반 배포 형식인 docker-compose.yml에 대한 지원을 추가하여 이러한 방식을 미리 검토하고 있습니다.
 
@@ -116,8 +118,8 @@ docker-compose.yml 파일은 해당 속성 및 구성을 포함하는 컨테이�
 
 * [Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)에 대해 자세히 알아보기
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
 * [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
-* [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)
+* [Service Fabric XPlat CLI 시작](service-fabric-azure-cli.md)
 

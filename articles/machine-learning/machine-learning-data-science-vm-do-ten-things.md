@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b6ad821a89df17441921a157f136f3ca0869c8fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일
@@ -31,7 +30,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 2. Jupyter Notebook에서 Python 2, Python 3 그리고 확장성 및 성능 위주로 설계된 R의 엔터프라이즈급 버전인 Microsoft R을 사용하여 브라우저에서 데이터 실험
 3. 클라이언트 응용 프로그램이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure 기계 학습에서 R 및 Python을 사용하여 구축된 모델 운영
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
-5. Azure 파일 저장소를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
+5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
 7. Azure Blob Storage, Azure Data Lake, Azure HDInsight(Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
@@ -39,7 +38,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 10. 가상 컴퓨터에 추가 도구 설치   
 
 > [!NOTE]
-> 이 문서에 나열된 추가 데이터 저장소 및 분석 서비스의 대부분에 대한 추가 사용 요금이 적용됩니다. 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/) 페이지를 참조하세요.
+> 이 문서에 나열된 추가 데이터 저장소 및 분석 서비스의 대부분에 대해서는 추가 사용 요금이 적용됩니다. 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/) 페이지를 참조하세요.
 > 
 > 
 
@@ -138,7 +137,7 @@ Azure 기계 학습에 python 모델을 배포하는 데 사용되는 메서드�
 ### <a name="build-and-operationalize-r-models"></a>R 모델 구축 및 운영
 구축된 R 모델을 Python에서 사용한 방법과 비슷한 방법으로 데이터 과학 가상 컴퓨터 또는 Azure 기계 학습의 다른 위치에 배포할 수 있습니다. 단계는 다음과 같습니다.
 
-* 아래와 같이 작업 영역 ID 및 인증 토큰을 제공하는 settings.json 파일을 만듭니다.
+* 다음 코드 예제와 같이 작업 영역 ID 및 인증 토큰을 제공하는 settings.json 파일을 만듭니다.
 * 모델의 예측 함수에 대한 래퍼를 작성합니다.
 * Azure 기계 학습 라이브러리에서 ```publishWebService``` 를 호출하여 함수 래퍼에 전달합니다.  
 
@@ -243,7 +242,7 @@ GitHub는 개발자 커뮤니티에서 공유하는 다양한 기술을 사용�
 
 DSVM은 GitHub 리포지토리에 액세스할 수 있는 클라이언트 도구가 이미 GUI와 명령줄에 내장되어 있습니다. Git 및 GitHub를 사용하는 명령줄 도구는 Git Bash입니다. DSVM에 설치된 Visual Studio에는 Git 확장 기능이 있습니다. 시작 메뉴 및 바탕 화면에서 이러한 도구의 시작 아이콘을 찾을 수 있습니다.
 
-GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명령을 사용하세요. 예를 들어 Microsoft가 현재 디렉터리에 게시한 데이터 과학 리포지토리를 다운로드하려면 ```git-bash```에 액세스한 후 다음 명령을 사용합니다.
+GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명령을 사용합니다. 예를 들어 Microsoft가 현재 디렉터리에 게시한 데이터 과학 리포지토리를 다운로드하려면 ```git-bash```에 액세스한 후 다음 명령을 사용합니다.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
@@ -270,7 +269,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 **VM에서 Azure Blob로 데이터 이동: AzCopy**
 
-로컬 파일과 Blob 저장소 간에 데이터를 이동하려면 명령줄 또는 PowerShell에서 AzCopy를 사용합니다.
+로컬 파일과 Blob Storage 간에 데이터를 이동하려면 명령줄 또는 PowerShell에서 AzCopy를 사용합니다.
 
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
@@ -458,7 +457,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 ![HDInsight 클러스터로 만든 저장소 계정에 연결](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
-* 클러스터의 헤드 노드에 대한 **원격 액세스**를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 아래에서 필요합니다.
+* 클러스터의 헤드 노드에 대한 **원격 액세스**를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 후속 절차에서 필요합니다.
 
 ![원격 액세스 사용](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
@@ -687,7 +686,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
         """
         cursor.execute(queryString)
 
-        --- now insert contents of the join into the above internal table
+        --- now insert contents of the join into the preceding internal table
 
         queryString = """
         insert overwrite table nyctaxi_downsampled_dataset_testNEW
@@ -786,7 +785,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 **Machine Learning을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
 
-Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터의 자격 증명과 Azure 저장소 계정을 연결하면 HDI 클러스터의 데이터베이스를 사용하여 기계 학습 모델을 빌드할 수 있습니다.
+Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터의 자격 증명과 Azure Storage 계정을 연결하여 HDI 클러스터의 데이터베이스를 사용한 기계 학습 모델 빌드를 가능하도록 합니다.
 
 ![판독기 모듈 속성](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
@@ -807,14 +806,14 @@ DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 
 1. DocumentDB Python SDK를 설치합니다(명령 프롬프트에서 ```pip install pydocumentdb``` 실행).
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정과 데이터베이스를 만듭니다.
 3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
-4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치 매개 변수를 입력합니다.
+4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치를 다음 매개 변수와 함께 입력합니다.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 데이터를 가져온 후에는 Jupyter로 이동하여 *DocumentDBSample*이라는 제목의 Notebook을 열 수 있습니다. 이 Notebook에는 DocumentDB에 액세스하여 몇 가지 기본 쿼리를 수행할 수 있는 Python 코드가 포함되어 있습니다. 서비스 [설명서 페이지](https://docs.microsoft.com/azure/cosmos-db/)를 방문하여 Cosmos DB에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Power BI Desktop을 사용하여 보고서 및 대시보드 작성
-위의 Cosmos DB 예제에서 확인한 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 아래와 같습니다.
+위의 Cosmos DB 예제에서 확인한 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 다음과 같습니다.
 
 1. Power BI Desktop을 열고 "Get Data"를 수행합니다. URL을 https://cahandson.blob.core.windows.net/samples/volcano.json으로 지정합니다.
 2. 목록으로 가져온 JSON 레코드가 보일 것입니다.
@@ -824,7 +823,7 @@ DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 
 6. 목록 좌표 열을 쉼표로 구분된 LatLong 열로 변환하는 새 열을 추가하고 ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```수식을 사용하여 좌표 목록 필드의 두 요소를 연결합니다.
 7. 마지막으로 ```Elevation``` 열을 10진수로 변환하고 **닫기** 및 **적용**을 선택합니다.
 
-위의 단계 대신 위의 단계를 스크립팅하는 다음 코드를 Power BI 고급 편집기에 붙여넣어서 데이터 변환을 쿼리 언어로 작성할 수 있습니다.
+위의 단계를 수행하는 대신, 위의 단계를 스크립팅하는 다음 코드를 Power BI 고급 편집기에 붙여넣어서 데이터 변환을 쿼리 언어로 작성할 수 있습니다.
 
     let
         Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
@@ -838,7 +837,7 @@ DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 
 
 
 
-이제 Power BI 데이터 모델에 데이터가 있습니다. Power BI Desktop이 아래와 같이 보일 것입니다.
+이제 Power BI 데이터 모델에 데이터가 있습니다. Power BI Desktop이 다음과 같이 표시됩니다.
 
 ![Power BI 데스크톱](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
@@ -854,7 +853,7 @@ DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 
 > 
 > 
 
-대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 메모리 용량 및 디스크 유형(SSD 포함)을 기준으로 계산 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 계산 가격을 비롯한 전체 VM 목록은 [Azure 가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
+대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 계산 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 계산 가격을 비롯한 전체 VM 목록은 [Azure 가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
 
 마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 다음은 스크린샷입니다.
 
