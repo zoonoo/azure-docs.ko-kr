@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: juliako
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -940,28 +939,30 @@ ms.lasthandoff: 06/30/2017
 #### <a name="xml-preset"></a>XML 사전 설정
 
 XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideoBottomLayerOnly"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
-    
-    . . .
-    <Encoding>  
-    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
-      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-      <SceneChangeDetection>true</SceneChangeDetection>  
-      <StretchMode>AutoSize</StretchMode>
-      <H264Layers>  
-    <H264Layer>  
-      . . .
-    </H264Layer>  
-      </H264Layers>  
-      <Chapters />  
-    </H264Video>  
-    <AACAudio Condition="InsertSilenceIfNoAudio">  
-      <Profile>AACLC</Profile>  
-      <Channels>2</Channels>  
-      <SamplingRate>48000</SamplingRate>  
-      <Bitrate>128</Bitrate>  
-    </AACAudio>  
-    </Encoding>  
-    . . .
+
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">
+    <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
+    <StretchMode>AutoSize</StretchMode>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .
+```
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>모든 출력 비트 전송률에서 비디오 삽입
 ["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
@@ -982,27 +983,29 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 
 XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideo"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
 
-    . . .
-    <Encoding>  
-    <H264Video Condition="InsertBlackIfNoVideo">  
-      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-      <SceneChangeDetection>true</SceneChangeDetection>  
-      <StretchMode>AutoSize</StretchMode>
-      <H264Layers>  
-    <H264Layer>  
-      . . .
-    </H264Layer>  
-      </H264Layers>  
-      <Chapters />  
-    </H264Video>  
-    <AACAudio Condition="InsertSilenceIfNoAudio">  
-      <Profile>AACLC</Profile>  
-      <Channels>2</Channels>  
-      <SamplingRate>48000</SamplingRate>  
-      <Bitrate>128</Bitrate>  
-    </AACAudio>  
-    </Encoding>  
-    . . .  
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideo">
+    <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
+    <StretchMode>AutoSize</StretchMode>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .  
+```
 
 ## <a id="rotate_video"></a>비디오 회전
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)는 0/90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 비디오 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **Sources** 요소를 [이 섹션](media-services-mes-presets-overview.md)에 정의된 사전 설정 중 하나에 포함합니다.

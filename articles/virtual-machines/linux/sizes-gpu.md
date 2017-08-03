@@ -3,7 +3,7 @@ title: "Azure Linux VM 크기 - GPU | Microsoft Docs"
 description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 GPU 최적화 크기를 나열합니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ec289cf53f2cfecd2744b739667ef831dafd59a4
