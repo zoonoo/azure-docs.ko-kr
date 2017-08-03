@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1c2437c6eed641a929a7e25265bfc72dc76a9782
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
@@ -117,7 +117,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다.  자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
-샘플 데이터 파일은 공용 Blob 컨테이너인 *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*에 있습니다.  데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너인 *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*에 있습니다.  데이터 파일 내용은 다음과 같습니다.
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -139,7 +139,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 1. SSH에서 다음 명령을 실행하여 데이터 파일을 StoreFiles로 변형하고 Dimporttsv.bulk.output에서 지정한 상대 경로에 저장합니다.  HBase 셸인 경우에는 exit 명령을 사용하여 종료합니다.
 
     ```bash   
-    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
 2. /Example/data/storeDataFileOutput에서 HBase 테이블로 데이터를 업로드하려면 다음 명령을 실행합니다.

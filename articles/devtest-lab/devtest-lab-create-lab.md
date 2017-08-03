@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/30/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 015782373e59d1aaf10a7b089c84c982031b36b2
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 265a968f902f53c7561c8c7e937f8eacfdb37167
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
@@ -64,6 +63,6 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 * [랩 정책 설정](devtest-lab-set-lab-policy.md).
 * [랩 템플릿 만들기](devtest-lab-create-template.md).
 * [VM에 대한 사용자 지정 아티팩트  만들기](devtest-lab-artifact-author.md).
-* [아티팩트가 지정된 VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md).
+* [아티팩트가 지정된 VM을 랩에 추가](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
 
 

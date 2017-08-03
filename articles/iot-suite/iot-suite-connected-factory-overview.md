@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>연결된 공장 미리 구성된 솔루션 시작
-
-## <a name="introduction"></a>소개
 
 Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 여러 Azure IoT 서비스를 결합하여 일반적인 IoT 비즈니스 시나리오를 구현하는 종합적인 솔루션을 제공합니다. *연결된 공장* 미리 구성된 솔루션은 산업용 장치에 연결되어 산업용 장치를 모니터링합니다. 이 솔루션을 사용하여 장치의 데이터 스트림을 분석하고 운영 생산성과 수익성을 높일 수 있습니다.
 

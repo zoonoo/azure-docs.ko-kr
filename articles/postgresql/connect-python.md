@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
@@ -50,7 +50,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="how-to-run-python-code"></a>Python 코드를 실행하는 방법
 - 원하는 텍스트 편집기를 사용하여 postgres.py라는 새 파일을 만들어 프로젝트 폴더에 저장합니다. 아래에서 보여 주는 코드 샘플을 복사하여 텍스트 파일에 붙여넣고 저장합니다. Windows OS에서 파일을 저장하는 경우 UTF-8 인코딩을 선택해야 합니다. 
-- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd postgresql`). 그런 다음 python 명령 다음에 파일 이름을 입력합니다(예: `python postgresql.py`).
+- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd postgresql`). 그런 다음 python 명령 다음에 파일 이름을 입력합니다(예: `python postgres.py`).
 
 > [!NOTE]
 > Python 버전 3부터는 아래 코드 블록을 실행할 때 `SyntaxError: Missing parentheses in call to 'print'` 오류가 표시될 수 있습니다. 이 경우 `print "string"` 명령에 대한 각 호출을 함수 호출(괄호 사용)로 바꾸세요(예: `print("string")`).

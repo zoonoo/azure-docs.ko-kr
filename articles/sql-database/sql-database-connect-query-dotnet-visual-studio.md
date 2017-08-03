@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c7d54f8355803933e0d581470804ee98a0172937
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio에서 .NET(C#)을 사용하여 Azure SQL Database 연결 및 쿼리
@@ -74,7 +74,6 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 8. **라이선스 승인** 창이 표시되면 **동의**를 클릭합니다.
 
 ## <a name="insert-code-to-query-sql-database"></a>SQL 데이터베이스 쿼리 코드 삽입
-
 1. **Program.cs**로 전환하거나 필요한 경우 이 파일을 엽니다.
 
 2. **Program.cs**의 내용을 다음 코드로 바꾸고, 서버, 데이터베이스, 사용자 및 암호에 대해 적절한 값을 추가합니다.
@@ -141,7 +140,7 @@ namespace sqltest
 ## <a name="next-steps"></a>다음 단계
 
 - Windows/Linux/macOS에서 [.NET Core를 사용하여 Azure SQL Database를 연결 및 쿼리하는 방법](sql-database-connect-query-dotnet-core.md)을 알아봅니다.  
-- [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli.md)을 알아봅니다.
+- [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [SSMS를 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database-csharp.md)을 알아봅니다.
 - .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
 

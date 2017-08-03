@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 56696c6c85f117449e7fb80b0daca707267d41c1
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js를 사용하여 Azure SQL Database 쿼리
@@ -141,7 +141,7 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 
 - [SQL Server용 Microsoft Node.js Driver](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)에 대해 알아봅니다.
 - Windows/Linux/macOS에서 [.NET Core를 사용하여 Azure SQL Database를 연결 및 쿼리하는 방법](sql-database-connect-query-dotnet-core.md)을 알아봅니다.  
-- [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli.md)을 알아봅니다.
+- [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [SSMS를 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database-csharp.md)을 알아봅니다.
 - [SSMS를 사용하여 연결 및 쿼리하는 방법](sql-database-connect-query-ssms.md)을 알아봅니다.
 - [Visual Studio Code를 사용하여 연결 및 쿼리하는 방법](sql-database-connect-query-vscode.md)을 알아봅니다.
