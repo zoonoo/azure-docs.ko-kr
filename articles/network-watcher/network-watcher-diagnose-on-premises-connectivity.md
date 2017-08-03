@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 259162f25e024470b5ee53a34fadec20b81ffea4
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
-Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 장치의 선택도 고유합니다. Azure는 현재 장치 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 장치](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides)를 지원합니다. 온-프레미스 VPN 장치를 구성하기 전에 장치 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 장치 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 이렇게 하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
+Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 장치의 선택도 고유합니다. Azure는 현재 장치 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 장치](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 장치를 구성하기 전에 장치 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 장치 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 이렇게 하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
 
 Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 연결로 모든 문제를 진단하고 몇 분 안에 문제를 해결하기 위해 정보를 바탕으로 결정을 내릴 수 있는 충분한 정보를 얻을 수 있습니다.
 
@@ -34,7 +34,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 1. Virtual Network 게이트웨이 - Azure의 VPN Gateway
 1. 로컬 네트워크 게이트웨이 - Azure 클라우드에서 [온-프레미스(CISCO ASA) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 표현
-1. 사이트 간 연결(정책 기반) - [VPN Gateway와 온-프레미스 CISCO ASA 간의 연결](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection)
+1. 사이트 간 연결(정책 기반) - [VPN Gateway와 온-프레미스 CISCO ASA 간의 연결](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
 1. [CISCO ASA 구성](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
 
 사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 방문하여 찾을 수 있습니다.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dada2cd0d55cffc3c550177aa3d8a8bb366db765
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a32a6b33e04c603325ab3612f61e5852682eac7d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>가상 네트워크 피어링 만들기 - Resource Manager, 동일한 구독
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/21/2017
      - **구독**: 사용자의 구독을 선택합니다.
      - **가상 네트워크**: **가상 네트워크 선택**을 클릭한 다음 **myVnet2**를 클릭합니다.
      - **가상 네트워크 액세스 허용:** **사용**이 선택되어 있는지 확인합니다.
-    이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-peering)를 읽어보세요.
+    이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-a-peering)를 읽어보세요.
 10. 이전 단계에서 **확인**을 클릭한 후 **피어링 추가** 블레이드가 닫히고 **myVnet1 - 피어링** 블레이드가 다시 표시됩니다. 몇 초 후 만든 피어링이 블레이드에 나타납니다. 만든 **myVnet1ToMyVnet2** 피어링의 **피어링 상태** 열에 **시작됨**이 나열됩니다. Vnet1을 Vnet2에 피어링했지만, 이제 myVnet2를 myVnet1에 피어링해야 합니다. 피어링은 양방향으로 만들어져야 가상 네트워크의 리소스가 서로 통신할 수 있습니다.
 11. myVnet2에 대해 5~10단계를 다시 완료합니다.  피어링 이름을 *myVnet2ToMyVnet1*로 지정합니다.
 12. **확인**을 클릭하여 MyVnet2에 대한 피어링을 만든 후 몇 초가 지나면 방금 만든 **myVnet2ToMyVnet1** 피어링이 **피어링 상태** 열에 **연결됨**으로 나열됩니다.
@@ -271,7 +271,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="next-steps"></a>다음 단계
 
-- 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#about-peering)에 철저하게 익숙해집니다.
-- 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-peering)에 대해 알아봅니다.
+- 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#requirements-and-constraints)에 철저하게 익숙해집니다.
+- 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-a-peering)에 대해 알아봅니다.
 - 가상 네트워크 피어링을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 방법을 알아봅니다.
 

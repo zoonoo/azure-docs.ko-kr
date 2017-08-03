@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 017a66ae1ade5e0f64fc799b7bb6aa97b67791a8
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>HDInsight의 R Server에 대한 Azure Storage 솔루션
@@ -77,14 +76,14 @@ Azure Storage 솔루션에 대한 자세한 내용은 [Microsoft Azure Storage �
         #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-모든 디렉터리와 파일 참조는 저장소 계정 wasbs://container1@storage1.blob.core.windows.net을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 저장소 계정**입니다.
+모든 디렉터리와 파일 참조는 저장소 계정 wasb://container1@storage1.blob.core.windows.net을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 저장소 계정**입니다.
 
 **storage2**에 있는 **container2**의 /private 디렉터리에 있는 mySpecial.csv 파일을 처리한다고 가정합니다.
 
 R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지정합니다.
 
 
-    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
     #Location of the data:
@@ -102,14 +101,14 @@ R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지�
     #Specify the input file to analyze in HDFS:
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-모든 디렉터리와 파일 참조는 이제 저장소 계정 wasbs://container2@storage2.blob.core.windows.net을 지정합니다. 지정한 **이름 노드**입니다.
+모든 디렉터리와 파일 참조는 이제 저장소 계정 wasb://container2@storage2.blob.core.windows.net을 지정합니다. 지정한 **이름 노드**입니다.
 
 다음과 같이 **storage2**에서 /user/RevoShare/<SSH username> 디렉터리를 구성해야 합니다.
 
 
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 
 

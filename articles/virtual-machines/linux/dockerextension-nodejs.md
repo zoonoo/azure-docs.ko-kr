@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: fb84ca46bdb02df315c078889f49db545fee1d64
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Azure CLI 1.0에서 Docker VM 확장을 사용하여 Azure에서 Docker 환경 만들기
@@ -29,7 +28,7 @@ Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방
 
 * 앱을 신속하게 프로토타이핑하려면 [Docker Machine](docker-machine.md)을 사용하여 단일 Docker 호스트를 만듭니다.
 * 보다 크고 안정적인 환경을 위해 Azure Docker VM 확장을 사용할 수 있습니다. 일관된 컨테이너 배포를 생성하도록 [Docker Compose](https://docs.docker.com/compose/overview/)를 지원하기도 합니다. 이 문서는 Azure Docker VM 확장 사용을 자세히 설명합니다.
-* 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 구축하려면 [Azure Container Services에 Docker Swarm 클러스터](../../container-service/container-service-deployment.md)를 배포합니다.
+* 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 구축하려면 [Azure Container Services에 Docker Swarm 클러스터](../../container-service/dcos-swarm/container-service-deployment.md)를 배포합니다.
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
@@ -201,6 +200,6 @@ Azure의 추가적인 Docker 배포 옵션에 대한 자세한 내용을 읽어�
 
 * [Azure 드라이버로 Docker Machine 사용](docker-machine.md)  
 * [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](docker-compose-quickstart.md)
-* [Azure 컨테이너 서비스 클러스터 배포](../../container-service/container-service-deployment.md)
+* [Azure 컨테이너 서비스 클러스터 배포](../../container-service/dcos-swarm/container-service-deployment.md)
 
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ddc391127d43a954f555943d27258593eba02df2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -108,7 +107,7 @@ ms.lasthandoff: 05/05/2017
 
 1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [새 SQL Server에서 방화벽 포트를 엽니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
+1. [새 SQL Server에서 방화벽 포트를 엽니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 끝점 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
 
