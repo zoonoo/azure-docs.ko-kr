@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 436b8d3058a6ea32d1f0e8f996386efd01aa5c83
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -44,7 +44,7 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1단계. 온-프레미스 VPN 장치가 확인되었는지 확인
 
-1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides)을 사용 중인지 확인합니다. 확인된 VPN 장치가 아닌 경우 장치 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
+1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. 확인된 VPN 장치가 아닌 경우 장치 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
 
 2. VPN 장치가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [장치 구성 예제 편집](/vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 

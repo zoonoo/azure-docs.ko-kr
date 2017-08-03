@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2f76d23fc80e0050bf5fb1460a58f56dee57a90b
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -33,6 +33,9 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ![Azure AD 통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 통과 인증을 [Seamless Single Sign-On](active-directory-aadconnect-sso.md) 기능에 결합할 수 있습니다. 이러한 방식으로 사용자가 회사 네트워크 내부에서 회사 컴퓨터의 응용 프로그램에 액세스할 때 로그인하기 위해 암호를 입력할 필요가 없습니다.
+
+>[!IMPORTANT]
+>Azure AD 통과 인증은 현재 미리 보기로 제공됩니다.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 사용의 주요 혜택
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 94ae2fa4600c007725ae2615554144d12306e833
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
@@ -59,7 +58,7 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB)과 같은 일곱 가지 디스크 크기를 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈, Ls 시리즈 및 Fs 시리즈 VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB)과 같은 일곱 가지 디스크 크기를 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 

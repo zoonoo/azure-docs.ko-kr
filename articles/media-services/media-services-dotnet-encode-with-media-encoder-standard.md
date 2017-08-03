@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;anilmur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6eb0a02e82566a66e21678b7df1bb98007819a5b
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 141c8adc5e86bddc8a41fd4b760f0c21c63def0f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩
@@ -189,7 +189,7 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 [.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services 인코딩 개요](media-services-encode-asset.md)
 

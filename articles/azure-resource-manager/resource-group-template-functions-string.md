@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: a6c33f11dfcbb02689956269ce5a37408534b6cd
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
@@ -28,7 +28,6 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [bool](#bool)
 * [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
@@ -254,60 +253,7 @@ base64 표현을 문자열로 변환합니다.
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
-<a id="bool" />
 
-## <a name="bool"></a>bool
-`bool(arg1)`
-
-매개 변수를 부울로 변환합니다.
-
-### <a name="parameters"></a>매개 변수
-
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
-|:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
-
-### <a name="return-value"></a>반환 값
-변환된 값의 부울입니다.
-
-### <a name="examples"></a>예
-
-다음 예제에서는 문자열 또는 정수에 bool을 사용하는 방법을 보여 줍니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
-    }
-}
-```
-
-기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
-
-| 이름 | 형식 | 값 |
-| ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
 
 <a id="concat" />
 

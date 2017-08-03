@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: cbecac946e0e140503d8c14c6072fa38673d4495
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -65,7 +65,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 상위 리소스입니다.
 - 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 네임스페이스를 제공합니다.
 - 강력한 수명 의미 체계를 가진 논리 컨테이너로서 서버를 삭제하고 포함된 데이터베이스, 탄력적 풀, 데이터 웨어하우스를 삭제합니다.
-- [Azure RBAC(역할 기반 액세스 제어)](/active-directory/role-based-access-control-what-is.md)에 포함됩니다. 서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스는 서버에서 액세스 권한을 상속합니다.
+- [Azure RBAC(역할 기반 액세스 제어)](/active-directory/role-based-access-control-what-is)에 포함됩니다. 서버 내의 데이터베이스, 탄력적 풀 및 데이터 웨어하우스는 서버에서 액세스 권한을 상속합니다.
 - Azure 리소스를 관리하기 위한 데이터베이스, 탄력적 풀 및 데이터 웨어하우스의 ID 상위 요소입니다(데이터베이스 및 풀은 URL 구성표 참조).
 - 지역에 리소스 배치
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).

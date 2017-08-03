@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/25/2017
 ms.author: curtand
+ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 6b448b4fac56d4b5debcf4fb3a545dd538929aff
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 82fbeb379e90add09f7c569111053f6e9b1bc9c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="managing-owners-for-a-group"></a>그룹에 대한 소유자 관리
 리소스 소유자가 Azure AD 그룹에 리소스에 대한 액세스 권한을 할당하면 그룹의 멤버 자격은 그룹 소유자에 의해 관리됩니다. 실질적으로 리소스 소유자는 사용자를 해당 리소스에 할당할 권한을 그룹 소유자에게 위임합니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. 
 
 ## <a name="assigning-group-ownership"></a>그룹 소유권 할당
 **그룹에 소유자를 추가하려면**

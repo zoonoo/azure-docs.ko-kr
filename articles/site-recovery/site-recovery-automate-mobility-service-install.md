@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: krnese
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3e9321255b65d46af59d0ee478e214df795664ac
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
@@ -59,7 +59,7 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
 * 보호할 수 있도록 설정하려는 컴퓨터에 WMF(Windows Management Framework) 5.0 설치(자동화 DSC의 요구 사항)
 
   > [!NOTE]
-  > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](#Use DSC in disconnected environments) 섹션을 참조하세요.
+  > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](## Use DSC in disconnected environments) 섹션을 참조하세요.
   >
   >
 

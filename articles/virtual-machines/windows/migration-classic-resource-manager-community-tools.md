@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 22bf0402c16745dac1c8287b0ceb3598ea41305b
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: d3fc0246088eddeb345bea0ffbd2c5247b218006
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하기 위한 커뮤니티 도구
@@ -44,7 +44,7 @@ Azure 서비스 관리에서 Azure Resource Manager로의 엔터프라이즈 마
 ## <a name="migaz"></a>migAz
 migAz는 전체 클래식 IaaS 리소스 집합을 Azure Resource Manager IaaS 리소스로 마이그레이션할 수 있는 추가 옵션입니다. 동일한 구독 내에서 또는 서로 다른 구독 및 구독 형식(예: CSP 구독) 간에 마이그레이션을 수행할 수 있습니다.
 
-[도구 설명서 링크](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
+[도구 설명서 링크](https://github.com/Azure/migAz)
 
 ## <a name="next-steps"></a>다음 단계
 

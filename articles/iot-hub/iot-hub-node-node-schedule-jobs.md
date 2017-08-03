@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 223738aecd1bb0a53542bd8bcab5d24582aee02a
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 42e594dc6a8a8be619b5652bf8e44cf883650489
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>작업 예약 및 브로드캐스트(노드)
 
-## <a name="introduction"></a>소개
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업데이트하는 작업을 만들고 추적할 수 있게 하는 완전히 관리되는 서비스입니다.  작업(job)은 다음과 같은 작업(action)에 사용될 수 있습니다.
 
 * desired 속성 업데이트

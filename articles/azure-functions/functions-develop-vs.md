@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: glenga, donnam
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0de18c51914409df0bb690c2a4e3d8bf429cce66
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -117,7 +117,9 @@ Azure Functions 템플릿을 사용하여 새 프로젝트를 만들 때 다음 
 
 ## <a name="testing-functions"></a>테스팅 함수
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio에서 처음으로 함수를 시작할 때 이 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
+
+함수를 테스트하려면 F5 키를 누릅니다. 메시지가 표시되면 Visual Studio에서 Azure Functions Core(CLI) 도구를 다운로드하여 설치하도록 요구하는 요청을 수락합니다.  또한 도구에서 HTTP 요청을 처리할 수 있도록 방화벽 예외를 사용하도록 설정해야 합니다.
 
 실행 중인 프로젝트와 함께 배포된 함수를 테스트할 때 코드를 테스트할 수 있습니다. 자세한 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요. 디버그 모드에서 실행할 때 중단점이 예상대로 Visual Studio에서 적중됩니다. 
 

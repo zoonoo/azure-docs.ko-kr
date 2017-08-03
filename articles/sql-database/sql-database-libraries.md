@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8c4d76e371a8f48806dd2229e406a2eb1f69504e
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Microsoft SQL Server의 연결 라이브러리 및 프레임워크
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 | 언어 | 플랫폼 | 추가 리소스 | 다운로드 | 시작 |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [SQL Server용 Microsoft ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [다운로드](https://www.microsoft.com/net/download/) | [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| 자바 | Windows, Linux, macOS | [SQL Server용 Microsoft JDBC Driver](http://msdn.microsoft.com/library/mt484311.aspx) | [다운로드](http://go.microsoft.com/fwlink/?LinkId=245496) |  [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| 자바 | Windows, Linux, macOS | [SQL Server용 Microsoft JDBC Driver](http://msdn.microsoft.com/library/mt484311.aspx) | [다운로드](https://go.microsoft.com/fwlink/?linkid=852460) |  [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [SQL Server용 PHP SQL 드라이버](http://msdn.microsoft.com/library/dn865013.aspx) | 운영 체제: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [SQL Server용 Node.js 드라이버](http://msdn.microsoft.com/library/mt652093.aspx) | [설치](https://msdn.microsoft.com/library/mt652094.aspx) |  [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | 파이썬 | Windows, Linux, macOS | [Python SQL 드라이버](http://msdn.microsoft.com/library/mt652092.aspx) | 다음 선택 항목을 설치합니다. <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [시작](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)

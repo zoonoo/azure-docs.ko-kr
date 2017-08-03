@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/31/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 453314d603fdc25cfc0e37622e5394fc148a11a6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
@@ -108,8 +107,8 @@ Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Re
 * [가져오기/내보내기는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?](#how-does-importexport-work-with-a-custom-databases-setting)
 * [가져오기/내보내기가 Redis 지속성과 어떻게 다른가요?](#how-is-importexport-different-from-redis-persistence)
 * [PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 가져오기/내보내기를 자동화할 수 있나요?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
-* [Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
+* [가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>어떤 가격 책정 계층에서 가져오기/내보내기를 사용할 수 있나요?
 가져오기/내보내기는 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.

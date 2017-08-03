@@ -1,7 +1,24 @@
-7--- 제목: Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs 설명: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
-서비스: site-recovery documentationcenter: '' 작성자: prateek9us 관리자: gauravd 편집자: ''
-
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc ms.service: site-recovery ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: storage-backup-recovery ms.date: 7/20/2017 ms.author: pratshar
+---
+title: "Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs"
+description: "이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다."
+services: site-recovery
+documentationcenter: 
+author: prateek9us
+manager: gauravd
+editor: 
+ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 7/20/2017
+ms.author: pratshar
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
@@ -192,4 +209,5 @@ DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스
 
 ## <a name="next-steps"></a>다음 단계
 Azure Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법에 대해 자세히 알아보려면 [어떤 워크로드를 보호할 수 있습니까?](site-recovery-workload.md) 를 읽어보세요.
+
 
