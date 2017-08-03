@@ -3,7 +3,7 @@ title: "Linux Azure VM 크기 - 메모리 | Microsoft Docs"
 description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 메모리 최적화 크기를 나열합니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7db935bb8e40c3ddd446a9a529f3886c5a221435
