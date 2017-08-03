@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: efd01bb001f4ac05f933793184b5027157f143f6
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -149,7 +148,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**사용 시기**: 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 빌드해야 할 경우 또는 Docker Swarm 클러스터를 배포할 경우
 
-    >**시작하기**: [Container Service 클러스터를 배포합니다](../../container-service/container-service-deployment.md).
+    >**시작하기**: [Container Service 클러스터를 배포합니다](../../container-service/dcos-swarm/container-service-deployment.md).
 
 -   **Docker Machine**: docker-machine 명령을 사용하여 가상 호스트에서 Docker 엔진을 설치 및 관리할 수 있습니다.
 
