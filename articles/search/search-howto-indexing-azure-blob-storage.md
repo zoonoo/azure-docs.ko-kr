@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/20/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 8ed07d7be1d737fac332d9ea82e65fd5e92f89d5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,12 +35,12 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * ZIP
 * EML
 * RTF
-* 일반 텍스트 파일
-* JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 미리 보기 기능 참조)
+* 일반 텍스트 파일([일반 텍스트 인덱싱 참조](#IndexingPlainText))
+* JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
 * CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
 
 > [!IMPORTANT]
-> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2015-02-28-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2016-09-01-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 
@@ -342,11 +342,31 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 ## <a name="indexing-documents-along-with-related-data"></a>관련된 데이터와 함께 문서 인덱싱
 
-문서에는 연결된 메타데이터(예: 문서를 작성한 부서)가 있을 수 있으며, 다음 위치 중 하나에 구조화된 데이터로서 저장되어 있습니다.
--   SQL Database 또는 Azure Cosmos DB와 같은 별도 데이터 저장소.
--   사용자 지정 메타데이터로서 Azure Blob Storage에 있는 각 문서에 직접 연결됩니다. (자세한 내용은 [Blob 리소스의 속성 및 메타데이터를 설정 및 검색](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)를 참조하세요.)
+인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
 
-각 문서와 해당 메타데이터에 같은 고유 키 값을 할당하고 각 인덱서에 대한 `mergeOrUpload` 작업을 지정하여 해당 메타데이터와 함께 문서를 인덱싱할 수 있습니다. 이 솔루션에 대한 자세한 설명은 이 외부 문서 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
+이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 연습은 이 외부 아티클 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 
+
+모든 BLOB에 동일한 인코딩의 일반 텍스트가 포함된 경우 **텍스트 구문 분석 모드**를 사용하여 인덱싱 성능을 크게 향상시킬 수 있습니다. 텍스트 구문 분석 모드를 사용하려면 `parsingMode` 구성 속성을 `text`로 설정합니다.
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+기본적으로 `UTF-8` 인코딩이 간주됩니다. 다른 인코딩을 지정하려면 `encoding` 구성 매개 변수를 사용하세요. 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>콘텐츠 형식별 메타데이터 속성

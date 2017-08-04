@@ -12,21 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: d10e24727024e3ab559929666777c4bb062b2075
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화(미리 보기)
-
-> [!div class="op_single_selector"]
-> * [미리 보기 - Azure Portal을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
-> * [Azure 클래식 포털을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started-create-group.md)
 
 
 ## <a name="task-3-configure-administrative-group"></a>작업 3: 관리 그룹 구성
@@ -36,7 +31,7 @@ ms.lasthandoff: 06/30/2017
 > Azure Active Directory Domain Services를 사용하여 만든 관리되는 도메인에 도메인 관리자 또는 엔터프라이즈 관리자 권한이 없습니다. 관리되는 도메인에서 이러한 권한은 서비스별로 예약되며 테넌트 내의 사용자가 사용할 수 없습니다. 하지만, 권한 있는 작업을 수행하기 위해 이 구성 태스크를 통해 만든 특수 관리자 그룹을 사용할 수 있습니다. 이 작업에는 도메인에 가입한 컴퓨터에서 관리자 그룹에 속하는 도메인에 컴퓨터를 가입시키고, 그룹 정책을 구성하는 작업이 포함됩니다.
 >
 
-마법사가 자동으로 Azure AD 디렉터리에 관리 그룹을 만듭니다. 이 그룹을 'AAD DC Administrators'라고 합니다. **관리자 그룹** 마법사 페이지를 사용하여 그룹 멤버 자격을 구성할 수 있습니다.
+마법사가 자동으로 Azure AD 디렉터리에 관리 그룹을 만듭니다. 이 그룹을 'AAD DC Administrators'라고 합니다. Azure AD 디렉터리에 이 이름 가진 기존 그룹이 있는 경우 마법사는 이 그룹을 선택합니다. **관리자 그룹** 마법사 페이지를 사용하여 그룹 멤버 자격을 구성할 수 있습니다.
 
 1. 그룹 멤버 자격을 구성하려면 **AAD DC Administrators**를 클릭합니다.
 

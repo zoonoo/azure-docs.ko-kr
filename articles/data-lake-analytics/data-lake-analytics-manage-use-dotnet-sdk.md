@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d725176bc6654186732b48ee6b5dd8d1526ea6ce
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 058601f416ee9ae50d90149764c3991cc1f2923b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
@@ -55,7 +54,7 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 
 ## <a name="common-variables"></a>일반적인 변수
 
-```
+``` csharp
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
@@ -66,7 +65,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 Azure Data Lake Analytics에 로그온하는 옵션은 여러 가지가 있습니다. 다음 코드 조각은 팝업을 사용한 대화형 사용자 인증의 인증 예를 보여 줍니다.
 
-```
+``` csharp
 using System;
 using System.IO;
 using System.Threading;
@@ -107,7 +106,7 @@ public static Program
 
 ## <a name="create-the-client-management-objects"></a>클라이언트 관리 개체 만들기
 
-```
+``` csharp
 var resourceManagementClient = new ResourceManagementClient(armCreds) { SubscriptionId = subid };
 
 var adlaAccountClient = new DataLakeAnalyticsAccountManagementClient(armCreds);
@@ -132,7 +131,7 @@ graphClient.TenantID = domain;
 
 아직 만들지 않은 경우에는 반드시 Azure 리소스 그룹을 만들어 Data Lake Analytics 구성 요소를 만들어야 합니다. 인증 자격 증명, 구독 ID 및 위치가 필요합니다. 다음 코드는 리소스 그룹을 만드는 방법을 보여 줍니다.
 
-```
+``` csharp
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
@@ -142,7 +141,7 @@ resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 
 항상 ADLA 계정에는 ADLS 계정이 필요합니다. 아직 사용할 ADLS 계정이 없는 경우 다음 코드를 사용하여 만들 수 있습니다.
 
-```
+``` csharp
 var new_adls_params = new DataLakeStoreAccount(location: _location);
 adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 ```
@@ -151,7 +150,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 다음 코드는 ADLS 계정을 만듭니다.
 
-```
+``` csharp
 var new_adla_params = new DataLakeAnalyticsAccount()
 {
    DefaultDataLakeStoreAccount = adls,
@@ -163,34 +162,34 @@ adlaClient.Account.Create(rg, adla, new_adla_params);
 
 ### <a name="list-data-lake-store-accounts"></a>Data Lake Store 계정 나열
 
-```
+``` csharp
 var adlsAccounts = adlsAccountClient.Account.List().ToList();
 foreach (var adls in adlsAccounts)
 {
-   Console.WriteLine("ADLS: {0}", adls.Name);
+   Console.WriteLine($"ADLS: {0}", adls.Name);
 }
 ```
 
 ### <a name="list-data-lake-analytics-accounts"></a>데이터 레이크 분석 계정을 나열합니다.
 
-```
+``` csharp
 var adlaAccounts = adlaClient.Account.List().ToList();
 
 for (var adla in AdlaAccounts)
 {
-   Console.WriteLine("ADLA: {0}, adla.Name");
+   Console.WriteLine($"ADLA: {0}, adla.Name");
 }
 ```
 
 ### <a name="checking-if-an-account-exists"></a>계정이 있는지 확인
 
-```
+``` csharp
 bool exists = adlaClient.Account.Exists(rg, adla));
 ```
 
 ### <a name="get-information-about-an-account"></a>계정에 대한 정보 가져오기
 
-```
+``` csharp
 bool exists = adlaClient.Account.Exists(rg, adla));
 if (exists)
 {
@@ -200,7 +199,7 @@ if (exists)
 
 ### <a name="delete-an-account"></a>계정 삭제
 
-```
+``` csharp
 if (adlaClient.Account.Exists(rg, adla))
 {
    adlaClient.Account.Delete(rg, adla);
@@ -211,7 +210,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 필요합니다. 다음 코드를 사용하여 Analytics 계정의 기본 Store 계정을 결정합니다.
 
-```
+``` csharp
 if (adlaClient.Account.Exists(rg, adla))
 {
   var adla_accnt = adlaClient.Account.Get(rg, adla);
@@ -230,7 +229,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 Azure Storage 계정에 대한 링크를 만들 수 있습니다.
 
-```
+``` csharp
 string storage_key = "xxxxxxxxxxxxxxxxxxxx";
 string storage_account = "mystorageaccount";
 var addParams = new AddStorageAccountParameters(storage_key);            
@@ -239,28 +238,28 @@ adlaClient.StorageAccounts.Add(rg, adla, storage_account, addParams);
 
 ### <a name="list-azure-storage-data-sources"></a>Azure Storage 데이터 원본 나열
 
-```
+``` csharp
 var stg_accounts = adlaAccountClient.StorageAccounts.ListByAccount(rg, adla);
 
 if (stg_accounts != null)
 {
   foreach (var stg_account in stg_accounts)
   {
-      Console.WriteLine("Storage account: {0}", stg_account.Name);
+      Console.WriteLine($"Storage account: {0}", stg_account.Name);
   }
 }
 ```
 
 ### <a name="list-data-lake-store-data-sources"></a>Data Lake Store 데이터 원본 나열
 
-```
+``` csharp
 var adls_accounts = adlsClient.Account.List();
 
 if (adls_accounts != null)
 {
   foreach (var adls_accnt in adls_accounts)
   {
-      Console.WriteLine("ADLS account: {0}", adls_accnt.Name);
+      Console.WriteLine($"ADLS account: {0}", adls_accnt.Name);
   }
 }
 ```
@@ -277,13 +276,13 @@ Data Lake Store 파일 시스템 클라이언트 관리 개체를 사용하여 �
 
 다음 예제는 Data Lake Store에서 폴더를 다운로드하는 방법을 보여 줍니다.
 
-```
+``` csharp
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
 
 ### <a name="create-a-file-in-a-data-lake-store-account"></a>Data Lake Store 계정에 파일 만들기
 
-```
+``` csharp
 using (var memstream = new MemoryStream())
 {
    using (var sw = new StreamWriter(memstream, UTF8Encoding.UTF8))
@@ -299,7 +298,7 @@ using (var memstream = new MemoryStream())
 ### <a name="verify-azure-storage-account-paths"></a>Azure Storage 계정 경로 확인
 다음 코드에서는 Azure Storage 계정(storageAccntName)이 Data Lake Analytics 계정(analyticsAccountName)에 있는지 및 컨테이너(containerName)가 Azure Storage 계정에 있는지를 확인합니다.
 
-```
+``` csharp
 string storage_account = "mystorageaccount";
 string storage_container = "mycontainer";
 bool accountExists = adlaClient.Account.StorageAccountExists(rg, adla, storage_account));
@@ -312,7 +311,7 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Analytics
 ### <a name="list-databases-and-schemas"></a>데이터베이스 및 스키마 나열
 나열할 수 있는 항목들 중에서 가장 일반적인 항목이 데이터베이스와 해당 스키마입니다. 다음 코드에서는 데이터베이스 컬렉션을 가져온 다음 각 데이터베이스에 대한 스키마를 열거합니다.
 
-```
+``` csharp
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
 foreach (var db in databases)
 {
@@ -329,7 +328,7 @@ foreach (var db in databases)
 ### <a name="list-table-columns"></a>테이블 열 나열
 다음 코드에서는 Data Lake Analytics 카탈로그 관리 클라이언트를 통해 데이터베이스에 액세스하여 지정한 테이블의 열을 나열하는 방법을 보여 줍니다.
 
-```
+``` csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
 IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
@@ -356,7 +355,7 @@ foreach (USqlTableColumn utc in columns)
 ### <a name="list-failed-jobs"></a>실패한 작업 나열
 다음 코드에서는 실패한 작업에 대한 정보를 나열합니다.
 
-```
+``` csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
 var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
@@ -365,17 +364,39 @@ foreach (var j in jobs)
 }
 ```
 
+### <a name="list-pipelines"></a>파이프라인 나열
+다음 코드는 계정에 제출된 작업의 각 파이프라인에 대한 정보를 나열합니다.
+
+``` csharp
+var pipelines = adlaJobClient.Pipeline.List(adla);
+foreach (var p in pipelines)
+{
+   Console.WriteLine($"Pipeline: {p.Name}\t{p.PipelineId}\t{p.LastSubmitTime}");
+}
+```
+
+### <a name="list-recurrences"></a>되풀이 나열
+다음 코드는 계정에 제출된 작업의 각 되풀이에 대한 정보를 나열합니다.
+
+``` csharp
+var recurrences = adlaJobClient.Recurrence.List(adla);
+foreach (var r in recurrences)
+{
+   Console.WriteLine($"Recurrence: {r.Name}\t{r.RecurrenceId}\t{r.LastSubmitTime}");
+}
+```
+
 ## <a name="common-graph-scenarios"></a>일반적인 그래프 시나리오
 
 ### <a name="look-up-user-in-the-aad-directory"></a>AAD 디렉터리에서 사용자 조회
 
-```
+``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
 ### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>AAD 디렉터리에서 사용자의 ObjectId 가져오기
 
-```
+``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 Console.WriteLine( userinfo.ObjectId )
 ```
@@ -386,7 +407,7 @@ DataLakeAnalyticsAccountManagementClient 개체는 Data Lake Analytics 계정에
 ### <a name="list-compute-policies"></a>계산 정책 나열
 다음 코드는 Data Lake Analytics 계정에 대한 계산 정책 목록을 검색합니다.
 
-```
+``` csharp
 var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
 foreach (var p in policies)
 {
@@ -397,7 +418,7 @@ foreach (var p in policies)
 ### <a name="create-a-new-compute-policy"></a>새 계산 정책 만들기
 다음 코드는 지정된 사용자가 사용할 수 있는 최대 AU를 50으로, 최소 작업 우선 순위를 250으로 설정하는, Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다.
 
-```
+``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";
 var newPolicyParams = new ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250);
 adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams);

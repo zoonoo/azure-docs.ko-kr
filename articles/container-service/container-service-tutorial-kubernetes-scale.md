@@ -14,19 +14,19 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/06/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e72e33e4c8511ab3daa0b9ccbefb5fde887bc0f9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0e2c0bc0eeeceb86bc5108a4e4866392a79e016
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes Pod 및 Kubernetes 인프라 크기 조정
 
-자습서를 수행해 오고 있었다면 Azure Container Service에 작동하는 Kubernetes 클러스터가 있으며 Azure 투표 앱을 배포한 상태입니다. 
+자습서를 수행하고 있다면 Azure Container Service에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다. 
 
 이 자습서에서는 앱의 Pod 규모를 확장하고 Pod 자동 크기 조정을 시도합니다. 에이전트 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 완료된 작업은 다음과 같습니다.
 
@@ -61,7 +61,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-[kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) 명령을 사용하여 수동으로 `azure-vote-front` 배포의 Pod 수를 변경합니다. 이 예제에서는 수를 4로 늘립니다.
+[kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) 명령을 사용하여 수동으로 `azure-vote-front` 배포의 Pod 수를 변경합니다. 이 예제에서는 수를 5로 늘립니다.
 
 ```bash
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -76,12 +76,13 @@ kubectl get pods
 출력:
 
 ```bash
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2549686872-4d2r5   1/1       Running   0          33m
-azure-vote-front-848767080-1kt72   1/1       Running   0          1m
-azure-vote-front-848767080-2b62d   1/1       Running   0          1m
-azure-vote-front-848767080-78rf0   1/1       Running   0          1m
-azure-vote-front-848767080-tf34m   1/1       Running   0          33m
+NAME                                READY     STATUS    RESTARTS   AGE
+azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
+azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
+azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
+azure-vote-front-3309479140-fvcvm   1/1       Running   0          3m
+azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
+azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
 ## <a name="autoscale-pods"></a>Pod 자동 크기 조정

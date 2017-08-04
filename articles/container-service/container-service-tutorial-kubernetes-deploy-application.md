@@ -14,13 +14,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 07/06/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 445f905a2905d049964fb59bd7a5a7826dd1e700
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 94e1eacd6864a7fcaf753a11e855f6e69aee0f98
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 06/28/2017
 
 Kubernetes에 컨테이너화된 응용 프로그램을 배포할 때 다양한 Kubernetes 개체가 만들어집니다. 각 개체는 클러스터에 대한 원하는 상태를 나타냅니다. 예를 들어 간단한 응용 프로그램은 밀접하게 관련된 컨테이너의 그룹화인 Pod, 네트워크로 연결된 저장소인 영구적 볼륨 및 응용 프로그램의 상태를 관리하는 배포로 구성될 수 있습니다. 
 
-모든 Kubernetes 개체에 대한 자세한 내용은 kubernetes.io의 [Kubernetes Concepts](https://kubernetes.io/docs/concepts/)(Kubernetes 개념)를 참조하세요.
+모든 Kubernetes 개체에 대한 자세한 내용은 kubernetes.io의 [Kubernetes 개념](https://kubernetes.io/docs/concepts/)을 참조하세요.
 
 ## <a name="get-manifest-files"></a>매니페스트 파일 가져오기
 
 이 자습서에서는 Kubernetes 매니페스트를 사용하여 Kubernetes 개체를 배포합니다. Kubernetes 매니페스트는 개체 구성 지침이 포함된 YAML 파일입니다.
 
-이 자습서의 각 개체에 대한 매니페스트 파일은 이전 자습서에서 복제된 Azure 투표 응용 프로그램 리포지토리에서 제공됩니다. 아직 이 리포지토리를 복제하지 않은 경우 다음 명령을 사용하여 리포지토리를 복제합니다. 
+이 자습서의 각 개체에 대한 매니페스트 파일은 이전 자습서에서 복제된 Azure Vote 응용 프로그램 리포지토리에서 제공됩니다. 아직 이 리포지토리를 복제하지 않은 경우 다음 명령을 사용하여 리포지토리를 복제합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app.git

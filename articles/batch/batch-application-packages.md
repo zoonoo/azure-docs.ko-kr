@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 96fead1f40b0f76e909b5583fc817d72e7f2a6ea
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0848e05f53c130b671dab6b8946f0bdb2920bbc3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -30,7 +30,10 @@ Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 
 이 문서에서는 Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 관리하는 방법을 알아봅니다. [Batch .NET][api_net] 라이브러리를 사용하여 풀의 계산 노드에 설치하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 여기에서 설명하는 응용 프로그램 패키지 기능은 서비스의 이전 버전에 제공되는 "배치 앱" 기능을 대체합니다.
+> 
+> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 배치 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 배치 풀에서는 클라우드 서비스 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 배치 풀은 응용 프로그램 패키지를 지원하지 않습니다.
+>
+> 여기서 설명하는 응용 프로그램 패키지 기능은 이전 버전의 서비스에서 사용할 수 있는 Batch 앱 기능을 대체합니다.
 > 
 > 
 

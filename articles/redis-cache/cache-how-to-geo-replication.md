@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ed05b369d882d2d9853b87a87fd91fe927ab15ba
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -45,10 +45,11 @@ ms.lasthandoff: 07/06/2017
 - 어느 캐시에서도 [크기 조정 작업](cache-how-to-scale.md)을 시작할 수 없거나 캐시에 클러스터링이 설정된 경우 [분할된 데이터베이스 수를 변경](cache-how-to-premium-clustering.md)할 수 없습니다.
 - 어느 캐시에서도 지속성을 사용하도록 설정할 수 없습니다.
 - [내보내기](cache-how-to-import-export-data.md#export)는 두 캐시에서 사용할 수 있지만 [가져오기](cache-how-to-import-export-data.md#import)는 기본 연결된 캐시에서만 사용할 수 있습니다.
+- 지역에서 복제 링크를 제거할 때까지 연결된 캐시 또는 캐시가 포함된 리소스 그룹을 삭제할 수 없습니다. 자세한 내용은 [연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)를 참조하세요.
 - 두 캐시가 다른 지역에 있는 경우 네트워크 송신 비용이 지역 간에 보조 연결된 캐시로 복제된 데이터에 적용됩니다. 자세한 내용은 [Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)를 참조하세요.
 - 주 캐시 및 해당 복제본이 중단되는 경우 보조 연결된 캐시로 자동 장애 조치(failover)되지 않습니다. 클라이언트 응용 프로그램을 장애 조치(failover)하려면 지역에서 복제 링크를 수동으로 제거하고 클라이언트 응용 프로그램이 이전의 보조 연결된 캐시였던 캐시를 가리키도록 해야 합니다. 자세한 내용은 [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)를 참조하세요.
 
-## <a name="to-add-a-cache-replication-link"></a>캐시 복제 링크를 추가하려면
+## <a name="add-a-geo-replication-link"></a>지역에서 복제 링크 추가
 
 1. 지역에서 복제를 위해 두 프리미엄 캐시를 함께 연결하려면 주 연결된 캐시로 사용된 캐시의 리소스 메뉴에서 **지역에서 복제**를 클릭한 다음 **지역에서 복제** 블레이드에서 **Add cache replication link**(캐시 복제 링크 추가)를 클릭합니다.
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 07/06/2017
 
     연결 프로세스 중에 주 연결된 캐시는 계속 사용할 수 있지만 보조 연결된 캐시는 연결 프로세스가 완료된 다음에야 사용할 수 있습니다.
 
-## <a name="to-remove-a-geo-replication-link"></a>지역에서 복제 링크를 제거하려면
+## <a name="remove-a-geo-replication-link"></a>지역에서 복제 링크 제거
 
 1. 두 캐시 간 링크를 제거하고 지역에서 복제를 중지하려면 **지역에서 복제** 블레이드에서 **Unlink caches**(캐시 연결 해제)를 클릭합니다.
     
@@ -104,6 +105,7 @@ ms.lasthandoff: 07/06/2017
 - [VNET의 캐시에 지역에서 복제를 사용할 수 있나요?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [PowerShell 또는 Azure CLI를 사용하여 지역에서 복제를 관리할 수 있나요?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
@@ -146,6 +148,10 @@ ms.lasthandoff: 07/06/2017
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?
 
 지역에서 복제를 사용하면 주 연결된 캐시의 데이터가 보조 연결된 캐시에 복제됩니다. 두 연결된 캐시가 같은 Azure 지역에 있는 경우 데이터 전송에 대한 요금이 부과되지 않습니다. 두 연결된 캐시가 다른 Azure 지역에 있는 경우 지역에서 복제 데이터 전송 요금은 해당 데이터를 다른 Azure 지역에 복제하는 대역폭 비용입니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요.
+
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?
+
+두 개의 캐시가 함께 연결된 경우 지역에서 복제 링크를 제거할 때까지 연결된 캐시 또는 캐시가 포함된 리소스 그룹을 삭제할 수 없습니다. 연결된 캐시 중 하나 또는 둘 다를 포함하는 리소스 그룹을 삭제하려고 하면, 리소스 그룹의 다른 리소스는 삭제되지만 해당 리소스 그룹은 `deleting` 상태로 유지되고 이 리소스 그룹의 연결된 캐시는 모두 `running` 상태로 남아 있습니다. 리소스 그룹 및 연결된 캐시의 삭제를 완료하려면 [지역에서 복제 링크 제거](#remove-a-geo-replication-link)에서 설명한 대로 지역에서 복제 링크를 중단합니다.
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?
 

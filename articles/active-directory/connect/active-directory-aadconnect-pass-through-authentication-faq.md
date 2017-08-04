@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ae45179d51fd093f1a3704690dd1b795533d9700
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e49801f458a248b2bc53b2f085d5fb2096390b7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -63,6 +63,10 @@ ms.lasthandoff: 07/06/2017
 특정 사용자에 대해 [비밀번호 쓰기 저장](../active-directory-passwords-update-your-own-password.md)을 구성한 경우 이 사용자가 통과 인증으로 로그인하면 암호를 변경하거나 다시 설정할 수 있습니다. 암호는 예상대로 온-프레미스 Active Directory에 쓰기 저장됩니다.
 
 하지만 비밀번호 쓰기 저장이 구성되지 않았거나 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. "조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
+
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>통과 인증을 통해 무차별 암호 대입 공격으로부터 사용자를 보호하려면 어떻게 할까요?
+
+자세한 내용은 [이 문서](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)를 참조하세요.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>통과 인증 에이전트가 포트 80 및 443을 통해 통신하는 것은 무엇인가요?
 
@@ -124,7 +128,7 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 서버에서 통과 인증 에이전트를 제거하면 로그인 요청 수락이 중단됩니다. 테넌트에서 사용자 로그인 중단을 방지하려면 이 작업을 수행하기 전에 실행 중인 다른 인증 에이전트가 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [**현재 제한 사항** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
+- [**현재 제한 사항**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [**빠른 시작**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Azure AD 통과 인증을 작동하고 실행합니다.
 - [**기술 심층 분석**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.

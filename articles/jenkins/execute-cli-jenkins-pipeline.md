@@ -7,7 +7,7 @@ author: mlearned
 manager: douge
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: jenkins
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 73dd4b7ecde2b334fa01d105c27eba602b887aca
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d0d20c10c7b14ff8873bb71feb9047a1c49700ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -143,15 +143,13 @@ az webapp config set \
 
 ```java
 def resourceGroup = '<myResourceGroup>'
-
 def webAppName = '<app_name>'
-
 ```
+
 * 줄 23을 변경하여 Jenkins 인스턴스의 자격 증명 ID를 업데이트합니다.
 
 ```java
-withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
-
+withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
 ## <a name="create-jenkins-pipeline"></a>Jenkins 파이프라인 만들기
@@ -172,14 +170,59 @@ withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
 WAR 파일이 웹앱에 성공적으로 배포되었는지 확인하려면 웹 브라우저를 엽니다.
 
 * http://&lt;app_name>.azurewebsites.net/api/calculator/ping으로 이동합니다.  
-“**pong!**”이 응답으로 표시됩니다.
+다음이 표시됩니다.
 
-![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+        Welcome to Java Web App!!! This is updated!
+        Sun Jun 17 16:39:10 UTC 2017
 
 * http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>(&lt;x> 및 &lt;y>를 임의의 숫자로 대체)로 이동하여 x와 y의 합계를 구합니다.
 
 ![계산기: 추가](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
+## <a name="deploy-to-azure-web-app-on-linux"></a>Linux에서 Azure Web App에 배포
+이제 Jenkins 파이프라인에서 Azure CLI를 사용하는 방법을 배웠으므로 Linux에서 Azure Web App에 배포하도록 스크립트를 수정할 수 있습니다.
+
+Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 방법을 지원합니다. 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화 하는 Dockerfile을 제공해야 합니다. 그러면 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
+
+* Linux에서 실행되는 Azure Web App을 만들려면 [이 단계](/azure/app-service-web/app-service-linux-how-to-create-web-app)를 따르세요.
+* 이 [문서](https://docs.docker.com/engine/installation/linux/ubuntu/)의 지침에 따라 Jenkins 인스턴스에 Docker를 설치합니다.
+* [이 단계](/azure/container-registry/container-registry-get-started-azure-cli)에 따라 Azure Portal에 컨테이너 레지스트리를 만듭니다.
+* 분기한 동일한 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample) 리포지토리에서 **Jenkinsfile2** 파일을 편집합니다.
+    * 18-21줄에서 리소스 그룹, 웹앱 및 ACR의 이름으로 각각 업데이트합니다. 
+        ```
+        def webAppResourceGroup = '<myResourceGroup>'
+        def webAppName = '<app_name>'
+        def acrName = '<myRegistry>'
+        ```
+
+    * 24줄에서 \<azsrvprincipal\>을 자격 증명 ID로 업데이트합니다.
+        ```
+        withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
+        ```
+
+* Windows에서 Azure 웹앱에 배포할 때 수행했던 것처럼 새 Jenkins 파이프라인을 만듭니다. 이번에만 대신 **Jenkinsfile2**를 사용합니다.
+* 새 작업을 실행합니다.
+* 확인하려면 Azure CLI에서 다음을 실행합니다.
+
+    ```
+    az acr repository list -n <myRegistry> -o json
+    ```
+
+    다음 결과를 얻을 수 있습니다.
+    
+    ```
+    [
+    "calculator"
+    ]
+    ```
+    
+    http://&lt;app_name>.azurewebsites.net/api/calculator/ping으로 이동합니다. 메시지가 표시됩니다. 
+    
+        Welcome to Java Web App!!! This is updated!
+        Sun Jul 09 16:39:10 UTC 2017
+
+    http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>(&lt;x> 및 &lt;y>를 임의의 숫자로 대체)로 이동하여 x와 y의 합계를 구합니다.
+    
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 GitHub 리포지토리에 있는 소스 코드를 확인하는 Jenkins 파이프라인을 구성했습니다. Maven을 실행하여 war 파일을 작성한 다음 Azure CLI를 사용하여 Azure App Service를 배포합니다. 다음 방법에 대해 알아보았습니다.
 

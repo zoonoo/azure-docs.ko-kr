@@ -8,18 +8,18 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: 
 ms.topic: 
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 692391385e0fbfd6c7fdd0d04464ebe1cc4dc482
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8ebea5908a10579cb614fb538e91c450528f7144
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -408,7 +408,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
 
-자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/storage-dotnet-how-to-use-files.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/storage-how-to-use-files-linux.md)을 참조하세요.
+자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/storage-file-how-to-use-files-windows.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/storage-how-to-use-files-linux.md)을 참조하세요.
 
 **Table Storage**
 

@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e789114a9b3faee73d264eded52c35cedd9cf98f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -255,7 +255,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
      
      * **클러스터 유형**: Hadoop. 도메인에 가입된 HDInsight는 현재 Hadoop 클러스터에서만 지원됩니다.
      * **운영 체제**: Linux.  도메인에 가입된 HDInsight는 Linux 기반 HDInsight 클러스터에서만 지원됩니다.
-     * **버전**: Hadoop 2.7.3(HDI 3.5). 도메인에 가입된 HDInsight는 HDInsight 클러스터 버전 3.5에서만 지원됩니다.
+     * **버전**: HDI 3.6. 도메인에 가입된 HDInsight는 HDInsight 클러스터 버전 3.6에서만 지원됩니다.
      * **클러스터 유형**: PREMIUM
        
        **선택**을 클릭하여 변경 내용을 저장합니다.
