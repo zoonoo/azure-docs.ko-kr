@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3ab0f37147330cb55da8b0955a359cca27750e70
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b8e88737c5dd81760a733e0b761fd3e51566ad02
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
@@ -35,6 +34,76 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="115610"></a>1.1.561.0
+상태: 릴리스 예정
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="fixed-issue"></a>해결된 문제
+
+* 기본 제공 동기화 규칙 “Out to AD - User ImmutableId”를 삭제하는 문제가 해결되었습니다.
+
+  * Azure AD Connect를 업그레이드하는 경우 또는 Azure AD Connect 마법사에서 *동기화 구성 업데이트*를 작업 옵션을 사용하여 Azure AD Connect 동기화 구성을 업데이트하는 경우 문제가 발생합니다.
+  
+  * 이 동기화 규칙은 [소스 앵커 기능으로 msDS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)를 사용하도록 설정한 고객에게 적용할 수 있습니다. 이 기능은 1.1.524.0 이후 버전에서 도입되었습니다. 동기화 규칙이 제거되면 Azure AD Connect에서는 더 이상 ObjectGuid 특성 값으로 온-프레미스 AD ms-DS-ConsistencyGuid 특성을 채울 수 없습니다. 새 사용자가 Azure AD에 프로비전되지 않도록 방지하지 않습니다.
+  
+  * 기능이 설정되어 있다면 업그레이드 또는 구성을 변경하는 동안 동기화 규칙이 제거되지 않도록 수정합니다. 또한 이 문제의 영향을 받는 기존 고객의 경우 이 버전의 Azure AD Connect로 업그레이드한 후에 동기화 규칙이 다시 추가되도록 수정합니다.
+
+* 100보다 작은 우선 순위 값을 갖는 기본 제공 동기화 규칙을 발생시키는 문제를 해결했습니다.
+
+  * 일반적으로 사용자 지정 동기화 규칙에 대한 우선 순위 값은 0	~99로 예약됩니다. 업그레이드하는 동안 기본 제공 동기화 규칙의 우선 순위 값은 동기화 규칙 변경 내용을 수용하도록 업데이트됩니다. 이 문제로 인해 기본 제공 동기화 규칙은 100보다 작은 우선 순위 값을 할당받을 수 있습니다.
+  
+  * 이를 해결하여 업그레이드하는 동안 문제가 발생하지 않도록 방지합니다. 그러나 문제의 영향을 받는 기존 고객의 경우 우선 순위 값을 복원하지 않습니다. 별도의 수정은 복원에 도움이 되도록 나중에 이뤄집니다.
+
+* OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
+
+*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+* [자동 업그레이드 기능](active-directory-aadconnect-feature-automatic-upgrade.md)은 다음과 같은 구성 사용하는 고객을 지원하도록 확장되었습니다.
+  * 장치 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 그룹 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다.
+  * 메타버스에 10만 개가 넘는 개체가 있습니다.
+  * 둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다.
+  * SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다.
+  * AD Connector 계정이 더 이상 기본 MSOL_ 계정이 아닙니다.
+  * 서버가 준비 모드로 설정되어 있습니다.
+  * 사용자 쓰기 저장 기능을 사용하도록 설정했습니다.
+  
+  >[!NOTE]
+  >자동 업그레이드 기능의 범위를 확장하면 Azure AD Connect 빌드 1.1.105.0 이상을 사용하는 고객에게 영향을 줍니다. Azure AD Connect 서버를 자동으로 업그레이드하지 않으려면 Azure AD Connect 서버에서 다음 cmdlet을 실행해야 합니다. `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` 자동 업그레이드를 활성화/비활성화하는 방법에 대한 자세한 내용은 [Azure AD Connect: 자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) 문서를 참조하세요.
+
+## <a name="115580"></a>1.1.558.0
+상태: 릴리스되지 않았습니다. 이 빌드의 변경 내용은 1.1.561.0 버전에 포함됩니다.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="fixed-issue"></a>해결된 문제
+
+* OU 기반 필터링 구성이 업데이트되는 경우 기본 제공 동기화 규칙 “Out to AD - User ImmutableId”를 삭제하는 문제가 해결되었습니다. 이 동기화 규칙은 [소스 앵커 기능으로 msDS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)에 필요합니다.
+
+* OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
+
+*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+* [자동 업그레이드 기능](active-directory-aadconnect-feature-automatic-upgrade.md)은 다음과 같은 구성 사용하는 고객을 지원하도록 확장되었습니다.
+  * 장치 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 그룹 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다.
+  * 메타버스에 10만 개가 넘는 개체가 있습니다.
+  * 둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다.
+  * SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다.
+  * AD Connector 계정이 더 이상 기본 MSOL_ 계정이 아닙니다.
+  * 서버가 준비 모드로 설정되어 있습니다.
+  * 사용자 쓰기 저장 기능을 사용하도록 설정했습니다.
+  
+  >[!NOTE]
+  >자동 업그레이드 기능의 범위를 확장하면 Azure AD Connect 빌드 1.1.105.0 이상을 사용하는 고객에게 영향을 줍니다. Azure AD Connect 서버를 자동으로 업그레이드하지 않으려면 Azure AD Connect 서버에서 다음 cmdlet을 실행해야 합니다. `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` 자동 업그레이드를 활성화/비활성화하는 방법에 대한 자세한 내용은 [Azure AD Connect: 자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) 문서를 참조하세요.
 
 ## <a name="115570"></a>1.1.557.0
 상태: 2017년 7월
@@ -222,7 +291,7 @@ Azure AD Connect 동기화
 * Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)을 참조하세요.
 * 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization) 문서를 참조하세요.
 * Azure AD Connect는 이제 온-프레미스 AD에서 Azure AD로 메일 사용 가능 공용 폴더 개체 동기화를 지원합니다. Azure AD Connect 마법사를 사용하여 [선택적 기능]에서 이 기능을 사용하도록 설정할 수 있습니다. 이 기능에 대한 자세한 내용은 [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders)(온-프레미스 메일 사용이 가능한 공용 폴더에 대한 Office 365 디렉터리 기반 에지 차단 지원) 문서를 참조하세요.
-* 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에는 기본 모드를 사용하여 Azure AD Connect를 설치하는 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있었습니다. 이 계정을 Azure AD Connect에 그대로 두고 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
+* 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에 Express 모드를 사용하여 Azure AD Connect를 설치한 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있고 Azure AD Connect에서는 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
 * Azure AD Connect는 이제 SQL AOA를 지원합니다. Azure AD Connect를 설치하기 전에 SQL을 사용하도록 설정해야 합니다. Azure AD Connect는 설치 중에 제공된 SQL 인스턴스에서 SQL AOA를 사용하도록 설정되었는지 여부를 검색합니다. SQL AOA를 사용하도록 설정된 경우 Azure AD Connect는 SQL AOA에서 동기 복제 또는 비동기 복제를 사용하도록 구성되어 있는지 확인합니다. 가용성 그룹 수신기를 설정할 때 RegisterAllProvidersIP 속성을 0으로 설정하는 것이 좋습니다. 이는 Azure AD Connect에서 현재 SQL Native Client를 사용하여 SQL에 연결하고, SQL Native Client에서는 MultiSubNetFailover 속성 사용을 지원하지 않기 때문입니다.
 * Azure AD Connect 서버의 데이터베이스로 LocalDB를 사용하고 10GB 크기 제한에 도달하면 동기화 서비스가 더 이상 시작되지 않습니다. 이전에는 LocalDB에서 ShrinkDatabase 작업을 수행하여 동기화 서비스를 시작할 수 있을 만큼 충분한 DB 공간을 확보해야 했습니다. 그런 후에 더 많은 DB 공간을 확보할 수 있도록 동기화 서비스 관리자를 사용하여 실행 기록을 삭제했습니다. 이제는 Start-ADSyncPurgeRunHistory cmdlet을 사용하여 LocalDB의 실행 기록 데이터를 제거하여 DB 공간을 확보할 수 있습니다. 또한 이 cmdlet은 동기화 서비스가 실행되고 있지 않을 때 -offline 매개 변수를 지정하여 사용할 수 있는 오프라인 모드를 지원합니다. 참고: 오프라인 모드는 동기화 서비스가 실행되고 있지 않고 사용되는 데이터베이스가 LocalDB인 경우에만 사용할 수 있습니다.
 * Azure AD Connect는 이제 필요한 저장 공간을 줄이기 위해 먼저 동기화 오류 세부 정보를 압축한 후에 LocalDB/SQL 데이터베이스에 저장합니다. 이전 버전의 Azure AD Connect에서 이 버전으로 업그레이드할 때 Azure AD Connect는 기존 동기화 오류 세부 정보를 한 번 압축합니다.

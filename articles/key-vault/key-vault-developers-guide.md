@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 06/6/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b8042d6a2d34858f35a2041db0116c1d6159630
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a15b403166dad17790c75f6db874e4ed2640ca78
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
@@ -32,14 +31,14 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 
 새로운 Key Vault 기능의 공개 미리 보기가 정기적으로 릴리스됩니다. 이러한 공개 미리 보기를 사용해보고, 피드백 메일 주소인 azurekeyvault@microsoft.com을 통해 의견을 알려주세요.
 
-### <a name="soft-delete---may-10-2017"></a>일시 삭제 - 2017년 5월 10일
+### <a name="storage-account-keys---july-10-2017"></a>저장소 계정 키 - 2017년 7월 10일
 
 >[!NOTE]
->이 Azure Key Vault 업데이트에서는 **일시 삭제** 기능만 미리 보기 상태입니다.
+>이 Azure Key Vault 업데이트에서는 **저장소 계정 키** 기능만 미리 보기 상태입니다.
 
-이 미리 보기에는 주요 자격 증명 모음 및 주요 자격 증명 모음 개체의 복구 가능한 삭제인 새로운 일시 삭제 기능과 개발자를 위한 업데이트된 인터페이스인 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/)이 포함되어 있습니다. 
+이 미리 보기에는 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 인터페이스를 통해 사용할 수 있는 새로운 저장소 계정 키가 포함되어 있습니다. 
 
-새로운 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
+새 저장소 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault 저장소 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
 
 ## <a name="videos"></a>비디오
 

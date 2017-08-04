@@ -17,13 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 54254203b79c6d69a2febc5987b0a24077a84939
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0abad78affc92006fb30007d27f5656a2500fb80
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
- 
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
@@ -74,7 +72,7 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 Windows 기반 클러스터만 해당: 구성 요소 버전을 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist\" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight에서 Windows 사용 중지](#hdi-version-33-nearing-retirement-date)를 참조하세요. 
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight에서 Windows 사용 중지](#hdinsight-windows-retirement)를 참조하세요. 
 
 ### <a name="release-notes"></a>릴리스 정보
 
@@ -89,7 +87,7 @@ Windows 기반 클러스터만 해당: 구성 요소 버전을 가져오는 다�
 | HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure 포털에서 사용 가능 여부 | 지원 만료 날짜 | 사용 중지 날짜 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |예 |04/06/2017 |예 | | |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 |07/05/2017 |05/31/2018 |
+| HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 |08/20/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016/03/29 |예 |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |예 |12/02/2015 |예 |06/27/2016 |07/31/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |예 |12/02/2015 |예 |06/27/2016 |07/31/2017 |
@@ -192,7 +190,7 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premi
 
 | 클러스터 유형 | Standard | Premium(미리 보기) |
 | --- | --- | --- |
-| Hadoop은 |예 |예(HDInsight 3.5 및 3.6에만 해당) |
+| Hadoop은 |예 |예(HDInsight 3.6만 해당) |
 | Spark |예 |아니요 |
 | HBase |예 |아니요 |
 | Storm |예 |아니요 |

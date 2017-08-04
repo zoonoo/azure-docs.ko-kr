@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ef01a2221eb1915ac155a14cda0ea56565603d03
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 및 브라우저
@@ -75,7 +75,6 @@ Set-SPOTenant cmdlet을 사용하여 SharePoint 액세스에 대한 레거시 �
 Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다. 다음 옵션을 검토한 후에 조직에 적합한 정책을 선택합니다.
 
 * **Exchange ActiveSync** - 기본적으로 다단계 인증 및 위치에 대한 조건부 액세스 정책은 Exchange ActiveSync에 강제로 적용되지 않습니다. 따라서 Exchange ActiveSync 정책을 직접 구성하거나 AD FS(Active Directory Federation Services) 규칙을 통해 Exchange ActiveSync를 차단함으로써 이러한 서비스에 대한 액세스를 보호해야 합니다.
-
 * **레거시 프로토콜** - AD FS를 사용하면 레거시 프로토콜을 차단할 수 있습니다. 이렇게 하면 최신 인증을 사용하지 않는 Office 2013 및 이전 버전의 Office와 같이 오래된 Office 클라이언트에 대한 액세스를 차단합니다.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>AD FS를 통한 레거시 프로토콜 차단
@@ -123,9 +122,9 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers-for-device-based-policies"></a>장치 기반 정책에 대해 지원되는 브라우저
+## <a name="supported-browsers-for-device-based-policies"></a>장치 기반 정책에 대해 지원되는 브라우저 
 
-Azure AD가 장치를 식별하고 인증할 수 있는 경우 장치 준수 및 도메인 가입을 확인하는 장치 기반 정책에 대해서만 액세스 권한을 부여할 수 있습니다. 위치 및 MFA와 같은 대부분의 검사는 대부분의 장치 및 브라우저에서 작동하지만 장치 정책에는 아래에 나열된 OS 버전 및 브라우저가 필요합니다. 지원되지 않는 브라우저 또는 OS의 사용자는 장치 정책이 구현되어 있을 때 액세스가 차단됩니다.
+Azure AD가 장치를 식별하고 인증할 수 있는 경우 장치 준수 및 도메인 조인을 확인하는 장치 기반 정책에 대해서만 액세스할 수 있습니다. 위치 및 MFA와 같은 대부분의 검사는 대부분의 장치 및 브라우저에서 작동하지만 장치 정책에는 아래에 나열된 OS 버전 및 브라우저가 필요합니다. 장치 정책이 설정되면 지원되지 않는 브라우저 또는 운영 체제에서 사용자에 대한 액세스가 차단됩니다. 
 
 | OS                     | 브라우저                 | 지원     |
 | :--                    | :--                      | :-:         |

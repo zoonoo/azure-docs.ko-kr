@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 84d55b7c86b6cf1964941d45748cde95c4f0f90f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c758aa5955362d04abf69c760d2aed7983cdf102
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법 
@@ -106,7 +105,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 
 7가지 아웃바운드 포트 요구 사항이 있습니다.
 
-- 원할 경우 인터넷에 대한 모든 아웃바운드 연결이 클라이언트의 온-프레미스 감사 장치를 통해 설정되도록 할 수 있습니다.
+- 원하는 경우 클라이언트의 온-프레미스 감사 장치를 통해 인터넷에 대한 모든 아웃바운드 연결을 설정할 수 있습니다.
 - 포트 중 3개는 Azure Storage 및 Azure DNS에 서비스하는 Azure 끝점으로 트래픽을 전송합니다.
 - 나머지 포트는 다양한 범위에 사용되고 내부 Redis 서브넷 통신에도 사용됩니다. 내부 Redis 서브넷 통신에 필요한 서브넷 NSG 규칙은 없습니다.
 
@@ -186,9 +185,9 @@ Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Azure Redis Cache에서 Express 경로 사용
 고객은 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 회로를 가상 네트워크 인프라로 연결할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다. 
 
-기본적으로, 새로 생성된 Express Route 회로는 아웃바운드 인터넷 연결을 허용하는 기본 경로를 알립니다. 이 구성을 사용할 경우 클라이언트 응용 프로그램은 Azure Redis Cache를 포함하는 다른 Azure 끝점에 연결할 수 있습니다.
+기본적으로 새로 만든 ExpressRoute 회로는 VNET에서 강제 터널링(0.0.0.0/0 기본 경로 보급 알림)을 수행하지 않습니다. 결과적으로 아웃바운드 인터넷 연결은 VNET에서 직접 허용되며, 클라이언트 응용 프로그램은 Azure Redis Cache를 포함한 다른 Azure 끝점에 연결할 수 있습니다.
 
-그러나 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. Azure Redis Cache 인스턴스가 종속성과 통신할 수 없도록 온-프레미스에서 아웃바운드 트래픽이 차단된 경우 이 트래픽 흐름은 Azure Redis Cache와의 연결을 끊습니다.
+그러나 고객의 일반적인 구성에서는 강제 터널링(기본 경로 보급 알림)을 사용하여 아웃바운드 인터넷 트래픽을 온-프레미스로 강제로 대신 전달합니다. Azure Redis Cache 인스턴스가 종속성과 통신할 수 없도록 온-프레미스에서 아웃바운드 트래픽이 차단된 경우 이 트래픽 흐름은 Azure Redis Cache와의 연결을 끊습니다.
 
 해결책은 하나의(또는 그 이상) UDR(사용자 정의 경로)을 Azure Redis Cache를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
 

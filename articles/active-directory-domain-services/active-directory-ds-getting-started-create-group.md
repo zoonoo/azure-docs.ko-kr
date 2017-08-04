@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: b8e5e2213f157c0332f98305266c1c6248c2ea87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Azure 클래식 포털을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure AD(Azure Active Directory) 테넌트에 대해 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 데 필요한 구성 작업을 설명하고 안내합니다.
+
+> [!NOTE]
+> [**대신 새로운 (미리 보기) Azure Portal 환경을 사용해 보세요**](active-directory-ds-getting-started.md). 
+>
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>작업 1: Azure AD DC Administrators 그룹 만들기
 첫 번째 작업은 Azure AD 테넌트에 관리 그룹을 만드는 것입니다. 이 특수 관리 그룹을 *AAD DC Administrators*라고 합니다. 이 그룹의 구성원에게는 Azure Active Directory Domain Services 관리 도메인에 가입한 컴퓨터에 대한 관리 권한이 부여됩니다. 이 그룹은 도메인 가입 컴퓨터에서 Administrators 그룹에 추가됩니다. 또한 이 그룹의 구성원은 원격 데스크톱을 사용하여 도메인에 가입한 컴퓨터에 원격으로 연결할 수 있습니다.  

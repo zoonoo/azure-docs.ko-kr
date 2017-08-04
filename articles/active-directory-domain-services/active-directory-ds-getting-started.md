@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 21fba224d4d2600e04c9aa6dcfe47e71d2248a0e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 128e70e4abc68ed8c9589dd08a9aec3a52fa49be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화(미리 보기)
-이 문서에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 디렉터리에 대해 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
-
-> [!div class="op_single_selector"]
-> * [미리 보기 - Azure Portal을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started.md)
-> * [Azure 클래식 포털을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started-create-group.md)
+이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
 
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
@@ -52,9 +47,7 @@ ms.lasthandoff: 06/30/2017
 
 1. 관리되는 도메인에 대한 **DNS 도메인 이름**을 선택합니다.
 
-   * 디렉터리의 기본 도메인 이름(**.onmicrosoft.com** 접미사가 있음)이 기본적으로 선택되어 있습니다.
-
-   * 목록에는 **도메인** 탭에서 구성한 확인된 도메인과 확인되지 않은 도메인을 모두 포함하여 Azure AD 디렉터리에 대해 구성된 도메인이 모두 포함되어 있습니다.
+   * 디렉터리의 기본 도메인 이름(**.onmicrosoft.com** 접미사가 있음)이 기본적으로 지정되어 있습니다.
 
    * 사용자 지정 도메인 이름도 입력할 수 있습니다. 이 예에서 사용자 지정 도메인 이름은 *contoso100.com*입니다.
 

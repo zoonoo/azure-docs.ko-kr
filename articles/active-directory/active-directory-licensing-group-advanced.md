@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 그룹 기반 라이선스 추가 시나리오 | Microsoft Docs"
 description: "Azure Active Directory 그룹 기반 라이선스의 추가 시나리오"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9b5b87574edc828a41b421a64f543fc34742c5a3
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -65,14 +63,10 @@ ms.lasthandoff: 07/06/2017
 
 ![사용자의 extensionAttribute1을 설정하는 방법을 보여 주는 스크린샷](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
-### <a name="modify-a-dynamic-group-membership-rule"></a>동적 그룹 멤버 자격 규칙 수정
+> [!WARNING]
+> 기존 그룹의 멤버 자격 규칙을 수정할 때는 주의해야 합니다. 규칙이 변경되면 그룹의 멤버 자격을 다시 평가하고 새 규칙을 충족하지 않는 사용자를 제거합니다(새 규칙과 일치하는 사용자는 이 과정의 영향을 받지 않음). 해당 사용자가 프로세스 중에 라이선스를 제거하면 데이터의 손실 또는 일부 경우에 서비스 중단이 발생할 수 있습니다.
 
-기존 그룹의 멤버 자격 규칙을 수정할 때는 주의해야 합니다. 규칙을 변경하면 모든 사용자가 그룹에서 제거됩니다. 규칙을 평가한 다음 새 조건에 따라 사용자가 그룹에 추가됩니다.
-
-그룹에 라이선스가 할당되어 있으면 모든 사용자가 프로세스 중에 제거된 라이선스를 가집니다. 새 규칙이 평가되고 사용자가 다시 추가된 후에만 새 라이선스가 적용됩니다. 사용자는 서비스 손실이나 경우에 따라 데이터 손실을 경험할 수 있습니다.
-
-라이선스 할당에 사용되는 그룹에 대한 멤버 자격 규칙을 변경하지 않는 것이 좋습니다. 대신에 새 멤버 자격 규칙으로 그룹을 만들고 원래 그룹과 동일한 라이선스 설정을 지정합니다. 모든 멤버가 추가되고 라이선스가 모든 사용자에 적용될 때까지 기다립니다. 그런 후에 원래 그룹을 삭제해야 합니다. 이 방법을 통해 사용자의 액세스 손실 또는 데이터 손실 없이 새 멤버 자격 규칙으로 안전하고 단계적으로 전환할 수 있습니다.
-
+> 라이선스 할당을 사용하는 대규모 동적 그룹이 있는 경우 기본 그룹에 적용하기 전에 소규모 테스트 그룹에서 주요 변경 내용의 유효성을 검사하는 것이 좋습니다.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>여러 그룹 및 여러 라이선스
 
@@ -143,7 +137,7 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 6. 필요한 경우 이 제품이 할당된 다른 그룹에 대해 동일한 단계를 수행합니다.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>PowerShell을 사용하여 누가 상속됨과 직접 라이선스를 가지고 있는지 확인
-그룹 기반 라이선스는 공개 미리 보기로 제공되지만 PowerShell을 사용하여 그룹 라이선스 할당을 완벽하게 제어할 수는 없습니다. 그러나 PowerShell을 사용하여 사용자 상태에 대한 기본 정보를 검색하고 라이선스가 그룹에서 상속되는지, 아니면 직접 할당되는지 확인할 수 있습니다. 아래 코드 예제에서는 관리자가 라이선스 할당에 대한 기본 보고서를 생성하는 방법을 보여 줍니다.
+PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할당받는지 아니면 그룹에서 상속받는지를 확인할 수 있습니다.
 
 1. `connect-msolservice` cmdlet을 실행하여 인증하고 테넌트에 연결합니다.
 
@@ -151,83 +145,60 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 
   ![Get-msolaccountsku cmdlet의 스크린샷](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. 이 예제에서는 어떤 사용자가 Enterprise Mobility + Security 라이선스를 직접, 그룹에서 또는 둘 다를 통해 할당했는지 확인하려고 합니다. 다음 스크립트를 사용할 수 있습니다.
+3. [이 PowerShell 스크립트](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group)에서 관심있는 라이선스에 *AccountSkuId* 값을 사용합니다. 라이선스가 할당된 방법에 대한 정보를 사용하여 이 라이선스가 있는 사용자가 목록이 생성됩니다.
 
-  ```
-  #Returns TRUE if the user has the license assigned directly
-  function UserHasLicenseAssignedDirectly
-  {
-      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-      foreach($license in $user.Licenses)
-      {
-          #we look for the specific license SKU in all licenses assigned to the user
-          if ($license.AccountSkuId -ieq $skuId)
-          {
-              #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              #This could be a group object or a user object (contrary to what the name suggests)
-              #If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
-              if ($license.GroupsAssigningLicense.Count -eq 0)
-              {
-                  return $true
-              }
-              \#If the collection contains the ID of the user object, this means the license is assigned directly
-              #Note: the license may also be assigned through one or more groups in addition to being assigned directly
-              foreach ($assignmentSource in $license.GroupsAssigningLicense)
-              {
-                  if ($assignmentSource -ieq $user.ObjectId)
-                  {
-                      return $true
-                  }
-              }
-              return $false
-          }
-      }
-      return $false
-  }
-  #Returns TRUE if the user is inheriting the license from a group
-  function UserHasLicenseAssignedFromGroup
-  {
-    Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses)
-     {
-        #we look for the specific license SKU in all licenses assigned to the user
-        if ($license.AccountSkuId -ieq $skuId)
-        {
-          #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-          #This could be a group object or a user object (contrary to what the name suggests)
-            foreach ($assignmentSource in $license.GroupsAssigningLicense)
-          {
-                  #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                  #Note: the license may also be assigned directly in addition to being inherited
-                  if ($assignmentSource -ine $user.ObjectId)
+## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>감사 로그를 사용하여 그룹 기반 라이선스 작업 모니터링
 
-            {
-                      return $true
-            }
-          }
-              return $false
-        }
-      }
-      return $false
-  }
-  ```
+[Azure AD 감사 로그](./active-directory-reporting-activity-audit-logs.md#audit-logs)를 사용하여 다음을 비롯한 그룹 기반 라이선스와 관련된 모든 작업을 확인할 수 있습니다.
+- 그룹에 대한 라이선스를 변경한 사용자
+- 시스템에서 그룹 라이선스 변경 처리를 시작한 시점 및 종료한 시점
+- 그룹 라이선스 할당의 결과로 사용자에게 이뤄진 라이선스 변경
 
-4. 스크립트의 나머지 부분은 모든 사용자를 가져오고 각 사용자에 대해 이러한 함수를 실행합니다. 그런 다음 출력 형식을 테이블에 지정합니다.
+>[!NOTE]
+> 감사 로그는 포털의 Azure Active Directory 섹션에 있는 대부분의 블레이드에서 제공됩니다. 사용자가 액세스하는 위치에 따라 블레이드 컨텍스트와 관련된 작업을 표시하도록 필터를 미리 적용할 수 있습니다. 예상한 결과가 표시되지 않는 경우 [필터링 옵션](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs)을 검토하거나 [**Azure Active Directory > 작업 > 감사 로그**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)에서 필터링되지 않은 감사 로그에 액세스합니다.
 
-  ```
-  #the license SKU we are interested in
-  $skuId = "reseller-account:EMS"
-  #find all users that have the SKU license assigned
-  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
-      ObjectId, `
-      @{Name="SkuId";Expression={$skuId}}, `
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
-  ```
+### <a name="find-out-who-modified-a-group-license"></a>라이선스 그룹을 수정한 사용자 확인
 
-5. 전체 스크립트의 출력은 다음 예제와 비슷합니다.
+1. **작업** 필터를 설정하여 *그룹 라이선스를 설정*하고 **적용**을 클릭합니다.
+2. 결과는 그룹에서 설정 또는 수정된 모든 라이선스 사례를 포함합니다.
+>[!TIP]
+> *대상* 필터에서 그룹의 이름을 입력하여 결과 범위를 지정할 수도 있습니다.
 
-  ![PowerShell 스크립트 출력의 스크린샷](media/active-directory-licensing-group-advanced/powershell-script-output.png)
+3. 변경된 내용의 세부 정보를 보려면 목록 보기에서 항목을 클릭합니다. *수정된 속성* 아래에서 라이선스 할당에 대한 기존 값과 새 값이 모두 나열됩니다.
+
+세부 정보를 포함한 최근 그룹 라이선스 변경의 예는 다음과 같습니다.
+
+![스크린샷 그룹 라이선스 변경](media/active-directory-licensing-group-advanced/audit-group-license-change.png)
+
+### <a name="find-out-when-group-changes-started-and-finished-processing"></a>그룹 변경이 처리를 시작하고 완료한 시점 확인
+
+그룹에 대한 라이선스가 변경되면 Azure AD는 모든 사용자에게 변경 내용을 적용하기 시작합니다.
+
+1. 그룹이 처리를 시작하는 시점을 표시하려면 **작업** 필터를 설정하여 *사용자에게 그룹 기반 라이선스를 적용하기 시작*합니다. 작업의 작업자는 *Microsoft Azure AD 그룹 기반 라이선스*이며 모든 그룹 라이선스 변경을 실행하는 데 사용되는 시스템 계정입니다.
+>[!TIP]
+> 목록에서 항목을 클릭하여 *속성 수정* 필드를 확인합니다. 여기서는 처리하기 위해 선택한 라이선스 변경 내용을 표시합니다. 그룹을 변경하고 처리할 항목이 확실하지 않은 경우에 유용합니다.
+
+2. 마찬가지로 그룹이 처리를 완료하는 시점을 확인하려면 *사용자에게 그룹 기반 라이선스 적용 완료* 필터 값을 사용합니다.
+>[!TIP]
+> 이 경우에 *수정된 속성* 필드에는 결과의 요약이 포함됩니다. 처리로 인해 오류가 발생했는지 신속하게 확인하는 데 유용합니다. 샘플 출력:
+> ```
+Modified Properties
+...
+Name : Result
+Old Value : []
+New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+> ```
+
+3. 모든 사용자의 변경 내용을 포함하여 그룹 처리 방법의 전체 로그를 확인하려면 다음 필터를 설정합니다.
+  - **(작업자)에 의해 시작**: "Microsoft Azure AD 그룹 기반 라이선스"
+  - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
+
+이 샘플 출력은 처리 시작, 모든 사용자 변경 내용 결과 및 처리 완료를 표시합니다.
+
+![스크린샷 그룹 라이선스 변경](media/active-directory-licensing-group-advanced/audit-group-processing-log.png)
+
+>[!TIP]
+> *사용자 라이선스 변경* 관련 항목을 클릭하면 개별 사용자에게 적용된 라이선스 변경에 대한 세부 정보가 표시됩니다.
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
@@ -246,6 +217,8 @@ Microsoft에서 제품에 새 서비스를 추가하면 해당 서비스는 제�
 - 라이선스 관리 자동화는 모든 유형의 환경 변경 사항에 자동으로 응답하지 않습니다. 예를 들어 라이선스가 부족하여 일부 사용자가 오류 상태에 있을 수 있습니다. 사용 가능한 사용자 수를 확보하기 위해 직접 할당된 일부 라이선스를 다른 사용자에게서 제거할 수 있습니다. 그러나 시스템은 이러한 변경에 자동으로 대응하지 않고 해당 오류 상태에 있는 사용자를 수정합니다.
 
   이러한 제한 사항을 해결하려면 Azure AD의 **그룹** 블레이드로 이동하여 **다시 처리**를 클릭하면 됩니다. 이 명령은 해당 그룹의 모든 사용자를 처리하고 가능한 경우 오류 상태를 해결합니다.
+
+- 그룹 기반 라이선스는 Exchange Online에서 중복된 프록시 주소 구성으로 인해 사용자에게 라이선스 할당할 수 없는 경우 오류를 기록하지 않습니다. 이러한 사용자는 라이선스 할당 중에 건너뜁니다. 이 문제를 식별하고 해결하는 방법에 대한 자세한 내용은 [이 섹션](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

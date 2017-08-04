@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a17b28274988687fb1951e46c5270c62dcfe11b1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="application-not-found-in-directory"></a>응용 프로그램을 디렉터리에서 찾을 수 없습니다
 
-*오류: ‘https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
+*오류 AADSTS70001: ‘https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
 
 **가능한 원인**
 
@@ -65,9 +64,43 @@ SAML 요청의 발급자 특성이 Azure AD에서 구성된 식별자 값과 일
 
 Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프로그램에 의해 일치하는 값이 전송된 후에 응용 프로그램에 로그인해야 합니다.
 
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. 
+
+*오류 AADSTS50011: 회신 주소 'https://contoso.com'은 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
+
+**가능한 원인** 
+
+SAML 요청에서 AssertionConsumerServiceURL 값은 회신 URL 값 또는 Azure AD에 구성된 패턴과 일치하지 않습니다. SAML 요청에서 AssertionConsumerServiceURL 값은 오류에서 확인할 수 있는 URL입니다. 
+
+**해결 방법** 
+
+SAML 요청에서 AssertionConsumerServiceURL 값이 Azure AD에 구성된 회신 URL 값과 일치하는지 확인합니다. 
+ 
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 
+
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다. 
+
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다. 
+
+4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다. 
+
+5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다. 
+
+  * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  
+6.  Single Sign-On을 구성하려는 응용 프로그램을 선택합니다.
+
+7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+
+8.  **도메인 및 URL** 섹션으로 이동합니다. SAML 요청에 있는 AssertionConsumerServiceURL 값과 일치하도록 회신 URL 텍스트 상자의 값을 확인하고 업데이트합니다.
+
+  * 회신 URL 텍스트 상자에 표시되지 않으면 **고급 URL 설정 표시** 확인란을 선택합니다. 
+
+Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 응용 프로그램에 의해 일치하는 값이 전송된 후에 응용 프로그램에 로그인해야 합니다.
+
 ## <a name="user-not-assigned-a-role"></a>역할이 지정되지 않은 사용자
 
-*오류: 로그인한 사용자 'brian@contoso.com'는 응용 프로그램의 역할에 할당되지 않았습니다*
+*오류 AADSTS50105: 로그인한 사용자 'brian@contoso.com'는 응용 프로그램의 역할에 할당되지 않았습니다*.
 
 **가능한 원인**
 
@@ -113,7 +146,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프�
 
 ## <a name="not-a-valid-saml-request"></a>유효한 SAML 요청이 아님
 
-*오류: 요청이 유효한 Saml2 프로토콜 메시지가 아닙니다.*
+*오류 AADSTS75005: 요청이 유효한 Saml2 프로토콜 메시지가 아닙니다.*
 
 **가능한 원인**
 
@@ -137,7 +170,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>requiredResourceAccess 목록에 리소스 없음
 
-*오류: 클라이언트 응용 프로그램은 리소스 '00000002-0000-0000-c000-000000000000'에 대한 액세스 권한을 요청했습니다. 클라이언트가 해당 requiredResourceAccess 목록*에 이 리소스를 지정하지 않았기 때문에 이 요청이 실패했습니다.
+*오류 AADSTS65005: 클라이언트 응용 프로그램은 리소스 '00000002-0000-0000-c000-000000000000'에 대한 액세스 권한을 요청했습니다. 클라이언트가 해당 requiredResourceAccess 목록*에 이 리소스를 지정하지 않았기 때문에 이 요청이 실패했습니다.
 
 **가능한 원인**
 
@@ -169,7 +202,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 ## <a name="certificate-or-key-not-configured"></a>인증서 또는 키가 구성되지 않음
 
-오류: 서명 키가 구성되지 않았습니다.
+오류 AADSTS50003: 서명 키가 구성되지 않았습니다.
 
 **가능한 원인**
 

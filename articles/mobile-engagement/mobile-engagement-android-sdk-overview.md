@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: abb09e0b95c881b9d4bcb4d04341fd3a8e4ef63f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 Android SDK 통합
@@ -54,6 +53,10 @@ ms.lasthandoff: 06/28/2017
 [Android 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* `EngagementApplication` 클래스에서도 `EngagementAgentUtils.isInDedicatedEngagementProcess`를 호출할 때 드물게 발생할 수 있는 충돌을 해결합니다.
+
 ### <a name="430-06272017"></a>4.3.0 (06/27/2017)
 * Android 8 지원(이전 버전의 SDK는 Android 8에서 작동하지 않음)
 * 지원 라이브러리에 대한 종속성이 더 이상 없습니다.

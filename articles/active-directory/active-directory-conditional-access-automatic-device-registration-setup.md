@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: b8cac63967bf837183095cbb235c4a84f2dabcb9
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: dccd7df6a5f85df4179c7ea7cfc476cfb57f48c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법
@@ -121,7 +121,7 @@ Azure AD Connect를 배포한 방법에 따라 SCP 개체가 이미 구성되었
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-서비스 연결 지점이 없는 경우 Azure AD Connect 서버에서 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet을 실행하여 서비스 연결 지점을 만들 수 있습니다.  
+서비스 연결 지점이 없는 경우 Azure AD Connect 서버에서 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet을 실행하여 서비스 연결 지점을 만들 수 있습니다. 이 cmdlet을 실행하려면 엔터프라이즈 관리자 자격 증명이 필요합니다.  
 cmdlet:
 
 - Azure AD Connect가 연결된 Active Directory 포리스트에 서비스 연결 지점을 만듭니다. 

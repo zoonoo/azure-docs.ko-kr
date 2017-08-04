@@ -12,17 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1cd7c365844b22e10dd69f38f08e5d1aa691ba20
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* `EngagementApplication` 클래스에서도 `EngagementAgentUtils.isInDedicatedEngagementProcess`를 호출할 때 드물게 발생할 수 있는 충돌을 해결합니다.
 
 ## <a name="430-06272017"></a>4.3.0 (06/27/2017)
 * Android 8 지원(이전 버전의 SDK는 Android 8에서 작동하지 않음)

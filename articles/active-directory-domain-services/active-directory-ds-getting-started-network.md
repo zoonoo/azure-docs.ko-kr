@@ -12,21 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 5e08c37ea63ca45efb4098ca032e1e9e9ffd3c78
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7f420d60862adf61e4f21e5abac2932a742bd55d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화(미리 보기)
-
-> [!div class="op_single_selector"]
-> * [미리 보기 - Azure Portal을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started-network.md)
-> * [Azure 클래식 포털을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started-create-group.md)
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -39,7 +34,7 @@ ms.lasthandoff: 06/30/2017
 1. **가상 네트워크**를 클릭하여 가상 네트워크를 선택합니다.
 2. **가상 네트워크 선택** 블레이드에서 기존 가상 네트워크를 모두 확인할 수 있습니다. 리소스 그룹에 속한 가상 네트워크 및 **기본 사항** 마법사 페이지에서 선택한 Azure 위치만 표시됩니다.
 
-3. Azure AD Domain Services를 사용하도록 설정해야 하는 기존 가상 네트워크를 선택합니다. 새 가상 네트워크를 만들려는 경우 **새로 만들기**를 클릭합니다.
+3. Azure AD Domain Services를 사용하도록 설정해야 하는 가상 네트워크를 선택합니다. 새 가상 네트워크를 만들려는 경우 **새로 만들기**를 클릭합니다. Azure AD Domain Services에 전용 서브넷을 사용하는 것이 좋습니다. 기존 가상 네트워크를 선택하면 [가상 네트워크 확장을 사용하여 전용 서브넷을 만든](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 다음 해당 서브넷을 선택합니다. 
 
     ![가상 네트워크 선택](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -49,8 +44,9 @@ ms.lasthandoff: 06/30/2017
 
   > [!NOTE]
   > **서브넷 선택 지침**
-  > 1. Azure AD Domain Services 배포를 위해 게이트웨이 서브넷을 선택하지 마세요. 이 서브넷에는 지원되는 구성이 없습니다.
-  2. 선택한 서브넷에 사용 가능한 주소 공간이 충분한지 확인합니다(3-5개 이상의 사용 가능한 IP 주소).
+  > 1. Azure AD Domain Services에 전용 서브넷을 사용합니다. 이 서브넷에 다른 가상 컴퓨터를 배포하지 않습니다. 이 구성을 사용하면 관리되는 도메인을 방해하지 않고 워크로드/가상 컴퓨터에 대해 NSG(네트워크 보안 그룹)을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory Domain Services의 네트워킹 고려 사항](active-directory-ds-networking.md)을 참조하세요.
+  2. Azure AD Domain Services 배포를 위해 게이트웨이 서브넷을 선택하지 마세요. 이 서브넷에는 지원되는 구성이 없습니다.
+  3. 선택한 서브넷에 사용 가능한 주소 공간이 충분한지 확인합니다(3-5개 이상의 사용 가능한 IP 주소).
   >
 
 5. 완료되면 **확인**을 클릭하여 마법사의 **관리자 그룹** 페이지로 이동합니다.
