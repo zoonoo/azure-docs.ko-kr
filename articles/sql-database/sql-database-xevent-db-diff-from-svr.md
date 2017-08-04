@@ -126,7 +126,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름
 
 간단한 SQL **SELECT** 를 실행하여 사용 가능한 이벤트, 작업, 대상의 목록을 가져올 수 있습니다.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],

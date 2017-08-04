@@ -20,7 +20,6 @@ ms.openlocfilehash: def3feb2760c0ec2bb9ff39c6ef8a85bb142a0a7
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/19/2017
 
-
 ---
 # <a name="get-started-with-device-management-netnode"></a>장치 관리 시작(.NET/Node)
 
@@ -62,6 +61,7 @@ ms.lasthandoff: 05/19/2017
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
         
 5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브 및 대상 장치의 IoT Hub 연결 문자열로 바꿉니다.
    
