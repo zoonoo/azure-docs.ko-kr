@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 85256f12f1db492a9253a5e762ee7f965019bcf0
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 93d5676e9188e67f1f6a9bba1d4d30a93b3883d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/21/2017
 |--------- |---------|
 |[둘 다 리소스 관리자](virtual-network-create-peering.md) |동일|
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
-|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models.md) |동일|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 가상 네트워크 피어링은 같은 Azure 지역에 있는 두 가상 네트워크 간에만 만들 수 있습니다. 서로 다른 구독에 존재하는 가상 네트워크 간의 가상 네트워크 피어링을 만들 때는 구독이 모두 동일한 Azure Active Directory 테넌트에 연결되어 있어야 합니다. 아직 Azure Active Directory 테넌트가 없는 경우 신속히 하나 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) 수 있습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크 또는 서로 다른 Azure 지역에 있는 가상 네트워크를 연결해야 하거나 서로 다른 Azure Active Directory 테넌트에 연결된 구독에 존재하는 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 07/21/2017
      - **리소스 ID를 알고 있음**: 이 확인란을 선택합니다.
      - **리소스 ID**: 15단계에서 얻은 myVnetB의 리소스 ID를 입력합니다.
      - **가상 네트워크 액세스 허용:** **사용**이 선택되어 있는지 확인합니다.
-    이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-peering)를 읽어보세요.
+    이 자습서에서 다른 설정은 사용되지 않습니다. 모든 피어링 설정에 대해 알아보려면 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md#create-a-peering)를 읽어보세요.
 23. 이전 단계에서 **확인**을 클릭한 후 **피어링 추가** 블레이드가 닫히고 **myVnetA - 피어링** 블레이드가 다시 표시됩니다. 몇 초 후 만든 피어링이 블레이드에 나타납니다. 만든 **myVnetAToMyVnetB** 피어링에 대해 **PEERING STATUS** 열에 **Connected**가 열거됩니다. 이제 피어링이 설정되었습니다. 가상 네트워크(리소스 관리자)에 가상 네트워크(클래식)를 피어링할 필요는 없습니다.
 
     어느 쪽 가상 네트워크에서든 만든 모든 Azure 리소스는 이제 해당 IP 주소를 통해 서로 통신할 수 있습니다. 가상 네트워크에 대해 기본 Azure 이름 확인을 사용 중인 경우 가상 네트워크의 리소스가 가상 네트워크에서 이름을 확인할 수 없습니다. 피어링의 가상 네트워크에서 이름을 확인하려면 자체 DNS 서버를 만들어야 합니다. [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 설정 방법을 알아보세요.
@@ -368,6 +368,6 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#about-peering)에 철저하게 익숙해집니다.
-- 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-peering)에 대해 알아봅니다.
+- 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#requirements-and-constraints)에 철저하게 익숙해집니다.
+- 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-a-peering)에 대해 알아봅니다.
 - 가상 네트워크 피어링을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 방법을 알아봅니다.

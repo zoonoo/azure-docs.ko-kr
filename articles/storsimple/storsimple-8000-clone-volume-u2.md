@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 07/26/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 40af4c3057d5689600b06cbcfb60fabb2674d842
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 장치 관리자 서비스를 사용하여 볼륨 복제
@@ -105,7 +105,7 @@ StorSimple 장치 관리자 서비스 **백업 카탈로그** 블레이드는 �
 
     ![백업 세트 목록](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
-이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs.-permanent-clones)를 참조하세요.
+이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs-permanent-clones)를 참조하세요.
 
 
 ## <a name="transient-vs-permanent-clones"></a>임시 및 영구 복제본 비교

@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 36515f6a3886ec68748a5b21b8022199abc3e092
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/21/2017
 
 다음은 각 계산 노드에서 액세스할 수 있는 복제 테이블을 보여 주는 다이어그램입니다. SQL Data Warehouse에서 복제 테이블은 각 계산 노드의 배포 데이터베이스로 완벽하게 복사됩니다. 
 
-![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "복제 테이블")  
+![복제 테이블](media/guidance-for-using-replicated-tables/replicated-table.png "복제 테이블")  
 
 복제 테이블은 별모양 스키마의 작은 차원 테이블에 효과적입니다. 차원 테이블은 대개 여러 복사본을 저장하고 유지 관리하기에 적당한 크기입니다. 차원에는 고객 이름 및 주소, 제품 세부 정보와 같이 느리게 변하는 설명 데이터가 저장됩니다. 느리게 변하는 데이터의 특성으로 인해 복제 테이블을 다시 빌드하는 경우가 줄어듭니다. 
 

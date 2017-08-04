@@ -12,19 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/15/2017
+ms.date: 08/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 337da13d4448090f320fa53a789d97f9843804d3
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: ac11c6c8532007ee40db128dd9933c99a32a9420
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다.
 ## <a name="overview"></a>개요
-StorSimple 장치 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 특정 장치를 모니터링할 수 있습니다. I/O 성능, 수용작업량 사용률, 네트워크 처리량 및 장치 성능 메트릭을 기준으로 사용자 지정 차트를 만들고 해당 항목을 대시보드에 고정할 수 있습니다. 자세한 내용은 [포털 대시보드 사용자 지정](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md)으로 이동합니다.
+StorSimple 장치 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 특정 장치를 모니터링할 수 있습니다. I/O 성능, 수용작업량 사용률, 네트워크 처리량 및 장치 성능 메트릭을 기준으로 사용자 지정 차트를 만들고 해당 항목을 대시보드에 고정할 수 있습니다. 자세한 내용은 [포털 대시보드 사용자 지정](/articles/azure-portal/azure-portal-dashboards.md)으로 이동합니다.
 
 특정 장치에 대한 모니터링 정보를 확인하려면, Azure Portal에서 StorSimple 장치 관리자 서비스를 선택합니다. 장치 목록에서 장치를 선택한 다음 **모니터링**으로 이동합니다. 선택한 장치에 대한 **수용작업량**, **사용량** 및 **성능** 차트를 확인할 수 있습니다.
 
