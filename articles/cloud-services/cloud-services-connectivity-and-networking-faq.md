@@ -49,7 +49,7 @@ Azure는 DDoS(distributed denial-of-service) 공격에 대해 플랫폼 서비�
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>클라우드 서비스 인스턴스에 RDP하려는 경우 "사용자 계정이 만료되었습니다."라는 메시지가 표시됩니다.
 RDP 설정에 구성된 만료 날짜를 바이패스하면 "이 사용자 계정이 만료되었습니다."라는 오류 메시지가 표시될 수 있습니다. 다음과 같은 단계를 수행하여 포털에서 만료 날짜를 변경할 수 있습니다.
-1. Azure 관리 콘솔(https://manage.windowsazure.com)에 로그인하여 클라우드 서비스를 찾아 **구성** 탭을 선택합니다.
+1. Azure 관리 콘솔( https://manage.windowsazure.com )에 로그인하여 클라우드 서비스를 찾아 **구성** 탭을 선택합니다.
 2. **원격**을 선택합니다.
 3. "만료" 날짜를 변경하고 구성을 저장합니다.
 
