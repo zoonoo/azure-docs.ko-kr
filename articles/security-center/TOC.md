@@ -74,7 +74,8 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure 보안, 개인 정보 보호 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
-## [가격 책정](security-center-pricing.md)
+## [가격](security-center-pricing.md)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 개요](https://azure.microsoft.com/services/security-center/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=security-center)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
