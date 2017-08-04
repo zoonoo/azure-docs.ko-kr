@@ -22,7 +22,6 @@ ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 
@@ -67,7 +66,7 @@ ms.lasthandoff: 06/28/2017
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -324,7 +323,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 링 버퍼 사용을 마쳤으면 링 버퍼를 제거하고 다음과 같은 **ALTER** 를 실행하여 링 버퍼의 리소스를 해제할 수 있습니다.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -334,7 +333,7 @@ GO
 
 이벤트 세션의 정의는 삭제되지 않고 업데이트됩니다. 나중에 이벤트 세션에 링 버퍼의 다른 인스턴스를 추가할 수 있습니다.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

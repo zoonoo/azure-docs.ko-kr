@@ -32,7 +32,7 @@ az acs show -g myResourceGroup -n containerservice-myACSName
 예를 들어, 이전 클러스터에서 에이전트 수를 10으로 변경하려면 다음 명령을 입력합니다.
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Azure CLI 2.0에서는 새 에이전트 수를 포함한 컨테이너 서비스의 새 구성을 나타내는 JSON 문자열을 반환합니다.

@@ -108,7 +108,7 @@ VM을 관리 디스크로 변환한 후 저장소 유형 간에 전환할 수 �
 $rgName = 'myResourceGroup'
 $vmName = 'YourVM'
 $size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -rgName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Stop and deallocate the VM before changing the size
 Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
