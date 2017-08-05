@@ -461,6 +461,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ```
 
 ### <a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
+<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
 마지막으로, Key Vault 및 Azure AD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
 ```json
@@ -555,7 +556,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 >
 >
 
- <a name="secure-linux-cluster"></a>
+ <a name="secure-linux-clusters"></a>
+ <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
 ## <a name="create-secure-clusters-on-linux"></a>Linux에서 보안 클러스터 만들기
 작업 편의를 위해 [도우미 스크립트](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux)가 제공됩니다. 이 도우미 스크립트를 사용하기 전에 먼저 Azure CLI(명령줄 인터페이스)를 설치했으며 해당 경로에 있는지 확인합니다. 다운로드한 후 `chmod +x cert_helper.py` 를 실행하여 스크립트에 실행할 권한이 있는지 확인합니다. 첫 번째 단계에서는 `azure login` 명령으로 CLI를 사용하여 Azure 계정에 로그인합니다. Azure 계정에 로그인한 후 다음 명령에 표시된 것처럼 CA 서명된 인증서로 도우미 스크립트를 사용합니다.

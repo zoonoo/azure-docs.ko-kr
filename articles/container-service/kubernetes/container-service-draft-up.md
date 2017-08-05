@@ -197,8 +197,8 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 응용 프�
   - Kubernetes 수신 외부 IP 주소(여기서는 `squillace.io`)에 매핑하도록 구성된 루트 배포 도메인
 
   `draft init`를 호출하면 구성 프로세스에서 위의 값을 묻는 메시지를 표시합니다. 프로세스를 처음 실행하면 다음과 같은 화면이 표시됩니다.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...

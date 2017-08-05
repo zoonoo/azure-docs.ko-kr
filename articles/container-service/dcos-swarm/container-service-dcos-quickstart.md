@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 08/04/2017
 ms.author: nepeters
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
@@ -32,13 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
 [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -48,7 +46,7 @@ az login
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -58,7 +56,7 @@ az group create --name myResourceGroup --location eastus
 
 다음 예제에서는 *myDCOSCluster*라는 DC/OS 클러스터를 만들고 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
-```azurecli-interactive
+```azurecli
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -72,13 +70,13 @@ az acs create \
 
 DC/OS 클러스터를 만들면 SSH 터널을 통해 액세스할 수 있습니다. 다음 명령을 실행하여 DC/OS 마스터의 공용 IP 주소를 반환합니다. 이 IP 주소는 변수에 저장되어 다음 단계에서 사용됩니다.
 
-```azurecli-interactive
+```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
 SSH 터널을 만들려면 다음 명령을 실행하고 화면에 나타나는 지침을 따르세요. 포트 80이 이미 사용 중인 경우 명령이 실패합니다. 터널링된 포트를 `85:localhost:80`과 같이 사용하지 않는 포트로 업데이트합니다. 
 
-```azurecli-interactive
+```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -94,13 +92,13 @@ SSH 터널이 성공적으로 만들어진 경우 DC/OS 포털이 반환됩니�
 
 macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
 
-```azurecli-interactive
+```azurecli
 az acs dcos install-cli
 ```
 
 CLI를 클러스터 함께 사용하기 전에 SSH 터널을 사용하도록 구성되어야 합니다. 이렇게 하려면 필요한 경우 포트를 조정하여 다음 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -140,26 +138,26 @@ ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marat
 
 DC/OS 클러스터에서 실행되도록 응용 프로그램을 예약하는 다음 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app add marathon-app.json
 ```
 
 앱의 배포 상태를 보려면 다음 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app list
 ```
 
 **대기** 열 값이 *True*에서 *False*로 전환되는 경우 응용 프로그램 배포가 완료됩니다.
 
-```azurecli-interactive
+```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 DC/OS 클러스터 에이전트의 공용 IP 주소를 가져옵니다.
 
-```azurecli-interactive
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -171,7 +169,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
