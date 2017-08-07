@@ -8,37 +8,39 @@
 다음 단계에서는 새 ASP.NET WebAPI 백 엔드를 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
-> **중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
+> **중요**: Visual Studio 2015 이하를 사용하는 경우 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. 사용하는 Visual Studio 버전의 **NuGet 패키지 관리자**를 검색하고, 현재 버전이 최신 버전인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
 > 
 > ![][B4]
 > 
 > [!NOTE]
-> 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) 를 설치했는지 확인합니다.
+> 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
 > 
 > 
 
-1. Visual Studio 또는 Visual Studio Express를 시작합니다. **서버 탐색기** 를 클릭하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 Visual Studio에 로그인해야 합니다.
+1. Visual Studio 또는 Visual Studio Express를 시작합니다. **서버 탐색기**를 클릭하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 Visual Studio에 로그인해야 합니다.
 2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
    
     ![][B1]
 3. **새 ASP.NET MVC 프로젝트** 대화 상자에서 **웹 API**를 클릭한 다음, **확인**을 클릭합니다.
    
     ![][B2]
-4. **Microsoft Azure Web App 구성** 대화 상자에서 구독 및 이미 만든 **App Service 계획**을 선택합니다. **새 앱 서비스 계획 만들기** 를 선택하고 대화 상자에서 만들 수도 있습니다. 이 자습서를 위해 데이터베이스는 필요하지 않습니다. 앱 서비스 계획을 선택한 후 **확인** 을 클릭하여 프로젝트를 만듭니다.
+4. **Microsoft Azure Web App 구성** 대화 상자에서 구독 및 이미 만든 **App Service 계획**을 선택합니다. **새 앱 서비스 계획 만들기**를 선택하고 대화 상자에서 만들 수도 있습니다. 이 자습서를 위해 데이터베이스는 필요하지 않습니다. 앱 서비스 계획을 선택한 후 **확인**을 클릭하여 프로젝트를 만듭니다.
    
     ![][B5]
 
 ## <a name="authenticating-clients-to-the-webapi-backend"></a>WebAPI 백 엔드에 클라이언트 인증
-이 섹션에서는 새 백 엔드에 대해 **AuthenticationTestHandler** 라는 새 메시지 처리기 클래스를 만듭니다. 이 클래스는 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 에서 파생되며 백 엔드로 들어오는 모든 요청을 처리할 수 있도록 메시지 처리기로 추가됩니다. 
+이 섹션에서는 새 백 엔드에 대해 **AuthenticationTestHandler** 라는 새 메시지 처리기 클래스를 만듭니다. 이 클래스는 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx)에서 파생되며 백 엔드로 들어오는 모든 요청을 처리할 수 있도록 메시지 처리기로 추가됩니다. 
 
-1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 간단히 하기 위해 *기본 인증* 을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
+1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 간단히 하기 위해 *기본 인증*을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
 2. AuthenticationTestHandler.cs에 다음 `using` 문을 추가합니다.
    
         using System.Net.Http;
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
+        using System.Text;
+        using System.Threading.Tasks;
+
 3. AuthenticationTestHandler.cs에서 `AuthenticationTestHandler` 클래스 정의를 다음으로 바꿉니다. 
    
     이 처리기는 다음 세 가지 조건이 모두 충족될 때 요청을 인증합니다.
@@ -49,14 +51,9 @@
      
      그렇지 않으면 요청이 거부됩니다. 이는 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 매우 간단한 예제일 뿐입니다.
      
-     요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx) 를 추가하는 데 사용됩니다.
+     요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       공용 클래스 AuthenticationTestHandler: DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -114,7 +111,7 @@
 2. 왼쪽에서 **온라인**을 클릭하고 **Search** 상자에서 **Microsoft.Azure.NotificationHubs**를 검색합니다.
 3. 결과 목록에서 **Microsoft Azure Notification Hubs**를 클릭한 다음 **설치**를 클릭합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
    
-    그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
+    그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure Notification Hubs SDK에 대한 참조가 추가됩니다.
 4. 이제 알림을 보내는 데 사용되는 알림 허브와의 연결을 나타내는 새 클래스 파일을 만들 것입니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 클릭하여 클래스를 생성합니다. 
    
     ![][B6]
@@ -254,9 +251,9 @@
 10. 변경 내용을 저장합니다.
 
 ## <a name="sending-notifications-from-the-webapi-backend"></a>WebAPI 백 엔드에서 알림 보내기
-이 섹션에서는 클라이언트 장치가 ASP.NET WebAPI 백 엔드에서 Azure 알림 허브 서비스  관리 라이브러리를 사용하여 사용자 이름 태그에 따라 알림을 보낼 수 있는 방법을 제공하는 새 컨트롤러를 추가합니다.
+이 섹션에서는 클라이언트 장치가 ASP.NET WebAPI 백 엔드에서 Azure Notification Hubs 서비스  관리 라이브러리를 사용하여 사용자 이름 태그에 따라 알림을 보낼 수 있는 방법을 제공하는 새 컨트롤러를 추가합니다.
 
-1. **NotificationsController**라는 다른 새 컨트롤러를 만듭니다. 이전 섹션에서 **RegisterController** 를 만들 때와 동일한 방법으로 만듭니다.
+1. **NotificationsController**라는 다른 새 컨트롤러를 만듭니다. 이전 섹션에서 **RegisterController**를 만들 때와 동일한 방법으로 만듭니다.
 2. NotificationsController.cs에 다음 `using` 문을 추가합니다.
    
         using AppBackend.Models;
@@ -266,7 +263,7 @@
    
     이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 형식이 지정됩니다. 
    
-    알림을 수신하기 위해 지원되는 장치가 사용하는 플랫폼 알림 서비스(PNS)에 따라 다른 형식을 사용하여 다양한 알림을 지원합니다. 예를 들어 Windows 장치에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) 을 사용할 수 있습니다. 따라서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    알림을 수신하기 위해 지원되는 장치가 사용하는 플랫폼 알림 서비스(PNS)에 따라 다른 형식을 사용하여 다양한 알림을 지원합니다. 예를 들어 Windows 장치에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 따라서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -313,15 +310,16 @@
 
 ## <a name="publish-the-new-webapi-backend"></a>새 WebAPI 백엔드 게시
 1. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-2. 게시 대상으로 **Microsoft Azure 웹앱** 을 선택합니다.
-   
+2. **Microsoft Azure App Service**를 게시 대상으로 선택하고 **게시**를 클릭합니다. 그러면 App Service 만들기 대화 상자가 열리고 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+
     ![][B15]
-3. Azure 계정으로 로그인하고 기존 또는 새로운 웹 앱을 선택합니다.
-   
-    ![][B16]
-4. **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
-   
-    ![][B18]
+3. **App Service 만들기** 대화 상자에서 Azure 계정을 선택합니다. **유형 변경**을 클릭하고 **웹앱**을 선택합니다. 주어진 **웹앱 이름**을 유지하고 **구독**, **리소스 그룹**, **App Service 계획**을 차례로 선택합니다.  **만들기**를 클릭합니다.
+
+4. **요약** 섹션의 **사이트 URL** 속성을 메모해 둡니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
+
+5. 마법사가 완료되면 Azure에 ASP.NET 웹앱을 게시한 다음 기본 브라우저에서 앱을 시작합니다.  응용 프로그램을 Azure App Services에서 볼 수 있습니다.
+
+URL은 http://<app_name>.azurewebsites.net 형식으로 이전에 지정한 웹앱 이름을 사용합니다.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

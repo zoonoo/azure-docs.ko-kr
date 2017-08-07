@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
-# Azure의 Linux(Ubuntu) VM에서 첫 번째 Jenkins 마스터 만들기
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Azure의 Linux(Ubuntu) VM에서 첫 번째 Jenkins 마스터 만들기
 
 이 빠른 시작은 Linux(Ubuntu 14.04 LTS) VM에 Azure와 함께 작동하도록 구성된 도구 및 플러그 인과 함께 안정적인 최신 버전인 Jenkins를 설치하는 방법을 보여 줍니다. 도구로는 다음이 있습니다.
 <ul>
@@ -43,10 +42,9 @@ ms.lasthandoff: 06/30/2017
 > * Jenkins에 대한 초기 구성을 수행합니다.
 > * 제안된 플러그 인을 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## Jenkins에 대한 솔루션 템플릿을 배포하여 Azure에서 VM 만들기
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Jenkins에 대한 솔루션 템플릿을 배포하여 Azure에서 VM 만들기
 
 Azure 빠른 시작 템플릿을 사용하여 Azure에 복잡한 기술을 빠르고 안정적으로 배포할 수 있습니다.  Azure Resource Manager를 사용하면 [선언적 템플릿](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins)을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
 
@@ -68,7 +66,7 @@ Azure Portal에서 **만들기**를 클릭합니다.  이 템플릿에서는 템
 * 인증 유형: 암호 또는 [SSH 공개 키](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows)로 보호되는 인스턴스를 만듭니다. 암호를 사용하는 경우 1개의 소문자, 1개의 대문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 요구 사항 중 세 가지를 충족해야 합니다.
 * Jenkins 릴리스 형식을 **LTS**로 유지합니다.
 * 구독을 선택합니다.
-* 리소스 그룹을 만들거나 기존 그룹을 사용합니다.
+* 리소스 그룹을 만들거나 비어 있는 기존 리소스 그룹을 사용합니다. 
 * 위치를 선택합니다.
 
 **추가 옵션 구성** 탭에서:
@@ -83,15 +81,13 @@ Azure Portal에서 **만들기**를 클릭합니다.  이 템플릿에서는 템
 
 다음으로, **구매**를 선택하여 모든 리소스를 프로비전합니다.
 
-## SSH 포트 전달 설정
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
+## <a name="setup-ssh-port-forwarding"></a>SSH 포트 전달 설정
 
 기본적으로 Jenkins 인스턴스는 http 프로토콜을 사용하고 포트 8080에서 수신 대기합니다. 사용자는 보안되지 않는 프로토콜을 통해 인증을 수행하지 않아야 합니다.
     
 로컬 컴퓨터에서 Jenkins UI를 보기 위해 포트 전달을 설정합니다.
 
-### Windows를 사용하는 경우:
-<a id="if-you-are-using-windows" class="xliff"></a>
+### <a name="if-you-are-using-windows"></a>Windows를 사용하는 경우:
 
 PuTTY를 설치하고 Jenkins를 보호하기 위해 암호를 사용하는 경우 이 명령을 실행합니다.
 ```
@@ -106,8 +102,7 @@ SSH를 사용하는 경우 이 명령을 실행합니다.
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-### Linux 또는 Mac을 사용 중인 경우:
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
+### <a name="if-you-are-using-linux-or-mac"></a>Linux 또는 Mac을 사용 중인 경우:
 
 Jenkins 마스터를 보호하기 위해 암호를 사용하는 경우 이 명령을 실행합니다.
 ```
@@ -120,8 +115,7 @@ SSH를 사용하는 경우 이 명령을 실행합니다.
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-## Jenkins에 연결
-<a id="connect-to-jenkins" class="xliff"></a>
+## <a name="connect-to-jenkins"></a>Jenkins에 연결
 터널을 시작한 후 로컬 컴퓨터에서 http://localhost:8080/으로 이동합니다.
 
 초기 관리자 암호로 Jenkins 대시보드의 잠금을 처음으로 해제합니다.
@@ -140,8 +134,7 @@ Jenkins 인스턴스를 사용할 준비가 되었습니다. http://\<방금 만
 
 ![Jenkins가 준비되었습니다.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음을 수행했습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Instances로 다중 컨테이너 그룹 만들기 | Azure Docs"
-description: "다중 컨테이너 그룹을 만들고 Azure Container Registry에서 Azure Container Instances에 배포"
+title: "Azure Container Instances 자습서 - 앱 준비 | Azure Docs"
+description: "Azure Container Instances에 배포할 앱 준비"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b5f16f0c4b15c02bbc0ee8a9fb9424467a39ee4d
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 

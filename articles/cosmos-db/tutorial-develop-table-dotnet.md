@@ -77,7 +77,8 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
 > * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
-> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
+> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
+<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
 >
 >
 

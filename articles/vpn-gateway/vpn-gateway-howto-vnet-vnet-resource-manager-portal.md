@@ -1,6 +1,6 @@
 ---
 title: "다른 VNet에 Azure Virtual Network 연결: 포털 | Microsoft Docs"
-description: "리소스 관리자 및 Azure 포털을 사용하여 Vnet 간의 VPN Gateway 연결을 만듭니다."
+description: "리소스 관리자 및 Azure Portal을 사용하여 Vnet 간의 VPN Gateway 연결을 만듭니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bf028b0e49833385837fa7bdd68f215ed27e0325
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 0293495a9cbdab1fc797d9948e4cbb7759b1ba54
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
 이 문서에서는 가상 네트워크 간에 VPN Gateway 연결을 만드는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 
 
-이 문서의 단계는 동일한 구독에 있는 VNet에 대한 Azure Portal과 리소스 관리자 배포 모델에 적용됩니다. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 사용할 수 있습니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서의 단계는 Resource Manager 배포 모델에 적용되며 Azure Portal을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/21/2017
 
 ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN Gateway를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
@@ -58,7 +58,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
   
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
 
-VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq) 를 참조하세요. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 사용할 수 있습니다.
+VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq)를 참조하세요. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 사용할 수 있습니다.
 
 ### <a name="values"></a>예제 설정
 
@@ -78,7 +78,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 * 게이트웨이 서브넷 이름: GatewaySubnet (포털에서 자동으로 채워짐)
   * 게이트웨이 서브넷 주소 범위: 10.11.255.0/27
 * DNS 서버: DNS 서버의 IP 주소를 사용
-* 가상 네트워크 게이트웨이 이름: TestVNet1GW
+* Virtual Network 게이트웨이 이름: TestVNet1GW
 * 게이트웨이 유형: VPN
 * VPN 유형: 경로 기반
 * SKU: 사용할 게이트웨이 SKU 선택
@@ -101,7 +101,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 * 게이트웨이 서브넷 이름: GatewaySubnet (포털에서 자동으로 채워짐)
   * 게이트웨이 서브넷 주소 범위: 10.41.255.0/27
 * DNS 서버: DNS 서버의 IP 주소를 사용
-* 가상 네트워크 게이트웨이 이름: TestVNet4GW
+* Virtual Network 게이트웨이 이름: TestVNet4GW
 * 게이트웨이 유형: VPN
 * VPN 유형: 경로 기반
 * SKU: 사용할 게이트웨이 SKU 선택
@@ -111,7 +111,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
   * 공유 키: 공유 키를 직접 만들 수 있습니다. 이 예제에서는 abc123을 사용합니다. 중요한 사실은 Vnet 간의 연결을 만들 때 값이 일치해야 한다는 점입니다.
 
 ## <a name="CreatVNet"></a>1. TestVNet1 만들기 및 구성
-VNet이 이미 있는 경우 설정이 VPN Gateway 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었다면 [DNS 서버 지정](#dns) 섹션의 단계를 시작할 수 있습니다.
+VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었다면 [DNS 서버 지정](#dns) 섹션의 단계를 시작할 수 있습니다.
 
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

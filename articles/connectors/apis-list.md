@@ -15,16 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1e2dad92647630c8b9a4e7676eee9288c87daf44
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# 커넥터 목록
-<a id="connectors-list" class="xliff"></a>
+# <a name="connectors-list"></a>커넥터 목록
 > [!TIP]
 > 이 토픽의 [A-Z 전체 목록](#az)은 Logic Apps에서 사용할 수 있는 모든 커넥터를 나열합니다. [커넥터 세부 정보](/connectors/)에는 swagger에 정의된 모든 트리거 및 작업이 나열되며 각 커넥터에 대한 제한도 나열됩니다.
 
@@ -40,8 +38,7 @@ ms.lasthandoff: 06/28/2017
 
 비용에 대한 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조하세요. 
 
-## 인기 있는 커넥터
-<a id="popular-connectors" class="xliff"></a>
+## <a name="popular-connectors"></a>인기 있는 커넥터
 이러한 커넥터를 사용하여 데이터와 정보를 성공적으로 처리하는 수천 개의 응용 프로그램과 수백만 개의 실행이 있습니다. 다음 테이블에는 사용자들에게 가장 인기 있고 많이 사용되는 일부 커넥터가 나열되어 있습니다.
 
 | |  |  |  |
@@ -54,8 +51,7 @@ ms.lasthandoff: 06/28/2017
 |  [![API 아이콘][SharePointicon]<br/>**SharePoint<br/>온라인**][SharePointdoc] | SharePoint로 작업을 수행하며 자동화가 도움이 되는 경우 이 커넥터를 자세히 살펴보시기 바랍니다. 온-프레미스 SharePoint 및 SharePoint Online과 함께 사용할 수 있습니다. | [![API 아이콘][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | 가장 많이 사용되는 커넥터 중 하나이며, 온-프레미스 SQL Server 및 Azure SQL Database에 연결할 수 있습니다. | 
 | [![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc] | Twitter 계정으로 간단하게 로그인한 후 새 트윗이 게시될 때 워크플로를 시작합니다. 그런 다음 SQL 데이터베이스 또는 SharePoint 목록에 이러한 트윗을 저장합니다. | | | 
 
-## 통합 계정 커넥터
-<a id="integration-account-connectors" class="xliff"></a> 
+## <a name="integration-account-connectors"></a>통합 계정 커넥터 
 
 EIP(엔터프라이즈 통합 팩)는 BizTalk Server 커뮤니티에 잘 알려진 커넥터를 포함하고 있습니다. [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 구입할 때 다음 커넥터도 함께 제공됩니다. 
 
@@ -65,8 +61,7 @@ EIP(엔터프라이즈 통합 팩)는 BizTalk Server 커뮤니티에 잘 알려�
 [![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc] | [![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc] | [![API 아이콘][integrationaccounticon]<br/>**통합<br/>계정**][integrationaccountdoc] | [![API 아이콘][xmltransformicon]<br/>**변환<br/>XML**][xmltransformdoc] |
 | [![API 아이콘][x12icon]<br/>**X12</br>디코딩**][x12decode] | [![API 아이콘][x12icon]<br/>**X12</br>인코딩**][x12encode] | [![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc] | |
 
-## 엔터프라이즈 커넥터
-<a id="enterprise-connectors" class="xliff"></a>
+## <a name="enterprise-connectors"></a>엔터프라이즈 커넥터
 
 논리 앱 내의 엔터프라이즈 응용 프로그램에 연결합니다.
 
@@ -86,13 +81,12 @@ EIP(엔터프라이즈 통합 팩)는 BizTalk Server 커뮤니티에 잘 알려�
 
 | | |
 |---|---|
-|<a name="1"></a>10to8 약속 일정<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure AD(Active Directory)<br/>Azure API Management<br/>Azure App Services<br/>Azure 응용 프로그램<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure 데이터 레이크<br/>Azure DocumentDB(Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure 큐<br/>Azure 리소스 관리자<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>벤치마크 전자 메일<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito 양식<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services 텍스트 분석<br/>Common Data Service<br/>콘텐츠 변환<br/>제어-종료<br/>[사용자 지정 API/웹앱][api/web-appdoc]<br/><br/><a name="d"></a>데이터 작업<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>동적 NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[파일 시스템][filesystemdoc]<br/>[플랫 파일][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>FreshService<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google 캘린더<br/>Google 연락처<br/>Google 드라이브<br/>Google Sheets<br/>Google 태스크<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>통합 계정<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>중간<br/>Microsoft Forms<br/>Microsoft 팀<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN 날씨<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365 사용자<br/>Office 365 비디오<br/>OneDrive<br/>OneDrive for Business<br/>OneNote(Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook 고객 관리자<br/>Outlook 작업<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[요청/응답][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP 응용 프로그램 서버][sapconnector]<br/>[SAP 메시지 서버][sapconnector]<br/>[일정][recurrencedoc]<br/>범위<br/>SendGrid<br/>일괄 처리할 메시지 보내기<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>스트라이프<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork 프로젝트<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[XML 변환][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>변수<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML 유효성 검사][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+|<a name="1"></a>10to8 약속 일정<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure AD(Active Directory)<br/>Azure API Management<br/>Azure App Services<br/>Azure 응용 프로그램<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure 데이터 레이크<br/>Azure DocumentDB(Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure 큐<br/>Azure 리소스 관리자<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>벤치마크 전자 메일<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito 양식<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services 텍스트 분석<br/>Common Data Service<br/>콘텐츠 변환<br/>제어-종료<br/>[사용자 지정 API/웹앱][api/web-appdoc]<br/><br/><a name="d"></a>데이터 작업<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>동적 NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[파일 시스템][filesystemdoc]<br/>[플랫 파일][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>Freshservice<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google 캘린더<br/>Google 연락처<br/>Google 드라이브<br/>Google Sheets<br/>Google 태스크<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>통합 계정<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>중간<br/>Microsoft Forms<br/>Microsoft 팀<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN 날씨<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365 사용자<br/>Office 365 비디오<br/>OneDrive<br/>OneDrive for Business<br/>OneNote(Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook 고객 관리자<br/>Outlook 작업<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[요청/응답][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP 응용 프로그램 서버][sapconnector]<br/>[SAP 메시지 서버][sapconnector]<br/>[일정][recurrencedoc]<br/>범위<br/>SendGrid<br/>일괄 처리할 메시지 보내기<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointserver]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>스트라이프<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork 프로젝트<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[XML 변환][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>변수<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML 유효성 검사][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려면 [Logic Apps 사용해 보기](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## 트리거 및 작업으로 사용되는 커넥터
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
+## <a name="connectors-as-triggers-and-actions"></a>트리거 및 작업으로 사용되는 커넥터
 
 **트리거**는 논리 앱의 인스턴스를 시작하거나 실행합니다. 일부 커넥터는 특정 이벤트가 발생하면 앱에 알리는 트리거를 제공합니다. 예를 들어 FTP 커넥터에는 파일이 업데이트되면 논리 앱을 시작하는 `OnUpdatedFile` 트리거가 있습니다. 
 
@@ -112,8 +106,7 @@ Logic Apps에는 다음과 같은 종류의 트리거가 포함되어 있습니�
 > [커넥터 개요](connectors-overview.md)는 트리거 및 작업에 대한 세부 정보를 제공합니다. 
 
 
-## 메시지 조작 작업
-<a id="message-manipulation-actions" class="xliff"></a>
+## <a name="message-manipulation-actions"></a>메시지 조작 작업
 
 논리 앱에는 페이로드 데이터를 변경 또는 조작할 수 있는 기본 제공 작업이 포함되어 있습니다. 기본 제공 **데이터 작업** 커넥터는 다음과 같은 작업을 포함하고 있습니다. 
 
@@ -126,15 +119,13 @@ Logic Apps에는 다음과 같은 종류의 트리거가 포함되어 있습니�
 | **JSON 구문 분석** | 디자이너에서 JSON 개체의 값을 구문 분석하고 액세스합니다. 예를 들어 Azure Function이 JSON 페이로드를 반환하는 경우 해당 페이로드를 구문 분석하여 나중에 다른 단계에서 JSON 속성에 액세스할 수 있습니다. 또한 이 작업은 JSON이 런타임에 지정된 스키마와 일치하는지 확인합니다. | 
 | **선택** | 추가 처리를 위해 배열의 특정 속성을 선택합니다. SQL에서 "레코드 나열" 작업을 수행했더니 15개 열이 반환되는 경우 그 중에서 추가로 처리할 열 몇 개만 선택합니다. 출력은 사용자가 선택하는 속성만 포함하는 배열입니다. |
 
-## 사용자 지정 커넥터 및 Azure 인증
-<a id="custom-connectors-and-azure-certification" class="xliff"></a> 
+## <a name="custom-connectors-and-azure-certification"></a>사용자 지정 커넥터 및 Azure 인증 
 
 사용자 지정 코드를 실행하거나 커넥터로 사용할 수 없는 API를 호출하려면 [REST 기반 API Apps를 사용자 지정 커넥터로 만들어](../logic-apps/logic-apps-create-api-app.md) Logic Apps 플랫폼을 확장할 수 있습니다. 
 
 사용자 지정 API Apps를 Azure에서 공개하고 사용할 수 있게 하려면 [Microsoft Azure 인증 프로그램](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)에 추천을 제출합니다.
 
-## 도움말 보기
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>도움말 보기
 
 질문하고, 질문에 답변하고, 다른 Azure Logic Apps 사용자가 어떤 일을 하는지 확인하려면 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문하세요.
 
@@ -142,8 +133,7 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 
 커넥터 항목이나 중요하다고 생각 한 세부 정보를 빠뜨린 것이 있습니까? 그렇다면 이 기존 항목에 추가하거나 직접 작성해주세요. 설명서는 오픈 소스이며 GitHub에서 호스트됩니다. [GitHub 리포지토리](https://github.com/Microsoft/azure-docs)에서 시작하세요. 
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 * [첫 번째 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 * [논리 앱에 대한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)
 * [논리 앱 모니터링](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -171,6 +161,7 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Logic Apps 사용�
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "온-프레미스 SAP 시스템에 연결"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Service Bus 큐 및 항목에서 메시지를 보내고 Service Bus 큐 및 구독에서 메시지를 받습니다."
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "SharePoint Online에 연결합니다. 문서 관리, 항목 나열 등"
+[sharepointserver]: ./connectors-create-api-sharepointserver.md "온-프레미스 서버의 SharePoint에 연결합니다. 문서 관리, 항목 나열 등"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Azure SQL Database 또는 SQL server에 연결합니다. SQL Database 테이블에서 항목 생성, 업데이트, 가져오기 및 삭제"
 [twitterdoc]: ./connectors-create-api-twitter.md "Twitter에 연결합니다. 타임라인 가져오기, 트윗에 게시 등"
 [webhookdoc]: ./connectors-native-webhook.md "논리 앱에 Webhook 작업 및 트리거 추가"

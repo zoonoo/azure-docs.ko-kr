@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
@@ -36,7 +36,7 @@ Log Analytics는 데이터를 전송한 컴퓨터 및 전송되는 데이터의 
     - 지난 24시간 동안 데이터가 없는 컴퓨터
 - 제품
     - 이해 및 분석 노드
-    - 자동화 및 제어 노드
+    - Automation 및 제어 노드
     - 보안 노드
 - 성능
     - 데이터 수집 및 인덱싱 소요 시간
@@ -141,6 +141,8 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 + **Syslog** 데이터 형식
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ **AzureDiagnostics** 데이터 형식
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 다음 단계를 사용하여 수집된 로그의 양을 줄입니다.
 
@@ -150,6 +152,7 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 | 성능 카운터       | [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](log-analytics-data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
 | syslog                     | [syslog 구성](log-analytics-data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
+| AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>예상보다 더 많은 노드가 있는지 확인합니다.

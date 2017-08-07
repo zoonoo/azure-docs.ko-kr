@@ -29,6 +29,9 @@
 
 5. **공유 액세스 정책** 창에서 **iothubowner** 정책을 클릭한 다음 IoT Hub의 **연결 문자열**을 복사하여 기록해 둡니다. 자세한 내용은 [IoT Hub에 대한 액세스 제어](../articles/iot-hub/iot-hub-devguide-security.md)를 참조하세요.
 
+> [!NOTE] 
+이 설치 자습서에는 이 iothubowner 연결 문자열이 필요 없습니다. 그러나 이 설치를 완료한 후 다른 IoT 시나리오의 일부 자습서에는 필요할 수 있습니다.
+
    ![IoT Hub 연결 문자열 가져오기](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
 ## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>장치의 IoT Hub에서 장치 등록

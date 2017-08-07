@@ -14,7 +14,7 @@ SLA 및 기능 집합의 차이로 인해 프로덕션 *vs.* 개발-테스트에
 | **개발-테스트 또는 개념 증명**   | Basic                  |
 |                                    |                        |
 
-이전 SKU를 사용하는 경우 프로덕션 SKU 권장 사항은 표준 및 HighPerformance SKU입니다. 이전 SKU에 대한 정보는 [게이트웨이 SKU(이전)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)을 참조하세요.
+이전 SKU를 사용하는 경우 프로덕션 SKU 권장 사항은 표준 및 HighPerformance SKU입니다. 이전 SKU에 대한 정보는 [게이트웨이 SKU(이전 SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)를 참조하세요.
 
 ###  <a name="feature"></a>게이트웨이 SKU 기능 집합
 

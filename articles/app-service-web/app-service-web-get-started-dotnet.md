@@ -16,17 +16,19 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 567d7d29fde875690ee4dc6dd5752e86fa77ff40
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Azure에서 ASP.NET 웹앱 만들기
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
 
-![Azure App Service의 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+비디오를 시청하여 이 빠른 시작이 실제로 작동하는 모습을 살펴본 후 단계에 따라 직접 첫 번째 .NET 앱을 Azure에 게시해 보세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -91,7 +93,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 리소스 그룹의 이름을 **myResourceGroup**으로 지정하고 **확인**을 선택합니다.
 
-## <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
+## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -99,11 +101,11 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **App Service 계획 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
 
-![앱 서비스 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![App Service 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 | 설정 | 제안 값 | 설명 |
 |-|-|-|
-|앱 서비스 계획| myAppServicePlan | App Service 계획의 이름입니다. |
+|App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
 | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)은 호스팅 기능을 결정합니다. |
 

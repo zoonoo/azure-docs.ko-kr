@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/13/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
@@ -36,7 +35,7 @@ Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니�
 ### <a name="open-or-create-application-insights-resource"></a>Application Insights 리소스 열기 또는 만들기
 Application Insights 리소스는 페이지의 성능 및 사용 현황에 대한 데이터가 표시되는 위치입니다. 
 
-[Azure 포털](https://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 응용 프로그램의 서버측에 대한 모니터링을 이미 설정한 경우 리소스가 있습니다.
 
@@ -65,7 +64,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 *(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
 
 ## <a name="detailed-configuration"></a>자세한 구성
-몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) 을 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어, 트래픽을 줄이기 위해 페이지 보기 당 보고된 Ajax 호출 수를 사용하지 않도록 설정하거나 제한할 수 있습니다. 또는 디버그 모드를 설정하여 배치되지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시킬 수 있습니다.
+몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어, 트래픽을 줄이기 위해 페이지 보기 당 보고된 Ajax 호출 수를 사용하지 않도록 설정하거나 제한할 수 있습니다. 또는 디버그 모드를 설정하여 배치되지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시킬 수 있습니다.
 
 이러한 매개 변수를 설정하려면 코드 조각에서 이 줄을 찾고 쉼표로 구분하여 항목을 추가합니다.
 
@@ -111,7 +110,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 *아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
 
-브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원** 을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
+브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 
 ## <a name="page-load-performance"></a>페이지 로드 성능
 맨 위에 있는 것이 페이지 로드 시간의 분할된 차트입니다. 차트의 전체 높이는 사용자의 브라우저의 앱에서 페이지를 로드하고 페이지를 표시하는 평균 시간을 나타냅니다. 레이아웃 및 실행 스크립트를 포함하여 모든 동기 로드 이벤트가 처리될 때까지 브라우저가 초기 HTTP 요청을 보낼 때부터 시간이 측정됩니다. AJAX 호출로부터 웹 파트를 로드하는 등의 비동기 작업은 포함되지 않습니다.
@@ -135,7 +134,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![](./media/app-insights-javascript/35.png)
 
-`...` 을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
+`...`을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
 
 **시간에 따른 페이지 성능** 브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
 
@@ -170,7 +169,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 ![](./media/app-insights-javascript/37.png)
 
 
-Ajax 호출에 대한 전체 원격 분석을 하려면 `...` 을(를) 클릭합니다.
+Ajax 호출에 대한 전체 원격 분석을 하려면 `...`을(를) 클릭합니다.
 
 ### <a name="no-ajax-calls-reported"></a>Ajax 호출이 보고되지 않았습니까?
 Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호출을 포함합니다. 보고된 호출이 없는 경우, 코드 조각이 `disableAjaxTracking` 또는 `maxAjaxCallsPerView` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
@@ -193,11 +192,11 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다. 세부 정보 페이지에서 더 자세한 정보를 보려면 "..."를 클릭합니다.
 
 > [!NOTE]
-> [검색](app-insights-diagnostic-search.md)을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
+> [Search](app-insights-diagnostic-search.md)를 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
 > 
 > 
 
-또한 강력한 [분석 쿼리 언어](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) 를 사용하여 페이지 보기를 검색할 수 있습니다.
+또한 강력한 [Log Analytics 쿼리 언어](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table)를 사용하여 페이지 보기를 검색할 수 있습니다.
 
 ### <a name="page-view-properties"></a>페이지 보기 속성
 * **페이지 보기 기간** 

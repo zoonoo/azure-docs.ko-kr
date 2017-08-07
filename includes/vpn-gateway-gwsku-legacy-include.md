@@ -1,4 +1,4 @@
-이전 VPN Gateway SKU는 다음과 같습니다.
+레거시(이전) VPN 게이트웨이 SKU는 다음과 같습니다.
 
 * Basic
 * Standard
@@ -12,4 +12,3 @@ VPN Gateway는 UltraPerformance 게이트웨이 SKU를 사용하지 않습니다
 * BGP는 기본 SKU에 지원되지 않습니다.
 * ExpressRoute-VPN Gateway 공존 구성은 기본 SKU에서 지원되지 않습니다.
 * 활성-활성 S2S VPN Gateway 연결은 HighPerformance SKU에서만 구성할 수 있습니다.
-
