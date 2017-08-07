@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용하여 .NET 응용 프로그램 빌드
@@ -54,7 +54,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. 그런 다음 Visual Studio에서 솔루션을 엽니다. 
+3. 그런 다음 Visual Studio를 열고 솔루션 파일을 엽니다. 
 
 ## <a name="review-the-code"></a>코드 검토
 
@@ -103,23 +103,19 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. Azure Portal의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **개요**를 클릭합니다. 다음 단계에서 **Gremlin URI** 값을 App.config 파일에 복사합니다. 
+1. Visual Studio 2017에서 App.config 파일을 엽니다. 
 
-    ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-graph-dotnet/gremlin-uri.png)
-
-    **Gremlin URI** 값이 비어 있는 경우 **URI** 값을 사용하고 https://를 제거하고 문서를 그래프로 변경하여 포털에서 **키** 페이지의 값을 생성할 수 있습니다. 
-
-2. Visual Studio 2017에서 App.config 파일을 엽니다. 
-
-3. 포털에서 **Gremlin URI** 값을 복사하고 이 값을 App.config의 끝점 키 값으로 만듭니다. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. Azure Portal로 다시 돌아가서 왼쪽 탐색 메뉴에서 **키**를 클릭하고 포털에서 **기본 키** 값을 복사하고 App.config에서 AuthKey 키의 값을 확인한 다음 변경 내용을 저장합니다. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Azure Portal의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **키**를 클릭합니다. 
 
     ![키 페이지의 Azure Portal에서 기본 키를 보고 복사합니다.](./media/create-graph-dotnet/keys.png)
+
+3. 포털에서 **URI** 값을 복사하고 이 값을 App.config의 끝점 키 값으로 만듭니다. 이전 스크린샷에 표시된 것처럼 복사 단추를 사용하여 값을 복사할 수 있습니다.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. 포털에서 **기본 키** 값을 복사하고 이 값을 web.config의 AuthKey 값으로 만든 후 변경 내용을 저장합니다. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
@@ -131,6 +127,8 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 3. 결과에서 **Microsoft.Azure.Graphs** 라이브러리를 설치합니다. 그러면 Azure Cosmos DB 그래프 확장 라이브러리 패키지 및 모든 종속성이 설치됩니다.
 
+    솔루션 변경 내용을 검토하는 메시지가 표시되면 **확인**을 클릭합니다. 라이선스 승인에 관한 메시지가 표시되면 **동의합니다.**를 클릭합니다.
+
 4. CTRL+F5를 눌러 응용 프로그램을 실행합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 두 번 클릭하여 콘솔 창을 닫습니다. 
@@ -139,9 +137,13 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 Azure Portal에서 데이터 탐색기로 돌아가고 새 그래프 데이터를 찾아 쿼리합니다.
 
-* 데이터 탐색기에서 새 데이터베이스가 컬렉션 창에 나타납니다. **graphdb**, **graphcoll**를 확장하고 **그래프**를 클릭합니다.
+1. [데이터 탐색기]에서 새 데이터베이스가 그래프 창에 표시됩니다. **graphdb**, **graphcollz**를 확장하고 **그래프**를 클릭합니다.
 
-    샘플 앱에 의해 생성된 데이터는 그래프 창에 표시됩니다.
+2. **필터 적용** 단추를 클릭하고 기본 쿼리를 사용하여 그래프의 모든 꼭짓점을 봅니다. 샘플 앱에 의해 생성된 데이터는 그래프 창에 표시됩니다.
+
+    그래프를 확대 및 축소하고, 그래프 표시 공간을 확장하고, 꼭짓점을 추가하고, 표시 표면에서 꼭짓점을 이동할 수 있습니다.
+
+    ![Azure Portal의 데이터 탐색기에서 그래프 보기](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

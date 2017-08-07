@@ -18,10 +18,10 @@ ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 933299ce5a5d6f5b2262d40ae768019ccaf8796a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -31,11 +31,11 @@ Azure Container Instances를 통해 Azure에서 컨테이너를 쉽게 만들고
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-app-browser]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Container Instances CLI 명령은 현재 Azure Cloud Shell에서만 사용할 수 있습니다.
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 빠른 시작에서 Azure CLI 버전 2.0.12 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -52,8 +52,6 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-container"></a>컨테이너 만들기
 
 이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 경우 [Node.js](http://nodejs.org)에 작성된 매우 간단한 웹앱을 호스트하는 컨테이너를 사용합니다.
-
-Azure Container Instances CLI 명령은 현재 Azure Cloud Shell에서만 사용할 수 있습니다.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 07/13/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
@@ -367,7 +367,7 @@ scaleR 함수를 사용하여 작업을 제출할 수 있습니다. 다음은 �
 
 4. WASB 스타일 주소 지정을 사용할 수도 있습니다.
 
-    rxHadoopListFiles("wasbs:///")
+    rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
@@ -618,7 +618,7 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
 
    * **Zookeeper**: **선택 취소**여야 함
 
-   * **매개 변수**: 설치할 R 패키지 위치(예: `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지 예: `bitops stringr arules`
 
    * **이 스크립트 유지...**: **선택**이어야 함  
 
@@ -631,7 +631,7 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
 
    ![스크립트 작업 추가](./media/hdinsight-getting-started-with-r/submitscriptaction.png)
 
-4. **만들기** 를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
+4. **만들기**를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
 
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server 조작화 사용
@@ -667,7 +667,7 @@ One-box 구성으로 Microsoft R Server 조작화를 구성하려면 다음을 �
 3. 이전 구성 단계에서 사용자 이름("admin")과 암호를 입력합니다.
 4. Confirm Overall Health(전체 상태 확인)이 pass(합격)인지 확인합니다.
 5. 관리 유틸리티를 종료합니다.
-6. ssh를 종료합니다.
+6. SSH를 종료합니다.
 
 ![조작화에 대한 진단](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
 

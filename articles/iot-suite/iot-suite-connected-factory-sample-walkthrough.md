@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
@@ -47,6 +46,13 @@ IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-soluti
 다음 다이어그램에서는 미리 구성된 솔루션의 논리적 구성 요소를 간략히 보여줍니다.
 
 ![연결된 공장 논리 아키텍처][connected-factory-logical]
+
+## <a name="communication-patterns"></a>통신 패턴
+
+이 솔루션은 [OPC UA Pub/Sub 사양](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/)을 사용하여 OPC UA 원격 분석 데이터를 IoT Hub에 JSON 형식으로 보냅니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge 모듈을 사용합니다.
+
+또한 이 솔루션은 온-프레미스 OPC UA 서버와의 연결을 설정할 수 있는 OPC UA 클라이언트가 웹 응용 프로그램과 통합되었습니다. 이 클라이언트는 [역방향 프록시](https://wikipedia.org/wiki/Reverse_proxy)를 사용하며 IoT Hub의 도움을 받아 온-프레미스 방화벽에서 포트를 열지 않고도 연결을 만들 수 있습니다. 이 통신 패턴을 [서비스 지원 통신](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)이라고 합니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 프록시](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 모듈을 사용합니다.
+
 
 ## <a name="simulation"></a>시뮬레이션
 
@@ -111,7 +117,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 - 모든 OPC 게시자 모듈 및 모든 OPC 프록시 모듈에 대한 ID를 저장하는 ID 레지스트리를 유지 관리합니다.
 - OPC 프록시 모듈의 양방향 통신에 대한 전송 채널로 사용됩니다.
 
-## <a name="azure-storage"></a>Azure 저장소
+## <a name="azure-storage"></a>Azure Storage
 솔루션은 VM에 대 한 디스크 저장소로 Azure Blob 저장소를 사용하여 배포 데이터를 저장합니다.
 
 ## <a name="web-app"></a>웹앱

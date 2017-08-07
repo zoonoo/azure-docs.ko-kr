@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
@@ -64,10 +64,10 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
     > [!NOTE]
     > System Center Configuration Manager에서 동시에 Windows 에이전트를 관리할 수 없습니다.  
     >
-* CentOS 6(x86/x64) 및 7(x64)
-* Red Hat Enterprise 6(x86/x64) 및 7(x64)
-* SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)
-* Ubuntu 12.04 LTS 및 최신 x86/x64  
+* CentOS 6(x86/x64) 및 7(x64)  
+* Red Hat Enterprise 6(x86/x64) 및 7(x64)  
+* SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)  
+* Ubuntu 12.04 LTS 및 최신 x86/x64   
     > [!NOTE]  
     > Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 하려면 자동 업데이트를 사용하지 않도록 Unattended-Upgrade 패키지를 다시 구성합니다. 구성 방법에 대한 자세한 내용은 [Ubuntu Server 가이드의 자동 업데이트 항목](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)을 참조하세요.
 
@@ -78,6 +78,9 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
     >
 
 Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 자세한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요.  Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agents.md)를 검토하세요.  
+
+### <a name="permissions"></a>권한
+업데이트 배포를 만들려면 Automation 계정과 Log Analytics 작업 영역에서 contributor 역할이 부여되어야 합니다.  
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 이 솔루션은 Automation 계정 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.
@@ -155,7 +158,7 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 ## <a name="viewing-update-assessments"></a>업데이트 평가 보기
 **업데이트 관리** 타일을 클릭하여 **업데이트 관리** 대시보드를 엽니다.<br><br> ![업데이트 관리 요약 대시보드](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-이 대시보드는 업데이트 상태를 운영 체제 및 업데이트 분류(중요, 보안 또는 기타(예: 정의 업데이트))에 따라 구체적으로 분류하여 보여 줍니다. **업데이트 배포** 타일을 선택하면 일정, 현재 실행 중인 배포, 완료된 배포를 확인하거나 새 배포를 예약할 수 있는 업데이트 배포 페이지로 리디렉션됩니다.  
+이 대시보드는 업데이트 상태를 운영 체제 및 업데이트 분류(중요, 보안 또는 기타(예: 정의 업데이트))에 따라 구체적으로 분류하여 보여 줍니다. 이 대시보드의 각 타일에 표시되는 결과는 배포에 대해 승인된 업데이트만 반영하며, 컴퓨터 동기화 원본을 기반으로 합니다.   **업데이트 배포** 타일을 선택하면 일정, 현재 실행 중인 배포, 완료된 배포를 확인하거나 새 배포를 예약할 수 있는 업데이트 배포 페이지로 리디렉션됩니다.  
 
 특정 타일을 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있으며, 특정 범주 및 미리 정의된 기준을 쿼리하려면 **일반적인 업데이트 쿼리** 열에 제공되는 목록에서 하나를 선택합니다.    
 
@@ -210,7 +213,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 ### <a name="time-range"></a>시간 범위
 기본적으로 업데이트 관리 솔루션에서 분석된 데이터의 범위는 최근 1일 이내에 생성된 모든 연결된 관리 그룹에서 시작됩니다.
 
-데이터의 시간 범위를 변경하려면 대시보드 위쪽에서 **데이터 기반**을 선택합니다. 지난 7일, 1일 또는 6시간 내에 생성되거나 업데이트된 레코드를 선택할 수 있습니다. 또는 **사용자 지정** 을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
+데이터의 시간 범위를 변경하려면 대시보드 위쪽에서 **데이터 기반**을 선택합니다. 지난 7일, 1일 또는 6시간 내에 생성되거나 업데이트된 레코드를 선택할 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
 업데이트 관리 솔루션은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니다.
@@ -309,6 +312,17 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 ## <a name="troubleshooting"></a>문제 해결
 
 이 섹션에서는 업데이트 관리 솔루션과 관련된 문제 해결에 도움이 되는 정보를 제공합니다.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>온보딩 문제를 해결하려면 어떻게 할까요?
+솔루션 또는 가상 컴퓨터를 온보딩하는 동안 문제가 발생할 경우 이벤트 ID가 4502인 **응용 프로그램 및 서비스 로그\운영 관리자** 이벤트 로그와 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하고 있는 이벤트 메시지를 확인합니다.  다음 표에는 특정 오류 메시지 및 각각의 해결 방법이 설명되어 있습니다.  
+
+| Message | 이유 | 해결 방법 |   
+|----------|----------|----------|  
+| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>System.InvalidOperationException: {"메시지":"컴퓨터가 이미<br>다른 계정에 등록되었습니다. "} | 컴퓨터가 이미 업데이트 관리를 위한 다른 작업 영역에 등록되었습니다. | [하이브리드 Runbook 그룹을 삭제](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)하여 오래된 아티팩트를 정리합니다.|  
+| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>System.Net.Http.HttpRequestException: 요청을 보내는 동안 오류가 발생했습니다. ---><br>System.Net.WebException: 기본 연결이<br>닫혔습니다. 받는 동안<br>예기치 않은 오류가 발생했습니다. ---> System.ComponentModel.Win32Exception:<br>클라이언트와 서버의 공통 알고리즘이 없기 때문에<br>서로 통신할 수 없습니다. | 프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](../automation/automation-offering-get-started.md#network-planning)|  
+| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>Newtonsoft.Json.JsonReaderException: 양의 무한대 값을 구문 분석하는 도중에 오류가 발생했습니다. | 프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](../automation/automation-offering-get-started.md#network-planning)| 
+| <wsid>.oms.opinsights.azure.com 서비스에서 제공하는 인증서가<br>Microsoft 서비스에 사용된 인증서 기관에서<br>발급한 것이 아닙니다. 네트워크<br>관리자에 연락하여<br>TLS/SSL 통신을 가로채는 프록시를 실행 중인지 확인합니다. |프록시/게이트웨이/방화벽이 통신을 차단합니다. | [네트워크 요구 사항을 검토합니다.](../automation/automation-offering-get-started.md#network-planning)|  
+| 패치 관리용 컴퓨터를 등록할 수 없습니다.<br>예외와 함께 등록이 실패했습니다.<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>자체 서명된 인증서를 만들지 못했습니다. ---><br>System.UnauthorizedAccessException: 액세스가 거부되었습니다. | 자체 서명된 인증서 생성 오류 | 시스템 계정에<br>다음 폴더에 대한 읽기 권한이 있는지 확인합니다.<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>업데이트 배포를 문제를 해결하려면 어떻게 해야 하나요?
 이 솔루션을 지원하는 OMS 작업 영역과 연결된 Automation 계정의 작업 블레이드에서 예약된 업데이트 배포에 포함된 업데이트의 배포를 담당하는 Runbook의 결과를 살펴볼 수 있습니다.  **Patch-MicrosoftOMSComputer** Runbook은 특정 관리형 컴퓨터를 대상으로 하는 자식 Runbook이며, 자세한 정보 스트림이 해당 배포에 대한 자세한 정보를 제공하는지 검토합니다.  출력에는 적용되는 필수 업데이트, 다운로드 상태, 설치 상태 및 추가 세부 정보가 표시됩니다.<br><br> ![배포 작업 상태 업데이트](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

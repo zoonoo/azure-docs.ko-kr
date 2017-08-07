@@ -10,87 +10,74 @@ tags:
 keywords: "Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버가 없는 아키텍처"
 ms.assetid: 
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/08/2017
-ms.author: rachelap
+ms.date: 08/03/2017
+ms.author: rachelap, glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 
-Azure Cosmos DB는 구조화되지 않은 데이터 및 JSON 데이터를 저장하기 좋습니다. Cosmos DB를 Azure Functions와 함께 사용하면 관계형 데이터베이스에 데이터를 저장하는 데 필요한 것보다 훨씬 적은 코드를 사용하여 쉽고 빠르게 데이터를 저장할 수 있습니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 구조화되지 않은 데이터 및 JSON 데이터를 저장하기 좋습니다. Cosmos DB를 Azure Functions와 함께 사용하면 관계형 데이터베이스에 데이터를 저장하는 데 필요한 것보다 훨씬 적은 코드를 사용하여 쉽고 빠르게 데이터를 저장할 수 있습니다.
 
-이 자습서에서는 Azure Portal을 사용하여 Cosmos DB 문서에 구조화되지 않은 데이터를 저장하는 Azure 함수를 만드는 방법을 안내합니다. 
+Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비스 데이터로 연결하기 위한 선언적 방식을 제공합니다. 이 토픽에서는 기존 C# 함수를 업데이트하여 구조화되지 않은 데이터를 Cosmos DB 문서에 저장하는 출력 바인딩을 추가하는 방법을 알아봅니다. 
+
+![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
+이 자습서를 완료하려면 다음이 필요합니다.
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
-## <a name="create-a-function"></a>함수 만들기
-
-`MyTaskList`라는 새로운 C# 일반 웹후크를 만듭니다.
-
-1. 기존 함수 목록을 확장하고 + 기호를 클릭하여 새 함수를 만듭니다.
-1. GenericWebHook-CSharp를 선택하고 `MyTaskList`라는 이름을 지정합니다.
-
-![새로운 C# 일반 웹후크 함수 앱 추가](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## <a name="add-an-output-binding"></a>출력 바인딩 추가
 
-Azure 함수는 트리거 하나와 원하는 수의 입력 또는 출력 바인딩을 가질 수 있습니다. 이 예에서는 HTTP 요청 트리거 및 Cosmos DB 문서를 출력 바인딩으로 사용합니다.
+1. 함수 앱과 함수를 모두 확장합니다.
 
-1. 함수의 트리거 및 바인딩을 보거나 수정하려면 함수의 *통합* 탭을 클릭합니다.
-1. 페이지의 오른쪽 맨 위에 있는 *새 출력* 링크를 선택합니다.
+1. 페이지 오른쪽 위에서 **통합** 및 **+ 새 출력**을 선택합니다. **Azure Cosmos DB**를 선택하고 **선택**을 클릭합니다.
 
-참고: HTTP 요청 트리거는 이미 구성되어 있지만 Cosmos DB 문서 바인딩을 추가해야 합니다.
+    ![Cosmos DB 출력 바인딩 추가](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-![새로운 Cosmos DB 출력 바인딩 추가](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+3. 다음 표에 지정된 대로 **Azure Cosmos DB 출력** 설정을 사용합니다. 
 
-1. 필요한 정보를 입력하여 바인딩을 만듭니다. 아래 테이블을 사용하여 값을 확인합니다.
+    ![Cosmos DB 출력 바인딩 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-![Cosmos DB 출력 바인딩 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    | 설정      | 제안 값  | 설명                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **문서 매개 변수 이름** | taskDocument | 코드에서 Cosmos DB 개체를 참조하는 이름. |
+    | **데이터베이스 이름** | taskDatabase | 문서를 저장할 데이터베이스의 이름. |
+    | **컬렉션 이름** | TaskCollection | Cosmos DB 데이터베이스의 컬렉션 이름. |
+    | **true이면 Cosmos DB 데이터베이스 및 컬렉션을 만듭니다.** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
 
-|  필드 | 값  |
-|---|---|
-| 문서 매개 변수 이름 | 코드에서 Cosmos DB 개체를 참조하는 이름 |
-| 데이터베이스 이름 | 문서를 저장할 데이터베이스의 이름 |
-| 컬렉션 이름 | Cosmos DB 데이터베이스의 그룹화 이름 |
-| Cosmos DB와 컬렉션을 자동으로 만드시겠습니까? | 예 또는 아니요 |
-| Cosmos DB 계정 연결 | Cosmos DB 데이터베이스를 가리키는 연결 문자열 |
+4. **Cosmos DB 문서 연결** 레이블 옆에 있는 **새로 만들기**를 선택하고 **+ 새로 만들기**를 선택합니다. 
 
-또한 Cosmos DB 데이터베이스에 대한 연결도 구성해야 합니다.
+5. 다음 표에 지정된 대로 **새 계정** 설정을 사용합니다. 
 
-1. "Cosmos DB 문서 연결" 레이블 옆에 있는 "새로 만들기" 링크를 클릭합니다.
-1. 필드를 채우고 Cosmos DB 문서를 만드는 데 필요한 적절한 옵션을 선택합니다.
+    ![Cosmos DB 연결 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-![Cosmos DB 연결 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    | 설정      | 제안 값  | 설명                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **ID** | 데이터베이스의 이름 | Cosmos DB 데이터베이스의 고유한 ID  |
+    | **API** | SQL(DocumentDB) | 문서 데이터베이스 API를 선택합니다.  |
+    | **구독** | Azure 구독 | Azure 구독  |
+    | **리소스 그룹** | myResourceGroup |  함수 앱이 포함된 기존 리소스 그룹을 사용합니다. |
+    | **위치**  | WestEurope | 함수 앱 또는 저장된 문서를 사용하는 다른 앱과 가까운 위치를 선택합니다.  |
 
-|  필드 | 값  |
-|---|---|
-| Id | Cosmos DB 데이터베이스의 고유한 ID  |
-| NoSQL API | Cosmos DB 또는 MongoDB  |
-| 구독 | MSDN 구독  |
-| 리소스 그룹  | 새 그룹을 만들거나 기존 항목을 선택합니다.  |
-| 위치  | WestEurope  |
-
-1. *확인* 단추를 클릭합니다. Azure가 리소스를 만드는 동안 잠시 기다려야 할 수 있습니다.
-1. *저장* 단추를 클릭합니다.
+6. **확인**을 클릭하여 데이터베이스를 만듭니다. 데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. 데이터베이스가 생성되면 데이터베이스 연결 문자열이 함수 앱 설정으로 저장됩니다. 이 앱 설정의 이름이 **Cosmos DB 계정 연결**에 삽입됩니다. 
+ 
+8. 연결 문자열이 설정된 후에는 **저장**을 선택하여 바인딩을 만듭니다.
 
 ## <a name="update-the-function-code"></a>함수 코드 업데이트
 
-함수의 템플릿 코드를 다음으로 바꿉니다.
-
-이 샘플의 코드는 C#로만 제공된다는 사실을 참고하세요.
+기존 C# 함수 코드를 다음 코드로 바꿉니다.
 
 ```csharp
 using System.Net;
@@ -124,38 +111,31 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-
-이 코드 샘플은 HTTP 요청 쿼리 문자열을 읽고 `taskDocument` 개체의 구성원으로 할당합니다. `taskDocument` 개체는 Cosmos DB 데이터베이스에 데이터를 자동으로 저장하고, 처음 사용할 때 데이터베이스도 만듭니다.
+이 코드 샘플은 HTTP 요청 쿼리 문자열을 읽고 `taskDocument` 개체의 필드에 할당합니다. `taskDocument` 바인딩은 이 바인딩 매개 변수의 개체 데이터 중에서 바인딩된 문서 데이터베이스에 저장할 데이터를 보냅니다. 함수가 처음으로 실행될 때 데이터베이스가 생성됩니다.
 
 ## <a name="test-the-function-and-database"></a>함수 및 데이터베이스 테스트
 
-1. 함수 탭에서 포털의 오른쪽에 있는 *테스트* 링크를 클릭하고 다음 HTTP 쿼리 문자열을 입력합니다.
+1. 오른쪽 창을 확장하고 **테스트**를 선택합니다. **쿼리** 아래에서 **+ 매개 변수 추가**를 클릭하고 쿼리 문자열에 다음 매개 변수를 추가합니다.
 
-| 쿼리 문자열 | 값 |
-|---|---|
-| name | Chris P. Bacon |
-| task | BLT 샌드위치 만들기 |
-| 기한 | 05/12/2017 |
+    + `name`
+    + `task`
+    + `duedate`
 
-1. *실행* 링크를 클릭합니다.
-1. 함수가 *HTTP 200 OK* 응답 코드를 반환했는지 확인합니다.
+2. **실행**을 클릭하고 200 상태가 반환되는지 확인합니다.
 
-![Cosmos DB 출력 바인딩 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Cosmos DB 출력 바인딩 구성](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-Cosmos DB 데이터베이스에 항목이 만들어졌는지 확인합니다.
+1. Azure Portal의 왼쪽에서 아이콘 표시줄을 확장하고, 검색 필드에 `cosmos`를 입력하고, **Azure Cosmos DB**를 선택합니다.
 
-1. Azure Portal에서 데이터베이스를 찾아 선택합니다.
-1. *데이터 탐색기* 옵션을 선택합니다.
-1. 문서 항목에 도달할 때까지 노드를 확장합니다.
-1. 데이터베이스 항목을 확인합니다. 데이터베이스에는 데이터 외에 추가적인 메타 데이터도 있습니다.
+    ![Cosmos DB 서비스 검색](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-![Cosmos DB 항목 확인](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+2. 만든 데이터베이스를 선택한 다음 **데이터 탐색기**를 선택합니다. **컬렉션** 노드를 확장하고, 새 문서를 선택하고, 문서에 일부 추가 메타데이터와 함께 쿼리 문자열 값이 포함되어 있는지 확인합니다. 
 
-문서에 데이터가 있을 경우 Cosmos DB 데이터베이스에 구조화되지 않은 데이터를 저장하는 Azure 함수가 생성된 것입니다.
+    ![Cosmos DB 항목 확인](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-## <a name="clean-up-resources"></a>리소스 정리
+구조화되지 않은 데이터를 Cosmos DB 데이터베이스에 저장하는 HTTP 트리거에 성공적으로 바인딩을 추가했습니다.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

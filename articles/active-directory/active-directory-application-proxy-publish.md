@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로�
 6. 마법사를 마치려면 화면 아래쪽에 있는 확인 표시를 클릭합니다. 이제 응용 프로그램이 Azure AD에 정의되었습니다.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>응용 프로그램에 사용자 및 그룹 할당
-사용자가 게시된 응용 프로그램에 액세스하기 위해서는 개별적으로 또는 그룹에 할당되어야 합니다. (자신에게도 액세스 권한을 할당합니다.) 각 사용자가 Azure Basic 이상에 대한 라이선스를 가지고 있어야 합니다. 개별적으로 또는 그룹에 라이선스를 할당할 수 있습니다. 세부 내용은 [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)을 참조하세요. 
+사용자가 게시된 응용 프로그램에 액세스하기 위해서는 개별적으로 또는 그룹에 할당되어야 합니다. (자신에게도 액세스 권한을 할당합니다.) 할당되는 사용자마다 Azure Basic 이상의 라이선스가 필요합니다. 개별적으로 또는 그룹에 라이선스를 할당할 수 있습니다. 자세한 내용은 [응용 프로그램에 사용자 할당](active-directory-applications-guiding-developers-assigning-users.md)을 참조하세요. 
 
-사전 인증을 필요로 하는 앱의 경우 이렇게 하면 앱을 사용할 권한이 부여됩니다. 사전 인증을 요구하지 않는 앱의 경우 MyApps과 같이 해당 응용 프로그램 목록에 표시되도록 사용자를 앱에 할당할 수 있습니다.
+사전 인증이 필요한 앱의 경우 사용자를 할당하면 응용 프로그램을 사용할 권한이 부여됩니다. 사전 인증이 필요 없는 앱의 경우 사용자를 할당하면 사용자가 액세스 패널을 통해 응용 프로그램에 액세스할 수 있습니다.
 
 1. 앱 추가 마법사를 마친 후에 응용 프로그램에 대한 빠른 시작 페이지를 확인합니다. 앱에 대한 액세스 권한이 있는 사용자를 관리하려면 **사용자 및 그룹**을 선택합니다.
    
@@ -90,7 +90,7 @@ Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로�
 
 Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시하면 Azure AD의 응용 프로그램 목록에 표시되므로 해당 위치에서 관리할 수 있습니다.
 
-응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 개인 네트워크 외부에서 액세스할 수 없습니다. 응용 프로그램을 삭제하지 않습니다.
+응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 개인 네트워크 외부에서 더 이상 응용 프로그램에 액세스할 수 없습니다. 사용자는 계속해서 평소처럼 응용 프로그램 온-프레미스에 액세스할 수 있습니다.
 
 응용 프로그램을 확인하고 액세스할 수 있는지 확인하려면 응용 프로그램의 이름을 두 번 클릭합니다. 응용 프로그램 프록시 서비스를 사용할 수 없고 응용 프로그램을 사용할 수 없는 경우 화면 위쪽에 경고 메시지가 나타납니다.
 

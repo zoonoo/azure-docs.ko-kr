@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1960fa0e17ea9aa0ca15bc3ecb8ce5b1f6630a60
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
@@ -36,7 +35,7 @@ Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. �
 관심이 있는 경우 살펴볼만한 다른 문서:
 
 * [런타임 시 웹앱 계측](app-insights-monitor-performance-live-website-now.md)
-* [Azure 클라우드 서비스](app-insights-cloudservices.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1단계: Application Insights SDK 추가
 
@@ -80,12 +79,12 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 Visual Studio에서 Application Insights 창을 엽니다. **Application Insights** 단추를 클릭하거나 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights**를 선택한 다음 **라이브 원격 분석 검색**을 클릭합니다.
 
-Visual Studio Application Insights 검색 창에서 앱의 서버 쪽에서 생성된 원격 분석에 대한 **디버그 세션의 데이터** 보기를 봅니다. 필터를 테스트하고 이벤트를 클릭하여 자세한 정보를 확인합니다.
+Visual Studio Application Insights Search 창에서 앱의 서버 쪽에서 생성된 원격 분석에 대한 **디버그 세션의 데이터** 보기를 봅니다. 필터를 테스트하고 이벤트를 클릭하여 자세한 정보를 확인합니다.
 
 ![Application Insights 창의 디버그 세션 보기의 데이터 스크린샷.](./media/app-insights-asp-net/55.png)
 
 > [!NOTE]
-> 데이터가 보이지 않으면 시간 범위가 올바른지 확인하고 검색 아이콘을 클릭하세요.
+> 데이터가 보이지 않으면 시간 범위가 올바른지 확인하고 Search 아이콘을 클릭하세요.
 
 [Visual Studio의 Application Insights 도구에 대해 자세히 알아봅니다](app-insights-visual-studio.md).
 
@@ -107,12 +106,12 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
-[Azure 포털에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](app-insights-dashboards.md).
+[Azure Portal에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
-IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream) 을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
+IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
-원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [분석 쿼리 언어](app-insights-analytics.md)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
+원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [Log Analytics 쿼리 언어](https://docs.loganalytics.io/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
 [Visual Studio](app-insights-visual-studio.md)에서 진단 검색 및 [추세](app-insights-visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
 

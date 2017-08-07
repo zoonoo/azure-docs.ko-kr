@@ -16,28 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-# Functions를 사용하여 Azure Storage 큐에 메시지 추가
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
 Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비스 데이터로 연결하기 위한 선언적 방식을 제공합니다. 이 항목에서는 메시지를 Azure Queue Storage로 보내는 출력 바인딩을 추가하여 기존 함수를 업데이트하는 방법을 알아봅니다.  
 
 ![로그에서 메시지 보기.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a> 
+## <a name="prerequisites"></a>필수 조건 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * [Microsoft Azure Storage Explorer](http://storageexplorer.com/)를 설치합니다.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>출력 바인딩 추가
  
@@ -47,7 +43,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
     
     ![Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. 표에 지정된 대로 설정을 사용한 후 **저장**을 선택합니다. 
+3. 표에 지정된 대로 설정을 사용합니다. 
 
     ![Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,10 +53,11 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
     | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
     | **메시지 매개 변수 이름** | outQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
 
+4. **저장**을 클릭하여 바인딩을 추가합니다.
+ 
 이제 출력 바인딩이 정의되었고 큐에 메시지를 추가할 바인딩을 사용하도록 코드를 업데이트해야 합니다.  
 
-## 함수 코드 업데이트
-<a id="update-the-function-code" class="xliff"></a>
+## <a name="update-the-function-code"></a>함수 코드 업데이트
 
 1. 편집기에서 함수 코드를 표시할 함수를 선택합니다. 
 
@@ -89,8 +86,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 HTTP 트리거에 전달된 값은 큐에 추가된 메시지에 포함됩니다.
  
-## 함수 테스트
-<a id="test-the-function" class="xliff"></a> 
+## <a name="test-the-function"></a>함수 테스트 
 
 1. 코드 변경 내용이 저장된 후 **실행**을 선택합니다. 
 
@@ -100,8 +96,7 @@ HTTP 트리거에 전달된 값은 큐에 추가된 메시지에 포함됩니다
 
 다음으로 새 큐와 여기에 추가한 메시지를 확인하기 위해 저장소 계정에 연결할 수 있습니다. 
 
-## 큐에 연결
-<a id="connect-to-the-queue" class="xliff"></a>
+## <a name="connect-to-the-queue"></a>큐에 연결
 
 Storage 탐색기를 이미 설치했고 저장소 계정에 연결한 경우 처음 세 단계를 건너뜁니다.    
 
@@ -122,13 +117,11 @@ Storage 탐색기를 이미 설치했고 저장소 계정에 연결한 경우 �
     ![저장소 큐 만들기.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-## 리소스 정리
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 기존 함수에 출력 바인딩을 추가했습니다. 
 
