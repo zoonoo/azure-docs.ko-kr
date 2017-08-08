@@ -4,8 +4,9 @@
 # 자습서
 ## [VSTS를 사용하는 CI/CD](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Jenkins 및 Kubernetes 통합](/azure/container-service/container-service-kubernetes-jenkins)
-## [App Service에 배포](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins 및 Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub 및 Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [App Service에 배포](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # 방법 가이드
 ## [Azure에서 Jenkins 보안](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # 리소스

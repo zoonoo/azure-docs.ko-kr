@@ -8,6 +8,7 @@
 ## [배치 .NET 자습서](batch-dotnet-get-started.md)
 ## [배치 Python 자습서](batch-python-tutorial.md)
 ## [배치 Node.js 자습서](batch-nodejs-get-started.md)
+## [일괄 처리 렌더링 서비스](batch-rendering-service.md)
 # 방법
 ## 개발
 ### [응용 프로그램 패키지](batch-application-packages.md)
@@ -15,7 +16,9 @@
 ### Azure AD 인증
 #### [Batch 서비스 포함 Azure AD](batch-aad-auth.md)
 #### [배치 관리 포함 Azure AD](batch-aad-auth-management.md)
+### [계산 집약적 VM](batch-pool-compute-intensive-sizes.md)
 ### [동시 노드 작업](batch-parallel-node-tasks.md)
+### [상태별 작업 계수](batch-get-task-counts.md)
 ### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
 ### [Linux 계산 노드](batch-linux-nodes.md)
@@ -36,8 +39,8 @@
 #### [응용 프로그램 추가](./scripts/batch-cli-sample-add-application.md)
 #### [풀 관리](./scripts/batch-cli-sample-manage-pool.md)
 #### [작업 및 태스크 실행](./scripts/batch-cli-sample-run-job.md)
-
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -68,7 +71,8 @@
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
+## [가격](https://azure.microsoft.com/pricing/details/batch/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)

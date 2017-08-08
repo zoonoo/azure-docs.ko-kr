@@ -15,24 +15,27 @@
 ### [HSM 보호 키](key-vault-hsm-protected-keys.md)
 ### [.NET 2.0으로 마이그레이션](key-vault-dotnet2api-release-notes.md)
 ### 개요
-#### [보안 워크로드 개요](key-vault-ovw-security-worlds.md)
-#### [일시 삭제 개요](key-vault-ovw-soft-delete.md)
-#### [저장소 계정 키 개요](key-vault-ovw-storage-keys.md)
-#### [제한 개요](key-vault-ovw-throttling.md)
+#### [보안 권역](key-vault-ovw-security-worlds.md)
+#### [일시 삭제](key-vault-ovw-soft-delete.md)
+#### [Storage 계정 키](key-vault-ovw-storage-keys.md)
+#### [제한](key-vault-ovw-throttling.md)
 
 ## 관리
 ### [Azure Key Vault 로깅](key-vault-logging.md)
 ### [방화벽 뒤에 액세스](key-vault-access-behind-firewall.md)
-### [테넌트 ID 변경](key-vault-subscription-move-fix.md)
-### [그룹을 사용하여 액세스 권한 부여](key-vault-group-permissions-for-apps.md)
 ### [가용성 및 중복성](key-vault-disaster-recovery-guidance.md)
+### [테넌트 ID 변경](key-vault-subscription-move-fix.md)
+### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
+### [CLI로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)
+### [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md)
+### [그룹을 사용하여 액세스 권한 부여](key-vault-group-permissions-for-apps.md)
 ### [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)
 
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
-### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -54,4 +57,5 @@
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
+## [가격](https://azure.microsoft.com/pricing/details/key-vault/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
