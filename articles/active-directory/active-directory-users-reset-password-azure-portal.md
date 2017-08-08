@@ -25,18 +25,14 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="reset-the-password-for-a-user-in-azure-active-directory" class="xliff"></a>
-
-# Azure Active Directory에서 사용자 암호 재설정
+# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자 암호 재설정
 > [!div class="op_single_selector"]
 > * [Azure 포털](active-directory-users-reset-password-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-create-users-reset-password.md)
 >
 >
 
-<a id="how-to-reset-the-password-for-a-user" class="xliff"></a>
-
-## 사용자에 대한 암호를 다시 설정하는 방법
+## <a name="how-to-reset-the-password-for-a-user"></a>사용자에 대한 암호를 다시 설정하는 방법
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
@@ -50,9 +46,7 @@ ms.lasthandoff: 05/08/2017
     ![암호 재설정 명령 선택](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 6. **암호 재설정** 블레이드에서 **암호 재설정**을 선택합니다.
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [사용자 추가](active-directory-users-create-azure-portal.md)
 * [Azure AD의 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
 * [사용자의 작업 정보 변경](active-directory-users-work-info-azure-portal.md)

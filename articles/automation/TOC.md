@@ -60,6 +60,7 @@
 ### [GitHub Enterprise와 소스 제어 통합](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS와 소스 제어 통합](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)
+### [Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포](automation-deploy-template-runbook.md)
 ## 솔루션
 ### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
@@ -82,7 +83,7 @@
 # 리소스
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 ## [Azure Automation 교육](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [가격 책정](https://azure.microsoft.com/pricing/details/automation/)  

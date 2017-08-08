@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 08/03/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
-ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Express 경로 회로 및 라우팅 도메인
@@ -30,7 +31,7 @@ ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 
 Express 경로 회로는 물리적 엔터티에 매핑되지 않습니다. 회로는 서비스 키(S 키)라고 하는 표준 GUID를 통해 고유하게 식별됩니다. 서비스 키는 Microsoft, 연결 공급자 및 사용자 간에 교환되는 유일한 정보의 부분입니다. S 키는 보안을 위한 암호가 아닙니다. Express 경로 회로와 S 키 사이에는 1:1 매핑이 있습니다.
 
-Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft 등, 최대&3;개의 독립 피어링이 있을 수 있습니다. 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. Express 경로 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. Express 경로 회로는 Express 경로 회로마다&1;개,&2;개 또는&3;개의 피어링을 모두 사용할 수 있습니다.
+Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft 등, 최대 3개의 독립 피어링이 있을 수 있습니다. 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. Express 경로 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. Express 경로 회로는 Express 경로 회로마다 1개, 2개 또는 3개의 피어링을 모두 사용할 수 있습니다.
 
 각 회로는 고정 대역폭(50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 10Gbps)이며 연결 공급자 및 피어링 위치에 매핑됩니다. 선택한 대역폭은 회로에 대해 모든 피어링에서 공유됩니다. 
 
@@ -64,7 +65,7 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 지원 서비스, 비용 및 구성 세부 정보에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 참조하세요. Microsoft 피어링이 지원하는 연결 공급자의 목록에 대한 정보는 [Express 경로 위치](expressroute-locations.md) 페이지를 참조하세요.
 
 ## <a name="routing-domain-comparison"></a>라우팅 도메인 비교
-다음 표에서&3;개의 라우팅 도메인을 비교합니다.
+다음 표에서 3개의 라우팅 도메인을 비교합니다.
 
 |  | **개인 피어링** | **공용 피어링** | **Microsoft 피어링** |
 | --- | --- | --- | --- |
@@ -74,21 +75,15 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 | **라우팅 인터페이스 IP 주소** |RFC1918 및 공용 IP 주소 |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |
 | **MD5 해시 지원** |예 |예 |예 |
 
-자신의 Express 경로 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
+자신의 ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
 
-3개의 모든 피어링 세션을 선택하는 경우,&3;쌍의 BGP 세션(각 피어링 형식에 대해 한 쌍)이 있어야 합니다. BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. 계층 2 연결 공급자를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다. Express 경로를 설정하기 위한 [워크플로](expressroute-workflows.md) 를 검토하여 자세히 알아볼 수 있습니다.
+3개의 모든 피어링 세션을 선택하는 경우, 3쌍의 BGP 세션(각 피어링 형식에 대해 한 쌍)이 있어야 합니다. BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. 계층 2 연결 공급자를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다. Express 경로를 설정하기 위한 [워크플로](expressroute-workflows.md) 를 검토하여 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 서비스 공급자를 찾습니다. [Express 경로 서비스 공급자 및 위치](expressroute-locations.md)를 참조하세요.
 * 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 * Express 경로 연결을 구성합니다.
-  * [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
-  * [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
-  * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+  * [ExpressRoute 회로 만들기 및 관리](expressroute-howto-circuit-portal-resource-manager.md)
+  * [ExpressRoute 회로에 대한 라우팅(피어링) 구성](expressroute-howto-routing-portal-resource-manager.md)
 
 

@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58baae6fb3d338ef94caca79b9248afc0fb7f841
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>IOS에서 Engagement를 통합하는 방법
@@ -28,17 +27,17 @@ ms.lasthandoff: 07/06/2017
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 이 절차에서는 iOS 응용 프로그램에서 Engagement의 분석 및 모니터링 기능을 활성화하는 가장 간단한 방법을 설명합니다.
 
-Engagement SDK에는 iOS6 이상 및 Xcode 8이 필요합니다. 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
+Engagement SDK에는 iOS7 이상 및 Xcode 8 이상이 필요합니다. 응용 프로그램의 배포 대상은 iOS 7 이상이어야 합니다.
 
 > [!NOTE]
 > XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)를 사용할 수도 있습니다. iOS 10 장치에서 실행되는 경우 이 이전 버전의 도달률 모듈에서는 알려진 버그가 있습니다. 자세한 내용은 [도달률 모듈 통합](mobile-engagement-ios-integrate-engagement-reach.md)을 참조하세요. SDK v3.2.4를 사용하도록 선택하는 경우 다음 단계의 `UserNotifications.framework` 가져오기로 건너뜁니다.
-> 
-> 
+>
+>
 
 다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [iOS 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)을 참조하세요.
 
@@ -46,7 +45,7 @@ Engagement SDK에는 iOS6 이상 및 Xcode 8이 필요합니다. 응용 프로�
 * [여기](http://aka.ms/qk2rnj)에서 iOS SDK를 다운로드합니다.
 * iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"다음에 파일 추가..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
 * Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"빌드 단계"** 탭을 열고 **"이진 파일과 라이브러리 연결"** 메뉴에서 다음 프레임워크를 추가합니다.
-  
+
   * `UserNotifications.framework` - 링크를 `Optional`(으)로 설정합니다.
   * `AdSupport.framework` - 링크를 `Optional`(으)로 설정합니다.
   * `SystemConfiguration.framework`
@@ -57,18 +56,18 @@ Engagement SDK에는 iOS6 이상 및 Xcode 8이 필요합니다. 응용 프로�
 
 > [!NOTE]
 > AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(\<ios-sdk-engagement-idfa\>).
-> 
-> 
+>
+>
 
 ## <a name="initialize-the-engagement-sdk"></a>Engagement SDK 초기화
 다음과 같이 응용 프로그램 대리자를 수정해야 합니다.
 
 * 구현 파일의 맨 위에서 Engagement 에이전트를 가져옵니다.
-  
+
       [...]
       #import "EngagementAgent.h"
 * '**applicationDidFinishLaunching:**' 또는 '**application:didFinishLaunchingWithOptions:**' 메서드에서 Engagement를 초기화합니다.
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -110,13 +109,13 @@ Engagement에서 사용자, 세션, 활동, 크래시 및 기술 통계를 계�
 
 > [!IMPORTANT]
 > 응용 프로그램이 닫힐 때 iOS SDK에서 `endActivity()` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `startActivity` 메서드를 호출하는 것이 *상당히* 좋으며 `endActivity` 메서드는 호출하지 *않는* 것이 좋습니다. 이 메서드를 호출하면 현재 세션이 강제로 종료되기 때문입니다.
-> 
-> 
+>
+>
 
 ## <a name="location-reporting"></a>위치 보고
 Apple 서비스 약관에서는 응용 프로그램이 통계 용도로만 위치 추적 사용을 사용하도록 허용하지 않습니다. 따라서 응용 프로그램이 다른 이유로도 추적 위치를 사용하는 경우에만 보고서 위치를 활성화하는 것이 좋습니다.
 
-iOS 8부터는 앱의 Info.plist 파일에서 [NSLocationWhenInUseUsageDescription] 또는 [NSLocationAlwaysUsageDescription] 키에 대한 문자열을 설정하여 앱이 위치 서비스를 사용하는 방법에 대한 설명을 제공해야 합니다. Engagement로 백그라운드에서 위치를 보고하려는 경우 NSLocationAlwaysUsageDescription 키를 추가합니다. 다른 모든 경우에는 NSLocationWhenInUseUsageDescription 키를 추가합니다.
+iOS 8부터는 앱의 Info.plist 파일에서 [NSLocationWhenInUseUsageDescription] 또는 [NSLocationAlwaysUsageDescription] 키에 대한 문자열을 설정하여 앱이 위치 서비스를 사용하는 방법에 대한 설명을 제공해야 합니다. Engagement로 백그라운드에서 위치를 보고하려는 경우 NSLocationAlwaysUsageDescription 키를 추가합니다. 다른 모든 경우에는 NSLocationWhenInUseUsageDescription 키를 추가합니다. iOS 11에서 백그라운드 위치를 보고하려면 NSLocationAlwaysAndWhenInUseUsageDescription 및 NSLocationWhenInUseUsageDescription이 둘 다 필요합니다.
 
 ### <a name="lazy-area-location-reporting"></a>지연 영역 위치 보고
 지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고는 배터리에 거의 영향을 미치지 않습니다.
@@ -153,8 +152,8 @@ iOS 8부터는 앱의 Info.plist 파일에서 [NSLocationWhenInUseUsageDescripti
 
 > [!NOTE]
 > 응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
-> 
-> 
+>
+>
 
 이 함수의 구현은 응용 프로그램이 백그라운드로 전환되는 경우 [startMonitoringSignificantLocationChanges] 를 호출합니다. 새 위치 이벤트가 도달하는 경우 응용 프로그램을 백그라운드로 자동으로 다시 시작합니다.
 

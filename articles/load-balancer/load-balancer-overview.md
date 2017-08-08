@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -126,10 +126,12 @@ Resource Manager 기반 템플릿, API 및 도구를 통해 부하 분산 장치
 
 ## <a name="next-steps"></a>다음 단계
 
-[인터넷 연결 부하 분산 장치 개요](load-balancer-internet-overview.md)
+- [인터넷 연결 Load Balancer](load-balancer-internet-overview.md)에 대해 알아보기
 
-[내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
+- [내부 Load Balancer 개요](load-balancer-internal-overview.md)에 대해 알아보기
 
-[인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-arm-ps.md)
+- [인터넷 연결 Load Balancer](load-balancer-get-started-internet-portal.md) 만들기
+
+- Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보기
 
 

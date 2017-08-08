@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
-ms.openlocfilehash: ebab21a8289ae639efae8bd802d7c493fd843d05
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b43ea48b9b34f3ab6980f7bdc5c21a19d20fd5b6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---

@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b3d6f232f1ad7a672746287130c15eb738c1b7a1
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -92,8 +92,9 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
    > 
 5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/office365connector/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/office365connector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.

@@ -19,12 +19,15 @@
 ## 회로 만들기 및 수정
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure CLI](howto-circuit-cli.md)
 ## 피어링 구성 만들기 및 수정
 ### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure CLI](howto-routing-cli.md)
 ## 가상 네트워크를 Express 경로 회로에 연결합니다.
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure CLI](howto-linkvnet-cli.md)
 ## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 ### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -60,7 +63,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [사례 연구](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)

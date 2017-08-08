@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory에서 사용자 특성에 따라 동적으로 그룹 채우기 | Microsoft Docs"
+title: "Azure Active Directory에서 개체 특성에 따른 동적 그룹 채우기 | Microsoft Docs"
 description: "그룹 멤버 자격에 대해 지원되는 식 규칙 연산자 및 매개 변수를 포함한 고급 규칙을 만드는 방법입니다."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
+ms.reviewer: rodejo
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 720fd28f7ff5d1bc1c3a32cb98d5d7e1eb88e816
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="populate-groups-dynamically-based-on-user-attributes"></a>사용자 특성에 따른 동적 그룹 채우기 
+
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>개체 특성에 따른 동적 그룹 채우기 
 Azure 클래식 포털에서는 Azure AD(Azure Active Directory) 그룹에 대해 더 복잡한 특성 기반의 동적 멤버 자격을 사용하도록 설정할 수 있는 기능을 제공합니다.  
 
-사용자의 특성이 변경될 때 사용자의 특성 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자가 그룹에 대한 규칙을 만족하면 해당 그룹에 대한 구성원으로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
+사용자 또는 장치의 특성이 변경되면 시스템에서 디렉터리의 모든 동적 그룹 규칙을 평가하여 사용자 또는 장치의 특성 변경에 따라 그룹 추가 또는 제거를 트리거하는지 확인합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹에 멤버로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
 
 > [!NOTE]
 > 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 
@@ -57,6 +58,7 @@ Azure 클래식 포털에서는 Azure AD(Azure Active Directory) 그룹에 대�
 
 지원되는 매개 변수 및 식 규칙 연산자의 전체 목록은 아래 섹션을 참조하세요.
 
+
 속성에는 올바른 개체 형식 접두어(user 또는 device)가 있어야 합니다.
 mail -ne null 규칙은 유효성 검사에 실패합니다.
 
@@ -86,6 +88,8 @@ user.mail-ne null
 | 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
+| 내용 | -in |
+| 속하지 않음 | -notIn |
 
 ## <a name="operator-precedence"></a>연산자 우선 순위
 
@@ -100,6 +104,14 @@ user.mail-ne null
 이는 다음과 동등합니다.
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## <a name="using-the--in-and--notin-operators"></a>-In 및 -notIn 연산자 사용
+
+사용자 특성의 값을 다양한 값과 비교하려면 -In 또는 -notIn 연산자를 사용할 수 있습니다. 다음은 -In 연산자를 사용하는 예제입니다.
+
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+값 목록의 처음과 끝에 "[" 및 "]"를 사용합니다. user.department 값이 목록의 값 중 하나와 같으면 이 조건에서 True로 평가합니다.
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
 다음 표에서는 잠재적인 오류와 오류가 발생할 경우 이를 수정하는 방법을 나열합니다.
@@ -151,6 +163,7 @@ user.mail-ne null
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 $null입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |임의의 문자열 값 또는 $null입니다. |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |임의의 문자열 값 또는 $null입니다. |(user.postalCode -eq "value") |
@@ -219,11 +232,12 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
     여기서 "62e19b97-8b3d-4d4a-a106-4ce66896a863"은 관리자의 objectID입니다. 개체 ID는 관리자인 사용자의 사용자 페이지의 **프로필 탭** 에 있는 Azure AD에서 찾을 수 있습니다.
 5. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>특성을 사용하여 장치 개체에 대한 규칙 만들기
+# <a name="using-attributes-to-create-rules-for-device-objects"></a>특성을 사용하여 장치 개체에 대한 규칙 만들기
 또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
 
 | 속성 | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
+| accountEnabled |true false |(device.accountEnabled -eq true) |
 | displayName |임의의 문자열 값입니다. |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |임의의 문자열 값입니다. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |임의의 문자열 값입니다. |(device.OSVersion -eq "9.1") |
@@ -239,7 +253,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |임의의 문자열 값입니다. |(device.managementType -eq "") |
 | organizationalUnit |임의의 문자열 값입니다. |(device.organizationalUnit -eq "") |
-| deviceId |유효한 deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |유효한 deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |유효한 AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.

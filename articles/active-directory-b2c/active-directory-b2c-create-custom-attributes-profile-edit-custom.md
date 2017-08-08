@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 83748140c7b92b95a648ae3ecf78f22e2393780b
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: c2bbb8058ce335c7568d5260ddd0274ca36c9c52
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 만들고 사용
@@ -39,38 +39,38 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 
 Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 확장할 수 있습니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다.
 
-[!NOTE]
-Azure AD B2C 디렉터리의 기능으로 사용자 지정 특성 또는 확장 속성을 참조합니다.  확장 속성은 디렉터리에서 사용자 개체의 스키마를 확장합니다.  정책에서 사용자 지정 클레임으로 사용자 지정 특성을 사용하려면 `ClaimsSchema`의 정책에서 정의합니다.
+>[!NOTE]
+>Azure AD B2C 디렉터리의 기능으로 사용자 지정 특성 또는 확장 속성을 참조합니다.  확장 속성은 디렉터리에서 사용자 개체의 스키마를 확장합니다.  정책에서 사용자 지정 클레임으로 사용자 지정 특성을 사용하려면 `ClaimsSchema`의 정책에서 정의합니다.
 
-[!NOTE]
-확장 속성은 사용자에 대한 데이터를 포함할 수 있더라도 응용 프로그램 개체에만 등록할 수 있습니다. 이 속성은 응용 프로그램에 연결됩니다. 확장 속성을 등록하려면 응용 프로그램 개체에 쓰기 권한이 있어야 합니다. 단일 개체에 100개의 확장 속성(모든 형식 및 모든 응용 프로그램)을 작성할 수 있습니다. 확장 속성이 대상 디렉터리 유형에 추가되고 Azure AD B2C 디렉터리 테넌트에서 즉시 액세스할 수 있게 됩니다.
+>[!NOTE]
+>확장 속성은 사용자에 대한 데이터를 포함할 수 있더라도 응용 프로그램 개체에만 등록할 수 있습니다. 이 속성은 응용 프로그램에 연결됩니다. 확장 속성을 등록하려면 응용 프로그램 개체에 쓰기 권한이 있어야 합니다. 단일 개체에 100개의 확장 속성(모든 형식 및 모든 응용 프로그램)을 작성할 수 있습니다. 확장 속성이 대상 디렉터리 유형에 추가되고 Azure AD B2C 디렉터리 테넌트에서 즉시 액세스할 수 있게 됩니다.
 응용 프로그램이 삭제되면 모든 사용자에 대해 포함된 모든 데이터와 함께 해당 확장 속성도 제거됩니다. 확장 속성이 응용 프로그램에 의해 삭제되면 대상 디렉터리 개체에서 제거되고 그 안에 포함된 모든 데이터도 제거됩니다.
 
-[!NOTE]
-확장 속성은 테넌트의 등록된 응용 프로그램 컨텍스트에서만 존재합니다. 응용 프로그램의 개체 ID는 ID를 사용하는 TechnicalProfile에 포함되어야 합니다.
+>[!NOTE]
+>확장 속성은 테넌트의 등록된 응용 프로그램 컨텍스트에서만 존재합니다. 응용 프로그램의 개체 ID는 ID를 사용하는 TechnicalProfile에 포함되어야 합니다.
 
-[!NOTE]
-Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`으로 명명된 Web API App을 포함합니다.  이 응용 프로그램은 주로 Azure Portal을 통해 만든 사용자 지정 클레임에 대한 b2c 기본 제공 정책에 사용됩니다.  이 응용 프로그램을 사용하여 b2c 사용자 지정 정책의 확장을 등록하는 것은 고급 사용자에게만 권장됩니다.
+>[!NOTE]
+>Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`으로 명명된 Web API App을 포함합니다.  이 응용 프로그램은 주로 Azure Portal을 통해 만든 사용자 지정 클레임에 대한 b2c 기본 제공 정책에 사용됩니다.  이 응용 프로그램을 사용하여 b2c 사용자 지정 정책의 확장을 등록하는 것은 고급 사용자에게만 권장됩니다.
 
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>확장 속성을 저장할 새 응용 프로그램 만들기
 
 1. 브라우저 세션을 열고 [Azure Portal](https://portal.azure.com)로 이동하여 구성할 B2C 디렉터리의 관리 자격 증명으로 로그인합니다.
-1. 왼쪽 탐색 메뉴에서 `Azure Active Directory`을 클릭합니다. 추가 서비스>를 선택하여 서비스를 찾아야 합니다.
-1. `App registrations`를 선택하고 `New application registration`을 클릭합니다.
+1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 클릭합니다. 추가 서비스>를 선택하여 서비스를 찾아야 합니다.
+1. **앱 등록**을 선택하고 **새 응용 프로그램 등록**을 클릭합니다.
 1. 다음 권장되는 항목을 제공합니다.
-  * 웹 응용 프로그램의 이름 지정: `WebApp-GraphAPI-DirectoryExtensions`
+  * 웹 응용 프로그램의 이름 지정: **WebApp-GraphAPI-DirectoryExtensions**
   * 응용 프로그램 유형: 웹앱/API
   * 로그온 URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. `Create`를 선택합니다. 성공적으로 완료가 `notifications`에 나타납니다.
-1. 새로 만든 웹 응용 프로그램 선택: `WebApp-GraphAPI-DirectoryExtensions`
-1. 설정 선택: `Required permissions`
-1. API `Windows Active Directory`를 선택합니다.
-1. 응용 프로그램 사용 권한에 확인 표시 배치: `Read and write directory data` 및 `Save`
-1. `Grant permissions`를 선택하고 `Yes`를 확인합니다.
+1. **만들기**를 선택합니다. 성공적인 완료가 **알림**에 표시됩니다.
+1. 새로 만든 **WebApp-GraphAPI-DirectoryExtensions** 웹 응용 프로그램을 선택합니다.
+1. **필요한 권한** 설정을 선택합니다.
+1. **Windows Active Directory** API를 선택합니다.
+1. **디렉터리 데이터 읽기 및 쓰기** 응용 프로그램 권한을 확인 표시하고 **저장**을 선택합니다.
+1. **사용 권한 부여**를 선택하고 **예**를 확인합니다.
 1. 클립보드에 복사하고 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>에서 다음 ID를 저장합니다.
-*  `Application ID` . 예: `103ee0e6-f92d-4183-b576-8c3739027780`
-* `Object ID` 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **응용 프로그램 ID** - 예: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **개체 ID** - 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 ## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>사용자 지정 정책을 수정하여 `ApplicationObjectId` 추가
 
@@ -98,13 +98,16 @@ Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`으로 명명�
         </ClaimsProvider>
     </ClaimsProviders>
 ```
-[!NOTE]
-해당 요소가 해당 요소를 사용하는 모든 Azure Active Directory TechnicalProfiles에서 재사용되므로 <TechnicalProfile Id="AAD-Common">은 "일반적"입니다.
+
+>[!NOTE]
+>해당 요소가 해당 요소를 사용하는 모든 Azure Active Directory TechnicalProfiles에서 재사용되므로 <TechnicalProfile Id="AAD-Common">은 "일반적"입니다.
+
 ```
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 ```
-[!NOTE]
-TechnicalProfile이 처음 새로 작성된 확장 속성에 쓸 때 속성을 찾을 수 없으면 속성이 작성되므로 일회 오류가 발생할 수 있습니다.  .*  
+
+>[!NOTE]
+>TechnicalProfile이 처음 새로 작성된 확장 속성에 쓸 때 속성을 찾을 수 없으면 속성이 작성되므로 일회 오류가 발생할 수 있습니다.  .*  
 
 ## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>사용자 경험에서 새 확장 속성/사용자 지정 특성 사용
 
@@ -140,9 +143,12 @@ TechnicalProfile이 처음 새로 작성된 확장 속성에 쓸 때 속성을 �
 </ClaimsSchema>
 ```
 4. 동일한 클레임 정의를 기본 정책 파일 `TrustFrameworkBase.xml`에 추가합니다.  
-참고: 기본 및 확장 파일 모두에 `ClaimType` 정의를 추가하는 것은 일반적으로 필요하지 않지만 다음 단계에서 기본 파일의 TechnicalProfiles에 extension_loyaltyId를 추가하므로 정책 유효성 검사기는 정의가 없는 기본 파일의 업로드를 거부합니다.
 
-참고: TrustFrameworkBase.xml 파일에서 "ProfileEdit"로 명명된 사용자 경험의 실행을 추적하는 데 유용할 수 있습니다.  편집기에서 같은 이름의 사용자 경험을 검색하고 오케스트레이션 5단계에서 TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate"를 호출하는 것을 확인합니다.  이 TechnicalProfile을 검색 및 검사하여 흐름에 익숙해 지도록 합니다.
+>[!NOTE]
+>기본 및 확장 파일 모두에 `ClaimType` 정의를 추가하는 것은 일반적으로 필요하지 않지만, 다음 단계에서 기본 파일의 TechnicalProfiles에 extension_loyaltyId를 추가하므로 정책 유효성 검사기에서 해당 정의가 없는 기본 파일의 업로드를 거부합니다.
+
+>[!NOTE]
+>TrustFrameworkBase.xml 파일에서 "ProfileEdit"라는 사용자 경험의 실행을 추적하는 데 유용할 수 있습니다.  편집기에서 같은 이름의 사용자 경험을 검색하고 오케스트레이션 5단계에서 TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate"를 호출하는 것을 확인합니다.  이 TechnicalProfile을 검색 및 검사하여 흐름에 익숙해 지도록 합니다.
 
 5. TechnicalProfile "SelfAsserted-ProfileUpdate"에서 입력 및 출력 클레임으로 loyaltyId를 추가합니다.
 
@@ -233,8 +239,9 @@ TechnicalProfile이 처음 새로 작성된 확장 속성에 쓸 때 속성을 �
      </TechnicalProfile>
 ```
 
-[!IMPORTANT]
-위의 IncludeTechnicalProfile 요소는 AAD-Common의 모든 요소를 이 TechnicalProfile에 추가합니다.
+
+>[!IMPORTANT]
+>위의 IncludeTechnicalProfile 요소는 AAD-Common의 모든 요소를 이 TechnicalProfile에 추가합니다.
 
 ## <a name="test-the-custom-policy-using-run-now"></a>"지금 실행"을 사용하여 사용자 지정 정책 테스트
 
@@ -276,7 +283,8 @@ TechnicalProfile이 처음 새로 작성된 확장 속성에 쓸 때 속성을 �
 * **TP(기술 프로필)**은 끝점의 이름, 해당 메타데이터, 해당 프로토콜을 정의하고 Identity Experience Framework가 수행해야 하는 클레임의 교환에 대해 자세히 설명하는 *함수*로 간주할 수 있는 요소 유형입니다.  오케스트레이션 단계 또는 다른 TechnicalProfile에서 이 *함수*를 호출하면 InputClaims 및 OutputClaims가 호출자의 매개 변수로 제공됩니다.
 
 
-* 확장 속성에 대한 전체 처리는 문서 [디렉터리 스키마 확장 | GRAPH API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
-[!NOTE]을 참조하세요.
-Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 사용자 지정 정책은 확장 특성을 extension_attributename으로 참조하므로 XML에서 ApplicationObjectId가 생략됩니다.
+* 확장 속성에 대한 완전한 처리는 [디렉터리 스키마 확장 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
+
+>[!NOTE]
+>Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 사용자 지정 정책은 확장 특성을 extension_attributename으로 참조하므로 XML에서 ApplicationObjectId가 생략됩니다.
 

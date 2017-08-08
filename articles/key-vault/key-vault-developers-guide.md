@@ -2,20 +2,18 @@
 title: "Azure Key Vault 개발자 가이드 | Microsoft Docs"
 description: "개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다."
 services: key-vault
-documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 06/6/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a15b403166dad17790c75f6db874e4ed2640ca78
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
@@ -29,14 +27,18 @@ Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안�
 
 Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
-## <a name="public-preview---may-10-2017"></a>공개 미리 보기 - 2017년 5월 10일
+## <a name="public-previews"></a>공개 미리 보기
+
+새로운 Key Vault 기능의 공개 미리 보기가 정기적으로 릴리스됩니다. 이러한 공개 미리 보기를 사용해보고, 피드백 메일 주소인 azurekeyvault@microsoft.com을 통해 의견을 알려주세요.
+
+### <a name="storage-account-keys---july-10-2017"></a>저장소 계정 키 - 2017년 7월 10일
 
 >[!NOTE]
->이 Azure Key Vault 미리 보기 버전에서는 **일시 삭제** 기능만 미리 보기 상태입니다. 전반적인 Azure Key Vault는 전체 프로덕션 서비스입니다.
+>이 Azure Key Vault 업데이트에서는 **저장소 계정 키** 기능만 미리 보기 상태입니다.
 
-이 미리 보기에는 주요 자격 증명 모음 및 주요 자격 증명 모음 개체의 복구 가능한 삭제인 새로운 일시 삭제 기능과 개발자를 위한 업데이트된 인터페이스인 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/)이 포함되어 있습니다. 
+이 미리 보기에는 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 인터페이스를 통해 사용할 수 있는 새로운 저장소 계정 키가 포함되어 있습니다. 
 
-새로운 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
+새 저장소 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault 저장소 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
 
 ## <a name="videos"></a>비디오
 
@@ -79,6 +81,8 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 
 #### <a name="nodejs"></a>Node.js
 
+Node.js에서 자격 증명 모음 관리 API와 자격 증명 모음 개체 API는 별개입니다. Key Vault 관리를 사용하면 주요 자격 증명 모음을 만들고 업데이트할 수 있습니다. Key Vault 운영 API는 키, 암호, 인증서 등의 자격 증명 모음 개체 작업에 사용됩니다. 
+
 - [Key Vault 관리에 대한 Node.js API 참조](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Key Vault 작업에 대한 Node.js API 참조](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
@@ -120,20 +124,20 @@ Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지�
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 
-- [Key Vault 보안 권역](key-vault-ovw-security-worlds.md)
-- [Key Vault 일시 삭제](key-vault-ovw-soft-delete.md)
+- [Key Vault 일시 삭제 동작](key-vault-ovw-soft-delete.md)에서는 삭제가 실수인지, 의도적인 것인지에 관계없이 삭제된 개체를 복구할 수 있는 기능에 대해 설명합니다.
+- [Key Vault 클라이언트 제한](key-vault-ovw-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
+- [Key Vault 저장소 계정 키 개요](key-vault-ovw-storage-keys.md)에서는 Key Vault 통합 Azure Storage 계정 키에 대해 설명합니다.
+- [Key Vault 보안 권역](key-vault-ovw-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 
 ## <a name="social"></a>사회적
 
 - [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
 - [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
 
-
 ## <a name="supporting-libraries"></a>라이브러리 지원
 
 - [Microsoft Azure Key Vault 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 **IKey** 및 **IKeyResolver** 인터페이스를 제공합니다.
 - [Microsoft Azure Key Vault 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
 
-## <a name="other-key-vault-resources"></a>다른 키 자격 증명 모음 리소스
 
 

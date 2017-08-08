@@ -37,10 +37,10 @@ Visual Studio를 통해 Azure 서비스 패브릭 응용 프로그램 및 서비
 Visual Studio에서 **F5** 키를 누르면 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 첨부됩니다. **Ctrl+F5** 를 사용하여 디버그하지 않고 응용 프로그램을 배포하거나, 게시 프로필을 사용하여 로컬 또는 원격 클러스터에 게시할 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시](service-fabric-publish-app-remote-cluster.md)를 참조하세요.
 
 ### <a name="application-debug-mode"></a>응용 프로그램 디버그 모드
-Visual Studio는 Visual Studio에서 디버깅의 일부로 응용 프로그램 배포를 처리하는 방법을 제어하는 **응용 프로그램 디버그 모드**라는 속성을 제공합니다.
+Visual Studio는 Visual Studio에서 디버깅의 일부로 응용 프로그램 배포를 처리하는 방법을 제어하는 **응용 프로그램 디버그 모드** 라는 속성을 제공합니다.
 
 #### <a name="to-set-the-application-debug-mode-property"></a>응용 프로그램 디버그 모드 속성을 설정하려면
-1. Service Fabric 응용 프로그램 프로젝트의(*.sfproj) 바로 가기 메뉴에서 **속성**을 선택합니다. (또는 **F4** 키를 누릅니다.)
+1. Service Fabric 응용 프로그램 프로젝트의 (*.sfproj) 바로 가기 메뉴에서 **속성** 을 선택합니다. (또는 **F4** 키를 누릅니다.)
 2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 설정합니다.
 
 ![응용 프로그램 디버그 모드 속성 설정][debugmodeproperty]

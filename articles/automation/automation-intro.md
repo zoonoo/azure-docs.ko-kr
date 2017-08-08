@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-automation-overview"></a>Azure 자동화 개요
 Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 엔터프라이즈 환경에서 장시간 동안 수동으로 실행되며 오류가 발생하기 쉬운 자주 반복되는 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다. 이 문서에서는 Azure 자동화의 간단한 개요 및 일반적인 질문에 대한 답변을 제공합니다. 이 라이브러리의 다른 문서를 참조하여 다른 항목에 대한 자세한 내용을 얻을 수 있습니다.
 
 ## <a name="automating-processes-with-runbooks"></a>Runbook을 사용하여 프로세스 자동화
-Runbook은 Azure 자동화에서 일부 자동화 된 프로세스를 수행하는 작업의 집합입니다. 가상 컴퓨터를 시작하고 로그 항목을 만드는 것과 같은 단순한 프로세스이거나 여러 리소스 또는 여러 클라우드와 온-프레미스 환경에 걸쳐 복잡한 프로세스를 수행하는 다른 작은 Runbook을 결합하는 복잡한 Runbook이 있을 수 있습니다.  
+Runbook은 Azure 자동화에서 일부 자동화 된 프로세스를 수행하는 작업의 집합입니다. 가상 컴퓨터를 시작하고 로그 항목을 만드는 것과 같은 단순한 프로세스일 수도 있고, 다른 작은 Runbook을 결합한 복잡한 Runbook을 통해 여러 리소스 또는 여러 클라우드 및 온-프레미스 환경에서 수행하는 복잡한 프로세스일 수도를 있습니다.  
 
 예를 들어 SQL 데이터베이스가 서버에 연결, 데이터베이스에 연결, 데이터베이스의 현재 크기를 가져오기, 임계값을 초과하는지 여부 및 자르기와 사용자에게 알리기와 같은 여러 단계를 포함하는 최대 크기에 도달하는 경우 해당 SQL 데이터베이스를 자르기 위해 기존의 수동 프로세스가 있을 수 있습니다. 이러한 각 단계를 수동으로 수행하는 대신 단일 프로세스로 이러한 작업을 모두 수행하는 runbook을 만들 수 있습니다. Runbook을 실행하고 SQL Server 이름, 데이터베이스 이름, 받는 사람 메일 등의 필수 정보를 입력한 후에 프로세스가 완료될 때까지 기다리기만 하면 됩니다. 
 

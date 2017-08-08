@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 34072574f83b51280e60e2f8766c6c5d5a33c307
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -31,7 +30,7 @@ Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > Linux를 사용하는 HDInsight 클러스터에서 Storm 토폴로지 배포 및 관리에 대한 자세한 내용은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
 
@@ -45,10 +44,9 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
     다음과 같은 Visual Studio 버전 중 하나:
 
-  * Visual Studio 2012 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 업데이트 4
 
-  * Visual Studio 2013 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=44921) 또는 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 업데이트 4 또는 Visual Studio 2013 Community
 
   * Visual Studio 2015(모든 버전)
 

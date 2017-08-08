@@ -3,8 +3,8 @@ title: "Xamarin Android에서 모바일 앱에 대한 인증 시작"
 description: "모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Android 앱 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
-ms.lasthandoff: 11/17/2016
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8f9a1109018c708d52cdcb7b8bce43861cecd31c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin Android 앱에 인증 추가
@@ -30,6 +30,20 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+
+보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 응용 프로그램에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
+
+1. [Azure Portal]에서 해당 App Service를 선택합니다.
+
+2. **인증/권한 부여** 메뉴 옵션을 클릭합니다.
+
+3. **허용되는 외부 리디렉션 URL**에서 `url_scheme_of_your_app://easyauth.callback`을 입력합니다.  이 문자열의 **url_scheme_of_your_app**은 모바일 응용 프로그램에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 응용 프로그램 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
+
+4. **확인**을 클릭합니다.
+
+5. **저장**을 클릭합니다.
 
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -52,7 +66,7 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
                 {
                     // Sign in with Facebook login using a server-managed flow.
                     user = await client.LoginAsync(this,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     CreateAndShowDialog(string.Format("you are now logged in - {0}",
                         user.UserId), "Logged in!");
    
@@ -99,10 +113,18 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
 4. Strings.xml 리소스 파일에 다음 요소를 추가합니다.
    
         <string name="login_button_text">Sign in</string>
-5. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다.
-   
-       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+5. AndroidManifest.xml 파일을 열고 `<application>` XML 요소 내에 다음 코드를 추가합니다.
+
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+          <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+          </intent-filter>
+        </activity>
+
+6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다. 성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 
 <!-- URLs. -->
 [Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
-

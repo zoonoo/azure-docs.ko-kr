@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -135,7 +136,9 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 4. 웹앱에 인증서 추가
 
 **인증서 얻기 또는 만들기** 학습을 위한 목적으로 테스트 인증서를 만듭니다. 다음은 개발자 명령 프롬프트에서 인증서를 만들기 위해 사용할 수 있는 몇 가지 명령입니다. 인증서 파일을 만들 디렉터리로 변경합니다.  또한 인증서의 시작 및 종료 날짜는 현재 날짜 더하기 1년을 사용합니다.
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 .pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2016 및 test123). 아래에서 필요합니다.
 

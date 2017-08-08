@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,8 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-# 실행 계정으로 Automation 계정 인증 업데이트
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a> 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>실행 계정으로 Automation 계정 인증 업데이트 
 다음과 같은 경우 포털 또는 PowerShell을 사용하여 기존 Automation 계정을 업데이트할 수 있습니다.
 
 * Automation 계정을 만들었지만 실행 계정 생성이 거부되었습니다.
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 * Automation 계정을 사용하여 클래식 리소스를 관리하며 새 계정을 만들어서 Runbook 및 자산을 마이그레이션하는 대신 클래식 실행 계정을 사용하여 업데이트해야 합니다.   
 * 엔터프라이즈 CA(인증 기관)에서 발급한 인증서를 사용하여 실행 및 클래식 실행 계정을 만들려고 합니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 * 스크립트는 Azure Resource Manager 모듈 3.0.0 이상을 설치한 Windows 10 및 Windows Server 2016에서만 실행될 수 있습니다. 이전 버전의 Windows에서는 지원되지 않습니다.
 * Azure PowerShell 1.0 이상 PowerShell 1.0 릴리스에 대한 정보는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
@@ -44,8 +42,7 @@ ms.lasthandoff: 06/30/2017
 2. **모든 설정** 블레이드의 **계정 설정** 아래에서 **속성**을 선택합니다. 
 3. **속성** 블레이드에 대한 값을 적어둡니다.<br><br> ![Automation 계정 "속성" 블레이드](media/automation-create-runas-account/automation-account-properties.png)  
 
-### Automation 계정을 업데이트하는 데 필요한 권한
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
+### <a name="required-permissions-to-update-your-automation-account"></a>Automation 계정을 업데이트하는 데 필요한 권한
 Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요한 다음과 같은 특정 권한이 있어야 합니다.   
  
 * AD 사용자 계정은 [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md#contributor-role-permissions) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 참가자 역할과 동일한 권한을 가진 역할에 추가해야 합니다.  
@@ -53,8 +50,7 @@ Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요
 
 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 상황에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고. 전역 관리자/공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
-## 포털에서 실행 계정 만들기
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
+## <a name="create-run-as-account-from-the-portal"></a>포털에서 실행 계정 만들기
 이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다.  실행 계정 및 클래식 실행 계정을 개별적으로 만들고, Azure 클래식 포털에서 리소스를 관리할 필요가 없는 경우 Azure 실행 계정을 만들면 됩니다.  
 
 이 프로세스에서 만드는 Automation 계정의 항목은 다음과 같습니다.
@@ -75,8 +71,7 @@ Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요
 3. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다.  **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 블레이드 중 하나를 선택하여 해당 블레이드가 표시되면 개요 정보를 검토한 후에 **만들기**를 클릭하여 실행 계정 만들기 단계로 진행합니다.  
 4. Azure에서 실행 계정을 만드는 동안, 메뉴의 **알림**에서 진행률을 추적할 수 있으며 계정을 만들고 있음을 알리는 배너가 표시됩니다.  이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.  
 
-## PowerShell 스크립트를 사용하여 실행 계정 만들기
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
+## <a name="create-run-as-account-using-powershell-script"></a>PowerShell 스크립트를 사용하여 실행 계정 만들기
 이 PowerShell 스크립트는 다음 구성에 대한 지원을 포함합니다.
 
 * 자체 서명된 인증서를 사용하여 실행 계정을 만듭니다.
@@ -161,7 +156,7 @@ Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -302,7 +297,6 @@ Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요
 * 엔터프라이즈 공용 인증서(.cer 파일)를 사용하여 클래식 실행 계정을 만든 경우 이 인증서를 사용합니다. [Azure 클래식 포털에 관리 API 인증서를 업로드](../azure-api-management-certs.md)하는 지침을 수행한 다음 [Azure 클래식 배포 리소스에서 인증하기 위한 샘플 코드](automation-verify-runas-authentication.md#classic-run-as-authentication)를 사용하여 클래식 배포 리소스에서 자격 증명 구성의 유효성을 검사합니다. 
 * 클래식 실행 계정을 만들지 *않은* 경우 [Service Management 리소스에 인증하기 위한 샘플 코드](automation-verify-runas-authentication.md#automation-run-as-authentication)를 사용하여 Resource Manager 리소스에 인증하고 자격 증명 구성의 유효성을 검사합니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 * 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 * 인증서 및 Azure 서비스에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.

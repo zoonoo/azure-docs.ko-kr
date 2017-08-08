@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/20/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: bc6749f583de752592b0b49548c5a42321cac7b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: d3c68e8a1bd7ec97d7dd14c3ba87cc886e2935ae
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
@@ -42,9 +41,7 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
 
 ## <a name="hivetable"></a>Spark 데이터 시각화를 위한 데이터 준비
 
-이 섹션에서는 HDInsight Spark 클러스터에서 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
-
-데이터가 테이블로 저장되면 다음 섹션에서 BI 도구를 사용하여 테이블에 연결하고 데이터 시각화를 수행합니다.
+이 섹션에서는 HDInsight Spark 클러스터에서 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다. 데이터가 테이블로 저장되면 다음 섹션에서 BI 도구를 사용하여 테이블에 연결하고 데이터 시각화를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
@@ -99,7 +96,7 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
         +---------------+-------------+
         |tableName      |isTemporary  |
         +---------------+-------------+
-        |hvactemptable  |true         |
+        |hvactemptable  |true        |
         |hivesampletable|false        |
         |hvac           |false        |
         +---------------+-------------+
@@ -114,6 +111,11 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
 9. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다.
 
 ## <a name="powerbi"></a>Spark 데이터 시각화에 대해 Power BI 사용
+
+> [!NOTE]
+> 이 섹션은 HDInsight 3.4의 Spark 1.6 및 HDInsight 3.5의 Spark 2.0에만 사용할 수 있습니다.
+>
+>
 
 데이터를 테이블로 저장하면 Power BI를 사용하여 데이터를 연결하고 시각화하여 보고서, 대시보드 등을 만들 수 있습니다.
 
@@ -198,38 +200,10 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
     ![Spark 데이터 시각화에 대한 Tableau 출력](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Spark 데이터 시각화에 대한 Tableau 출력")
 9. **저장** 을 클릭하여 워크시트를 저장합니다. 대시보드를 만들고 시트를 하나 이상 추가할 수도 있습니다.
 
-## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
+## <a name="next-steps"></a>다음 단계
 
-### <a name="scenarios"></a>시나리오
-* [기계 학습과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+지금까지 클러스터를 만들고 Spark 데이터 프레임을 만든 후 BI 도구에서 해당 데이터에 액세스하는 방법을 배웠습니다. 이제 클러스터 리소스를 관리하고 HDInsight Spark 클러스터에서 실행 중인 작업을 디버그하는 방법에 대한 지침을 살펴볼 수 있습니다.
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
 

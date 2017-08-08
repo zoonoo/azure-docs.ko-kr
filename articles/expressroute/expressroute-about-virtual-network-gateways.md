@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b58a8f7f87a231bd44c9224e3c889c31336ee0b1
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/21/2017
 
 가상 네트워크 게이트웨이를 만들 때 몇 가지 설정을 지정합니다. 필수 설정 중 하나에서는 ExpressRoute 또는 사이트 간 VPN 트래픽에 게이트웨이를 사용할지 여부를 지정합니다. Resource Manager 배포 모델에서 이 설정은 '-GatewayType'입니다.
 
-네트워크 트래픽을 전용 개인 연결에 전송하면 'Express 경로' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. 네트워크 트래픽을 공용 인터넷을 통해 암호화하여 전송하면 'Vpn' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다. 
+개인 연결을 통해 네트워크 트래픽을 전송하는 경우 'ExpressRoute' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. 네트워크 트래픽을 공용 인터넷을 통해 암호화하여 전송하면 'Vpn' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다.
 
 각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Express 경로를 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 ExpressRoute 가상 네트워크 게이트웨이를 중점적으로 다룹니다.
 

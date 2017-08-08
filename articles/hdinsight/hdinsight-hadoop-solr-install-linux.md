@@ -1,5 +1,5 @@
 ---
-title: "스크립트 동작을 사용하여 Linux 기반 HDInsight에 Solr 설치 | Microsoft 문서"
+title: "스크립트 작업을 사용하여 Linux 기반 HDInsight에 Solr 설치 - Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Solr를 설치하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 9035dd639433f1edc628db85f1663add4abfdbd3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
@@ -29,10 +28,10 @@ ms.lasthandoff: 05/18/2017
 스크립트 동작을 사용하여 Azure HDInsight에 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다.
 
 > [!IMPORTANT]
-    > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+    > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서에 사용된 샘플 스크립트는 특정 구성의 Solr 클러스터를 만듭니다. 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 이 스크립트와 Solr 바이너리를 수정해야 합니다.
+> 이 문서에 사용된 샘플 스크립트는 특정 구성의 Solr 4.9를 설치합니다. 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 이 스크립트와 Solr 바이너리를 수정해야 합니다.
 
 ## <a name="whatis"></a>Solr이란
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 05/18/2017
 
 이 스크립트는 HDInsight 클러스터에서 다음을 변경합니다.
 
-* `/usr/hdp/current/solr`
+* `/usr/hdp/current/solr`에 Solr 4.9 설치
 * Solr 서비스를 실행하는 데 사용되는 사용자 **solrusr**을 만듭니다.
 * **solruser**을 `/usr/hdp/current/solr`의 소유자로 설정합니다.
 * Solr을 자동으로 시작하는 [Upstart](http://upstart.ubuntu.com/) 구성을 추가합니다.
@@ -321,7 +320,7 @@ Solr 데이터를 클러스터의 기본 저장소로 백업하려면 다음 단
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업 생성 및 복원](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)을 참조하세요.
+Solr 백업 및 복원 작업에 대한 자세한 내용은 [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

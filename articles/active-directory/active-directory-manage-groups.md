@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 그룹을 사용하여 리소스에 대한 액세스 관리 | Microsoft Docs"
 description: "온-프레미스 및 클라우드 응용 프로그램 및 리소스에 대한 사용자 액세스 관리를 위해 Azure Active Directory의 그룹을 사용하는 방법입니다."
 services: active-directory
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 27ce2b472cd10d8c6e9bbfb64588a824980fb656
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cd8125eda7643f0b190d35cbb89edf8b7b4eca30
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리

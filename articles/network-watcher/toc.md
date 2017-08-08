@@ -64,6 +64,7 @@
 ## [오픈 소스 도구를 사용하여 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화](network-watcher-using-open-source-tools.md)
 ## [PowerShell을 사용하여 네트워크에서 규정 준수 및 감사 수행](network-watcher-nsg-auditing-powershell.md)
+## [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)
 ## [오픈 소스 도구를 사용하여 침입 감지 수행](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Azure Log Analytics에서 Application Gateway 로그 분석](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # 참조

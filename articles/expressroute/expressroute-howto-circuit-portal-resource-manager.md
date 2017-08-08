@@ -15,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 2e6c204a1b520f5994c30c518f7ced11d77bde24
-ms.lasthandoff: 05/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure CLI](howto-circuit-cli.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
 이 문서에서는 Azure 포털 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 아래 단계에서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.

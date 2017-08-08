@@ -128,7 +128,7 @@
 ## [REST (영문)](/rest/api/resources/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [제한 요청](resource-manager-request-limits.md)

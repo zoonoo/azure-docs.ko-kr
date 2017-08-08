@@ -11,7 +11,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 <br>
 
-| SKU 제품군 | ACU/코어 |
+| SKU 제품군 | ACU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
@@ -23,6 +23,10 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 | [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* |
 | [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 |
 | [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* |
+| [D_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** |
+| [Ds_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** |
+| [E_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
+| [Es_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
 | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [G1-G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |

@@ -1,6 +1,7 @@
 ---
-title: "HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft Docs"
-description: "HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
+title: "HDInsight에서 Hadoop MapReduce 예제 실행 - Azure | Microsoft Docs"
+description: "HDInsight에 포함된 jar 파일의 MapReduce 샘플을 사용하여 시작하세요. SSH를 통해 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
+keywords: "hadoop 예제 jar,hadoop 예제 jar,hadoop mapreduce 예제,mapreduce 예제"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -9,71 +10,71 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d1c0aca91e1b1d30dea595a65099baacb0a634ee
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 07b292064178aee9ff94dc47554be2b0098ef807
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="run-the-hadoop-samples-in-hdinsight"></a>HDInsight에서 Hadoop 샘플 실행
+# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-HDInsight에 포함된 MapReduce 예제에 대해 알아봅니다.
+HDInsight의 Hadoop에 포함된 MapReduce 예제를 실행하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
+* **HDInsight 클러스터**: [Linux HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
     > [!IMPORTANT]
-    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * **SSH 클라이언트**: 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a name="the-samples"></a>샘플
+## <a name="the-mapreduce-examples"></a>MapReduce 예제
 
 **위치**: 샘플은 HDInsight 클러스터의 `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`에 있습니다.
 
 **내용**: 이 보관 파일에는 다음 샘플이 들어 있습니다.
 
-* **aggregatewordcount**: 입력 파일의 단어 수를 계산하는 집계 기반 map/reduce 프로그램
-* **aggregatewordhist**: 입력 파일의 단어 히스토그램을 계산하는 집계 기반 map/reduce 프로그램
-* **bbp**: Bailey-Borwein-Plouffe를 사용하여 Pi의 정확한 소수 자릿수를 계산하는 map/reduce 프로그램
-* **dbcount**: 데이터베이스에 저장된 페이지 보기 로그를 계산하는 예제 작업
-* **distbbp**: BBP 형식의 수식을 사용하여 Pi의 정확한 비트를 계산하는 map/reduce 프로그램
-* **grep**: 입력에서 정규식과 일치하는 항목의 수를 계산하는 map/reduce 프로그램
-* **join**: 정렬되고 동일하게 분할된 데이터 집합을 통해 조인을 수행하는 작업
-* **multifilewc**: 여러 파일에서 단어 수를 계산하는 작업
-* **pentomino**: pentomino 문제에 대한 해결 방법을 찾는 map/reduce 타일 배치 프로그램
-* **pi**: 준난수 몬테카를로 방법을 사용하여 Pi를 추정하는 map/reduce 프로그램
-* **randomtextwriter**: 노드당 10GB의 임의 텍스트 데이터를 기록하는 map/reduce 프로그램
-* **randomwriter**: 노드당 10GB의 임의 데이터를 기록하는 map/reduce 프로그램
-* **secondarysort**: reduce에 대한 보조 정렬을 정의하는 예제
-* **sort**: 임의 기록기에서 기록한 데이터를 정렬하는 map/reduce 프로그램
-* **sudoku**: sudoku 해 찾기
-* **teragen**: terasort에 대한 데이터 생성
-* **terasort**: terasort 실행
-* **teravalidate**: terasort 결과 확인
-* **wordcount**: 입력 파일의 단어 수를 계산하는 map/reduce 프로그램
-* **wordmean**: 입력 파일의 단어 길이에 대한 평균값을 계산하는 map/reduce 프로그램
-* **wordmedian**: 입력 파일의 단어 길이에 대한 중앙값을 계산하는 map/reduce 프로그램
-* **wordstandarddeviation**: 입력 파일의 단어 길이에 대한 표준 편차를 계산하는 map/reduce 프로그램
+* `aggregatewordcount`: 입력 파일의 단어 수를 계산하는 집계 기반 mapreduce 프로그램
+* `aggregatewordhist`: 입력 파일의 단어 히스토그램을 계산하는 집계 기반 mapreduce 프로그램
+* `bbp`: Bailey-Borwein-Plouffe를 사용하여 Pi의 정확한 숫자를 계산하는 mapreduce 프로그램
+* `dbcount`: 데이터베이스에 저장된 페이지 보기 로그를 계산하는 예제 작업
+* `distbbp`: BBP 형식의 수식을 사용하여 Pi의 정확한 비트를 계산하는 mapreduce 프로그램
+* `grep`: 입력에서 정규식과 일치하는 항목 수를 계산하는 mapreduce 프로그램
+* `join`: 정렬되고 동일하게 분할된 데이터 집합을 통해 조인을 수행하는 작업
+* `multifilewc`: 여러 파일의 단어 수를 계산하는 작업
+* `pentomino`: pentomino 문제에 대한 해결 방법을 찾는 mapreduce 타일 배치 프로그램
+* `pi`: 준난수 몬테카를로 방법을 사용하여 Pi를 추정하는 mapreduce 프로그램
+* `randomtextwriter`: 노드당 10GB의 임의 텍스트 데이터를 기록하는 mapreduce 프로그램
+* `randomwriter`: 노드당 10GB의 임의 데이터를 기록하는 mapreduce 프로그램
+* `secondarysort`: reduce 단계에 대한 보조 정렬을 정의하는 예제
+* `sort`: 임의 기록기에서 기록한 데이터를 정렬하는 mapreduce 프로그램
+* `sudoku`: sudoku 해 찾기
+* `teragen`: terasort에 대한 데이터 생성
+* `terasort`: terasort 실행
+* `teravalidate`: terasort 결과 확인
+* `wordcount`: 입력 파일의 단어 수를 계산하는 mapreduce 프로그램
+* `wordmean`: 입력 파일의 단어 길이에 대한 평균값을 계산하는 mapreduce 프로그램
+* `wordmedian`: 입력 파일의 단어 길이에 대한 중앙값을 계산하는 mapreduce 프로그램
+* `wordstandarddeviation`: 입력 파일의 단어 길이에 대한 표준 편차를 계산하는 mapreduce 프로그램
 
 **소스 코드**: 이러한 샘플의 소스 코드는 HDInsight 클러스터의 `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`에 있습니다.
 
 > [!NOTE]
 > 경로의 `2.2.4.9-1`은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 클러스터에 따라 다를 수 있습니다.
 
-## <a name="how-to-run-the-samples"></a>샘플을 실행하는 방법
+## <a name="run-the-wordcount-example"></a>wordcount 예제 실행
 
 1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -123,7 +124,7 @@ HDInsight에 포함된 MapReduce 예제에 대해 알아봅니다.
 
     각 줄은 단어와 해당 단어가 입력 데이터에서 발생한 횟수를 나타냅니다.
 
-## <a name="sudoku"></a>sudoku
+## <a name="the-sudoku-example"></a>Sudoku 예제
 
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) 는 9개의 3x3 표로 구성된 논리 퍼즐입니다. 표의 일부 셀에는 숫자가 있고 다른 셀은 비어 있으며, 빈 셀을 해결하는 것이 목표입니다. 이전 링크에는 퍼즐에 대한 자세한 정보가 있지만, 이 샘플의 목적은 빈 셀을 해결하는 것입니다. 따라서 입력은 다음과 같은 형식의 파일이어야 합니다.
 
@@ -161,9 +162,9 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-"></a>Pi(π)
+## <a name="pi--example"></a>Pi(π) 예제
 
-Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 점은 단위 정사각형 내에 임의로 배치됩니다. 정사각형에는 원도 포함되어 있습니다. 점이 원 안에 들어올 확률은 원의 영역인 pi/4와 같습니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
+Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 점은 단위 정사각형 내에 임의로 배치됩니다. 정사각형에는 원도 포함되어 있습니다. 점이 원 안에 들어올 확률은 원의 영역인 pi/4와 같습니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
 다음 명령을 사용하여 이 샘플을 실행합니다. 이 명령은 각각 10,000,000개의 샘플이 있는 16개의 맵을 사용하여 pi 값을 추정합니다.
 
@@ -173,11 +174,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 이 명령에서 반환되는 값은 **3.14159155000000000000**과 유사합니다. 참고로, Pi의 소수점 이하 10자리는 3.1415926535입니다.
 
-## <a name="10gb-greysort"></a>10GB Greysort
+## <a name="10-gb-greysort-example"></a>10GB Greysort 예제
 
-GraySort는 벤치마크 정렬이며, 해당 메트릭이 엄청난 양, 일반적으로 최소 100TB의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)입니다.
+GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반적으로 최소 100TB의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)입니다.
 
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 Owen O'Malley 및 Arun Murthy가 개발하여 2009년 연간 범용("daytona") 테라바이트 정렬 벤치마크에서 0.578TB/분(100TB 정렬에 173분 소요)의 속도를 달성한 MapReduce 응용 프로그램을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 응용 프로그램은 0.578TB/분(100TB 정렬에 173분 소요)의 속도로, 2009년 연간 범용("daytona") 테라바이트 정렬 벤치마크로 선정되었습니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 
@@ -185,7 +186,7 @@ GraySort는 벤치마크 정렬이며, 해당 메트릭이 엄청난 양, 일반
 
 * **TeraSort**: 입력 데이터를 샘플링하고 MapReduce를 사용하여 데이터를 전체 순서로 정렬
 
-    TeraSort는 각 reduce의 키 범위를 정의하는 N-1 샘플 키의 정렬된 목록을 사용하는 사용자 지정 파티셔너를 제외한 표준 MapReduce 정렬입니다. 특히, sample[i-1] <= key < sample[i]와 같은 모든 키는 reduce i로 전송됩니다. 이는 reduce i의 출력이 모두 reduce i+1의 출력보다 작다는 것을 보증합니다.
+    TeraSort는 사용자 지정 파티셔너를 제외하고 표준 MapReduce 정렬입니다. 파티셔너는 각 reduce의 키 범위를 정의하는 N-1 샘플 키의 정렬된 목록을 사용합니다. 특히, sample[i-1] <= key < sample[i]와 같은 모든 키는 reduce i로 전송됩니다. 이 파티셔너는 reduce i의 출력이 모두 reduce i+1의 출력보다 작도록 보증합니다.
 
 * **TeraValidate**: 출력이 전역으로 정렬되는지 확인하는 MapReduce 프로그램
 
@@ -199,7 +200,7 @@ GraySort는 벤치마크 정렬이며, 해당 메트릭이 엄청난 양, 일반
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    `-Dmapred.map.tasks` 는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어 `/example/data/10GB-sort-input`에 저장하도록 작업에 지시합니다.
+    `-Dmapred.map.tasks` 는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB의 데이터를 만들어 `/example/data/10GB-sort-input`에 저장하도록 작업에 지시합니다.
 
 2. 다음 명령을 사용하여 데이터를 정렬합니다.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: fe05b9fd3bc2737ba157f620f91c25654114b480
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 3c5826d58887ff1af4df8e66999d9c1a1643bcc7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기
@@ -285,32 +284,13 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 * 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 계정에 ID에 역할을 할당할 수 있는 충분한 권한이 없을 때 이 오류가 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
 
 ## <a name="sample-applications"></a>샘플 응용 프로그램
-다음 예제 응용 프로그램에서는 서비스 주체로 로그인하는 방법을 보여 줍니다.
+다른 플랫폼을 통해 응용 프로그램으로 로그인하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-**.NET**
-
-* [.NET에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [.NET을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [리소스 사용 시작 - Azure Resource Manager 템플릿을 사용하여 배포 - Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [리소스 사용 시작 - 리소스 그룹 관리 - Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Python에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Python을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.JS**
-
-* [Node.js에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Node.js를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.JS](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>다음 단계
 * 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.

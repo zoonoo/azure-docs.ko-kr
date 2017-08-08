@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/20/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 8ed07d7be1d737fac332d9ea82e65fd5e92f89d5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -34,12 +34,13 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * XML
 * ZIP
 * EML
-* 일반 텍스트 파일  
-* JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 미리 보기 기능 참조)
+* RTF
+* 일반 텍스트 파일([일반 텍스트 인덱싱 참조](#IndexingPlainText))
+* JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
 * CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
 
 > [!IMPORTANT]
-> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2015-02-28-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2016-09-01-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 
@@ -141,7 +142,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 > [!NOTE]
 > 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화된 방식으로 JSON 및 CSV Blob을 인덱싱하려면 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 및 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능을 참조하세요.
-> 
+>
 > 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
 * 문서의 텍스트 콘텐츠가 `content`라는 문자열 필드로 추출됩니다.
@@ -341,11 +342,31 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 ## <a name="indexing-documents-along-with-related-data"></a>관련된 데이터와 함께 문서 인덱싱
 
-문서에는 연결된 메타데이터(예: 문서를 작성한 부서)가 있을 수 있으며, 다음 위치 중 하나에 구조화된 데이터로서 저장되어 있습니다.
--   SQL Database 또는 Azure Cosmos DB와 같은 별도 데이터 저장소.
--   사용자 지정 메타데이터로서 Azure Blob Storage에 있는 각 문서에 직접 연결됩니다. (자세한 내용은 [Blob 리소스의 속성 및 메타데이터를 설정 및 검색](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)를 참조하세요.)
+인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
 
-각 문서와 해당 메타데이터에 같은 고유 키 값을 할당하고 각 인덱서에 대한 `mergeOrUpload` 작업을 지정하여 해당 메타데이터와 함께 문서를 인덱싱할 수 있습니다. 이 솔루션에 대한 자세한 설명은 이 외부 문서 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
+이렇게 하려면 모든 인덱서 및 기타 구성 요소가 문서 키에 동의해야 합니다. 자세한 연습은 이 외부 아티클 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 
+
+모든 BLOB에 동일한 인코딩의 일반 텍스트가 포함된 경우 **텍스트 구문 분석 모드**를 사용하여 인덱싱 성능을 크게 향상시킬 수 있습니다. 텍스트 구문 분석 모드를 사용하려면 `parsingMode` 구성 속성을 `text`로 설정합니다.
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+기본적으로 `UTF-8` 인코딩이 간주됩니다. 다른 인코딩을 지정하려면 `encoding` 구성 매개 변수를 사용하세요. 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>콘텐츠 형식별 메타데이터 속성
@@ -366,7 +387,9 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 | XML(application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML 태그를 제거하고 텍스트 추출 |
 | JSON(application/json) |`metadata_content_type`</br>`metadata_content_encoding` |텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
 | EML(메시지/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
-| 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF(application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | 텍스트 추출|
+| 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | 텍스트 추출|
+
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 알려주세요.

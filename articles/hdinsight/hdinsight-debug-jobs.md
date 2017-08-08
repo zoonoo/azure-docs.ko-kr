@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 | Microsoft 문서"
+title: "HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure | Microsoft Docs"
 description: "PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다."
 services: hdinsight
 tags: azure-portal
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
-ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
-ms.lasthandoff: 02/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 3031644e2975fd59edff13c7a9da1efa418e8abd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -89,7 +90,7 @@ Windows 기반 클러스터에 3개의 테이블을 만듭니다.
 7. **확인** 을 클릭하여 데이터를 가져옵니다.
 8. **TraceLevel**, 역할 및 **ComponentName** 열을 선택한 다음 리본 메뉴에서 **그룹별** 컨트롤을 클릭합니다.
 9. 그룹별 대화 상자에서 **확인** 을 클릭합니다.
-10. **적용 및 닫기**를 클릭합니다.
+10. ** 적용 및 닫기**를 클릭합니다.
 
 이제 Excel을 사용하여 필요에 따라 필터링하고 정렬할 수 있습니다. 물론, 문제가 발생할 때 문제를 드릴 다운하기 위해 다른 열(예: 메시지)을 포함하려하지만 위에서 설명한 열을 선택하고 그룹화하면 Hadoop 서비스를 사용하여 발생하는 사항에 훌륭한 그림을 제공합니다. Setuplog 및 hadoopinstalllog 테이블에 동일한 개념을 적용할 수 있습니다.
 

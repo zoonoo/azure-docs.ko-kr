@@ -22,17 +22,13 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="examples-of-mapping-an-existing-web-service-to-odata-through-csdls" class="xliff"></a>
-
-# CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예
+# <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예
 > [!IMPORTANT]
 > **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기](https://appsource.microsoft.com/partners)에서 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기](https://azure.microsoft.com/marketplace/programs/certified/)에서 자세한 내용을 확인할 수 있습니다.
 > 
 > 
 
-<a id="example-functionimport-for-raw-data-returned-using-post" class="xliff"></a>
-
-## 예: "POST"를 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
+## <a name="example-functionimport-for-raw-data-returned-using-post"></a>예: "POST"를 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
 원시 데이터 POST를 사용하여 새 하위를 만들고 해당 서버의 정의된 URL(위치)을 반환하거나 서버의 정의된 URL에서 하위 일부를 업데이트합니다.  여기서 하위는 스트림입니다.  즉 구조화 되어 있지 않으며,  텍스트 파일이 그 예입니다.  POST는 위치 없는 idempotent가 아닙니다.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
@@ -50,9 +46,7 @@ ms.lasthandoff: 07/06/2017
         </d:Namespaces>
         </FunctionImport>
 
-<a id="example-functionimport-using-delete" class="xliff"></a>
-
-## 예: "DELETE"를 사용하는 FunctionImport
+## <a name="example-functionimport-using-delete"></a>예: "DELETE"를 사용하는 FunctionImport
 DELETE를 사용하여 지정된 URI를 제거합니다.
 
         <EntitySet Name="DeleteUsageFileEntitySet" EntityType="MyOffer.DeleteUsageFileEntity" />
@@ -73,9 +67,7 @@ DELETE를 사용하여 지정된 URI를 제거합니다.
         <Property Name="boolean" Type="String" Nullable="true" d:Map="./boolean" />
         </EntityType>
 
-<a id="example-functionimport-using-post" class="xliff"></a>
-
-## 예: "POST"를 사용하는 FunctionImport
+## <a name="example-functionimport-using-post"></a>예: "POST"를 사용하는 FunctionImport
 원시 데이터 POST를 사용하여 새 하위를 만들고 해당 서버의 정의된 URL(위치)을 반환하거나 서버의 정의된 URL에서 하위 일부를 업데이트합니다.  여기서 하위는 구조입니다. POST는 위치 없는 idempotent가 아닙니다.
 
         <EntitySet Name="CreateANewModelEntitySet2" EntityType=" MyOffer.CreateANewModelEntity2" />
@@ -93,9 +85,7 @@ DELETE를 사용하여 지정된 URI를 제거합니다.
         </d:Namespaces>
         </FunctionImport>
 
-<a id="example-functionimport-using-put" class="xliff"></a>
-
-## 예: "PUT"을 사용하는 FunctionImport
+## <a name="example-functionimport-using-put"></a>예: "PUT"을 사용하는 FunctionImport
 PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  여기서 하위는 구조입니다. PUT은 idempotent이므로 동일한 상태가 여러 번 발생합니다. 즉  x=5입니다.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
@@ -117,9 +107,7 @@ PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전
         </EntityType>
 
 
-<a id="example-functionimport-for-raw-data-returned-using-put" class="xliff"></a>
-
-## 예: "PUT"을 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
+## <a name="example-functionimport-for-raw-data-returned-using-put"></a>예: "PUT"을 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
 원시 데이터 PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  여기서 하위는 스트림입니다.  즉 구조화 되어 있지 않으며,  텍스트 파일이 그 예입니다.  PUT은 idempotent이므로 동일한 상태가 여러 번 발생합니다. 즉  x=5입니다.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
@@ -138,9 +126,7 @@ PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전
         </FunctionImport>
 
 
-<a id="example-functionimport-for-raw-data-returned-using-get" class="xliff"></a>
-
-## 예: "GET"을 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
+## <a name="example-functionimport-for-raw-data-returned-using-get"></a>예: "GET"을 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
 원시 데이터 GET을 사용하여 구조화되지 않은 하위, 즉 텍스트를 반환합니다.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
@@ -159,9 +145,7 @@ PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전
         </d:Namespaces>
         </FunctionImport>
 
-<a id="example-functionimport-for-paging-through-returned-data" class="xliff"></a>
-
-## 예: 반환된 데이터를 통해 "페이징"에 대한 FunctionImport
+## <a name="example-functionimport-for-paging-through-returned-data"></a>예: 반환된 데이터를 통해 "페이징"에 대한 FunctionImport
 GET을 사용한 데이터를 통해 RESTful 페이징 구현을 사용합니다.  기본 페이징은 데이터 페이지당 100행으로 설정되어 있습니다.
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
@@ -176,9 +160,7 @@ GET을 사용한 데이터를 통해 RESTful 페이징 구현을 사용합니다
         </d:Namespaces>
         </FunctionImport>
 
-<a id="see-also" class="xliff"></a>
-
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * 전체 OData 매핑 프로세스와 목적을 이해하려는 경우 문서 [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md) 을 읽고 정의, 구조 및 지침을 검토하세요.
 * 특정 노드 및 해당 매개 변수를 학습하고 이해하려면 문서 [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) 에서 정의 및 설명, 예제, 사용 사례 컨텍스트를 살펴보세요.
 * Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.

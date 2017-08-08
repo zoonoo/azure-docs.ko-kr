@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0dd751d9c824f27bdb25681908cb0dca5116100b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -88,8 +88,9 @@ FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리
 
 이제 새 파일 또는 수정된 파일의 콘텐츠를 SQL 데이터베이스 테이블에 삽입하는 [SQL Server - 행 삽입](connectors-create-api-sqlazure.md) 작업과 같은 다른 작업을 추가할 수 있습니다.  
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/ftpconnector/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/ftpconnector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)

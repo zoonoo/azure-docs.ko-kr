@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
-ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1f1c453267ea17d749a251539f4232131dae53d3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
@@ -138,6 +139,44 @@ Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수�
 **Q: Azure AD Connect Health 경고는 어떻게 해결하나요?**
 
 Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health 에이전트가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉, 동일한 오류 조건이 경고 생성으로부터 72시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
+
+**Q: "테스트 인증 요청(가상 트랜잭션)이 토큰을 가져오지 못했습니다."라는 경고를 받았습니다. 이 문제를 어떻게 해결하나요?**
+
+AD FS용 Azure AD Connect Health는 AD FS 서버에 설치된 상태 에이전트가 상태 에이전트에서 시작되는 가상 트랜잭션의 일부로 토큰을 가져오는 데 실패한 경우 이 경고를 생성합니다. 상태 에이전트는 로컬 시스템 컨텍스트를 사용하고 자체 신뢰 당사자에 대한 토큰을 가져오려고 합니다. 이는 AD FS가 토큰을 발급 중인 상태인지 확인하는 범용 테스트입니다.
+
+종종 이 테스트는 상태 에이전트가 AD FS 팜 이름을 확인할 수 없기 때문에 실패합니다. 이는 AD FS 서버가 네트워크 부하 분산 장치 뒤에 있고 요청이 부하 분산 장치 뒤에 있는 노드에서 시작하는 경우 발생할 수 있습니다(부하 분산 장치 앞에 있는 일반 클라이언트와는 대조적으로). 이는 AD FS 팜 이름(예: sts.contoso.com)에 대해 AD FS 서버의 IP 주소 또는 루프백 IP 주소(127.0.0.1)를 포함하도록 "C:\Windows\System32\drivers\etc" 아래에 있는 "hosts" 파일을 업데이트하여 해결할 수 있습니다. 호스트 파일을 추가하면 네트워크 호출을 단락(short-circuit)하므로 상태 에이전트에서 토큰을 가져올 수 있도록 합니다.
+
+**Q: 내 컴퓨터가 최근 랜섬웨어 공격에 대해 패치되지 않았다는 전자 메일을 받았습니다. 이 전자 메일을 받은 이유는 무엇인가요?**
+
+Azure AD Connect Health 서비스는 필요한 패치가 설치되었는지 확인하기 위해 모니터링하는 모든 컴퓨터를 검색했습니다. 하나 이상의 컴퓨터에 중요한 패치가 없는 경우 테넌트 관리자에게 전자 메일이 전송되었습니다. 이를 결정하기 위해 다음 논리가 사용되었습니다.
+1. 컴퓨터에 설치된 모든 핫픽스를 찾습니다.
+2. 정의된 목록에서 핫픽스 중 하나 이상이 있는지 확인합니다.
+3. 있는 경우 컴퓨터가 보호되고 있습니다. 그렇지 않은 경우 컴퓨터가 공격에 대해 위험에 노출됩니다.
+
+다음 PowerShell 스크립트를 사용하여 이 검사를 수동으로 수행할 수 있습니다. 위의 논리를 구현합니다.
+
+```
+Function CheckForMS17-010 ()
+{
+    $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
+
+    #checks the computer it's run on if any of the listed hotfixes are present
+    $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
+
+    #confirms whether hotfix is found or not
+    if (Get-HotFix | Where-Object {$hotfixes -contains $_.HotfixID})
+    {
+        "Found HotFix: " + $hotfix.HotFixID
+    } else {
+        "Didn't Find HotFix"
+    }
+}
+
+CheckForMS17-010
+
+```
+
+
 
 ## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

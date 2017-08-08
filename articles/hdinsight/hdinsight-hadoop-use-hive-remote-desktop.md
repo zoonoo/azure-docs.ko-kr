@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop Hive 및 원격 데스크톱 사용 | Microsoft Docs"
+title: "HDInsight에서 Hadoop Hive 및 원격 데스크톱 사용 - Azure | Microsoft Docs"
 description: "원격 데스크톱을 사용하여 HDInsight의 Hadoop 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0ff59627fe0e8db409f1404ee8397f3da3a56569
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be8ba4cfdf0686e14e70d0688085af5455de43a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다.
 
 > [!IMPORTANT]
-> 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > HDInsight 3.4 이상의 경우 명령줄에서, 클러스터에서 Hive 쿼리 직접 실행에 대한 자세한 내용은 [HDInsight 및 Beeline으로 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
 
@@ -58,7 +57,7 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     이러한 문은 다음 작업을 수행합니다.

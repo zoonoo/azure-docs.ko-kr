@@ -3,7 +3,7 @@ title: "Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Micr
 description: "Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
-ms.lasthandoff: 03/31/2017
-
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7cb780117d64d67449146b9757f8162e23e65d1e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제

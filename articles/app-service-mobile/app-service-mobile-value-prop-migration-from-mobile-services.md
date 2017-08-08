@@ -3,8 +3,8 @@ title: "모바일 서비스를 사용하고 있습니다. 앱 서비스가 어�
 description: "앱 서비스가 기존 모바일 서비스 프로젝트에 제공하는 이점을 알아봅니다."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
-ms.lasthandoff: 12/08/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="getting-started"> </a>모바일 서비스를 사용하고 있습니다. 앱 서비스가 어떤 도움을 주나요?
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2016
 * 웹 클라이언트와 모바일 클라이언트를 둘 다 포함하는 앱을 위한 더 간단하고 쉽고 비용 효과적인 제품
 * 웹 작업, 사용자 지정 CName, 향상된 모니터링을 포함하는 새로운 호스트 기능
 * 트래픽 관리자와의 완성 인도 통합
-* 하이브리드 연결뿐 아니라 VNet을 사용하여 온-프레미스 리소스 및 VPN에 연결
+* 하이브리드 연결뿐만 아니라 VNet을 사용하여 온-프레미스 리소스 및 VPN에 연결
 * NewRelic 또는 AppInsights를 사용하여 앱에 대한 모니터링, 경고 및 문제 해결
 * 보다 풍부한 기본 계산 리소스 및 가격 책정
 * 기본 제공되는 자동 크기 조정, 부하 분산 및 성능 모니터링
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/08/2016
 * (Node.js에 대해) 일반적인 MVC 라이브러리를 포함하여 노드 에코 시스템의 순수 JavaScript 라이브러리를 활용합니다.
 
 ## <a name="access-on-premises-data-using-vnet"></a>VNet을 사용하여 온-프레미스 데이터 액세스
-현재 모바일 서비스에서 이미 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스할 수 있습니다. 그러나 VPN 솔루션이 선호되는 경우가 있습니다. *Azure 앱 서비스* 에서는 Azure VNet을 모바일 앱 백 엔드 코드에 사용할 수 있습니다.
+현재 Mobile Services를 사용하면 이미 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스할 수 있습니다. 그러나 VPN 솔루션이 선호되는 경우가 있습니다. *Azure 앱 서비스* 에서는 Azure VNet을 모바일 앱 백 엔드 코드에 사용할 수 있습니다.
 
 ## <a name="use-your-favorite-backend-language"></a>좋아하는 백 엔드 언어 사용
 *Azure 앱 서비스* 는 최신 런타임에 대한 액세스를 포함하여 ASP.NET 및 Node.js 플랫폼에 대한 광범위하고 풍부한 지원을 제공합니다.
@@ -64,5 +64,4 @@ ms.lasthandoff: 12/08/2016
 *Azure 앱 서비스* 에서는 모바일 앱에 대한 비공개 테스트 및 스테이징 환경을 여러 개 만들 수 있습니다. 배포 전에 이러한 환경을 사용하여 테스트를 수행합니다. 가동 중지 시간 없이 프로덕션으로 교환합니다. 웹앱이 미리 로드되어 최상의 고객 경험을 보장합니다.
 
 이 *자습서* 에 따라 기존 모바일 서비스에 [앱 서비스](app-service-mobile-migrating-from-mobile-services.md)를 이용하기 시작할 수 있습니다.
-
 

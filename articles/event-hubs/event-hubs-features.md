@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 67cb42394a596f9e5c0a5d6a5042363e26ed0ac0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -52,6 +51,10 @@ Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 �
 ```
 
 시간에 앞서 게시자 이름을 미리 만들 필요가 없지만, 독립 게시자 ID를 보장하기 위해 이벤트를 게시하는 경우 사용하는 SAS 토큰과 일치해야 합니다. 게시자 정책을 사용하는 경우 **PartitionKey** 값이 게시자 이름으로 설정됩니다. 제대로 작동하려면 이 값이 일치해야 합니다.
+
+## <a name="capture"></a>캡처
+
+[Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하면 Event Hubs의 스트리밍 데이터를 자동으로 캡처하고 선택한 Blob 저장소 계정에 보관할 수 있습니다. Azure Portal에서 캡처를 사용하도록 설정하고 캡처를 수행할 최소 크기와 기간을 지정할 수 있습니다. Event Hubs 캡처를 사용할 경우 캡처된 데이터를 저장하는 데 사용되는 고유한 Azure Blob Storage 계정 및 컨테이너를 지정합니다. 캡처된 데이터는 Apache Avro 형식으로 기록됩니다.
 
 ## <a name="partitions"></a>파티션
 
@@ -91,7 +94,7 @@ Event Hubs에서 이벤트 데이터를 읽는 모든 엔터티는 *이벤트 �
 
 Event Hubs의 게시/구독 메커니즘은 *소비자 그룹*을 통해 사용할 수 있습니다. 소비자 그룹은 전체 Event Hub의 보기(상태, 위치, 또는 오프셋)입니다. 소비자 그룹은 여러 소비 응용 프로그램을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
 
-스트림 처리 아키텍처에서 각 다운스트림 응용 프로그램은 소비자 그룹에 해당합니다. 이벤트 데이터를 장기 저장소에 기록하려는 경우, 해당 저장소 기록기 응용 프로그램은 소비자 그룹입니다. 복합 이벤트 처리는 별도의 다른 소비자 그룹에서 수행될 수 있습니다. 소비자 그룹을 통해서만 파티션을 액세스할 수 있습니다. 각 파티션에는 한 번에 하나씩 **지정된 소비자 그룹**에서 활성화된 판독기 하나만 있을 수 있습니다. Event Hub에는 항상 기본 소비자 그룹이 있으며 표준 계층 Event Hub에 대해 최대 20개의 소비자 그룹을 만들 수 있습니다.
+스트림 처리 아키텍처에서 각 다운스트림 응용 프로그램은 소비자 그룹에 해당합니다. 이벤트 데이터를 장기 저장소에 기록하려는 경우, 해당 저장소 기록기 응용 프로그램은 소비자 그룹입니다. 복합 이벤트 처리는 별도의 다른 소비자 그룹에서 수행될 수 있습니다. 소비자 그룹을 통해서만 파티션을 액세스할 수 있습니다. 소비자 그룹당 파티션에는 최대 5개의 동시 판독기가 있을 수 있습니다. 하지만 **소비자 그룹당 파티션에는 활성 수신기를 하나만 포함하는 것이 좋습니다.** Event Hub에는 항상 기본 소비자 그룹이 있으며 표준 계층 Event Hub에 대해 최대 20개의 소비자 그룹을 만들 수 있습니다.
 
 다음은 소비자 그룹 URI 규칙의 예입니다.
 
@@ -170,3 +173,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+

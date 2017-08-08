@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1152893c4c686fa69f7e06ffa7e2d2b2272bc772
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,7 +35,7 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ## <a name="log-and-event-sources"></a>로그 및 이벤트 원본
 
-### <a name="service-fabric-infrastructure-events"></a>Service Fabric 인프라 이벤트
+### <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
 Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [LTTng](http://lttng.org)를 통해 몇 가지 기본 제공 로그를 생성합니다. 이러한 로그는 클러스터의 Resource Manager 템플릿에서 지정한 위치에 저장됩니다. 저장소 계정 세부 정보를 가져오거나 설정하려면 **AzureTableWinFabETWQueryable** 태그를 찾아서 **StoreConnectionString**을 검색합니다.
 
 ### <a name="application-events"></a>응용 프로그램 이벤트

@@ -1,5 +1,5 @@
 ---
-title: "HBase 복제 구성 | Microsoft Docs"
+title: "가상 네트워크 내에서 HBase 클러스터 복제 구성 - Azure  | Microsoft Docs"
 description: "부하 분산, 고가용성, 한 버전의 HDInsight에서 다른 버전으로의 무중단 마이그레이션/업데이트 및 재해 복구를 위해 HBase 복제를 구성하는 방법에 대해 알아봅니다."
 services: hdinsight,virtual-network
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
-ms.openlocfilehash: 83aabe0e5161cd3f94caa996dec29bc020e5308b
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="configure-hbase-replication"></a>HBase 복제 구성
+# <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>가상 네트워크 내에서 HBase 클러스터 복제 구성
 
 한 VNet(가상 네트워크) 내에 또는 두 VNet 간에 HBase 복제를 구성하는 방법에 대해 알아봅니다.
 

@@ -1,7 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### 볼륨을 탑재, 초기화 및 포맷하려면
-<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
+#### <a name="to-mount-initialize-and-format-a-volume"></a>볼륨을 탑재, 초기화 및 포맷하려면
 1. Microsoft iSCSI 초기자를 시작합니다.
 2. **iSCSI 초기자 속성** 창의 **검색** 탭에서 **포털 검색**을 클릭합니다.
 3. **대상 포털 검색** 대화 상자에서 iSCSI 사용 네트워크 인터페이스의 IP 주소를 입력하고 **확인**을 클릭합니다. 

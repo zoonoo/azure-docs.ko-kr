@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치
 이 항목에서는 Azure 가상 네트워크의 Azure VM(가상 컴퓨터)에 온-프레미스 Active Directory 도메인에 대한 추가 도메인 컨트롤러(복제본 DC라고도 함)를 설치하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
@@ -81,7 +84,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
 VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통해 온-프레미스 네트워크의 리소스에 연결되었는지 확인합니다. Azure VM에 AD DS를 설치합니다. 온-프레미스 네트워크에 추가 DC(UI, Windows PowerShell 또는 응답 파일)를 설치할 때 사용하는 것과 동일한 프로세스를 사용할 수 있습니다. AD DS를 설치할 때 AD 데이터베이스, 로그 및 SYSVOL의 위치에 대해 새 볼륨을 지정해야 합니다. AD DS 설치에 리프레셔가 필요한 경우 [Active Directory Domain Services 설치](https://technet.microsoft.com/library/hh472162.aspx)(수준 100) 또는 [기존 도메인에 복제본 Windows Server 2012 도메인 컨트롤러 설치(수준 200)](https://technet.microsoft.com/library/jj574134.aspx)를 참조하세요.
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 서버 다시 구성
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](../virtual-network/virtual-networks-manage-dns-in-vnet.md)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
+1. [Azure Portal](https://portal.azure.com)의 **리소스 검색** 상자에 *가상 네트워크*를 입력하고 나서 검색 결과에서 **가상 네트워크(클래식)**를 클릭합니다. 가상 네트워크의 이름을 클릭한 다음 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](../virtual-network/virtual-network-manage-network.md#dns-servers)하여 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
 2. 가상 네트워크의 모든 복제 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 **가상 컴퓨터**를 클릭하고 각 VM의 상태 열을 클릭한 후 **다시 시작**을 클릭합니다. VM에 **실행 중** 상태가 표시될 때까지 기다렸다가 로그인을 시도합니다.
 
 ## <a name="create-vms-for-application-servers"></a>응용 프로그램 서버에 대한 VM 만들기

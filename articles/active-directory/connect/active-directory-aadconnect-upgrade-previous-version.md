@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
-ms.lasthandoff: 03/03/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 03de42352b92692a0fa5c6ee3f335592cb2b66c1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
@@ -46,6 +46,8 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 ![전체 업그레이드](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
 기본 동기화 규칙을 변경한 경우 업그레이드 시 해당 규칙이 기본 구성으로 다시 설정됩니다. 업그레이드 간에 구성을 유지하려면 [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)에 설명된 대로 변경해야 합니다.
+
+현재 위치 업그레이드 중 도입된 변경 내용으로 인해 업그레이드가 완료된 후 특정 동기화 작업(전체 가져오기 단계 및 전체 동기화 단계 포함)이 실행되어야 할 수도 있습니다. 이러한 작업을 연기하려면 [업그레이드 후 전체 동기화를 연기하는 방법](#how-to-defer-full-synchronization-after-upgrade) 섹션을 참조하세요.
 
 ## <a name="swing-migration"></a>스윙 마이그레이션
 배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
@@ -89,6 +91,42 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 3. 스테이징 서버에서는 커넥터 GUID가 다르므로 변경해야 합니다. GUID를 가져오려면 **동기화 규칙 편집기**를 시작하여 동일한 연결된 시스템을 나타내는 기본 규칙 중 하나를 선택하고 **내보내기**를 클릭합니다. PS1 파일의 GUID를 스테이징 서버의 GUID로 바꿉니다.
 4. PowerShell 프롬프트에서 PS1 파일을 실행합니다. 스테이징 서버에 사용자 지정 동기화 규칙이 만들어집니다.
 5. 모든 사용자 지정 규칙에 대해 이 단계를 반복합니다.
+
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>업그레이드 후 전체 동기화를 연기하는 방법
+현재 위치 업그레이드 중 도입된 변경 내용으로 인해 특정 동기화 작업(전체 가져오기 단계 및 전체 동기화 단계 포함)이 실행되어야 할 수도 있습니다. 예를 들어 커넥터 스키마 변경 시 영향받는 커넥터에 대해 **전체 가져오기** 단계가 실행되어야 하고, 기본 제공 동기화 규칙 변경 시 **전체 동기화** 단계가 실행되어야 합니다. 업그레이드 중 Azure AD Connect는 필요한 동기화 작업을 확인하고 *재정의*로 기록합니다. 다음 동기화 주기에서 동기화 스케줄러는 이러한 재정의를 선택하고 실행합니다. 재정의는 성공적으로 실행된 후 제거됩니다.
+
+업그레이드 후 즉시 재정의를 수행하지 않으려는 경우도 있을 수 있습니다. 예를 들어 많은 동기화된 개체가 있고 이러한 동기화 단계를 업무 시간 후에 수행하려고 합니다. 이러한 재정의를 제거하려면
+
+1. 업그레이드 중에 **구성이 완료되면 동기화 프로세스를 시작합니다.** 옵션을 **선택 취소**합니다. 이렇게 하면 동기화 스케줄러가 비활성화되며, 재정의가 제거되기 전에 동기화 주기가 자동으로 수행되지 않습니다.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
+
+2. 업그레이드가 완료된 후 다음 cmdlet을 실행하여 추가된 재정의를 확인합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
+
+   >[!NOTE]
+   > 재정의는 커넥터마다 다릅니다. 다음 예제에서는 전체 가져오기 단계와 전체 동기화 단계가 온-프레미스 AD 커넥터 및 Azure AD 커넥터 둘 다에 추가되었습니다.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+
+3. 추가된 기존 재정의를 적어둡니다.
+   
+4. 임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 제거하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+
+   모든 커넥터에서 재정의를 제거하려면 다음 PowerShell 스크립트를 실행합니다.
+
+   ```
+   foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
+   {
+       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $connectorOverride.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
+   }
+   ```
+
+5. 스케줄러를 다시 시작하려면 다음 cmdlet을 실행합니다. `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+   >[!IMPORTANT]
+   > 가능한 한 빨리 필수 동기화 단계를 실행해야 합니다. Synchronization Service Manager를 사용하여 수동으로 이 단계를 실행하거나, ADSyncSchedulerConnectorOverride cmdlet을 사용하여 재정의를 다시 추가할 수 있습니다.
+
+임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 추가하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.

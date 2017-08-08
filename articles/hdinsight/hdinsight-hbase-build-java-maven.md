@@ -22,7 +22,6 @@ ms.openlocfilehash: 83aeb23275a86e5d4706a0ad7ea72d11d71f9604
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Maven을 사용하여 Windows 기반 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드
 Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만들어 빌드하는 방법을 알아봅니다. 그런 다음 Azure HDInsight(Hadoop)에서 응용 프로그램을 사용합니다.
@@ -425,7 +424,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
         # The JAR
-        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

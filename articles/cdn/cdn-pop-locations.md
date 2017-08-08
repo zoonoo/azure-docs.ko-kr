@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -39,16 +41,11 @@ ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
 | 남유럽 |마드리드, 스페인<br />밀라노, 이탈리아 |**&#x2713;**\* |
 | 동아시아 |도쿄, 일본<br />오사카, 일본<br />바탐, 인도네시아<br />자카르타, 인도네시아<br />홍콩 특별행정구<br />가오슝, 대만<br />서울, 대한민국<br />싱가포르 |**&#x2713;**\* |
 | 중남 아시아 |방갈로르, 인도<br />첸나이, 인도<br />델리, 인도<br />뭄바이, 인도 |**&#x2713;**\* |
-| 중동/서 아시아 |무스카트, 오만 |**&#x2713;**\* |
+| 중동/서 아시아 |무스카트, 오만 <br /> 푸지라, 아랍에미리트 |**&#x2713;**\* |
 | 아프리카 | |**&#x2713;**\* |
 | 오스트레일리아 및 뉴질랜드 |멜버른, 오스트레일리아<br />시드니, 오스트레일리아 |**&#x2713;**\* |
 
 ## <a name="see-also"></a>참고 항목
 * [허용 목록에 대한 최신 IP 주소를 얻기 위한 Azure CDN 에지 노드 API](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

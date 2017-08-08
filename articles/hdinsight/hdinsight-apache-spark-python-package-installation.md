@@ -1,6 +1,6 @@
 ---
-title: "스크립트 작업: Azure HDInsight에서 Jupyter Notebook과 함께 Python 패키지 설치 | Microsoft Docs"
-description: "HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
+title: "스크립트 작업 - Azure HDInsight의 Jupyter를 사용해 Python 패키지 설치 | Microsoft Docs"
+description: "스크립트 작업을 사용하여 HDInsight Spark 클러스터와 함께 제공되는 Jupyter 노트북에서 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 20cf384c96d4ff4eaf064c8880ad128d521fb9bf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -44,7 +45,7 @@ ms.lasthandoff: 01/24/2017
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
    > [!NOTE]
@@ -65,11 +66,11 @@ ms.lasthandoff: 01/24/2017
 
 3. PySpark Jupyter 노트북을 엽니다.
 
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "새 Jupyter 노트북 만들기")
+    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "새 Jupyter 노트북 만들기")
 
 4. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
-    ![노트북 이름 제공](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
+    ![노트북 이름 제공](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "노트북 이름 제공")
 
 5. 이제 `import tensorflow` 및 hello world 예제를 실행합니다. 
 
@@ -104,7 +105,7 @@ ms.lasthandoff: 01/24/2017
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter 노트북과 함께 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

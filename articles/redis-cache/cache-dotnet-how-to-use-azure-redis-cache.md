@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/30/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Azure Redis Cache 사용 방법
@@ -38,7 +37,7 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
 * **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
-* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB ~ 530GB에 이르는 여러 개의 크기 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB ~ 530GB에 이르는 여러 개의 크기 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure Virtual Network](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 가격 책정에 대한 내용은 [캐시 가격 책정 정보][Cache Pricing Details]를 참조하세요.
 
@@ -170,6 +169,17 @@ Redis는 대부분의 데이터를 Redis 문자열로 저장하지만, 이 문�
         cache.StringSet("key1", value);
     }
 
+다음 예제에 나온 것처럼 `RedisValue`를 사용할 수도 있습니다. `RedisValue`는 정수 데이터 형식을 작업하기 위한 암시적 연산자를 갖고 있으며, 캐시된 항목의 값으로 `null`이 예상되는 경우에 유용하게 사용할 수 있습니다.
+
+
+    RedisValue value = cache.StringGet("key1");
+    if (!value.HasValue)
+    {
+        value = GetValueFromDataSource();
+        cache.StringSet("key1", value);
+    }
+
+
 캐시에서 항목의 만료를 지정하려면 `StringSet`의 `TimeSpan` 매개 변수를 사용합니다.
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
@@ -205,7 +215,7 @@ Azure Redis Cache는 .NET 개체 및 기본 데이터 유형을 캐시할 수 �
 * Azure Redis Cache에 대한 ASP.NET 공급자를 확인합니다.
   * [Azure Redis 세션 상태 공급자](cache-aspnet-session-state-provider.md)
   * [Azure Redis Cache ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
-* [캐시 진단을 사용](cache-how-to-monitor.md#enable-cache-diagnostics)하도록 설정하면 캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있습니다. Azure 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 할 수도 있습니다.
+* [캐시 진단을 사용](cache-how-to-monitor.md#enable-cache-diagnostics)하도록 설정하면 캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있습니다. Azure Portal에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
 * [StackExchange.Redis 캐시 클라이언트 설명서][StackExchange.Redis cache client documentation](영문)를 확인하세요.
   * Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][http://redis.io/clients]를 참조하세요.
 * Redsmin 및 Redis Desktop Manager와 같은 타사 서비스 및 도구와 함께 Azure Redis Cache를 사용할 수도 있습니다.

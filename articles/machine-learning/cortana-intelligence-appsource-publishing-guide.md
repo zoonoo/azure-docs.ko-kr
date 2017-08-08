@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 67e2e7906df78ff3e57765e0a6706f98123c3428
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 --- 
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 게시 가이드
@@ -30,11 +30,13 @@ AppSource는 BDM(비즈니스 의사 결정자)이 파트너가 빌드하고 Mic
 - 솔루션 또는 앱이 특정 비즈니스 문제를 다루는 경우
 - 고객이 예측 가능한 방식으로 비교적 신속하게 다시 사용할 수 있는 모듈 또는 지적 재산을 빌드한 경우
 
+AppSource에 이미 게시된 [Cortana Intelligence 솔루션](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1)을 살펴보세요. 
+
 이 문서에서는 파트너의 Cortana Intelligence 솔루션이 AppSource에 게시되도록 하는 단계를 안내합니다.
 
 ## <a name="getting-started"></a>시작
 1. [Partner Community Benefits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf)(파트너 커뮤니티 혜택 가이드)(PDF)에서 9페이지를 참조하여 Advanced Analytics 파트너로 등록합니다.
-1. [앱 제출](https://appsource.microsoft.com/en-us/) 양식을 작성합니다.
+1. [앱 제출](https://appsource.microsoft.com/en-us/partners/list-an-app) 양식을 작성합니다.
 
     *“앱의 기반 제품 선택*” 질문에서 **기타** 확인란을 선택하고 편집 컨트롤에 “Cortana Intelligence”를 나열합니다.
 1. Cortana Intelligence 앱이 AppSource에 등록되려면 먼저 Cortana Intelligence의 파트너 솔루션 기술 팀에서 인증을 받아야 합니다. 프로세스를 시작하려면 [AppSource 게시를 위한 Cortana Intelligence 솔루션 평가](https://aka.ms/cisappsrceval)에서 설문 조사 양식을 작성하여 앱에 대한 세부 정보를 알려주세요. 이 사이트는 암호로 보호되며, 사이트에 암호를 받는 방법에 대한 지침이 나와 있습니다.
@@ -63,7 +65,7 @@ AppSource는 BDM(비즈니스 의사 결정자)이 파트너가 빌드하고 Mic
 1. 솔루션에 Power BI 사용: 선택 사항이지만 잠재 고객을 더 많이 발생시키는 것으로 입증되었으므로 권장됩니다.
 
 ## <a name="devcenter-account-setup"></a>DevCenter 계정 설정
-Microsoft의 게시자가 되기 위해 회사를 등록하는 프로세스입니다. 기존 DevCenter 계정으로 등록된 게시자인 경우 DevCenter 계정과 연결된 메일 ID를 알려주세요. 
+Microsoft의 게시자가 되기 위해 회사를 등록하는 프로세스입니다. 기존 DevCenter 계정으로 등록된 게시자인 경우 DevCenter 계정과 연결된 메일 ID를 알려주세요. 응용 프로그램이 게시용으로 승인되면 [클라우드 포털 관리 게시자 프로필](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)에 대한 전체 설명서에 액세스할 수 있습니다.
 
 DevCenter 계정이 없는 경우 DevCenter 계정을 설정하는 주요 단계는 다음과 같습니다.
 1. [여기](https://signup.live.com/signup.aspx)서 Microsoft 계정을 만듭니다.

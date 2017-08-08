@@ -9,57 +9,49 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/26/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e3ac0e1813022d1b3544fc2c784719d6c98a0cf3
+ms.date: 07/12/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# MySQL용 Azure Database: PHP를 사용하여 데이터 연결 및 쿼리
-<a id="azure-database-for-mysql-use-php-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>MySQL용 Azure Database: PHP를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [PHP](http://php.net/manual/intro-whatis.php) 응용 프로그램을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 개발자가 PHP를 사용하여 개발하는 것에 익숙하고 MySQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 - [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-## PHP 설치
-<a id="install-php" class="xliff"></a>
+## <a name="install-php"></a>PHP 설치
 사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview)을 만듭니다.
 
-### MacOS
-<a id="macos" class="xliff"></a>
+### <a name="macos"></a>MacOS
 - [PHP 7.1.4 버전](http://php.net/downloads.php) 다운로드
 - PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.macosx.php)에서 자세한 구성 정보 참조
 
-### Linux(Ubuntu)
-<a id="linux-ubuntu" class="xliff"></a>
+### <a name="linux-ubuntu"></a>Linux(Ubuntu)
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](http://php.net/downloads.php) 다운로드
 - PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.unix.php)에서 자세한 구성 정보 참조
 
-### Windows
-<a id="windows" class="xliff"></a>
+### <a name="windows"></a>Windows
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](http://windows.php.net/download#php-7.1) 다운로드
 - PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.windows.php)에서 자세한 구성 정보 참조
 
-## 연결 정보 가져오기
-<a id="get-connection-information" class="xliff"></a>
+## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **myserver4demo**).
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. 왼쪽 창에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
 3. 서버 이름을 클릭합니다.
 4. 서버의 **속성** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
  ![MySQL용 Azure Database 서버 이름](./media/connect-php/1_server-properties-name-login.png)
 5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 
-## 테이블 연결 및 생성
-<a id="connect-and-create-a-table" class="xliff"></a>
+## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문을 사용하여 테이블을 연결하고 생성하려면 다음 코드를 사용하세요. 
 
 이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_init](http://php.net/manual/mysqli.init.php) 및 [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) 메서드를 호출하여 MySQL에 연결합니다. 그리고 [mysqli_query](http://php.net/manual/mysqli.query.php) 메서드를 호출하여 쿼리를 실행합니다. 그런 다음 [mysqli_close](http://php.net/manual/mysqli.close.php) 메서드를 호출하여 연결을 닫습니다.
@@ -98,8 +90,7 @@ mysqli_close($conn);
 ?>
 ```
 
-## 데이터 삽입
-<a id="insert-data" class="xliff"></a>
+## <a name="insert-data"></a>데이터 삽입
 **INSERT** SQL 문을 사용하여 데이터를 연결하고 삽입하려면 다음 코드를 사용하세요.
 
 이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 INSERT 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 삽입된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
@@ -136,8 +127,7 @@ mysqli_close($conn);
 ?>
 ```
 
-## 데이터 읽기
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.  이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. [mysqli_query](http://php.net/manual/mysqli.query.php) 메서드를 사용하여 sql 쿼리를 수행하고 [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) 메서드를 사용하여 결과 행을 가져옵니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
@@ -168,8 +158,7 @@ mysqli_close($conn);
 ?>
 ```
 
-## 데이터 업데이트
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
 이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 UPDATE 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 업데이트된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
@@ -207,8 +196,7 @@ mysqli_close($conn);
 ```
 
 
-## 데이터 삭제
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
 
 이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 DELETE 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 문의 Where 절에 대한 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
@@ -243,8 +231,7 @@ mysqli_close($conn);
 ?>
 ```
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [Azure에서 PHP 및 MySQL 웹앱 빌드](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
 

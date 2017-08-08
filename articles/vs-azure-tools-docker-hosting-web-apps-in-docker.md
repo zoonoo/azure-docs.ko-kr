@@ -14,25 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7169b6f2d9738abd9651120be96bb1cf209ea85d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>원격 Docker 호스트에 ASP.NET 컨테이너 배포
 ## <a name="overview"></a>개요
 Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로그램과 서비스를 호스트하는 데 사용할 수 있는 간단한 컨테이너 엔진입니다.
-이 자습서에서는 [Visual Studio 2015 Tools for Docker](http://aka.ms/DockerToolsForVS) 확장을 사용하여 Azure에서 PowerShell을 사용하여 Docker 호스트에 ASP.NET Core 앱을 배포하는 단계에 대해 설명합니다.
+이 자습서에서는 [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) 확장을 사용하여 Azure에서 PowerShell을 사용하여 Docker 호스트에 ASP.NET Core 앱을 배포하는 단계에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 완료하려면 다음 작업을 수행해야 합니다.
+이 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * [Azure에서 docker-machine을 사용하는 방법](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명에 따라 Azure Docker 호스트 VM을 만듭니다.
-* [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129)
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
-* [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
+* 최신 버전의 [Visual Studio](https://www.visualstudio.com/downloads/)를 설치합니다.
+* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)를 다운로드합니다.
+* [Windows용 Docker](https://docs.docker.com/docker-for-windows/install/)를 설치합니다.
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. ASP.NET Core 웹앱 만들기
 다음 단계에서는 이 자습서에서 사용할 기본적인 ASP.NET Core 앱을 만드는 과정을 안내합니다.
@@ -56,19 +57,12 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
    ```
    
-   > [!NOTE]
-   > Docker 베타를 사용 중인 경우 호스트가 여기에 나열되지 않습니다.
-   > 
-   > 
 3. -Build 매개 변수를 사용하여 앱 빌드
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
    ```  
-   
-   > [!NOTE]
-   > Docker 베타를 사용 중인 경우 -Machine 인수는 생략합니다.
-   > 
+
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
    > ```  
@@ -80,9 +74,6 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
    ```
    
-   > [!NOTE]
-   > Docker 베타를 사용 중인 경우 -Machine 인수는 생략합니다.
-   > 
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
    > ```

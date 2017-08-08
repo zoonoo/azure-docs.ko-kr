@@ -191,7 +191,7 @@ namespace reducer
     * 기본 저장소로 __Azure Storage__를 사용하는 경우
 
         ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
     다음 목록은 각 매개 변수가 하는 기능에 대한 설명입니다.

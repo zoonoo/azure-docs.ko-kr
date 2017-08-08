@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 858769130eed5c996bca151855bfc09d4832a314
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -88,7 +88,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 - **로컬 파일 경로** - 패킷 캡처를 저장할 가상 컴퓨터의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.
 - **패킷당 최대 바이트** - 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다.
 - **세션당 최대 바이트** - 값이 패킷 캡처 종료일에 도달한 후 캡처된 총 바이트 수입니다.
-- **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 1800초입니다.
+- **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 18000초입니다.
 
 > [!NOTE]
 > Premium Storage 계정에서는 패킷 캡처 저장이 현재 지원되지 않습니다.

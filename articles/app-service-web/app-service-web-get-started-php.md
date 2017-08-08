@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/04/2017
+ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 7667cf679821cc99d6e8b3ec4aa466067d8a6b32
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -39,23 +39,12 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
-
-## <a name="download-the-sample"></a>샘플 다운로드
-
-터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-이 터미널 창을 사용하여 이 빠른 시작의 모든 명령을 실행합니다.
-
-샘플 코드를 포함하는 디렉터리로 변경합니다.
-
-```bash
 cd php-docs-hello-world
 ```
 
@@ -69,21 +58,21 @@ php -S localhost:8080
 
 웹 브라우저를 열고 http://localhost:8080에서 샘플 앱으로 이동합니다.
 
-이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지가 표시됩니다.
+이 페이지에 표시된 샘플 앱의 **Hello World!** 메시지가 표시됩니다.
 
 ![로컬로 실행되는 샘플 앱](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
 터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
 
 ![빈 웹앱 페이지](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -118,7 +107,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## <a name="browse-to-the-app"></a>앱으로 이동
+## <a name="browse-to-the-app-locally"></a>앱으로 로컬 이동
 
 웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
 
@@ -132,7 +121,7 @@ PHP 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 
 **축하합니다.** App Service에 첫 번째 PHP 앱을 배포했습니다.
 
-## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
+## <a name="update-locally-and-redeploy-the-code"></a>로컬로 코드 업데이트 및 다시 배포
 
 로컬 텍스트 편집기를 사용하여 PHP 앱 내에서 `index.php` 파일을 열고 `echo` 옆에 있는 문자열 내의 텍스트를 약간 변경합니다.
 
@@ -159,7 +148,7 @@ git push azure master
 
 ![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
+웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 ![Azure Portal의 App Service 블레이드](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight를 사용하여 스크립트 동작 개발 | Microsoft 문서"
+title: "Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. "
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트 작업은 클러스터를 만드는 동안 또는 만든 후에 HDInsight를 사용자 지정하는 방법입니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="what-are-script-actions"></a>스크립트 작업 정의
 

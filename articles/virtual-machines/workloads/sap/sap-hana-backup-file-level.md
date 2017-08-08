@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -135,7 +135,7 @@ NFS 공유는 SAP HANA 서버와 같이 빠른 스트라이프 세트였습니�
 
 로컬 스트라이프 세트로 백업하고 OS 수준에서 NFS 공유로 복사하는 대안(간단한 **cp -avr** 명령 사용)은 그다지 빠르지 않았습니다. 1시간 43분이 걸렸습니다.
 
-따라서 작동했지만 230GB 백업 테스트의 성능이 좋지 않았습니다. 다중 테라바이트 크기로 작업할 경우에는 더욱 나쁠 것입니다.
+이 방법은 효과가 있으나 230GB 백업 테스트의 성능은 좋지 않았습니다. 다중 테라바이트 크기로 작업할 경우에는 더욱 나쁠 것입니다.
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Azure 파일 서비스에 SAP HANA 백업 파일 복사
 

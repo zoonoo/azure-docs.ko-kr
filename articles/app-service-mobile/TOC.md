@@ -124,7 +124,6 @@
 ### 사용자 지정 도메인
 #### [사용자 지정 도메인 구입 및 구성](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [사용자 고유의 사용자 지정 도메인 매핑](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [GoDaddy 도메인 구성](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Traffic Manager로 도메인 사용자 지정](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [기존 앱 복제](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

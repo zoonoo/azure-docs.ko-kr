@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d7857821524de3d1dbdac9e8c8d0da89678670db
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 78778e2601ca91c1921a5d987ec7845332c8e27a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -37,7 +36,7 @@ Log Analytics가 데이터를 수신한 후 OMS는 들어오는 데이터를 모
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Service Fabric 솔루션을 사용하여 OMS 작업 영역 설정
 
-Service Fabric 솔루션은 인프라 및 응용 프로그램 수준에서 들어오는 다양한 로그 채널을 보여 주는 유용한 대시보드를 제공하고 Service Fabric 특정 로그를 쿼리할 수 있으므로 OMS 작업 영역에 포함하는 것이 좋습니다. 다음은 클러스터에 배포된 단일 응용 프로그램이 있는 비교적 단순한 Service Fabric 솔루션입니다.
+Service Fabric 솔루션은 플랫폼 및 응용 프로그램 수준에서 들어오는 다양한 로그 채널을 보여 주는 유용한 대시보드를 제공하고 Service Fabric 특정 로그를 쿼리할 수 있으므로 OMS 작업 영역에 포함하는 것이 좋습니다. 다음은 클러스터에 배포된 단일 응용 프로그램이 있는 비교적 단순한 Service Fabric 솔루션입니다.
 
 ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 

@@ -5,21 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 95c1eb534b4b51db18a2caf46f17a559243ea036
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4da95dc4bfc99be3f128dfaa53ba4dd9dc713d9d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,11 +35,19 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **CLIENT_CERT_INSTALL_ERROR** | 클라이언트 인증서가 설치되었거나 테넌트와 연결된 방식에 대해 문제가 있을 수 있습니다. [MFA NPS 확장 문제 해결](multi-factor-authentication-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 문제를 조사합니다. |
 | **ESTS_TOKEN_ERROR** | [MFA NPS 확장 문제 해결](multi-factor-authentication-nps-extension.md#troubleshooting)의 지침에 따라 클라이언트 인증서 및 ADAL 토큰 문제를 조사합니다. |
 | **HTTPS_COMMUNICATION_ERROR** | NPS 서버는 Azure MFA에서 응답을 받을 수 없습니다. https://adnotifications.windowsazure.com과 양방향으로 트래픽을 주고 받도록 방화벽이 열려 있는지 확인합니다. |
-| **HTTP_CONNECT_ERROR** | NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 및 https://login.windows.net/에 연결할 수 있는지 확인합니다. 해당 사이트가 로드되지 않으면 해당 서버의 연결 문제를 해결합니다. |
+| **HTTP_CONNECT_ERROR** | NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 및 https://login.microsoftonline.com/에 연결할 수 있는지 확인합니다. 해당 사이트가 로드되지 않으면 해당 서버의 연결 문제를 해결합니다. |
 | **REGISTRY_CONFIG_ERROR** | 설치 후에 [PowerShell 스크립트](multi-factor-authentication-nps-extension.md#install-the-nps-extension)가 실행되지 않았으므로 레지스트리에 응용 프로그램에 대한 키가 없습니다. 오류 메시지에 누락된 키가 포함됩니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 아래에 키가 있는지 확인합니다. |
 | **REQUEST_FORMAT_ERROR** <br> Radius 요청에 필수 Radius userName\Identifier 특성이 없습니다. NPS가 RADIUS 요청을 수신하는지 확인합니다. | 이 오류는 일반적으로 설치 문제를 반영합니다. RADIUS 요청을 받을 수 있는 NPS 확장을 NPS 서버에 설치해야 합니다. RRAS 및 RDG와 같은 서비스에 대한 종속성으로 설치된 NPS 서버가 radius 요청을 수신하지 않습니다. 이러한 설치 위에 설치된 NPS 확장은 작동하지 않으며 인증 요청의 세부 정보를 읽을 수 없으므로 오류가 발생합니다. |
 | **REQUEST_MISSING_CODE** | 보조 인증 방법에 SMS 또는 Oath 토큰을 사용하는 경우 NPS 및 Nas 서버 간의 암호 암호화 프로토콜이 PAP여야 합니다. 지금은 NPS 확장이 다른 암호 암호화 방법을 지원하지 않습니다.|
 | **USERNAME_CANONICALIZATION_ERROR** | 사용자가 온-프레미스 Active Directory 인스턴스에 존재하는지와 NPS 서비스에 디렉터리에 액세스할 수 있는 권한이 있는지 확인합니다. 포리스트 간 트러스트를 사용하는 경우 [지원 서비스](#contact-microsoft-support) 추가 지원을 요청하세요. |
+
+### <a name="alternate-login-id-errors"></a>대체 로그인 ID 오류
+
+| 오류 코드 | 오류 메시지 | 문제 해결 단계 |
+| ---------- | ------------- | --------------------- |
+| **ALTERNATE_LOGIN_ID_ERROR** | 오류: userObjectSid 조회 실패 | 사용자가 온-프레미스 Active Directory 인스턴스에 있는지 확인합니다. 포리스트 간 트러스트를 사용하는 경우 [지원 서비스](#contact-microsoft-support) 추가 지원을 요청하세요. |
+| **ALTERNATE_LOGIN_ID_ERROR** | 오류: 대체 LoginId 조회 실패 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE가 [유효한 Active Directory 특성](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx)으로 설정되어 있는지 확인합니다. <br><br> LDAP_FORCE_GLOBAL_CATALOG가 True로 설정되어 있거나 LDAP_LOOKUP_FORESTS가 비어 있지 않은 값으로 구성된 경우 글로벌 카탈로그를 구성했는지와 AlternateLoginId 특성이 추가되었는지 확인합니다. <br><br> LDAP_LOOKUP_FORESTS가 비어 있지 않은 값으로 구성된 경우 해당 값이 올바른지 확인합니다. 포리스트 이름을 여러 개 있으면 이름은 공백 없이 세미콜론으로 구분해야 합니다. <br><br> 이러한 단계로도 문제가 해결되지 않으면 [지원 서비스에 문의](#contact-microsoft-support)하세요. |
+| **ALTERNATE_LOGIN_ID_ERROR** | 오류: 대체 LoginId 값이 비어 있음 | AlternateLoginId 특성이 사용자에 대해 구성되어 있는지 확인합니다. |
 
 
 ## <a name="errors-your-users-may-encounter"></a>사용자에게 발생할 수 있는 오류

@@ -12,19 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 06/12/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 14212dd4b9eff135d379a7431d0aaa0e396a6f7f
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f18605ec638a628805f5bd1c7207e9d874f104f3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure Cloud Services의 지속적인 전송
 이 문서에서 설명하는 프로세스에서는 Azure 클라우드 앱에 대해 지속적인 전송을 설정하는 방법을 보여 줍니다. 이 프로세스를 통해 각 코드 체크 인 이후에 자동으로 패키지를 만들어 Azure에 배포할 수 있습니다. 이 문서에서 설명하는 패키지 빌드 프로세스는 Visual Studio의 **패키지** 명령과 동일하며 게시 단계는 Visual Studio의 **게시** 명령과 동일합니다.
 이 문서에서는 MSBuild 명령줄 문과 Windows PowerShell 스크립트를 사용하여 빌드 서버를 만드는 데 사용하는 메서드에 대해 설명하고, MSBuild 명령 및 PowerShell 스크립트를 사용하도록 선택적으로 Visual Studio Team Foundation Server - 팀 빌드 정의를 구성하는 방법도 보여 줍니다. 이 프로세스는 빌드 환경 및 Azure 대상 환경에 맞게 사용자 지정할 수 있습니다.
 
-또한 Azure에서 호스트되는 TFS 버전인 Visual Studio Team Services를 사용하면 이 작업을 보다 쉽게 수행할 수 있습니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적으로 전송][Continuous Delivery to Azure by Using Visual Studio Team Services]을 참조하세요.
+또한 Azure에서 호스트되는 TFS 버전인 Visual Studio Team Services를 사용하면 이 작업을 보다 쉽게 수행할 수 있습니다. 
 
 시작하기 전에 Visual Studio에서 응용 프로그램을 게시해야 합니다.
 그러면 게시 프로세스를 자동화하려고 할 때 모든 리소스가 사용 가능하며 초기화됩니다.
@@ -45,7 +46,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2: MSBuild 명령을 사용하여 패키지 빌드
 이 섹션에서는 Azure 패키지를 빌드하는 MSBuild 명령 구성 방법에 대해 설명합니다. 빌드 서버에서 이 단계를 실행하여 모든 항목이 제대로 구성되어 있고 MSBuild 명령이 원하는 대로 수행되는지 확인합니다. 다음 섹션에 설명된 대로 이 명령줄을 빌드 서버의 기존 빌드 스크립트에 추가하거나 TFS 빌드 정의에서 명령줄을 사용할 수 있습니다. 명령줄 매개 변수 및 MSBuild에 대한 자세한 내용은 [MSBuild 명령줄 참조](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx)를 참조하세요.
 
-1. Visual Studio가 빌드 서버에 설치되어 있는 경우 Windows의 **Visual Studio 도구** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아서 클릭합니다.
+1. Visual Studio가 빌드 서버에 설치되어 있는 경우 Windows의 **Visual Studio Tools** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아서 클릭합니다.
 
    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
 
@@ -97,7 +98,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 이 섹션에서는 선택적 매개 변수를 사용하여 클라우드 앱 패키지 출력을 Azure에 게시할 Windows PowerShell 스크립트를 구성하는 방법에 대해 설명합니다. 이 스크립트는 사용자 지정 빌드 자동화의 빌드 단계 후에 호출할 수 있으며, Visual Studio TFS 팀 빌드의 프로세스 템플릿 워크플로 작업에서 호출할 수도 있습니다.
 
 1. [Azure PowerShell cmdlet][Azure PowerShell cmdlets](v0.6.1 이상)을 설치합니다.
-   Cmdlet 설치 단계 중 스냅인으로 설치하도록 선택합니다. 이전 버전의 번호는 2.x.x로 지정되었지만 공식적으로 지원되는 이 버전이 CodePlex를 통해 제공된 이전 버전을 대체합니다.
+   cmdlet 설치 단계 중 스냅인으로 설치하도록 선택합니다. 이전 버전의 번호는 2.x.x로 지정되었지만 공식적으로 지원되는 이 버전이 CodePlex를 통해 제공된 이전 버전을 대체합니다.
 2. 시작 메뉴나 시작 페이지를 사용하여 Azure PowerShell을 시작합니다. 이런 방식으로 시작하면 Azure PowerShell cmdlet이 로드됩니다.
 3. PowerShell 프롬프트에서 부분 명령 `Get-Azure`를 입력한 다음 문 완성에 대한 Tab 키를 눌러 PowerShell cmdlet가 로드되는지 확인합니다.
 
@@ -115,10 +116,10 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 6. 스크립트의 매개 변수 섹션을 검토합니다. 기본값을 추가하거나 수정합니다. 이러한 값은 명시적 매개 변수를 전달하여 언제든지 재정의할 수 있습니다.
 7. 게시 스크립트에서 대상으로 지정할 수 있는 유효한 클라우드 서비스 및 저장소 계정이 구독에 만들어져 있는지 확인합니다. 저장소 계정(Blob Storage)은 배포를 만드는 동안 배포 패키지 및 구성 파일을 업로드하고 일시적으로 저장하는 데 사용됩니다.
 
-   * 새 클라우드 서비스를 만들려면 다음 스크립트를 호출하거나 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용할 수 있습니다. 클라우드 서비스 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다.
+   * 새 클라우드 서비스를 만들려면 다음 스크립트를 호출하거나 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다. 클라우드 서비스 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-   * 새 저장소 계정을 만들려면 다음 스크립트를 호출하거나 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용할 수 있습니다. 저장소 계정 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다. 클라우드 서비스와 같은 이름을 사용할 수 있습니다.
+   * 새 저장소 계정을 만들려면 다음 스크립트를 호출하거나 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다. 저장소 계정 이름은 정규화된 도메인 이름의 접두사로 사용되므로 고유해야 합니다. 클라우드 서비스와 같은 이름을 사용할 수 있습니다.
 
          New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 8. Azure PowerShell에서 직접 스크립트를 호출하거나 패키지 빌드 후 수행되도록 호스트 빌드 자동화에 이 스크립트를 연결합니다.
@@ -132,7 +133,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-   그런 다음 일반적으로 테스트 실행 검증 및 VIP 교환이 수행됩니다. VIP 교환은 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)이나 Move-Deployment cmdlet을 사용하여 수행할 수 있습니다.
+   그런 다음 일반적으로 테스트 실행 검증 및 VIP 교환이 수행됩니다. VIP 교환은 [Azure Portal](https://portal.azure.com)이나 Move-Deployment cmdlet을 사용하여 수행할 수 있습니다.
 
    **예제 시나리오 2:** 전용 테스트 서비스의 프로덕션 환경에 지속적인 배포
 
@@ -156,7 +157,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-   또는 개인 키로 인증서 파일 PFX를 내보내고 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다.
+   또는 개인 키로 인증서 파일 PFX를 내보내고 [Azure Portal](https://portal.azure.com)을 사용하여 각 대상 클라우드 서비스에 인증서를 업로드할 수 있습니다.
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
@@ -515,7 +516,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 ## <a name="next-steps"></a>다음 단계
 연속 배달을 사용하는 경우 원격 디버깅을 사용하려면 [연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)을 참조하세요.
 
-[Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
 [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
 [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
 [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
@@ -530,9 +530,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
 [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
 [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

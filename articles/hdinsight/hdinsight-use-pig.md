@@ -22,7 +22,6 @@ ms.openlocfilehash: 9c19dc502acd1af4c3193e033d3caefe895624be
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 Pig 사용
 
@@ -84,7 +83,7 @@ HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되�
 
 다음 Pig Latin 작업은 HDInsight 클러스터의 기본 저장소에서 `sample.log` 파일을 로드합니다. 그런 다음 입력된 데이터에서 각 로그 수준이 발생한 횟수로 나타나는 일련의 변환을 수행합니다. 결과는 STDOUT에 기록됩니다.
 
-    LOGS = LOAD 'wasbs:///example/data/sample.log';
+    LOGS = LOAD 'wasb:///example/data/sample.log';
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

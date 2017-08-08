@@ -1,6 +1,6 @@
 ---
-title: "Azure HDInsight Spark 클러스터에서 실행되는 Scala 응용 프로그램 만들기 | Microsoft Docs"
-description: "Maven을 통해 독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
+title: "Spark 클러스터에서 실행되는 Scala 앱 만들기 - Azure HDInsight | Microsoft Docs"
+description: "Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 응용 프로그램 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,11 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: be2f356886c0c9b5f47b2336870bb6232482a1fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 실행할 Scala Maven 응용 프로그램 만들기
@@ -96,12 +95,12 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
    
-            rdd1.saveAsTextFile("wasbs:///HVACout")
+            rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
 9. pom.xml를 업데이트합니다.
@@ -164,7 +163,7 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

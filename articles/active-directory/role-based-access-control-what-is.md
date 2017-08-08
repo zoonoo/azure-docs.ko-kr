@@ -5,21 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 07/13/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 06daecfe8cd61cbb3ab9d2307acb07e30270d921
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure Portal에서 역할 기반 액세스 제어 시작
@@ -48,7 +47,7 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 [RBAC 기본 제공 역할](role-based-access-built-in-roles.md) 은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)을 빌드하는 방법을 참조하세요.
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>리소스 계층 구조 및 액세스 상속
-* Azure에서 각 **구독** 은 하나의 디렉터리에만 속해 있습니다.
+* Azure에서 각 **구독** 은 하나의 디렉터리에만 속해 있습니다. 그러나 각 디렉터리는 하나 이상의 구독을 가질 수 있습니다.
 * 각 **리소스 그룹** 은 하나의 구독에만 속해 있습니다.
 * 각 **리소스** 는 하나의 리소스 그룹에만 속해 있습니다.
 

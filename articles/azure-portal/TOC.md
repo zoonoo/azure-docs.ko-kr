@@ -33,7 +33,7 @@
 ## [Azure Insights CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

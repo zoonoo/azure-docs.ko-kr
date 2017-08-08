@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database 고객 구현 기술 사례
@@ -37,5 +36,5 @@ ms.lasthandoff: 06/21/2017
 
 - [퀘스트](https://customers.microsoft.com/en-US/story/quest): 퀘스트는 데이터 보호, 해당 데이터 이동 및 데이터베이스 작업 모니터링에 사용할 수 있는 최상의 도구를 데이터베이스 전문가에게 제공하기 위한 하나의 목표를 염두에 두고 SQL Server Enterprise 서비스에 해당 스포트라이트를 제공합니다. 스포트라이트와 함께 Microsoft Azure 및 Azure SQL Database를 사용하여 SQL Server 데이터베이스 관리자는 사용자가 회사에 있든지 집에서 작업하든지 SQL Server에서 성능 문제를 모니터링, 검색, 진단하고 이를 해결하는 방법을 제공할 수 있습니다.
 
-- [Microsoft Synamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): 이 간략한 사례 연구는 고객에게 완전히 관리되는 SaaS(Software as a Service) 제품을 제공하기 위해 Dynamics 365 for Operations 제품 팀의 Azure SQL Database로 마이그레이션의 경험에서 학습한 모범 사례 및 교훈을 강조 표시합니다. Azure SQL Database를 사용하여 Dynamics 365 for Operations 팀은 훨씬 적은 직원으로 서비스를 관리 및 작동하고 자동 데이터베이스 백업, 데이터베이스 백업 보존, 고가용성 및 재해 복구 기능과 같은 기본 관리 효율성 기능으로 쉽게 크기를 조정할 수 있었습니다. 간단한 자동화로 데이터베이스를 프로비전하는 기능과 함께 Azure SQL Database가 대규모 서비스 구성을 위한 유용한 플랫폼이 되도록 합니다.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): 이 간략한 사례 연구는 고객에게 완전히 관리되는 SaaS(Software as a Service) 제품을 제공하기 위해 Dynamics 365 for Operations 제품 팀의 Azure SQL Database로 마이그레이션의 경험에서 학습한 모범 사례 및 교훈을 강조 표시합니다. Azure SQL Database를 사용하여 Dynamics 365 for Operations 팀은 훨씬 적은 직원으로 서비스를 관리 및 작동하고 자동 데이터베이스 백업, 데이터베이스 백업 보존, 고가용성 및 재해 복구 기능과 같은 기본 관리 효율성 기능으로 쉽게 크기를 조정할 수 있었습니다. 간단한 자동화로 데이터베이스를 프로비전하는 기능과 함께 Azure SQL Database가 대규모 서비스 구성을 위한 유용한 플랫폼이 되도록 합니다.
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -78,6 +77,8 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 ### <a name="viewing-performance-data"></a>성능 데이터 보기
 노드에서 성능 데이터를 보려면:
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * Azure 포털에서 Log Analytics 작업 영역을 시작합니다.
 

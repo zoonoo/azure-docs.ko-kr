@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - Azure CLI | Microsoft Docs"
-description: "이 페이지에서는 Azure Network Watcher 문제 해결 Azure CLI를 사용하는 방법을 설명합니다."
+title: "Azure Virtual Network 게이트웨이 및 연결 문제 해결 - Azure CLI 2.0 | Microsoft Docs"
+description: "이 페이지에서는 Azure Network Watcher 문제 해결 Azure CLI 2.0을 사용하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -12,30 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 09270cf3181476f3ed2c1720b497e707edff880e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Azure Network Watcher Azure CLI를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Azure Network Watcher Azure CLI 2.0을 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
 > [!div class="op_single_selector"]
+> - [포털](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련된 다양한 기능을 제공합니다. 이러한 기능 중 하나는 리소스 문제 해결입니다. 리소스 문제 해결은 PowerShell, CLI 또는 REST API에서 호출될 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 검사하거나 해당 결과를 반환합니다.
+Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련된 다양한 기능을 제공합니다. 이러한 기능 중 하나는 리소스 문제 해결입니다. 리소스 문제 해결은 포털, PowerShell, CLI 또는 REST API를 통해 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 검사하거나 해당 결과를 반환합니다.
 
-이 문서에서는 Windows, Mac 및 Linux에 사용할 수 있는 플랫폼 간 Azure CLI 1.0을 사용합니다. Network Watcher는 현재 CLI 지원을 위한 Azure CLI 1.0을 사용합니다.
+이 문서에서는 Windows, Mac 및 Linux에서 사용할 수 있는 리소스 관리 배포 모델용 차세대 CLI인 Azure CLI 2.0을 사용합니다.
+
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
+
+지원되는 게이트웨이 유형 목록을 보려면 [지원되는 게이트웨이 유형](network-watcher-troubleshoot-overview.md#supported-gateway-types)을 방문하세요.
 
 ## <a name="overview"></a>개요
 
@@ -46,19 +53,13 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 이 예제에서 리소스 문제 해결은 연결에서 실행됩니다. Virtual Network 게이트웨이를 전달할 수도 있습니다. 다음 cmdlet은 리소스 그룹에서 VPN 연결을 나열합니다.
 
 ```azurecli
-azure network vpn-connection list -g resourceGroupName
-```
-
-구독에서 연결을 참조하는 명령을 실행할 수도 있습니다.
-
-```azurecli
-azure network vpn-connection list -s subscription
+az network vpn-connection list --resource-group resourceGroupName
 ```
 
 연결의 이름이 있으면 해당 리소스 ID를 가져오기 위해 이 명령을 실행할 수 있습니다.
 
 ```azurecli
-azure network vpn-connection show -g resourceGroupName -n connectionName
+az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
@@ -68,27 +69,27 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 1. 저장소 계정 만들기
 
     ```azurecli
-    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
     ```
 
 1. 저장소 계정 키 가져오기
 
     ```azurecli
-    azure storage account keys list storageAccountName -g resourcegroupName
+    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
     ```
 
 1. 컨테이너 만들기
 
     ```azurecli
-    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
     ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Network Watcher 리소스 문제 해결 실행
 
-`network watcher troubleshoot` cmdlet을 사용하여 리소스의 문제를 해결합니다. 리소스 그룹, Network Watcher의 이름, 연결의 ID, 저장소 계정의 ID 및 Blob에 대한 경로에 cmdlet을 전달하여 문제 해결 결과를 저장합니다.
+`az network watcher troubleshooting` cmdlet을 사용하여 리소스의 문제를 해결합니다. 리소스 그룹, Network Watcher의 이름, 연결의 ID, 저장소 계정의 ID 및 Blob에 대한 경로에 cmdlet을 전달하여 문제 해결 결과를 저장합니다.
 
 ```azurecli
-azure network watcher -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
+az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
 cmdlet을 실행하면 Network Watcher는 리소스를 검토하여 상태를 확인합니다. 셸에 결과를 반환하고 지정된 저장소 계정에 결과 로그를 저장합니다.

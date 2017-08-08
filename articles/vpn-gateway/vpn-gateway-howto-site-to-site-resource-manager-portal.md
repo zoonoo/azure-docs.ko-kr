@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: fb175fc178e1b54648349c25d376972b6d1855b3
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 690aa3ddc6ec0889936565ea732cd714734abecb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
@@ -28,14 +27,12 @@ ms.lasthandoff: 06/17/2017
 이 문서에서는 Azure Portal을 사용하여 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway 연결을 만드는 방법을 보여줍니다. 이 문서의 단계는 Resource Manager 배포 모델에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 
 >
-
 
 사이트 간 VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통해 온-프레미스 네트워크를 Azure Virtual Network에 연결하는 데 사용됩니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
@@ -45,9 +42,8 @@ ms.lasthandoff: 06/17/2017
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* Resource Manager 배포 모델을 사용할 것인지 확인합니다. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)] 
-* 호환되는 VPN 장치 및 구성할 수 있는 사람. 호환되는 VPN 장치 및 장치 구성에 대한 자세한 내용은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-* VPN 장치에 대한 외부 연결 공용 IPv4 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+* 호환되는 VPN 장치 및 이 장치를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 장치 및 장치 구성에 대한 자세한 내용은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
+* VPN 장치에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다. 
 
 ### <a name="values"></a>예제 값
@@ -56,8 +52,8 @@ ms.lasthandoff: 06/17/2017
 
 * **VNet 이름:** TestVNet1
 * **주소 공간:** 
-    * 10.11.0.0/16
-    * 10.12.0.0/16(이 연습의 선택 사항)
+  * 10.11.0.0/16
+  * 10.12.0.0/16(이 연습의 선택 사항)
 * **서브넷:**
   * 프런트 엔드: 10.11.0.0/24
   * 백 엔드: 10.12.0.0/24(이 연습의 선택 사항)
@@ -65,7 +61,7 @@ ms.lasthandoff: 06/17/2017
 * **리소스 그룹:** TestRG1
 * **위치:** 미국 동부
 * **DNS 서버:** 선택 사항입니다. DNS 서버의 IP 주소입니다.
-* **가상 네트워크 게이트웨이 이름:** VNet1GW
+* **Virtual Network 게이트웨이 이름:** VNet1GW
 * **공용 IP:** VNet1GWIP
 * **VPN 유형:** 경로 기반
 * **연결 형식:** 사이트 간(IPsec)
@@ -89,7 +85,6 @@ DNS는 사이트 간 연결을 만들지 않아도 됩니다. 하지만 가상 �
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-
 ## <a name="VNetGateway"></a>4. VPN Gateway 만들기
 
 [!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
@@ -107,7 +102,6 @@ DNS는 사이트 간 연결을 만들지 않아도 됩니다. 하지만 가상 �
 - 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
 - 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure Portal을 사용하여 VPN Gateway의 공용 IP 주소를 찾으려면 **가상 네트워크 게이트웨이**로 이동한 다음 게이트웨이의 이름을 클릭합니다.
 
-
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>7. VPN 연결 만들기
@@ -124,9 +118,17 @@ DNS는 사이트 간 연결을 만들지 않아도 됩니다. 하지만 가상 �
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
+## <a name="how-to-reset-a-vpn-gateway"></a>VPN 게이트웨이를 다시 설정하는 방법
+
+Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 장치는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 자세한 단계는 [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)을 참조하세요.
+
+## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a>게이트웨이 SKU를 변경하는 방법(게이트웨이 크기 조정)
+
+게이트웨이 SKU를 변경하는 단계는 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-*  BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
-*  강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
-*  항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
+* BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
+* 강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
+* 항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
+

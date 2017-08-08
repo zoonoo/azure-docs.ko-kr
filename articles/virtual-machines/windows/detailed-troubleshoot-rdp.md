@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 05/31/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 05517573232f5b5234364865d92d5a2d1b7096e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
@@ -120,6 +119,8 @@ ms.lasthandoff: 06/02/2017
   * 작업이 **허용** 으로 설정되었는지 확인하고 새 인바운드 규칙을 저장하려면 확인을 클릭합니다.
 
 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../../virtual-network/virtual-networks-nsg.md)
+
+IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
 ## <a name="source-5-windows-based-azure-vm"></a>발생지 5: Windows 기반 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

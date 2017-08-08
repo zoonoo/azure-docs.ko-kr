@@ -1,5 +1,5 @@
 ---
-title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 - Azure | Microsoft Docs"
+title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 - Azure Machine Learning | Microsoft Docs"
 description: "데이터 과학에 사용할 수 있게 데이터를 준비하기 위한 4가지 기준을 알아보세요. 초급자를 위한 데이터 과학 비디오 2에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다."
 keywords: "관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비"
 services: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8c27159e75482e5d3b2048298b118c55574c6b57
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 데이터를 평가하여 데이터가 데이터 과학의 기본 조건을 충족하는지 확인하는 방법을 알아봅니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
 >
@@ -42,9 +43,9 @@ ms.lasthandoff: 02/10/2017
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
-“데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중&2;번째 비디오입니다.  
+“데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중 2번째 비디오입니다.  
 
-데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다.
+데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다. 
 
 ## <a name="criteria-for-data"></a>데이터 기준
 데이터 과학의 경우 모아야 하는 몇 가지 재료가 있습니다.
@@ -59,9 +60,9 @@ ms.lasthandoff: 02/10/2017
 ## <a name="is-your-data-relevant"></a>여러분의 데이터는 관련성이 있나요?
 첫 번째 재료가 바로 이것입니다. 우리에게는 관련성이 있는 데이터가 필요합니다.
 
-![관련 데이터 및 관련이 없는 데이터 - 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
+![관련 데이터 및 관련이 없는 데이터 - 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-왼쪽의 표를 보세요. 우리는 보스턴 술집 밖에서&7;명의 사람들을 만나서 그들의 혈중 알코올 농도, 마지막 Red Sox 게임에서 Red Sox의 평균 타율, 가장 가까운 편의점 우유 가격을 측정했습니다.
+왼쪽의 표를 보세요. 우리는 보스턴 술집 밖에서 7명의 사람들을 만나서 그들의 혈중 알코올 농도, 마지막 Red Sox 게임에서 Red Sox의 평균 타율, 가장 가까운 편의점 우유 가격을 측정했습니다.
 
 이 모든 것은 완벽하게 합법적인 데이터입니다. 유일한 결함은 서로 관련성이 없다는 것입니다. 이러한 수치 간에는 명확한 관계가 없습니다. 현재 우유 가격과 Red Sox 타율 평균을 안다고 해서 혈중 알코올 농도도 알 수 있는 방법은 없습니다.
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 02/10/2017
 ## <a name="do-you-have-connected-data"></a>연결된 데이터가 있습니까?
 다음 재료는 연결된 데이터입니다.
 
-![연결된 데이터 및 연결되지 않은 데이터 - 데이터 기준, 데이터 준비](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![연결된 데이터 및 연결되지 않은 데이터 - 데이터 기준, 데이터 준비](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
 햄버거 품질에 대해 관련성 있는 데이터인 그릴 온도, 패티 무게, 현지 식품 잡지에서 받은 등급이 있습니다. 그러나 왼쪽의 표에는 빈 공간이 있습니다.
 
@@ -81,9 +82,9 @@ ms.lasthandoff: 02/10/2017
 그렇지만 오른쪽의 표는 꽉 차서 완전합니다. 연결된 데이터의 예로 볼 수 있습니다.
 
 ## <a name="is-your-data-accurate"></a>데이터가 정확한가요?
-필요한 다음 재료는 정확성입니다. 화살로 맞추려는&4;개의 과녁이 있습니다.
+필요한 다음 재료는 정확성입니다. 화살로 맞추려는 4개의 과녁이 있습니다.
 
-![정확한 데이터 및 부정확한 데이터 - 데이터 기준](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
+![정확한 데이터 및 부정확한 데이터 - 데이터 기준](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
 오른쪽 위의 과녁을 보세요. 과녁 중앙 근처에 화살이 밀집되어 있습니다. 물론 정확한 편입니다. 이상하게도 데이터 과학의 언어에서는 오른쪽 아래에 있는 과녁에서 거둔 성과도 정확한 것으로 간주됩니다.
 
@@ -94,7 +95,7 @@ ms.lasthandoff: 02/10/2017
 ## <a name="do-you-have-enough-data-to-work-with"></a>사용할 충분한 데이터가 있나요?
 마지막으로 재료 4는 충분한 데이터가 필요하다는 것입니다.
 
-![분석을 위한 충분한 데이터가 있나요? 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
+![분석을 위한 충분한 데이터가 있나요? 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
 표의 각 데이터 요소를 그림의 붓 자국을 생각해보세요. 붓 자국이 몇 개뿐이면 그림이 상당히 흐릿해져서 어떤 그림을 그렸는지 알기 어렵습니다.
 
@@ -102,7 +103,7 @@ ms.lasthandoff: 02/10/2017
 
 붓 자국이 어느 정도 있어야 대략적인 결정을 내릴 수 있게 됩니다. 제가 가보고 싶은 곳일까요? 밝고 깨끗한 물처럼 보입니다. 맞습니다. 제가 휴가를 보내고 싶은 곳입니다.
 
-더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 아시다시피 저는 앞쪽에 있는 호텔의 건축 특성을 정말 좋아합니다. 그 호텔&3;층에 머물 것입니다.
+더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 아시다시피 저는 앞쪽에 있는 호텔의 건축 특성을 정말 좋아합니다. 그 호텔 3층에 머물 것입니다.
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 

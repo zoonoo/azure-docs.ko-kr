@@ -21,9 +21,7 @@ ms.lasthandoff: 05/04/2017
 
 
 ---
-<a id="tutorial-azure-active-directory-integration-with-wingspan-etmf" class="xliff"></a>
-
-# 자습서: Wingspan eTMF와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>자습서: Wingspan eTMF와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Wingspan eTMF를 통합하는 방법에 대해 알아봅니다.
 
@@ -35,9 +33,7 @@ Wingspan eTMF를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-<a id="prerequisites" class="xliff"></a>
-
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 Wingspan eTMF와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -52,17 +48,13 @@ Wingspan eTMF와의 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-<a id="scenario-description" class="xliff"></a>
-
-## 시나리오 설명
+## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Wingspan eTMF 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
-<a id="adding-wingspan-etmf-from-the-gallery" class="xliff"></a>
-
-## 갤러리에서 Wingspan eTMF 추가
+## <a name="adding-wingspan-etmf-from-the-gallery"></a>갤러리에서 Wingspan eTMF 추가
 Wingspan eTMF의 Azure AD 통합을 구성하려면 갤러리의 Wingspan eTMF를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Wingspan eTMF를 추가하려면 다음 단계를 수행합니다.**
@@ -87,9 +79,7 @@ Wingspan eTMF의 Azure AD 통합을 구성하려면 갤러리의 Wingspan eTMF�
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_addfromgallery.png)
 
-<a id="configuring-and-testing-azure-ad-single-sign-on" class="xliff"></a>
-
-##  Azure AD Single Sign-on 구성 및 테스트
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로Wingspan eTMF에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Wingspan eTMF 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Wingspan eTMF의 관련 사용자 간에 연결이 형성되어야 합니다.
@@ -104,9 +94,7 @@ Wingspan eTMF에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-<a id="configuring-azure-ad-single-sign-on" class="xliff"></a>
-
-### Azure AD Single Sign-On 구성
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Wingspan eTMF 응용 프로그램에서 Single Sign-On을 구성합니다.
 
@@ -147,9 +135,7 @@ Wingspan eTMF에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
  
 
-<a id="creating-an-azure-ad-test-user" class="xliff"></a>
-
-### Azure AD 테스트 사용자 만들기
+### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][100]
@@ -180,15 +166,11 @@ Wingspan eTMF에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     d. **만들기**를 클릭합니다.
  
-<a id="creating-a-wingspan-etmf-test-user" class="xliff"></a>
-
-### Wingspan eTMF 테스트 사용자 만들기
+### <a name="creating-a-wingspan-etmf-test-user"></a>Wingspan eTMF 테스트 사용자 만들기
 
 이 섹션에서는 Wingspan eTMF에서 Britta Simon이라는 사용자를 만듭니다. Wingspan eTMF 응용 프로그램에 사용자를 추가하려면 [Wingspan eTMF 지원](http://www.wingspan.com/contact-us/)과 함께 작업합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-<a id="assigning-the-azure-ad-test-user" class="xliff"></a>
-
-### Azure AD 테스트 사용자 할당
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Wingspan eTMF에 대한 액세스 권한을 부여합니다.
 
@@ -218,17 +200,13 @@ Wingspan eTMF에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
-<a id="testing-single-sign-on" class="xliff"></a>
-
-### Single Sign-On 테스트
+### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
 액세스 패널에서 Wingspan eTMF 타일을 클릭하면 조직 로그온 페이지로 리디렉션됩니다. 로그인이 성공한 후 Wingspan eTMF 응용 프로그램에 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<a id="additional-resources" class="xliff"></a>
-
-## 추가 리소스
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)

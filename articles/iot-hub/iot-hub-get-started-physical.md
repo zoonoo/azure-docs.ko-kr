@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub에 실제 장치 연결 시작 | Microsoft Docs"
-description: "실제 IoT 장치를 만들고 Azure IoT Hub에 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
+description: "물리적 장치와 보드를 Azure IoT Hub에 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2e00affad9302145ac0c62e5994bd636cb2b72a9
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: c42c1c115fac70920b08d65fc1a2cdc8497f5080
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>실제 장치로 시작하는 Azure IoT Hub 자습서
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/03/2017
 
 | IoT 장치                       | 프로그래밍 언어 |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]           |
 | Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
@@ -45,6 +44,7 @@ ms.lasthandoff: 06/03/2017
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
 [Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md

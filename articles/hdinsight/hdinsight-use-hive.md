@@ -10,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,14 +18,14 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 495afb2d6e166e8f8cbb5157ef2182804c91a4e4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 및 HiveQL이란?
+# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
 [Apache Hive](http://hive.apache.org/)는 Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
 
@@ -54,7 +54,7 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는 Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > Windows 기반 HDInsight 클러스터를 사용하는 경우 브라우저에서 [쿼리 콘솔](hdinsight-hadoop-use-hive-query-console.md) 또는 [원격 데스크톱](hdinsight-hadoop-use-hive-remote-desktop.md)을 사용하여 Hive 쿼리를 실행할 수 있습니다.
 

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
@@ -30,7 +29,7 @@ ms.lasthandoff: 06/17/2017
 이 문서에서는 가상 네트워크 간에 VPN Gateway 연결을 만드는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 이 문서의 단계는 클래식 배포 모델 및 Azure Portal에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -86,7 +85,16 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ## <a name="vnetvalues"></a>2단계 - 가상 네트워크 만들기
 
-[Azure Portal](https://portal.azure.com)에서 두 개의 가상 네트워크를 만듭니다. 클래식 가상 네트워크를 만드는 단계는 [클래식 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. 이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 두 개의 가상 네트워크를 만듭니다. 클래식 가상 네트워크를 만드는 단계는 [클래식 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. 
+
+포털을 사용하여 클래식 가상 네트워크를 만들 때 다음 단계를 사용하여 가상 네트워크 블레이드로 이동해야 합니다. 그렇지 않으면 가상 네트워크를 만드는 옵션이 표시되지 않습니다.
+
+1. '+'를 클릭하여 '새로 만들기' 블레이드를 엽니다.
+2. ‘Marketplace 검색’ 필드에 ‘가상 네트워크’를 입력합니다. 대신, 네트워킹 -> 가상 네트워크를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
+3. 반환된 목록에서 ‘가상 네트워크’를 찾아서 클릭하여 가상 네트워크 블레이드를 엽니다. 
+4. 가상 네트워크 블레이드에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 
+
+이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
 
 **TestVNet1에 대한 값**
 

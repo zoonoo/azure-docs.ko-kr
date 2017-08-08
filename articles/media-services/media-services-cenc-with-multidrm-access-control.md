@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
@@ -57,7 +57,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | --- | --- | --- | --- |
 | **스마트 TV, 연산자 STB, OTT STB** |주로 PlayReady 및/또는 Widevine 및/또는 기타 |Linux, Opera, WebKit, 기타 |다양한 형식 |
 | **Windows 10 장치(Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
-| **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH |
+| **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH,HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
 
@@ -274,7 +274,7 @@ Azure AD에서는 업계 표준을 사용하여 Azure AD 자체와 Azure AD를 �
 
 Azure AD 키 롤오버에 대한 자세한 정보는 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](../active-directory/active-directory-signing-key-rollover.md)에서 확인할 수 있습니다.
 
-[공개-개인 키 쌍](https://login.windows.net/common/discovery/keys/)중에서,
+[공개-개인 키 쌍](https://login.microsoftonline.com/common/discovery/keys/)중에서,
 
 * Azure Active Directory가 JWT 토큰을 생성하는 데 개인 키가 사용됩니다.
 * AMS의 DRM 라이선스 배달 서비스와 같은 응용 프로그램에서 JWT 토큰을 확인하는 데 공개 키가 사용됩니다.
@@ -394,7 +394,7 @@ Azure AD는 Microsoft 계정(MSA) 도메인을 신뢰하므로 다음 도메인�
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**스마트 카드를 사용한 Microsoft 도메인 계정**: 이 경우 Microsoft 회사 IT에서&2;단계 인증으로 사용자 지정한 로그인 페이지가 표시됩니다.
+**스마트 카드를 사용한 Microsoft 도메인 계정**: 이 경우 Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지가 표시됩니다.
 
 ![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
@@ -457,3 +457,4 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
+

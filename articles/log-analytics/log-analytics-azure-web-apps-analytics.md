@@ -20,7 +20,6 @@ ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
@@ -92,6 +91,8 @@ Azure Web Apps 분석 솔루션을 작업 영역에 추가하면 개요 대시�
 ### <a name="view-azure-web-apps-analytics-information"></a>Azure Web Apps 분석 정보 보기
 
 **Azure Web Apps 분석** 타일을 클릭하여 **Azure Web Apps 분석** 대시보드를 엽니다. 대시보드에는 다음 테이블의 블레이드가 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | 열 | 설명 |
 | --- | --- |

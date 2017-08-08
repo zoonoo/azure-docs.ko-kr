@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Azure AD와 Windows 스토어 앱 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Windows Store 8.1 및 이전 버전 프로젝트는 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
 
 Windows 스토어용 앱을 개발하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하고 편리하게 Active Directory 계정으로 사용자를 인증할 수 있습니다. Azure AD와 통합하면 앱에서 Office 365 API 또는 Azure API 같은 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
@@ -154,7 +156,7 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
 3. 앱을 닫았다가 다시 실행합니다. 사용자의 세션을 그대로 유지하는 방법을 알아두세요.
 4. 마우스 오른쪽 단추를 클릭하고 아래쪽 막대를 표시하여 로그아웃했다가 다른 사용자로 다시 로그인합니다.
 
-ADAL은 이 모든 일반적인 ID 기능을 앱에 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 대신 처리합니다. 사용자는 API 호출 `authContext.AcquireToken*(…)`만 알고 있으면 됩니다.
+ADAL은 이 모든 일반적인 ID 기능을 앱에 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 대신 처리합니다. 사용자는 단일 API 호출 `authContext.AcquireToken*(…)`만 알고 있으면 됩니다.
 
 참조용 자료로 [완성된 샘플](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip)(사용자 구성 값 제외)을 다운로드하세요.
 

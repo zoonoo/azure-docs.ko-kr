@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 보안 서비스 및 기술
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/17/2017
 * [Azure 클라이언트 쪽 암호화](../storage/storage-client-side-encryption.md)
 * [Azure 저장소 공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md)
 * [Azure 저장소 계정 키](../storage/storage-create-storage-account.md)
-* [3.0 암호화 SMB와 함께 azure 파일 공유](../storage/storage-dotnet-how-to-use-files.md)
+* [SMB 3.0 암호화를 사용한 Azure 파일 공유](../storage/storage-dotnet-how-to-use-files.md)
 * [Azure 저장소 분석](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Azure 데이터베이스 보안

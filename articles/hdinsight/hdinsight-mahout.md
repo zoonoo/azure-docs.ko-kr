@@ -1,5 +1,5 @@
 ---
-title: "PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 | Microsoft Docs"
+title: "PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 - Azure | Microsoft Docs"
 description: "Apache Mahout Machine Learning 라이브러리를 사용하여 클라이언트에서 실행 중인 PowerShell에서 HDInsight(Hadoop)로 영화 추천을 생성하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 102cd55a0b55e18ec5240bf6ddf94a1909c08ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59ae075944ce7e19542f19d285440c3822922fbe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * [Azure PowerShell](/powershell/azure/overview)
 

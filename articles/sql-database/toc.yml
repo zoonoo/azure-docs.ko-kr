@@ -51,6 +51,8 @@
       href: sql-database-implement-geo-distributed-database.md
 - name: 샘플
   items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
     - name: PowerShell
@@ -97,11 +99,6 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 위협 감지
           href: sql-database-threat-detection.md
-        - name: SQL DB를 사용한 TDE
-          href: 'https://msdn.microsoft.com/library/dn948096'
-        - name: 상시 암호화
-          href: >-
-            https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
         - name: 데이터 마스킹
           href: sql-database-dynamic-data-masking-get-started.md
     - name: 비즈니스 연속성
@@ -121,8 +118,7 @@
         - name: 앱 디자인 및 복구
           href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
         - name: 앱 디자인 및 풀
-          href: >-
-            sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
         - name: 앱 디자인 및 앱 업그레이드
           href: sql-database-manage-application-rolling-upgrade.md
         - name: 가동 중단에서 복구
@@ -260,8 +256,7 @@
         - name: BCP를 사용하여 데이터 로드
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF를 사용하여 데이터 로드
-          href: >-
-            ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: 데이터 동기화
           href: sql-database-get-started-sql-data-sync.md
     - name: 모니터링 및 튜닝
@@ -307,8 +302,7 @@
         - name: 카운터 만들기
           href: sql-database-elastic-database-perf-counters.md
         - name: 엔터티 프레임워크 사용
-          href: >-
-            sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
         - name: 클라이언트 업그레이드
           href: sql-database-elastic-scale-upgrade-client-library.md
         - name: 탄력적 작업 설치
@@ -336,10 +330,9 @@
 - name: 참조
   items:
     - name: PowerShell
-      href: 'https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql'
+      href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell(탄력적 DB)
-      href: >-
-        https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
+      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET
@@ -347,40 +340,40 @@
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
     - name: Node.js
-      href: 'https://msdn.microsoft.com/library/mt652093.aspx'
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
     - name: Python
-      href: 'https://msdn.microsoft.com/library/mt652092.aspx'
+      href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: 'https://msdn.microsoft.com/library/mt691981.aspx'
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: PHP
-      href: 'https://msdn.microsoft.com/library/dn865013.aspx'
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
     - name: T-SQL
-      href: 'https://msdn.microsoft.com/library/bb510741.aspx'
+      href: /sql/t-sql/language-reference
     - name: REST (영문)
-      href: 'https://msdn.microsoft.com/library/mt163571.aspx'
+      href: /rest/api/sql/
     - name: SQL Server 도구
-      href: 'https://msdn.microsoft.com/library/mt238365.aspx'
+      href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
-      href: 'https://msdn.microsoft.com/library/mt238290.aspx'
+      href: /sql/ssms/download-sql-server-management-studio-ssms
     - name: SSDT(SQL Server Data Tools)
-      href: 'https://msdn.microsoft.com/library/mt204009.aspx'
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
-      href: 'https://msdn.microsoft.com/library/ms162802.aspx'
+      href: /sql/tools/bcp-utility
     - name: SQLCMD
-      href: 'https://msdn.microsoft.com/library/ms162773.aspx'
+      href: /sql/tools/sqlcmd-utility
     - name: SqlPackage
       href: 'https://msdn.microsoft.com/hh550080.aspx'
     - name: SQL Database 관리 라이브러리 패키지
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: SQL Server 드라이버
-      href: 'https://msdn.microsoft.com/library/mt654049.aspx'
+      href: /sql/connect/sql-server-drivers
       items:
         - name: ADO.NET
-          href: 'https://msdn.microsoft.com/library/mt657768.aspx'
+          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
         - name: JDBC
-          href: 'https://msdn.microsoft.com/library/mt484311.aspx'
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: ODBC
-          href: 'https://msdn.microsoft.com/library/mt654048.aspx'
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -390,8 +383,7 @@
     - name: 공용 데이터 집합
       href: sql-database-public-data-sets.md
     - name: 연결 문제 해결
-      href: >-
-        https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: MSDN 포럼
@@ -399,24 +391,10 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
     - name: 비디오
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=sql-database
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
     - name: 아키텍처 지침
-      href: 'https://docs.microsoft.com/sql/#pivot=architecture'
-    - name: 고객 구현
-      href: sql-database-customer-implementations.md
-    - name: 샘플 응용 프로그램
-      items:
-        - name: Tailspin 설문 조사
-          href: >-
-            https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-        - name: Contoso 클리닉
-          href: 'https://github.com/Microsoft/azure-sql-security-sample'
-        - name: 탄력적 풀 원격 분석
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-        - name: 탄력적 풀 사용자 지정 대시보드
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+      href: /azure/architecture/guide/
+    - name: 고객 사례
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

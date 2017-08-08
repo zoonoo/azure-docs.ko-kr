@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa902aae0b1ab4ca6a93387106b40a16c7288cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Linux의 Azure Web App에 대한 SSH 지원
@@ -90,7 +89,7 @@ SSH 클라이언트 연결을 만들려면 주 사이트를 시작해야 합니�
     EXPOSE 2222 80
     ```
 
-4. ssh 서비스를 시작합니다. [여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh)에 제공되는 예제는 */bin* 디렉터리의 셸 스크립트를 사용합니다.
+4. ssh 서비스를 시작합니다. [여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)에 제공되는 예제는 */bin* 디렉터리의 셸 스크립트를 사용합니다.
 
     ```bash
     #!/bin/bash

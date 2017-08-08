@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.date: 06/06/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 70b04cde5fe877355c1dea29c78df3dcb8277973
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -36,6 +37,7 @@ Azure Search를 처음 사용하는 경우 여기에서 시작합니다. 약 1�
 | [인덱스 쿼리](search-get-started-portal.md) | 기본 제공 샘플 데이터를 사용하여 만들고 쿼리합니다. 포털의 도구는 쿼리 형식 및 검색 매개 변수에 대해 알아볼 수 있는 빠른 방법입니다. | 2017년 2월 |
 | [다음 단계:<br/> .NET의 코드](search-howto-dotnet-sdk.md) | C# 연습에서는 Azure Search .NET 라이브러리를 사용하여 연결, 인덱싱 및 쿼리하는 방법을 보여 줍니다. | 2016년 11월 |
 | [다음 단계:<br/> REST의 코드](search-create-index-rest-api.md) | 임의 플랫폼 및 프로그래밍 언어에로 Azure Search 인덱스를 만들기 위한 REST 호출 및 JSON 페이로드를 검토합니다. | 2016년 12월 |
+| [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md) | Azure Search 전체 텍스트 검색 워크로드의 아키텍처 및 개요 | 2017년 3월 |
 
 ## <a name="code-samples"></a>코드 샘플
 
@@ -55,6 +57,7 @@ Azure Search를 처음 사용하는 경우 여기에서 시작합니다. 약 1�
 
 | 링크 | 설명 |
 |-------|-------------|
+|[검색 분석기 데모](http://alice.unearth.ai) | 표준 Lucene 분석기, Lucene 영어 분석기 및 Microsoft의 자연어 프로세서의 쿼리 결과를 보여주는 라이브 데모 웹 사이트입니다. 각 검색 용어 입력에 대해 각 분석기의 출력을 나란히 비교하여 볼 수 있습니다. |
 |[Azure Search에 대한 NYC(뉴욕시) 구직 포털 데모](http://aka.ms/azjobsdemo) | NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure Search 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. 코드를 수정하여 [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용할 수 있습니다. |
 |[Tate Art Gallery 데모](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | Tate Art Gallery의 샘플 데이터를 사용하여 호스트된 ASP.NET 웹 사이트입니다. 먼저 검색어로 "modern", "photo" 및 "portrait" 등을 사용해 보세요.
 |[Azure Search 데모 사이트](https://searchsamples.azurewebsites.net/#/) | Azure Search 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다. |

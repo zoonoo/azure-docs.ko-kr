@@ -135,9 +135,7 @@
 #### [메트릭 사용 및 보기](storage-enable-and-view-metrics.md)
 #### [모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 #### [문제 해결 자습서](storage-e2e-troubleshooting.md)
-### 디스크 삭제 오류 문제 해결
-#### [Resource Manager 배포](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [클래식 배포](storage-cannot-delete-storage-account-container-vhd.md)
+### [디스크 삭제 오류 문제 해결](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [파일 저장소 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [문제 해결 자습서](storage-e2e-troubleshooting-classic-portal.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage 클라이언트 도구](storage-explorers.md)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)

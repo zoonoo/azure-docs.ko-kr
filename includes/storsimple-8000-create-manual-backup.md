@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-#### 수동 백업을 만들려면
-<a id="to-create-a-manual-backup" class="xliff"></a>
+#### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
 
 1. StorSimple 장치 관리자 서비스로 이동한 다음 **장치**를 클릭합니다. 테이블 형식 장치 목록에서 장치를 선택합니다. **설정 >관리 > 백업 정책**으로 이동합니다.
 

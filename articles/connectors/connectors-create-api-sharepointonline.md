@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/19/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7e970f2a518f3484310cbada108a025e9a7fc6d
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 96fc1347604c0c6cc2c2463a5dbd83b560183a16
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -47,8 +47,9 @@ SharePoint Online 커넥터를 사용하여 SharePoint 목록을 관리합니다
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/sharepoint/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/sharepoint/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)

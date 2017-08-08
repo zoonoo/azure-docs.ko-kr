@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 응용 프로그램 게시 | Microsoft Docs"
+title: "HDInsight 응용 프로그램 게시 - Azure | Microsoft Docs"
 description: "HDInsight 응용 프로그램을 만들고 게시하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Azure 마켓플레이스에 HDInsight 응용 프로그램 게시
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure 마켓플레이스에 게시하는 방법을 알아봅니다.  Azure 마켓플레이스에 게시하는 방법에 대한 일반 정보는 [Azure 마켓플레이스에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
+HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.  Azure 마켓플레이스에 게시하는 방법에 대한 일반 정보는 [Azure 마켓플레이스에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
 
-HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)* 을 사용하며 여기서 응용 프로그램 공급자는 최종 사용자에게 응용 프로그램을 라이선싱하는 작업을 담당하고 Azure에서 최종 사용자에게 HDInsight 클러스터와 해당 VM/노드 등 만들 리소스에 대한 요금을 청구합니다. 이번에 응용 프로그램 자체에 대한 청구는 Azure를 통해 수행되지 않습니다.
+HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)* 을 사용하며 여기서 응용 프로그램 공급자는 최종 사용자에게 응용 프로그램을 라이선싱하는 작업을 담당하고 Azure에서 최종 사용자에게 HDInsight 클러스터와 해당 VM/노드 등 만들 리소스에 대한 요금을 청구합니다. 지금은 응용 프로그램 자체에 대한 청구가 Azure를 통해 수행되지 않습니다.
 
 다른 HDInsight 응용 프로그램 관련 문서:
 
@@ -38,10 +39,10 @@ HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)* 을 사�
 
 * [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): 사용자 지정 HDInsight 응용 프로그램을 설치하고 테스트하는 방법을 알아봅니다.
 
-또한 개발자 계정을 등록해야 합니다. [Azure Marketplace에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md) 및 [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
+또한 개발자 계정을 등록했어야 합니다. [Azure Marketplace에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md) 및 [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
 
 ## <a name="define-application"></a>응용 프로그램 정의
-Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가지 단계가 있습니다.  먼저 **createUiDef.json** 파일을 정의하여 응용 프로그램과 호환되고 클러스터를 나타낸 다음 Azure 포털에서 템플릿을 게시합니다. 다음은 샘플 createUiDef.json 파일입니다.
+Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가지 단계가 있습니다.  먼저 **createUiDef.json** 파일을 정의하여 응용 프로그램과 호환되고 클러스터를 나타낸 다음 Azure 포털에서 템플릿을 게시합니다. 다음은 섹션은 예제 createUiDef.json 파일입니다.
 
     {
         "handler": "Microsoft.HDInsight",

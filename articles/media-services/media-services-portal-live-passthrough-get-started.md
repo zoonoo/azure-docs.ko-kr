@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트리밍 | Microsoft Docs"
+title: "Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림 | Microsoft Docs"
 description: "이 자습서에서는 통과 배달을 위해 구성된 채널을 만드는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
-ms.lasthandoff: 01/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure 포털을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/27/2017
 * [Azure 미디어 서비스를 사용하는 라이브 스트리밍 개요](media-services-manage-channels-overview.md)
 * [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음 단계에서는 통과 배달을 위해 구성된 채널을 사용하는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 것과 관련된 작업에 대해 설명합니다. 이 자습서에는 통과 채널 및 라이브 이벤트를 생성 및 관리하는 방법을 보여 줍니다.
 
 >[!NOTE]
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/27/2017
 9. 이벤트/프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.     
 
 > [!IMPORTANT]
-> 온-프레미스 인코더 및 통과 채널을 사용한 라이브 스트리밍과 관련한 개념 및 고려 사항에 대해 알아보려면 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md) 을 확인하세요.
+> 온-프레미스 인코더 및 통과 채널을 사용한 라이브 스트리밍과 관련된 개념 및 고려 사항에 대해 알아보려면 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 검토하세요.
 > 
 > 
 

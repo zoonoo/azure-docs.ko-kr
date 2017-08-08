@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/20/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: eaa97e31fbc2ffb8464b5ec2bd1f0eb5c59fdbd2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -94,6 +94,31 @@ using System;
 public static void Run(string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+}
+```
+
+또한 해당 이벤트를 이벤트 메타데이터에 액세스할 수 있도록 하는 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체로도 수신할 수 있습니다.
+
+```cs
+#r "Microsoft.ServiceBus"
+using System.Text;
+using Microsoft.ServiceBus.Messaging;
+
+public static void Run(EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+
+이벤트를 일괄로 수신하려면 메서드 서명을 `string[]` 또는 `EventData[]`로 변경합니다.
+
+```cs
+public static void Run(string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
 }
 ```
 

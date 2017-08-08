@@ -28,5 +28,5 @@
 ## [Azure 스트림 분석](/azure/stream-analytics/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
+ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9b2e78ff55ed23732892d605f3edef6a5afdf7ad
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
@@ -83,8 +82,7 @@ Site Recovery에서 도메인 컨트롤러/DNS 가상 컴퓨터의 보호를 설
 1. 격리된 네트워크를 만듭니다. Azure에서 생성되는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 범위를 프로덕션 네트워크와 동일하게 설정하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
 1. DNS 가상 컴퓨터를 가져올 것으로 예상되는 IP 주소로 만든 네트워크에서 DNS IP 주소를 제공합니다. Azure로 복제 중인 경우 **계산 및 네트워크** 설정의 **대상 IP** 설정에서 장애 조치(failover)에 사용할 VM의 IP 주소를 입력합니다. 
 
-    ![대상 IP](./media/site-recovery-active-directory/DNS-Target-IP.png)
-    **대상 IP**
+    ![대상 IP](./media/site-recovery-active-directory/DNS-Target-IP.png) **대상 IP**
 
     ![Azure 테스트 네트워크](./media/site-recovery-active-directory/azure-test-network.png)
 

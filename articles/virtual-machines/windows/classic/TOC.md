@@ -81,7 +81,8 @@
 ### [응용 프로그램에 액세스](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [새 VM 생성 관련 클래식 배포 문제](troubleshoot-deployment-new-vm.md)
 ### [기존 VM 재시작 또는 크기 조정 관련 클래식 배포 문제](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [RDP 암호 재설정](reset-rdp.md)
+### [RDP 암호 재설정](reset-rdp.md)
+### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [저장소 REST](/rest/api/storageservices)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

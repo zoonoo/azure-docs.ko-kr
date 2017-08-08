@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
-ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 StorSimple Manager 서비스 배포
@@ -29,7 +29,7 @@ StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 Stor
 
 StorSimple 관리자 방문 페이지에는 StorSimple 저장소 장치를 관리하는 데 사용할 수 있는 모든 StorSimple 관리자 서비스가 나열되어 있습니다. 각 StorSimple 관리자 서비스의 경우, 다음 정보가 StorSimple 관리자 페이지에 있습니다.
 
-* **이름** – 만들었을 때 StorSimple 관리자 서비스에 할당된 이름입니다. 서비스 이름은 서비스를 만든 후에 변경할 수 없습니다.
+* **이름** – 만들었을 때 StorSimple 관리자 서비스에 할당된 이름입니다. **서비스 이름은 서비스를 만든 후에 변경할 수 없습니다. Azure 클래식 포털에서 이름을 바꿀 수 없는 장치, 볼륨, 볼륨 컨테이너 및 백업 정책 같은 기타 엔터티에도 마찬가지입니다.**
 * **상태** – **활성**, **만들기** 또는 **온라인** 등의 서비스 상태입니다.
 * **위치** – StorSimple 장치를 배포할 지리적 위치입니다.
 * **구독** – 서비스와 연관된 청구 구독입니다.

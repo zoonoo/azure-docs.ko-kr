@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 51459dae8d09d7051ab74c9fe57cc29e38b8b9ab
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0bf8995913511b0e14304a1259f13de4aa9e04b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
@@ -132,7 +132,7 @@ Azure Portal의 테넌트 페이지에서 IP 주소(또는 다중 지역 배포�
 AD FS(Active Directory Federation Services) 보안으로 OAuth 2.0 권한 부여 서버를 구성하는 방법을 알아보려면 [API Management에서 ADFS 사용](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)을 참조하세요.
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>여러 지리적 위치에 배포할 때 API Management에서 사용하는 라우팅 방법은 무엇입니까?
-API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에서 라우팅 방법에 대해 자세히 알아봅니다.
+API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#priority)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에서 라우팅 방법에 대해 자세히 알아봅니다.
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?
 예. [Azure API Management 서비스](http://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.

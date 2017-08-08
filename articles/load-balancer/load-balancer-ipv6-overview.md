@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 397f3e75830acf46b29ac864c77ed3160f4e01e4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -73,7 +73,9 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * Azure VM은 IPv6를 통해 다른 VM, 다른 Azure 서비스 또는 온-프레미스 장치에 연결할 수 없습니다. 단지 IPv6를 통해 Azure Load Balancer와 통신할 수 있습니다. 그러나 IPv4를 사용하면 이러한 다른 리소스와 통신할 수 있습니다.
 * IPv4에 대한 Network Security Group (NSG) 보호는 이중 스택 (IPv6+IPv4) 배포에서 지원됩니다. NSG는 IPv6 끝점에 적용되지 않습니다.
 * VM의 IPv6 끝점은 인터넷에 직접 노출되지 않습니다. 부하 분산 장치 뒤에.있습니다. 부하 분산 장치 규칙에 지정된 포트만 IPv6를 통해 액세스할 수 있습니다.
-* IPv6에 대한 IdleTimeout 매개 변수 변경은 **현재 지원 되지 않습니다**. 기본 값은 4분입니다.
+* IPv6에 대한 IdleTimeout 매개 변수 변경은 **현재 지원되지 않습니다**. 기본 값은 4분입니다.
+* IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
+* 예약된 IPv6 IP(여기서 IPAllocationMethod = static)는 **현재 지원되지 않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

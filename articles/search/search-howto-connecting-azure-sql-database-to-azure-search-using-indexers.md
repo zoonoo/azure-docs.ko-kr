@@ -12,52 +12,59 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
-Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌륭한 검색 환경을 간편하게 제공할 수 있습니다. 검색에 앞서 데이터를 Azure 검색 인덱스에 입력해야 합니다. 데이터가 Azure SQL Database에 있는 경우 새 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있습니다. 이는 작성할 코드 및 관리할 인프라가 없음을 의미합니다.
 
-이 문서에서는 인덱서 사용 원리를 다루지만 Azure SQL Database에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. Azure Search는 Azure Cosmos DB, Blob Storage, Table Storage 등의 다른 데이터 원본도 지원합니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure Search 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
+[Azure Search 인덱스](search-what-is-an-index.md)를 쿼리하기 전에 데이터를 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있으므로 작성할 코드의 양과 신경 써야 할 인프라가 줄어듭니다.
+
+이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL 데이터베이스에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. 
+
+Azure SQL 데이터베이스 외에도 Azure Search는 [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md)에 대한 인덱서를 제공합니다. 다른 데이터 원본에 대한 지원을 요청하려면 [Azure Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
-다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
 
-* [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
-* Azure Search [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
-* Azure Search [REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173)
+**데이터 원본**은 인덱싱할 데이터, 데이터 액세스를 위한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
-이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리하는 방법을 보여 줍니다.
-
-**데이터 원본**은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
-
-**인덱서** 는 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
+**인덱서**는 단일 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
 
 * 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
 * 예약에 따라 데이터 원본의 변경 내용으로 인덱스를 업데이트합니다.
 * 필요에 따라 요청 시 인덱스 업데이트를 실행합니다.
 
+단일 인덱서는 테이블 또는 뷰를 하나만 사용할 수 있지만 여러 검색 인덱스를 채우려는 경우 여러 인덱서를 만들 수 있습니다. 개념에 대한 자세한 내용은 [인덱서 작업: 일반적인 워크플로](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow)를 참조하세요.
+
+다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
+
+* [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
+* Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+
+이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만듭니다.
+
 ## <a name="when-to-use-azure-sql-indexer"></a>Azure SQL 인덱서를 사용하는 경우
 데이터와 관련된 여러 요소에 따라 Azure SQL 인덱서를 사용하는 것이 적절할 수도 있고 그렇지 않을 수도 있습니다. 데이터가 다음 요구 사항에 적합한 경우 Azure SQL 인덱서를 사용할 수 있습니다.
 
-* 모든 데이터가 단일 테이블 또는 뷰에서 제공됩니다.
-  * 데이터가 여러 테이블에 분산된 경우 뷰를 만들고 이 뷰를 인덱서에서 사용할 수 있습니다. 그러나 뷰를 사용하는 경우 SQL Server 통합 변경 내용 검색을 사용할 수 없습니다. 자세한 내용은 [이 섹션](#CaptureChangedRows)을 참조하세요.
-* 데이터 원본에 사용된 데이터 형식이 인덱서에서 지원됩니다. 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 자세한 내용은 [Azure 검색에서 데이터 형식 매핑](http://go.microsoft.com/fwlink/p/?LinkID=528105)을 참조하세요.
-* 행이 변경될 때 인덱스에 대한 실시간 업데이트가 필요 없습니다.
-  * 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [Azure 검색 인덱스 API](https://msdn.microsoft.com/library/azure/dn798930.aspx) 를 직접 사용하는 것이 좋습니다.
-* 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 사용자의 스키마를 통해 변경된 행(및 해당되는 경우 삭제된 행)을 효율적으로 식별할 수 있습니다. 자세한 내용은 아래의 “변경 및 삭제된 행 캡처”를 참조하세요.
-* 행에서 인덱싱된 필드의 크기가 Azure 검색 인덱싱 요청의 최대 크기(16MB)를 초과하지 않습니다.
+| 조건 | 세부 정보 |
+|----------|---------|
+| 단일 테이블 또는 뷰에서 발생한 데이터 | 데이터가 여러 테이블에 분산된 경우 데이터에 대한 단일 뷰를 만들 수 있습니다. 그러나 뷰를 사용하는 경우 증분 변경 내용으로 인덱스를 새로 고치는 데 SQL Server 통합 변경 검색을 사용할 수 없습니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
+| 호환되는 데이터 형식 | Azure Search 인덱스에서는 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
+| 실시간 데이터 동기화가 필요하지 않습니다. | 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) 또는 [.NET SDK](search-import-data-dotnet.md)를 사용하여 업데이트된 행을 직접 푸시하는 것이 좋습니다. |
+| 증분 인덱싱 가능 | 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 Azure Search에서 새 행, 변경된 행 및 삭제된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
 
-## <a name="create-and-use-an-azure-sql-indexer"></a>Azure SQL 인덱서 만들기 및 사용
-먼저, 데이터 원본을 만듭니다.
+## <a name="create-an-azure-sql-indexer"></a>Azure SQL 인덱서 만들기
 
+1. 데이터 원본을 만듭니다.
+
+   ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -68,14 +75,15 @@ Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌�
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { "name" : "name of the table or view that you want to index" }
     }
+   ```
 
+   `ADO.NET connection string` 옵션을 사용하여 [Azure Portal](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
 
-`ADO.NET connection string` 옵션을 사용하여 [Azure 클래식 포털](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
+2. 대상 Azure Search 인덱스가 없는 경우 새로 만듭니다. [포털](https://portal.azure.com) 또는 [인덱스 만들기 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 사용하여 인덱스를 만들 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. [SQL 데이터 형식과 Azure Search 데이터 형식 사이의 매핑](#TypeMapping)을 참조하세요.
 
-그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 인덱스를 만들 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. [SQL 데이터 형식과 Azure Search 데이터 형식 사이의 매핑](#TypeMapping)을 참조하세요.
+3. 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
-마지막으로, 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
-
+    ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -85,15 +93,16 @@ Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌�
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
+    ```
 
 이 방법으로 만든 인덱서에는 일정이 없습니다. 만들어지면 자동으로 한 번 실행됩니다. 언제든지 **run indexer** 요청을 사용하여 다시 실행할 수 있습니다.
 
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
 
-인덱서 동작의 몇 가지 측면(예: 배치 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 만들기](https://msdn.microsoft.com/library/azure/dn946899.aspx)를 참조하세요.
+인덱서 동작의 몇 가지 측면(예: 배치 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 만들기](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조하세요.
 
-Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure에서 연결](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 을 참조하세요.
+Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure에서 연결](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 을 참조하세요.
 
 인덱서 상태 및 실행 기록(인덱싱된 항목 수, 오류 등)을 모니터링하려면 **indexer status** 요청을 사용합니다.
 
@@ -171,20 +180,23 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 <a name="CaptureChangedRows"></a>
 
-## <a name="capturing-new-changed-and-deleted-rows"></a>새 행, 변경된 행 및 삭제된 행 캡처
-테이블에 많은 행이 있으면 데이터 변경 검색 정책을 사용해야 합니다. 변경 검색을 사용하면 전체 테이블을 다시 인덱싱하지 않고도 새 행 또는 변경된 행만 효율적으로 검색할 수 있습니다.
+## <a name="capture-new-changed-and-deleted-rows"></a>새 행, 변경된 행 및 삭제된 행 캡처
+
+Azure Search는 **증분 인덱싱**을 사용하여 전체 테이블을 다시 인덱싱하거나 인덱서가 실행될 때마다 표시될 필요가 없도록 합니다. Azure Search는 증분 인덱싱을 지원하는 두 가지 변경 검색 정책을 제공합니다. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 통합 변경 내용 추적 정책
-SQL 데이터베이스에서 [변경 내용 추적](https://msdn.microsoft.com/library/bb933875.aspx)을 지원하는 경우 **SQL 통합 변경 내용 추적 정책**을 사용하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "soft delete" 열을 명시적으로 추가하지 않고도 Azure Search에서 삭제된 행을 식별할 수 있습니다.
+SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 지원하는 경우 **SQL 통합 변경 내용 추적 정책**을 사용하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "soft delete" 열을 명시적으로 추가하지 않고도 Azure Search에서 삭제된 행을 식별할 수 있습니다.
 
-통합 변경 내용 추적은 다음 SQL Server 데이터베이스 버전부터 지원됩니다.
+#### <a name="requirements"></a>요구 사항 
 
-* SQL Server 2008 R2 이상(Azure VM의 SQL Server를 사용하는 경우)
-* Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
++ 데이터베이스 버전 요구 사항:
+  * SQL Server 2012 SP3 이상(Azure VM에서 SQL Server를 사용하는 경우)
+  * Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
++ 테이블만(뷰 제외). 
++ 데이터베이스에서 테이블에 대해 [변경 내용 추적을 설정](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)합니다. 
++ 테이블에서 복합 기본 키(두 개 이상의 열을 포함하는 기본 키)가 없습니다.  
 
-SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다.
-
-이 정책은 테이블에만 사용할 수 있으며 보기에는 사용할 수 없습니다. 이 정책을 사용하려면 사용 중인 테이블에 대해 변경 내용 추적을 사용하도록 설정해야 합니다. 지침은 [변경 내용 추적 설정 및 해제](https://msdn.microsoft.com/library/bb964713.aspx) 를 참조하세요.
+#### <a name="usage"></a>사용 현황
 
 이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -198,18 +210,25 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
       }
     }
 
+SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다. 그러나 삭제가 "자동"으로 탐지되려면 검색 인덱스의 문서 키가 SQL 테이블의 기본 키와 동일해야 합니다. 
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>상위 워터마크 변경 검색 정책
-SQL 통합 변경 내용 추적 정책이 권장되지만 이 정책은 테이블에서만 사용할 수 있고 뷰에서는 사용할 수 없습니다. 뷰를 사용하는 경우 상위 워터 마크 정책을 사용하는 것이 좋습니다. 이 정책은 테이블 또는 뷰에 다음 조건을 충족하는 열이 포함된 경우에 사용할 수 있습니다.
+
+이 변경 검색 정책은 행이 마지막으로 업데이트된 버전 또는 시간을 캡처하는 “상위 워터 마크” 열을 사용합니다. 뷰를 사용하는 경우 상위 워터 마크 정책을 사용해야 합니다. 상위 워터 마크 열은 다음 요구 사항을 충족해야 합니다.
+
+#### <a name="requirements"></a>요구 사항 
 
 * 모든 삽입 시 열의 값을 지정합니다.
 * 항목에 대한 모든 업데이트는 열의 값도 변경합니다.
 * 삽입 또는 업데이트할 때마다 이 열의 값이 증가합니다.
-* 다음 WHERE 및 ORDER BY 절이 포함된 쿼리를 효율적으로 실행할 수 있습니다. `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
+* 다음 WHERE 및 ORDER BY 절이 포함된 쿼리를 효율적으로 실행할 수 있습니다. `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> 변경 추적 시 **rowversion** 열을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다.
+> 상위 워터 마크 열에는 [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 데이터 형식을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다. 읽기 전용 복제본이 있는 구성에 **rowversion**을 사용하는 경우 주 복제본에서 인덱서를 가리켜야 합니다. 데이터 동기화 시나리오에는 주 복제본만 사용할 수 있습니다.
+
+#### <a name="usage"></a>사용 현황
 
 높은 워터 마크 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -265,7 +284,7 @@ SQL 통합 변경 내용 추적 정책이 권장되지만 이 정책은 테이�
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-data-types-and-azure-search-data-types"></a>SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+## <a name="mapping-between-sql-and-azure-search-data-types"></a>SQL과 Azure Search 데이터 형식 사이의 매핑
 | SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 사항 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
@@ -296,24 +315,47 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="faq"></a>FAQ
+
 **Q:** Azure의 IaaS VM에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-A: 예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다. 자세한 내용은 [Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) 문서를 참조하세요.
+예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다. 자세한 내용은 [Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) 문서를 참조하세요.
 
 **Q:** 온-프레미스에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-A: 이는 권장되거나 지원되지 않습니다. 이렇게 하려면 데이터베이스를 인터넷 트래픽에 개방해야 하기 때문입니다.
+직접 끌 수는 없습니다. 직접 연결은 권장되거나 지원되지 않습니다. 이렇게 하려면 데이터베이스를 인터넷 트래픽에 개방해야 하기 때문입니다. 고객은 Azure Data Factory와 같은 브리지 기술을 사용하여 이 시나리오를 성공적으로 수행했습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 푸시](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector)를 참조하세요.
 
 **Q:** Azure의 IaaS에서 실행되는 SQL Server가 아닌 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-A: SQL Server이 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
+번호 SQL Server가 아닌 데이터베이스에서는 인덱서를 테스트하지 않았기 때문에 이 시나리오는 지원되지 않습니다.  
 
 **Q:** 일정에 따라 실행되는 여러 인덱서를 만들 수 있습니까?
 
-A: 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 여러 인덱서를 동시에 실행하려면 둘 이상의 검색 단위로 검색 서비스를 확장하는 것이 좋습니다.
+예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 여러 인덱서를 동시에 실행하려면 둘 이상의 검색 단위로 검색 서비스를 확장하는 것이 좋습니다.
 
 **Q:** 인덱서를 실행하면 쿼리 작업이 영향을 받습니까?
 
-A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 검색 서비스를 확장하는 것이 좋습니다.
+예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 [검색 서비스를 확장](search-capacity-planning.md)하는 것이 좋습니다.
+
+**Q: [장애 조치(failover) 클러스터](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)에서 데이터 원본으로 보조 복제본을 사용할 수 있습니까?**
+
+경우에 따라 다릅니다. 테이블 또는 뷰의 전체 인덱싱에 대해 보조 복제본을 사용할 수 있습니다. 
+
+증분 인덱싱의 경우 Azure Search는 SQL 통합 변경 내용 추적 및 상위 워터 마크라는 두 가지 변경 검색 정책을 지원합니다.
+
+읽기 전용 복제본에서 SQL 데이터베이스는 통합된 변경 내용 추적을 지원하지 않습니다. 따라서 상위 워터 마크 정책을 사용해야 합니다. 
+
+상위 워터 마크 열에는 rowversion 데이터 형식을 사용하는 것이 일반적으로 권장됩니다. 그러나 rowversion 사용 시 SQL Database의 `MIN_ACTIVE_ROWVERSION` 함수를 사용하는 데, 이는 읽기 전용 복제본에서는 지원되지 않습니다. 따라서 rowversion를 사용하는 경우 인덱서가 주 복제본을 가리키도록 해야 합니다.
+
+읽기 전용 복제본에서 rowversion을 사용하려고 하면 다음 오류가 표시됩니다. 
+
+    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+
+**Q: 상위 워터 마크 변경 내용 추적에 대체의 rowversion이 아닌 열을 사용할 수 있습니까?**
+
+권장되지 않습니다. 신뢰할 수 있는 데이터 동기화를 위해서는 **rowversion**만 허용됩니다. 그러나 응용 프로그램 논리에 따라 다음과 같은 경우 안전할 수 있습니다.
+
++ 인덱서가 실행될 때 인덱싱되는 테이블에 미해결 트랜잭션이 있는지 확인할 수 있습니다(예를 들어 모든 테이블 업데이트가 일정에 따라 일괄 처리되고 Azure Search 인덱서 일정이 테이블 업데이트 일정과 겹치지 않도록 설정됨).  
+
++ 모든 누락된 행을 선택하기 위해 전체 다시 인덱싱을 정기적으로 수행합니다. 
 

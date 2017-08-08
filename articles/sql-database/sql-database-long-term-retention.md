@@ -16,16 +16,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 84e95127ae2951ec5d1e0727801fc598d7e78227
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
-여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 전체 데이터베이스 자동 백업을 7-35일 넘게 보존하도록 요구합니다. 장기 백업 보존 기능을 사용하면 Azure Recovery Services 자격 증명 모음에 SQL 데이터베이스 백업을 최대 10년 동안 저장할 수 있습니다. 자격 증명 모음당 최대 1,000개의 데이터베이스를 저장할 수 있습니다. 자격 증명 모음에서 백업을 선택하여 새 데이터베이스로 복원할 수 있습니다.
+여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. 장기 백업 보존 기능을 사용하면 Azure Recovery Services 자격 증명 모음에 SQL 데이터베이스 백업을 최대 10년 동안 저장할 수 있습니다. 자격 증명 모음당 최대 1,000개의 데이터베이스를 저장할 수 있습니다. 그런 후 자격 증명 모음에서 백업을 선택하여 새 데이터베이스로 복원할 수 있습니다.
 
 > [!IMPORTANT]
 > 장기 백업 보존 기간은 현재 미리 보기로 제공되며 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 인도 중부, 인도 남부, 일본 동부, 일본 서부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 유럽 서부 및 미국 서부에서 사용할 수 있습니다.

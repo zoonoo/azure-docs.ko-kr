@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 PowerShell과 함께 Hadoop Hive 사용 | Microsoft 문서"
+title: "HDInsight에서 PowerShell과 Hadoop Hive 사용 - Azure | Microsoft Docs"
 description: "PowerShell을 사용하여 HDInsight의 Hadoop에서 Hive 쿼리 실행"
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 897358e87937f9094d312cc88f630c81e7d46f4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a235496728b4eeacb6b3e11d1d33363d28420fa8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/18/2017
 * **Azure HDInsight 클러스터**: 클러스터가 Windows 기반인지 또는 Linux 기반인지는 중요하지 않습니다.
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d218eab7e9f124e4825a8a781b4eeb0dcca58b4a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 ILB(내부 부하 분산 장치)에서 응용 프로그램 게이트웨이 만들기
@@ -134,13 +135,13 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 이 단계에서는 "gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
-### <a name="step-2"></a>2단계:
+### <a name="step-2"></a>2단계
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-이 단계에서는 IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 이전 IP 주소를 바꿉니다.
+이 단계에서는 IP 주소가 "10.1.1.8, 10.1.1.9, 10.1.1.10"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 이전 IP 주소를 바꿉니다.
 
 ### <a name="step-3"></a>3단계:
 
@@ -274,10 +275,5 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 8271c10cceb7a98879b06704b65a716cd9ac6822
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 23e2bacbb18385f2fe86f1eedbef366fd1518b1b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>New-AzureRmIotHub cmdlet을 사용하여 IoT Hub 만들기
@@ -87,8 +86,10 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-> [!NOTE]
-> IoT Hub의 이름은 고유해야 합니다.
+IoT Hub의 이름은 고유해야 합니다.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 
 다음 명령을 사용하여 구독에 있는 모든 IoT Hub를 나열할 수 있습니다.
 

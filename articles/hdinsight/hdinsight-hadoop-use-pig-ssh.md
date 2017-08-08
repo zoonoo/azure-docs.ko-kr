@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 | Microsoft Docs"
+title: "HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 - Azure | Microsoft Docs"
 description: "SSH를 사용하여 Linux 기반 Hadoop 클러스터에 연결한 다음 Pig 명령을 사용하여 Pig Latin 문을 대화형으로 실행하거나 일괄 처리 작업으로 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 36ede2b1c2964f85c454ffd1a653c90296bb307a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e4c893ef4bfa573dd9fbc9c9b0ae296720769842
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Pig 작업 실행
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 SSH 연결에서 HDInsight 클러스터로 Pig 작업을 대화형으로 실행하는 방법에 대해 알아보세요. Pig Latin 프로그래밍 언어를 사용하면 원하는 출력을 생성하는 입력 데이터에 적용되는 변환을 설명할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a id="ssh"></a>SSH를 사용하여 연결
 

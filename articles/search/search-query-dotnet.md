@@ -1,5 +1,5 @@
 ---
-title: ".NET SDK를 사용하여 Azure Search 인덱스 쿼리 | Microsoft Docs"
+title: "인덱스 쿼리(.NET API - Azure Search) | Microsoft Docs"
 description: "Azure 검색에서 검색 쿼리를 작성하고 검색 매개 변수를 사용하여 검색 결과를 필터링하고 정렬합니다."
 services: search
 manager: jhubbard
@@ -13,12 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure 검색 인덱스 쿼리
@@ -34,7 +33,8 @@ ms.lasthandoff: 05/22/2017
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다.
 
-이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
+> [!NOTE]
+> 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.

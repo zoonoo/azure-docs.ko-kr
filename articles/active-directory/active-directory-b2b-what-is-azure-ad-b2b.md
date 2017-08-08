@@ -13,12 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
-ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 9cd8edf47059a5f574489a604156890d157c8b1a
-ms.lasthandoff: 04/13/2017
+ms.date: 06/27/2017
+ms.author: curtand
+ms.custom: aaddev
+ms.reviewer: sasubram
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -27,15 +30,15 @@ ms.lasthandoff: 04/13/2017
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
 
-Azure AD B2B(Business-to-Business) 공동 작업 기능을 통해 Azure AD를 사용하는 모든 조직은 크든 작든, Azure AD를 사용하든 사용하지 않든, IT 조직이 있든 없든 관계없이 모든 다른 조직의 사용자와 안전하게 작업할 수 있습니다. 
+Azure AD B2B(Business-to-Business) 공동 작업 기능을 통해 Azure AD를 사용하는 모든 조직은 크든 작든, 다른 조직의 사용자와 안전하게 작업할 수 있습니다. 이러한 조직은 Azure AD가 있거나 없을 수 있고, IT 조직이 있거나 없을 수도 있습니다. 
 
-Azure AD를 사용하는 조직은 회사 데이터를 완전하게 제어하면서 파트너가 문서, 리소스 및 응용 프로그램에 액세스하도록 할 수 있습니다. 개발자는 Azure AD B2B API를 사용하여 두 조직을 최종 사용자에게 원활하고 탐색이 용이한 안전한 방식으로 결합하는 응용 프로그램을 작성할 수 있습니다.
+Azure AD를 사용하는 조직은 회사 데이터를 완전하게 제어하면서 파트너가 문서, 리소스 및 응용 프로그램에 액세스하도록 할 수 있습니다. 개발자는 Azure AD B2B API를 사용하여 두 조직을 안전한 방식으로 결합하는 응용 프로그램을 작성할 수 있습니다. 또한 최종 사용자가 탐색하기도 매우 편리합니다.
 
-고객 중 대다수인 **97%**는 Azure AD B2B 공동 작업이 매우 중요하다고 말했습니다.
+고객 중 97%가 Azure AD B2B 공동 작업이 매우 중요하다고 말했습니다.
 
 ![원형 차트](media/active-directory-b2b-what-is-azure-ad-b2b/97-percent-support.png)
 
-2017년 4월 초를 기준으로 Azure AD B2B 공동 작업 기능을 사용하는 사용자가 이미 3백만 명 정도였습니다. 또한 10명 이상의 사용자가 있는 Azure AD 조직의 23% 이상이 이미 이러한 기능을 활용하고 있습니다.
+2017년 4월 초를 기준으로 Azure AD B2B 공동 작업 기능을 사용하는 사용자 수는 이미 약 3백만 명에 도달했습니다. 또한 10명 이상의 사용자가 있는 Azure AD 조직의 23% 이상이 이미 이러한 기능을 활용하고 있습니다.
 
 ## <a name="the-key-benefits-of-azure-ad-b2b-collaboration-to-your-organization"></a>조직에 대한 Azure AD B2B 공동 작업의 주요 이점
 
@@ -51,7 +54,7 @@ Azure AD를 사용하는 조직은 회사 데이터를 완전하게 제어하면
 
 * 정교한 Azure AD 기반 권한 부여 정책을 적용하면서 회사 앱 및 데이터에 액세스하도록 함
 
-* 매끄러운 사용자 환경
+* 사용자에게 편리
 
 * 앱 및 데이터에 대한 엔터프라이즈급 보안
 
@@ -67,11 +70,11 @@ Azure AD를 사용하는 조직은 회사 데이터를 완전하게 제어하면
 
 관리자는 B2B 공동 작업(게스트) 사용자를 [Azure Portal](https://portal.azure.com)에 추가할 수 있습니다.
 
-![원형 차트](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
+![게스트 사용자 추가](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
 ### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>공동 작업자가 자신의 ID를 사용하도록 할 수 있음
 
-B2B 공동 작업자는 자신이 선택한 ID로 로그인할 수 있습니다. 사용자에게 Microsoft 계정 또는 Azure AD 계정이 없는 경우 제품 상환 시 계정이 만들어집니다.
+B2B 공동 작업자는 자신이 선택한 ID로 로그인할 수 있습니다. 사용자에게 Microsoft 계정 또는 Azure AD 계정이 없는 경우 제품 사용 시 계정이 원활하게 생성됩니다.
 
 ![로그인 ID 선택](media/active-directory-b2b-what-is-azure-ad-b2b/sign-in-identity-choice.png)
 
@@ -84,14 +87,17 @@ B2B 공동 작업자는 자신이 선택한 ID로 로그인할 수 있습니다.
 
 ### <a name="authorization-policies-protect-your-corporate-content"></a>권한 부여 정책으로 회사 콘텐츠 보호
 
-관리자는 회사 앱 및 데이터를 보호하기 위해 다단계 인증과 같이 테넌트 수준, 응용 프로그램 수준 또는 특정 사용자에게 적용할 수 있는 조건부 액세스 정책을 설정할 수 있습니다.
+다단계 인증 등의 조건부 액세스 정책을 적용할 수 있습니다.
+- 테넌트 수준에서 적용
+- 응용 프로그램 수준에서 적용
+- 회사 앱과 데이터를 보호하기 위해 특정 사용자에 대해 적용
 
 ![구성원 추가](media/active-directory-b2b-what-is-azure-ad-b2b/add-member.png)
 
 ### <a name="use-our-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 응용 프로그램을 쉽게 빌드할 수 있음
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
 
-[Azure AD B2B invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)(Azure AD B2B 초대 API)를 사용하여 조직에서는 셀프 서비스 등록 포털 만들기, Github(<https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web>)에서 제공하는 샘플 코드를 포함하여 등록 환경을 세밀하게 사용자 지정할 수 있습니다.
+[B2B 공동 작업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하면 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 셀프 서비스 포털에 대한 샘플 코드는 [Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)를 참조하세요.
 
 ![등록 포털](media/active-directory-b2b-what-is-azure-ad-b2b/sign-up-portal.png)
 
@@ -103,7 +109,7 @@ Azure AD B2B 공동 작업에서는 Azure AD를 완전히 활용하여 최종 �
 
 * 정보 근로자 환경은 [Access Panel](https://myapps.microsoft.com)(액세스 패널)에서 사용할 수 있습니다.
 
-* 또한 언제나처럼 [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)(Microsoft 기술 커뮤니티)를 통해 피드백, 토론 및 제안이 있는 경우 제품 팀과 연결합니다.
+* 또한 피드백, 논의 사항 및 제안이 있는 경우 언제나처럼 [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)(Microsoft 기술 커뮤니티)를 통해 제품 팀에 연결할 수 있습니다.
 
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 

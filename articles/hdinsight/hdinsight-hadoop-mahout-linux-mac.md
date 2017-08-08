@@ -1,5 +1,5 @@
 ---
-title: "Mahout 및 HDInsight(SSH)를 사용하여 추천 생성 | Microsoft Docs"
+title: "Mahout 및 HDInsight(SSH)를 사용하여 추천 생성 - Azure | Microsoft Docs"
 description: "Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d10d86fdb6ade326fb49fded9676a6106ab53aef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15df34278db6fbda48b03123993a29909910ba67
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -37,7 +37,7 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="mahout-versioning"></a>Mahout 버전 관리
 

@@ -67,6 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)

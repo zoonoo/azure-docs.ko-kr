@@ -269,7 +269,7 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 
 ### <a name="transact-sql-code"></a>Transact-SQL 코드
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -465,7 +465,7 @@ GO
 
 실행 시 대상이 연결되지 않으면 이벤트 세션을 중지했다 다시 시작해야 합니다.
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 244684bc875e3917b8fd0d1a6bc1464a7c36a938
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용
@@ -320,7 +320,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 > [!NOTE]
-> 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
+> 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n**을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
 > 
 > 
 

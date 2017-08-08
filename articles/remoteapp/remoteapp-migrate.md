@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Azure RemoteApp 내부/외부로 데이터를 마이그레이션하는 방법
@@ -61,5 +61,11 @@ RemoteApp에서 비즈니스용 OneDrive 동기화 에이전트를 사용하도�
 
 ## <a name="copy-files-by-using-drive-redirection"></a>드라이브 리디렉션을 사용하여 파일 복사
 [드라이브 리디렉션](remoteapp-redirection.md)을 사용하도록 설정했으면 사용자에 대해 매핑된 드라이브를 이미 만들었을 것입니다. 이 경우 리디렉션된 드라이브에 파일을 zip으로 압축한 다음 로컬 PC에 저장할 수 있습니다.
+
+## <a name="how-administrators-can-export-data"></a>관리자가 데이터를 내보내는 방법
+
+Azure RemoteApp 관리자는 Azure PowerShell cmdlet, Export-AzureRemoteAppUserDisk를 사용하여 구독 내의 모든 컬렉션에 대한 모든 UPD(사용자 프로필 디스크)를 Azure Storage로 내보낼 수 있습니다.  개별 UPD를 선택하는 기능은 없습니다.  PowerShell 명령이 실행되면 각 사용자 디스크는 50gb의 고정 디스크 크기로 Azure Storage에 내보내집니다.  이 저장소에 대한 바로 Azure Storage 비용이 부과됩니다.  이 명령을 실행하는 경우 세션이 없는지 확인해야 합니다. 세션이 있으면 내보내기가 실패합니다.
+
+도메인에 가입된 Azure RemoteApp 배포에 대한 UPD는 RDS 배포에만 다시 사용될 수 있으며 도메인에 가입되지 않은 배포는 사용할 수 없습니다.  이러한 디스크가 RDS 배포에 사용될 경우 UPD를 내보내고 변환하고 RDS 배포로 가져오는 [자동화 스크립트](https://github.com/arcadiahlyy/aramigration)를 사용하는 것이 좋습니다.
 
 

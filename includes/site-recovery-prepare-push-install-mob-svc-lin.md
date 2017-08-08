@@ -12,6 +12,7 @@
   4.  **Subsystem** 으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
 
      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
+  5. **sshd** 서비스를 다시 시작합니다.
 
 7. CSPSConfigtool에서 만든 계정을 추가합니다.
     1.  구성 서버에 로그인합니다.

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 2c7032e74dc59eb610b8860338486afc52e3abbe
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -42,11 +43,11 @@ Azure 검색 .NET SDK의 현재 버전이 이제 일반 공급됩니다. 다음 
 Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 일반 공급 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md) 에서 방법을 참조하세요.
 
 ## <a name="requirements-for-the-sdk"></a>SDK의 요구 사항
-1. Visual Studio 2015
+1. Visual Studio 2017.
 2. Azure 검색 서비스 SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털에서 서비스 만들기](search-create-service-portal.md)는 이들 단계를 통해 도움을 받을 수 있습니다.
 3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search) 를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search` 을(를) 검색하십시오.
 
-Azure Search .NET SDK는 .NET Framework 4.5, .NET Core 뿐만 아니라 [PCL(이동식 클래스 라이브러리) 프로필 111](https://docs.microsoft.com/dotnet/articles/standard/library)과 호환되는 앱을 대상으로 하는 응용 프로그램을 지원합니다.
+Azure Search .NET SDK는 .NET Framework 4.6 및 .NET Core를 대상으로 하는 응용 프로그램을 지원합니다.
 
 ## <a name="core-scenarios"></a>핵심 시나리오
 검색 응용 프로그램에서 수행해야 할 몇 가지 작업이 있습니다. 이 자습서에서는 이러한 핵심 시나리오를 다룹니다.
@@ -64,7 +65,10 @@ Azure Search .NET SDK는 .NET Framework 4.5, .NET Core 뿐만 아니라 [PCL(이
 // This sample shows how to delete, create, upload documents and query an index
 static void Main(string[] args)
 {
-    SearchServiceClient serviceClient = CreateSearchServiceClient();
+    IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+    IConfigurationRoot configuration = builder.Build();
+
+    SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
     Console.WriteLine("{0}", "Deleting index...\n");
     DeleteHotelsIndexIfExists(serviceClient);
@@ -77,7 +81,7 @@ static void Main(string[] args)
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
 
-    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
     RunQueries(indexClientForQueries);
 
@@ -91,13 +95,13 @@ static void Main(string[] args)
 > 
 >
 
-단계별로 연습해보겠습니다. 먼저 새로운 `SearchServiceClient`을(를) 만들어야 합니다. 이 개체를 통해 인덱스를 관리할 수 있습니다. 하나를 생성하기 위해 Azure 검색 서비스 이름과 관리 API 키를 제공해야 합니다.
+단계별로 연습해보겠습니다. 먼저 새로운 `SearchServiceClient`을(를) 만들어야 합니다. 이 개체를 통해 인덱스를 관리할 수 있습니다. 하나를 생성하기 위해 Azure 검색 서비스 이름과 관리 API 키를 제공해야 합니다. [샘플 응용 프로그램](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)의 `appsettings.json` 파일에 이 정보를 입력할 수 있습니다.
 
 ```csharp
-private static SearchServiceClient CreateSearchServiceClient()
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = "myservice";
-    string adminApiKey = "Put your API admin key here";
+    string searchServiceName = configuration["SearchServiceName"];
+    string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
     SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
     return serviceClient;
@@ -140,7 +144,7 @@ UploadDocuments(indexClient);
 마지막으로 몇 가지 검색 쿼리를 실행하고 결과를 표시합니다. 이번에는 다른 `SearchIndexClient`를 사용할 것입니다.
 
 ```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
 RunQueries(indexClientForQueries);
 ```
@@ -148,17 +152,17 @@ RunQueries(indexClientForQueries);
 `RunQueries` 메서드에 대해서는 이후에 좀 더 자세히 알아보겠습니다. 다음은 새 `SearchIndexClient`를 만드는 코드입니다.
 
 ```csharp
-private static SearchIndexClient CreateSearchIndexClient()
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = "myservice";
-    string queryApiKey = "Put one of your API query keys here";
+    string searchServiceName = configuration["SearchServiceName"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
     SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
     return indexClient;
 }
 ```
 
-이번에는 인덱스에 대해 쓰기 액세스 권한이 필요하지 않으므로 쿼리 키를 사용합니다.
+이번에는 인덱스에 대해 쓰기 액세스 권한이 필요하지 않으므로 쿼리 키를 사용합니다. [샘플 응용 프로그램](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)의 `appsettings.json` 파일에 이 정보를 입력할 수 있습니다.
 
 유효한 서비스 이름 및 API 키로 이 응용 프로그램을 실행하는 경우, 출력은 다음과 같이 보입니다.
 
@@ -327,6 +331,12 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 Azure 검색.NET SDK가 어떻게 `Hotel` 와(과) 같은 사용자 정의 클래스의 인스턴스를 업로드할 수 있는지 궁금할 수 있습니다. 이 질문에 대답하기 위해 `Hotel` 클래스를 살펴보겠습니다.
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.

@@ -1,8 +1,8 @@
 ---
 title: "Azure에서 자동 크기 조정 시작 | Microsoft Docs"
 description: "Azure에서 리소스 크기를 조정하는 방법에 대해 알아봅니다."
-author: rajram
-manager: rboucher
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,22 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: rajram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
+ms.date: 07/07/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed6647979d33564afe68e46d52833f88ffa2fbda
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-auto-scale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
 
 Azure Monitor 자동 크기 조정은 VMSS(Virtual Machine Scale Sets), 클라우드 서비스 및 앱 서비스 계획 및 앱 서비스 환경에만 적용됩니다. 
-
-# <a name="lets-get-started"></a>시작
 
 ## <a name="discover-the-auto-scale-settings-in-your-subscriptions"></a>구독 정보에서 자동 크기 조정 설정 검색
 Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 모두 검색할 수 있습니다. 단계별 연습을 위해 아래에 나열된 단계를 수행합니다.
@@ -62,8 +59,8 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
 > 참고: VMSS 또는 클라우드 서비스 역할을 시작하는 데에도 동일한 단계를 적용할 수 있습니다.
 
-# <a name="other-considerations"></a>기타 고려 사항
-## <a name="scale-based-on-a-schedule"></a>일정을 기준으로 크기 조정
+## <a name="other-considerations"></a>기타 고려 사항
+### <a name="scale-based-on-a-schedule"></a>일정을 기준으로 크기 조정
 CPU 기준 크기 조정 외에도 특정 요일에 대한 크기 조정을 다르게 설정할 수 있습니다.
 
 - '크기 조정 조건 추가'를 클릭합니다.
@@ -72,7 +69,7 @@ CPU 기준 크기 조정 외에도 특정 요일에 대한 크기 조정을 다�
 - 요일 및 선택한 요일에 대해 크기 조정 조건을 적용해야 하는 시작/종료 시간을 선택합니다.
 
 ![일정 기준 크기 조정 조건][9]
-## <a name="scale-differently-on-specific-dates"></a>특정 날짜에 대해 다르게 크기 조정
+### <a name="scale-differently-on-specific-dates"></a>특정 날짜에 대해 다르게 크기 조정
 CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다르게 설정할 수 있습니다.
 
 - '크기 조정 조건 추가'를 클릭합니다.
@@ -82,21 +79,21 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ![날짜 크기 조정 조건][10]
 
-## <a name="view-the-scale-history-of-your-resource"></a>리소스의 크기 조정 기록 보기
+### <a name="view-the-scale-history-of-your-resource"></a>리소스의 크기 조정 기록 보기
 리소스의 크기가 확장/축소될 때마다 해당 이벤트가 활동 로그에 기록됩니다. '실행 기록' 탭으로 전환하여 지난 24시간 동안의 리소스의 크기 조정 기록을 볼 수 있습니다.
 
 ![실행 기록][11]
 
 전체 크기 조정 기록(최대 90일 동안)을 보려면 '자세한 내용을 보려면 여기를 클릭하세요'를 클릭하면 됩니다. 그러면 리소스와 범주가 '자동 크기 조정'으로 미리 선택된 활동 로그가 시작됩니다.
 
-## <a name="view-the-scale-definition-of-the-resource"></a>리소스 크기 조정 정의 보기
+### <a name="view-the-scale-definition-of-the-resource"></a>리소스 크기 조정 정의 보기
 자동 크기 조정 설정은 ARM 리소스입니다. 'JSON' 탭으로 전환하여 JSON의 크기 조정 정의를 볼 수 있습니다.
 
 ![크기 조정 정의][12]
 
 필요한 경우 JSON에서 직접 변경할 수 있습니다. 이러한 변경 내용은 저장함으로써 반영됩니다.
 
-## <a name="disable-autoscale-and-manually-scale-your-instances"></a>자동 크기 조정 사용 안 함 설정 및 인스턴스 수동 크기 조정
+### <a name="disable-autoscale-and-manually-scale-your-instances"></a>자동 크기 조정 사용 안 함 설정 및 인스턴스 수동 크기 조정
 현재 크기 조정 설정을 사용하지 않도록 설정하고 수동으로 리소스의 크기를 조정하려는 경우가 있을 수 있습니다.
 
 위쪽의 '자동 크기 조정 사용 안 함' 단추를 클릭합니다.
@@ -107,6 +104,10 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 ![수동 크기 조정 설정][14]
 
 '자동 크기 조정 사용'을 클릭하고 '저장'을 클릭하면 언제든지 자동 크기 조정으로 돌아갈 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com

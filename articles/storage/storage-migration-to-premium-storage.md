@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 373dde7b751156490fafd3e052b32310c497b43b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
@@ -238,7 +237,7 @@ C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceCont
 ##### <a name="copy-a-vhd-from-other-non-azure-cloud"></a>다른 비-Azure 클라우드에서 VHD 복사
 비-Azure 클라우드 저장소에서 Azure로 VHD를 마이그레이션하는 경우, 먼저 VHD를 로컬 디렉터리로 내보내야 합니다. VHD가 저장된 로컬 디렉터리의 전체 소스 경로를 복사합니다.
 
-##### <a name="copy-a-vhd-from-on-premise"></a>온-프레미스에서 VHD 복사
+##### <a name="copy-a-vhd-from-on-premises"></a>온-프레미스에서 VHD 복사
 온-프레미스 환경에서 VHD를 마이그레이션하는 경우 VHD가 저장된 전체 소스 경로가 필요합니다. 이 소스 경로는 서버 위치 또는 파일 공유일 수 있습니다.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>2단계. VHD에 대한 대상 만들기

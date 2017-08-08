@@ -12,11 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/25/2016
+ms.date: 06/30/2017
 ms.author: harikm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c4b19cc76ca11f606ca8af6b0f3277b5aa46ac5a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,7 +29,7 @@ MyDriving은 자동차에서 데이터를 수집하고, 기계 학습을 사용�
 
 앱을 아직 시도해보지 않은 경우 [시작 가이드](iot-solution-get-started.md)를 살펴보세요.
 
-[MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)에 아키텍처에 대한 자세한 설명이 나와 있습니다. 요약하면, 여러 가지 설정 항목이 있으며 이러한 항목은 유사한 프로젝트를 만드는 데 설정합니다.
+[MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)에 아키텍처에 대한 자세한 설명이 나와 있습니다. 요약하면, 유사한 프로젝트를 만들기 위해 설정하는 여러 가지 항목이 있습니다.
 
 * **클라이언트 앱**은 Android, iOS 및 Windows 10 휴대폰에서 실행됩니다. Xamarin 플랫폼을 사용하여 코드 대부분을 공유합니다. 코드는 GitHub에서 `src/MobileApp` 아래 저장됩니다. 앱은 실제로 두 가지 고유한 기능을 수행합니다.
   * 온보드 진단(OBD) 장치 및 고유한 위치 서비스에서 시스템의 클라우드 백 엔드로 원격 분석을 릴레이합니다.
@@ -41,7 +43,12 @@ MyDriving은 자동차에서 데이터를 수집하고, 기계 학습을 사용�
 * **HockeyApp** 은 장치 코드의 릴리스를 배포하는 데 사용됩니다. 또한 충돌 및 사용 보고서 및 사용자 피드백을 수집합니다.
 * **Visual Studio Application Insights** 는 모바일 웹 서비스를 모니터링합니다.
 
-이제 이 모든 항목을 설정하는 방법을 살펴보겠습니다. 많은 단계가 선택 사항입니다.
+이제 이 모든 항목을 설정하는 방법을 살펴보겠습니다. 
+
+> [!NOTE] 
+> 다음의 많은 단계는 선택 사항입니다.
+>
+>
 
 ## <a name="sign-up-for-accounts"></a>계정 등록
 * [Visual Studio Dev Essentials](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs.aspx). 이 무료 프로그램은 Visual Studio, Visual Studio Team Services, Azure 등 많은 개발자 도구 및 서비스에 대한 간편한 액세스를 제공합니다. 12개월 동안 Azure에서 월간 $25 크레딧을 부여합니다. 또한 Pluralsight 교육 및 Xamarin University에 대한 구독도 포함합니다. [Azure](https://azure.com) 및 [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx)의 무료 계층과 별도로 등록할 수도 있으나 이 경우 Azure 크레딧은 제공되지 않습니다.
@@ -69,12 +76,12 @@ Xamarin, Git, 에뮬레이터 및 기타 유용한 구성 요소가 Visual Studi
 
 설치:
 
-* [Xamarin 포함 Visual Studio 2015](https://www.visualstudio.com/products/visual-studio-community-vs) (모든 버전--커뮤니티는 무료)
+* [Xamarin 포함 Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs) (모든 버전--커뮤니티는 무료)
 * [범용 Windows 플랫폼용 SQLite](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Windows 10 Mobile 코드를 작성하는 데 필요합니다.
-* [Visual Studio 2015용 Azure SDK](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409). Azure에서 앱을 실행하기 위한 SDK와 Azure를 관리하기 위한 명령줄 도구를 제공합니다.
+* [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/) Azure에서 앱을 실행하기 위한 SDK와 Azure를 관리하기 위한 명령줄 도구를 제공합니다.
 * [Azure 서비스 패브릭 SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). [마이크로 서비스](../service-fabric/service-fabric-get-started.md) 확장을 빌드하는 데 필요합니다.
 
-또한 올바른 Visual Studio 확장을 가졌는지 확인합니다. **도구** 아래를 확인해 보면 **Android, iOS, Xamarin…**이 표시됩니다. 표시되지 않은 경우 제어판을 열고 **프로그램 및 기능** > **Microsoft** > **Visual Studio 2015** > **수정**을 선택합니다. **플랫폼 간 개발** 아래에서 **C\#/.Net (Xamarin)**을 선택합니다. 여기에 있는 동안 **Windows용 Git** 가 설치되어 있는지 확인하세요.
+올바른 Visual Studio 확장이 있는지 확인합니다. **도구** 아래를 확인해 보면 **Android, iOS, Xamarin…**이 표시됩니다. 그렇지 않은 경우 Visual Studio를 열고 Xamarin을 검색한 후 지시에 따라 설치합니다. 또한 **Windows용 Git**이 설치되어 있는지도 확인합니다. 설치되어 있지 않은 경우 Visual Studio를 열고 검색한 후 지시에 따라 설치합니다. 
 
 ### <a name="mac-development-machine"></a>Mac 개발 컴퓨터
 iOS를 개발하는 데 Mac(Yosemite 이상)이 필요합니다. 모든 코드를 개발 및 관리하는 데 Windows에서 Xamarin 포함 Visual Studio를 사용하더라도, Xamarin은 iOS 코드를 작성 및 서명하는 데 Mac에 설치된 에이전트를 사용합니다.
@@ -126,8 +133,8 @@ Visual Studio에서 이러한 솔루션을 엽니다.
 
 빌드하는 데 문제가 있다면 찾은 쿼크에 대한 솔루션을 수행합니다.
 
-* *VINLookupApplication 프로젝트가 로드되지 않음*: [Visual Studio 2015용 Azure SDK](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)가 설치되어 있는지 확인합니다.
-* *서비스 패브릭 프로젝트가 빌드되지 않음*: 먼저, 인터페이스 프로젝트를 빌드하고 서비스 패브릭 SDK가 설치되어 있는지 확인합니다.
+* *VINLookupApplication 프로젝트가 로드되지 않음*: [Visual Studio용 Azure SDK](https://www.visualstudio.com/vs/azure-tools/)가 설치되어 있는지 확인합니다.
+* *Service Fabric 프로젝트가 빌드되지 않음*: 먼저, 인터페이스 프로젝트를 빌드하고 Service Fabric SDK가 설치되어 있는지 확인합니다.
 * *Android 앱이 빌드되지 않음*:
   
   * **도구** > **Android** > **Android SDK Manager**를 열고 Android 6(API 23)/SDK 플랫폼이 설치되어 있는지 확인합니다.
@@ -361,26 +368,26 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 | --- | --- | --- |
 | [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs)와 [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>플랫폼 간 개발 환경 |Visual Studio Community. (단일 코드 기본 사항에서 플랫폼 간 설계를 위해 [Xamarin.Forms](https://xamarin.com/forms)용 [Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) 필요) |$0 |
 | [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>장치에 대해 양방향 데이터 연결 |8,000개 메시지 + 0.5KB/메시지 무료 |$0 |
-| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>    고용량 스트림 데이터 처리 |사용된 동안 시간 및 스트리밍 단위당 $0.031 부과. 원하는 스트리밍 단위를 선택합니다. 강화하려면 더 늘림. |$23 |
-| [기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)<br/>  적응 응답 |$10/사용자/월. <br/>                                                                                                                                                                                 + 3시간 테스트 \* $1/테스트 시간 <br/>                                                                                                                                                           + 3.5시간 API CPU \* $2/프로덕션 CPU 시간  <br/>                                                                                                                                                          API CPU 시간은 5분/일 재학습을 가정. 단, 입력 데이터가 많아지면 증가할 수 있음.                   <br/>                                                                                                                                                                     + 400트립/일을 처리하기 위해 2분/일 |$20 |
-| [App Service](https://azure.microsoft.com/pricing/details/app-service/)  <br/>  모바일 백 엔드에 대한 호스트 |B1 계층--프로덕션 웹앱 |$56 |
-| [Visual Studio Team Services ](https://azure.microsoft.com/pricing/details/visual-studio-team-services/)  <br/>  빌드, 단위 테스트 및 릴리스 관리, 작업 관리 |사용자 에이전트, 5명의 사용자. |$0 |
+| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>   고용량 스트림 데이터 처리 |사용된 동안 시간 및 스트리밍 단위당 $0.031 부과. 원하는 스트리밍 단위를 선택합니다. 강화하려면 더 늘림. |$23 |
+| [기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)<br/> 적응 응답 |$10/사용자/월. <br/>                                                                                                                                                                                 + 3시간 테스트 \* $1/테스트 시간 <br/>                                                                                                                                                           + 3.5시간 API CPU \* $2/프로덕션 CPU 시간  <br/>                                                                                                                                                          API CPU 시간은 5분/일 재학습을 가정. 단, 입력 데이터가 많아지면 증가할 수 있음.                   <br/>                                                                                                                                                                     + 400트립/일을 처리하기 위해 2분/일 |$20 |
+| [App Service](https://azure.microsoft.com/pricing/details/app-service/)  <br/> 모바일 백 엔드에 대한 호스트 |B1 계층--프로덕션 웹앱 |$56 |
+| [Visual Studio Team Services ](https://azure.microsoft.com/pricing/details/visual-studio-team-services/)  <br/> 빌드, 단위 테스트 및 릴리스 관리, 작업 관리 |사용자 에이전트, 5명의 사용자. |$0 |
 | [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) <br/>웹 서비스 및 사이트의 성능 및 사용 현황 모니터링 |무료 계층. |$0 |
-| [HockeyApp](http://hockeyapp.net/pricing/) <br/>  피드백, 사용 및 충돌 데이터의 컬렉션을 더한 베타 앱 배포 |새 사용자를 위한 두 가지 무료 앱.<br/>  이후에는 $30/월. |$0 |
-| [Xamarin](https://store.xamarin.com/)<br/>  여러 장치에서 균일한 플랫폼에 대한 코드 |무료 평가판. <br/>이후에는 $25/월. |$0 |
+| [HockeyApp](http://hockeyapp.net/pricing/) <br/> 피드백, 사용 및 충돌 데이터의 컬렉션을 더한 베타 앱 배포 |새 사용자를 위한 두 가지 무료 앱.<br/> 이후에는 $30/월. |$0 |
+| [Xamarin](https://store.xamarin.com/)<br/> 여러 장치에서 균일한 플랫폼에 대한 코드 |무료 평가판. <br/>이후에는 $25/월. |$0 |
 | [SQL 데이터베이스](https://azure.microsoft.com/pricing/details/sql-database/)  |기본 계층, 단일 데이터베이스 모델. |$5 |
 | [Service Fabric](https://azure.microsoft.com/pricing/details/service-fabric/)(선택 사항) |로컬 클러스터를 실행합니다. |$0 |
-| [Power BI](https://powerbi.microsoft.com/pricing/)<br/>  스트리밍 및 정적 데이터에 대한 다양한 표시 및 조사 |무료 계층: 1GB, 10,000행/시간, 매일 새로 고침. <br/> [제한 확대](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), 추가 연결 옵션, 공동 작업을 위해 $10/사용자/월 |$0 |
+| [Power BI](https://powerbi.microsoft.com/pricing/)<br/> 스트리밍 및 정적 데이터에 대한 다양한 표시 및 조사 |무료 계층: 1GB, 10,000행/시간, 매일 새로 고침. <br/> [제한 확대](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), 추가 연결 옵션, 공동 작업을 위해 $10/사용자/월 |$0 |
 | [저장소](https://azure.microsoft.com/pricing/details/storage/) |L(로컬 중복) &lt; 100 G$0.024/GB. |$3 |
 | [데이터 팩터리](https://azure.microsoft.com/pricing/details/data-factory/) |활동당 $0.60 \* (8 - 5 FOC) |$2 |
-| [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) <br/>   일일 재학습 |매일 1시간 동안 $0.32/시간으로 3개 A3 노드 * 31일. |$30 |
+| [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) <br/>  일일 재학습 |매일 1시간 동안 $0.32/시간으로 3개 A3 노드 * 31일. |$30 |
 | [이벤트 허브](https://azure.microsoft.com/pricing/details/event-hubs/) |$11/월 처리량 단위(기본) + $0.028 수신. |$11 |
 | OBD 동글 | |$12 |
 | **합계** | |**$157** |
 
 자세한 내용은 다음을 참조하세요.
 
-*  [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits.md#iot-hub-limits)
+* [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits.md#iot-hub-limits)
 * Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>사용자 의견을 보냅니다.
@@ -397,10 +404,5 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 ## <a name="next-steps"></a>다음 단계
 시스템 및 해당 구성 요소의 설계에 대한 포괄적인 설명을 제공하는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

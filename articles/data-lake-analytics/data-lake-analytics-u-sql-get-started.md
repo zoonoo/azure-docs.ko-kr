@@ -3,8 +3,8 @@ title: "U-SQL 언어 시작 | Microsoft Docs"
 description: "U-SQL 언어의 기본 사항에 대해 알아봅니다."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4884d96e8126337f62af23316935978cfe219ec8
+ms.date: 06/23/2017
+ms.author: saveenr
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a193590504fc3706a7c1f1562e94a8a80da03e75
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-u-sql"></a>U-SQL 시작
@@ -27,9 +26,9 @@ U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 �
 
 ## <a name="learning-resources"></a>학습 리소스
 
-**U-SQL 언어 구문**에 대한 자세한 내용은 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
-
-**U-SQL 디자인 철학**을 이해하려면 Visual Studio 블로그 게시물 [Introducing U-SQL – A Language that makes Big Data Processing Easy(U-SQL 소개 - 빅 데이터 처리를 수월하게 해주는 언어)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)를 참조하세요.
+* [U-SQL 자습서]에서는 대부분의 U-SQL 언어에 대한 안내식 연습 과정을 제공합니다. U-SQL을 학습하려는 모든 개발자는 이 문서를 읽어보는 것이 좋습니다.
+* **U-SQL 언어 구문**에 대한 자세한 내용은 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
+* **U-SQL 디자인 철학**을 이해하려면 Visual Studio 블로그 게시물 [Introducing U-SQL – A Language that makes Big Data Processing Easy(U-SQL 소개 - 빅 데이터 처리를 수월하게 해주는 언어)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,7 +36,7 @@ U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 �
 
 ## <a name="your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트
 
-다음 U-SQL 스크립트는 매우 간단하며 U-SQL 언어의 많은 측면을 파악하도록 합닏.
+다음 U-SQL 스크립트는 간단하며 U-SQL 언어의 많은 측면을 파악하도록 합니다.
 
 ```
 @searchlog =
@@ -69,20 +68,13 @@ OUTPUT @searchlog
 
 EXTRACT 및 OUTPUT 문은 파일 경로를 사용합니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다.
 
-이 절대 파일 경로는 `mystore`라는 Data Lake Store의 파일을 참조합니다.
+다음에 나오는 이 절대 파일 경로는 `mystore`라는 Data Lake Store의 파일을 참조합니다.
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-이 절대 파일 경로는 `myblobaccount`라는 Azure Blob Storage 계정 및 `mycontainer`라는 컨테이너의 파일을 참조합니다.
+다음에 나오는 이 파일 경로는 `"/"`로 시작합니다. 기본 Data Lake Store 계정의 파일을 참조합니다.
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob Storage 컨테이너는 현재 지원되지 않습니다.
-
-이 상대 파일 경로는 `"/"`로 시작합니다. 이 경로는 Data Lake Analytics 계정과 연결된 기본 Data Lake Store 계정의 파일을 참조합니다.
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>스칼라 변수 사용
 
@@ -192,15 +184,16 @@ U-SQL 행 집합은 다음 쿼리를 위해 이 순서를 유지하지 않습니
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -226,21 +219,17 @@ U-SQL HAVING 절은 HAVING 조건을 만족하는 그룹으로 출력을 제한�
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## <a name="see-also"></a>참고 항목
+고급 집계 시나리오의 경우 U-SQL 참조 설명서에서 [집계, 분석 및 참조 기능](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-
-## <a name="let-us-know-what-you-think"></a>의견 제시
-* [기능 요청 제출](http://aka.ms/adlafeedback)
-* [포럼에서 도움말 보기](http://aka.ms/adlaforums)
-* [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
 

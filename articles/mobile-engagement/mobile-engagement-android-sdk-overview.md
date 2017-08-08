@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 Android SDK 통합
@@ -53,8 +53,16 @@ ms.lasthandoff: 03/31/2017
 [Android 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="424-03302017"></a>4.2.4 (03/30/2017)
-* Android 7의 앱 내 알림 텍스트 색을 이전 Android 버전과 동일하게 수정합니다.
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* `EngagementApplication` 클래스에서도 `EngagementAgentUtils.isInDedicatedEngagementProcess`를 호출할 때 드물게 발생할 수 있는 충돌을 해결합니다.
+
+### <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Android 8 지원(이전 버전의 SDK는 Android 8에서 작동하지 않음)
+* 지원 라이브러리에 대한 종속성이 더 이상 없습니다.
+* `EngagementFragmentActivity` 클래스를 제거합니다.
+* Android 8의 [백그라운드 실행 제한](https://developer.android.com/preview/features/background.html)으로 인해 사용자가 장치를 조작할 때까지 백그라운드의 로그가 지연될 수 있습니다. 장치가 절전 모드인 경우 이로 인해 푸시 캠페인 **배달됨** 및 **시스템 알림 표시됨** 통계가 지연될 수 있습니다(알림은 계속 표시되며, 문제없이 실시간으로 울리고 진동함).
+* [백그라운드 위치 제한](https://developer.android.com/preview/features/background-location-limits.html)으로 인해 Android 8에서는 백그라운드의 실시간 위치가 자주 업데이트되지 않습니다.
 
 모든 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-android-release-notes.md)를 참조하세요.
 

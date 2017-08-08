@@ -3,7 +3,7 @@ title: "Graph API를 사용하여 Azure Cosmos DB Node.js 응용 프로그램 �
 description: "Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Graph API를 사용하여 Node.js 응용 프로그램 빌드
@@ -96,19 +95,23 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
-이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져오고 앱에 복사합니다.
+1. config.js 파일을 엽니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에 있는 Azure Cosmos DB 계정의 왼쪽 탐색 메뉴에서 **키**를 클릭한 다음 **읽기 쓰기 키**를 클릭합니다. 오른쪽의 복사 단추를 사용하여 다음 단계에서 URI와 기본 키를 `app.js` 파일로 복사합니다.
-
-    ![Azure Portal 키 블레이드](./media/create-graph-nodejs/keys.png)
-
-2. 포털에서 복사 단추를 사용하여 Gremlin URI 값을 복사하고 이 값을 config.js의 `config.endpoint` 키 값으로 만듭니다. Gremlin 끝점은 `mygraphdb.graphs.azure.com`과 같이(`https://mygraphdb.graphs.azure.com` 또는 `mygraphdb.graphs.azure.com:433`이 아님) 프로토콜/포트 번호가 없는 호스트 이름이어야 합니다.
+2. config.js에서는 Azure Portal의 **개요** 페이지에 있는 **Gremlin URI** 값을 config.endpoint 키에 입력합니다. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. 포털에서 기본 키 값을 복사하고, 이 값을 config.js의 config.primaryKey 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+    ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-graph-nodejs/gremlin-uri.png)
+
+   **Gremlin URI** 값이 비어 있는 경우 **URI** 값을 사용하고 https://를 제거하고 문서를 그래프로 변경하여 포털에서 **키** 페이지의 값을 생성할 수 있습니다.
+
+   Gremlin 끝점은 `mygraphdb.graphs.azure.com`과 같이(`https://mygraphdb.graphs.azure.com` 또는 `mygraphdb.graphs.azure.com:433`이 아님) 프로토콜/포트 번호가 없는 호스트 이름이어야 합니다.
+
+3. config.js에서는 Azure Portal의 **키** 페이지에 있는 **기본 키** 값을 config.primaryKey 값에 입력합니다. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Azure Portal 키 블레이드](./media/create-graph-nodejs/keys.png)
 
 4. config.database 및 config.collection의 값에 데이터베이스 이름 및 그래프(컨테이너) 이름을 입력합니다. 
 
@@ -118,8 +121,8 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 
@@ -138,9 +141,11 @@ module.exports = config;
 
 이제 Azure Portal의 [데이터 탐색기]로 다시 이동하여 새 그래프 데이터를 보고, 쿼리하고, 수정하고, 작업할 수 있습니다.
 
-[데이터 탐색기]에서 새 데이터베이스가 **컬렉션** 창에 표시됩니다. **graphdb**, **graphcoll**를 확장하고 **그래프**를 클릭합니다.
+[데이터 탐색기]에서 새 데이터베이스가 **그래프** 창에 표시됩니다. 데이터베이스를 확장하고, 컬렉션을 확장한 다음 **그래프**를 클릭합니다.
 
-샘플 앱에서 생성된 데이터는 **그래프** 창에 표시됩니다.
+**필터 적용**을 클릭하면 샘플 앱에서 생성한 데이터가 **그래프** 탭의 그 다음 창에 표시됩니다.
+
+`.has('firstName', 'Thomas')`로 `g.V()`를 완성하여 필터를 테스트해 보세요. 값은 대/소문자를 구분합니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

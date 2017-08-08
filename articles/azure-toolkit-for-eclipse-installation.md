@@ -14,17 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 31582a87354bf915f058090add02d837f835a77c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 35cddba38c364dfb2f6a8646b0014d48ca4cb795
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="installing-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 설치
-Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. Eclipse용 Azure 도구 키트는 다음 URL에 있는 GitHub의 프로젝트 사이트를 통해 MIT 라이선스에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
-
-<https://github.com/microsoft/azure-tools-for-java>
+Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. Eclipse용 Azure 도구 키트는 오픈 소스 프로젝트입니다. 소스 코드는 <https://github.com/microsoft/azure-tools-for-java>의 MIT 라이선스 아래에서 확인할 수 있습니다.
 
 다음 단계는 Eclipse용 Azure 도구 키트를 설치하는 방법을 보여줍니다.
 
@@ -32,10 +31,10 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 ## <a name="to-install-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 설치
 1. Eclipse를 시작합니다.
-2. Eclipse이 열리면 **도움말** 메뉴를 클릭하고 다음 그림에 보이는 대로 **새 소프트웨어 설치**를 클릭합니다.
+2. 다음 그림에 표시된 대로 **Help** 메뉴를 클릭하고 **Install New Software**를 클릭합니다.
    
     ![Eclipse용 Azure 도구 키트 설치][01]
-3. **사용 가능한 소프트웨어** 대화 상자의 **사용 대상** 텍스트 상자에 **http://dl.microsoft.com/eclipse**를 입력한 후 **Enter** 키를 누릅니다.
+3. **Available Software** 대화 상자의 **Work with** 텍스트 상자에 `http://dl.microsoft.com/eclipse`를 입력하고 **Enter** 키를 누릅니다.
 4. **Name** 창에서 **Azure Toolkit for Eclipse**를 선택하고 **Contact all update sites during install to find required software**를 선택하지 않습니다. 화면은 다음과 유사한 모양입니다.
    
     ![Eclipse용 Azure 도구 키트 설치][02]
@@ -50,7 +49,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
    * **Microsoft JDBC Driver 4.2 for SQL Server**: 이 구성 요소는 SQL Server용 JDBC API와 Java Platform Enterprise Edition 8용 Microsoft Azure SQL 데이터베이스를 제공합니다.
    * **Package for Apache Qpid Client Libraries for JMS**: 이 구성 요소는 응용 프로그램이 Microsoft Azure 내에서 AMQP 메시징을 사용할 수 있도록 Apache Qpid 프로젝트의 JMS 클라이언트 구성 요소를 제공합니다.
    * **Package for Microsoft Azure Libraries for Java**: 이 구성 요소는 저장소, 서비스 버스, 서비스 런타임 등의 Microsoft Azure 서비스에 액세스하기 위한 API를 제공합니다.
-6. **다음**을 클릭합니다. (도구 키트를 설치하는 동안 비정상적인 지연이 발생하는 경우에는 **Contact all update sites during install to find required software** 가 선택되어 있지 않은지 확인합니다.)
+6. **다음**을 누릅니다. (도구 키트를 설치하는 동안 비정상적인 지연이 발생하는 경우에는 **Contact all update sites during install to find required software** 가 선택되어 있지 않은지 확인합니다.)
 7. **설치 세부 정보** 대화 상자에서 **다음**을 클릭합니다.
    
     ![설치 세부 정보 검토][03]

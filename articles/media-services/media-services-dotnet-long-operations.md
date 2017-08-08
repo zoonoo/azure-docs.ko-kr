@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 763f97855695a51d8fb6050cf1404c787b72c6f6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공
+
 ## <a name="overview"></a>개요
+
 Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중지 또는 삭제)을 시작하도록 미디어 서비스에 요청을 보내는 API를 제공합니다. 이러한 작업은 장기 실행됩니다.
 
 미디어 서비스 .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 응용 프로그램 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
@@ -33,12 +36,24 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 
 작업 상태에 대해 폴링하려면 **GetOperation** 메서드를 **OperationBaseCollection** 클래스에서 사용합니다. **Channel** 및 **StreamingEndpoint** 작업에 대한 작업 상태를 다음 간격으로 확인하려면, 30초를 사용합니다. **Program** 작업에 대해서는 10초를 사용합니다.
 
-## <a name="example"></a>예
+## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
+
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
+
+## <a name="example"></a>예제
+
 다음 예제에서는 **ChannelOperations**라는 클래스를 정의합니다. 이 클래스 정의는 웹 서비스 클래스 정의 시작 지점이 될 수 있습니다. 간단히 하기 위해 다음 예제에서는 메서드의 비동기 버전을 사용합니다.
 
 또한 이 예제에서는 클라이언트에서 이 클래스를 사용하는 방법을 보여줍니다.
 
 ### <a name="channeloperations-class-definition"></a>ChannelOperations 클래스 정의
+
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Net;
+
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -46,21 +61,21 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
     public class ChannelOperations
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         public ChannelOperations()
         {
-                _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
-                    _mediaServicesAccountKey);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                _context = new CloudMediaContext(_cachedCredentials);    }
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        }
 
         /// <summary>  
         /// Initiates the creation of a new channel.  
@@ -118,7 +133,6 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
             return completed;
         }
 
-
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -127,14 +141,14 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelInput001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelInput001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -146,14 +160,14 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelPreview001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelPreview001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -190,10 +204,5 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

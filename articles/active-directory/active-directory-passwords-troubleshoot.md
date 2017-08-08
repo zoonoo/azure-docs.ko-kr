@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 963749bce0a84a97a0938f5531ebf7d694a3ca58
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -144,7 +143,7 @@ ms.lasthandoff: 05/11/2017
 
 Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 발생하는 경우 이 문제를 해결하기 위해 수행할 수 있는 빠른 단계는 다음과 같습니다.
 
-* [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-AD-Connect-sync-service)
+* [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-ad-connect-sync-service)
 * [암호 쓰기 저장 기능을 비활성화 및 재활성화](#disable-and-re-enable-the-password-writeback-feature)
 * [최신 Azure AD Connect 릴리스 설치](#install-the-latest-azure-ad-connect-release)
 * [비밀번호 쓰기 저장 문제 해결](#troubleshoot-password-writeback)
@@ -199,6 +198,27 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 AD 환�
 이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 재설정하면 사용자에게 발생할 수 있는 중단을 해결할 수 있습니다.
 
 최신 버전의 Azure AD Connect 서버를 설치해도 문제가 해결되지 않으면 최신 릴리스를 설치한 후에 마지막 단계로서 비밀번호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
+
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Azure AD Connect에 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인 
+비밀번호 쓰기 저장을 수행하려면 Azure AD Connect에 AD **암호 재설정** 권한이 있어야 합니다. Azure AD Connect에 지정된 온-프레미스 AD 사용자 계정에 대한 권한이 있는지 확인하려면 Windows Effective Permission 기능을 사용합니다.
+
+1. Azure AD Connect 서버에 로그인하고 **Synchronization Service Manager**(시작 → 동기화 서비스)를 시작합니다.
+2. **커넥터** 탭 아래에서 온-프레미스 **AD 커넥터**를 선택하고 **속성**을 클릭합니다.  
+![유효 권한 - 2단계](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. 팝업 대화 상자에서 **Active Directory 포리스트에 연결** 탭을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이것은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다. Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다.  
+![유효 권한 - 3단계](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 응용 프로그램을 시작합니다.
+5. **보기**를 클릭하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
+![유효 권한 - 5단계](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. 확인할 AD 사용자 계정을 검색합니다. 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
+![유효 권한 - 6단계](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. 팝업 대화 상자에서 **보안** 탭으로 이동하고 **고급**을 클릭합니다.  
+![유효 권한 - 7단계](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. [고급 보안 설정] 팝업 대화 상자에서 **유효한 액세스** 탭으로 이동합니다.
+9. **사용자 선택**을 클릭하고 Azure AD Connect에서 사용되는 AD DS 계정을 선택합니다(3단계 참조). 그다음에 **유효한 액세스 보기**를 클릭합니다.  
+![유효 권한 - 9단계](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목이 선택된 경우에는 AD DS 계정에 선택한 AD 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
+![유효 권한 - 10단계](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD 포럼
 

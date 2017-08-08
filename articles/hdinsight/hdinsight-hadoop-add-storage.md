@@ -16,10 +16,10 @@ ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/17/2017
 스크립트 동작을 사용하여 추가 Azure Storage 계정을 운영 체제로 Linux를 사용하는 기존 HDInsight 클러스터에 추가하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 추가 저장소 계정을 추가하는 방법에 대한 내용은 [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) 문서의 __추가 저장소 사용__ 섹션을 참조하세요.
+> 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 저장소 계정을 추가하는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -122,7 +122,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 2. 페이지 왼쪽의 서비스 목록에서 __HDFS__를 선택합니다. 그런 다음 페이지 중앙의 __구성__ 탭을 선택합니다.
 
-3. __필터 ...__ 필드에서 __fs.azure.account__의 값을 입력합니다. 이렇게 하면 클러스터에 추가된 추가 저장소 계정에 대한 항목이 반환됩니다. 항목에는 두 가지 유형, __keyprovider__와 __key__가 있습니다. 둘 다 키 이름의 일부로 저장소 계정의 이름을 포함합니다. 
+3. __필터 ...__ 필드에서 __fs.azure.account__의 값을 입력합니다. 이렇게 하면 클러스터에 추가된 추가 저장소 계정에 대한 항목이 반환됩니다. 항목에는 두 가지 유형, __keyprovider__와 __key__가 있습니다. 둘 다 키 이름의 일부로 저장소 계정의 이름을 포함합니다.
 
     다음은 __mystorage__라는 저장소 계정의 예제 항목입니다.
 
@@ -150,3 +150,4 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 ## <a name="next-steps"></a>다음 단계
 
 기존 HDInsight 클러스터에 추가 저장소 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.
+

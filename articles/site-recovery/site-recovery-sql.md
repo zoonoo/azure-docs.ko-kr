@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 49bac93758cb35dc1aa39c0aaf58f239d9667e77
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
@@ -56,6 +55,7 @@ Site Recovery는 표에 요약된 대로 SQL Server를 보호할 수 있습니�
 ### <a name="supported-sql-server-versions"></a>지원되는 SQL Server 버전
 지원되는 시나리오에 대해 이러한 SQL Server 버전이 지원됩니다.
 
+* SQL Server 2016 Enterprise 및 Standard
 * SQL Server 2014 Enterprise 및 Standard
 * SQL Server 2012 Enterprise 및 Standard
 * SQL Server 2008 R2 Enterprise 및 Standard

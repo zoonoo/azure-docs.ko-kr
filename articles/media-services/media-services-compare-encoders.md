@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,13 +33,13 @@ ms.lasthandoff: 06/29/2017
 |기능|미디어 인코더 표준|미디어 인코더 Premium 워크플로|
 |---|---|---|
 |인코딩 중에 조건부 논리 적용<br/>(예를 들어, 입력이 HD인 경우 인코드 5.1 오디오)|아니요|예|
-|선택 자막|아니요|[예](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|선택 자막|아니요|[예](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> Dialogue Intelligence™ 사용|아니요|예|
 |디-인터레이스, 역텔레시네|Basic|브로드캐스트 품질|
 |검은색 테두리 감지 및 제거 <br/>(필러박스, 레터박스)|아니요|예|
-|썸네일 생성|[예](media-services-dotnet-generate-thumbnail-with-mes.md)|[예](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
-|비디오 클리핑/잘라내기 및 붙이기|[예](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|예|
-|오디오 또는 비디오 오버레이|[예](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[예](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|썸네일 생성|[예](media-services-dotnet-generate-thumbnail-with-mes.md)|[예](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
+|비디오 클리핑/잘라내기 및 붙이기|[예](media-services-advanced-encoding-with-mes.md#trim_video)|예|
+|오디오 또는 비디오 오버레이|[예](media-services-advanced-encoding-with-mes.md#overlay)|[예](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |그래픽 오버레이|이미지 원본에서|이미지 및 텍스트 원본에서|
 |다중 오디오 언어 트랙|제한적|[예](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 

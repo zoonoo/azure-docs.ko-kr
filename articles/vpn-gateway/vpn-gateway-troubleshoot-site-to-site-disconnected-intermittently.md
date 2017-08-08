@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9f6ea8296f1bf81813594b07c50f70dd8647f032
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -41,7 +41,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1단계 온-프레미스 VPN 장치가 확인되었는지 확인
 
-1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides)을 사용 중인지 확인합니다. VPN 장치가 확인되지 않은 경우 장치 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
+1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. VPN 장치가 확인되지 않은 경우 장치 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
 2. VPN 장치가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [장치 구성 샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>2단계 보안 연결 설정 확인(정책 기반 Azure Virtual Network Gateway의 경우)

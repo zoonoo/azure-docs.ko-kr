@@ -113,6 +113,10 @@ VM에서 응용 프로그램이 실행되고 있는 경우 가상 네트워크 �
 * 아웃 바운드 응용 프로그램이 클라이언트 컴퓨터에서 부터 Azure 가상 컴퓨터에 도달하는 트래픽 요청
 * Azure 가상 컴퓨터에서 발생하는 인바운드 응용 프로그램 응답 트래픽
 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>4단계: 응용 프로그램에 액세스할 수 없는 경우 IP 확인을 사용하여 설정을 확인합니다. 
+
+자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+
 ## <a name="additional-resources"></a>추가 리소스
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 

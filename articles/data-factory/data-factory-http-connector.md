@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 4870d2a0bbe35f3980864d8b4f3d011a189b650e
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 3cc1bd293868b0bb093f617ac12e16c26780fc89
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
@@ -307,7 +306,7 @@ ms.lasthandoff: 04/10/2017
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **HttpSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
-HttpSource에서 지원하는 속성 목록은 [HttpSource](#httpsource-in-copy-activity)를 참조하세요.
+HttpSource에서 지원하는 속성 목록은 [HttpSource](#copy-activity-properties)를 참조하세요.
 
 ```JSON
 {  

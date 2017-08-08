@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b4d3d114f6947639ef865861337ce9f2a6452e76
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -87,7 +87,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -104,6 +104,10 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 응용 프로그램에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
 Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
+
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>응용 프로그램에 전송된 SAML 클레임을 사용자 지정하는 방법을 알 수 없음
+
+응용 프로그램에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)

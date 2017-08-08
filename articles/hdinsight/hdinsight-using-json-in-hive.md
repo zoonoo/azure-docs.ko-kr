@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 034b61fdeb34c03bb4b58145f04138410e0d6fc6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용한 JSON 문서 처리 및 분석
@@ -62,7 +61,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
         ]
     }
 
-이 파일은 wasbs://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+이 파일은 wasb://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
 이 자습서에서는 Hive 콘솔을 사용합니다.  Hive 콘솔을 여는 방법은 [원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-remote-desktop.md)을 참조하세요.
 
@@ -86,7 +85,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
 
     SELECT * FROM StudentsOneLine
 
-원시 JSON 파일은 **wasbs://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
+원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
 
 *StudentsOneLine* Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 */json/students/* 경로에 저장합니다.
 

@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 07/05/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b8c23a623a5c6c65c5239e6af694bc92c4de4682
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c2f3036f754a98090ab860f95900416690ebf83
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [클래식 - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> 
-> 
+> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
+>
 
 이 문서를 참조하면 Resource Manager 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Azure ExpressRoute 회로에 연결할 수 있습니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 또한 이 문서는 가상 네트워크 링크를 업데이트하는 방법을 보여줍니다. 
 
@@ -62,7 +62,7 @@ $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -R
 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 Express 경로 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 Express 경로 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 Express 경로 회로를 사용할 수 있습니다.
 
 > [!NOTE]
-> 전용 회로에 대한 연결 및 대역폭 요금은 Express 경로 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
+> ExpressRoute 회로에 대한 연결 및 대역폭 요금은 구독 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
 > 
 > 
 
@@ -175,5 +175,5 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
 ## <a name="next-steps"></a>다음 단계
-Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 

@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
@@ -128,7 +128,7 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 사용자 지정 역할을 만들려면 ```New-AzureRmRoleDefinition``` 명령을 사용합니다. 역할을 구조화하는 방법에는 PSRoleDefinitionObject를 사용하거나 JSON 템플릿을 사용하는 두 가지 방법이 있습니다. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>특정 리소스 공급자에서 작업 가져오기
+## <a name="get-actions-for-a-resource-provider"></a>리소스 공급자에 대한 작업 가져오기
 처음부터 사용자 지정 역할을 만드는 경우 리소스 공급자에서 가능한 모든 작업을 알고 있어야 합니다.
 ```Get-AzureRMProviderOperation``` 명령을 사용하여 이 정보를 가져옵니다.
 예를 들어, 가상 컴퓨터에 사용 가능한 모든 작업을 확인하려는 경우 다음 명령을 사용합니다.
@@ -166,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>JSON 템플릿을 사용하여 역할 만들기
-JSON 템플릿을 사용자 지정 역할의 원본 정의로 사용할 수 있습니다. 다음 예제에서는 저장소 및 계산 리소스에 대한 읽기 액세스, 지원 액세스를 허용하고 해당 역할을 두 개의 구독에 추가하는 사용자 지정 역할을 만듭니다. 다음 내용이 포함된 새 파일 `C:\CustomRoles\customrole1.json`을 만듭니다. 초기 역할 생성 시 새 ID가 자동 생성되므로 Id를 `null`로 설정해야 합니다. 
+JSON 템플릿을 사용자 지정 역할의 원본 정의로 사용할 수 있습니다. 다음 예제에서는 저장소 및 계산 리소스에 대한 읽기 액세스, 지원 액세스를 허용하고 해당 역할을 두 개의 구독에 추가하는 사용자 지정 역할을 만듭니다. 다음 예제가 포함된 새 파일 `C:\CustomRoles\customrole1.json`을 만듭니다. 초기 역할 생성 시 새 ID가 자동 생성되므로 Id를 `null`로 설정해야 합니다. 
 
 ```
 {

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-virtual-network"></a>Azure 가상 네트워크
@@ -66,7 +65,7 @@ VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로
 - **사이트 간 VPN:** VPN 장치 와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 - **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다.
 
-모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams) 문서를 읽어보세요.
+모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams) 문서를 읽어보세요.
 
 ## <a name="filtering"></a>네트워크 트래픽 필터링
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
@@ -92,4 +91,5 @@ Virtual Network에 대한 질문과 대답을 검토하려면 [Virtual Network F
 
 - [첫 번째 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
 - [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 VNet에 대해 지점 및 사이트 간 연결을 만듭니다.
+- Azure의 다른 주요 [네트워크 기능](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 알아봅니다.
 

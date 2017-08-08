@@ -12,25 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
-설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정** 을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
+설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
 
 Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 또한 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md)에 설명된 대로 사용할 수 있는 계정이 있어야 합니다.
 
-DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오는 [관련 설명서](#related-documentation) 를 참조하세요.
+DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오는 [관련 설명서](#related-documentation)를 참조하세요.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설정 설치
 ### <a name="express-settings"></a>Express 설정
-이 페이지에서 **사용자 지정** 을 클릭하여 사용자 지정된 설정을 설치하기 시작합니다.
+이 페이지에서 **사용자 지정**을 클릭하여 사용자 지정된 설정을 설치하기 시작합니다.
 
 ### <a name="install-required-components"></a>필요한 구성 요소 설치
 동기화 서비스를 설치한 경우 선택적 구성 섹션을 선택하지 않은 채로 두고 Azure AD Connect가 모든 내용을 자동으로 설정하도록 할 수 있습니다. 즉, SQL Server 2012 Express LocalDB 인스턴스를 설정하고 적절한 그룹을 만들고 사용 권한을 할당합니다. 기본값을 변경하려면 다음 테이블을 사용하여 사용 가능한 선택적 구성 옵션을 숙지할 수 있습니다.
@@ -59,7 +59,7 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 
 
 ### <a name="connect-to-azure-ad"></a>Azure에 연결
-Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션** 을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
+Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
 
 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.  
 ![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
@@ -127,10 +127,10 @@ Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하�
 | 설정 | 설명 |
 | --- | --- |
 | [사용자는 모든 포리스트에 걸쳐 한번만 표시됩니다](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |모든 사용자가 Azure AD에 개별 개체로 만들어집니다. 개체는 메타 버스에 연결되지 않습니다. |
-| [Mail 특성](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |메일 특성에 다른 포리스트의 동일한 값이 있는 경우 이 옵션은 사용자 및 연락처를 연결합니다. 연락처가 GALSync를 사용하여 생성 된 경우 이 옵션을 사용합니다. |
+| [Mail 특성](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |메일 특성에 다른 포리스트의 동일한 값이 있는 경우 이 옵션은 사용자 및 연락처를 연결합니다. 연락처가 GALSync를 사용하여 생성 된 경우 이 옵션을 사용합니다. 이 옵션을 선택하면 Mail 특성이 채워지지 않은 사용자 개체는 Azure AD와 동기화되지 않습니다. |
 | [ObjectSID 및 msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |이 옵션은 계정 포리스트에서 활성화된 사용자를 리소스 포리스트에서 비활성화된 사용자와 조인합니다. Exchange의 경우 이 구성을 연결된 된 사서함이라고 합니다. 이 옵션은 Lync만 사용하며 Exchange는 리소스 포리스트에 없는 경우에도 사용할 수 있습니다. |
 | sAMAccountName 및 MailNickName |이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 조인합니다. |
-| 특정 특성 |이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. **제한:** 메타버스에서 이미 찾을 수 있는 특성을 선택해야 합니다. 사용자 지정 특성(메타버스에 없는)을 선택하면 마법사를 완료할 수 없습니다. |
+| 특정 특성 |이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. 이 옵션을 선택하면 (선택한) 특성이 채워지지 않은 User 개체가 Azure AD와 동기화되지 않습니다. **제한:** 메타버스에서 이미 찾을 수 있는 특성을 선택해야 합니다. 사용자 지정 특성(메타버스에 없는)을 선택하면 마법사를 완료할 수 없습니다. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD로 사용자를 식별하는 방법 선택 - 원본 앵커
 sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다.
@@ -274,7 +274,7 @@ AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항�
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>AD FS 서비스에 대한 서비스 계정 지정
 AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 정보를 검색하는데 도메인 서비스 계정이 필요합니다. 두 종류의 서비스 계정을 지원할 수 있습니다.
 
-* **그룹 관리 서비스 계정** -Windows Server 2012에서 Active Directory 도메인 서비스에 도입되었습니다. 이 유형의 계정은 계정 암호를 정기적으로 업데이트할 필요 없이 AD FS와 같은 단일 계정에 서비스를 제공합니다. AD FS 서버가 속해 있는 도메인에 Windows Server 2012 도메인 컨트롤러가 이미 있는 경우 이 옵션을 사용합니다.
+* **그룹 관리 서비스 계정** -Windows Server 2012에서 Active Directory Domain Services에 도입되었습니다. 이 유형의 계정은 계정 암호를 정기적으로 업데이트할 필요 없이 AD FS와 같은 단일 계정에 서비스를 제공합니다. AD FS 서버가 속해 있는 도메인에 Windows Server 2012 도메인 컨트롤러가 이미 있는 경우 이 옵션을 사용합니다.
 * **도메인 사용자 계정** - 이 유형의 계정을 사용하려면 암호를 입력하고 암호가 변경되거나 만료될 때 암호를 정기적으로 업데이트해야 합니다. AD FS 서버가 속해 있는 도메인에 Windows Server 2012 도메인 컨트롤러가 없는 경우에만 이 옵션을 사용합니다.
 
 그룹 관리 서비스 계정 선택했는데 Active Directory에서 이 기능을 사용한 적이 없는 경우 엔터프라이즈 관리자 자격 증명에 대한 메시지가 표시됩니다. 이러한 자격 증명은 키 저장소를 시작하고 Active Directory에서 기능을 사용하도록 설정하는 데 사용됩니다.
@@ -287,7 +287,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 ![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>페더레이션에 선택한 Azure AD 도메인 확인
-페더레이션할 도메인을 선택하면 Azure AD Connect가 확인되지 않은 도메인을 확인하는 데 필요한 정보를 제공합니다. 이 정보를 사용하는 방법은 [도메인 추가 및 확인](../active-directory-add-domain.md) 을 참조하세요.
+페더레이션할 도메인을 선택하면 Azure AD Connect가 확인되지 않은 도메인을 확인하는 데 필요한 정보를 제공합니다. 이 정보를 사용하는 방법은 [도메인 추가 및 확인](../active-directory-add-domain.md)을 참조하세요.
 
 ![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 
@@ -317,6 +317,15 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 ### <a name="verify-your-federation-configuration"></a>페더레이션 구성 확인
 확인 단추를 클릭하면 Azure AD Connect가 DNS 설정을 확인합니다.
+
+**인트라넷 연결 확인**
+
+* 페더레이션 FQDN 확인: Azure AD Connect는 DNS에서 페더레이션 FQDN을 확인할 수 있는지 검사하여 연결을 보장합니다. Azure AD Connect가 FQDN을 확인할 수 없는 경우 확인이 실패합니다. 확인을 완료할 수 있도록 페더레이션 서비스 FQDN에 DNS 레코드가 제공되는지 확인합니다.
+* DNS A 레코드: Azure AD Connect는 페더레이션 서비스에 대한 A 레코드가 있는지 확인합니다. A 레코드가 없으면 확인이 실패합니다. 확인을 완료할 수 있도록 페더레이션 FQDN에 대한 CNAME 레코드가 아닌 A 레코드를 만듭니다.
+
+**엑스트라넷 연결 확인**
+
+* 페더레이션 FQDN 확인: Azure AD Connect는 DNS에서 페더레이션 FQDN을 확인할 수 있는지 검사하여 연결을 보장합니다.
 
 ![완료](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

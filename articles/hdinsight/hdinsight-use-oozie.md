@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -60,7 +61,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 > 
 
 ### <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure PowerShell이 포함된 워크스테이션**. 
   
@@ -126,7 +127,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         <end name="end"/>
     </workflow-app>
 
-워크플로에&2;가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
+워크플로에 2가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
 
 RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
 
@@ -147,7 +148,7 @@ RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사�
 <table border = "1">
 <tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열을 지정합니다.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 SQL 데이터베이스 테이블을 지정합니다.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL Database 테이블을 지정합니다.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더를 지정합니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
 </table>
 
@@ -163,7 +164,7 @@ Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 
 2. **CREATE TABLE 문** 은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하는 데 Hive 외부 테이블이 사용됩니다.
 3. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure 저장소의 blob에 저장합니다.
 
-스크립트에서 사용되는&3;개의 변수가 있습니다.
+스크립트에서 사용되는 3개의 변수가 있습니다.
 
 * ${hiveTableName}
 * ${hiveDataFolder}
@@ -581,7 +582,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **자습서를 다시 실행하려면**
 
-워크플로를 다시 실행하려면 다음을 삭제해야 합니다:
+워크플로를 다시 실행하려면 다음 항목을 삭제해야 합니다.
 
 * Hive 스크립트 출력 파일
 * log4jLogsCount 테이블의 데이터

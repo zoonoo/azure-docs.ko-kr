@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 07/19/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: dbe1dba78fb2597dc595f9e6895d0a15181c1f05
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5d50ee78da27149278edbd9521ddae8fcfe42c3b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 
 이 문서에서는 Azure Analysis Services 서버 및 데이터베이스 관리 작업을 수행하는 데 사용되는 PowerShell cmdlet에 대해 설명합니다. 
 
-서버 만들기 또는 삭제, 서버 작업 일시 중단 또는 다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업은 AzureRM(Azure Resource Manager) cmdlet을 사용합니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업은 [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) 모듈에서 SQL Server Analysis Services와 동일한 cmdlet을 사용합니다.
+서버 만들기 또는 삭제, 서버 작업 일시 중단 또는 다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업은 AzureRM(Azure Resource Manager) cmdlet을 사용합니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업에서는 SQL Server Analysis Services와 동일한 SqlServer 모듈에 포함된 cmdlet을 사용합니다.
 
 ## <a name="permissions"></a>권한
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정에는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
@@ -38,18 +38,21 @@ Azure Analysis Services cmdlet은 [AzureRM.AnalysisServices](https://www.powersh
 
 |Cmdlet|설명| 
 |------------|-----------------| 
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|로그를 파일에 내보냅니다.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|서버 인스턴스에 대한 세부 정보를 가져옵니다.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|새 서버 인스턴스를 만듭니다.|
+|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|서버 인스턴스를 만듭니다.|
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|서버 인스턴스를 제거합니다.|  
-|[Suspend-AzureRmAnalysisServicesServe](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|서버 인스턴스를 일시 중단합니다.| 
+|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|서버 인스턴스를 일시 중단합니다.| 
 |[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|서버 인스턴스를 다시 시작합니다.|  
 |[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|서버 인스턴스를 수정합니다.|   
 |[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|서버 인스턴스의 존재 여부를 테스트합니다.| 
 
 ## <a name="database-operations"></a>데이터베이스 작업
-Azure Analysis Services 데이터베이스 작업은 SQL Server Analysis Services와 동일한 [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) 모듈을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 
 
-SQLASCMDLETS 모듈은 TMSL(테이블 형식 모델 스크립팅 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet 뿐만 아니라 작업 관련 데이터베이스 관리 cmdlet도 제공합니다. SQLASCMDLETS 모듈의 다음 cmdlet은 Azure Analysis Services에서 지원됩니다.
+Azure Analysis Services 데이터베이스 작업에서는 SQL Server Analysis Services와 동일한 [SqlServer](https://www.powershellgallery.com/packages/SqlServer) 모듈을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 
+
+SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet뿐만 아니라 작업 관련 데이터베이스 관리 cmdlet도 제공합니다. SqlServer 모듈의 다음 cmdlet은 Azure Analysis Services에서 지원됩니다.
+
   
 |Cmdlet|설명|
 |------------|-----------------| 
@@ -65,6 +68,9 @@ SQLASCMDLETS 모듈은 TMSL(테이블 형식 모델 스크립팅 언어) 쿼리 
   
 
 ## <a name="related-information"></a>관련 정보
-* [Analysis Services의 PowerShell 스크립팅](https://msdn.microsoft.com/library/hh213141.aspx)
-* [호환성 수준 1200에 대한 테이블 형식 모델 프로그래밍](https://msdn.microsoft.com/library/mt712541.aspx)
+
+* [SQL Server PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
+* [SSMS 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)(PowerShell 갤러리의 SqlServer 모듈)    
+* [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)(호환성 수준 1200 이상에 대한 테이블 형식 모델 프로그래밍)
 

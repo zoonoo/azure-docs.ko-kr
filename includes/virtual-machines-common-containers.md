@@ -17,7 +17,7 @@ Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 
 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)와 Docker 도구를 사용하여 생성되고 호스트된 컨테이너는 하이퍼바이저를 사용하여 격리하지 않습니다. 컨테이너를 사용하면, 컨테이너 호스트가 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 사용하여 컨테이너, 해당 앱, 특정 커널 기능 및 자체 격리 파일 시스템에 노출시킵니다. 컨테이너 내부에서 실행되는 앱의 관점에서 보면 해당 컨테이너는 독자적인 OS 인스턴스로 보입니다. 컨테이너 내 앱에서는 해당 컨테이너 외부에 있는 프로세스나 기타 리소스를 볼 수 없습니다.
 
 Docker 컨테이너에 사용되는 리소스는 VM에서 사용하는 것보다 훨씬 적습니다. Docker 컨테이너는 Docker 호스트의 커널을 공유하지 않는 응용 프로그램 격리 및 실행 모델을 사용합니다. 컨테이너는 전체 OS에 포함되지 않기 때문에 디스크 공간이 훨씬 적습니다. 시작 시간과 필수 디스크 공간은 VM에 비해 훨씬 낮습니다.
-Windows 컨테이너는 Windows에서 실행되는 앱의 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 매우 최적화된 VM에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows Containers를 시작하려면 [Azure Container Service 클러스터를 배포](/articles/container-service/container-service-deployment.md)하는 방법을 알아봅니다.
+Windows 컨테이너는 Windows에서 실행되는 앱의 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 매우 최적화된 VM에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows Containers를 시작하려면 [Azure Container Service 클러스터를 배포](../articles/container-service/dcos-swarm/container-service-deployment.md)하는 방법을 알아봅니다.
 
 ## <a name="what-are-containers-good-for"></a>컨테이너의 이점
 

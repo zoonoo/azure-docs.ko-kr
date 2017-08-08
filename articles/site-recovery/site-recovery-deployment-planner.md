@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -459,7 +458,9 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 **VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure 프리미엄 저장소](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 저장소 계정 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형이 결정됩니다. 예:
 * 128GB 미만은 P10입니다.
 * 128GB 이상 512GB 미만은 P20입니다.
-* 512GB 이상 1023GB 미만은 P30입니다.
+* 512GB ~ 1,024GB는 P30입니다.
+* 1,025GB ~ 2,048GB는 P40입니다.
+* 2,049GB ~ 4,095GB는 P50입니다.
 
 디스크의 워크로드 특성이 P20 또는 P30 범주에 속하지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 낮게 매핑되는 경우 도구에서 해당 VM을 **예**\*로 표시합니다. 또한 도구에서는 원본 디스크 크기를 권장 프리미엄 저장소 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
 
@@ -497,7 +498,8 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [저장소 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
-* 디스크 크기가 1023GB보다 큽니다. Azure Storage는 현재 1TB보다 큰 디스크 크기를 지원하지 않습니다.
+* 디스크 크기가 4,095GB보다 큽니다. Azure Storage는 현재 4,095GB보다 큰 디스크 크기를 지원하지 않습니다.
+* OS 디스크는 2,048GB보다 큽니다. Azure Storage는 현재 2,048GB보다 큰 OS 디스크 크기를 지원하지 않습니다.
 * 부팅 유형은 EFI입니다. 현재 Azure Site Recovery는 BIOS 부팅 유형 가상 컴퓨터만 지원합니다.
 
 * 총 VM 크기(복제 + TFO)가 지원되는 저장소 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 저장소 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 저장소 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
@@ -563,6 +565,15 @@ Deployment Planner를 업데이트하려면 다음을 수행합니다.
 
 
 ## <a name="version-history"></a>버전 기록
+
+### <a name="131"></a>1.3.1
+업데이트: 2017년 7월 19일
+
+다음과 같은 새로운 기능이 추가됩니다.
+
+* 보고서 생성에서 1TB보다 큰 대용량 디스크에 대한 지원이 추가되었습니다. 이제 Deployment Planner를 사용하여 1TB(최대 4,095GB)보다 큰 디스크가 있는 가상 컴퓨터에 대한 복제를 계획할 수 있습니다.
+[Azure Site Recovery에서 대용량 디스크 지원(영문)](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)에 대해 자세히 알아보세요.
+
 
 ### <a name="13"></a>1.3
 업데이트: 2017년 5월 9일

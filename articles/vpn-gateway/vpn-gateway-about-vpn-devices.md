@@ -1,6 +1,6 @@
 ---
 title: "크로스-프레미스 Azure 연결에 대한 VPN 장치 정보 | Microsoft Docs"
-description: "이 문서에서는 S2S VPN 게이트웨이 크로스-프레미스 연결에 대한 VPN 장치 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다."
+description: "이 문서에서는 S2S VPN Gateway 크로스-프레미스 연결에 대한 VPN 장치 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 8a7419c7a759060dc91f11ec94085ff0afd4a457
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보
 
-VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 Azure VPN Gateway에 대한 IPsec/IKE 매개 변수 목록 및 Azure VPN Gateway에 연결하는 유효성이 검사된 VPN 장치 목록을 제공합니다.
-
+VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 유효성이 검사된 VPN 장치 목록과 VPN 게이트웨이의 IPsec/IKE 매개 변수 목록을 제공합니다.
 
 > [!IMPORTANT]
-> 온-프레미스 VPN 장치와 Azure VPN 게이트웨이 간에 연결 문제가 발생하는 경우 [알려진 장치 호환성 문제](#known)를 참조하세요. 
+> 온-프레미스 VPN 장치와 VPN 게이트웨이 간에 연결 문제가 있는 경우 [알려진 장치 호환성 문제](#known)를 참조하세요.
+>
+>
 
+### <a name="items-to-note-when-viewing-the-tables"></a>테이블 확인 시 주의 사항:
 
-###<a name="items-to-note-when-viewing-the-tables"></a>테이블 확인 시 주의 사항:
-
-* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 기능이 변경되지 않았습니다. 이름만 변경됩니다.
+* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 이름만 변경되었습니다. 기능이 변경되지 않았습니다.
   * 정적 라우팅 = 정책 기반
   * 동적 라우팅 = 경로 기반
-* 고성능 VPN Gateway 및 경로 기반 VPN Gateway에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN Gateway와 호환되는 확인된 VPN 장치는 Azure 고성능 VPN Gateway와도 호환됩니다.
+* 고성능 VPN 게이트웨이 및 경로 기반 VPN 게이트웨이에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN 게이트웨이와 호환되는 확인된 VPN 장치는 고성능 VPN 게이트웨이와도 호환됩니다.
+
+## <a name="devicetable"></a>확인된 VPN 장치 및 장치 구성 가이드
 
 > [!NOTE]
 > 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.
->                
+>
 
-## <a name="devicetable"></a>확인된 VPN 장치 및 장치 구성 가이드
-장치 공급업체와 협력하여 표준 VPN 장치의 유효성을 검사했습니다. 다음 목록에 포함된 장치 제품군의 모든 장치는 Azure VPN 게이트웨이에서 작동해야 합니다. 구성할 솔루션에 대해 만들어야 하는 게이트웨이 유형을 확인하려면 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 를 참조하세요.
+장치 공급업체와 협력하여 표준 VPN 장치 집합의 유효성을 검사했습니다. 다음 목록에 포함된 장치 제품군의 모든 장치는 VPN 게이트웨이에서 작동합니다. 구성하려는 VPN Gateway 솔루션의 VPN 유형(정책 기반 또는 경로 기반)을 이해하려면 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요.
 
 VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크를 참조하세요. 구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 장치 지원은 장치 제조업체에 문의하세요.
 
@@ -77,9 +77,11 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 (*) ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
 
 ## <a name="additionaldevices"></a>확인되지 않은 VPN 장치
+
 장치가 확인된 VPN 장치 테이블에 없더라도 사이트 간 연결을 사용할 수 있습니다. 추가 지원 및 구성 지침은 장치 제조업체에 문의하세요.
 
 ## <a name="editing"></a>장치 구성 샘플 편집
+
 제공된 VPN 장치 구성 샘플을 다운로드한 후 환경에 대한 설정을 반영하기 위해 일부 값을 바꿔야 합니다.
 
 ### <a name="to-edit-a-sample"></a>샘플을 편집하려면
@@ -102,8 +104,9 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | &lt;SP_PresharedKey&gt; |이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
 ## <a name="ipsec"></a>IPsec/IKE 매개 변수
+
 > [!NOTE]
-> 다음 테이블에 나열된 값이 Azure VPN Gateway에서 지원되더라도 현재 Azure VPN Gateway에서 특정 알고리즘 또는 매개 변수의 조합을 지정하거나 선택할 메커니즘이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다. 또한 **MSS**를 **1350**에 고정해야 합니다.
+> 다음 테이블에 나열된 값이 VPN 게이트웨이에서 지원되지만 현재는 VPN 게이트웨이에서 특정 알고리즘 또는 매개 변수의 조합을 지정하거나 선택할 수 있는 메커니즘이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다. 또한 **MSS**를 **1350**에 고정해야 합니다.
 > 
 >
 
@@ -114,6 +117,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 * IKE 2단계는 "빠른 모드"라고도 합니다.
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 1단계(주 모드) 매개 변수
+
 | **속성**          |**정책 기반**    | **경로 기반**    |
 | ---                   | ---               | ---               |
 | IKE 버전           |IKEv1              |IKEv2              |
@@ -123,6 +127,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | SA 수명           |28,800초     |28,800초     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 2단계(빠른 모드) 매개 변수
+
 | **속성**                  |**정책 기반**| **경로 기반**                              |
 | ---                           | ---           | ---                                         |
 | IKE 버전                   |IKEv1          |IKEv2                                        |
@@ -134,9 +139,11 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 보안 연결(IKE 빠른 모드 SA) 제품
+
 다음 표는 IPsec SA(IKE 빠른 모드) 제품을 나열합니다. 제안이 제시되거나 수락되는 기본 설정 순서대로 제안이 나열되어 있습니다.
 
 #### <a name="azure-gateway-as-initiator"></a>Azure 게이트웨이(초기자)
+
 |-  |**암호화**|**인증**|**PFS 그룹**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM(AES256)      |없음         |
@@ -147,6 +154,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | 6 |3DES          |SHA256            |없음         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure 게이트웨이(응답자)
+
 |-  |**암호화**|**인증**|**PFS 그룹**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM(AES256)      |없음         |
@@ -176,7 +184,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* 경로 기반 및 고성능 VPN Gateway를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다.  클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
+* 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 * 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 테이블에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN Gateway 설정을 사용하세요.
 
 ## <a name="known"></a>알려진 장치 호환성 문제
@@ -193,4 +201,3 @@ Azure 경로 기반 VPN에 대한 **7.1.4 이전 버전으로 Palo Alto Networks
 1. Palo Alto Networks 장치의 펌웨어 버전을 확인합니다. PAN-OS 버전이 7.1.4보다 오래된 경우 7.1.4로 업그레이드하세요.
 2. Palo Alto Networks 장치에서 Azure VPN Gateway로 연결하는 경우 단계 2 SA(또는 빠른 모드 SA) 수명을 28,800초(8시간)로 변경합니다.
 3. 여전히 연결 문제가 발생하면 Azure Portal에서 지원 요청을 여세요.
-

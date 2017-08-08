@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure 웹앱 성능 모니터링
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/10/2017
 * **빌드 시간** - 개발 중인 앱에서 패키지를 설치할 수 있습니다. 이 옵션은 융통성이 뛰어납니다. 동일한 표준 패키지 외에도 원격 분석 데이터를 사용자 지정하거나 고유한 원격 분석을 보내는 코드를 작성할 수 있습니다. 앱 도메인의 의미 체계에 따라 특정 작업 또는 레코드 이벤트를 기록할 수 있습니다. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights를 사용하여 시간 계측 실행
-Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성에 대한 모니터링 호출, 스마트 검색 및 강력한 분석 쿼리 언어 등 더 많은 것을 얻습니다. 
+Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성 호출 모니터링, 스마트 검색, 강력한 Log Analytics 쿼리 언어 등 더 많은 것을 얻을 수 있습니다. 
 
 1. 웹앱의 Azure 제어판에서 **Application Insights를 선택**합니다.
    
@@ -102,7 +101,7 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
    
     [검색을 사용자 지정](app-insights-diagnostic-search.md)할 수 있습니다.
 
-원격 분석을 통해 좀더 강력하게 검색하려면 [분석 쿼리 언어](app-insights-analytics-tour.md)를 사용합니다.
+원격 분석을 통해 보다 강력하게 검색하려면 [Log Analytics 쿼리 언어](app-insights-analytics-tour.md)를 사용합니다.
 
 ## <a name="more-telemetry"></a>추가 원격 분석
 
@@ -119,7 +118,7 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
 * [Azure 진단을 사용](app-insights-azure-diagnostics.md) 하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)합니다.
-* [JavaScript 앱 및 웹 페이지용 Application Insights](app-insights-javascript.md) 를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
+* [JavaScript 앱 및 웹 페이지용 Application Insights](app-insights-javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
 * [가용성 웹 테스트를 설정](app-insights-monitor-web-app-availability.md) 합니다.
 
 

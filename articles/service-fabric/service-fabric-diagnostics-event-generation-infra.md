@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 인프라 수준 모니터링 | Microsoft Docs"
-description: "Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 인프라 수준 이벤트 및 로그를 알아봅니다."
+title: "Azure Service Fabric 플랫폼 수준 모니터링 | Microsoft Docs"
+description: "Azure Service Fabric 클러스터를 모니터링 및 진단하는 데 사용되는 플랫폼 수준 이벤트 및 로그를 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bae1917e7c0f0b247be473f78fedd7753aef6d23
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="infrastructure-level-event-and-log-generation"></a>인프라 수준 이벤트 및 로그 생성
+# <a name="platform-level-event-and-log-generation"></a>플랫폼 수준 이벤트 및 로그 생성
 
 ## <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
-하드웨어와 클러스터가 예상대로 동작하는지 확인하려면 인프라 수준에서 모니터링해야 합니다. Service Fabric은 하드웨어 오류 시에도 응용 프로그램을 계속 실행할 수 있지만, 응용 프로그램이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 인프라 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
+하드웨어와 클러스터가 예상대로 동작하는지 확인하려면 플랫폼 수준에서 모니터링해야 합니다. Service Fabric은 하드웨어 오류 시에도 응용 프로그램을 계속 실행할 수 있지만, 응용 프로그램이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 하드웨어 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
 
 Service Fabric은 다음 이벤트를 생성하는 다섯 가지 기본 제공 로그 채널을 제공합니다.
 
@@ -37,7 +36,7 @@ Service Fabric은 다음 이벤트를 생성하는 다섯 가지 기본 제공 �
 * [Reliable Actors 이벤트](service-fabric-reliable-actors-diagnostics.md): 프로그래밍 모델 특정 이벤트 및 성능 카운터
 * 지원 로그: 지원을 제공할 때만 사용되는 Service Fabric에서 생성된 시스템 로그
 
-이러한 다양한 채널에서 권장되는 대부분의 인프라 수준 로깅을 처리합니다. 인프라 수준 로깅을 개선하려면 상태 모델을 더 잘 파악하는 데 투자하고 사용자 지정 상태 보고서를 추가해 보고, 사용자 지정 **성능 카운터**를 추가하여 서비스와 응용 프로그램이 클러스터에 미치는 영향을 실시간으로 파악하는 기능을 빌드하세요.
+이러한 다양한 채널에서 권장되는 대부분의 플랫폼 수준 로깅을 처리합니다. 플랫폼 수준 로깅을 개선하려면 상태 모델을 더 잘 파악하는 데 투자하고 사용자 지정 상태 보고서를 추가해 보고, 사용자 지정 **성능 카운터**를 추가하여 서비스와 응용 프로그램이 클러스터에 미치는 영향을 실시간으로 파악하는 기능을 빌드하세요.
 
 ### <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric 상태 및 로드 보고
 

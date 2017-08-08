@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 02826ffad9838c3e22721cc3c189e8cc13020059
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
@@ -57,7 +58,7 @@ SSPR는 어떻게 작동하나요? 인터페이스에서 이 옵션은 무엇인
 
 ## <a name="authentication-methods"></a>인증 방법
 
-SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으로 아래 옵션 중 적어도 하나를 선택해야 합니다. 사용자가 더 유연하게 사용할 수 있도록 두 개 이상의 인증 방법을 선택하는 것이 좋습니다.
+SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으로 다음 옵션 중 적어도 하나를 선택해야 합니다. 사용자가 더 유연하게 사용할 수 있도록 두 개 이상의 인증 방법을 선택하는 것이 좋습니다.
 
 * Email
 * 휴대폰
@@ -242,7 +243,12 @@ Azure AD Connect 유틸리티에서 지정된 계정에는 암호 재설정, 암
 4. [사용 권한] 탭에서 [추가]를 클릭합니다.
 5. (Azure AD Connect 설정에서) 사용 권한이 적용되는 계정을 선택합니다
 6. [드롭다운에 적용 박스]에서 [하위 사용자] 개체를 선택합니다.
-7. 사용 권한에서 암호 재설정, 암호 변경, lockoutTime 쓰기 및 pwdLastSet 쓰기의 확인란을 선택합니다.
+7. 사용 권한 아래에서 다음에 대한 확인란을 선택합니다.
+    * 암호 만료 안 됨
+    * 암호 재설정
+    * 암호 변경
+    * lockoutTime 쓰기
+    * pwdLastSet 쓰기
 8. 적용/확인을 클릭하여 열려 있는 대화 상자를 적용하고 종료합니다.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>B2B 사용자에 대한 암호 재설정은 어떻게 작동하나요?

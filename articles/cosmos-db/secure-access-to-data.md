@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b57a157bc47b09af34684b0d85ce4538782a5ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 액세스 보호
@@ -46,7 +45,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 Cosmos DB 계정에 대한 두 개의 마스터 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
 
-Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스터 키를 검색 및 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)을 참조하세요.
+Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스터 키를 검색 및 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-account.md#keys)을 참조하세요.
 
 ![Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -59,7 +58,7 @@ Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스
 다음 코드 샘플에서는 Cosmos DB 계정 끝점 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다. 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
@@ -183,6 +182,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## <a name="next-steps"></a>다음 단계
 * Cosmos DB 데이터베이스 보안에 대한 자세한 내용은 [Cosmos DB: 데이터베이스 보안](database-security.md)을 참조하세요.
-* 마스터 키와 읽기 전용 키를 관리하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 계정을 관리하는 방법](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)을 참조하세요.
+* 마스터 키와 읽기 전용 키를 관리하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 계정을 관리하는 방법](manage-account.md#keys)을 참조하세요.
 * Azure Cosmos DB 권한 부여 토큰을 생성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 제어](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)를 참조하세요.
 

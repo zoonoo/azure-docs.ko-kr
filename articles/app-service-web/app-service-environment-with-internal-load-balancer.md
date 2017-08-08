@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21223eb0cfbff607e15713e4726761c1bdb01774
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cfc9fb3ca26819999e10eff8df55d48468c7edef
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>앱 서비스 환경에서 내부 부하 분산 장치 사용
@@ -109,7 +110,7 @@ ILB ASE에서는 앱에 액세스할 수 없고 인터넷에서 해당 앱도 �
 
 NSG를 사용하여 액세스를 좀 더 제한하려는 경우 ASE의 작동에 필요한 통신이 끊어지지 않도록 해야 합니다.  HTTP/HTTPS 액세스가 ASE에 사용되는 ILB를 통해서만 진행되더라도 ASE에는 VNet 외부의 리소스가 필요합니다.  여전히 필요한 네트워크 액세스를 확인하려면 [App Service 환경에 대한 인바운드 트래픽 제어][ControlInbound] 및 [ExpressRoute를 사용하는 App Service 환경에 대한 네트워크 구성 세부 정보][ExpressRoute]에 대한 문서에서 해당 정보를 찾아보세요.  
 
-ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소를 알아야 합니다.  인터넷 요청도 수행하는 경우 해당 IP 주소는 ASE의 아웃바운드 IP 주소입니다.  이 IP 주소를 찾으려면 **설정 -> 속성**으로 이동한 후 **아웃바운드 IP 주소**를 찾습니다.  
+ASE를 구성하려면 Azure에서 ASE 관리를 위해 사용하는 IP 주소를 알아야 합니다.  인터넷 요청도 수행하는 경우 해당 IP 주소는 ASE의 아웃바운드 IP 주소입니다.  ASE에 대한 아웃바운드 IP 주소는 ASE 수명 동안 정적 상태로 유지됩니다.  ASE를 삭제한 후 다시 만들면 새 IP 주소를 얻게 됩니다.  이 IP 주소를 찾으려면 **설정 -> 속성**으로 이동한 후 **아웃바운드 IP 주소**를 찾습니다.  
 
 ![][5]
 
@@ -155,9 +156,4 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service][Az
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

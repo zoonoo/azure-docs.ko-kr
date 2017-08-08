@@ -4,7 +4,7 @@ description: "Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Azure IoT 장치 관리, Azure IoT Hub 장치 관리, 장치 관리 IoT, IoT Hub 장치 관리"
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>iothub-explorer를 사용하여 Azure IoT Hub 장치 관리
@@ -59,7 +58,8 @@ ms.lasthandoff: 06/17/2017
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
-- iothub-explorer (개발 컴퓨터에 [iothub-explorer 설치](https://github.com/azure/iothub-explorer))
+- 이 자습서를 진행하는 동안 장치가 클라이언트 응용 프로그램을 사용해서 실행되고 있어야 합니다.
+- iothub-explorer, 개발 컴퓨터에 [iothub-explorer를 설치](https://github.com/azure/iothub-explorer)합니다.
 
 ## <a name="connect-to-your-iot-hub"></a>IoT Hub에 연결
 
@@ -114,7 +114,8 @@ iothub-explorer get-twin <your device id>
 다음 명령을 실행하여 장치에 역할(role = temperature&humidity) 필드를 추가합니다.
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>클라우드-장치 메시지로 iothub-explorer 사용

@@ -2,7 +2,7 @@
 title: "Azure Monitoring REST API 연습 | Microsoft Docs"
 description: "Azure Monitoring REST API에 대해 요청을 인증하고 Azure Monitoring REST API를 사용하는 방법"
 author: mcollier
-manager: carolz
+manager: 
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 454a85c4752ec9c7522ef147d5ce594ef5992c32
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
@@ -32,7 +31,7 @@ Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의(CPU 시간,
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 첫 번째 단계는 요청을 인증하는 것입니다.
 
-Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)를 참조하세요. [Azure 포털을 통해 서비스 주체를 만들 수도](../azure-resource-manager/resource-group-create-service-principal-portal.md)있습니다.
+Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)를 참조하세요. [Azure Portal을 통해 서비스 주체를 만들 수도](../azure-resource-manager/resource-group-create-service-principal-portal.md)있습니다.
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -70,7 +69,7 @@ $subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
-$authUrl = "https://login.windows.net/${tenantId}"
+$authUrl = "https://login.microsoftonline.com/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)

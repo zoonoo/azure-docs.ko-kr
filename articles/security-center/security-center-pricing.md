@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
-ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -33,11 +33,6 @@ Security Center는 두 계층으로 제공됩니다.
 
 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-> [!NOTE]
-> Security Center에서는 Azure Storage를 사용하여 보호된 노드에서 생성된 보안 데이터를 저장합니다. 이 저장소와 관련된 비용은 서비스 가격에 포함되지 않으며, 일반 [Azure Storage 요금](https://azure.microsoft.com/pricing/details/storage/blobs/)이 별도로 부과됩니다. 무료 평가판을 사용하는 60일 동안에도 Storage 요금이 부과됩니다.
->
->
-
 ## <a name="try-standard-free-for-60-days"></a>60일 표준 계층 무료 사용
 표준 계층은 처음 60일간 무료로 제공됩니다. 60일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
 
@@ -49,7 +44,6 @@ Security Center는 두 계층으로 제공됩니다.
 4. **가격 책정 계층 선택** 블레이드에서 **표준**을 선택합니다.
 5. **선택**을 클릭합니다.
 
-![표준 계층][1]
 
 ## <a name="why-upgrade-to-standard"></a>표준으로 업그레이드하는 이유?
 Security Center의 표준 계층은 무료 계층의 모든 기능과 고급 위협 요소 탐지를 제공합니다. 고급 위협 요소 탐지를 통해 Azure 리소스를 대상으로 하는 활성 위협을 식별하고 이에 신속하게 대응하는 데 필요한 정보를 제공할 수 있습니다.
@@ -79,11 +73,17 @@ Security Center의 표준 계층은 무료 계층의 모든 기능과 고급 위
 2. 구독을 선택합니다.
 3. **데이터 수집**이 꺼진 경우 켜기로 변경하고 변경 내용을 저장합니다.
 
+> [!NOTE]
+> Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 컴퓨터에서 데이터 수집을 사용하지 않도록 설정할 수 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다.
+>
+>
+
 자세한 내용은 [Azure Security Center에서 데이터 수집 활성화](security-center-enable-data-collection.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 이 문서에서는 Security Center의 가격 책정을 소개했습니다. 가격 책정에 대한 추가 정보는 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 * Security Center의 고급 감지 기능에 대한 자세한 내용은 [Azure Security Center 감지 기능](security-center-detection-capabilities.md)을 참고하세요.
+* Security Center에서 데이터를 관리하고 보호하는 방법을 알아보려면 [Azure Security Center 데이터 보안](security-center-data-security.md)을 참조하세요.
 * Security Center 사용에 대한 질문이 있으면 [Azure Security Center FAQ](security-center-faq.md)를 참조하세요.
 * 여전히 Security Center 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc)을 방문하세요.
 

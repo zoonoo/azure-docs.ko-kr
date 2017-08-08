@@ -1,6 +1,6 @@
 ---
-title: "쿼리를 사용하여 AS2, X12, EDIFACT 메시지 추적 - Azure Logic Apps | Microsoft Docs"
-description: "쿼리를 사용하여 Operations Management Suite 포털에서 B2B 메시지를 추적합니다."
+title: "Operations Management Suite에서 B2B 메시지에 대한 쿼리 - Azure Logic Apps | Microsoft Docs"
+description: "Operations Management Suite에서 AS2, X12 및 EDIFACT 메시지를 추적하는 쿼리 만들기"
 author: padmavc
 manager: anneta
 editor: 
@@ -12,53 +12,122 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67313e4ff780e6c64dfc3d767ea49167c2a390f4
-ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2748d3d3daf7c13dca05f663a4a088598e1b3605
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="track-b2b-messages-in-the-operations-management-suite-portal-by-using-a-query"></a>쿼리를 사용하여 Operations Management Suite 포털에서 B2B 메시지 추적
-Operations Management Suite 포털에서 B2B(Business-to-Business) 메시지를 추적하려면 특정 교환 컨트롤 번호에 대한 데이터를 필터링하는 쿼리를 만들면 됩니다.
 
-## <a name="prereqs"></a>선행 조건
+# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>OMS(Microsoft Operations Management Suite)에서 AS2, X12 및 EDIFACT 메시지에 대한 쿼리
 
-디버깅 및 자세한 진단 정보를 보려면 X12 커넥터가 있는 [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts)의 [통합 계정](logic-apps-monitor-b2b-message.md)에서 진단 기능을 켭니다. 그런 다음 [진단 데이터](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)를 Operations Management Suite 포털에 게시하는 단계를 수행합니다.
+[OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에서 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 추적 중인 AS2, X12 또는 EDIFACT 메시지를 찾기 위해 특정 조건에 따라 작업을 필터링하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다.
 
-## <a name="search-for-an-interchange-control-number"></a>교환 컨트롤 번호 검색
+## <a name="requirements"></a>요구 사항
 
-1. 시작 페이지에서 **로그 검색**을 선택합니다.  
-![로그 검색 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+* 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](../logic-apps/logic-apps-create-a-logic-app.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
-2. 검색 상자에 **Type="AzureDiagnostics"**를 입력합니다. 데이터를 필터링하려면 **추가**를 선택합니다.  
-![쿼리 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+* 모니터링 및 로깅을 사용하여 설정된 통합 계정. [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 및 [해당 계정에 대한 모니터링 및 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-b2b-message.md)을 알아봅니다.
 
-3. **interchange**를 입력하고 **event_record_messageProperties_interchangeControlNumber_s**를 선택한 후 **추가**를 선택합니다.  
-![필터 추가](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
+* 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)하고 [OMS에서 메시지 추적을 설정](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
-4. 데이터를 필터링할 컨트롤 번호를 선택하고 **적용**을 선택합니다.  
-![컨트롤 번호 검색](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
+> [!NOTE]
+> 이전 요구 사항을 충족한 후 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에 작업 영역이 있어야 합니다. OMS에서 B2B 통신 추적에 대해 동일한 OMS 작업 영역을 사용해야 합니다. 
+>  
+> OMS 작업 영역이 없는 경우 [OMS 작업 영역을 만드는 방법](../log-analytics/log-analytics-get-started.md)을 알아봅니다.
 
-5. 선택한 컨트롤 번호에 대한 데이터를 필터링하기 위해 만든 쿼리를 찾습니다.   
-![쿼리 찾기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
+## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Operations Management Suite 포털에서 필터로 메시지 쿼리 만들기
 
-6. 쿼리의 이름을 입력한 후 저장합니다.   
-![쿼리 저장](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query5.png)
+이 예제는 해당 교환 컨트롤 번호에 따라 메시지를 찾는 방법을 보여 줍니다.
 
-7. 쿼리를 보고 향후 검색에 사용하려면 **즐겨찾기**를 선택합니다.  
-![쿼리 보기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
+> [!TIP] 
+> OMS 작업 영역 이름을 알고 있으면 작업 영역 홈페이지(`https://{your-workspace-name}.portal.mms.microsoft.com`)로 이동하고 4단계에서 시작합니다. 그렇지 않은 경우 1단계에서 시작합니다.
 
-8. 새 교환 컨트롤 번호를 검색하도록 쿼리를 업데이트할 수 있습니다.  
-![쿼리 업데이트](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query6.png)
+1. [Azure Portal](https://portal.azure.com)에서 **더 많은 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
+   ![Log Analytics 찾기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+
+2. **Log Analytics** 아래에서 OMS 작업 영역을 찾고 선택합니다.
+
+   ![OMS 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+
+3. **관리** 아래에서 **OMS 포털**을 선택합니다.
+
+   ![OMS 포털 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+
+4. OMS 홈페이지에서 **로그 검색**을 선택합니다.
+
+   ![OMS 홈페이지에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+
+   또는
+
+   ![OMS 홈 메뉴에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+
+5. 검색 상자에 찾으려는 필드를 입력하고 **Enter** 키를 누릅니다. 입력을 시작할 때 OMS는 사용할 수 있는 가능한 일치 및 작업을 보여 줍니다. [Log Analytics에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+
+   이 예제에서는 **Type=AzureDiagnostics**로 이벤트를 검색합니다.
+
+   ![쿼리 문자열 입력 시작](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
+
+6. 왼쪽 모음에서 보려는 시간 프레임을 선택합니다. 쿼리에 필터를 추가하려면 **+추가**를 선택합니다.
+
+   ![쿼리에 필터 추가](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+
+7. **필터 추가** 아래에서 원하는 필터를 찾을 수 있도록 필터 이름을 입력합니다. 필터를 선택하고 **+추가**를 선택합니다.
+
+   교환 컨트롤 번호를 찾기 위해 이 예제에서는 "교환"이라는 단어를 검색하고 필터로 **event_record_messageProperties_interchangeControlNumber_s**를 선택합니다.
+
+   ![필터 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+
+9. 왼쪽 모음에서 사용하려는 필터 값을 선택하고 **적용**을 선택합니다.
+
+   이 예제에서는 원하는 메시지에 대한 교환 컨트롤 번호를 선택합니다.
+
+   ![필터 값 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
+
+10. 이제 작성 중인 쿼리로 돌아갑니다. 선택한 필터 이벤트 및 값으로 쿼리가 업데이트되었습니다. 이제 이전 결과 또한 필터링되어 있습니다.
+
+    ![필터링된 결과와 함께 쿼리로 돌아가기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+
+<a name="save-oms-query"></a>
+
+## <a name="save-your-query-for-future-use"></a>나중에 사용할 쿼리 저장
+
+1. **로그 검색** 페이지의 쿼리에서 **저장**을 선택합니다. 쿼리에 이름을 지정하고 범주를 선택하고 **저장**을 선택합니다.
+
+   ![쿼리에 이름 및 범주 지정](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
+
+2. 쿼리를 보려면 **즐겨찾기**를 선택합니다.
+
+   !["즐겨찾기" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
+
+3. **저장된 검색** 아래에서 결과를 볼 수 있도록 쿼리를 선택합니다. 서로 다른 결과를 찾을 수 있도록 쿼리를 업데이트하려면 쿼리를 편집합니다.
+
+   ![쿼리 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+
+## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Operations Management Suite 포털의 저장된 쿼리 찾기 및 실행
+
+1. OMS 작업 영역 홈페이지(`https://{your-workspace-name}.portal.mms.microsoft.com`)를 열고 **로그 검색**을 선택합니다.
+
+   ![OMS 홈페이지에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+
+   또는
+
+   ![OMS 홈 메뉴에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+
+2. **로그 검색** 홈페이지에서 **즐겨찾기**를 선택합니다.
+
+   !["즐겨찾기" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
+
+3. **저장된 검색** 아래에서 결과를 볼 수 있도록 쿼리를 선택합니다. 서로 다른 결과를 찾을 수 있도록 쿼리를 업데이트하려면 쿼리를 편집합니다.
+
+   ![쿼리 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)에 대해 자세히 알아봅니다.   
-* [AS2 추적 스키마](logic-apps-track-integration-account-as2-tracking-schemas.md)에 대해 자세히 알아봅니다.    
-* [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)에 대해 자세히 알아봅니다.  
-* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 자세히 알아봅니다.
 
+* [AS2 추적 스키마](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 추적 스키마](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

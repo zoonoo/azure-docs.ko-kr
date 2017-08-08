@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -48,7 +48,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **계산**을 선택하고 **Ubuntu Server 16.04 LTS**를 선택한 다음 **Resource Manager**가 선택한 배포 모델을 확인합니다. **만들기** 단추를 클릭합니다. 
+2. **계산**을 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다. 
 
 3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키**를 선택합니다. SSH 공용 키를 붙여 넣을 때 선행 또는 후행 공백을 모두 제거해야 합니다. 완료되면 **확인**을 클릭합니다.
 
@@ -58,7 +58,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 설정 블레이드의 **Managed Disks 사용**에서 **예**를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
+5. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
 6. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
 

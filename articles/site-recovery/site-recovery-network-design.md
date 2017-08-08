@@ -12,19 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2d8d0feb5c391017e02413b009aafe4d5c012976
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>재해 복구를 위한 네트워크 디자인
 
-이 문서는 BCDR(비즈니스 연속성 및 재해 복구) 인프라를 설계, 구현 및 지원할 책임이 있고 Microsoft ASR(Azure Site Recovery)를 활용하여 BCDR 서비스를 지원하고 개선하려는 IT 전문가에게 리디렉션됩니다. 이 문서는 System Center Virtual Machine Manager 서버 배포에 대한 실제적인 고려 사항, 확대 서브넷과 서브넷 장애 조치의 장단점 및 Microsoft Azure의 가상 사이트에 대한 재해 복구를 구조화하는 방법을 설명합니다.
+이 문서는 BCDR(비즈니스 연속성 및 재해 복구) 인프라를 설계, 구현 및 지원할 책임이 있고 Microsoft ASR(Azure Site Recovery)를 활용하여 BCDR 서비스를 지원하고 개선하려는 IT 전문가에게 리디렉션됩니다. 이 문서에서는 Azure 또는 다른 온-프레미스 사이트에 해당하는 재해 복구 사이트에서 네트워크를 구성할 때 실제로 고려할 사항에 대해 설명합니다. 
 
 ## <a name="overview"></a>개요
 [ASR(Azure Site Recovery)](https://azure.microsoft.com/services/site-recovery/) 는 비즈니스 연속성 재해 복구(BCDR)를 위해 가상화된 응용 프로그램의 보호 및 복구를 오케스트레이션하는 Microsoft Azure 서비스입니다. 이 문서는 사이트 복구를 사용하여 VM(가상 컴퓨터)을 복제하는 경우 재해 복구 사이트에서 IP 범위 및 서브넷을 설계에 초점을 맞추어 판독기에서 네트워크를 디자인하는 과정을 안내합니다.
@@ -37,12 +36,13 @@ BCDR 계획에 중요한 것은 복구 시간 목표(RTO) 및 복구 지점 목�
 
 장애 조치는 (시나리오에 따라) 기본 데이터 센터에서 보조 데이터 센터 또는 Azure에 지정된 가상 컴퓨터를 복사하는 ASR에서 가능해지고 복제본을 주기적으로 새로 고칩니다. 인프라를 계획하는 동안 네트워크 디자인은 회사 RTO 및 RPO 목적을 충족하지 못하도록 방해할 수 있는 잠재적 병목 현상으로 간주되어야 합니다.  
 
-관리자가 재해 복구 솔루션을 배포하려는 경우 한 가지 핵심적인 질문은 장애 조치를 완료한 후에 가상 컴퓨터를 연결할 수 있는 방법입니다. 관리자는 ASR을 사용하여 장애 조치 후에 가상 컴퓨터가 연결될 네트워크를 선택할 수 있습니다. 기본 사이트는 VMM 서버에 의해 관리되며 이것은 네트워크 매핑을 사용하여 달성됩니다. 자세한 내용은 [네트워크 매핑 준비](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) 를 참조하세요.
+관리자가 재해 복구 솔루션을 배포하려는 경우 한 가지 핵심적인 질문은 장애 조치를 완료한 후에 가상 컴퓨터를 연결할 수 있는 방법입니다. 관리자는 ASR을 사용하여 장애 조치 후에 가상 컴퓨터가 연결될 네트워크를 선택할 수 있습니다. 기본 사이트가 Azure이거나 VMM 서버에 의해 관리되는 온-프레미스 사이트인 경우 이것은 네트워크 매핑을 사용하여 달성됩니다. [Azure-Azure DR의 네트워크 매핑](site-recovery-network-mapping-azure-to-azure.md) 및 [VMM에서의 네트워크 매핑](site-recovery-network-mapping.md)에 대해 자세히 알아보기
+
 
 복구 사이트에 대한 네트워크를 디자인하는 동안 관리자는 두 가지를 선택할 수 있습니다.
 
-* 복구 사이트에서 네트워크에 다른 IP 주소 범위를 사용합니다. 이 시나리오에서 장애 조치 후의 가상 컴퓨터는 새 IP 주소를 가져오고 관리자는 DNS 업데이트를 수행해야 합니다. [여기](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)에서 자세히 알아보기
-* 복구 사이트에서 네트워크에 동일한 IP 주소 범위를 사용합니다. 특정 시나리오에서 관리자는 장애 조치 후에 기본 사이트에 있는 IP 주소를 유지하려 합니다. 일반적인 시나리오에서 관리자는 IP 주소의 새 위치를 나타내도록 경로를 업데이트해야 합니다. 하지만 기본 데이터베이스와 복구 사이트 간의 확대 VLAN를 배포할 경우에는 가상 컴퓨터에 대한 IP 주소를 유지하는 것이 유용한 옵션입니다. 동일한 IP 주소를 유지하면 장애 조치 후 단계와 관련된 네트워크를 정리하여 복구 과정을 단순화합니다.
+* 복구 사이트에서 네트워크에 다른 IP 주소 범위를 사용합니다. 이 시나리오에서 장애 조치 후의 가상 컴퓨터는 새 IP 주소를 가져오고 관리자는 DNS 업데이트를 수행해야 합니다. 
+* 복구 사이트에서 네트워크에 동일한 IP 주소 범위를 사용합니다. 특정 시나리오에서 관리자는 장애 조치 후에 기본 사이트에 있는 IP 주소를 유지하려 합니다. 일반적인 시나리오에서 관리자는 IP 주소의 새 위치를 나타내도록 경로를 업데이트해야 합니다. 하지만 기본 데이터베이스와 복구 사이트 간의 확대 서브넷을 배포할 경우에는 가상 컴퓨터에 대한 IP 주소를 유지하는 것이 유용한 옵션입니다. 온-프레미스 네트워크에서 Azure 네트워크로 또는 두 Azure 네트워크 간에 서브넷을 확대할 수는 없습니다.  
 
 관리자가 재해 복구 솔루션을 배포하려는 경우 한 가지 핵심적인 질문은 장애 조치를 완료한 후에 응용 프로그램을 연결할 수 있는 방법입니다. 최신 응용 프로그램은 거의 항상 어느 정도 네트워킹에 종속되어 있으므로 한 사이트에서 다른 사이트로 물리적으로 서비스를 이동하면 네트워킹 문제가 발생합니다. 재해 복구 솔루션에서 이 문제를 처리하는 두 가지 방법이 있습니다. 첫 번째 방법은 고정 IP 주소를 유지 관리하는 것입니다. 비록 서로 다른 물리적 위치에서 서비스가 이동하고 호스팅 서버가 존재하기는 하지만 응용 프로그램이 IP 주소 구성을 새 위치로 함께 가지고 갑니다. 두 번째 방법은 복구된 사이트로 전환하는 동안 IP 주소를 완전히 변경하는 작업을 포함합니다. 각 방법에는 아래에 요약된 것처럼 여러 가지 구현 변형이 있습니다.
 
@@ -62,51 +62,10 @@ BCDR 계획에 중요한 것은 복구 시간 목표(RTO) 및 복구 지점 목�
 
 Contoso라는 가상의 기업이 전체 서브넷을 장애 조치(failover)하면서 해당 VM을 복구 위치에 복제할 수 있는 방법을 살펴보겠습니다. 먼저 두 개의 온-프레미스 위치 사이에서 VM을 복제하는 동안 Contoso에서 서브넷을 관리하는 방법을 본 다음, [Azure가 재해 복구 사이트](#failover-to-azure)로 사용될 때 서브넷 장애 조치가 어떻게 동작하는지 알아보겠습니다.
 
-#### <a name="failover-to-a-secondary-on-premises-site"></a>2차 온-프레미스 사이트 장애 조치
-각 VM의 IP를 유지하고 전체 서브넷을 함께 장애 조치하려는 시나리오를 살펴보겠습니다. 주 사이트에 서브넷 192.168.1.0/24에서 실행되는 응용 프로그램이 있습니다. 장애 조치(failover)가 발생한 경우 이 서브넷의 일부인 모든 가상 컴퓨터는 복구 사이트로 장애 조치(failover)되고 해당 IP 주소를 유지합니다. 서브넷 192.168.1.0/24에 속하는 모든 가상 컴퓨터가 복구 사이트로 이동한 사실을 반영하도록 경로를 적절히 수정해야 합니다.
+#### <a name="failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 
+ASR(Azure Site Recovery)는 Azure가 가상 컴퓨터에 대한 재해 복구 사이트로 사용되도록 할 수 있습니다.  
 
-다음 그림에서 기본 사이트와 복구 사이트, 세 번째 사이트와 기본 사이트 및 세 번째 사이트와 복구 사이트 간의 경로를 적절히 수정해야 합니다.
-
-다음 그림에서는 장애 조치 전 서브넷을 보여 줍니다. 서브넷 192.168.0.1/24는 장애 조치 전에 기본 사이트에서 활성화되어 있으며 장애 조치 후에 복구 사이트가 활성화됩니다.
-
-![장애 조치(failover) 전](./media/site-recovery-network-design/network-design2.png)
-
-장애 조치(failover) 전
-
-아래 그림은 장애 조치 후에 네트워크 및 서브넷을 보여 줍니다.
-
-![장애 조치(failover) 후](./media/site-recovery-network-design/network-design3.png)
-
-장애 조치(failover) 후
-
-보조 사이트가 온-프레미스이며 VMM 서버를 사용하여 관리할 경우, 특정 가상 컴퓨터에 대해 보호를 활성화하면 ASR에서 다음 워크플로에 따라 네트워킹 리소스를 할당합니다.
-
-* ASR가 각 System Center VMM 인스턴스에 대한 관련 네트워크에 정의된 고정 IP 주소 풀에서 가상 컴퓨터의 각 네트워크 인터페이스에 대한 IP 주소를 할당합니다.
-* 관리자가 복구 사이트의 네트워크에 대해 기본 사이트에서 사용한 것과 동일한 IP 주소 풀을 정의하면 IP 주소를 복제 가상 컴퓨터에 할당하는 동안 ASR은 기본 가상 컴퓨터에 할당된 것과 동일한 IP 주소를 할당합니다.  IP가 VMM에서 예약되어 있지만 장애 조치 IP로 설정되지 않습니다. 장애 조치(failover) IP는 장애 조치(failover)하기 직전에 설정됩니다.
-
-![IP 주소 유지](./media/site-recovery-network-design/network-design4.png)
-
-
-위 그림은 Hyper-V 콘솔에서 복제 가상 컴퓨터에 대한 장애 조치(failover) TCP/IP 설정을 보여 줍니다. 이러한 설정은 가상 컴퓨터가 시작되기 전 장애 조치 후에 채워질 수 있습니다.
-
-동일한 IP를 사용할 수 없는 경우 ASR는 정의된 IP 주소 풀에서 사용 가능한 다른 IP 주소를 할당합니다.
-
-보호를 위해 VM을 사용하도록 설정한 후에 다음 샘플 스크립트를 사용하여 가상 컴퓨터에 할당된 IP를 확인할 수 있습니다. 동일한 IP가 장애 조치(failover) IP로 설정되고 장애 조치(failover) 시 VM에 할당됩니다.
-
-        $vm = Get-SCVirtualMachine -Name <VM_NAME>
-        $na = $vm[0].VirtualNetworkAdapters>
-        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-        $ip.address  
-
-> [!NOTE]
-> 가상 컴퓨터가 DHCP를 사용하는 시나리오에서 IP 주소의 관리는 완전히 ASR의 제어 범위를 벗어납니다. 관리자는 복구 사이트에서 IP 주소를 제공하는 DHCP 서버가 기본 사이트와 동일한 범위에서 제공할 수 있도록 해야 합니다.
->
->
-
-#### <a name="failover-to-azure"></a>Azure에 장애 조치
-ASR(Azure Site Recovery)는 Microsoft Azure가 가상 컴퓨터에 대한 재해 복구 사이트로 사용되도록 할 수 있습니다. 이 경우 하나 더 많은 제약 조건을 처리해야 합니다.
-
-Woodgrove Bank라는 가상의 회사가 해당 사업 분야 응용 프로그램을 호스트하는 온-프레미스 인프라를 가지고 Azure에서 해당 모바일 응용 프로그램을 호스트하는 시나리오를 살펴보겠습니다. Azure 및 온-프레미스 서버에서 Woodgrove Bank VM 간의 연결은 사이트 간(S2S) VPN(가상 사설망)에서 제공됩니다. S2S VPN은 Azure에서 Woodgrove Bank의 가상 네트워크를 Woodgrove Bank의 온-프레미스 네트워크를 확장한 것으로 볼 수 있습니다. 이 통신은 Woodgrove Bank 에지와 Azure 가상 네트워크 간의 S2S VPN을 통해 활성화됩니다. 이제 Woodgrove에서 ASR을 사용하여 Azure에 대한 데이터 센터에서 실행되는 해당 워크로드를 복제하려고 합니다. 이 옵션은 경제적 DR 옵션을 바라고 공용 클라우드 환경에 데이터를 저장할 수 있는 Woodgrove의 요구를 충족합니다. Woodgrove는 하드 코드된 IP 주소에 종속된 응용 프로그램 및 구성을 다루어야 하므로 Azure로 장애 조치(failover)한 이후 해당 응용 프로그램의 IP 주소를 유지하도록 요구합니다.
+Woodgrove Bank라는 가상의 회사가 해당 사업 분야 응용 프로그램을 호스트하는 온-프레미스 인프라를 가지고 Azure에서 해당 모바일 응용 프로그램을 호스트하는 시나리오를 살펴보겠습니다. Azure 및 온-프레미스 서버에서 Woodgrove Bank VM 간의 연결은 사이트 간(S2S) VPN(가상 사설망) 또는 ExpressRoute에서 제공됩니다. S2S VPN은 Azure에서 Woodgrove Bank의 가상 네트워크를 Woodgrove Bank의 온-프레미스 네트워크를 확장한 것으로 볼 수 있습니다. 이 통신은 Woodgrove Bank 에지와 Azure 가상 네트워크 간의 S2S VPN을 통해 활성화됩니다. 이제 Woodgrove에서 ASR을 사용하여 기본 Azure 지역에서 실행되는 워크로드를 다른 Azure 지역으로 복제하려고 합니다. 이 옵션은 경제적 DR 옵션을 바라고 공용 클라우드 환경에 데이터를 저장할 수 있는 Woodgrove의 요구를 충족합니다. Woodgrove는 하드 코드된 IP 주소에 종속된 응용 프로그램 및 구성을 다루어야 하므로 Azure의 다른 지역으로 장애 조치(failover)한 이후 해당 응용 프로그램의 IP 주소를 유지하도록 요구합니다.
 
 Woodgrove는 IP 주소 범위(172.16.1.0/24, 172.16.2.0/24)에서 Azure에 실행 중인 해당 리소스까지 IP 주소를 할당하도록 결정했습니다.
 
@@ -131,6 +90,46 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
 
 위 그림에서처럼 'Azure 네트워크'가 없는 경우. 장애 조치 후 '주 사이트’와 '복구 네트워크' 간에 사이트 간 vpn 연결을 만들 수 있습니다.  
 
+
+#### <a name="failover-to-a-secondary-on-premises-site"></a>2차 온-프레미스 사이트 장애 조치
+각 VM의 IP를 유지하고 전체 서브넷을 함께 장애 조치하려는 시나리오를 살펴보겠습니다. 주 사이트에 서브넷 192.168.1.0/24에서 실행되는 응용 프로그램이 있습니다. 장애 조치(failover)가 발생한 경우 이 서브넷의 일부인 모든 가상 컴퓨터는 복구 사이트로 장애 조치(failover)되고 해당 IP 주소를 유지합니다. 서브넷 192.168.1.0/24에 속하는 모든 가상 컴퓨터가 복구 사이트로 이동한 사실을 반영하도록 경로를 적절히 수정해야 합니다.
+
+다음 그림에서 기본 사이트와 복구 사이트, 세 번째 사이트와 기본 사이트 및 세 번째 사이트와 복구 사이트 간의 경로를 적절히 수정해야 합니다.
+
+다음 그림에서는 장애 조치 전 서브넷을 보여 줍니다. 서브넷 192.168.0.1/24는 장애 조치 전에 기본 사이트에서 활성화되어 있으며 장애 조치 후에 복구 사이트가 활성화됩니다.
+
+![장애 조치(failover) 전](./media/site-recovery-network-design/network-design2.png)
+
+장애 조치(failover) 전
+
+아래 그림은 장애 조치 후에 네트워크 및 서브넷을 보여 줍니다.
+
+![장애 조치(failover) 후](./media/site-recovery-network-design/network-design3.png)
+
+장애 조치(failover) 후
+
+보조 사이트가 온-프레미스이며 VMM 서버를 사용하여 관리할 경우, 특정 가상 컴퓨터에 대해 보호를 활성화하면 ASR에서 다음 워크플로에 따라 네트워킹 리소스를 할당합니다.
+
+* ASR가 각 System Center VMM 인스턴스에 대한 관련 네트워크에 정의된 고정 IP 주소 풀에서 가상 컴퓨터의 각 네트워크 인터페이스에 대한 IP 주소를 할당합니다.
+* 관리자가 복구 사이트의 네트워크에 대해 기본 사이트에서 사용한 것과 동일한 IP 주소 풀을 정의하면 IP 주소를 복제 가상 컴퓨터에 할당하는 동안 ASR은 기본 가상 컴퓨터에 할당된 것과 동일한 IP 주소를 할당합니다.  IP가 VMM에서 예약되어 있지만 Hyper-V 호스트에서 장애 조치 IP로 설정되지 않습니다. Hyper-V 호스트의 장애 조치(failover) IP는 장애 조치(failover)하기 직전에 설정됩니다.
+
+
+동일한 IP를 사용할 수 없는 경우 ASR는 정의된 IP 주소 풀에서 사용 가능한 다른 IP 주소를 할당합니다.
+
+보호를 위해 VM을 사용하도록 설정한 후에 다음 샘플 스크립트를 사용하여 가상 컴퓨터에 할당된 IP를 확인할 수 있습니다. 동일한 IP가 장애 조치(failover) IP로 설정되고 장애 조치(failover) 시 VM에 할당됩니다.
+
+        $vm = Get-SCVirtualMachine -Name <VM_NAME>
+        $na = $vm[0].VirtualNetworkAdapters>
+        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+        $ip.address  
+
+> [!NOTE]
+> 가상 컴퓨터가 DHCP를 사용하는 시나리오에서 IP 주소의 관리는 완전히 ASR의 제어 범위를 벗어납니다. 관리자는 복구 사이트에서 IP 주소를 제공하는 DHCP 서버가 기본 사이트와 동일한 범위에서 제공할 수 있도록 해야 합니다.
+>
+>
+
+
+
 ## <a name="option-2-changing-ip-addresses"></a>옵션 2: IP 주소 변경
 우리가 살펴본 바에 따르면 이 접근 방식이 가장 많이 사용되는 것으로 보입니다. 장애 조치에 관련된 모든 VM의 IP 주소 변경 양식을 사용합니다. 이 방법의 단점은 들어오는 네트워크가 'IPx에 있던 응용 프로그램이 이제 IPy에 있다는 점을 ‘배워야’ 한다는 것입니다. IPx 및 IPy가 논리적 이름이더라도 DNS 항목은 일반적으로 변경되거나 네트워크에 플러시되어야 하고 네트워크 테이블에서 캐시된 항목은 업데이트되거나 플러시되어야 합니다. 따라서 DNS 인프라가 설치된 방식에 따라 가동 중지 시간이 발생할 수 있습니다. 이 문제는 인트라넷 응용 프로그램의 경우 낮은 TTL 값을 사용하고 인터넷 기반 응용 프로그램에 대해 [ASR과 함께 Azure 트래픽 관리자](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)를 사용하여 완화할 수 있습니다.
 
@@ -153,6 +152,7 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
 * 인터넷 기반 응용 프로그램에 대한 ASR과 함께 Azure 트래픽 관리자 사용
 * DNS 서버를 업데이트할 때 제 시간에 업데이트되도록 하기 위해 복구 계획 내에서 다음 스크립트 사용(동적 DNS 등록이 구성되지 않은 경우 스크립트가 필요하지 않음)
 
+        param(
         string]$Zone,
         [string]$name,
         [string]$IP

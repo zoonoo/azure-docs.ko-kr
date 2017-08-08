@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 PowerShell과 Hadoop Pig 사용 | Microsoft Docs"
+title: "HDInsight에서 PowerShell과 Hadoop Pig 사용 - Azure | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e782a065fb680e37cfe5ac58e9b276aeadc748d5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28904b07609ffb40a8195278fd1afd3957896733
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Pig 작업 실행
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/18/2017
 * **Azure HDInsight 클러스터**
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
 

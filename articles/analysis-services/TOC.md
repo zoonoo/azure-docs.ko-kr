@@ -1,14 +1,10 @@
 # 개요
 ## [Azure Analysis Services란?](analysis-services-overview.md)
-## [지원되는 데이터 원본](analysis-services-datasource.md)
-## [인증 및 사용자 권한](analysis-services-manage-users.md)
 
 # 빠른 시작
 ## [서버 만들기 - 포털](analysis-services-create-server.md)
-## [모델 배포 - SSDT](analysis-services-deploy.md)
-
-# 샘플
-## [GitHub의 Analysis Services 샘플](https://github.com/Microsoft/Analysis-Services)
+## [서버 만들기 - PowerShell](analysis-services-create-powershell.md)
+## [모델 배포 - Visual Studio](analysis-services-deploy.md)
 
 # 자습서
 ## 모델 만들기 및 배포
@@ -30,16 +26,21 @@
 ### [추가 단원 - 동적 보안](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
+# 개념
+## [지원되는 데이터 원본](analysis-services-datasource.md)
+## [인증 및 사용자 권한](analysis-services-manage-users.md)
+## [고가용성](analysis-services-bcdr.md)
+
 # 방법 
+## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 ## [서버 관리](analysis-services-manage.md)
 ## [데이터베이스 사용자 관리](analysis-services-database-users.md)
 ## [서버 관리자 관리](analysis-services-server-admins.md)
-## [온-프레미스 데이터 게이트웨이 통합](analysis-services-gateway.md)
+## [온-프레미스 데이터 게이트웨이 설치](analysis-services-gateway.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [백업 및 복원](analysis-services-backup.md)
-## [고가용성](analysis-services-bcdr.md)
 ## [.odc 파일 만들기](analysis-services-odc.md)
 
 # 참조
@@ -50,12 +51,14 @@
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # 리소스
+## [GitHub의 Analysis Services 코드 샘플](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services 팀 블로그](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 상태](https://azure.microsoft.com/status/)
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

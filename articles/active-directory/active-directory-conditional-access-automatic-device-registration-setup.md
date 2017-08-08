@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: dccd7df6a5f85df4179c7ea7cfc476cfb57f48c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법
@@ -33,6 +33,7 @@ ms.lasthandoff: 04/27/2017
 
 - [Azure Active Directory 장치 기반 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요. 
 - 작업 공간의 Windows 10 장치 및 Azure AD에 등록할 때 얻게 되는 향상된 경험에 대한 자세한 내용은 [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)을 참조하세요.
+- CSP에 포함된 Windows 10 Enterprise E3의 경우 [CSP의 Windows 10 Enterprise E3 개요](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview)를 참조하세요.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -59,9 +60,8 @@ ms.lasthandoff: 04/27/2017
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- 다음 항목에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
-    - 페더레이션되지 않은 환경(암호 해시 동기화 구성).  
-    - 로밍 프로필을 사용하는 장치. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
+- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://aka.ms/hybrid/sso))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**.
+- 로밍 프로필을 사용하는 장치에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
 
 
 
@@ -121,7 +121,7 @@ Azure AD Connect를 배포한 방법에 따라 SCP 개체가 이미 구성되었
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-서비스 연결 지점이 없는 경우 Azure AD Connect 서버에서 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet을 실행하여 서비스 연결 지점을 만들 수 있습니다.  
+서비스 연결 지점이 없는 경우 Azure AD Connect 서버에서 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet을 실행하여 서비스 연결 지점을 만들 수 있습니다. 이 cmdlet을 실행하려면 엔터프라이즈 관리자 자격 증명이 필요합니다.  
 cmdlet:
 
 - Azure AD Connect가 연결된 Active Directory 포리스트에 서비스 연결 지점을 만듭니다. 
@@ -137,7 +137,10 @@ cmdlet:
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-`Initialize-ADSyncDomainJoinedComputerSync` cmdlet에는 Directory PowerShell 모듈이 사용됩니다. 이 모듈은 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다. 
+`Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
+
+- Active Directory PowerShell 모듈을 사용합니다. 이 모듈은 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
+- **MSOnline PowerShell 모듈 버전 1.1.166.0**에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)를 사용합니다.   
 
 Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경우 아래 스크립트를 사용하여 서비스 연결 지점을 만들 수 있습니다.
 
@@ -524,7 +527,9 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 
 ## <a name="step-4-control-deployment-and-rollout"></a>4단계: 배포 및 롤아웃 제어
 
-필요한 단계를 완료하면 도메인에 가입된 장치는 Azure AD에 자동으로 등록할 준비가 완료됩니다. Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. 새 장치는 도메인 가입 작업이 완료된 후 다시 시작할 때 Azure AD에 등록됩니다.
+필요한 단계를 완료하면 도메인에 가입된 장치는 Azure AD에 자동으로 등록할 준비가 완료됩니다. Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. 새 장치는 도메인 가입 작업이 완료된 후 장치를 다시 시작할 때 Azure AD에 등록됩니다.
+
+이전에 Azure AD에 작업 공간 연결된 장치(예: Intune)는 "*도메인 가입, AAD 등록*"으로 전환됩니다. 그러나 도메인 및 사용자 활동의 정상 흐름으로 인해 이 프로세스가 모든 장치에서 완료되려면 다소 시간이 걸립니다.
 
 ### <a name="remarks"></a>설명
 

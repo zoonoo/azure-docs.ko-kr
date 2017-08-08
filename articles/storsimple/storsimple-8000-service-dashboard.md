@@ -21,19 +21,16 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 07/12/2017
 
 ---
-# StorSimple 8000 시리즈 장치에 대한 서비스 요약 블레이드 사용
-<a id="use-the-service-summary-blade-for-storsimple-8000-series-device" class="xliff"></a>
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 대한 서비스 요약 블레이드 사용
 
-## 개요
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>개요
 
 StorSimple 장치 관리자 서비스 요약 블레이드는 StorSimple 장치 관리자 서비스에 연결된 모든 장치에 대한 요약 보기를 통해 시스템 관리자의 주의가 필요한 정보를 중점적으로 제공합니다. 이 자습서에서는 서비스 요약 블레이드를 소개하고, 대시보드 콘텐츠와 기능 및 이 페이지에서 수행할 수 있는 태스크에 대해 설명합니다.
 
 ![서비스 요약](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
-## 관리 명령
-<a id="management-commands" class="xliff"></a>
+## <a name="management-commands"></a>관리 명령
 
 StorSimple 서비스 요약 블레이드에는 StorSimple 장치 관리자 서비스 및 이 서비스에 등록된 StorSimple 8000 시리즈 장치를 관리하는 옵션이 표시됩니다. 블레이드 상단과 왼쪽에는 관리 명령이 표시됩니다.
 
@@ -42,15 +39,13 @@ StorSimple 서비스 요약 블레이드에는 StorSimple 장치 관리자 서�
 이 옵션을 사용하여 공유 또는 볼륨을 추가하거나 StorSimple 장치에서 실행 중인 다양한 작업을 모니터링하는 것과 같은 다양한 작업을 수행합니다.
 
 
-## Essentials
-<a id="essentials" class="xliff"></a>
+## <a name="essentials"></a>Essentials
 
 Essentials 영역은 StorSimple Device Manager를 만든 리소스 그룹, 위치 및 구독과 같은 중요한 속성 중 일부를 캡처합니다.
 
 ![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
-## StorSimple Device Manager 서비스 요약
-<a id="storsimple-device-manager-service-summary" class="xliff"></a>
+## <a name="storsimple-device-manager-service-summary"></a>StorSimple Device Manager 서비스 요약
 
 * **경고** 타일에서는 경고 심각도별로 그룹화된 모든 장치 간의 모든 활성 경고에 대한 스냅숏을 제공합니다.
 
@@ -85,14 +80,12 @@ Essentials 영역은 StorSimple Device Manager를 만든 리소스 그룹, 위�
 
     ![장치 타일 클릭](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## 작업 로그 보기
-<a id="view-the-activity-logs" class="xliff"></a>
+## <a name="view-the-activity-logs"></a>작업 로그 보기
 
 StorSimple Device Manager 내에서 수행된 다양한 작업을 보려면 StorSimple 서비스 요약 블레이드의 왼쪽에 있는 **작업 로그** 링크를 클릭합니다. 그러면 **작업 로그** 블레이드로 이동하여 최근에 수행한 작업의 요약을 볼 수 있습니다.
 
 ![활동 로그](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 * [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 

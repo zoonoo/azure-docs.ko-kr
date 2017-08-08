@@ -1,6 +1,6 @@
 ---
 title: "Azure 기계 학습 스튜디오란? | Microsoft Docs"
-description: "Azure 기계 학습 스튜디오의 개요로, 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다."
+description: "Azure ML Studio의 개요로, 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다."
 keywords: "azure 기계 학습, azure ml, 기계 학습 스튜디오"
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오란?
@@ -32,7 +32,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>기계 학습 스튜디오 대화형 작업 영역
 예측 분석 모델을 개발하려면 일반적으로 원본 하나 이상의 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 집합을 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
-**Azure 기계 학습 스튜디오** 에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 집합***과 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
+**Azure 기계 학습 스튜디오**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 집합***과 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
 프로그래밍이 필요하지 않고 데이터 집합과 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
 
@@ -41,10 +41,10 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 > 
 > 
 
-![Azure 기계 학습 스튜디오 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.][ml-studio-overview]
+![Azure ML Studio 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>기계 학습 스튜디오 시작
-[기계 학습 스튜디오](https://studio.azureml.net) 를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
+[기계 학습 스튜디오](https://studio.azureml.net)를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
 
 왼쪽 위 메뉴를 클릭합니다. ![메뉴](media/machine-learning-what-is-ml-studio/menu.png) 몇 가지 옵션이 표시됩니다.
 
@@ -78,7 +78,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 * 모듈에 대한 모든 입력 포트에는 데이터 흐름에 대한 연결이 포함되어야 합니다.
 * 각 모듈에 대한 모든 필수 매개 변수를 설정해야 합니다.
 
-실험을 처음부터 만들거나 기존 샘플 실험을 템플릿으로 사용할 수 있습니다. 자세한 내용은 [샘플 실험을 사용하여 새 실험 만들기](machine-learning-sample-experiments.md)를 참조하세요.
+실험을 처음부터 만들거나 기존 샘플 실험을 템플릿으로 사용할 수 있습니다. 자세한 내용은 [샘플 실험을 복사하여 새로운 기계 학습 실험 만들기](machine-learning-sample-experiments.md)를 참조하세요.
 
 간단한 실험을 만드는 예는 [Azure 기계 학습 스튜디오에서 간단한 실험 만들기](machine-learning-create-experiment.md)를 참조하세요.
 

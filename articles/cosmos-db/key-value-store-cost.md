@@ -3,7 +3,7 @@ title: "키 값 저장소로서의 Azure Cosmos DB – 비용 개요 | Microsoft
 description: "Azure Cosmos DB를 키 값 저장소로 사용할 경우의 비용 절감 효과에 대해 알아봅니다."
 keywords: "키 값 저장소"
 services: cosmos-db
-author: ArnoMicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 tags: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e

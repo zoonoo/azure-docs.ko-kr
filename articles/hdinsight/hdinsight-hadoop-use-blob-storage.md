@@ -23,7 +23,6 @@ ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -105,6 +104,8 @@ Blob을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 �
 
 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되는 기본 Blob 컨테이너를 사용하여 새 HBase 클러스터를 만듦으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 ### <a name="use-the-azure-portal"></a>Azure 포털 사용
 포털에서 HDInsight 클러스터를 만드는 경우 저장소 계정 세부 정보를 제공할 수 있는 옵션(아래 그림 참조)이 있습니다. 추가 저장소 계정을 클러스터와 연결할지 여부를 지정할 수도 있으며, 연결하려는 경우, Data Lake Store 또는 다른 Azure Storage Blob을 추가 저장소로 선택할 수 있습니다.
 
@@ -175,8 +176,8 @@ URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 S
 
 &lt;BlobStorageContainerName&gt;과 &lt;StorageAccountName&gt;이 둘 다 지정되지 않은 경우 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 중 하나를 사용할 수 있습니다:
 
-    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasbs:///example/jars/hadoop-mapreduce-examples.jar
+    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasb:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
@@ -269,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ### <a name="use-azure-cli"></a>Azure CLI 사용
 다음 명령을 사용하여 Blob 관련 명령을 나열합니다.

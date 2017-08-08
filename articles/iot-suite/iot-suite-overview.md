@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Azure IoT Suite의 개요
@@ -55,7 +54,13 @@ Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다.
 
 ## <a name="preconfigured-solutions"></a>미리 구성된 솔루션
 
-IoT 제품군은 일반적인 IoT 시나리오(예: *원격 모니터링*, *예측 유지 관리*, *연결된 공장*)를 신속하게 시작하고 탐색해 볼 수 있는 미리 구성된 솔루션을 포함하고 있습니다. Azure 구독에 이들 솔루션을 배포하여 완전한 종단 간 IoT 시나리오를 실행할 수 있습니다.
+IoT Suite는 다음과 같이 일반적인 IoT 시나리오를 신속하게 시작하고 탐색해 볼 수 있는 미리 구성된 솔루션을 포함합니다.
+
+* 원격 모니터링
+* 예측 유지 관리
+* 연결된 공장
+
+Azure 구독에 이들 솔루션을 배포하여 완전한 종단 간 IoT 시나리오를 실행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,6 +8,7 @@
 ## [다중 사이트](application-gateway-multi-site-overview.md)
 ## [종단 간 SSL](application-gateway-backend-ssl.md)
 ## [리디렉션](application-gateway-redirect-overview.md)
+## [다중 테넌트 지원](application-gateway-web-app-overview.md)
 ## [Websocket](application-gateway-websocket.md)
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 시작
@@ -16,7 +17,8 @@
 #### [포털](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell(클래식)](application-gateway-create-gateway.md)
 ### 내부 연결
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -25,21 +27,27 @@
 ## 웹 응용 프로그램 방화벽 구성
 ### [포털](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## 웹 응용 프로그램 방화벽 규칙 사용자 지정
 ### [포털](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## SSL 오프로드 구성
 ### [포털](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell(클래식)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [정책 및 종단 간](application-gateway-end-to-end-ssl-powershell.md)
 ## URL 경로 기반 라우팅 구성
 ### [포털](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## 멀티 사이트 호스팅 구성
 ### [포털](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## 리디렉션 구성
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## 백 엔드 풀 구성원으로 웹앱 구성
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## 상태 프로브 구성
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -67,9 +75,10 @@
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [가격](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)

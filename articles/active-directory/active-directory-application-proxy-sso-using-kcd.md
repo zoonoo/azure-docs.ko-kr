@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/05/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
-ms.lasthandoff: 02/28/2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017, it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8470fc79d27847fc0e12d1c40cfccc08dfc3cdf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,14 +28,14 @@ Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니�
 
 1. 사용자가 클라우드에 로그인합니다.  
 2. 모든 보안 유효성 검사는 클라우드에서 발생합니다(사전 인증).  
-3. 요청이 온-프레미스 응용 프로그램에 보내지면 응용 프로그램 프록시 커넥터는 사용자를 가장합니다. 백 엔드 응용 프로그램은 이를 도메인에 가입된 장치에서 보내는 일반 사용자로 생각합니다.
+3. 요청이 온-프레미스 응용 프로그램에 보내지면 응용 프로그램 프록시 커넥터는 사용자를 가장합니다. 백 엔드 응용 프로그램은 요청이 도메인에 가입된 장치의 일반 사용자가 보낸 것으로 생각합니다.
 
 ![응용 프로그램 프록시를 통해 최종 사용자에서 회사 네트워크에 액세스하는 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
 Azure AD 응용 프로그램 프록시를 사용하면 사용자에게 SSO(Single Sign-On) 환경을 제공할 수 있습니다. 다음 지침을 사용하여 SSO를 사용하여 앱을 게시합니다.
 
 ## <a name="sso-for-on-prem-iwa-apps-using-kcd-with-application-proxy"></a>응용 프로그램 프록시와 함께 KCD를 사용하는 온-프레미스 IWA 앱용 SSO
-Active Directory에 응용 프로그램 프록시 커넥터 사용 권한을 부여하여 사용자를 가장하고 사용자를 대신해서 토큰을 보내고 받음으로써 IWA(Windows 통합 인증)를 사용하여 응용 프로그램에 SSO(Single Sign On)를 사용하게 할 수 있습니다.
+Active Directory에 응용 프로그램 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 응용 프로그램에 SSO(Single Sign On)를 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
 
 ### <a name="network-diagram"></a>네트워크 다이어그램
 사용자가 IWA를 사용하는 온-프레미스 응용 프로그램에 액세스를 시도할 때 이 다이어그램이 흐름을 설명합니다.
@@ -56,7 +57,7 @@ Active Directory에 응용 프로그램 프록시 커넥터 사용 권한을 부
 * SharePoint 웹앱과 같은 앱이 Windows 통합 인증을 사용하도록 설정됩니다. 자세한 내용은 [Kerberos 인증 지원 사용](https://technet.microsoft.com/library/dd759186.aspx) 또는 SharePoint의 경우 [SharePoint 2013에서 Kerberos 인증 계획](https://technet.microsoft.com/library/ee806870.aspx)(영문)을 참조하세요.
 * 모든 앱에는 서비스 주체 이름을 있습니다.
 * 커넥터를 실행하는 서버 및 앱을 실행하는 서버가 도메인 가입 상태이고 동일한 도메인 또는 신뢰하는 도메인의 일부입니다. 도메인 가입에 대한 자세한 내용은 [컴퓨터를 도메인에 가입](https://technet.microsoft.com/library/dd807102.aspx)을 참조하세요.
-* 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 다음은 환경을 강화하는 보안에 영향을 받았을 수 있는 기본 설정입니다. 이 설정에 대한 자세한 내용은 [KB2009157](https://support.microsoft.com/en-us/kb/2009157)에 있습니다.
+* 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 이 기본 설정은 환경을 강화하는 보안에 의해 영향을 받았을 수 있습니다. 이 설정에 대한 자세한 내용은 [KB2009157](https://support.microsoft.com/en-us/kb/2009157)에 있습니다.
 
 ### <a name="active-directory-configuration"></a>Active Directory 구성
 Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 서버가 동일한 도메인에 있는지 여부에 따라 다양합니다.
@@ -64,7 +65,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>동일한 도메인 내의 커넥터와 게시된 서버
 1. Active Directory에서 **도구** > **사용자 및 컴퓨터**로 이동합니다.
 2. 커넥터를 실행하는 서버를 선택합니다.
-.3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
+3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
 4. **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 선택합니다. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 응용 프로그램 서버의 SPN ID 값을 추가합니다.
 5. 그러면 응용 프로그램 프록시 커넥터가 목록에 정의된 응용 프로그램에 대해 AD에서 사용자를 가장할 수 있습니다.
 
@@ -86,11 +87,12 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 >
 
 ### <a name="azure-classic-portal-configuration"></a>Azure 클래식 포털 구성
-1. [응용 프로그램 프록시로 응용 프로그램 게시](active-directory-application-proxy-publish.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다. 반드시 **Azure Active Directory**를 **사전 인증 메서드**로 선택해야 합니다.
-2. 응용 프로그램이 응용 프로그램 목록에 나타나면 선택하고 **구성**을 클릭합니다.
-3. **속성**에서 **내부 인증 방법**을 **Windows 통합 인증**으로 설정합니다.  
+1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다. 반드시 **Azure Active Directory**를 **사전 인증 메서드**로 선택해야 합니다.
+2. 응용 프로그램이 엔터프라이즈 응용 프로그램 목록에 나타나면 선택하고 **Single Sign-On**을 클릭합니다.
+3. Single Sign-On 모드를 **Windows 통합 인증**으로 설정합니다.  
+4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN** 을 입력합니다. 이 예제에서는 게시된 응용 프로그램에 대한 SPN이 http/www.contoso.com입니다.  
+
    ![고급 응용 프로그램 구성](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
-4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN** 을 입력합니다. 이 예에서는 게시된 응용 프로그램에 대한 SPN이 http/lob.contoso.com입니다.  
 
 > [!IMPORTANT]
 > 온-프레미스 UPN과 Azure Active Directory의 UPN이 동일하지 않은 경우 사전 인증이 작동하려면 [위임된 로그인 ID](#delegated-login-identity)를 구성해야 합니다.
@@ -129,12 +131,12 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 * 내부적으로 여러 도메인(joe@us.contoso.com, joe@eu.contoso.com)과 클라우드에서 단일 도메인(joe@contoso.com)이 있습니다.
 * 내부적으로 라우팅이 가능하지 않은 도메인 이름(joe@contoso.usa)과 클라우드에서 법적 도메인이 있습니다.
 * 내부적으로 도메인 이름을 사용하지 마십시오(joe).
-* 온-프레미스 및 클라우드에서 다른 별칭을 사용합니다. 예: joe-johns@contoso.com 및 joej@contoso.com  
+* 온-프레미스 및 클라우드에서 다른 별칭을 사용합니다. 예제: joe-johns@contoso.com 및 joej@contoso.com  
 
-또한 비Windows 백 엔드 서버의 경우 매우 일반적인 시나리오인 전자 메일 주소 형식의 주소를 허용하지 않는 응용 프로그램에는 도움이 됩니다.
+또한 비 Windows 백 엔드 서버의 경우 일반적인 시나리오인 전자 메일 주소 형식의 주소를 허용하지 않는 응용 프로그램에는 도움이 됩니다.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>다른 클라우드 및 온-프레미스 ID에 SSO 설정
-1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office&365;, Windows&10; 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
+1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
 

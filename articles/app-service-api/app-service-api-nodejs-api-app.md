@@ -14,22 +14,19 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-이 빠른 시작은 [Swagger](http://swagger.io/) 정의에서 사용하는 [Express](http://expressjs.com/) 프레임워크 Node.js REST API를 만들고 Azure에서 [API 앱](app-service-api-apps-why-best-platform.md)으로 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 만들고 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 리소스를 구성하고 Git을 사용하여 앱을 배포합니다.  완료하면 Azure에서 실행되는 작업 샘플 REST API를 갖습니다.
+이 빠른 시작에서는 Node.js [Express](http://expressjs.com/)로 작성된 REST API를 만들고 [Swagger](http://swagger.io/) 정의를 사용하여 Azure에서 [API 앱](app-service-api-apps-why-best-platform.md)으로 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 만들고, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 리소스를 구성하고, Git를 사용하여 앱을 배포합니다.  완료하면 Azure에서 실행되는 작업 샘플 REST API를 갖습니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 * [Git](https://git-scm.com/)
 * [Node.js 및 NPM](https://nodejs.org/)
@@ -40,8 +37,7 @@ ms.lasthandoff: 06/28/2017
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-## 환경 준비
-<a id="prepare-your-environment" class="xliff"></a>
+## <a name="prepare-your-environment"></a>환경 준비
 
 1. 터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플을 복제합니다.
 
@@ -62,8 +58,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
     npm install -g generator-swaggerize
     ```
 
-## Node.js 코드 생성
-<a id="generate-nodejs-code" class="xliff"></a> 
+## <a name="generate-nodejs-code"></a>Node.js 코드 생성 
 
 자습서의 이 섹션에서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩(자동 생성)하는 데 사용할 API 개발 워크플로를 모델링합니다. 
 
@@ -85,8 +80,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
    ? Your email: frank@fabrikam.net
    ```
    
-## 프로젝트 코드 사용자 지정
-<a id="customize-the-project-code" class="xliff"></a>
+## <a name="customize-the-project-code"></a>프로젝트 코드 사용자 지정
 
 1. *lib* 폴더를 `yo swaggerize`에서 만든 *ContactList* 폴더로 복사한 다음 디렉터리를 *ContactList*로 변경합니다.
 
@@ -144,6 +138,9 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -168,8 +165,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
     이 코드는 Azure App Service와 작동하도록 몇 가지 사소한 변경 사항을 만들고 API에 대한 대화형 웹 인터페이스를 노출합니다.
 
-### 로컬로 API 테스트
-<a id="test-the-api-locally" class="xliff"></a>
+### <a name="test-the-api-locally"></a>로컬로 API 테스트
 
 1. Node.js 앱 시작
     ```bash
@@ -233,8 +229,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## Git로 API 배포
-<a id="deploy-the-api-with-git" class="xliff"></a>
+## <a name="deploy-the-api-with-git"></a>Git로 API 배포
 
 로컬 Git 리포지토리에서 Azure App Service로 커밋을 푸시하여 API 앱에 코드를 배포합니다.
 
@@ -261,8 +256,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## Azure에서 API 테스트
-<a id="test-the-api--in-azure" class="xliff"></a>
+## <a name="test-the-api--in-azure"></a>Azure에서 API 테스트
 
 1. http://app_name.azurewebsites.net/contacts로 브라우저를 엽니다. 자습서의 앞부분에서 요청을 로컬로 만들었을 때 반환된 동일한 JSON이 표시됩니다.
 
@@ -290,8 +284,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
     이제 Azure Git 리포지토리에 커밋을 푸시하여 간단히 Azure에 샘플 API에 대한 업데이트를 배포할 수 있습니다.
 
-## 정리
-<a id="clean-up" class="xliff"></a>
+## <a name="clean-up"></a>정리
 
 이 빠른 시작에서 만든 리소스를 정리하려면 다음 Azure CLI 명령을 실행합니다.
 
@@ -299,8 +292,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 az group delete --name myResourceGroup
 ```
 
-## 다음 단계
-<a id="next-step" class="xliff"></a> 
+## <a name="next-step"></a>다음 단계 
 > [!div class="nextstepaction"]
 > [CORS로 JavaScript 클라이언트에서 API 앱 사용](app-service-api-cors-consume-javascript.md)
 

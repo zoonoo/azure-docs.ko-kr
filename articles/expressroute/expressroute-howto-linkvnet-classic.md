@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 06/28/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c30f58079c9d8b8077b65881517178fa0ae0e598
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결(클래식)
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [클래식 - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> 
-> 
+> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
+>
 
 이 문서를 참조하면 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Azure Express 경로 회로에 연결할 수 있습니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
@@ -160,7 +160,11 @@ ms.lasthandoff: 04/27/2017
     ----- --------
     Provisioned SalesVNET1
 
+가상 네트워크에 대해 새로 연결된 구독에서 다음 명령을 실행합니다.
+
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+
 ## <a name="next-steps"></a>다음 단계
-Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
 

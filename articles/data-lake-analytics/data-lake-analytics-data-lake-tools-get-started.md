@@ -4,7 +4,7 @@ description: "Data Lake Tools for Visual Studio를 설치하고 U-SQL 스크립�
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
@@ -111,7 +110,7 @@ OUTPUT @a
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md)을 사용하여 Data Lake Analytics 시작 
+* [테스트 및 디버깅을 위해 고유한 워크스테이션에서 U-SQL 스크립트 실행](data-lake-analytics-data-lake-tools-local-run.md)
 * [U-SQL 작업에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 * [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)
 

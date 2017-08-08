@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub(.NET)를 사용한 클라우드-장치 메시지 | Microsoft Docs"
-description: ".NET용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 시뮬레이션된 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다."
+description: ".NET용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 150e7a1b2f86594d91b044b1b697f035ed1d270b
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ae1dad67b34127aadcb5d093a5adeaa3394879c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 시뮬레이션된 장치에 메시지 보내기
+# <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 장치에 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 이 자습서는 [IoT Hub 시작하기]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
@@ -38,7 +38,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 이 자습서의 끝 부분에서 다음의 두 .NET 콘솔 앱을 실행합니다.
 
 * **SimulatedDevice**, [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
-* **SendCloudToDevice** - IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
+* **SendCloudToDevice** - IoT Hub를 통해 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
 > IoT Hub는 [Azure IoT 장치 SDK]를 통해 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [IoT Hub 개발자 가이드]를 참조하세요.
@@ -50,8 +50,8 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * Visual Studio 2015 또는 Visual Studio 2017
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 장치 앱에서 메시지 수신
-이 섹션에서는 [IoT Hub 시작하기]에서 만든 시뮬레이션된 장치 앱을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
+## <a name="receive-messages-in-the-device-app"></a>장치 앱에서 메시지 수신
+이 섹션에서는 [IoT Hub 시작하기]에서 만든 장치 앱을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
    
@@ -89,7 +89,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 > 
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이션된 장치 앱으로 보내는 .NET 콘솔 앱을 작성합니다.
+이 섹션에서는 클라우드-장치 메시지를 장치 앱으로 보내는 .NET 콘솔 앱을 작성합니다.
 
 1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 만듭니다. 프로젝트 **SendCloudToDevice**의 이름을 지정합니다.
    
@@ -127,7 +127,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
 8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...**을 선택합니다. **여러 시작 프로젝트**를 선택한 다음 **ReadDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다.
-9. **F5**키를 누릅니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 시뮬레이션된 장치 앱에서 수신하고 있는 메시지가 표시됩니다.
+9. **F5**키를 누릅니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 장치 앱에서 수신하고 있는 메시지가 표시됩니다.
    
    ![앱 메시지 수신][21]
 
@@ -163,7 +163,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 3. 클라우드-장치 메시지 배달에 대한 피드백을 요청하려면 **SendCloudToDeviceMessageAsync** 메서드에서 속성을 지정해야 합니다. `var commandMessage = new Message(...);` 줄 바로 뒤에 다음 줄을 추가합니다.
    
         commandMessage.Ack = DeliveryAcknowledgement.Full;
-4. **F5** 키를 눌러 앱을 실행합니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 시뮬레이션된 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 수신하는지 확인해야 합니다.
+4. **F5** 키를 눌러 앱을 실행합니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 수신하는지 확인해야 합니다.
    
    ![앱 메시지 수신][22]
 

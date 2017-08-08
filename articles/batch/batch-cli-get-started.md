@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
@@ -78,7 +77,7 @@ Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI 2.0�
 az login
 ```
 
-`az login` 명령은 다음과 같이 인증하는 데 사용할 토큰을 반환합니다. 제공하는 지침에 따라 웹 페이지를 열고 Azure에 토큰을 제출합니다.
+`az login` 명령은 다음과 같이 인증하는 데 사용할 수 있는 토큰을 반환합니다. 제공하는 지침에 따라 웹 페이지를 열고 Azure에 토큰을 제출합니다.
 
 ![Azure에 로그인](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를
     ```
 
 [샘플 셸 스크립트](#sample-shell-scripts) 섹션에서 나열하는 예제에서는 Azure AD와 공유 키를 모두 사용하는 Azure CLI로 배치 계정에 로그인하는 방법을 보여 줍니다.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
+
+Azure CLI를 사용하여 코드를 작성하지 않고 종단 간 일괄 작업을 실행할 수 있습니다. 일괄 템플릿 파일은 Azure CLI로 풀, 작업 및 태스크 만들기를 지원합니다. Azure CLI를 사용하여 작업 입력 파일을 배치 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)](batch-cli-templates.md)을 참조하세요.
 
 ## <a name="sample-shell-scripts"></a>샘플 셸 스크립트
 
@@ -180,13 +183,14 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 * `-h` 을 사용하여 모든 CLI 명령의 **도움말 텍스트** 를 봅니다.
 * `-v` 및 `-vv`를 사용하여 **자세한 정보 표시** 명령 출력을 표시합니다. `-vv` 플래그가 포함되면 Azure CLI에서 실제 REST 요청과 응답을 표시합니다. 이러한 스위치는 전체 오류 출력을 표시하는 데 유용합니다.
 * `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * [Batch 포럼][batch_forum]은 Batch 팀 구성원들이 모니터링합니다. 문제가 발생하거나 특정 작업에 도움이 필요한 경우 질문을 여기에 게시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 * Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
-* [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md) 를 참조하여 Batch 계산 노드에서 실행하는 응용 프로그램을 관리하고 배포하는 데 이 기능을 사용하는 방법을 알아봅니다.
+* 코드를 작성하지 않고 Batch 템플릿을 사용하여 풀, 작업 및 태스크를 만드는 방법은 [Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)](batch-cli-templates.md)을 참조하세요.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

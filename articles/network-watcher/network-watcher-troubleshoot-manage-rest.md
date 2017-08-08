@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 2da82e8f0a30647c5cd7afa5041d3c5b114de814
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 33ae214a0cb606393c449920b78bde3230ff30c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -26,12 +26,13 @@ ms.lasthandoff: 05/26/2017
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
 > [!div class="op_single_selector"]
+> - [포털](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련된 다양한 기능을 제공합니다. 이러한 기능 중 하나는 리소스 문제 해결입니다.  리소스 문제 해결은 PowerShell, CLI 또는 REST API에서 호출될 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 검사하거나 해당 결과를 반환합니다.
+Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련된 다양한 기능을 제공합니다. 이러한 기능 중 하나는 리소스 문제 해결입니다. 리소스 문제 해결은 포털, PowerShell, CLI 또는 REST API를 통해 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 검사하거나 해당 결과를 반환합니다.
 
 이 문서에서는 리소스 문제 해결을 위해 현재 사용할 수 있는 여러 관리 태스크를 설명합니다.
 
@@ -43,6 +44,8 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
+
+지원되는 게이트웨이 유형 목록을 보려면 [지원되는 게이트웨이 유형](network-watcher-troubleshoot-overview.md#supported-gateway-types)을 방문하세요.
 
 ## <a name="overview"></a>개요
 

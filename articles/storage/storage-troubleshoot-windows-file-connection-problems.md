@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 810b4c236975a25d12b2e350d0a6cd5a39eb30aa
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 71a8f4edf7776556b383f446e5aad007748ef090
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Windows에서 Azure File Storage 문제 해결
 
-이 문서에는 Windows 클라이언트에서 연결할 때 Microsoft Azure File Storage에 관련된 일반적인 문제가 나열됩니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다.
+이 문서에는 Windows 클라이언트에서 연결할 때 Microsoft Azure File Storage에 관련된 일반적인 문제가 나열됩니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure 파일 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure 파일 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
 
 <a id="error53-67-87"></a>

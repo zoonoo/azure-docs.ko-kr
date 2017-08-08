@@ -12,11 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 377d3f28a9de868744d6e85767ede1bdf59a184e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -26,9 +28,9 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 새로운 프리미엄 계층은 모든 표준 계층 기능과 추가 기능(예: 성능 향상, 더 큰 작업, 재해 복구, 가져오기/내보내기 및 강화된 보안)이 포함된 엔터프라이즈급 계층입니다. 프리미엄 캐시 계층의 추가 기능에 대해 자세히 알아보려면 계속 읽습니다.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>표준 또는 기본 계층에 비해 향상된 성능
-**표준 또는 기본 계층에 대해 향상된 성능.**  프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
+**표준 또는 기본 계층에 대해 향상된 성능.** 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
 
-**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.**  예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
+**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.** 예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
 
 프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
@@ -68,7 +70,12 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 
 자세한 내용은 [다시 부팅](cache-administration.md#reboot) 및 [다시 부팅 FAQ](cache-administration.md#reboot-faq)를 참조하세요.
 
-## <a name="schedule-updates"></a>업데이트 예약
+>[!NOTE]
+>이제 모든 Azure Redis Cache 계층에 다시 부팅 기능을 사용할 수 있습니다.
+>
+>
+
+## <a name="schedule-updates"></a>업데이트를 예약
 예약된 업데이트 기능을 사용하여 캐시 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 선택합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
 자세한 내용은 [업데이트 예약](cache-administration.md#schedule-updates) 및 [업데이트 예약 FAQ](cache-administration.md#schedule-updates-faq)를 참조하세요.
@@ -77,6 +84,13 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 > 예약된 유지 관리 기간 동안에는 Redis 서버 업데이트만 수행됩니다. 유지 관리 기간이 Azure 업데이트 또는 VM 운영 체제에 대한 업데이트에는 적용되지 않습니다.
 > 
 > 
+
+## <a name="geo-replication"></a>지역에서 복제
+
+**지역에서 복제**는 두 개의 프리미엄 계층 Azure Redis Cache 인스턴스를 연결하는 메커니즘을 제공합니다. 한 캐시는 주 연결된 캐시로 지정하고 다른 캐시는 보조 연결된 캐시로 지정합니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 이 기능은 Azure 지역 간에 캐시를 복제하는 데 사용할 수 있습니다.
+
+자세한 내용은 [Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법](cache-how-to-geo-replication.md)을 참조하세요.
+
 
 ## <a name="to-scale-to-the-premium-tier"></a>프리미엄 계층으로 크기를 조정하려면
 프리미엄 계층으로 크기를 조정하려면 **가격 책정 계층 변경** 블레이드에서 프리미엄 계층 중 하나를 선택하기만 하면 됩니다. 또한 PowerShell 및 CLI를 사용하여 프리미엄 계층으로 캐시를 확장할 수 있습니다. 단계별 지침에 대해서는 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md) 및 [크기 조정 작업을 자동화하는 방법](cache-how-to-scale.md#how-to-automate-a-scaling-operation)을 참조하세요.
@@ -89,10 +103,5 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 * [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
 * [Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache에서 데이터를 내보내는 방법](cache-how-to-import-export-data.md)
 * [Azure Redis Cache를 관리하는 방법](cache-administration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

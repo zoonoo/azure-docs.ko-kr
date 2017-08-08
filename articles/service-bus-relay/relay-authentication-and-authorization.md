@@ -12,22 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 64874564c54dd37108f1075fb54181f2324cb229
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay 인증 및 권한 부여
-응용 프로그램은 SAS(공유 액세스 서명) 인증을 사용하여 Azure Relay에 인증할 수 있습니다. [Service Bus 메시징](../service-bus-messaging/service-bus-authentication-and-authorization.md)과 유사하게 공유 액세스 서명 인증을 사용하면 응용 프로그램을 Relay 네임스페이스에서 구성된 선택키를 사용하여 Azure Relay 서비스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 Relay 서비스를 인증하는 데 사용할 수 있는 공유 액세스 서명 토큰을 생성할 수 있습니다.
+응용 프로그램은 SAS(공유 액세스 서명) 인증을 사용하여 Azure Relay에 인증할 수 있습니다. [Service Bus 메시징](../service-bus-messaging/service-bus-authentication-and-authorization.md)과 유사하게 SAS 인증을 사용하면 응용 프로그램이 Relay 네임스페이스에 구성된 액세스 키를 통해 Azure Relay 서비스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 Relay 서비스를 인증하는 데 사용할 수 있는 공유 액세스 서명 토큰을 생성할 수 있습니다.
 
 ## <a name="shared-access-signature-authentication"></a>공유 액세스 서명 인증
-[SAS 인증](../service-bus-messaging/service-bus-sas.md)을 사용하면 특정 권한으로 Service Bus Relay 리소스에 사용자 액세스 권한을 부여할 수 있습니다. SAS 인증은 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 액세스된 리소스 URI 및 구성된 키로 서명된 만료로 구성된 SAS 토큰을 제공하여 해당 리소스에 대한 액세스를 얻을 수 있습니다.
+[SAS 인증](../service-bus-messaging/service-bus-sas.md)을 사용하면 특정 권한으로 Azure Relay 리소스에 액세스하는 권한을 사용자에게 부여할 수 있습니다. SAS 인증은 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 액세스된 리소스 URI 및 구성된 키로 서명된 만료로 구성된 SAS 토큰을 제공하여 해당 리소스에 대한 액세스를 얻을 수 있습니다.
 
-Relay 네임스페이스에서 SAS에 대한 키를 구성할 수 있습니다. Service Bus 메시징과 달리 [Relay 하이브리드 연결](relay-hybrid-connections-protocol.md)은 무단 또는 익명으로 보낸 사람을 지원합니다. 포털에서 다음 화면에 표시된 것처럼 만들 때 엔터티에 대한 익명 액세스를 허용할 수 있습니다.
+Relay 네임스페이스에서 SAS에 대한 키를 구성할 수 있습니다. Service Bus 메시징과 달리 [Relay 하이브리드 연결](relay-hybrid-connections-protocol.md)은 무단 또는 익명 발신자를 지원합니다. 포털에서 다음 화면에 표시된 것처럼 만들 때 엔터티에 대한 익명 액세스를 허용할 수 있습니다.
 
 ![][0]
 

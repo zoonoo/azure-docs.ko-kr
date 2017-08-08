@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d252a4a8b811f966098348866cc498e2be2924f2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 #<a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
@@ -55,16 +54,16 @@ IntelliJ용 HDInsight Tools를 사용하여 워크스테이션에서 실행되�
 3. 왼쪽 창의 **HDInsight**를 클릭하고 오른쪽 창에서 **HDInsight(Scala)의 Spark**를 클릭한 후 **다음**을 클릭합니다.
 
     ![IntelliJ Scala 프로젝트 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+    - 빌드 도구: Scala 프로젝트 만들기 마법사는 scala 프로젝트에 대한 종속성 및 빌드를 관리하는 Maven 또는 SBT를 지원합니다. 필요에 따라 하나를 선택합니다.
 4. 다음 정보를 입력합니다.
 
     ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
     - **프로젝트 이름**: 프로젝트 이름을 제공합니다.
     - **프로젝트 위치**: 프로젝트 위치를 제공합니다.
-    - **프로젝트 SDK**: **새로 만들기**를 클릭하고 **JDK**를 클릭한 후 Java JDK 7 이상 버전의 폴더를 지정합니다.  기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
-    - **Scala SDK**: **선택**을 클릭하고 버전 **2.10.6**을 선택한 후 **확인**을 클릭합니다. 버전이 나열되지 않으면 **다운로드**를 클릭하고 **Scala 버전**을 선택한 후 **확인**을 클릭합니다. 버전 2.11.x는 사용하지 않아야 합니다. 이 문서에서는 버전 2.10.6을 사용합니다.
-    - **Spark SDK**: [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)를 다운로드합니다. 이 메시지를 무시하고 Spark Maven 리포지토리를 대신 사용할 수도 있지만 Spark 응용 프로그램을 개발하려면 올바른 Maven 리포지토리가 설치되어 있어야 합니다. (예를 들어 Spark 스트리밍을 사용하는 경우 Spark 스트리밍 부분이 설치되어 있는지 확인해야 합니다. 또한 Scala 2.10으로 표시된 리포지토리를 사용하고 있는지 확인해야 합니다. Scala 2.11로 표시된 리포지토리는 사용하지 마세요.)
-5. **마침**을 클릭합니다.
+    - **프로젝트 SDK**: **새로 만들기**를 클릭하고 **JDK**를 클릭한 후 Java JDK 7 이상 버전의 폴더를 지정합니다. Spark 2.x 클러스터에 Java 1.8을 사용하고 Spark 1.x 클러스터에 Java 1.7을 사용합니다. 기본 위치는 C:\Program Files\Java\jdk1.8.x_xxx입니다.
+    - **Spark 버전**: Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 Spark 1.x을 선택합니다. 그렇지 않으면 Spark 2.x를 선택해야 합니다. 이 예제에서는 Spark 1.6.2(Scala 2.10.5)를 사용합니다. 또한 Scala 2.10.x로 표시된 리포지토리를 사용하고 있는지 확인합니다. Scala 2.11.x로 표시된 리포지토리는 사용하지 않도록 합니다.
+5. **Finish**를 클릭합니다.
 6. 프로젝트 보기가 아직 열려 있지 않으면 **[ALT]+1**을 눌러 프로젝트 보기를 엽니다.
 7. **프로젝트 탐색기**에서 프로젝트를 확장한 후 **src**를 클릭합니다.
 8. **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 클릭합니다.
@@ -140,10 +139,11 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
     - **기본 클래스 이름**: 기본 클래스 이름을 선택하거나 입력합니다.  이 자습서에서는 **GroupByTest**입니다.
 3. **Submit**를 클릭합니다. 작업 제출 로그가 Spark 제출 도구 창에 표시됩니다.
 
-##<a name="next-steps"></a>다음 단계:
+## <a name="next-steps"></a>다음 단계:
 
 - IntelliJ용 HDInsight Tools를 사용하여 HDInsight용 Spark 응용 프로그램을 만드는 방법을 알아보려면 [IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기](hdinsight-apache-spark-intellij-tool-plugin.md)를 참조하세요.
-- IntelliJ요 HDInsight Toolos 관련 비디오를 시청하려면 [Spark 개발을 위한 IntelliJ용 HDInsight Tools 소개](https://mix.office.com/watch/1nqkqjt5xonza)를 참조하세요.
-- HDInsight에서 원격으로 이 도구 키트를 사용하여 Spark 응용 프로그램을 디버그하는 방법을 알아보려면 [HDInsight Spark Linux 클러스터에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools를 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)를 참조하세요.
+- IntelliJ요 HDInsight Toolos 관련 비디오를 시청하려면 [Spark 개발을 위한 IntelliJ용 HDInsight Tools 소개](https://www.youtube.com/watch?v=YTZzYVgut6c)를 참조하세요.
+- SSH를 통해 HDInsight에서 원격으로 이 도구 키트를 사용하여 Spark 응용 프로그램을 디버그하는 방법을 알아보려면 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)를 참조하세요.
+- VPN을 통해 HDInsight에서 원격으로 이 도구 키트를 사용하여 Spark 응용 프로그램을 디버그하는 방법을 알아보려면 [HDInsight Spark Linux 클러스터에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools를 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)를 참조하세요.
 - Eclipse용 HDInsight Tools를 사용하여 Spark 응용 프로그램을 만드는 방법을 알아보려면 [Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)를 참조하세요.
 - Eclipse용 HDInsight Tools 관련 비디오를 시청하려면 [Eclipse용 HDInsight Tools를 사용하여 Spark 응용 프로그램 만들기](https://mix.office.com/watch/1rau2mopb6fha)를 참조하세요.

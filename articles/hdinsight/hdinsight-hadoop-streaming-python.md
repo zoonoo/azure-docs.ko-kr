@@ -1,7 +1,8 @@
 ---
-title: "HDInsight에서 Python MapReduce 작업 개발 | Microsoft Aure"
-description: "Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다."
+title: "HDInsight에서 Python MapReduce 작업 개발 - Azure | Microsoft Docs"
+description: "MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다."
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
@@ -9,31 +10,30 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ce96113ad979997c555bc64698c0b78822b525ad
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
-# <a name="develop-python-streaming-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 프로그램 개발
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
-MapReduce 작업에서 Python을 사용하는 방법을 알아봅니다. Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
+MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
 
   > [!IMPORTANT]
-  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * 텍스트 편집기
 
@@ -79,7 +79,7 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
    def main(separator='\t'):
        # Read the data using read_input
        data = read_input(sys.stdin)
-       # Process each words returned from read_input
+       # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
@@ -152,7 +152,7 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
     이 명령은 로컬 시스템에서 헤드 노드로 파일을 복사합니다.
 
     > [!NOTE]
-    > SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`).
+    > SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
 
 2. SSH를 사용하여 클러스터에 연결합니다.
 

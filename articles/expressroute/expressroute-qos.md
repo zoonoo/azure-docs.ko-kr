@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="expressroute-qos-requirements"></a>Express 경로 QoS 요구 사항
@@ -35,7 +36,7 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
 | **트래픽 클래스** | **처리(DSCP 표시)** | **비즈니스 워크로드용 Skype** |
 | --- | --- | --- |
 | **음성** |EF (46) |Skype/Lync 음성 |
-| **대화형** |AF41 (34) |비디오 |
+| **대화형** |AF41 (34) |비디오, VBSS |
 | AF21 (18) |앱 공유 | |
 | **기본값** |AF11 (10) |파일 전송 |
 | CS0 (0) |다른 항목 | |
@@ -50,11 +51,6 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
   
   * [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
   * [라우팅 구성](expressroute-howto-routing-classic.md)
-  * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
 

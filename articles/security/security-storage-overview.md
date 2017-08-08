@@ -1,6 +1,6 @@
 ---
 title: "Azure Storage에 사용될 수 있는 보안 기능"
-description: " 이 문서에서는 Azure Storage에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.. "
+description: " 이 문서에서는 Azure 저장소에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Azure 저장소 보안 개요
@@ -61,8 +62,8 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 ## <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure 저장소와 함께 다음을 사용하여 데이터를 보호할 수 있습니다.
 
-* Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS와 같은 [전송 수준 암호화](../storage/storage-security-guide.md#encryption-in-transit)
-* Azure 파일 공유에 대한 SMB 3.0 암호화와 같은 [실시간 암호화](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)
+* [전송 수준 암호화](../storage/storage-security-guide.md#encryption-in-transit)(예: Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS)
+* [실시간 암호화](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)(예: Azure 파일 공유에 대한 SMB 3.0 암호화)
 * 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 [클라이언트 쪽 암호화](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage)
 
 클라이언트 쪽 암호화에 대해 자세히 알아봅니다.
@@ -98,9 +99,4 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/
 
 * [Azure 주요 자격 증명 모음이란?](../key-vault/key-vault-whatis.md)
 * [Azure 주요 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

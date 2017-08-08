@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ad0e96a91d6d502897953a4c841cbfa40a4852a3
-ms.openlocfilehash: 20b5144cafebc83eb00d191292b34ea550273914
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 컴퓨터 배포 문제 해결
@@ -129,7 +128,7 @@ VM을 실행하면 해당 VM이 실제 서버에 배포됩니다. Azure 지역�
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>가용성 집합에 기존 클래식 VM을 추가할 수 있나요?
 
-예. 새 가용성 집합 또는 기존 가용성 집합에 기존 클래식 VM을 추가할 수 있습니다. 자세한 내용은 [가용성 집합에 기존 가상 컴퓨터 추가](classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set)를 참조하세요.
+예. 새 가용성 집합 또는 기존 가용성 집합에 기존 클래식 VM을 추가할 수 있습니다. 자세한 내용은 [가용성 집합에 기존 가상 컴퓨터 추가](classic/configure-availability.md#addmachine)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

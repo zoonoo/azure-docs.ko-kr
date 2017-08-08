@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL Data Warehouse 백업
@@ -54,6 +53,11 @@ SQL Data Warehouse는 24시간마다 전체 데이터 웨어하우스를 표준 
 > [!NOTE]
 > Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 *데이터베이스 복제* 는 주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다. 
 > 
+> 
+
+> [!NOTE]
+> DWU 9000 및 DWU 18000을 사용한 지역 중복 백업은 옵트아웃(opt out)할 수 없습니다. 
+>
 > 
 
 다음에 대한 자세한 정보:

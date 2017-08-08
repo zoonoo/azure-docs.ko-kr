@@ -1,6 +1,6 @@
 ---
 title: ".NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법"
-description: "이 항목에서는 .NET과 함께 미디어 인코더 표준을 사용하여 동시에 자산을 인코드하고 미리 보기를 생성하는 방법을 보여 줍니다."
+description: "이 항목에서는 .NET과 함께 Media Encoder Standard를 사용하여 동시에 자산을 인코드하고 미리 보기를 생성하는 방법을 보여 줍니다."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,166 +12,319 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/14/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 46bc735bb288a29828903a5d1891c78c2bfae86a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f28c37b777bbd321c1c7ee8e7a18d92492a78d3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
-이 항목에서는 미디어 서비스 .NET SDK를 사용하여 자산을 인코드하고 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법을 보여 줍니다. 항목에서는 동시에 인코딩을 수행하고 미리 보기를 생성하는 작업을 만드는 데 사용할 수 있는 XML 및 JSON 미리 보기 기본 설정을 정의합니다. [이](https://msdn.microsoft.com/library/mt269962.aspx) 문서에는 이러한 기본 설정에서 사용되는 요소에 대해 설명합니다.
+
+Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 미리 보기를 [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 또는 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 이미지 파일 형식으로 생성할 수 있습니다. 이미지를 생성하는 작업을 제출하거나 미리 보기 생성을 인코딩과 결합할 수 있습니다. 이 항목에는 이런 시나리오를 위해 몇 가지 예제 XML 및 JSON 미리 보기 사전 설정을 제공합니다. 항목 끝에는 Media Services .NET SDK를 사용하여 인코딩 작업을 완료하는 방법을 보여 주는 [예제 코드](#code_sample)가 나와 있습니다.
+
+예제 사전 설정에 사용되는 요소에 대한 자세한 내용은 [Media Encoder Standard 스키마](media-services-mes-schema.md)를 참조하세요.
 
 [고려 사항](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) 섹션을 검토해야 합니다.
 
-## <a name="example"></a>예
+## <a name="example--single-png-file"></a>예 – 단일 PNG 파일
+
+다음 JSON 및 XML 기본 설정은 입력 동영상의 첫 몇 초 분량에서 단일 출력 PNG 파일을 생성하는 데 사용할 수 있습니다. 여기서 인코더는 “흥미로운” 프레임을 찾기 위해 최상의 노력을 합니다. 출력 이미지 크기는 100%로 설정되어 있습니다. 다시 말해서, 입력 동영상과 크기와 일치합니다. 또한 “Outputs”의 “Format” 설정이 “Codecs” 섹션의 “PngLayers” 사용과 일치해야 합니다. 
+
+### <a name="json-preset"></a>JSON 사전 설정
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "PngLayers": [
+            {
+              "Type": "PngLayer",
+              "Width": "100%",
+              "Height": "100%"
+            }
+          ],
+          "Start": "{Best}",
+          "Type": "PngImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "PngFormat"
+          }
+        }
+      ]
+    }
+    
+### <a name="xml-preset"></a>XML 사전 설정
+
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <PngImage Start="{Best}">
+          <PngLayers>
+            <PngLayer>
+              <Width>100%</Width>
+              <Height>100%</Height>
+            </PngLayer>
+          </PngLayers>
+        </PngImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <PngFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a name="example--a-series-of-jpeg-images"></a>예 – 일련의 JPEG 이미지
+
+다음 JSON 및 XML 기본 설정은 입력 타임라인의 타임스탬프 5%, 15%, …, 95%에서 일련의 10개의 이미지를 생성하는 데 사용할 수 있습니다. 여기서 이미지 크기는 입력 동영상의 1/4로 지정되어 있습니다.
+
+### <a name="json-preset"></a>JSON 사전 설정
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "5%",
+          "Step": "1",
+          "Range": "1",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
+
+### <a name="xml-preset"></a>XML 사전 설정
+    
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="5%" Step="10%" Range="96%">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a name="example--one-image-at-a-specific-timestamp"></a>예 – 특정 타임스탬프의 1개 이미지
+
+다음 JSON 및 XML 기본 설정은 입력 동영상의 30초 마크에 단일 JPEG 이미지를 생성하는 데 사용할 수 있습니다. 이 사전 설정에서는 입력 데이터가 30초를 넘을 것으로 예상합니다(그렇지 않으면 작업이 실패함).
+
+### <a name="json-preset"></a>JSON 사전 설정
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "00:00:30",
+          "Step": "1",
+          "Range": "1",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
+    
+### <a name="xml-preset"></a>XML 사전 설정
+    
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="00:00:30" Step="00:00:02" Range="00:00:01">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a id="code_sample"></a>예 – 동영상 인코드 및 미리 보기 생성
+
 다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.
 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 * 미리 보기를 생성하는 데 필요한 정보 및 Encoding 기본 설정이 포함된 기본 설정 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 로드합니다. 이 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 또는 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
   
-            // Load the XML (or JSON) from the local file.
-            string configuration = File.ReadAllText(fileName);  
+        // Load the XML (or JSON) from the local file.
+        string configuration = File.ReadAllText(fileName);  
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
 * 인코딩된 자산을 포함할 출력 자산을 만듭니다.
 * 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
 * 작업을 제출합니다.
-  
+
+개발 환경을 설정하는 방법에 대한 지침은 [.NET을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md) 항목을 참조하세요.
+
         using System;
-        using System.Collections.Generic;
         using System.Configuration;
         using System.IO;
         using System.Linq;
-        using System.Net;
-        using System.Security.Cryptography;
-        using System.Text;
-        using System.Threading.Tasks;
         using Microsoft.WindowsAzure.MediaServices.Client;
-        using Newtonsoft.Json.Linq;
         using System.Threading;
-        using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-        using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-        using System.Web;
-        using System.Globalization;
-  
+
         namespace EncodeAndGenerateThumbnails
         {
-            class Program
+        class Program
+        {
+            // Read values from the App.config file.
+            private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+
+            private static CloudMediaContext _context = null;
+
+            private static readonly string _mediaFiles =
+            Path.GetFullPath(@"../..\Media");
+
+            private static readonly string _singleMP4File =
+            Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
+
+            static void Main(string[] args)
             {
-                // Read values from the App.config file.
-                private static readonly string _mediaServicesAccountName =
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string _mediaServicesAccountKey =
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-  
-                // Field for service context.
-                private static CloudMediaContext _context = null;
-                private static MediaServicesCredentials _cachedCredentials = null;
-  
-                private static readonly string _mediaFiles =
-                    Path.GetFullPath(@"../..\Media");
-  
-                private static readonly string _singleMP4File =
-                    Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-  
-                static void Main(string[] args)
-                {
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    _mediaServicesAccountName,
-                                    _mediaServicesAccountKey);
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
-  
-                    // Get an uploaded asset.
-                    var asset = _context.Assets.FirstOrDefault();
-  
-                    // Encode and generate the thumbnails.
-                    EncodeToAdaptiveBitrateMP4Set(asset);
-  
-                    Console.ReadLine();
-                }
-  
-                static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the 
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                    // Load the XML (or JSON) from the local file.
-                    string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                    // Create a task
-                    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
 
-                    // Specify the input asset to be encoded.
-                    task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job. 
-                    // This output is specified as AssetCreationOptions.None, which 
-                    // means the output asset is not encrypted. 
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
+            // Encode and generate the thumbnails.
+            EncodeToAdaptiveBitrateMP4Set(asset);
 
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-                private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-
-                            // Display or log error details as needed.
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-
-                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                    return processor;
-                }
-
+            Console.ReadLine();
             }
+
+            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+            {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Load the XML (or JSON) from the local file.
+            string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
+
+            // Create a task
+            ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+                processor,
+                configuration,
+                TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
+            }
+
+            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+            {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
+            {
+                case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+                case JobState.Canceled:
+                case JobState.Error:
+
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+
+                // Display or log error details as needed.
+                break;
+                default:
+                break;
+            }
+            }
+
+            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+            {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+            }
+        }
         }
 
 ## <a id="json"></a>미리 보기 JSON 기본 설정
@@ -197,7 +350,7 @@ ms.lasthandoff: 07/06/2017
               "AdaptiveBFrame": true,
               "Type": "H264Layer",
               "FrameRate": "0/1"
-
+    
             }
           ],
           "Type": "H264Video"
@@ -207,38 +360,12 @@ ms.lasthandoff: 07/06/2017
             {
               "Quality": 90,
               "Type": "JpgLayer",
-              "Width": 640,
-              "Height": 360
+              "Width": "100%",
+              "Height": "100%"
             }
           ],
           "Start": "{Best}",
           "Type": "JpgImage"
-        },
-        {
-          "PngLayers": [
-            {
-              "Type": "PngLayer",
-              "Width": 640,
-              "Height": 360,
-            }
-          ],
-          "Start": "00:00:01",
-          "Step": "00:00:10",
-          "Range": "00:00:58",
-          "Type": "PngImage"
-        },
-        {
-          "BmpLayers": [
-            {
-              "Type": "BmpLayer",
-              "Width": 640,
-              "Height": 360
-            }
-          ],
-          "Start": "10%",
-          "Step": "10%",
-          "Range": "90%",
-          "Type": "BmpImage"
         },
         {
           "Channels": 2,
@@ -255,19 +382,7 @@ ms.lasthandoff: 07/06/2017
           }
         },
         {
-          "FileName": "{Basename}_{Index}{Extension}",
-          "Format": {
-            "Type": "PngFormat"
-          }
-        },
-        {
-          "FileName": "{Basename}_{Index}{Extension}",
-          "Format": {
-            "Type": "BmpFormat"
-          }
-        },
-        {
-          "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+          "FileName": "{Basename}_{Resolution}_{VideoBitrate}.mp4",
           "Format": {
             "Type": "MP4Format"
           }
@@ -275,10 +390,9 @@ ms.lasthandoff: 07/06/2017
       ]
     }
 
-
 ## <a id="xml"></a>미리 보기 XML 기본 설정
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
-
+    
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -312,41 +426,19 @@ ms.lasthandoff: 07/06/2017
         <JpgImage Start="{Best}">
           <JpgLayers>
             <JpgLayer>
-              <Width>640</Width>
-              <Height>360</Height>
+              <Width>100%</Width>
+              <Height>100%/Height>
               <Quality>90</Quality>
             </JpgLayer>
           </JpgLayers>
         </JpgImage>
-        <BmpImage Start="10%" Step="10%" Range="90%">
-          <BmpLayers>
-            <BmpLayer>
-              <Width>640</Width>
-              <Height>360</Height>
-            </BmpLayer>
-          </BmpLayers>
-        </BmpImage>
-        <PngImage Start="00:00:01" Step="00:00:10" Range="00:00:58">
-          <PngLayers>
-            <PngLayer>
-              <Width>640</Width>
-              <Height>360</Height>
-            </PngLayer>
-          </PngLayers>
-        </PngImage>
       </Encoding>
       <Outputs>
-        <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+        <Output FileName="{Basename}_{Resolution}_{VideoBitrate}.mp4">
           <MP4Format />
         </Output>
         <Output FileName="{Basename}_{Index}{Extension}">
           <JpgFormat />
-        </Output>
-        <Output FileName="{Basename}_{Index}{Extension}">
-          <BmpFormat />
-        </Output>
-        <Output FileName="{Basename}_{Index}{Extension}">
-          <PngFormat />
         </Output>
       </Outputs>
     </Preset>
@@ -366,6 +458,10 @@ ms.lasthandoff: 07/06/2017
     또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
   * 기본값: Start:{Best}
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 있는 경우 MES는 JpgFormat을 JpgVideo에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+인코딩 작업이 보류 중인 동안 [작업 진행 상태](media-services-check-job-progress.md)를 확인할 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

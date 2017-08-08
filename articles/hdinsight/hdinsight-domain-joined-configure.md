@@ -1,5 +1,5 @@
 ---
-title: "도메인 가입 HDInsight 클러스터 구성 | Microsoft 문서"
+title: "도메인 가입 HDInsight 클러스터 구성 - Azure | Microsoft Docs"
 description: "도메인에 가입된 HDInsight 클러스터를 설치 및 구성하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>도메인에 가입된 HDInsight 클러스터 구성(미리 보기)
+
 Azure AD(Azure Active Directory) 및 [Apache Ranger](http://hortonworks.com/apache/ranger/)로 Azure HDInsight 클러스터를 설치하여 강력한 인증 및 다양한 RBAC(역할 기반 액세스 제어) 정책을 활용하는 방법을 알아봅니다.  도메인에 가입된 HDInsight는 Linux 기반 클러스터에만 구성할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 소개](hdinsight-domain-joined-introduction.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 도메인에 연결된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 이 문서는 다음 시리즈의 첫 번째 자습서입니다.
 
@@ -71,8 +76,8 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 
 3단계에서 7단계까지 자동화하는 PowerShell 스크립트가 있습니다.  자세한 내용은 [Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성](hdinsight-domain-joined-configure-use-powershell.md)을 참조하세요.
 
-## <a name="create-an-azure-classic-vnet"></a>Azure 클래식 VNet 만들기
-이 섹션에서는 Azure Portal을 사용하여 클래식 VNet을 만듭니다. 다음 섹션에서는 클래식 VNet의 Azure AD에 대해 Azure AD DS를 사용하도록 설정합니다. 다음 절차 및 다른 VNet 생성 방법 사용에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-portal.md)를 참조하세요.
+## <a name="create-an-azure-virtual-network-classic"></a>Azure 가상 네트워크(클래식) 만들기
+이 섹션에서는 Azure Portal을 사용하여 가상 네트워크(클래식)를 만듭니다. 다음 섹션에서는 가상 네트워크의 Azure AD에 대해 Azure AD DS를 사용하도록 설정합니다. 다음 절차 및 다른 가상 네트워크 생성 방법 사용에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.
 
 **클래식 VNet을 만들려면**
 
@@ -250,7 +255,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
      
      * **클러스터 유형**: Hadoop. 도메인에 가입된 HDInsight는 현재 Hadoop 클러스터에서만 지원됩니다.
      * **운영 체제**: Linux.  도메인에 가입된 HDInsight는 Linux 기반 HDInsight 클러스터에서만 지원됩니다.
-     * **버전**: Hadoop 2.7.3(HDI 3.5). 도메인에 가입된 HDInsight는 HDInsight 클러스터 버전 3.5에서만 지원됩니다.
+     * **버전**: HDI 3.6. 도메인에 가입된 HDInsight는 HDInsight 클러스터 버전 3.6에서만 지원됩니다.
      * **클러스터 유형**: PREMIUM
        
        **선택**을 클릭하여 변경 내용을 저장합니다.

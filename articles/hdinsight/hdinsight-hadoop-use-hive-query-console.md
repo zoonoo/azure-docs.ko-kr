@@ -1,5 +1,5 @@
 ---
-title: "HDInsight의 쿼리 콘솔에서 Hadoop Hive 사용 | Microsoft Docs"
+title: "HDInsight의 쿼리 콘솔에서 Hadoop Hive 사용 - Azure | Microsoft Docs"
 description: "브라우저에서 웹 기반 쿼리 콘솔을 사용하여 HDInsight Hadoop 클러스터에 대한 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3000f8db8357793c68f49b47cb5a1df16bb8df51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Hive 쿼리 실행
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 이 문서에서는 브라우저에서 HDInsight Hadoop 클러스터의 Hive 쿼리를 실행하려면 HDInsight 쿼리 콘솔을 사용하는 방법에 대해 배웁니다.
 
 > [!IMPORTANT]
-> HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > HDInsight 3.4 이상의 경우 웹 브라우저에서 Hive 쿼리 실행에 대한 자세한 내용은 [Ambari Hive 보기에서 Hive 쿼리 실행](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 05/18/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     이러한 문은 다음 작업을 수행합니다.

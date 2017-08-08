@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0a1717219bfc33033bdb827e66e80dd18388e64
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>보증되지 않는 배포에 대한 정보
@@ -53,8 +53,8 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * 모든 VHD 크기는 1MB의 배수여야 합니다.
 
-### <a name="installing-linux-without-hyper-v"></a>Hyper-V 없이 Linux 설치
-경우에 따라 Linux 설치 관리자는 Hyper-V 환경을 실행 중임을 감지하지 않는 한 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다.  다른 가상화 시스템(예: Virtualbox, KVM 등)을 사용하여 Linux 이미지를 준비할 경우 초기 ramdisk에서 최소한 `hv_vmbus` 및 `hv_storvsc` 커널 모듈을 사용할 수 있도록 initrd를 다시 작성해야 할 수 있습니다.  이는 적어도 업스트림 Red Hat 배포를 기반으로 하는 시스템의 알려진 문제입니다.
+### <a name="installing-kernel-modules-without-hyper-v"></a>Hyper-V 없이 커널 모듈 설치
+Azure는 Hyper-V 하이퍼바이저에서 실행되므로 Azure에서 Linux를 실행하려면 특정 커널 모듈이 설치되어야 합니다. Hyper-V 외부에서 만든 VM이 있는 경우 Linux 설치 관리자는 Hyper-V 환경을 실행 중임을 감지하지 않는 한 초기 ramdisk(initrd 또는 initramfs)에 Hyper-V용 드라이버를 포함하지 않을 수 있습니다. 다른 가상화 시스템(예: Virtualbox, KVM 등)을 사용하여 Linux 이미지를 준비할 경우 초기 ramdisk에서 최소한 `hv_vmbus` 및 `hv_storvsc` 커널 모듈을 사용할 수 있도록 initrd를 다시 작성해야 할 수 있습니다.  이는 적어도 업스트림 Red Hat 배포를 기반으로 하는 시스템의 알려진 문제입니다.
 
 initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포에 따라 다를 수 있습니다. 올바른 절차는 현재 배포의 설명서를 참조하거나 지원 담당자에게 문의하세요.  다음은 `mkinitrd` 유틸리티를 사용하여 initrd를 다시 작성하는 방법에 대한 한 가지 예입니다.
 

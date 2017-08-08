@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: baf984be59e19f7503c36b12d2b90570ce957edf
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -224,7 +224,7 @@ Menlo Security에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션에서는 Azure AD Single Sign-On 구성을 테스트합니다.
 
-미리 추가된 URL(예 : `https://safe.menlosecurity.com/http://www.cnn.com/`)을 통해 응용 프로그램에 로그인하고 Azure AD 자격 증명을 입력합니다. 그런 다음 인증이 성공하면 해당 웹 사이트로 리디렉션됩니다.
+"InPrivate" 또는 "Incognito" 모드에서 브라우저 창을 열어 새 인증을 트리거합니다.  Internet Explorer에서는 Ctrl+Shift+P를 사용합니다.  Chrome에서는 Ctrl+Shift+N을 사용합니다.  개인 탐색 창에서 보호된 리소스로 이동한 후 Azure AD 로그인을 수행합니다.  로그인에 성공하면 격리된 세션에서 요청된 사이트로 이동됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

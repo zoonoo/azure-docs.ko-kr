@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6c6a44cbbd79cf6422515a6d70d48ac12cba4f9f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a1650a65e7980f4a13fa4edc7918b0099bb5464
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,9 +28,8 @@ ms.lasthandoff: 07/06/2017
 이 단계에서는 SSL을 사용한 다음 SSL URL을 사용하여 응용 프로그램 등록 정보를 구성하도록 프로젝트를 구성합니다. 그런 다음 *web.config*를 통해 솔루션에 응용 프로그램 등록 정보를 추가합니다.
 
 1.  솔루션 탐색기에서 프로젝트를 선택하고 `Properties` 창을 확인합니다([속성] 창이 보이지 않으면 F4 누르기).
-2.  `SSL Enabled`를 `True`로 변경합니다.<br/>
-![프로젝트 속성](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-3.  위의 `SSL URL`에서 값을 복사해 이 페이지 맨 위에 있는 `Redirect URL` 필드에 붙여넣은 다음 [업데이트]를 클릭합니다.
+2.  `SSL Enabled`를 `True`로 변경
+3.  위의 `SSL URL`에서 값을 복사해 이 페이지 맨 위에 있는 `Redirect URL` 필드에 붙여넣은 다음 [업데이트]를 클릭합니다.<br/><br/>![](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
 4.  다음 내용을 루트 폴더에 있는 `web.config` 파일의 `configuration\appSettings` 섹션 아래에 추가합니다.
 
 ```xml

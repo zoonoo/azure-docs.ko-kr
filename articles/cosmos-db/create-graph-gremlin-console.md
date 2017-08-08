@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB 자습서: Apache TinkerPops Gremlin 콘솔에서 만들기, 쿼리하기 및 트래버스 | Microsoft Docs"
 description: "Azure Cosmos DB 빠른 시작은 Azure Cosmos DB Graph API를 사용하여 꼭짓점, 에지 및 쿼리를 만듭니다."
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/27/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin 콘솔에서 그래프 만들기, 쿼리 및 트래버스
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 그래프(컨테이너)를 만들고 [Apache TinkerPop](http://tinkerpop.apache.org)의 [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)을 사용하여 Graph API(미리 보기) 데이터를 사용하는 방법을 보여줍니다. 이 자습서에서는 꼭짓점 및 에지를 만들고 쿼리하며 꼭짓점 속성을 업데이트하고 꼭짓점을 쿼리하고 그래프를 트래버스하고 꼭짓점을 삭제합니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 그래프(컨테이너)를 만들고 [Apache TinkerPop](http://tinkerpop.apache.org)의 [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)을 사용하여 Graph API(미리 보기) 데이터를 사용하는 방법을 보여줍니다. 이 자습서에서는 꼭짓점 및 에지를 만들고 쿼리하며, 꼭짓점 속성을 업데이트하고, 꼭짓점을 쿼리하고, 그래프를 트래버스하고, 꼭짓점을 삭제합니다.
 
 ![Apache Gremlin 콘솔의 Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -47,35 +47,43 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>앱 서비스에 연결
-1. Gremlin 콘솔을 시작하기 전에 *apache-tinkerpop-gremlin-console-3.2.4/conf* 디렉터리에서 *remote-secure.yaml* 구성 파일을 만들거나 수정합니다.
+1. Gremlin 콘솔을 시작하기 전에 apache-tinkerpop-gremlin-console-3.2.4/conf 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
 2. *호스트*, *포트*, *사용자 이름*, *암호*, *connectionPool* 및 *serializer* 구성을 입력합니다.
 
     설정|제안 값|설명
     ---|---|---
-    호스트|***.graphs.azure.com|그래프 서비스 URI는 Azure Portal에서 검색할 수 있습니다.
-    포트|443|443으로 설정
-    사용자 이름|*사용자 이름*|리소스 양식은 `/dbs/<db>/colls/<coll>`입니다.
-    암호|*기본 마스터 키*|Azure Cosmos DB에 대한 기본 마스터 키
-    ConnectionPool|{enableSsl: true}|SSL에 대한 연결 풀 설정
-    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|이 값으로 설정
+    호스트|[***.graphs.azure.com]|아래 스크린샷을 참조하세요. 후행 :443/를 제거하고 대괄호로 묶은 Azure Portal의 개요 페이지에서 Gremlin URI 값입니다.<br><br>https://를 제거하고 문서를 그래프로 변경하고 후행 :443/를 제거하면 URI 값을 사용하여 키 탭에서 이 값을 검색할 수도 있습니다.
+    포트|443|443으로 설정합니다.
+    username|*사용자 이름*|`/dbs/<db>/colls/<coll>` 양식의 리소스에서 `<db>`은 데이터베이스 이름이고 `<coll>`은 컬렉션 이름입니다.
+    password|*기본 키*| 아래에서 두 번째 스크린샷을 참조하세요. 기본 키 상자에 있는 Azure Portal의 키 페이지에서 검색할 수 있는 기본 키입니다. 상자의 왼쪽에서 복사 단추를 사용하여 값을 복사합니다.
+    connectionPool|{enableSsl: true}|SSL에 대한 연결 풀 설정
+    직렬 변환기|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|이 값으로 설정하고 값에 붙여 넣을 때 `\n` 줄 바꿈을 삭제합니다.
 
-3. 터미널에서 *bin/gremlin.bat* 또는 *bin/gremlin.sh*를 실행하여 [Gremlin 콘솔](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/)을 시작합니다.
-4. 터미널에서 *:remote connect tinkerpop.server conf/remote-secure.yaml*을 실행하여 앱 서비스에 연결합니다.
+    호스트 값의 경우 **개요** 페이지의 **Gremlin URI** 값을 복사합니다. ![Azure Portal의 개요 페이지에서 Gremlin URI 값 보기 및 복사](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    암호 값의 경우 **키** 페이지의 **기본 키**를 복사합니다. ![Azure Portal의 키 페이지에서 기본 키 보기 및 복사](./media/create-graph-gremlin-console/keys.png)
+
+
+3. 터미널에서 `bin/gremlin.bat` 또는 `bin/gremlin.sh`를 실행하여 [Gremlin 콘솔](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/)을 시작합니다.
+4. 터미널에서 `:remote connect tinkerpop.server conf/remote-secure.yaml`을 실행하여 앱 서비스에 연결합니다.
+
+    > [!TIP]
+    > `No appenders could be found for logger` 오류가 발생하면 2단계에 설명된 대로 remote-secure.yaml 파일의 직렬 변환기 값을 업데이트했는지 확인합니다. 
 
 잘하셨습니다. 설정을 완료했으므로 콘솔 명령을 실행해 보겠습니다.
 
-간단한 count () 명령을 사용해 보겠습니다. 콘솔의 프롬프트에서 다음을 입력합니다.
+간단한 count () 명령을 사용해 보겠습니다. 프롬프트에서 콘솔에 다음을 입력합니다.
 ```
 :> g.V().count()
 ```
 
 > [!TIP]
-> g.V().count() 텍스트 앞에 ***:>***이 있습니까? 
+> `g.V().count()` 텍스트 앞에 `:>`이 있나요? 
 >
 > 이는 반드시 입력해야 하는 명령의 일부이며, Azure Cosmos DB에서 Gremlin 콘솔을 사용할 때 중요합니다.  
 >
-> 이 :> 접두사를 생략하면 콘솔에서 명령을 로컬로, 종종 메모리 내 그래프에 대해 실행하도록 지시합니다.
-> 이 ***:>***를 사용하면 여기서는 Cosmos DB(localhost 에뮬레이터 또는 > Azure 인스턴스)에 대해 원격 명령을 실행하도록 콘솔에 지시합니다.
+> 이 `:>` 접두사를 생략하면 콘솔에서 명령을 로컬로, 종종 메모리 내 그래프에 대해 실행하도록 지시합니다.
+> 이 `:>`를 사용하면 여기서는 Cosmos DB(localhost 에뮬레이터 또는 > Azure 인스턴스)에 대해 원격 명령을 실행하도록 콘솔에 지시합니다.
 
 
 ## <a name="create-vertices-and-edges"></a>꼭짓점 및 에지 만들기

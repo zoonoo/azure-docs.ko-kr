@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7c1971abc2b71f6f23d8be2950aae8b56b4ceba1
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 7a642506b97fcf4d3426b9205f4b5e420b0bec59
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 <div id="main" class="v2">
@@ -140,7 +140,8 @@ ms.lasthandoff: 07/21/2017
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">서버를 사용하지 않는 함수</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/">Kubernetes를 사용하는 컨테이너</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Kubernetes를 사용한 컨테이너 오케스트레이션</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 Microservices</a></li>
                                                     </ul>
                                                 </div>
@@ -352,6 +353,12 @@ ms.lasthandoff: 07/21/2017
                                     </ul>
                                     <h3>컨테이너</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -1740,18 +1747,18 @@ ms.lasthandoff: 07/21/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>서비스 패브릭</h3>
-                                                    <p>Windows 또는 Linux에서 마이크로 서비스 및 오케스트레이션 컨테이너 개발</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>단일 명령으로 컨테이너를 쉽게 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1790,6 +1797,25 @@ ms.lasthandoff: 07/21/2017
                                                 <div class="cardText">
                                                     <h3>배치</h3>
                                                     <p>컨테이너를 사용하여 계산 작업 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>서비스 패브릭</h3>
+                                                    <p>Windows 또는 Linux에서 마이크로 서비스 및 오케스트레이션 컨테이너 개발</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1865,7 +1891,7 @@ ms.lasthandoff: 07/21/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cosmosdb.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

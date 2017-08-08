@@ -1,5 +1,5 @@
 ---
-title: "HDInsight(Hadoop)에서 Ambari 보기를 사용하는 Hive 작업| Microsoft 문서"
+title: "Ambari 보기를 사용하여 HDInsight(Hadoop)에서 Hive 작업 - Azure | Microsoft Docs"
 description: "웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/05/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 8789643474ac84d4509cd25206091e49925c9dcd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9adfd92b72eb0ecd5b4811c525d4b6ff6609f60f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -38,7 +38,7 @@ Ambari Hive View를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅
 * Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 방법에 대한 정보는 [Linux 기반 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="open-the-hive-view"></a>Hive 뷰를 엽니다.
 

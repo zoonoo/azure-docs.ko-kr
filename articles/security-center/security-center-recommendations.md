@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 07/19/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9663535cc301ecd2c26c1cf318dbf9420758e245
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e1768600776716e7265742beeac300a3027b82c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure 보안 센터에서 보안 권장 사항 관리
@@ -77,6 +76,7 @@ ms.lasthandoff: 05/10/2017
 | [구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md) |구독 또는 구독의 VM(가상 컴퓨터) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
 | [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
+| [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
 | [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/app-service-app-service-environments-readme.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
@@ -94,7 +94,7 @@ ms.lasthandoff: 05/10/2017
 | [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md) |각 구독에 대한 보안 연락처 정보를 제공하는 것을 권장합니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다. 정보는 보안 팀에서 리소스가 손상된 것을 발견한 경우에 고객에게 연락하는 데 사용됩니다. |
 | [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다.  클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
-| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
+| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
 | [Azure Storage 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md) | 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다. SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 암호화하고 검색 전 해독하는 방식으로 작동합니다. SSE는 현재 Azure Blob service에만 사용할 수 있으며 블록 blob, 페이지 blob 및 추가 blob에 사용할 수 있습니다. 자세한 내용을 알아보려면 [미사용 데이터에 대한 Storage 서비스 암호화](../storage/storage-service-encryption.md)를 참조하세요.</br>SSE는 Resource Manager 저장소 계정에만 지원됩니다. |
 
 필터링을 수행하고 권장 사항을 해제할 수 있습니다.
@@ -118,7 +118,7 @@ ms.lasthandoff: 05/10/2017
 * [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 <!--Image references-->

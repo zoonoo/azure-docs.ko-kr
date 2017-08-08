@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
@@ -40,6 +39,7 @@ Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 �
 > [!NOTE]
 > 1. Azure Backup은 백업 프로세스 중에 가상 컴퓨터에 연결된 임시 디스크를 포함하지 않습니다. 자세한 내용은 [임시 저장소](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)에 대한 블로그를 참조하세요.
 > 2. Azure Backup은 저장소 수준의 스냅숏을 생성하여 자격 증명 모음으로 전송하므로 백업 작업이 완료될 때까지 저장소 계정 키를 변경하지 마세요.
+> 3. 프리미엄 VM의 경우 저장소 계정에 스냅숏을 복사합니다. 이렇게 하면 Azure Backup 서비스가 자격 증명 모음으로 데이터를 전송하는 데 충분한 IOPS를 갖게 됩니다. 이러한 추가 저장소 복사본은 VM 할당 크기를 기준으로 대금이 청구됩니다. 
 >
 
 ### <a name="data-consistency"></a>데이터 일관성

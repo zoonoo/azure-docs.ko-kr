@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 배포에서 Azure Storage 계정, 컨테이너 또는 VHD를 삭제할 때 오류 문제 해결 | Microsoft Docs"
-description: "Resource Manager 배포에서 Azure 저장소 계정, 컨테이너 또는 VHD를 삭제할 때 오류 문제 해결"
+title: "Azure Storage 계정, 컨테이너 또는 VHD를 삭제하는 경우 발생하는 오류 문제 해결 | Microsoft Docs"
+description: "Azure Storage 계정, 컨테이너 또는 VHD를 삭제하는 경우 발생하는 오류 문제 해결"
 services: storage
 documentationcenter: 
 author: genlin
-manager: felixwu
+manager: cshepard
 editor: na
 tags: storage
 ms.assetid: 17403aa1-fe8d-45ec-bc33-2c0b61126286
@@ -15,16 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 75d5e82e2f4e747747f24376239e23f6512f916a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 318d7146ea53a806baf813ff7de2fe91f18becc8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds-in-a-resource-manager-deployment"></a>Resource Manager 배포에서 Azure 저장소 계정, 컨테이너 또는 VHD를 삭제할 때 오류 문제 해결
-[!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
+# <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds"></a>Azure Storage 계정, 컨테이너 또는 VHD를 삭제하는 경우 발생하는 오류 문제 해결
 
 [Azure 포털](https://portal.azure.com)에서 Azure 저장소 계정, 컨테이너 또는 VHD(가상 하드 디스크)를 삭제하려고 하면 오류가 발생할 수 있습니다. 이 문서에서는 Azure Resource Manager 배포의 문제 해결에 유용한 문제 해결 지침을 제공합니다.
 
@@ -52,32 +50,94 @@ Resource Manager 배포의 저장소 계정을 삭제하려고 할 때 다음 �
 
 이 문제는 저장소 계정에 임대 상태에 있는 VHD가 포함되어 있기 때문에 발생할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
-이러한 문제를 해결하려면 오류를 일으키는 VHD와 연결된 VM을 식별해야 합니다. 그런 다음 VM(데이터 디스크에 대한)에서 VHD를 분리하거나 VHD(OS 디스크에 대한)를 사용 중인 VM을 삭제합니다. 그러면 VHD에서 임대가 제거되어 삭제할 수 있습니다.
+## <a name="solution"></a>해결 방법 
+이러한 문제를 해결하려면 오류를 일으키는 VHD와 연결된 VM을 식별해야 합니다. 그런 다음 VM(데이터 디스크에 대한)에서 VHD를 분리하거나 VHD(OS 디스크에 대한)를 사용 중인 VM을 삭제합니다. 그러면 VHD에서 임대가 제거되어 삭제할 수 있습니다. 
 
-### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>1단계: 문제 VHD 및 연결된 VM 식별
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **허브** 메뉴에서 **모든 리소스**를 선택합니다. 삭제하려는 저장소 계정으로 이동한 다음 **Blobs** > **vhds**를 선택합니다.
+이 작업을 수행하려면 다음 방법 중 하나를 사용합니다.
+
+### <a name="method-1---use-azure-storage-explorer"></a>방법 1 - Azure Storage 탐색기 사용
+
+### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>1단계 저장소 계정 삭제를 방지하는 VHD 식별
+
+1. 저장소 계정을 삭제하는 경우 다음과 같은 메시지 대화 상자를 수신합니다. 
+
+    ![저장소 계정을 삭제하는 경우의 메시지](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+
+2. **디스크 URL**을 확인하여 저장소 계정과 저장소 계정 삭제를 방지하는 VHD를 식별합니다. 다음 예제에서는 ".blob.core.windows.net" 앞의 문자열이 저장소 계정 이름이고, "SCCM2012-2015-08-28.vhd"가 VHD 이름입니다.  
+
+        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+
+### <a name="step-2-delete-the-vhd-by-using-azure-storage-explorer"></a>2단계 Azure Storage 탐색기를 사용하여 VHD 삭제
+
+1. [Azure Storage 탐색기](http://storageexplorer.com/)의 최신 버전을 다운로드하여 설치합니다. 이 도구는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 쉽게 작업할 수 있도록 해주는 Microsoft의 독립 실행형 앱입니다.
+2. Azure Storage 탐색기를 열고 왼쪽 막대에서 ![계정 아이콘](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) 및 Azure 환경을 차례로 선택한 다음 로그인합니다.
+
+3. 모든 구독을 선택하거나 삭제하려는 저장소 계정이 포함된 구독을 선택합니다.
+
+    ![구독 추가](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
+
+4. 앞의 디스크 URL에서 얻은 저장소 계정으로 이동하여 **BLOB 컨테이너** > **vhd**를 선택하고 저장소 계정 삭제를 방지하는 VHD를 검색합니다.
+5. VHD가 있으면 **VM 이름** 열에서 이 VHD를 사용하는 VM을 찾습니다.
+
+    ![VM 확인](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
+
+6. Azure Portal을 사용하여 VHD에서 임대를 제거합니다. 자세한 내용은 [VHD에서 임대 제거](#remove-the-lease-from-the-vhd)를 참조하세요. 
+
+7. Azure Storage 탐색기로 이동하여 VHD를 마우스 오른쪽 단추로 클릭하고 삭제를 선택합니다.
+
+8. 저장소 계정을 삭제합니다.
+
+### <a name="method-2---use-azure-portal"></a>방법 2 - Azure Portal 사용 
+
+#### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>1단계: 저장소 계정 삭제를 방지하는 VHD 식별
+
+1. 저장소 계정을 삭제하는 경우 다음과 같은 메시지 대화 상자를 수신합니다. 
+
+    ![저장소 계정을 삭제하는 경우의 메시지](media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+
+2. **디스크 URL**을 확인하여 저장소 계정과 저장소 계정 삭제를 방지하는 VHD를 식별합니다. 다음 예제에서는 ".blob.core.windows.net" 앞의 문자열이 저장소 계정 이름이고, "SCCM2012-2015-08-28.vhd"가 VHD 이름입니다.  
+
+        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+
+2. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+3. 허브 메뉴에서 **모든 리소스**를 선택합니다. 저장소 계정으로 이동한 다음 **Blobs** > **vhds**를 선택합니다.
 
     ![저장소 계정 및 "vhds" 컨테이너가 강조 표시된 포털의 스크린샷](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
-3. 컨테이너에서 각 VHD의 속성을 확인합니다. **임대됨** 상태의 VHD를 찾습니다. 그런 다음 VHD를 사용 중인 VM을 결정합니다. 일반적으로 VHD의 이름을 확인하여 VHD를 유지하는 VM를 결정할 수 있습니다.
 
-   * OS 디스크는 일반적으로 VMNameYYYYMMDDHHMMSS.vhd 명명 규칙을 따릅니다.
-   * 데이터 디스크는 일반적으로 VMName-YYYYMMDD-HHMMSS.vhd 명명 규칙을 따릅니다.
+4. 앞의 디스크 URL에서 가져온 VHD를 찾습니다. 그런 다음 VHD를 사용 중인 VM을 결정합니다. 일반적으로 VHD의 이름을 확인하여 VHD를 유지하는 VM를 결정할 수 있습니다.
 
-     ![VM 이름, "잠겨 있음" 임대 상태와 "임대됨" 임대 상태가 강조 표시된 포털에서 컨테이너 정보의 스크린샷](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
+Resource Manager 개발 모델의 VM
 
-### <a name="step-2-remove-the-lease-from-the-vhd"></a>2단계: VHD에서 임대 제거
-VHD(OS 디스크에 대한)를 사용 중인 VM을 삭제하려면:
+   * OS 디스크는 일반적으로 VMName-YYYY-MM-DD-HHMMSS.vhd 명명 규칙을 따릅니다.
+   * 데이터 디스크는 일반적으로 VMName-YYYY-MM-DD-HHMMSS.vhd 명명 규칙을 따릅니다.
+
+Classic 개발 모델의 VM
+
+   * OS 디스크는 일반적으로 CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd 명명 규칙을 따릅니다.
+   * 데이터 디스크는 일반적으로 CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd 명명 규칙을 따릅니다.
+
+#### <a name="step-2-remove-the-lease-from-the-vhd"></a>2단계: VHD에서 임대 제거
+
+[VHD에서 임대를 제거](#remove-the-lease-from-the-vhd)하고 저장소 계정을 삭제합니다.
+
+## <a name="what-is-a-lease"></a>임대란?
+임대는 Blob(예를 들어, VHD)에 대한 액세스를 제어하는 데 사용할 수 있는 잠금입니다. Blob가 임대되면 임대 소유자만 Blob에 액세스할 수 있습니다. 다음과 같은 이유로 임대가 중요합니다.
+
+* 여러 소유자가 Blob의 같은 부분에 동시에 쓰려고 하는 경우 데이터 손상이 방지됩니다.
+* 실제로 어떤 항목이 Blob를 사용 중인 경우(예를 들어, VM) Blob가 삭제되지 않도록 합니다.
+* 실제로 어떤 항목이 저장소 계정을 사용 중인 경우(예를 들어, VM) 저장소 계정이 삭제되지 않도록 합니다.
+
+### <a name="remove-the-lease-from-the-vhd"></a>VHD에서 임대 제거
+VHD가 OS 디스크인 경우 VM을 삭제하여 임대를 제거해야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **Virtual Machines**를 선택합니다.
 3. VHD에서 임대를 유지하는 VM을 선택합니다.
 4. 실제로 가상 컴퓨터를 사용 중인 항목이 없고 가상 컴퓨터가 더 이상 필요하지 않음을 확인합니다.
 5. **VM 세부 정보** 블레이드 맨 위에서 **삭제**를 선택한 후 **예**를 클릭하여 확인합니다.
-6. VM은 삭제되지만 VHD는 유지됩니다. 그러나 VHD는 더 이상 임대를 포함하지 않아야 합니다. 임대를 해제하는 데는 몇 분 정도 걸릴 수 있습니다. 임대가 해제되었는지 확인하려면 **모든 리소스** > **저장소 계정 이름** > **Blobs** > **vhds**로 이동합니다. **Blob 속성** 창에서 **임대 상태** 값이 **잠금 해제됨**이 됩니다.
+6. VM은 삭제되지만 VHD는 유지될 수 있습니다. 그러나 VHD는 더 이상 임대를 포함하지 않아야 합니다. 임대를 해제하는 데는 몇 분 정도 걸릴 수 있습니다. 임대가 해제되었는지 확인하려면 **모든 리소스** > **저장소 계정 이름** > **Blobs** > **vhds**로 이동합니다. **Blob 속성** 창에서 **임대 상태** 값이 **잠금 해제됨**이 됩니다.
 
-VHD를 사용 중인 VM(데이터 디스크에 대한)에서 VHD를 분리하려면:
+VHD가 데이터 디스크인 경우 VM에서 VHD를 분리하여 임대를 제거합니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **Virtual Machines**를 선택합니다.
@@ -87,13 +147,6 @@ VHD를 사용 중인 VM(데이터 디스크에 대한)에서 VHD를 분리하려
 6. 확실히 데이터 디스크를 사용 중인 항목이 없는 것을 확인합니다.
 7. **디스크 세부 정보** 블레이드에서 **분리**를 클릭합니다.
 8. 이제 VM에서 디스크가 분리되며 VHD는 더 이상 임대를 포함하지 않습니다. 임대를 해제하는 데는 몇 분 정도 걸릴 수 있습니다. 임대가 해제되었는지 확인하려면 **모든 리소스** > **저장소 계정 이름** > **Blobs** > **vhds**로 이동합니다. **Blob 속성** 창에서 **임대 상태** 값이 **잠금 해제됨**이 됩니다.
-
-## <a name="what-is-a-lease"></a>임대란?
-임대는 Blob(예를 들어, VHD)에 대한 액세스를 제어하는 데 사용할 수 있는 잠금입니다. Blob가 임대되면 임대 소유자만 Blob에 액세스할 수 있습니다. 다음과 같은 이유로 임대가 중요합니다.
-
-* 여러 소유자가 Blob의 같은 부분에 동시에 쓰려고 하는 경우 데이터 손상이 방지됩니다.
-* 실제로 어떤 항목이 Blob를 사용 중인 경우(예를 들어, VM) Blob가 삭제되지 않도록 합니다.
-* 실제로 어떤 항목이 저장소 계정을 사용 중인 경우(예를 들어, VM) 저장소 계정이 삭제되지 않도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정 삭제](storage-create-storage-account.md#delete-a-storage-account)

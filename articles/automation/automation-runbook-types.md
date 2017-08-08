@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -51,7 +53,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다.  Azure 포�
 
 ### <a name="advantages"></a>장점
 * PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다. 
-* Runbook은 실행 전에 컴파일이 필요 없기 때문에 그래픽 또는 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
+* Runbook은 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
 
 ### <a name="limitations"></a>제한 사항
 * PowerShell 스크립팅에 대해 잘 알아야 합니다.
@@ -92,10 +94,5 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 * 그래픽 Runbook 작성에 대해 자세히 알아보려면 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 * Runbook을 만들거나 가져오는 방법에 대한 자세한 내용은 [Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

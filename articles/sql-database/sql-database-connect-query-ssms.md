@@ -18,20 +18,18 @@ ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리
-<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리
 
 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))는 Microsoft Windows의 SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리할 수 있는 통합된 환경입니다. 이 빠른 시작은 SSMS를 사용하여 Azure SQL Database에 연결한 후 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
@@ -41,8 +39,7 @@ SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.
 
 시작하기 전에 최신 버전의 [SSMS](https://msdn.microsoft.com/library/mt238290.aspx)를 설치했는지 확인합니다. 
 
-## 연결 정보 가져오기
-<a id="get-connection-information" class="xliff"></a>
+## <a name="sql-server-connection-information"></a>SQL 서버 연결 정보
 
 Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
@@ -50,12 +47,11 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다.
 
-   ![연결 정보](./media/sql-database-get-started-portal/server-name.png) 
+   ![연결 정보](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다. 
 
-## 데이터베이스 연결
-<a id="connect-to-your-database" class="xliff"></a>
+## <a name="connect-to-your-database"></a>데이터베이스 연결
 
 SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결합니다. 
 
@@ -87,8 +83,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 5. 개체 탐색기에서 **데이터베이스**를 확장한 다음 **mySampleDatabase**를 확장하여 샘플 데이터베이스에 있는 개체를 봅니다.
 
-## 쿼리 데이터
-<a id="query-data" class="xliff"></a>
+## <a name="query-data"></a>쿼리 데이터
 
 다음 코드를 사용하여 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 통해 범주별 상위 20개 제품을 쿼리합니다.
 
@@ -106,8 +101,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
     ![쿼리](./media/sql-database-connect-query-ssms/query.png)
 
-## 데이터 삽입
-<a id="insert-data" class="xliff"></a>
+## <a name="insert-data"></a>데이터 삽입
 
 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다.
 
@@ -137,8 +131,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-## 데이터 업데이트
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>데이터 업데이트
 
 이전에 추가한 새 제품을 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 업데이트하려면 다음 코드를 사용합니다.
 
@@ -154,8 +147,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-## 데이터 삭제
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>데이터 삭제
 
 이전에 추가한 새 제품을 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 삭제하려면 다음 코드를 사용합니다.
 
@@ -170,8 +162,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 - Transact-SQL를 사용하여 서버와 데이터베이스를 만들어 관리하는 방법에 대한 자세한 내용은 [Azure SQL Database 서버 및 데이터베이스](sql-database-servers-databases.md)를 참조하세요.
 - SSMS에 대한 자세한 내용은 [SQL Server Management Studio 사용](https://msdn.microsoft.com/library/ms174173.aspx)을 참조하세요.

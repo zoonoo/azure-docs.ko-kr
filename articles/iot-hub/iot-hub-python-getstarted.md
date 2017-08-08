@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub 시작(Python) | Microsoft Docs"
-description: "이 문서에서는 Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치에서 Azure IoT Hub로 메시지를 보내는 방법을 보여 줍니다."
+description: "Python용 IoT SDK를 사용하여 Azure IoT Hub에 장치-클라우드 메시지를 보내는 방법을 알아봅니다. 시뮬레이션된 장치 및 서비스 앱을 만들어서 장치를 등록하고 메시지를 전송하고 IoT Hub의 메시지를 읽습니다."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,12 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f0800b70620106f9ae9d19d63b60b726835e338f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Python을 사용하여 IoT Hub에 시뮬레이션된 장치 연결
@@ -78,6 +77,8 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분에서는 IoT Hub �
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. 일부 장치 정보를 인쇄하려면 다음 함수를 추가합니다.
 
     ```python

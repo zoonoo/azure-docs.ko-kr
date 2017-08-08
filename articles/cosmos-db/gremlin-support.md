@@ -3,7 +3,7 @@ title: "Azure Cosmos DB Gremlin 지원 | Microsoft Docs"
 description: "Azure Cosmos DB에서 사용할 수 있는 Apache TinkerPop의 Gremlin 언어의 기능 및 단계에 대해 자세히 알아보기"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: 
 tags: 
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
-Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리을 수행하기 위한 Graph API인 [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps))을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
+Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
 Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 저장소 및 처리량의 독립적 확장, 예측 가능한 1자리 밀리초 단위 대기 시간, 자동 인덱싱 및 99.99% SLA가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
 
@@ -150,7 +149,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | --- | --- |
 | id | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
 | label | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
-| inV | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| inV | 여기에는 에지의 모든 꼭지점 목록이 포함됩니다. 에지와 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 꼭짓점은 해당 레이블을 기준으로 그룹화됩니다. |
 | properties | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 
 각 속성은 배열 내에 여러 값을 저장할 수 있습니다. 
@@ -210,3 +209,4 @@ Azure Cosmos DB의 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에�
 ## <a name="next-steps"></a>다음 단계
 * [SDK를 사용하여](create-graph-dotnet.md) 그래프 응용 프로그램 빌드 시작 
 * [Azure Cosmos DB 그래프 지원](graph-introduction.md)에 대해 자세히 알아보기
+

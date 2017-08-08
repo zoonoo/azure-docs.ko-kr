@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: cb267625cb6ea279b4094b1cc4d456cfd7542cca
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
@@ -117,10 +116,6 @@ Azure에서 SQL Database는 방화벽으로 보호됩니다. 기본적으로 다
 3. 전체 **ADO.NET** 연결 문자열을 검토합니다.
 
     ![ADO.NET 연결 문자열](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> Azure SQL Database를 사용하여 .NET 응용 프로그램을 만드는 예제는 [Azure에서 SQL Database를 사용하여 ASP.NET 앱 빌드](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md)를 참조하세요.
->
 
 ## <a name="creating-database-users"></a>데이터베이스 사용자 만들기
 

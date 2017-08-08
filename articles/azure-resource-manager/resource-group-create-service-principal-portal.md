@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -161,43 +160,17 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="log-in-as-the-application"></a>응용 프로그램으로 로그인
 
-응용 프로그램은 이제 Azure Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 
+응용 프로그램은 이제 Azure Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 다른 플랫폼을 통해 응용 프로그램으로 로그인하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-PowerShell을 통해 로그인하려면 [PowerShell을 통해 자격 증명 제공](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)을 참조하세요.
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST (영문)](/rest/api/#create-the-request)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.JS](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Azure CLI를 통해 로그인하려면 [Azure CLI를 통해 자격 증명 제공](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)을 참조하세요.
-
-REST 작업에 대한 액세스 토큰을 얻으려면 [요청 만들기](/rest/api/#create-the-request)를 참조하세요.
-
-응용 프로그램 코드를 통한 로그인에 대해 알아보려면 다음 샘플 응용 프로그램을 살펴보세요.
-
-### <a name="sample-applications"></a>샘플 응용 프로그램
-다음 예제 응용 프로그램에서는 AD 응용 프로그램으로 로그인하는 방법을 보여 줍니다.
-
-**.NET**
-
-* [.NET에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [.NET을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [리소스 사용 시작 - Azure Resource Manager 템플릿을 사용하여 배포 - Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [리소스 사용 시작 - 리소스 그룹 관리 - Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Python에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Python을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.JS**
-
-* [Node.js에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Node.js를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>다음 단계
 * 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.

@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -73,8 +73,7 @@ HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에
 
     따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
 
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
 
     대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
@@ -172,7 +171,7 @@ Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지�
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/07/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6dbe7713c48a60974f1026dddc8ee9d2aeb01708
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="find-data-using-log-searches"></a>로그 검색을 사용하여 데이터 찾기
@@ -135,6 +134,24 @@ EventLog=Application OR EventLog=System AND Computer=SERVER1.contoso.com
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>필드 형식
+필터를 만들 때 로그 검색에서 반환된 다양한 유형의 필드로 작업할 때의 차이점을 이해해야 합니다.
+
+**검색 가능한 필드**는 검색 결과에 파란색으로 표시됩니다.  검색 조건에서 다음과 같은 필드에 국한되는 검색 가능한 필드를 사용할 수 있습니다.
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**자유 텍스트 검색 가능 필드**는 검색 결과에서 회색으로 표시됩니다.  검색 가능한 필드와 같은 필드에만 해당되는 검색 조건은 이러한 필드에 사용할 수 없습니다.  이러한 필드는 다음과 같은 모든 필드에서 쿼리를 수행할 때만 검색됩니다.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 

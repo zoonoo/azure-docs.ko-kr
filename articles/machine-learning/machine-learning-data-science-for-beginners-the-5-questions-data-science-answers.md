@@ -1,6 +1,6 @@
 ---
-title: "5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure | Microsoft Docs"
-description: "데이터 과학으로 답변할 수 있는 5가지 질문부터 시작하는 5개의 짧은 비디오인 초급자를 위한 데이터 과학을 통해 데이터 과학에 대해 빠르게 알아볼 수 있습니다."
+title: "5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure Machine Learning | Microsoft Docs"
+description: "초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning"
 keywords: "데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 데이터 과학 기본 사항,데이터 과학 질문,데이터 과학 비디오, 데이터 과학 소개"
 services: machine-learning
 documentationcenter: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
-ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e77e7e99747995a4a6ad800e391f0c063bded82f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
 
 이 첫 번째 비디오는 데이터 과학이 대답할 수 있는 종류의 질문에 대한 것입니다. 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
 ## <a name="other-videos-in-this-series"></a>이 시리즈의 다른 비디오
-*초급자를 위한 데이터 과학* 은 총 25분 동안 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
+*초급자를 위한 데이터 과학* 은 총 25분 동안 데이터 과학을 간략히 소개합니다. 5개의 비디오를 모두 확인해 보세요.
 
 * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
@@ -58,14 +58,14 @@ ms.lasthandoff: 05/05/2017
 * 어떻게 구성되어 있나요?
 * 다음에는 어떻게 해야 하나요?
 
-  이러한 각 질문은 알고리즘이라고 하는 별도의 기계 학습 방법군에 따라 답변됩니다.
+이러한 각 질문은 알고리즘이라고 하는 별도의 기계 학습 방법군에 따라 답변됩니다.
 
 알고리즘을 레시피로, 데이터를 재료로 생각하면 도움이 될 것입니다. 알고리즘은 답변을 얻기 위해 데이터를 조합하고 혼합하는 방법을 설명합니다. 컴퓨터는 믹서기와 같습니다. 알고리즘의 어려운 작업 대부분을 꽤 빠르게 처리합니다.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>질문 1: 이것은 A인가요 B인가요?에서는 분류 알고리즘을 사용합니다.
 질문: 이것은 A인가요 B인가요?부터 시작해 보겠습니다.
 
-![분류 알고리즘: 이것은 A인가요 B인가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
+![분류 알고리즘: 이것은 A인가요 B인가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 이 알고리즘군을 2클래스 분류라고 합니다.
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 감지 알고리즘을 사용합니다.
 데이터 과학으로 답변을 얻을 수 있는 다음 질문은 이것은 이상한가요?입니다. 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
 
-![변칙 감지 알고리즘: 이것은 이상한가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-anomaly-detection-algorithms.png)
+![변칙 감지 알고리즘: 이것은 이상한가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 신용 카드가 있는 경우 이미 변칙 감지를 통한 혜택을 보고 있는 것입니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>질문 3: 양 또는 개수는 얼마인가요?에서는 회귀 알고리즘을 사용합니다.
 또한 기계 학습을 통해 양 또는 개수는 얼마인가요?에 대한 답변을 예측할 수 있습니다. 이 질문에 답변하는 알고리즘군을 회귀라고 합니다.
 
-![회귀 알고리즘: 양 또는 개수는 얼마인가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-regression-algorithms.png)
+![회귀 알고리즘: 양 또는 개수는 얼마인가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 회귀 알고리즘은 다음과 같은 수치 예측을 수행합니다.
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 05/05/2017
 
 데이터 구조를 조작할 수 있는 방법이 많이 있습니다. 한 가지 방법은 클러스터링입니다. 이 방식은 보다 쉬운 해석을 위해 데이터를 적절한 "그룹"으로 분리합니다. 클러스터링을 사용하면 한 가지 정답은 없습니다.
 
-![클러스터링 알고리즘: 어떻게 구성되어 있나요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![클러스터링 알고리즘: 어떻게 구성되어 있나요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 질문을 클러스터링하는 일반적인 예제는 다음과 같습니다.
 
@@ -127,7 +127,7 @@ ms.lasthandoff: 05/05/2017
 
 일반적으로 강화 학습은 사람의 지시 없이 많은 사소한 결정을 내려야 하는 자동화 시스템에 적합합니다.
 
-![강화 학습 알고리즘: 다음에는 어떻게 해야 하나요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![강화 학습 알고리즘: 다음에는 어떻게 해야 하나요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 답변되는 질문은 일반적으로 기계나 로봇에 의해 진행되는 작업에 대한 것입니다. 예:
 

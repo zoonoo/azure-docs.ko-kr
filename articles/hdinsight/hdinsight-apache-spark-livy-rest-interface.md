@@ -23,7 +23,6 @@ ms.openlocfilehash: 10c8b1806a13d07e804b15cf8357de48a16fbc64
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
@@ -46,7 +45,7 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * jar 파일이 클러스터 저장소(WASB)에 있는 경우
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 * 입력 파일의 일부분으로 jar 파일 이름 및 클래스 이름을 전달하려는 경우(이 예제에서는 input.txt)
   
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
@@ -108,7 +107,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
    
     파일 **input.txt** 에서 매개 변수는 다음과 같이 정의됩니다.
    
-        { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
+        { "file":"wasb:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
    
     다음과 유사한 결과가 표시됩니다.
    

@@ -13,17 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다.
+
+최신 버전의 게이트웨이는 SSDT에서 Get Data 및 M 쿼리를 사용하여 온-프레미스 데이터 원본에 연결되는 테이블 형식 1400 모델을 지원합니다. 
+
+지원되는 데이터 원본에 대한 자세한 내용은 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
 
 게이트웨이는 네트워크의 컴퓨터에 설치됩니다. 게이트웨이는 Azure 구독에 있는 Azure Analysis Services 서버에 각각 설치되어야 합니다. 예를 들어 온-프레미스 데이터 원본에 연결된 Azure 구독에 두 개의 서버가 있는 경우 게이트웨이는 네트워크에 있는 두 개의 별도 컴퓨터에 설치되어야 합니다.
 
@@ -48,14 +53,6 @@ ms.lasthandoff: 04/20/2017
 * 이미 구성된 게이트웨이의 서버 이름을 변경하려면 새 게이트웨이를 다시 설치하고 구성해야 합니다.
 * 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. 자세한 내용은 참조 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
 
-## <a name="supported-on-premises-data-sources"></a>지원되는 온-프레미스 데이터 원본
-게이트웨이는 Azure Analysis Services 서버와 다음 온-프레미스 데이터 원본 간의 연결을 지원합니다.
-
-* SQL Server
-* SQL 데이터 웨어하우스
-* APS
-* Oracle
-* Teradata
 
 ## <a name="download"></a>다운로드
  [게이트웨이 다운로드](https://aka.ms/azureasgateway)
@@ -128,7 +125,7 @@ TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트�
 
 게이트웨이를 설치하고 구성하는 데 문제가 있는 경우 [Power BI 게이트웨이 문제 해결](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/)을 참조하세요. 방화벽에 문제가 발생하는 경우 방화벽 또는 프록시 섹션을 참조하세요.
 
-게이트웨이 프록시에 문제가 발생하는 경우 [Power BI 게이트웨이에 대한 프록시 설정 구성](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md)을 참조하세요.
+게이트웨이 프록시에 문제가 발생하는 경우 [Power BI 게이트웨이에 대한 프록시 설정 구성](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy)을 참조하세요.
 
 ### <a name="telemetry"></a>원격 분석
 원격 분석은 모니터링 및 문제 해결에 사용할 수 있습니다. 

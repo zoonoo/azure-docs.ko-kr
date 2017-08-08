@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: a930e02313aa0a2238ecfaa31af68d59b2c8e961
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 58b6d5c6ef40891e56ea4811f5e778286bdb8bc3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Azure Functions Service Bus 바인딩
@@ -76,7 +75,7 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 ## <a name="trigger-behavior"></a>트리거 동작
 * **단일 스레딩** - 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, *host.json*에서 `serviceBus.maxConcurrentCalls`를 1로 설정합니다. 
-  *host.json*에 대한 자세한 내용은 [폴더 구조](functions-reference.md#folder-structure) 및 [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
+  *host.json*에 대한 자세한 내용은 [폴더 구조](functions-reference.md#folder-structure) 및 [host.json](https://github .com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
 * **포이즌 메시지 처리** - Service Bus는 Azure Functions 구성 또는 코드로 제어되거나 구성될 수 없는 자체 포이즌 메시지 처리를 수행합니다. 
 * **PeekLock 동작** - 함수 런타임은 [`PeekLock` 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 받아 함수가 정상적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 
   함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 잠금이 자동으로 갱신됩니다.

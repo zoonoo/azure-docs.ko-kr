@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 70f94a07b0102e3135eaf85e5877e3502762d7e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/08/2017
 >
 >
 
-[Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
+[Azure Data Lake Store .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2015 업데이트 2를 사용합니다.

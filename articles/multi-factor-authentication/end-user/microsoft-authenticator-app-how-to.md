@@ -22,9 +22,7 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 05/09/2017
 
 ---
-<a id="get-started-with-the-microsoft-authenticator-app" class="xliff"></a>
-
-# Microsoft Authenticator 앱 시작
+# <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.com) 또는 Microsoft 계정(예: bsimon@outlook.com)의 추가 보안 수준을 제공합니다.
 
 이 앱은 두 가지 방법 중 하나로 작동합니다.
@@ -34,9 +32,7 @@ Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.c
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체합니다. Azure Authenticator 앱은 계속 사용할 수 있지만 새 Microsoft Authenticator 앱으로 전환할 것인지 결정해야 하며 이 문서에서 방법을 설명합니다.  
 
-<a id="opt-in-for-two-step-verification" class="xliff"></a>
-
-## 2단계 인증에 옵트인
+## <a name="opt-in-for-two-step-verification"></a>2단계 인증에 옵트인
 
 Microsoft Authenticator 앱은 자체적으로 작동하지 않습니다. 사용자 이름 및 암호로 로그인한 후 두 번째 확인 방법에 대해 묻도록 계정을 구성해야 합니다. 
 
@@ -46,25 +42,17 @@ Microsoft Authenticator 앱은 자체적으로 작동하지 않습니다. 사용
 
 또한 Microsoft가 아닌 계정으로 Microsoft Authenticator를 사용할 수 있습니다. 2단계 인증 이외의 기능을 호출할 수 있지만 보안 또는 로그인 설정에서 찾을 수 있어야 합니다. 
 
-<a id="install-the-app" class="xliff"></a>
-
-## 앱 설치
+## <a name="install-the-app"></a>앱 설치
 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
-<a id="add-accounts-to-the-app" class="xliff"></a>
-
-## 앱에 계정 추가
+## <a name="add-accounts-to-the-app"></a>앱에 계정 추가
 Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절차 중 하나를 사용합니다.
 
-<a id="add-a-personal-microsoft-account-to-the-app" class="xliff"></a>
-
-### 앱에 개인 Microsoft 계정 추가
+### <a name="add-a-personal-microsoft-account-to-the-app"></a>앱에 개인 Microsoft 계정 추가
 
 개인 Microsoft 계정(Outlook.com, Xbox, Skype 등에 로그인하는 데 사용하는 계정)의 경우, Microsoft Authenticator 앱의 사용자 계정에 로그인하기만 하면 됩니다.
 
-<a id="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner" class="xliff"></a>
-
-### QR 코드 스캐너를 사용하여 앱에 회사 또는 학교 계정 추가
+### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>QR 코드 스캐너를 사용하여 앱에 회사 또는 학교 계정 추가
 1. 보안 확인 설정 화면으로 이동합니다.  이 화면으로 이동하는 방법은 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하세요.
 2. **Authenticator 앱** 옆에 있는 확인란을 선택한 후 **구성**을 선택합니다.
 
@@ -82,9 +70,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 
-<a id="add-an-account-to-the-app-manually" class="xliff"></a>
-
-### 앱에 수동으로 계정 추가
+### <a name="add-an-account-to-the-app-manually"></a>앱에 수동으로 계정 추가
 1. 보안 확인 설정 화면으로 이동합니다.  이 화면으로 이동하는 방법은 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md)을 참조하세요.
 2. **구성**을 선택합니다.
 
@@ -106,9 +92,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 
-<a id="add-an-account-to-the-app-using-touch-id" class="xliff"></a>
-
-### Touch ID를 사용하여 앱에 계정 추가
+### <a name="add-an-account-to-the-app-using-touch-id"></a>Touch ID를 사용하여 앱에 계정 추가
 IOS의 Microsoft Authenticator 앱은 Touch ID를 지원합니다.  Azure Multi-Factor Authentication을 사용하면 조직에서 장치에 대해 PIN을 요청할 수 있습니다. Touch ID를 사용할 경우 iOS 사용자는 PIN을 입력할 필요가 없습니다. 대신 지문을 스캔하고 **승인**을 선택할 수 있습니다.
 
 Microsoft Authenticator를 통한 Touch ID 설정은 간단합니다. PIN을 사용하여 일반 확인 인증을 완료합니다. 장치에서 Touch ID를 지원하는 경우 Microsoft Authenticator는 자동으로 해당 계정에 대해 Touch ID를 설정합니다.
@@ -119,9 +103,7 @@ Microsoft Authenticator를 통한 Touch ID 설정은 간단합니다. PIN을 사
 
 ![푸시 알림](./media/authenticator-app-how-to/touchid2.png)
 
-<a id="use-the-app-when-you-sign-in" class="xliff"></a>
-
-## 로그인할 때 앱 사용
+## <a name="use-the-app-when-you-sign-in"></a>로그인할 때 앱 사용
 
 앱에 계정이 추가되면 모두 제대로 구성되었는지 확인하는 테스트 확인을 수행하라는 메시지가 표시될 수 있습니다. 그런 다음 완료됩니다. 다음에 로그인할 때까지 다른 작업을 수행할 필요가 없습니다.
 

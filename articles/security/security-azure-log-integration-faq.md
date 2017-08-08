@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -31,8 +33,18 @@ ms.lasthandoff: 03/31/2017
 
 현재 Azure 상용 및 Azure Government에서 사용할 수 있으며 중국 또는 독일에서는 사용할 수 없습니다.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 저장소 계정을 어떻게 볼 수 있습니까?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 원본 저장소 계정을 확인하려면 어떻게 하나요?
 **azlog source list**명령을 실행합니다.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Azure 로그 통합 로그를 가져오는 원본 구독을 확인하려면 어떻게 하나요?
+
+AzureResourcemanagerJson 디렉터리에 배치된 감사 로그의 경우 구독 ID는 로그 파일 이름에 있습니다. AzureSecurityCenterJson 폴더에 있는 로그의 경우도 마찬가지입니다. 예:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 포함됩니다.
+
+이벤트 허브에서 읽은 진단 로그의 경우 구독 ID가 이름의 일부로 포함되지 않고 이벤트 허브 원본 생성 시 지정된 이름이 포함됩니다. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>프록시 구성을 업데이트하려면 어떻게 해야 합니까?
 프록시 설정에서 Azure 저장소에 대한 직접 액세스를 허용하지 않으면 **c:\Program Files\Microsoft Azure Log Integration**에 있는 **AZLOG.EXE.CONFIG** 파일을 엽니다. 조직의 프록시 주소를 사용하여 **defaultProxy** 섹션을 포함하도록 이 파일을 업데이트합니다. 업데이트가 완료되면 **net stop azlog** 및 **net start azlog** 명령을 사용하여 서비스를 중지하고 다시 시작합니다.
@@ -113,6 +125,9 @@ Windows Azure 진단 [(WAD)](../virtual-machines/windows/ps-extensions-diagnosti
 
 설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 열고 지원을 요청하는 서비스로 **로그 통합**을 선택합니다.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Azure 로그 통합을 사용하여 Network Watcher 로그를 내 SIEM에 통합할 수 있나요?
+
+Network Watcher는 다량의 로깅 정보를 생성하며, 이러한 로그는 SIEM에 전송하기 위한 것이 아닙니다. Network Watcher 로그의 대상으로 저장소 계정만 지원됩니다. Azlog는 이러한 로그를 읽고 SIEM에 제공하는 기능을 지원하지 않습니다.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

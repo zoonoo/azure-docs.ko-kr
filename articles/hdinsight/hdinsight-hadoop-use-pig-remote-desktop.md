@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 | Microsoft Docs"
+title: "HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 - Azure | Microsoft Docs"
 description: "Windows 기반 HDInsight Hadoop 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Pig 작업 실행
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 안내합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > HDInsight 3.4 이상의 경우 명령줄에서 클러스터의 Pig 작업을 대화형으로 실행하는 방법에 대한 자세한 내용은 [HDInsight 및 SSH로 Pig 사용](hdinsight-hadoop-use-pig-ssh.md)을 참조하세요.
 
@@ -51,7 +51,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     `grunt>` 프롬프트가 나타납니다.
 3. 다음 문을 입력합니다.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     이 명령은 sample.log 파일의 내용을 LOGS 파일에 로드합니다. 다음 명령을 사용하여 파일의 내용을 볼 수 있습니다.
 
@@ -82,7 +82,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     </table>
 6. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 명령은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류 메시지가 발생합니다.
@@ -98,7 +98,7 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 1. 성가신 프롬프트를 종료한 후 **메모장**을 열고 **%PIG_HOME%** 디렉터리에 **pigbatch.pig**라는 새 파일을 만듭니다.
 2. 다음 줄을 **pigbatch.pig** 파일에 입력하거나 붙여 넣은 다음 저장합니다.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

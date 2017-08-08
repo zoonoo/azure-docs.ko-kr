@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -29,8 +30,9 @@ ms.lasthandoff: 03/25/2017
 
 > [!NOTE]
 > 이 미리 보기에 설명된 새 기능은 Hive 워크로드용 Linux 기반 HDInsight 클러스터에서만 사용할 수 있습니다. HBase, Spark, Storm 및 Kafka와 같은 다른 워크로드는 이후 릴리스에서 사용할 수 있습니다.
->
->
+
+> [!IMPORTANT]
+> 도메인에 가입된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 ## <a name="benefits"></a>이점
 기업 보안에는 네 가지 기본 요소인 경계 보안, 인증, 권한 부여 및 암호화가 포함됩니다.

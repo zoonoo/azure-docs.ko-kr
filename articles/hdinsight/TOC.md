@@ -13,7 +13,12 @@
 
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Spark로 시작
+### [Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Spark 클러스터에서 쿼리 실행](hdinsight-apache-spark-load-data-run-query.md)
+### [BI 도구를 사용하여 데이터 분석](hdinsight-apache-spark-use-bi-tools.md)
+### [클러스터 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+### [Spark 작업 디버그](hdinsight-apache-spark-job-debugging.md)
 ## [R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 메모리 내 처리에 Spark 사용
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
 ### [독립 실행형 앱 만들기](hdinsight-apache-spark-create-standalone-application.md)
 ### [Eclipse를 사용하여 앱 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ를 사용하여 앱 만들기](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
 ### [IntelliJ를 사용하여 VPN을 통해 원격으로 작업 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
-### [작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
 ## HBase 사용
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -92,12 +94,10 @@
 #### [Data Lake Store에 작성](hdinsight-storm-write-data-lake-store.md)
 #### [Maven을 사용하여 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 #### [Hadoop 도구를 사용하여 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Twitter 추세 항목 확인](hdinsight-storm-twitter-trending.md)
 #### [C# 토폴로지로 이벤트 처리](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Java 토폴로지로 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [토폴로지로 Power BI 사용](hdinsight-storm-power-bi-topology.md)
 #### [실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)
-#### [프로세스 차량 센서 데이터](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [시간 경과에 따른 이벤트 간의 상관 관계](hdinsight-storm-correlation-topology.md)
 #### [Python을 사용하여 토폴로지 개발](hdinsight-storm-develop-python-topology.md)
 ## 도메인에 가입된 HDInsight 사용(미리 보기)
@@ -135,6 +135,7 @@
 ### [Hive를 사용하여 웹 사이트 로그 분석](hdinsight-hive-analyze-website-log.md)
 ### [Application Insights 원격 분석 로그 분석](hdinsight-spark-analyze-application-insight-logs.md)
 ## 클러스터 확장
+### [보안이 활성화된 저장소 계정 사용](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [부트스트랩을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [스크립트 작업을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 ### [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md)
@@ -205,6 +206,7 @@
 #### [Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET(Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET(HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -234,8 +236,9 @@
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [빅 데이터에 대한 Microsoft 전문가 프로그램](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [HDInsight에 대한 Windows 도구](hdinsight-hadoop-windows-tools.md)

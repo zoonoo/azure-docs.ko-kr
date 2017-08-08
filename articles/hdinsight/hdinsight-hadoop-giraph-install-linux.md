@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight(Hadoop)에서 Giraph 설치 및 사용 | Microsoft 문서"
+title: "HDInsight(Hadoop)에서 Giraph 설치 및 사용 - Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터에 Giraph를 설치하는 방법에 대해 알아봅니다. 스크립트 작업을 사용하면 클러스터 구성을 변경하거나 서비스 및 유틸리티를 설치하여 생성 중 클러스터를 사용자 지정할 수 있습니다."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c59da3ab9b02f4177272dc3a1194d46b6172a05e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 HDInsight 클러스터에 Apache Giraph를 설치하는 방법을 알아봅니다. Hdinsight의 스크립트 작업 기능을 사용하면 bash 스크립트를 실행하여 클러스터를 사용자 지정할 수 있습니다. 클러스터를 만드는 도중 및 만든 후에 클러스터를 사용자 지정하는 데 스크립트를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="whatis"></a>Giraph 정의
 
@@ -98,19 +97,21 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 **tiny_graph.txt**라는 파일을 만듭니다.
 
-    ```
+    ```bash
     nano tiny_graph.txt
     ```
 
     이 파일의 내용으로 다음 텍스트를 사용합니다.
 
-    ```
+    ```text
     [0,0,[[1,1],[3,3]]]
     [1,0,[[0,1],[2,2],[3,1]]]
     [2,0,[[1,2],[4,4]]]
@@ -128,13 +129,13 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 4. 다음을 사용하여 HDInsight 클러스터에 대한 주 저장소로 데이터를 저장합니다.
 
-    ```
+    ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
     ```
 
 5. 다음 명령을 사용하여 SimpleShortestPathsComputation 예제를 실행합니다.
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
@@ -156,7 +157,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 6. 작업이 완료되면 결과는 **/example/out/shotestpathss** 디렉터리에 저장됩니다. 출력 파일 이름은 **part-m-**으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 다음 명령을 사용하여 출력을 봅니다.
 
-    ```
+    ```bash
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 

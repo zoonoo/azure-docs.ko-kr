@@ -6,22 +6,21 @@ keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
@@ -198,3 +197,4 @@ DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Azure AD Connect에서 비밀번호 쓰기 저장 사용"
+

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,27 +30,25 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 * **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
-진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 사용하도록 설정하려면:
+진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 사용하도록 설정하려면:
 
-1.    Azure Portal에서 스트리밍 작업 블레이드로 이동합니다.
+1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
 
-2.    **모니터링** 아래의 **진단 로그** 블레이드로 이동합니다.
+    ![진단 로그에 대한 블레이드 탐색](./media/event-hubs-diagnostic-logs/image1.png)
 
-    ![진단 로그에 대한 블레이드 탐색](./media/event-hubs-diagnostic-logs/image1.png)  
+2.  모니터링하려는 리소스를 클릭합니다.
 
-3.    **진단 켜기**를 선택합니다.
+3.  **진단 켜기**를 클릭합니다.
 
     ![진단 로그 설정](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.    **상태**로 **켜기**를 선택합니다.
+4.  **상태**에서 **켜기**를 클릭합니다.
 
     ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
+5.  저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
 
-6.    수집할 로그의 범주(예: **실행** 또는 **작성**)를 선택합니다.
-
-7.    새 진단 설정을 저장합니다.
+6.  새 진단 설정을 저장합니다.
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
 
@@ -58,11 +57,11 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니다.
 
-* **ArchivalLogs:** 이벤트 허브 보관, 특히 보관 오류와 관련된 로그입니다.
-* **OperationalLogs:** Event Hubs 작업 중 발생하는 사항, 특히 이벤트 허브 만들기, 사용된 리소스, 작업 상태와 같은 작업 유형에 대한 정보입니다.
+* **ArchiveLogs:** 이벤트 허브 보관, 특히 보관 오류와 관련된 로그입니다.
+* **OperationalLogs:** Event Hubs 작업 중 발생하는 사항, 특히 이벤트 허브 생성, 사용된 리소스, 작업 상태와 같은 작업 유형에 대한 정보입니다.
 
 ## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
-모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 예제에 설명된 형식을 사용하는 문자열 필드가 있습니다.
+모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
 
 ### <a name="archive-logs-schema"></a>보관 로그 스키마
 
@@ -83,7 +82,7 @@ durationInSeconds | 실패 기간입니다.
 Message | 오류 메시지입니다.
 카테고리 | ArchiveLogs
 
-보관 로그 JSON 문자열 예제는 다음과 같습니다.
+다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
 
 ```json
 {
@@ -102,14 +101,14 @@ Message | 오류 메시지입니다.
 }
 ```
 
-### <a name="operation-logs-schema"></a>작업 로그 스키마
+### <a name="operational-logs-schema"></a>작업 로그 스키마
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
 이름 | 설명
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
-EventName | 작업 이름입니다.     
+EventName | 작업 이름입니다.  
 resourceId | Azure Resource Manager 리소스 ID입니다.
 SubscriptionId | 구독 ID가 표시됩니다.
 EventTimeString | 작업 시간입니다.
@@ -118,7 +117,7 @@ EventProperties | 작업 속성입니다.
 Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
 카테고리 | OperationalLogs
 
-작업 로그 JSON 문자열 예제는 다음과 같습니다.
+다음 코드는 작업 로그 JSON 문자열에 대한 예입니다.
 
 ```json
 Example:

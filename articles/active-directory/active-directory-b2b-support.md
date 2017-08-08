@@ -14,11 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 05/26/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 1ac5ce4b0c3177069bdd0ba4afdb02ef9950fdef
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -44,10 +46,5 @@ ms.openlocfilehash: 1ac5ce4b0c3177069bdd0ba4afdb02ef9950fdef
 
   ![지원 티켓 문제 설명](media/active-directory-b2b-support/problem-description.png)
 
-  연락처 정보를 추가하면 지원 담당자가 추가 문제 해결을 위해 연락할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+3. 지원 담당자가 추가 문제 해결을 위해 연락할 수 있도록 하려면 연락처 정보를 추가합니다.
 

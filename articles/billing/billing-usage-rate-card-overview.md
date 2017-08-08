@@ -24,12 +24,10 @@ ms.lasthandoff: 04/27/2017
 
 ---
 
-<a id="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage" class="xliff"></a>
-# Azure Billing API를 사용하여 프로그래밍 방식으로 Azure 사용량에 대한 통찰력을 얻기
+# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing API를 사용하여 프로그래밍 방식으로 Azure 사용량에 대한 통찰력을 얻기
 Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 설정된 데이터 분석 도구로 끌어옵니다. Azure 리소스 사용량 및 RateCard API를 통해 비용을 정확하게 예측하고 관리할 수 있습니다. API는 Azure Resource Manager가 노출한 API의 제품군의 일부로서 리소스 공급자로 구현됩니다.  
 
-<a id="azure-invoice-download-api-preview" class="xliff"></a>
-## Azure 청구서 다운로드 API(미리 보기)
+## <a name="azure-invoice-download-api-preview"></a>Azure 청구서 다운로드 API(미리 보기)
 [옵트인이 완료되면](billing-manage-access.md#opt-in) 미리 보기 버전의 [청구서 API](/rest/api/billing)를 사용하여 청구서를 다운로드합니다. 기능은 다음과 같습니다.
 
 * **Azure 역할 기반 액세스 제어** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
@@ -38,8 +36,7 @@ Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 �
 > [!NOTE]
 > 이 기능은 미리 보기의 첫 번째 버전이며 이전 버전과 호환되지 않는 변경 내용이 적용될 수 있습니다. 현재 특정 구독 제품(EA, CSP, AIO는 지원되지 않음) 및 Azure Germany에서 사용할 수 없습니다.
 
-<a id="azure-resource-usage-api-preview" class="xliff"></a>
-## Azure 리소스 사용량 API(미리 보기)
+## <a name="azure-resource-usage-api-preview"></a>Azure 리소스 사용량 API(미리 보기)
 Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt219003)를 사용하여 예상된 Azure 사용량 데이터를 가져올 수 있습니다. API에는 다음이 포함됩니다.
 
 * **Azure 역할 기반 액세스 제어** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
@@ -48,15 +45,13 @@ Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt21900
 * **리소스 메타데이터** - 측정기 이름, 측정기 범주, 측정기 하위 범주, 단위 및 하위 지역과 같은 리소스 세부 정보를 통해 호출자는 사용된 것을 더 잘 이해할 수 있습니다. Azure Portal, Azure 사용 CSV, EA 청구 CSV 및 다른 공용 환경을 통해 리소스 메타데이터 용어를 정렬하기 위해 노력하여 환경을 통해 데이터를 서로 연결할 수 있도록 합니다.
 * **모든 사용 유형에 대한 사용** – 종량제, MSDN, 약정 금액, 금액 크레딧 및 EA와 같은 모든 사용 유형에 대한 사용 데이터가 제공됩니다.
 
-<a id="azure-resource-ratecard-api-preview" class="xliff"></a>
-## Azure 리소스 RateCard API(미리 보기)
+## <a name="azure-resource-ratecard-api-preview"></a>Azure 리소스 RateCard API(미리 보기)
 [Azure 리소스 RateCard API](https://msdn.microsoft.com/library/azure/mt219005)를 사용하여 각 예상 가격 정보 및 사용 가능한 Azure 리소스의 목록을 가져옵니다. API에는 다음이 포함됩니다.
 
 * **Azure 역할 기반 액세스 제어** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 RateCard 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 판독기, 소유자 또는 참가자 역할에 추가해야 합니다.
 * **종량제, MSDN, 금액 약정 및 금액 크레딧 제공(EA은 지원되지 않음)** - 이 API는 Azure 제공 수준 환율 정보를 제공합니다.  API의 호출자는 제안 정보를 전달하여 리소스 세부 정보 및 속도를 가져와야 합니다. 현재 EA는 등 당 사용자 지정된 속도를 제공하기 때문에 EA 속도를 제공할 수 없습니다. 
 
-<a id="scenarios" class="xliff"></a>
-## 시나리오
+## <a name="scenarios"></a>시나리오
 다음은 사용 및 RateCard Api의 조합을 사용하여 가능하게 된 일부 시나리오입니다.
 
 * **해당월 Azure 소비** - 사용 및 RateCard API 조합을 사용하여 해당 월 동안 클라우드 소비에 대한 높은 통찰력을 얻을 수 있습니다. 사용 및 요금 예측량의 매시간 및 매일 버킷을 분석할 수 있습니다.
@@ -68,14 +63,12 @@ Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt21900
   * 워크로드를 Azure 리소스의 다른 하위 지역에서 실행하는 것이 비용 효율적인지 또는 다른 구성에서 실행하는 것이 비용 효율적인지 여부를 확인할 수 있습니다. Azure 리소스 비용은 사용 중인 Azure 지역에 따라 달라질 수 있습니다.
   * 다른 Azure 제품 유형에서 Azure 리소스에 더 나은 속도를 제공하는지 결정할 수도 있습니다.
   
-<a id="partner-solutions" class="xliff"></a>
-## 파트너 솔루션
+## <a name="partner-solutions"></a>파트너 솔루션
 [고객에게 ITFM를 제공하는 Microsoft Azure 사용량 및 RateCard APIs 사용 가능한 Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)는 Azure 청구 API 파트너 [Cloudyn](https://www.cloudyn.com/microsoft-azure/)에서 제공하는 통합 환경을 설명합니다. 이 문서에서는 Cloudyn 및 Azure 청구 API를 사용하여 Azure 소비 데이터에서 통찰력을 얻을 수 있는 비디오를 포함하여 해당 환경에 대해 설명합니다.
 
 [Cloud Cruiser 및 Microsoft Azure 청구 API 통합](billing-usage-rate-card-partner-solution-cloudcruiser.md)에서는 [Azure Pack용 Cloud Cruiser의 Express](http://www.cloudcruiser.com/partners/microsoft/)가 WAP(Windows Azure Pack) 포털에서 어떻게 직접적으로 작동하는지 설명합니다. 사용자는 단일 사용자 인터페이스에서 Microsoft Azure 개인 또는 호스팅된 공용 클라우드의 운영 및 재무 측면을 완벽하게 관리할 수 있습니다.   
 
-<a id="next-steps" class="xliff"></a>
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * 다음 GitHub에서 코드 샘플을 확인합니다.
   * [청구서 API 코드 샘플](https://go.microsoft.com/fwlink/?linkid=845124)
 

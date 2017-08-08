@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio용 Hadoop 도구를 사용한 Hive 쿼리 | Microsoft Docs"
-description: "Visual Studio Hadoop 도구를 사용하여 HDInsight에서 Hadoop으로 Hive를 사용하는 방법에 대해 알아봅니다."
+title: "Visual Studio용 Data Lake(Hadoop) 도구를 사용한 Hive - Azure HDInsight | Microsoft Docs"
+description: "Azure HDInsight의 Apache Hadoop에서 Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,33 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리 실행
 
-[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
-
-Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive 쿼리를 제출하는 방법에 대해 알아봅니다.
+Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 방법을 알아봅니다. Data Lake 도구를 사용하면 Azure HDInsight에서 Hadoop에 대해 Hive 쿼리를 쉽게 만들고, 제출하고, 모니터링할 수 있습니다.
 
 ## <a id="prereq"></a>필수 조건
-
-이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * Visual Studio(다음 버전 중 하나)
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate 업데이트 4
 
     * Visual Studio 2015(모든 버전)
 
@@ -70,7 +66,7 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
    * `CREATE EXTERNAL TABLE`: Hive에서 새 '외부' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
 
      > [!NOTE]
-     > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
+     > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. MapReduce 작업 또는 Azure 서비스를 예로 들 수 있습니다.
      >
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
@@ -115,7 +111,7 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
 
 8. 도구 모음에서 **제출** 을 선택하여 작업을 실행합니다. **작업 상태** 를 사용하여 작업이 성공적으로 완료되었는지 결정합니다.
 
-9. 작업에서 새 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
+9. 작업에서 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
 
 ## <a id="nextsteps"></a>다음 단계
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d79e7ec6abfc0104008139bb4f86cc7bb1a02a13
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,12 +29,12 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 
 수집할 로그 파일은 다음 조건과 일치해야 합니다.
 
-* 로그는 줄 당 항목이 하나이거나 각 항목의 시작 지점에 다음 형식 중 하나와 일치하는 타임스탬프를 사용해야 합니다.
+- 로그는 줄 당 항목이 하나이거나 각 항목의 시작 지점에 다음 형식 중 하나와 일치하는 타임스탬프를 사용해야 합니다.
   
-    YYYY-MM-DD HH:MM:SS  <br>
-    M/D/YYYY HH:MM:SS AM/PM <br>
-    Mon DD,YYYY HH:MM:SS
-* 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 업데이트를 허용하지 말아야 합니다. 
+    YYYY-MM-DD HH:MM:SS <br>M/D/YYYY HH:MM:SS AM/PM <br>Mon DD,YYYY HH:MM:SS
+
+- 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 업데이트를 허용하지 말아야 합니다. 
+- 로그 파일은 ASCII 또는 UTF-8 인코딩을 사용해야 합니다.  UTF-16 등의 다른 형식은 지원되지 않습니다.
 
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
@@ -58,10 +60,10 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 > 
 
 1. **찾아보기** 를 클릭하고 샘플 파일로 이동합니다.  일부 브라우저에서는 이 단추의 레이블이 **파일 선택** 인 경우도 있습니다.
-2. **다음**을 클릭합니다. 
+2. **다음**을 누릅니다. 
 3. Custom Log Wizard(사용자 지정 로그 마법사)가 파일을 업로드하고 식별된 레코드를 기록합니다.
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
-5. **다음**을 클릭합니다.
+5. **다음**을 누릅니다.
 
 ### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
 사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다.  이렇게 하면 매일 새 파일을 만드는 응용 프로그램을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다.  하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
@@ -173,10 +175,5 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 사용자 지정 로그의 항목을 개별적인 필드로 구문 분석합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

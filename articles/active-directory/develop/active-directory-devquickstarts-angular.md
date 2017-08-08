@@ -3,7 +3,7 @@ title: "Azure AD AngularJS 시작 | Microsoft 문서"
 description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 AngularJS 단일 페이지 응용 프로그램을 빌드하는 방법."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a9997b6a6d30fbd2d21dee5d9c1e3ea92dfa97ab
-ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
+ms.author: jmprieur
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 797b6236afad45e3e308ce073a8beb90cb7e94a1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,6 +32,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 브라우저에서 실행되는 JavaScript 응용 프로그램의 경우 Azure AD가 ADAL(Active Directory 인증 라이브러리) 또는 adal.js를 제공합니다. adal.js의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 이 작업이 얼마나 쉬운지 보여 주기 위해 여기서는 다음 작업을 수행하는 AngularJS To Do List 응용 프로그램을 빌드할 것입니다.
 
 * Azure AD를 ID 공급자로 사용하여 사용자를 앱에 로그인합니다.
+
 * 사용자에 대한 일부 정보를 표시합니다.
 * Azure AD의 전달자 토큰을 사용하여 앱의 To Do List API를 안전하게 호출합니다.
 * 앱에서 사용자를 로그아웃합니다.
@@ -45,7 +49,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 앱에서 사용자를 인증하고 토큰을 가져올 수 있게 하려면 먼저 앱을 Azure AD 테넌트에 등록해야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 위쪽 막대에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
+2. 여러 디렉터리에 로그인된 경우 올바른 디렉터리를 보고 있는지 확인해야 할 수 있습니다. 이렇게 하려면 위쪽 모음에서 계정을 클릭합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Azure AD 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 프롬프트에 따라 새 웹 응용 프로그램 및/또는 Web API를 만듭니다.
@@ -61,6 +65,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2단계: ADAL 설치 및 단일 페이지 앱 구성
 Azure AD에서 응용 프로그램이 있으므로 adal.js를 설치하고 ID 관련 코드를 작성할 수 있습니다.
 
+### <a name="configure-the-javascript-client"></a>JavaScript 클라이언트 구성
 먼저 패키지 관리자 콘솔을 사용하여 TodoSPA 프로젝트에 Adal.js를 추가합니다.
   1. [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
   2. [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
@@ -73,6 +78,7 @@ Azure AD에서 응용 프로그램이 있으므로 adal.js를 설치하고 ID �
     ...
     ```
 
+### <a name="configure-the-back-end-server"></a>백 엔드 서버 구성
 단일 페이지 앱의 백 엔드 To Do List API가 브라우저에서 토큰을 수락하도록 하려면 백 엔드에 앱 등록에 대한 구성 정보가 필요합니다. TodoSPA 프로젝트에서 `web.config`를 엽니다. Azure Portal에 사용한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
   * `ida:Tenant`는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
   * `ida:Audience`는 포털에서 복사한 응용 프로그램의 클라이언트 ID입니다.
@@ -156,9 +162,4 @@ Adal.js는 응용 프로그램에 일반적인 ID 기능을 쉽게 통합할 수
 이제 추가 시나리오로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다. [단일 페이지 앱에서 CORS Web API 호출](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

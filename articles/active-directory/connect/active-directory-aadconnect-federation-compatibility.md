@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6b0fd60e79308b75c3a2797ff25065b8a500a3b4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 페더레이션 호환성 목록
@@ -47,6 +46,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 * [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+* [DigitalPersona 복합 인증](#digitalpersona-composite-authentication)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation 버전 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -61,7 +61,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 * [Sign&go 5.3](#signgo-53) 
 * [SoftBank Technology Online Service Gate](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
-* [VMware Workspace Portal 버전 2.1](#vmware--workspace-portal-version-21) 
+
 
 
 > [!IMPORTANT]
@@ -96,7 +96,7 @@ AD FS를 통해 Azure Active Directory를 사용하는 방법에 대한 자세�
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x
@@ -111,7 +111,7 @@ AD FS를 통해 Azure Active Directory를 사용하는 방법에 대한 자세�
 
 BIG-IP Access Policy Manager에 대한 자세한 내용은 [BIG-IP Access Policy Manager](https://f5.com/products/modules/access-policy-manager) 
 
-Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 BIG-IP Access Policy Manager 지침은 [여기](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 BIG-IP Access Policy Manager 지침은 pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)를 다운로드합니다.
 
 ## <a name="bitglass"></a>BitGlass
 
@@ -123,7 +123,7 @@ Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 ST
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-BitGlass에 대한 자세한 내용은 [여기](http://www.bitglass.com )를 참조하세요.
+BitGlass에 대한 자세한 내용은 [BitGlass](http://www.bitglass.com)를 참조하세요.
 
 ## <a name="ca-secure-cloud"></a>CA Secure Cloud
 
@@ -135,7 +135,7 @@ BitGlass에 대한 자세한 내용은 [여기](http://www.bitglass.com )를 참
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-CA Secure Cloud에 대한 자세한 내용은 [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx)
+CA Secure Cloud에 대한 자세한 내용은 [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx)를 참조하세요.
 
 ## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 누적 릴리스 4
 
@@ -147,7 +147,7 @@ CA Secure Cloud에 대한 자세한 내용은 [CA Secure Cloud](http://www.ca.co
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html) 
+CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html)을 참조하세요. 
 
 ## <a name="centrify"></a>Centrify
 
@@ -159,7 +159,7 @@ CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://ww
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |클라이언트 액세스 제어는 지원되지 않습니다. |
 
-Centrify에 대한 자세한 내용은 [여기](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+Centrify에 대한 자세한 내용은 [Centrify](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)를 참조하세요.
 
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell One Identity Cloud Access Manager v7.1
 
@@ -171,9 +171,22 @@ Centrify에 대한 자세한 내용은 [여기](http://www.centrify.com/cloud/ap
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-Dell One Identity Cloud Access Manager에 대한 자세한 내용은 [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager)
+Dell One Identity Cloud Access Manager에 대한 자세한 내용은 [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager)를 참조하세요.
 
- Office 365 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 지침은 [Office 365 사용자 구성](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
+ Office 365 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 지침은 [Office 365 사용자 구성](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)을 참조하세요. 
+
+## <a name="digitalpersona-composite-authentication"></a>DigitalPersona 복합 인증  
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+| 클라이언트 | 지원 | 예외 |
+| --- | --- | --- |
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 |지원됨 |Windows 통합 인증은 지원되지 않음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
+
+자세한 내용은 [DigitalPersona 복합 인증](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf)을 참조하세요.
+
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
 
@@ -185,7 +198,7 @@ Dell One Identity Cloud Access Manager에 대한 자세한 내용은 [Dell One I
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-IBM Tivoli Federated Identity Manager에 대한 자세한 내용은 [Microsoft 응용 프로그램용 IBM Security Access Manager](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+IBM Tivoli Federated Identity Manager에 대한 자세한 내용은 [Microsoft 응용 프로그램용 IBM Security Access Manager](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)를 참조하세요.
 
 ## <a name="icewall-federation-version-30"></a>IceWall Federation 버전 3.0
 
@@ -197,7 +210,7 @@ IBM Tivoli Federated Identity Manager에 대한 자세한 내용은 [Microsoft �
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-IceWall Federation에 대한 자세한 내용은 [여기](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) 및 [여기](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)를 참조하세요.
+IceWall Federation에 대한 자세한 내용은 [IceWall Federation 버전 3.0](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) 및 [Office 365를 사용하여 IceWall Federation](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)을 참조하세요.
 
 ## <a name="memority"></a>Memority
 
@@ -209,7 +222,7 @@ IceWall Federation에 대한 자세한 내용은 [여기](http://h50146.www5.hp.
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-Memority에 대한 자세한 내용은 [Memority](http://www.memority.com)를 참조하세요.
+Memority 사용에 대한 자세한 내용은 [Memority](http://www.memority.com)를 참조하세요.
 
 
 ## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
@@ -234,7 +247,7 @@ Memority에 대한 자세한 내용은 [Memority](http://www.memority.com)를 �
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-Okta에 대한 자세한 내용은 [Okta](https://www.okta.com/)
+Okta에 대한 자세한 내용은 [Okta](https://www.okta.com/)를 참조하세요.
 
 ## <a name="onelogin"></a>OneLogin
 
@@ -246,7 +259,7 @@ Okta에 대한 자세한 내용은 [Okta](https://www.okta.com/)
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-OneLogin에 대한 자세한 내용은 [OneLogin](https://www.onelogin.com/)
+OneLogin에 대한 자세한 내용은 [OneLogin](https://www.onelogin.com/)을 참조하세요.
 
 ## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimal IDM Virtual Identity Server Federation Services
 
@@ -258,7 +271,7 @@ OneLogin에 대한 자세한 내용은 [OneLogin](https://www.onelogin.com/)
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |
 
-클라이언트 액세스 정책에 대한 자세한 내용은 [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) |(클라이언트 위치 기반 Office 365 서비스에 대한 액세스 제한)를 참조하세요.
+클라이언트 액세스 정책에 대한 자세한 내용은 [클라이언트 위치 기반 Office 365 서비스에 대한 액세스 제한](https://technet.microsoft.com/library/hh526961.aspx)을 참조하세요.
 
 
 
@@ -290,7 +303,7 @@ Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 ST
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-RadiantOne CFS에 대한 자세한 내용은 [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/)
+RadiantOne CFS에 대한 자세한 내용은 [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/)를 참조하세요.
 
 ## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
 
@@ -302,7 +315,7 @@ RadiantOne CFS에 대한 자세한 내용은 [RadiantOne CFS](http://www.radiant
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-자세한 내용은 참조 [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)를 참조하세요.
+자세한 내용은 [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)를 참조하세요.
 
 ## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
 
@@ -339,7 +352,7 @@ SecureAuth에 대한 자세한 내용은 [SecureAuth IdP](http://go.microsoft.co
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다.  이 구성에 지원이 필요한 경우 Ilex에 문의하거나 [여기](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다.  이 구성에 지원이 필요한 경우 Ilex에 문의하거나 설치 가이드 [Sign&go](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)를 확인하세요.
 
 ## <a name="softbank-technology-online-service-gate"></a>SoftBank Technology Online Service Gate
 
@@ -351,7 +364,7 @@ Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니�
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-SoftBank Technology Online Service Gate에 대한 자세한 내용은 [여기](https://www.softbanktech.jp/service/list/osg-pro-ent/)를 참조하세요.
+SoftBank Technology Online Service Gate에 대한 자세한 내용은 [Softbank](https://www.softbanktech.jp/service/list/osg-pro-ent/)를 참조하세요.
 
 ## <a name="vmware-workspace-one"></a>VMware Workspace One
 
@@ -363,16 +376,6 @@ SoftBank Technology Online Service Gate에 대한 자세한 내용은 [여기](h
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-자세한 내용은 [여기](http://www.vmware.com/pdf/vidm-office365-saml.pdf)를 참조하세요.
+자세한 내용은 [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)을 참조하세요.
 
-## <a name="vmware--workspace-portal-version-21"></a>VMware Workspace Portal 버전 2.1
 
-다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
-
-| 클라이언트 | 지원 | 예외 |
-| --- | --- | --- |
-| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 |지원됨 |Windows 통합 인증은 지원되지 않음 |
-| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
-| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
-
-VMware Workspace Portal 버전 2.1에 대한 자세한 내용은 [여기](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)서 pdf를 다운로드하세요.

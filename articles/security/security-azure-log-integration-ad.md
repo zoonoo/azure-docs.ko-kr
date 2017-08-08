@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 05/09/2017
 ms.author: barclayn
+ms.custom: azlog
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5e135be1e21173add3236f851609f1df0a5b0dee
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: d4cf9f394f209fe3dfd633f6ca2954e9770d5949
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -51,6 +52,11 @@ Azure Active Directory 감사 이벤트를 통해 Azure Active Directory에서 �
 
 * **C:\Users\azlog\AzureActiveDirectoryJson**
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
+
+이 문서에서 설명된 단계를 진행하는 방법에 대한 비디오를 보려면 아래 내용을 참조하세요.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
+
 
 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
 

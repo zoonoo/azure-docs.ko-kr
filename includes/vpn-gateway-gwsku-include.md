@@ -14,7 +14,7 @@ SLA 및 기능 집합의 차이로 인해 프로덕션 *vs.* 개발-테스트에
 | **개발-테스트 또는 개념 증명**   | Basic                  |
 |                                    |                        |
 
-이전 SKU를 사용하는 경우 프로덕션 SKU 권장 사항은 표준 및 HighPerformance SKU입니다. 이전 SKU에 대한 정보는 [게이트웨이 SKU(이전)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)을 참조하세요.
+이전 SKU를 사용하는 경우 프로덕션 SKU 권장 사항은 표준 및 HighPerformance SKU입니다. 이전 SKU에 대한 정보는 [게이트웨이 SKU(이전 SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)를 참조하세요.
 
 ###  <a name="feature"></a>게이트웨이 SKU 기능 집합
 
@@ -22,9 +22,11 @@ SLA 및 기능 집합의 차이로 인해 프로덕션 *vs.* 개발-테스트에
 
 | **SKU**| **기능**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|경로 기반 VPN 최대 30개의 터널* <br>P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 <br><br>* "PolicyBasedTrafficSelectors"를 구성하여 경로 기반 VPN Gateway(VpnGw1, VpnGw2, VpnGw3)를 여러 온-프레미스 정책 기반 방화벽 장치에 연결할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 장치에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요. |
 |Basic   | 경로 기반: P2S와 10개의 터널<br>정책 기반(IKEv1): 1개의 터널; P2S 없음|
+| VpnGw1, VpnGw2, VpnGw3 |경로 기반 VPN: 최대 30개 터널(*) <br>P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
+
+(*) 경로 기반 VPN 게이트웨이(VpnGw1, VpnGw2, VpnGw3)를 여러 온-프레미스 정책 기반 방화벽 장치에 연결하도록 "PolicyBasedTrafficSelectors"를 구성할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 장치에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 ###  <a name="resize"></a>게이트웨이 SKU 크기 조정
 

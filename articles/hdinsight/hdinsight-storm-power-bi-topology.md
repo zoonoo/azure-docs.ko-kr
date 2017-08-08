@@ -1,5 +1,5 @@
 ---
-title: "Power BI로 Apache Storm 사용 | Microsoft Docs"
+title: "Power BI에서 Apache Storm 사용 - Azure HDInsight | Microsoft Docs"
 description: "HDInsight의 Apache Storm 클러스터에서 실행 중인 C# 토폴로지로부터 데이터를 사용하여 Power BI 보고서를 만듭니다."
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 05/31/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: bedb6816e4f203687529e95ffa24688e86b5a3cb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36487c0c34e5a4bb955bbc15c8c96b9e838aeb44
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수 있습니다. 이 문서는 HDInsight의 Apache Storm을 사용하여 Power BI에 대한 데이터를 생성하는 방법의 예를 제공합니다.
 
 > [!NOTE]
-> 이 문서의 단계는 Visual Studio가 설치된 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux 또는 Windows 기반 HDInsight 클러스터로 전송될 수 있습니다. 2016년 10월 28일 이후 생성된 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
+> 이 문서의 단계는 Visual Studio가 있는 Windows 개발 환경에서 진행해야 합니다. 컴파일된 프로젝트는 Linux 기반 HDInsight 클러스터로 제출할 수 있습니다. 2016년 10월 28일 이후 생성된 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
 >
 > Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 사용되는 Microsoft.SCP.Net.SDK NuGet 패키지를 0.10.0.6 버전 이상으로 업데이트합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다. 예를 들어 HDInsight에서 Storm 버전 3.3 및 3.4는 Storm 버전 0.10.x를 사용하는 반면, HDInsight 3.5는 Storm 1.0.x를 사용합니다.
 >
@@ -42,7 +43,7 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 * HDInsight 클러스터. 자세한 내용은 [HDInsight에서 Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * Visual Studio(다음 버전 중 하나)
 
@@ -108,7 +109,7 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 
         select * from iislogs;
 
-    Ctrl + Shift + E를 사용하여 쿼리를 실행하면 다음과 유사한 결과가 표시됩니다.
+    Ctrl + Shift + E를 사용하여 쿼리를 실행하면 다음 데이터와 유사한 결과가 표시됩니다.
 
         1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
         2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
@@ -121,11 +122,17 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 
 ## <a name="create-a-report"></a>보고서 만들기
 
-1. Power BI용 [Azure SQL 데이터베이스 커넥터](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) 에 연결합니다.
+1. Power BI용 [Azure SQL 데이터베이스 커넥터](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) 에 연결합니다. 
 
 2. **데이터베이스** 내에서 **가져오기**를 선택합니다.
 
 3. **Azure SQL Database**를 선택한 다음 **연결**을 선택합니다.
+
+    > [!NOTE]
+    > 계속하려면 Power BI Desktop을 다운로드하라는 메시지가 표시될 수 있습니다. 이렇게 하려면 다음 단계를 수행하여 연결합니다.
+    >
+    > 1. Power BI Desktop을 열고 __Get Data__를 선택합니다.
+    > 2  __Azure__를 선택한 다음 __Azure SQL Database__를 선택합니다.
 
 4. 정보를 입력하여 Azure SQL 데이터베이스에 연결합니다. [Azure Portal](https://portal.azure.com)에 방문하고 SQL 데이터베이스를 선택하여 이 정보를 찾을 수 있습니다.
 
@@ -134,7 +141,7 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 
 5. 연결한 후에 연결한 데이터베이스와 동일한 이름을 가진 새 데이터 집합이 표시됩니다. 데이터 집합을 선택하여 보고서를 만들기 시작합니다.
 
-6. **필드**에서 **IISLOGS** 항목을 확장합니다. **URISTEM**에 대한 확인란을 선택합니다. 그러면 데이터베이스에 로그인한 URI 형태소(/foo, /bar, 등)를 나열한 보고서가 만들어집니다.
+6. **필드**에서 **IISLOGS** 항목을 확장합니다. URI 스템을 나열하는 보고서를 만들려면 **URISTEM** 확인란을 선택합니다.
 
     ![보고서 만들기](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
@@ -142,7 +149,7 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 
     ![메서드 데이터 추가](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
-8. **시각화** 열에서 **필드** 아이콘을 선택한 다음 **값** 섹션의 **메서드** 옆에 있는 아래쪽 화살표를 선택합니다. 표시되는 목록에서 **수**를 선택합니다. 이렇게 하면 보고서가 특정 URI에 액세스하는 횟수를 나열하도록 변경됩니다.
+8. **시각화** 열에서 **필드** 아이콘을 선택한 다음 **값** 섹션의 **메서드** 옆에 있는 아래쪽 화살표를 선택합니다. URI에 액세스한 횟수를 표시하려면 **Count**를 선택합니다.
 
     ![메서드의 수 변경](./media/hdinsight-storm-power-bi-topology/count.png)
 
@@ -168,7 +175,7 @@ Power BI를 사용하면 데이터를 보고서로 시각적으로 표시할 수
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Storm 토폴로지에서 SQL 데이터베이스로 데이터를 보낸 다음 Power BI를 사용하여 데이터를 시각화하는 방법을 알아보았습니다. HDInsight에서 Storm을 사용하여 다른 Azure 기술을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Storm 토폴로지에서 SQL 데이터베이스로 데이터를 보낸 다음 Power BI를 사용하여 데이터를 시각화하는 방법을 알아보았습니다. HDInsight에서 Storm을 사용하여 다른 Azure 기술을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 

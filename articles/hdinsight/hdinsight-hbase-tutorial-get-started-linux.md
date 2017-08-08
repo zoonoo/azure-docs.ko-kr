@@ -1,6 +1,6 @@
 ---
 title: "HDInsight에서 HBase 예제 시작 - Azure | Microsoft Docs"
-description: "이 Apache HBase 예제에 따라 HDInsight 사용을 시작합니다. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
+description: "이 Apache HBase 예제에 따라 HDInsight에서 hadoop 사용을 시작합니다. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
 keywords: "hbasecommand, hbase 예제"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
+ms.date: 07/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
@@ -42,7 +41,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 공용 Blob 컨테이너에 있습니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
    
    * **구독**: 클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.
@@ -78,36 +77,47 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 1. SSH에서 다음 HBase 명령을 실행합니다.
    
-        hbase shell
+    ```bash
+    hbase shell
+    ```
+
 2. 두 열 패밀리가 있는 HBase를 만듭니다.
-   
-        create 'Contacts', 'Personal', 'Office'
-        list
+
+    ```hbaseshell   
+    create 'Contacts', 'Personal', 'Office'
+    list
+    ```
 3. 일부 데이터 삽입:
-   
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        scan 'Contacts'
+    
+    ```hbaseshell   
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    scan 'Contacts'
+    ```
    
     ![HDInsight Hadoop HBase 셸][img-hbase-shell]
 4. 단일 행 가져오기
    
-        get 'Contacts', '1000'
+    ```hbaseshell
+    get 'Contacts', '1000'
+    ```
    
     행이 하나만 있기 때문에 스캔 명령을 사용하여 동일한 결과가 표시됩니다.
    
     HBase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
 5. 셸 종료
    
-        exit
+    ```hbaseshell
+    exit
+    ```
 
 **연락처 HBase 테이블로 대량으로 데이터 로드**
 
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다.  자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
-샘플 데이터 파일은 공용 Blob 컨테이너, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다.  데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너인 *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*에 있습니다.  데이터 파일 내용은 다음과 같습니다.
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -125,14 +135,19 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 > [!NOTE]
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
 > 
-> 
 
-1. SSH에서 데이터 파일을 StoreFiles로 변환하고 Dimporttsv.bulk.output에서 지정된 상대 경에 저장하려면 다음 명령을 실행합니다.  HBase 셸인 경우에는 exit 명령을 사용하여 종료합니다.
-   
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+1. SSH에서 다음 명령을 실행하여 데이터 파일을 StoreFiles로 변형하고 Dimporttsv.bulk.output에서 지정한 상대 경로에 저장합니다.  HBase 셸인 경우에는 exit 명령을 사용하여 종료합니다.
+
+    ```bash   
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    ```
+
 2. /Example/data/storeDataFileOutput에서 HBase 테이블로 데이터를 업로드하려면 다음 명령을 실행합니다.
    
-        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```bash
+    hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```
+
 3. HBase 셸을 열고 스캔 명령을 사용하여 테이블 내용을 나열할 수 있습니다.
 
 ## <a name="use-hive-to-query-hbase"></a>Hive를 사용하여 HBase 쿼리
@@ -142,59 +157,76 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 1. **PuTTY**를 열고 클러스터에 연결합니다.  이전 절차의 지침을 참조하세요.
 2. SSH 세션에서 다음 명령을 사용하여 Beeline을 시작합니다.
 
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
+
     Beeline에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
        
 3. 다음 HiveQL 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
-   
-        CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
-        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
-        TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+
+    ```hiveql   
+    CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
+    STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+    WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
+    TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+    ```
+
 4. HBase 테이블에서 데이터를 쿼리하려면 다음 HiveQL 스크립트를 실행합니다.
-   
-         SELECT count(rowkey) FROM hbasecontacts;
+
+    ```hiveql   
+    SELECT count(rowkey) FROM hbasecontacts;
+    ```
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
 
 REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+
+    ```bash
+    curl -u <UserName>:<Password> \
+    -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+    ```
+
 3. 다음 명령을 사용하여 두 열 패밀리가 있는 새 HBase 테이블을 만듭니다.
-   
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
-        -v
-   
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+    -v
+    ```
+
     스키마는 JSon 형식으로 제공됩니다.
 4. 다음 명령을 사용하여 데이터 일부를 삽입합니다.
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
+    -v
+    ```
    
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
-        -v
-   
-    -d 스위치에 지정된 값을 base64로 인코딩해야 합니다.  예제:
+    -d 스위치에 지정된 값을 base64로 인코딩해야 합니다. 예제:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
    * Sm9obiBEb2xl: John Dole
      
-     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single)를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
 5. 다음 명령을 사용하여 행을 가져옵니다.
    
-        curl -u <UserName>:<Password> \
-        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
-        -H "Accept: application/json" \
-        -v
+    ```bash 
+    curl -u <UserName>:<Password> \
+    -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+    -H "Accept: application/json" \
+    -v
+    ```
 
 HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https://hbase.apache.org/book.html#_rest)를 참조하세요.
 
@@ -218,7 +250,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 **HBase Master UI에 액세스하려면**
 
-1. https://&lt;Clustername>.azurehdinsight.net에서 Ambari 웹 UI를 엽니다.
+1. https://&lt;Clustername>.azurehdinsight.net에서 Ambari 웹 UI에 로그인합니다.
 2. 왼쪽 메뉴에서 **HBase**를 클릭합니다.
 3. 페이지 위쪽에서 **빠른 링크**를 클릭하고 활성 Zookeeper 노드 링크를 가리킨 다음 **HBase Master UI**를 클릭합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
@@ -242,7 +274,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
+이 문서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸의 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
 자세한 내용은 다음을 참조하세요.
 

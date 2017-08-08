@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2dcde690d138fdf524c84c38ffaf3dd8f5a38b83
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-ad-b2c-sign-up--sign-in-in-a-aspnet-web-app"></a>Azure AD B2C: ASP.NET 웹앱에서의 등록 및 로그인
@@ -347,7 +347,7 @@ public ActionResult Claims()
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
-마지막으로 앱을 빌드하고 실행할 수 있습니다. 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 프로필을 편집하거나 암호를 다시 설정합니다. 로그아웃했다가 다른 사용자로 등록합니다. **클레임** 탭에 표시되는 정보가 정책에 구성한 정보와 어떻게 일치하는지 확인합니다.
+마지막으로 TaskService 및 TaskWebApp 프로젝트를 빌드하고, 웹 페이지의 메뉴 항목이 올바르게 표시되도록 Visual Studio에서 TaskWebApp을 시작 프로젝트로 설정하고, 앱을 실행합니다. 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동일한 사용자로 다시 로그인합니다. 프로필을 편집하거나 암호를 다시 설정합니다. 로그아웃했다가 다른 사용자로 등록합니다. **클레임** 탭에 표시되는 정보가 정책에 구성한 정보와 어떻게 일치하는지 확인합니다.
 
 ## <a name="add-social-idps"></a>소셜 IDP 추가
 

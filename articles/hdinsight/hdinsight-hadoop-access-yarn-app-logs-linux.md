@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight에서 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft 문서"
+title: "Linux 기반 HDInsight에서 Hadoop YARN 응용 프로그램 로그에 액세스 - Azure | Microsoft Docs"
 description: "명령줄과 웹 브라우저를 사용하여 Linux 기반 HDInsight(Hadoop) 클러스터에서 YARN 응용 프로그램 로그에 액세스하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d2dbddeab8e71950a41370818c622306ed097b81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4d9336d0a7c4673f5cc2fa5ddf72476d3b9ece2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Azure HDInsight의 Hadoop 클러스터에서 완료된 YARN (Yet Another Resource Negotiator) 응용 프로그램에 대한 로그에 액세스하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 

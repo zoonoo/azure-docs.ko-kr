@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가| Microsoft 문서"
+title: "HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가 - Azure | Microsoft Docs"
 description: "클러스터를 만드는 동안 HDInsight 클러스터에 Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6f6d7bf50878cc6938f19ba7f79f968f44f82ed6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
@@ -47,7 +47,7 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 **Windows 기반 클러스터**의 경우: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 **요구 사항**
 
@@ -57,7 +57,7 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 
 * 만드는 동안 jar 파일의 라이브러리를 포함하는 저장소 계정을 HDInsight 클러스터에 **연결해야** 합니다. 기본 저장소 계정이거나 __선택적 구성__을 통해 추가된 계정이어야 합니다.
 
-* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 **mystorage** 저장소 계정의 **libs** 컨테이너에 저장되는 경우 매개 변수는 **wasbs://libs@mystorage.blob.core.windows.net/**입니다.
+* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 **mystorage** 저장소 계정의 **libs** 컨테이너에 저장되는 경우 매개 변수는 **wasb://libs@mystorage.blob.core.windows.net/**입니다.
 
   > [!NOTE]
   > 이 문서는 이미 저장소 계정, Blob 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
@@ -85,7 +85,7 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 
    * **ZOOKEEPER**: 이 옵션을 비워둡니다.
 
-   * **매개 변수**: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예를 들어 **wasbs://libs@mystorage.blob.core.windows.net/**입니다.
+   * **매개 변수**: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예를 들어 **wasb://libs@mystorage.blob.core.windows.net/**입니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다.
 

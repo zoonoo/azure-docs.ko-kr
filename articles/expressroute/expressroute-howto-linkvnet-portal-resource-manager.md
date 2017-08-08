@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [클래식 - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
 > 
->  
 
 이 문서를 참조하면 리소스 관리자 배포 모델 및 Azure Portal을 사용하여 VNet(가상 네트워크)을 Azure ExpressRoute 회로에 연결할 수 있습니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
@@ -113,24 +113,24 @@ ms.lasthandoff: 04/14/2017
 
 **연결 권한 부여를 사용하려면**
 
-1.    **+새로 만들기** 단추를 클릭합니다.
+1.  **+새로 만들기** 단추를 클릭합니다.
 
     ![새로 만들기 클릭](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.    Marketplace에서 **“연결”**을 검색하고 선택한 후 **만들기**를 클릭합니다.
+2.  Marketplace에서 **“연결”**을 검색하고 선택한 후 **만들기**를 클릭합니다.
 
     ![연결 검색](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.    **연결 유형**이 "ExpressRoute"로 설정되어 있는지 확인합니다.
+3.  **연결 유형**이 "ExpressRoute"로 설정되어 있는지 확인합니다.
 
 
-4.    세부 정보를 입력하고 기본 사항 블레이드에서 **확인**을 클릭합니다.
+4.  세부 정보를 입력하고 기본 사항 블레이드에서 **확인**을 클릭합니다.
 
     ![기본 사항 블레이드](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.    **설정** 블레이드에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 상환** 확인란을 선택합니다.
+5.  **설정** 블레이드에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 상환** 확인란을 선택합니다.
 
-6.    **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다.
+6.  **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다.
 
     ![설정 블레이드](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 
@@ -142,5 +142,5 @@ ms.lasthandoff: 04/14/2017
 Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 부여를 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 

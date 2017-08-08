@@ -1,10 +1,10 @@
 ---
 title: "시뮬레이션된 Raspberry Pi-클라우드(Node.js) - Azure IoT Hub에 Raspberry Pi 웹 시뮬레이터 연결 | Microsoft Docs"
-description: "Raspberry Pi가 Azure 클라우드에 데이터를 보내도록 Raspberry Pi 웹 시뮬레이터를 Azure IoT Hub에 연결합니다."
+description: "Azure 클라우드 플랫폼으로 데이터를 보내기 위해 시뮬레이트된 Raspberry Pi를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다. 이 자습서를 위해 실제 보드는 필요하지 않습니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "raspberry pi 시뮬레이터, azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드"
 ms.service: iot-hub
@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2017
+ms.date: 7/7/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: fcba6f37f4a71da78f0e8b1c83c7a60711bbed09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b76c64b677a1a57a032cb71d2922778e7cf700c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 

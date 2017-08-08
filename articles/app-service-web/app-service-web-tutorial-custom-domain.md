@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: f98b876658c3257ad2b9162dea053f879ba1f1f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57379d318ab01310388f55c8ec0b9751e909cb9e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
@@ -39,7 +39,9 @@ ms.lasthandoff: 06/23/2017
 **CNAME 레코드** 또는 **A 레코드**를 사용하여 사용자 지정 DNS 이름을 App Service에 매핑할 수 있습니다. 
 
 > [!NOTE]
-> 루트 도메인(예: `contoso.com`)을 제외한 모든 사용자 지정 DNS 이름에 대해 CNAME을 사용하는 것이 좋습니다. 
+> 루트 도메인(예: `contoso.com`)을 제외한 모든 사용자 지정 DNS 이름에 대해 CNAME을 사용하는 것이 좋습니다.
+
+라이브 사이트 및 해당 DNS 도메인 이름을 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](app-service-custom-domain-name-migrate.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -69,6 +71,8 @@ ms.lasthandoff: 06/23/2017
 
 App Service 앱의 관리 페이지가 표시됩니다.  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
 앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)**를 선택합니다.
@@ -80,6 +84,8 @@ App Service 앱의 관리 페이지가 표시됩니다.
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 App Service 계획이 **무료** 계층이 아닌 경우 **가격 책정 계층 선택** 페이지를 닫고 [CNAME 레코드 매핑](#cname)으로 건너뜁니다.
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
@@ -99,22 +105,7 @@ App Service 계획이 **무료** 계층이 아닌 경우 **가격 책정 계층 
 
 자습서 예제에서는 `www` 하위 도메인(예: `www.contoso.com`)에 대한 CNAME 레코드를 추가합니다.
 
-### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
-
-도메인 공급자의 웹 사이트에 로그인합니다.
-
-DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 공급자마다 고유한 DNS 레코드 인터페이스가 있으므로 공급자의 설명서를 참조하세요. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 
-
-종종 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 DNS 레코드 관리 페이지를 찾을 수 있습니다. 해당 페이지로 이동한 다음 **영역 파일**, **DNS 레코드** 또는 **고급 구성**과 같은 링크를 찾습니다.
-
-다음 스크린샷은 DNS 레코드 관리 페이지의 예입니다.
-
-![DNS 레코드 페이지 예](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-예제 스크린샷에서 **추가**를 선택하여 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 다시 한 번 공급자의 설명서를 참조하세요.
-
-> [!NOTE]
-> GoDaddy와 같은 특정 공급자의 경우 먼저 별도의 **변경 내용 저장** 링크를 클릭해야 DNS 레코드의 변경 내용이 적용됩니다. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
@@ -178,22 +169,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
-
-도메인 공급자의 웹 사이트에 로그인합니다.
-
-DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 공급자마다 고유한 DNS 레코드 인터페이스가 있으므로 공급자의 설명서를 참조하세요. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 
-
-종종 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 DNS 레코드 관리 페이지를 찾을 수 있습니다. 해당 페이지로 이동한 다음 **영역 파일**, **DNS 레코드** 또는 **고급 구성**과 같은 링크를 찾습니다.
-
-다음 스크린샷은 DNS 레코드 관리 페이지의 예입니다.
-
-![DNS 레코드 페이지 예](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-예제 스크린샷에서 **추가**를 선택하여 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 다시 한 번 공급자의 설명서를 참조하세요.
-
-> [!NOTE]
-> GoDaddy와 같은 특정 공급자의 경우 먼저 별도의 **변경 내용 저장** 링크를 클릭해야 DNS 레코드의 변경 내용이 적용됩니다. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>A 레코드 만들기
 
@@ -249,22 +225,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 
 이 자습서의 예제에서는 CNAME 레코드를 추가하여 [와일드카드 DNS 이름](https://en.wikipedia.org/wiki/Wildcard_DNS_record)(예: `*.contoso.com`)을 App Service 앱에 매핑합니다. 
 
-### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
-
-도메인 공급자의 웹 사이트에 로그인합니다.
-
-DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 공급자마다 고유한 DNS 레코드 인터페이스가 있으므로 공급자의 설명서를 참조하세요. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 
-
-종종 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 DNS 레코드 관리 페이지를 찾을 수 있습니다. 해당 페이지로 이동한 다음 **영역 파일**, **DNS 레코드** 또는 **고급 구성**과 같은 링크를 찾습니다.
-
-다음 스크린샷은 DNS 레코드 관리 페이지의 예입니다.
-
-![DNS 레코드 페이지 예](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-예제 스크린샷에서 **추가**를 선택하여 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 다시 한 번 공급자의 설명서를 참조하세요.
-
-> [!NOTE]
-> GoDaddy와 같은 특정 공급자의 경우 먼저 별도의 **변경 내용 저장** 링크를 클릭해야 DNS 레코드의 변경 내용이 적용됩니다. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 

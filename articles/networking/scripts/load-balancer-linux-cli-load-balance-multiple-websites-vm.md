@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/19/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b4bfc65a4a32e33e6eaecf16e928484862100cd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5a584b33025122033b930822ae0a0864a7ec1cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/10/2017
 ## <a name="sample-script"></a>샘플 스크립트
 
 
-[!code-azurecli[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "여러 웹 사이트 부하 분산")]
+[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "여러 웹 사이트 부하 분산")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
@@ -53,9 +53,9 @@ az group delete --name myResourceGroup --yes
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Azure Virtual Network 및 서브넷을 만듭니다. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Azure NLB(Network Load Balancer)를 만듭니다. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | NLB 프로브를 만듭니다. NLB 프로브는 NLB 집합에서 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | NLB 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 NLB에 도착하면 NLB 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Azure Load Balancer를 만듭니다. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | 부하 분산 장치 프로브를 만듭니다. 부하 분산 장치 프로브는 부하 분산 장치 집합의 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | 부하 분산 장치 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 부하 분산 장치에 도착하면 부하 분산 장치 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
 | [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) | 부하 분산 장치의 프런트 엔드 IP 주소를 만듭니다. |
 | [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) | 백 엔드 주소 풀을 만듭니다. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | 가상 네트워크 카드를 만들고 가상 네트워크 및 서브넷에 연결합니다. |

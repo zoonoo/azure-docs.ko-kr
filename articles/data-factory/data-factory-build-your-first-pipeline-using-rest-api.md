@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 168704acc3ef1fadad2ab17abbc3cc0ddd2f389c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 197d75a06cce6ffc9111de6351f6a217073423c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
@@ -106,8 +106,10 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:30:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
@@ -124,7 +126,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 다음 사항에 유의하세요.
 
-* 데이터 팩터리는 위의 JSON으로 사용자에게 **Windows 기반** HDInsight 클러스터를 만들어 줍니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
+* 데이터 팩터리는 위의 JSON으로 사용자에게 **Linux 기반** HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
 * HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 
@@ -235,8 +237,8 @@ JSON은 **AzureBlobOutput**이라는 데이터 집합을 정의하고 이는 파
             "name": "RunSampleHiveActivity",
             "linkedServiceName": "HDInsightOnDemandLinkedService"
         }],
-        "start": "2016-07-10T00:00:00Z",
-        "end": "2016-07-11T00:00:00Z",
+        "start": "2017-07-10T00:00:00Z",
+        "end": "2017-07-11T00:00:00Z",
         "isPaused": false
     }
 }

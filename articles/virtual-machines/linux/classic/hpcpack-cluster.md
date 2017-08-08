@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
@@ -52,7 +52,7 @@ Azure의 HPC Pack 클러스터 배포 옵션에 대한 자세한 내용은 [Micr
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > RDMA 지원 VM 크기 중 하나에서 Azure RDMA 네트워크를 사용하려면 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지를 지정합니다. 자세한 내용은 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+    > RDMA 지원 VM 크기 중 하나에서 Azure RDMA 네트워크를 사용하려면 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지를 지정합니다. 자세한 내용은 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
     > 
     > 
 
@@ -186,7 +186,7 @@ Azure에서 HPC Pack 클러스터를 배포한 후에 클러스터를 배포할 
 ### <a name="azure-file-storage"></a>Azure 파일 저장소
 [Azure 파일](https://azure.microsoft.com/services/storage/files/) 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure VM 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며, 온-프레미스 응용 프로그램은 파일 저장소 API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 
 
-Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 [Windows에서 Azure 파일 저장소 시작](../../../storage/storage-dotnet-how-to-use-files.md)을 참조하세요. Linux 노드에 Azure 파일 공유를 탑재하려면 [Linux에서 Azure 파일 저장소를 사용하는 방법](../../../storage/storage-how-to-use-files-linux.md)을 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.
+Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 [Windows에서 Azure 파일 저장소 시작](../../../storage/storage-file-how-to-use-files-windows.md)을 참조하세요. Linux 노드에 Azure 파일 공유를 탑재하려면 [Linux에서 Azure File Storage를 사용하는 방법](../../../storage/storage-how-to-use-files-linux.md)을 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.
 
 다음 예제에서는 저장소 계정에 Azure 파일 공유를 만듭니다. 헤드 노드에 공유를 탑재하려면 명령 프롬프트를 열고 다음 명령을 입력합니다.
 
@@ -299,7 +299,7 @@ HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 도구�
 
 ## <a name="next-steps"></a>다음 단계
 * 클러스터의 노드 수를 확장하거나 클러스터에서 Linux 워크로드를 실행해 보세요. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](hpcpack-cluster-namd.md)을 참조하세요.
-* [RDMA 지원, 계산 집약적 VM](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있는 클러스터로 MPI 작업을 실행해 보세요. 그에 대한 예는 [Azure의 Linux RDMA 클러스터에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](hpcpack-cluster-openfoam.md)을 참조하세요.
+* [RDMA 지원, 계산 집약적 VM](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있는 클러스터로 MPI 작업을 실행해 보세요. 그에 대한 예는 [Azure의 Linux RDMA 클러스터에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](hpcpack-cluster-openfoam.md)을 참조하세요.
 * 온-프레미스 HPC Pack 클러스터의 Linux 노드를 사용한 작업에 관심이 있는 경우 [TechNet 지침](https://technet.microsoft.com/library/mt595803.aspx)을 참조하세요.
 
 <!--Image references-->

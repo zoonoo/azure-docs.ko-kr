@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 조건부 액세스 | Microsoft Docs"
-description: "Azure Active Directory에서 조건부 액세스 제어를 사용하여 응용 프로그램에 대한 액세스를 인증할 때 특정 조건을 확인합니다."
+title: "Azure 클래식 포털의 조건부 액세스 | Microsoft Docs"
+description: "Azure 클래식 포털의 조건부 액세스 제어를 사용하여 응용 프로그램에 대한 액세스를 인증할 때 특정 조건을 확인할 수 있습니다."
 services: active-directory
 keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Azure 클래식 포털의 조건부 액세스
 
-> [!div class="op_single_selector"]
-> * [Azure 클래식 포털](active-directory-conditional-access.md)
-> * [Azure Portal](active-directory-conditional-access-azure-portal.md)
+이 항목은 Azure 클래식 포털의 조건부 액세스에 대한 내용입니다. Azure Active Directory의 조건부 액세스에 대한 최신 정보는 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
+
 
 Azure AD(Azure Active Directory)의 조건부 액세스 제어 기능은 클라우드 및 온-프레미스에서 보안 리소스를 보호하는 간단한 방법을 제공합니다. 다단계 인증과 같은 조건부 액세스 정책을 사용하면 자격 증명 도난 및 피싱 위험을 방지할 수 있습니다. 다른 조건부 액세스 정책을 사용하면 조직의 데이터를 안전하게 보관할 수 있습니다. 예를 들어 자격 증명을 요구하는 것 외에도 Microsoft Intune과 같은 모바일 장치 관리 시스템에 등록된 장치만 조직의 중요한 서비스에 액세스할 수 있는 정책이 있을 수도 있습니다.
 

@@ -5,8 +5,7 @@ sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
  
-### 기본 탄력적 풀 제한
-<a id="basic-elastic-pool-limits" class="xliff"></a>
+### <a name="basic-elastic-pool-limits"></a>기본 탄력적 풀 제한
 
 | 풀 크기(eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
@@ -21,8 +20,7 @@ sql-database-service-tiers.md
 | 데이터베이스당 최대 데이터 저장소 | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 
 ||||||||
 
-### 표준 탄력적 풀 제한
-<a id="standard-elastic-pool-limits" class="xliff"></a>
+### <a name="standard-elastic-pool-limits"></a>표준 탄력적 풀 제한
 
 | 풀 크기(eDTU)  | **50** | **100** | **200**** | **300**** | **400**** | **800****| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
@@ -34,11 +32,10 @@ sql-database-service-tiers.md
 | 풀당 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | 데이터베이스당 최소 eDTU** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | 데이터베이스당 최대 eDTU** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| 데이터베이스당 최대 데이터 저장소 | 250GB | 250GB | 250GB | 250GB | 250GB | 250GB |
+| 데이터베이스당 최대 데이터 저장소 | 50GB | 100GB | 200GB | 250GB | 250GB | 250GB |
 ||||||||
 
-### 표준 탄력적 풀 제한(계속)
-<a id="standard-elastic-pool-limits-continued" class="xliff"></a> 
+### <a name="standard-elastic-pool-limits-continued"></a>표준 탄력적 풀 제한(계속) 
 
 | 풀 크기(eDTU)  |  **1200**** | **1600**** | **2000**** | **2500**** | **3000**** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -53,8 +50,7 @@ sql-database-service-tiers.md
 | 데이터베이스당 최대 데이터 저장소 | 250GB | 250GB | 250GB | 250GB | 250GB | 
 ||||||||
 
-### 프리미엄 탄력적 풀 제한
-<a id="premium-elastic-pool-limits" class="xliff"></a>
+### <a name="premium-elastic-pool-limits"></a>프리미엄 탄력적 풀 제한
 
 | 풀 크기(eDTU)  | **125** | **250** | **500** | **1000** | **1500*****| 
 |:---|---:|---:|---:| ---: | ---: | 
@@ -66,11 +62,10 @@ sql-database-service-tiers.md
 | 풀당 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | 데이터베이스당 최소 eDTU | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000 | 
 | 데이터베이스당 최대 eDTU | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000 |
-| 데이터베이스당 최대 데이터 저장소 | 500GB | 500GB | 500GB | 500GB | 500GB | 
+| 데이터베이스당 최대 데이터 저장소 | 250GB | 500GB | 500GB | 500GB | 500GB | 
 ||||||||
 
-### 프리미엄 탄력적 풀 제한(계속)
-<a id="premium-elastic-pool-limits-continued" class="xliff"></a> 
+### <a name="premium-elastic-pool-limits-continued"></a>프리미엄 탄력적 풀 제한(계속) 
 
 | 풀 크기(eDTU) | **2000***** | **2500***** | **3000***** | **3500***** | **4000*****|
 |:---|---:|---:|---:| ---: | ---: | 
@@ -85,8 +80,7 @@ sql-database-service-tiers.md
 | 데이터베이스당 최대 데이터 저장소 | 500GB | 500GB | 500GB | 500GB | 500GB | 
 ||||||||
 
-### 프리미엄 RS 탄력적 풀 제한
-<a id="premium-rs-elastic-pool-limits" class="xliff"></a>
+### <a name="premium-rs-elastic-pool-limits"></a>프리미엄 RS 탄력적 풀 제한
 
 | 풀 크기(eDTU)  | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -98,7 +92,7 @@ sql-database-service-tiers.md
 | 풀당 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 |
 | 데이터베이스당 최소 eDTU | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
 | 데이터베이스당 최대 eDTU | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| 데이터베이스당 최대 데이터 저장소 | 500GB | 500GB | 500GB | 500GB | 
+| 데이터베이스당 최대 데이터 저장소 | 250GB | 500GB | 500GB | 500GB | 
 ||||||||
 
 > [!IMPORTANT]
@@ -107,5 +101,5 @@ sql-database-service-tiers.md
 >
 >\*\* 200eDTU 이상부터 시작하는 데이터베이스당 최소/최대 eDTU는 공개 미리 보기 상태입니다.
 >
->\*\*\* 500eDTU 이상인 프리미엄 풀에 대한 풀당 기본 최대 데이터 저장소는 750GB입니다. 1000eDTU 이상의 프리미엄 풀당 최대 데이터 저장소 크기를 증가시키려면 Azure Portal 또는 [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool)을 사용하여 이 크기를 명시적으로 선택해야 합니다. 1000TB 이상의 저장소가 있는 프리미엄 풀은 현재 미국 동부2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 현재 공개 미리 보기 상태로 제공됩니다. 다른 모든 지역에서 풀당 최대 저장소는 현재 750GB로 제한됩니다.
+>\*\*\* 500eDTU 이상인 프리미엄 풀에 대한 풀당 기본 최대 데이터 저장소는 750GB입니다. 1,000eDTU를 초과하는 프리미엄 풀당 최대 데이터 저장소 크기를 늘리려면 Azure Portal 또는 [PowerShell](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), [Azure CLI](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli) 또는 [REST API](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api)를 사용하여 이 크기를 명시적으로 선택해야 합니다. 1TB 이상의 저장소가 있는 프리미엄 풀은 현재 미국 동부2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 현재 공개 미리 보기 상태로 제공됩니다. 다른 모든 지역에서 풀당 최대 저장소는 현재 750GB로 제한됩니다.
 >

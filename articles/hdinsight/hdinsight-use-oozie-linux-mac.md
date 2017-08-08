@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1d70bfcf5d1235b34f6cda3ce4e1639e99ebc7f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,12 +33,15 @@ HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아�
 > [!NOTE]
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure 데이터 팩터리입니다. Azure 데이터 팩터리에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
 
+> [!IMPORTANT]
+> 도메인에 가입된 HDInsight에서는 Oozie를 사용할 수 없습니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 * **HDInsight 클러스터**: [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="example-workflow"></a>예제 워크플로
 

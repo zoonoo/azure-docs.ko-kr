@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
@@ -64,11 +64,11 @@ ms.lasthandoff: 06/30/2017
 ### <a name="attributes"></a>특성
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
-| **Condition** |**xs:string** | 입력에 비디오가 없으면 인코더가 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 Condition="InsertBlackIfNoVideoBottomLayerOnly"(최저 비트 전송률에서만 비디오 삽입) 또는 Condition="InsertBlackIfNoVideo"(모든 출력 비트 전송률에서 비디오 삽입)를 사용합니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) 을 참조하세요.|
+| **Condition** |**xs:string** | 입력에 비디오가 없으면 인코더가 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 Condition="InsertBlackIfNoVideoBottomLayerOnly"(최저 비트 전송률에서만 비디오 삽입) 또는 Condition="InsertBlackIfNoVideo"(모든 출력 비트 전송률에서 비디오 삽입)를 사용합니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#no_video) 을 참조하세요.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 해당 시나리오에서는 H264Video의 **InsertBlackIfNoVideo** 특성 설정을 사용하여 인코더가 출력에 비디오 트랙을 추가하도록 강제 지정할 수 있습니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) 을 참조하세요.
+기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 해당 시나리오에서는 H264Video의 **InsertBlackIfNoVideo** 특성 설정을 사용하여 인코더가 출력에 비디오 트랙을 추가하도록 강제 지정할 수 있습니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#no_video) 을 참조하세요.
               
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |

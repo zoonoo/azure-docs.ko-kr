@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 및 브라우저
@@ -38,21 +38,30 @@ ms.lasthandoff: 05/04/2017
 
 Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 조건부 액세스를 지원하는 응용 프로그램은 다음과 같습니다.
 
-| 대상 서비스 | 플랫폼 | 응용 프로그램 |
+
+| 대상 서비스| 플랫폼| 응용 프로그램 |
 | --- | --- | --- |
-| Office 365 Exchange Online |Windows 10 |메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) |
-| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) |
-| Office 365 Exchange Online |iOS, Android |Outlook 모바일 앱 |
-| Office 365 Exchange Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정), 비즈니스용 Skype(향후 지원 예정) |
-| Office 365 SharePoint Online |Windows 10 |Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) 참조, 미래를 위해 계획된 Office 그룹 지원, 미래를 위해 계획된 SharePoint 앱 지원 |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) |
-| Office 365 SharePoint Online |iOS, Android |Office 모바일 앱 |
-| Office 365 SharePoint Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정) |
-| Office 365 Yammer |Windows 10, iOS(Android는 향후 지원 예정) |Office Yammer 앱 |
-| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |Dynamics CRM 앱 |
-| PowerBI 서비스 |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |PowerBI 앱 |
-| Azure 원격 앱 서비스 |Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X |Azure 원격 앱 |
-| 모든 My Apps 앱 서비스 |Android 및 iOS |모든 My Apps 앱 서비스 |
+| 모든 My Apps 앱 서비스| Android 및 iOS| 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다. |
+| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X| Azure 원격 앱|
+| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android| Dynamics CRM 앱|
+| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS/Android 및 MAC OSX| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, MAC OS X, iOS, Android, WP, 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|
+| Office 365 Exchange Online| Windows 10| 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)|
+| Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)|
+| Office 365 Exchange Online| iOS| Outlook 모바일 앱|
+| Office 365 Exchange Online| Mac OS X| 다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정), 비즈니스용 Skype(향후 지원 예정)|
+| Office 365 SharePoint Online| Windows 10| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) 참조, 미래를 위해 계획된 Office 그룹 지원, 미래를 위해 계획된 SharePoint 앱 지원|
+| Office 365 SharePoint Online| Windows 8.1, Windows 7| Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|
+| Office 365 SharePoint Online| iOS, Android| Office 모바일 앱|
+| Office 365 SharePoint Online| Mac OS X| 다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정)|
+| Office 365 Yammer| Windows 10, iOS, Android| Office Yammer 앱|
+| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS| PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.|
+| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android| Visual Studio Team Services 앱|
+
+
+
+
+
+
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>최신 인증을 사용하지 않는 응용 프로그램
 현재 최신 인증을 사용하지 않는 앱에 대한 액세스는 다른 방법을 사용하여 차단해야 합니다. 최신 인증을 사용하지 않는 앱에 대한 액세스 규칙이 조건부 액세스를 통해 강제로 적용되지 않기 때문입니다. 이는 기본적으로 Exchange 및 SharePoint에 대한 액세스를 위한 고려 사항입니다. 이전 버전의 앱은 대부분 이전 액세스 제어 프로토콜을 사용합니다.
@@ -60,7 +69,7 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Office 365 SharePoint Online 액세스 제어
 Set-SPOTenant cmdlet을 사용하여 SharePoint 액세스에 대한 레거시 프로토콜 사용을 중지할 수 있습니다. 이 cmdlet을 사용하면 Office 클라이언트에서 오래된 인증 프로토콜로 SharePoint Online 리소스에 액세스할 수 없도록 차단합니다.
 
-**예제 명령**:     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**예제 명령**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Office 365 Exchange Online 액세스 제어
 Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다. 다음 옵션을 검토한 후에 조직에 적합한 정책을 선택합니다.
@@ -113,12 +122,14 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers"></a>지원되는 브라우저
+## <a name="supported-browsers-for-device-based-policies"></a>장치 기반 정책에 대해 지원되는 브라우저 
+
+Azure AD가 장치를 식별하고 인증할 수 있는 경우 장치 준수 및 도메인 조인을 확인하는 장치 기반 정책에 대해서만 액세스할 수 있습니다. 위치 및 MFA와 같은 대부분의 검사는 대부분의 장치 및 브라우저에서 작동하지만 장치 정책에는 아래에 나열된 OS 버전 및 브라우저가 필요합니다. 장치 정책이 설정되면 지원되지 않는 브라우저 또는 운영 체제에서 사용자에 대한 액세스가 차단됩니다. 
 
 | OS                     | 브라우저                 | 지원     |
 | :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![확인][1] |
-| Win 10                 | Chrome                   | 서비스 예정 |
+| Win 10                 | Chrome                   | 미리 보기     |
 | Win 8 / 8.1            | IE, Chrome               | ![확인][1] |
 | Win 7                  | IE, Chrome               | ![확인][1] |
 | iOS                    | Safari                   | ![확인][1] |
@@ -131,10 +142,15 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 | Mac OS                 | Safari                   | ![확인][1] |
 | Mac OS                 | Chrome                   | 서비스 예정 |
 
+> [!NOTE]
+> Chrome 지원의 경우 Windows 10 크리에이터 업데이트를 사용하고 [여기](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)에 있는 확장을 설치해야 합니다.
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)를 참조하세요.
+
 
 
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,34 +29,27 @@ Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 �
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 세트가 있습니다. 일부 앱은 그룹이나 연락처 같은 다른 유형의 개체를 관리합니다. <br> 
  비즈니스 요구 사항에 따라 기본 특성 매핑을 사용자 지정할 수 있습니다. 즉, 기존의 특성 매핑을 변경 또는 삭제하거나 새 특성 매핑을 만들 수 있습니다.
 
-Azure AD 포털에서 SaaS 응용 프로그램의 도구 모음에 있는 특성을 클릭하여 이 기능에 액세스 할 수 있습니다.
+Azure AD 포털에서 **엔터프라이즈 응용 프로그램**의 **관리** 섹션에 있는 **프로비전** 아래 **매핑** 구성을 클릭하여 이 기능에 액세스할 수 있습니다.
 
-> [!NOTE]
-> **특성** 링크는 SaaS 응용 프로그램에 사용할 수 있는 사용자 프로비전을 가지고 있을 때에만 사용 가능합니다. 
-> 
-> 
 
-![Salesforce][1] 
+![Salesforce][5] 
 
-도구 모음에서 특성을 클릭하면 현재의 매핑 목록이 SaaS 응용 프로그램에 구성됩니다.
+**매핑** 구성을 클릭하면 관련 **특성 매핑** 블레이드가 열립니다.  
+SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특성 매핑이 있습니다. 필수 특성인 경우 **삭제** 기능을 사용할 수 없습니다.
 
-다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
-![Salesforce][2]  
+![Salesforce][6]  
 
-위의 예제를 통해 Salesforce에서 관리된 개체의 **firstName** 특성이 그 연결된 Azure AD 개체의 **givenName** 값으로 채워지는 것을 볼 수 있습니다.
+위의 예제를 통해 Salesforce에서 관리된 개체의 **Username** 특성이 그 연결된 Azure Active Directory 개체의 **userPrincipalName** 값으로 채워지는 것을 볼 수 있습니다.
 
-특성 매핑의 사용자 지정을 원하거나 사용자 지정된 설정을 기본 구성으로 되돌리고 싶을 경우 응용 프로그램 하단의 도구 모음에 있는 관련 단추를 클릭하여 진행할 수 있습니다.
+매핑을 클릭하여 기존 **특성 매핑**을 사용자 지정할 수 있습니다. 그러면 **특성 편집** 블레이드가 열립니다.
 
-![Salesforce][3]  
+![Salesforce][7]  
 
-SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특성 매핑이 있습니다. 특성 테이블에서 관련 특성 매핑은 **예**를 **필수** 특성에 대한 값으로 가집니다. 특성 매핑이 필수인 경우 삭제할 수 없습니다. 이 경우 **삭제** 기능은 사용할 수 없습니다.
 
-기존 특성 매핑을 수정하려면 매핑을 선택한 후 **편집**을 클릭합니다. 그러면 선택한 특성 매핑을 수정할 수 있는 대화 상자 페이지를 불러옵니다.
+  
 
-![특성 매핑 편집][4]  
-
-## <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해하기
+## <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해
 특성 매핑으로 타사 SaaS 응용 프로그램에서 특성이 채워지는 법을 제어합니다. 4 가지의 다른 매핑 형식이 지원됩니다.
 
 * **직접** – 대상 특성이 Azure AD에서 연결된 개체의 특성 값으로 채워집니다.
@@ -65,11 +58,29 @@ SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특
   자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)을 참조하세요.
 * **None** - 대상 특성이 수정되지 않고 남아있습니다. 그러나 대상 특성이 비어 있으면 지정된 기본 값으로 채워집니다.
 
-이 네 가지 기본 특성 맵 형식 외에도 사용자 지정 특성 매핑은 **기본** 값 할당의 개념을 지원합니다. 기본 값 할당은 Azure AD에나 대상 개체에 값이 없을 경우 대상 특성이 값으로 채워지는지 확인해줍니다.
+이 네 가지 기본 특성 맵 형식 외에도 사용자 지정 특성 매핑은 **기본** 값 할당(선택 사항)의 개념을 지원합니다. 기본 값 할당은 Azure AD에나 대상 개체에 값이 없을 경우 대상 특성이 값으로 채워지는지 확인해줍니다. 이 값을 비워두는 것이 가장 일반적인 구성입니다.
+
+
+## <a name="understanding-attribute-mapping-properties"></a>특성 매핑 속성 이해
+
+이전 섹션에서 특성 매핑 유형 속성에 대해 이미 소개한 바 있습니다.
+이 속성 외에도, 특성 매핑은 다음 특성도 지원합니다.
+
+- **원본 특성** - 원본 시스템의 사용자 특성(예: Azure Active Directory).
+- **대상 특성** – 대상 시스템의 사용자 특성(예: ServiceNow).
+- **이 특성을 사용하여 개체 일치** – 원본 및 대상 시스템 간에 사용자를 고유하게 식별하는 데 이 매핑을 사용할지 여부를 나타냅니다. 일반적으로 대상 응용 프로그램에서 username 필드에 매핑되는 Azure AD의 userPrincipalName 또는 메일 특성에서 설정됩니다.
+- **일치 우선 순위** – 여러 일치 특성을 설정할 수 있습니다. 일치 특성이 여러 개 있으면 이 필드에 정의된 순서대로 평가됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
+- **이 매핑 적용**
+    - **항상** – 사용자 만들기 및 업데이트 작업 시 이 매핑을 적용합니다.
+    - **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
+
+
+## <a name="what-you-should-know"></a>알아야 할 사항
 
 Microsoft Azure AD는 동기화 프로세스의 효과적인 구현을 제공합니다. 초기화된 환경에서 동기화 주기 중에는 업데이트가 필요한 개체만 처리됩니다. 특성 매핑 업데이트는 동기화 주기의 성능에 영향을 줍니다. 특성 매핑 구성의 업데이트는 모든 관리된 개체를 다시 평가해야 합니다. 특성 매핑에 대한 연속 변경 횟수를 최소로 유지하는 것이 가장 좋은 방법입니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="next-steps"></a>다음 단계
+
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
 * [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -83,4 +94,8 @@ Microsoft Azure AD는 동기화 프로세스의 효과적인 구현을 제공합
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
+[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
+[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
+[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
+
 

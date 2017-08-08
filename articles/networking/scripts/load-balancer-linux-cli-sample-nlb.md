@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5fc71943c2fdf1a6a64bf96176deb5f6bc4e26d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 69a7753cc75b028e2bf093053d9a5fc0890562e8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "VM 빠른 생성")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "VM 빠른 생성")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
@@ -52,10 +52,10 @@ az group delete --name myResourceGroup
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Azure Virtual Network 및 서브넷을 만듭니다. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) | 고정 IP 주소 및 연결된 DNS 이름을 사용하여 공용 IP 주소를 만듭니다. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Azure NLB(Network Load Balancer)를 만듭니다. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | NLB 프로브를 만듭니다. NLB 프로브는 NLB 집합에서 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | NLB 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 NLB에 도착하면 NLB 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
-| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) | NLB NAT(네트워크 주소 변환) 규칙을 만듭니다.  NAT 규칙은 VM에 있는 포트에 NLB의 포트를 매핑합니다. 이 샘플에서는 NLB 집합의 각 VM에 SSH 트래픽에 대한 NAT 규칙을 만듭니다.  |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Azure Load Balancer를 만듭니다. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | 부하 분산 장치 프로브를 만듭니다. 부하 분산 장치 프로브는 부하 분산 장치 집합의 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | 부하 분산 장치 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 부하 분산 장치에 도착하면 LB 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
+| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) | 부하 분산 장치 NAT(네트워크 주소 변환) 규칙을 만듭니다.  NAT 규칙은 VM에 있는 포트에 부하 분산 장치의 포트를 매핑합니다. 이 샘플에서는 부하 분산 장치 집합의 각 VM에 SSH 트래픽에 대한 NAT 규칙을 만듭니다.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) | 인터넷과 가상 컴퓨터 간에 보안 경계인 NSG(네트워크 보안 그룹)을 만듭니다. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |

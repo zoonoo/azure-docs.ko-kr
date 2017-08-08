@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 4a70001f22b47546674c365705554ab30e05f53d
-ms.lasthandoff: 03/24/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
@@ -64,7 +65,7 @@ Microsoft 보안 연구원은 Dark 웹에 공개적으로 게시된 유출된 �
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>잘 모르는 위치에서 로그인
 
-이 위험 이벤트 유형은 새로운/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려합니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 시스템에는 새로운 위치를 알 수 없는 위치의 플래그로 지정하지 않는 14일의 초기 학습 기간이 있습니다. 또한 시스템은 익숙한 장치 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. 
+이 위험 이벤트 유형은 새로운/알 수 없는 위치를 확인하기 위해 과거 로그인 위치(IP, 위도/경도 및 ASN)를 고려합니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 시스템에는 새로운 위치를 알 수 없는 위치의 플래그로 지정하지 않는 30일의 초기 학습 기간이 있습니다. 또한 시스템은 익숙한 장치 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. 
 
 ### <a name="sign-ins-from-infected-devices"></a>감염된 장치에서 로그인
 
@@ -131,11 +132,11 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 불가능한 이동은 일반적으로 해커가 성공적으로 로그인할 수 있는 훌륭한 지표입니다. 그러나 사용자가 새 장치를 사용하거나 조직의 다른 사용자가 일반적으로 사용하지 않는 VPN을 사용하여 이동하는 경우 가양성이 발생할 수 있습니다. 가양성의 다른 원본은 서버 IP 및 클라이언트 IP를 정확하지 않게 전달하는 응용 프로그램이며 응용 프로그램의 백 엔드가 호스팅되는 데이터 센터에서 발생하는 로그인의 모양을 가져올 수 있습니다(대개 이러한 Microsoft 데이터 센터는 Microsoft에서 소유한 고유의 IP 주소를 발생시키는 로그인의 모양을 제공할 수 있음). 이러한 가양성의 결과로 이 위험 이벤트에 대한 위험 수준은 **보통**입니다.
 
 > [!TIP]
-> [명명된 네트워크](active-directory-known-networks-azure-portal.md)를 구성하여 이 위험 이벤트 유형에 대해 보고된 가양성의 양을 줄일 수 있습니다. 
+> [명명된 위치](active-directory-named-locations.md)를 구성하여 이 위험 이벤트 형식에 대해 보고된 가양성의 양을 줄일 수 있습니다. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>잘 모르는 위치에서 로그인
 
-알 수 없는 위치는 공격자가 도난당한 ID를 사용할 수 있다는 확실한 표시를 제공할 수 있습니다. 가양성은 사용자가 새 장치를 사용하거나 새 VPN을 사용하여 이동할 때 발생할 수 있습니다. 이러한 가양성의 결과로 이 이벤트 유형의 위험 수준은 **보통**입니다.
+알 수 없는 위치는 공격자가 도난당한 ID를 사용할 수 있다는 확실한 표시를 제공할 수 있습니다. 가양성은 사용자가 이동하거나, 새 장치를 사용하거나, 새 VPN을 사용할 때 발생할 수 있습니다. 이러한 가양성의 결과로 이 이벤트 유형의 위험 수준은 **보통**입니다.
 
 ### <a name="sign-ins-from-infected-devices"></a>감염된 장치에서 로그인
 
@@ -176,3 +177,4 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory ID 보호](active-directory-identityprotection.md)를 참조하세요.
  
+

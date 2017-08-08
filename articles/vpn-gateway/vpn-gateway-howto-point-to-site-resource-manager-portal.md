@@ -1,6 +1,6 @@
 ---
-title: "지점 및 사이트 간을 사용하여 Azure Virtual Network에 컴퓨터 연결: Portal | Microsoft Docs"
-description: "Resource Manager 및 Azure Portal을 사용하여 지점 및 사이트 간 VPN Gateway 연결을 만들어 Azure Virtual Network에 안전하게 연결합니다."
+title: "지점 및 사이트 간 연결과 인증서 인증을 사용하여 가상 네트워크에 컴퓨터 연결: Azure Portal | Microsoft Docs"
+description: "인증서 인증을 사용하여 지점 및 사이트 간 VPN 게이트웨이 연결을 만들어 Azure Virtual Network에 안전하게 컴퓨터를 연결합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 Azure Portal을 사용합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4045dd501ba70b04cb8ea06901c76072fc009018
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 171159fece2e3927458aff6e6185b96c792e17c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure Portal
 
-이 문서에서는 Resource Manager 배포 모델에서 Azure Portal을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서에서는 Resource Manager 배포 모델에서 Azure Portal을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성은 인증서를 사용하여 연결 중인 클라이언트를 인증합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -37,17 +35,18 @@ ms.lasthandoff: 06/28/2017
 
 지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우 유용합니다. P2S VPN 연결은 기본 Windows VPN 클라이언트를 사용하여 클라이언트 컴퓨터에서 시작됩니다. 클라이언트 연결은 인증서를 사용하여 인증합니다. 
 
-
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
-P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol)를 통해 VPN 연결을 만듭니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [지점 및 사이트 간 FAQ](#faq)를 참조하세요.
-
-P2S 연결에는 다음이 필요합니다.
+지점 및 사이트 간 인증서 인증 연결을 사용하려면 다음 항목이 필요합니다.
 
 * RouteBased VPN 게이트웨이입니다.
-* Azure에 업로드된 루트 인증서에 대한 공개 키(.cer 파일) - 신뢰할 수 있는 인증서로 간주되며 인증에 사용됩니다.
+* Azure에 업로드된 루트 인증서에 대한 공개 키(.cer 파일)입니다. 신뢰할 수 있는 인증서로 간주되며 인증에 사용됩니다.
 * 루트 인증서에서 생성되고 연결할 각 클라이언트 컴퓨터에 설치된 클라이언트 인증서 - 클라이언트 인증에 사용됩니다.
 * 연결하는 모든 클라이언트 컴퓨터에 VPN 클라이언트 구성 패키지를 생성하여 설치해야 합니다. 클라이언트 구성 패키지는 VNet에 연결하는 데 필요한 정보와 함께 운영 체제에 이미 있는 기본 VPN 클라이언트를 구성합니다.
+
+지점 및 사이트 간 연결에는 VPN 장치 또는 온-프레미스 공용 IP 주소가 필요하지 않습니다. VPN 연결은 SSTP(Secure Socket Tunneling Protocol)를 통해 만듭니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다. 
+
+지점 및 사이트 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [지점 및 사이트 간 FAQ](#faq)를 참조하세요.
 
 ### <a name="example"></a>예제 값
 
@@ -86,8 +85,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 이 섹션의 스크린샷은 참조 예제로 제공됩니다. 구성에 필요한 값에 해당하는 GatewaySubnet 주소 범위를 사용해야 합니다.
 
-### 게이트웨이 서브넷을 만들려면
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
+### <a name="to-create-a-gateway-subnet"></a>게이트웨이 서브넷을 만들려면
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -104,8 +102,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 * 게이트웨이 유형: VPN
 * VPN 유형: 경로 기반
 
-### 가상 네트워크 게이트웨이를 만들려면
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
+### <a name="to-create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이를 만들려면
 
 [!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -117,11 +114,11 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 ### <a name="getcer"></a>1단계 - 루트 인증서용 .cer 파일 가져오기
 
-[!INCLUDE [obtain root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
+[!INCLUDE [get the root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 ### <a name="generateclientcert"></a>2단계 - 클라이언트 인증서 생성
 
-[!INCLUDE [generate client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
+[!INCLUDE [generates client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## <a name="addresspool"></a>7 - 클라이언트 주소 풀 추가
 
@@ -140,7 +137,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 1. **루트 인증서** 섹션의 **지점 및 사이트 간 구성** 블레이드에 인증서가 추가됩니다.  
 2. 루트 인증서를 Base-64 인코딩된 X.509(.cer) 파일로 내보내야 합니다. 이 형식으로 내보내야 텍스트 편집기에서 인증서를 열 수 있습니다.
-3. 메모장과 같은 텍스트 편집기에서 인증서를 엽니다. 인증서 데이터를 복사하는 경우 캐리지 리턴 또는 줄 바꿈 없이 하나의 연속 줄로 텍스트를 복사합니다. 캐리지 리턴 및 줄 바꿈을 보려면 ‘기호 표시/모든 문자 표시'에 대한 텍스트 편집기의 보기를 수정해야 할 수도 있습니다. 하나의 연속 줄로만 다음 섹션을 복사합니다.
+3. 메모장과 같은 텍스트 편집기에서 인증서를 엽니다. 인증서 데이터를 복사하는 경우 캐리지 리턴 또는 줄 바꿈 없이 하나의 연속 줄로 텍스트를 복사합니다. 캐리지 리턴 및 줄 바꿈을 보려면 '기호 표시/모든 문자 표시'에 대한 텍스트 편집기의 보기를 수정해야 할 수도 있습니다. 하나의 연속 줄로만 다음 섹션을 복사합니다.
 
   ![인증서 데이터](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
 4. 인증서 데이터를 **공용 인증서 데이터** 필드에 붙여 넣습니다. 인증서의 **이름을 지정**한 다음 **저장**을 클릭합니다. 최대 20개의 신뢰할 수 있는 루트 인증서를 추가할 수 있습니다.
@@ -153,8 +150,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 버전이 클라이언트의 아키텍처와 일치하는 한 각 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 이 문서 끝의 [지점 및 사이트 간 연결 FAQ](#faq)를 참조하세요.
 
-### 1단계 - 클라이언트 구성 패키지 다운로드
-<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
+### <a name="step-1---download-the-client-configuration-package"></a>1단계 - 클라이언트 구성 패키지 다운로드
 
 1. **지점 및 사이트 간 구성** 블레이드에서 **VPN 클라이언트 다운로드**를 클릭하여 **VPN 클라이언트 다운로드** 블레이드를 엽니다. 패키지 생성에 1~2분이 걸립니다.
 
@@ -163,8 +159,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
   ![VPN 클라이언트 다운로드 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### 2단계 - 클라이언트 구성 패키지 설치
-<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
+### <a name="step-2---install-the-client-configuration-package"></a>2단계 - 클라이언트 구성 패키지 설치
 
 1. 구성 파일을 가상 네트워크에 연결할 컴퓨터에 로컬로 복사합니다. 
 2. .exe 파일을 두 번 클릭하여 클라이언트 컴퓨터에 패키지를 설치합니다. 구성 패키지를 만들었지만 이 패키지가 서명되지 않았기 때문에 경고가 표시될 수 있습니다. Windows SmartScreen 팝업이 나타나면 **자세한 정보**(왼쪽), **실행**을 차례로 클릭하여 패키지를 설치합니다.
@@ -186,31 +181,25 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
   ![설정된 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-연결 문제가 있으면 다음 항목을 확인합니다.
-
-- **사용자 인증서 관리**를 열고 **신뢰할 수 있는 루트 인증 기관\인증서**로 이동합니다. 루트 인증서가 나열되어 있는지 확인합니다. 인증이 작동하려면 루트 인증서가 있어야 합니다. [가능한 경우 인증 경로에 있는 인증서 모두 포함] 기본값을 사용하여 .pfx 클라이언트 인증서를 내보낼 때는 루트 인증서 정보도 내보내집니다. 클라이언트 인증서를 설치하면 루트 인증서도 클라이언트 컴퓨터에 설치됩니다. 
-
-- 엔터프라이즈 CA 솔루션을 사용하여 발급된 인증서를 사용하고 인증에 문제가 발생하는 경우 클라이언트 인증서에서 인증 순서를 확인합니다. 클라이언트 인증서를 두 번 클릭하고 **세부 정보 > 확장된 키 사용**으로 이동하여 인증 목록 순서를 확인할 수 있습니다. 목록의 첫 번째 항목으로 '클라이언트 인증'이 표시되는지 확인합니다. 그렇지 않으면 목록에서 첫 번째 항목으로 클라이언트 인증을 가진 사용자 템플릿을 기반으로 하는 클라이언트 인증서를 발급해야 합니다.
-
+[!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>12 - 연결 확인
 
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음 예제와 비슷합니다.
-   
-        PPP adapter VNet1:
-            Connection-specific DNS Suffix .:
-            Description.....................: VNet1
-            Physical Address................:
-            DHCP Enabled....................: No
-            Autoconfiguration Enabled.......: Yes
-            IPv4 Address....................: 172.16.201.3(Preferred)
-            Subnet Mask.....................: 255.255.255.255
-            Default Gateway.................:
-            NetBIOS over Tcpip..............: Enabled
 
-
-P2S를 통해 가상 시스템에 연결하는 데 문제가 있으면 'ipconfig'를 사용하여 연결하는 컴퓨터의 이더넷 어댑터에 할당된 IPv4 주소를 확인합니다. IP 주소가 연결하는 VNet의 주소 범위 또는 VPNClientAddressPool의 주소 범위 내에 있는 경우 이 주소를 겹치는 주소 공간이라고 합니다. 주소 공간이 이러한 방식으로 겹치면 네트워크 트래픽이 Azure에 도달하지 않고 로컬 네트워크에 남아 있습니다. 네트워크 주소 공간이 겹치지 않지만 여전히 VM에 연결할 수 없는 경우 [VM에 대한 원격 데스크톱 연결 문제 해결 ](../virtual-machines/windows/troubleshoot-rdp-connection.md)을 참조하세요.
+  ```
+  PPP adapter VNet1:
+      Connection-specific DNS Suffix .:
+      Description.....................: VNet1
+      Physical Address................:
+      DHCP Enabled....................: No
+      Autoconfiguration Enabled.......: Yes
+      IPv4 Address....................: 172.16.201.3(Preferred)
+      Subnet Mask.....................: 255.255.255.255
+      Default Gateway.................:
+      NetBIOS over Tcpip..............: Enabled
+  ```
 
 ## <a name="connectVM"></a>가상 컴퓨터에 연결
 
@@ -220,13 +209,11 @@ P2S를 통해 가상 시스템에 연결하는 데 문제가 있으면 'ipconfig
 
 Azure에서 신뢰할 수 있는 루트 인증서를 추가 및 제거할 수 있습니다. 루트 인증서를 제거하면 해당 루트에서 생성된 인증서가 있는 클라이언트를 인증하지 못하게 됩니다. 따라서 연결할 수도 없습니다. 클라이언트를 인증하고 연결하려는 경우 Azure에 (업로드된)신뢰할 수 있는 루트 인증서에서 생성된 새 클라이언트 인증서를 설치해야 합니다.
 
-### 신뢰할 수 있는 루트 인증서를 추가하려면
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+### <a name="to-add-a-trusted-root-certificate"></a>신뢰할 수 있는 루트 인증서를 추가하려면
 
 Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 추가할 수 있습니다. 자세한 내용은 이 문서에서 [신뢰할 수 있는 루트 인증서를 업로드](#uploadfile) 섹션을 참조하세요.
 
-### 신뢰할 수 있는 루트 인증서를 제거하려면
-<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
+### <a name="to-remove-a-trusted-root-certificate"></a>신뢰할 수 있는 루트 인증서를 제거하려면
 
 1. 신뢰할 수 있는 루트 인증서를 제거하려면 가상 네트워크 게이트웨이에 대한 **지점 및 사이트 간 구성** 블레이드로 이동합니다.
 2. 블레이드의 **루트 인증서** 섹션에서 제거할 인증서를 찾습니다.
@@ -238,8 +225,7 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 
 해지된 클라이언트 인증서를 사용하는 동안 개별 사용자의 세분화된 액세스 제어를 위해 일반적으로 루트 인증서를 사용하여 팀 또는 조직 수준에서 액세스를 관리합니다.
 
-### 클라이언트 인증서를 해지하려면
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
+### <a name="to-revoke-a-client-certificate"></a>클라이언트 인증서를 해지하려면
 
 해지 목록에 지문을 추가하여 클라이언트 인증서를 해지할 수 있습니다.
 
@@ -255,7 +241,5 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 컴퓨터에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
-

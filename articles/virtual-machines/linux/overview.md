@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
@@ -135,7 +135,7 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 ## <a name="containers"></a>컨테이너
 * [Azure 가상 컴퓨터 및 컨테이너](containers.md)
 * [Azure 컨테이너 서비스 소개](../../container-service/container-service-intro.md)
-* [Azure 컨테이너 서비스 클러스터 배포](../../container-service/container-service-deployment.md)
+* [Azure 컨테이너 서비스 클러스터 배포](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>다음 단계
 이제 Azure의 Linux를 대략적으로 이해하게 되었을 것입니다.  다음 단계로는 좀 더 깊이 들어가서 몇 개의 VM을 만들어 보겠습니다.

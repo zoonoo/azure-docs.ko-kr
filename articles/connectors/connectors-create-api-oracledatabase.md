@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
@@ -124,8 +123,9 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 * 복합 키가 있는 모든 테이블
 * 테이블의 중첩된 개체 유형
  
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/oracle/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/oracle/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="get-some-help"></a>도움 받기
 

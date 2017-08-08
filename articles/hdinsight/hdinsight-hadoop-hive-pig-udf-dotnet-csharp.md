@@ -1,5 +1,5 @@
 ---
-title: "HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 | Microsoft 문서"
+title: "HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 - Azure | Microsoft Docs"
 description: "Azure HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: d5854a623f656f08c428cd2f6792f25582362990
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: d92fa4efd69736565e8dc1abc44ec3b1bd8bc508
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
@@ -200,7 +199,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasbs:///HiveCSharp.exe;
+    -- add file wasb:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Store
     -- add file adl:///HiveCSharp.exe;
 

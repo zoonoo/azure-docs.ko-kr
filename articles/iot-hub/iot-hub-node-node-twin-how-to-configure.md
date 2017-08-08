@@ -22,9 +22,7 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="use-desired-properties-to-configure-devices-node" class="xliff"></a>
-
-# desired 속성을 사용하여 장치 구성(Node)
+# <a name="use-desired-properties-to-configure-devices-node"></a>desired 속성을 사용하여 장치 구성(Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 앱이 제공됩니다.
@@ -48,9 +46,7 @@ ms.lasthandoff: 05/09/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-<a id="create-the-simulated-device-app" class="xliff"></a>
-
-## 시뮬레이션된 장치 앱 만들기
+## <a name="create-the-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고, 원하는 구성 업데이트를 기다린 다음, 시뮬레이션된 구성 업데이트 프로세스의 업데이트를 보고합니다.
 
 1. **simulatedeviceconfiguration**라는 빈 폴더를 새로 만듭니다. **simulatedeviceconfiguration** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
@@ -161,9 +157,7 @@ ms.lasthandoff: 05/09/2017
    
     메시지 `retrieved device twin`이 표시되어야 합니다. 앱이 계속 실행되게 합니다.
 
-<a id="create-the-service-app" class="xliff"></a>
-
-## 서비스 응용 프로그램 만들기
+## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 이 섹션에서는 새로운 원격 분석 구성 개체를 사용하여 **myDeviceId**와 연결된 장치 쌍에서 *desired 속성*을 업데이트하는 Node.js 콘솔 앱을 만들 것입니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하여 장치의 원하는(desired) 구성 및 보고된(reported) 구성 사이의 차이점을 표시합니다.
 
 1. **setdesiredandqueryapp**라는 빈 폴더를 새로 만듭니다. **setdesiredandqueryapp** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
@@ -253,9 +247,7 @@ ms.lasthandoff: 05/09/2017
    > 
    > 
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이 자습서에서는 백 엔드 앱에서 원하는 구성을 *desired 속성*으로 설정하고 시뮬레이션된 장치 앱을 작성하여 그 변경을 감지하고 장치 쌍에 그 상태를 *reported 속성*으로 보고하는 다단계 업데이트 프로세스를 시뮬레이트합니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.

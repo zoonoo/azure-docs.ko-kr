@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
-ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
@@ -45,7 +44,7 @@ ms.lasthandoff: 02/11/2017
 > 
 > 응용 프로그램 이름:
 > 
-> 응용 프로그램 설명(256자 제한):
+> 응용 프로그램 설명(200자 제한):
 > 
 > 응용 프로그램 웹 사이트 (정보):
 > 
@@ -79,7 +78,7 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 응용 프로그램 이름:
 > 
-> 응용 프로그램 설명(256자 제한):
+> 응용 프로그램 설명(200자 제한):
 > 
 > 응용 프로그램 웹 사이트 (정보):
 > 

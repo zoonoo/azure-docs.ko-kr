@@ -12,14 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 07/30/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: 9c9eff8c828329b9d8358f88b90c174c64f5c29f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/16/2017
-
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
@@ -52,7 +51,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 메시지가 표시됩니다.
@@ -72,7 +71,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 개인 저장소 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)를 참조하세요.
@@ -168,7 +167,7 @@ az group deployment create \
     --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 ## <a name="sample-template"></a>샘플 템플릿

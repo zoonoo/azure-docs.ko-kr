@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>미리 구성된 예측 유지 관리 솔루션 연습
 
-## <a name="introduction"></a>소개
-
-미리 구성된 IoT Suite 예측 유지 관리 솔루션은 오류가 발생할 가능성이 있는 경우 지점을 예측하는 비즈니스 시나리오에 대한 종단 간 솔루션입니다. 유지 관리를 최적화하는 등의 작업에 미리 구성된 솔루션을 사용할 수 있습니다. 솔루션은 IoT Hub, Stream Analytics 및 [Azure Machine Learning][lnk-machine-learning] 작업 영역과 같은 주요 Azure IoT Suite 서비스를 결합합니다. 이 작업 영역에는 공용 샘플 데이터 집합에 따라 항공기 엔진의 RUL(잔여 수명)을 예측하는 모델이 포함되어 있습니다. 솔루션은 IoT 비즈니스 시나리오를 시작점으로 구현하여 고유한 특정 비즈니스 요구 사항을 충족하는 솔루션을 계획하고 구현합니다.
+미리 구성된 예측 유지 관리 솔루션은 오류가 발생할 가능성이 있는 경우 지점을 예측하는 비즈니스 시나리오에 대한 종단 간 솔루션입니다. 유지 관리를 최적화하는 등의 작업에 미리 구성된 솔루션을 사용할 수 있습니다. 솔루션은 IoT Hub, Stream Analytics 및 [Azure Machine Learning][lnk-machine-learning] 작업 영역과 같은 주요 Azure IoT Suite 서비스를 결합합니다. 이 작업 영역에는 공용 샘플 데이터 집합에 따라 항공기 엔진의 RUL(잔여 수명)을 예측하는 모델이 포함되어 있습니다. 솔루션은 IoT 비즈니스 시나리오를 시작점으로 구현하여 고유한 특정 비즈니스 요구 사항을 충족하는 솔루션을 계획하고 구현합니다.
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 04/26/2017
 
 ![][img-architecture]
 
-파란색 항목은 미리 구성된 솔루션을 프로비전할 때 선택한 지역에 프로비전되는 Azure 서비스입니다. 미리 구성된 솔루션을 배포할 수 있는 지역 목록은 [프로비전 페이지][lnk-azureiotsuite]에 표시됩니다.
+파란색 항목은 미리 구성된 솔루션을 배포한 지역에 프로비전되는 Azure 서비스입니다. 미리 구성된 솔루션을 배포할 수 있는 지역 목록은 [프로비전 페이지][lnk-azureiotsuite]에 표시됩니다.
 
 녹색 항목은 항공기 엔진을 나타내는 시뮬레이션된 장치입니다. 다음 섹션에서 이러한 시뮬레이션된 장치에 대해 자세히 알아볼 수 있습니다.
 
@@ -58,13 +56,17 @@ ms.lasthandoff: 04/26/2017
 IoT Hub는 장치 명령 승인을 제공합니다.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics 작업
-**작업: 원격 분석** 은 두 가지 문을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 문은 장치에서 모든 원격 분석을 선택하고 웹앱의 시각화되는 위치에서 Blob Storage에 이 데이터를 보냅니다. 두 번째 문은 2분 슬라이딩 창을 통해 평균 센서 값을 계산하고 이벤트 허브를 통해 **이벤트 프로세서**로 이 데이터를 보냅니다.
+
+**작업: 원격 분석**은 두 가지 문을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다.
+
+* 첫 번째 문은 장치에서 모든 원격 분석을 선택하고 Blob Storage에 이 데이터를 보냅니다. 여기에서 데이터가 웹앱에 시각화됩니다.
+* 두 번째 문은 2분 슬라이딩 창을 통해 평균 센서 값을 계산하고 이벤트 허브를 통해 **이벤트 프로세서**로 이 데이터를 보냅니다.
 
 ## <a name="event-processor"></a>이벤트 프로세서
 **이벤트 프로세서 호스트**는 Azure Web Job에서 실행됩니다. **이벤트 프로세서** 는 완료된 주기의 평균 센서 값을 사용합니다. 학습된 모델을 노출하는 API에 해당 값을 전달하여 엔진에 대한 RUL를 계산합니다. API는 솔루션의 일부로 프로비전되는 Machine Learning 작업 영역에 의해 노출됩니다.
 
 ## <a name="machine-learning"></a>기계 학습
-Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. 솔루션이 **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
+Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
@@ -32,7 +31,7 @@ Azure CLI(명령줄 인터페이스) 1.0 또는 Azure PowerShell을 사용하여
 
 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)을 만들고 구성하려면 파일을 내보내기, 변경 및 가져오기 해야 합니다.
 
-## <a name="export-a-network-configuration-file"></a>네트워크 구성 파일 내보내기
+## <a name="export"></a>네트워크 구성 파일 내보내기
 
 PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보낼 수 있습니다. PowerShell은 XML 파일을 내보내는 반면 Azure CLI는 json 파일을 내보냅니다.
 
@@ -120,7 +119,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 내보낸 네트워크 구성 파일에 내용이 없는 경우 이전 예제에서 json을 복사하여 새 파일에 붙여넣을 수 있습니다.
 
-## <a name="import-a-network-configuration-file"></a>네트워크 구성 파일 가져오기
+## <a name="import"></a>네트워크 구성 파일 가져오기
 
 PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 가져올 수 있습니다. PowerShell은 XML 파일을 가져오는 반면 Azure CLI는 json 파일을 가져옵니다. 가져오기가 실패하는 경우 파일이 [네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 준수하는지 확인합니다. 
 
@@ -143,3 +142,4 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 가져
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

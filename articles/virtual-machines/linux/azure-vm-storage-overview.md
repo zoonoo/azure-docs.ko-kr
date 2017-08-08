@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0151e188fde38c7a617cf2070939c6498142dd71
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
@@ -48,71 +48,37 @@ Managed Disks 또는 관리되지 않는 디스크를 사용하는지 여부에 
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Managed Disk를 사용하여 VM 만들기
 
-다음 예제에는 Azure CLI 2.0이 필요합니다. [여기에서 설치]할 수 있습니다.
+다음 예제에는 [여기에서 설치](/cli/azure/install-azure-cli)할 수 있는 Azure CLI 2.0이 필요합니다.
 
-먼저 리소스를 관리하는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스를 관리하는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --location westus --name myResourceGroup
 ```
 
-그런 다음 아래 예제와 같이 `az vm create` 명령을 사용하여 VM을 만듭니다. `manageddisks`는 이미 사용 중일 가능성이 있으므로 고유한 `--public-ip-address-dns-name` 인수를 지정해야 합니다.
+이제 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. `mypublicdns`가 사용되었을 것이므로 고유한 `--public-ip-address-dns-name` 인수를 지정합니다.
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 앞의 예제는 표준 저장소 계정에 관리되는 디스크로 VM을 만듭니다. 프리미엄 저장소 계정을 사용하려면 다음 예제와 같이 `--storage-sku Premium_LRS` 인수를 추가합니다.
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
-```
-
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 관리되지 않는, 표준 디스크로 VM 만들기
-
-물론 Azure CLI 1.0을 사용하여 표준 및 프리미엄 디스크 VM을 만들 수도 있지만 이번에는 Azure CLI 1.0을 사용하여 Managed Disks에서 지원하는 VM을 만들 수 없습니다.
-
-`-z` 옵션은 표준 저장소 기반 Linux VM인 Standard_A1을 선택합니다.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 프리미엄 저장소로 VM 만들기
-`-z` 옵션은 프리미엄 저장소 기반 Linux VM인 Standard_DS1을 선택합니다.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>Standard Storage
@@ -144,12 +110,12 @@ Premium Storage 기능은 다음과 같습니다.
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-file-storage"></a>Azure 파일 저장소
 Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. Azure Files을 사용하여 파일 서버를 사용하는 엔터프라이즈 응용 프로그램을 Azure로 마이그레이션할 수 있습니다. Azure에서 실행 중인 응용 프로그램은 Linux를 실행 중인 Azure 가상 컴퓨터에서 파일 공유를 쉽게 탑재할 수 있습니다. 최신 릴리스 파일 저장소를 사용하면 SMB 3.0을 지원하는 온-프레미스 응용 프로그램에서 파일 공유를 탑재할 수도 있습니다.  파일 공유는 SMB 공유이므로 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
 
 파일 저장소는 Blob, 테이블 및 큐 저장소와 동일한 기술을 토대로 만들어졌으므로 파일 저장소는 Azure 저장소 플랫폼에 기본 제공되는 기존 가용성, 내구성, 확장성 및 지리적 중복을 활용할 수 있습니다. File Storage 성능 목표 및 제한에 대한 자세한 내용은 Azure Storage 확장성 및 성능 목표를 참조하세요.
 
-* [Linux에서 Azure 파일 저장소 사용 방법](../../storage/storage-how-to-use-files-linux.md)
+* [Linux에서 Azure File Storage 사용 방법](../../storage/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>핫 저장소
 Azure 핫 저장소 계층은 자주 액세스하는 데이터 저장에 최적화되어 있습니다.  핫 저장소는 Blob 저장소에 대한 기본 저장소 유형입니다.
@@ -234,7 +200,7 @@ SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정�
 * [Azure Storage 보안 가이드](../../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>임시 디스크
-각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
+각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
 
 Linux 가상 컴퓨터에서 디스크는 일반적으로 **/dev/sdb**이며, Azure Linux 에이전트에 의해 **/mnt**로 포맷되고 마운트됩니다. 임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Linux 가상 컴퓨터의 크기](sizes.md)를 참조하세요.
 

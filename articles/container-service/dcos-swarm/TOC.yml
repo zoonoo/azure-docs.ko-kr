@@ -1,0 +1,85 @@
+- name: DC/OS 및 Swarm이 있는 ACS
+  href: ./index.yml
+- name: 개요
+  items:
+    - name: 컨테이너 서비스 정보
+      href: container-service-intro.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: DC/OS Linux
+      href: container-service-dcos-quickstart.md
+- name: 자습서
+  items:
+    - name: 1 - 클러스터 만들기/관리
+      href: container-service-dcos-manage-tutorial.md
+    - name: 2 - 부하 분산 응용 프로그램
+      href: container-service-load-balancing.md
+    - name: 3 - 데이터 볼륨 관리
+      href: container-service-dcos-fileshare.md
+    - name: 4 - ACR과 통합
+      href: container-service-dcos-acr.md
+- name: 개념
+  items:
+    - name: 컨테이너 보안
+      href: container-service-security.md
+- name: 방법 가이드
+  items:
+    - name: ACS 클러스터와 연결
+      href: container-service-connect.md
+    - name: ACS 클러스터 확장
+      href: container-service-scale.md
+    - name: DC/OS를 사용하여 관리
+      items:
+        - name: 컨테이너 관리 - DC/OS UI
+          href: container-service-mesos-marathon-ui.md
+        - name: 컨테이너 관리 - DC/OS REST API
+          href: container-service-mesos-marathon-rest.md
+        - name: DC/OS 에이전트 풀
+          href: container-service-dcos-agents.md
+        - name: DC/OS 공용 액세스 사용
+          href: container-service-enable-public-access.md
+        - name: DC/OS의 앱/사용자별 Orchestrator
+          href: container-service-application-specific-marathon.md
+        - name: Vamp를 사용하는 카나리아 릴리스
+          href: container-service-dcos-vamp-canary-release.md
+        - name: DC/OS 모니터링
+          items:
+            - name: ELK로 모니터링
+              href: container-service-monitoring-elk.md
+            - name: OMS로 모니터링
+              href: container-service-monitoring-oms.md
+            - name: Datadog로 모니터링
+              href: container-service-monitoring.md
+            - name: Sysdig로 모니터링
+              href: container-service-monitoring-sysdig.md
+            - name: Dynatrace로 모니터링
+              href: container-service-monitoring-dynatrace.md
+    - name: Docker Swarm을 사용하여 관리
+      items:
+        - name: Docker 및 Docker Compose
+          href: container-service-docker-swarm.md
+        - name: Docker Swarm 및 VSTS를 사용하는 CI/CD
+          href: container-service-docker-swarm-setup-ci-cd.md
+- name: 참조
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/acs
+    - name: REST (영문)
+      href: /rest/api/compute/containerservices
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: FAQ
+      href: container-service-faq.md
+    - name: 템플릿 - ACS 엔진
+      href: 'https://github.com/Azure/acs-engine'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 스택 오버플로
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: 비디오
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

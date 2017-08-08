@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: ko-kr
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>OMS(Operations Management Suite) 보안 및 감사 솔루션에 보안 제품 연결 
@@ -90,11 +90,13 @@ OMS 보안은 Syslogs 및 [Cisco ASA](https://blogs.technet.microsoft.com/msoms/
     ```
 6. OMS 에이전트 로그에 오류가 없는지 확인하려면 아래 명령을 입력하고 결과를 검토합니다.
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>수집된 보안 이벤트 검토
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 구성이 끝난 후에 보안 이벤트는 OMS 보안에 의해 수집되기 시작합니다. 해당 이벤트를 시각화하려면 로그 검색을 열고 검색 필드에 *Type=CommonSecurityLog* 명령을 입력한 다음 ENTER 키를 누릅니다. 다음 예제에서는 이 명령의 결과를 보여 줍니다. 이 경우에 OMS 보안이 여러 공급 업체의 보안 로그를 이미 수집하게 됩니다.
    

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/20/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5bf0e7f631a86a9d413415ab73e03fa00a0e9325
+ms.reviewer: elkuzmen
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 439dc6635a0df8c70da41bd3aadfa04616e4cc1b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - 공용 미리 보기에서 관리 단위 관리
@@ -28,16 +29,16 @@ ms.lasthandoff: 05/11/2017
 이는 각각 독립된 많은 자치 학교(경영대학, 공과대학 등)로 구성된 종합 대학교와 같이 독립된 부서가 있는 조직에서 유용합니다. 그러한 부서는 자체 IT 관리자를 통해 액세스를 제어하고, 사용자를 관리하고, 특히 부서에 대한 정책을 설정합니다. 중앙 관리자는 특정 부서의 사용자에게 부서 관리자 권한을 부여할 수 있습니다. 이 예를 통해 보다 구체적으로 설명하자면, 중앙 관리자는 특정 학교(경영대학)에 대해 관리 단위를 만들고 경영대학 사용자만 채울 수 있습니다. 그런 다음 중앙 관리자는 경영대학 IT 직원을 범위 역할에 추가할 수 있습니다. 즉, IT 직원의 경영대학 관리 권한을 경영대학 관리 단위에만 부여할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Active Directory Premium을 사용할 수 있는 경우에만 관리 단위를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](active-directory-get-started-premium.md).
+> Azure Active Directory Premium을 사용하도록 설정한 경우에만 관리 단위 범위가 지정된 관리자 역할을 할당할 수 있습니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](active-directory-get-started-premium.md).
 >
 
 
 중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 미리 보기 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.** 관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
 
 ## <a name="managing-administrative-units"></a>관리 단위 관리
-이 미리 보기 릴리스에서 Windows PowerShell cmdlet용 Azure Active Directory 모듈을 사용하는 관리 단위를 만들고 관리할 수 있습니다. 이 방법에 대한 자세한 내용은 [관리 단위 작업](https://docs.microsoft.com/en-us/powershell/azure/working-with-administrative-units?view=azureadps-2.0)을 참조하세요.
+이 미리 보기 릴리스에서 Windows PowerShell cmdlet용 Azure Active Directory 모듈을 사용하는 관리 단위를 만들고 관리할 수 있습니다. 이 방법에 대한 자세한 내용은 [관리 단위 작업](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)을 참조하세요.
 
-소프트웨어 요구 사항 및 Azure AD 모듈 설치에 대한 자세한 내용과 구문, 매개 변수 설명 및 예제 등 관리 단위를 관리하기 위한 Azure AD 모듈 cmdlet에 대한 내용은 [Windows PowerShell을 사용하여 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
+소프트웨어 요구 사항 및 Azure AD 모듈 설치에 대한 자세한 내용과 구문, 매개 변수 설명 및 예제 등 관리 단위를 관리하기 위한 Azure AD 모듈 cmdlet에 대한 내용은 [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)

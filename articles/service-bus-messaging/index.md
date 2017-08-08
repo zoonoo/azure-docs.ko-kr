@@ -2,9 +2,11 @@
 layout: LandingPage
 title: "Service Bus 메시징 설명서"
 description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다."
-translationtype: Human Translation
-ms.sourcegitcommit: 5b76339cc3ca28b523ecf825d7bccc18587aafc8
-ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-messaging-documentation"></a>Service Bus 메시징 설명서
@@ -30,7 +32,7 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,9 +78,8 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -90,8 +91,9 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST (영문)</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -102,20 +104,12 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>기타</h3>
-                        <p><a href="service-bus-messaging-exceptions.md">예외</a></p>
-                        <p><a href="service-bus-quotas.md">할당량</a></p>
-                        <p><a href="service-bus-messaging-sql-filter.md">SQLFilter 구문</a></p>
-                        <p><a href="service-bus-messaging-sql-rule-action.md">SQLRuleAction 구문</a></p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/servicebus/">REST API 참조</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

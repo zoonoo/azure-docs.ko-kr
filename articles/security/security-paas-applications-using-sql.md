@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 및 SQL Data Warehouse를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안 | Microsoft Docs"
+title: "Azure에서 PaaS 데이터베이스 보안 유지 | Microsoft Docs"
 description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례에 대해 자세히 알아봅니다. "
 services: security
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안
+# <a name="securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안 유지
 
 이 문서에서는 PaaS 웹 및 모바일 응용 프로그램 보안을 위한 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 및 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
@@ -77,15 +77,15 @@ Azure SQL 방화벽 및 IP 제한에 대한 자세한 내용은 다음을 참조
 - [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
-[TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/azure/bb934049)는 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse 데이터 파일을 암호화하며, 미사용 데이터 암호화라고도 합니다. 보안 시스템 설계, 중요한 자산 암호화 및 데이터베이스 서버 방화벽 구축과 같은 데이터베이스 보호에 도움이 되는 몇 가지 예방 조치를 취할 수 있습니다. 그러나 물리적 미디어(예: 드라이브 또는 백업 테이프)가 도난되는 시나리오에서는 악의적인 사용자가 데이터베이스를 복원하거나 연결하여 데이터를 찾아 볼 수 있습니다. 한 가지 해결 방법으로 데이터베이스의 중요한 데이터를 암호화하고 인증서로 데이터를 암호화하는 데 사용되는 키를 보호합니다. 이렇게 하면 키가 없는 사람이 데이터를 사용할 수 없게 되지만 이러한 종류의 보호는 사전에 계획해야 합니다.
+[TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/azure/bb934049)는 기본적으로 사용되도록 설정됩니다. TDE는 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse 데이터 및 로그 파일을 암호화합니다. TDE는 파일 또는 해당 백업에 대한 직접 액세스에 따른 손상으로부터 보호합니다. 이를 통해 기존 응용 프로그램을 변경하지 않고 미사용 데이터를 암호화할 수 있습니다. TDE는 항상 사용하도록 설정하는 것이 좋습니다. 그렇지만 이렇게 하더라도 정상적인 액세스 경로를 사용하는 공격자는 막을 수 없습니다. TDE는 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다.
 
-TDE는 데이터와 로그 파일을 의미하는 미사용 데이터를 보호합니다. 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다. 이를 통해 소프트웨어 개발자는 기존 응용 프로그램을 변경하지 않고도 업계 표준 암호화 알고리즘을 사용하여 데이터를 암호화할 수 있습니다.
+Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할 경우 데이터베이스를 이동할 때 복구 가능성을 보장하기 위해 온-프레미스에서 특별히 주의해야 합니다. 좀 더 복잡한 시나리오에서 확장 가능한 키 관리를 통해 Azure Key Vault에서 키를 명시적으로 관리할 수 있습니다([EKM을 사용하여 SQL Server에서 TDE 사용](/security/encryption/enable-tde-on-sql-server-using-ekm) 참조). 이 경우 Azure Key Vault를 통한 BYOK(Bring Your Own Key)도 허용됩니다.
 
-규정에서 명시적으로 이러한 암호화를 지정하는 경우 TDE를 사용해야 합니다. 하지만 이렇게 하더라도 정상적인 액세스 경로를 사용하는 공격자는 막을 수 없습니다. TDE는 Azure SQL에서 행과 열에 대해 제공하는 암호화 또는 응용 프로그램 수준 암호화를 통해 추가 응용 프로그램 수준 암호화를 사용해야 할 가능성이 매우 낮은 경우를 방지하는 데 사용됩니다.
+Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 통해 열에 대한 암호화를 제공합니다. 이를 통해 승인된 응용 프로그램만 중요한 열에 액세스할 수 있습니다. 이러한 종류의 암호화를 사용하면 암호화된 열에 대한 SQL 쿼리가 동등 기반 값으로 제한됩니다.
 
-선택적 데이터에는 응용 프로그램 수준 암호화도 사용해야 합니다. 데이터 독립성 문제는 올바른 국가에서 유지되는 키로 데이터를 암호화함으로써 완화될 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
+선택적 데이터에는 응용 프로그램 수준 암호화도 사용해야 합니다. 경우에 따라 데이터 독립성 문제는 올바른 국가에서 유지되는 키로 데이터를 암호화함으로써 완화될 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
 
-권한이 있는([RBAC](../active-directory/role-based-access-built-in-roles.md)) 사용자만 액세스할 수 있도록 행과 열에 대해 Azure SQL에서 제공하는 암호화를 수행하여 권한이 낮은 사용자가 열이나 행을 볼 수 없도록 합니다.
+보안 시스템 설계, 중요한 자산 암호화 및 데이터베이스 서버 방화벽 구축과 같은 데이터베이스 보호에 도움이 되는 몇 가지 예방 조치를 추가적으로 취할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례 모음을 소개했습니다. PaaS 배포 보안 유지에 대한 자세한 내용은 다음을 참조하세요.

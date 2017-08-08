@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: f445983a5f9b2e83b51771fac763df478412de17
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,9 +32,9 @@ Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수
 
 이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
-## <a name="view-the-swagger"></a>swagger 보기
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[swagger 정보](/connectors/bingsearch/)를 참조하세요.
+[커넥터 세부 정보](/connectors/bingsearch/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="more-connectors"></a>추가 커넥터
 [API 목록](apis-list.md)으로 돌아갑니다.

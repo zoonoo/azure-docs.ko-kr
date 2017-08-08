@@ -15,12 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 024b70df99fdefa1598225ebb1fbfee85ea375d0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
@@ -31,7 +30,7 @@ HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 �
 >
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
 >
 
 
@@ -89,7 +88,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 * HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다.  DNS 접미사는 다음과 유사합니다.
 
         myhbase.b7.internal.cloudapp.net
-* 워크스테이션에서 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) 을 다운로드하여 설치합니다. 인증서를 만들려면 패키지의 makecert가 필요합니다.  
+* 워크스테이션에서 [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)을 다운로드하여 설치합니다. 인증서를 만들려면 패키지의 makecert가 필요합니다.  
 * 워크스테이션에서 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) 을 다운로드하여 설치합니다.  SQuirreL SQL Client 버전 3.0 이상에는 JRE 버전 1.6 이상이 필요합니다.  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성
@@ -128,7 +127,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
     다이어그램에 클라이언트 연결이 0개인 것으로 표시됩니다. 가상 네트워크에 연결하면 이 숫자가 1로 업데이트됩니다.
 
 #### <a name="create-your-certificates"></a>인증서 만들기
-X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구(makecert.exe)를 사용하는 것입니다.
+X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구(makecert.exe)를 사용하는 것입니다.
 
 **자체 서명된 루트 인증서를 만들려면**
 

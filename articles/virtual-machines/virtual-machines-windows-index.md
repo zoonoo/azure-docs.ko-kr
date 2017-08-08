@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5c971ed2e09bd275dc34da3ea94b3ff4a6338c9a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>클래식 배포 모델의 Windows VM에 대한 기술 문서
@@ -57,7 +56,7 @@ ms.lasthandoff: 05/10/2017
 
 [가상 컴퓨터의 크기](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[고성능 계산 VM 크기](windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Azure 가상 컴퓨터에 대한 계획된 유지 관리](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

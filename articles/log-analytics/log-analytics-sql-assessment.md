@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 SQL Server 환경 최적화
@@ -170,6 +169,8 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 OMS에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
 1. 작업 영역에 로그인하고 로그 검색을 엽니다. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.

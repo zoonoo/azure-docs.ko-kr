@@ -1,8 +1,8 @@
 ---
-title: "Azure Monitor CLI 빠른 시작 샘플. | Microsoft Docs"
-description: "Azure Monitor 기능에 대한 샘플 CLI 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다."
+title: "Azure Monitor CLI 1.0 빠른 시작 샘플 | Microsoft Docs"
+description: "Azure Monitor 기능에 대한 샘플 CLI 1.0 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5a8362b52c06b1b41f8108926ba07bbe5901125a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플
+# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 1.0 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 > [!NOTE]

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: dadf2ba4121960ae05257197e0b5f222b993ec73
-ms.lasthandoff: 04/25/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3705457e4c90f8869496f7f5177531bd128d1057
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -50,5 +51,7 @@ Azure DNS에 대한 질문과 대답을 보려면 [Azure DNS FAQ](dns-faq.md)를
 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
 Azure DNS에 [DNS 영역을 만드는](./dns-getstarted-create-dnszone-portal.md) 방법을 알아봅니다.
+
+Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 
 

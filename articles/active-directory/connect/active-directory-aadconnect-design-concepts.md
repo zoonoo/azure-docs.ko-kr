@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: f824f80aaba2cd2de7590ecf4560bb5559a66e82
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: bfb41f254d74bef843461a058ee5b2ced7fc45ec
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
@@ -84,22 +83,31 @@ Azure AD Connect(버전 1.1.524.0 이상)는 이제 msDS-ConsistencyGuid를 sour
 >[!NOTE]
 > 온-프레미스 AD 개체를 Azure AD Connect로 가져오면(즉, AD 커넥터 공간으로 가져와서 메타버스에 투영하면) sourceAnchor 값을 더 이상 변경할 수 없습니다. 지정된 온-프레미스 AD 개체에 대한 sourceAnchor 값을 지정하려면 Azure AD Connect로 가져오기 전에 해당 msDS-ConsistencyGuid 특성을 구성합니다.
 
+### <a name="permission-required"></a>필요한 권한
+이 기능을 사용하려면 온-프레미스 Active Directory와 동기화하는 데 사용되는 AD DS 계정에 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 대한 쓰기 권한을 부여해야 합니다.
+
+### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법 - 새로 설치
+새로 설치하는 동안 sourceAnchor로 ConsistencyGuid 사용을 설정할 수 있습니다. 이 섹션에서는 기본 설치 및 사용자 지정 설치를 자세히 설명합니다.
+
+  >[!NOTE]
+  > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 새로 설치하는 동안 sourceAnchor로 ConsistencyGuid 사용을 지원합니다.
+
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법
 현재 이 기능은 새 Azure AD Connect를 설치하는 중에만 사용하도록 설정할 수 있습니다.
 
 #### <a name="express-installation"></a>기본 설치
 Azure AD Connect를 기본 모드로 설치하는 경우 Azure AD Connect 마법사에서 다음 논리를 사용하여 sourceAnchor 특성으로 사용할 가장 적절한 AD 특성을 자동으로 결정합니다.
 
-* 먼저 Azure AD Connect 마법사에서 Azure AD 테넌트를 쿼리하여 이전 Azure AD Connect 설치(있는 경우)에서 sourceAnchor 특성으로 사용된 AD 특성을 검색합니다. 이 정보를 사용할 수 있으면 Azure AD Connect는 동일한 AD 특성을 사용합니다. 정보를 사용할 수 없는 경우...
+* 먼저 Azure AD Connect 마법사에서 Azure AD 테넌트를 쿼리하여 이전 Azure AD Connect 설치(있는 경우)에서 sourceAnchor 특성으로 사용된 AD 특성을 검색합니다. 이 정보를 사용할 수 있으면 Azure AD Connect는 동일한 AD 특성을 사용합니다.
 
-* 마법사에서 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사에서 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
+  >[!NOTE]
+  > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 설치하는 동안 사용된 sourceAnchor 특성에 대한 정보를 Azure AD 테넌트에 저장합니다. 이전 버전의 Azure AD Connect는 그렇지 않습니다.
+
+* 사용되는 sourceAnchor 특성에 대한 정보를 사용할 수 없는 경우 마법사는 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성의 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사에서 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
 
 * 이 경우 마법사는 objectGUID를 sourceAnchor 특성으로 사용합니다.
 
 * sourceAnchor 특성이 결정되면 마법사는 Azure AD 테넌트에 해당 정보를 저장합니다. 이 정보는 나중에 Azure AD Connect를 설치할 때 사용됩니다.
-
-  >[!NOTE]
-  > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 사용된 sourceAnchor 특성에 대한 정보를 Azure AD 테넌트에 저장합니다. 이전 버전의 Azure AD Connect는 그렇지 않습니다.
 
 기본 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다.
 
@@ -115,8 +123,37 @@ Azure AD Connect를 사용자 지정 모드로 설치하는 경우 Azure AD Conn
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [기본 설치에서 사용된 것과 동일한 sourceAnchor 특성 선택 논리](#express-installation)를 적용합니다. 기본 설치와 마찬가지로 사용자 정의 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
 
-### <a name="permission-required"></a>필요한 권한
-이 기능을 사용하려면 온-프레미스 Active Directory와 동기화하는 데 사용되는 AD DS 계정에 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 대한 쓰기 권한을 부여해야 합니다.
+### <a name="how-to-enable-the-consistencyguid-feature---existing-deployment"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법 - 기존 배포
+Source Anchor 특성으로 objectGUID를 사용하는 기존 Azure AD Connect 배포가 있는 경우 ConsistencyGuid를 대신 사용하도록 전환할 수 있습니다.
+
+>[!NOTE]
+> 최신 버전의 Azure AD Connect(1.1.552.0 이상)만 Source Anchor 특성으로 ObjectGuid에서 ConsistencyGuid로의 전환을 지원합니다.
+
+Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
+
+1. Azure AD Connect 마법사를 시작하고 **구성**을 클릭하여 작업 화면으로 이동합니다.
+
+2. **Source Anchor 구성** 작업 옵션을 선택하고 **다음**을 클릭합니다.
+
+   ![기존 배포에 대해 ConsistencyGuid 사용 - 2단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment01.png)
+
+3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
+
+4. Azure AD Connect 마법사에서 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 응용 프로그램이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
+
+   ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
+
+5. **구성할 준비 완료** 화면에서 **구성**을 클릭하여 구성을 변경합니다.
+
+   ![기존 배포에 대해 ConsistencyGuid 사용 - 5단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
+
+6. 구성이 완료되면 마법사는 msDS-ConsistencyGuid가 Source Anchor 특성으로 사용되고 있음을 나타냅니다.
+
+   ![기존 배포에 대해 ConsistencyGuid 사용 - 6단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
+
+분석하는 동안(4단계) 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+
+![기존 배포에 대해 ConsistencyGuid 사용 - 오류](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>AD FS 또는 타사 페더레이션 구성에 미치는 영향
 Azure AD Connect를 사용하여 온-프레미스 AD FS 배포를 관리하는 경우, Azure AD Connect에서 클레임 규칙을 자동으로 업데이트하여 sourceAnchor와 동일한 AD 특성을 사용합니다. 이렇게 하면 AD FS에서 생성된 ImmutableID 클레임이 Azure AD로 내보낸 sourceAnchor 값과 일치하게 됩니다.
@@ -155,5 +192,4 @@ Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
 

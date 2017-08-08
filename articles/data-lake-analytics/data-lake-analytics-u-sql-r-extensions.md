@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/01/2017
+ms.date: 06/20/2017
 ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 3728d81243a1ac9f501bd8d7d538c1f73b954405
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 05/05/2017
 # <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>자습서: R로 U-SQL 확장 시작
 
 다음 예제에서는 R 코드를 배포하는 기본 단계를 보여 줍니다.
-* REFERENCE ASSEMBLY 문을 사용하여 U-SQL 스크립트에 R 확장을 사용하도록 설정합니다.
-* REDUCE 작업을 사용하여 키의 입력 데이터를 분할합니다.
-* U-SQL용 R 확장에는 리듀서에 할당된 각 꼭짓점에서 R 코드를 실행하는 기본 제공 리듀서(Extension.R.Reducer)가 포함됩니다 
-* 각각 inputFromUSQL 및 outputToUSQL이라는 명명된 전용 데이터 프레임을 사용하여 USQL과 R 간에 데이터를 전달합니다. 입력 및 출력 DataFrame 식별자 이름은 고정되어 있습니다. 즉 사용자가 입력 및 출력 DataFrame 식별자의 미리 정의된 이름을 변경할 수 없습니다.
+* `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 R 확장을 사용하도록 설정합니다.
+* ` REDUCE` 연산을 사용하여 키의 입력 데이터를 분할합니다.
+* U-SQL용 R 확장에는 리듀서에 할당된 각 꼭짓점에서 R 코드를 실행하는 기본 제공 리듀서(`Extension.R.Reducer`)가 포함됩니다. 
+* 각각 `inputFromUSQL` 및 `outputToUSQL `이라는 명명된 전용 데이터 프레임을 사용하여 U-SQL과 R 간에 데이터를 전달합니다. 입력 및 출력 DataFrame 식별자 이름은 고정되어 있습니다. 즉 사용자가 입력 및 출력 DataFrame 식별자의 미리 정의된 이름을 변경할 수 없습니다.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL 스크립트에 R 코드 포함
 
-Extension.R.Reducer의 명령 매개 변수를 사용하여 U-SQL 스크립트에 R 코드를 인라인으로 포함할 수 있습니다. 예를 들어 문자열 변수로 R 스크립트를 선언하고 리듀서에 매개 변수로 전달할 수 있습니다.
+`Extension.R.Reducer`의 명령 매개 변수를 사용하여 U-SQL 스크립트에 R 코드를 인라인으로 포함할 수 있습니다. 예를 들어 문자열 변수로 R 스크립트를 선언하고 리듀서에 매개 변수로 전달할 수 있습니다.
 
 
     REFERENCE ASSEMBLY [ExtR];
@@ -98,10 +98,10 @@ U-SQL 스크립트를 사용하여 DEPLOY RESOURCE 문과 함께 R 스크립트�
 ## <a name="how-r-integrates-with-u-sql"></a>R과 U-SQL 통합 방법
 
 ### <a name="datatypes"></a>데이터 형식
-* U-SQL의 문자열 및 숫자 열은 R DataFrame과 U-SQL 간에 있는 그대로 변환됩니다[지원되는 형식: double, string, bool, integer, byte].
-* 요소 데이터 형식은 U-SQL에서 지원되지 않습니다.
-* byte[]는 base64로 인코딩된 문자열로 직렬화되어야 합니다.
-* 일단 U-SQL에서 R 입력 데이터 프레임을 만들거나 stringsAsFactors: true 리듀서 매개 변수를 설정하여 U-SQL 문자열을 R 코드의 요소로 변환할 수 있습니다.
+* U-SQL의 문자열 및 숫자 열은 R DataFrame과 U-SQL 간에 있는 그대로 변환됩니다[지원되는 형식: `double`, `string`, `bool`, `integer`, `byte`].
+* `Factor` 데이터 형식은 U-SQL에서 지원되지 않습니다.
+* `byte[]`는 base64로 인코딩된 `string`로 직렬화되어야 합니다.
+* 일단 U-SQL에서 R 입력 데이터 프레임을 만들거나 `stringsAsFactors: true` 리듀서 매개 변수를 설정하여 U-SQL 문자열을 R 코드의 요소로 변환할 수 있습니다.
 
 ### <a name="schemas"></a>스키마
 * U-SQL 데이터 집합에는 열 이름이 중복될 수 없습니다.
@@ -111,7 +111,7 @@ U-SQL 스크립트를 사용하여 DEPLOY RESOURCE 문과 함께 R 스크립트�
 
 ### <a name="functional-limitations"></a>기능 제한 사항
 * R 엔진은 동일한 프로세스에서 두 번 인스턴스화할 수 없습니다. 
-* 현재, U-SQL 중단은 리듀셔 UDO를 사용하여 생성된 분할된 모델을 사용하는 예측에 결합 UDO를 지원하지 않습니다. 사용자는 리소스로 분할된 모델을 선언하고 R 스크립트에서 모델을 사용할 수 있습니다(샘플 코드 ExtR_PredictUsingLMRawStringReducer.usql 참조).
+* 현재, U-SQL 중단은 리듀셔 UDO를 사용하여 생성된 분할된 모델을 사용하는 예측에 결합 UDO를 지원하지 않습니다. 사용자는 리소스로 분할된 모델을 선언하고 R 스크립트에서 모델을 사용할 수 있습니다(샘플 코드 `ExtR_PredictUsingLMRawStringReducer.usql` 참조).
 
 ### <a name="r-versions"></a>R 버전
 R 3.2.2만 지원됩니다.
@@ -170,11 +170,11 @@ R 3.2.2만 지원됩니다.
 모든 정점에는 할당되는 메모리 양이 제한되어 있습니다. 입력 및 출력 DataFrames는 R 코드의 메모리에 있어야 하므로 입력 및 출력의 총 크기는 500MB를 초과할 수 없습니다.
 
 ### <a name="sample-code"></a>샘플 코드
-U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data Lake Store 계정에 제공됩니다. 더 많은 샘플 코드에 대한 경로: <your_account_address>/usqlext/samples/R 
+U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data Lake Store 계정에 제공됩니다. 더 많은 샘플 코드에 대한 경로는 `<your_account_address>/usqlext/samples/R`입니다. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>U-SQL을 사용한 사용자 지정 R 모듈 배포
 
-먼저, R 사용자 지정 모듈을 만들어 압축(zip)한 후 압축된 R 사용자 지정 모듈 파일을 ADL 저장소에 업로드합니다. 예제에서는 사용 중인 ADLA 계정에 대해 기본 ADLS 계정의 루트로 magittr_1.5.zip을 업로드합니다. 모듈을 ADL 저장소에 업로드한 후 DEPLOY RESOURCE 사용으로 선언하여 U-SQL 스크립트에서 사용할 수 있도록 하고 "install.packages"를 호출하여 설치합니다.
+먼저, R 사용자 지정 모듈을 만들어 압축(zip)한 후 압축된 R 사용자 지정 모듈 파일을 ADL 저장소에 업로드합니다. 예제에서는 사용 중인 ADLA 계정에 대해 기본 ADLS 계정의 루트로 magittr_1.5.zip을 업로드합니다. 모듈을 ADL 저장소에 업로드한 후 DEPLOY RESOURCE 사용으로 선언하여 U-SQL 스크립트에서 사용할 수 있도록 하고 `install.packages`를 호출하여 설치합니다.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
@@ -212,7 +212,6 @@ U-SQL Advanced Analytics 확장을 설치하면 더 많은 샘플 코드가 Data
     USING new Extension.R.Reducer(command:@myRScript, rReturnType:"charactermatrix");
 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
-
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)

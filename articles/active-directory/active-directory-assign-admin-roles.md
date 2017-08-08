@@ -12,14 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 07/20/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b29633d93484950d6657fc1d618fa0f1a2d5c01a
+ms.reviewer: 
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: e7444e153c2ee7b4669fb814ae62b152a0fd89d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
@@ -35,7 +37,9 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **대금 청구 관리자**: 구입하고, 구독을 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링합니다.
 
-* **호환성 관리자**: 이 역할의 사용자는 Office 365 보안 및 규정 준수 센터 및 Exchange 관리 센터 내 관리 권한이 있습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”를 참조하세요.
+* **준수 관리자**: 이 역할의 사용자는 Office 365 보안 및 준수 센터와 Exchange 관리 센터 내 관리 권한을 갖습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”를 참조하세요.
+
+* **조건부 액세스 관리자**: 이 역할의 사용자는 Azure Active Directory 조건부 액세스 설정을 관리할 수 있습니다.
 
 * **CRM 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft CRM Online 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
@@ -77,7 +81,7 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **권한 있는 역할 관리자**: 이 역할의 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management 내에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
-* **보안 관리자**: 이 역할의 사용자는 보안 읽기 역할의 모든 읽기 전용 권한 및 보안 관련 서비스(Azure Active Directory ID 보호, Privileged Identity Management 및 Office 365 보안 및 규정 준수 센터)에 대한 구성을 관리하는 기능을 가집니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
+* **보안 관리자**: 이 역할의 사용자는 보안 읽기 역할의 모든 읽기 전용 권한 및 보안 관련 서비스(Azure Active Directory ID 보호, Azure Information Protection, Privileged Identity Management 및 Office 365 보안 및 규정 준수 센터)에 대한 구성을 관리하는 기능을 가집니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
 * **보안 판독기**: 이 역할의 사용자는 Azure Active Directory, ID 보호, Privileged Identity Management의 모든 정보를 포함한 전역 읽기 전용 액세스와 Azure Active Directory 로그인 보고서 및 감사 로그를 읽는 기능을 가집니다. 또한 역할은 Office 365 보안 및 규정 준수 센터의 읽기 전용 권한을 부여합니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
@@ -102,11 +106,15 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 | --- | --- |
 |<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p>|
 
+### <a name="conditional-access-administrator"></a>조건부 액세스 관리자
+| 가능한 작업 | 불가능한 작업 |
+| --- | --- |
+|<p>회사 및 사용자 정보 보기</p><p>조건부 액세스 설정 관리</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p>|
+
 ### <a name="global-administrator"></a>전역 관리자
 | 가능한 작업 | 불가능한 작업 |
 | --- | --- |
-| <p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 암호 다시 설정</p>
-<p>다른 관리자의 암호를 다시 설정</p> <p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>다단계 인증 사용/사용 안 함</p><p>감사 로그 보기</p> |해당 없음 |
+|<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 암호 다시 설정</p><p>다른 관리자의 암호를 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>다단계 인증 사용/사용 안 함</p><p>감사 로그 보기</p> |<p>해당 없음</p>|
 
 ### <a name="password-administrator"></a>암호 관리자
 | 가능한 작업 | 불가능한 작업 |
@@ -156,6 +164,17 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법에 대한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)을 참조하세요.
+
+## <a name="deprecated-roles"></a>사용되지 않는 역할
+
+다음 역할은 사용할 수 없습니다. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다.
+
+* 임시 라이선스 관리자
+* 전자 메일 확인 사용자 생성자
+* 장치 연결
+* 장치 관리
+* 장치 사용자
+* 작업 공간 장치 연결
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)

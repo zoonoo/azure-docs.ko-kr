@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: elbutter; barbkess
+ms.date: 07/25/2017
+ms.author: elbutter
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: e250fa59204be14614a4c91fb5a0c1af5a8d5281
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/02/2017
-
 
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Azure SQL Data Warehouse의 계산 능력 관리(REST)
@@ -42,7 +41,7 @@ ms.lasthandoff: 06/02/2017
 DWU를 변경하려면 [데이터베이스 생성 또는 업데이트][Create or Update Database] REST API를 사용합니다. 다음 예제에서는 MyServer에서 호스팅되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
+PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
@@ -161,7 +160,7 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리
 
 * 데이터 형식: **문자열**, **숫자**, **점**, **다각형** 또는 **LineString**(경로별로 데이터 형식당 하나만 포함할 수 있음)
 * 인덱스 종류: **해시**(같음 쿼리), **범위**(같음, 범위 또는 Order By 쿼리) 또는 **공간**(공간 쿼리) 
-* 전체 자릿수: 숫자의 경우 1-8 또는 -1(최대 전체 자릿수), 문자열의 경우 1-100(최대 전체 자릿수)
+* 정밀도: 해시 인덱스의 경우 문자열 및 숫자 둘 다에서 1~8 범위로 다양하며, 기본값은 3입니다. 범위 인덱스의 경우 이 값은 -1(최대 전체 자릿수)일 수 있으며 문자열 또는 숫자 값에 대해 1-100(최대 전체 자릿수) 범위일 수 있습니다.
 
 #### <a name="index-kind"></a>인덱스 종류
 Azure Cosmos DB는 모든 경로에 대해 해시 및 범위 인덱스 종류를 지원합니다(문자열, 숫자 또는 둘 다로 구성할 수 있음).
@@ -229,7 +228,7 @@ Azure Cosmos DB는 점, 다각형 또는 LineString 데이터 형식에 지정�
 
 자동 인덱싱이 해제된 상태에서도 특정 문서만 선택적으로 인덱스에 추가할 수 있습니다. 반대로, 자동 인덱싱을 설정된 상태로 두고 특정 문서만 선택적으로 제외할 수도 있습니다. 인덱싱 설정/해제 구성은 문서의 하위 집합만 쿼리해야 할 경우에 유용합니다.
 
-예를 들어 다음 샘플은 [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) 및 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
+예를 들어 다음 샘플은 [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) 및 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

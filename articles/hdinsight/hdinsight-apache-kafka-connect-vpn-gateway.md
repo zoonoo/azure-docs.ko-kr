@@ -1,6 +1,6 @@
 ---
-title: "가상 네트워크를 사용하여 HDInsight의 Kafka에 연결 -Azure | Microsoft Docs"
-description: "kafka-python 클라이언트를 사용하여 HDInsight의 Kafka에 원격으로 연결하는 방법을 알아봅니다. 이 문서의 구성에서는 Azure Virtual Network 내에서 HDInsight를 사용합니다. 원격 클라이언트는 지점-사이트 간 VPN Gateway를 통해 가상 네트워크에 연결합니다."
+title: "가상 네트워크를 사용하여 Kafka에 연결 - Azure HDInsight | Microsoft Docs"
+description: "Azure Virtual Network를 통해 HDInsight에서 Kafka에 직접 연결하는 방법을 알아봅니다. VPN Gateway를 사용하여 개발 클라이언트에서 또는 VPN 게이트웨이 장치를 사용하여 온-프레미스 네트워크의 클라이언트에서 Kafka에 연결하는 방법을 알아봅니다."
 services: hdinsight
 documentationCenter: 
 author: Blackmist
@@ -13,54 +13,83 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/18/2017
+ms.date: 08/01/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight(미리 보기)의 Kafka에 연결
 
-Azure Virtual Network를 사용하여 HDInsight의 Kafka에 연결하는 방법을 알아봅니다. Kafka 클라이언트(생산자 및 소비자)는 HDInsight에서 직접 또는 원격 시스템에서 실행할 수 있습니다. 원격 클라이언트는 Azure Virtual Network를 통해 HDInsight의 Kafka에 연결해야 합니다. 이 문서의 정보의 정보를 사용하여 원격 클라이언트가 Azure Virtual Network를 사용하여 HDInsight에 연결하는 방법을 이해합니다.
+Azure Virtual Network를 사용하여 HDInsight의 Kafka에 직접 연결하는 방법을 알아봅니다. 이 문서는 다음 구성을 사용하여 Kafka에 연결하는 것에 관한 정보를 제공합니다.
 
-> [!IMPORTANT]
-> 이 문서에 설명된 구성 중 일부는 Windows, macOS 또는 Linux 클라이언트에서 사용할 수 있습니다. 그러나 포함된 지점 - 사이트 간 예제는 Windows용 VPN 클라이언트만 제공합니다.
->
-> 또한 이 예제에서는 Python 클라이언트([kafka-python](http://kafka-python.readthedocs.io/en/master/))를 사용하여 HDInsight의 Kafka와의 통신을 확인합니다.
+* 온-프레미스 네트워크 리소스에서. 이 연결은 로컬 네트워크에서 VPN 장치(소프트웨어 또는 하드웨어)를 사용하여 설정됩니다.
+* VPN 소프트웨어 클라이언트를 사용한 개발 환경에서.
 
 ## <a name="architecture-and-planning"></a>아키텍처 및 계획
 
-HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오는 SSH 및 HTTPS 트래픽만 허용합니다. 트래픽은 공용 게이트웨이 통해 도착합니다. 이러한 게이트웨이는 Kafka 클라이언트의 트래픽을 라우팅하지 않습니다. 원격 클라이언트에서 Kafka에 액세스하려면 VPN(가상 사설망) Gateway를 제공하는 Azure Virtual Network를 만들어야 합니다. 가상 네트워크 및 게이트웨이를 구성한 후 가상 네트워크에 HDInsight를 설치하고 VPN Gateway를 사용하여 연결합니다.
+HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허용하지 않습니다. 대신, Kafka 클라이언트(생산자와 소비자)는 다음 연결 방법 중 하나를 사용해야 합니다.
 
-![클라이언트가 VPN을 통해 연결된 Azure Virtual Network 내 HDInsight의 다이어그램](media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-in-virtual-network.png)
+* 클라이언트를 동일한 가상 네트워크에서 Kafka로 HDInsight 상에서 실행합니다. 이 구성은 [HDInsight의 Apache Kafka(미리 보기)에서 시작](hdinsight-apache-kafka-get-started.md) 문서에서 사용됩니다. 클라이언트는 동일한 네트워크 내의 HDInsight 클러스터 노드나 또 다른 가상 컴퓨터에서 직접 실행합니다.
 
-다음 목록에는 가상 네트워크에서 HDInsight의 Kafka를 사용하는 프로세스에 대한 정보가 나와 있습니다.
+* 온-프레미스 네트워크와 같은 개인 네트워크를 가상 네트워크에 연결합니다. 이 구성을 통해 온-프레미스 네트워크의 클라이언트들은 직접 Kafka를 사용할 수 있습니다. 이 구성을 사용하도록 설정하려면 다음 작업을 수행합니다.
 
-1. 가상 네트워크를 만듭니다. HDInsight와 함께 Azure Virtual Network를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
+    1. 가상 네트워크를 만듭니다.
+    2. 사이트 간 구성을 사용하는 VPN 게이트웨이를 만듭니다. 이 문서에 사용된 구성을 통해 온-프레미스 네트워크의 VPN 게이트웨이 장치에 연결합니다.
+    3. 가상 네트워크에 DNS 서버를 만듭니다.
+    4. 각 네트워크의 DNS 서버 간에 전달을 구성합니다.
+    5. HDInsight의 Kafka를 가상 네트워크에 설치합니다.
 
-2. (선택 사항) 가상 네트워크 내에 Azure Virtual Network를 만들고 사용자 지정 DNS 서버를 설치합니다. 이 DNS 서버를 사이트 간 또는 VNet 간 구성에서 원격 클라이언트에 대한 이름 확인을 사용하도록 설정하는 데 사용됩니다. 자세한 내용은 [VM 및 Cloud Services의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
+    자세한 내용은 [온-프레미스 네트워크에서 Kafka에 연결](#on-premises) 섹션을 참조하세요. 
 
-3. 가상 네트워크에 대한 VPN Gateway를 만듭니다. VPN Gateway 구성에 대한 자세한 내용은 [VPN Gateway 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
+* VPN 게이트웨이와 VPN 클라이언트를 사용하여 개별 컴퓨터를 가상 네트워크에 연결합니다. 이 구성을 사용하도록 설정하려면 다음 작업을 수행합니다.
 
-4. 가상 네트워크 내에 HDInsight를 만듭니다. 네트워크에 대한 사용자 지정 DNS 서버를 구성한 경우 HDInsight가 이 서버를 사용하도록 자동으로 구성됩니다.
+    1. 가상 네트워크를 만듭니다.
+    2. 지점-사이트 간 구성을 사용하는 VPN 게이트웨이를 만듭니다. 이 구성은 Windows 클라이언트에 설치할 수 있는 VPN 클라이언트를 제공합니다.
+    3. HDInsight의 Kafka를 가상 네트워크에 설치합니다.
+    4. IP 보급을 위한 Kafka 구성. 이 구성은 클라이언트가 도메인 이름 대신 IP 주소 지정을 사용하여 연결하도록 허용합니다.
+    5. VPN 클라이언트를 개발 시스템에 다운로드하여 사용합니다.
 
-5. (선택 사항) 사용자 지정 DNS 서버를 사용하지 않았으며 클라이언트와 가상 네트워크 간에 이름 확인이 수행되지 않으면 IP 보급을 위해 Kafka를 구성해야 합니다. 자세한 내용은 이 문서의 [IP 보습을 위해 Kafka 구성](#configure-kafka-for-ip-advertising) 섹션을 참조하세요.
+    자세한 내용은 [VPN 클라이언트와 함께 Kafka 연결](#vpnclient) 섹션을 참조하세요.
 
-## <a name="create-using-powershell"></a>만들기: PowerShell 사용
+    > [!WARNING]
+    > 이 구성은 다음과 같은 제한 사항 때문에 개발 용도로만 사용하는 것이 좋습니다.
+    >
+    > * 각 클라이언트는 VPN 소프트웨어 클라이언트를 사용하여 연결해야 합니다. Azure는 Windows 기반 클라이언트만 제공합니다.
+    > * 클라이언트는 가상 네트워크에 이름 확인 요청을 전달 하지 않으므로, Kafka와 통신하기 위해 IP 주소 지정을 사용해야 합니다. IP 통신을 하려면 Kafka 클러스터에 추가 구성을 해야 합니다.
 
-이 섹션의 단계에서는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 다음 구성을 만듭니다.
+가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+
+## <a id="on-premises"></a>온-프레미스 네트워크에서 Kafka에 연결
+
+온-프레미스 네트워크와 통신하는 Kafka 클러스터를 만들려면 [온-프레미스 네트워크에 HDInsight 연결](./connect-on-premises-network.md) 문서에 나오는 단계를 수행합니다.
+
+> [!IMPORTANT]
+> HDInsight 클러스터를 만들 때 __Kafka__ 클러스터 유형을 선택합니다.
+
+이러한 단계를 거쳐 다음 구성이 생성됩니다.
 
 * Azure 가상 네트워크
-* 지점 - 사이트 간 VPN Gateway
+* 사이트 간 VPN 게이트웨이
 * Azure Storage 계정(HDInsight에서 사용)
 * HDInsight의 Kafka
 
-1. [지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)의 단계에 따라 게이트웨이에 필요한 인증서를 만듭니다.
+Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 있는지 확인하려면 [예: Python 클라이언트](#python-client) 섹션에 나오는 단계를 사용합니다.
+
+## <a id="vpnclient"></a>VPN 클라이언트와 함께 Kafka에 연결
+
+다음 구성을 만들려면 이 섹션에 나오는 단계를 사용합니다.
+
+* Azure 가상 네트워크
+* 지점-사이트 간 VPN Gateway
+* Azure Storage 계정(HDInsight에서 사용)
+* HDInsight의 Kafka
+
+1. [지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서에 나오는 단계를 수행합니다. 이 문서는 게이트웨이에 필요한 인증서를 만듭니다.
 
 2. PowerShell 프롬프트를 열고 다음 코드를 사용하여 Azure 구독에 로그인합니다.
 
@@ -222,13 +251,13 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
     Windows VPN 클라이언트를 다운로드하려면 웹 브라우저에서 반환된 URI를 사용합니다.
 
-## <a name="configure-kafka-for-ip-advertising"></a>IP 보습을 위해 Kafka 구성
+### <a name="configure-kafka-for-ip-advertising"></a>IP 보급을 위해 Kafka 구성
 
-기본적으로 Zookeeper는 클라이언트에 대한 Kafka 브로커의 도메인 이름을 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 클라이언트에 작동하지 않습니다. 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 HDInsight의 Kafka를 구성합니다.
+기본적으로 Zookeeper는 Kafka 브로커의 도메인 이름을 클라이언트에 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 소프트웨어 클라이언트에 작동하지 않습니다. 이 구성의 경우, 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
 1. 웹 브라우저를 사용하여 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. __CLUSTERNAME__을 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
 
-    클러스터의 HTTPS 사용자 이름 및 암호를 입력하라는 메시지가 표시되면 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
+    메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
 2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__를 선택합니다.
 
@@ -240,7 +269,7 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
-    ![Kafka 구성, kafka-env 관련](./media/hdinsight-apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    ![kafka-env의 Kafka 구성](./media/hdinsight-apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
 5. IP 주소를 보급하도록 Kafka를 구성하려면 __kafka-env-template__ 맨 아래에 다음 텍스트를 추가합니다.
 
@@ -254,7 +283,7 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
 6. Kafka에서 수신 대기하는 인터페이스를 구성하려면 오른쪽 위의 __필터__ 필드에 `listeners`를 입력합니다.
 
-7. 모든 네트워크 인터페이스에서 수신 대기하도록 Kafka를 구성하려면 __수신기__ 필드의 값을 `PLAINTEXT://0.0.0.0:92092`로 변경합니다.
+7. 모든 네트워크 인터페이스에서 수신 대기하도록 Kafka를 구성하려면 __수신기__ 필드의 값을 `PLAINTEXT://0.0.0.0:9092`로 변경합니다.
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__을 선택합니다.
 
@@ -262,48 +291,47 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
-    ![서비스 작업, 유지 관리 모드가 강조 표시됨](./media/hdinsight-apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    ![유지 관리 모드 켜기가 강조 표시된 서비스 작업](./media/hdinsight-apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
 10. Kafka를 다시 시작하려면 __다시 시작__ 단추를 사용하고 __영향 받은 모든 항목 다시 시작__을 선택합니다. 다시 시작을 확인하고 작업이 완료되면 __확인__ 단추를 사용합니다.
 
     ![영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추](./media/hdinsight-apache-kafka-connect-vpn-gateway/restart-button.png)
 
-11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 켜기__를 선택합니다. **확인**을 선택하여 이 작업을 완료합니다.
+11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 끄기__를 선택합니다. **확인**을 선택하여 이 작업을 완료합니다.
 
-## <a name="connect-to-the-vpn-gateway"></a>VPN Gateway에 연결
+### <a name="connect-to-the-vpn-gateway"></a>VPN Gateway에 연결
 
-__Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) 문서의 __Azure에 연결__ 섹션을 사용합니다.
+__Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) 문서의 __Azure에 연결__ 섹션을 사용합니다.
 
-## <a name="remote-kafka-client"></a>원격 Kafka 클라이언트
+## <a id="python-client"></a>예: Python 클라이언트
 
-클라이언트 컴퓨터에서 Kafka에 연결하려면 Kafka 브로커 또는 Zookeeper 노드(둘 중 클라이언트에 필요한 항목)의 IP 주소를 사용해야 합니다. 다음 단계에 따라 Kafka 브로커의 IP 주소를 검색한 다음 Python 응용 프로그램에서 사용합니다.
+Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하여 Python 생산자와 소비자를 만들고 실행합니다.
 
-1. 다음 스크립트를 사용하여 클러스터에 있는 노드의 IP 주소를 검색합니다.
+1. 다음 방법 중 하나를 사용하여 Kafka 클러스터에서 정규화된 도메인 이름(FQDN) 및 노드 IP 주소를 검색합니다.
 
     ```powershell
-    # Get the NICs for the HDInsight workernodes (names contain 'workernode').
-    $nodes = Get-AzureRmNetworkInterface `
-        -ResourceGroupName $resourceGroupName `
-        | where-object {$_.Name -like "*workernode*"}
+    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-    # Loop through each node and get the IP address
-    foreach($node in $nodes) {
-        $node.IpConfigurations.PrivateIpAddress
+    $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+
+    $nodes = @()
+    foreach($nic in $clusterNICs) {
+        $node = new-object System.Object
+        $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+        $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+        $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+        $nodes += $node
     }
+    $nodes | sort-object Type
     ```
 
-    이 스크립트에서는 `$resourceGroupName`을 가상 네트워크가 포함된 Azure 리소스 그룹의 이름으로 가정합니다. 이 스크립트의 출력은 다음 텍스트와 비슷합니다.
+    ```azurecli
+    az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    ```
 
-        10.0.0.12
-        10.0.0.6
-        10.0.0.13
-        10.0.0.5
+    이 스크립트에서는 `$resourceGroupName`을 가상 네트워크가 포함된 Azure 리소스 그룹의 이름으로 가정합니다.
 
-    > [!NOTE]
-    > Kafka 클라이언트가 Kafka 브로커 대신 Zookeeper 노드를 사용하는 경우 PowerShell 스크립트에서 `*workernode*`를 `*zookeepernode*`로 바꿉니다.
-
-    > [!WARNING]
-    > 클러스터 크기를 조정하려고 하거나 노드가 실패하여 대체되면 IP 주소가 변경될 수 있습니다. 현재 HDInsight 클러스터의 노드에 대해 특정 IP 주소를 미리 할당하는 방법은 없습니다.
+    다음 단계에서의 사용을 위해 반환된 정보를 저장합니다.
 
 2. 다음을 사용하여 [kafka-python](http://kafka-python.readthedocs.io/) 클라이언트를 설치합니다.
 
@@ -314,12 +342,16 @@ __Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이
   ```python
   from kafka import KafkaProducer
   # Replace the `ip_address` entries with the IP address of your worker nodes
-  producer = KafkaProducer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'])
+  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'])
   for _ in range(50):
       producer.send('testtopic', b'test message')
   ```
 
-    `'ip_address'` 항목을 이 섹션의 1단계에서 반환된 주소로 바꿉니다.
+    `'kafka_broker'` 항목을 이 섹션의 1단계에서 반환된 주소로 바꿉니다.
+
+    * __소프트웨어 VPN 클라이언트__를 사용하는 경우, `kafka_broker` 항목을 작업자 노드의 IP 주소와 바꿉니다.
+
+    * __사용자 지정 DNS 서버를 통해 이름 확인을 할 수 있게__ 한 경우, `kafka_broker` 항목을 작업자 노드의 FQDN과 바꿉니다.
 
     > [!NOTE]
     > 이 코드는 문자열 `test message`를 토픽 `testtopic`으로 전송합니다. HDInsight에서 Kafka의 기본 구성은 토픽이 없을 때 만드는 것입니다.
@@ -331,21 +363,23 @@ __Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이
    # Replace the `ip_address` entries with the IP address of your worker nodes
    # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
    #       of the topic
-   consumer = KafkaConsumer(bootstrap_servers=['ip_address1','ip_address2','ip_adderess3','ip_address4'],auto_offset_reset='earliest')
+   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'],auto_offset_reset='earliest')
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)
    ```
 
-    `'ip_address'` 항목을 이 섹션의 1단계에서 반환된 주소로 바꿉니다. 출력에는 이전 단계에서 생산자에게 전송된 테스트 메시지가 포함됩니다.
+    `'kafka_broker'` 항목을 이 섹션의 1단계에서 반환된 주소로 바꿉니다.
 
-## <a name="troubleshooting"></a>문제 해결
+    * __소프트웨어 VPN 클라이언트__를 사용하는 경우, `kafka_broker` 항목을 작업자 노드의 IP 주소와 바꿉니다.
 
-가상 네트워크에 연결하는 데 문제가 있거나 네트워크를 통해 HDInsight에 연결하는 데 문제가 있는 경우 [가상 네트워크 게이트웨이 및 연결 문제 해결](../network-watcher/network-watcher-troubleshoot-manage-powershell.md) 문서를 참조하세요.
+    * __사용자 지정 DNS 서버를 통해 이름 확인을 할 수 있게__ 한 경우, `kafka_broker` 항목을 작업자 노드의 FQDN과 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-지점 - 사이트 간 VPN Gateway를 사용하여 Azure Virtual Network를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+HDInsight와 함께 가상 네트워크를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
+
+지점-사이트 간 VPN Gateway를 사용하여 Azure Virtual Network를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Portal을 사용하여 지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
