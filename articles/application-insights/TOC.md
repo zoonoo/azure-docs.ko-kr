@@ -42,6 +42,7 @@
 ## 구성
 ### Azure
 #### [프로파일러](app-insights-profiler.md)
+#### [프로파일러 활성화](enable-profiler-cloud-services.md)
 #### [진단](app-insights-azure-diagnostics.md)
 #### [미리 보기](app-insights-previews.md)
 
@@ -91,6 +92,7 @@
 
 ### 사용
 #### [개요](app-insights-usage-overview.md)
+#### [사용자 컨텍스트 전송](app-insights-usage-send-user-context.md)
 #### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
 #### [깔때기](usage-funnels.md)
 #### [보존](app-insights-usage-retention.md)
@@ -140,7 +142,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # 참조
-## [분석](app-insights-analytics-reference.md)
+## [분석](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,13 +156,15 @@
 ### [메트릭](application-insights-data-model-metric-telemetry.md)
 ### [컨텍스트](application-insights-data-model-context.md)
 ## [원격 분석 상관 관계](application-insights-correlation.md)
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 
 ## [언어 및 플랫폼](app-insights-platforms.md)
 
-## [가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [가격](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 ## 뉴스
 
