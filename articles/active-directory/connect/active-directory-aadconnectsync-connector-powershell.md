@@ -213,7 +213,7 @@ MAData 폴더에서 FIMPowerShellConnectorModule.psm1이라는 모듈을 로드�
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
 | CloseImportConnectionRunStep |[CloseImportConnectionRunStep][cecrs] |가져오기가 종료된 이유에 대한 스크립트를 알립니다. |
 
-스크립트는 단일 [CloseImportConnectionResults] [ cicres] 개체를 파이프라인으로 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
+스크립트는 단일 [CloseImportConnectionResults][cicres] 개체를 파이프라인으로 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
 #### <a name="export"></a>내보내기
 커넥터의 가져오기 아키텍처와 동일하게 내보내기를 지원하는 커넥터는 세 가지 스크립트 구현해야 합니다.

@@ -2,9 +2,11 @@
 layout: LandingPage
 title: "Service Bus Relay 설명서"
 description: "Azure Relay 서비스가 어떻게 하이브리드 클라우드 및 온-프레미스 환경에서 작동하고, 방법, 자습서, 비디오, API 참조 등으로 완료되는지 알아봅니다."
-translationtype: Human Translation
-ms.sourcegitcommit: ef8188d6790dac8b420348887c480cd4fdab07c4
-ms.openlocfilehash: 911ad28e0e93b9b46b368de2cfbbbbc9f1183b7b
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Relay 설명서
@@ -30,7 +32,7 @@ Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,8 +114,8 @@ Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>샘플</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Service Bus Relay 샘플</a></p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +126,8 @@ Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -137,17 +138,12 @@ Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>기타</h3>
-                        <p><a href="service-bus-relay-port-settings.md">포트 설정</a></p>
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/servicebus/">REST API 참조</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
