@@ -94,12 +94,10 @@
 #### [Data Lake Store에 작성](hdinsight-storm-write-data-lake-store.md)
 #### [Maven을 사용하여 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 #### [Hadoop 도구를 사용하여 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Twitter 추세 항목 확인](hdinsight-storm-twitter-trending.md)
 #### [C# 토폴로지로 이벤트 처리](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Java 토폴로지로 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [토폴로지로 Power BI 사용](hdinsight-storm-power-bi-topology.md)
 #### [실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)
-#### [프로세스 차량 센서 데이터](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [시간 경과에 따른 이벤트 간의 상관 관계](hdinsight-storm-correlation-topology.md)
 #### [Python을 사용하여 토폴로지 개발](hdinsight-storm-develop-python-topology.md)
 ## 도메인에 가입된 HDInsight 사용(미리 보기)
@@ -137,6 +135,7 @@
 ### [Hive를 사용하여 웹 사이트 로그 분석](hdinsight-hive-analyze-website-log.md)
 ### [Application Insights 원격 분석 로그 분석](hdinsight-spark-analyze-application-insight-logs.md)
 ## 클러스터 확장
+### [보안이 활성화된 저장소 계정 사용](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [부트스트랩을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [스크립트 작업을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 ### [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md)
@@ -207,6 +206,7 @@
 #### [Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET(Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET(HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -240,4 +240,5 @@
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [빅 데이터에 대한 Microsoft 전문가 프로그램](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [HDInsight에 대한 Windows 도구](hdinsight-hadoop-windows-tools.md)
