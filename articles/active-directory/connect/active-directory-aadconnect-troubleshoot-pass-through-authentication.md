@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -30,6 +30,14 @@ ms.lasthandoff: 06/17/2017
 >통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
+
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>기능 및 인증 에이전트의 상태 확인
+
+테넌트에서 통과 인증 기능이 여전히 **사용**으로 설정되고 인증 에이전트의 상태가 **비활성**이 아닌 **활성**으로 표시되는지 확인합니다. [Azure Portal](https://portal.azure.com/)에서 **Azure AD Connect** 블레이드로 이동하여 확인할 수 있습니다.
+
+![Azure Portal - Azure AD Connect 블레이드](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Azure Portal - 통과 인증 블레이드](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>사용자 관련 로그인 오류 메시지
 
@@ -43,13 +51,13 @@ ms.lasthandoff: 06/17/2017
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유
+### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Azure Portal에서 로그인 실패 이유
 
-통과 인증을 사용하여 사용자 로그인 문제를 해결하려면 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 살펴보는 것이 좋습니다.
+[Azure Portal](https://portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 살펴보고 사용자 로그인 문제 해결을 시작합니다.
 
 ![로그인 보고서](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** -> **로그인**으로 차례로 이동하고 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+[Azure Portal](https://portal.azure.com/)에서 **Azure Active Directory** -> **로그인**으로 차례로 이동하고 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -64,10 +72,6 @@ ms.lasthandoff: 06/17/2017
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
-
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Azure AD Application Proxy 커넥터가 이미 있음
-
-통과 인증 에이전트는 [Azure AD 응용 프로그램 프록시](../../active-directory/active-directory-application-proxy-get-started.md) 커넥터와 동일한 서버에 설치할 수 없습니다. 따라서 별도의 서버에 통과 인증 에이전트를 설치해야 합니다.
 
 ### <a name="an-unexpected-error-occurred"></a>예기치 않은 오류가 발생함
 
@@ -115,16 +119,16 @@ Azure AD Connect가 설치된 서버가 [여기](active-directory-aadconnect-pas
 
 ### <a name="authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그
 
-인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 응용 프로그램을 열고 **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**에서 확인합니다.
+인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 응용 프로그램을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다. 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 
-사용자 로그인 실패 문제를 해결하려면 **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 [표](#sign-in-failure-reasons-on-the-Azure-portal)에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
+사용자 로그인 실패 문제를 해결하려면 **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 [표](#sign-in-failure-reasons-on-the-Azure-portal)에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
 
 ```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
         ThreadId=5
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -142,7 +146,7 @@ Azure AD Connect가 설치된 서버가 [여기](active-directory-aadconnect-pas
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```

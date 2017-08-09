@@ -13,14 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 공장 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/08/2017
 
 ## <a name="map-the-data"></a>데이터 매핑
 
-연결된 공장 솔루션은 OPC UA 서버의 게시된 데이터 항목을 솔루션의 다양한 보기에 매핑하고 집계합니다. 솔루션을 프로비전하면 연결된 공장 솔루션이 Azure 계정에 배포됩니다. Visual Studio 연결된 공장 솔루션의 JSON 파일은 이 매핑 정보를 저장합니다. 연결된 공장 Visual Studio 솔루션에서 이 JSON 구성 파일을 보고 수정한 후 다시 배포할 수 있습니다.
+연결된 공장 솔루션은 OPC UA 서버의 게시된 데이터 항목을 솔루션의 다양한 보기에 매핑하고 집계합니다. 솔루션을 프로비전하면 연결된 공장 솔루션이 Azure 계정에 배포됩니다. Visual Studio 연결된 공장 솔루션의 JSON 파일은 이 매핑 정보를 저장합니다. 연결된 공장 Visual Studio 솔루션에서 이 JSON 구성 파일을 보고 수정할 수 있습니다. 변경을 수행한 후 솔루션을 다시 배포할 수 있습니다.
 
 구성 파일을 사용하여 다음을 수행할 수 있습니다.
 
@@ -107,7 +106,7 @@ JSON 파일 내용은 공장, 생산 라인 및 스테이션 노드의 계층 �
 
 ### <a name="opcuri"></a>OpcUri
 
-**OpcUri** 값은 OPC UA 서버를 고유하게 식별하는 OPC UA 응용 프로그램 URI입니다. 예를 들어 뮌헨, 생산 라인 1의 어셈블리 스테이션에 대한 **OpcUri** 값은 다음과 같습니다. **urn:scada2194:ua:munich:productionline0:assemblystation**.
+**OpcUri** 값은 OPC UA 서버를 고유하게 식별하는 OPC UA 응용 프로그램 URI입니다. 예를 들어 뮌헨에 있는 생산 라인 1의 어셈블리 스테이션에 대한 **OpcUri** 값은 다음과 같습니다. **urn:scada2194:ua:munich:productionline0:assemblystation**.
 
 솔루션 대시보드에서 연결된 OPC UA 서버의 URI를 볼 수 있습니다.
 

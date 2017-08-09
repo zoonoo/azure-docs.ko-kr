@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
@@ -28,15 +27,14 @@ ms.lasthandoff: 05/08/2017
 > * [Azure 클래식 포털](active-directory-sso-integrate-saas-apps.md)
 > 
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 응용 프로그램, 특히 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 엔터프라이즈 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다. 이 문서는 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 앱에 특별히 적용됩니다. 
 
-## <a name="finding-your-apps"></a>앱 찾기
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
-[Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 [Azure Portal](https://portal.azure.com)에서 확인하고 관리할 수 있습니다. 응용 프로그램은 포털의 **추가 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
+Single Sign-On에 대해 설정되어 있는 모든 엔터프라이즈 앱은 Azure Portal에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **추가 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 
 
 ![엔터프라이즈 응용 프로그램 블레이드][1]
 
-갤러리에서 추가된 앱을 포함하여 구성된 모든 앱의 목록을 보려면 **모든 응용 프로그램** 을 선택합니다. 앱을 선택하면 해당 앱의 리소스 블레이드를 로드하며 여기에서 해당 앱에 대한 보고서를 볼 수 있고 다양한 설정을 관리할 수 있습니다.
+**모든 응용 프로그램**을 선택하여 구성된 모든 앱의 목록을 봅니다. 앱을 선택하면 해당 앱의 리소스 블레이드를 로드하며 여기에서 해당 앱에 대한 보고서를 볼 수 있고 다양한 설정을 관리할 수 있습니다.
 
 Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 
@@ -59,7 +57,7 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 
 * **로그온 URL** – 사용자가 이 응용 프로그램에 로그인하는 위치입니다. 응용 프로그램이 서비스 공급자에서 시작된 Single Sign-On을 수행하도록 구성되면 사용자가 이 URL로 이동할 경우 서비스 공급자는 Azure AD를 인증하고 사용자에게 로그온하는 데 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작합니다. 이 필드가 생략되면 해당 앱이 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL에서 시작할 경우 Azure AD는 ID 공급자에서 시작된 로그인을 대신 수행합니다.
 * **식별자** - 이 URI는 구성될 Single Sign-On에 대해 응용 프로그램을 고유하게 식별해야 합니다. 이는 Azure AD가 SAML 토큰의 대상 매개 변수로서 응용 프로그램에 다시 전송하는 값이며, 응용 프로그램의 유효성을 검사하게 됩니다. 또한 이 값은 응용 프로그램에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다.
-* **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 수신해야 하는 위치입니다. 이 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 이러한 내용을 입력한 후에 다음을 클릭하여 다음 화면으로 진행합니다. 이 화면은  응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다.
+* **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 수신해야 하는 위치입니다. 이 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 이러한 내용을 입력한 후에 다음을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다.
 * **릴레이 상태** - 릴레이 상태는 인증이 완료된 후 사용자를 리디렉션할 위치를 응용 프로그램에 알릴 수 있는 선택적 매개 변수입니다. 일반적으로 해당 값은 응용 프로그램에서 올바른 URL이지만 일부 응용 프로그램은 이 필드를 다르게 사용합니다(자세한 내용은 앱의 Single Sign-On 설명서 참조). 릴레이 상태를 설정하는 기능은 새 Azure Portal에 고유한 새 기능입니다.
 
 ### <a name="user-attributes"></a>사용자 특성

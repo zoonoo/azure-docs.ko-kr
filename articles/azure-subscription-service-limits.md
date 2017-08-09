@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/26/2017
 ms.author: byvinyal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -59,7 +58,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [배치](#batch-limits)
 * [BizTalk 서비스](#biztalk-services-limits)
 * [CDN](#cdn-limits)
-* [클라우드 서비스](#cloud-services-limits)
+* [Cloud Services](#cloud-services-limits)
+* [Container Instances](#container-instances-limits)
 * [데이터 팩터리](#data-factory-limits)
 * [데이터 레이크 분석](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -116,6 +116,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 ### <a name="virtual-machine-scale-sets-limits"></a>가상 컴퓨터 크기 집합 제한
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+### <a name="container-instances-limits"></a>Container Instances 제한
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

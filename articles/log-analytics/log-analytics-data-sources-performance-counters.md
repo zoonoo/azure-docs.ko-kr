@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4ce302095fc36f046785ac45d1a9452de321113c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
@@ -48,8 +47,8 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter*를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다.  
 
-    명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$*로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다. 
- 
+    명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$*로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다.
+
 2. **+**를 클릭하거나 **Enter**를 눌러서 카운터를 목록에 추가합니다.
 3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
 4. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
@@ -67,7 +66,7 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 5. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>구성 파일에서 Linux 성능 카운터 구성
-OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**의 구성으로 제어됩니다. 
+OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux 에이전트의 구성 파일을 편집하는 옵션도 있습니다.  수집할 성능 메트릭은 **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**의 구성으로 제어됩니다.
 
 수집할 성능 메트릭의 각 개체나 범주는 구성 파일 내에 단일 `<source>` 요소로 정의되어야 합니다. 구문은 아래와 같은 패턴을 따릅니다.
 
@@ -85,12 +84,12 @@ OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux �
 | 매개 변수 | 설명 |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
-| instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세스 메트릭을 수집하려면 ‘(crond\|sshd)’를 지정합니다. |
+| instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세스 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
 | counter\_name\_regex | 수집할 (개체에 대한) 카운터를 정의하는 *정규식*입니다. 개체에 대한 모든 카운터를 수집하려면 `.*`를 지정합니다. 메모리 개체에 대한 스왑 공간 카운터만 수집하려면 예를 들어 다음을 지정할 수 있습니다. `.+Swap.+` |
 | interval | 개체의 카운터가 수집되는 빈도입니다. |
 
 
-다음 테이블은 구성 파일에서 지정할 수 있는 개체 및 카운터를 나열합니다.  [Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집](log-analytics-data-sources-linux-applications.md)에서 설명된 대로 특정 응용 프로그램에 사용할 수 있는 추가 카운터가 있습니다. 
+다음 테이블은 구성 파일에서 지정할 수 있는 개체 및 카운터를 나열합니다.  [Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집](log-analytics-data-sources-linux-applications.md)에서 설명된 대로 특정 응용 프로그램에 사용할 수 있는 추가 카운터가 있습니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
@@ -158,7 +157,7 @@ OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux �
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Logical Disk"
@@ -166,7 +165,7 @@ OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux �
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Processor"
@@ -174,7 +173,7 @@ OMS 포털을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux �
       counter_name_regex ".*"
       interval 30s
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Memory"
@@ -222,6 +221,23 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |
 | Type=Perf ObjectName=“MSSQL$INST2:Databases” InstanceName=master | 명명된 SQL Server 인스턴스 INST2에서 마스터 데이터베이스에 대한 데이터베이스 성능 개체의 모든 성능 데이터.  
 
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
+
+> | 쿼리 | 설명 |
+|:--- |:--- |
+| Perf |모든 성능 데이터 |
+| Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
+| Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |모든 컴퓨터의 평균 CPU 사용률 |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |모든 컴퓨터의 최대 CPU 사용률 |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
+| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |모든 컴퓨터에서 시간별 평균 CPU 사용량 |
+| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 특정 컴퓨터에 대한 % 백분율 카운터당 시간별 70백분위수 |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | 명명된 SQL Server 인스턴스 INST2에서 마스터 데이터베이스에 대한 데이터베이스 성능 개체의 모든 성능 데이터.  
+
 ## <a name="viewing-performance-data"></a>성능 데이터 보기
 성능 데이터를 위해 로그 검색을 실행하면 **목록** 보기가 기본적으로 표시됩니다.  데이터를 그래픽 양식으로 보려면 **메트릭**을 클릭합니다.  자세한 그래픽 보기를 보려면 카운터 옆의 **+**을 클릭하십시오.  
 
@@ -234,3 +250,4 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 응용 프로그램에서 성능 카운터를 수집](log-analytics-data-sources-linux-applications.md)합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](log-analytics-powerbi.md) 로 내보냅니다.
+

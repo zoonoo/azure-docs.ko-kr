@@ -1,6 +1,6 @@
 ---
-title: "앱 서비스 환경에서 웹앱 만들기"
-description: "앱 서비스 환경에서 웹앱 및 앱 서비스 계획을 만드는 방법을 알아봅니다."
+title: "App Service Environment v1에서 웹앱 만들기"
+description: "App Service Environment v1에서 웹앱 및 App Service 계획을 만드는 방법을 알아봅니다."
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>앱 서비스 환경에서 웹앱 만들기
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
+
+> [!NOTE]
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](../app-service/app-service-environment/intro.md)를 참조하세요.
+> 
+
 ## <a name="overview"></a>개요
-이 자습서는 [앱 서비스 환경](app-service-app-service-environment-intro.md) (ASE)에서 웹앱 및 앱 서비스 계획을 만드는 방법을 보여줍니다. 
+이 자습서는 [ASE(App Service Environment) v1](app-service-app-service-environment-intro.md)에서 웹앱 및 App Service 계획을 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
 > 웹앱을 만드는 방법을 알아보지만 앱 서비스 환경이 아니어도 된다면 [.NET 웹앱 만들기](app-service-web-get-started-dotnet.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.

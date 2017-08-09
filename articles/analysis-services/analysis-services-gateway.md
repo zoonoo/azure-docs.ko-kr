@@ -13,17 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f07d72a18221e7a2838cec3982990dca21c00153
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이
+# <a name="install-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다.
 
 최신 버전의 게이트웨이는 SSDT에서 Get Data 및 M 쿼리를 사용하여 온-프레미스 데이터 원본에 연결되는 테이블 형식 1400 모델을 지원합니다. 
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/03/2017
 
 게이트웨이는 네트워크의 컴퓨터에 설치됩니다. 게이트웨이는 Azure 구독에 있는 Azure Analysis Services 서버에 각각 설치되어야 합니다. 예를 들어 온-프레미스 데이터 원본에 연결된 Azure 구독에 두 개의 서버가 있는 경우 게이트웨이는 네트워크에 있는 두 개의 별도 컴퓨터에 설치되어야 합니다.
 
-## <a name="requirements"></a>요구 사항
+## <a name="prerequisites"></a>필수 조건
 **최소 요구 사항:**
 
 * .NET 4.5 Framework
@@ -61,7 +60,7 @@ ms.lasthandoff: 06/03/2017
 1. 설치를 실행합니다.
 2. 설치 위치를 선택하고 사용 조건에 동의합니다.
 3. Azure에 로그인합니다.
-4. Azure Analysis Server 이름을 지정합니다. 게이트웨이 당 하나의 서버만 지정할 수 있습니다. **구성**을 클릭하여 계속할 수 있습니다.
+4. Azure Analysis Server 이름을 지정한 다음 **구성**을 클릭합니다. 게이트웨이 당 하나의 서버만 지정할 수 있습니다.
 
     ![Azure에 로그인](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
@@ -70,7 +69,7 @@ ms.lasthandoff: 06/03/2017
 
 ![작동 방법](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-다음과 같은 쿼리 및 데이터 흐름 작업:
+쿼리 및 데이터 흐름:
 
 1. 쿼리는 온-프레미스 데이터 원본의 암호화된 자격 증명을 사용하여 클라우드 서비스에서 생성합니다. 그런 다음 처리할 게이트웨이의 큐로 전송됩니다.
 2. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/)에 대한 요청을 보냅니다.
@@ -111,7 +110,7 @@ ms.lasthandoff: 06/03/2017
 | *.microsoftonline-p.com |443 |구성에 따라 인증에 사용합니다. |
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
-TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트웨이 강제할 수 있지만 성능이 크게 저하될 수 있습니다. *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 파일을 수정해야 합니다. 값을 `AutoDetect`에서 `Https`로 변경합니다. 이 파일은 기본적으로 *C:\Program Files\On-premises data gateway*에 위치합니다.
+직접 TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트웨이 강제할 수 있지만 성능이 크게 저하될 수 있습니다. 값을 `AutoDetect`에서 `Https`로 변경하여 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 파일을 수정할 수 있습니다. 이 파일은 기본적으로 *C:\Program Files\On-premises data gateway*에 위치합니다.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -132,8 +131,8 @@ TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트�
 
 **원격 분석을 켜려면**
 
-1.    컴퓨터에서 온-프레미스 데이터 게이트웨이 클라이언트 디렉터리를 확인합니다. 일반적으로 %systemdrive%\Program Files\On-premises data gateway입니다. 또는 서비스 콘솔을 열고 실행 파일 경로 즉, 온-프레미스 데이터 게이트웨이 서비스의 속성을 확인합니다.
-2.    클라이언트 디렉터리의 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 파일에서 SendTelemetry 설정을 true로 변경합니다.
+1.  컴퓨터에서 온-프레미스 데이터 게이트웨이 클라이언트 디렉터리를 확인합니다. 일반적으로 **%systemdrive%\Program Files\On-premises data gateway**입니다. 또는 서비스 콘솔을 열고 실행 파일 경로 즉, 온-프레미스 데이터 게이트웨이 서비스의 속성을 확인합니다.
+2.  클라이언트 디렉터리의 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 파일에서 SendTelemetry 설정을 true로 변경합니다.
         
     ```
         <setting name="SendTelemetry" serializeAs="String">
@@ -141,7 +140,7 @@ TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트�
         </setting>
     ```
 
-3.    변경 내용을 저장하고 Windows 서비스 온-프레미스 데이터 게이트웨이 서비스를 다시 시작합니다.
+3.  변경 내용을 저장하고 Windows 서비스 온-프레미스 데이터 게이트웨이 서비스를 다시 시작합니다.
 
 
 

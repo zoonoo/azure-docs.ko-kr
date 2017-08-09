@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2bfd7d8a4c06b1b40a9852d21908e7c1c785b91d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="enable-logging"></a>로깅 사용
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Data Lake Analytics 계정을 열고 __모니터링__ 섹션에서 **진단 로그**를 선택합니다. 다음으로, __진단 상태 켜기__를 선택합니다.
 
@@ -51,9 +50,9 @@ ms.lasthandoff: 06/20/2017
      * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍**을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
      * __Log Analytics로 보내기__를 선택하여 데이터를 Log Analytics 서비스로 보냅니다. Log Analytics를 사용하여 로그를 수집하고 분석하려는 경우 이 옵션을 사용합니다.
-   * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.  요청 로그는 모든 API 요청을 캡처하고 감사 로그는 해당 API 요청에 의해 트리거되는 모든 작업을 기록합니다.
+   * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.  요청 로그는 모든 API 요청을 캡처합니다. 감사 로그는 해당 API 요청에 의해 트리거되는 모든 작업을 기록합니다.
 
-   * __저장소 계정에 보관__의 경우 데이터가 유지될 일 수를 지정합니다.
+   * __저장소 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
 
    * __저장__을 클릭합니다.
 
@@ -75,13 +74,13 @@ ms.lasthandoff: 06/20/2017
     ![로그 항목](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * 요청 로그는 Data Lake Analytics 계정에 대한 모든 API 요청을 캡처합니다.
-   * 감사 로그는 요청 로그와 비슷하지만 Data Lake Analytics 계정에 수행된 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
+   * 감사 로그는 요청 로그와 비슷하지만 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
 
 3. 로그 항목에 대한 **다운로드** 링크를 클릭하여 해당 로그를 다운로드합니다.
 
 ### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Data Lake 저장소 계정 사용
 
-1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Data Lake 저장소 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
+1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Data Lake 저장소 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
 
     ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
 
@@ -235,7 +234,7 @@ ms.lasthandoff: 06/20/2017
 | 병렬 처리 |문자열 |제출하는 동안 이 작업에 대해 요청된 Data Lake Analytics 단위의 수 |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** 및 **Parallelism**은 작업에 대한 정보를 제공하고 해당 작업이 시작 또는 완료된 경우에 값을 포함합니다. 예를 들어 **operationName**이 **JobSubmitted** 값을 가진 후 **SubmitTime**은 값을 포함합니다.
+> **SubmitTime**, **StartTime**, **EndTime** 및 **Parallelism**은 작업에 대한 정보를 제공합니다. 해당 작업이 시작 또는 완료되는 경우 이러한 항목만 값을 포함합니다. 예를 들어 **operationName**이 **JobSubmitted** 값을 가진 후 **SubmitTime**은 값을 포함합니다.
 
 ## <a name="process-the-log-data"></a>로그 데이터 처리
 

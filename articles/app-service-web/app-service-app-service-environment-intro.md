@@ -1,6 +1,6 @@
 ---
-title: "앱 서비스 환경 소개"
-description: "모든 앱을 실행하기 위한 VNet 가입 보안 전용 확장 단위를 제공하는 앱 서비스 환경 기능에 대해 알아봅니다."
+title: "App Service Environment v1 소개"
+description: "모든 앱을 실행하기 위한 안전한 VNet 가입 전용 배율 단위를 제공하는 App Service Environment v1 기능을 알아봅니다."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 91b1d6315a9414789b28442f3f19d14c2aed8f00
-ms.lasthandoff: 03/01/2017
-
+ms.date: 07/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="introduction-to-app-service-environment"></a>앱 서비스 환경 소개
+# <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
+
+> [!NOTE]
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](../app-service/app-service-environment/intro.md)를 참조하세요.
+> 
+
 ## <a name="overview"></a>개요
 App Service 환경은 Azure App Service의 [프리미엄][PremiumTier] 서비스 계획 옵션으로, [웹앱][WebApps], [Mobile Apps][MobileApps] 및 [API 앱][APIApps]을 포함하여 높은 확장성에서 Azure App Service 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공합니다.  
 
@@ -47,9 +52,9 @@ AzureCon 심층 분석에 표시된 보안 아키텍처를 구성하는 방법�
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>전용 계산 리소스
-앱 서비스 환경의 모든 컴퓨터 리소스는 전적으로 단일 구독 전용이며 앱 서비스 환경은 단일 응용 프로그램 전용으로 최대&50;개 계산 리소스로 구성될 수 있습니다.
+앱 서비스 환경의 모든 컴퓨터 리소스는 전적으로 단일 구독 전용이며 앱 서비스 환경은 단일 응용 프로그램 전용으로 최대 50개 계산 리소스로 구성될 수 있습니다.
 
-앱 서비스 환경은&1;~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다. 
+앱 서비스 환경은 1~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다. 
 
 프런트 엔드 풀에는 앱 서비스 환경 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 계산 리소스가 포함되어 있습니다. 
 

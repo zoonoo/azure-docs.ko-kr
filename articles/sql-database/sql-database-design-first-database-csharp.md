@@ -14,28 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 069656b495929d66f6a47b38141f56b6bf0ac92f
+ms.date: 07/31/2017
+ms.author: genemi;carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Azure SQL Database 설계 및 C#과 ADO.NET에 연결
 
-Azure SQL Database는 Microsoft 클라우드("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다. 
+Azure SQL Database는 Microsoft 클라우드("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Visual Studio에서 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터베이스 만들기
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
-> * ADO.NET을 사용하여 데이터베이스에 연결
+> * ADO.NET 및 Visual Studio를 사용하여 데이터베이스에 연결
 > * ADO.NET을 사용하여 테이블 만들기
-> * ADO.NET을 사용하여 데이터 삽입 
-> * 해당 ADO.NET 데이터 쿼리
+> * ADO.NET을 사용하여 데이터 삽입, 업데이트 및 삭제 
+> * ADO.NET 데이터 쿼리
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+설치된 [Visual Studio Community 2017, Visual Studio Professional 2017 또는 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -53,8 +57,18 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용할 수 있는 단계는 다음과 같습니다.
+이 자습서에서는 데이터베이스 및 테이블 만들기, 데이터 로드 및 쿼리, 데이터베이스를 이전 시점으로 복원과 같은 기본적인 데이터베이스 작업에 대해 배웁니다. 다음 방법에 대해 알아보았습니다.
+> [!div class="checklist"]
+> * 데이터베이스 만들기
+> * 방화벽 규칙 설정
+> * [Visual Studio 및 C#](sql-database-connect-query-dotnet-visual-studio.md)을 사용하여 데이터베이스에 연결
+> * 테이블 만들기
+> * 데이터 삽입, 업데이트 및 삭제
+> * 쿼리 데이터
 
-- [C# 프로그램에서 SQL 쿼리에 LINQ 사용](https://msdn.microsoft.com/library/bb425822.aspx)
-- [SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
+데이터를 마이그레이션하는 방법에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+>[SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
+
 

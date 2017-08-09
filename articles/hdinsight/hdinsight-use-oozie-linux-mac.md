@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c1d70bfcf5d1235b34f6cda3ce4e1639e99ebc7f
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 HDInsight에서 워크플로 정의 및 실행
@@ -66,7 +65,7 @@ HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아�
 
 ## <a name="create-the-working-directory"></a>작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 **wasbs:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리 및 이 워크플로에서 만드는 새 Hive 테이블을 저장할 데이터 디렉터리를 만듭니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리 및 이 워크플로에서 만드는 새 Hive 테이블을 저장할 데이터 디렉터리를 만듭니다.
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -131,7 +130,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 4. 편집기를 종료하려면 Ctrl-X를 누릅니다. 메시지가 나타나면 **Y**를 선택하여 파일을 저장한 다음 **Enter**를 사용하여 **useooziewf.hql** 파일 이름을 사용합니다.
 
-5. 다음 명령을 사용하여 **useooziewf.hql**을 **wasbs:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
+5. 다음 명령을 사용하여 **useooziewf.hql**을 **wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -295,11 +294,11 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]
-    > HDInsight 클러스터에서 Azure Storage를 기본 저장소로 사용하면 `<value>` 요소의 내용은 `wasbs://`로 시작합니다. Azure Data Lake Store를 대신 사용하면 `adl://`로 시작합니다.
+    > HDInsight 클러스터에서 Azure Storage를 기본 저장소로 사용하면 `<value>` 요소의 내용은 `wasb://`로 시작합니다. Azure Data Lake Store를 대신 사용하면 `adl://`로 시작합니다.
 
     다음 단계에서 사용되므로 `<value>` 요소의 내용을 저장합니다.
 
@@ -329,7 +328,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -349,7 +348,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -359,7 +358,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -379,12 +378,12 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * **wasbs://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 기본 저장소로 이전에 받은 값으로 바꿉니다.
+   * **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 기본 저장소로 이전에 받은 값으로 바꿉니다.
 
      > [!WARNING]
      > `wasb` 경로인 경우 전체 경로를 사용해야 합니다. `wasb:///`만으로 줄이지 마세요.
@@ -455,7 +454,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -623,11 +622,11 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       `wasbs://mycontainer@mystorageaccount.blob.core.windows` 텍스트를 job.xml 파일의 다른 항목에 사용된 값으로 바꿉니다.
+       `wasb://mycontainer@mystorageaccount.blob.core.windows` 텍스트를 job.xml 파일의 다른 항목에 사용된 값으로 바꿉니다.
 
    * 다음 XML을 추가합니다. 그러면 coordinator.xml 파일에 사용할 시작, 종료 및 빈도가 정의됩니다.
 
@@ -698,7 +697,7 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. 워크플로에�
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**원인**: **job.xml** 파일에 사용된 WASB 주소에 저장소 컨테이너 또는 저장소 계정 이름이 포함되어 있지 않습니다. WASB 주소 형식은 `wasbs://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
+**원인**: **job.xml** 파일에 사용된 WASB 주소에 저장소 컨테이너 또는 저장소 계정 이름이 포함되어 있지 않습니다. WASB 주소 형식은 `wasb://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
 
 **해결 방법**: 작업에서 사용하는 WASB 주소를 변경합니다.
 

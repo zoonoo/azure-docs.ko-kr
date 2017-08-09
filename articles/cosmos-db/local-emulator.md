@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/27/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d2a6af66b6c1e92b8b694685ab8c16781d1ade48
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2ea15afa857e568a10b0ef802764afd1eab0d3f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
@@ -157,6 +156,12 @@ Azure Cosmos DB 에뮬레이터를 시작하면 브라우저에서 Azure Cosmos 
 
 또한 Azure Cosmos DB 서비스와 마찬가지로 Azure Cosmos DB 에뮬레이터는 SSL을 통한 보안 통신만 지원합니다.
 
+## <a name="running-the-emulator-on-a-local-network"></a>로컬 네트워크에서 에뮬레이터 실행
+
+로컬 네트워크에서 에뮬레이터를 실행할 수 있습니다. 네트워크 액세스를 활성화하려면 [명령줄](#command-line-syntax)에 /AllowNetworkAccess 옵션을 지정합니다. 또한 /Key=key_string 또는 /KeyFile=file_name/Key를 지정해야 합니다. /GenKeyFile=file_name을 사용하여 미리 설정된 임의 키로 파일을 생성할 수 있습니다.  그런 다음 /KeyFile=file_name 또는 /Key=contents_of_file로 전달할 수 있습니다.
+
+처음에 네트워크 액세스를 사용하도록 설정하려면 사용자는 에뮬레이터를 종료하고 에뮬레이터의 데이터 디렉터리(C:\Users\user_name\AppData\Local\CosmosDBEmulator)를 삭제해야 합니다.
+
 ## <a name="developing-with-the-emulator"></a>에뮬레이터를 사용한 개발
 Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 또는 [Azure Cosmos DB REST API](/rest/api/documentdb/)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. Azure Cosmos DB 에뮬레이터에는 코드를 작성하지 않고도 DocumentDB 및 MongoDB API 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다.   
 
@@ -167,7 +172,7 @@ Azure Cosmos DB 에뮬레이터를 데스크톱에서 실행하는 경우 지원
 
 [MongoDB에 대한 Azure Cosmos DB 프로토콜 지원](mongodb-introduction.md)을 사용할 경우에는 다음 연결 문자열을 사용하세요.
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio)와 같은 기존 도구를 사용하여 Azure Cosmos DB 에뮬레이터에 연결할 수 있습니다. 또한 [Azure Cosmos DB 데이터 마이그레이션 도구](https://github.com/azure/azure-documentdb-datamigrationtool)를 사용하여 Azure Cosmos DB 에뮬레이터와 Azure Cosmos DB 서비스 간에 데이터를 마이그레이션할 수 있습니다.
 
@@ -233,7 +238,7 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10250입니다.</td>
+  <td>MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: 단일 포트 번호</td>
 </tr>
@@ -278,6 +283,42 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
   <td>분할된 컬렉션의 최대 수를 지정합니다. 자세한 내용은 [컬렉션 수 변경](#set-partitioncount)을 참조하세요.</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: 허용되는 단일 파티션 컬렉션의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.</td>
+</tr>
+<tr>
+  <td>DefaultPartitionCount</td>
+  <td>분할된 컬렉션에 대한 기본 파티션 수를 지정합니다.</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>&lt;defaultpartitioncount&gt; 기본값은 25입니다.</td>
+</tr>
+<tr>
+  <td>AllowNetworkAccess</td>
+  <td>네트워크를 통해 에뮬레이터에 액세스할 수 있도록 합니다. /Key=&lt;key_string&gt; 또는 /KeyFile=&lt;file_name&gt;을 전달하여 네트워크 액세스를 활성화해야 합니다.</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>또는<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoFirewall</td>
+  <td>/AllowNetworkAccess가 사용되는 경우 방화벽 규칙을 조정하지 마십시오.</td>
+  <td>CosmosDB.Emulator.exe /NoFirewall</td>
+  <td></td>
+</tr>
+<tr>
+  <td>GenKeyFile</td>
+  <td>새 인증 키를 생성하고 지정된 파일에 저장합니다. 생성된 키를 /Key 또는 /KeyFile 옵션과 함께 사용할 수 있습니다.</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile</td>
+  <td></td>
+</tr>
+<tr>
+  <td>일관성</td>
+  <td>계정의 기본 일관성 수준을 설정합니다.</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>&lt;일관성&gt;: 값은 Session, Strong, Eventual 또는 BoundedStaleness의 [일관성 수준](consistency-levels.md) 중 하나여야 합니다.  기본값은 Session입니다.</td>
+</tr>
+<tr>
+  <td>?</td>
+  <td>도움말 메시지를 표시합니다.</td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 

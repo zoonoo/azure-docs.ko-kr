@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,15 +33,25 @@ ms.lasthandoff: 05/04/2017
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. 네임스페이스 이름을 사용할 수 있게 설정한 후 가격 책정 계층(기본 또는 표준)을 선택합니다. 또한 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. 
-1. **만들기** 를 클릭하여 네임스페이스를 만듭니다.
-1. Event Hubs 네임스페이스 목록에서 새로 만든 네임스페이스를 클릭합니다.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png)
-1. 네임스페이스 블레이드에서 **Event Hubs**를 클릭합니다.
-   
-    ![](./media/event-hubs-create/create-event-hub3.png)
+1. **만들기** 를 클릭하여 네임스페이스를 만듭니다. 시스템에서 리소스를 완전히 프로비전하기까지 몇 분 동안 기다려야 할 수 있습니다.
+2. 네임스페이스 포털 목록에서 새로 만든 네임스페이스를 클릭합니다.
+2. **공유 액세스 정책**을 클릭한 후 **RootManageSharedAccessKey**를 클릭합니다.
+    
+    ![](./media/event-hubs-create/create-event-hub7.png)
+
+3. 복사 단추를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 나중에 사용하기 위해 이 연결 문자열을 임시 위치(예: 메모장)에 저장합니다.
+    
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
+
+1. Event Hubs 네임스페이스 목록에서 새로 만든 네임스페이스를 클릭합니다.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. 네임스페이스 블레이드에서 **Event Hubs**를 클릭합니다.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
 
 1. 블레이드의 위쪽에서 **Event Hub 추가**를 클릭합니다.
    
@@ -50,15 +59,6 @@ ms.lasthandoff: 05/04/2017
 1. 이벤트 허브의 이름을 입력한 다음 **만들기**를 클릭합니다.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. 이벤트 허브 목록에서 새로 만든 이벤트 허브의 이름을 클릭합니다. 
-    
-    ![](./media/event-hubs-create/create-event-hub6.png)
-1. 네임스페이스 블레이드(특정 이벤트 허브 블레이드가 아님)로 돌아와서 **공유 액세스 정책**을 클릭한 다음 **RootManageSharedAccessKey**를 클릭합니다.
-    
-    ![](./media/event-hubs-create/create-event-hub7.png)
-1. 복사 단추를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 이 자습서 뒷부분에서 사용할 연결 문자열을 저장합니다.
-    
-    ![](./media/event-hubs-create/create-event-hub8.png)
 
 이제 이벤트 허브가 생성되었고 이벤트를 보내고 받는 데 필요한 연결 문자열이 있습니다.
 

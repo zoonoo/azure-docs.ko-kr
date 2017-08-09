@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/23/2017
+ms.date: 08/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 9447cf1919cacee5319afe559e7745e5d218fb0d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
@@ -121,6 +120,9 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 | Storm HBase 기록기 샘플 |HDInsight 클러스터의 HBase에 쓰는 방법 |
 | Storm 하이브리드 샘플 |Java 구성 요소를 사용하는 방법 |
 | Storm 샘플 |기본 단어 카운트 토폴로지 |
+
+> [!WARNING]
+> 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 Nuget 패키지는 Mono와 호환되지 않을 수 있습니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 확인하고 [.NET 이식성 분석기](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)를 사용하여 잠재적 문제를 식별합니다.
 
 이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
 

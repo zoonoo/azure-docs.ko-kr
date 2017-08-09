@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB Java API, SDK 및 리소스 | Microsoft Docs"
-description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB Java SDK의 각 버전 간의 변경 내용을 포함하는 Java API 및 SDK에 대한 모든 것을 알아봅니다."
+title: "Azure Cosmos DB: DocumentDB Java API, SDK 및 리소스 | Microsoft Docs"
+description: "릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB DocumentDB Java SDK의 각 버전 간의 변경 내용을 포함하는 Java API 및 SDK에 대한 모든 것을 알아봅니다."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -16,13 +16,13 @@ ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: a1b824ce7898323c007ee24e852f9649da24e741
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 089bb12b66e772b1fe62eeca9a306b5723fc8c06
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 변경 피드](documentdb-sdk-dotnet-changefeed.md)
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/21/2017
 
 <tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**웹앱 자습서**</td><td>[DocumentDB를 사용한 웹 응용 프로그램 개발](documentdb-java-application.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](documentdb-java-application.md)</td></tr>
 
 <tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -163,7 +163,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 > [!WARNING]
-> **1.0.0** 이전 버전의 Java에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> **1.0.0** 이전 버전의 Java에 대한 모든 버전의 DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
 > 
 > 
 

@@ -11,20 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/26/2017
-ms.author: curtand;jeffsta
-ms.reviewer: asteen
-ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
 사용자를 추가하여 디렉터리를 채웁니다. 이 문서에서는 조직 내에서 새 사용자를 추가하는 방법 및 Microsoft 계정이 있는 사용자를 추가하는 방법을 설명합니다. Azure Active Directory의 다른 디렉터리의 사용자 추가 또는 파트너 회사의 사용자 추가에 대한 자세한 내용은 [Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가](active-directory-create-users-external.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 사용자를 추가하는 방법은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
 
 ## <a name="add-a-user"></a>사용자 추가
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 클래식 포털](https://manage.windowsazure.com) 에 로그인합니다.
@@ -41,7 +45,7 @@ ms.lasthandoff: 02/11/2017
 > [!IMPORTANT]
 > 조직에서 둘 이상의 도메인을 사용하는 경우 사용자 계정을 추가할 때 다음과 같은 문제를 알고 있어야 합니다.
 >
-> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 갖는 여러 개의 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com,을 추가한 **다음** geoffgrisso@contoso.com을 추가합니다.
+> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 가진 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com을 추가한 **다음** geoffgrisso@contoso.com을 추가합니다.
 > * geoffgrisso@contoso.onmicrosoft.com을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**. 이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
 >
 >

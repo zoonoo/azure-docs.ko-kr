@@ -5,24 +5,28 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: c16e07925389cc17ff156cae767366223fefa18f
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 조건부 액세스 작업
+
+>[!NOTE]
+>이 문서는 사용 중지 중인 Azure 클래식 포털에 적용됩니다. [Azure Portal](https://portal.azure.com)을 사용하는 것이 좋습니다. Azure Portal에서 응용 프로그램 프록시 앱은 다른 모든 SaaS 앱과 동일한 조건부 액세스 기능을 갖습니다. 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+
 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스 권한을 부여하도록 액세스 규칙을 구성할 수 있습니다. 다음을 수행할 수 있습니다.
 
 * 응용 프로그램 당 Multi-Factor Authentication 요구

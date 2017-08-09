@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6e4c1cdac51664d83805252cf178e705042e76ca
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
@@ -68,7 +68,7 @@ Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium 
 
 * [사용해 보세요!](https://azure.microsoft.com/trial/get-started-active-directory/) - 지금 무료 30일 평가판에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다.
 
-* Azure AD 테넌트를 시작하고 빠르게 실행하는 팁과 요령은 "Azure AD 시작"을 참고하세요.
+* Azure AD 테넌트를 시작하고 빠르게 실행하는 팁과 요령은 [Azure AD 시작](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium)을 참조하세요.
 
 **개발자인 경우:**
  

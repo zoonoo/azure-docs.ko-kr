@@ -13,7 +13,7 @@
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
-##[노드](cache-nodejs-get-started.md)
+##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
 ##[Redis Cache FAQ](cache-faq.md)
@@ -45,8 +45,11 @@
 ## 확장
 ###[다른 크기 및 계층으로 업데이트](cache-how-to-scale.md)
 ###[Redis 클러스터를 이용한 규모 감축/확장](cache-how-to-premium-clustering.md)
+## Spring Boot와 통합
+###[Redis Cache에 Spring Boot Initializer 앱 사용](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 미리 보기](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

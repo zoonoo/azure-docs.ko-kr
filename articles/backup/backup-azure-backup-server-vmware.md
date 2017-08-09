@@ -1,6 +1,6 @@
 ---
-title: "Azure Backup Server를 사용하여 VMware 서버 워크로드 보호 | Microsoft Docs"
-description: "Azure Backup Server를 사용하여 Azure 또는 디스크에 VMware 서버를 백업합니다. 이 문서를 사용하여 VMware 워크로드를 보호합니다."
+title: "Azure Backup Server를 사용하여 VMware 서버 백업 | Microsoft Docs"
+description: "Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버를 Azure 또는 디스크에 백업합니다. 이 문서에서는 VMware 워크로드를 백업(또는 보호)하기 위한 단계별 지침을 제공합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -11,21 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
+ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 47728711930703121626c3ed0b654a0f74603ca4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Azure에 VMware 서버 백업
 
 이 문서에서는 VMware 서버 워크로드를 보호하기 위해 Azure Backup Server를 구성하는 방법에 대해 설명합니다. 이 문서에서는 Azure Backup Server가 이미 설치되어 있다고 가정합니다. Azure Backup Server가 설치되어 있지 않은 경우 [Azure Backup Server를 사용하여 워크로드 백업 준비](backup-azure-microsoft-azure-backup.md)를 참조하세요.
 
-Azure Backup Server는 VMware vCenter Server 버전 6.0 및 5.5를 백업하거나 보호할 수 있습니다.
+Azure Backup Server는 VMware vCenter Server 버전 6.5, 6.0 및 5.5를 백업하거나 보호할 수 있습니다.
 
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>vCenter Server에 대한 보안 연결 만들기
@@ -98,7 +97,7 @@ Azure Backup Server는 VMware vCenter Server 버전 6.0 및 5.5를 백업하거�
 
     ![인증서 저장소 폴더](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. **인증서 가져오기 마법사 완료** 페이지에서 인증서가 원하는 폴더에 있는지 확인한 다음 **마침**을 클릭하여 마법사를 완료합니다.
+10. **인증서 가져오기 마법사 완료** 페이지에서 인증서가 원하는 폴더에 있는지 확인한 다음 **마침**을 클릭합니다.
 
     ![인증서가 적절한 폴더에 있는지 확인](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -250,11 +249,12 @@ Azure Backup Server에 VMware 서버를 추가하기 전에 [Azure Backup Server
 
 3. **자격 증명 관리** 대화 상자에서 **추가**를 클릭하여 **자격 증명 추가** 대화 상자를 엽니다.
 
-4. **자격 증명 추가** 대화 상자에서 새 자격 증명에 대한 이름 및 설명을 입력합니다. 그런 다음 사용자 이름 및 암호를 지정합니다. *Contoso Vcenter 자격 증명* 자격 증명 이름은 다음 절차에서 자격 증명을 식별하는 데 사용됩니다. vCenter Server에서 사용되는 것과 동일한 사용자 이름과 암호를 사용합니다. vCenter Server와 Azure Backup Server가 동일한 도메인에 없는 경우 **사용자 이름**에서 도메인을 지정합니다.
+4. **자격 증명 추가** 대화 상자에서 새 자격 증명에 대한 이름 및 설명을 입력합니다. 그런 다음 사용자 이름 및 암호를 지정합니다. 이름(*Contoso Vcenter 자격 증명*)은 다음 절차에서 자격 증명을 식별하는 데 사용됩니다. vCenter Server에서 사용되는 것과 동일한 사용자 이름과 암호를 사용합니다. vCenter Server와 Azure Backup Server가 동일한 도메인에 없는 경우 **사용자 이름**에서 도메인을 지정합니다.
 
     ![Azure Backup Server 자격 증명 추가 대화 상자](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     **추가**를 클릭하여 Azure Backup Server에 새 자격 증명을 추가합니다. 새 자격 증명이 **자격 증명 관리** 대화 상자의 목록에 표시됩니다.
+    
     ![Azure Backup Server 자격 증명 관리 대화 상자](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. **자격 증명 관리** 대화 상자를 닫으려면 오른쪽 위 모서리에 있는 **X**를 클릭합니다.

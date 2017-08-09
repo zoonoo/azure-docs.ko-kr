@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 58db68a1b5000adad4d816c6221881254b9675c7
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Giraph 설치 및 사용
@@ -96,14 +95,14 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -122,7 +121,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     ```
 
     위의 예제에서는 **clustername** 을 Giraph가 설치된 HDInsight 클러스터의 이름으로 바꿉니다.
-3. 결과를 확인합니다. 작업이 완료되면 결과가 **wasbs:///example/out/shotestpaths** 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 **part-m-00001** 및 **part-m-00002**입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
+3. 결과를 확인합니다. 작업이 완료되면 결과가 **wasb:///example/out/shotestpaths** 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 **part-m-00001** 및 **part-m-00002**입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name

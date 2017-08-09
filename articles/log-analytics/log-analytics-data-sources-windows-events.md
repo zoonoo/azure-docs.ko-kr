@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics의 Windows 이벤트 로그 데이터 원본
@@ -71,10 +70,21 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | Type=Event &#124; Measure count() by Source |원본별 Windows 이벤트 수 |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |원본별 Windows 오류 이벤트 수 |
 
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
+>
+>| 쿼리 | 설명 |
+|:---|:---|
+| 이벤트 |모든 Windows 이벤트 |
+| Event &#124; where EventLevelName == "error" |심각도가 오류인 모든 Windows 이벤트 |
+| Event &#124; summarize count() by Source |원본별 Windows 이벤트 수 |
+| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |원본별 Windows 오류 이벤트 수 |
+
+
 ## <a name="next-steps"></a>다음 단계
 * 분석을 위해 다른 [데이터 원본](log-analytics-data-sources.md) 을 수집하도록 Log Analytics를 구성합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
-* [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
-* Windows 에이전트에서 [성능 카운터 수집](log-analytics-data-sources-performance-counters.md) 을 구성합니다.
-
+* [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
+* Windows 에이전트에서 [성능 카운터 수집](log-analytics-data-sources-performance-counters.md)을 구성합니다.
 

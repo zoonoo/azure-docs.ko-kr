@@ -1,6 +1,6 @@
 ---
 title: "Azure Data Factory에서 지원하는 컴퓨팅 환경 | Microsoft Docs"
-description: "데이터의 변환/처리를 위해 Azure Data Factory 파이프라인에서 사용할 수 있는 계산 환경을 알아봅니다."
+description: "데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -10,15 +10,14 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/25/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 97e40e0081e1dcce0ed42748a053c46cecf569ba
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 66d3b5532e602ef3ef160740c0f6752ebbdff7a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
@@ -84,7 +83,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
   **권장 사항:** 
   * **2017년 7월 15일** 이전까지 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.  
-  * **2017년 7월 15일** 이후 기본 설정을 재정의하려는 경우 osType 및 Version 값을 명시적으로 지정해야 합니다. 
+  * **2017년 7월 15일** 이후 기본 설정을 재정의하려는 경우 osType 및 버전 값을 명시적으로 지정해야 합니다. 
 
 >[!Note]
 >현재 Azure Data Factory는 Azure Data Lake Store를 기본 저장소로 사용하는 HDInsight 클러스터를 지원하지 않습니다. Azure Storage를 HDInsight 클러스터의 기본 저장소로 사용합니다. 
@@ -137,7 +136,7 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 > [!IMPORTANT]
 > HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
 > 
-> 많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
+> 많은 조각이 처리될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 > 
 > 
 
@@ -348,10 +347,60 @@ Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 �
 | apiKey |게시된 작업 영역 모델의 API입니다. |예 |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure 데이터 레이크 분석 연결된 서비스
-파이프 라인에서 **데이터 레이크 분석 U-SQL 작업** 을 사용하기 전에 Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연결하는 [Azure 데이터 레이크 분석](data-factory-usql-activity.md) 연결된 서비스를 만듭니다.
+Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연결하는 **Azure 데이터 레이크 분석** 연결된 서비스를 만듭니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
 
-다음 예제에서는 Azure 데이터 레이크 분석 연결된 서비스에 JSON 정의를 제공합니다.
+다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 서비스 주체와 사용자 자격 증명 인증 중에서 추가로 선택할 수 있습니다.
 
+| 속성 | 설명 | 필수 |
+| --- | --- | --- |
+| **type** |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
+| **accountName** |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
+| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니요 |
+| **subscriptionId** |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
+| **resourceGroupName** |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
+
+### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+* 응용 프로그램 UI
+* 응용 프로그램 키 
+* 테넌트 ID
+
+다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
+| **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
+| **테넌트** | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+
+**예제: 서비스 주체 인증**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
+또는 다음 속성을 지정하여 Data Lake Analytics에 대해 사용자 자격 증명 인증을 사용할 수 있습니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| **권한 부여** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
+| **sessionId** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
+
+**예제: 사용자 자격 증명 인증**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -361,40 +410,25 @@ Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 �
             "accountName": "adftestaccount",
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
-            "sessionId": "<session ID>",
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-다음 표에는 JSON 정의에서 사용하는 JSON 속성이 나와 있습니다.
-
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| 형식 |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
-| accountName |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
-| dataLakeAnalyticsUri |Azure 데이터 레이크 분석 URI입니다. |아니요 |
-| 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
-| subscriptionId |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
-| resourceGroupName |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
-| sessionId |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며  이 ID는 Data Factory 편집기에서 자동으로 생성됩니다. |예 |
-
+#### <a name="token-expiration"></a>토큰 만료
 **권한 부여** 단추를 사용하여 생성된 인증 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. 자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명 유효성 검사 오류. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
-| Azure Active Directory에서 관리되지 않는 사용자 계정(예: @hotmail.com, @live.com, @outlook.com) |12시간 |
+| Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다. 
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음과 같은 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면
-다음 코드는 **sessionId** 및 **authorization** 값을 생성합니다.  
-
-```CSharp
-
+```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
     linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
 {
@@ -418,15 +452,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가합니다. 
 
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가합니다. 
 
 ## <a name="azure-sql-linked-service"></a>Azure SQL 연결된 서비스
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#linked-service-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL 데이터 웨어하우스 연결된 서비스
-Azure SQL 데이터 웨어하우스 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 데이터 웨어하우스 커넥터](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) 문서를 참조하세요.
+## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse 연결된 서비스
+Azure SQL Data Warehouse 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL Data Warehouse 커넥터](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="sql-server-linked-service"></a>SQL Server 연결된 서비스
 SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [SQL Server 커넥터](data-factory-sqlserver-connector.md#linked-service-properties) 문서를 참조하세요.

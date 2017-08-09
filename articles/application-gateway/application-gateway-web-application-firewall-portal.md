@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/04/2017
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
-웹 응용 프로그램 방화벽이 설정된 Application Gateway를 만드는 방법에 대해 알아봅니다.
+웹 응용 프로그램 방화벽을 사용하도록 설정된 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다.
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. 웹 응용 프로그램은 다양한 OWASP 상위 10 일반적인 웹 취약점으로부터 보호합니다.
 
@@ -95,13 +94,13 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 
     ![Application Gateway 만들기][1]
 
-1. 나타나는 **기본 사항** 블레이드에서 다음 값을 입력하고 **확인**을 클릭합니다.
+1. 표시되는 **기본 사항** 블레이드에서 다음 값을 입력한 다음 **확인**을 클릭합니다.
 
    | **설정** | **값** | **세부 정보**
    |---|---|---|
    |**Name**|AdatumAppGateway|Application Gateway의 이름|
    |**계층**|WAF|사용 가능한 값은 표준 또는 WAF입니다. [웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md)을 방문하여 WAF에 대해 자세히 알아보세요.|
-   |**SKU 크기**|중간|표준 계층을 선택할 때 옵션은 소형, 중간 및 대형입니다. WAF 계층을 선택할 때 옵션은 중간 및 대형 뿐입니다.|
+   |**SKU 크기**|중간|표준 계층을 선택할 때 제공되는 옵션으로 소형, 중형 및 대형이 있습니다. WAF 계층을 선택할 때 옵션은 중간 및 대형 뿐입니다.|
    |**인스턴스 수**|2|고가용성을 위한 Application Gateway의 인스턴스 수입니다. 인스턴스 수 1은 테스트 목적으로만 사용해야 합니다.|
    |**구독**|[구독 이름]|응용 프로그램 게이트웨이를 만들 구독을 선택합니다.|
    |**리소스 그룹**|**새로 만들기:** AdatumAppGatewayRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
@@ -109,7 +108,7 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 
    ![기본 설정이 표시된 블레이드][2-2]
 
-1. **가상 네트워크** 아래에 표시되는 **설정** 블레이드에서 **가상 네트워크 선택**을 클릭합니다. **가상 네트워크 선택** 블레이드가 열립니다.  **새로 만들기**를 클릭하여 **가상 네트워크 만들기** 블레이드를 엽니다.
+1. **가상 네트워크** 아래에 표시되는 **설정** 블레이드에서 **가상 네트워크 선택**을 클릭합니다. 그러면 **가상 네트워크 선택** 블레이드가 열립니다.  **새로 만들기**를 클릭하여 **가상 네트워크 만들기** 블레이드를 엽니다.
 
    ![가상 네트워크 선택][2]
 
@@ -128,7 +127,7 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 
    ![공용 IP 선택][3]
 
-1. **공용 IP 주소 만들기** 블레이드에서 기본값을 그대로 적용하고 **확인**을 클릭합니다. 이렇게 하면 **공용 IP 주소 선택** 블레이드, **공용 IP 주소 만들기** 블레이드가 닫히고 **공용 IP 주소**가 선택한 공용 IP 주소로 채워집니다.
+1. **공용 IP 주소 만들기** 블레이드에서 기본값을 그대로 적용하고 **확인**을 클릭합니다. 그러면 **공용 IP 주소 선택** 블레이드, **공용 IP 주소 만들기** 블레이드가 닫히고, **공용 IP 주소**가 선택한 공용 IP 주소로 채워집니다.
 
 1. **설정** 블레이드의 **수신기 구성**에서 **프로토콜** 아래에 있는 **HTTP**를 클릭합니다. **https**를 사용하려면 인증서가 필요합니다. 인증서의 개인 키가 필요하므로 인증서의 .pfx 내보내기 및 파일의 암호를 제공해야 합니다.
 
@@ -152,6 +151,8 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 > 기본 웹 응용 프로그램 방화벽 구성을 사용하여 만든 응용 프로그램 게이트웨이는 보호를 위해 CRS 3.0으로 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+다음으로 Azure DNS 또는 다른 DNS 공급자를 사용하여 [공용 IP 주소](../dns/dns-custom-domain.md#public-ip-address)에 대한 사용자 지정 도메인 별칭을 구성하는 방법을 알아볼 수 있습니다.
 
 [Application Gateway 진단](application-gateway-diagnostics.md)을 방문하여 진단 로깅을 구성하는 방법 및 웹 응용 프로그램 방화벽을 통해 검색 또는 방지되는 이벤트를 기록하는 방법에 대해 알아보기
 

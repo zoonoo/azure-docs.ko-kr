@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -297,6 +297,8 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 ## <a name="group-based-filtering"></a>그룹 기반 필터링
 [사용자 지정 설치](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)를 사용하여 Azure AD Connect를 처음 설치하면 그룹 기반 필터링을 구성할 수 있습니다. 이 방식은 소수의 개체만 동기화되는 파일럿 배포를 위해 사용됩니다. 그룹 기반 필터링을 사용하지 않도록 설정하면 다시 사용하도록 설정할 수 없습니다. 사용자 지정 구성에서 그룹 기반 필터링을 사용하는 것은 *지원되지 않습니다*. 설치 마법사를 통해 이 기능을 구성하는 것만 지원됩니다. 파일럿을 완료한 다음 이 항목의 다른 필터링 옵션 중 하나를 사용하는 것이 좋습니다. 그룹 기반 필터링과 함께 OU 기반 필터링을 사용하는 경우 그룹 및 멤버 개체가 있는 OU가 포함되어야 합니다.
+
+여러 AD 포리스트를 동기화할 경우 각 AD 커넥터에 서로 다른 그룹을 지정하여 그룹 기반 필터링을 구성할 수 있습니다. 하나의 AD 포리스트에서 사용자를 동기화하려고 하고, 동일한 사용자에게 다른 AD 포리스트의 해당 FSP(외부 보안 주체) 개체가 하나 이상 있는 경우, 사용자 개체와 해당하는 모든 FSP 개체가 그룹 기반 필터링 범위 내에 있는지 확인해야 합니다. 하나 이상의 FSP 개체가 그룹 기반 필터링으로 제외되는 경우, 사용자 개체는 Azure AD에 대해 동기화되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.

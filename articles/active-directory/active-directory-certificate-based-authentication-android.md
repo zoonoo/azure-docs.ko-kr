@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 07/28/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 58733a36e1753c219df51e1fbe845a2f2a0fdbdc
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
@@ -31,7 +31,7 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 
 이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다. 
 
-이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부 및 중국 계획의 테넌트 사용자를 위해 Android 장치에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
+이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부, 중국 및 독일 계획의 테넌트 사용자를 위해 iOS(Android) 장치에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
 
 
 

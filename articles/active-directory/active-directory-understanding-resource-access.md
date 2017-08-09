@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
-> [!NOTE]
-> 이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다. 또는 Azure 미리 보기 포털이 [역할 기반 액세스 제어](role-based-access-control-configure.md) 을 제공하여 Azure 리소스를 보다 정확하게 관리할 수 있습니다.
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure Portal은 Azure 리소스를 보다 정확하게 관리할 수 있도록 [역할 기반 액세스 제어](role-based-access-control-configure.md)를 제공합니다.
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c2bbb8058ce335c7568d5260ddd0274ca36c9c52
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: fb4302f028ecacf095adbe1b52e31e0432102776
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 만들고 사용
@@ -50,7 +50,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 >확장 속성은 테넌트의 등록된 응용 프로그램 컨텍스트에서만 존재합니다. 응용 프로그램의 개체 ID는 ID를 사용하는 TechnicalProfile에 포함되어야 합니다.
 
 >[!NOTE]
->Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`으로 명명된 Web API App을 포함합니다.  이 응용 프로그램은 주로 Azure Portal을 통해 만든 사용자 지정 클레임에 대한 b2c 기본 제공 정책에 사용됩니다.  이 응용 프로그램을 사용하여 b2c 사용자 지정 정책의 확장을 등록하는 것은 고급 사용자에게만 권장됩니다.
+>Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`으로 명명된 Web App을 포함합니다.  이 응용 프로그램은 주로 Azure Portal을 통해 만든 사용자 지정 클레임에 대한 b2c 기본 제공 정책에 사용됩니다.  이 응용 프로그램을 사용하여 b2c 사용자 지정 정책의 확장을 등록하는 것은 고급 사용자에게만 권장됩니다.  이에 대한 지침은 이 문서의 `NEXT STEPS` 섹션에 포함되어 있습니다.
 
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>확장 속성을 저장할 새 응용 프로그램 만들기
@@ -71,6 +71,8 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 1. 클립보드에 복사하고 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>에서 다음 ID를 저장합니다.
 *  **응용 프로그램 ID** - 예: `103ee0e6-f92d-4183-b576-8c3739027780`
 * **개체 ID** - 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+
+
 
 ## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>사용자 지정 정책을 수정하여 `ApplicationObjectId` 추가
 
@@ -270,11 +272,38 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ## <a name="next-steps"></a>다음 단계
 
-아래 나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 두 TechnicalProfiles는 사용자 개체의 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>아래 나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 두 TechnicalProfiles는 사용자 개체의 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+```
+### <a name="using-the-same-extension-attributes-between-built-in-and-custom-policies"></a>기본 및 사용자 지정 정책 간에 동일한 확장 특성 사용
+포털 환경을 통해 확장 특성(즉, 사용자 지정 특성)을 추가하는 경우 해당 특성은 모든 b2c 테넌트에 존재하는 **b2c-확장-앱**을 사용하여 등록됩니다.  사용자 지정 정책에서 이러한 확장 특성을 사용하려면:
+1. portal.azure.com의 b2c 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록** 선택
+2. **b2c-확장-앱**을 찾고 선택
+3. 'Essentials' 아래에서 **응용 프로그램 ID** 및 **개체 ID** 기록
+4. 다음과 같이 AAD 공용 기술 프로필 메타데이터에 포함:
+
+```xml
+    <ClaimsProviders>
+        <ClaimsProvider>
+              <DisplayName>Azure Active Directory</DisplayName>
+            <TechnicalProfile Id="AAD-Common">
+              <DisplayName>Azure Active Directory</DisplayName>
+              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <!-- Provide objectId and appId before using extension properties. -->
+              <Metadata>
+                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+              </Metadata>
+```
+
+5. 포털 환경과 일관성을 유지하기 위해 사용자 지정 정책에서 사용하기 *전에* 포털 UI를 사용하여 이러한 특성을 만듭니다.  포털에서 "ActivationStatus" 특성을 만들 때 다음과 같이 참조해야 합니다.
+
+```
+extension_ActivationStatus in the custom policy
+extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 

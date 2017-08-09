@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 22f5dda489f94ebb5a22e017b72c2524a8f22d6a
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
+
 
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
 
@@ -57,7 +57,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-VHD를 내보낸 후에 [S3 버킷에서 개체를 다운로드하려면 어떻게 합니까?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)(영문)의 지침에 따라 S3 버킷에서 VHD 파일을 다운로드합니다. 
+VHD를 내보냈으면 [S3 버킷에서 개체를 다운로드하려면 어떻게 해야 합니까?(영문)](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html)의 지침에 따라 S3 버킷에서 VHD 파일을 다운로드합니다. 
 
 > [!IMPORTANT]
 > AWS에서는 VHD 다운로드에 대한 데이터 전송 요금을 청구합니다. 자세한 내용은 [Amazon S3 요금](https://aws.amazon.com/s3/pricing/)을 참조하세요.

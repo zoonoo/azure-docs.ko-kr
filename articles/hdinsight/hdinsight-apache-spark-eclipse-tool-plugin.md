@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 013a3175d5e19689629d1d0ea3b413184e71c485
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a921eeabe0df6dbc32ab62f74fe585ac2eaf9d42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
@@ -83,7 +82,7 @@ Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 
     ![HDInsight의 Spark(Scala) 프로젝트 선택](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. **새 HDInsight Scala 프로젝트** 대화 상자에서 다음 값을 입력한 후 **다음**을 클릭합니다.
    * 프로젝트의 이름을 입력합니다.
-   * **JRE** 영역에서 **JRE 실행 환경 사용**을 **JavaSE-1.7**로 설정해야 합니다.
+   * **JRE** 영역에서 **JRE 실행 환경 사용**을 **JavaSE-1.7** 이상으로 설정해야 합니다.
    * Spark SDK가 SDK를 다운로드한 위치로 설정되어 있는지 확인합니다. 다운로드 위치에 대한 링크는 이 문서 앞부분의 [필수 구성 요소](#prerequisites) 에 나와 있습니다. 대화 상자에 포함된 링크에서 SDK를 다운로드할 수도 있습니다.
 
     ![새 HDInsight Scala 프로젝트 대화 상자](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
@@ -116,12 +115,12 @@ Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 
             val conf = new SparkConf().setAppName("MyClusterApp")
             val sc = new SparkContext(conf)
    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
             //find the rows that have only one digit in the seventh column in the CSV
             val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
    
-            rdd1.saveAsTextFile("wasbs:///HVACOut")
+            rdd1.saveAsTextFile("wasb:///HVACOut")
           }        
         }
 5. HDInsight Spark 클러스터에서 응용 프로그램 실행:
@@ -130,8 +129,8 @@ Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 
    2. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 클릭합니다.
       
       * **클러스터 이름**의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
-      * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다.
-      * **주 클래스 이름** 텍스트 상자에 코드에 지정한 개체의 이름을 입력합니다.
+      * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다. 기본값은 패키지 탐색기에서 마우스 오른쪽 단추로 클릭한 항목에 따라 달라집니다.
+      * **기본 클래스 이름** 드롭다운 목록에서 제출 마법사에는 선택한 프로젝트의 모든 개체 이름이 표시됩니다. 실행하려는 이름을 선택하거나 입력합니다. 하드 디스크에서 아티팩트를 선택하는 경우 기본 클래스 이름을 직접 입력해야 합니다. 
       * 이 예제의 응용 프로그램 코드에는 명령줄 인수가 필요하지 않고 JAR 또는 파일을 참조하지 않으므로 나머지 텍스트 상자를 비워둘 수 있습니다.
         
        ![Spark 제출 대화 상자](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
@@ -141,6 +140,18 @@ Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 
       
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양한 작업을 수행할 수 있습니다.
+
+### <a name="access-the-job-view"></a>작업 보기 액세스
+1. Azure 탐색기에서 **HDInsight**, Spark 클러스터 이름을 차례로 확장한 다음 **작업**을 클릭합니다.  
+       ![작업 보기 노드](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
+2. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 클릭합니다.
+       ![응용 프로그램 세부 정보](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+3. 작업 그래프 위로 마우스를 가져가면 실행 중인 기본 작업 정보가 표시됩니다. 작업 그래프를 클릭하면 모든 작업이 생성하는 단계 그래프 및 정보가 표시됩니다.
+       ![작업 단계 세부 정보](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+
+4. 드라이버 Stderr, 드라이버 Stdout, 디렉터리 정보를 비롯한 자주 사용하는 로그가 **로그** 탭에 표시됩니다.
+       ![로그 세부 정보](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+5. 창 맨 위에 있는 해당 하이퍼링크를 클릭하여 Spark 기록 UI 및 YARN UI(응용 프로그램 수준)를 열 수도 있습니다.
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>클러스터에 대한 저장소 컨테이너 액세스
 1. Azure 탐색기에서 **HDInsight** 루트 노드를 확장하여 사용할 수 있는 HDInsight Spark 클러스터의 목록을 표시합니다.
@@ -207,7 +218,9 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ용 Azure 도구 키트를 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [IntelliJ용 Azure 도구 키트를 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

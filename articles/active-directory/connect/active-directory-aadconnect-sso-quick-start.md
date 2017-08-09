@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 451d4fd24dc506fb4a659edb710ab67a66cbbde7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -33,8 +33,9 @@ Seamless SSO를 배포하려면 다음 단계를 수행해야 합니다.
 2. *기능 활성화*: Azure AD Connect를 사용하여 테넌트의 Seamless SSO를 사용하도록 설정합니다.
 3. *기능 배포*: 그룹 정책을 사용하여 일부 또는 모든 사용자에게 기능을 배포합니다.
 4. *기능 테스트*: Seamless SSO를 사용하여 사용자 로그인을 테스트합니다.
+5. *키 롤오버*: 컴퓨터 계정의 Kerberos 암호 해독 키를 자주 롤오버합니다.
 
-## <a name="step-1-check-prerequisites"></a>1단계: 필수 구성 요소 확인
+## <a name="step-1-check-prerequisites"></a>1단계: 필수 조건 확인
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -104,14 +105,19 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 수행하지 않습니다. �
 4. 필드에서 "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net"을 입력합니다.
 5. "확인"을 클릭하고 브라우저를 다시 엽니다.
 
->[!NOTE]
->Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
+#### <a name="safari-on-mac-os"></a>Mac OS의 Safari
 
-#### <a name="google-chrome-on-mac"></a>Mac의 Google Chrome
+Mac OS를 실행하는 컴퓨터가 AD에 가입되어 있는지 확인합니다. 작업을 수행하는 방법에 대한 지침을 [여기](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf)를 참조하세요.
 
-Mac 및 기타 비Windows 플랫폼에 있는 Google 크롬의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법에 대한 내용은 [이 문서](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)를 참조하세요.
+#### <a name="google-chrome-on-mac-os"></a>Mac OS의 Google 크롬
+
+Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google 크롬의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법은 [이 문서](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)를 참조하세요.
 
 타사 Active Directory 그룹 정책 확장을 사용하여 Mac 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 배포하는 방법은 이 문서의 범위를 벗어납니다.
+
+#### <a name="known-limitations"></a>알려진 제한 사항
+
+Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
@@ -128,10 +134,17 @@ Mac 및 기타 비Windows 플랫폼에 있는 Google 크롬의 경우 통합 인
 - 새 개인 브라우저 세션에서 *https://myapps.microsoft.com/contoso.onmicrosoft.com*에 로그인합니다. "*contoso*"를 테넌트의 이름으로 바꿉니다.
 - 또는 새 개인 브라우저 세션에서 *https://myapps.microsoft.com/contoso.com*에 로그인합니다. "*contoso.com*"을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
+## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
+
+2단계에서, Azure AD Connect는 Seamless SSO를 사용하도록 설정한 모든 AD 포리스트에서 컴퓨터 계정(Azure AD를 나타냄)을 만듭니다. [여기](active-directory-aadconnect-sso-how-it-works.md)에서 자세히 알아보세요. 향상된 보안을 위해 이러한 컴퓨터 계정의 Kerberos 암호 해독 키를 자주 롤오버하는 것이 좋습니다.
+
+>[!IMPORTANT]
+>이 기능을 사용하도록 설정한 후에는 이 단계를 _즉시_ 수행할 필요가 없습니다. 적어도 30일마다 Kerberos 암호 해독 키를 롤오버합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [**기술 심층 분석**](active-directory-aadconnect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**FAQ(질문과 대답)** ](active-directory-aadconnect-sso-faq.md) -질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](active-directory-aadconnect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
 

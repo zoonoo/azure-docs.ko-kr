@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 771e3d1e728f6c85d9f63111b2483d08396ef530
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7c5089b9db945b0e0f4523e53bb44c178ffd0781
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>Linux VM에 대한 Azure Storage 인프라 지침
@@ -73,7 +72,7 @@ Azure Storage 배포를 디자인할 때는 확장성이 어느 정도 제한될
 ## <a name="striped-disks"></a>스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB보다 큰 디스크를 만들 수 있을 뿐만 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
 
-Azure는 VM 크기에 따라 사용 가능한 데이터 디스크 수 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기]를 참조하세요.(sizes.md
+Azure는 VM 크기에 따라 사용 가능한 데이터 디스크 수 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터 크기](sizes.md)를 참조하세요.
 
 Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 

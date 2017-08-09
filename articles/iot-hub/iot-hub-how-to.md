@@ -12,25 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 6fbdebd316cd00e7dd762487848e616fdd2317e8
-ms.openlocfilehash: 358fd0888049f97e5fde6e2a6303ea6c4cf65da9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Azure IoT Hub 사용 방법
 
-IoT Hub 서비스를 개발하는 방법을 알아보는 다양한 옵션이 있습니다. IoT Hub의 기능을 자세히 설명하는 개념 문서를 읽거나 IoT Hub의 다양한 기능을 포괄하는 자습서 중 하나를 따를 수 있습니다.
+IoT Hub 서비스를 개발하는 방법을 알아보는 다양한 옵션이 있습니다.
 
-## <a name="the-developer-guide"></a>개발자 가이드
+* IoT Hub의 기능을 자세히 설명하는 개념 문서를 읽어보세요.
+* IoT Hub의 다양한 기능을 다루는 자습서 중 하나를 수행하세요.
 
-개발자로서 [개발자 가이드][lnk-devguide]에서 IoT Hub에 대한 자세한 개념적 지침을 읽을 수 있습니다. 이 가이드는 사용하는 방법 및 여러 옵션을 사용할 수 있는 경우에 선택하는 방법에 대해 알아볼 수 있는 모든 IoT Hub 기능의 자세한 설명을 제공합니다.
+## <a name="developer-guide"></a>개발자 가이드
 
+개발자로서 [개발자 가이드][lnk-devguide]에서 IoT Hub에 대한 자세한 개념적 지침을 읽을 수 있습니다. 이 가이드에는 다음이 포함됩니다.
 
-## <a name="the-tutorials"></a>자습서
+* 사용 방법을 배울 수 있는 모든 IoT Hub 기능에 대한 자세한 설명
+* 여러 옵션을 사용할 수 있는 경우 선택하는 방법에 대한 지침
+
+## <a name="tutorials"></a>자습서
 
 실습 연습을 통해 특정 IoT Hub 기능에 대해 자세히 알아보려는 경우 여러 자습서에서 선택할 수 있습니다. 대부분의 자습서는 여러 프로그래밍 언어로 제공됩니다. 이 자습서는 다음을 포함합니다.
 
@@ -44,11 +49,11 @@ IoT Hub 서비스를 개발하는 방법을 알아보는 다양한 옵션이 있
 
 - [직접 메서드 사용][lnk-methods-tutorial]. 이 자습서는 직접 메서드를 사용하는 방법을 보여 줍니다. 시뮬레이션된 장치에서 직접 메서드에 대한 처리기를 추가하고 IoT Hub에서 직접 메서드를 호출합니다.
 
-- [장치 관리 시작][lnk-dm-tutorial]. 이 자습서는 시뮬레이션된 장치를 원격으로 다시 부팅하기 위해 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다.
+- [장치 관리 시작][lnk-dm-tutorial]. 이 자습서는 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다. 시뮬레이션된 장치를 원격으로 다시 부팅하는 데 이러한 기능을 사용합니다.
 
-- [desired 속성을 사용하여 장치 구성][lnk-properties-tutorial]. 이 자습서는 장치를 원격으로 구성하기 위해 reported 속성과 함께 장치 쌍의 desired 속성을 사용하는 방법을 보여 줍니다.
+- [desired 속성을 사용하여 장치 구성][lnk-properties-tutorial]. 이 자습서는 장치를 원격으로 구성하기 위해 장치 쌍의 desired 및 reported 속성을 사용하는 방법을 보여 줍니다.
 
-- [장치 작업을 사용하여 장치 펌웨어 업데이트 시작][lnk-jobs-tutorial]. 이 자습서는 장치의 펌웨어를 원격으로 업데이트하기 위해 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다.
+- [장치 작업을 사용하여 장치 펌웨어 업데이트 시작][lnk-jobs-tutorial]. 이 자습서는 쌍 및 직접 메서드와 같은 주요 장치 관리 기능을 사용하는 방법을 보여 줍니다. 이러한 기능을 사용하여 장치의 펌웨어를 원격으로 업데이트하는 방법을 배웁니다.
 
 - [작업 예약 및 브로드캐스트][lnk-schedule-tutorial]. 이 자습서는 예약된 시간에 여러 장치와 상호 작용하기 위해 desired 속성과 직접 메서드를 사용하는 방법을 보여 줍니다.
 

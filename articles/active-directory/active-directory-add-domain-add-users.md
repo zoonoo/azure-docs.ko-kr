@@ -14,17 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 39cb54a6637088c35c6aef864a804c24803f48ba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assign-users-to-a-custom-domain"></a>사용자 지정 도메인에 사용자 할당
 Azure Active Directory에 사용자 지정 도메인을 추가한 후에 인증을 시작할 수 있도록 이 도메인에 대한 사용자 계정을 추가해야 합니다.
 
-## <a name="users-synced-in-from-a-directory-on-your-corporate-network"></a>회사 네트워크의 디렉터리에서 동기화된 사용자
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 도메인 이름을 관리하는 방법은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참조하세요.
+
+## <a name="users-synced-from-a-on-premises-directory"></a>온-프레미스 디렉터리에서 동기화된 사용자
 온-프레미스 Active Directory와 Azure Active Directory 간의 연결을 이미 설정한 경우 동기화로 계정을 채울 수 있습니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.
 
 ## <a name="users-added-and-managed-in-the-cloud"></a>클라우드에 추가되고 관리되는 사용자

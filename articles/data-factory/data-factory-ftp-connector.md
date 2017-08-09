@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1c37802e2b908747773afa093a28ea218dd60509
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f8f31f3a2ee02c964737dd32145499f3dcfd0624
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
@@ -200,7 +199,7 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 | --- | --- | --- | --- |
 | recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob-storage"></a>JSON 예: FTP 서버에서 Azure Blob Storage로 데이터 복사
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON 예: FTP 서버에서 Azure Blob으로 데이터 복사
 이 샘플은 FTP 서버에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여줍니다. 하지만 데이터 팩터리의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 지정된 싱크로 데이터를 직접 복사할 수 있습니다.  
 
 다음 예에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.
