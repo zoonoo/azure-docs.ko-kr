@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d79e7ec6abfc0104008139bb4f86cc7bb1a02a13
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
@@ -30,10 +29,10 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 수집할 로그 파일은 다음 조건과 일치해야 합니다.
 
 - 로그는 줄 당 항목이 하나이거나 각 항목의 시작 지점에 다음 형식 중 하나와 일치하는 타임스탬프를 사용해야 합니다.
-  
+
     YYYY-MM-DD HH:MM:SS <br>M/D/YYYY HH:MM:SS AM/PM <br>Mon DD,YYYY HH:MM:SS
 
-- 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 업데이트를 허용하지 말아야 합니다. 
+- 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 업데이트를 허용하지 말아야 합니다.
 - 로그 파일은 ASCII 또는 UTF-8 인코딩을 사용해야 합니다.  UTF-16 등의 다른 형식은 지원되지 않습니다.
 
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
@@ -50,17 +49,17 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>2단계. 샘플 로그 업로드 및 구문 분석
 사용자 지정 로그 샘플을 업로드하는 것부터 시작합니다.  마법사는 사용자가 유효성을 검사할 수 있도록 이 파일의 항목을 구문 분석하고 표시합니다.  Log Analytics는 사용자가 지정하는 구분 기호를 사용하여 각 레코드를 식별합니다.
 
-**새 줄** 은 기본적인 구분 기호이며 줄당 하나의 항목을 포함하는 로그 파일에 사용됩니다.  줄이 사용 가능한 형식 중 한 가지의 날짜와 시간으로 시작되는 경우에는, 두 줄 이상에 걸쳐있는 항목을 지원하는 **타임스탬프** 구분 기호를 지정할 수 있습니다. 
+**새 줄** 은 기본적인 구분 기호이며 줄당 하나의 항목을 포함하는 로그 파일에 사용됩니다.  줄이 사용 가능한 형식 중 한 가지의 날짜와 시간으로 시작되는 경우에는, 두 줄 이상에 걸쳐있는 항목을 지원하는 **타임스탬프** 구분 기호를 지정할 수 있습니다.
 
-타임스탬프 구분 기호가 사용되면, OMS에 저장된 각 레코드의 TimeGenerated 속성이 로그 파일의 해당 항목에 대해 지정된 날짜/시간으로 채워집니다.  새 줄 구분 기호가 사용되는 경우에는, TimeGenerated가 Log Analytics 항목을 수집한 날짜와 시간으로 채워집니다. 
+타임스탬프 구분 기호가 사용되면, OMS에 저장된 각 레코드의 TimeGenerated 속성이 로그 파일의 해당 항목에 대해 지정된 날짜/시간으로 채워집니다.  새 줄 구분 기호가 사용되는 경우에는, TimeGenerated가 Log Analytics 항목을 수집한 날짜와 시간으로 채워집니다.
 
 > [!NOTE]
-> Log Analytics는 현재 타임스탬프 구분 기호를 사용하여 로그로부터 수집된 날짜/시간을 UTC로 처리합니다.  이것은 곧 에이전트의 표준 시간대를 사용하도록 변경될 예정입니다. 
-> 
-> 
+> Log Analytics는 현재 타임스탬프 구분 기호를 사용하여 로그로부터 수집된 날짜/시간을 UTC로 처리합니다.  이것은 곧 에이전트의 표준 시간대를 사용하도록 변경될 예정입니다.
+>
+>
 
 1. **찾아보기** 를 클릭하고 샘플 파일로 이동합니다.  일부 브라우저에서는 이 단추의 레이블이 **파일 선택** 인 경우도 있습니다.
-2. **다음**을 누릅니다. 
+2. **다음**을 누릅니다.
 3. Custom Log Wizard(사용자 지정 로그 마법사)가 파일을 업로드하고 식별된 레코드를 기록합니다.
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
 5. **다음**을 누릅니다.
@@ -70,7 +69,7 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 
 예를 들어, 응용 프로그램이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 응용 프로그램의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
 
-다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다. 
+다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
 | 설명 | Path |
 |:--- |:--- |
@@ -88,17 +87,17 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 
 1. 로그의 이름을 입력합니다.  **\_CL** 접미사가 자동으로 제공됩니다.
 2. 선택적인 **설명**을 추가합니다.
-3. **다음** 을 클릭하여 사용자 지정 로그 정의를 저장합니다.
+3. **다음**을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5단계. 사용자 지정 로그를 수집 중인지 확인
 Log Analytics에 새 사용자 지정 로그의 초기 데이터가 나타나기 까지 최대 한 시간이 소요될 수 있습니다.  사용자 지정 로그를 정의한 시점부터, 사용자가 지정한 경로에서 찾은 로그로부터 항목을 수집하기 시작합니다.  사용자 지정 로그를 만드는 동안 업로드한 항목은 유지하지 않고, 찾는 로그 파일에 이미 존재하는 항목을 수집합니다.
 
-Log Analytics가 사용자 지정 로그에서 수집을 시작하면, 해당 레코드를 로그 검색을 통해 사용할 수 있습니다.  사용자 지정 로그에 지정한 이름을 쿼리의 **유형** 으로 사용합니다.
+Log Analytics가 사용자 지정 로그에서 수집을 시작하면, 해당 레코드를 로그 검색을 통해 사용할 수 있습니다.  사용자 지정 로그에 지정한 이름을 쿼리의 **유형**으로 사용합니다.
 
 > [!NOTE]
 > RawData 속성이 검색에 없으면, 브라우저를 닫았다가 다시 열어야 합니다.
-> 
-> 
+>
+>
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
 전체 로그 항목은 **RawData**라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 레코드에 저장된 개별 속성으로 분리하려는 경우가 많습니다.  이런 작업은 Log Analytics의 [사용자 지정 필드](log-analytics-custom-fields.md) 기능을 사용하여 수행합니다.
@@ -116,7 +115,7 @@ Log Analytics가 사용자 지정 로그에서 수집을 시작하면, 해당 �
 ## <a name="data-collection"></a>데이터 수집
 Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5분마다 수집합니다.  에이전트는 데이터를 수집하는 각 로그 파일에서 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 Log Analytics는 마지막으로 오프라인 상태가 유지된 위치에서 항목을 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 항목이 생성된 경우에도 마찬가지입니다.
 
-로그 항목의 전체 내용은 **RawData**라는 단일 속성에 기록됩니다.  이것을 사용자 지정 로그를 만든 후에 [사용자 지정 필드](log-analytics-custom-fields.md) 를 정의하여 개별적으로 검색하고 분석할 수 있는 여러 개의 속성으로 구문 분석할 수 있습니다.
+로그 항목의 전체 내용은 **RawData**라는 단일 속성에 기록됩니다.  이것을 사용자 지정 로그를 만든 후에 [사용자 지정 필드](log-analytics-custom-fields.md)를 정의하여 개별적으로 검색하고 분석할 수 있는 여러 개의 속성으로 구문 분석할 수 있습니다.
 
 ## <a name="custom-log-record-properties"></a>사용자 지정 로그 레코드 속성
 사용자 지정 로그 레코드에는 사용자가 제공하는 로그 이름의 유형과 다음 테이블의 속성이 있습니다.
@@ -124,9 +123,9 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 | 속성 | 설명 |
 |:--- |:--- |
 | TimeGenerated |Log Analytics에 의해 레코드가 수집된 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
-| SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br> Linux – 모든 Linux 에이전트 |
+| SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 System Center Operations Manager <br> Linux – 모든 Linux 에이전트 |
 | RawData |수집된 항목의 전체 텍스트. |
-| ManagementGroupName |SCOM 에이전트의 경우 관리 그룹의 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| ManagementGroupName |System Center Operations Manage 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
 
 ## <a name="log-searches-with-custom-log-records"></a>사용자 지정 로그 레코드를 사용한 로그 검색
 사용자 지정 로그의 레코드는 다른 데이터 소스의 레코드처럼 OMS 리포지토리에 저장됩니다.  Type이 로그를 정의할 때 제공한 이름과 일치하기 때문에 검색에 Type 속성을 이용하여 특정 로그에서 수집한 레코드를 검색할 수 있습니다.
@@ -137,6 +136,15 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 |:--- |:--- |
 | Type=MyApp_CL |이름 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
 | Type=MyApp_CL Severity_CF=error |이름이 *Severity_CF*인 사용자 지정 필드의 값이 *error*이고 이름이 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
+
+> | 쿼리 | 설명 |
+|:--- |:--- |
+| MyApp_CL |이름 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
+| MyApp_CL &#124; where Severity_CF=="error" |이름이 *Severity_CF*인 사용자 지정 필드의 값이 *error*이고 이름이 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
+
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>사용자 지정 로그 추가 샘플 연습
 다음 섹션은 사용자 지정 로그를 만드는 예제를 안내합니다.  수집되는 샘플 로그에는 각 줄에 하나의 항목이 포함되며, 각 줄은 날짜와 시간으로 시작되고 코드, 상태 및 메시지에 대해 쉼표로 구분된 필드가 있습니다.  몇 가지 샘플 항목이 아래에 표시되어 있습니다.
@@ -173,7 +181,6 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![사용자 지정 필드가 있는 로그 쿼리](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 사용자 지정 로그의 항목을 개별적인 필드로 구문 분석합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
-
+* [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 사용자 지정 로그의 항목을 개별적인 필드로 구문 분석합니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
 

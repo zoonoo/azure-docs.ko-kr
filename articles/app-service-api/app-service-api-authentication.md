@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: f9fd533dfbd54517232f9dae5000ed4779baebd4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="authentication-and-authorization-for-api-apps-in-azure-app-service"></a>Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여
@@ -35,7 +35,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 * 들어오는 API 요청을 전처리합니다. 즉, 앱 서비스에서 지원하는 모든 언어 또는 프레임워크와 작동합니다.
 * 사용자 고유의 코드에서 얼마나 많은 인증이 작동하도록 할지에 대한 여러 옵션을 제공합니다.
 * 최종 사용자 및 서비스 계정 인증 모두에 대해 작동합니다. 
-* 여기서는 Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정의&5;가지 ID 공급자를 지원합니다.
+* 여기서는 Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정의 5가지 ID 공급자를 지원합니다.
 * API 앱, 웹앱 및 모바일 앱에 대해서도 마찬가지로 작동합니다.
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
@@ -98,8 +98,8 @@ Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [OAuth 2.0 시작](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
-* [OAuth2, OpenID Connect 및 JSON 웹 토큰(JWT) 소개 - PluralSight 코스](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
-* [ASP.NET에서 여러 클라이언트를 위한 RESTful API 구축 및 보호 - PluralSight 코스](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
+* [OAuth2, OpenID Connect 및 JWT(JSON 웹 토큰) 소개 - Pluralsight 과정(영문)](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [ASP.NET에서 여러 클라이언트에 대한 RESTful API 빌드 및 보안 설정 - Pluralsight 과정(영문)](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조하세요.
 

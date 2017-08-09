@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d3c68e8a1bd7ec97d7dd14c3ba87cc886e2935ae
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
@@ -42,6 +42,10 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
 ## <a name="hivetable"></a>Spark 데이터 시각화를 위한 데이터 준비
 
 이 섹션에서는 HDInsight Spark 클러스터에서 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다. 데이터가 테이블로 저장되면 다음 섹션에서 BI 도구를 사용하여 테이블에 연결하고 데이터 시각화를 수행합니다.
+
+> [!NOTE]
+> [HDInsight Spark 클러스터에서 대화형 쿼리 실행](hdinsight-apache-spark-load-data-run-query.md) 지침을 완료한 후에 이 문서의 단계를 수행하는 경우 아래의 8단계를 건너뛸 수 있습니다.
+>
 
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
@@ -71,7 +75,7 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
     빈 셀에서 다음 코드 조각을 붙여넣고 **Shift + Enter**를 누릅니다. 이 코드 조각은 **hvac**라는 테이블에 데이터를 등록합니다.
 
         # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         # Create a schema for our data
         Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
@@ -202,8 +206,9 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 클러스터를 만들고 Spark 데이터 프레임을 만든 후 BI 도구에서 해당 데이터에 액세스하는 방법을 배웠습니다. 이제 클러스터 리소스를 관리하고 HDInsight Spark 클러스터에서 실행 중인 작업을 디버그하는 방법에 대한 지침을 살펴볼 수 있습니다.
+지금까지 클러스터를 만들고 Spark 데이터 프레임을 만들어 데이터를 쿼리한 다음 BI 도구에서 해당 데이터에 액세스하는 방법을 배웠습니다. 이제 클러스터 리소스를 관리하고 HDInsight Spark 클러스터에서 실행 중인 작업을 디버그하는 방법에 대한 지침을 살펴볼 수 있습니다.
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
+
 

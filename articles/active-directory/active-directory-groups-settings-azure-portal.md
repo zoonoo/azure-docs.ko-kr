@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 그룹 속성 관리 | Microsoft Docs"
 description: "Azure Active Directory에서 그룹에 대한 속성 및 다른 구성 설정을 편집하는 방법"
 services: active-directory
@@ -13,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 24f5da884a7d9f1d07c32419316d2c046d54d739
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 설정 관리
@@ -31,10 +29,10 @@ ms.lasthandoff: 05/09/2017
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
-   ![사용자 관리 열기](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+   ![사용자 및 그룹 열기 블레이드](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.
 
-   ![그룹 블레이드 열기](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+   ![모든 그룹 열기 블레이드](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. **사용자 및 그룹 - 모든 그룹** 블레이드에서 그룹을 선택합니다.
 5. **그룹 - *groupname*** 블레이드에서 **속성**을 선택합니다.
 

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d42527fc661d320c6279fe3b74791983edc5cd33
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a2ccc3d43a56a569897e1efe24f576eb92610ec3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -165,7 +165,7 @@ NFS | 아니요 | 해당 없음
 SMB 3.0 | 아니요 | 아니요
 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
 디스크 > 1TB | 예<br/><br/>최대 4095GB | 예<br/><br/>최대 4095GB
-4K 섹터 크기 디스크 | 아니요 | 아니요
+4K 섹터 크기 디스크 | 예 | 예, 1세대 VM에 지원됨<br/><br/>2세대 VM에 지원되지 않음
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
 저장소 공간 | 아니요 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요

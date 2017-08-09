@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2bfbdd5ca8ec178c2c32c7b52637a8ec7e88a4c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>복잡한 솔루션을 배포할 때 Azure Resource Manager 템플릿에 대한 디자인 패턴
@@ -34,7 +33,7 @@ Azure Resource Manager 템플릿을 기반으로 유연한 접근 방식을 사�
 * 사용자, 그룹 및 서비스에 적합한 액세스를 허용하도록 역할 기반 액세스 제어(RBAC)를 적용합니다.
 * 태그 지정 연결을 사용하여 청구 롤업과 같은 작업을 간소화합니다.
 
-이 문서는 Azure 고객 자문 팀(AzureCAT) 고객과의 실제 환경 템플릿 구현 및 설계 세션 중에 확인된 소비 시나리오, 아키텍처, 및 구현 패턴에 대해 자세한 내용을 제공합니다. 이러한 접근 방식은 학술적이지는 않았지만 Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis 및 Nagios를 비롯한 상위 Linux 기반 OSS 기술 중 12가지에 대한 템플릿의 개발을 통해 알려진 검증된 작업 방식입니다. 
+이 문서는 Azure 고객 자문 팀(AzureCAT) 고객과의 실제 환경 템플릿 구현 및 설계 세션 중에 확인된 소비 시나리오, 아키텍처, 및 구현 패턴에 대해 자세한 내용을 제공합니다. 이러한 접근 방식은 학술적이지는 않았지만 Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis 및 Nagios를 비롯한 상위 Linux 기반 OSS 기술 중 12가지에 대한 템플릿의 개발을 통해 알려진 검증된 작업 방식입니다. 
 
 이 문서는 최고 수준의 Azure 리소스 관리자 템플릿을 구성하는데 도움을 주기 위하여 검증된 작업 방식을 공유합니다.  
 

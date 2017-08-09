@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d58d9dd6c92c81328f89a703b3bc8529aff8dc0
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="pen-testing"></a>펜 테스트
@@ -33,19 +34,14 @@ Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.mi
 
 그렇다면 어떻게 해야 할까요?
 
-Azure 호스티드 응용 프로그램을 펜 테스트할 준비가 되면, 우리에게 알려주셔야 합니다. 여러분이 특정 테스트를 수행하리라는 것을 우리가 알고 있으면, 테스트가 Azure 펜 테스트 조건을 준수하는 한 (여러분이 테스트를 진행하는 IP 주소를 차단하는 등과 같이) 의도치 않게 종료하지 않을 것입니다.
+Azure 호스팅 응용 프로그램을 펜 테스트할 준비가 되면 [Microsoft에 알려주시기 바랍니다](https://portal.msrc.microsoft.com/en-us/engage/pentest). 특정 테스트를 수행할 것이라고 알게 되면 [Microsoft Cloud 통합 침투 테스트 참여 규칙(영문)](https://technet.microsoft.com/en-us/mt784683)에서 설명한 대로 테스트에서 Azure 펜 테스트 조건을 따르는 한 테스트가 실수로 종료되지 않을 것입니다(예: 여러분이 테스트 중인 IP 주소 차단).
 여러분이 수행할 수 있는 표준 테스트는 다음과 같습니다.
 
-*  [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+* [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [퍼지 테스트](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) 
 * [포트 검색](https://en.wikipedia.org/wiki/Port_scanner) 
 
 여러분이 수행할 수 없는 한가지 유형의 테스트는 모든 종류의 [서비스 거부 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이는 DoS 공격 자체를 시작하거나, 모든 종류의 DoS 공격을 결정, 시연 또는 시뮬레이션할 수도 있는 관련 테스트를 수행하는 것을 포함합니다.
 
 Microsoft Azure에서 호스팅된 응용 프로그램의 펜 테스트를 시작할 준비가 되셨습니까? 그렇다면, [침투 테스트 개요](https://security-forms.azure.com/penetration-testing/terms) 페이지를 참조하고 (페이지 맨 아래에 있는 테스트 요청 만들기 버튼을 클릭합니다. 또한 펜 테스트 조건에 대한 더 많은 정보와 Azure 또는 다른 모든 Microsoft 서비스와 관련된 보안 결함을 보고할 수 방법에 대한 유용한 링크도 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

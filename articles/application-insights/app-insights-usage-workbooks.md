@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 44ea03d30c1f2eabc92af63b549823c03a6901e2
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -88,9 +88,9 @@ ms.lasthandoff: 06/20/2017
 
 * 사용 현황의 감소와 동일한 기간 동안 사이트에서 throw한 예외의 수는?
 * 일부 페이지를 보는 사용자에 대한 페이지 로드 시간의 분포는 무엇이었습니까?
-* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 사이트 기능의 다른 하위 집합을 사용하는 사용자(분석 쿼리 언어에서 `kind=leftanti` 한정자로 `join` 연산자 사용)의 클러스터가 있는지를 이해하는 데 유용할 수 있습니다.
+* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 사이트 기능의 여러 하위 집합을 사용하는 사용자의 클러스터가 있는지 이해하는 데 유용할 수 있습니다(Log Analytics 쿼리 언어에서 `kind=leftanti` 한정자가 포함된 `join` 연산자 사용).
 
-[분석 쿼리 언어 참조](app-insights-analytics-reference.md)를 사용하여 쿼리 작성에 대해 자세히 알아봅니다.
+[Log Analytics 쿼리 언어 참조](https://docs.loganalytics.io/)를 사용하여 쿼리 작성에 대해 자세히 알아봅니다.
 
 ## <a name="adding-text-and-markdown-sections"></a>텍스트 및 Markdown 섹션 추가
 

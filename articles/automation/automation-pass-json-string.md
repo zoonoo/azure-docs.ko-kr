@@ -1,6 +1,6 @@
 ---
 title: "Azure Automation Runbook에 JSON 개체 전달 | Microsoft Docs"
-description: "Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
+description: "Runbook에 매개 변수를 JSON 개체로 전달하는 방법"
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: c8f1423e3764e476068681ed725db831543690f5
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -84,9 +84,9 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 다음 PowerShell 명령을 실행합니다.
 
 1. Azure에 로그인합니다.
-    ```powershell
-    Login-AzureRmAccount
-    ```
+   ```powershell
+   Login-AzureRmAccount
+   ```
     Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
 1. JSON 파일의 내용을 가져와 문자열로 변환합니다.
     ```powershell
@@ -94,23 +94,23 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
     ```
     `JsonPath`는 JSON 파일을 저장한 경로입니다.
 1. `$json`의 문자열 내용을 PowerShell 개체로 변환합니다.
-    ```powershell
-    $JsonParams = @{"json"=$json}
-    ```
+   ```powershell
+   $JsonParams = @{"json"=$json}
+   ```
 1. `Start-AzureRmAutomstionRunbook`의 매개 변수에 대한 해시 테이블을 만듭니다.
-    ```powershell
-    $RBParams = @{
+   ```powershell
+   $RBParams = @{
         AutomationAccountName = 'AATest'
         ResourceGroupName = 'RGTest'
         Name = 'Test-Json'
         Parameters = $JsonParams
-    }
-    ```
-    `Parameters`의 값을 JSON 파일의 값이 포함된 PowerShell 개체로 설정하고 있는 것입니다. 
+   }
+   ```
+   `Parameters`의 값을 JSON 파일의 값이 포함된 PowerShell 개체로 설정하고 있는 것입니다. 
 1. Runbook을 시작합니다.
-    ```powershell
-    $job = Start-AzureRmAutomationRunbook @RBParams
-    ```
+   ```powershell
+   $job = Start-AzureRmAutomationRunbook @RBParams
+   ```
 
 Runbook에서 JSON 파일의 값을 사용하여 VM을 시작합니다.
 

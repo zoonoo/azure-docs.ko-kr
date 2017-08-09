@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: adsolank;juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: db5aa78749b53a2b853840b53dca0f5cf7ff6d18
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: daf86fa55ec402d55763bfbb616e17ce7619a8a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer의 미리 설정된 작업
@@ -36,7 +36,7 @@ Azure Media Indexer는 미디어 파일 및 콘텐츠를 검색 가능하도록 
 |metadata|false|지정된 자산 파일에 대한 메타데이터입니다.<br/>```<metadata key="..." value="..." />```<br/><br/>미리 정의된 키의 값을 제공할 수 있습니다. <br/><br/>현재 다음 키가 지원됩니다.<br/><br/>**title** 및 **description** - 음성 인식 정확도를 개선하기 위해 언어 모델을 업데이트하는 데 사용됩니다.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** 및 **password** - http 또는 https를 통해 인터넷 파일을 다운로드할 때 인증에 사용됩니다.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>username 및 password 값은 입력 매니페스트의 모든 미디어 URL에 적용됩니다.|
 |기능<br/><br/>버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다.|false|음성 인식 기능에는 다음 설정 키가 포함됩니다.<br/><br/>언어:<br/>- 멀티미디어 파일에서 인식할 자연어<br/>- English, Spanish<br/><br/>CaptionFormats:<br/>- 원하는 출력 캡션 형식의 세미콜론으로 구분된 목록(있는 경우)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>- AIB 파일이 필요한지를 지정하는 부울 플래그(SQL Server 및 고객 인덱서 IFilter와 함께 사용). 자세한 내용은 Using AIB Files with Azure Media Indexer and SQL Server(Azure Media Indexer 및 SQL Server에서 AIB 파일 사용)를 참조하세요.<br/>- True, False<br/><br/>GenerateKeywords:<br/>- 키워드 XML 파일이 필요한지를 지정하는 부울 플래그<br/>- True, False|
 
-## <a name="the-following-example-shows-the-azure-media-indexer-configuration-xml"></a>다음 예제에서는 Azure Media Indexer 구성 XML을 보여 줍니다.
+## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer 구성 XML 예제
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  

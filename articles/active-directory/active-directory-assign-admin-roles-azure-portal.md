@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory에서 관리자 역할 할당 | Microsoft Docs"
-description: "Azure Active Directory에서 사용할 수 있는 관리자 역할 및 이 역할을 할당하는 방법을 설명합니다."
+description: "관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리를 수행할 수 있습니다. 관리자 역할을 할당 받은 사용자는 조직에서 구독하는 모든 클라우드 서비스에서 동일한 사용 권한을 갖습니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
+ms.reviewer: Vince.Smith
+ms.custom: it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 633e34ec3cdc9cf881978bf513294ea2365145dd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당

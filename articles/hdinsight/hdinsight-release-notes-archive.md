@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b1d1dcb47f74aa097406da1d685c40e9ebd3339d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="release-notes-archive-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보(보관)
@@ -110,10 +109,10 @@ ms.lasthandoff: 05/13/2017
 | [IntelliJ용 HDInsight 도구](hdinsight-apache-spark-intellij-tool-plugin.md) |이제 HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인은 IntelliJ용 Azure 도구 키트와 통합됩니다. Azure SDK v2.9.1, 최신 Java SDK를 지원하며 IntelliJ용 독립 실행형 HDInsight 플러그 인의 모든 기능이 포함됩니다. |도구 |Spark |해당 없음 |
 | [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) |Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스합니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
 
-이 릴리스부터 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다. 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 컴퓨터)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다.
+이 릴리스부터 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다. 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 VM(가상 컴퓨터)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일 이전에 첫 번째로 다시 부팅되지 않습니다.
 
 > [!NOTE]
-> 이러한 변경 내용은 이 릴리스 버전 이상인 새로 만든 클러스터에만 적용됩니다.
+> 이러한 변경 내용은 이 릴리스 버전 이상이 설치된 새로 만든 클러스터에만 적용됩니다.
 >
 >
 
@@ -1333,7 +1332,7 @@ HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저
 Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
 
 ### <a name="breaking-changes"></a>주요 변경 내용
-**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasbs://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, “asv://” 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasbs://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasbs://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
+**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasb://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, “asv://” 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasb://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasb://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
 

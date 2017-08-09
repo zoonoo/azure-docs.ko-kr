@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ad72f768add7edc1d34a85c27dc2aa1b4e4b3a50
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Azure Active Directory에 사용자 지정 도메인 이름 추가
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/08/2017
 > * [Azure 클래식 포털](active-directory-add-domain.md)
 > 
 
-조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. Azure AD(Azure Active Directory)를 사용하면 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. 이렇게 하면 사용자에게 alice@contoso.com 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
+Azure AD(Azure Active Directory)를 사용하면 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. 조직이 비즈니스를 하는 데 사용하는 도메인 이름 및 회사 도메인 이름을 사용하여 로그인하는 사용자가 있을 수 있습니다. Azure AD에 도메인 이름을 추가하면 사용자에게 ‘alice@contoso.com’ 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
 
 1. 디렉터리에 사용자 지정 도메인 이름 추가
 2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가

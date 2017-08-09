@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,14 +35,14 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 >[!NOTE]
 >이미 이 기능이 포함된 ADFS(Active Directory Federation Services)에는 이 기능을 _적용할 수 없습니다_.
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Azure AD Seamless SSO 사용의 주요 이점
+## <a name="key-benefits"></a>주요 이점
 
 - *멋진 사용자 환경*
   - 사용자는 온-프레미스 및 클라우드 기반 응용 프로그램에 자동으로 로그인됩니다.
   - 사용자는 자신의 암호를 반복적으로 입력할 필요가 없습니다.
 - *손쉬운 배포 및 관리*
   - 이 작업을 수행하기 위해 온-프레미스에 필요한 추가 구성 요소가 없습니다.
-  - 모든 관리 인증 방법, 즉 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 또는 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)과 함께 작동합니다.
+  - 모든 클라우드 인증 방법, 즉 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 또는 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)과 함께 작동합니다.
   - 그룹 정책을 사용하여 일부 또는 모든 사용자에게 배포할 수 있습니다.
   - 비Windows 10 장치를 Azure AD에 등록합니다. 이 경우 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
 
@@ -57,11 +57,11 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예|지원되지 않음|예|예\*|해당 없음
-|Windows 8.1|예|지원되지 않음|예|예\*|해당 없음
-|Windows 8|예|지원되지 않음|예|예\*|해당 없음
-|Windows 7|예|지원되지 않음|예|예\*|해당 없음
-|Mac OS X|해당 없음|해당 없음|예\*|예\*|지원되지 않음
+|Windows 10|예|예|예|예\*|해당 없음
+|Windows 8.1|예|해당 없음|예|예\*|해당 없음
+|Windows 8|예|해당 없음|예|예\*|해당 없음
+|Windows 7|예|해당 없음|예|예\*|해당 없음
+|Mac OS X|해당 없음|해당 없음|예\*|예\*|예\*
 
 \*[추가 구성](active-directory-aadconnect-sso-quick-start.md#browser-considerations)이 필요합니다.
 
@@ -72,7 +72,7 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 - [**빠른 시작**](active-directory-aadconnect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
 - [**기술 심층 분석**](active-directory-aadconnect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**FAQ(질문과 대답)** ](active-directory-aadconnect-sso-faq.md) -질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](active-directory-aadconnect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
 

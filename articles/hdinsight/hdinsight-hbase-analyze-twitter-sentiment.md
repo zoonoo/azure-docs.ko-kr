@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 07/24/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a16a1c2a10279b5e7fb523addfdfcd433c8937e
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4d5bb90c0e7573afb75282810c9ba58e7163e127
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/10/2017
   * Microsoft HBase SDK를 사용하여 HBase에 데이터 정보 저장
 * Azure 웹 사이트 응용 프로그램
 
-  * ASP.NET 웹 응용 프로그램을 사용하여 Bing 지도에 실시간 통계 결과를 그림으로 나타내기 트윗이 시각화된 모양은 다음과 같습니다.
+  * ASP.NET 웹 응용 프로그램을 사용하여 Bing 지도에 실시간 통계 결과를 그림으로 나타내기 트윗의 시각화는 다음 스크린샷과 유사합니다.
 
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
@@ -48,14 +47,7 @@ ms.lasthandoff: 06/10/2017
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **HDInsight의 HBase 클러스터**. 클러스터 만들기에 대한 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hbase-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
-
-    <table border="1">
-    <tr><th>클러스터 속성</th><th>설명</th></tr>
-    <tr><td>HBase 클러스터 이름</td><td>HDInsight HBase 클러스터 이름입니다. 예를 들면 https://myhbase.azurehdinsight.net/과 같습니다.</td></tr>
-    <tr><td>클러스터 사용자 이름</td><td>Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
-    <tr><td>클러스터 사용자 암호</td><td>Hadoop 클러스터 사용자 암호입니다.</td></tr>
-    </table>
+* **HDInsight의 HBase 클러스터**. 클러스터 만들기에 대한 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hbase-get-started]을 참조하세요. 
 
 * Visual Studio 2013/2015/2017이 설치된 **워크스테이션**입니다. 관련 지침은 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
@@ -68,13 +60,12 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
 2. **Create New App**을 클릭합니다.
 3. **Name**, **Description** 및 **Website**를 입력합니다. Twitter 응용 프로그램 이름은 고유해야 합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다.
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
-5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다.
+5. **사용 권한** 탭을 클릭한 다음 **읽기 전용**을 클릭합니다. 이 자습서에서는 읽기 전용 사용 권한으로 충분합니다.
 6. **Keys and Access Tokens** 탭을 클릭합니다.
-7. **Create my access token**을 클릭합니다.
-8. 페이지의 오른쪽 위에서 **Test OAuth** 를 클릭합니다.
-9. **Consumer key**, **Consumer secret**, **Access token** 및 **Access token secret** 값을 복사합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
+7. 페이지의 아래쪽에서 **내 액세스 토큰 만들기**를 클릭합니다.
+9. **소비자 키(API 키)**, **소비자 비밀**, **액세스 토큰** 및 **액세스 토큰 비밀** 값을 복사합니다. 자습서의 뒷부분에서 이러한 값이 필요합니다.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
+    > ![참고]OAuth 테스트 단추가 더 이상 작동하지 않습니다.
 
 ## <a name="create-twitter-streaming-service"></a>Twitter 스트리밍 서비스 만들기
 트윗을 가져오고 트윗의 데이터 점수를 계산한 다음 처리된 트윗 단어를 HBase로 보내는 응용 프로그램을 만들어야 합니다.
@@ -386,7 +377,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90));
+                            stream.AddLocation(new Coordinates(90, -180), new Coordinates(-90,180));
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();

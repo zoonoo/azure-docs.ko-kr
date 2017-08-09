@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 783b9b48251c5f092121288af8834e2caf31f5d7
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
@@ -27,8 +26,8 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 
 
 > [!NOTE]
 > Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com)을 설치하고 sysklog를 대체하도록 구성해야 합니다.
-> 
-> 
+>
+>
 
 ![Syslog 수집](media/log-analytics-data-sources-syslog/overview.png)
 
@@ -49,8 +48,8 @@ Linux용 OMS 에이전트는 해당 구성에 지정된 기능 및 심각도에 
 
 > [!NOTE]
 > Syslog 구성을 편집하는 경우, 변경 내용을 적용하려면 syslog 디먼을 다시 시작해야 합니다.
-> 
-> 
+>
+>
 
 #### <a name="rsyslog"></a>rsyslog
 rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 경고 이상 수준의 모든 기능에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.
@@ -138,7 +137,7 @@ syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>추가 Syslog 포트에서 데이터 수집
-OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  에이전트가 설치될 때 기본 syslog 구성이 적용되며 다음 위치에서 찾을 수 있습니다. 
+OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  에이전트가 설치될 때 기본 syslog 구성이 적용되며 다음 위치에서 찾을 수 있습니다.
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -162,7 +161,7 @@ OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시�
 
     > [!NOTE]
     > 구성 파일 `95-omsagent.conf`에서 이 값을 수정하는 경우 에이전트가 기본 구성을 적용할 때 덮어쓰게 됩니다.
-    > 
+    >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
         kern.warning              @127.0.0.1:%SYSLOG_PORT%
@@ -174,7 +173,7 @@ OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시�
 
     > [!NOTE]
     > 구성 파일에서 기본 값을 수정하는 경우 에이전트가 기본 구성을 적용할 때 덮어쓰게 됩니다.
-    > 
+    >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
@@ -206,9 +205,18 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 | Type=Syslog &#124; measure count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
 | Type=Syslog &#124; measure count() by Facility |기능별 Syslog 레코드 수입니다. |
 
-## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
-* [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
-* [Linux 에이전트를 구성](log-analytics-linux-agents.md) 합니다. 
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
 
+> | 쿼리 | 설명 |
+|:--- |:--- |
+| syslog |모든 Syslog입니다. |
+| Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |
+| Syslog &#124; summarize AggregatedValue = count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
+| Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |
+
+## <a name="next-steps"></a>다음 단계
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
+* [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
+* [Linux 에이전트를 구성](log-analytics-linux-agents.md)합니다.
 

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights(미리 보기)로 다중 구성 요소 응용 프로그램 모니터링
@@ -30,7 +29,9 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="sharing-a-single-application-insights-resource"></a>단일 Application Insights 리소스 공유 
 
-여기에서 핵심 기술은 응용 프로그램의 모든 구성 요소에서 동일한 Application Insights 리소스로 원격 분석을 보내되, 필요한 경우 구성 요소를 구분하기 위해 `cloud_RoleName` 속성을 사용하는 것입니다. 
+여기에서 핵심 기술은 응용 프로그램의 모든 구성 요소에서 동일한 Application Insights 리소스로 원격 분석을 보내되, 필요한 경우 구성 요소를 구분하기 위해 `cloud_RoleName` 속성을 사용하는 것입니다. Application Insights SDK는 원격 분석 구성 요소 내보내기에 `cloud_RoleName` 속성을 추가합니다. 예를 들어 이 SDK는 `cloud_RoleName` 속성에 웹 사이트 이름 또는 서비스 역할 이름을 추가합니다. 이 값은 원격 분석 이니셜라이저(telemetryinitializer)를 통해 재정의할 수 있습니다. Application Map에서는 `cloud_RoleName` 속성을 사용하여 맵에 있는 구성 요소를 식별합니다.
+
+`cloud_RoleName` 속성을 재정의하는 방법에 대한 자세한 내용은 [속성 추가: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.  
 
 경우에 따라 이것이 적합하지 않을 수 있으며 구성 요소 그룹마다 별도의 리소스를 사용하는 것이 좋을 수 있습니다. 예를 들어, 관리 또는 청구 목적으로 서로 다른 리소스를 사용해야 할 수 있습니다. 별도의 리소스를 사용한다는 것은 모든 구성 요소가 단일 Application Map에 표시되지 않으며 [분석](app-insights-analytics.md)에서 구성 요소 간에 쿼리할 수 없음을 의미합니다. 또한 별도의 리소스도 설정해야 합니다.
 

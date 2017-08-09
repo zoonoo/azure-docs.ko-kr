@@ -1,5 +1,5 @@
 ---
-title: " Azure에서 Backup 자격 증명 모음 삭제 | Microsoft Docs "
+title: " Azure에서 Recovery Services 자격 증명 모음 삭제 | Microsoft Docs "
 description: "Azure Backup 및 Recovery Services 자격 증명 모음을 삭제하는 방법입니다. 백업 자격 증명 모음은 Azure 클라우드 자격 증명 모음 또는 Azure 복구 자격 증명 모음이라고 할 수 있습니다. 클래식 포털 또는 Azure Portal에서 백업 자격 증명 모음을 삭제할 수 없을 때 문제를 해결합니다."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="delete-an-azure-backup-vault"></a>Azure Backup 자격 증명 모음 삭제
+# <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 Azure Backup 서비스에는 Backup 자격 증명 모음과 Recovery Services 자격 증명 모음의 두 가지 자격 증명 모음 유형이 있습니다. Backup 자격 증명 모음을 먼저 제공했습니다. 그런 다음 Recovery Services 자격 증명 모음에서 확장된 Resource Manager 배포가 지원됩니다. 자격 증명 모음에 저장해야 하는 정보 종속성 및 확장된 기능으로 인해 Backup 또는 Recovery Services 자격 증명 모음을 삭제하는 것이 혼동될 수 있습니다. 이 문서에서는 클래식 포털 및 Azure Portal에서 자격 증명 모음을 삭제하는 방법을 설명합니다.  
 
 | **배포 유형** | **포털** | **자격 증명 모음 이름** |
@@ -86,7 +85,7 @@ Recovery Services 자격 증명 모음이 이미 열려 있는 경우 두 번째
     ![백업 데이터 삭제](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
     필요에 따라 데이터를 삭제하는 이유를 제공하고 메모를 추가할 수 있습니다. **백업 중지**를 클릭하면 삭제 작업이 완료되어 자격 증명 모음을 삭제할 수 있습니다. 작업이 완료되었는지 확인하려면 Azure 메시지 ![delete backup data](./media/backup-azure-delete-vault/messages.png)를 입력합니다. <br/>
-    작업이 완료되면 백업 프로세스가 중지되고 해당 항목에 대한 백업 데이터가 삭제되었다는 메시지를 받게 됩니다.
+    작업이 완료되면 백업 프로세스가 중지되고 해당 항목에 대한 백업 데이터가 삭제되었다는 메시지가 표시됩니다.
 
     c. 목록에서 항목을 삭제한 후 **백업 항목** 메뉴에서 **새로 고침**을 클릭하면 자격 증명 모음의 나머지 항목이 표시됩니다.
 

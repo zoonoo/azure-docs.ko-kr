@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6db2fa2f568c3cf8296bd91214b380a01b85c134
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
-이 문서에서는 Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On) 기능이 어떻게 작동하는지에 대한 기술적인 정보에 대해 자세히 설명합니다.
+이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On) 기능이 어떻게 작동하는지에 대한 기술적인 정보에 대해 자세히 설명합니다.
 
-## <a name="how-does-azure-ad-seamless-sso-work"></a>Azure AD의 Seamless SSO 작동 방식
+## <a name="how-does-seamless-sso-work"></a>Seamless SSO 작동 방식
 
 이 섹션은 두 부분으로 이루어져 있습니다.
 1. Seamless SSO 기능 설정
@@ -41,6 +41,9 @@ Seamless SSO는 [여기](active-directory-aadconnect-sso-quick-start.md)서 보�
 
 >[!NOTE]
 > 컴퓨터 계정과 Kerberos SPN은 Azure AD Connect를 통해 Azure AD와 동기화하는 각 AD 포리스트에서, 그리고 Seamless SSO의 대상이 되는 사용자에 대해 만들어집니다. 다른 컴퓨터 계정이 저장된 OU(조직 단위)로 `AZUREADSSOACCT` 컴퓨터 계정을 이동하여 동일한 방식으로 관리되고 삭제되지 않도록 합니다.
+
+>[!IMPORTANT]
+>적어도 30일마다 `AZUREADSSOACCT` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account)하는 것이 좋습니다.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Seamless SSO로 로그인하는 방식
 
