@@ -31,12 +31,22 @@
 #### [IIS 로그](log-analytics-data-sources-iis-logs.md)
 #### [사용자 지정 로그](log-analytics-data-sources-custom-logs.md)
 #### [사용자 지정 필드](log-analytics-custom-fields.md)
+
 ## 쿼리 데이터
 ### [로그 검색 개요](log-analytics-log-searches.md)
 ### [Search 참조](log-analytics-search-reference.md)
 #### [정규식](log-analytics-log-searches-regex.md)
 ### [검색 결과에서 작업 수행](log-analytics-log-search-takeaction.md)
 ### [컴퓨터 그룹](log-analytics-computer-groups.md)
+
+## 새 로그 검색
+### [작업 영역 업그레이드](log-analytics-log-search-upgrade.md)
+### [FAQ](log-analytics-log-search-faq.md)
+### [로그 검색 개요](log-analytics-log-search-new.md)
+### [로그 검색 포털](log-analytics-log-search-portals.md)
+#### [로그 검색 포털 사용](log-analytics-log-search-log-search-portal.md)
+### [레거시 언어에서 전환](log-analytics-log-search-transition.md)
+
 ## 데이터 분석
 ### [대시보드](log-analytics-dashboards.md)
 ### [뷰 디자이너](log-analytics-view-designer.md)
@@ -74,6 +84,7 @@
 ### [맬웨어 평가](log-analytics-malware.md)
 ### [네트워킹 분석](log-analytics-azure-networking-analytics.md)
 ### [네트워크 성능 모니터](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM 평가](log-analytics-scom-assessment.md)
 ### [보안 감사](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [서비스 패브릭](log-analytics-service-fabric.md)
@@ -100,6 +111,7 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [가격](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows 분석](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
