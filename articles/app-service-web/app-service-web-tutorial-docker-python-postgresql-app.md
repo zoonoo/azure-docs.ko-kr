@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://127.0.0.1:5000으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 http://127.0.0.1:5000 으로 이동합니다. **Register!**를 클릭하고 테스트 사용자를 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -245,7 +245,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://127.0.0.1:5000으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+브라우저에서 http://127.0.0.1:5000 으로 이동합니다. **Register!**를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -514,7 +514,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-브라우저에서 http://127.0.0.1:5000으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
+브라우저에서 http://127.0.0.1:5000 으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
 
 ![로컬로 실행되는 Docker 컨테이너 기반 Python Flask 응용 프로그램](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app-v2.png)
 
