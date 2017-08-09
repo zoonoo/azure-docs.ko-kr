@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책
@@ -41,7 +41,7 @@ ms.lasthandoff: 06/02/2017
 | 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 동일 |
 |토큰 및 세션 관리 | 사용자 지정 토큰 및 다중 세션 옵션 | 동일 |
 |ID 공급자| **현재**: 미리 정의된 로컬, 소셜 공급자<br><br>**이후**: 표준 기반 OIDC, SAML, OAuth | **현재**: 표준 기반 OIDC, OAUTH, SAML<br><br>**이후**: WsFed |
-|ID 작업(예제) | 로컬 및 많은 소셜 계정을 사용하여 등록 또는 로그인<br><br>암호 재설정<br><br>프로필 편집<br><br>Multi-Factor Auth 시나리오<br><br>토큰 및 세션 사용자 지정<br><br>액세스 토큰 흐름 | 사용자 지정 ID 공급자를 사용하는 기본 정책과 동일한 작업 완료 또는 사용자 지정 범위 사용<br><br>등록 시 다른 시스템에서 사용자 프로비전<br><br>고유한 전자 메일 서비스 공급자를 사용하여 환영 전자 메일 보내기<br><br>B2C 외부 사용자 저장소 사용<br><br>API를 통해 신뢰할 수 있는 시스템을 사용하여 사용자 제공 정보의 유효성 검사 |
+|ID 작업(예제) | 로컬 및 많은 소셜 계정을 사용하여 등록 또는 로그인<br><br>셀프 서비스 암호 재설정<br><br>프로필 편집<br><br>Multi-Factor Auth 시나리오<br><br>토큰 및 세션 사용자 지정<br><br>액세스 토큰 흐름 | 사용자 지정 ID 공급자를 사용하는 기본 정책과 동일한 작업 완료 또는 사용자 지정 범위 사용<br><br>등록 시 다른 시스템에서 사용자 프로비전<br><br>고유한 전자 메일 서비스 공급자를 사용하여 환영 전자 메일 보내기<br><br>B2C 외부 사용자 저장소 사용<br><br>API를 통해 신뢰할 수 있는 시스템을 사용하여 사용자 제공 정보의 유효성 검사 |
 
 ## <a name="policy-files"></a>정책 파일
 
@@ -74,7 +74,7 @@ OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기�
 
 ### <a name="built-in-policies"></a>기본 제공 정책
 
-가장 일반적으로 사용되는 ID 작업(예: 사용자 등록, 로그인, 암호 재설정)을 수행하고 Azure AD B2C에서 관계가 미리 정의된 신뢰할 수 있는 대상(예: Facebook ID 공급자, LinkedIn, Microsoft 계정, Google 계정)과 상호 작용하도록 Azure AD B2C의 동작을 지시하는 미리 정의된 구성 파일입니다.  나중에 일반적으로 Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider와 같은 엔터프라이즈 영역에 있는 ID 공급자의 사용자 지정을 위해 기본 제공 정책을 제공할 수도 있습니다.
+가장 일반적으로 사용되는 ID 작업(예: 사용자 등록, 로그인, 암호 재설정)을 수행하고 Azure AD B2C에서 관계가 미리 정의된 신뢰할 수 있는 대상(예: Facebook ID 공급자, LinkedIn, Microsoft 계정, Google 계정)과 상호 작용하도록 Azure AD B2C의 동작을 지시하는 미리 정의된 구성 파일입니다. user registration, signin, password reset) and interact with trusted parties whose relationship is also predefined in Azure AD B2C (e.g. Facebook identity provider, LinkedIn, Microsoft Account, Google accounts).  나중에 일반적으로 Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider와 같은 엔터프라이즈 영역에 있는 ID 공급자의 사용자 지정을 위해 기본 제공 정책을 제공할 수도 있습니다.
 
 
 ### <a name="custom-policies"></a>사용자 지정 정책
@@ -97,7 +97,7 @@ Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는
 |---------------------|--------------------|-----------------|---------------|
 | 기본 |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Microsoft에서 구성된 핵심 클레임 스키마, 클레임 변환, 클레임 공급자 및 사용자 경험을 포함합니다.<br><br>이 파일에 대한 최소한의 변경 | 없음 |
 | 확장(EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | 여기에서 기본 파일에 대한 변경 내용 통합<br><br>수정된 클레임 공급자<br><br>수정된 사용자 경험<br><br>사용자 고유의 사용자 지정 스키마 정의 | 기본 파일 |
-| 신뢰 당사자(RP) | | | 확장 파일 |
+| 신뢰 당사자(RP) | B2C_1A_sign_up_sign_in.xml| 여기에서 토큰 셰이프 및 세션 설정 변경| Extensions(EXT) 파일 |
 
 ### <a name="inheritance-model"></a>상속 모델
 
