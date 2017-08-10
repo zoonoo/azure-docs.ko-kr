@@ -1,5 +1,5 @@
 ---
-title: " Azure Portal을 사용하여 Media Services 계정에 파일 업로드 | Microsoft Docss"
+title: " Azure 포털을 사용하여 미디어 서비스 계정에 파일 업로드 | Microsoft Docs"
 description: "이 자습서에서는 Azure 포털을 사용하여 미디어 서비스 계정에 파일을 업로드하는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
-ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8b9a7a266259077d49a38d51d7f801f420cc6315
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Azure 포털을 사용하여 미디어 서비스 계정에 파일 업로드
@@ -68,10 +69,5 @@ ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
