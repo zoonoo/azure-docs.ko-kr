@@ -23,6 +23,8 @@
   items:
     - name: 오케스트레이터와의 관계
       href: container-instances-orchestrator-relationship.md
+    - name: 컨테이너 그룹
+      href: container-instances-container-groups.md
 - name: 방법 가이드
   items:
     - name: 다중 컨테이너 그룹 배포

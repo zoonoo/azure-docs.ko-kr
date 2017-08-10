@@ -9,6 +9,7 @@
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
+## [빠른 시작: 셀프 서비스 암호 재설정](active-directory-passwords-getting-started.md)
 ## Azure AD 라이선스 관리
 ### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
 ### [클래식 포털](active-directory-licensing-what-is.md)
@@ -18,16 +19,12 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
-## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
+## [Azure Active Directory 지원 받기](active-directory-troubleshooting-support-howto.md)
 ## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
 
 # 방법
 ## 계획 및 디자인
 ### [Azure AD 아키텍처 이해](active-directory-architecture.md)
-### [권장되는 보안 정책 및 구성](secure-email-introduction.md)
-#### [권장되는 보안 전자 메일 정책](secure-email-recommended-policies.md)
-##### [권장되는 보안 전자 메일 정책 배포](secure-email-deploy-recommended-policies.md)
-#### [EMS 및 Office 365 서비스 개요](secure-email-ems-office365-service-descriptions.md)
 ### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Azure Active Directory의 클레임 매핑](active-directory-claims-mapping.md)
 #### 요구 사항 결정
@@ -82,6 +79,7 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
+### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
@@ -128,7 +126,6 @@
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
-### [빠른 시작: 셀프 서비스 암호 재설정](active-directory-passwords-getting-started.md)
 ### [라이선스 SSPR](active-directory-passwords-licensing.md)
 ### [SSPR 배포](active-directory-passwords-best-practices.md)
 ### IT 관리자: 암호 재설정
@@ -167,7 +164,6 @@
 ## 앱 관리
 ### [개요](active-directory-enable-sso-scenario.md)
 ### [시작](active-directory-integrating-applications-getting-started.md)
-
 ### [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +174,7 @@
 ##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
 ##### [앱 게시](application-proxy-publish-azure-portal.md)
 ##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
-#### [SSO 액세스](active-directory-appssoaccess-whatis.md)
+#### [Single Sign-On](application-proxy-sso-overview.md)
 ##### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
 ##### [헤더와 SSO](application-proxy-ping-access.md)
 ##### [암호 보관을 사용하는 SSO](application-proxy-sso-azure-portal.md)
@@ -219,6 +215,7 @@
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
+#### [SSO 액세스](active-directory-appssoaccess-whatis.md)
 #### [SSO 인증서](active-directory-sso-certs.md)
 #### [테넌트 제한 사항](active-directory-tenant-restrictions.md)
 #### [SCIM 프로비전 사용자 사용](active-directory-scim-provisioning.md)
@@ -370,6 +367,7 @@
 
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -386,7 +384,8 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
