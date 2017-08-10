@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 * 타사 ID 공급자를 사용하는 경우.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>토큰 서명 인증서에 대한 AD FS의 기본 구성
-토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며&1;년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover**라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용하는 경우는 인증서가 만료되기 전에 Office 365 및 Azure AD에서 자동으로 인증서를 업데이트합니다.
+토큰 서명 및 인증서의 암호를 해독하는 토큰은 일반적으로 자체 서명된 인증서이며 1년 동안 사용할 수 있습니다. 기본적으로 AD FS는 **AutoCertificateRollover**라는 자동 갱신 프로세스를 포함합니다. AD FS 2.0 이상을 사용하는 경우는 인증서가 만료되기 전에 Office 365 및 Azure AD에서 자동으로 인증서를 업데이트합니다.
 
 ### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Office 365 포털 또는 전자 메일로 갱신 알림
 > [!NOTE]
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)와 AD FS(Active Directory Federation Services) 
 >
 >
 
-Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데이터를 모니터링하고 토큰 서명 인증서를 업데이트하려고 합니다. 토큰 서명 인증서 만료&30;일 전에 Azure AD는 페더레이션 메타데이터를 폴링하여 새 인증서를 사용할 수 있는지를 확인합니다.
+Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데이터를 모니터링하고 토큰 서명 인증서를 업데이트하려고 합니다. 토큰 서명 인증서 만료 30일 전에 Azure AD는 페더레이션 메타데이터를 폴링하여 새 인증서를 사용할 수 있는지를 확인합니다.
 
 * 페더레이션 메타데이터를 성공적으로 폴링하고 새 인증서를 검색할 수 있는 경우 사용자에게 전자 메일 알림 또는 Office 365 포털 내의 경고가 주어지지 않습니다.
 * 페더레이션 메타데이터가 연결할 수 없거나 자동 인증서 롤오버를 사용할 수 없기 때문에 새 토큰 서명 인증서를 검색할 수 없는 경우 Azure AD는 전자 메일 알림과 Office 365 포털 내의 경고를 발생합니다.
@@ -145,7 +145,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 5. 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 6. PS C:\>Get-ADFSCertificate –CertificateType token-signing 명령을 다시 실행하여 업데이트를 확인합니다.
 
-이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약&1;년 정도이고 **IsPrimary** 값은 **False**입니다.
+이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약 1년 정도이고 **IsPrimary** 값은 **False**입니다.
 
 ### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2단계: Office 365 트러스트에 대한 새 토큰 서명 인증서 업데이트
 새 토큰 서명 인증서를 가진 Office 365를 다음과 같이 트러스트에 사용하도록 업데이트합니다.
