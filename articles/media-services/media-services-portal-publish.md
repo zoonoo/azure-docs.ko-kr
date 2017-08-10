@@ -1,5 +1,5 @@
 ---
-title: "  Azure Portal을 통해 콘텐츠 게시 | Microsoft Doccs"
+title: "  Azure Portal을 통해 콘텐츠 게시 | Microsoft 문서"
 description: "이 자습서에서는 Azure 포털을 통해 콘텐츠를 게시하는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 403f15db2979a6626d5896ccc950f355f0a06a4e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="publish-content-with-the-azure-portal"></a>Azure 포털을 통해 콘텐츠 게시
@@ -98,10 +99,5 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

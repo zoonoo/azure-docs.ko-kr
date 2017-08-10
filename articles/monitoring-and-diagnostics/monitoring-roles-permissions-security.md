@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
@@ -33,8 +33,8 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 * 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md) 또는 [플랫폼 간 CLI](insights-cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
-* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 확인합니다.
-* 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) 을 봅니다.
+* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 확인합니다.
+* 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 봅니다.
 * 자동 크기 조정 설정을 봅니다.
 * 경고 활동 및 설정을 봅니다.
 * Application Insights 데이터에 액세스하고 AI Analytics에서 데이터를 봅니다.
@@ -54,8 +54,8 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
-* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 구성합니다.*
-* 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) 을 설정합니다.*
+* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 구성합니다.*
+* 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
 * 경고 활동 및 설정을 구성합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics(OMS) 작업 공간 공유 키를 나열합니다.

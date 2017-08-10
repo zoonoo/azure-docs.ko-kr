@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6683b116e5e42c0ba6f1d0f381143bf846bd9810
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C FAQ
@@ -52,7 +51,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 아니요, 어디서나 응용 프로그램을 호스팅할 수 있습니다.(클라우드 또는 온-프레미스) 공개적으로 액세스할 수 있는 끝점에서 HTTP 요청을 보내고 받는 기능만 있으면 Azure AD B2C와 상호 작용할 수 있습니다.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>여러 개의 Azure AD B2C 테넌트가 있습니다. Azure Portal에서 관리하려면 어떻게 하나요?
-각 Azure AD B2C 테넌트는 Azure 포털에 고유의 B2C 기능 블레이드가 있습니다. Azure 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는 방법을 알아보려면 [Azure AD B2C: 응용 프로그램 등록](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)을 참조하세요. Azure Portal에서 Azure AD B2C 디렉터리 간에 전환할 경우 대부분의 브라우저에서 B2C 기능 블레이드가 열린 상태로 유지되지 않습니다.
+각 Azure AD B2C 테넌트는 Azure 포털에 고유의 B2C 기능 블레이드가 있습니다. Azure 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는 방법을 알아보려면 [Azure AD B2C: 응용 프로그램 등록](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)을 참조하세요. Azure Portal에서 Azure AD B2C 디렉터리 간에 전환할 경우 대부분의 브라우저에서 B2C 기능 블레이드가 열린 상태로 유지되지 않습니다.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Azure AD B2C에서 보낸 확인 메일(콘텐츠 및 "From:" 필드)을 어떻게 사용자 지정하나요?
 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
@@ -109,7 +108,7 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
+1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 1. **응용 프로그램**, **ID 공급자** 및 **모든 정책** 블레이드로 이동하여 각 블레이드에서 모든 항목을 삭제합니다.
 1. 이제 [Azure 클래식 포털](https://manage.windowsazure.com/) 에 구독 관리자로 로그인합니다. Azure에 등록하는 데 사용한 동일한 Microsoft 계정이나 동일한 회사 또는 학교 계정을 사용합니다.
 1. 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
