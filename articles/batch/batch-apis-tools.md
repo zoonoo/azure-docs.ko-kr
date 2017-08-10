@@ -2,23 +2,17 @@
 title: "Azure Batch API 및 도구를 사용하여 대규모 병렬 처리 솔루션 개발 | Microsoft Docs"
 description: "Azure Batch 서비스를 사용하여 솔루션을 개발하는 데 사용할 수 있는 API 및 도구에 대해 알아봅니다."
 services: batch
-documentationcenter: 
 author: tamram
 manager: timlt
-editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: 1c0f8f3fede88b6e0bace35372a2d54bb53e5182
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c11f0c0a6cdc89449b7aa515319bbe6b6bdf1a4a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -48,7 +42,7 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 | 자세한 정보 |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[MSDN][batch_rest] |해당 없음 |- |- | [지원되는 버전](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[자습서](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [릴리스 정보](https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/Client/changelog.md) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[자습서](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [릴리스 정보](http://aka.ms/batch-net-dataplane-changelog) |
 | **배치 Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[자습서](batch-python-tutorial.md)|[GitHub][api_sample_python] | [추가 정보](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[추가 정보][api_sample_java] | [추가 정보](https://github.com/Azure/azure-batch-sdk-for-java)|

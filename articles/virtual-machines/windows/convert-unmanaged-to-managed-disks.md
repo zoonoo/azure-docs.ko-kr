@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8e6950fb44207824baf18d666db7ba26f0e360f0
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 53681c58ca1eff394d6a3db2d6a026845ac03df1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -137,19 +137,6 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ## <a name="troubleshooting"></a>문제 해결
 
 변환하는 동안 오류가 발생한 경우 또는 이전 변환에서의 문제로 인해 VM 상태가 실패인 경우 `ConvertTo-AzureRmVMManagedDisk` cmdlet을 다시 실행합니다. 다시 시도만으로 상황이 해결되는 경우가 많습니다.
-
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Managed Disks 및 Azure Storage 서비스 암호화
-
-[Azure Storage 서비스 암호화](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 암호화된 적이 있는 저장소 계정에 비관리 디스크가 있는 경우 앞의 단계를 사용하여 비관리 디스크를 관리 디스크로 변환할 수 없습니다. 다음 단계에서는 암호화된 저장소 계정에 있는 비관리 디스크를 복사하고 사용하는 방법을 자세히 설명합니다.
-
-1. [AzCopy](../../storage/storage-use-azcopy.md)를 사용하여 Azure Storage 서비스 암호화를 사용하도록 설정되지 않은 저장소 계정으로 VHD를 복사합니다.
-
-2. 복사된 VM을 다음 방법 중 하나로 사용합니다.
-
-   * 관리 디스크를 사용하는 VM을 만들고 `New-AzureRmVm`을 사용하여 VHD 파일을 만드는 동안 해당 VHD 파일을 지정합니다.
-
-   * `Add-AzureRmVmDataDisk`를 사용하여 관리 디스크를 사용하는 실행 중인 VM에 복사된 VHD를 첨부합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

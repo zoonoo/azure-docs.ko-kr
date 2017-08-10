@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 27a0b50107964c99334efbf457bfc2f680217ad4
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: db2f27906504de6755718c4b6be8302dee097f18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
@@ -29,13 +29,13 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 
 | 데이터 형식 | Category | 지원되는 서비스 | 액세스 방법 |
 | --- | --- | --- | --- |
-| Azure Monitor 플랫폼 수준 메트릭 | 메트릭 | [여기에 나오는 목록 참조](monitoring-supported-metrics.md) | <ul><li>**REST API:** [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| Azure Monitor 플랫폼 수준 메트릭 | 메트릭 | [여기에 나오는 목록 참조](monitoring-supported-metrics.md) | <ul><li>**REST API:** [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | 게스트 OS 메트릭 계산(예: 성능 카운터) | 메트릭 | [Windows](../virtual-machines-dotnet-diagnostics.md) 및 Linux 가상 컴퓨터(v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**저장소 테이블 또는 blob:** [Windows 또는 Linux Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**이벤트 허브:** [Windows Azure 진단](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | 사용자 지정 또는 응용 프로그램 메트릭 | 메트릭 | Application Insights를 사용하여 계측된 모든 응용 프로그램 | <ul><li>**REST API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | 저장소 메트릭 | 메트릭 | Azure 저장소 | <ul><li>**저장소 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | 청구 데이터 | 메트릭 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure 리소스 사용량 및 RateCard API](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| 활동 로그 | 이벤트 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure Monitor 이벤트 API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**저장소 blob 또는 이벤트 허브:** [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles)</li></ul> |
-| Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs) | <ul><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| 활동 로그 | 이벤트 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure Monitor 이벤트 API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**저장소 blob 또는 이벤트 허브:** [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs) | <ul><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | 게스트 OS 로그 계산(예: IIS, ETW, syslog) | 이벤트 | [Windows](../virtual-machines-dotnet-diagnostics.md) 및 Linux 가상 컴퓨터(v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**저장소 테이블 또는 blob:** [Windows 또는 Linux Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**이벤트 허브:** [Windows Azure 진단](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | App Service 로그 | 이벤트 | App Services | <ul><li>**File, Table 또는 Blob Storage:** [웹앱 진단](../app-service-web/web-sites-enable-diagnostic-log.md)</li></ul> |
 | 저장소 로그 | 이벤트 | Azure 저장소 | <ul><li>**저장소 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

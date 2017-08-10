@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Windows 10에서 PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/25/2017
 
 > [!div class="op_single_selector"]
 > * [자체 서명된 인증서 만들기 - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [자체 서명된 인증서 만들기 - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [자체 서명된 인증서 만들기 - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [지점 및 사이트 간 구성 - Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
@@ -39,7 +38,7 @@ ms.lasthandoff: 05/25/2017
 
 Windows 10을 실행하는 컴퓨터에서 이 문서의 단계를 수행해야 합니다. 인증서를 생성하는 데 사용하는 PowerShell cmdlet은 Windows 10 운영 체제의 일부이며 다른 Windows 버전에서는 작동하지 않습니다. Windows 10 컴퓨터는 인증서 생성에만 필요합니다. 인증서를 생성한 후에는 지원되는 모든 클라이언트 운영 체제에 업로드하거나 설치할 수 있습니다. 
 
-Windows 10 컴퓨터에 액세스할 수 없는 경우 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)를 사용하여 인증서를 생성할 수 있습니다. 그러나 MakeCert는 SHA-1 인증서만 생성하고 SHA-2 인증서는 생성할 수 없습니다. SHA-1 인증서는 지점 및 사이트 간 연결에 여전히 유효하지만 SHA-1은 SHA-2에 비해 강력하지 않은 암호화 해시를 사용합니다. 이런 이유로, 가능한 경우 PowerShell 단계를 사용하는 것이 좋습니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) 모든 클라이언트 운영 체제에 설치할 수 있습니다.
+Windows 10 컴퓨터에 액세스할 수 없는 경우 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)를 사용하여 인증서를 생성할 수 있습니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) 모든 클라이언트 운영 체제에 설치할 수 있습니다.
 
 ## <a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 

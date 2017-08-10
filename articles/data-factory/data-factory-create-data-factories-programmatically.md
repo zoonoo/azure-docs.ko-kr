@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -173,7 +173,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```
 
    > [!IMPORTANT]
-   > **resourceGroupName** 값을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
+   > **resourceGroupName** 값을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
    >
    > 데이터 팩터리 이름(dataFactoryName)을 고유한 이름으로 업데이트합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
 
-* **비-계산** 리소스(예를 들어, 네트워크 보안 그룹, 논리 앱, 자동화)는 [이 문서에 설명된 진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용합니다.
+* **비-계산** 리소스(예를 들어, 네트워크 보안 그룹, 논리 앱, 자동화)는 [이 문서에 설명된 진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)을 사용합니다.
 * <seg>
   **계산** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)을 사용합니다..</seg>
 

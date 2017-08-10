@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: facead3c038ad9ba8c7b8a9c0e02e38f9f92fd96
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: c148ca2a2a098f5f0c4ff94846c318b59b4864f4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -160,7 +160,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>인증서 생성 및 Key Vault에 저장
-프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/certificate#import)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/certificate#create)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
+프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/keyvault/certificate#import)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/keyvault/certificate#create)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
 
 ```azurecli-interactive 
 az keyvault certificate create \

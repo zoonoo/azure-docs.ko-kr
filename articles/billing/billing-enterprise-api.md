@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: c47b652f1a7397b07deee2704509ea2803467416
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
@@ -34,7 +34,7 @@ Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 �
 |권한 부여| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09|
 
 ## <a name="consumption-apis"></a>사용량 API
-Swagger 끝점은 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](http://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/v2/swagger/index)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다. 
+Swagger 끝점은 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](http://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/swagger/ui/index)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다. 
 
 * **잔액 및 요약** - [잔액 및 요약 API](billing-enterprise-api-balance-summary.md)는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 제공합니다.
 

@@ -16,10 +16,10 @@ ms.date: 07/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 494d9445ac1e1add24d085bd33ccd73aa152ec47
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ee0191c63f12ae32708095362b8028a61ca731cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
@@ -156,7 +156,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 | 네트워크 성능 모니터 | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
 | Office 365 분석(미리 보기) |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |알림 시 |
 | Service Fabric 분석 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |5분 |
-| 서비스 맵 | Windows 및 Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | 15초 |
+| 서비스 맵 | Windows 및 Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 15초 |
 | SQL 평가 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 일 |
 | SurfaceHub |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |도착 시 |
 | System Center Operations Manager 평가(미리 보기) | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | 7일 |

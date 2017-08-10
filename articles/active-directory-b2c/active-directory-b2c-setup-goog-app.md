@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: dbc544ad4dbb651aeb24faf2f89074c7aa59cf2a
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6ab73e5c79742ab548733f5712dee1e28461db9f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: 고객에게 Google+ 계정으로 등록 및 로그인 제공
@@ -53,7 +52,7 @@ Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하�
     ![Google+ - 클라이언트 암호](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## <a name="configure-google-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Google+를 ID 공급자로 구성
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
+1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "G+"를 입력합니다.
