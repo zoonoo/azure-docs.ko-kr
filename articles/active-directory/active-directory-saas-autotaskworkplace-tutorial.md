@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2017
+ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: bba76b87a61baae16503039b31da97eb3b1df680
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 45130162271b20860607497ff93c6a668c415233
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>자습서: Autotask Workplace와 Azure Active Directory 통합
@@ -39,6 +39,9 @@ Autotask Workplace와 Azure AD 통합을 구성하려면 다음 항목이 필요
 
 - Azure AD 구독
 - Autotask Workplace Single Sign-On이 설정된 구독
+- Workplace에서 관리자 또는 최고 관리자여야 합니다.
+- Azure AD에서 관리자 계정이 있어야 합니다.
+- 이 기능을 활용하는 사용자는 Workplace 및 Azure AD 내에 계정이 있어야 하며 둘에 대한 이메일 주소가 일치해야 합니다.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -46,7 +49,7 @@ Autotask Workplace와 Azure AD 통합을 구성하려면 다음 항목이 필요
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -61,25 +64,22 @@ Autotask Workplace의 Azure AD 통합을 구성하려면 갤러리의 Autotask W
 
 1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![엔터프라이즈 응용 프로그램 블레이드][2]
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에서 **Autotask Workplace**를 입력합니다.
+4. 검색 상자에 **Autotask Workplace**를 입력하고 결과 패널에서 **Autotask Workplace**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_search.png)
+    ![결과 목록에서 Autotask Workplace](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
-5. 결과 패널에서 **Autotask Workplace**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 대응하는 Autotask Workplace 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Autotask Workplace의 관련 사용자 간에 연결이 형성되어야 합니다.
@@ -88,13 +88,13 @@ Autotask Workplace에서 Azure AD의 **사용자 이름** 값을 **Username** �
 
 Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Autotask Workplace 테스트 사용자 만들기](#creating-an-autotask-workplace-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Autotask Workplace에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Autotask Workplace 테스트 사용자 만들기](#create-an-autotask-workplace-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Autotask Workplace에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-on 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Autotask Workplace 응용 프로그램에서 Single Sign-On을 구성합니다.
 
@@ -102,15 +102,15 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 1. Azure Portal의 **Autotask Workplace** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
+    ![Single Sign-On 대화 상자](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
 3. **Autotask Workplace 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
+    ![IDP에 대한 Autotask Workplace 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
 
@@ -118,7 +118,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정**을 확인하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
+    ![SP에 대한 Autotask Workplace 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.awp.autotask.net/loginsso`
      
@@ -127,57 +127,79 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
+    ![인증서 다운로드 링크](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
 6. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
+    ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. **Autotask Workplace** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Autotask Workplace 지원팀](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+7. 다른 웹 브라우저 창에서 관리자 자격 증명을 사용하여 Workplace Online에 로그인합니다.
+
+    >[!Note]
+    >IdP를 구성할 때 하위 도메인을 지정해야 합니다. 올바른 하위 도메인을 확인하려면 Workplace Online에 로그인합니다. 로그인되면 URL에서 하위 도메인을 만듭니다.
+    >하위 도메인은 “https://“와 “.awp.autotask.net/“ 사이의 부분이며 us, eu, ca 또는 au여야 합니다.
+
+8. **구성** > **Single Sign-On**으로 이동하고 다음 단계를 수행합니다.
+
+    ![Autotask Single Sign-On 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
+ 
+    a. **XML 메타데이터 파일** 옵션을 선택한 다음 Azure Portal에서 다운로드한 **메타데이터 XML**을 업로드합니다.
+
+    b. **SSO 사용**을 클릭합니다.
+    
+    ![Autotask Single Sign-On 승인 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
+
+    c. **I confirm this information is correct and I trust this IdP** 확인란을 선택합니다.
+
+    d. **승인**을 클릭합니다.
+     
+>[!Note]
+>Autotask Workplace 구성에 대한 도움이 필요한 경우 [이 페이지](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)를 참조하여 Workplace 계정으로 지원을 받을 수 있습니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-![Azure AD 사용자 만들기][100]
+   ![Azure AD 테스트 사용자 만들기][100]
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory 단추](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png)
 
 2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
-    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
- 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png) 
+    !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png)
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
- 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png) 
+3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
-    a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
+    ![추가 단추](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png)
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    ![사용자 대화 상자](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png)
+
+    a. **이름** 상자에 **BrittaSimon**을 입력합니다.
+
+    b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+
+    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
-### <a name="creating-an-autotask-workplace-test-user"></a>Autotask Workplace 테스트 사용자 만들기
+
+### <a name="create-an-autotask-workplace-test-user"></a>Autotask Workplace 테스트 사용자 만들기
 
 이 섹션에서는 Autotask에서 Britta Simon이라는 사용자를 만듭니다. [Autotask Workplace 지원팀](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm)에 문의하여 Autotask Workplace 플랫폼에 사용자를 추가하세요.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Autotask Workplace에 대한 액세스 권한을 부여합니다.
 
-![사용자 할당][200] 
+![사용자 역할 할당][200] 
 
 **Britta Simon을 Autotask Workplace에 할당하려면 다음 단계를 수행합니다.**
 
@@ -187,15 +209,15 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 2. 응용 프로그램 목록에서 **Autotask Workplace**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
+    ![응용 프로그램 목록에서 Autotask Workplace 연결](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    !["사용자 및 그룹" 링크][202]
 
 4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][203]
+    ![할당 추가 창][203]
 
 5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -203,7 +225,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

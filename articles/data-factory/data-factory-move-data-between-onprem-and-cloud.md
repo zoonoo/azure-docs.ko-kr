@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
-ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -33,13 +33,21 @@ ms.lasthandoff: 11/17/2016
 >
 >
 
-다음 연습에서는 온-프레미스 **SQL Server** 데이터베이스에서 Azure Blob 저장소로 데이터를 이동하는 파이프라인을 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다.
+다음 연습에서는 온-프레미스 **SQL Server** 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 파이프라인을 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>연습: 클라우드에 온-프레미스 데이터 복사
+
+## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
+이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
+
+* **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
+* **Azure 저장소 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
+
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+ 새로 만들기**, **인텔리전스 + 분석** 및 **데이터 팩터리s**을 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
@@ -136,7 +144,7 @@ ms.lasthandoff: 11/17/2016
 12. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다.  이 항목을 클릭하면 연결된 JSON이 나타납니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob 저장소를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob Storage를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다.
@@ -167,7 +175,7 @@ ms.lasthandoff: 11/17/2016
 4. **배포**를 클릭하여 **AzureStorageLinkedService**를 배포합니다.
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합을 만들기 전에 다음 단계를 수행합니다(목록 뒤에 자세한 단계가 나옴).
+이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob Storage)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합을 만들기 전에 다음 단계를 수행합니다(목록 뒤에 자세한 단계가 나옴).
 
 * 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
 * 데이터 팩터리에 연결된 서비스로 추가한 Azure BLOB 저장소 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
@@ -233,7 +241,7 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob 저장소**를 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   
@@ -261,9 +269,10 @@ ms.lasthandoff: 11/17/2016
    * **type**을 **AzureBlob**으로 설정합니다.
    * **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
    * **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. 아직 없는 경우 **adftutorial** 컨테이너를 만듭니다.
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL Database의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-   **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   <seg>
+  **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).</seg>
 
    **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 
@@ -342,7 +351,7 @@ ms.lasthandoff: 11/17/2016
 
    * activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
    * 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
-   * **typeProperties** 섹션에서 **SqlSource**를 **원본 유형**으로, **BlobSink **를 **싱크 유형**으로 지정합니다.
+   * **typeProperties** 섹션에서 **SqlSource**를 **원본 유형**으로, **BlobSink**를 **싱크 유형**으로 지정합니다.
    * **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 `select * from emp`을 지정합니다.
 
    start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
@@ -358,7 +367,7 @@ ms.lasthandoff: 11/17/2016
 **축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
-1. **Azure 포털**에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :
+1. **Azure Portal**에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :
 
     ![다이어그램 링크](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. 다음 이미지와 유사한 다이어그램이 표시됩니다.
@@ -368,7 +377,7 @@ ms.lasthandoff: 11/17/2016
     확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 데이터 집합 위치 지정, 계보 정보 표시(선택한 항목의 업스트림/다운스트림 항목 강조 표시)를 수행할 수 있습니다.  개체(입출력 데이터 집합 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
-이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
+이 단계에서는 Azure Portal을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
 
 1. 다이어그램에서 **EmpOnPremSQLTable**을 두 번 클릭합니다.  
 

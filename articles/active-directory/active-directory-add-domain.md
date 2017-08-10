@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 0228bf7ce261cfccdec9431d3c9fb67f461eefbd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Azure Active Directory에 사용자 지정 도메인 이름 추가
@@ -34,10 +36,10 @@ ms.lasthandoff: 02/22/2017
 2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가
 3. Azure AD에서 사용자 지정 도메인 이름 확인
 
-> [!NOTE]
-> 회사 네트워크에서 AD FS(Active Directory Federation Services) 또는 다른 STS(보안 토큰 서비스)와 함께 사용할 사용자 지정 도메인 이름을 구성하려면 [Azure Active Directory로 페더레이션에 대한 도메인 추가 및 구성](active-directory-add-domain-federated.md)의 지침을 따릅니다. 회사 디렉터리에서 Azure AD에 사용자를 동기화하고 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 가 요구 사항을 충족하지 않는 경우에 유용합니다.
-> 
-> 
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 회사 도메인 이름을 추가하는 방법은 [Azure Active Directory에서 관리자 역할 할당](active-directory-domains-add-azure-portal.md)을 참조하세요.
+
+회사 네트워크에서 AD FS(Active Directory Federation Services) 또는 다른 STS(보안 토큰 서비스)와 함께 사용할 사용자 지정 도메인 이름을 구성하려면 [Azure Active Directory로 페더레이션에 대한 도메인 추가 및 구성](active-directory-add-domain-federated.md)의 지침을 따릅니다. 회사 디렉터리에서 Azure AD에 사용자를 동기화하고 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 가 요구 사항을 충족하지 않는 경우에 유용합니다.
 
 ## <a name="add-a-custom-domain-name-to-your-directory"></a>디렉터리에 사용자 지정 도메인 이름 추가
 1. Azure AD 디렉터리의 전역 관리자인 사용자 계정으로 [Azure 클래식 포털](https://manage.windowsazure.com/) 에 로그인합니다.

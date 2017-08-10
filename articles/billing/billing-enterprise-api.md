@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 343b71e28adfd32295b837a40ecf64083341b972
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers-preview"></a>기업 고객을 위한 보고 API 개요(미리 보기)
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 기본 데이터 분석 도구로 프로그래밍 방식으로 끌어올 수 있습니다. 
 
 ## <a name="enabling-data-access-to-the-api"></a>API에 대한 데이터 액세스 사용
-* **Generate\Retrieve the API 키 생성/검색** - 엔터프라이즈 포털에 로그인하고, 도움말 - 보고 API 아래의 자습서를 따릅니다. 이 도움말 문서의 첫 번째 섹션에서는 지정된 등록에 대한 API 키를 생성/검색하는 방법에 대해 설명합니다.
+* **API 키 생성/검색** - 엔터프라이즈 포털에 로그인하고, 도움말 - Reporting API 아래의 자습서를 따릅니다. 이 도움말 문서의 첫 번째 섹션에서는 지정된 등록에 대한 API 키를 생성하거나 검색하는 방법에 대해 설명합니다.
 * **API에서 키 전달** - API 키는 인증 및 권한 부여를 호출할 때마다 전달되어야 합니다. HTTP 헤더에 있어야 하는 속성은 다음과 같습니다.
 
 |요청 헤더 키 | 값|
@@ -35,7 +34,7 @@ Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 �
 |권한 부여| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09|
 
 ## <a name="consumption-apis"></a>사용량 API
-Swagger 끝점은 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](http://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/v1/swagger)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다. 
+Swagger 끝점은 [AutoRest](https://github.com/Azure/AutoRest) 또는 [Swagger CodeGen](http://swagger.io/swagger-codegen/)을 사용하여 손쉬운 API 검사와 클라이언트 SDK 생성 기능을 사용할 수 있게 하는 아래에서 설명하는 API에 대해 [여기](https://consumption.azure.com/swagger/ui/index)에서 제공됩니다. 2014년 5월 1일부터 시작하는 데이터는 이 API를 통해 사용할 수 있습니다. 
 
 * **잔액 및 요약** - [잔액 및 요약 API](billing-enterprise-api-balance-summary.md)는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 제공합니다.
 

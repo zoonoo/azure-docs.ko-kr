@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e62b9742875512e70e5369978c1c90bdc9c6c1cb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>DocumentDB API를 사용하여 Azure Cosmos DB에서 분할
@@ -77,7 +76,7 @@ ms.lasthandoff: 06/20/2017
 
 파티션 키의 선택이 응용 프로그램의 성능에 미치는 영향을 살펴보겠습니다.
 
-## <a name="working-with-the-documentdb-sdks"></a>DocumentDB SDK 작업
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>Azure Cosmos DB SDK 사용
 Azure Cosmos DB에는 [REST API 버전 2015-12-16](/rest/api/documentdb/)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컨테이너를 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python, MongoDB) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다. 
 
 ### <a name="creating-containers"></a>컨테이너 만들기
@@ -207,7 +206,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * `MaxDegreeOfParallelism`을 설정하여 컨테이너의 파티션에 대한 최대 동시 네트워크 연결 수를 나타내는 병렬 처리 수준을 제어할 수 있습니다. 이 값을 -1로 설정하는 경우 병렬 처리 수준이 SDK에서 관리됩니다. `MaxDegreeOfParallelism`이 지정되지 않았거나 기본값인 0으로 설정된 경우 컨테이너의 파티션에 단일 네트워크 연결이 생성됩니다.
 * `MaxBufferedItemCount`를 설정하여 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률 간에 균형을 유지할 수 있습니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 병렬 쿼리 실행 중에 버퍼링되는 항목의 수가 SDK에서 관리됩니다.
 
-컬렉션에 동일한 상태를 지정할 경우, 병렬 쿼리는 직렬 실행의 경우와 동일한 순서로 결과를 반환합니다. 정렬(ORDER BY 및/또는 TOP)을 포함하는 파티션 간 쿼리를 수행할 경우 DocumentDB SDK는 파티션에 걸쳐 병렬로 쿼리를 실행하고, 클라이언트 쪽에서 부분적으로 정렬된 결과를 병합하여 전역으로 정렬된 결과를 생성합니다.
+컬렉션에 동일한 상태를 지정할 경우, 병렬 쿼리는 직렬 실행의 경우와 동일한 순서로 결과를 반환합니다. 정렬(ORDER BY 및/또는 TOP)을 포함하는 파티션 간 쿼리를 수행할 경우 Azure Cosmos DB SDK는 파티션에 걸쳐 병렬로 쿼리를 실행하고, 클라이언트 쪽에서 부분적으로 정렬된 결과를 병합하여 전역으로 정렬된 결과를 생성합니다.
 
 ### <a name="executing-stored-procedures"></a>저장된 프로시저 실행
 장치 ID가 동일한 문서에 대해 원자성 트랜잭션을 실행할 수도 있습니다(예: 장치의 최신 상태 또는 집계를 단일 항목에서 유지 관리하는 경우). 
@@ -222,9 +221,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 다음 섹션에서는 단일 파티션 컨테이너에서 분할된 컨테이너로 이동하는 방법을 살펴보겠습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 DocumentDB API를 사용하여 Cosmos DB 컨테이너의 분할 작업을 수행하는 방법에 대한 개요를 제공했습니다. Azure Cosmos DB API를 사용하여 분할하기 위한 개념 및 모범 사례의 개요는 [분할 및 수평적 크기 조정](../cosmos-db/partition-data.md)을 참조하세요. 
+이 문서에서는 DocumentDB API를 사용하여 Azure Cosmos DB 컨테이너의 분할 작업을 수행하는 방법에 대한 개요를 제공했습니다. Azure Cosmos DB API를 사용하여 분할하기 위한 개념 및 모범 사례의 개요는 [분할 및 수평적 크기 조정](../cosmos-db/partition-data.md)을 참조하세요. 
 
-* Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
+* Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * [SDKs](documentdb-sdk-dotnet.md) 또는 [REST API](/rest/api/documentdb/)를 사용하여 코딩 시작
 * [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
 

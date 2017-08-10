@@ -17,10 +17,10 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f632d94222590f97b7a95edf9d4941a66b0710e6
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8051742c7c368d1ed84bcd90ab75b20f62105e2f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
@@ -38,7 +38,7 @@ Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**
 다음 다이어그램에 표시된 대로, Cosmos DB의 계층적 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드** 라고 합니다. 
 
 > [!NOTE]
-> Cosmos DB는 통신 모델이 RESTful이며 [DocumentDB .NET 클라이언트 API](documentdb-sdk-dotnet.md)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
+> Azure Cosmos DB는 통신 모델이 RESTful이며 [DocumentDB .NET 클라이언트 API](documentdb-sdk-dotnet.md)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
 > 
 > 
 

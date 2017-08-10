@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 87384588e9e2a77a5b545ce30db2776541223001
-
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 5cab7daeaf79463cd7ad70558581f3253476ff32
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -29,14 +30,14 @@ ms.openlocfilehash: 87384588e9e2a77a5b545ce30db2776541223001
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## <a name="install-azure-powershell"></a>Azure PowerShell 설치
+## <a name="install-azure-powershell"></a>Azure Powershell 설치
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-이 문서에서는 리소스 그룹에서 복구 서비스 자격 증명 모음을 사용할 수 있도록 하는 ARM(Azure Resource Manager) PowerShell cmdlet을 중점적으로 설명합니다.
+이 문서에서는 리소스 그룹에서 Recovery Services 자격 증명 모음을 사용할 수 있도록 하는 ARM(Azure Resource Manager) 및 MS Online Backup PowerShell cmdlet을 중점적으로 설명합니다.
 
 Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는 0.9.8 릴리스를 성공했으며 특히 cmdlet의 이름 지정 패턴에서 중요한 변경 내용이 이루어졌습니다. 1.0 cmdlet는 명명 패턴{verb}-AzureRm{noun}을 따릅니다. 반면 0.9.8 이름은 **Rm**을 포함하지 않습니다.(예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup) 반면 0.9.8 이름은 **Switch-AzureMode AzureResourceManager** 명령을 실행하여 리소스 관리자 모드를 사용하도록 설정해야 합니다. 이 명령은 1.0 이상에서는 필요하지 않습니다.
 
-1.0 이상 환경에서 0.9.8 환경을 위해 작성된 스크립트를 사용하려면 예기치 않은 영향을 방지하는 프로덕션에서 사용하기 전에 사전 프로덕션 환경에서 스크립트를 신중하게 테스트해야 합니다.
+1.0 이상 환경에서 0.9.8 환경을 위해 작성된 스크립트를 사용하려면 예기치 않은 영향을 방지하는 프로덕션에서 사용하기 전에 사전 프로덕션 환경에서 스크립트를 신중하게 업데이트하고 테스트해야 합니다.
 
 [최신 PowerShell 릴리스를 다운로드](https://github.com/Azure/azure-powershell/releases) 합니다(필요한 최소 버전: 1.0.0).
 
@@ -53,12 +54,12 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 2. 복구 서비스 자격 증명 모음은 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 3. **New-AzureRmRecoveryServicesVault** cmdlet을 사용하여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 4. [LRS(로컬 중복 저장소)](../storage/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
@@ -75,7 +76,7 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 **Get-AzureRmRecoveryServicesVault** 를 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
-Get-AzureRmRecoveryServicesVault 명령을 실행합니다. 그러면 구독의 모든 자격 증명 모음이 나열됩니다.
+**Get-AzureRmRecoveryServicesVault** 명령을 실행하면 구독의 모든 자격 증명 모음이 나열됩니다.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -91,6 +92,15 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent"></a>Azure 백업 에이전트 설치
 Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 복구 서비스의 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
+
+또는 PowerShell을 사용하여 다운로더를 가져옵니다.
+ 
+ ```
+ $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
+ $WC = New-Object System.Net.WebClient
+ $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
+ C:\Downloads\MARSAgentInstaller.EXE /q
+ ```
 
 에이전트를 설치하려면 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -132,10 +142,26 @@ PS C:\> MARSAgentInstaller.exe /?
 ```
 PS C:\> $credspath = "C:\downloads"
 PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
-PS C:\> $credsfilename C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
 Windows Server 또는 Windows 클라이언트 컴퓨터에서, [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet을 실행하여 컴퓨터를 자격 증명 모음에 등록합니다.
+이 cmdlet 및 백업에 사용되는 다른 cmdlet은 Mars AgentInstaller에서 설치 과정의 일환으로 추가한 MSONLINE 모듈에서 비롯됩니다. 
+
+에이전트 설치 관리자는 $Env:PSModulePath 변수를 업데이트하지 않습니다. 즉, 모듈 자동 로드에 실패합니다. 이 문제를 해결하려면 다음을 수행하면 됩니다.
+
+```
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
+```
+
+또는 다음과 같이 스크립트에 모듈을 수동으로 로드할 수 있습니다.
+
+```
+PS C:\>  Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
+
+```
+
+Online Backup cmdlet을 로드하면 자격 증명 모음을 등록합니다.
+
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -143,7 +169,7 @@ PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault
-Region              :West US
+Region              :WestUS
 Machine registration succeeded.
 ```
 
@@ -172,6 +198,9 @@ Azure 백업에 전송되는 백업 데이터는 데이터의 기밀성을 보�
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
+PS C:\> $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
+PS C:\> $PassCode   = 'AzureR0ckx'
+PS C:\> Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
 Server properties updated successfully
 ```
 
@@ -442,12 +471,14 @@ IsRecursive : True
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
+Initializing
 Taking snapshot of volumes...
 Preparing storage...
-Estimating size of backup items...
-Estimating size of backup items...
-Transferring data...
-Verifying backup...
+Generating backup metadata information and preparing the metadata VHD...
+Data transfer is in progress. It might take longer since it is the first backup and all data needs to be transferred...
+Data transfer completed and all backed up data is in the cloud. Verifying data integrity...
+Data transfer completed
+In progress...
 Job completed.
 The backup operation completed successfully.
 ```
@@ -475,8 +506,8 @@ RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
-### <a name="choosing-a-backup-point-to-restore"></a>복원할 백업 시점 선택
-백업 시점 목록은 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 검색할 수 있습니다. 이 예제에서는 원본 볼륨 *D:* 의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
+### <a name="choosing-a-backup-point-from-which-to-restore"></a>복원할 백업 시점 선택
+[Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 백업 시점 목록을 검색합니다. 이 예제에서는 원본 볼륨 *D:* 의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -561,7 +592,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-이제 ```Get-OBRecoverableItem``` cmdlet의 출력에서 선택한 ```$item```에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원을 트리거합니다.
+이제 ```Get-OBRecoverableItem``` cmdlet의 출력에서 선택한 ```$item```에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원 프로세스를 트리거합니다.
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -590,7 +621,7 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
 ## <a name="remote-management"></a>원격 관리
-Azure 백업 에이전트, 정책, 데이터 원본와 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
+Azure 백업 에이전트, 정책, 데이터 원본과 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
 기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
@@ -630,9 +661,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 
 * [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 * [Windows 서버 백업](backup-configure-vault.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,11 +12,11 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d538ec6cbf08a39671e3c5bcb4c9ecaa2f0b1ed7
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: ffd19e25e2931ac7af472b4c88eccbce73b10ff4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 06/01/2017
 |서버(32비트 및 64비트)|Windows Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|N|Y|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |서버(32비트 및 64비트)|Windows Server 2008|VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y|Y |볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
 |서버(32비트 및 64비트)|Windows Storage Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구|
-|SQL Server|SQL Server 2016|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 컴퓨터 <br /> <br /> Azure 가상 컴퓨터 <br /><br /> VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y(UR2 이상)|N|모든 배포 시나리오: 데이터베이스|
+|SQL Server|SQL Server 2016|물리적 서버 <br /><br /> 온-프레미스 Hyper-V 가상 컴퓨터 <br /> <br /> Azure 가상 컴퓨터 <br /><br /> VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y |N|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2014|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)|Y|Y |모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2014|VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y|Y|모든 배포 시나리오: 데이터베이스|
 |SQL Server|SQL Server 2012 SP2|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y |모든 배포 시나리오: 데이터베이스|
@@ -78,7 +78,7 @@ ms.lasthandoff: 06/01/2017
 |Exchange|Exchange 2010|VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y|Y |보호(모든 배포 시나리오): 독립 실행형 Exchange Server, DAG(데이터베이스 사용 가능 그룹)의 데이터베이스<br /><br />복구(모든 배포 시나리오): 사서함, DAG의 사서함 데이터베이스|
 |Exchange|Exchange 2007|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호(모든 배포 시나리오): 저장소 그룹<br /><br />복구(모든 배포 시나리오): 저장소 그룹, 데이터베이스, 사서함|
 |Exchange|Exchange 2007|VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y|Y |보호(모든 배포 시나리오): 저장소 그룹<br /><br />복구(모든 배포 시나리오): 저장소 그룹, 데이터베이스, 사서함|
-|SharePoint|SharePoint 2016|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터<br /><br />Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /><br />VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y(UR2 이상)|N|보호(모든 배포 시나리오): 팜, 프런트 엔드 웹 서버 콘텐츠<br /><br />복구(모든 배포 시나리오): 팜, 데이터베이스, 웹 응용 프로그램, 파일 또는 목록 항목, SharePoint 검색, 프런트 엔드 웹 서버<br /><br />콘텐츠 데이터베이스에 SQL Server 2012 AlwaysOn 기능을 사용하는 SharePoint 팜을 보호하는 기능은 지원되지 않습니다.|
+|SharePoint|SharePoint 2016|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터<br /><br />Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /><br />VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y |N|보호(모든 배포 시나리오): 팜, 프런트 엔드 웹 서버 콘텐츠<br /><br />복구(모든 배포 시나리오): 팜, 데이터베이스, 웹 응용 프로그램, 파일 또는 목록 항목, SharePoint 검색, 프런트 엔드 웹 서버<br /><br />콘텐츠 데이터베이스에 SQL Server 2012 AlwaysOn 기능을 사용하는 SharePoint 팜을 보호하는 기능은 지원되지 않습니다.|
 |SharePoint|SharePoint 2013|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호(모든 배포 시나리오): 팜, 프런트 엔드 웹 서버 콘텐츠<br /><br />복구(모든 배포 시나리오): 팜, 데이터베이스, 웹 응용 프로그램, 파일 또는 목록 항목, SharePoint 검색, 프런트 엔드 웹 서버<br /><br />콘텐츠 데이터베이스에 SQL Server 2012 AlwaysOn 기능을 사용하는 SharePoint 팜을 보호하는 기능은 지원되지 않습니다.|
 |SharePoint|SharePoint 2013|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우) - DPM 2012 R2 업데이트 롤업 3 이상|Y|Y|보호(모든 배포 시나리오): 팜, SharePoint 검색, 프런트 엔드 웹 서버 콘텐츠<br /><br />복구(모든 배포 시나리오): 팜, 데이터베이스, 웹 응용 프로그램, 파일 또는 목록 항목, SharePoint 검색, 프런트 엔드 웹 서버<br /><br />콘텐츠 데이터베이스에 SQL Server 2012 AlwaysOn 기능을 사용하는 SharePoint 팜을 보호하는 기능은 지원되지 않습니다.|
 |SharePoint|SharePoint 2013|VMWare의 Windows 가상 컴퓨터(VMWare의 Windows 가상 컴퓨터에서 실행되는 워크로드를 보호)|Y|Y |보호(모든 배포 시나리오): 팜, SharePoint 검색, 프런트 엔드 웹 서버 콘텐츠<br /><br />복구(모든 배포 시나리오): 팜, 데이터베이스, 웹 응용 프로그램, 파일 또는 목록 항목, SharePoint 검색, 프런트 엔드 웹 서버<br /><br />콘텐츠 데이터베이스에 SQL Server 2012 AlwaysOn 기능을 사용하는 SharePoint 팜을 보호하는 기능은 지원되지 않습니다.|
@@ -92,7 +92,7 @@ ms.lasthandoff: 06/01/2017
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2012 - Datacenter 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|N|N|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
-|Linux|Hyper-V 게스트로 실행되는 Linux|온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 컴퓨터<br /><br />복구: 전체 가상 컴퓨터|
+|Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 컴퓨터<br /><br />복구: 전체 가상 컴퓨터|
 
 ## <a name="cluster-support"></a>클러스터 지원
 Azure Backup Server는 다음과 같은 클러스터 된 응용 프로그램에서 데이터를 보호할 수 있습니다.

@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/31/2017
+ms.date: 07/25/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 05517573232f5b5234364865d92d5a2d1b7096e6
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
@@ -109,18 +109,9 @@ ms.lasthandoff: 07/21/2017
 끝점이 문제의 발생지인지 확인하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="source-4-network-security-groups"></a>소스 4: 네트워크 보안 그룹
-네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 살펴보고 인터넷에서 들어오는 원격 데스크톱 트래픽이 허용되어 있는지 확인하세요.
+네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다.
 
-* Azure 포털에서 VM을 선택합니다.
-* **모든 설정** | **네트워크 인터페이스**를 클릭하고 해당 네트워크 인터페이스를 선택합니다.
-* **모든 설정** | **네트워크 보안 그룹**을 클릭하고 해당 네트워크 보안 그룹을 선택합니다.
-* **모든 설정** | **인바운드 보안 규칙**을 클릭하고 TCP 포트 3389에 RDP를 허용하는 규칙이 있는지 확인합니다.
-  * 규칙이 없다면 규칙을 만들기 위해 **추가** 를 클릭합니다. 프로토콜에 대한 **TCP**를 입력한 후 대상 포트 범위에 대해 **3389**를 입력합니다.
-  * 작업이 **허용** 으로 설정되었는지 확인하고 새 인바운드 규칙을 저장하려면 확인을 클릭합니다.
-
-자세한 내용은 [NSG(네트워크 보안 그룹)란?](../../virtual-network/virtual-networks-nsg.md)
-
-IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+[IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 컴퓨터 간에 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 RDP 포트(기본값: 3389)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)을 참조하세요.
 
 ## <a name="source-5-windows-based-azure-vm"></a>발생지 5: Windows 기반 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

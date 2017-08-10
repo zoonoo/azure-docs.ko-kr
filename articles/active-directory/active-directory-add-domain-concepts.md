@@ -12,26 +12,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 3c591680160101a91174868714392674c9aa7178
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요
-도메인 이름은 많은 디렉터리 리소스에 대한 식별자의 중요한 부분입니다. 사용자의 경우 사용자 이름 또는 메일 주소 부분이고 그룹의 경우 주소 부분이며 응용 프로그램의 경우 앱 ID URI 부분일 수 있습니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
+도메인 이름은 다음의 일부로 많은 디렉터리 리소스에 대한 중요한 식별자일 수 있습니다.
 
-Azure AD의 도메인 이름은 전역적으로 고유합니다. 단일 Azure AD에서 도메인 이름을 사용할 수 있습니다. 한 Azure AD 디렉터리에서 도메인 이름을 확인했다면 다른 Azure AD 디렉터리에서 동일한 도메인 이름을 확인하거나 사용할 수 없습니다.
+* 사용자 이름 또는 사용자에 대한 전자 메일 주소
+* 그룹에 대한 주소
+* 응용 프로그램에 대한 앱 ID URI
+
+Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 도메인 이름을 관리하는 방법은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참조하세요.
+
+Azure AD의 도메인 이름은 전역적으로 고유합니다. 사용자 지정 도메인 이름은 한 번에 하나의 Azure AD 테넌트에서 사용할 수 있습니다. 한 Azure AD 디렉터리에서 도메인 이름을 확인했다면 다른 Azure AD 디렉터리에서 동일한 도메인 이름을 확인하거나 사용할 수 없습니다.
 
 ## <a name="initial-and-custom-domain-names"></a>초기 및 사용자 지정 도메인 이름
 Azure AD에서 모든 도메인 이름은 초기 도메인 이름이거나 사용자 지정 도메인 이름입니다.
 
 모든 Azure AD는 contoso.onmicrosoft.com 형태의 초기 도메인 이름과 함께 제공됩니다. 이 예에서는 일반적으로 디렉터리를 생성한 관리자에 의해 디렉터리가 생성될 때 세 번째 수준의 도메인 이름 "contoso.onmicrosoft.com"이 설정되었습니다. 디렉터리에 대한 초기 도메인 이름은 변경 또는 삭제할 수 없습니다. 초기 도메인 이름은 사용자 지정 도메인 이름이 확인될 때까지, 완전히 작동하는 동안 주로 부트스트래핑 메커니즘으로 사용하도록 제공됩니다.
 
-대부분의 프로덕션 환경에서 디렉터리에는 "contoso.com"처럼 하나 이상의 확인된 사용자 지정 도메인이 있으며 이 사용자 지정 도메인은 최종 사용자에게 표시됩니다. 사용자 지정 도메인 이름은 해당 조직이 소유하고 사용하는 도메인 이름입니다. 예를 들면, “contoso.com”은 해당사의 웹 사이트 호스팅 같은 용도로 사용됩니다. 이 도메인 이름은  전자 메일을 보내고 받기 위해 회사 네트워크에 로그인하는 데 사용하는 사용자 이름의 일부이므로 직원에게 친숙합니다.
+대부분의 프로덕션 환경에서 디렉터리에는 "contoso.com"처럼 하나 이상의 확인된 사용자 지정 도메인이 있으며 이 사용자 지정 도메인은 최종 사용자에게 표시됩니다. 사용자 지정 도메인 이름은 해당 조직이 소유하고 사용하는 도메인 이름입니다. 예를 들면, “contoso.com”은 해당사의 웹 사이트 호스팅 같은 용도로 사용됩니다. 이 도메인 이름은 전자 메일을 보내고 받기 위해 회사 네트워크에 로그인하는 데 사용하는 사용자 이름의 일부이므로 직원에게 친숙합니다.
 
 Azure AD에서 사용할 수 있으려면 그 전에, 사용자 지정 도메인 이름을 사용자의 디렉터리에 추가하고 확인해야 합니다.
 
@@ -48,7 +57,7 @@ DNS 항목을 도메인 이름의 영역 파일에 추가하면 다른 도메인
 경우에 따라 페더레이션되지 않은 도메인을 관리되는 도메인이라고 합니다. Azure AD 디렉터리에 대한 초기 도메인은 암시적으로 관리되는 도메인으로 평가됩니다.
 
 ## <a name="primary-domain-names"></a>주 도메인 이름
-디렉터리의 주 도메인 이름은 관리자가 [Azure 클래식 포털](https://manage.windowsazure.com/) 또는 Office 365 관리 포털과 같은 다른 포털에서 새 사용자를 만들 때 사용자 이름의 '도메인' 부분에 기본값으로 미리 선택된 도메인 이름입니다. 디렉터리에는 하나의 주 도메인 이름만 있을 수 있습니다. 관리자는 페더레이션되지 않은 모든 확인된 사용자 지정 도메인 또는 초기 도메인이 되도록 주 도메인 이름을 변경할 수 있습니다.
+디렉터리의 주 도메인 이름은 관리자가 [Azure Portal](https://portal.azure.com/) 또는 Office 365 관리 포털 또는 Microsoft Intune 포털과 같은 다른 포털에서 새 사용자를 만들 때 사용자 이름의 '도메인' 부분에 기본값으로 미리 선택된 도메인 이름입니다. 디렉터리에는 하나의 주 도메인 이름만 있을 수 있습니다. 관리자는 페더레이션되지 않은 모든 확인된 사용자 지정 도메인 또는 초기 도메인이 되도록 주 도메인 이름을 변경할 수 있습니다.
 
 ## <a name="domain-names-in-azure-ad-and-other-microsoft-online-services"></a>Azure AD 및 기타 Microsoft Online Services에서 도메인 이름
 Exchange Online, SharePoint Online 및 Intune과 같은 또 다른 Microsoft Online Services에서 사용할 수 있도록 먼저 Azure AD에서 도메인 이름을 확인해야 합니다. 이러한 다른 서비스에는 일반적으로 관리자가 서비스에 특정한 하나 이상의 DNS 항목을 추가해야 합니다.

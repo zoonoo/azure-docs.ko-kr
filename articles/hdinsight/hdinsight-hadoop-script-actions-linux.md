@@ -1,6 +1,6 @@
 ---
 title: "Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
-description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. "
+description: "Bash 스크립트를 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. HDInsight의 스크립트 작업 기능을 사용하면 클러스터를 생성하는 동안 또는 생성한 후에 스크립트를 실행할 수 있습니다. 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치하는 데 스크립트를 사용할 수 있습니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
@@ -62,7 +61,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
 
 > [!IMPORTANT]
-> 스크립트 작업은 60분 이내에 완료해야 합니다. 그렇지 않으면 스크립트가 실패합니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
+> 스크립트 작업은 60분 이내에 완료하지 않으면 프로세스에 실패합니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
 ### <a name="bPS1"></a>Hadoop 버전 대상
 
@@ -120,11 +119,11 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 > [!IMPORTANT]
 > 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공하는 샘플은 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너를 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 에 저장됩니다.
+예를 들어 Microsoft에서 제공하는 샘플은 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 에 저장됩니다. HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="bPS4"></a>사전 컴파일한 리소스 사용
 
-스크립트 실행 시간을 줄이려면 소스 코드로부터 리소스를 컴파일하는 작업은 실행하지 않습니다. 신속하게 다운로드할 수 있도록 리소스를 미리 컴파일하고 Azure Blob 저장소에 저장합니다.
+스크립트 실행 시간을 줄이려면 소스 코드로부터 리소스를 컴파일하는 작업은 실행하지 않습니다. 예를 들어 리소스를 미리 컴파일하고 HDInsight와 동일한 데이터 센터에서 Azure Storage 계정 Blob에 저장합니다.
 
 ### <a name="bPS3"></a>클러스터 사용자 지정 스크립트가 멱등원인지 확인
 

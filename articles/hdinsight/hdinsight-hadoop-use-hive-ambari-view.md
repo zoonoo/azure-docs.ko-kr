@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/05/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9adfd92b72eb0ecd5b4811c525d4b6ff6609f60f
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Hive 사용
@@ -44,32 +43,24 @@ Ambari Hive View를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅
 
 Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택하면 Ambari 보기를 볼 수 있습니다.
 
-![빠른 링크 섹션](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![포털의 빠른 링크 섹션](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-웹 브라우저에 https://CLUSTERNAME.azurehdinsight.net을 입력하여 Ambari로 직접 이동할 수도 있습니다. **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다. 사용 가능한 보기를 나열하려면 메뉴에서 사각형 집합을 선택합니다. 보기를 열려면 **Hive 보기** 항목을 선택합니다.
+보기 목록에서 __Hive 보기__를 선택합니다.
 
-![Ambari 뷰 선택](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png).
+![Hive 보기 선택](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
 > Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본값 `admin`) 계정 이름 및 암호를 입력합니다.
 
 다음 이미지와 유사한 결과가 표시됩니다.
 
-![쿼리 편집기 섹션이 포함된 Hive 뷰 페이지 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+![Hive 보기에 대한 쿼리 워크시트 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="view-tables"></a>테이블 보기
-
-페이지의 **데이터베이스 탐색기**섹션에서 **데이터베이스** 탭의 **기본** 항목을 선택합니다. 기본 데이터베이스에 테이블의 목록이 표시됩니다. HDInsight는 **hivesampletable**이라는 테이블을 포함합니다.
-
-![확장된 기본 데이터베이스를 사용한 데이터베이스 탐색기](./media/hdinsight-hadoop-use-hive-ambari-view/database-explorer.png)
-
-새 테이블이 이 문서의 단계를 통해 추가되면 데이터베이스 탐색기의 오른쪽 위 모서리에서 새로 고침 아이콘을 사용하여 목록을 새로 고칠 수 있습니다.
-
-## <a name="hivequery"></a>쿼리 편집기
+## <a name="hivequery"></a>쿼리 실행
 
 Hive 쿼리를 실행하려면 Hive 보기에서 다음 단계를 사용합니다.
 
-1. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
+1. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -95,12 +86,12 @@ Hive 쿼리를 실행하려면 Hive 보기에서 다음 단계를 사용합니�
      > [!NOTE]
      > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예: 자동화된 데이터 업로드 프로세스나 또 다른 MapReduce 작업 사용 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
 
-2. 쿼리를 시작하려면 [쿼리 편집기] 아래쪽의 **실행** 단추를 사용합니다. 주황색으로 바뀌고 텍스트가 **실행 중지**로 변경됩니다. 쿼리 편집기 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
+    > [!IMPORTANT]
+    > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-   > [!IMPORTANT]
-   > 일부 브라우저에서는 로그 또는 결과 정보가 올바르게 새로 고침되지 않을 수 있습니다. 작업을 실행했는데 로그가 업데이트되거나 결과가 반환되지 않고 작업이 계속 실행되는 것 같으면 Mozilla FireFox 또는 Google Chrome를 사용해 보세요.
+2. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 그러면 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
 
-3. 쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. 쿼리가 완료되면 **실행 중지** 단추도 녹색 **실행** 단추로 다시 바뀝니다. **결과** 탭에는 다음 정보가 표시됩니다.
+3. 쿼리가 완료되면 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
         sev       cnt
         [ERROR]   3
@@ -129,78 +120,46 @@ Hive 쿼리를 실행하려면 Hive 보기에서 다음 단계를 사용합니�
 
      **실행** 단추를 사용하여 해당 쿼리를 실행합니다. 쿼리가 0개의 행을 반환할 때 **결과** 탭에는 어떠한 정보도 포함되지 않습니다. 쿼리가 완료되면 상태는 **SUCCEEDED**로 표시됩니다.
 
-### <a name="hive-settings"></a>Hive 설정
-
-편집기 오른쪽의 **설정** 아이콘을 선택합니다.
-
-![Hive 보기의 설정 아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-settings-icon.png)
-
-설정을 사용하여 다양한 Hive 설정을 변경할 수 있습니다. 예를 들어 Tez(기본값)에서 MapReduce로 Hive에 대한 실행 엔진을 변경합니다.
-
-### <a name="visualization"></a>시각화
-
-편집기 오른쪽의 __시각화__ 아이콘을 선택합니다.
-
-![Hive 보기에 대한 시각화 아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization-icon.png)
-
-시각화 인터페이스에서 쿼리에서 반환된 데이터의 시각화를 만들 수 있습니다. 다음 이미지는 HDInsight에 포함된 `hivesampletable`에서 데이터를 사용하는 시각화 예제입니다.
-
-![예제 시각화](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
-
 ### <a name="visual-explain"></a>시각적 개체 설명
 
-편집기 오른쪽의 **시각적 개체 설명** 아이콘을 선택합니다.
-
-![Hive 보기에 대한 시각적 설명 아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visual-explain-icon.png)
+쿼리 계획의 시각화를 표시하려면 워크시트 아래에서 **시각적 개체 설명** 탭을 선택합니다.
 
 쿼리의 **시각적 개체 설명** 보기는 복잡한 쿼리 흐름을 이해하는 데 도움이 됩니다. [쿼리 편집기]의 **설명** 단추를 사용하면 이 보기에 해당하는 텍스트 명령을 볼 수 있습니다.
 
-![시각적 설명 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+### <a name="tez-ui"></a>Tez UI
 
-### <a name="tez"></a>Tez
+쿼리에 대한 Tez UI를 표시하려면 워크시트 아래에서 **Tez** 탭을 선택합니다.
 
-편집기 오른쪽의 **Tez** 아이콘을 선택합니다.
-
-![Hive 보기에 대한 Tez 아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-tez-icon.png)
+> [!IMPORTANT]
+> Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. 많은 쿼리는 Tez를 사용하지 않고도 확인할 수 있습니다. 
 
 Tez가 쿼리를 해결하는 데 사용된 경우 DAG(방향성 비순환 그래프)가 표시됩니다. 이전에 실행한 쿼리에 대한 DAG를 보거나 Tez 프로세스를 디버그하려면 [Tez 뷰](hdinsight-debug-ambari-tez-view.md) 를 대신 사용합니다.
 
-### <a name="notifications"></a>알림
+## <a name="view-job-history"></a>작업 기록 보기
 
-편집기 오른쪽에의 **알림** 아이콘을 선택합니다.
+__작업__ 탭에 Hive 쿼리의 기록이 표시됩니다.
 
-![Hive 보기에 대한 알림 아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-notifications-icon.png)
+![작업 기록 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
 
-알림은 쿼리를 실행할 때 생성되는 메시지입니다. 예를 들어 쿼리를 제출하거나 오류가 발생할 때 알림을 받게 됩니다.
+## <a name="database-tables"></a>데이터베이스 테이블
+
+__테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 사용할 수 있습니다.
+
+![테이블 탭의 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
 
 ## <a name="saved-queries"></a>저장된 쿼리
 
-1. 쿼리 편집기에서 워크시트를 만들고 다음 쿼리를 입력합니다.
+쿼리 탭에서 필요에 따라 쿼리를 저장할 수 있습니다. 쿼리를 저장하면 __저장된 쿼리__ 탭에서 다시 사용할 수 있습니다.
 
-    ```hiveql
-    SELECT * from errorLogs;
-    ```
+![저장된 쿼리 탭의 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
-    작동하는지 확인하려면 쿼리를 실행합니다. 결과는 다음 예제와 유사합니다.
+## <a name="user-defined-functions"></a>사용자 정의 함수
 
-        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
-        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
-        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
-        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
-
-2. 편집기 아래쪽의 **다른 이름으로 저장** 단추를 사용합니다. 이 쿼리의 이름으로 **Errorlogs**를 입력하고 **확인**을 선택합니다. 워크시트 이름이 **Errorlogs**로 바뀝니다.
-
-3. Hive 보기 페이지의 위쪽에서 **저장된 쿼리** 탭을 선택합니다. 이제 **Errorlogs**가 저장된 쿼리로 나열됩니다. 이 목록에서 제거될 때까지 유지됩니다. 이름을 선택하면 쿼리 편집기에서 해당 쿼리가 열립니다.
-
-## <a name="query-history"></a>쿼리 기록
-
-Hive 보기 위쪽의 **기록** 단추를 사용하면 이전에 실행한 쿼리를 볼 수 있습니다. 이제 이를 사용하여 이전에 실행한 쿼리 중 하나를 선택합니다. 쿼리를 선택하면 쿼리 편집기에서 열립니다.
-
-## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
-
-Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다.
+Hive는 UDF(사용자 정의 함수)를 통해 확장될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다.
 
 Hive 보기 위쪽의 UDF 탭에서는 UDF 집합을 선언하고 저장할 수 있습니다. UDF는 **쿼리 편집기**를 통해 사용할 수 있습니다.
+
+![UDF 탭의 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 UDF를 Hive 보기에 추가하면 **쿼리 편집기** 아래쪽에 **udf 삽입** 단추가 표시됩니다. 이 항목을 선택하면 Hive 뷰에서 정의된 UDF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
@@ -227,6 +186,10 @@ HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 �
 
 * [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)
 * [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+
+## <a name="hive-settings"></a>Hive 설정
+
+설정을 사용하여 다양한 Hive 설정을 변경할 수 있습니다. 예를 들어 Tez(기본값)에서 MapReduce로 Hive에 대한 실행 엔진을 변경합니다.
 
 ## <a id="nextsteps"></a>다음 단계
 

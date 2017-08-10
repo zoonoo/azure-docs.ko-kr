@@ -1,13 +1,27 @@
 # 개요
 ## [Azure Analysis Services란?](analysis-services-overview.md)
+## [지원되는 데이터 원본](analysis-services-datasource.md)
+## [인증 및 사용자 권한](analysis-services-manage-users.md)
+## [호환성 수준](analysis-services-compat-level.md)
+## [고가용성](analysis-services-bcdr.md)
 
-# 빠른 시작
-## [서버 만들기 - 포털](analysis-services-create-server.md)
-## [서버 만들기 - PowerShell](analysis-services-create-powershell.md)
-## [모델 배포 - Visual Studio](analysis-services-deploy.md)
+# 시작
+## [Azure portal에서 서버 만들기](analysis-services-create-server.md)
+## [PowerShell로 서버 만들기](analysis-services-create-powershell.md)
+## [Visual Studio에서 모델 배포](analysis-services-deploy.md)
+## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 
-# 자습서
-## 모델 만들기 및 배포
+# 방법 
+## [서버 관리](analysis-services-manage.md)
+## [데이터베이스 사용자 관리](analysis-services-database-users.md)
+## [서버 관리자 관리](analysis-services-server-admins.md)
+## [온-프레미스 데이터 게이트웨이 설치](analysis-services-gateway.md)
+## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
+## [백업 및 복원](analysis-services-backup.md)
+## [Excel과 연결](analysis-services-connect-excel.md)
+## [Power BI와 연결](analysis-services-connect-pbi.md)
+## [.odc 파일 만들기](analysis-services-odc.md)
+## 자습서
 ### [Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)
 ### [단원 1: 새 테이블 형식 모델 프로젝트 만들기](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [단원 2: 데이터 가져오기](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [단원 13: 배포](tutorials/aas-lesson-13-deploy.md)
 ### [추가 단원 - 세부 정보 행](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [추가 단원 - 동적 보안](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# 개념
-## [지원되는 데이터 원본](analysis-services-datasource.md)
-## [인증 및 사용자 권한](analysis-services-manage-users.md)
-## [고가용성](analysis-services-bcdr.md)
-
-# 방법 
-## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
-## [서버 관리](analysis-services-manage.md)
-## [데이터베이스 사용자 관리](analysis-services-database-users.md)
-## [서버 관리자 관리](analysis-services-server-admins.md)
-## [온-프레미스 데이터 게이트웨이 설치](analysis-services-gateway.md)
-## [Excel과 연결](analysis-services-connect-excel.md)
-## [Power BI와 연결](analysis-services-connect-pbi.md)
-## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
-## [백업 및 복원](analysis-services-backup.md)
-## [.odc 파일 만들기](analysis-services-odc.md)
+### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # 참조
 ## [PowerShell](analysis-services-powershell.md)

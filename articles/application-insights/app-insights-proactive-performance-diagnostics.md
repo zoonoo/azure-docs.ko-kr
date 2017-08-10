@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
 [Application Insights](app-insights-overview.md)는 웹 응용 프로그램의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
 
-이 기능을 사용하기 위해 Application Insights에 대해 앱을 구성하는 것 외에 특별한 설정 작업은 필요하지 않습니다([ASP.NET](app-insights-asp-net.md), Java(app-insights-java-get-started.md) 또는 [Node.js](app-insights-nodejs.md) 및 [웹 페이지 코드](app-insights-javascript.md)에서). 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
+이 기능에는 [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) 또는 [Node.js](app-insights-nodejs.md) 및 [웹 페이지 코드](app-insights-javascript.md)에서 Application Insights용 앱을 구성하는 것 외에는 특별한 설정이 필요하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>스마트 검색 알림은 언제 제공되나요?
 
@@ -192,3 +191,4 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
+

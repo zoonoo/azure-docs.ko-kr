@@ -1,5 +1,5 @@
 ---
-title: "자동 크기 조정 및 App Service Environment | Microsoft Docs"
+title: "자동 크기 조정 및 App Service Environment v1"
 description: "자동 크기 조정 및 앱 서비스 환경"
 services: app-service
 documentationcenter: 
@@ -12,16 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 41ad9eb4d248b1f3e6c888c3037b121511799193
-ms.lasthandoff: 12/08/2016
-
+ms.date: 7/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: f32affd285f3918feb0e893543f2a28f678b7b10
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="autoscaling-and-app-service-environment"></a>자동 크기 조정 및 앱 서비스 환경
+# <a name="autoscaling-and-app-service-environment-v1"></a>자동 크기 조정 및 App Service Environment v1
+
+> [!NOTE]
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](../app-service/app-service-environment/intro.md)를 참조하세요.
+> 
+
 Azure 앱 서비스 환경은 *자동 크기 조정*을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.
 
 ![작업자 풀에 대한 자동 크기 조정 옵션입니다.][intro]

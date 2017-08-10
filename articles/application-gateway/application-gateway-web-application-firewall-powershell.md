@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8a2281cea551092be4b5c628c1e541b04021523d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>새 또는 기존 Application Gateway에 웹 응용 프로그램 방화벽 구성
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/04/2017
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
-웹 응용 프로그램 방화벽이 설정된 Application Gateway를 만들거나 기존 Application Gateway에 웹 응용 프로그램 방화벽을 추가하는 방법에 대해 알아봅니다.
+웹 응용 프로그램 방화벽을 사용하도록 설정된 응용 프로그램 게이트웨이를 만들거나 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽을 추가하는 방법에 대해 알아봅니다.
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
 
@@ -125,7 +124,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### <a name="configure-virtual-network"></a>가상 네트워크 구성
 
-Application Gateway에는 자체 서브넷이 필요합니다. 이 단계에서는 10.0.0.0/16의 주소 공간과 두 개의 서브넷(Application Gateway용 및 백 엔드 풀 멤버용)을 사용하여 가상 네트워크를 만듭니다.
+Application Gateway에는 자체 서브넷이 필요합니다. 이 단계에서는 10.0.0.0/16 주소 공간과 두 서브넷(응용 프로그램 게이트웨이용 및 백 엔드 풀 멤버용)을 사용하여 가상 네트워크를 만듭니다.
 
 ```powershell
 # Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
@@ -192,7 +191,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 Application Gateway를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 Application Gateway의 공용 끝점을 가리키도록 합니다. [Azure에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md). 이 작업을 수행하려면 Application Gateway에 연결된 PublicIPAddress 요소를 사용하여 Application Gateway 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름은 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만드는 데 사용됩니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
+게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 Application Gateway를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 Application Gateway의 공용 끝점을 가리키도록 합니다. 이 작업을 수행하려면 Application Gateway에 연결된 PublicIPAddress 요소를 사용하여 Application Gateway 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 이렇게 하려면 [공용 IP 주소](../dns/dns-custom-domain.md#public-ip-address)를 가리키는 CNAME 레코드를 만들어 Azure DNS 또는 다른 DNS 공급자를 사용하여 수행할 수 있습니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

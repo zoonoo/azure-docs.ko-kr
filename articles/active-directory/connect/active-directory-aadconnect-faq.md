@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/30/2017
 2016년 2월 빌드에서 지원됩니다.
 
 **Q: AD DS 상태 에이전트는 서버 코어에서 작동하나요?**  
-예. 에이전트를 설치한 후 다음 PowerShell commandlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
+예. 에이전트를 설치한 후 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -106,6 +106,6 @@ ms.lasthandoff: 03/30/2017
 
 [Azure AD Connect 고객 지원](https://manage.windowsazure.com/?getsupport=true)
 
-* Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
+* Azure Portal을 통해 지원을 받으려면 이 링크를 사용합니다.
 
 

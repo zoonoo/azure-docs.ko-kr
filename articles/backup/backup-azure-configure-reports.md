@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
@@ -65,6 +64,11 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음에 대한 �
 
       ![저장소 계정 선택 6단계](./media/backup-azure-configure-reports/save-configuration.png)
 7. 모든 변경 내용을 검토하고 위 그림에 표시된, 맨 위의 **저장** 단추를 클릭합니다. 이 작업을 수행하면 모든 변경 내용이 저장되며, 이제 보고 데이터를 저장하는 데 사용할 저장소 계정이 구성되었습니다.
+
+> [!NOTE]
+> 저장소 계정을 저장하여 보고서를 구성한 후에는 초기 데이터 푸시가 완료될 때까지 **24시간 동안 대기**해야 합니다. 이 시간 이후에만 Power BI에서 Azure Backup 콘텐츠 팩을 가져와야 합니다. 자세한 내용은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요. 
+>
+>
 
 ## <a name="view-reports-in-power-bi"></a>Power BI에서 보고서 보기 
 Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저장소 계정을 구성한 후 보고 데이터가 흐름을 시작하기까지 약 24시간 정도 걸립니다. 저장소 계정을 설정하고 24시간 후에 Power BI에서 보고서를 보려면 다음 단계를 따르세요.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 620a28f4fb4421179c0ba030c10acba861760adf
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1f7bcf59e91269495a40f4a237f5df6374e1de84
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -36,8 +35,8 @@ ms.lasthandoff: 04/21/2017
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
 | [Get-AzureRMReseourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm)                 |
-| [Stop-AzureRMVM](/powershell/module/azurerm.compute/stop-azurermvm)                        | [Set-AzureRmVMDataDisk](/powershell/module/azurerm.compute/set-azurermvmdatadisk) |
-| [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm)                    | [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm)             |
+| [Stop-AzureRMVM](/powershell/module/azurerm.compute/stop-azurermvm)                        | [Update-AzureRmDisk](/powershell/module/azurerm.compute/Update-AzureRmDisk) |
+ | [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
 다음 스크립트는 VM 정보를 가져오고, 데이터 디스크를 선택하고, 새 크기를 지정하는 과정을 진행합니다.
@@ -60,7 +59,7 @@ ms.lasthandoff: 04/21/2017
 
 # Select data disk
 
-    $disk = $vm.dataDiskNames | Out-GridView `
+    $disk = $vm.StorageProfile.DataDisks | Out-GridView `
         -Title "Select a data disk" `
         -PassThru
 
@@ -75,20 +74,16 @@ ms.lasthandoff: 04/21/2017
 
 # Set the new disk size
 
-    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
-
-# View the new size of the data disk(s)
-
-    $vm.StorageProfile.DataDisks
+    $diskUpdateConfig = New-AzureRmDiskUpdateConfig -DiskSizeGB $size
 
 # Update the configuration in Azure
 
-    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+    $managedDisk = Get-AzureRmResource -ResourceId $disk.ManagedDisk.Id
+    Update-AzureRmDisk -DiskName $managedDisk.ResourceName -ResourceGroupName $managedDisk.ResourceGroupName -DiskUpdate $diskUpdateConfig
 
 # Start the VM
 
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
-
 ```
 
 ## <a name="use-powershell-to-increase-the-size-of-an-unmanaged-data-disk"></a>Powershell을 사용하여 관리되지 않는 데이터 디스크의 크기 늘리기

@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 08/04/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
-ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
+ms.reviewer: piotrci
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d350011ee9fc5ced9ddb16993f68d3c840a645a5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리
 Azure AD Premium 또는 Azure AD Basic 라이선스로 Azure Active Directory(Azure AD)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 응용 프로그램을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 응용 프로그램에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 응용 프로그램에 할당되고 마케팅 그룹에서 제거되면 응용 프로그램에서 할당이 제거됩니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. 
 
 이 기능은 Azure AD 응용 프로그램 갤러리 내에서 추가할 수 있는 수많은 응용 프로그램과 함께 사용할 수 있습니다.
 

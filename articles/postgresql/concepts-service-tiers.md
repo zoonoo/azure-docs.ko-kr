@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2bd54b85f4c9f9ff13b8975eee15649f607a9194
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>PostgreSQL용 Azure 데이터베이스 옵션 및 성능: 각 가격 책정 계층에서 사용할 수 있는 항목 이해
@@ -52,6 +52,9 @@ PostgreSQL 서버용 Azure 데이터베이스 내에서 하나 이상의 데이�
 | 데이터베이스 백업 보존 기간 | 7 일 | 35일 | 
 
 미리 보기 기간에는 서버를 만들면 가격 책정 계층을 변경할 수 없습니다. 나중에 한 가격 책정 계층에서 다른 계층으로 서버를 업그레이드하거나 다운그레이드할 수 있을 것입니다.
+
+## <a name="understand-the-price"></a>가격 이해
+[Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) 내에서 PostgreSQL용 Azure Database를 만드는 경우 **가격 책정 계층** 블레이드를 클릭하고 월간 비용은 선택한 옵션에 따라 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상된 가격을 알아봅니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트를 방문하여 **항목 추가**를 클릭하고, **데이터베이스** 범주를 확장하고, **PostgreSQL용 Azure Database**를 선택하여 옵션을 사용자 지정합니다.
 
 ## <a name="choose-a-performance-level-compute-units"></a>성능 수준(계산 단위) 선택
 PostgreSQL 서버용 Azure 데이터베이스의 가격 책정 계층을 결정한 경우 필요한 계산 단위 수를 선택하여 성능 수준을 결정할 수 있습니다. 웹 또는 분석 워크로드를 위해 더 높은 사용자 동시성을 요구하는 응용 프로그램에 대한 좋은 시작점은 200 또는 400 계산 단위이며 필요에 따라 증분 방식으로 조정합니다. 

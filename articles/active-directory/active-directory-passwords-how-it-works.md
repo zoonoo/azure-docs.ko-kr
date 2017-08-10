@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
@@ -225,7 +225,7 @@ Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 �
 
 Azure AD Connect 유틸리티에서 지정된 계정에는 암호 재설정, 암호 변경, lockoutTime에 대한 쓰기 권한과 pwdLastSet에 대한 쓰기 권한, SSPR에서 범위를 지정하려는 해당 포리스트 **또는** 사용자 OU에 있는 **각 도메인**의 루트 개체에 대한 확장된 권한을 가지고 있어야 합니다.
 
-위에서 참조되는 계정을 모르는 경우, Azure Active Directory Connect 구성 UI를 열고 [솔루션 검토] 옵션을 클릭합니다. 권한을 추가해야 하는 계정은 "디렉터리 동기화" 아래에 나열됩니다.
+위에서 참조되는 계정을 모르는 경우, Azure Active Directory Connect 구성 UI를 열고 현재 구성 보기 옵션을 클릭합니다. 권한을 추가해야 하는 계정은 "디렉터리 동기화" 아래에 나열됩니다.
 
 이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. **이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다.**
 

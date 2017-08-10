@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
-ms.author: rambala
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a13c74b9490811e61328414b6a375bc9c9f7cdb0
+ms.date: 08/01/2017
+ms.author: cherylmc
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
@@ -179,8 +178,9 @@ ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioni
 >
 
 <p/>
->[!NOTE] 서비스 공급자가 계층 3을 제공하고 포털에서 피어링이 비어 있는 경우 PowerShell을 사용하여 서비스 공급자가 구성한 설정을 확인할 수 있습니다.
->>
+>[!NOTE]
+>서비스 공급자가 계층 3을 제공하고 포털에서 피어링이 비어 있는 경우 PowerShell을 사용하여 서비스 공급자가 구성한 설정을 확인할 수 있습니다.
+>
 >
 
 Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 블레이드의 ![3][3] 섹션에는 ExpressRoute Essentials가 다음 스크린샷과 같이 나열됩니다.
@@ -238,14 +238,11 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
             + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]
->서비스 공급자가 계층 3 피어링을 설정한 경우 포털 또는 PowerShell을 통해 ExpressRoute 피어링을 설정하면 서비스 공급자 설정을 덮어씁니다. 공급자 쪽 피어링 설정을 다시 설정하려면 서비스 공급자의 지원이 필요합니다. 서비스 공급자가 계층 2 서비스만 제공하는 것이 확실한 경우에만 ExpressRoute 피어링을 수정하세요!
->
->
 
 <p/>
->[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureASN* 및 *PeerASN*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.  
->>
+>[!NOTE]
+>피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureASN* 및 *PeerASN*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.  
+>
 >
 
 ### <a name="verification-via-powershell-classic"></a>PowerShell(클래식)을 통한 확인
@@ -284,8 +281,9 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 <p/>
->[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
->>
+>[!NOTE]
+>피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
+>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Microsoft와 서비스 공급자 간의 ARP 유효성 검사
@@ -348,8 +346,9 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 <p/>
->[!NOTE] 특정 피어링을 통해 특정 대상에 연결할 수 없는 경우 특정 피어링 컨텍스트에 속한 MSEE의 경로 테이블을 확인하세요. 라우팅 테이블에 일치하는 접두사(NATed IP일 수 있음)가 있는 경우 경로에 방화벽/NSG/ACL이 있는지와 트래픽을 허용하는지를 확인하세요.
->>
+>[!NOTE]
+>특정 피어링을 통해 특정 대상에 연결할 수 없는 경우 특정 피어링 컨텍스트에 속한 MSEE의 경로 테이블을 확인하세요. 라우팅 테이블에 일치하는 접두사(NATed IP일 수 있음)가 있는 경우 경로에 방화벽/NSG/ACL이 있는지와 트래픽을 허용하는지를 확인하세요.
+>
 >
 
 특정 *개인* 라우팅 컨텍스트의 *기본* 경로에 있는 MSEE에서 전체 라우팅 테이블을 가져오려면 다음 명령을 사용합니다.

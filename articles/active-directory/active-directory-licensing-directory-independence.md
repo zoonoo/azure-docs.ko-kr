@@ -5,22 +5,22 @@ services: active-tenant
 documentationcenter: 
 author: curtand
 manager: femila
-editor: piotrci
+editor: 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-tenant
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2017
+ms.date: 07/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 142bd7fea8d1a409662282b9b23a2e1598c9e86e
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory)의 각 테넌트는 완전히 독립된 리소�
 * 데이터를 하나 이상의 온-프레미스 포리스트 및/또는 Azure AD 이외의 데이터 원본과 동기화하는 Forefront Identity Manager용 Azure Active 테넌트 커넥터
 
 ## <a name="add-an-azure-ad-tenant"></a>Azure AD 테넌트 추가
-Azure 클래식 포털에서 Azure AD 테넌트를 추가하려면 왼쪽의 Azure Active Directory 확장을 선택하고 **추가**를 탭합니다.
+Azure Portal에서 Azure AD 테넌트를 추가하려면 Azure AD 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽에서 **새로 만들기**를 선택합니다.
 
 > [!NOTE]
 > 다른 Azure 리소스와 달리 테넌트는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독이 취소되거나 만료되는 경우 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터를 사용하여 테넌트 데이터에 계속 액세스할 수 있습니다. 다른 구독을 테넌트와 연결할 수도 있습니다.

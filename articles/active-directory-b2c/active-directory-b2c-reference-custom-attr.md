@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
@@ -31,7 +30,7 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 > 
 
 ## <a name="create-a-custom-attribute"></a>사용자 지정 특성 만들기
-1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. **사용자 특성**을 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. 사용자 지정 특성(예: "ShoeSize")에 **이름**을 제공하고 필요에 따라 **설명**을 제공합니다. **만들기**를 클릭합니다.
@@ -44,7 +43,7 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 사용자 지정 특성은 **사용자 특성**의 목록 및 등록 정책의 사용에 사용 가능합니다.
 
 ## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>등록 정책에 사용자 지정 특성 사용
-1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. **등록 정책**을 클릭합니다.
 3. 사용자의 등록 정책(예: "B2C_1_SiUp")을 클릭하여 엽니다. 블레이드 위쪽에서 **편집**을 클릭합니다.
 4. **등록 특성**을 클릭하고 사용자 지정 특성을 선택합니다(예: "ShoeSize"). **확인**을 클릭합니다.

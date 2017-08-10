@@ -16,17 +16,28 @@ ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 31c7e517673d7a0df9dec32b3882e7e022ac83d9
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
-Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
+Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
 
-## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다.
+
+> [!NOTE]
+> - 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
+>
+> - 이 기능은 하나 이상의 동적 그룹에 추가된 각 사용자 멤버에 대해 Azure AD Premium P1 라이선스가 필요합니다.
+>
+> - 장치 또는 사용자에 대한 동적 그룹을 만들 수 있지만 사용자 및 장치 개체를 모두 포함하는 규칙을 만들 수는 없습니다.
+
+> - 현재 소유 사용자의 특성에 따라 장치 그룹을 만들 수 없습니다. 장치 멤버 자격 규칙은 디렉터리에 있는 장치 개체의 즉각적인 특성만 참조할 수 있습니다.
+
+## <a name="to-create-an-advanced-rule"></a>고급 규칙을 만들려면
+1. 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
    ![사용자 관리 열기](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
@@ -149,7 +160,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 $null입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 $null입니다. |(user.country -eq "value") |
-| CompanyName | 임의의 문자열 값 또는 $null입니다. | (user.CompanyName -eq "value") |
+| companyName | 임의의 문자열 값 또는 $null입니다. | (user.companyName -eq "value") |
 | department |임의의 문자열 값 또는 $null입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값입니다. |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |임의의 문자열 값 또는 $null입니다. |(user.facsimileTelephoneNumber -eq "value") |
@@ -190,9 +201,9 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
 * -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
 
-| 속성 | 값 | 사용 |
+| 속성 | 값 | 사용 현황 |
 | --- | --- | --- |
-| assigendPlans |컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다. 예:
 

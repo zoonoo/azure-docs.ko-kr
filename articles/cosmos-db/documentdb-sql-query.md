@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+ms.date: 07/25/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1b3ce3d87e02a6ffb6fcbf4e6778017f5a129ef9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API에 대한 SQL 쿼리
@@ -39,10 +38,10 @@ Cosmos DB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 > 
 > 
 
-그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 간단한 JSON 문서 및 SQL 명령을 연습합니다.
+그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 단순한 JSON 문서 및 SQL 명령을 연습합니다.
 
 ## <a id="GettingStarted"></a>Cosmos DB의 SQL 명령 시작하기
-Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 문서로 시작해서 몇 가지 단순한 쿼리를 연습해 보겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. Cosmos DB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. Cosmos DB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
+Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 문서로 시작해서 몇 가지 단순한 쿼리를 연습해 보겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. Cosmos DB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. Cosmos DB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 단순한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
 
 **문서**  
 
@@ -170,11 +169,11 @@ Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 
 
 * DocumentDB API SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
 * 구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
-* Cosmos DB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/) 을 참조하세요.  
+* Cosmos DB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
 * Cosmos DB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 ## <a id="Indexing"></a> Cosmos DB 인덱싱
-DocumentDB API SQL 구문을 시작하기 전에 Cosmos DB API의 인덱싱 설계를 살펴보는 것이 좋습니다. 
+DocumentDB API SQL 구문을 시작하기 전에 Cosmos DB의 인덱싱 설계를 살펴보는 것이 좋습니다. 
 
 데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다. 
 
@@ -206,8 +205,8 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 * 별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
 * 참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 
-### <a name="sub-documents"></a>하위 문서
-소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 소스가 될 수 있습니다.
+### <a name="subdocuments"></a>하위 문서
+소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 원본이 될 수 있습니다.
 
 **쿼리**
 
@@ -245,7 +244,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
       ]
     ]
 
-위 예제에서는 배열을 소스로 사용했지만 다음 예제에 나온 대로 개체를 소스로 사용할 수도 있습니다. 소스에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
+위 예제에서는 배열을 원본으로 사용했지만 다음 예제에 나온 대로 개체를 원본으로 사용할 수도 있습니다. 원본에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
 
 **쿼리**
 
@@ -572,7 +571,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
 ### <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
-3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건 식을 작성할 수 있습니다. 
+3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건식을 작성할 수 있습니다. 
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
 
@@ -584,7 +583,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-다른 쿼리 연산자에서처럼 조건 식에서 참조된 속성이 문서에서 누락된 경우 또는 비교할 형식이 다른 경우 해당 문서가 쿼리 결과에서 제외됩니다.
+다른 쿼리 연산자에서처럼 조건식에서 참조된 속성이 문서에서 누락된 경우 또는 비교할 형식이 다른 경우 해당 문서가 쿼리 결과에서 제외됩니다.
 
 병합(??) 연산자를 사용하면 문서에서 속성의 존재(정의됨)를 효율적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
 
@@ -921,9 +920,7 @@ DocumentDB API SQL의 다른 주요 기능은 배열/개체 만들기입니다. 
 
 **결과**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 다음 표에서는 DocumentDB API에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다. 
 
@@ -1085,7 +1082,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB API SQL의 **IN** 키워드
     ]
 
 ### <a id="Joins"></a>조인
-관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB API는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
+관계형 데이터베이스에서는 테이블 간 조인 요구가 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB API는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
 언어가 지원하는 구문은 <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
 
@@ -1206,7 +1203,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
         }
     }
 
-`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
+`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1\*1\*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1\*1\*2 = 2개의 행을 생성합니다.
 
 다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다. 
 
@@ -1354,7 +1351,7 @@ DocumentDB API SQL은 현재 UDF 처리 단계(WHERE 절 또는 SELECT 절)에 �
 ### <a name="operator-evaluation"></a>연산자 평가
 Cosmos DB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 의미 체계와 유사합니다. Cosmos DB는 JSON 지원 측면에서 JavaScript 의미 체계를 유지하려고 하지만 연산 평가가 다른 경우도 있습니다.
 
-DocumentDB API SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다. 
+DocumentDB API SQL에서는 기존 SQL과 달리 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다. 
 
 DocumentDB API SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB API SQL의 효율적인 인덱스 매핑에 중요합니다. 
 
@@ -1515,7 +1512,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |문자열 값을 지정한 횟수 만큼 반복합니다. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |문자열 값을 지정한 횟수 만큼 반복합니다. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |문자열 값의 순서와 반대로 반환합니다. |
 
 이제 이러한 함수를 사용하여 다음과 같은 쿼리를 실행할 수 있습니다. 예를 들어 다음과 같이 대문자로 제품군 이름을 반환할 수 있습니다.
@@ -1573,7 +1570,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. 전체 또는 부분 일치 항목인지를 지정할 수 있습니다. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |배열 식의 일부를 반환합니다. |
 
 배열 함수는 JSON 내 배열을 조작하는 데 사용할 수 있습니다. 예를 들어 다음은 부모 중 한 사람이 "Robin Wakefield"인 모든 문서를 반환하는 쿼리입니다. 
@@ -1589,6 +1586,21 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
     [{
       "id": "WakefieldFamily"
     }]
+
+배열 내의 요소와 일치하는 부분 조각을 지정할 수 있습니다. 다음 쿼리는 `givenName`이 `Robin`인 모든 부모를 찾습니다.
+
+**쿼리**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+
+**결과**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
 
 제품군 당 자녀 수를 가져오는 ARRAY_LENGTH를 사용하는 다른 예는 다음과 같습니다.
 
@@ -1662,7 +1674,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 ![DocumentDB API를 사용한 LINQ 쿼리를 지원하는 아키텍처 - SQL 구문, JSON 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리][1]
 
 ### <a name="net-and-json-mapping"></a>.NET 및 JSON 매핑
-.NET 개체와 JSON 문서 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 아래 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 문서에 매핑됩니다. 반대로 JSON 문서는 다시 .NET 개체에 매핑됩니다.
+.NET 개체와 JSON 문서 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 다음 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 문서에 매핑됩니다. 반대로 JSON 문서는 다시 .NET 개체에 매핑됩니다.
 
 **C# 클래스**
 
@@ -1760,7 +1772,7 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
      mother.familyName == "Smith";    child.givenName == s; //s is a string variable
 * 개체/배열 만들기 식 - 복합 값 형식 또는 무명 형식의 개체나 이러한 개체의 배열을 반환합니다. 해당 값을 중첩할 수 있습니다.
   
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with two fields              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>지원되는 LINQ 연산자 목록
@@ -2109,6 +2121,8 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 Azure Cosmos DB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
+`x-ms-documentdb-populatequerymetrics` 헤더를 `True`로 설정하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. 자세한 내용은 [Azure Cosmos DB DocumentDB API에 대한 SQL 쿼리 메트릭](documentdb-sql-query-metrics.md)을 참조하세요.
+
 ### <a id="DotNetSdk"></a>C#(.NET) SDK
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
 
@@ -2200,10 +2214,6 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리가 포함된 추가 샘플은 [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 
 
-> [!NOTE]
-> 집계 쿼리를 수행하려면 SDK 1.12.0 이상이 필요합니다. 집계 함수에 대한 LINQ는 지원되지 않지만 .NET SDK 1.13.0에서 사용할 수 있습니다.
->
-
 ### <a id="JavaScriptServerSideApi"></a>JavaScript 서버 쪽 API
 Cosmos DB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
 
@@ -2257,4 +2267,3 @@ Cosmos DB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대�
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-

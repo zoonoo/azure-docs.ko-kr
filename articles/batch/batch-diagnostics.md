@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Batch 솔루션의 진단 평가 및 모니터링에 대한 로그 이벤트
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
 진단 로깅은 배치 계정에 기본적으로 활성화되지 않습니다. 모니터링할 각각의 배치 계정에 대해 진단 로그를 명시적으로 사용하도록 설정해야 합니다.
 
-[진단 로그의 컬렉션을 사용하도록 설정하는 방법](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[진단 로그의 컬렉션을 사용하도록 설정하는 방법](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 전체 [Azure Diagnostic Logs 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 읽고 로깅 사용뿐 아니라 여러 Azure 서비스에서 지원하는 로그 카테고리에 대해서도 파악하는 것이 좋습니다. 예를 들어, 현재 Azure Batch는 **서비스 로그** 카테고리 하나만 지원합니다.
 

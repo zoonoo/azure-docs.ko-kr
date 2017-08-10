@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 05/24/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
+ms.custom: oldportal;it-pro;H1Hack27Feb2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 9da5bb6987a9eb3398abe0d6066f1945620df9a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 Microsoft Azure Active Directory 라이선스란?
@@ -33,6 +32,9 @@ ms.lasthandoff: 06/30/2017
 >
 
 Azure AD(Azure Active Directory)는 Microsoft의 IDaaS(Identity as a Service) 솔루션 및 플랫폼입니다. Azure AD는 Office 365, Dynamics, Microsoft Intune 및 Azure 등과 같은 Microsoft 서비스와 함께 사용할 수 있는 Azure AD 무료 버전부터, Azure Multi-Factor Authentication(MFA) 뿐만 아니라 Enterprise Mobility Suite(EMS), Azure AD Premium 및 Basic 등과 같은 Azure AD 유료 버전에 이르기까지 다양한 기능적, 기술적 버전으로 제공됩니다. 많은 Microsoft 온라인 서비스와 마찬가지로 대부분의 Azure AD 유료 버전은 Office 365, Microsoft Intune 및 Azure AD에서 사용자별 권한 부여를 통해 제공됩니다. 이런 경우 서비스 구매는 하나 이상의 구독으로 표시되며 각 구독에는 테넌트의 사전 구매 라이선스 수가 포함됩니다. 사용자별 권한 부여는 사용자와 제품 간에 연결을 생성하고 사용자가 서비스 구성 요소를 사용하도록 설정하고 선불 라이선스 중 하나를 사용하는 라이선스 할당을 통해 수행됩니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 관리자 역할을 할당하는 방법은 [Azure AD에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md)를 참조하세요.
 
 [이제 Azure AD premium을 시도합니다.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 

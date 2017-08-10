@@ -1,7 +1,7 @@
 ---
-title: "Linux에서 SAP용 Azure Virtual Machines 배포 | Microsoft Docs"
+title: "SAP NetWeaver에 대한 Azure Virtual Machines 배포 | Microsoft Docs"
 description: "Azure의 Linux 가상 컴퓨터에 SAP 소프트웨어를 배포하는 방법을 알아봅니다."
-services: virtual-machines-linux
+services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: 
 author: MSSedusch
 manager: timlt
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 76faa1ecfa43e20be24d000d2464de0765bacbda
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: a5f49933a626faa19e56aad33714efb1d8741746
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/03/2017
 
 ---
-# <a name="azure-virtual-machines-deployment-for-sap"></a>SAP용 Azure Virtual Machines 배포
+# <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -62,6 +62,7 @@ ms.lasthandoff: 04/03/2017
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
@@ -204,7 +205,7 @@ ms.lasthandoff: 04/03/2017
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepts of Cloud-Only deployment of SAP instances)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring Solution for SAP)
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-
+[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -231,16 +232,21 @@ ms.lasthandoff: 04/03/2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and data disks)
 
-[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
+[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
+[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
+[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
 [storage-azure-cli]:../../../storage/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/storage-introduction.md
@@ -258,6 +264,7 @@ ms.lasthandoff: 04/03/2017
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Manage virtual machines by using Azure Resource Manager and PowerShell)
+[virtual-machines-windows-agent-user-guide]:../../windows/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -306,10 +313,10 @@ ms.lasthandoff: 04/03/2017
 
 Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 저장소 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 응용 프로그램 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 응용 프로그램의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
-이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 Linux 가상 컴퓨터(VM)에 SAP 응용 프로그램을 배포하는 단계를 설명합니다. 이 문서는 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
+이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 컴퓨터)에 SAP 응용 프로그램을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-SAP 소프트웨어 배포를 위해 Azure 가상 컴퓨터를 설정하려면 여러 단계와 리소스가 필요합니다. 시작하기 전에 Azure에서 Linux 가상 컴퓨터에 SAP 소프트웨어를 설치하기 위한 필수 구성 요소를 충족하는지 확인합니다.
+SAP 소프트웨어 배포를 위해 Azure 가상 컴퓨터를 설정하려면 여러 단계와 리소스가 필요합니다. 시작하기 전에 Azure에서 가상 컴퓨터에 SAP 소프트웨어를 설치하기 위한 필수 구성 요소를 충족하는지 확인합니다.
 
 ### <a name="local-computer"></a>수집
 Windows 또는 Linux VM을 관리하려면 PowerShell 스크립트와 Azure Portal을 사용해야 합니다. 두 가지 도구 모두 Windows 7 또는 이후 버전의 Windows 실행하는 로컬 컴퓨터가 필요합니다. Linux VM만 관리하려는 경우 이 작업에 Linux 컴퓨터를 사용하려면 Azure CLI를 사용할 수 있습니다.
@@ -328,10 +335,10 @@ Azure에서 SAP 배포의 토폴로지 및 아키텍처를 정의해야 합니�
 * SAP 시스템을 배포할 리소스 그룹
 * SAP 시스템을 배포할 Azure 영역
 * SAP 구성(2계층 또는 3계층)
-* VM 크기 및 VM에 탑재할 추가 가상 하드 디스크(VHD) 수
+* VM 크기 및 VM에 탑재할 추가 데이터 디스크 수
 * SAP 수정과 전송 시스템(CTS) 구성
 
-SAP 소프트웨어 배포 프로세스를 시작하기 전에 Azure 저장소 계정 또는 Azure 가상 네트워크를 만들고 구성합니다. 이러한 리소스를 만들고 구성하는 방법에 대한 정보는 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]을 참조하세요.
+SAP 소프트웨어 배포 프로세스를 시작하기 전에 Azure Storage 계정(필요한 경우) 또는 Azure 가상 네트워크를 만들고 구성합니다. 이러한 리소스를 만들고 구성하는 방법에 대한 정보는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]을 참조하세요.
 
 ### <a name="sap-sizing"></a>SAP 크기 조정
 SAP 크기 조정을 위해 다음 정보를 알고 있어야 합니다.
@@ -363,26 +370,26 @@ SAP 소프트웨어 배포를 설정하는 경우 다음과 같은 SAP 리소스
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [2002167]는 Red Hat Enterprise Linux 7.x에 대한 일반 정보를 포함하고 있습니다.
+* SAP Note [2069760]은 Oracle Linux 7.x에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
+* SAP Note [1597355]는 Linux의 스왑 공간에 대한 일반 정보를 포함하고 있습니다.
+* [Azure의 SAP SCN 페이지](https://wiki.scn.sap.com/wiki/x/Pia7Gg)에는 뉴스 및 유용한 리소스의 컬렉션을 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
 * [Azure PowerShell][azure-ps]에 포함된 SAP 관련 PowerShell cmdlet입니다.
 * [Azure CLI][azure-cli]에 포함된 SAP 관련 Azure CLI 명령입니다.
 
-[comment]: <> (MSSedusch TODO - SAP Note 1409604에 SAP 호스트 에이전트용 ARM 패치 수준 추가)
-
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Windows 리소스
 다음 Microsoft 문서에서는 Azure에서 SAP 배포에 대해 설명합니다.
 
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Azure 포털][azure-portal]
+* [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP NetWeaver에 대한 Azure Virtual Machines 배포(이 문서)][deployment-guide]
+* [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Azure VM에서 SAP 소프트웨어에 대한 배포 시나리오
 Azure에서 VM 및 연결된 디스크를 배포하기 위한 여러 옵션이 있습니다. 선택하는 배포 유형에 따라 배포를 위해 VM을 준비하는 단계가 다를 수 있으므로 배포 옵션 간의 차이점을 이해해야 합니다.
 
 ### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>시나리오 1: SAP용 Azure Marketplace에서 VM 배포
-Azure Marketplace에서 Microsoft 또는 타사에서 제공하는 이미지를 사용하여 VM을 배포할 수 있습니다. Marketplace는 Windows Server 및 서로 다른 Linux 배포의 일부 표준 OS 이미지를 제공합니다. 또한 데이터베이스 관리 시스템(DMBS) SKU, 예를 들어 Microsoft SQL Server를 포함하고 있는 이미지를 배포할 수도 있습니다. DBMS SKU가 포함된 이미지 사용에 관한 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]를 참조하세요.
+Azure Marketplace에서 Microsoft 또는 타사에서 제공하는 이미지를 사용하여 VM을 배포할 수 있습니다. Marketplace는 Windows Server 및 서로 다른 Linux 배포의 일부 표준 OS 이미지를 제공합니다. 또한 데이터베이스 관리 시스템(DMBS) SKU, 예를 들어 Microsoft SQL Server를 포함하고 있는 이미지를 배포할 수도 있습니다. DBMS SKU가 포함된 이미지 사용에 관한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]를 참조하세요.
 
 다음 순서도는 Azure Marketplace에서 VM을 배포하기 위한 SAP 관련 단계 순서를 보여 줍니다.
 
@@ -391,8 +398,8 @@ Azure Marketplace에서 Microsoft 또는 타사에서 제공하는 이미지를 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터 만들기
 Azure Marketplace에서 이미지를 사용하여 새 가상 컴퓨터를 만드는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다.
 
-1.  <https://portal.azure.com/#create>로 이동합니다.  또는 Azure Portal 메뉴에서 **+새로 만들기**를 선택합니다.
-2.  **계산**을 선택한 다음 배포할 운영 체제 유형을 선택합니다. 예를 들어, Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12) 또는 Red Hat Enterprise Linux 7.2(RHEL 7.2)입니다. 기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
+1.  <https://portal.azure.com/#create/hub>로 이동합니다.  또는 Azure Portal 메뉴에서 **+새로 만들기**를 선택합니다.
+2.  **계산**을 선택한 다음 배포할 운영 체제 유형을 선택합니다. 예를 들어, Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12), Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다. 기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
 3.  다음 페이지에서 약관을 검토합니다.
 4.  **배포 모델 선택** 목록에서 **Resource Manager**를 선택합니다.
 5.  **만들기**를 선택합니다.
@@ -400,22 +407,30 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 컴퓨터를 만드
 마법사의 필수 매개 변수 설정을 통해 네트워크 인터페이스 및 저장소 계정과 같은 모든 필요한 리소스와 함께 가상 컴퓨터를 만들 수 있습니다. 다음은 일부 매개 변수입니다.
 
 1. **기본 사항**:
-  * **이름**: 리소스 이름(가상 컴퓨터 이름)입니다.
+ * **이름**: 리소스 이름(가상 컴퓨터 이름)입니다.
+ * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
  * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 프로비전 중에 만든 사용자의 사용자 이름과 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
  * **구독**: 새 가상 컴퓨터를 프로비전하는 데 사용할 구독을 선택합니다.
  * **리소스 그룹**: VM에 대한 리소스 그룹의 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
- * **위치**: 새 가상 컴퓨터를 배포할 위치입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
+ * **위치**: 새 가상 컴퓨터를 배포할 위치입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
 2. **크기**:
 
-     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 프리미엄 저장소를 지원하지는 않습니다. 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Storage: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 참조하세요.
+     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Storage: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 참조하세요.
 
 3. **설정**:
-   * **저장소 계정**: 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
-   * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 컴퓨터를 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
-   * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 컴퓨터에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 컴퓨터에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
-   * **네트워크 보안 그룹**: 자세한 내용은 [네트워크 보안 그룹으로 네트워크 트래픽 흐름 제어][virtual-networks-nsg]를 참조하세요.
-   * **가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조하세요.
-   * **모니터링**: 진단 모니터링에 대해 **사용 중지**를 선택할 수 있습니다. 이는 [모니터링 구성][deployment-guide-configure-monitoring-scenario-1]에서 설명한 대로 Azure 고급 모니터링을 활성화하는 명령을 실행할 때 자동으로 사용하도록 설정됩니다.
+  * **저장소**
+    * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
+    * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
+    * **저장소 계정**: 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
+  * **네트워크**
+    * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 컴퓨터를 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
+    * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 컴퓨터에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 컴퓨터에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
+    * **네트워크 보안 그룹**: 자세한 내용은 [네트워크 보안 그룹으로 네트워크 트래픽 흐름 제어][virtual-networks-nsg]를 참조하세요.
+  * **확장**: 확장을 배포에 추가하여 가상 컴퓨터 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터를 참조하세요.
+  * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조하세요.
+  * **모니터링**
+    * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
+    * **게스트 OS 진단**: 모니터링 진단을 **사용 안 함**으로 선택할 수 있습니다.
 
 4. **요약**:
 
@@ -429,9 +444,15 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 컴퓨터를 만드
 * [**2계층 구성(단일 가상 컴퓨터) 템플릿**(sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
   한 대의 가상 컴퓨터를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
+* [**2계층 구성(단일 가상 컴퓨터) 템플릿 - Managed Disks**(sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
+
+  한 대의 가상 컴퓨터와 Managed Disks를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
 * [**3계층 구성(여러 가상 컴퓨터) 템플릿**(sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
 
   여러 대의 가상 컴퓨터를 사용하여 3계층 시스템을 만들려면 이 템플릿을 사용합니다.
+* [**3계층 구성(여러 가상 컴퓨터) 템플릿 - Managed Disks**(sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
+
+  여러 대의 가상 컴퓨터와 Managed Disks를 사용하여 3계층 시스템을 만들려면 이 템플릿을 사용합니다.
 
 Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
@@ -442,9 +463,9 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
 2. **설정**:
   * **SAP 시스템 ID**: SAP 시스템 ID(SID)입니다.
-  * **OS 형식**: 배포할 운영 체제, 예를 들어 Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12) 또는 Red Hat Enterprise Linux 7.2(RHEL 7.2)입니다.
+  * **OS 형식**: 배포할 운영 체제, 예를 들어 Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12) 또는 Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다.
 
-    기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
+    목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
   * **SAP 시스템 크기**: SAP 시스템의 크기입니다.
 
     새 시스템에서 제공하는 SAP의 수입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
@@ -455,7 +476,7 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
+      * [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
       * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
   * **관리 사용자 이름** 및 **관리 암호**: 사용자 이름 및 암호입니다.
@@ -474,10 +495,10 @@ Azure Marketplace에서 이미지를 사용하는 경우 Azure VM 에이전트�
 온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조하세요.
 
 #### <a name="join-a-domain-windows-only"></a>도메인 가입(Windows에만 해당)
-Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 작업에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
+Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 작업에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>모니터링 구성
-사용자의 환경에서 SAP을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
+SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
 
 #### <a name="monitoring-check"></a>모니터링 확인
 [종단 간 모니터링 설정 확인 및 문제 해결][deployment-guide-troubleshooting-chapter]에서 설명한 대로 모니터링이 작동하는지 여부를 확인합니다.
@@ -485,9 +506,7 @@ Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온
 #### <a name="post-deployment-steps"></a>배포 후 단계
 VM을 만들고 VM이 배포된 후 VM에 필수 소프트웨어 구성 요소를 설치 해야 합니다. 이 유형의 VM 배포에서 배포/소프트웨어 설치 순서 때문에 설치할 소프트웨어가 Azure 내에, 다른 VM 상에 또는 연결할 수 있는 디스크로 이미 사용할 수 있어야 합니다. 또는 온-프레미스 자산에 연결되는(설치 공유) 프레미스 간 시나리오 사용을 고려합니다.
 
-Azure에서 VM을 배포한 후 온-프레미스 환경에서와 동일한 지침 및 도구를 사용하여 VM에 SAP 소프트웨어를 설치합니다. Azure VM에 SAP 소프트웨어를 설치할 때는 SAP 설치 미디어를 Azure VHD에 업로드 및 저장하거나 필요한 SAP 설치 미디어를 모두 포함하고 있는 파일 서버로 사용할 Azure VM을 만드는 것이 좋습니다.
-
-[comment]: <> (MSSedusch TODO - 파일 관리(예: 파일 서버 또는 VHD)를 권장해야 하는 이유가 무엇인가요? 온-프레미스에서와 차이가 있나요?)
+Azure에서 VM을 배포한 후 온-프레미스 환경에서와 동일한 지침 및 도구를 사용하여 VM에 SAP 소프트웨어를 설치합니다. Azure VM에 SAP 소프트웨어를 설치할 때는 SAP 설치 미디어를 Azure VHD 또는 Managed Disks에 업로드 및 저장하거나 필요한 SAP 설치 미디어를 모두 포함하고 있는 파일 서버로 사용할 Azure VM을 만드는 것이 좋습니다.
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포
 다른 버전의 운영 체제 또는 DBMS는 패치 요구 사항이 다르므로 Azure Marketplace에서 찾을 수 있는 이미지가 요구에 맞지 않을 수 있습니다. 그 대신에 나중에 다시 배포할 수 있는 고유한 OS/DBMS VM 이미지를 사용하여 VM을 만드는 것이 좋습니다.
@@ -505,21 +524,65 @@ Linux에 대한 개인 이미지를 만들려면 Windows에 대해 개인 이미
 >
 
 - - -
-사용자 지정 이미지를 준비하고 만든 다음 해당 이미지를 사용하여 여러 새 VM을 만들 수 있습니다. 이 방법을 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]에서 설명합니다. SAP Software Provision Manager를 사용하여 새 SAP 시스템을 설치하거나(가상 컴퓨터에 연결된 VHD에서 데이터베이스 백업을 복원) DBMS에서 지원하는 경우 Azure Storage에서 데이터베이스 백업을 직접 복원하여 데이터베이스 콘텐츠를 설치합니다. 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]를 참조하세요. 온-프레미스 VM(특히 2계층 시스템)에 SAP 시스템을 이미 설치한 경우 Azure VM을 배포한 후에 SAP Software Provisioning Manager에서 지원하는 시스템 이름 변경 절차를 사용하여 SAP 시스템 설정을 조정할 수 있습니다(SAP Note [1619720]). 그렇지 않은 경우 Azure VM 배포 후 SAP 소프트웨어를 설치할 수 있습니다.
+사용자 지정 이미지를 준비하고 만든 다음 해당 이미지를 사용하여 여러 새 VM을 만들 수 있습니다. 이 방법을 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서 설명합니다. SAP Software Provisioning Manager를 사용하여 새 SAP 시스템을 설치하거나(가상 컴퓨터에 연결된 디스크에서 데이터베이스 백업을 복원) DBMS에서 지원하는 경우 Azure Storage에서 데이터베이스 백업을 직접 복원하여 데이터베이스 콘텐츠를 설치합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]를 참조하세요. 온-프레미스 VM(특히 2계층 시스템)에 SAP 시스템을 이미 설치한 경우 Azure VM을 배포한 후에 SAP Software Provisioning Manager에서 지원하는 시스템 이름 변경 절차를 사용하여 SAP 시스템 설정을 조정할 수 있습니다(SAP Note [1619720]). 그렇지 않은 경우 Azure VM 배포 후 SAP 소프트웨어를 설치할 수 있습니다.
 
 다음 순서도는 사용자 지정 이미지에서 VM을 배포하기 위한 SAP 관련 단계 순서를 보여 줍니다.
 
 ![개인 Marketplace에서 VM 이미지를 사용하여 SAP 시스템용 VM 배포 순서도][deployment-guide-figure-300]
 
-#### <a name="create-the-virtual-machine"></a>가상 컴퓨터 만들기
+#### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터 만들기
+Managed Disk 이미지에서 새 가상 컴퓨터를 만드는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다. Manage Disk 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)를 읽어보세요.
+
+1.  <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>로 이동합니다. 또는 Azure Portal 메뉴에서 **이미지**를 선택합니다.
+2.  배포하려는 Managed Disk 이미지를 선택하고 **VM 만들기**를 클릭합니다.
+
+마법사의 필수 매개 변수 설정을 통해 네트워크 인터페이스 및 저장소 계정과 같은 모든 필요한 리소스와 함께 가상 컴퓨터를 만들 수 있습니다. 다음은 일부 매개 변수입니다.
+
+1. **기본 사항**:
+ * **이름**: 리소스 이름(가상 컴퓨터 이름)입니다.
+ * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
+ * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 프로비전 중에 만든 사용자의 사용자 이름과 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
+ * **구독**: 새 가상 컴퓨터를 프로비전하는 데 사용할 구독을 선택합니다.
+ * **리소스 그룹**: VM에 대한 리소스 그룹의 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
+ * **위치**: 새 가상 컴퓨터를 배포할 위치입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
+2. **크기**:
+
+     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Storage: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 참조하세요.
+
+3. **설정**:
+  * **저장소**
+    * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
+    * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
+  * **네트워크**
+    * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 컴퓨터를 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
+    * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 컴퓨터에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 컴퓨터에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
+    * **네트워크 보안 그룹**: 자세한 내용은 [네트워크 보안 그룹으로 네트워크 트래픽 흐름 제어][virtual-networks-nsg]를 참조하세요.
+  * **확장**: 확장을 배포에 추가하여 가상 컴퓨터 확장을 설치할 수 있습니다. 이 단계에서는 확장을 추가할 필요가 없습니다. SAP 지원에 필요한 확장은 나중에 설치됩니다. 이 가이드의 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터를 참조하세요.
+  * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조하세요.
+  * **모니터링**
+    * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
+    * **게스트 OS 진단**: 모니터링 진단을 **사용 안 함**으로 선택할 수 있습니다.
+
+4. **요약**:
+
+  선택 내용을 검토한 다음 **확인**을 선택합니다.
+
+선택한 리소스 그룹에서 가상 컴퓨터가 배포됩니다.
+#### <a name="create-a-virtual-machine-by-using-a-template"></a>템플릿을 사용하여 가상 컴퓨터 만들기
 Azure Portal에서 개인 OS 이미지를 사용하여 배포를 만들려면 다음 SAP 템플릿 중 하나를 사용합니다. 이러한 템플릿은 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시되어 있습니다. 또한 [PowerShell][virtual-machines-upload-image-windows-resource-manager]을 사용하여 가상 컴퓨터를 수동으로 만들 수도 있습니다.
 
 * [**2계층 구성(단일 가상 컴퓨터) 템플릿**(sap-2-tier-user-image)][sap-templates-2-tier-user-image]
 
   한 대의 가상 컴퓨터를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
+* [**2계층 구성(단일 가상 컴퓨터) 템플릿 - Managed Disk 이미지**(sap-2-tier-user-image-md)][sap-templates-2-tier-user-image-md]
+
+  한 대의 가상 컴퓨터와 Managed Disk 이미지를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
 * [**3계층 구성(여러 가상 컴퓨터) 템플릿**(sap-3-tier-user-image)][sap-templates-3-tier-user-image]
 
   여러 대의 가상 컴퓨터 또는 고유한 OS 이미지를 사용하여 3계층 시스템을 만들려면 이 템플릿을 사용합니다.
+* [**3계층 구성(여러 가상 컴퓨터) 템플릿 - Managed Disk 이미지**(sap-3-tier-user-image-md)][sap-templates-3-tier-user-image-md]
+
+  여러 대의 가상 컴퓨터, 고유한 OS 이미지 및 Managed Disk 이미지를 사용하여 3계층 시스템을 만들려면 이 템플릿을 사용합니다.
 
 Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
@@ -540,11 +603,12 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
+      * [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
       * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
-  * **사용자 이미지 VHD URI**: 개인 OS 이미지 VHD의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)입니다.
-  * **사용자 이미지 저장소 계정**: 개인 OS 이미지가 저장된 저장소 계정의 이름(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)의 &lt;accountname>)입니다.
+  * **사용자 이미지 VHD URI(관리되지 않는 디스크 이미지 템플릿만)**: 개인 OS 이미지 VHD의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)입니다.
+  * **사용자 이미지 저장소 계정(관리되지 않는 디스크 이미지 템플릿만)**: 개인 OS 이미지가 저장된 저장소 계정의 이름(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd의 &lt;accountname>)입니다.
+  * **userImageId**(관리 디스크 이미지 템플릿만): 사용하려는 Managed Disk 이미지의 ID
   * **관리 사용자 이름** 및 **관리 암호**: 사용자 이름 및 암호입니다.
 
     가상 컴퓨터에 로그인하기 위한 새 사용자가 만들어집니다.
@@ -562,33 +626,29 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 이전 섹션에서 설명한 템플릿을 사용하려면 Linux 에이전트가 사용자 이미지에 이미 설치되어 있어야 하며, 그렇지 않으면 배포에 실패합니다. [Azure VM 에이전트 다운로드, 설치 및 사용][deployment-guide-4.4]에 설명된 대로 VM 에이전트를 다운로드하고 사용자 이미지에 설치합니다. 템플릿을 사용하지 않는 경우 나중에 VM 에이전트를 설치할 수도 있습니다.
 
 #### <a name="join-a-domain-windows-only"></a>도메인 가입(Windows에만 해당)
-Azure 배포가 Azure 사이트 간 VPN 연결 또는 Azure ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 단계에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
+Azure 배포가 Azure 사이트 간 VPN 연결 또는 Azure ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 단계에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
 
 #### <a name="configure-proxy-settings"></a>프록시 설정 구성
 온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조하세요.
 
 #### <a name="configure-monitoring"></a>모니터링 구성
-사용자의 환경에서 SAP을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
+SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
 
 #### <a name="monitoring-check"></a>모니터링 확인
 [종단 간 모니터링 설정 확인 및 문제 해결][deployment-guide-troubleshooting-chapter]에서 설명한 대로 모니터링이 작동하는지 여부를 확인합니다.
 
 
-
-
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>시나리오 3: SAP에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스 VM 이동
 이 시나리오에서는 온-프레미스 환경에서 특정 SAP 시스템을 Azure로 이동하려고 합니다. OS, SAP 이진 파일 및 결과적 DBMS 이진 파일을 포함하고 있는 VHD와 함께 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 이 작업을 수행할 수 있습니다. [시나리오 2: SAP용 사용자 지정 이미지로 VM 배포][deployment-guide-3.3]에서 설명한 시나리오와는 달리 이 경우 Azure VM의 호스트 이름, SAP SID 및 SAP 사용자 계정을 온-프레미스 환경에서 구성했으므로 그대로 유지합니다. OS를 일반화할 필요가 없습니다. 이 시나리오는 SAP 지형의 일부는 온-프레미스를 실행하고 일부는 Azure에서 실행하는 프레미스 간 시나리오에 가장 자주 적용됩니다.
 
-이 시나리오에서 VM 에이전트는 배포하는 동안 자동으로 설치되지 않습니다. SAP을 실행하려면 VM 에이전트 및 SAP용 Azure 고급 모니터링 확장이 필요하므로 가상 컴퓨터를 만든 후에 두 구성 요소를 모두 수동으로 다운로드하여 설치하고 사용하도록 설정해야 합니다.
+이 시나리오에서 VM 에이전트는 배포하는 동안 자동으로 설치되지 **않습니다.** Azure에서 SAP NetWeaver을 실행하려면 VM 에이전트 및 SAP용 Azure 고급 모니터링 확장이 필요하므로 가상 컴퓨터를 만든 후에 두 구성 요소를 모두 수동으로 다운로드하여 설치하고 사용하도록 설정해야 합니다.
 
 Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조하세요.
-
-[comment]: <> (MSSedusch TODO - 아래 Windows 링크 업데이트)
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> <http://blogs.msdn.com/b/wats/archive/2014/02/17/bginfo-guest-agent-extension-for-azure-vms.aspx>
+> [Azure Virtual Machine 에이전트 개요][virtual-machines-windows-agent-user-guide]
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -602,14 +662,17 @@ Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조�
 
 ![VM 디스크를 사용하여 SAP 시스템용 VM 배포 순서도][deployment-guide-figure-400]
 
-디스크가 Azure에 이미 업로드되고 정의되어 있다고 가정하고([Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide] 참조) 다음 몇 섹션에서 설명하는 작업을 수행합니다.
+디스크가 Azure에 이미 업로드되고 정의되어 있는 경우([SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide] 참조) 다음 몇 섹션에서 설명하는 작업을 수행합니다.
 
-#### <a name="create-a-virtual-machine"></a>가상 컴퓨터를 만듭니다.
+#### <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 Azure Portal을 통해 개인 OS 디스크를 사용하여 배포를 만들려면 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시된 SAP 템플릿을 사용합니다. 또한 PowerShell을 사용하여 가상 컴퓨터를 직접 만들 수도 있습니다.
 
 * [**2계층 구성(단일 가상 컴퓨터) 템플릿**(sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 
   한 대의 가상 컴퓨터를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
+* [**2계층 구성(단일 가상 컴퓨터) 템플릿 - Managed Disk** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
+
+  한 대의 가상 컴퓨터와 Managed Disk를 사용하여 2계층 시스템을 만들려면 이 템플릿을 사용합니다.
 
 Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
@@ -627,10 +690,11 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [Linux에서 SAP용 Azure Virtual Machine DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
+      * [SAP NetWeaver에 대한 Azure Virtual Machine DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
       * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
-  * **OS 디스크 VHD URI**: 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.
+  * **OS 디스크 VHD URI(관리되지 않는 디스크 템플릿만)**: 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.
+  * **OS 디스크 Managed Disk ID(관리 디스크 템플릿만)**: Managed Disk OS 디스크의 ID, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
   * **서브넷 ID**: 가상 컴퓨터를 연결할 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하는 데 사용할 Azure ExpressRoute 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 다음과 같이 나타납니다.
 
@@ -647,13 +711,13 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 이전 섹션에서 설명한 템플릿을 사용하지 않는 경우 나중에 VM 에이전트를 설치할 수도 있습니다.
 
 #### <a name="join-a-domain-windows-only"></a>도메인 가입(Windows에만 해당)
-Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 작업에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
+Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온-프레미스 Active Directory 또는 DNS 인스턴스에 연결된 경우(이 상태를 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서는 *cross-premises*라 함) VM이 온-프레미스 도메인에 가입할 것으로 예상됩니다. 이 작업에 대한 고려사항에 대한 자세한 내용은 [온-프레미스 도메인에 VM 가입(Windows에만 해당)][deployment-guide-4.3]을 참조하세요.
 
 #### <a name="configure-proxy-settings"></a>프록시 설정 구성
 온-프레미스 네트워크가 구성된 방법에 따라 VM에 프록시를 설정해야 할 수 있습니다. VM이 VPN 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결된 경우 인터넷에 액세스하지 못할 수도 있으며 필수 확장을 다운로드하거나 모니터링 데이터를 수집할 수 없습니다. 자세한 내용은 [프록시 구성][deployment-guide-configure-proxy]을 참조하세요.
 
 #### <a name="configure-monitoring"></a>모니터링 구성
-사용자의 환경에서 SAP을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
+SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 SAP용 Azure 모니터링 확장을 설정합니다. [SAP 리소스][deployment-guide-2.2]에 나열된 리소스에서 SAP 모니터링 필수 조건 및 SAP 커널과 SAP 호스트 에이전트의 필수 최소 버전을 확인합니다.
 
 #### <a name="monitoring-check"></a>모니터링 확인
 [종단 간 모니터링 설정 확인 및 문제 해결][deployment-guide-troubleshooting-chapter]에서 설명한 대로 모니터링이 작동하는지 여부를 확인합니다.
@@ -662,13 +726,13 @@ Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온
 다음과 시나리오에서 SAP 모니터링 구성을 업데이트합니다.
 * Microsoft/SAP 공동 팀은 모니터링 기능을 확장했으며 더 많거나 적은 카운터를 요청하고 있습니다.
 * Microsoft는 모니터링 데이터를 제공하는 새 버전의 기본 Azure 인프라를 도입했으며, SAP용 Azure 고급 모니터링 확장은 이러한 변화에 적응해야 합니다.
-* Azure VM에서 VHD를 추가로 탑재하거나 제거합니다. 이 시나리오에서 저장소 관련 데이터의 컬렉션을 업데이트합니다. 끝점을 추가 또는 삭제하거나 VM에 IP 주소를 할당하여 구성을 변경해도 모니터링 구성에 영향을 주지 않습니다.
+* Azure VM에서 데이터 디스크를 추가로 탑재하거나 제거합니다. 이 시나리오에서 저장소 관련 데이터의 컬렉션을 업데이트합니다. 끝점을 추가 또는 삭제하거나 VM에 IP 주소를 할당하여 구성을 변경해도 모니터링 구성에 영향을 주지 않습니다.
 * Azure VM의 크기를 변경합니다(예: 크기 A5에서 다른 VM 크기로).
 * Azure VM에 새 네트워크 인터페이스를 추가합니다.
 
 모니터링 설정을 업데이트하려면 [SAP 용 Azure 고급 모니터링 확장][deployment-guide-4.5]의 절차에 따라 모니터링 인프라를 업데이트합니다.
 
-## <a name="detailed-tasks-for-sap-software-deployment-on-a-linux-vm"></a>Linux VM에서 SAP 소프트웨어 배포에 대한 세부 작업
+## <a name="detailed-tasks-for-sap-software-deployment"></a>SAP 소프트웨어 배포에 대한 세부 작업
 이 섹션에서는 구성 및 배포 프로세스에서 특정 작업을 수행하기 위한 세부 단계를 설명합니다.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Azure PowerShell cmdlet 배포
@@ -687,8 +751,7 @@ Azure 배포가 Azure 사이트 간 VPN 연결 또는 ExpressRoute를 통해 온
 
 컴퓨터에 설치된 Azure PowerShell cmdlet의 버전을 확인하려면 다음 PowerShell 명령을 실행합니다.
 ```powershell
-Import-Module Azure
-(Get-Module Azure).Version
+(Get-Module AzureRm.Compute).Version
 ```
 결과는 다음과 유사하게 표시됩니다.
 
@@ -756,7 +819,7 @@ Azure Marketplace에서 VM을 배포하는 경우 이 단계가 필요 없습니
   sudo zypper install WALinuxAgent
   ```
 
-* **RHEL(Red Hat Enterprise Linux)**
+* **RHEL(Red Hat Enterprise Linux) 또는 Oracle Linux**
 
   ```
   sudo yum install WALinuxAgent
@@ -813,10 +876,14 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
 
   \\etc\\yum.repos.d\\rhui-load-balancers에 나열된 호스트의 IP 주소에 대한 경로도 추가해야 합니다. 예는 앞의 그림을 참조하세요.
 
+* **Oracle Linux**
+
+  Azure에서 Oracle Linux에 대한 리포지토리가 없습니다. Oracle Linux에 대한 사용자 고유의 리포지토리를 구성하거나 공용 리포지토리를 사용해야 합니다.
+
 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달][virtual-networks-udr-overview]을 참조하세요.
 
 ### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>SAP용 Azure 고급 모니터링 확장 구성
-[Azure에서 SAP용 VM 배포 시나리오][deployment-guide-3]에서 설명한 대로 VM을 준비한 경우 Azure VM 에이전트가 가상 컴퓨터에 설치됩니다. 다음 단계는 글로벌 Azure 데이터 센터에 있는 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 고급 모니터링 확장을 배포하는 것입니다. 자세한 내용은 [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조하세요.
+[Azure에서 SAP용 VM 배포 시나리오][deployment-guide-3]에서 설명한 대로 VM을 준비한 경우 Azure VM 에이전트가 가상 컴퓨터에 설치됩니다. 다음 단계는 글로벌 Azure 데이터 센터에 있는 Azure 확장 리포지토리에서 사용할 수 있는 SAP용 Azure 고급 모니터링 확장을 배포하는 것입니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide-9.1]을 참조하세요.
 
 PowerShell 또는 Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 사용할 수 있습니다. Windows 컴퓨터를 사용하여 Windows 또는 Linux VM에 확장을 설치하려는 경우 [Azure PowerShell][deployment-guide-4.5.1]을 참조하세요. Linux 데스크톱을 사용하여 Linux VM에 확장을 설치하려면 [Azure CLI][deployment-guide-4.5.2]를 참조하세요.
 
@@ -825,7 +892,7 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 
 1. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell cmdlet 배포][deployment-guide-4.1]를 참조하세요.  
 2. 다음 PowerShell cmdlet을 실행합니다.
-    사용 가능한 환경 목록을 보려면 `commandlet Get-AzureRmEnvironment`을 실행합니다. 공용 Azure를 사용하려는 경우 환경은 **AzureCloud**입니다. 중국의 Azure인 경우 **AzureChinaCloud**를 선택합니다.
+    사용 가능한 환경 목록을 보려면 `commandlet Get-AzureRmEnvironment`을 실행합니다. 전역 Azure를 사용하려는 경우 환경은 **AzureCloud**입니다. 중국의 Azure인 경우 **AzureChinaCloud**를 선택합니다.
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
@@ -844,7 +911,7 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 
 스크립트 출력에는 다음 정보가 포함됩니다.
 
-* 기본 VHD(OS 포함)와 VM에 탑재된 모든 추가 VHD에 대한 모니터링이 구성되었다는 확인이 표시됩니다.
+* OS 디스크 및 모든 추가 데이터 디스크에 대한 모니터링이 구성되었다는 확인이 표시됩니다.
 * 다음 두 개의 메시지는 특정 저장소 계정에 대한 저장소 메트릭의 구성을 확인합니다.
 * 출력 한 줄에는 모니터링 구성의 실제 업데이트 상태가 표시됩니다.
 * 출력의 또 다른 줄은 구성이 배포되거나 업데이트되었음을 확인해 줍니다.
@@ -855,7 +922,7 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM용 Azure CLI
 Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하려면:
 
-1. [Azure CLI 설치][azure-cli]에 설명한 대로 Azure CLI를 설치합니다.
+1. [Azure CLI 1.0설치][azure-cli]에 설명한 대로 Azure CLI 1.0을 설치합니다.
 2. Azure 계정으로 로그인합니다.
 
   ```
@@ -890,7 +957,7 @@ cat /var/lib/AzureEnhancedMonitor/PerfCounters
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>종단 간 모니터링 확인 및 문제 해결
 Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Azure 고급 모니터링 확장의 모든 구성 요소가 예상한 대로 작동하는지 확인합니다.
 
-[SAP용 Azure 고급 모니터링 확장에 대한 준비 검사][deployment-guide-5.1]에 설명된 대로 SAP용 Azure 고급 모니터링 확장에 대한 준비 검사를 실행합니다. 모든 준비 검사 결과가 긍정적이고 모든 관련 성능 카운터가 정상으로 나타나면 Azure 모니터링이 성공적으로 설정된 것입니다. SAP Note [SAP 리소스][deployment-guide-2.2]에 설명된 SAP 호스트 에이전트 설치를 진행할 수 있습니다. 준비 검사에서 카운터가 누락된 것으로 나타나는 경우 [Azure 모니터링 인프라 구성에 대한 상태 검사][deployment-guide-5.2]에 설명된 대로 Azure 모니터링 인프라에 대한 상태 검사를 실행합니다. 자세한 문제 해결 옵션은 [SAP용 Azure 모니터링 문제 해결][deployment-guide-5.3]을 참조하세요.
+[SAP용 Azure 고급 모니터링 확장에 대한 준비 검사][deployment-guide-5.1]에 설명된 대로 SAP용 Azure 고급 모니터링 확장에 대한 준비 검사를 실행합니다. 모든 준비 검사 결과가 긍정적이고 모든 관련 성능 카운터가 정상으로 나타나면 Azure 모니터링이 성공적으로 설정된 것입니다. [SAP 리소스][deployment-guide-2.2]의 SAP Notes에 설명된 대로 SAP 호스트 에이전트 설치를 진행할 수 있습니다. 준비 검사에서 카운터가 누락된 것으로 나타나는 경우 [Azure 모니터링 인프라 구성에 대한 상태 검사][deployment-guide-5.2]에 설명된 대로 Azure 모니터링 인프라에 대한 상태 검사를 실행합니다. 자세한 문제 해결 옵션은 [SAP용 Azure 모니터링 문제 해결][deployment-guide-5.3]을 참조하세요.
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>SAP용 Azure 고급 모니터링 확장에 대한 준비 검사
 이 검사에서는 SAP 응용 프로그램 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
@@ -963,19 +1030,9 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
    **예상 결과**: 다음과 유사한 한 항목을 표시합니다. `python /usr/sbin/waagent -daemon`
 
-2. Linux 진단 확장이 설치되고 사용하도록 설정되었는지 확인합니다.
-
-  a.  `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'` 실행
-
-   **예상 결과**: Linux 진단 확장 디렉터리의 내용을 나열합니다.
-
- b. `ps -ax | grep diagnostic` 실행
-
-   **예상 결과**: 다음과 유사한 한 항목을 표시합니다. `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
-
 3.   Azure 고급 모니터링 확장이 설치되고 실행되고 있는지 확인합니다.
 
-  a.  `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'` 실행
+  a.  `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'` 실행
 
     **예상 결과**: Azure 고급 모니터링 확장 디렉터리의 내용을 나열합니다.
 
@@ -999,7 +1056,7 @@ SAP NetWeaver ABAP 응용 프로그램 서버가 이미 설치된 경우 트랜�
 모니터링 데이터의 일부가 [SAP용 Azure 고급 모니터링에 대한 준비 검사][deployment-guide-5.1]에서 설명한 테스트에 표시된 대로 올바르게 전달되지 않는 경우 `Test-AzureRmVMAEMExtension` cmdlet을 실행하여 Azure 모니터링 인프라 및 SAP용 모니터링 확장이 올바르게 구성되었는지 확인합니다.
 
 1.  [Azure PowerShell cmdlet 배포][deployment-guide-4.1]에 설명된 대로 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다.
-2.  다음 PowerShell cmdlet을 실행합니다. 사용 가능한 환경 목록을 보려면 `Get-AzureRmEnvironment` cmdlet을 실행합니다. 공용 Azure를 사용하려면**AzureCloud** 환경을 선택합니다. 중국의 Azure인 경우 **AzureChinaCloud**를 선택합니다.
+2.  다음 PowerShell cmdlet을 실행합니다. 사용 가능한 환경 목록을 보려면 `Get-AzureRmEnvironment` cmdlet을 실행합니다. 전역 Azure를 사용하려면**AzureCloud** 환경을 선택합니다. 중국의 Azure인 경우 **AzureChinaCloud**를 선택합니다.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

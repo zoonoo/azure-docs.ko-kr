@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: dbcec586fe5ee06da38c37cf1ead2469386cc5c3
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
@@ -75,7 +74,7 @@ Azure Functions 프로젝트를 빌드하면 `[FunctionName]`에 정의된 함�
 
 ### <a name="blob-storage-trigger-input-and-output-bindings"></a>Blob 저장소 트리거, 입력 및 출력 바인딩
 
-Azure Functions는 Azure Blob 저장소에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 식 및 메타데이터 바인딩에 대한 자세한 내용은 [Azure Functions Blob 저장소 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
+Azure Functions는 Azure Blob Storage에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 식 및 메타데이터 바인딩에 대한 자세한 내용은 [Azure Functions Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
 
 Blob 트리거는 `[BlobTrigger]` 특성으로 정의됩니다. `[StorageAccount]` 특성을 사용하여 전체 함수 또는 클래스에서 사용되는 저장소 계정을 정의할 수 있습니다.
 
@@ -267,6 +266,30 @@ Azure Functions는 프로그래밍 방식으로 전자 메일을 보내기 위�
 
 `[SendGrid]` 특성은 [Microsoft.Azure.WebJobs.Extensions.SendGrid] NuGet 패키지에 정의되어 있습니다.
 
+다음은 `SendGridMessage`를 사용하여 Service Bus 큐 트리거 및 SendGrid 출력 바인딩을 사용하는 예입니다.
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
 <a name="service-bus"></a>
 
 ### <a name="service-bus-trigger-and-output"></a>Service Bus 트리거 및 출력
@@ -418,3 +441,4 @@ C# 스크립팅에서 Azure Functions 사용에 대한 자세한 내용은 [Azur
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+

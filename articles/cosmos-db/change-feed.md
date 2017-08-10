@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/24/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d04d1240fb353a973953b2a90eadc65705219edb
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5cc565adf4a4b6820ad676d9689c9697e9158b9f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
@@ -32,9 +31,12 @@ Azure Cosmos DB에서는 변경 피드 지원을 사용하여 Azure Cosmos DB �
 * 업데이트에 대한 실시간(스트림) 처리 수행
 * 캐시, 검색 엔진 또는 데이터 웨어하우스와 데이터 동기화
 
-Azure Cosmos DB의 변경 내용이 유지되면 비동기적으로 처리되고 병렬 처리를 위해 한 명 이상의 소비자에게 분산될 수 있습니다. 변경 피드에 대한 API 및 이를 사용하여 확장 가능한 실시간 응용 프로그램을 빌드하는 방법에 대해 살펴보겠습니다. 이 문서에는 Azure Cosmos DB DocumentDB API를 사용하여 공간 데이터를 사용하는 방법을 보여 줍니다. 
+Azure Cosmos DB의 변경 내용이 유지되면 비동기적으로 처리되고 병렬 처리를 위해 한 명 이상의 소비자에게 분산될 수 있습니다. 변경 피드에 대한 API 및 이를 사용하여 확장 가능한 실시간 응용 프로그램을 빌드하는 방법에 대해 살펴보겠습니다. 이 문서에서는 Azure Cosmos DB 변경 피드 및 DocumentDB API를 사용하는 방법을 보여줍니다. 
 
-![Azure Cosmos DB 변경 피드를 사용하여 실시간 분석 및 이벤트 기반 컴퓨팅 시나리오 작동](./media/change-feed/changefeed.png)
+![Azure Cosmos DB 변경 피드를 사용하여 실시간 분석 및 이벤트 기반 컴퓨팅 시나리오 작동](./media/change-feed/changefeedoverview.png)
+
+> [!NOTE]
+> 이 시점에 변경 피드 지원은 DocumentDB API에만 제공됩니다. Graph API 및 Table API는 현재 지원되지 않습니다.
 
 ## <a name="use-cases-and-scenarios"></a>사용 사례 및 시나리오
 변경 피드를 사용하면 많은 양의 쓰기가 포함된 큰 데이터 집합을 효율적으로 처리할 수 있고 변경된 내용을 식별하는 전체 데이터 집합을 쿼리하는 대안을 제공합니다. 예를 들어, 다음 작업을 효율적으로 수행할 수 있습니다.
@@ -64,13 +66,13 @@ Azure Cosmos DB에서는 증분 방식으로 Azure Cosmos DB 컬렉션에 이뤄
 * 변경 내용은 파티션 키 범위에서 사용할 수 있습니다. 이 기능을 사용하면 대규모 컬렉션의 변경 내용을 여러 소비자/서버에 의해 병렬로 처리할 수 있습니다.
 * 응용 프로그램은 동일한 컬렉션에서 동시에 여러 변경 피드를 요청할 수 있습니다.
 
-Azure Cosmos DB의 변경 피드는 모든 계정에 대해 기본적으로 활성화되고 사용자 계정에 추가 비용이 발생하지 않습니다. 쓰기 지역 또는 [읽기 지역](distribute-data-globally.md)에서 [프로비전된 처리량](request-units.md)을 사용하여 Azure Cosmos DB의 다른 작업과 마찬가지로 변경 피드에서 읽을 수 있습니다. 변경 피드는 컬렉션 내의 문서에 수행된 삽입 및 업데이트 작업을 포함합니다. 삭제 대신 문서 내에서 "soft-delete" 플래그를 설정하여 삭제를 캡처할 수 있습니다. 또는 [TTL 기능](time-to-live.md)을 통해 문서에 대한 제한 만료 기간을 설정할 수 있습니다. 예를 들어, 24시간으로 설정하고 해당 속성의 값을 사용하여 삭제를 캡처합니다. 이 솔루션을 사용하여 TTL 만료 기간보다 짧은 시간 간격 내에 변경 내용을 처리해야 합니다. 변경 피드는 문서 컬렉션 내에서 각 파티션 키 범위에 대해 사용할 수 있으며 따라서 병렬 처리를 위해 한 명 이상의 소비자에게 배포할 수 있습니다. 
+Azure Cosmos DB의 변경 피드는 모든 계정에 기본적으로 사용됩니다. 쓰기 지역 또는 [읽기 지역](distribute-data-globally.md)에서 [프로비전된 처리량](request-units.md)을 사용하여 Azure Cosmos DB의 다른 작업과 마찬가지로 변경 피드에서 읽을 수 있습니다. 변경 피드는 컬렉션 내의 문서에 수행된 삽입 및 업데이트 작업을 포함합니다. 삭제 대신 문서 내에서 "soft-delete" 플래그를 설정하여 삭제를 캡처할 수 있습니다. 또는 [TTL 기능](time-to-live.md)을 통해 문서에 대한 제한 만료 기간을 설정할 수 있습니다. 예를 들어, 24시간으로 설정하고 해당 속성의 값을 사용하여 삭제를 캡처합니다. 이 솔루션을 사용하여 TTL 만료 기간보다 짧은 시간 간격 내에 변경 내용을 처리해야 합니다. 변경 피드는 문서 컬렉션 내에서 각 파티션 키 범위에 대해 사용할 수 있으며 따라서 병렬 처리를 위해 한 명 이상의 소비자에게 배포할 수 있습니다. 
 
 ![Azure Cosmos DB 변경 피드의 분산 처리](./media/change-feed/changefeedvisual.png)
 
-다음 섹션에서는 Azure Cosmos DB REST API 및 SDK를 사용하여 변경 피드에 액세스하는 방법에 대해 설명합니다. .NET 응용 프로그램의 경우 변경 피드에서 이벤트를 처리하는 데 [변경 피드 프로세서 라이브러리]()를 사용하는 것이 좋습니다.
+클라이언트 코드에서 변경 피드를 구현하는 방법에는 몇 가지 옵션이 있습니다. 바로 다음에 있는 섹션에서는 Azure Cosmos DB REST API 및 DocumentDB SDK를 사용하여 변경 피드를 구현하는 방법을 설명합니다. 그러나 .NET 응용 프로그램의 경우 변경 피드에서 이벤트를 처리하기 위해 새로운 [변경 피드 프로세서 라이브러리](#change-feed-processor)를 사용하는 것이 좋습니다. 그러면 파티션 간에 읽기 변경 사항을 간소화하고 여러 스레드를 병렬로 작동할 수 있습니다.
 
-## <a id="rest-apis"></a>REST API 및 SDK 사용
+## <a id="rest-apis"></a>REST API 및 DocumentDB SDK 사용
 Azure Cosmos DB에서는 **컬렉션**이라는 저장소 및 처리량의 탄력적인 컨테이너를 제공합니다. 확장성 및 성능을 위해 [파티션 키](partition-data.md)를 사용하여 컬렉션 내의 데이터를 논리적으로 그룹화합니다. Azure Cosmos DB에서는 ID(읽기/가져오기), 쿼리 및 읽기-피드(검색) 기준 조회를 포함하여 이 데이터에 액세스하기 위한 다양한 API를 제공합니다. 변경 피드는 DocumentDB의 `ReadDocumentFeed` API에 두 가지 새로운 요청 헤더를 채워서 가져올 수 있으며 파티션 키 범위에서 동시에 처리할 수 있습니다.
 
 ### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
@@ -90,14 +92,16 @@ ReadDocumentFeed의 작동 방식에 대해 간략하게 살펴보겠습니다. 
 
 **직렬 읽기 문서 피드**
 
-지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서의 피드를 검색할 수도 있습니다. 예를 들어, 다음 코드 조각에서는 .NET에서 ReadDocumentFeed를 수행하는 방법을 보여 줍니다.
+지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서의 피드를 검색할 수도 있습니다. 예를 들어, 다음 코드 조각은 .NET에서 [ReadDocumentFeedAsync 메서드](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentfeedasync?view=azure-dotnet)를 사용하는 방법을 보여줍니다.
 
-    FeedResponse<dynamic> feedResponse = null;
-    do
-    {
-        feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
-    }
-    while (feedResponse.ResponseContinuation != null);
+```csharp
+FeedResponse<dynamic> feedResponse = null;
+do
+{
+    feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
+}
+while (feedResponse.ResponseContinuation != null);
+```
 
 ### <a name="distributed-execution-of-readdocumentfeed"></a>ReadDocumentFeed의 분산 실행
 테라바이트 이상의 데이터를 포함하거나 대량의 업데이트를 수집하는 컬렉션의 경우 단일 클라이언트 컴퓨터에서 읽기 피드의 직렬 실행은 실용적이지 않습니다. 이러한 빅 데이터 시나리오를 지원하기 위해 Azure Cosmos DB에서는 API를 제공하여 여러 클라이언트 판독기/소비자에게 `ReadDocumentFeed` 호출을 투명하게 배포합니다. 
@@ -170,21 +174,23 @@ ReadDocumentFeed의 작동 방식에 대해 간략하게 살펴보겠습니다. 
     </tr>       
 </table>
 
-지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 수행할 수 있습니다. 예를 들어, 다음 코드 조각에서는 .NET에서 파티션 키 범위를 검색하는 방법을 보여 줍니다.
+지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 수행할 수 있습니다. 예를 들어, 다음 코드 조각은 [ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync?view=azure-dotnet) 메서드를 사용하여 .NET에서 파티션 키 범위를 검색하는 방법을 보여 줍니다.
 
-    string pkRangesResponseContinuation = null;
-    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+```csharp
+string pkRangesResponseContinuation = null;
+List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
 
-    do
-    {
-        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-            collectionUri, 
-            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+do
+{
+    FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+        collectionUri, 
+        new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
-        partitionKeyRanges.AddRange(pkRangesResponse);
-        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-    }
-    while (pkRangesResponseContinuation != null);
+    partitionKeyRanges.AddRange(pkRangesResponse);
+    pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
+}
+while (pkRangesResponseContinuation != null);
+```
 
 Azure Cosmos DB에서는 옵션 `x-ms-documentdb-partitionkeyrangeid` 헤더를 설정하여 파티션 키 범위당 문서 검색을 지원합니다. 
 
@@ -197,7 +203,7 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
 
 변경 내용에는 문서에 대한 삽입 및 업데이트가 포함됩니다. 삭제를 캡처하려면 문서 내에서 "soft delete" 속성을 사용하거나 [기본 제공 TTL 속성](time-to-live.md)을 사용하여 변경 피드에서 보류 중인 삭제를 알려야 합니다.
 
-다음 테이블에서는 ReadDocumentFeed 작업에 대한 요청 및 응답 헤더를 나열합니다.
+다음 테이블에서는 ReadDocumentFeed 작업에 대한 [요청](/rest/api/documentdb/common-documentdb-rest-request-headers.md) 및 [응답 헤더](/rest/api/documentdb/common-documentdb-rest-response-headers.md)를 나열합니다.
 
 **증분 ReadDocumentFeed에 대한 요청 헤더**:
 
@@ -258,147 +264,264 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
 > [!NOTE]
 > 변경 피드를 사용하면 저장된 프로시저 또는 트리거 내에서 여러 문서를 삽입 또는 업데이트할 때 `x-ms-max-item-count`에 지정된 것보다 더 많은 항목이 한 페이지에 반환됩니다. 
 
-.NET SDK는 컬렉션의 변경 내용에 액세스할 수 있도록 [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 및 [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) 도우미 클래스를 제공합니다. 다음 코드 조각에서는 단일 클라이언트에서 .NET SDK를 사용하여 처음부터 모든 변경 내용을 검색하는 방법을 보여 줍니다.
+.NET SDK는 컬렉션의 변경 내용에 액세스할 수 있도록 [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) 및 [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) 도우미 클래스를 제공합니다. 다음 코드 조각에서는 단일 클라이언트에서 .NET SDK를 사용하여 처음부터 모든 변경 내용을 검색하는 방법을 보여 줍니다.
 
-    private async Task<Dictionary<string, string>> GetChanges(
-        DocumentClient client,
-        string collection,
-        Dictionary<string, string> checkpoints)
+```csharp
+private async Task<Dictionary<string, string>> GetChanges(
+    DocumentClient client,
+    string collection,
+    Dictionary<string, string> checkpoints)
+{
+    string pkRangesResponseContinuation = null;
+    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+
+    do
     {
-        string pkRangesResponseContinuation = null;
-        List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
-        do
-        {
-            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-                collectionUri, 
-                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
+    }
+    while (pkRangesResponseContinuation != null);
 
-            partitionKeyRanges.AddRange(pkRangesResponse);
-            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-        }
-        while (pkRangesResponseContinuation != null);
+    foreach (PartitionKeyRange pkRange in partitionKeyRanges)
+    {
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
 
-        foreach (PartitionKeyRange pkRange in partitionKeyRanges)
-        {
-            string continuation = null;
-            checkpoints.TryGetValue(pkRange.Id, out continuation);
-
-            IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-                collection,
-                new ChangeFeedOptions
-                {
-                    PartitionKeyRangeId = pkRange.Id,
-                    StartFromBeginning = true,
-                    RequestContinuation = continuation,
-                    MaxItemCount = 1
-                });
-
-            while (query.HasMoreResults)
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collection,
+            new ChangeFeedOptions
             {
-                FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = 1
+            });
 
-                foreach (DeviceReading changedDocument in readChangesResponse)
-                {
-                    Console.WriteLine(changedDocument.Id);
-                }
+        while (query.HasMoreResults)
+        {
+            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            foreach (DeviceReading changedDocument in readChangesResponse)
+            {
+                Console.WriteLine(changedDocument.Id);
             }
-        }
 
-        return checkpoints;
+            checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+        }
     }
 
+    return checkpoints;
+}
+```
 다음 코드 조각에서는 변경 피드 지원과 앞의 함수를 사용하여 Azure Cosmos DB에서 실시간으로 변경 내용을 처리하는 방법을 보여 줍니다. 첫 번째 호출은 컬렉션에 있는 모든 문서를 반환하고 두 번째 호출은 최근 검사점 이후에 만들어진 만든 두 개의 문서만을 반환합니다.
 
-    // Returns all documents in the collection.
-    Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
+```csharp
+// Returns all documents in the collection.
+Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
 
-    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
-    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
+await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
+await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
 
-    // Returns only the two documents created above.
-    checkpoints = await GetChanges(client, collection, checkpoints);
-
+// Returns only the two documents created above.
+checkpoints = await GetChanges(client, collection, checkpoints);
+```
 
 선택적으로 이벤트를 처리하기 위해 클라이언트 쪽 논리를 사용하여 변경 피드를 필터링할 수도 있습니다. 예를 들어, 장치 센서에서 온도 변경 이벤트만을 처리하는 클라이언트 쪽 LINQ를 사용하는 코드 조각은 다음과 같습니다.
 
-    FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+```csharp
+FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-    foreach (DeviceReading changedDocument in 
-        readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
-    {
-        // trigger an action, like call an API
-    }
+foreach (DeviceReading changedDocument in 
+    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+{
+    // trigger an action, like call an API
+}
+```
 
 ## <a id="change-feed-processor"></a>변경 피드 프로세서 라이브러리
-[Azure Cosmos DB 변경 피드 프로세서 라이브러리](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor)는 여러 소비자에 대한 변경 피드에서 처리되는 이벤트를 배포하는 데 사용될 수 있습니다. .NET 플랫폼에서 변경 피드 판독기를 빌드할 때 이 구현을 사용해야 합니다. `ChangeFeedProcessorHost` 클래스는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현을 위한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다.
+다른 옵션은 [Azure Cosmos DB 변경 피드 프로세서 라이브러리](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed)를 사용하는 것입니다. 여러 소비자에게 변경 피드에서 처리되는 이벤트를 쉽게 배포할 수 있습니다. 라이브러리는 .NET 플랫폼에서 변경 피드 reader를 빌드하는 데 유용합니다. 다른 Cosmos DB SDK에 포함된 메서드를 통해 변경 피드 프로세서 라이브러리를 사용하여 간소화되는 일부 워크플로는 다음과 같습니다. 
 
-[`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs) 클래스를 사용하려면 [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs)을 구현할 수 있습니다. 이 인터페이스는 세 가지 메서드가 포함합니다.
+* 데이터가 여러 파티션에 저장되면 변경 피드의 업데이트 풀링
+* 하나의 컬렉션에서 다른 컬렉션으로 데이터 이동 또는 복제
+* 데이터 및 변경 피드의 업데이트에 의해 트리거되는 작업의 병렬 실행 
 
-* OpenAsync
-* CloseAsync
-* ProcessEventsAsync
+Cosmos SDK에서 API를 사용하면 각 파티션의 변경 피드 업데이트에 정확한 액세스 권한을 제공하는 반면 변경 피드 프로세서 라이브러리를 사용하면 병렬로 작동하는 파티션과 여러 스레드 간에 변경 내용을 읽는 작업을 간소화합니다. 변경 피드 프로세서는 수동으로 각 컨테이너에서 변경 내용을 읽고 각 파티션의 연속 토큰을 저장하지 않고 임대 메커니즘을 사용하여 파티션 간에 읽기 변경 내용을 자동으로 관리합니다.
 
-이벤트 처리를 시작하려면 Azure Cosmos DB 컬렉션에 적절한 매개 변수를 제공하여 ChangeFeedProcessorHost를 인스턴스화합니다. 그런 다음 `RegisterObserverAsync`을 호출하여 런타임에 `IChangeFeedObserver` 구현을 등록합니다. 이 시점에서 호스트는 "greedy" 알고리즘을 사용하여 Azure Cosmos DB 컬렉션의 모든 파티션 키 범위에서 임대를 획득하려 합니다. 이러한 임대는 지정된 시간 프레임 동안 지속되며 갱신되어야 합니다. 새 노드(이 경우 작업자 인스턴스)가 온라인 상태가 되면 임대 예약을 놓고 더 많은 임대를 획득하기 위해 시간이 지남에 따라 노드 간에 부하가 이동합니다.
+라이브러리는 NuGet 패키지인 [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)로 사용할 수 있고 소스 코드에서 Github [샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)로 사용할 수 있습니다. 
 
-![Azure Cosmos DB 변경 피드 프로세서 호스트 사용](./media/change-feed/changefeedprocessor.png)
+### <a name="understanding-change-feed-processor-library"></a>변경 피드 프로세서 라이브러리 이해 
 
-시간이 지남에 따라 평형이 설정됩니다. 이 동적 기능을 사용하면 확장 및 축소 모두에 대해 소비자에게 적용할 CPU 기반 자동 크기 조정을 할 수 있습니다. 변경 내용을 소비자가 처리할 수 있는 것보다 빠르게 Azure Cosmos DB에서 사용할 수 있는 경우 소비자에 대한 CPU가 증가하여 작업자 인스턴스 수의 크기를 자동으로 조정할 수 있습니다.
+변경 피드 프로세서를 구현하는 4개의 주요 구성 요소는 모니터링된 컬렉션, 임대 컬렉션, 프로세서 호스트 및 소비자입니다. 
 
-또한 `ChangeFeedProcessorHost` 클래스는 별도 Azure Cosmos DB 임대 컬렉션을 사용하여 검사점 메커니즘을 구현합니다. 이 메커니즘은 파티션당 오프셋을 저장하므로 각 소비자가 이전 소비자의 마지막 검사점 무엇인지를 결정할 수 있습니다. 임대를 통해 노드 간에 파티션이 전환되면 이동하는 부하를 용이하게 하는 동기화 메커니즘입니다.
+**모니터링된 컬렉션:** 모니터링된 컬렉션은 변경 피드가 생성되는 데이터입니다. 모니터링된 컬렉션에 대한 모든 삽입 및 변경 내용은 컬렉션의 변경 피드에 반영됩니다. 
+
+**임대 컬렉션:** 임대 컬렉션은 여러 작업자 간에 변경 피드를 처리하도록 조정합니다. 파티션당 하나의 임대를 사용하여 임대를 저장하는 데 별도 컬렉션을 사용합니다. 변경 피드 프로세서를 실행하는 지역과 가까운 쓰기 지역을 사용하여 다른 계정에 이 임대 컬렉션을 저장하는 것이 유용합니다. 임대 개체는 다음 특성을 포함합니다. 
+* 소유자: 임대를 소유하는 호스트를 지정합니다.
+* 연속: 특정 파티션에 대한 변경 피드에서 위치(연속 토큰)를 지정합니다.
+* 타임스탬프: 마지막으로 임대가 업데이트된 시간입니다. 임대가 만료된 것으로 간주되는지를 확인하는 데 타임스탬프를 사용할 수 있습니다. 
+
+**프로세서 호스트:** 각 호스트는 활성 임대가 포함된 호스트의 다른 인스턴스 수에 따라 처리되는 파티션 수를 결정합니다. 
+1.  호스트가 시작되면 임대를 획득하여 모든 호스트에서 워크로드를 분산합니다. 호스트는 임대가 활성 상태로 유지되도록 주기적으로 임대를 갱신합니다. 
+2.  해당 임대에 대한 마지막 연속 토큰이 읽은 호스트 검사점입니다. 동시성 안전을 보장하기 위해 호스트는 각 임대 업데이트에 대한 ETag를 확인합니다. 다른 검사점 전략도 지원됩니다.  
+3.  종료 시 호스트는 모든 임대를 해제하지만 나중에 저장된 검사점에서 읽기를 다시 시작할 수 있도록 연속 정보를 유지합니다. 
+
+이 경우에 호스트 수는 파티션(임대) 수보다 클 수 없습니다.
+
+**소비자:** 소비자나 작업자는 각 호스트에서 시작된 변경 피드 처리를 수행하는 스레드입니다. 각 프로세서 호스트에는 여러 소비자가 있을 수 있습니다. 각 소비자는 할당된 파티션에서 변경 피드를 읽고 호스트에게 변경 사항 및 만료된 임대를 알려줍니다.
+
+변경 피드 프로세서에서 이러한 4개의 요소를 함께 사용하는 방법을 이해하기 위해 다음 다이어그램의 예제를 살펴보겠습니다. 모니터링되는 컬렉션은 문서를 저장하고 "도시"를 파티션 키로 사용합니다. 파란색 파티션이 "A~E"의 "도시" 필드를 가진 문서를 포함하는 것을 확인할 수 있습니다. 두 호스트에는 동시에 4개의 파티션을 읽는 두 명의 소비자가 있습니다. 화살표는 변경 피드의 특정 지점에서 읽는 소비자를 표시합니다. 첫 번째 파티션에서 어두운 파란색은 읽지 않은 변경 내용을 나타내는 반면 연한 파랑은 변경 피드의 읽기 변경 내용을 나타냅니다. 호스트는 각 소비자에 대한 현재 읽기 위치를 추적하기 위해 "연속" 값을 저장하는 임대 컬렉션을 사용합니다. 
+
+![Azure Cosmos DB 변경 피드 프로세서 호스트 사용](./media/change-feed/changefeedprocessornew.png)
+
+### <a name="using-change-feed-processor-library"></a>변경 피드 프로세서 라이브러리 사용 
+다음 섹션에서는 소스 컬렉션에서 대상 컬렉션에 변경 내용을 복제하는 컨텍스트에서 변경 피드 프로세서 라이브러리를 사용하는 방법을 설명합니다. 여기에서 소스 컬렉션은 변경 피드 프로세서에서 모니터링되는 컬렉션입니다. 
+
+**변경 피드 프로세서 NuGet 패키지 설치 및 포함** 
+
+변경 피드 프로세서 NuGet 패키지를 설치하기 전에 먼저 다음을 설치합니다. 
+* Microsoft.Azure.DocumentDB, 버전 1.13.1 이상 
+* Newtonsoft.Json, 버전 9.0.1 이상`Microsoft.Azure.DocumentDB.ChangeFeedProcessor`를 설치하고 참조로 포함합니다.
+
+**모니터링된 임대 및 대상 컬렉션 만들기** 
+
+변경 피드 프로세서 라이브러리를 사용하기 위해 프로세서 호스트를 실행하기 전에 임대 컬렉션을 생성해야 합니다. 다시 변경 피드 프로세서를 실행하는 지역과 가까운 쓰기 지역을 사용하여 다른 계정에 임대 컬렉션을 저장하는 것이 좋습니다. 이 데이터 이동 예제에서 변경 피드 프로세서 호스트를 실행하기 전에 대상 컬렉션을 만들어야 합니다. 샘플 코드에서 모니터링되고 임대되는 대상 컬렉션이 존재하지 않을 경우 해당 컬렉션을 만드는 도우미 메서드를 호출합니다. 
+
+> [!WARNING]
+> 응용 프로그램이 Azure Cosmos DB와 통신하기 위해 처리량을 예약할 때 컬렉션을 만드는 것은 가격에 영향을 미칩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+> 
+> 
+
+*프로세서 호스트 만들기*
+
+`ChangeFeedProcessorHost` 클래스는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현을 위한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다. `ChangeFeedProcessorHost` 클래스를 사용하려면 `IChangeFeedObserver`를 구현하면 됩니다. 이 인터페이스는 세 가지 메서드가 포함합니다.
+
+* `OpenAsync`: 이 함수는 변경 피드 관찰자를 열 때 호출됩니다. 소비자/관찰자가 열릴 때 특정 작업을 수행하도록 수정할 수 있습니다.  
+* `CloseAsync`: 이 함수는 변경 피드 관찰자를 종료할 때 호출됩니다. 소비자/관찰자가 닫힐 때 특정 작업을 수행하도록 수정할 수 있습니다.  
+* `ProcessChangesAsync`: 이 함수는 변경 피드에서 문서의 새로운 변경 내용을 사용할 수 있을 때 호출됩니다. 모든 변경 피드 업데이트 시 특정 작업을 수행하도록 수정할 수 있습니다.  
+
+예제에서는 `DocumentFeedObserver` 클래스를 통해 `IChangeFeedObserver` 인터페이스를 구현합니다. 여기서 `ProcessChangesAsync` 함수는 변경 피드에서 대상 컬렉션에 문서를 upsert(업데이트)합니다. 이 예제는 데이터 집합의 파티션 키를 변경하기 위해 하나의 컬렉션에서 다른 컬렉션으로 데이터를 이동하는 데 유용합니다. 
+
+*프로세서 호스트 실행*
+
+이벤트 처리를 시작하기 전에 변경 피드 옵션 및 변경 피드 호스트 옵션을 사용자 지정할 수 있습니다. 
+```csharp
+    // Customizable change feed option and host options 
+    ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+
+    // ie customize StartFromBeginning so change feed reads from beginning
+    // can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+    feedOptions.StartFromBeginning = true;
+
+    ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+
+    // ie. customizing lease renewal interval to 15 seconds
+    // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+    feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+
+```
+사용자 지정할 수 있는 특정 필드는 다음 표에 요약되어 있습니다. 
+
+**변경 피드 옵션**:
+<table>
+    <tr>
+        <th>속성 이름</th>
+        <th>설명</th>
+    </tr>
+    <tr>
+        <td>MaxItemCount</td>
+        <td>Azure Cosmos DB 데이터베이스 서비스의 열거 작업에서 반환할 항목의 최대 수를 가져오거나 설정합니다.</td>
+    </tr>
+    <tr>
+        <td>PartitionKeyRangeId</td>
+        <td>Azure Cosmos DB 데이터베이스 서비스에서 현재 요청에 대한 파티션 키 범위 ID를 가져오거나 설정합니다.</td>
+    </tr>
+    <tr>
+        <td>RequestContinuation</td>
+        <td>Azure Cosmos DB 데이터베이스 서비스에서 연속 토큰 요청을 가져오거나 설정합니다.</td>
+    </tr>
+        <tr>
+        <td>SessionToken</td>
+        <td>Azure Cosmos DB 데이터베이스 서비스에서 세션 일관성을 사용하기 위해 세션 토큰을 가져오거나 설정합니다.</td>
+    </tr>
+        <tr>
+        <td>StartFromBeginning</td>
+        <td>Azure Cosmos DB 데이터베이스 서비스에서 변경 피드가 처음(true)부터 시작해야 하는지 아니면 현재(false)부터 시작해야 하는지를 가져오거나 설정합니다. 기본적으로 현재(false)부터 시작합니다.</td>
+    </tr>
+</table>
+
+**변경 피드 호스트 옵션**:
+<table>
+    <tr>
+        <th>속성 이름</th>
+        <th>형식</th>
+        <th>설명</th>
+    </tr>
+    <tr>
+        <td>LeaseRenewInterval</td>
+        <td>TimeSpan</td>
+        <td>ChangeFeedEventHost 인스턴스에서 현재 보유한 파티션의 모든 임대에 대한 간격입니다.</td>
+    </tr>
+    <tr>
+        <td>LeaseAcquireInterval</td>
+        <td>TimeSpan</td>
+        <td>파티션이 알려진 호스트 인스턴스 간에 균등하게 배포되는지를 계산하는 태스크를 시작하는 간격입니다.</td>
+    </tr>
+    <tr>
+        <td>LeaseExpirationInterval</td>
+        <td>TimeSpan</td>
+        <td>파티션을 나타내는 임대에서 임대를 수행하는 간격입니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 ChangeFeedEventHost 인스턴스로 파티션 소유권이 이동합니다.</td>
+    </tr>
+    <tr>
+        <td>FeedPollDelay</td>
+        <td>TimeSpan</td>
+        <td>현재 변경 내용이 모두 삭제된 후에 피드에 대한 새로운 변경 내용의 파티션을 폴링하는 작업 간의 지연입니다.</td>
+    </tr>
+    <tr>
+        <td>CheckpointFrequency</td>
+        <td>CheckpointFrequency</td>
+        <td>검사점 임대에 대한 빈도입니다.</td>
+    </tr>
+    <tr>
+        <td>MinPartitionCount</td>
+        <td>int</td>
+        <td>호스트의 최소 파티션 수입니다.</td>
+    </tr>
+    <tr>
+        <td>MaxPartitionCount</td>
+        <td>int</td>
+        <td>호스트가 제공할 수 있는 최대 파티션 수입니다.</td>
+    </tr>
+    <tr>
+        <td>DiscardExistingLeases</td>
+        <td>Bool</td>
+        <td>호스트의 시작에서 모든 기존 임대를 삭제하고 호스트가 처음부터 다시 시작해야 하는지 여부입니다.</td>
+    </tr>
+</table>
 
 
-다음은 변경 내용을 콘솔에 출력하는 간단한 변경 피드 프로세서 호스트의 코드 조각입니다.
+이벤트 처리를 시작하려면 Azure Cosmos DB 컬렉션에 적절한 매개 변수를 제공하여 `ChangeFeedProcessorHost`를 인스턴스화합니다. 그런 다음 `RegisterObserverAsync`를 호출하여 `IChangeFeedObserver`(이 예제의 DocumentFeedObserver) 구현을 런타임에 등록합니다. 이 시점에서 호스트는 "greedy" 알고리즘을 사용하여 Azure Cosmos DB 컬렉션의 모든 파티션 키 범위에서 임대를 획득하려 합니다. 이러한 임대는 지정된 시간 프레임 동안 지속되며 갱신되어야 합니다. 새 노드(이 경우 작업자 인스턴스)가 온라인 상태가 되면 임대 예약을 놓고 각 호스트가 더 많은 임대를 획득하기 위해 시간이 지남에 따라 노드 간에 부하가 이동합니다. 
 
-```cs
-    class DocumentFeedObserver : IChangeFeedObserver
+샘플 코드에서 관찰자를 등록하기 위해 관찰자 및 `RegistObserverFactoryAsync`를 만들도록 팩터리 클래스(DocumentFeedObserverFactory.cs)를 사용합니다. 
+
+```csharp
+using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
     {
-        private static int s_totalDocs = 0;
-        public Task OpenAsync(ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
-        }
-        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
-        {
-            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
-            return Task.CompletedTask;
-        }
-        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
-        {
-            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
-            return Task.CompletedTask;
-        }
+        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
+        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
+
+        await host.RegisterObserverFactoryAsync(docObserverFactory);
+
+        Console.WriteLine("Running... Press enter to stop.");
+        Console.ReadLine();
+
+        await host.UnregisterObserversAsync();
     }
 ```
-
-다음 코드 조각은 Azure Cosmos DB 컬렉션에서 변경 내용을 수신하는 새 호스트를 등록하는 방법을 보여 줍니다. 여기서는 여러 소비자의 파티션 임대를 관리할 별도의 컬렉션을 구성합니다.
-
-```cs
-    string hostName = Guid.NewGuid().ToString();
-    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "documents"
-    };
-
-    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
-    {
-        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
-        MasterKey = "YOUR_SECRET_KEY==",
-        DatabaseName = "db1",
-        CollectionName = "leases"
-    };
-
-    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
-    await host.RegisterObserverAsync<DocumentFeedObserver>();
-```
-
-이 문서에서는 Azure Cosmos DB의 변경 피드 지원의 연습 및 REST API 및/또는 SDK를 사용하여 Azure Cosmos DB 데이터에 대한 변경 내용을 추적하는 방법을 제공합니다. 
+시간이 지남에 따라 평형이 설정됩니다. 이 동적 기능을 사용하면 확장 및 축소 모두에 대해 소비자에게 적용할 CPU 기반 자동 크기 조정을 할 수 있습니다. 변경 내용을 소비자가 처리할 수 있는 것보다 빠르게 Azure Cosmos DB에서 사용할 수 있는 경우 소비자에 대한 CPU가 증가하여 작업자 인스턴스 수의 크기를 자동으로 조정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [GitHub의 Azure Cosmos DB 변경 피드 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed) 사용

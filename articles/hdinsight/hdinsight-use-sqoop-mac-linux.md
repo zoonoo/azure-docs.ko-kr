@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 79b0405f57fd2221f897ded042a111236006c6e0
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 35dcbb91e6af1480685c9fd5b829c54277c1c605
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop을 사용하여 HDInsight의 Hadoop과 SQL Database 간에 데이터 가져오기 및 내보내기
@@ -46,7 +46,7 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 2. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
 
     ```bash
-    sudo apt install --assume-yes install freetds-dev freetds-bin
+    sudo apt --assume-yes install freetds-dev freetds-bin
     ```
 
     FreeTDS는 SQL Database에 연결하기 위해 여러 단계에서 사용됩니다.
@@ -118,10 +118,10 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 2. **hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보내려면 다음 명령을 사용합니다.
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
-    이 명령은 Sqoop에 **sqooptest** 데이터베이스에 연결하도록 지시합니다. 그러면 Sqoop은 **wasbs:///hive/warehouse/hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보냅니다.
+    이 명령은 Sqoop에 **sqooptest** 데이터베이스에 연결하도록 지시합니다. 그러면 Sqoop은 **wasb:///hive/warehouse/hivesampletable**에서 **mobiledata** 테이블로 데이터를 내보냅니다.
 
     > [!IMPORTANT]
     > 클러스터의 기본 저장소가 Azure Storage 계정이면 `wasb:///`를 사용합니다. Azure Data Lake Store이면 `adl:///`을 사용합니다.
@@ -144,10 +144,10 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 
 ## <a name="sqoop-import"></a>Sqoop 가져오기
 
-1. 다음 명령을 사용하여 SQL 데이터베이스의 **mobiledata** 테이블에서 HDInsight의 **wasbs:///tutorials/usesqoop/importeddata** 디렉터리로 데이터를 가져옵니다.
+1. 다음 명령을 사용하여 SQL Database의 **mobiledata** 테이블에서 HDInsight의 **wasb:///tutorials/usesqoop/importeddata** 디렉터리로 데이터를 가져옵니다.
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     데이터의 필드는 탭 문자로 구분되어 있으며 줄은 줄 바꿈 문자로 종료됩니다.
@@ -194,7 +194,7 @@ Apache Sqoop을 사용하여 Azure HDInsight의 Hadoop 클러스터와 Azure SQL
 * HDInsight에서 SQL Server에 연결하는 경우 SQL Server의 IP 주소를 사용해야 할 수 있습니다. 예:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>제한 사항

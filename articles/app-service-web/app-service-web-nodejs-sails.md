@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 09ececc567c09ea4e0b77d4d37445b7c232de23c
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: deb9ce304069e6bd92518610a9953fb1f29cb555
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>Azure 앱 서비스에 Sails.js 웹앱을 배포합니다.
@@ -73,7 +72,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
         logDirectory: iisnode
 
     이제 Azure App Service가 Node.js 앱을 실행하는 데 사용하는 [iisnode](https://github.com/tjanczuk/iisnode) 서버에 대한 로깅이 사용하도록 설정되었습니다. 
-    작동 방식에 대한 자세한 내용은  [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](web-sites-nodejs-debug.md)을 참조하세요.
+    작동 방식에 대한 자세한 내용은 [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](web-sites-nodejs-debug.md)을 참조하세요.
 
 2. 다음으로 Azure 환경 변수를 사용하도록 Sails.js 앱을 구성합니다. 프로덕션 환경을 구성하기 위해 config/env/production.js를 열고 `port` 및 `hookTimeout`을 설정합니다.
 
@@ -88,7 +87,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
             ...
         };
 
-    이러한 구성 설정에 대한 설명은  [Sails.js 설명서](http://sailsjs.org/documentation/reference/configuration/sails-config)에서 확인할 수 있습니다.
+    이러한 구성 설정에 대한 설명서는 [Sails.js 설명서](http://sailsjs.org/documentation/reference/configuration/sails-config)에서 찾을 수 있습니다.
 
 4. 다음으로 사용할 Node.js 버전을 하드 코딩합니다. package.json에서 다음 `engines` 속성을 추가하여 Node.js를 원하는 버전으로 설정합니다.
 
@@ -188,7 +187,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
 1. [MongoDB 프로토콜 지원을 사용하는 Cosmos DB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
 2. [Cosmos DB 컬렉션 및 데이터베이스를 만듭니다](../documentdb/documentdb-create-collection.md). 컬렉션의 이름은 중요하지 않지만 Sails.js에서 연결할 때 데이터베이스의 이름이 필요합니다.
-3. [Cosmos DB 데이터베이스에 대한 연결 정보를 찾습니다](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Cosmos DB 데이터베이스에 대한 연결 정보를 찾습니다](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
 2. 명령줄 터미널에서 MongoDB 어댑터를 설치합니다.
 
         npm install sails-mongo --save
@@ -245,7 +244,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
             migrate: 'alter'
         },
 
-    `migrate: 'alter'`를 통해 데이터베이스 마이그레이션 기능을 사용하여 데이터베이스 컬렉션 또는 테이블을 쉽게 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다( [Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
+    `migrate: 'alter'`를 통해 데이터베이스 마이그레이션 기능을 사용하여 데이터베이스 컬렉션 또는 테이블을 쉽게 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
 8. 터미널에서 평소처럼 Sails.js [청사진 AP](http://sailsjs.org/documentation/concepts/blueprints)I를 [생성](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate)한 다음 `sails lift`을(를) 실행하여 Sails.js 데이터베이스 마이그레이션을 통해 데이터베이스를 만듭니다. 예:
 
          sails generate api mywidget

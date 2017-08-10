@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
-ms.lasthandoff: 04/18/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 97eeec3b3936bcbef6ac3966b890332901bcb153
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,11 +31,9 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스�
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 SharePoint 2013 이상이 사용자 환경에 이미 설정되어 실행되고 있다고 가정합니다. 또한 다음 필수 조건도 고려하세요.
+이 문서에서는 사용자 환경에 SharePoint 2013 이상이 이미 있다고 가정합니다. 또한 다음 필수 조건도 고려하세요.
 
-* 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드한 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-
-* SharePoint에는 기본 Kerberos 지원을 포함합니다. 따라서 Azure AD 응용 프로그램 프록시를 통해 내부 사이트에 원격으로 액세스하는 사용자는 원활한 SSO(Single Sign-On) 환경을 보유한다고 가정할 수 있습니다.
+* SharePoint에는 기본 Kerberos 지원을 포함합니다. 따라서 Azure AD 응용 프로그램 프록시를 통해 원격으로 내부 사이트에 액세스하는 사용자는 SSO(Single Sign-On) 환경을 사용한다고 가정할 수 있습니다.
 
 * SharePoint 서버에 대한 몇 가지 구성을 변경해야 합니다. 스테이징 환경을 사용하는 것이 좋습니다. 이 방법에서는 스테이징 서버로 먼저 업데이트할 수 있으므로 프로덕션으로 전환하기 전에 테스트 주기를 용이하게 할 수 있습니다.
 
@@ -45,13 +45,13 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스�
 
 Windows 인증을 사용하거나 필요로 하는 온-프레미스 응용 프로그램에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO를 획득할 수 있습니다. KCD(구성된 경우)를 통해 응용 프로그램 프록시 커넥터는 사용자가 Windows에 직접 로그인하지 않더라도 사용자에 대한 windows 티켓/토큰을 얻을 수 있습니다. KCD에 대한 자세한 내용은 [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)를 참조하세요.
 
-SharePoint 서버에 대해 KCD를 설정하려면 다음 후속 섹션의 절차를 사용합니다.
+SharePoint 서버에 대해 KCD를 설정하려면 다음에 나오는 순차 섹션의 절차를 사용합니다.
 
 ### <a name="ensure-that-sharepoint-is-running-under-a-service-account"></a>SharePoint가 서비스 계정으로 실행 중인지 확인
 
-먼저 SharePoint가 로컬 시스템, 로컬 서비스 또는 네트워크 서비스가 아닌 정의된 서비스 계정으로 실행 중인지 확인합니다. SPN(서비스 주체 이름)을 유효한 계정에 연결할 수 있으려면 이 작업을 수행해야 합니다. SPN은 Kerberos 프로토콜이 서로 다른 서비스를 식별하는 방법입니다. 나중에 KCD를 구성하려면 계정이 필요합니다.
+먼저 SharePoint가 로컬 시스템, 로컬 서비스 또는 네트워크 서비스가 아닌 정의된 서비스 계정으로 실행 중인지 확인합니다. SPN(서비스 사용자 이름)을 유효한 계정에 연결하려면 이 작업을 수행해야 합니다. SPN은 Kerberos 프로토콜이 서로 다른 서비스를 식별하는 방법입니다. 나중에 KCD를 구성하려면 계정이 필요합니다.
 
-사이트가 정의된 서비스 계정으로 실행 중인지 확인하려면 다음을 수행합니다.
+사이트가 정의된 서비스 계정으로 실행되는지 확인하려면 다음 단계를 수행합니다.
 
 1. **SharePoint 2013 중앙 관리** 사이트를 엽니다.
 2. **보안**으로 이동하고 **서비스 계정 구성**을 선택합니다.
@@ -72,7 +72,7 @@ SharePoint 서버에 대한 Single Sign-On을 수행하는 데 KCD를 사용하�
 Kerberos 인증을 위한 SharePoint 사이트를 구성하려면
 
 1. **SharePoint 2013 중앙 관리** 사이트를 엽니다.
-2. **응용 프로그램 관리**로 이동하고 **웹 응용 프로그램 관리**를 선택하고 SharePoint 사이트를 선택합니다. 이 예제에서는 **SharePoint - 80**입니다.
+2. **응용 프로그램 관리**로 이동하고 **웹 응용 프로그램 관리**를 선택하고 SharePoint 사이트를 선택합니다. 이 예제에서는 **SharePoint – 80**입니다.
 
   ![SharePoint 사이트 선택](./media/application-proxy-remote-sharepoint/remote-sharepoint-manage-web-applications.png)
 
@@ -99,7 +99,7 @@ SPN 형식에서:
 
 * _서비스 클래스_는 서비스의 고유한 이름입니다. SharePoint의 경우 **HTTP**를 사용합니다.
 
-* _호스트_는 해당 서비스가 실행 중인 호스트의 정규화된 도메인 이름 또는 NetBIOS 이름입니다. SharePoint 사이트의 경우 사용 중인 IIS 버전에 따라 사이트의 URL이어야 할 수도 있습니다.
+* _호스트_는 해당 서비스가 실행 중인 호스트의 정규화된 도메인 이름 또는 NetBIOS 이름입니다. SharePoint 사이트의 경우 사용 중인 IIS 버전에 따라 이 텍스트는 사이트의 URL이어야 할 수도 있습니다.
 
 * _포트_는 선택 사항입니다.
 
@@ -138,13 +138,13 @@ Klist
 
  이 명령은 _demo\sp_svc_로 실행 중인 SharePoint 서비스 계정에 대한 SPN을 설정합니다.
 
- _http/sharepoint.demo.o365identity.us_를 서버에 대한 SPN으로, _demo\sp_svc_를 사용자 환경의 서비스 계정으로 바꿉니다. Setspn 명령으로 추가하기 전에 SPN을 검색합니다. 이 경우 **중복된 SPN 값** 오류가 표시될 수 있습니다. 이 오류가 표시되면 값이 해당 서비스 계정과 연결되어 있는지 확인합니다.
+ _http/sharepoint.demo.o365identity.us_를 서버에 대한 SPN으로, _demo\sp_svc_를 사용자 환경의 서비스 계정으로 바꿉니다. 추가하기 전에 Setspn 명령으로 SPN을 검색합니다. 이 경우 **중복된 SPN 값** 오류가 표시될 수 있습니다. 이 오류가 표시되면 값이 해당 서비스 계정과 연결되어 있는지 확인합니다.
 
 -l 옵션과 함께 Setspn 명령을 실행하여 SPN이 추가되었는지 확인할 수 있습니다. 이 명령에 대해 자세히 알아보려면 [Setspn](https://technet.microsoft.com/library/cc731241.aspx)을 참조하세요.
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>커넥터가 SharePoint에 대한 신뢰할 수 있는 대리자로 설정되는지 확인
 
-Azure AD 응용 프로그램 프록시 서비스가 사용자 ID를 SharePoint 서비스에 위임할 수 있도록 KCD를 구성합니다. 응용 프로그램 프록시 커넥터에서 Azure AD에서 인증된 사용자에 대한 Kerberos 티켓을 검색할 수 있도록 하여 이 작업을 수행합니다. 그러면 서버는 컨텍스트를 대상 응용 프로그램(이 경우는 SharePoint)에 전달합니다.
+Azure AD 응용 프로그램 프록시 서비스가 사용자 ID를 SharePoint 서비스에 위임할 수 있도록 KCD를 구성합니다. 응용 프로그램 프록시 커넥터에서 Azure AD에서 인증된 사용자에 대한 Kerberos 티켓을 검색할 수 있도록 하여 이 작업을 수행합니다. 그런 다음 해당 서버에서 컨텍스트를 대상 응용 프로그램(이 경우 SharePoint)에 전달합니다.
 
 KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복합니다.
 
@@ -181,7 +181,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 5. 앱이 게시된 후 **구성** 탭을 클릭합니다.
 6. **헤더에서 URL 변환** 옵션으로 아래로 스크롤합니다. 기본값은 **예**입니다. 이 값을 **아니요**로 변경합니다.
 
- SharePoint에서는 사이트를 조회하기 위해 _호스트 헤더_ 값을 사용합니다. 이 값을 토대로 링크도 생성합니다. 이렇게 하면 SharePoint에서 생성하는 모든 링크가 외부 URL을 사용하도록 올바르게 설정된 게시된 URL인지 확인할 수 있습니다. 값을 **예**로 설정하는 방법으로도 커넥터에서 요청을 백 엔드 응용 프로그램으로 전달할 수 있습니다. 그러나 이 값을 **아니요**로 설정하면 커넥터가 내부 호스트 이름을 보내지 않습니다. 대신, 커넥터는 호스트 헤더를 게시된 URL로 백 엔드 응용 프로그램에 보냅니다.
+ SharePoint에서는 사이트를 조회하기 위해 _호스트 헤더_ 값을 사용합니다. 이 값을 토대로 링크도 생성합니다. 이렇게 하면 SharePoint에서 생성하는 모든 링크가 외부 URL을 사용하도록 올바르게 설정된 게시된 URL인지 확인할 수 있습니다. 값을 **예**로 설정하는 방법으로도 커넥터에서 요청을 백 엔드 응용 프로그램으로 전달할 수 있습니다. 그러나 이 값을 **아니요**로 설정하면 커넥터가 내부 호스트 이름을 보내지 않습니다. 대신 커넥터는 호스트 헤더를 게시된 URL로 백 엔드 응용 프로그램에 보냅니다.
 
  또한 SharePoint가 이 URL을 허용하도록 보장하기 위해 SharePoint 서버에서 하나 이상의 구성을 완료해야 합니다. 다음 섹션에서 구성을 완료합니다.
 
@@ -189,7 +189,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 8. **내부 응용 프로그램 SPN**을 이전에 설정한 값으로 설정합니다. 예를 들어 **http/sharepoint.demo.o365identity.us**를 사용합니다.
 9. 응용 프로그램을 대상 사용자에게 할당합니다.
 
-응용 프로그램은 다음과 유사해야 합니다.
+응용 프로그램은 다음 예제와 비슷해야 합니다.
 
   ![완성된 응용 프로그램](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 

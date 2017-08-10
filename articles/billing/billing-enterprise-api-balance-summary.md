@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7af4865a5455c314c1bdeb315fb87b0f92c1ddf9
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f6b149f0e656d2263705048aa5b644f5bb4a5712
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---balance-and-summary-preview"></a>기업 고객을 위한 보고 API - 잔액 및 요약(미리 보기)
+# <a name="reporting-apis-for-enterprise-customers---balance-and-summary"></a>기업 고객을 위한 보고 API - 잔액 및 요약
 
-잔액 및 청구 API는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 제공합니다.
+잔액 및 요약 API는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과 요금에 대한 월별 정보 요약을 제공합니다.
 
 
 ##<a name="request"></a>요청 
@@ -33,42 +32,45 @@ ms.lasthandoff: 05/03/2017
 
 |메서드 | 요청 URI|
 |-|-|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/balancesummary|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/balancesummary|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
+> [!Note]
+> API의 미리 보기 버전을 사용하려면 위 URL에서 v2를 v1로 바꿉니다.
+>
 
 ## <a name="response"></a>응답
 
         {
             "id": "enrollments/100/billingperiods/201507/balancesummaries",
-              "billingPeriodId": 201507,
-              "currencyCode": "USD",
-              "beginningBalance": 0,
-              "endingBalance": 1.1,
-              "newPurchases": 1,
-              "adjustments": 1.1,
-              "utilized": 1.1,
-              "serviceOverage": 1,
-              "chargesBilledSeparately": 1,
-              "totalOverage": 1,
-              "totalUsage": 1.1,
-              "azureMarketplaceServiceCharges": 1,
-              "newPurchasesDetails": [
+            "billingPeriodId": 201507,
+            "currencyCode": "USD",
+            "beginningBalance": 0,
+            "endingBalance": 1.1,
+            "newPurchases": 1,
+            "adjustments": 1.1,
+            "utilized": 1.1,
+            "serviceOverage": 1,
+            "chargesBilledSeparately": 1,
+            "totalOverage": 1,
+            "totalUsage": 1.1,
+            "azureMarketplaceServiceCharges": 1,
+            "newPurchasesDetails": [
                 {
-                  "name": "",
-                  "value": 1
+                "name": "",
+                "value": 1
                 }
-              ],
-              "adjustmentDetails": [
+            ],
+            "adjustmentDetails": [
                 {
-                  "name": "Promo Credit",
-                  "value": 1.1
+                "name": "Promo Credit",
+                "value": 1.1
                 },
                 {
-                  "name": "SIE Credit",
-                  "value": 1.0
+                "name": "SIE Credit",
+                "value": 1.0
                 }
-              ]
+            ]
         }
 
 
@@ -95,6 +97,7 @@ ms.lasthandoff: 05/03/2017
 
 <br/>
 ## <a name="see-also"></a>참고 항목
+
 * [청구 기간 API](billing-enterprise-api-billing-periods.md)
 
 * [사용량 세부 정보 API](billing-enterprise-api-usage-detail.md) 

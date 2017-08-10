@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/7/2017
+ms.date: 7/26/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d22ecfd1c439f1af63f07ef472ceedb029f9d6a6
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: cd61a785c415e945a33b0727004338e01c67f3ec
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
@@ -38,6 +38,9 @@ ms.lasthandoff: 07/21/2017
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+###### <a name="july-19-2017"></a>**2017년 7월 19일**
+게스트 OS 7월 롤아웃은 7월 19일에 시작되며 8월 8일에 출시될 예정입니다.
+
 ###### <a name="july-7-2017"></a>**2017년 7월 7일**
 6월 게스트 OS가 릴리스되었습니다.
 
@@ -48,7 +51,7 @@ ms.lasthandoff: 07/21/2017
 게스트 OS 5월이 릴리스되었습니다.
 
 ###### <a name="may-17-2017"></a>**2017년 5월 17일**
-보안 버그로 인해 포털에서 [수정 사항]이 없는 2016년 12월 및 2017년 1월 OS 릴리스를 사용하지 않습니다. WA-GUEST-OS-5.4_201612-01,WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+보안 버그로 인해 포털에서 [수정 사항]이 없는 2016년 12월 및 2017년 1월 OS 릴리스를 사용하지 않습니다. WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
 
 ###### <a name="may-12-2017"></a>**2017년 5월 12일**
 게스트 OS 5월 롤아웃은 5월 12일에 시작되며 6월 13일에 출시될 예정입니다.
@@ -107,8 +110,6 @@ ms.lasthandoff: 07/21/2017
 |~~WA-GUEST-OS-4.36_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
 |~~WA-GUEST-OS-4.35_201608-01~~ |2016년 9월 13일 |2016년 12월 16일 |TBD |
 |~~WA-GUEST-OS-4.34_201607-01~~ |2016년 8월 8일 |2016년 11월 13일 |TBD |
-|~~WA-GUEST-OS-4.33_201606-01~~ |2016년 7월 13일 |2016년 10월 13일 |TBD |
-
 
 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
@@ -133,8 +134,6 @@ ms.lasthandoff: 07/21/2017
 |~~WA-GUEST-OS-3.43_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
 |~~WA-GUEST-OS-3.42_201608-01~~ |2016년 9월 13일 |2016년 12월 16일 |TBD |
 |~~WA-GUEST-OS-3.41_201607-01~~ |2016년 8월 8일 |2016년 11월 13일 |TBD |
-|~~WA-GUEST-OS-3.40_201606-01~~ |2016년 7월 13일 |2016년 10월 13일 |TBD |
-
 
 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
@@ -160,7 +159,6 @@ ms.lasthandoff: 07/21/2017
 |~~WA-GUEST-OS-2.55_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
 |~~WA-GUEST-OS-2.54_201608-01~~ |2016년 9월 13일 |2016년 12월 16일 |TBD |
 |~~WA-GUEST-OS-2.53_201607-01~~ |2016년 8월 8일 |2016년 11월 13일 |TBD |
-|~~WA-GUEST-OS-2.52_201606-01~~ |2016년 7월 13일 |2016년 10월 13일 |TBD |
 
 
 
@@ -183,10 +181,10 @@ ms.lasthandoff: 07/21/2017
 
 **비활성화** 날짜와 **만료** 날짜 사이의 기간 동안 한 게스트 OS에서 다른 게스트 OS로 간편하게 전환할 수 있습니다. 게스트 OS로 *자동* 을 사용하는 경우 항상 최신 버전이 유지되므로 만료에 대해 걱정할 필요가 없습니다.
 
-**만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 클라우드 서비스는 중지, 삭제 또는 강제 업그레이드됩니다. 사용 중지 정책에 대한 자세한 내용은 [여기][retirepolicy]서 확인할 수 있습니다.
+**만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 Cloud Service는 중지, 삭제 또는 강제 업그레이드됩니다. 사용 중지 정책에 대한 자세한 내용은 [여기][retirepolicy]서 확인할 수 있습니다.
 
 ## <a name="guest-os-family-version-explanation"></a>게스트 OS 제품군 버전 설명
-게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure 클라우드 서비스에서 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
+게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure Cloud Services가 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
 
 * **Guest OS family**  
   은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3* 은 Windows Server 2012를 기반으로 합니다.

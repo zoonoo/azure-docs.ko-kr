@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0c44d5bda8eb5b2e667fa888c9afcf58aec13534
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: c64417c136340b3ffa5d67c618c6fe037d2992b5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>자습서: Klue와 Azure Active Directory 통합
@@ -122,7 +122,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL, 식별자 및 로그온 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Klue 클라이언트 지원 팀](mailto:gsar@klue.com)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL, 식별자 및 로그온 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Klue 클라이언트 지원 팀](mailto:support@klue.com)에 문의하세요.
 
 5. Klue 응용 프로그램에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 
 
@@ -160,11 +160,10 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Single Sign-on 구성](./media/active-directory-saas-klue-tutorial/tutorial_klue_configure.png) 
 
-10. **Klue** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), SAML Single Sign-On 서비스 URL 및 SAML 엔터티 ID**를 [Klue 지원 팀](mailto:gsar@klue.com)에 보내야 합니다.
+10. **Klue** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), SAML Single Sign-On 서비스 URL 및 SAML 엔터티 ID**를 [Klue 지원 팀](mailto:support@klue.com)에 보내야 합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -199,7 +198,10 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
  
 ### <a name="creating-a-klue-test-user"></a>Klue 테스트 사용자 만들기
 
-이 섹션에서는 Klue에서 Britta Simon이라는 사용자를 만듭니다. Klue 플랫폼에서 사용자를 추가하려면 [Klue 지원 팀](mailto:gsar@klue.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션은 Klue에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Klue는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Klue에 액세스하는 동안 만들어집니다.
+
+>[!Note]
+>사용자를 수동으로 만들어야 하는 경우 [Klue 지원 팀](mailto:support@klue.com)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

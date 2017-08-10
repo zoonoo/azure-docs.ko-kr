@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 196be1e8185a08394944b0f334fcf21f237464dd
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e7b910ae94b178b5370d4938698e8bcce10775ea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-examples"></a>DocumentDB .NET 예제(영문)
+# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: DocumentDB API에 대한 .NET 예제
 > [!div class="op_single_selector"]
 > * [.NET 예제](documentdb-dotnet-samples.md)
 > * [Node.js 예제](documentdb-nodejs-samples.md)
@@ -101,7 +100,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [문자열에서 범위 인덱스 사용](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [인덱스 변환 수행](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-인덱싱에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](indexing-policies.md)을 참조하세요.
+인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](indexing-policies.md)을 참조하세요.
 
 ## <a name="geospatial-examples"></a>지리 공간 예제
 지리 공간 샘플 파일인 [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.  
@@ -137,7 +136,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [분할된 컬렉션 병렬 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [분할된 컬렉션에 대해 Order by로 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-쿼리를 작성하는 방법에 대한 자세한 내용은 [DocumentDB 내에서 SQL 쿼리](documentdb-sql-query.md)를 참조하세요.
+쿼리를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 내에서 SQL 쿼리](documentdb-sql-query.md)를 참조하세요.
 
 ## <a name="server-side-programming-examples"></a>서버 쪽 프로그래밍 예제
 서버 쪽 프로그래밍 파일인 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.

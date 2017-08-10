@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB .NET SDK 및 리소스 | Microsoft Docs"
-description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET API 및 SDK에 대한 모든 것을 알아봅니다."
+title: "Azure Cosmos DB .NET SDK 및 리소스 | Microsoft Docs"
+description: "릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET API 및 SDK에 대한 모든 것을 알아봅니다."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8d6b953ae95713dc8b5a4037fa59bec49ea52b85
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB.NET SDK: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET 변경 피드](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/06/2017
 
 <tr><td>**샘플**</td><td>[.NET 코드 샘플](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
+<tr><td>**시작**</td><td>[Azure Cosmos DB .NET SDK 시작](documentdb-get-started.md)</td></tr>
 
 <tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](documentdb-dotnet-application.md)</td></tr>
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/06/2017
 *   [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet)를 인스턴스화하는 동안 사용자 지정 JsonSerializerSettings를 지정하기 위한 지원을 추가하였습니다.
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   SSE4 명령을 지원하지 않고 DocumentDB API 쿼리를 실행할 때 SEHException을 throw하는 x64 컴퓨터에 영향을 준 문제가 해결되었습니다.
+*   SSE4 명령을 지원하지 않고 Azure Cosmos DB DocumentDB API 쿼리를 실행할 때 SEHException을 throw하는 x64 컴퓨터에 영향을 준 문제가 해결되었습니다.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
@@ -143,7 +143,7 @@ ms.lasthandoff: 07/06/2017
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * 분할된 컬렉션에 대한 병렬 쿼리에 지원을 추가했습니다.
 * 분할된 컬렉션에 대한 파티션 간 Order By 및 TOP 쿼리에 대한 지원을 추가했습니다.
-* DocumentDB Nuget 패키지에 대한 참조와 함께 DocumentDB 프로젝트를 참조할 때 필요한 DocumentDB.Spatial.Sql.dll 및 Microsoft.Azure.Documents.ServiceInterop.dll에 대한 누락된 참조를 수정했습니다.
+* Azure Cosmos DB Nuget 패키지에 대한 참조와 함께 Azure Cosmos DB 프로젝트를 참조할 때 필요한 DocumentDB.Spatial.Sql.dll 및 Microsoft.Azure.Documents.ServiceInterop.dll에 대한 누락된 참조를 수정했습니다.
 * LINQ에서 사용자 정의 함수를 사용할 때 여러 유형의 매개 변수를 사용하도록 기능을 수정했습니다. 
 * 쓰기 위치 대신 읽기 위치에 Upsert 호출을 전달하는 전역적으로 복제된 계정에 대한 버그를 수정했습니다.
 * IDocumentClient 인터페이스에 누락된 다음 메서드를 추가했습니다. 
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/06/2017
 * 다중 지역 데이터베이스 계정에 대한 지원이 추가되었습니다.
 * 정제된 요청에 대한 재시도 지원이 추가되었습니다.  사용자가 ConnectionPolicy.RetryOptions 속성을 구성하여 재시도 횟수와 최대 대기 시간을 지정할 수 있습니다.
 * 모든 DocumentClient 속성 및 메서드의 시그니처를 정의하는 새로운 IDocumentClient 인터페이스가 추가되었습니다.  이러한 변경의 일환으로 DocumentClient 클래스 자체에서 IQueryable과 IOrderedQueryable을 메서드로 만드는 확장 메서드도 변경되었습니다.
-* 특정 DocumentDB 끝점 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다.  ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
+* 특정 Azure Cosmos DB 끝점 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다.  ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
 * IPartitionResolver와 해당 구현의 사용이 중단되었습니다.  IPartitionResolver 지원이 중단되었습니다. 보다 큰 저장소 및 처리량에는 파티션된 컬렉션을 사용하는 것이 좋습니다.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -172,7 +172,7 @@ ms.lasthandoff: 07/06/2017
 * [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다. 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[수정됨]** DocumentDB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
+* **[수정됨]** Azure Cosmos DB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 LINQ 지원이 확장되었습니다.

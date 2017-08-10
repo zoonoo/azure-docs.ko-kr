@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: bfa902aae0b1ab4ca6a93387106b40a16c7288cd
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Linux의 Azure Web App에 대한 SSH 지원
@@ -55,7 +55,7 @@ SSH 클라이언트 연결을 만들려면 주 사이트를 시작해야 합니�
 
 사용자 지정 Docker 이미지로 Azure Portal에서 컨테이너 및 클라이언트 간 SSH 통신을 지원하려면 Docker 이미지에 대해 다음 단계를 수행합니다. 
 
-이러한 단계는 Azure App Service 리포지토리에 예제로 표시됩니다([여기](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1) 참조).
+이러한 단계는 Azure App Service 리포지토리에 예제로 표시됩니다([여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3/) 참조).
 
 1. 이미지에 대한 Dockerfile의 [`RUN` 명령](https://docs.docker.com/engine/reference/builder/#run)에 `openssh-server` 설치를 포함하고 루트 계정에 대한 암호를 `"Docker!"`로 설정합니다. 
 
