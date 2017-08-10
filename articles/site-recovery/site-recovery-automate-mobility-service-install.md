@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
@@ -60,8 +60,7 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
 
   > [!NOTE]
   > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](## Use DSC in disconnected environments) 섹션을 참조하세요.
-  >
-  >
+  
 
 모바일 서비스는 명령줄을 통해 설치할 수 있으며 여러 인수를 허용합니다. 그러므로 설치에서 이진 파일을 추출한 다음 DSC 구성을 사용하여 검색할 수 있는 위치에 저장해야 합니다.
 
