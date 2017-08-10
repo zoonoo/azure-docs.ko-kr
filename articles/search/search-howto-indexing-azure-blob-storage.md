@@ -1,6 +1,6 @@
 ---
-title: "Azure 검색으로 Azure Blob 저장소 인덱싱"
-description: "Azure Blob 저장소를 인덱싱하고 Azure 검색을 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요."
+title: "Azure Search로 Azure Blob Storage 인덱싱"
+description: "Azure Blob Storage를 인덱싱하고 Azure Search를 사용하여 문서에서 텍스트를 추출하는 방법에 대해 알아보세요."
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,18 +12,18 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/20/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 8ed07d7be1d737fac332d9ea82e65fd5e92f89d5
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
-이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
+# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
+이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
 
 ## <a name="supported-document-formats"></a>지원되는 문서 형식
 BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
@@ -35,7 +35,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * ZIP
 * EML
 * RTF
-* 일반 텍스트 파일([일반 텍스트 인덱싱 참조](#IndexingPlainText))
+* 일반 텍스트 파일([일반 텍스트 인덱싱](#IndexingPlainText)도 참조)
 * JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
 * CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
 
@@ -89,8 +89,8 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다.
 
 - **전체 액세스 저장소 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Azure Portal에서 저장소 계정 블레이드 > 설정 > 키(클래식 저장소 계정) 또는 설정 > 액세스 키(Azure Resource Manager 저장소 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
-- **저장소 계정 공유 액세스 서명**(SAS) 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
--  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **저장소 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
+-  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
 
 저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
@@ -170,7 +170,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>문서 키 및 필드 매핑 정의
-Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).  
+Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모든 검색 인덱스는 Edm.String 형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다(이 필드는 실제로 유일한 필수 필드임).  
 
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
@@ -239,7 +239,7 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-`indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure 검색은 먼저 `indexedFileNameExtensions`를 확인한 후 `excludedFileNameExtensions`를 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
+`indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure Search는 먼저 `indexedFileNameExtensions`를 확인한 후 `excludedFileNameExtensions`를 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
 
 ### <a name="dealing-with-unsupported-content-types"></a>지원되지 않는 콘텐츠 형식 처리
 
@@ -340,6 +340,8 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 - 각 데이터 소스에 해당하는 인덱서를 만듭니다. 모든 인덱서가 동일한 대상 검색 인덱스를 가리킬 수 있습니다.  
 
+- 서비스에서 하나의 검색 단위가 지정된 시점에 하나의 인덱서를 실행할 수 있습니다. 위에서 설명한 대로 여러 인덱서를 만들면 실제 병렬로 실행하는 경우에 유용합니다. 동시에 여러 인덱서를 실행하려면 적절한 수의 파티션 및 복제본을 만들어서 검색 서비스를 확장합니다. 예를 들어 검색 서비스에 6개의 검색 단위(예: 2개 파티션x3개 복제본)가 있으면 6개의 인덱서가 동시에 실행될 수 있고 그로 인해 인덱싱 처리량이 6배 증가합니다. 크기 조정 및 수용작업량 계획에 대해 자세히 알아보려면 [Azure Search에서 쿼리 및 인덱싱 워크로드에 대한 리소스 수준 크기 조정](search-capacity-planning.md)을 참조하세요.
+
 ## <a name="indexing-documents-along-with-related-data"></a>관련된 데이터와 함께 문서 인덱싱
 
 인덱스에 있는 여러 원본의 문서를 "조합"할 수도 있습니다. 예를 들어 Cosmos DB에 저장된 다른 메타데이터와 BLOB의 텍스트를 병합할 수 있습니다. 푸시 인덱싱 API를 다양한 인덱서와 함께 사용하여 여러 부분에서 검색 문서를 구축할 수도 있습니다. 
@@ -349,7 +351,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>일반 텍스트 인덱싱 
 
-모든 BLOB에 동일한 인코딩의 일반 텍스트가 포함된 경우 **텍스트 구문 분석 모드**를 사용하여 인덱싱 성능을 크게 향상시킬 수 있습니다. 텍스트 구문 분석 모드를 사용하려면 `parsingMode` 구성 속성을 `text`로 설정합니다.
+모든 Blob에 동일한 인코딩의 일반 텍스트가 포함된 경우 **텍스트 구문 분석 모드**를 사용하여 인덱싱 성능을 크게 향상시킬 수 있습니다. 텍스트 구문 분석 모드를 사용하려면 `parsingMode` 구성 속성을 `text`로 설정합니다.
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -360,7 +362,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-기본적으로 `UTF-8` 인코딩이 간주됩니다. 다른 인코딩을 지정하려면 `encoding` 구성 매개 변수를 사용하세요. 
+기본적으로 `UTF-8` 인코딩이 간주됩니다. 다른 인코딩을 지정하려면 `encoding` 구성 속성을 사용하세요. 
 
     {
       ... other parts of indexer definition
@@ -370,7 +372,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>콘텐츠 형식별 메타데이터 속성
-다음 표에서는 각 문서 형식에 대해 수행된 처리를 요약하고 Azure 검색에서 추출한 메타데이터 속성에 대해 설명합니다.
+다음 표에서는 각 문서 형식에 대해 수행된 처리를 요약하고 Azure Search에서 추출한 메타데이터 속성에 대해 설명합니다.
 
 | 문서 형식/콘텐츠 형식 | 콘텐츠 형식별 메타데이터 속성 | 처리 세부 정보 |
 | --- | --- | --- |
@@ -391,6 +393,6 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 | 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | 텍스트 추출|
 
 
-## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
+## <a name="help-us-make-azure-search-better"></a>Azure Search 개선 지원
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 알려주세요.
 

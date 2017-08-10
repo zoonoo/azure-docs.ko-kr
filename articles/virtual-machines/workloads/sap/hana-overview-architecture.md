@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7270d4a2b01d0e746a575e6ec7f0e786684c7e3d
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 073763143e1131aded74f610037cd4aa1fd92f5e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA 개요 및 아키텍처 
@@ -111,7 +111,7 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 
 2017년 7월 현재 Azure(대형 인스턴스)의 SAP HANA는 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽의 Azure 지역에서 여러 구성으로 사용하도록 제공됩니다.
 
-| SAP 솔루션 | CPU | RAM | 저장소 | Availability |
+| SAP 솔루션 | CPU | 메모리 | 저장소 | Availability |
 | --- | --- | --- | --- | --- |
 | OLAP에 대해 최적화됨: SAP BW, BW/4HANA<br /> 또는 SAP HANA(일반 OLAP 워크로드용) | Azure S72에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3 |  768 GB |  3 TB | 사용 가능 |
 | --- | Azure S144에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
@@ -290,8 +290,8 @@ Type I 클래스의 HANA 큰 인스턴스는 저장소 볼륨의 4배의 메모�
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
 | S192m | 11,520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384 | 11,520 GB | 1536 GB | 1792 GB | 1536 GB |
-| S384m | 12,000 GB | 2050 GB | 2050 GB | 20450 GB |
-| S384xm | 16,000 GB | 2050 GB | 2050 GB | 2050 GB |
+| S384m | 12,000 GB | 2050 GB | 2050 GB | 2040GB |
+| S384xm | 16,000 GB | 2050 GB | 2050 GB | 2040GB |
 | S576 | 20,000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S768 | 28,000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S960 | 36,000 GB | 4100 GB | 2050 GB | 4100 GB |

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e49801f458a248b2bc53b2f085d5fb2096390b7e
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../active-directory-application-proxy-get-started.md)를 설치할 수 있나요?
 
-아니요, 이 구성은 지원되지 _않습니다_.
+예, 브랜드가 다시 지정된 통과 인증 에이전트(버전 1.5.193.0 이상)에서 이 구성이 지원됩니다.
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>필요한 Azure AD Connect 및 통과 인증 에이전트 버전은 무엇인가요?
 
