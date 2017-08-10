@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8ebea5908a10579cb614fb538e91c450528f7144
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -80,7 +80,7 @@ Virtual Machine Scale Sets는 Azure Virtual Machines 위에 빌드되어 동일�
 
 Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니다. 다음과 같은 서비스가 있습니다.
 
-### <a name="compute-services"></a>계산 서비스
+### <a name="compute-services"></a>Compute services
 
 응용 프로그램 워크로드 호스팅 및 실행을 위한 서비스:
 
@@ -96,13 +96,13 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 -   Azure Container Service
 
-### <a name="data-services"></a>데이터 서비스
+### <a name="data-services"></a>Data services
 
 데이터 저장 및 관리를 위한 서비스:
 
 -   Azure Storage(Azure Blob, Queue, Table 및 File 서비스 구성)
 
--   Azure SQL 데이터베이스
+-   Azure SQL Database
 
 -   Azure DocumentDB
 
@@ -122,19 +122,19 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 -   Azure Scheduler
 
--   Azure 미디어 서비스
+-   Azure Media Services
 
 ### <a name="network-services"></a>Network Services
 
 Azure와 온-프레미스 데이터 센터 간 및 Azure 내에서의 네트워킹을 위한 서비스:
 
--   Azure 가상 네트워크
+-   Azure Virtual Network
 
 -   Azure ExpressRoute
 
 -   Azure 제공 DNS
 
--   Azure 트래픽 관리자
+-   Azure Traffic Manager
 
 -   Azure Content Delivery Network
 
@@ -149,7 +149,7 @@ Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로�
 
 Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 응용 프로그램을 배포할 수 있다는 것입니다. 선택한 지역은 응용 프로그램의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 
 Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 https://portal.azure.com입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
@@ -166,7 +166,7 @@ Azure 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는
 
 Azure Resource Manager 템플릿은 리소스 그룹에 배포할 하나 이상의 리소스를 정의하는 JSON(JavaScript Object Notation) 파일입니다. 또한 배포된 리소스 간의 종속성을 정의합니다. Resource Manager 템플릿은 이 가이드의 뒷부분에서 자세히 설명합니다.
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 
 
 Azure Portal을 사용하여 리소스를 만들고 관리하고 삭제하는 작업 외에도 PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 이러한 작업을 자동화할 수 있습니다.
@@ -191,7 +191,7 @@ Azure 명령줄 인터페이스는 명령줄에서 Azure 리소스를 만들고 
 
 Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 구독 형식을 사용할 수 있습니다.
 
-**무료 계정**: [Azure 웹 사이트](https://azure.microsoft.com/)에 무료 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 30일 동안 Azure의 리소스 조합을 사용해 볼 수 있도록 $200의 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
+**무료 계정**: [Azure 웹 사이트](https://azure.microsoft.com/)에 무료 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 Azure의 리소스 조합을 사용해 볼 수 있는 30일 과정에 대한 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
 
 **MSDN 구독**: MSDN 구독이 있는 경우 매달 Azure 크레딧으로 일정 금액을 받습니다. 예를 들어 Microsoft Visual Studio Enterprise with MSDN 구독이 있는 경우 Azure 크레딧으로 매달 \$150를 받게 됩니다.
 
@@ -372,11 +372,11 @@ NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 �
 
 마지막으로 컴퓨터 시스템 관리와 마찬가지로 보안 자격 증명과 소프트웨어 방화벽을 사용하여 운영 체제에서 Azure 가상 컴퓨터에 대한 보안을 제공해야 합니다.
 
-## <a name="azure-storage"></a>Azure 저장소
+## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure 저장소 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure에는 Blob Storage, File Storage, Table Storage 및 Queue Storage의 네 가지 저장소 유형이 있습니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/storage-blob-storage-tiers.md)를 참조하세요.
+Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure에는 Blob Storage, File Storage, Table Storage 및 Queue Storage의 네 가지 저장소 유형이 있습니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/storage-blob-storage-tiers.md)를 참조하세요.
 
-Azure 저장소 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
+Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
 
 -   **로컬 중복 저장소**는 모든 데이터의 3개 사본이 동기식으로 작성된 후에야 쓰기가 성공한 것으로 간주하여 가용성을 높입니다. 이러한 복사본은 단일 지역의 단일 시설에 저장됩니다. 복제본은 별도의 장애 도메인 및 업그레이드 도메인에 상주합니다. 즉, 데이터를 보유하고 있는 저장소 노드에 장애가 발생하거나 업데이트를 위해 오프라인 상태가 된 경우에도 데이터를 사용할 수 있습니다.
 
@@ -388,9 +388,9 @@ Azure 저장소 계정은 여러 수준의 중복성으로 구성할 수 있습�
 
 각 저장소 유형마다 사용 사례가 다릅니다.
 
-**Blob 저장소** 
+**Blob storage** 
 
-*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
+*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob storage를 개체 저장소라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
 
 Azure Storage는 세 종류의 Blob을 지원합니다.
 
@@ -404,7 +404,7 @@ Azure Storage는 세 종류의 Blob을 지원합니다.
 
 **File Storage**
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 이 서비스는 SMB 2.1 및 SMB 3.0을 모두 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 응용 프로그램을 비용이 많이 드는 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 컴퓨터, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 클라우드에 파일 공유를 탑재할 수 있습니다. 이는 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 방법과 비슷합니다. 파일 저장소 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 이 서비스는 SMB 2.1 및 SMB 3.0을 모두 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 응용 프로그램을 비용이 많이 드는 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 컴퓨터, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 클라우드에 파일 공유를 탑재할 수 있습니다. 이는 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 방법과 비슷합니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
 File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
 
@@ -412,15 +412,15 @@ File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되�
 
 **Table Storage**
 
-Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 테이블 저장소는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
+Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 Table Storage는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
+Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
 
 자세한 내용은 [Azure Table Storage 시작](../../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
-**큐 저장소**
+**Queue storage**
 
-Azure 큐 저장소는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 자세한 내용은 [Azure Queue Storage 시작](../../storage/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
@@ -436,7 +436,7 @@ Azure Portal에서 저장소 계정을 배포하는 것 외에도 포털에서 A
 
 **PowerShell**
 
-PowerShell을 사용하여 Azure 저장소 계정을 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/storage-powershell-guide-full.md)을 참조하세요.
+PowerShell을 사용하여 Azure storage 계정을 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/storage-powershell-guide-full.md)을 참조하세요.
 
 Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell 모듈을 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
@@ -456,11 +456,11 @@ Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage �
 
 **저장소 도구**
 
-Azure 저장소 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 저장소 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 저장소 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/storage-explorers.md)를 참조하세요.
+Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 저장소 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 저장소 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/storage-explorers.md)를 참조하세요.
 
 **저장소 API**
 
-저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure 저장소는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
+저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 **저장소 액세스 키**
 
@@ -470,7 +470,7 @@ Azure 저장소 계정은 Visual Studio 클라우드 탐색기와 같은 다양�
 
 저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명은 저장소 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](../../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
-## <a name="azure-virtual-network"></a>Azure 가상 네트워크
+## <a name="azure-virtual-network"></a>Azure Virtual Network
 
 
 가상 네트워크는 가상 컴퓨터 간 통신을 지원하는 데 필요합니다. 서브넷, 사용자 지정 IP 주소, DNS 설정, 보안 필터링 및 부하 분산을 정의할 수 있습니다. VPN Gateway 또는 ExpressRoute 회로를 사용하여 Azure Virtual Network를 온-프레미스 네트워크에 연결할 수 있습니다.
@@ -481,13 +481,13 @@ Azure 네트워킹에 대한 여러 가지 사용 사례가 있습니다.
 
 **클라우드 전용 가상 네트워크**
 
-Azure 가상 네트워크는 기본적으로 Azure에 저장된 리소스에만 액세스할 수 있습니다. 동일한 가상 네트워크에 연결된 리소스는 서로 통신할 수 있습니다. 가상 컴퓨터 네트워크 인터페이스 및 부하 분산 장치를 공용 IP 주소와 연결하여 인터넷을 통해 가상 컴퓨터에 액세스할 수 있습니다. 네트워크 보안 그룹을 사용하여 공개적으로 노출된 리소스에 대한 액세스를 보호할 수 있습니다.
+Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액세스할 수 있습니다. 동일한 가상 네트워크에 연결된 리소스는 서로 통신할 수 있습니다. 가상 컴퓨터 네트워크 인터페이스 및 부하 분산 장치를 공용 IP 주소와 연결하여 인터넷을 통해 가상 컴퓨터에 액세스할 수 있습니다. 네트워크 보안 그룹을 사용하여 공개적으로 노출된 리소스에 대한 액세스를 보호할 수 있습니다.
 
 **크로스-프레미스 가상 네트워크**
 
-ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 이 구성에서 Azure 가상 네트워크는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
+ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크를 Azure virtual network에 연결할 수 있습니다. 이 구성에서 Azure virtual network는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
 
-Azure 가상 네트워크가 온-프레미스 네트워크에 연결되어 있으므로 프레미스 간 가상 네트워크는 조직에서 사용하는 고유한 주소 공간을 사용해야 합니다. 서로 다른 회사 위치에 특정 IP 서브넷이 할당되는 것과 같은 방식으로 Azure는 네트워크를 확장할 때 다른 위치가 됩니다.
+Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므로 프레미스 간 가상 네트워크는 조직에서 사용하는 고유한 주소 공간을 사용해야 합니다. 서로 다른 회사 위치에 특정 IP 서브넷이 할당되는 것과 같은 방식으로 Azure는 네트워크를 확장할 때 다른 위치가 됩니다.
 
 ###<a name="deploying-a-virtual-network"></a>가상 네트워크 배포
 
@@ -495,13 +495,13 @@ Azure 가상 네트워크가 온-프레미스 네트워크에 연결되어 있�
 
 **포털**
 
-Azure Portal을 사용하여 Azure 가상 네트워크를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
+Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
-Azure Portal에서 Azure 가상 네트워크를 배포하는 것 외에도 포털에서 Azure Resource Manager 템플릿을 배포할 수 있습니다. 이렇게 하면 가상 네트워크 리소스를 포함한 모든 리소스가 템플릿에 정의된 대로 배포되고 구성됩니다. 자세한 내용은 [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
+Azure Portal에서 Azure virtual network를 배포하는 것 외에도 포털에서 Azure Resource Manager 템플릿을 배포할 수 있습니다. 이렇게 하면 가상 네트워크 리소스를 포함한 모든 리소스가 템플릿에 정의된 대로 배포되고 구성됩니다. 자세한 내용은 [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 
 **PowerShell**
 
-PowerShell을 사용하여 Azure 가상 네트워크를 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-ps.md)를 참조하세요.
+PowerShell을 사용하여 Azure virtual network를 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-ps.md)를 참조하세요.
 
 Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell 모듈을 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
@@ -513,7 +513,7 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 ### <a name="access-and-security-for-virtual-networks"></a>가상 네트워크의 액세스 및 보안
 
-네트워크 보안 그룹을 사용하여 Azure 가상 네트워크를 보호할 수 있습니다. NSG는 가상 네트워크의 VM 인스턴스에 대해 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG를 서브넷 또는 서브넷 내의 개별 VM 인스턴스와 연결할 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 해당 VM에 직접 NSG를 연결하여 개별 VM에 대한 트래픽을 추가로 제한할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+네트워크 보안 그룹을 사용하여 Azure virtual network를 보호할 수 있습니다. NSG는 가상 네트워크의 VM 인스턴스에 대해 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG를 서브넷 또는 서브넷 내의 개별 VM 인스턴스와 연결할 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 해당 VM에 직접 NSG를 연결하여 개별 VM에 대한 트래픽을 추가로 제한할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

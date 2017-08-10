@@ -145,7 +145,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-정규식에서 마지막 숫자는 루트 도메인에 있는 상위 도메인 수를 설정합니다. 여기서 bmcontoso.com이 있으므로&2;개의 상위 도메인이 필요합니다. 3개의 상위 도메인을 유지해야 한다면(예: corp.bmcontoso.com) 숫자는&3;이 되었을 것입니다. 결과적으로 범위를 나타낼 수 있으며, 항상 최대 도메인 수와 일치하도록 매칭됩니다. "{2,3}"은&2;~3개의 도메인(예: bmfabrikam.com 및 corp.bmcontoso.com)이 매칭됩니다.
+정규식에서 마지막 숫자는 루트 도메인에 있는 상위 도메인 수를 설정합니다. 여기서 bmcontoso.com이 있으므로 2개의 상위 도메인이 필요합니다. 3개의 상위 도메인을 유지해야 한다면(예: corp.bmcontoso.com) 숫자는 3이 되었을 것입니다. 결과적으로 범위를 나타낼 수 있으며, 항상 최대 도메인 수와 일치하도록 매칭됩니다. "{2,3}"은 2~3개의 도메인(예: bmfabrikam.com 및 corp.bmcontoso.com)이 매칭됩니다.
 
 하위 도메인을 지원하기 위해 사용자 지정 클레임을 추가하려면 다음 단계를 사용합니다.
 
