@@ -4,7 +4,7 @@ description: "Apache Storm과 Azure Stream Analytics 비교를 사용하여 클�
 keywords: "분석 플랫폼, 클라우드 분석 플랫폼, storm 비교"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/04/2017
-
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>스트리밍 분석 플랫폼 선택: Apache Storm 및 Azure Stream Analytics 비교

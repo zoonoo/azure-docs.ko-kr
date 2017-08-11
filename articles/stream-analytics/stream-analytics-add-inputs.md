@@ -4,9 +4,9 @@ description: "데이터 원본을 스트리밍 데이터 입력(이벤트 허브
 keywords: "데이터 입력, 스트리밍 데이터"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
-editor: cgronlun
+editor: 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/04/2017
-
 
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics 작업에 스트리밍 데이터 입력 또는 참조 데이터 추가

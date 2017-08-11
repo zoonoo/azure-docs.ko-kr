@@ -3,7 +3,7 @@ title: "Azure Active Directory의 사용자 지정 도메인에 사용자 할당
 description: "사용자 계정으로 Azure Active Directory의 사용자 지정 도메인을 채우는 방법"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 717b5a7c-7bc3-4ab1-98b5-4740b53338fe
