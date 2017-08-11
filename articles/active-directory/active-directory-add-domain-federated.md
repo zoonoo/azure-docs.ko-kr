@@ -3,7 +3,7 @@ title: "Azure Active Directory에 사용자 지정 도메인 이름 추가 및 �
 description: "Azure Active Directory에 회사의 도메인 이름을 추가하여 Azure Active Directory와 온-프레미스 페더레이션 솔루션 간에 페더레이션 로그인을 설정하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
