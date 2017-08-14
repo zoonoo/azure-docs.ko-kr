@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bba753c4a4657a611503bb99aa8d714286ebcea5
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 만들기
@@ -165,7 +165,7 @@ VHD를 업로드하는 데 시간이 걸릴 수 있습니다.
 ### <a name="create-a-managed-disk"></a>관리 디스크 만들기
 
 
-[az disk create](/cli/azure/disk/create)를 사용하여 VHD에서 관리 디스크를 만듭니다. 다음 예제에서는 다음과 같은 이름을 지정한 저장소 계정 및 컨테이너에 업로드한 VHD에서 *myManagedDisk*라는 관리 디스크를 만듭니다.
+[az disk create](/cli/azure/disk#create)를 사용하여 VHD에서 관리 디스크를 만듭니다. 다음 예제에서는 다음과 같은 이름을 지정한 저장소 계정 및 컨테이너에 업로드한 VHD에서 *myManagedDisk*라는 관리 디스크를 만듭니다.
 
 ```azurecli
 az disk create \
