@@ -56,7 +56,8 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 **SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 
-## <a name="configure"></a>구성 
+<a id="Package-App"></a>
+## <a name="configure"></a>구성
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
 Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
 
@@ -115,18 +116,19 @@ PS D:\temp>
 
 응용 프로그램을 배포할 클러스터를 알고 있는 경우 `ImageStoreConnectionString` 매개 변수에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
 
-응용 프로그램이 올바르게 패키지되고 유효성 검사를 통과하는 경우 압축이 필요하면 파일의 크기와 수를 기반으로 평가합니다. 
+응용 프로그램이 올바르게 패키지되고 유효성 검사를 통과하는 경우 압축이 필요하면 파일의 크기와 수를 기반으로 평가합니다.
 
 ## <a name="compress-a-package"></a>패키지 압축
 패키지가 크거나 파일이 많은 경우 이를 압축하여 더 빠르게 배포할 수 있습니다. 압축은 파일 수와 패키지 크기를 줄입니다.
 압축된 응용 프로그램 패키지의 경우 [응용 프로그램 패키지 업로드](service-fabric-deploy-remove-applications.md#upload-the-application-package) 작업에 걸리는 시간이 압축되지 않은 패키지 업로드에 비해 더 길어질 수 있지만(특히 압축 시간이 포함되는 경우), [등록](service-fabric-deploy-remove-applications.md#register-the-application-package) 및 [응용 프로그램 유형 등록 취소](service-fabric-deploy-remove-applications.md#unregister-an-application-type)는 압축된 응용 프로그램 패키지가 더 빠릅니다.
 
 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 그대로 저장되며, 먼저 노드에서 압축이 풀린 후에 응용 프로그램이 실행됩니다.
-압축은 유효한 Service Fabric 패키지를 압축된 버전으로 바꿉니다. 폴더에 대한 쓰기 권한을 허용해야 합니다. 이미 압축된 패키지에 압축을 실행하면 아무런 변화가 없습니다. 
+압축은 유효한 Service Fabric 패키지를 압축된 버전으로 바꿉니다. 폴더에 대한 쓰기 권한을 허용해야 합니다. 이미 압축된 패키지에 압축을 실행하면 아무런 변화가 없습니다.
 
 `CompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) PowerShell 명령을 실행하여 패키지를 압축할 수 있습니다. `UncompressPackage` 스위치를 사용하면 동일한 명령으로 패키지의 압축을 풀 수 있습니다.
 
-다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. `SkipCopy` 플래그 없이 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다. 이제 패키지에 `code`, `config` 및 `data` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 매니페스트 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다.
+다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. `SkipCopy` 플래그 없이 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다.
+이제 패키지에 `code`, `config` 및 `data` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 매니페스트 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다.
 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
 ```

@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: 언어 사용자 지정 사용
@@ -40,7 +39,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="support-uilocales-requested-languages"></a>ui_locales 요청 언어 지원 
 정책에서 '언어 사용자 지정'을 사용하도록 설정하면 ui_locales 매개 변수를 추가하여 사용자 경험의 언어를 제어할 수 있습니다.
-1. [다음 단계에 따라 Azure Portal의 B2C 기능 블레이드로 이동합니다.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure Portal의 B2C 기능 블레이드로 이동합니다.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. 번역에 사용할 정책으로 이동합니다.
 3. **언어 사용자 지정**을 클릭합니다.
 4. 경고를 주의깊게 읽습니다.  사용하도록 설정된 후에는 '언어 사용자 지정'을 해제할 수 없습니다.
