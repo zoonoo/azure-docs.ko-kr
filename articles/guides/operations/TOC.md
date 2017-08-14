@@ -81,8 +81,6 @@
 ### [저장소 계정을 만드는](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Azure 저장소와 함께 Azure PowerShell 사용](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage에서 Azure CLI 사용.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Windows용 저장소 인프라 지침](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Linux용 저장소 인프라 지침](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 클라이언트 도구](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [공유 액세스 서명 사용](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -101,3 +99,4 @@
 ## [다음 단계](azure-operations-guide.md#next-steps)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

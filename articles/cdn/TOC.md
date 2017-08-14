@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
+### [사용자 지정 도메인을 CDN에 매핑](cdn-map-content-to-custom-domain.md)
+### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
 ## 콘텐츠 최적화
 ### [최적화 개요](cdn-optimization-overview.md)
 ####[큰 파일 최적화](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[동적 사이트 가속](cdn-dynamic-site-acceleration.md)
  
 ## 관리
-### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
 ### [PowerShell로 관리](cdn-manage-powershell.md)
 ### TTL(Time to Live) 구성
 #### [Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage Blob service 콘텐츠](cdn-manage-expiration-of-blob-content.md)
-### [사용자 지정 도메인을 CDN에 매핑](cdn-map-content-to-custom-domain.md)
 ### [국가별 액세스 제한](cdn-restrict-access-by-country.md)
 ### [파일을 압축하여 성능 향상](cdn-improve-performance.md)
 ### 쿼리 문자열별 캐시 콘텐츠
@@ -52,6 +52,7 @@
 ### [파일 압축](cdn-troubleshoot-compression.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -65,7 +66,8 @@
 ## [Azure CDN POP 위치](cdn-pop-locations.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
-## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
+## [가격](https://azure.microsoft.com/pricing/details/cdn/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
