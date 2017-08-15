@@ -29,6 +29,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
+## [가격](https://azure.microsoft.com/pricing/details/service-bus/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [샘플](https://github.com/azure/azure-relay/tree/master/samples)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

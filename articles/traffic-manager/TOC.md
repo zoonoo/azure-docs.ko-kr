@@ -27,6 +27,7 @@
 ### [Azure Traffic Manager의 성능 저하된 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
@@ -44,7 +45,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [가격](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 제한](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)

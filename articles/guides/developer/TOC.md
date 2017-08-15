@@ -112,5 +112,6 @@
 # 리소스
 ## [Azure 지역](https://azure.microsoft.com/regions/)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [샘플](https://azure.microsoft.com/resources/samples/)
 ## [비디오](https://azure.microsoft.com/resources/videos/home/)

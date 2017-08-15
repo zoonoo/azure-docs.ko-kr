@@ -7,10 +7,11 @@
 
 # 시작
 ## [템플릿 내보내기](resource-manager-export-template.md)
-## [첫 번째 템플릿 만들기](resource-manager-create-first-template.md)
+## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 샘플
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [템플릿 배포](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [배열 및 개체 함수](resource-group-template-functions-array.md)
 ### [비교 함수](resource-group-template-functions-comparison.md)
 ### [배포 함수](resource-group-template-functions-deployment.md)
+### [논리 함수](resource-group-template-functions-logical.md)
 ### [숫자 함수](resource-group-template-functions-numeric.md)
 ### [리소스 함수](resource-group-template-functions-resource.md)
 ### [문자열 함수](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [제한 요청](resource-manager-request-limits.md)

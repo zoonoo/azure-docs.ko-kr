@@ -129,7 +129,8 @@
 # 리소스
 ## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [가격](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [데모 앱 샘플](mobile-engagement-demo-apps.md)
 ## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)

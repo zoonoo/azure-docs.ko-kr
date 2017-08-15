@@ -61,8 +61,9 @@
 ### [내 Web API 프로젝트의 변경된 내용](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)
-## [코드 샘플](active-directory-code-samples.md)
+## [코드 샘플 문서](active-directory-code-samples.md)
 ## [용어](active-directory-dev-glossary.md)
 ## [인증 프로토콜](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -107,3 +108,4 @@
 ### [범위](active-directory-v2-scopes.md)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

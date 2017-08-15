@@ -35,6 +35,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

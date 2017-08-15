@@ -60,6 +60,7 @@
 ### [진단 지침](notification-hubs-push-notification-fixer.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
 ## [PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST (영문)](/rest/api/notificationhubs)
@@ -67,7 +68,8 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
-## [가격 책정](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [가격](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

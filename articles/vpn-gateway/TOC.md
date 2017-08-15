@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
 ## 지점 및 사이트 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,8 +58,7 @@
 ### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
-## [게이트웨이 SKU(이전)](vpn-gateway-about-skus-legacy.md)
+## [게이트웨이 SKU(기존)](vpn-gateway-about-skus-legacy.md)
 ## 타사 VPN 장치 구성
 ### [개요 및 Azure 구성](vpn-gateway-3rdparty-device-config-overview.md)
 ### [샘플: Cisco ASA 장치(IKEv2/BGP 아님)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
@@ -90,6 +88,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [가격](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

@@ -40,11 +40,12 @@
 ## [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)
 ## [.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
-## [Azure DNS와 Azure 리소스 통합](dns-custom-domain.md)
+## [Azure 리소스에 대한 사용자 지정 도메인](dns-custom-domain.md)
 ## 문제 해결
 ### [문제 해결 가이드](dns-troubleshoot.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -67,5 +68,6 @@
 ## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
+## [가격](https://azure.microsoft.com/pricing/details/dns/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)

@@ -4,7 +4,7 @@
 
 # 시작
 ## [Azure VM 백업](backup-azure-vms-first-look-arm.md)
-## [파일 및 폴더 백업](backup-try-azure-backup-in-10-mins.md)
+## [Windows Server 또는 Windows 컴퓨터 백업](backup-try-azure-backup-in-10-mins.md)
 ## [VMware 서버 백업](backup-azure-backup-server-vmware.md)
 
 # 방법
@@ -27,16 +27,19 @@
 #### [Azure 포털에서 Resource Manager 배포 VM 복구](backup-azure-arm-restore-vms.md)
 #### [암호화된 가상 컴퓨터 복원](backup-azure-vms-encryption.md)
 #### [Azure의 가상 컴퓨터 복원](backup-azure-restore-vms.md)
-#### [Azure Backup을 사용하여 암호화된 VM의 Key Vault 키 및 비밀 복원](backup-azure-restore-key-secret.md)
+#### [암호화된 VM의 Key Vault 키 및 비밀 복원](backup-azure-restore-key-secret.md)
 
 
-## Windows 파일 및 폴더
-### [리소스 관리자 배포 모델을 사용하는 Windows Server](backup-configure-vault.md)
-### [클래식 배포 모델을 사용하는 Windows Server](backup-configure-vault-classic.md)
+## Windows Server
+### [Windows Server 파일 및 폴더 백업](backup-configure-vault.md)
+### [Windows Server 시스템 상태 백업](backup-azure-system-state.md)
+### [Azure에서 Windows Server로 파일 복구](backup-azure-restore-windows-server.md)
+### [Windows Server 시스템 상태 복원](backup-azure-restore-system-state.md)
 ### [Recovery Services 자격 증명 모음 모니터링 및 관리](backup-azure-manage-windows-server.md)
-### [클래식 배포 모델을 사용하여 Backup 자격 증명 모음 관리](backup-azure-manage-windows-server-classic.md)
-### [Resource Manager 배포 모델을 사용하여 Windows 서버로 파일 복구](backup-azure-restore-windows-server.md)
-### [클래식 배포 모델을 사용하여 Windows 서버로 파일 복구](backup-azure-restore-windows-server-classic.md)
+### 클래식 포털을 사용한 백업 및 복원
+#### [클래식 배포 모델을 사용하는 Windows Server](backup-configure-vault-classic.md)
+#### [클래식 배포 모델을 사용하여 Backup 자격 증명 모음 관리](backup-azure-manage-windows-server-classic.md)
+#### [클래식 배포 모델을 사용하여 Windows 서버로 파일 복구](backup-azure-restore-windows-server-classic.md)
 
 ## Azure 백업 서버
 ### [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
@@ -107,6 +110,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [가격 책정](https://azure.microsoft.com/pricing/details/backup/)
+## [가격](https://azure.microsoft.com/pricing/details/backup/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=backup)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=backup)

@@ -56,6 +56,7 @@
 ### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
@@ -66,7 +67,8 @@
 ## [블로그](http://blogs.msdn.com/b/streamanalytics/)
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
-## [가격 책정](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [가격](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](stream-analytics-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stream-analytics)

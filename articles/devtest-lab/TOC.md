@@ -71,3 +71,4 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

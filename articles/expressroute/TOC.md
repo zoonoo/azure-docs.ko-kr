@@ -32,6 +32,7 @@
 ### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
+## [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성
@@ -66,7 +67,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [사례 연구](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)
+## [가격](https://azure.microsoft.com/pricing/details/expressroute/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

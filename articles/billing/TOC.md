@@ -44,3 +44,4 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [지원에 문의](../azure-supportability/how-to-create-azure-support-request.md)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

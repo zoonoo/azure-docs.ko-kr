@@ -97,7 +97,8 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

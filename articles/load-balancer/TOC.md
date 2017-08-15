@@ -48,6 +48,7 @@
 ### [Azure Load Balancer 문제 해결](load-balancer-troubleshoot.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
@@ -68,5 +69,6 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
-## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [가격](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)

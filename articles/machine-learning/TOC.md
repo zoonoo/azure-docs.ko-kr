@@ -173,6 +173,7 @@
 
 # 참조
 
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell 모듈(신규)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell 모듈(클래식)](machine-learning-powershell-module.md)
 ## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -214,7 +215,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 
 ## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [가격](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [블로그](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
