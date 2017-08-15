@@ -82,18 +82,22 @@
 
 ## 로드
 
-### [개요](sql-data-warehouse-overview-load.md)
-### [샘플 데이터](sql-data-warehouse-load-sample-databases.md)
-### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
-### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [SQL server에서 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### 개념
+#### [개요](sql-data-warehouse-overview-load.md)
+#### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
+
+### 자습서
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### 방법 가이드
+#### [샘플 데이터](sql-data-warehouse-load-sample-databases.md)
+#### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
+#### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [SQL server에서 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## 마이그레이션
 
@@ -143,7 +147,8 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
 ## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
-## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)

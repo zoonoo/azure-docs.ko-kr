@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
-#### 클래식
-##### [포털](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 네트워크 보안 그룹
 #### [포털](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [방화벽, UDR 및 NSG와 DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
 
+### 클래식
+#### [가상 네트워크](create-virtual-network-classic.md)
+##### [포털](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## 구성
 ### 가상 컴퓨터
 #### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell(리소스 관리자)](/powershell/module/azurerm.network)
 ## [PowerShell(클래식)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -161,5 +164,6 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)

@@ -27,7 +27,8 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)
+## [가격](https://azure.microsoft.com/pricing/details/scheduler/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=scheduler)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)

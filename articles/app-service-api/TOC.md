@@ -158,6 +158,7 @@
 ## [Azure 포털](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [WebJob 리소스 목록](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 

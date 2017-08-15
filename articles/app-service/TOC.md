@@ -146,13 +146,17 @@
 ### [스트리밍 로그 및 콘솔](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Visual Studio를 사용하여 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # 리소스
 ## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure 포털](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [가격 책정](https://azure.microsoft.com/pricing/details/app-service/)  
+## [가격](https://azure.microsoft.com/pricing/details/app-service/)  
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/appservice/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=app-service) 
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

@@ -29,4 +29,5 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
-## [가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [가격](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

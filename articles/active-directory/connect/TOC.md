@@ -38,6 +38,7 @@
 ##### [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [작동 원리](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [미리 보기 에이전트 업그레이드](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [포트 및 프로토콜이 필요한 하이브리드 ID](active-directory-aadconnect-ports.md)
 ## [미리 보기의 기능](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+

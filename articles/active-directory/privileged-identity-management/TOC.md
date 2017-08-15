@@ -23,8 +23,12 @@
 ### [MFA 요구](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [감사 로그 사용](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # 관련 항목
 ## [Azure Active Directory](/azure/active-directory/)
 ## [역할 기반 액세스 제어](../role-based-access-control-what-is.md)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

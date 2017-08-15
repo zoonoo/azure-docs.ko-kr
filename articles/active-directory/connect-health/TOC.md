@@ -12,6 +12,7 @@
 ## [동기화 중 오류](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
 # 관련 항목
@@ -22,4 +23,4 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

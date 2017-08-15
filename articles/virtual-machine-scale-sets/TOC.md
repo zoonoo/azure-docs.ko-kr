@@ -53,7 +53,8 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## 가격 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
