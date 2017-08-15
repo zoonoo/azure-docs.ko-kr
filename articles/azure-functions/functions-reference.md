@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/30/2017
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: bc96edb44dc8bbbbe4687806117990c9d3470fdc
-ms.openlocfilehash: adb70fc58321c11c0b57efc9810a44d0ab2c8a20
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -76,7 +77,7 @@ Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝�
 > 
 > 
 
-## <a name="a-idfileupdatea-how-to-update-function-app-files"></a><a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
+## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
 함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
@@ -96,9 +97,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 3. `D:\home\site\wwwroot\`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot\<function_name>`로 이동하여 함수 파일을 업데이트합니다.
 4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다. 파일을 삭제할 수 있는 파일 표에는 두 가지 영역이 있습니다. *.zip* 파일의 경우 "여기에 끌어 와서 업로드하고 압축을 풉니다" 레이블이 있는 상자가 나타납니다. 다른 파일 형식의 경우 "압축" 상자 외부에 파일 표를 살펴봅니다.
 
-#### <a name="to-use-ftp"></a>FTP를 사용하려면
-1. [여기](../app-service-web/web-sites-deploy.md#ftp) 에 있는 지침에 따라 FTP를 구성합니다.
-2. 함수 앱 사이트에 연결되면, 업데이트된 *host.json* 파일을 `/site/wwwroot`에 복사하거나 함수 파일을 `/site/wwwroot/<function_name>`에 복사합니다.
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
 
 #### <a name="to-use-continuous-deployment"></a>연속 배포를 사용하려면
 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)항목의 지침을 따릅니다.
@@ -106,8 +105,9 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 ## <a name="parallel-execution"></a>병렬 실행
 복수의 트리거 이벤트가 단일 스레드 함수 런타임이 해당 이벤트를 처리할 수 있는 속도보다 빨리 발생하면 런타임은 병렬 모드로 함수를 여러 번 호출할 수 있습니다.  함수 앱이 [소비 호스팅 계획](functions-scale.md#how-the-consumption-plan-works)을 사용하는 경우 함수 앱은 자동으로 확장할 수 있습니다.  앱이 소비 호스팅 계획 또는 일반 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에서 실행되는지 여부에 관계없이 함수 앱의 각 인스턴스는 여러 스레드를 사용하여 동시 함수 호출을 병렬로 처리할 수 있습니다.  각 함수 앱 인스턴스의 최대 동시 함수 호출 수는 함수 앱 내의 다른 함수에서 사용하는 리소스뿐만 아니라 사용 중인 트리거 유형에 따라 달라집니다.
 
-## <a name="azure-functions-pulse"></a>Azure Functions 펄스
-펄스는 함수의 실행 빈도뿐만 아니라 성공과 실패도 보여 주는 라이브 이벤트 스트림입니다. 평균 실행 시간을 모니터링할 수도 있습니다. 앞으로 더 많은 기능과 사용자 지정을 추가할 예정입니다. **펄스** 페이지는 **모니터링** 탭을 통해 액세스할 수 있습니다.
+## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
+
+`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. Azure Portal의 **설정** 탭에서 함수 앱의 정확한 버전을 볼 수 있습니다.
 
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.

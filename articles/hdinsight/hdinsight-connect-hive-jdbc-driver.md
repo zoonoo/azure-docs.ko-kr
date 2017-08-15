@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
@@ -143,7 +142,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **암호**: 클러스터 로그인 계정의 암호입니다.
 
-    ![별칭 추가 대화 상자](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+ ![별칭 추가 대화 상자](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다.
 

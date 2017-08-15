@@ -2,24 +2,24 @@
 title: "Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기"
 description: "Java 용 Azure SDK를 사용하여 프로그래밍 방식으로 Azure 앱 서비스에 웹 앱을 만드는 방법에 대해 알아봅니다."
 tags: azure-classic-portal
-services: app-service\web
+services: app-service-web
 documentationcenter: Java
 author: donntrenton
 manager: erikre
 editor: jimbe
 ms.assetid: 8954c456-1275-4d57-aff4-ca7d6374b71e
-ms.service: multiple
+ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: v-donntr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: 19ddcc3e8e1bb3b52eeb06d81e27793c25c1e230
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기
