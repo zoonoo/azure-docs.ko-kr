@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
@@ -29,14 +28,14 @@ Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-S
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하기 전에 **Azure 구독**이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+이 자습서를 시작하기 전에 **Azure 구독**이 있어야 합니다. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
 
 이제 Data Lake Analytics 및 Data Lake Store 계정을 동시에 만듭니다.  이 단계는 간단하며 완료하는 데 약 60초가 소요됩니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기** >  **인텔리전스 + 분석** > **Data Lake Analytics**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **새로 만들기** >  **데이터 + 분석** > **Data Lake Analytics**를 클릭합니다.
 3. 다음 항목에 대한 값을 선택합니다.
    * **이름**: Data Lake Analytics 계정의 이름을 지정합니다(소문자와 숫자만 허용).
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. **작업 제출**을 클릭합니다.   
 4. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다.
 5. 작업이 실패한 경우 [Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
-6. **출력** 탭을 클릭하고 `SearchLog-from-Data-Lake.csv`를 클릭합니다. 
+6. **출력** 탭을 클릭하고 `data.csv`를 클릭합니다. 
 
 ## <a name="see-also"></a>참고 항목
 

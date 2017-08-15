@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서
@@ -35,6 +35,21 @@ Azure Active Directory는 사용자 계정에 관련된 의심스러운 작업�
 Azure Portal의 **보안** 섹션에서 **Azure Active Directory** 블레이드에 대한 보안 보고서를 찾을 수 있습니다.  
 
 ![위험한 로그인](./media/active-directory-reporting-security-user-at-risk/10.png)
+
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>보안 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?  
+
+모든 Azure Active Directory 버전에서 위험 플래그가 지정된 사용자 보고서를 제공합니다.  
+그러나 보고서의 세분성 수준은 다음과 같이 버전에 따라 다릅니다. 
+
+- **Azure Active Directory Free 및 Basic 버전**에는 위험 플래그가 지정된 사용자 목록이 이미 있습니다. 
+
+- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 이벤트 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
+
+- **Azure Active Directory Premium 2** 버전은 기본 위험 이벤트에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
+
+
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 무료 및 기본 버전
 

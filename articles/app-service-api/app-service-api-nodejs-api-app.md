@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
@@ -64,12 +64,12 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 디렉터리를 *시작* 폴더로 변경한 다음 `yo swaggerize`를 실행합니다. Swaggerize는 *api.json*으로 Swagger 정의에서 API에 대한 Node.js 프로젝트를 만듭니다.
 
-    ```bash
-    cd start
-    yo swaggerize --apiPath api.json --framework express
-    ```
+```bash
+cd start
+yo swaggerize --apiPath api.json --framework express
+```
 
-     When Swaggerize asks for a project name, use *ContactList*.
+Swaggerize가 프로젝트 이름을 물어보면 *ContactList*를 사용합니다.
    
    ```bash
    Swaggerize Generator

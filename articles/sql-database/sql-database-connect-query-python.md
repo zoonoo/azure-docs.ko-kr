@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/11/2017
+ms.date: 08/08/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7c217be41b979f8a7246109cc95a01341dadf3d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: afffcb9a4938bf97626f182bb4f4d099d807d411
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
@@ -40,9 +40,9 @@ ms.lasthandoff: 07/21/2017
 
 - 운영 체제에 맞게 설치된 Python 및 관련 소프트웨어
 
-    - **MacOS**: Homebrew와 Python을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1 단계](https://www.microsoft.com/sql-server/developer-get-started/Python/mac/) 참조
-    - **Ubuntu**: Python 및 기타 필요한 패키지를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2 및 2.1 단계](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) 참조
-    - **Windows**: 최신 버전의 Python(환경 변수가 자동으로 구성됨)을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1 단계](https://www.microsoft.com/sql-server/developer-get-started/node/windows/) 참조 
+    - **MacOS**: Homebrew와 Python을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1단계](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)를 참조하세요.
+    - **Ubuntu**: Python 및 기타 필요한 패키지를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1단계](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/)를 참조하세요.
+    - **Windows**: 최신 버전의 Python(환경 변수가 자동으로 구성됨)을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1 단계](https://www.microsoft.com/sql-server/developer-get-started/python/windows/) 참조 
 
 ## <a name="sql-server-connection-information"></a>SQL 서버 연결 정보
 

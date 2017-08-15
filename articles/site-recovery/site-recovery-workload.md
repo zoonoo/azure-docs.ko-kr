@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 이 문서에서는 Azure Site Recovery 서비스로 복제할 수 있는 워크로드 및 응용 프로그램을 설명합니다.
 
-이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
 ## <a name="overview"></a>개요
 조직은 계획되거나 계획되지 않은 중단 중에 워크로드 및 데이터를 안전하고 사용 가능하게 유지하며 가능한 신속히 정상적인 작업 조건으로 복구하는 BCDR(비즈니스 연속성 및 재해 복구) 전략이 필요합니다.
@@ -69,7 +68,7 @@ Active Directory 및 DNS 인프라는 대부분의 엔터프라이즈 앱에 필
 
 사이트 복구를 사용하여 Active Directory 및 DNS에 대한 완전히 자동화된 재해 복구 계획을 만들 수 있습니다. 예를 들어 기본 사이트에서 보조 사이트로 SharePoint 및 SAP를 장애 조치하려면 먼저 Active Directory를 장애 조치하는 복구 계획을 설정한 후 Active Directory에 의존하는 다른 앱을 장애 조치하는 추가 앱별 복구 계획을 설정할 수 있습니다.
 
-[자세히 알아봅니다](site-recovery-active-directory.md) .
+Active Directory 및 DNS 보호에 대하여 [자세히 알아봅니다](site-recovery-active-directory.md).
 
 ## <a name="protect-sql-server"></a>SQL Server 보호
 SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 앱에 대한 데이터 서비스의 데이터 서비스 기반을 제공합니다.  Site Recovery와 SQL Server HA/DR 기술을 함께 사용하여 SQL Server를 사용하는 다중 계층 엔터프라이즈 앱을 보호할 수 있습니다. 사이트 복구는 다음을 제공합니다.
@@ -127,11 +126,12 @@ Site Recovery를 사용하면 다음과 같이 Exchange를 보호할 수 있습�
 ## <a name="protect-sap"></a>SAP 보호
 Site Recovery를 사용하여 다음과 같이 SAP 배포를 보호합니다.
 
-* Azure 또는 보조 사이트에 다른 배포 계층을 복제하여 전체 SAP 배포의 보호를 설정할 수 있습니다.
+* 구성 요소를 Azure에 복사하여 온-프레미스로 실행 중인 SAP NetWeaver 및 비-NetWeaver 프로덕션 응용 프로그램 보호를 활성화합니다.
+* 구성 요소를 다른 Azure 데이터 센터에 복사하여 Azure를 실행 중인 SAP NetWeaver 및 비-NetWeaver 프로덕션 응용 프로그램 보호를 활성화합니다.
 * Site Recovery를 사용하여 클라우드 마이그레이션을 간소화하여 Azure에 SAP 배포를 마이그레이션합니다.
-* 테스트 및 디버깅 응용 프로그램에 프로덕션 환경과 유사한 복사본 주문형을 만들어 SAP 개발 및 테스트를 용이하게 합니다.
+* SAP 응용 프로그램 테스팅을 위해 온디맨드로 프로덕션 클론을 만들어 SAP 프로젝트 업그레이드, 테스트 및 프로토타입 생성을 단순화합니다.
 
-[자세히 알아봅니다](http://aka.ms/asr-sap) .
+[자세히 알아봅니다](site-recovery-sap.md) .
 
 ## <a name="protect-iis"></a>IIS 보호
 Site Recovery를 사용하여 다음과 같이 IIS 배포를 보호합니다.
@@ -152,11 +152,11 @@ Site Recovery를 사용하여 음과 같이 Citrix XenApp와 XenDesktop 배포�
 * 여러 배포 계층(AD DNS 서버, SQL 데이터베이스 서버, Citrix Delivery Controller, StoreFront 서버, XenApp Master(VDA), Citrix XenApp License Server)을 Azure에 복제하여 Citrix XenApp 및 XenDesktop 배포를 보호합니다.
 * Citrix XenApp 및 XenDesktop 배포를 Azure로 마이그레이션하기 위해 Site Recovery를 사용하여 클라우드 마이그레이션을 간소화합니다.
 * 테스트 및 디버깅을 위해 프로덕션 환경과 유사한 주문형 복사본을 만들어 Citrix XenApp/XenDesktop 테스트를 간소화합니다.
-* 이 솔루션은 Windows Server 운영 체제 가상 데스크톱에만 적용할 수 있으며 Azure의 라이선스에 대해 아직 지원되지 않는 클라이언트 가상 데스크톱에는 적용할 수 없습니다. 
+* 이 솔루션은 Windows Server 운영 체제 가상 데스크톱에만 적용할 수 있으며 Azure의 라이선스에 대해 아직 지원되지 않는 클라이언트 가상 데스크톱에는 적용할 수 없습니다.
 Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/licensing-faq/).
 
-Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](site-recovery-citrix-xenapp-and-xendesktop.md). 또는 세부 사항을 동일하게 설명하는 [Citrix의 백서](https://aka.ms/citrix-xenapp-xendesktop-with-asr)를 참조하세요. 
+Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](site-recovery-citrix-xenapp-and-xendesktop.md). 또는 세부 사항을 동일하게 설명하는 [Citrix의 백서](https://aka.ms/citrix-xenapp-xendesktop-with-asr)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[필수 구성 요소 확인](site-recovery-prereq.md) 
+[필수 구성 요소 확인](site-recovery-prereq.md)
 
