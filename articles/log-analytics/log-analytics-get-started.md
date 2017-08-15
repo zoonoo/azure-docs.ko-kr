@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Log Analytics 작업 영역 시작
@@ -47,7 +46,7 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
 다음은 작업 영역을 만드는 단계입니다.
 
 1. Azure Portal에서 Marketplace의 서비스 목록에서 *Log Analytics*를 검색한 다음 **Log Analytics**를 선택합니다.  
-    ![Azure 포털](./media/log-analytics-get-started/log-analytics-portal.png)
+    ![Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
 2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
    * **OMS 작업 영역** - 작업 영역의 이름을 입력합니다.
    * **구독** - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
@@ -59,7 +58,12 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
 4. Azure Portal에서 세부 정보를 보려면 작업 영역을 선택합니다.       
     ![작업 영역 정보](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 솔루션 및 솔루션 제품 추가
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 새 로그 검색으로 작업 영역 업그레이드
+새 Log Analytics 쿼리 언어가 릴리스되었으므로, 활용하려면 작업 영역을 전환해야 합니다.  작업 영역을 호스팅하는 지역이 업그레이드된 경우 작업 영역의 맨 위에 전환을 안내하는 자주색 배너가 보여야 합니다. 업그레이드는 완전히 자발적이며 Log Analytics는 물론, 추가하는 어떠한 솔루션과 작업하는 환경에도 영향을 미치지 않습니다.  
+
+업그레이드 이점, 고려 사항 및 프로세스를 이해하기 위한 자세한 내용은 [Azure Log Analytics를 새 로그 검색으로 업그레이드](log-analytics-log-search-upgrade.md)를 참조하세요.  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 솔루션 및 솔루션 제품 추가
 
 다음으로 관리 솔루션 및 솔루션 제품을 추가합니다. 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 취득 규칙의 컬렉션입니다. 솔루션 제품은 관리 솔루션의 모음입니다.
 
@@ -67,7 +71,7 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
 
 ### <a name="to-add-solutions-and-solution-offerings"></a>솔루션 및 솔루션 제품을 추가하려면
 
-1. Azure Portal에서 **새로 만들기**를 클릭한 다음 **Marketplace 검색** 상자에 **Activity Log Analytics**(활동 로그 분석)를 입력한 다음 ENTER를 누릅니다.
+1. Azure Portal에서 **새로 만들기**를 클릭한 다음 **마켓플레이스 검색** 상자에 **Activity Log Analytics**(활동 로그 분석)를 입력한 다음 ENTER를 누릅니다.
 2. 모두 블레이드에서 **Activity Log Analytics**(활동 로그 분석)를 선택한 다음 **만들기**를 클릭합니다.  
     ![Activity Log Analytics](./media/log-analytics-get-started/activity-log-analytics.png)(활동 로그 분석)  
 3. *관리 솔루션 이름* 블레이드에서 관리 솔루션과 연결할 작업 영역을 선택합니다.
@@ -95,11 +99,11 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
 
 - [Azure 가상 컴퓨터를 Log Analytics에 연결](log-analytics-azure-vm-extension.md)의 지침에 따라 Azure Portal을 사용하여 VM을 Log Analytics에 연결합니다.
 
-## <a name="5-view-and-act-on-data"></a>5 데이터 보기 및 작업
+## <a name="6-view-and-act-on-data"></a>6 데이터 보기 및 작업
 
 앞에서 Activity Log Analytics(활동 로그 분석)와 보안 및 규정 준수 및 Automation 및 제어 서비스 제품을 사용하도록 설정했습니다. 다음으로 솔루션에 의해 수집된 데이터와 로그 검색의 결과를 살펴보겠습니다.
 
-우선 솔루션 내에 표시되는 데이터를 살펴봅니다. 그런 다음 로그 검색을 통해 액세스한 로그 검색을 살펴봅니다. 로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다. 자세한 내용은 [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 참조하세요. 마지막으로 Azure Portal 외부에 있는 OMS 포털을 사용하여 찾은 데이터에 조치를 취합니다.
+우선 솔루션 내에 표시되는 데이터를 살펴봅니다. 그런 다음 로그 검색을 통해 액세스한 로그 검색을 살펴봅니다. 로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다. 자세한 내용은 [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하거나 작업 영역을 새 쿼리 언어로 전환한 경우 [Log Analytics에서 로그 검색 이해](log-analytics-log-search-new.md)를 참조하세요. 
 
 ### <a name="to-view-antimalware-data"></a>맬웨어 방지 데이터를 보려면
 
@@ -151,5 +155,5 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
 * [Windows 에이전트](log-analytics-windows-agents.md)를 Log Analytics에 연결하는 방법을 알아봅니다.
 * [Operations Manager 에이전트](log-analytics-om-agents.md)를 Log Analytics에 연결하는 방법을 알아봅니다.
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
-* [로그 검색](log-analytics-log-searches.md) 을 통해 솔루션에서 수집한 자세한 정보를 확인하는 방법을 알아봅니다.
+* [로그 검색](log-analytics-log-searches.md)을 통해 솔루션에서 수집한 자세한 정보를 확인하는 방법을 알아봅니다.
 

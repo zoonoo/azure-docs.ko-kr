@@ -2,7 +2,7 @@
 
 
 
-Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 성능 비교 방법을 제공합니다. 어떤 SKU가 성능 요구 사항을 충족할 가능성이 높은지 쉽게 식별하도록 합니다.  ACU는 현재 100인 작은(Standard_A1) VM에서 표준화되고 다른 SKU는 모두 SKU가 표준 벤치 마크를 얼마나 빨리 실행할 수 있는지를 나타냅니다. 
+Azure Compute 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 성능 비교 방법을 제공합니다. 어떤 SKU가 성능 요구 사항을 충족할 가능성이 높은지 쉽게 식별하도록 합니다.  ACU는 현재 100인 작은(Standard_A1) VM에서 표준화되고 다른 SKU는 모두 SKU가 표준 벤치 마크를 얼마나 빨리 실행할 수 있는지를 나타냅니다. 
 
 > [!IMPORTANT]
 > ACU는 단지 지침일 뿐입니다.  워크로드에 대한 결과가 달라질 수 있습니다. 
@@ -11,7 +11,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 <br>
 
-| SKU 제품군 | ACU |
+| SKU 제품군 | ACU \ vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

@@ -1,6 +1,6 @@
 ---
-title: "웹앱용 Azure Mobile Engagement 시작 | Microsoft Docs"
-description: "웹앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
+title: "Web Apps용 Azure Mobile Engagement 시작 | Microsoft Docs"
+description: "Web Apps에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,33 +14,37 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>웹앱용 Azure Mobile Engagement 시작
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 웹앱 사용량을 파악하는 방법을 보여 줍니다.
 
+> [!NOTE]
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * Visual Studio 2015 또는 원하는 다른 편집기
-* [웹 SDK](http://aka.ms/P7b453) 
+* [웹 SDK](http://aka.ms/P7b453)
 
 이 웹 SDK는 미리 보기 상태이며 현재 분석을 지원하고 브라우저 또는 앱 내 푸시 알림을 보내도록 아직 지원하지 않습니다. 
 
 > [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started)을 참조하세요.
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>웹앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다.
 
 Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual Studio 외부에서 만든 웹 응용 프로그램으로 모든 단계를 수행할 수도 있습니다. 
@@ -76,7 +80,7 @@ Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual St
 3. 본문 태그를 업데이트하여 EngagementAgent의 `startActivity` 메서드를 호출합니다.
    
         <body onload="engagement.agent.startActivity('Home')">
-4. **home.html** 은 다음과 같이 표시됩니다.
+4. **home.html**은 다음과 같이 표시됩니다.
    
         <html>
         <head>
@@ -114,10 +118,5 @@ Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual St
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

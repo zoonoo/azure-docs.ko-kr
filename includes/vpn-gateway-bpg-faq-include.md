@@ -1,4 +1,4 @@
-### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN 게이트웨이 SKU를 지원하나요?
+### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 **표준** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Azure 정책 기반 VPN 게이트웨이에 BGP를 사용할 수 있나요?
@@ -15,6 +15,11 @@
 
 Azure VPN 게이트웨이에 연결할 때 온-프레미스 VPN 장치에 대해 이러한 ASN을 지정할 수 없습니다.
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>사용할 수 없는 다른 ASN이 있나요?
+예, 다음 ASN은 [IANA에서 예약한](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) 것으로, 사용자의 Azure VPN Gateway에서 구성할 수 없습니다.
+
+23456, 64496-64511, 65535-65551 및 429496729
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>온-프레미스 VPN 네트워크와 Azure VNet에 동일한 ASN을 사용할 수 있나요?
 아니요. 온-프레미스 네트워크와 Azure VNet을 함께 BGP에 연결하려면 서로 다른 ASN을 할당해야 합니다. 크로스 프레미스 연결에 대한 BGP 활성화 여부에 관계없이 Azure VPN 게이트웨이에 할당되는 기본 ASN은 65515입니다. VPN 게이트웨이를 만들 때 다른 ASN을 적용하여 이 기본값을 다시 정의하거나, 게이트웨이를 만든 후 ASN을 변경할 수 있습니다. 해당하는 Azure 로컬 네트워크 게이트웨이에 온-프레미스 ASN을 할당해야 합니다.
 
@@ -30,9 +35,9 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알
 
 그러면 모든 VNet 송신 트래픽을 온-프레미스 사이트로 강제하고 VNet VM이 인터넷에서 VM으로 RDP 또는 SSH와 같이 인터넷의 공용 통신을 직접 수락하지 않도록 방지하게 됩니다.
 
-### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>가상 네트워크 접두사로 정확한 접두사를 보급할 수 있나요?
+### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Virtual Network 접두사로 정확한 접두사를 보급할 수 있나요?
 
-아니요. 가상 네트워크 주소 접두사와 동일한 접두사의 보급은 Azure 플랫폼에서 차단되거나 필터링됩니다. 그러나 가상 네트워크 내에 포함된 접두사의 상위 집합에 해당하는 접두사를 보급할 수 있습니다. 
+아니요. Virtual Network 주소 접두사와 동일한 접두사의 보급은 Azure 플랫폼에서 차단되거나 필터링됩니다. 그러나 Virtual Network 내에 포함된 접두사의 상위 집합에 해당하는 접두사를 보급할 수 있습니다. 
 
 예를 들어 가상 네트워크에서 10.0.0.0/16 주소 공간을 사용하는 경우 10.0.0.0/8은 보급할 수 있지만, 10.0.0.0/16 또는 10.0.0.0/24는 보급할 수 없습니다.
 
@@ -53,7 +58,7 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>두 Azure VNet과 BGP와 간에 여러 터널이 있을 수 있나요?
 예, 하지만 하나 이상의 가상 네트워크 게이트웨이가 active-active 구성에 있어야 합니다.
 
-### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Express 경로/S2S VPN 동시 존재 구성에서 S2S VPN에 BGP를 사용할 수 있나요?
+### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>ExpressRoute/S2S VPN 동시 존재 구성에서 S2S VPN에 BGP를 사용할 수 있나요?
 예. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 게이트웨이는 BGP 피어 IP에 어떤 주소를 사용하나요?
