@@ -39,6 +39,7 @@
 ### [활동 로그를 Event Hubs로 스트림](monitoring-stream-activity-logs-event-hubs.md)
 ### [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [리소스 관리자로 활동 로그 경고 만들기](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [활동 로그 경고로 마이그레이션](monitoring-migrate-management-alerts.md)
 ## 서비스 알림 사용
 ### [서비스 알림 보기](monitoring-service-notifications.md)
 ### [서비스 알림에 대한 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)
@@ -59,6 +60,7 @@
 ### [문제 해결](azure-diagnostics-troubleshooting.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [모니터링 데이터의 원본](monitoring-data-sources.md)
 ## [지원 메트릭 목록](monitoring-supported-metrics.md)
 ## [활동 로그 이벤트 스키마](monitoring-activity-log-schema.md)
@@ -74,5 +76,6 @@
 ## [Azure CLI 1.0 샘플](insights-cli-samples.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell 샘플](insights-powershell-samples.md)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

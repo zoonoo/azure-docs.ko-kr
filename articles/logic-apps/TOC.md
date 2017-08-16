@@ -16,6 +16,7 @@
 ### [Switch 문 추가](logic-apps-switch-case.md)
 ### [Azure Functions를 사용하여 사용자 지정 코드 추가](logic-apps-azure-functions.md)
 ### [루프, 범위 및 데이터 분할](logic-apps-loops-and-scopes.md)
+### [메시지 일괄 처리](logic-apps-batch-process-send-receive-messages.md)
 ### [작성자 논리 앱 정의](logic-apps-author-definitions.md)
 ### [논리 앱 호출, 트리거 또는 중첩](logic-apps-http-endpoint.md)
 ### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [Visual Studio에서 논리 앱 관리](logic-apps-manage-from-vs.md)
 ### [통합 계정 관리](logic-apps-enterprise-integration-accounts.md)
 ### [논리 앱 상태 모니터링](logic-apps-monitor-your-logic-apps.md)
+### [Log Analytics로 OMS의 논리 앱 상태 모니터링](logic-apps-monitor-your-logic-apps-oms.md)
 ### [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)
 #### [OMS에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md)
 #### [B2B 메시지에 대한 OMS 쿼리](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-logic-apps)

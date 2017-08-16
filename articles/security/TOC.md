@@ -3,11 +3,13 @@
 ## [데이터베이스 보안](azure-database-security-overview.md)
 ## [저장소 보안](security-storage-overview.md)
 ## [보안 계산](security-virtual-machines-overview.md)
+## [운영 보안](azure-operational-security-overview.md)
 ## [보안 관리 및 모니터링](security-management-and-monitoring-overview.md)
+## [Service Fabric 보안](azure-service-fabric-security-overview.md)
 ## [ID 관리](security-identity-management-overview.md)
 ## [IoT 보안](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [보안 아키텍처](azure-security-architecture-overview.md)
-### [운영 보안](azure-operational-security.md)
+### [운영 보안 사용](azure-operational-security.md)
 ### [고급 위협 감지](azure-threat-detection.md)
 ### [로깅 및 감사](azure-log-audit.md)
 ### [공용 클라우드에서 격리](azure-isolation.md)
@@ -35,7 +37,12 @@
 ### [IaaS 워크로드에 대한 모범 사례 ](azure-security-iaas.md)
 ### [Microsoft 맬웨어 방지](azure-security-antimalware.md)
 ### [IaaS VM 디스크 암호화](azure-security-disk-encryption.md)
+#### [디스크 암호화 FAQ](azure-security-disk-encryption-faq.md)
+#### [디스크 암호화 문제 해결](azure-security-disk-encryption-tsg.md)
 ### [Azure VM 암호화](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## 운영 보안
+### [운영 보안 모범 사례](azure-operational-security-best-practices.md)
 
 ## 보안 관리 및 모니터링
 ### [보안 관리](azure-security-management.md)
@@ -47,14 +54,20 @@
 #### [이벤트 허브를 사용하여 Key Vault의 로그 통합](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
+## Service Fabric
+### [Service Fabric 모범 사례](azure-service-fabric-security-best-practices.md)
+### [Service Fabric 검사 목록](azure-service-fabric-security-checklist.md)
+
 ## ID 관리
 ### [ID 관리 보안 모범 사례](azure-security-identity-management-best-practices.md)
 
 ## PaaS 서비스
 ### [PaaS 배포 보안](security-paas-deployments.md)
 #### [SQL을 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-sql.md)
-#### [SQL Database 모범 사례](azure-database-security-best-practices.md)
+#### [SQL Database 보안 모범 사례](azure-database-security-best-practices.md)
+#### [SQL Database 보안 검사 목록](azure-database-security-checklist.md)
 #### [App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
+####[운영 보안 검사 목록](azure-operational-security-checklist.md)
 
 ## 사물 인터넷
 ### [IoT 배포 보안 유지](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +92,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure 보안 MVP 프로그램](azure-security-mvp.md)
 ## [사이버 보안 컨설팅](azure-security-cyber-services.md)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [보안 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
 ## [Virtual Academy의 보안 과정](security-microsoft-virtual-academy.md)
 ## [Channel 9의 보안 동영상](security-channel-nine.md)

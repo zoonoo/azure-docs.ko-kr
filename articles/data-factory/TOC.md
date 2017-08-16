@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [웹 테이블](data-factory-web-table-connector.md)
-### [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)
+### 데이터 관리 게이트웨이
+#### [개요](data-factory-data-management-gateway.md)
+#### [고가용성 및 확장성(미리 보기)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [연습: 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [데이터 변환](data-factory-data-transformation-activities.md)
@@ -93,6 +96,7 @@
 ### [데이터 관리 게이트웨이를 사용하여 문제 해결](data-factory-troubleshoot-gateway-issues.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST (영문)](/rest/api/datafactory/)
@@ -103,7 +107,8 @@
 ## [사례 연구](data-factory-customer-case-studies.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)
+## [가격](https://azure.microsoft.com/pricing/details/data-factory/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-factory)
