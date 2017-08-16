@@ -235,7 +235,7 @@ YAST에서 Software Maintenance(소프트웨어 유지 관리)로 이동하여 s
 ![yast의 SMT](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동하여 앞에서 검색한 SUSE Customer Center(SUSE 고객 센터)의 조직 자격 증명을 입력합니다. Azure VM 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https://smtserver입니다(다음 그래픽 참조).
+smtserver에 설치를 위한 선택 사항을 수락합니다. 설치가 완료되면 SMT 서버 구성으로 이동하여 앞에서 검색한 SUSE Customer Center(SUSE 고객 센터)의 조직 자격 증명을 입력합니다. Azure VM 호스트 이름을 SMT 서버 URL로 입력합니다. 이 데모에서는 https://smtserver 입니다(다음 그래픽 참조).
 
 ![SMT 서버 구성](./media/hana-installation/image6_configuration_of_smtserver1.png)
 
