@@ -3,8 +3,8 @@ title: "DPM을 사용하여 Azure Portal에 워크로드 백업 | Microsoft Docs
 description: "Azure 백업 서비스를 사용하여 DPM 서버를 백업하는 방법 소개"
 services: backup
 documentationcenter: 
-author: Nkolli1
-manager: shreeshd
+author: adigan
+manager: nkolli
 editor: 
 keywords: "System Center Data Protection Manager, 데이터 보호 관리자, dpm 백업"
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
 ms.openlocfilehash: 973730bfdd4d13714ce7d0256a32af9eb8183e7a
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
@@ -197,9 +198,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 > System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

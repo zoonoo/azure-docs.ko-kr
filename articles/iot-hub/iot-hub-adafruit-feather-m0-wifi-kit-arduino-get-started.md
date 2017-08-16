@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
+ms.date: 8/16/2017
 ms.author: xshi
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -161,7 +161,7 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
 1. **파일** > **기본 설정**(Windows/Linux) 또는 **Arduino** > **환경설정**(Mac)을 클릭하고 아래 링크를 복사하여 Arduino IDE 기본 설정의 **Additional Boards Manager URLs**(추가 보드 관리자 URL) 옵션에 붙여넣습니다.
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 
