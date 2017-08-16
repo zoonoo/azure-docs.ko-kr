@@ -3,13 +3,13 @@
 ## [Azure ID 관리 정보](identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
 ## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
+## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQ](active-directory-faq.md)
 
 # 시작
-## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
-## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
-## [빠른 시작: 셀프 서비스 암호 재설정](active-directory-passwords-getting-started.md)
+## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
+## [셀프 서비스 암호 재설정 구성](active-directory-passwords-getting-started.md)
 ## Azure AD 라이선스 관리
 ### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
 ### [클래식 포털](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
-## [Azure Active Directory 지원 받기](active-directory-troubleshooting-support-howto.md)
-## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
+
 
 # 방법
 ## 계획 및 디자인
@@ -55,7 +54,6 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
-
 ### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
 ### [사용자 삭제](active-directory-users-delete-user-azure-portal.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## 앱 관리
 ### [개요](active-directory-enable-sso-scenario.md)
 ### [시작](active-directory-integrating-applications-getting-started.md)
+### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
 ### [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
 #### [개요](active-directory-add-domain-concepts.md)
-#### 도메인 이름 추가
-##### [Azure Portal](active-directory-domains-add-azure-portal.md)
-##### [클래식 포털](active-directory-add-domain.md)
-##### [AD FS로](active-directory-add-domain-federated.md)
-#### [사용자 할당](active-directory-add-domain-add-users.md)
 #### 도메인 이름 관리
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [클래식 포털](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [셀프 서비스 등록 포털 샘플](active-directory-b2b-self-service-portal.md)
 #### [초대 전자 메일](active-directory-b2b-invitation-email.md)
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
+#### [초대 없이 B2B 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 #### [B2B에 대한 조건부 액세스](active-directory-b2b-mfa-instructions.md)
 #### [B2B 공유 정책](active-directory-b2b-delegate-invitations.md)
 #### [역할에 B2B 사용자 추가](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
 
-## [문제 해결](active-directory-troubleshooting.md)
+## [문제 해결](active-directory-troubleshooting-support-howto.md)
+### [문제 해결: Active Directory 항목이 없거나 사용할 수 없음](active-directory-troubleshooting.md)
 
 ## Azure AD 개념 증명(PoC) 배포
 ### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)

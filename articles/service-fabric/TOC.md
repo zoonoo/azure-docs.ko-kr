@@ -16,6 +16,7 @@
 ### [2- Docker Compose를 사용하여 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
 
 # 샘플
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure CLI](samples-cli.md)
 # 개념
@@ -68,6 +69,7 @@
 ##### [DNS 서비스](service-fabric-dnsservice.md)
 ##### [역방향 프록시](service-fabric-reverseproxy.md)
 ##### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [역방향 프록시 진단](service-fabric-reverse-proxy-diagnostics.md)
 ### [응용 프로그램 확장성](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -131,11 +133,11 @@
 ### 컨테이너 서비스 빌드
 #### [Windows 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers.md)
 #### [Linux 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)
-#### [Windows 컨테이너 배포](service-fabric-deploy-container.md)
 #### [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
 #### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 #### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
 #### [볼륨 및 로깅 드라이버](service-fabric-containers-volume-logging-drivers.md)
+#### [컨테이너 내 서비스](service-fabric-services-inside-containers.md)
 
 ### Reliable Services 서비스 빌드
 #### [개요](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
 ##### [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
-#### [알림 보내기](service-fabric-reliable-actors-events.md) 
+#### [알림 보내기](service-fabric-reliable-actors-events.md)
 #### [타이머 및 미리 알림 설정](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [통신 설정 구성](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [통신 설정 구성](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider 구성](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## 클러스터 만들기 및 관리
 ### Azure의 클러스터
-#### 생성 
+#### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-#### 확장 
+#### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)
 #### [업그레이드](service-fabric-cluster-upgrade.md)
 #### [액세스 제어 설정](service-fabric-cluster-security-roles.md)
 #### [구성](service-fabric-cluster-fabric-settings.md)
-#### [클러스터 인증서 관리](service-fabric-cluster-security-update-certs-azure.md) 
+#### [클러스터 인증서 관리](service-fabric-cluster-security-update-certs-azure.md)
 #### [삭제](service-fabric-cluster-delete.md)
 
 ### 독립 실행형 클러스터
@@ -264,7 +266,7 @@
 #### [규모](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [액세스 제어 설정](service-fabric-cluster-security-roles.md)
 #### [구성](service-fabric-cluster-manifest.md)
-#### [업그레이드](service-fabric-cluster-upgrade-windows-server.md) 
+#### [업그레이드](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
@@ -327,9 +329,9 @@
 ## [일반적인 질문](service-fabric-common-questions.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
-## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [가격](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [샘플 코드](http://aka.ms/servicefabricsamples)
 ## [지원 옵션](service-fabric-support.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
