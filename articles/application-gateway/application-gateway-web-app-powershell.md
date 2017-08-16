@@ -30,6 +30,9 @@ ms.lasthandoff: 07/28/2017
 다음 예에서는 웹앱을 기존 응용 프로그램 게이트웨이에 백 엔드 풀 멤버로 추가합니다. 웹앱이 작동하려면 프로브 구성의 `-PickHostNamefromBackendHttpSettings` 스위치와 백 엔드 http 설정의 `-PickHostNameFromBackendAddress` 스위치를 모두 제공해야 합니다.
 
 ```powershell
+# FQDN of the web app
+$webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
+
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
@@ -46,7 +49,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses mywebapp.azurewebsites.net
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -72,7 +75,7 @@ New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
 
-# Configure GitHub deployment from your GitHub repo and deploy once.
+# Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
