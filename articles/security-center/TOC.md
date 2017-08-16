@@ -57,9 +57,10 @@
 ## 검색 및 응답
 ### [감지 기능](security-center-detection-capabilities.md)
 ### [보안 경고 관리](security-center-managing-and-responding-alerts.md)
+### [보안 경고 형식](security-center-alerts-type.md)
+### [경고 유효성 검사](security-center-alert-validation.md)
 ### [보안 인시던트 관리](security-center-incident.md)
 ### [Azure 로그 통합](security-center-integrating-alerts-with-log-integration.md)
-### [보안 경고 형식](security-center-alerts-type.md)
 ### [위협 인텔리전스 보고서](security-center-threat-report.md)
 
 ## 문제 해결
