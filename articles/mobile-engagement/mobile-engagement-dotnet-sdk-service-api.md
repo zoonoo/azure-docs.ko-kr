@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57b2abc37551a782cb7106b9fc4540ce2ba37732
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>.NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
-장치, 도달률/푸시 캠페인 등을 관리하기 위해 Azure Mobile Engagement는 API 집합을 노출합니다. 또한 이러한 API와 상호 작용하기 위해 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)을 제공합니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다. 
+장치, 도달률/푸시 캠페인 등을 관리하기 위해 Azure Mobile Engagement는 API 집합을 노출합니다. 또한 이러한 API와 상호 작용하기 위해 기본 설정 언어에 대한 SDK를 생성하는 도구와 함께 사용할 수 있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)을 제공합니다. Swagger 파일에서 SDK를 생성하는 [AutoRest](https://github.com/Azure/AutoRest) 도구를 사용하는 것이 좋습니다.
+
+> [!NOTE]
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
 
 C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한 방식으로 .NET SDK를 만들었으며 인증 토큰 협상을 수행하거나 새로 고칠 필요가 없습니다.  
 
@@ -89,7 +93,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
         }
    
    > [!IMPORTANT]
-   > AppName 매개 변수에 대해 Azure 관리 포털에 정의된 **앱 리소스 이름** 을 사용해야 합니다. 
+   > AppName 매개 변수에 대해 Azure 관리 포털에 정의된 **앱 리소스 이름**을 사용해야 합니다. 
    > 
    > 
 9. 마지막으로 제목 및 메시지로 간단한 **항상** & **알림 전용** 캠페인을 만들기 위해 이전에 초기화된 EngagementClient를 사용하는 CreateCampaign 메서드를 정의합니다. 
@@ -119,9 +123,4 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

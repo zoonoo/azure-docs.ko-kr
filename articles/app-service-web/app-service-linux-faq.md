@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -56,7 +55,7 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **Q:** Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합/배포를 지원하나요?
 
-**A:** DockerHub 이미지에 대한 지속적인 통합/배포를 설정하려면 [Linux에서 웹앱을 사용하여 Docker 허브 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+**A:** Azure Container Registry 또는 DockerHub 이미지에 대한 지속적인 통합/배포를 설정하려면 [Linux에서 Azure 웹앱을 사용하여 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
 
 **Q:** 스테이징 환경이 지원되나요?
 
@@ -64,7 +63,7 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **Q:** **웹 배포**를 사용하여 내 웹앱을 설정할 수 있나요?
 
-**A:** 예. `UseWebDeployScm`이라는 앱 설정을 `false`로 설정해야 합니다.
+**A:** 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 `false`로 설정해야 합니다.
 
 ## <a name="language-support"></a>언어 지원
 
@@ -104,7 +103,7 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **Q:** 내 사용자 지정 컨테이너가 포트 80 이외의 포트를 수신합니다. 해당 포트로 요청을 라우팅하도록 내 앱을 구성하려면 어떻게 합니까?
 
-**A:** 자동 포트 검색 기능이 있으며 **PORT**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다.
+**A:** 자동 포트 검색 기능이 있으며 **WEBSITES_PORT**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다. 이전에 플랫폼은 `PORT` 앱 설정을 사용했으며 이 앱 설정 사용을 사용되지 않도록 하고 `WEBSITES_PORT`를 단독으로 사용하도록 이동할 예정입니다.
 
 **Q:** 사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?
 
@@ -131,5 +130,5 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 * [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Linux의 Azure Web App에 대한 SSH 지원](./app-service-linux-ssh-support.md)
 * [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
-* [Linux에서 Azure Web App을 사용한 Docker 허브 지속적인 배포](./app-service-linux-ci-cd.md)
+* [Linux에서 Azure 웹앱을 사용한 연속 배포](./app-service-linux-ci-cd.md)
 

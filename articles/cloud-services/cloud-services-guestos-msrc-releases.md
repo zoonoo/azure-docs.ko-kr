@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/7/2017
+ms.date: 8/3/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0ce145d715729d5a8761024bfa9765adcfaf846c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="july-guest-os"></a>게스트 OS 7월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Windows 10 업데이트 |5.9 |2017년 7월 11일 |
+| Rel 17-07 | [4025337] |Windows 보안 전용 |2.64 |2017년 7월 11일 |
+| Rel 17-07 | [4025333] |Windows 보안 전용 |4.44 |2017년 7월 11일 |
+| Rel 17-07 | [4025343] |Windows 보안 전용 |3.51 |2017년 7월 11일 |
+| Rel 17-07 | [4025376] |깜박임 |3.51, 4.44, 5.9 |2017년 7월 11일 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |2017년 7월 11일 |
+| 해당 없음 | [4020322] |표준 시간대 업데이트 |2.64, 3.51, 4.44 |2017년 7월 11일 |
+| 해당 없음 | [4022719] |6월 비보안 롤업 |2.64 |2017년 7월 11일 |
+| 해당 없음 | [4022724] |6월 비보안 롤업 |3.51 |2017년 7월 11일 |
+| 해당 없음 | [4022726] |6월 비보안 롤업 |4.44 |2017년 7월 11일 |
 
 ## <a name="june-guest-os"></a>게스트 OS 6월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -400,7 +414,7 @@ ms.lasthandoff: 07/21/2017
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Internet Explorer용 누적 보안 업데이트 |4.21, 3.28, 2.40 |2015년 6월 9일 |
-| MS15-057 |[3033890] |Windows 미디어 플레이어의 취약성으로 인한 원격 코드 실행 |4.21, 3.28, 2.40 |2015년 6월 9일 |
+| MS15-057 |[3033890] |Windows Media Player의 취약성으로 인한 원격 코드 실행 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-060 |[3059317] |Microsoft Common Controls의 취약성으로 인한 원격 코드 실행 허용 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-061 |[3057839] |Windows 커널 모드 드라이버의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-062 |[3062577] |Active Directory 페더레이션 서비스의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
@@ -480,6 +494,7 @@ ms.lasthandoff: 07/21/2017
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 
+
 ## <a name="december-guest-os"></a>게스트 OS 12월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
@@ -494,6 +509,17 @@ ms.lasthandoff: 07/21/2017
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
 
 [4022722]: http://support.microsoft.com/kb/4022722
 [4022717]: http://support.microsoft.com/kb/4022717

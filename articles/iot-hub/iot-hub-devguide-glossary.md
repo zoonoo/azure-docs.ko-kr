@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
@@ -44,7 +43,7 @@ IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통�
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [백 엔드 앱](#back-end-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 서비스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 서비스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure Portal
 [Microsoft Azure Portal](https://portal.azure.com)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다. 일부 IoT Hub 자습서에서는 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용할지 묻는 메시지가 표시될 수 있습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -53,7 +52,7 @@ IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통�
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
-## <a name="azure-service-bus"></a>Azure 서비스 버스
+## <a name="azure-service-bus"></a>Azure Service Bus
 [Service Bus](../service-bus/index.md)에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 일부 IoT Hub 자습서는 Service Bus [큐](../service-bus-messaging/service-bus-messaging-overview.md)를 활용합니다.
 
 ## <a name="azure-storage"></a>Azure 저장소
@@ -107,7 +106,7 @@ IoT의 컨텍스트에서 일반적으로 장치는 데이터를 수집하거나
 장치 데이터는 IoT Hub [ID 레지스트리](#identity-registry)에 저장된 장치 단위 데이터를 나타냅니다. 이 데이터를 가져오고 내보낼 수 있습니다.
 
 ## <a name="device-explorer"></a>장치 탐색기
-[장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)는 Windows에서 실행되는 도구이며 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 메시지를 장치로 보내고 받을 수 있습니다.
+[장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)는 Windows에서 실행되는 도구이며 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리할 수 있습니다. 또한 이 도구는 장치로 메시지를 보내고 받을 수 있습니다.
 
 ## <a name="device-identities-rest-api"></a>장치 ID REST API
 [장치 ID REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)를 통해 REST API를 사용하여 [ID 레지스트리](#identity-registry)에 등록된 장치를 관리할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.

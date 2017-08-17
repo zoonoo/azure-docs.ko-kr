@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3be5b442b357523449850e0a179eab93634e7b7b
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-direct-methods-java"></a>직접 메서드 사용(Java)
@@ -28,10 +28,10 @@ ms.lasthandoff: 07/21/2017
 이 자습서에서는 다음 두 개의 Java 콘솔 앱을 만듭니다.
 
 * **invoke-direct-method**: 시뮬레이트된 장치 앱에서 메서드를 호출하고 응답을 표시하는 Java 백엔드 앱입니다.
-* **simulated-device**: IoT Hub을 만드는 장치 ID에 연결하는 장치를 시뮬레이트하고 백 엔드의 직접 호출에 응답하는 Java 앱입니다.
+* **simulated-device**: IoT Hub를 사용자가 만드는 장치 ID에 연결하는 장치를 시뮬레이트하는 Java 앱입니다. 이 앱은 백 엔드의 직접 호출에 응답합니다.
 
 > [!NOTE]
-> [Azure IoT SDKs][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보를 제공합니다.
+> 장치와 솔루션 백 엔드에서 실행하기 위해 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/21/2017
 
 1. iot-java-direct-method라는 빈 폴더를 만듭니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-direct-method 폴더에 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-direct-method 폴더에 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 다음 명령은 긴 단일 명령입니다.
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/21/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 07/21/2017
     import java.util.Scanner;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubname}**을 IoT Hub 이름으로 바꾸고 **{yourdevicekey}**를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
+1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubname}`을 IoT 허브 이름으로 바꾸고 `{yourdevicekey}`를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/21/2017
 
     이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 현재, 직접 메서드를 사용하려면 MQTT 프로토콜을 사용해야 합니다.
 
-1. 중첩된 다음 클래스를 **App** 클래스에 추가하여 IoT Hub로 상태 코드를 반환합니다.
+1. 상태 코드를 IoT Hub로 반환하려면 중첩된 다음 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -125,7 +125,7 @@ ms.lasthandoff: 07/21/2017
     }
     ```
 
-1. 중첩된 다음 클래스를 **App** 클래스에 추가하여 솔루션 백 엔드의 직접 메서드 호출을 처리합니다.
+1. 솔루션 백 엔드의 직접 메서드 호출을 처리하려면 중첩된 다음 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -154,7 +154,7 @@ ms.lasthandoff: 07/21/2017
     }
     ```
 
-1. **App** 클래스에 **main** 메서드를 추가하여 **DeviceClient**를 만들고 직접 메서드 호출을 수신 대기합니다.
+1. **DeviceClient**를 만들고 직접 메서드 호출을 수신 대기하려면 **main** 메서드를 **App** 클래스에 추가합니다.
 
     ```java
     public static void main(String[] args)
@@ -194,9 +194,9 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="call-a-direct-method-on-a-device"></a>장치에서 직접 메서드 호출
 
-이 섹션에서는 시뮬레이트된 장치 앱에서 직접 메서드를 호출하고 응답을 표시하는 Java 콘솔 앱을 만듭니다. 이 콘솔 앱은 IoT Hub에 연결하여 직접 메서드를 호출합니다.
+이 섹션에서는 직접 메서드를 호출하고 응답을 표시하는 Java 콘솔 앱을 만듭니다. 이 콘솔 앱은 IoT Hub에 연결하여 직접 메서드를 호출합니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-direct-method 폴더에 **invoke-direct-method**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-direct-method 폴더에 **invoke-direct-method**라는 새 Maven 프로젝트를 만듭니다. 다음 명령은 긴 단일 명령입니다.
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=invoke-direct-method -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 07/21/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -249,7 +249,7 @@ ms.lasthandoff: 07/21/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubconnectionstring}**을 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 대체합니다.
+1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubconnectionstring}`은 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 바꿉니다.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -261,7 +261,7 @@ ms.lasthandoff: 07/21/2017
     public static final String payload = "a line to be written";
     ```
 
-1. 시뮬레이트된 장치에서 이 메서드를 호출하려면 **main** 메서드에 다음 코드를 추가합니다.
+1. 시뮬레이트된 장치에서 메서드를 호출하려면 **main** 메서드에 다음 코드를 추가합니다.
 
     ```java
     System.out.println("Starting sample...");

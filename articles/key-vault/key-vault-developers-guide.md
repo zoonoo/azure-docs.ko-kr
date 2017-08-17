@@ -1,22 +1,22 @@
 ---
-title: "Azure Key Vault 개발자 가이드 | Microsoft Docs"
-description: "개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다."
+title: "Azure Key Vault 개발자 가이드"
+description: "개발자는 Microsoft Azure 환경 내에서 Azure Key Vault를 사용하여 암호화 키를 관리할 수 있습니다."
 services: key-vault
 author: BrucePerlerMS
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 06/6/2017
+ms.date: 08/04/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a15b403166dad17790c75f6db874e4ed2640ca78
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
-# <a name="azure-key-vault-developers-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
+# <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
 Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
@@ -25,7 +25,7 @@ Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안�
 - 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만, 응용 프로그램 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
 - Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault [인증서](https://docs.microsoft.com/rest/api/keyvault/certificate-operations)를 사용할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
-Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
+Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 
@@ -49,7 +49,7 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 위 비디오에 언급된 리소스:
 
 - [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure 키 자격 증명 모음 샘플 코드](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure Key Vault 샘플 코드](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
 
@@ -104,15 +104,16 @@ Node.js에서 자격 증명 모음 관리 API와 자격 증명 모음 개체 API
 
 - [구독 이동 후 Key Vault 테넌트 변경](key-vault-subscription-move-fix.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 응용 프로그램)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
 - [방화벽 뒤 Key Vault 액세스](key-vault-access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 응용 프로그램은 다양한 기능에 대한 여러 끝점에 액세스할 수 있어야 합니다.
-- [Azure 키 자격 증명 모음용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md) - 이 문서를 통해 Azure 키 자격 증명 모음에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
-- [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../azure-resource-manager/resource-manager-keyvault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure 키 자격 증명 모음에 암호로 저장하고 다른 리소스 관리자 템플릿에서 이 값을 참조할 수 있습니다.
-- [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure 키 자격 증명 모음용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure 키 자격 증명 모음을 EKM(확장 가능 키 관리) 공급자로 활용하여 응용 프로그램 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
+- [Azure Key Vault용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md) - 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
+- [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../azure-resource-manager/resource-manager-keyvault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 리소스 관리자 템플릿에서 이 값을 참조할 수 있습니다.
+- [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 응용 프로그램 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 응용 프로그램에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md) - Azure Key Vault를 사용하는 키 회전 및 감사를 설정하는 방법을 안내합니다.
 - [Key Vault를 통한 Azure Web App Certificate 배포]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)는 [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) 제품의 일부로 Key Vault에 저장된 인증서를 배포하기 위한 단계별 지침을 제공합니다.
 - [여러 응용 프로그램에 Key Vault 액세스 권한 부여](key-vault-group-permissions-for-apps.md) Key Vault 액세스 제어 정책에서는 16개 항목만 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
-
-Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
+- Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
+- [CLI로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
+- [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
 
 ## <a name="integrated-with-key-vault"></a>주요 자격 증명 모음과 통합됨
 
@@ -137,7 +138,7 @@ Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지�
 ## <a name="supporting-libraries"></a>라이브러리 지원
 
 - [Microsoft Azure Key Vault 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 **IKey** 및 **IKeyResolver** 인터페이스를 제공합니다.
-- [Microsoft Azure Key Vault 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
+- [Microsoft Azure Key Vault 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure Key Vault에 확장된 기능을 제공합니다.
 
 
 

@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 집합
@@ -30,13 +29,13 @@ ms.lasthandoff: 05/01/2017
 > Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요. 데이터 팩터리를 실제로 만들어 본 경험이 없는 경우 [데이터 변환 자습서](data-factory-build-your-first-pipeline.md) 및 [데이터 이동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하면 더 나은 이해를 얻을 수 있습니다. 
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob 저장소로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob 저장소의 데이터를 처리합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 파이프라인 및 활동에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md) 문서를 참조하세요.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 하나의 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob 저장소로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob 저장소의 데이터를 처리합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 파이프라인 및 활동에 대한 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md) 문서를 참조하세요.
 
 활동은 0개 이상의 입력 **데이터 집합**을 받고, 하나 이상의 출력 데이터 집합을 생성할 수 있습니다. 파이프라인에서 입력 데이터 집합은 활동에 대한 입력을 나타내고, 출력 데이터 집합은 활동에 대한 출력을 나타냅니다. 데이터 집합은 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 집합은 파이프라인에서 데이터를 읽어들여야 하는 Blob 저장소의 Blob 컨테이너와 폴더를 지정합니다. 
 
 데이터 집합을 만들기 전에 **연결된 서비스**를 만들어 데이터 저장소를 데이터 팩터리에 연결합니다. 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 데이터 집합은 SQL 테이블, 파일, 폴더, 문서를 비롯한 연결된 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Storage 연결된 서비스는 저장소 계정을 데이터 팩터리에 연결합니다. Azure Blob 데이터 집합은 blob 컨테이너 및 처리할 입력 blob이 포함된 폴더를 나타냅니다. 
 
-샘플 시나리오는 다음과 같습니다. 데이터베이스를 Blob 저장소에서 Azure SQL 데이터베이스로 복사하려면 두 개의 연결된 서비스, 즉 Azure Storage 및 Azure SQL Database를 만듭니다. 그런 다음 두 개의 데이터 집합, 즉 Azure Blob 데이터 집합(Azure Storage 연결된 서비스 참조), Azure SQL 테이블 데이터 집합(Azure SQL Database 연결된 서비스 참조)을 만듭니다. Azure Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. Azure Blob 데이터 집합은 Blob 저장소에 입력 Blob을 포함하는 Blob 컨테이너와 Blob 폴더를 지정합니다. Azure SQL 테이블 데이터 집합은 데이터를 복사할 Azure SQL 데이터베이스의 SQL 테이블을 지정합니다.
+샘플 시나리오는 다음과 같습니다. 데이터베이스를 Blob 저장소에서 Azure SQL Database로 복사하려면 두 개의 연결된 서비스, 즉 Azure Storage 및 Azure SQL Database를 만듭니다. 그런 다음 두 개의 데이터 집합, 즉 Azure Blob 데이터 집합(Azure Storage 연결된 서비스 참조), Azure SQL 테이블 데이터 집합(Azure SQL Database 연결된 서비스 참조)을 만듭니다. Azure Storage 및 Azure SQL Database 연결된 서비스에는 Data Factory가 런타임에 Azure Storage 및 Azure SQL Database 각각에 연결하는 데 사용하는 연결 문자열이 포함되어 있습니다. Azure Blob 데이터 집합은 Blob 저장소에 입력 Blob을 포함하는 Blob 컨테이너와 Blob 폴더를 지정합니다. Azure SQL 테이블 데이터 집합은 데이터를 복사할 Azure SQL Database의 SQL 테이블을 지정합니다.
 
 다음 다이어그램에서는 Data Factory의 파이프라인, 활동, 데이터 집합 및 연결된 서비스 간의 관계를 보여 줍니다. 
 
@@ -141,7 +140,7 @@ Data Factory의 데이터 집합은 다음과 같이 JSON 형식으로 정의됩
 
 
 ## <a name="Type"></a> 데이터 집합 형식
-데이터 집합의 형식은 사용하는 데이터 저장소에 따라 달라집니다. 데이터 팩터리에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 집합을 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
+데이터 집합의 형식은 사용하는 데이터 저장소에 따라 달라집니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 집합을 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
@@ -202,7 +201,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
     구조화된 데이터 원본에 대해 형식 정보를 이미 사용할 수 있으므로 "structure" 섹션을 포함할 때 형식 정보를 포함하면 안됩니다.
 * **읽기 데이터 원본(특히 Blob 저장소)에 대한 스키마의 경우** 스키마 또는 형식 정보를 데이터와 함께 저장하지 않고도 데이터를 저장하도록 선택할 수 있습니다. 이러한 유형의 데이터 원본인 경우 원본 열을 싱크 열로 매핑할 때 구조가 포함됩니다. 또한 데이터 집합이 복사 활동에 대한 입력인 경우 구조가 포함되고 원본 데이터 집합의 데이터 형식을 싱크의 네이티브 형식으로 변환해야 합니다. 
     
-    Data Factory는 structure에 형식 정보를 제공하기 위해 Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset 및 Timespan 값을 지원합니다. 이러한 값은 CLS(공용 언어 사양) 규격 .NET 기반 type 값입니다.
+    Data Factory는 structure에 형식 정보를 제공하기 위해 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 지원합니다. 이러한 값은 CLS(공용 언어 사양) 규격 .NET 기반 type 값입니다.
 
 데이터 팩터리는 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사할 때 형식 변환을 자동으로 수행합니다. 
   
@@ -269,7 +268,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```
@@ -326,7 +325,7 @@ Data Factory에서 데이터 집합을 생성하지 않는 한 **external**로 �
 다음 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다. 
 
 - 복사 마법사 
-- Azure 포털
+- Azure Portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager 템플릿

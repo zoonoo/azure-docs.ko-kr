@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 0781a06635219443e8ff794e72d77b967df52c40
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -38,7 +38,7 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 통과 인증은 암호 유효성 검사 요청을 온-프레미스 AD(Active Directory)로 전달하므로 공격자가 사용자의 AD 계정을 잠그지 못하게 차단해야 합니다. 자체 AD 계정 잠금 정책([**계정 잠금 임계값**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) 및 [**일정 시간 이후 계정 잠금 재설정 카운터 정책**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx))이 있으므로 Azure AD의 잠금 임계값과 잠금 기간 값을 적합하게 구성하여 공격자가 온-프레미스 AD에 도달하기 전에 클라우드의 공격을 필터링해야 합니다.
 
 >[!NOTE]
->스마트 잠금 기능은 추가 비용 없이 제공되며, 기본적으로 _모든 고객이 사용_할 수 있습니다. 그러나 Graph API를 사용하여 Azure AD의 잠금 임계값 및 잠금 기간을 수정하는 것은 Azure AD Premium P2 기능입니다.
+>스마트 잠금 기능은 추가 비용 없이 제공되며, 기본적으로 _모든 고객이 사용_할 수 있습니다. 그러나 Graph API를 사용하여 Azure AD의 잠금 임계값 및 잠금 기간을 수정하기 위해 테넌트에 Azure AD Premium P2 라이선스가 필요합니다. 통과 인증을 사용하여 스마트 잠금 기능을 얻기 위해 _사용자당_ Azure AD Premium P2 라이선스가 필요하지 않습니다.
 
 사용자의 온-프레미스 AD 계정을 제대로 보호하기 위해 다음을 확인해야 합니다.
 

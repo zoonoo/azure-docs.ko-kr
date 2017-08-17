@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e1eff2abf8512870661cbe539bd34aa5c33ded14
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cea811918147a25947ec654bb06f2c994bae5ce6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -191,6 +191,47 @@ Service Fabric 5.4 버전부터 상태 및 부하 메트릭 이벤트를 컬렉�
     }
 ```
 
+## <a name="collect-reverse-proxy-events"></a>역방향 프록시 이벤트 수집
+
+Service Fabric 5.7 릴리스부터 [역방향 프록시](service-fabric-reverseproxy.md) 이벤트를 컬렉션에 사용할 수 있습니다.
+역방향 프록시는 요청 처리 실패를 나타내는 오류 이벤트가 담긴 채널 하나와, 역방향 프록시에서 처리된 모든 요청에 대한 상세 정보가 담긴 채널 하나 등, 두 채널로 이벤트를 내보냅니다. 
+
+1. 오류 이벤트 수집: Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000010"을 추가합니다.
+Azure 클러스터에서 이벤트를 수집하려면 Resource Manager 템플릿을 수정하여 다음을 포함하도록 합니다.
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. 모든 요청 처리 이벤트 수집: Visual Studio의 진단 이벤트 뷰어에서 ETW 공급자 목록의 Microsoft-ServiceFabric 항목을 "Microsoft-ServiceFabric:4:0x4000000000000020"으로 업데이트합니다.
+Azure Service Fabric 클러스터의 경우 Resource Manager 템플릿을 수정하여 다음을 포함하도록 합니다.
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> 여기서는 역방향 프록시를 통과하는 모든 트래픽을 수집하여 저장소 용량을 신속하게 소비할 수 있으므로 이 채널을 통한 이벤트 수집을 활성화할 때는 주의가 필요합니다.
+
+Azure Service Fabric 클러스터의 경우 모든 노드의 이벤트가 SystemEventTable에 수집되어 집계됩니다.
+역방향 프록시 이벤트의 문제 해결에 관한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.
+
 ## <a name="collect-from-new-eventsource-channels"></a>새 EventSource 채널에서 수집
 
 배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 이전 설명과 동일한 단계를 수행해야 합니다.
@@ -217,21 +258,22 @@ Service Fabric 5.4 버전부터 상태 및 부하 메트릭 이벤트를 컬렉�
 
 예를 들어, 여기서는 15초마다 샘플링되고(이 값은 변경될 수 있고 "PT\<시간>\<단위>" 형식이 적용됨. 예를 들어 PT3M은 3분 간격으로 샘플링됨) 1분마다 적절한 저장소 테이블에 전송되는 하나의 성능 카운터를 설정합니다.
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+  ```json
+  "PerformanceCounters": {
+      "scheduledTransferPeriod": "PT1M",
+      "PerformanceCounterConfiguration": [
+          {
+              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+              "sampleRate": "PT15S",
+              "unit": "Percent",
+              "annotation": [
+              ],
+              "sinks": ""
+          }
+      ]
+  }
+  ```
+  
 아래 섹션에 설명된 대로 Application Insights 싱크를 사용하고 있을 때 이러한 메트릭을 Application Insights에 표시하려면 위에 표시된 대로 "sinks" 섹션에 싱크 이름을 추가해야 합니다. 또한 성능 카운터를 보낼 별도의 테이블을 만들어 보세요. 그러면 성능 카운터는 사용하도록 설정한 다른 로깅 채널에서 들어오는 데이터를 밀어내지 않습니다.
 
 

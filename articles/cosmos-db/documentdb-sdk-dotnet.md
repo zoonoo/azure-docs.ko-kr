@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 8d6b953ae95713dc8b5a4037fa59bec49ea52b85
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
@@ -52,6 +52,13 @@ ms.lasthandoff: 07/25/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* 스택 오버플로 예외를 일으킬 수 있는 JsonSerializable 클래스의 문제가 수정되었습니다.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   JsonSerializerSettings가 DocumentClient 생성자의 선택적 매개 변수로 도입된 것으로 인해 응용 프로그램을 다시 컴파일해야 하는 문제가 수정되었습니다.
+* JsonSerializerSettings 매개 변수 전달 시 ConnectionPolicy 및 ConsistencyLevel 매개 변수의 기본값을 허용하도록 마지막 매개 변수로 JsonSerializerSettings가 필요한 DocumentClient 생성자가 더 이상 사용되지 않는 것으로 표시되었습니다.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet)를 인스턴스화하는 동안 사용자 지정 JsonSerializerSettings를 지정하기 위한 지원을 추가하였습니다.
@@ -137,7 +144,7 @@ ms.lasthandoff: 07/25/2017
 * 데이터 직렬화를 위해 사용자 지정 JsonSerializerSettings 개체를 사용할 때 잘못된 파티션 키 헤더가 발생하는 문제가 수정되었습니다.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* 오래 실행하는 쿼리가 오류와 함께 실패하게 한 문제를 해결했습니다: 인증 토큰은 현재 시간에 올바르지 않습니다.
+* 오래 실행하는 쿼리가 오류와 함께 실패하게 한 문제를 해결했습니다. 인증 토큰은 현재 시간에 올바르지 않습니다.
 * 크로스 파티션 위쪽/order-by 쿼리에서 원래 SqlParameterCollection을 제거하는 문제를 해결했습니다.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -247,6 +254,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |2017년 8월 7일 |--- |
+| [1.16.0](#1.16.0) |2017년 8월 2일 |--- |
 | [1.15.0](#1.15.0) |2017년 6월 30일 |--- |
 | [1.14.1](#1.14.1) |2017년 5월 23일 |--- |
 | [1.14.0](#1.14.0) |2017년 5월 10일 |--- |

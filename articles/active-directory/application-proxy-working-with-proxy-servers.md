@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -126,14 +125,10 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 * login.windows.net
 * login.microsoftonline.com
 
-커넥터 서비스가 사용한 기본 Service Bus 컨트롤 채널에는 특정 IP 주소에 대한 연결도 필요합니다. 대신 Service Bus를 FQDN으로 이동시킬 때까지 두 가지 옵션이 있습니다.
+FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
 * 모든 대상에 대한 커넥터 아웃바운드 액세스 허용
-* [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-gb/download/details.aspx?id=41653)에 대한 커넥터 아웃바운드 액세스 허용
-
->[!NOTE]
->Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다.
->
+* [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-gb/download/details.aspx?id=41653)에 대한 커넥터 아웃바운드 액세스 허용 Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다.
 
 #### <a name="proxy-authentication"></a>프록시 인증
 
@@ -141,13 +136,10 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 #### <a name="proxy-ports"></a>프록시 포트
 
-커넥터는 CONNECT 메서드를 사용하여 아웃바운드 SSL 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 일부 프록시 서버는 기본적으로 표준 SSL 포트(예: 443)에 대해서만 아웃바운드 터널링을 허용합니다. 이 경우에 추가 포트로 터널링을 허용하도록 프록시 서버를 구성해야 합니다.
-
-비표준 SSL 포트 8080, 9090, 9091 및 10100-10120으로 터널링을 허용하도록 프록시 서버를 구성합니다.
+커넥터는 CONNECT 메서드를 사용하여 아웃바운드 SSL 기반 연결을 만듭니다. 이 메서드는 기본적으로 아웃바운드 프록시를 통해 터널을 설정합니다. 비표준 SSL 포트 443 및 80으로 터널링을 허용하도록 프록시 서버를 구성합니다.
 
 >[!NOTE]
 >Service Bus가 HTTPS를 초과하면 포트 443을 사용합니다. 하지만 기본적으로 Service Bus는 직접 TCP 연결을 시도하며 직접 연결이 실패할 때만 HTTPS를 대체합니다.
->
 
 Service Bus 트래픽이 아웃바운드 프록시 서버를 통해 전송되도록 하려면 커넥터에서 포트 9350, 9352 및 5671로 Azure 서비스에 직접 연결할 수 없음을 확인합니다.
 

@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 406a1d0af58cb7b9145a836027d470272be17004
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
@@ -38,7 +38,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 > [!NOTE]
 > HDInsight 서비스의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 Azure PowerShell 및 Azure CLI를 사용하여 .NET SDK에서 클러스터를 만들 때 HDInsight 버전을 지정합니다.
 
-| 구성 요소 | HDInsight 3.6 | HDInsight 3.5(기본값) | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| 구성 요소 | HDInsight 3.6(기본값) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop 및 YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -85,7 +85,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 | HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure Portal에 대한 사용 가용성 | 지원 만료 날짜 | 사용 중지 날짜 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |예 |2017년 4월 4일 |예 | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |예 |2016년 9월 30일 |예 |2017년 7월 5일 |2018년 5월 31일 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |예 |2016년 9월 30일 |예 |2017년 9월 5일 |2018년 5월 31일 |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016년 3월 29일 |예 |2016년 12월 29일 |2018년 1월 9일 |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |예 |2015년 12월 2일 |예 |2016년 6월 27일 |2018년 7월 31일 |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |예 |2015년 12월 2일 |예 |2016년 6월 27일 |2017년 7월 31일 |

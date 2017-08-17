@@ -1,11 +1,11 @@
 ---
 title: "Azure SQL Database를 사용하는 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs"
 description: "Wingtip SaaS 앱에 새 테넌트를 프로비전 및 카탈로그 작성하는 방법에 대해 알아봅니다."
-keywords: "sql 데이터베이스 자습서"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 08/04/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f6beb62246aaf59bfd81467f07d347913a20677b
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록
@@ -50,7 +49,7 @@ ms.lasthandoff: 06/14/2017
 
 각 테넌트에는 카탈로그에서 해당 데이터를 구분하는 키가 할당됩니다. Wingtip SaaS 응용 프로그램에서 키는 테넌트 이름의 해시에서 형성됩니다. 이 패턴을 통해 응용 프로그램 URL의 테넌트 이름 부분을 사용하여 키를 생성하고 특정 테넌트의 연결을 검색할 수 있습니다. 전체 패턴에 영향을 주지 않고 다른 ID 체계를 사용할 수 있습니다.
 
-앱의 카탈로그는 [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할된 데이터베이스 관리 기술을 사용하여 구현됩니다. EDCL은 *분할 맵*이 유지되는 데이터베이스 지원 *카탈로그*를 만들고 유지하는 데 사용됩니다. 카탈로그는 키(테넌트)와 해당 분할(데이터베이스) 사이의 매핑을 포함하고 있습니다.
+앱의 카탈로그는 [EDCL(Elastic Database 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할된 데이터베이스 관리 기술을 사용하여 구현됩니다. EDCL은 *분할 맵*이 유지되는 데이터베이스 지원 *카탈로그*를 만들고 유지하는 데 사용됩니다. 카탈로그는 키(테넌트)와 해당 분할(데이터베이스) 사이의 매핑을 포함하고 있습니다.
 
 > [!IMPORTANT]
 > 매핑 데이터는 카탈로그 데이터베이스에서 액세스할 수 있지만 *편집하지는 마세요*! 매핑 데이터는 Elastic Database 클라이언트 라이브러리 API를 사용해서만 편집하세요. 매핑 데이터의 직접 조작은 카탈로그가 손상될 위험이 있으며 지원되지 않습니다.
@@ -70,7 +69,7 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 1. PowerShell ISE에서 **Demo-ProvisionAndCatalog.ps1**을 열고 다음 값을 설정합니다.
    * **$TenantName** = 새 장소의 이름(예: *Bushwillow 블루스*).
    * **$VenueType** = 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구.
-   * **$DemoScenario** = 1, **단일 테넌트를 프로비전**하려면 이 값을 _1_로 그대로 둡니다.
+   * **$DemoScenario** = 1, *단일 테넌트를 프로비전*하려면 이 값을 _1_로 그대로 둡니다.
 
 1. **F5**를 누르고 스크립트를 실행합니다.
 
@@ -83,37 +82,44 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 
 이 연습에서는 추가 테넌트의 배치를 프로비전합니다. 다른 Wingtip SaaS 자습서를 완료하기 전에 테넌트의 배치를 프로비전하므로 작업할 데이터베이스가 몇 개 있는 것이 좋습니다.
 
-1. *PowerShell ISE*에서 ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1*을 열고 다음 값을 설정합니다.
-   * **$DemoScenario** = **3**, **3**으로 설정하여 **테넌트의 배치를 프로비전**합니다.
+1. *PowerShell ISE*에서 ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*을 열고 *$DemoScenario* 매개 변수를 3으로 변경합니다.
+   * **$DemoScenario** = **3**. 이와 같이 매개 변수를 **3**으로 변경하면 *테넌트 배치가 프로비전*됩니다.
 1. **F5**를 누르고 스크립트를 실행합니다.
 
 이 스크립트는 추가 테넌트의 배치를 배포합니다. [Azure Resource Manager 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)을 사용하여 배치를 제어한 다음 각 데이터베이스의 프로비전을 연결된 템플릿에 위임합니다. 템플릿을 이 방법으로 사용하면 Azure Resource Manager가 스크립트에 대한 프로비전 프로세스를 중개할 수 있습니다. 템플릿은 데이터베이스를 가능하면 병렬로 프로비전하고 필요한 경우 재시도를 처리하여 전체 프로세스를 최적화합니다. 이 스크립트는 idempotent이므로 어떤 이유로 실패하거나 중지되는 경우 다시 실행합니다.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>테넌트의 배치가 성공적으로 배포되었는지 확인
 
-* [Azure Portal](https://portal.azure.com)에서 *tenants1* 서버를 열고 **SQL 데이터베이스**를 클릭합니다.
+* [Azure Portal](https://portal.azure.com)에서 서버 목록으로 이동하여 *tenants1* 서버를 열고 **SQL 데이터베이스**를 클릭한 다음 17개 추가 데이터베이스의 배치가 목록에 포함되어 있음을 확인합니다.
 
    ![데이터베이스 목록](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>프로비전 및 카탈로그 정보
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>프로비전 및 카탈로그 구현 세부 정보를 단계별로 실행
 
 Wingtip 응용 프로그램이 새 테넌트 프로비전을 구현하는 방법을 더 잘 이해하기 위해 *Demo-ProvisionAndCatalog* 스크립트를 다시 실행하고 다른 테넌트를 프로비전합니다. 이번에는 중단점을 추가하고 워크플로를 단계별로 실행합니다.
 
-1. ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_을 열고 다음 매개 변수를 설정합니다.
+1. ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_을 열고 다음 매개 변수를 설정합니다.
    * **$TenantName** = 테넌트 이름은 고유해야 하므로 기존 테넌트와 다른 이름으로 설정합니다(예를 들어 *Hackberry Hitters*).
    * **$VenueType** = 미리 정의된 장소 유형(예: *유도*) 중 하나를 사용합니다.
-   * **$DemoScenario** = 1, **1**로 설정하여 **단일 테넌트를 프로비전**합니다.
+   * **$DemoScenario** = **1**. 이 매개 변수를 **1**로 설정하면 *단일 테넌트가 프로비전*됩니다.
 
-1. 커서를 다음 행의 아무 위치에 두고 중단점을 추가합니다. *새로 만들기-테넌트 `*를 클릭하고 **F9**를 누릅니다.
+1. 커서를 다음 48행의 아무 위치에 두고 중단점을 추가합니다. *새로 만들기-테넌트 `*를 클릭하고 **F9**를 누릅니다.
 
    ![중단점](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. 스크립트를 실행하려면 **F5** 키를 누릅니다. 중단점에 도달하면 **F11**을 눌러 삽입합니다. **F10** 및 **F11**을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다. [PowerShell 스크립트 작업 및 디버깅 팁](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. 스크립트를 실행하려면 **F5** 키를 누릅니다.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>프로비전을 검토하고 스크립트를 단계별로 실행하여 구현을 자세히 검사합니다.
+1. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.
 
-이 스크립트는 다음 단계를 수행하여 새 테넌트를 프로비전 및 검사합니다.
+   ![중단점](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+**디버그** 메뉴 옵션(**F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다. PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
+
+
+다음은 명시적으로 팔로우하는 단계는 아니지만 스크립트를 디버깅하는 동안 단계별로 실행하는 워크플로의 설명입니다.
 
 1. Azure에 로그인하여 작업 중인 Azure 구독을 선택하는 함수를 포함하고 있는 **SubscriptionManagement.psm1 모듈을 가져옵니다**.
 1. [Shard Management](sql-database-elastic-scale-shard-map-management.md) 함수에 대한 카탈로그 및 테넌트 수준 추상화를 제공하는 **CatalogAndDatabaseManagement.psm1 모듈을 가져옵니다**. 이는 카탈로그 패턴의 많은 부분을 캡슐화하고 탐색할 가치가 있는 중요한 모듈입니다.
@@ -159,7 +165,7 @@ Resource Manager 템플릿은 ...\\Learning Modules\\Common\\ 폴더: *tenantdat
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 학습한 방법은 다음과 같습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 
@@ -172,6 +178,6 @@ Resource Manager 템플릿은 ...\\Learning Modules\\Common\\ 폴더: *tenantdat
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
-* [탄력적 데이터베이스 클라이언트 라이브러리](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
+* [Elastic Database 클라이언트 라이브러리](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8d20995ebb63e8cf1e4d15c57628b80aaf9e036b
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,4 +45,9 @@ Funnels에 대해 알아보는 가장 쉬운 방법은 예제를 살펴보는 �
 ![데이터가 포함된 Funnels 블레이드](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [사용량 분석](app-insights-usage-overview.md)에 대해 자세히 알아봅니다.
+  * [사용 현황 개요](app-insights-usage-overview.md)
+  * [사용자, 세션 및 이벤트](app-insights-usage-segmentation.md)
+  * [보존](app-insights-usage-retention.md)
+  * [통합 문서](app-insights-usage-workbooks.md)
+  * [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
+

@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>포털을 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
 
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](application-gateway-ssl-portal.md)
+> * [Azure Portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-ssl.md)
+> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
-Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 발생하는 비용이 많이 드는 SSL(Secure Sockets Layer) 암호 해독 작업을 방지하기 위한 게이트웨이에서 SSL 세션을 종료합니다. SSL 오프로드는 또한 프런트 엔드 서버 설치 및 웹 응용 프로그램의 관리를 간소화합니다.
+Azure Application Gateway 구성을 사용하여 웹 팜에서 발생하는 비용이 많이 드는 SSL(Secure Sockets Layer) 암호 해독 작업을 방지하기 위한 게이트웨이에서 SSL 세션을 종료합니다. SSL 오프로드는 또한 프런트 엔드 서버 설치 및 웹 응용 프로그램의 관리를 간소화합니다.
 
 ## <a name="scenario"></a>시나리오
 
-다음 시나리오에서는 기존 응용 프로그램 게이트웨이에서 SSL 오프로드를 구성하는 과정을 살펴봅니다. 이 시나리오에서는 [응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway-portal.md)단계를 이미 수행한 것으로 가정합니다.
+다음 시나리오에서는 기존 응용 프로그램 게이트웨이에서 SSL 오프로드를 구성하는 과정을 살펴봅니다. 이 시나리오에서는 [Application Gateway 만들기](application-gateway-create-gateway-portal.md)단계를 이미 수행한 것으로 가정합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -44,7 +45,7 @@ HTTPS 수신기는 구성에 따라 트래픽을 확인하며, 백 엔드 풀로
 
 ### <a name="step-1"></a>1단계
 
-Azure 포털로 이동하여 기존 응용 프로그램 게이트웨이를 선택합니다.
+Azure Portal로 이동하여 기존 응용 프로그램 게이트웨이를 선택합니다.
 
 ### <a name="step-2"></a>2단계
 
@@ -88,7 +89,7 @@ Azure 포털로 이동하여 기존 응용 프로그램 게이트웨이를 선�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 응용 프로그램 게이트웨이를 사용하여 사용자 지정 상태 프로브를 구성하는 방법을 알아보려면 [사용자 지정 상태 프로브 만들기](application-gateway-create-gateway-portal.md)를 참조하세요.
+Azure Application Gateway를 사용하여 사용자 지정 상태 프로브를 구성하는 방법을 알아보려면 [사용자 지정 상태 프로브 만들기](application-gateway-create-gateway-portal.md)를 참조하세요.
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png

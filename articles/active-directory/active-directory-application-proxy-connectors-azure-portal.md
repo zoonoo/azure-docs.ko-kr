@@ -11,59 +11,60 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8070a71d90c6d28ccd397d97dd1f2846169b41fe
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-application-proxy-connectors.md)
 >
 
-## <a name="azure-ad-application-proxy-and-connector-groups"></a>Azure AD 응용 프로그램 프록시 및 커넥터 그룹
+고객은 점점 더 많은 시나리오와 응용 프로그램을 위해 Azure AD의 응용 프로그램 프록시를 활용합니다. 따라서 더 많은 토폴로지를 사용하여 응용 프로그램 프록시를 더욱 유연하게 만들었습니다. 특정 응용 프로그램을 제공하는 특정 커넥터를 할당할 수 있도록 응용 프로그램 프록시 커넥터 그룹을 만들 수 있습니다. 이 기능은 응용 프로그램 프록시 배포를 최적화하는 보다 많은 제어와 방법을 제공합니다. 
 
-고객은 점점 더 많은 시나리오와 응용 프로그램을 위해 Azure AD의 응용 프로그램 프록시를 활용합니다. 따라서 더 많은 토폴로지를 사용하여 응용 프로그램 프록시를 더욱 유연하게 만들었습니다. 응용 프로그램 프록시 커넥터 그룹을 만들 수 있습니다.이 그룹은 특정 응용 프로그램을 제공하는 특정 커넥터를 할당하는 새로운 기능입니다. 이 기능을 사용하면 이전에는 불가능했던 응용 프로그램 프록시에 대한 많은 사용 사례가 생성됩니다. 
+각 응용 프로그램 프록시 커넥터는 커넥터 그룹에 할당됩니다. 동일한 커넥터 그룹에 속한 모든 커넥터는 고가용성 및 부하 분산을 위해 별도의 단위로 작동합니다. 모든 커넥터는 커넥터 그룹에 속합니다. 그룹을 만들지 않는 경우 모든 커넥터는 기본 그룹에 있습니다. 관리자는 Azure Portal에서 새 그룹을 만들고 커넥터를 할당할 수 있습니다. 
 
-기본 개념은 각 응용 프로그램 프록시 커넥터가 커넥터 그룹에 할당된다는 것입니다. 동일한 커넥터 그룹에 속한 모든 커넥터는 고가용성 및 부하 분산을 위해 별도의 그룹으로 작동합니다. 기본적으로 모든 커넥터는 기본 그룹에 속합니다. 관리자는 Azure Portal에서 새 그룹을 만들고 이러한 할당을 변경할 수 있습니다. 
+모든 응용 프로그램은 커넥터 그룹에 할당됩니다. 그룹을 만들지 않는 경우 모든 응용 프로그램은 기본 그룹에 할당됩니다. 그러나 커넥터를 그룹으로 구성하면 특정 커넥터 그룹과 함께 작동하도록 각 응용 프로그램을 설정할 수 있습니다. 이 경우 해당 그룹의 커넥터만 요청에 따라 응용 프로그램을 제공합니다. 이 기능은 응용 프로그램이 서로 다른 위치에서 호스트되는 경우에 유용합니다. 응용 프로그램이 물리적으로 인접한 커넥터를 통해 항상 제공될 수 있도록 위치에 따라 커넥터 그룹을 만들 수 있습니다.
 
-기본적으로 모든 응용 프로그램은 기본 커넥터 그룹에 할당됩니다. 관리자가 아무 것도 변경하지 않으면 시스템이 이전과 동일하게 계속 작동합니다. 아무 것도 변경하지 않으면 기본 커넥터 그룹에 할당된 모든 응용 프로그램에 모든 커넥터가 포함됩니다. 그러나 커넥터를 그룹으로 구성하면 특정 커넥터 그룹과 함께 작동하도록 각 응용 프로그램을 설정할 수 있습니다. 이 경우 해당 그룹의 커넥터만 요청에 따라 응용 프로그램을 제공합니다.
+>[!TIP] 
+>대규모 응용 프로그램 프록시 배포가 있는 경우 기본 커넥터 그룹에 응용 프로그램을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-
->[!NOTE] 
->새 커넥터는 기본 커넥터 그룹에 자동으로 할당되므로 대규모 배포의 경우 기본 그룹에 할당된 응용 프로그램을 사용하지 않는 것이 좋습니다. 따라서 일단 설치되면 새 커넥터에서 라이브 트래픽을 받지 않습니다. 커넥터를 활성 그룹 중 하나에 할당한 후에만 라이브 트래픽을 제공할 수 있습니다. 또한 유지 관리를 위해 커넥터를 유휴 모드로 둘 수 있습니다.
->
-
-## <a name="prerequisite-create-your-connector-groups"></a>필수 조건: 커넥터 그룹 만들기
+## <a name="prerequisites"></a>필수 조건
 커넥터를 그룹화하려면 [여러 커넥터를 설치](active-directory-application-proxy-enable.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 
-## <a name="step-1-create-connector-groups"></a>1단계: 커넥터 그룹 만들기
-원하는 수 만큼 커넥터 그룹을 만들 수 있습니다. 커넥터 그룹은 [Azure 포털](https://portal.azure.com)에서 만들 수 있습니다.
+## <a name="create-connector-groups"></a>커넥터 그룹 만들기
+이 단계를 사용하여 원하는 수 만큼 커넥터 그룹을 만듭니다. 
 
-1. **Azure Active Directory** 를 선택하여 디렉터리에 대한 관리 대시보드로 이동합니다. 여기에서 **엔터프라이즈 응용 프로그램** > **응용 프로그램 프록시**를 선택합니다.
-2. **커넥터 그룹** 단추를 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory** > **Enterprise 응용 프로그램** > **응용 프로그램 프록시**를 선택합니다.
+2. **새 커넥터 그룹**을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
+
+   ![새 커넥터 그룹 선택](./media/active-directory-application-proxy-connectors-azure-portal/new-group.png)
+
 3. 새 커넥터 그룹에 이름을 지정한 다음 드롭다운 메뉴를 사용하여 이 그룹에 속하는 커넥터를 선택합니다.
-4. 커넥터 그룹이 완료되면 **저장** 을 선택합니다.
+4. **저장**을 선택합니다.
 
-## <a name="step-2-assign-applications-to-your-connector-groups"></a>2단계: 커넥터 그룹에 응용 프로그램 할당
-마지막 단계는 각 응용 프로그램을 해당 응용 프로그램을 처리할 커넥터 그룹에 할당하는 것입니다.
+## <a name="assign-applications-to-your-connector-groups"></a>커넥터 그룹에 응용 프로그램 할당
+응용 프로그램 프록시를 사용하여 게시한 각 응용 프로그램에 대해 이 단계를 사용합니다. 처음으로 게시할 때 응용 프로그램을 커넥터 그룹에 할당하거나 이 단계를 사용하여 언제든지 할당을 변경할 수 있습니다.   
 
 1. 디렉터리에 대한 관리 대시보드의 경우 **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > 커넥터 그룹에 할당하려는 응용 프로그램 > **응용 프로그램 프록시**를 선택합니다.
-2. **커넥터 그룹**에서 드롭다운 메뉴를 사용하여 응용 프로그램에서 사용할 그룹을 선택합니다.
+2. **커넥터 그룹** 드롭다운 메뉴를 사용하여 응용 프로그램에서 사용할 그룹을 선택합니다.
 3. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 ## <a name="use-cases-for-connector-groups"></a>커넥터 그룹의 사용 사례 
 
 커넥터 그룹은 다음을 비롯한 다양한 시나리오에 유용합니다.
 
-###<a name="sites-with-multiple-interconnected-datacenters"></a>여러 데이터 센터가 연결되어 있는 사이트
+### <a name="sites-with-multiple-interconnected-datacenters"></a>여러 데이터 센터가 연결되어 있는 사이트
 
 많은 조직에는 서로 연결된 데이터 센터가 여러 개 있습니다. 이 경우 데이터 센터 간 링크가 비용이 높고 느리기 때문에 가능한 한 데이터 센터 내에서 많은 트래픽을 유지하려고 합니다. 각 데이터 센터에서 커넥터를 배포하여 데이터 센터 내에 있는 응용 프로그램만 제공할 수 있습니다. 이 방법은 데이터 센터 간 링크를 최소화하고 사용자에게 완전히 투명한 경험을 제공합니다.
 
@@ -96,7 +97,7 @@ ms.lasthandoff: 07/21/2017
 다음과 같이 사이트 구현 방법에 따라 DR(재해 복구) 사이트에서 수행할 수 있는 두 가지 방법이 있습니다.
 
 * DR 사이트가 주 사이트와 정확히 같고 네트워킹과 AD 설정이 동일한 활성-활성 모드로 만들어진 경우 주 사이트와 동일한 커넥터 그룹의 DR 사이트에 커넥터를 만들 수 있습니다. 이를 통해 Azure AD는 장애 복구를 검색할 수 있습니다.
-* DR 사이트가 주 사이트와 별개인 경우 DR 사이트에 다른 커넥터 그룹을 만들고 필요에 따라 1) 추가 응용 프로그램을 만들거나 2) 수동으로 기존 응용 프로그램을 DR 커넥터 그룹으로 전환할 수 있습니다.
+* DR 사이트가 주 사이트와 별개인 경우 DR 사이트에 다른 커넥터 그룹을 만들고 필요에 따라 1) 백업 응용 프로그램을 만들거나 2) 수동으로 기존 응용 프로그램을 DR 커넥터 그룹으로 전환할 수 있습니다.
  
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>단일 테넌트에서 여러 회사 제공
 
@@ -129,9 +130,9 @@ ms.lasthandoff: 07/21/2017
 ![Azure AD - 커넥터 그룹 없음](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## <a name="next-steps"></a>다음 단계
-* [응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
-* [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-* [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
-* [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+
+* [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
+* [Single Sign-On 사용](application-proxy-sso-overview.md)
+
 
 

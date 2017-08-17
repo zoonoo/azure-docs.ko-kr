@@ -1,5 +1,5 @@
 ---
-title: "Java HBase 응용 프로그램 - Azure HDInsight | Microsoft Docs"
+title: "Java HBase 클라이언트 - Azure HDInsight | Microsoft Docs"
 description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure HDInsight의 HBase에 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d6ef6c988533f27338a61a587b3ce5174d8fa806
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 응용 프로그램 빌드
@@ -27,6 +27,9 @@ ms.lasthandoff: 07/08/2017
 Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만드는 방법을 알아봅니다. 그런 다음 Azure HDInsight의 HBase에서 응용 프로그램을 사용합니다.
 
 이 문서에 나온 단계는 [Maven](http://maven.apache.org/)을 사용하여 프로젝트를 만들고 빌드합니다. Maven은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다.
+
+> [!NOTE]
+> 이 문서의 단계는 HDInsight 3.6에서 가장 최근에 테스트되었습니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -36,7 +39,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 이상.
 
     > [!NOTE]
-    > HDInsight 3.5를 사용하려면 Java 8이 필요합니다. 이전 버전의 HDInsight를 사용하려면 Java 7이 필요합니다.
+    > HDInsight 3.5 이상에는 Java 8이 필요합니다. 이전 버전의 HDInsight를 사용하려면 Java 7이 필요합니다.
 
 * [Maven](http://maven.apache.org/)
 
@@ -47,13 +50,18 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 
-1. 개발 환경의 명령줄에서 프로젝트를 만들 위치(예: `cd code/hdinsight`)로 디렉터리를 변경합니다.
+1. 개발 환경의 명령줄에서 프로젝트를 만들 위치(예: `cd code\hbase`)로 디렉터리를 변경합니다.
 
 2. Maven과 함께 설치되는 **mvn** 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
+    > [!NOTE]
+    > PowerShell을 사용하는 경우 큰 따옴표로 `-D` 매개 변수를 묶어야 합니다.
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     이 명령은 **artifactID** 매개 변수와 동일한 이름으로 디렉터리를 만듭니다(이 예제에서는 **hbaseapp**). 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
@@ -87,7 +95,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
    | HDInsight 클러스터 버전 | 사용할 HBase 버전 |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4 및 3.5 |1.1.2 |
+   | 3.3, 3.4, 3.5 및 3.6 |1.1.2 |
 
     HDInsight 버전 및 구성 요소에 대한 자세한 내용은 [HDInsight에서 사용할 수 있는 다양한 Hadoop 구성 요소](hdinsight-component-versioning.md)를 참조하세요.
 
@@ -153,7 +161,9 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 
 6. 다음 명령을 사용하여 HBase 클러스터에서 `conf` 디렉터리로 HBase 구성을 복사합니다. `USERNAME`을 SSH 로그인 이름으로 바꿉니다. `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    `ssh` 및 `scp` 사용에 관한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -374,7 +384,9 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 
 2. HBase 클러스터에 연결하려면 다음 명령을 사용합니다.
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     `USERNAME`을 SSH 로그인 이름으로 바꿉니다. `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
@@ -400,6 +412,10 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. 테이블을 삭제하려면 다음 명령을 사용합니다.
+
+    
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>JAR 업로드 및 작업 실행(PowerShell)
 
@@ -666,7 +682,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
 
 __`ssh` 세션에서__:
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __Azure PowerShell에서__:
 

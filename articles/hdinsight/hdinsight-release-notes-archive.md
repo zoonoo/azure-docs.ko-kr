@@ -17,10 +17,10 @@ ms.date: 06/29/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b1d1dcb47f74aa097406da1d685c40e9ebd3339d
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 04278aac85171601b5801b0890d14a9076060444
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="release-notes-archive-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보(보관)
@@ -31,11 +31,32 @@ ms.lasthandoff: 07/28/2017
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
 
 
+
+## <a name="notes-for-08302016-release-of-hdinsight"></a>HDInsight의 2016/08/30 릴리스 정보
+이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+| HDI | HDI 클러스터 버전 | HDP | HDP 빌드 | Ambari 빌드 |
+| --- | --- | --- | --- | --- |
+| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
+| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
+| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
+
+이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+| HDI | HDI 클러스터 버전 | HDP | HDP 빌드 |
+| --- | --- | --- | --- |
+| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
+| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
+| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
+| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
+| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+
+
 ## <a name="08172016---release-of-r-server-on-hdinsight"></a>2016/08/17 - HDInsight에 대한 R Server 릴리스
 * R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)를 참조하세요.
 * 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다.  자세한 정보는 ["HDInsight의 R 서버 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요.
 * [상위 100개 가장 인기 있는 R 패키지](https://github.com/metacran/cranlogs)의 Linux 종속성 - 해당 Linux 패키지 종속성은 사전 설치되어 있습니다.
-* R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 내용은 ["HDInsight에서 R Server 사용 시작"](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
+* R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 내용은 [“HDInsight에서 R 서버 시작”](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
 * 클러스터가 만들어질 때 R 서버 프로비저닝의 안정성이 개선되었습니다.
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>HDInsight의 2016/08/01 릴리스 정보
@@ -170,7 +191,7 @@ ms.lasthandoff: 07/28/2017
 | Livy Crash 복구 |Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 |안정성 |Linux에서의 Spark |해당 없음 |
 | Jupyter 콘텐츠 HA |클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. |노트북 |Linux에서의 Spark |해당 없음 |
 | Jupyter 노트북에서 hiveContext 제거 |`%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md) |노트북 |Linux에서 Spark 클러스터 |해당 없음 |
-| 이전 Spark 버전의 사용 중단 |5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. |부여 |Windows에서 Spark 클러스터 |해당 없음 |
+| 이전 Spark 버전의 사용 중단 |5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거되었습니다. |부여 |Windows에서 Spark 클러스터 |해당 없음 |
 
 ## <a name="notes-for-03292016-release-of-hdinsight"></a>HDInsight의 2016/03/29 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
@@ -314,8 +335,8 @@ ms.lasthandoff: 07/28/2017
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
-| 기본 HDP 버전 HDP 2.2로 변경됨 |HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다.  |부여 |모두 |해당 없음 |
-| 단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 |단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode\*, workernode\* 및 zookeepernode\*에서 hn\*, wn\*, zk\*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 확인할 수 있습니다. |부여 |Linux 기반 HDInsight 클러스터 |해당 없음 |
+| 기본 HDP 버전 HDP 2.2로 변경됨 |HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure Portal, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다.  |부여 |모두 |해당 없음 |
+| 단일 Virtual Network의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 |단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 업데이트의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode\*, workernode\* 및 zookeepernode\*에서 hn\*, wn\*, zk\*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 확인할 수 있습니다. |부여 |Linux 기반 HDInsight 클러스터 |해당 없음 |
 | 구성 변경 내용 |HDInsight 3.1 클러스터의 경우 이제  <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 로그를 채울 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 다음 구성이 수정되었습니다. <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> |부여 |모두 |해당 없음 |
 
 ## <a name="notes-for-09092015-release-of-hdinsight"></a>HDInsight의 2015/09/09 릴리스 정보
@@ -641,7 +662,7 @@ ms.lasthandoff: 07/28/2017
 </tr>
 <tr>
 <td>Tez 버그 수정</td>
-<td>Apache TEZ 2214 및 TEZ 1923에 대한 수정 프로그램이 이 릴리스의 HDI 3.2에 포함되어 있습니다. 이는 특히 Tez에서 많은 데이터의 순서를 섞어야 하는 특정 Hive 쿼리를 실행하는 데 필요합니다.
+<td>Apache TEZ 2214 및 TEZ 1923에 대한 수정 프로그램이 이 릴리스의 HDI 3.2에 포함되어 있습니다. 이는 Tez에서 많은 데이터의 순서를 섞어야 하는 특정 Hive 쿼리를 실행하는 데 필요합니다.
 </td>
 <td>HDP</td>
 <td>Hadoop은</td>
@@ -760,8 +781,8 @@ ms.lasthandoff: 07/28/2017
 <td>해당 없음</td>
 </tr>
 <tr>
-<td>Java 2.0용 Azure 저장소 SDK 업그레이드</td>
-<td>HDInsight 버전 3.2가 최신 버전의 Java용 Azure 저장소 SDK를 사용하도록 업그레이드되었습니다. 여기에는 현재 0.6.0 버전에 대한 몇 가지 중요한 버그 수정 프로그램이 포함되어 있습니다.</td>
+<td>Java 2.0용 Azure Storage SDK 업그레이드</td>
+<td>HDInsight 버전 3.2가 최신 버전의 Java용 Azure Storage SDK를 사용하도록 업그레이드되었습니다. 여기에는 현재 0.6.0 버전에 대한 몇 가지 중요한 버그 수정 프로그램이 포함되어 있습니다.</td>
 <td>HDP</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1040,7 +1061,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </tr>
 <tr>
 <td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">클러스터 사용자 지정 일반 공급</a></td>
-<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 **스크립트 작업** 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, <a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, <a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 및 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 문서화했습니다. 이 릴리스에서는 고객이 Azure 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
+<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 **스크립트 작업** 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, <a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, <a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 및 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 문서화했습니다. 이 릴리스에서는 고객이 Azure Portal을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
 <td>기능 일반 공급</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1281,7 +1302,7 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
   * 동아시아
   * 미국 중북부
   * 미국 중남부
-* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md) 페이지를 참조하세요.
+* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure Portal에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용:
 
 <table border="1">
@@ -1317,7 +1338,7 @@ Tez는 기본적으로 Hive 쿼리에 사용할 수 없습니다. Tez를 사용�
 
 Hortonworks에서 표준 벤치마크로 전달되는 Tez와 함께 사용하는 Hive 쿼리 성능 개선 사항의 자세한 분석을 게시했습니다. 자세한 내용은 [Enterprise Hadoop용 Apache Hive 13 벤치마킹](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/)을 참조하세요.
 
-Tez에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Tez의 Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)를 참조하세요.
+자세한 내용은 [Tez의 Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)를 참조하세요.
 
 ### <a name="global-availability"></a>전 세계 이용 가능 여부
 Hadoop 2.2의 HDInsight 릴리스부터 Azure를 사용할 수 있는 모든 주요 지역에서 HDInsight를 사용할 수 있게 되었습니다. 특별히 서유럽과 동남아시아 데이터 센터를 온라인으로 전환했습니다. 따라서 고객은 준수 요구 사항이 비슷한 영역에 있는, 가까운 데이터 센터에서 클러스터를 찾을 수 있습니다.
@@ -1474,7 +1495,7 @@ SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 
 ## <a name="hortonworks-release-notes"></a>Hortonworks 릴리스 정보
 HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 대한 릴리스 정보는 다음 위치에서 사용할 수 있습니다.
 
-* HDInsight 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]을 기반으로 하는 Hadoop 배포를 사용합니다. 이는 2014년 11월 7일 이후에 Azure 포털을 사용할 때 만든 기본 Hadoop 클러스터입니다. 2014년 11월 7일 이전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 합니다.
+* HDInsight 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]을 기반으로 하는 Hadoop 배포를 사용합니다. 이는 2014년 11월 7일 이후에 Azure Portal을 사용할 때 만든 기본 Hadoop 클러스터입니다. 2014년 11월 7일 이전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 합니다.
 * HDInsight 버전 3.0에서는 [Hortonworks Data Platform 2.0][hdp-2-0-8]을 기반으로 하는 Hadoop 배포를 사용합니다.
 * HDInsight 버전 2.1에서는 [Hortonworks Data Platform 1.3][hdp-1-3-0]을 기반으로 하는 Hadoop 배포를 사용합니다.
 * HDInsight 버전 1.6에서는 [Hortonworks Data Platform 1.1][hdp-1-1-0]을 기반으로 하는 Hadoop 배포를 사용합니다.

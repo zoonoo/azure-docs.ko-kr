@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Azure 저장소 보안 개요
@@ -42,7 +42,7 @@ Azure Storage의 보안에 대해 보다 자세히 알아보려면 [Azure Storag
 * 전송 중 암호화
 * 휴지 상태의 암호화/저장소 서비스 암호화
 * Azure 디스크 암호화
-* Azure 키 자격 증명 모음
+* Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>역할 기반 액세스 제어(RBAC)
 RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. 특정 범위에서 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 이러한 액세스 권한을 부여합니다. 저장소 계정 참여자와 같은 [기본 제공 RBAC 역할](../active-directory/role-based-access-built-in-roles.md)을 사용하여 사용자에게 권한을 할당할 수 있습니다.
@@ -90,9 +90,9 @@ VM에 대한 디스크 암호화는 Linux 및 Windows 운영 체제에 적합합
 
 자세한 정보:
 
-* [Windows 및 Linux IaaS 가상 컴퓨터에 대한 Azure 디스크 암호화(영문)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Windows 및 Linux IaaS Virtual Machines에 대한 Azure 디스크 암호화(영문)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-key-vault"></a>Azure 키 자격 증명 모음
+## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 를 사용하여 가상 컴퓨터 디스크의 모든 데이터가 Azure Storage에서 안전하게 암호화되도록 하는 동시에 Key Vault 구독의 암호 및 디스크 암호화 키를 제어하고 관리하도록 도와줍니다. 키 자격 증명 모음을 사용하여 키 및 정책 사용을 감사해야 합니다.
 
 자세한 정보:

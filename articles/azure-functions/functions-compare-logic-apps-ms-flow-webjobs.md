@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
@@ -69,28 +69,28 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 
 * 간소화된 개발, 테스트 및 브라우저에서 직접 코드를 실행합니다.
 * 더 많은 Azure 서비스 및 타사 서비스([GitHub WebHooks](https://developer.github.com/webhooks/creating/)등)와 통합을 기본 제공합니다.
-* 사용량 과금이므로 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에 대한 요금을 지불할 필요가 없습니다.
+* 사용량 과금이므로 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에 대한 요금을 지불할 필요가 없습니다.
 * 자동으로 [동적 크기 조정](functions-scale.md)을 수행합니다.
-* App Service의 기존 고객인 경우 앱 서비스 계획 실행이 계속 가능합니다(사용량이 적은 리소스 활용).
+* App Service의 기존 고객인 경우 App Service 계획 실행이 계속 가능합니다(사용량이 적은 리소스 활용).
 * Logic Apps와 통합합니다.
 
 다음 표에 Functions와 WebJobs의 차이점이 요약되어 있습니다.
 
 |  | 함수 | 웹 작업 |
 | --- | --- | --- |
-| 확장 |구성이 없는 크기 조정 |앱 서비스 계획 크기 조정 |
-| 가격 |사용량 과금 또는 앱 서비스 계획의 일부 |앱 서비스 계획의 일부 |
+| 확장 |구성이 없는 크기 조정 |App Service 계획 크기 조정 |
+| 가격 |사용량 과금 또는  App Service 계획의 일부 |App Service 계획의 일부 |
 | 실행 형식 |트리거됨, 예약됨(타이머 트리거 사용) |트리거됨, 연속, 예약됨 |
 | 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| 브라우저 내부 개발 |x | |
-| Window 스크립팅 |실험적 |x |
-| PowerShell |실험적 |x |
-| C# |x |x |
-| F# |x | |
-| Bash |실험적 |x |
-| PHP |실험적 |x |
-| Python |실험적 |x |
-| JavaScript |x |x |
+| 브라우저 내부 개발 |지원됨 | 지원되지 않음 |
+| Window 스크립팅 |실험적 |지원됨 |
+| PowerShell |실험적 |지원됨 |
+| C# |지원됨 |지원됨 |
+| F# |지원됨 |지원되지 않음 |
+| Bash |실험적 |지원됨 |
+| PHP |실험적 |지원됨 |
+| 파이썬 |실험적 |지원됨 |
+| JavaScript |지원됨 |지원됨 |
 
 Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이미 수행하고 있는 서비스에 따라 다릅니다. 코드 조각을 실행할 App Service 앱이 있고 동일한 DevOps 환경에서 코드 조각을 함께 관리하려는 경우 WebJobs를 사용해야 합니다. 다른 Azure 서비스나 심지어 타사 앱에 대한 코드 조각을 실행하려는 경우, App Service 앱에서 통합 코드 조각을 별도로 관리하려는 경우 또는 논리 앱에서 코드 조각을 호출하려는 경우 Functions의 모든 향상된 기능을 활용합니다.  
 
