@@ -1,37 +1,37 @@
 ---
-title: "C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리 | Microsoft Docs"
-description: "이 자습서에서는 C#을 사용하여 Time Series Insights 환경에서 데이터를 쿼리하는 방법을 다룹니다."
+title: "C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리 | Microsoft 문서"
+description: "이 자습서에서는 C#을 사용하여 Time Series Insights 환경에서 데이터를 쿼리하는 방법을 다루며 예제 코드를 제공합니다."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 1444b517664355e8e240ea181d707c464d7ec5bb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
 
-이 C# 샘플은 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 보여 줍니다.
+이 C# 예제에서는 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 보여 줍니다.
 이 샘플은 쿼리 API 사용의 몇 가지 기본 예제를 보여 줍니다.
-1. 준비 단계로, Azure Active Directory API를 통해 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달해야 합니다. 비대화형 응용 프로그램을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md) 문서를 참조하세요.
+1. 준비 단계로, Azure Active Directory API를 통해 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다. 비대화형 응용 프로그램을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요. 또한 샘플의 시작 부분에 정의된 모든 상수를 올바르게 설정합니다.
 2. 사용자가 액세스 권한을 가진 환경 목록을 가져옵니다. 환경 중 하나를 관심 환경으로 선택하고 이 환경에 대해 추가 데이터를 쿼리합니다.
 3. HTTPS 요청의 예로, 관심 환경에 대해 가용성 데이터를 요청합니다.
 4. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
 
-## <a name="c-sample"></a>C# 샘플
+## <a name="c-example"></a>C# 예제
 
 ```csharp
 using System;
@@ -60,6 +60,9 @@ namespace TimeSeriesInsightsQuerySample
 
         // SET the application key of the application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
+
+        // SET the Azure Active Directory tenant.
+        private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         public static async Task SampleAsync()
         {
@@ -261,14 +264,14 @@ namespace TimeSeriesInsightsQuerySample
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
-            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
-                "https://login.microsoftonline.com/common",
+                $"https://login.windows.net/{Tenant}",
                 TokenCache.DefaultShared);
 
             AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

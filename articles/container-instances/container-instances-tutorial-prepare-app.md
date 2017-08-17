@@ -9,14 +9,14 @@ editor:
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ms.translationtype: HT
 ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
@@ -94,7 +94,7 @@ aci-tutorial-app             latest              5c745774dfa9        39 seconds 
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-http://localhost:8080을 브라우저에서 열어 컨테이너가 실행 중인지 확인합니다.
+http://localhost:8080 을 브라우저에서 열어 컨테이너가 실행 중인지 확인합니다.
 
 ![브라우저에서 앱을 로컬로 실행][aci-tutorial-app-local]
 

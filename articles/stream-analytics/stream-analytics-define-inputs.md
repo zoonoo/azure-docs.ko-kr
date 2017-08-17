@@ -4,7 +4,7 @@ description: "'inputs'이라는 Stream Analytics에 대해 데이터 연결을 �
 keywords: "데이터 스트림, 데이터 연결, 이벤트 스트림"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>데이터 연결: 이벤트에서 Stream Analytics으로의 데이터 스트림 입력에 대해 알아보기

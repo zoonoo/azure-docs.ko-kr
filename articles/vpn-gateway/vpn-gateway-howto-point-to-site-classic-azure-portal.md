@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>인증서 인증(클래식)을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure Portal
@@ -95,7 +95,7 @@ ms.lasthandoff: 07/28/2017
 
   ![가상 네트워크 만들기 타일](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. 가상 네트워크를 만들면 Azure 클래식 포털의 네트워크 페이지에 있는 **상태** 아래에 **만들어짐**이 표시됩니다.
-11. DNS 서버를 추가합니다(선택 사항). 가상 네트워크를 만든 후에 이름 확인을 위해 DNS 서버의 IP 주소를 추가할 수 있습니다. 지정한 DNS 서버는 VNet에서 리소스의 이름을 확인할 수 있는 서버여야 합니다.<br>DNS 서버를 추가하려면 가상 네트워크에 대한 설정을 열고 DNS 서버를 클릭하고 사용하려는 DNS 서버의 IP 주소를 추가합니다. 이후 단계에서 생성하는 클라이언트 구성 패키지는 이 설정에서 지정한 DNS 서버의 IP 주소를 포함합니다. 나중에 DNS 서버 목록을 업데이트해야 하는 경우 업데이트된 목록을 반영하는 새 VPN 클라이언트 구성 패키지를 생성하고 설치할 수 있습니다.
+11. DNS 서버를 추가합니다(선택 사항). 가상 네트워크를 만든 후에 이름 확인을 위해 DNS 서버의 IP 주소를 추가할 수 있습니다. 지정한 DNS 서버 IP 주소는 VNet에서 리소스의 이름을 확인할 수 있는 DNS 서버의 주소여야 합니다.<br>DNS 서버를 추가하려면 가상 네트워크에 대한 설정을 열고 DNS 서버를 클릭하고 사용하려는 DNS 서버의 IP 주소를 추가합니다.
 
 ### <a name="gateway"></a>2부: 게이트웨이 서브넷 및 동적 라우팅 게이트웨이 만들기
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="vpnclientconfig"></a>섹션 4 - 클라이언트 구성
 
-지점 및 사이트 간 VPN을 사용하여 VNet에 연결하려면 각 클라이언트에서 기본 Windows VPN 클라이언트를 구성하는 패키지를 설치해야 합니다. 구성 패키지는 가상 네트워크에 연결하는 데 필요한 설정을 사용하여 네이티브 Windows VPN 클라이언트를 구성하고 VNet에 DNS 서버를 지정한 경우 클라이언트가 이름 확인을 위해 사용하는 DNS 서버 IP 주소를 포함합니다. 지정된 DNS 서버를 변경하는 경우에 클라이언트 구성 패키지를 생성한 후에 새 클라이언트 구성 패키지를 생성하여 클라이언트 컴퓨터에 설치하도록 합니다.
+지점 및 사이트 간 VPN을 사용하여 VNet에 연결하려면 각 클라이언트에서 기본 Windows VPN 클라이언트를 구성하는 패키지를 설치해야 합니다. 구성 패키지는 가상 네트워크에 연결하는 데 필요한 설정을 사용하여 네이티브 Windows VPN 클라이언트를 구성합니다.
 
 버전이 클라이언트의 아키텍처와 일치하는 한 각 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 이 문서 끝의 [지점 및 사이트 간 연결 FAQ](#faq)를 참조하세요.
 

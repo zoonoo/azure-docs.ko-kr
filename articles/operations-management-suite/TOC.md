@@ -29,6 +29,7 @@
 ### [맬웨어 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [시스템 업데이트 평가](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [보안 제품 연결](oms-security-connect-products.md)
+### [웹 기준 평가](oms-security-web-baseline-assessment.md)
 
 ## 솔루션 사용
 ### [관리 솔루션](operations-management-suite-solutions.md)
@@ -48,6 +49,7 @@
 ##### [연습](operations-management-suite-walkthrough-servicemap.md)
 ##### [사용](operations-management-suite-service-map.md)
 ##### [구성](operations-management-suite-service-map-configure.md)
+##### [Operations Manager와 통합](operations-management-suite-service-map-scom.md)
 #### [SQL 평가](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -77,3 +79,4 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

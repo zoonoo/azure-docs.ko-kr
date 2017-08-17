@@ -15,3 +15,4 @@
 ### [FAQ](microsoft-authenticator-app-faq.md)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

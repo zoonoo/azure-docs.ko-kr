@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure 빠른 시작 템플릿을 사용하여 Azure에 복잡한 기술을 빠르고 안정적으로 배포할 수 있습니다.  Azure Resource Manager를 사용하면 [선언적 템플릿](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins)을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
 
-이 템플릿에 대한 [계획 및 가격](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) 정보를 보고 비용 옵션을 파악합니다.
+이 템플릿에 대한 [계획 및 가격](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) 정보를 보고 비용 옵션을 파악합니다.
 
 [Jenkins에 대한 마켓플레이스 이미지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview)로 이동하여 **지금 가져오기**를 클릭합니다.  
 

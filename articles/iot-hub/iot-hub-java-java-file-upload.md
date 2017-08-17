@@ -141,7 +141,7 @@ IoT Hub가 이 섹션을 완료하려면 **iothubowner** 연결 문자열이 필
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 

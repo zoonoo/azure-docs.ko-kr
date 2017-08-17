@@ -3,8 +3,8 @@ title: "C 및 C++를 사용하여 SQL Database에 연결 | Microsoft Docs"
 description: "이 빠른 시작에 포함된 샘플 코드를 사용하여 C++으로 최신 응용 프로그램을 개발하고 Azure SQL Database로 클라우드에서 강력한 관계형 데이터베이스를 통해 지원할 수 있습니다."
 services: sql-database
 documentationcenter: 
-author: asthana86
-manager: danmoth
+author: edmacauley
+manager: jhubbard
 editor: 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: tobiast
+ms.author: edmacauley
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/15/2017
-
 
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결

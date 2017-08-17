@@ -1,6 +1,6 @@
 ---
 title: "최신 Azure 게스트 OS 릴리스에 대해 알아보기 | Microsoft Docs"
-description: "Azure 클라우드 서비스 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
+description: "Azure  Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2017
+ms.date: 8/3/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cd61a785c415e945a33b0727004338e01c67f3ec
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: acb22517cb1ce3fe166ae149d4d5bfb867b5ab99
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
-클라우드 서비스용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
+Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
 
 > [!IMPORTANT]
-> 이 페이지는 게스트 OS를 기반으로 실행하는 클라우드 서비스 웹 및 작업자 역할에 적용됩니다. IaaS 가상 컴퓨터에 **적용되지 않습니다** .
+> 이 페이지는 게스트 OS를 기반으로 실행하는 Cloud Services 웹 및 작업자 역할에 적용됩니다. IaaS Virtual Machines에 **적용되지 않습니다** .
 >
 >
 
@@ -38,6 +38,10 @@ ms.lasthandoff: 07/26/2017
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+
+###### <a name="august-3-2017"></a>**2017년 8월 3일**
+7월 게스트 OS가 릴리스되었습니다.
+
 ###### <a name="july-19-2017"></a>**2017년 7월 19일**
 게스트 OS 7월 롤아웃은 7월 19일에 시작되며 8월 8일에 출시될 예정입니다.
 
@@ -80,9 +84,10 @@ ms.lasthandoff: 07/26/2017
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.9_201707-01 |2017년 8월 3일 |Post 5.11 |TBD |
 | WA-GUEST-OS-5.8_201706-01 |2017년 7월 7일 |Post 5.10 |TBD |
 | WA-GUEST-OS-5.7_201705-01 |2017년 6월 5일 |Post 5.9 |TBD |
-| WA-GUEST-OS-5.6_201704-01 |2017년 5월 9일 |Post 5.8 |TBD |
+|~~WA-GUEST-OS-5.6_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |2017년 1월 10일 |2017년 6월 5일|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
@@ -100,9 +105,10 @@ ms.lasthandoff: 07/26/2017
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.44_201707-01 |2017년 8월 3일 |Post 4.46 |TBD |
 | WA-GUEST-OS-4.43_201706-01 |2017년 7월 7일 |Post 4.45 |TBD |
 | WA-GUEST-OS-4.42_201705-01 |2017년 6월 5일 |Post 4.44 |TBD |
-| WA-GUEST-OS-4.41_201704-01 |2017년 5월 9일 |Post 4.43 |TBD |
+|~~WA-GUEST-OS-4.41_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
@@ -124,9 +130,10 @@ ms.lasthandoff: 07/26/2017
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.51_201707-01 |2017년 8월 3일 |Post 3.53 |TBD |
 | WA-GUEST-OS-3.50_201706-01 |2017년 7월 7일 |Post 3.52 |TBD |
 | WA-GUEST-OS-3.49_201705-01 |2017년 6월 5일 |Post 3.51 |TBD |
-| WA-GUEST-OS-3.48_201704-01 |2017년 5월 9일 |Post 3.50 |TBD |
+|~~WA-GUEST-OS-3.48_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
@@ -148,9 +155,10 @@ ms.lasthandoff: 07/26/2017
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.64_201707-01 |2017년 8월 3일 |Post 2.66 |TBD |
 | WA-GUEST-OS-2.63_201706-01 |2017년 7월 7일 |Post 2.65 |TBD |
 | WA-GUEST-OS-2.62_201705-01 |2017년 6월 5일 |Post 2.64 |TBD |
-| WA-GUEST-OS-2.61_201704-01 |2017년 5월 9일 |Post 2.63 |TBD |
+|~~WA-GUEST-OS-2.61_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |2017년 1월 10일 |2017년 6월 5일 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |2017년 1월 10일 |2017년 5월 9일|TBD |
@@ -204,7 +212,7 @@ ms.lasthandoff: 07/26/2017
 게스트 OS에 대한 구성에는 문자열에서 보여주는 MSRC 패치가 해당 릴리스에 대한 것으로 간주된 날짜와 함께 여기에 포함된 동일한 정보가 있습니다. 이 예에서는 Windows Server 2008 R2에 대한 MSRC 패치가 생성되며 2012년 8월포함이 고려되었습니다. 특히 해당 버전의 Windows Server에 적용되는 패치만 포함됩니다. 예를 들어 MSRC 패치가 Microsoft office에 적용되는 경우, 해당 제품이 Windows Server 기본 이미지의 일부가 아니므로 포함되지 않습니다.
 
 ## <a name="guest-os-system-update-process"></a>게스트 OS 시스템 업데이트 프로세스
-이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대 한 모든 관련 MSRC 패치를 포함합니다.
+이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대한 모든 관련 MSRC 패치를 포함합니다.
 
 Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 제한 또는 시간 재부팅에 대한 계획을 설정하고 있습니다.
 

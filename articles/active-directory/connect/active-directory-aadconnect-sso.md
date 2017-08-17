@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -32,8 +32,8 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
->[!NOTE]
->이미 이 기능이 포함된 ADFS(Active Directory Federation Services)에는 이 기능을 _적용할 수 없습니다_.
+>[!IMPORTANT]
+>Seamless SSO는 현재 미리 보기로 제공됩니다. ADFS(Active Directory Federation Services)에는 이 기능을 _적용할 수 없습니다_.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -44,26 +44,29 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
   - 이 작업을 수행하기 위해 온-프레미스에 필요한 추가 구성 요소가 없습니다.
   - 모든 클라우드 인증 방법, 즉 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 또는 [통과 인증](active-directory-aadconnect-pass-through-authentication.md)과 함께 작동합니다.
   - 그룹 정책을 사용하여 일부 또는 모든 사용자에게 배포할 수 있습니다.
-  - 비Windows 10 장치를 Azure AD에 등록합니다. 이 경우 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
+  - AD FS 인프라에 대한 필요 없이 Azure AD로 비-Windows 10 장치를 등록합니다. 이 기능을 사용하기 위해 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
 
 ## <a name="feature-highlights"></a>주요 기능
 
-- 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`) 중 하나일 수 있습니다.
+- 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`) 중 하나일 수 있습니다. Seamless SSO는 Kerberos 티켓에서 `securityIdentifier` 클레임을 사용하여 Azure AD에서 해당하는 사용자 개체를 조회하기 때문에 두 사용 사례가 작동합니다.
 - Seamless SSO는 편의적인 기능입니다. 어떤 이유로든 실패하면 사용자 로그인 환경은 일반 동작으로 돌아갑니다. 즉 사용자가 로그인 페이지에 자신의 암호를 입력해야 합니다.
-- 응용 프로그램이 Azure AD 로그인 요청에서 `domain_hint`(테넌트 식별) 또는 `login_hint`(사용자 식별) 매개 변수를 전달하면, 사용자는 사용자 이름이나 암호를 입력하지 않고 자동으로 로그인됩니다.
+- 응용 프로그램이 Azure AD 로그인 요청에서 테넌트를 식별하는 `domain_hint`(OpenID Connect) 또는 `whr`(SAML) 매개 변수 또는 사용자를 식별하는 `login_hint` 매개 변수를 전달하면, 사용자는 사용자 이름이나 암호를 입력하지 않고 자동으로 로그인됩니다.
 - Azure AD Connect를 통해 사용하도록 설정할 수 있습니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - Kerberos 인증이 가능한 플랫폼 및 브라우저에서 [최신 인증](https://aka.ms/modernauthga)을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에서 지원됩니다.
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예|예|예|예\*|해당 없음
+|Windows 10|예|아니요|예|예\*|해당 없음
 |Windows 8.1|예|해당 없음|예|예\*|해당 없음
 |Windows 8|예|해당 없음|예|예\*|해당 없음
 |Windows 7|예|해당 없음|예|예\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*|예\*|예\*
 
 \*[추가 구성](active-directory-aadconnect-sso-quick-start.md#browser-considerations)이 필요합니다.
+
+>[!IMPORTANT]
+>최근 고객이 신고한 문제를 조사하기 위해 에지에 대한 지원을 롤백했습니다.
 
 >[!NOTE]
 >Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../active-directory-azureadjoin-overview.md)을 사용하는 것이 좋습니다.

@@ -40,6 +40,7 @@
 ### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -52,6 +53,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [가격](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)

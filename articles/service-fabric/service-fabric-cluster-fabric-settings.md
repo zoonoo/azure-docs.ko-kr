@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 676a46449b1ff5ceb749df876bad614c3804d220
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
@@ -262,6 +262,7 @@ ms.lasthandoff: 07/21/2017
 |IsEnabled|bool, 기본값: false | httpgateway를 사용하거나 사용하지 않도록 설정합니다. Httpgateway는 기본적으로 사용하지 않도록 설정되며, 이 구성을 활성화하려면 사용하도록 설정해야 합니다. |
 |ActiveListeners |uint, 기본값: 50 | http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
 |MaxEntityBodySize |uint, 기본값: 4194304 |  http 요청에서 사용할 수 있는 본문의 최대 크기를 제공합니다. 기본값은 4MB입니다. 본문 크기가 이 값보다 크면 Httpgateway 요청이 실패합니다. 최소 읽기 청크 크기가 4,096바이트이므로 이 값은 4096 이상이어야 합니다. |
+|HttpGatewayHealthReportSendInterval |시간(초), 기본값: 30 | 시간 간격은 초 단위로 지정합니다. Http 게이트웨이가 Health Manager로 누적된 상태 보고서를 보내는 간격입니다. |
 
 ### <a name="section-name-ktllogger"></a>섹션 이름: KtlLogger
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -278,10 +279,10 @@ ms.lasthandoff: 07/21/2017
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
 |IsEnabled |bool, 기본값: false | HttpApplicationGateway를 사용하거나 사용하지 않도록 설정합니다. HttpApplicationGateway는 기본적으로 사용하지 않도록 설정되며, 이 구성을 활성화하려면 사용하도록 설정해야 합니다. |
-|NumberOfParallelOperations | uint, 기본값: 1000 | http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
-|DefaultHttpRequestTimeout |시간(초). 기본값: 60 |시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
+|NumberOfParallelOperations | Uint, 기본값: 5000 | http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
+|DefaultHttpRequestTimeout |시간(초). 기본값은 120입니다. |시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
 |ResolveServiceBackoffInterval |time(초), 기본값: 5 |시간 간격은 초 단위로 지정합니다.  실패한 서비스 확인 작업을 다시 시도하기 전의 기본 백오프 간격을 지정합니다. |
-|BodyChunkSize |uint, 기본값: 4096 |  본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
+|BodyChunkSize |uint, 기본값: 16384 |  본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
 |GatewayAuthCredentialType |string, 기본값: "None" | http 앱 게이트웨이 끝점에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
 |GatewayX509CertificateStoreName |string, 기본값: "My" | http 앱 게이트웨이에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
 |GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" | GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |

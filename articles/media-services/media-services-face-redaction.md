@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7f5d43e337b610f0bcf8273432b4dcd0a757937d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
@@ -133,7 +133,37 @@ IDList에서 하나의 ID가 선택된 출력입니다.
      1
      2
      3
+
+## <a name="blur-types"></a>흐리게 형식
+
+**결합** 또는 **편집** 모드에는 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다(**낮음**, **중간**, **높음**, **디버그** 및 **검정**). 기본적으로 **중간**이 사용됩니다.
+
+아래에 흐리게 형식의 샘플을 확인할 수 있습니다.
+
+### <a name="example-json"></a>예제 JSON:
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>낮음
+
+![낮음](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>중간
+
+![중간](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>높음
+
+![높음](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>디버그
+
+![디버그](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>검정
+
+![검정](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>출력 JSON 파일의 요소
 
 편집 MP는 한 동영상 프레임 내에서 최대 64명의 얼굴을 검색할 수 있는 고정밀도 얼굴 위치 검색 및 추적을 제공합니다. 정면이 최상의 결과를 제공하며 측면 또는 작은 얼굴(24x24 픽셀보다 작거나 같음)의 경우에는 어려울 수 있습니다.
@@ -314,8 +344,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
         }
     }
 
-## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -323,7 +352,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

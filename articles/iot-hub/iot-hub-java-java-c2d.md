@@ -20,7 +20,6 @@ ms.openlocfilehash: a6cfd7d3f1dd41968004ae93b1d6aa9977e6f55a
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-장치 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -105,7 +104,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-conditional-access-azure-portal.md)
+> * [Azure Portal](active-directory-conditional-access-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-conditional-access.md)
 
 모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 장치, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 장치(BYOD 포함), 기업 네트워크 외 근무 및 타사 SaaS 앱의 확산에 따라 IT 전문가는 다음 두 가지 대립되는 목표에 직면하고 있습니다.
@@ -121,26 +121,54 @@ SharePoint를 통해 제한된 액세스를 요구하는 방법을 알아보려�
 
 Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 정의할 수 있습니다.
 
-- **로그인 위험** – 로그인 위험은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성을 추적하기 위해 Azure Active Directory에서 사용하는 개체입니다. 이 개체에서 가능성(높음, 중간 또는 낮음)은 [로그인 위험 수준](active-directory-reporting-risk-events.md#risk-level)이라는 특성의 형태로 저장됩니다. Azure Active Directory에서 로그인 위험을 검색한 경우 이 개체는 사용자의 로그인 동안 생성됩니다. 자세한 내용은 [위험한 로그인](active-directory-identityprotection.md#risky-sign-ins)을 참조하세요.  
+- 로그인 위험
+- 장치 플랫폼
+- 위치
+- 클라이언트 앱
+
+![조건](./media/active-directory-conditional-access-azure-portal/21.png)
+
+### <a name="sign-in-risk"></a>로그인 위험
+
+로그인 위험은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성을 추적하기 위해 Azure Active Directory에서 사용하는 개체입니다. 이 개체에서 가능성(높음, 중간 또는 낮음)은 [로그인 위험 수준](active-directory-reporting-risk-events.md#risk-level)이라는 특성의 형태로 저장됩니다. Azure Active Directory에서 로그인 위험을 검색한 경우 이 개체는 사용자의 로그인 동안 생성됩니다. 자세한 내용은 [위험한 로그인](active-directory-identityprotection.md#risky-sign-ins)을 참조하세요.  
 계산된 로그인 위험 수준을 조건부 액세스 정책의 조건으로 사용할 수 있습니다. 
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/22.png)
+![조건](./media/active-directory-conditional-access-azure-portal/22.png)
 
-- **장치 플랫폼** - 장치 플랫폼은 장치(Android, iOS, Windows Phone, Windows)에서 실행되는 운영 체제를 특징으로 합니다. 정책의 대상에 포함된 장치 플랫폼뿐만 아니라 정책에서 제외되는 장치 플랫폼도 정의할 수 있습니다.  
+### <a name="device-platforms"></a>장치 플랫폼
+
+장치 플랫폼은 장치(Android, iOS, Windows Phone, Windows)에서 실행되는 운영 체제를 특징으로 합니다. 정책의 대상에 포함된 장치 플랫폼뿐만 아니라 정책에서 제외되는 장치 플랫폼도 정의할 수 있습니다.  
 정책에서 장치 플랫폼을 사용하려면 먼저 [구성] 토글을 **예**로 변경한 다음, 정책이 적용되는 장치 플랫폼을 모두 또는 개별적으로 선택합니다. 개별 장치 플랫폼을 선택하면 해당 플랫폼에만 정책이 적용됩니다. 이 경우 지원되는 다른 플랫폼에 대한 로그인은 정책의 영향을 받지 않습니다.
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/02.png)
+![조건](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **위치** - 위치는 Azure Active Directory에 연결하는 데 사용한 클라이언트의 IP 주소로 식별됩니다. 이 조건에서는 신뢰할 수 있는 IP를 잘 알고 있어야 합니다. 신뢰할 수 있는 IP는 조직의 로컬 인트라넷을 나타내는 신뢰할 수 있는 IP 주소 범위를 정의할 수 있는 다단계 인증 기능입니다. 위치 조건을 구성하면 신뢰할 수 있는 IP를 통해 조직의 네트워크와 다른 모든 위치에서 수행되는 연결을 구별할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
+### <a name="locations"></a>위치
+
+위치는 Azure Active Directory에 연결하는 데 사용한 클라이언트의 IP 주소로 식별됩니다. 이 조건에서는 **명명된 위치** 및 **MFA 신뢰할 수 있는 IP**를 잘 알고 있어야 합니다.  
+
+**명명된 위치**는 조직 내에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있는 Azure Active Directory의 기능입니다. 사용자 환경에서 조건부 액세스와 함께 [위험 이벤트](active-directory-reporting-risk-events.md) 검색의 컨텍스트에서 명명된 위치를 사용할 수 있습니다. Azure Active Directory에서 명명된 위치 구성에 대한 자세한 내용은 [Azure Active Directory의 명명된 위치](active-directory-named-locations.md)를 참조하세요.
+
+구성할 수 있는 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음을 구성할 수 있습니다.
+ 
+ - 최대 500개 IP 범위로 명명된 하나의 위치
+ - 각각에 한 개의 IP 범위로 할당된 최대 60개의 명명된 위치(미리 보기) 
+
+
+**MFA 신뢰할 수 있는 IP**는 조직의 로컬 인트라넷을 나타내는 신뢰할 수 있는 IP 주소 범위를 정의할 수 있는 다단계 인증 기능입니다. 위치 조건을 구성하면 신뢰할 수 있는 IP를 통해 조직의 네트워크와 다른 모든 위치에서 수행되는 연결을 구별할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
+
+
+
 모든 위치 또는 모든 신뢰할 수 있는 IP를 포함하거나, 모든 신뢰할 수 있는 IP를 제외할 수 있습니다.
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/03.png)
+![조건](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-- **클라이언트 앱** - 클라이언트 앱은 Azure Active Directory에 연결하는 데 사용한 일반적 수준의 앱(웹 브라우저, 모바일 앱, 데스크톱 클라이언트)이거나, 구체적으로 Exchange Active Sync를 선택할 수 있습니다.  
+### <a name="client-app"></a>클라이언트 앱
+
+클라이언트 앱은 Azure Active Directory에 연결하는 데 사용한 일반적 수준의 앱(웹 브라우저, 모바일 앱, 데스크톱 클라이언트)이거나, 구체적으로 Exchange Active Sync를 선택할 수 있습니다.  
 레거시 인증은 최신 인증을 사용하지 않는 이전 Office 클라이언트와 같은 기본 인증을 사용하는 클라이언트를 의미합니다. 현재 레거시 인증에서는 조건부 액세스를 지원하지 않습니다.
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/04.png)
+![조건](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오

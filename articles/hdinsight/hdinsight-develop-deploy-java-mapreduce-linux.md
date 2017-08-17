@@ -14,26 +14,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 33705cff8d65b40aeca2cdaf0b102bf7fbbfa9d6
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 11d63f22204eb2acb530378f53ac72f16a35a4f2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
 
 Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
 
+> [!NOTE]
+> 이 예제는 HDInsight 3.6에서 가장 최근에 테스트되었습니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)...
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램).
     
     > [!NOTE]
-    > HDInsight 버전 3.4 이전은 Java 7을 사용합니다. HDInsight 3.5는 Java 8을 사용합니다.
+    > HDInsight 버전 3.4 이전은 Java 7을 사용합니다. HDInsight 3.5 이상은 Java 8을 사용합니다.
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -60,6 +62,11 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
+
+    > [!NOTE]
+    > PowerShell을 사용하는 경우 큰 따옴표로 `-D` 매개 변수를 묶어야 합니다.
+    >
+    > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     이 명령은 `artifactID` 매개 변수(이 예제에서는 **wordcountjava**)로 지정된 이름으로 디렉터리를 만듭니다. 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
@@ -143,7 +150,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     두 번째 플러그 인은 대상 Java 버전을 구성합니다.
 
     > [!NOTE]
-    > HDInsight 3.4 이전은 Java 7 사용합니다. HDInsight 3.5는 Java 8을 사용합니다.
+    > HDInsight 3.4 이전은 Java 7 사용합니다. HDInsight 3.5 이상은 Java 8을 사용합니다.
 
 3. `pom.xml` 파일을 저장합니다.
 
@@ -153,76 +160,76 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 2. 텍스트 편집기에서 `WordCount.java` 파일을 열고 내용을 다음 텍스트로 바꿉니다.
    
-   ```java
-   package org.apache.hadoop.examples;
+    ```java
+    package org.apache.hadoop.examples;
 
-   import java.io.IOException;
-   import java.util.StringTokenizer;
-   import org.apache.hadoop.conf.Configuration;
-   import org.apache.hadoop.fs.Path;
-   import org.apache.hadoop.io.IntWritable;
-   import org.apache.hadoop.io.Text;
-   import org.apache.hadoop.mapreduce.Job;
-   import org.apache.hadoop.mapreduce.Mapper;
-   import org.apache.hadoop.mapreduce.Reducer;
-   import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-   import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-   import org.apache.hadoop.util.GenericOptionsParser;
+    import java.io.IOException;
+    import java.util.StringTokenizer;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.Path;
+    import org.apache.hadoop.io.IntWritable;
+    import org.apache.hadoop.io.Text;
+    import org.apache.hadoop.mapreduce.Job;
+    import org.apache.hadoop.mapreduce.Mapper;
+    import org.apache.hadoop.mapreduce.Reducer;
+    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+    import org.apache.hadoop.util.GenericOptionsParser;
 
-   public class WordCount {
+    public class WordCount {
 
-       public static class TokenizerMapper
-           extends Mapper<Object, Text, Text, IntWritable>{
+        public static class TokenizerMapper
+            extends Mapper<Object, Text, Text, IntWritable>{
 
-       private final static IntWritable one = new IntWritable(1);
-       private Text word = new Text();
+        private final static IntWritable one = new IntWritable(1);
+        private Text word = new Text();
 
-       public void map(Object key, Text value, Context context
-                       ) throws IOException, InterruptedException {
-           StringTokenizer itr = new StringTokenizer(value.toString());
-           while (itr.hasMoreTokens()) {
-           word.set(itr.nextToken());
-           context.write(word, one);
-           }
-       }
-   }
+        public void map(Object key, Text value, Context context
+                        ) throws IOException, InterruptedException {
+            StringTokenizer itr = new StringTokenizer(value.toString());
+            while (itr.hasMoreTokens()) {
+            word.set(itr.nextToken());
+            context.write(word, one);
+            }
+        }
+    }
 
-   public static class IntSumReducer
-           extends Reducer<Text,IntWritable,Text,IntWritable> {
-       private IntWritable result = new IntWritable();
+    public static class IntSumReducer
+            extends Reducer<Text,IntWritable,Text,IntWritable> {
+        private IntWritable result = new IntWritable();
 
-       public void reduce(Text key, Iterable<IntWritable> values,
-                           Context context
-                           ) throws IOException, InterruptedException {
-           int sum = 0;
-           for (IntWritable val : values) {
-           sum += val.get();
-           }
-          result.set(sum);
-          context.write(key, result);
-       }
-   }
+        public void reduce(Text key, Iterable<IntWritable> values,
+                            Context context
+                            ) throws IOException, InterruptedException {
+            int sum = 0;
+            for (IntWritable val : values) {
+            sum += val.get();
+            }
+            result.set(sum);
+            context.write(key, result);
+        }
+    }
 
-   public static void main(String[] args) throws Exception {
-       Configuration conf = new Configuration();
-       String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-       if (otherArgs.length != 2) {
-           System.err.println("Usage: wordcount <in> <out>");
-           System.exit(2);
-       }
-       Job job = new Job(conf, "word count");
-       job.setJarByClass(WordCount.class);
-       job.setMapperClass(TokenizerMapper.class);
-       job.setCombinerClass(IntSumReducer.class);
-       job.setReducerClass(IntSumReducer.class);
-       job.setOutputKeyClass(Text.class);
-       job.setOutputValueClass(IntWritable.class);
-       FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-       FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-       System.exit(job.waitForCompletion(true) ? 0 : 1);
-       }
-   }
-   ```
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length != 2) {
+            System.err.println("Usage: wordcount <in> <out>");
+            System.exit(2);
+        }
+        Job job = new Job(conf, "word count");
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(TokenizerMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        }
+    }
+    ```
    
     패키지 이름은 `org.apache.hadoop.examples`이며 클래스 이름은 `WordCount`입니다. MapReduce 작업을 제출할 때 이 이름을 사용합니다.
 
@@ -250,7 +257,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 다음 명령을 사용하여 HDInsight 헤드 노드에 jar 파일을 업로드합니다.
 
    ```bash
-   scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+   scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
    ```
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.

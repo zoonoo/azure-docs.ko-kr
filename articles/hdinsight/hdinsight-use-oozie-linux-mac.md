@@ -14,20 +14,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 HDInsight에서 워크플로 정의 및 실행
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아봅니다. Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시스템입니다. Hadoop 스택과 통합되며 Apache MapReduce, Apache Pig, Apache Hive, Apache Sqoop에 Hadoop 작업을 지원합니다. 또한 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약하는 데 사용할 수도 있습니다.
+HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아봅니다. Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie는 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약하는 데 사용할 수도 있습니다.
 
 > [!NOTE]
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure 데이터 팩터리입니다. Azure 데이터 팩터리에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
@@ -136,7 +143,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    이러한 명령들은 이 클러스터와 연결된 Azure Storage 계정에 **useooziewf.hql** 파일을 저장합니다. 이 파일은 클러스터가 삭제된 경우에도 보존됩니다.
+    이러한 명령은 클러스터용 HDFS 호환 스토리지에 **useooziewf.hql** 파일을 저장합니다.
 
 ## <a name="define-the-workflow"></a>워크플로 정의
 
@@ -404,7 +411,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
 다음 단계에서는 Oozie 명령을 사용하여 클러스터에서 Oozie 워크플로를 제출 및 관리합니다. Oozie 명령은 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)를 통해 제공되는 친숙한 인터페이스입니다.
 
 > [!IMPORTANT]
-> Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure 가상 네트워크에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
+> Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure Virtual Network에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
 
 
 1. 다음을 사용하여 Oozie 서비스의 URL을 가져옵니다.
@@ -467,7 +474,7 @@ Azure SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    이 작업의 상태는 `PREP`입니다. 이는 작업이 제출되었지만 아직 시작되지 않았음을 나타냅니다.
+    이 작업의 상태는 `PREP`입니다. 이 상태는 작업이 만들어졌지만 시작되지 않았음을 나타냅니다.
 
 5. 다음 명령을 사용하여 작업을 시작합니다.
 
@@ -522,7 +529,7 @@ Oozie REST API 사용에 대한 자세한 내용은 [Oozie 웹 서비스 API](ht
 
 ## <a name="oozie-web-ui"></a>Oozie 웹 UI
 
-Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기를 제공합니다. 웹 UI를 사용하여 다음을 볼 수 있습니다.
+Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기를 제공합니다. 웹 UI를 사용하여 다음 정보를 볼 수 있습니다.
 
 * 작업 상태
 * 작업 정의
@@ -568,9 +575,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
 
 ## <a name="scheduling-jobs"></a>작업 예약
 
-코디네이터를 통해 작업의 시작, 종료 및 발생 빈도를 지정하여 특정 시간대에 예약할 수 있습니다.
-
-워크플로 일정을 정의하려면 다음 단계를 사용합니다.
+코디네이터를 통해 작업의 시작, 종료 및 발생 빈도를 지정할 수 있습니다. 워크플로 일정을 정의하려면 다음 단계를 사용합니다.
 
 1. 다음을 사용하여 **coordinator.xml**이라는 파일을 만듭니다.
 
@@ -615,9 +620,9 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
 
     다음과 같이 변경합니다.
 
-   * `<name>oozie.wf.application.path</name>`을 `<name>oozie.coord.application.path</name>`으로 변경합니다. 이 값은 Oozie에서 워크플로 파일 대신 코디네이터 파일을 실행하도록 지시합니다.
+   * Oozie에서 워크플로 대신 코디네이터 파일을 실행하도록 지시하려면 `<name>oozie.wf.application.path</name>`을(를) `<name>oozie.coord.application.path</name>`(으)로 변경하세요.
 
-   * 다음 XML을 추가합니다. 이렇게 하면 coordinator.xml에 사용된 변수가 workflow.xml의 위치를 가리키도록 설정됩니다.
+   * 코디네이터에서 사용하는 `workflowPath` 변수를 설정하려면 다음 XML을 추가하세요.
 
         ```xml
         <property>
@@ -628,7 +633,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
 
        `wasb://mycontainer@mystorageaccount.blob.core.windows` 텍스트를 job.xml 파일의 다른 항목에 사용된 값으로 바꿉니다.
 
-   * 다음 XML을 추가합니다. 그러면 coordinator.xml 파일에 사용할 시작, 종료 및 빈도가 정의됩니다.
+   * 코디네이터에 대한 시작, 종료 및 빈도를 정의하려면 다음 XML을 추가하세요.
 
         ```xml
         <property>
@@ -675,7 +680,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
     ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > 성공한 작업 실행만 표시되며, 예약된 워크플로 내의 개별 동작은 표시되지 않습니다. 확인하려면 **작업** 항목 중 하나를 선택합니다.
+    > 이 이미지는 성공한 작업 실행만 표시하며, 예약된 워크플로 내의 개별 동작은 표시하지 않습니다. 확인하려면 **작업** 항목 중 하나를 선택합니다.
 
     ![동작 정보](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 

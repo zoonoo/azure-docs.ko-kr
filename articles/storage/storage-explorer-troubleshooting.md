@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에�
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
-계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
+AAD(Azure Active Directory) 계정만 지원됩니다. ADFS 계정을 사용하는 경우 Storage 탐색기에 대한 로그인은 작동하지 않습니다. 계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>오류: 인증서 체인의 자체 서명된 인증서
 
@@ -111,7 +111,7 @@ Storage 탐색기에서 문제 중 하나를 발견하면 수신된 HTTPS 메시
 
     - .extaccounts
 
-- SAS 연결 Storage 리소스를 제거하려면 다음 파일을 삭제합니다:
+- SAS 연결 Storage 리소스를 제거하려면 다음 파일을 삭제합니다.
 
     - Windows - %AppData%/StorageExplorer 폴더
 

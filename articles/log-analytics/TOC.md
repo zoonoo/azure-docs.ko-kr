@@ -46,6 +46,7 @@
 ### [로그 검색 포털](log-analytics-log-search-portals.md)
 #### [로그 검색 포털 사용](log-analytics-log-search-log-search-portal.md)
 ### [레거시 언어에서 전환](log-analytics-log-search-transition.md)
+### [흐름 커넥터](log-analytics-flow-tutorial.md)
 
 ## 데이터 분석
 ### [대시보드](log-analytics-dashboards.md)

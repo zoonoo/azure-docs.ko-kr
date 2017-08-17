@@ -96,6 +96,7 @@
 #### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
 #### [깔때기](usage-funnels.md)
 #### [보존](app-insights-usage-retention.md)
+#### [사용자 흐름](app-insights-usage-flows.md)
 #### [통합 문서](app-insights-usage-workbooks.md)
 
 ### 분석

@@ -4,13 +4,13 @@
 ## [가용성](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [시작](../opensource-links.md)
+# 시작
 ## [포털을 사용하여 Linux VM 만들기](createportal.md)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
 ## [SSH 키 만들기](../mac-create-ssh-keys.md)
 
 # 방법
-## [계산](../intro-on-azure.md)
+## Compute
 ### [사용자 지정 VM 만들기](create-custom.md)
 ### [VM 캡처](capture-image.md)
 ### [Linux VM으로 원격 데스크톱 사용](remote-desktop.md)
@@ -81,7 +81,8 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

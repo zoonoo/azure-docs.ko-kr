@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 865c72b7525c185d047d6c9f57b642a195e56fd4
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure Cloud Shell(미리 보기) 개요
@@ -49,7 +49,7 @@ Azure 파일 공유를 사용하여 기본 5GB 디스크 이미지를 포함하�
 
 세 가지 리소스가 자동으로 만들어집니다.
 1. 리소스 그룹: `cloud-shell-storage-<region>`
-2. 저장소 계정: `cs-uniqueGuid`
+2. 저장소 계정: `cs<uniqueGuid>`
 3. 파일 공유: `cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -88,3 +88,4 @@ Cloud Shell은 Chrome, Edge 및 Safari에 권장됩니다. Cloud Shell은 Chrome
 1. Azure Active Directory 구독을 사용할 경우 오류: 400 DisallowedOperation으로 인해 저장소를 만들 수 없습니다. 이 문제를 해결하려면 저장소 리소스를 만들 수 있는 Azure 구독을 사용하세요. AD 구독으로는 Azure 리소스를 만들 수 없습니다.
 
 알려진 특별한 제한 사항은 [Cloud Shell 제한 사항](limitations.md)을 방문하세요.
+

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Azure AD 응용 프로그램 프록시가 역방향 프록시이기 때문에 �
 
 회사 네트워크에 대한 인바운드 연결을 열 필요가 없습니다.
 
-Azure AD 커넥터는 Azure AD 응용 프로그램 프록시 서비스에 대한 아웃바운드 연결만 사용하므로 들어오는 연결에 대한 방화벽 포트를 열지 않아도 됩니다. 전통적인 프록시에서는 경계 네트워크(*DMZ*, *완충 영역* 또는 *스크린된 서브넷*이라고도 함)가 필요하고 네트워크 에지에서 인증되지 않은 연결에 대한 액세스를 허용해야 했습니다. 이 시나리오에서는 트래픽을 분석하고 환경에 추가 보호를 제공하기 위해 웹 응용 프로그램 방화벽 제품에 상당한 투자가 추가로 필요했습니다. 응용 프로그램 프록시를 사용하는 경우에는 모든 연결은 아웃바운드이고 보안 채널을 통해 발생하기 때문에 경계 네트워크가 필요하지 않습니다.
+응용 프로그램 프록시 커넥터는 Azure AD 응용 프로그램 프록시 서비스에 대한 아웃바운드 연결만 사용하므로 들어오는 연결에 대한 방화벽 포트를 열지 않아도 됩니다. 전통적인 프록시에서는 경계 네트워크(*DMZ*, *완충 영역* 또는 *스크린된 서브넷*이라고도 함)가 필요하고 네트워크 에지에서 인증되지 않은 연결에 대한 액세스를 허용해야 했습니다. 이 시나리오에서는 트래픽을 분석하고 환경에 추가 보호를 제공하기 위해 웹 응용 프로그램 방화벽 제품에 상당한 투자가 추가로 필요했습니다. 응용 프로그램 프록시를 사용하는 경우에는 모든 연결은 아웃바운드이고 보안 채널을 통해 발생하기 때문에 경계 네트워크가 필요하지 않습니다.
+
+커넥터에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)를 참조하세요.
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>클라우드 규모 분석 및 기계 학습 
 
 최첨단 보안 보호를 가져옵니다.
 
-데이터에 Machine Learning 기반 인텔리전스를 사용하는 [Azure AD ID 보호](active-directory-identityprotection.md)는 Digital Crimes Unit 및 Microsoft 보안 대응 센터로부터 피드됩니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 실시간 보호를 제공합니다. 감염된 장치에서 익명의 네트워크를 통한 액세스, 일반적이고 가능성이 적은 위치 등 다양한 요소를 고려합니다.
+응용 프로그램 프록시는 Azure Active Directory의 일부이기 때문에 Microsoft Security Response Center 및 Digital Crimes Unit에서 제공하는 기계 학습 기반 인텔리전스 및 데이터를 통해 [Azure AD Identity Protection](active-directory-identityprotection.md)을 활용할 수 있습니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 실시간 보호를 제공합니다. 감염된 장치에서 익명의 네트워크를 통한 액세스, 일반적이고 가능성이 적은 위치 등 다양한 요소를 고려합니다.
 
 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
 
@@ -119,7 +121,7 @@ Azure AD 응용 프로그램 프록시는 두 부분으로 구성됩니다.
 
 사용자가 게시된 응용 프로그램에 액세스하면 응용 프로그램 프록시 서비스와 응용 프로그램 프록시 커넥터 간에 다음과 같은 이벤트가 발생합니다.
 
-1. [서비스에서 앱에 대한 구성 설정 확인](#the-service-checks-the-configuration-settings-for-the-app)
+1. [서비스가 앱에 대해 사용자를 인증](#the-service-checks-the-configuration-settings-for-the-app)
 2. [서비스에서 커넥터 큐에 요청 배치](#The-service-places-a-request-in-the-connector-queue)
 3. [커넥터에서 큐의 요청 처리](#the-connector-receives-the-request-from-the-queue)
 4. [커넥터에서 응답 대기](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Azure AD 응용 프로그램 프록시는 두 부분으로 구성됩니다.
 이러한 단계 각각에서 수행하는 작업에 대해 자세히 알아보려면 계속 읽어보세요.
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. 서비스에서 앱에 대한 구성 설정 확인
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. 서비스가 앱에 대해 사용자를 인증
 
 사전 인증 방법으로 통과를 사용하도록 앱을 구성한 경우 이 섹션의 단계는 건너뜁니다.
 

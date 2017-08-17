@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Azure SQL 데이터 동기화 시작(미리 보기)
@@ -29,8 +29,12 @@ ms.lasthandoff: 06/30/2017
 
 SQL 데이터 동기화의 개요는 [데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
+SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 문서를 참조하세요.
+-   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 .pdf로 제공됩니다. [여기](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)에서 다운로드하세요.
+> 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 .PDF로 제공됩니다. [여기](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)에서 다운로드하세요.
 
 ## <a name="step-1---create-sync-group"></a>1단계 - 동기화 그룹 만들기
 
@@ -193,7 +197,7 @@ SQL 데이터 동기화의 개요는 [데이터 동기화](sql-database-sync-dat
 4.  마지막으로 **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. SQL 데이터베이스 인스턴스와 SQL Server 데이터베이스가 모두 포함된 동기화 그룹을 만들었습니다.
+축하합니다. SQL Database 인스턴스와 SQL Server 데이터베이스가 모두 포함된 동기화 그룹을 만들었습니다.
 
 SQL Database 및 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 

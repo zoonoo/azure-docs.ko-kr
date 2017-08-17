@@ -13,10 +13,10 @@ ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ffd19e25e2931ac7af472b4c88eccbce73b10ff4
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/24/2017
 
 ## <a name="protection-support-matrix"></a>보호 지원 매트릭스
 
-|워크로드|버전|Azure 백업 서버</br> installation|Azure 백업</br> Server v2|Azure 백업</br> Server v1 |보호 및 복구|
+|워크로드|버전|Azure Backup 서버</br> installation|Azure Backup</br> Server v2|Azure Backup</br> Server v1 |보호 및 복구|
 |------------|-----------|--------------------|--------------------------------------------|--------------------------------|---------------------------|
 |System Center VMM|VMM 2016,<br/>VMM 2012, SP1, R2|물리적 서버<br /><br />Hyper-V 가상 컴퓨터|Y|Y|모든 배포 시나리오: 데이터베이스|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 10|물리적 서버<br /><br />Hyper-V 가상 컴퓨터<br /><br />VMware 가상 컴퓨터|Y|Y|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
@@ -92,6 +92,7 @@ ms.lasthandoff: 07/24/2017
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2012 - Datacenter 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|N|N|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
+|VMware VM|VMware 서버 5.5 또는 6.0 또는 6.5 |온-프레미스 Hyper-V 가상 컴퓨터|Y|Y(UR1 포함)|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> Windows에만 사용할 수 있는 파일 및 폴더의 항목 수준 복구<br /> VMware vApp은 지원되지 않음|
 |Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 컴퓨터<br /><br />복구: 전체 가상 컴퓨터|
 
 ## <a name="cluster-support"></a>클러스터 지원

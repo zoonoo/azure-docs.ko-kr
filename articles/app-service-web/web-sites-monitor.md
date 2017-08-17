@@ -1,6 +1,6 @@
 ---
 title: "Azure App Service에서 앱 모니터링 | Microsoft Docs"
-description: "Azure 포털을 사용하여 Azure 앱 서비스에서 앱을 모니터링하는 방법을 알아보세요."
+description: "Azure Portal을 사용하여 Azure App Service에서 앱을 모니터링하는 방법을 알아보세요."
 services: app-service
 documentationcenter: 
 author: btardif
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>방법: Azure 앱 서비스에서 앱 모니터링
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>방법: Azure App Service에서 앱 모니터링
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)에서 기본 제공 모니터링 기능을 제공합니다.
 여기에는 앱 및 App Service 계획에 대한 **할당량** 및 **메트릭**을 검토하고 이러한 메트릭을 기반으로 **경고** 및 **크기 조정**을 자동으로 설정하는 기능이 포함됩니다.
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/20/2017
 
 ## <a name="understanding-quotas-and-metrics"></a>할당량 및 메트릭 이해
 ### <a name="quotas"></a>할당량
-앱 서비스에서 호스팅되는 응용 프로그램에는 사용 가능한 리소스에 대한 특정 *한도* 가 적용됩니다. 이러한 한도는 해당 앱과 연결된 **앱 서비스 계획** 으로 정의됩니다.
+앱 서비스에서 호스팅되는 응용 프로그램에는 사용 가능한 리소스에 대한 특정 *한도* 가 적용됩니다. 이러한 한도는 해당 앱과 연결된 **App Service 계획**으로 정의됩니다.
 
 응용 프로그램이 **무료** 또는 **공유** 계획에 호스팅되는 경우 앱에서 사용할 수 있는 리소스에 대한 한도는 **할당량**으로 정의됩니다.
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/20/2017
 **무료** 또는 **공유** 앱에 대한 **할당량**은 다음과 같습니다.
 
 * **CPU(Short)**
-  * 3분 간격으로 이 응용 프로그램에 대해 허용되는 CPU의 양입니다. 이 할당량은 3분마다 재설정됩니다.
+  * 5분 간격으로 이 응용 프로그램에 대해 허용되는 CPU의 양입니다. 이 할당량은 5분마다 재설정됩니다.
 * **CPU(Day)**
   * 하루에 이 응용 프로그램에 대해 허용되는 총 CPU 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다.
 * **메모리**
@@ -61,10 +61,10 @@ ms.lasthandoff: 01/20/2017
 
 **파일 시스템** 할당량을 초과하면 모든 쓰기 작업이 실패하며 여기에는 로그에 쓰기가 포함됩니다.
 
-앱 서비스 계획을 업그레이드하여 앱에서 할당량을 증가 또는 제거할 수 있습니다.
+App Service 계획을 업그레이드하여 앱에서 할당량을 증가 또는 제거할 수 있습니다.
 
 ### <a name="metrics"></a>메트릭
-**메트릭** 은 앱 또는 앱 서비스 계획의 동작에 대한 정보를 제공합니다.
+**메트릭**은 앱 또는 App Service 계획의 동작에 대한 정보를 제공합니다.
 
 **응용 프로그램**에 대해 사용 가능한 메트릭은 다음과 같습니다.
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/20/2017
 * **요청**
   * 결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다.
 
-**앱 서비스 계획**에 대해 사용 가능한 메트릭은 다음과 같습니다.
+**App Service 계획**에 대해 사용 가능한 메트릭은 다음과 같습니다.
 
 > [!NOTE]
 > App Service 계획 메트릭은 **기본**, **표준** 및 **프리미엄** SKU의 계획에만 사용할 수 있습니다.
@@ -129,13 +129,13 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 반면 **CPU 비율**은 규모 확장 가능하고 이 메트릭이 모든 인스턴스 간의 전체적인 사용량을 효과적으로 나타내므로 **기본**, **표준** 및 **프리미엄** 계획에 호스팅된 앱에 유용합니다.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>메트릭 세분성 및 보존 정책
-응용 프로그램 및 앱 서비스 계획에 대한 메트릭은 다음 세분성 및 보존 정책에 따라 서비스에 의해 기록 및 집계됩니다.
+응용 프로그램 및 App Service 계획에 대한 메트릭은 다음 세분성 및 보존 정책에 따라 서비스에 의해 기록 및 집계됩니다.
 
 * **분** 세분성 메트릭은 **48시간** 동안 보존됩니다.
 * **시** 세분성 메트릭은 **30일** 동안 보존됩니다.
 * **일** 세분성 메트릭은 **90일** 동안 보존됩니다.
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Azure 포털에서 할당량 및 메트릭을 모니터링합니다.
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Azure Portal에서 할당량 및 메트릭을 모니터링합니다.
 **Azure Portal**의 응용 프로그램에 영향을 주는 다양한 **할당량** 및 [메트릭](https://portal.azure.com)의 상태를 검토할 수 있습니다.
 
 ![][quotas]
@@ -150,7 +150,7 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
 앱 또는 App Service 계획에 대한 메트릭은 경고로 연결할 수 있으며 이에 대해 자세히 알아보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 참조하세요.
 
-기본, 표준 또는 프리미엄 앱 서비스 계획에 호스팅된 앱 서비스 앱은 **자동 크기 조정**을 지원합니다. 이렇게 하면 앱 서비스 계획 메트릭을 모니터링하는 규칙을 구성하고 필요에 따라 추가 리소스를 제공하거나 응용 프로그램이 과도하게 프로비전될 때 비용을 절감해주는 인스턴스 수를 늘리거나 줄일 수 있습니다. [확장 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)에서 자동 크기 조정에 대해 자세히 알아볼 수 있습니다.
+기본, 표준 또는 프리미엄 App Service 계획에 호스팅된 앱 서비스 앱은 **자동 크기 조정**을 지원합니다. 이렇게 하면 App Service 계획 메트릭을 모니터링하는 규칙을 구성하고 필요에 따라 추가 리소스를 제공하거나 응용 프로그램이 과도하게 프로비전될 때 비용을 절감해주는 인스턴스 수를 늘리거나 줄일 수 있습니다. [확장 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)에서 자동 크기 조정에 대해 자세히 알아볼 수 있습니다.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -158,7 +158,7 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 > 
 
 ## <a name="whats-changed"></a>변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure App Service와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

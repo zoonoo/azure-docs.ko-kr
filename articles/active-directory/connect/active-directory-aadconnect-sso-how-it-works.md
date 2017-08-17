@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
 이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On) 기능이 어떻게 작동하는지에 대한 기술적인 정보에 대해 자세히 설명합니다.
+
+>[!IMPORTANT]
+>Seamless SSO 기능은 현재 미리 보기로 제공됩니다.
 
 ## <a name="how-does-seamless-sso-work"></a>Seamless SSO 작동 방식
 
@@ -73,7 +76,7 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](active-directory-aadconnect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**FAQ(질문과 대답)** ](active-directory-aadconnect-sso-faq.md) -질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](active-directory-aadconnect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
 

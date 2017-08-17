@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3a57646922236a10cf51ae3dd86c67c87c6d7f7f
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -136,7 +136,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 **Q. 규칙은 어떻게 처리되나요?**
 
-규칙은 구성된 순서대로 처리됩니다. 다중 사이트 규칙이 기본 규칙보다 먼저 구성되는 것이 좋습니다. 다중 사이트 수신기를 먼저 구성하면 트래픽이 부적절한 백 엔드로 라우팅될 가능성이 줄어듭니다. 이 라우팅 문제는 다중 사이트 규칙을 평가하기 전에 먼저 기본 규칙이 포트 기반 트래픽과 일치함으로써 발생할 수 있습니다.
+규칙은 만들어진 순서대로 처리됩니다. 다중 사이트 규칙이 기본 규칙보다 먼저 구성되는 것이 좋습니다. 다중 사이트 수신기를 먼저 구성하면 트래픽이 부적절한 백 엔드로 라우팅될 가능성이 줄어듭니다. 이 라우팅 문제는 다중 사이트 규칙을 평가하기 전에 먼저 기본 규칙이 포트 기반 트래픽과 일치함으로써 발생할 수 있습니다.
 
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 
@@ -288,7 +288,7 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 Application Gateway에서는 3가지 로그를 사용할 수 있습니다. 이러한 로그 및 기타 진단 기능에 대한 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
-- **ApplicationGatewayAccessLog** - 이 액세스 로그에는 Application Gateway 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 응용 프로그램 게이트웨이 인스턴스당 하나의 레코드가 포함됩니다.
+- **ApplicationGatewayAccessLog** - 이 액세스 로그에는 Application Gateway 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다.
 - **ApplicationGatewayPerformanceLog** - 이 성능 로그는 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등을 포함한 인스턴스별 성능 정보를 캡처합니다.
 - **ApplicationGatewayFirewallLog** - 이 방화벽 로그에는 웹 응용 프로그램 방화벽으로 구성된 응용 프로그램 게이트웨이의 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함되어 있습니다.
 

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
@@ -131,10 +132,5 @@ FairPlay 암호화를 사용하려면 Content Protection 설정 블레이드의 
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

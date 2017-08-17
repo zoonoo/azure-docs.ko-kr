@@ -1,5 +1,4 @@
 ---
-
 title: "Azure 네트워크 보안 | Microsoft Docs"
 description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a8443e58b5f0b56eed01327f7ae656ad952999ef
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -51,7 +49,7 @@ Azure의 네트워크 서비스는 기본적으로 유연성, 가용성, 탄력�
 
 - Azure에서 사용 가능하고 지원되는 보안 솔루션을 찾고 있는 기술 관리자, 네트워크 관리자 및 개발자
 
--    Azure 공용 클라우드의 네트워크 보안과 관련해서 논의 중인 Azure 네트워킹 기술 및 서비스에 대한 고급 정보를 원하는 SME 또는 비즈니스 프로세스 실무 담당자
+-   Azure 공용 클라우드의 네트워크 보안과 관련해서 논의 중인 Azure 네트워킹 기술 및 서비스에 대한 고급 정보를 원하는 SME 또는 비즈니스 프로세스 실무 담당자
 
 ## <a name="azure-networking-big-picture"></a>Azure 네트워킹의 전반적 이해
 Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
@@ -70,13 +68,13 @@ Azure는 네트워크 보안 논의가 이루어지는 많은 네트워킹 구�
 
 이 문서에서는 다음 Azure 네트워킹 엔터프라이즈 기능을 소개합니다.
 
--    기본 네트워크 연결
+-   기본 네트워크 연결
 
--    하이브리드 연결
+-   하이브리드 연결
 
--    Single Sign On 설정
+-   Single Sign On 설정
 
--    네트워크 유효성 검사
+-   네트워크 유효성 검사
 
 ### <a name="basic-network-connectivity"></a>기본 네트워크 연결
 
@@ -107,19 +105,19 @@ VNet 간 연결을 사용하여 VNet을 연결하는 방법에 대한 자세한 
 
 아시다시피 Azure Virtual Network는 안전한 방법으로 다른 네트워크 리소스에 연결할 수 있도록 네트워크에 연결하기 위한 가상 컴퓨터를 제공합니다. 그러나 기본적인 연결 기능 외에도 다양한 기능을 제공합니다. Azure Virtual Network 서비스의 다음 기능은 Azure Virtual Network의 보안 특성을 보여 줍니다.
 
--    격리
+-   격리
 
--    인터넷 연결
+-   인터넷 연결
 
--    Azure 리소스 연결
+-   Azure 리소스 연결
 
--    VNet 연결
+-   VNet 연결
 
--    온-프레미스 연결
+-   온-프레미스 연결
 
--    트래픽 필터링
+-   트래픽 필터링
 
--    라우팅
+-   라우팅
 
 **격리**
 
@@ -129,11 +127,11 @@ Azure는 VNet에 연결되는 VM 및 [Cloud Services](https://azure.microsoft.co
 
 각 Azure [구독](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 Azure [지역](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
--    공용 및 개인(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스를 사용자가 할당한 주소 공간의 개인 IP 주소에 할당합니다.
+-   공용 및 개인(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스를 사용자가 할당한 주소 공간의 개인 IP 주소에 할당합니다.
 
--    VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
+-   VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 
--    Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 클라우드 서비스의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
+-   Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 클라우드 서비스의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
 
 **인터넷 연결**
 
@@ -194,13 +192,13 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 기본적으로 서�
 ### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>하이브리드 인터넷 연결: 온-프레미스 네트워크에 연결
 다음 옵션을 조합하여 온-프레미스 네트워크를 VNet에 연결할 수 있습니다.
 
--    인터넷 연결
+-   인터넷 연결
 
--    P2S VPN(지점-사이트 간 VPN)
+-   P2S VPN(지점-사이트 간 VPN)
 
--    S2S VPN(사이트 간 VPN)
+-   S2S VPN(사이트 간 VPN)
 
--    ExpressRoute
+-   ExpressRoute
 
 #### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -252,17 +250,17 @@ Azure Virtual Network는 다른 가상 네트워크와 분리되고 온-프레�
 
 다음은 Azure Virtual Network에서 사용할 수 있는 보안 컨트롤입니다.
 
--    네트워크 액세스 컨트롤
+-   네트워크 액세스 컨트롤
 
--    사용자 정의 경로
+-   사용자 정의 경로
 
--    네트워크 보안 어플라이언스
+-   네트워크 보안 어플라이언스
 
--    응용 프로그램 게이트웨이
+-   응용 프로그램 게이트웨이
 
--    Azure 웹 응용 프로그램 방화벽
+-   Azure 웹 응용 프로그램 방화벽
 
--    네트워크 가용성 컨트롤
+-   네트워크 가용성 컨트롤
 
 #### <a name="network-access-controls"></a>네트워크 액세스 컨트롤
 Azure VNet(Virtual Network)은 Azure 네트워킹 모델의 토대이며 격리 및 보호를 제공하지만, [NSG(네트워크 보안 그룹)](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/)는 네트워크 수준에서 네트워크 트래픽 규칙을 적용 및 제어하는 데 사용하는 기본 도구입니다.
@@ -276,23 +274,23 @@ Azure VNet(Virtual Network)은 Azure 네트워킹 모델의 토대이며 격리 
 
 NSG는 5튜플을 사용하여 트래픽을 평가하며, NSG에 대해 구성하는 규칙에 사용됩니다.
 
--    [원본 및 대상 IP 주소](https://support.microsoft.com/help/969029/the-functionality-for-source-ip-address-selection-in-windows-server-2008-and-in-windows-vista-differs-from-the-corresponding-functionality-in-earlier-versions-of-windows)
+-   [원본 및 대상 IP 주소](https://support.microsoft.com/help/969029/the-functionality-for-source-ip-address-selection-in-windows-server-2008-and-in-windows-vista-differs-from-the-corresponding-functionality-in-earlier-versions-of-windows)
 
--    [원본 및 대상 포트](https://technet.microsoft.com/library/dd197515)
+-   [원본 및 대상 포트](https://technet.microsoft.com/library/dd197515)
 
--    프로토콜: [TCP(Transmission Control Protocol)](https://technet.microsoft.com/library/cc940037.aspx) 또는 [UDP(User Datagram Protocol)](https://technet.microsoft.com/library/cc940034.aspx)
+-   프로토콜: [TCP(Transmission Control Protocol)](https://technet.microsoft.com/library/cc940037.aspx) 또는 [UDP(User Datagram Protocol)](https://technet.microsoft.com/library/cc940034.aspx)
 
 즉, 단일 VM과 VM 그룹 간, 단일 VM과 다른 단일 VM 간 또는 전체 서브넷 간의 액세스를 제어할 수 있습니다. 또한 전체 패킷 검사가 아닌 간단한 상태 저장 패킷 필터링이 사용됩니다. 네트워크 보안 그룹에는 프로토콜 유효성 검사나 네트워크 수준 IDS 또는 IPS 기능이 없습니다.
 
 NSG는 알고 있어야 하는 몇 가지 기본 제공 규칙을 제공합니다. 다음과 같습니다.
 
--    **특정 Virtual Network 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 통신할 수 있습니다.
+-   **특정 Virtual Network 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 통신할 수 있습니다.
 
--    **인바운드에 대한 Azure 부하 분산 허용:** 이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
+-   **인바운드에 대한 Azure 부하 분산 허용:** 이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
 
--    **모든 인바운드 거부:** 이 규칙은 명시적으로 허용되는 인터넷에서 수신되는 모든 트래픽을 차단합니다.
+-   **모든 인바운드 거부:** 이 규칙은 명시적으로 허용되는 인터넷에서 수신되는 모든 트래픽을 차단합니다.
 
--    **인터넷으로의 모든 아웃바운드 트래픽 허용:** 이 규칙은 VM에서 인터넷으로의 연결을 시작할 수 있도록 합니다. 이러한 연결을 시작하지 않으려면 해당 연결을 차단하거나 강제 터널링을 적용하는 규칙을 만들어야 합니다.
+-   **인터넷으로의 모든 아웃바운드 트래픽 허용:** 이 규칙은 VM에서 인터넷으로의 연결을 시작할 수 있도록 합니다. 이러한 연결을 시작하지 않으려면 해당 연결을 차단하거나 강제 터널링을 적용하는 규칙을 만들어야 합니다.
 
 #### <a name="system-routes-and-user-defined-routes"></a>시스템 경로 및 사용자 정의 경로
 
@@ -304,17 +302,17 @@ VM에서 공용 인터넷에 통신하는 경우는 물론, Azure와 사용자 �
 
 이러한 통신 전달이 가능한 이유는 Azure가 일련의 시스템 경로를 사용하여 IP 트래픽 전달 방식을 정의하기 때문입니다. 다음과 같은 시나리오에서 시스템 경로가 통신 전달을 제어합니다.
 
--    동일한 서브넷 내의 통신
+-   동일한 서브넷 내의 통신
 
--    단일 VNet 내의 서로 다른 서브넷 간 통신
+-   단일 VNet 내의 서로 다른 서브넷 간 통신
 
--    VM에서 인터넷으로의 통신
+-   VM에서 인터넷으로의 통신
 
--    VPN Gateway를 통한 서로 다른 VNet 간 통신
+-   VPN Gateway를 통한 서로 다른 VNet 간 통신
 
--    Vnet 피어링([서비스 체이닝](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview))을 통한 다른 VNet 간 통신.
+-   Vnet 피어링([서비스 체이닝](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview))을 통한 다른 VNet 간 통신.
 
--    VPN Gateway를 통한 VNet과 사용자의 온-프레미스 네트워크 간 통신.
+-   VPN Gateway를 통한 VNet과 사용자의 온-프레미스 네트워크 간 통신.
 
 대부분의 기업에서는 특정 정책 적용을 위해 모든 네트워크 패킷에 대한 온-프레미스 검사를 요구하는 엄격한 보안 및 준수 요구 사항을 유지합니다. Azure는 [강제 터널링](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)이라는 메커니즘을 제공합니다. 이 메커니즘은 사용자 지정 경로 만들거나 ExpressRoute 또는 VPN을 통한 [BGP(Border Gateway Protocol)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) 보급으로 VM에서 온-프레미스로 트래픽을 라우팅합니다. ExpressRoute 또는 VPN을 통한 보급
 
@@ -322,19 +320,19 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 다음 섹션에서는 Azure 가상 네트워크에 대한 라우팅 테이블 및 경로의 현재 제한 사항을 나열합니다.
 
--    각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
+-   각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
- -    **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
+ -  **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
 
  - **온-프레미스 경로:** Azure VPN 게이트웨이로
 
- -    **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+ -  **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 
--    사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
+-   사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 
--    가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
+-   가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 
--    강제 터널링은 동적 라우팅 VPN 게이트웨이(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
+-   강제 터널링은 동적 라우팅 VPN 게이트웨이(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
 
 - Express 경로 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 Express 경로 BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다.
 
@@ -348,27 +346,27 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기능을 개선하며 [Azure Marketplace](https://azuremarketplace.microsoft.com)를 통해 다양한 공급업체의 어플라이언스를 사용할 수 있습니다. 이러한 보안 가상 어플라이언스는 다음을 제공하기 위해 배포할 수 있습니다.
 
--    고가용성 방화벽
+-   고가용성 방화벽
 
--    침입 방지
+-   침입 방지
 
--    침입 탐지
+-   침입 탐지
 
--    WAF(웹 응용 프로그램 방화벽)
+-   WAF(웹 응용 프로그램 방화벽)
 
--    WAN 최적화
+-   WAN 최적화
 
--    라우팅
+-   라우팅
 
--    부하 분산
+-   부하 분산
 
--    VPN
+-   VPN
 
--    인증서 관리
+-   인증서 관리
 
--    Active Directory
+-   Active Directory
 
--    Multi-Factor Authentication
+-   Multi-Factor Authentication
 
 #### <a name="application-gateway"></a>프런트 엔드
 
@@ -378,13 +376,13 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드(SSL 오프로딩)하여 웹 팜 성능 및 가용성을 최적화할 수도 있습니다. 또한 다음을 비롯한 기타 계층 7 라우팅 기능도 제공합니다.
 
--    들어오는 트래픽의 라운드 로빈 배포
+-   들어오는 트래픽의 라운드 로빈 배포
 
--    쿠키 기반 세션 선호도
+-   쿠키 기반 세션 선호도
 
--    URL 경로 기반 라우팅
+-   URL 경로 기반 라우팅
 
--    단일 Application Gateway 뒤에 여러 웹 사이트를 호스트하는 기능
+-   단일 Application Gateway 뒤에 여러 웹 사이트를 호스트하는 기능
 
 
 [WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 응용 프로그램을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
@@ -416,11 +414,11 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 네트워크 가용성 컨트롤은 다음과 같습니다.
 
--    Azure Load Balancer
+-   Azure Load Balancer
 
--    응용 프로그램 게이트웨이
+-   응용 프로그램 게이트웨이
 
--    트래픽 관리자
+-   트래픽 관리자
 
 **Azure Load Balancer**
 
@@ -431,11 +429,11 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
--    들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--    가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
+-   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
 
--    외부 트래픽을 특정 가상 컴퓨터에 전달합니다.
+-   외부 트래픽을 특정 가상 컴퓨터에 전달합니다.
 
 클라우드의 모든 리소스에는 인터넷에서 연결할 수 있는 공용 IP 주소가 필요합니다. Azure의 클라우드 인프라는 리소스에 대해 라우팅할 수 없는 IP 주소를 사용합니다. 공용 IP 주소를 통한 NAT(Network Address Translation)를 사용하여 인터넷과 통신합니다.
 
@@ -453,9 +451,9 @@ Azure Traffic Manager를 사용하면 응용 프로그램 끝점에 트래픽 �
 
 트래픽 관리자는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
--    여러 가지 [트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 중 하나에 따라 트래픽 배포
+-   여러 가지 [트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 중 하나에 따라 트래픽 배포
 
--    [끝점 상태 연속 모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 끝점이 실패할 경우 자동 장애 조치(failover)
+-   [끝점 상태 연속 모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 끝점이 실패할 경우 자동 장애 조치(failover)
 
 클라이언트가 서비스에 연결하려고 시도하면 먼저 IP 주소에 대한 서비스의 DNS 이름을 확인합니다. 그런 다음 클라이언트는 해당 IP 주소에 연결하여 서비스에 액세스합니다. Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드의 규칙에 따라 클라이언트를 특정 서비스 끝점에 연결합니다. 클라이언트는 선택한 끝점에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아닙니다. Traffic Manager는 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
@@ -465,17 +463,17 @@ Azure 네트워크 유효성 검사는 Azure 네트워크가 구성된 대로 �
 
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
--    [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+-   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
--    [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+-   [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
--    [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+-   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
--    [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
 
--    [Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+-   [Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--    Azure 리소스 관리자
+-   Azure 리소스 관리자
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -489,19 +487,19 @@ Microsoft Azure를 운영하는 사용자와 프로세스가 이 플랫폼에서
 
 리소스 관리자는 다음과 같은 여러 이점이 있습니다.
 
--    이 리소스를 개별적으로 처리하는 것이 아니라 솔루션에 대한 모든 리소스를 그룹으로 배포, 관리 및 모니터링할 수 있습니다.
+-   이 리소스를 개별적으로 처리하는 것이 아니라 솔루션에 대한 모든 리소스를 그룹으로 배포, 관리 및 모니터링할 수 있습니다.
 
--    개발 수명 주기 내내 솔루션을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
+-   개발 수명 주기 내내 솔루션을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
 
--    스크립트가 아닌 선언적 템플릿을 통해 인프라를 관리할 수 있습니다.
+-   스크립트가 아닌 선언적 템플릿을 통해 인프라를 관리할 수 있습니다.
 
--    올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
+-   올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 
--    역할 기반 Access Control(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 Access Control를 적용할 수 있습니다.
+-   역할 기반 Access Control(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 Access Control를 적용할 수 있습니다.
 
--    리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
+-   리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
 
--    태그를 공유하는 리소스 그룹에 대한 비용을 확인하여 조직의 청구를 명확히 할 수 있습니다.
+-   태그를 공유하는 리소스 그룹에 대한 비용을 확인하여 조직의 청구를 명확히 할 수 있습니다.
 
 > [!Note]
 > 리소스 관리자는 솔루션을 배포 및 관리하는 새로운 방식을 제공합니다. 이전의 배포 모델을 사용한 경우 변경 사항을 알아보려면 [리소스 관리자 배포 및 클래식 배포 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 참조하세요.
@@ -510,11 +508,11 @@ Microsoft Azure를 운영하는 사용자와 프로세스가 이 플랫폼에서
 
 Azure는 네트워크 보안 이벤트를 모니터링하고, 예방하고, 검색하고, 응답하는 여러 가지 도구를 제공합니다. 이 영역에 사용할 수 있는 가장 강력한 도구 중 일부는 다음과 같습니다.
 
--    Network Watcher
+-   Network Watcher
 
--    네트워크 리소스 수준 모니터링
+-   네트워크 리소스 수준 모니터링
 
--    Log Analytics
+-   Log Analytics
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -570,9 +568,9 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 
 이 섹션에서는 리소스 문제 해결을 위해 현재 사용할 수 있는 여러 관리 태스크를 설명합니다.
 
--    [Virtual Network 게이트웨이 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Virtual Network 게이트웨이 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
 
--    [연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
 
 #### <a name="network-subscription-limits"></a>네트워크 구독 제한
 
@@ -616,37 +614,37 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔루션을 제공합니다.
 
--    NPM(네트워크 성능 모니터)
+-   NPM(네트워크 성능 모니터)
 
--    Azure Application Gateway 분석
+-   Azure Application Gateway 분석
 
--    Azure 네트워크 보안 그룹 분석
+-   Azure 네트워크 보안 그룹 분석
 
 #### <a name="network-performance-monitor-npm"></a>NPM(네트워크 성능 모니터)
 [네트워크 성능 모니터](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) 관리 솔루션은 네트워크의 상태, 가용성 및 연결 가능성을 모니터링하는 네트워크 모니터링 솔루션입니다.
 
 다음 항목 간의 연결을 모니터링하는 데 사용됩니다.
 
--    공용 클라우드 및 온-프레미스
+-   공용 클라우드 및 온-프레미스
 
--    데이터 센터와 사용자 위치(지점)
+-   데이터 센터와 사용자 위치(지점)
 
--    다중 계층 응용 프로그램의 다양한 계층을 호스팅하는 서브넷
+-   다중 계층 응용 프로그램의 다양한 계층을 호스팅하는 서브넷
 
 
 #### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Log Analytics의 Azure Application Gateway 분석
 
 Application Gateway에는 다음 로그가 지원됩니다.
 
--    ApplicationGatewayAccessLog
+-   ApplicationGatewayAccessLog
 
--    ApplicationGatewayPerformanceLog
+-   ApplicationGatewayPerformanceLog
 
--    ApplicationGatewayFirewallLog
+-   ApplicationGatewayFirewallLog
 
 Application Gateway에는 다음 메트릭이 지원됩니다.
 
--    5분 처리량
+-   5분 처리량
 
 #### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Log Analytics의 Azure 네트워크 보안 그룹 분석
 
@@ -659,13 +657,13 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 ## <a name="next-steps"></a>다음 단계
 다음과 같은 심층적인 일부 보안 항목을 참조하여 보안에 대한 자세한 내용을 확인할 수 있습니다.
 
--    [NSG(네트워크 보안 그룹)에 대한 Log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [NSG(네트워크 보안 그룹)에 대한 Log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
--    [클라우드 중단을 유도하는 네트워킹 혁신](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
+-   [클라우드 중단을 유도하는 네트워킹 혁신](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--    [SONiC: Microsoft 글로벌 클라우드를 지원하는 네트워킹 전환 소프트웨어](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC: Microsoft 글로벌 클라우드를 지원하는 네트워킹 전환 소프트웨어](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
 
--    [Microsoft에서 빠르고 신뢰할 수 있는 글로벌 네트워크를 구축하는 방법](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
+-   [Microsoft에서 빠르고 신뢰할 수 있는 글로벌 네트워크를 구축하는 방법](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
--    [네트워크 혁신 조명](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
+-   [네트워크 혁신 조명](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
 

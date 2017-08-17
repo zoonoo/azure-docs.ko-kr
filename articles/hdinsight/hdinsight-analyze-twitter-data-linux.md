@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f1bdfb133b55f5cf18b85fa40908b8df534a15bd
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>HDInsight에서 Hive 및 Hadoop을 사용하여 Twitter 데이터 분석
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/08/2017
 Apache Hive를 사용하여 Twitter 데이터를 처리하는 방법을 알아봅니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 HDInsight 3.5에서 테스트했습니다.
+> 이 문서의 단계는 HDInsight 3.6에서 테스트했습니다.
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
@@ -96,7 +96,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
    nano gettweets.py
    ```
 
-5. 다음 텍스트를 **gettweets.py** 파일의 콘텐츠로 사용합니다. **consumer\_secret**, **consumer\_key**, **access/\_token** 및 **access\_token\_secret**의 자리 표시자 정보를 Twitter 응용 프로그램의 정보로 바꿉니다.
+5. 다음 텍스트를 **gettweets.py** 파일의 콘텐츠로 사용합니다.
 
    ```python
    #!/usr/bin/python
@@ -152,6 +152,14 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
+    > [!IMPORTANT]
+    > 다음 항목에 대한 자리 표시자 텍스트를 Twitter 응용 프로그램의 정보로 대체합니다.
+    >
+    > * `consumer_secret`
+    > * `consumer_key`
+    > * `access_token`
+    > * `access_token_secret`
+
 6. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
 
 7. 다음 명령을 사용하여 파일을 실행하고 트윗을 다운로드합니다.
@@ -160,7 +168,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
     python gettweets.py
     ```
 
-    진행률 표시기가 표시되어야 하며 트윗으로 최대 100%의 횟수가 다운로드되며 파일로 저장됩니다.
+    진행률 표시기가 나타납니다. 진행률 표시기는 트윗이 다운로드되면서 100%까지 올라갑니다.
 
    > [!NOTE]
    > 진행률 표시줄이 앞으로 이동하는 데 시간이 오래 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터에서 항목에 대한 트윗이 많을 경우 필요하면 10,000개의 트윗을 신속하게 가져올 수 있습니다.
@@ -296,7 +304,7 @@ HDInsight 저장소로 데이터를 복사하려면 다음 명령을 사용합�
 3. 다음 명령을 사용하여 파일에 포함된 HiveQL을 실행합니다.
 
    ```bash
-   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
     이 명령은 **twitter.hql** 파일을 실행합니다. 쿼리가 완료되면 `jdbc:hive2//localhost:10001/>` 프롬프트가 표시됩니다.

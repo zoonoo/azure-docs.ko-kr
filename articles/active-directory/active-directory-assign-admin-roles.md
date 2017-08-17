@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory에서 관리자 역할 할당 | Microsoft Docs"
-description: "Azure Active Directory에서 사용할 수 있는 관리자 역할 및 이 역할을 할당하는 방법을 설명합니다."
+description: "관리자 역할은 사용자를 만들거나 편집하고, 관리자 역할을 할당하며, 사용자 암호를 다시 설정하고, 사용자 라이선스 또는 도메인을 관리하는 데 사용할 수 있습니다. 관리자 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,26 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.reviewer: 
+ms.reviewer: Vince.Smith
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: e7444e153c2ee7b4669fb814ae62b152a0fd89d8
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 042e2f4117a35e80694a1643dd95fa54d508f1f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-assign-admin-roles-azure-portal.md)
+> * [Azure Portal]()
 > * [Azure 클래식 포털](active-directory-assign-admin-roles.md)
 >
 >
 
-Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도록 별도의 관리자를 지정할 수 있습니다. 이러한 관리자는 역할에 따라 Azure 포털 또는 Azure 클래식 포털의 다양한 기능에 액세스할 수 있게 되며 사용자 만들기나 편집, 다른 사람에게 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 관리 등을 수행할 수 있습니다. 관리자 역할이 할당된 사용자는 Office 365 포털, Azure 클래식 포털 또는 Windows PowerShell용 Azure AD 모듈 중 어느 것을 사용하여 역할을 할당했든지 간에 조직이 가입한 모든 클라우드 서비스에서 동일한 권한을 갖습니다.
+Azure AD(Azure Active Directory)를 사용하여 다른 기능에 대해 별도의 관리자를 지정합니다. 이러한 관리자는 Azure Portal 또는 Azure 클래식 포털에서 선택한 기능에 액세스할 수 있으며, 여기서 언급되지 않은 것 외에도 역할에 따라 사용자를 만들거나 편집하고, 다른 사용자에게 관리자 역할을 할당하며, 사용자 암호를 다시 설정하고, 사용자 라이선스와 도메인을 관리할 수 있습니다. 관리자 역할이 할당된 사용자는 Office 365 포털, Azure 클래식 포털 또는 Microsoft PowerShell용 Azure AD 모듈을 사용하여 역할을 할당했는지 여부에 관계없이 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 관리자 역할을 할당하는 방법은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+
 
 다음과 같은 관리자 역할을 사용할 수 있습니다.
 
@@ -56,7 +60,7 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 * **전역 관리자 / 회사 관리자**: 이 역할의 사용자는 Azure Active Directory의 모든 관리 기능 및 Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같은 Azure Active Directory에 페더레이션하는 서비스에 대한 액세스를 가집니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
   > [!NOTE]
-  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure 포털](https://portal.azure.com)에서 "전역 관리자"입니다.
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure portal](https://portal.azure.com)에서 "전역 관리자"입니다.
   >
   >
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성
@@ -30,8 +31,8 @@ ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
 
 다음과 같이 B2C 테넌트에서 이 기능을 사용할 수 있습니다.
 
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
-2. **로그인 정책**을 클릭합니다. *참고: **로그인 정책*뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다**.
+1. 다음 단계에 따라 [Azure Portal의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
+2. **로그인 정책**을 클릭합니다. *참고: **로그인 정책**뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다*.
 3. 클릭하여 정책을 엽니다. 예를 들어 **B2C_1_SiIn**을 클릭합니다.
 4. 블레이드 위쪽에서 **편집** 을 클릭합니다.
 5. **토큰, 세션 및 Single Sign-On 구성**을 클릭합니다.
@@ -109,10 +110,5 @@ B2C 테넌트에 여러 응용 프로그램 및 정책이 있는 경우 **Single
     > 이러한 설정을 암호 재설정 정책에는 사용할 수 없습니다.
     > 
     > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Portal을 통해 스트리밍 끝점 관리 | Microsoft 문서"
 description: "이 항목에서는 Azure 포털을 사용하여 스트리밍 끝점을 관리하는 방법을 설명합니다."
 services: media-services
@@ -14,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/11/2017
-
 
 ---
 
@@ -63,7 +62,7 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
     ![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
+## <a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
 스트리밍 끝점을 사용하면 다음 속성을 구성할 수 있습니다.
 
 * 액세스 제어
@@ -89,7 +88,7 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
 
 자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md) 을 참조하세요.
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Azure CDN 통합 사용
+## <a id="enable_cdn"></a>Azure CDN 통합 사용
 
 새 계정을 만들면 기본 스트리밍 끝점 Azure CDN 통합이 기본적으로 설정됩니다.
 

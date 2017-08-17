@@ -50,34 +50,26 @@
     - name: 지역 및 가용성
       href: regions-and-availability.md
     - name: 저장소
-      href: >-
-        ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 네트워킹
       href: network-overview.md
     - name: VM 크기 집합
-      href: >-
-        ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 인스턴스 메타데이터 서비스
-      href: ../virtual-machines-instancemetadataservice-overview.md
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 컨테이너
       href: containers.md
     - name: 리소스 관리자
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       items:
         - name: 배포 모델
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: VM용 템플릿
           href: template-description.md
     - name: Azure Windows 에이전트
       href: agent-user-guide.md
     - name: Azure 보안 센터
-      href: >-
-        ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 재해 복구
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 계획된 유지 보수
       href: planned-maintenance.md
       items:
@@ -107,194 +99,161 @@
           href: acu.md
         - name: 벤치마크 점수 계산
           href: compute-benchmark-scores.md
-        - name: Windows VM 실행에 대한 모범 사례
-          href: guidance-compute-single-vm.md
     - name: 배포 고려 사항
       items:
-        - name: 인프라 지침
-          href: infrastructure-virtual-machine-guidelines.md
-        - name: 구독 및 계정
-          href: infrastructure-subscription-accounts-guidelines.md
-        - name: 이름 지정
-          href: infrastructure-naming-guidelines.md
-        - name: 리소스 그룹
-          href: infrastructure-resource-groups-guidelines.md
-        - name: 저장소
-          href: infrastructure-storage-solutions-guidelines.md
-        - name: 네트워킹
-          href: infrastructure-networking-guidelines.md
-        - name: 가용성 집합
-          href: infrastructure-availability-sets-guidelines.md
-        - name: 인프라 예제
+        - name: 기본 배포 예
           href: infrastructure-example.md
 - name: 방법 가이드
   items:
     - name: VM 만들기
       items:
-        - name: VM 만들기 개요
-          href: creation-choices.md
-        - name: 전문화된 VHD에서 VM 만들기
-          href: create-vm-specialized.md
-        - name: 템플릿으로 VM 만들기
-          href: ps-template.md
-        - name: 'C#으로 VM 만들기/관리'
+        - name: 'C# 사용'
           href: csharp.md
-        - name: 'C# 및 템플릿으로 VM 만들기'
+        - name: 'C#과 템플릿 사용'
           href: csharp-template.md
-        - name: Chef로 VM 만들기
-          href: chef-automation.md
-        - name: Python으로 VM 만들기/관리
+        - name: Python 사용
           href: python.md
-        - name: Terraform으로 VM 만들기
-          items:
-            - name: 설치 및 구성
-              href: ../terraform-install-configure.md
-            - name: 기본 인프라 만들기
-              href: ../terraform-create-complete-vm.md
-        - name: 인기 있는 응용 프로그램 프레임워크를 실행하는 VM 만들기
-          href: app-frameworks.md
-        - name: 구독 간에 VM 이동
-          href: move-vm.md
-    - name: VM 구성
+        - name: 템플릿 사용
+          href: ps-template.md
+        - name: VM에 연결
+          href: connect-logon.md
+        - name: AHUB 라이선스 사용
+          href: hybrid-use-benefit-licensing.md
+    - name: VM 보안
       items:
-        - name: VM 크기 조정
-          href: resize-vm.md
-        - name: 태그 사용
-          href: >-
-            ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-          items:
-            - name: VM에 태그 지정
-              href: tag.md
-        - name: Recovery Services를 사용한 백업
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: PowerShell을 사용하여 백업 관리
-          href: >-
-            ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: VM 템플릿 다운로드
-          href: download-template.md
+        - name: 암호화
+          href: encrypt-disks.md
+        - name: WinRM 사용
+          href: winrm.md
+        - name: 액세스 제어 사용
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 정책 사용
+          href: policy.md
+        - name: 주요 자격 증명 모음 만들기
+          href: key-vault-setup.md
+    - name: VM 관리
+      items:
         - name: 일반 PowerShell 작업
           href: ps-common-ref.md
-        - name: 일반 CLI 작업
-          href: cli-manage.md
-        - name: CLI를 사용하여 VM 관리
-          href: cli-deploy-templates.md
-    - name: RDP로 연결
+        - name: VM 이동
+          href: move-vm.md
+        - name: VM 크기 변경
+          href: resize-vm.md
+        - name: VM에 태그 지정
+          href: tag.md
+        - name: VM에서 스크립트 실행
+          href: extensions-customscript.md
+        - name: 임시 드라이브 문자 변경
+          href: change-drive-letter.md
+        - name: 가용성 집합 변경
+          href: change-availability-set.md
+        - name: 템플릿 다운로드
+          href: download-template.md
+        - name: Azure VM 에이전트
+          href: agent-user-guide.md
+        - name: 예약된 이벤트
+          href: scheduled-events.md
+        - name: 모니터 메타데이터
+          href: instance-metadata-service.md
+    - name: 이미지 사용
       items:
-        - name: VM에 로그온
-          href: connect-logon.md
-    - name: VM 이미지 관리
-      items:
-        - name: 마켓플레이스 VM 이미지 찾기
+        - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
-        - name: Azure 하이브리드 사용 혜택 라이선스
-          href: hybrid-use-benefit-licensing.md
+        - name: VM 업로드 준비
+          href: prepare-for-upload-vhd-image.md
+        - name: 일반화된 이미지 사용
+          href: create-vm-generalized-managed.md
+        - name: 특수화된 이미지 사용
+          href: create-vm-specialized.md
+        - name: VM을 이미지에 캡처
+          href: capture-image-resource.md
+        - name: Packer로 이미지 빌드
+          href: build-image-with-packer.md
         - name: Windows 클라이언트 이미지 사용
           href: client-images.md
-        - name: VHD 다운로드
+        - name: 기존 디스크 다운로드
           href: download-vhd.md
-        - name: 업로드할 VHD 준비
-          href: prepare-for-upload-vhd-image.md
-        - name: Managed Disk 이미지 만들기
-          href: capture-image-resource.md
-        - name: 일반화된 Managed Disk 이미지에서 VM 만들기
-          href: create-vm-generalized-managed.md
-        - name: Packer로 이미지 만들기
-          href: build-image-with-packer.md
-    - name: VM 저장소 관리
+    - name: 가용성 및 규모
       items:
-        - name: Managed Disk 만들기
-          href: create-managed-disk-ps.md
-        - name: Managed Disks에 VM 마이그레이션
-          href: migrate-to-managed-disks.md
+        - name: 가상 컴퓨터 크기 집합
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 고가용성
+          href: manage-availability.md
+        - name: 수직 확장
+          href: vertical-scaling-automation.md
+    - name: 자동화 도구 사용
+      items:
+        - name: Chef
+          href: chef-automation.md
+    - name: 응용 프로그램 실행
+      items:
+        - name: SQL Server
+          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: Azure의 SAP
+          href: ../workloads/sap/get-started.md
+        - name: MATLAB 클러스터
+          href: matlab-mdcs-cluster.md
+        - name: 고성능 컴퓨팅(HPC)
+          href: hpcpack-cluster-options.md
           items:
-            - name: 관리되지 않는 디스크에서 Managed Disks로 변환
-              href: convert-unmanaged-to-managed-disks.md
-            - name: Managed Disks에 클래식 VM 마이그레이션
-              href: migrate-single-classic-to-resource-manager.md
-        - name: Managed Disk의 스냅숏 만들기
-          href: snapshot-copy-managed-disk.md
-        - name: 데이터 디스크 연결
+            - name: HPC 팩 2016 클러스터
+              href: hpcpack-2016-cluster.md
+            - name: HPC 팩 2016 Azure Active Directory 통합
+              href: hpcpack-cluster-active-directory.md
+            - name: HPC 팩 2012 R2 헤드 노드
+              href: hpcpack-cluster-headnode.md
+            - name: HPC 팩 2012 R2에 온-프레미스 작업 제출
+              href: hpcpack-cluster-submit-jobs.md
+            - name: HPC 팩의 Excel
+              href: excel-cluster-hpcpack.md
+    - name: 저장소 관리
+      items:
+        - name: 디스크 추가
           items:
-            - name: Azure PowerShell
+            - name: Azure Powershell
               href: attach-disk-ps.md
             - name: Azure 포털
               href: attach-managed-disk-portal.md
-        - name: 데이터 디스크 분리
+        - name: 디스크 분리
           href: detach-disk.md
-        - name: OS 디스크 확장
+        - name: 디스크 크기 조정
           href: expand-os-disk.md
-        - name: 데이터 디스크 확장
-          href: expand-data-disks.md
-        - name: 파일 공유 사용
+        - name: 디스크 스냅숏
+          href: snapshot-copy-managed-disk.md
+        - name: 디스크를 표준 또는 프리미엄으로 변환
+          href: convert-disk-storage.md
+        - name: 디스크 FAQ
+          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 파일 저장소 사용
           href: mount-azure-file-storage.md
-        - name: 'D:를 데이터 디스크로 사용'
-          href: change-drive-letter.md
-    - name: VM 네트워킹
+        - name: Managed Disks로 마이그레이션
+          href: migrate-to-managed-disks.md
+          items:
+            - name: 관리되지 않는 VM - Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: 단일 클래식 VM - 리소스 관리자
+              href: migrate-single-classic-to-resource-manager.md
+    - name: 네트워킹 관리
       href: ps-common-network-ref.md
       items:
         - name: 가상 네트워크 만들기
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 여러 NIC를 사용하여 VM 만들기
-          href: multiple-nics.md
-        - name: 고정 공용 IP 만들기
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: '포트, 끝점 및 보안 구성'
-          href: endpoints-in-resource-manager.md
-        - name: VM에 대한 액세스 허용
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: VM에 대한 포트 열기
           items:
-            - name: Azure PowerShell
-              href: nsg-quickstart-powershell.md
             - name: Azure 포털
               href: nsg-quickstart-portal.md
-        - name: DNS 이름 확인 옵션
-          href: >-
-            ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 포털을 사용하여 FDQN 만들기
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+        - name: 공용 IP 주소 할당
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 여러 NIC 사용
+          href: multiple-nics.md
+        - name: 공용 DNS 이름 할당
           href: portal-create-fqdn.md
-    - name: 크기 조정 및 가용성
-      items:
-        - name: VM 가용성
-          href: manage-availability.md
-        - name: 가용성 집합 만들기
-          href: create-availability-set.md
-        - name: VM에 대한 가용성 집합 변경
-          href: change-availability-set.md
-        - name: 부하 분산 장치 개요
-          href: load-balance.md
-          items:
-            - name: 부하 분산 장치 만들기
-              href: >-
-                ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: VMSS로 여러 VM 크기 조정
-          href: vmss-powershell-creating.md
-        - name: 여러 Azure 가상 컴퓨터 만들기
-          href: multiple-vms.md
-        - name: Azure Automation을 사용하여 VM 세로로 확장
-          href: vertical-scaling-automation.md
-        - name: 모니터링 및 진단으로 VM 만들기
-          href: extensions-diagnostics-template.md
-        - name: Azure 자동화 개요
-          href: manage-using-azure-automation.md
-    - name: VM 보안 관리
-      items:
-        - name: 암호 재설정
-          href: reset-local-password-without-agent.md
-        - name: Azure AD에서 회사 또는 학교 ID 만들기
-          href: create-aad-work-id.md
-        - name: 액세스 관리
-          href: >-
-            ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 디스크 암호화
-          href: encrypt-disks.md
-        - name: VM에 정책 적용
-          href: policy.md
-        - name: 주요 자격 증명 모음 설정
-          href: key-vault-setup.md
-        - name: WinRM 설정
-          href: winrm.md
+        - name: DNS 확인
+          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM 확장 사용
       items:
         - name: VM 확장 개요
@@ -314,41 +273,25 @@
           href: log-collector-extension.md
         - name: Azure 진단 확장
           href: ps-extensions-diagnostics.md
-        - name: 템플릿의 확장
-          href: extensions-authoring-templates.md
         - name: VM 확장 내보내기
           href: extensions-export-templates.md
-        - name: 구성 샘플
-          href: extensions-configuration-samples.md
         - name: 확장 문제 해결
           href: extensions-troubleshoot.md
-    - name: 응용 프로그램 실행
-      items:
-        - name: SQL Server
-          href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
-        - name: SharePoint
-          href: sharepoint-farm.md
-        - name: 테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
-          href: ps-hybrid-cloud-test-env-lob.md
-        - name: 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
-          href: ps-hybrid-cloud-test-env-sim.md
-        - name: MongoDB
-          href: install-mongodb.md
-        - name: HPC(고성능 컴퓨팅)
-          href: hpcpack-cluster-options.md
-        - name: MATLAB
-          href: matlab-mdcs-cluster.md
-        - name: Azure의 SAP
-          href: ../workloads/sap/get-started.md
+        - name: 모니터링 및 진단 확장
+          href: extensions-diagnostics-template.md
+        - name: Network Watcher 에이전트
+          href: extensions-nwa.md
     - name: VM 마이그레이션
       items:
-        - name: AWS 및 온-프레미스 VM을 Azure로 마이그레이션 개요
+        - name: AWS 및 온-프레미스 VM 마이그레이션
           href: on-prem-to-azure.md
           items:
-            - name: AWS(Amazon Web Services)에서 Azure로 마이그레이션
-              href: aws-to-azure.md
-            - name: 일반화된 VHD에서 VM 업로드 및 만들기
+            - name: 온-프레미스 VM 업로드
               href: upload-generalized-managed.md
+            - name: Amazon Web Services(AWS)에서
+              href: aws-to-azure.md
+            - name: Azure Site Recovery 사용
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: 클래식에서 Azure Resource Manager로 마이그레이션
           href: migration-classic-resource-manager-overview.md
           items:
@@ -366,10 +309,6 @@
               href: migration-classic-resource-manager-faq.md
     - name: 문제 해결
       items:
-        - name: 기존 가용성 집합에 Azure VM 추가의 지원 가능성
-          href: ../virtual-machines-availability-set-supportability.md
-        - name: 시스템 다시 부팅 이해
-          href: understand-vm-reboot.md
         - name: 원격 데스크톱 연결
           href: troubleshoot-rdp-connection.md
           items:
@@ -379,6 +318,10 @@
               href: troubleshoot-specific-rdp-errors.md
         - name: RDP 암호 재설정
           href: reset-rdp.md
+        - name: Azure 에이전트 없이 로컬 암호 다시 설정
+          href: reset-local-password-without-agent.md
+        - name: 시스템 다시 부팅 이해
+          href: understand-vm-reboot.md
         - name: NIC 재설정
           href: reset-network-interface.md
         - name: 부트 진단
@@ -399,13 +342,13 @@
           href: redeploy-to-new-node.md
         - name: 일반적인 오류 메시지
           href: error-messages.md
-        - name: VM의 문제 해결에 가상 하드 디스크를 연결합니다.
+        - name: VM 복구 액세스
           items:
             - name: Azure PowerShell
               href: troubleshoot-recovery-disks.md
             - name: Azure 포털
               href: troubleshoot-recovery-disks-portal.md
-        - name: PerfInsights를 사용하여 성능 문제 해결
+        - name: PerfInsights 사용
           href: how-to-use-perfInsights.md
 - name: 참조
   items:
@@ -428,8 +371,7 @@
 - name: 리소스
   items:
     - name: 작성자 템플릿
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
@@ -441,7 +383,6 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 비디오
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: FAQ
       href: faq.md

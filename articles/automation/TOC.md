@@ -28,7 +28,6 @@
 ## 자동화
 ### [Runbook 시작](automation-starting-a-runbook.md)
 ### [웹후크에서 Runbook 시작](automation-webhooks.md)
-### [Hybrid Runbook Worker에서 Runbook 실행](automation-hybrid-runbook-worker.md)
 ### [Runbook 입력 매개 변수](automation-runbook-input-parameters.md)
 ### [그래픽 Runbook에서 오류 처리](automation-runbook-graphical-error-handling.md)
 ### [Runbook 작업 추적](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Azure Automation 데이터 관리](automation-managing-data.md)
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Automation Runbook에 JSON 개체 전달](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Hybrid Runbook Worker 배포](automation-hybrid-runbook-worker.md)
+### [Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)
 ## 배포 구성 관리(DSC)
 ### [DSC(필요한 상태 구성) 개요](automation-dsc-overview.md)
 ### [시작](automation-dsc-getting-started.md)
@@ -86,7 +88,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
-## [가격 책정](https://azure.microsoft.com/pricing/details/automation/)  
+## [가격](https://azure.microsoft.com/pricing/details/automation/)  
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](https://azure.microsoft.com/updates/?product=automation)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=automation)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-automation)

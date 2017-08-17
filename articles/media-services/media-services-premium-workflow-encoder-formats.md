@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/28/2017
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -36,7 +37,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+## <a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
 ### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
@@ -68,7 +69,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 * Windows Media 오디오
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+## <a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
 ### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
@@ -103,7 +104,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 >[!NOTE]
 >Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
+## <a id="closed_captioning"></a>선택 캡션 지원
 수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
 1. SCC 파일
@@ -113,10 +114,10 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 출력 시 다음 옵션을 사용할 수 있습니다.
 
-1. CEA&608;을 CEA&708;로 변환
+1. CEA 608을 CEA 708로 변환
 2. CEA-608/CEA-708 통과(H.264 기본 스트림의 SEI 메시지에 포함되거나 MXF 파일의 보조 데이터로 전달됨)
 3. SCC
-4. SMPTE 시간 제한 텍스트(SMPTE RP2052당 소스 CEA&608;, DFXP 파일 만들기 포함)
+4. SMPTE 시간 제한 텍스트(SMPTE RP2052당 소스 CEA 608, DFXP 파일 만들기 포함)
 5. SRT 자막 파일
 6. DVB 자막 스트림
 
@@ -130,10 +131,5 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

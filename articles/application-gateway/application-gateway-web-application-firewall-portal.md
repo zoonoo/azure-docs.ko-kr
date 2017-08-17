@@ -16,18 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-web-application-firewall-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
 웹 응용 프로그램 방화벽을 사용하도록 설정된 응용 프로그램 게이트웨이를 만드는 방법에 대해 알아봅니다.
 
@@ -48,7 +49,7 @@ Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
+Azure Application Gateway에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
 
 ##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> 기존 Application Gateway에 웹 응용 프로그램 방화벽 추가
 
@@ -65,7 +66,7 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
    | **설정** | **값** | **세부 정보**
    |---|---|---|
    |**WAF 계층으로 업그레이드**| 선택 | Application Gateway의 계층을 WAF 계층으로 설정합니다.|
-   |**방화벽 상태**| 사용 | 사용 | 이 설정은 WAF에서 방화벽을 사용합니다.|
+   |**방화벽 상태**| 사용 | 이 설정은 WAF에서 방화벽을 사용합니다.|
    |**방화벽 모드** | 방지 | 웹 응용 프로그램 방화벽이 악의적인 트래픽을 처리하는 방식에 대한 설정입니다. **검색** 모드는 이벤트를 기록하기만 하는 반면 **방지** 모드는 이벤트를 기록하고 악의적인 트래픽을 중지합니다.|
    |**규칙 집합**|3.0|이 설정은 백 엔드 풀 멤버를 보호하는 데 사용되는 [코어 규칙 집합](application-gateway-web-application-firewall-overview.md#core-rule-sets)을 결정합니다.|
    |**사용하지 않는 규칙 구성**|다름|가능한 가양성을 방지하기 위해 이 설정은 특정 [규칙 및 규칙 그룹](application-gateway-crs-rulegroups-rules.md)을 사용하지 않도록 설정할 수 있도록 합니다.|
@@ -87,10 +88,10 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 * CIDR 블록으로 10.0.0.0/28을 사용하는 Appgatewaysubnet이라고 하는 서브넷을 만듭니다.
 * SSL 오프로드용 인증서를 구성합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다.
 1. 포털의 즐겨찾기 창에서 **새로 만들기**를 클릭합니다.
 1. **새로 만들기** 블레이드에서 **네트워킹**을 클릭합니다. 다음 그림과 같이 **네트워킹** 블레이드에서 **Application Gateway**를 클릭합니다.
-1. Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 프로그램 게이트웨이**를 클릭합니다.
+1. Azure Portal로 이동하여 **새로 만들기** > **네트워킹** > **Application Gateway**를 클릭합니다.
 
     ![Application Gateway 만들기][1]
 
@@ -108,28 +109,28 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 
    ![기본 설정이 표시된 블레이드][2-2]
 
-1. **가상 네트워크** 아래에 표시되는 **설정** 블레이드에서 **가상 네트워크 선택**을 클릭합니다. 그러면 **가상 네트워크 선택** 블레이드가 열립니다.  **새로 만들기**를 클릭하여 **가상 네트워크 만들기** 블레이드를 엽니다.
+1. **가상 네트워크** 아래에 표시되는 **설정** 블레이드에서 **가상 네트워크 선택**을 클릭합니다. 이 단계는 **가상 네트워크 선택** 블레이드를 엽니다.  **새로 만들기**를 클릭하여 **가상 네트워크 만들기** 블레이드를 엽니다.
 
    ![가상 네트워크 선택][2]
 
-1. **가상 네트워크 만들기** 블레이드에서 다음 값을 입력한 다음 **확인**을 클릭합니다. 그러면 **가상 네트워크 만들기** 및 **가상 네트워크 선택** 블레이드가 닫힙니다. 또한 **설정** 블레이드의 **서브넷** 필드가 선택한 서브넷으로 채워집니다.
+1. **가상 네트워크 만들기** 블레이드에서 다음 값을 입력한 다음 **확인**을 클릭합니다. 이 단계는 **가상 네트워크 만들기** 및 **가상 네트워크 선택** 블레이드를 닫습니다. **설정** 블레이드의 **서브넷** 필드를 선택한 서브넷으로 채웁니다.
 
    |**설정** | **값** | **세부 정보** |
    |---|---|---|
    |**Name**|AdatumAppGatewayVNET|Application Gateway의 이름|
-   |**주소 공간**|10.0.0.0/16| 가상 네트워크에 대한 주소 공간|
+   |**주소 공간**|10.0.0.0/16| 이 값은 가상 네트워크에 대한 주소 공간입니다.|
    |**서브넷 이름**|AppGatewaySubnet|Application Gateway의 서브넷 이름|
-   |**서브넷 주소 범위**|10.0.0.0/28| 이 서브넷을 사용하면 백 엔드 풀 멤버가 가상 네트워크에서 추가 서브넷을 사용할 수 있습니다.|
+   |**서브넷 주소 범위**|10.0.0.0/28 | 이 서브넷을 사용하면 백 엔드 풀 멤버가 가상 네트워크에서 추가 서브넷을 사용할 수 있습니다.|
 
-1. **설정** 블레이드의 **프런트 엔드 IP 구성**에서 **IP 주소 유형**으로 **공용**을 선택합니다.
+1. **설정** 블레이드의 **프런트 엔드 IP 구성** 아래에서 **IP 주소 유형**으로 **공용**을 선택합니다.
 
-1. **설정** 블레이드의 **공용 IP 주소**에서 **공용 IP 주소 선택**을 클릭합니다. 그러면 **공용 IP 주소 선택** 블레이드가 열립니다. 여기서 **새로 만들기**를 클릭합니다.
+1. **설정** 블레이드의 **공용 IP 주소**에서 **공용 IP 주소 선택**을 클릭합니다. 이 단계는 **공용 IP 주소 선택** 블레이드를 엽니다. 여기서 **새로 만들기**를 클릭합니다.
 
    ![공용 IP 선택][3]
 
-1. **공용 IP 주소 만들기** 블레이드에서 기본값을 그대로 적용하고 **확인**을 클릭합니다. 그러면 **공용 IP 주소 선택** 블레이드, **공용 IP 주소 만들기** 블레이드가 닫히고, **공용 IP 주소**가 선택한 공용 IP 주소로 채워집니다.
+1. **공용 IP 주소 만들기** 블레이드에서 기본값을 그대로 적용하고 **확인**을 클릭합니다. 이 단계는 **공용 IP 주소 선택** 블레이드, **공용 IP 주소 만들기** 블레이드를 닫고 **공용 IP 주소**를 선택한 공용 IP 주소로 채웁니다.
 
-1. **설정** 블레이드의 **수신기 구성**에서 **프로토콜** 아래에 있는 **HTTP**를 클릭합니다. **https**를 사용하려면 인증서가 필요합니다. 인증서의 개인 키가 필요하므로 인증서의 .pfx 내보내기 및 파일의 암호를 제공해야 합니다.
+1. **설정** 블레이드의 **수신기 구성** 아래에서 **프로토콜** 아래에 있는 **HTTP**를 클릭합니다. **https**를 사용하려면 인증서가 필요합니다. 인증서의 개인 키가 필요하므로 인증서의 .pfx 내보내기 및 파일의 암호를 제공해야 합니다.
 
 1. **WAF** 설정을 구성합니다.
 
@@ -143,7 +144,7 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 
 1. 응용 프로그램 게이트웨이를 만든 후에는 포털에서 해당 응용 프로그램 게이트웨이로 이동하여 응용 프로그램 게이트웨이 구성을 계속합니다.
 
-    ![응용 프로그램 게이트웨이 리소스 보기][10]
+    ![Application Gateway 리소스 보기][10]
 
 이러한 단계에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다.
 

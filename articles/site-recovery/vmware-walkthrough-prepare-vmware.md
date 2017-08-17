@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>6단계: Azure에 온-프레미스 VMware 복제 준비
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="prepare-for-automatic-discovery"></a>자동 검색 준비
 
-Site Recovery는 배치되고 vSphere ESXi 호스트하는 VM 및/또는 vCenter 서버에서 관리하는 서버를 자동으로 검색합니다.  이를 위해 Site Recovery는 vCenter 서버 및 vSphere ESXi 호스트에 액세스할 수 있는 자격 증명이 필요합니다. 다음과 같이 해당 항목을 만듭니다.
+Site Recovery는 vSphere ESXi 호스트에서 실행 중인 VM을 자동으로 검색합니다(vCenter 서버 포함 또는 제외). 자동 검색의 경우 Site Recovery는 호스트 및 서버에 액세스할 계정이 필요합니다.
 
 1. 전용 계정을 사용하려면 역할을 만듭니다(vCenter 수준에서, 아래 테이블에 설명한 사용 권한 사용). 이름을 **Azure_Site_Recovery**와 같이 지정합니다.
 2. 그 다음, vSphere 호스트/vCenter 서버에 사용자를 만들고 이 사용자에게 역할을 할당합니다. Site Recovery를 배포하는 동안 이 사용자 계정을 지정합니다.
@@ -58,7 +57,7 @@ Site Recovery는 VM 자동 검색 및 VM의 장애 조치와 장애 복구를 �
 
 - 도메인 또는 로컬 계정을 사용할 수 있습니다.
 - Windows에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 레지스터의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
-- CLI에서 Windows의 레지스트리 항목을 추가하려면 다음을 입력합니다:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- CLI에서 Windows의 레지스트리 항목을 추가하려면 다음을 입력합니다. ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Linux에서 계정은 원본 Linux 서버의 루트여야 합니다.
 
 

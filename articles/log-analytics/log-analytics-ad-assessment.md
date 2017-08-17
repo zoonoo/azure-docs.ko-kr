@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5dbb669d9f78ef7ba3f2668855b08750b7447040
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
@@ -53,7 +53,21 @@ Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Active Directory 평가 데이터 수집 정보
-Active Directory 평가는 사용하도록 설정한 에이전트를 통해 WMI 데이터, 레지스트리 데이터 및 성능 데이터를 수집합니다.
+
+Active Directory 평가는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
+
+- 레지스트리 수집기
+- LDAP 수집기
+- .NET Framework
+- 이벤트 로그 수집기
+- ADSI(Active Directory 서비스 인터페이스)
+- Windows PowerShell
+- 파일 데이터 수집기
+- WMI(Windows Management Instrumentation)
+- DCDIAG 도구 API
+- NTFRS(파일 복제 서비스) API
+- 사용자 지정 C# 코드
+
 
 다음 표에는 에이전트에 대한 데이터 수집 방법, Operations Manager(SCOM)가 필요한지 여부 및 에이전트에서 데이터가 수집되는 빈도가 나와 있습니다.
 

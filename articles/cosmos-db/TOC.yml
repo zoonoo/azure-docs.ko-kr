@@ -5,8 +5,7 @@
     - name: Azure Cosmos DB 정보
       href: introduction.md
     - name: DocumentDB 고객 시작
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: 빠른 시작
   expanded: true
   items:
@@ -106,9 +105,6 @@
       href: consistency-levels.md
     - name: 처리량
       href: request-units.md
-      items:
-        - name: 분당 요청 단위
-          href: request-units-per-minute.md
     - name: 다중 모델 API
       items:
         - name: DocumentDB
@@ -138,6 +134,8 @@
               href: documentdb-resources.md
             - name: SQL 쿼리
               href: documentdb-sql-query.md
+            - name: SQL 쿼리 성능
+              href: documentdb-sql-query-metrics.md
             - name: SQL 실습
               href: 'https://www.documentdb.com/sql/demo'
             - name: 분할
@@ -195,8 +193,7 @@
                 - name: 스택 오버플로
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: 비디오
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: 커뮤니티 포털
@@ -224,8 +221,7 @@
         - name: 테이블 API
           items:
             - name: 테이블 저장소
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: 변경 피드
           href: change-feed.md
         - name: 지리 공간적
@@ -284,8 +280,12 @@
           href: powerbi-visualize.md
         - name: 데이터 시각화에 ODBC 드라이버 활용
           href: odbc-driver.md
+        - name: DocumentDB API에 Spring Boot Starter 사용
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: 참조
   items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: DocumentDB API
       items:
         - name: 자바

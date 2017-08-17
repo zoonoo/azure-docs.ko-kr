@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
-이 자습서에서는 Visual Studio Team Services를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
+이 자습서는 시리즈의 3부로, Visual Studio Team Services를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
@@ -33,7 +33,11 @@ ms.lasthandoff: 07/21/2017
 > * Team Services에서 릴리스 정의 만들기
 > * 응용 프로그램 자동 배포 및 업그레이드
 
-이 자습서는 세 개의 문서로 구성되며 이 문서는 시리즈 중 세 번째입니다.
+이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
+> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Visual Studio Team Services를 사용하여 CI/CD 구성
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:

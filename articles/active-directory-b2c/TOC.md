@@ -74,6 +74,7 @@
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 용어
 ### [응용 프로그램 유형](active-directory-b2c-apps.md)
 ### [인증 프로토콜](active-directory-b2c-reference-protocols.md)
@@ -91,7 +92,8 @@
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [지원](active-directory-b2c-support.md)

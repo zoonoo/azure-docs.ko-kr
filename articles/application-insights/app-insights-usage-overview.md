@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,10 @@ ms.lasthandoff: 07/21/2017
 
     앱을 게시하여 앱의 성능을 모니터링하고 사용자가 앱으로 수행하는 작업을 확인합니다.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>원격 분석에 사용자 및 세션 ID를 포함합니다.
+시간이 지남에 따라 사용자를 추적하려면 Application Insights는 식별하는 방법이 필요합니다. 이벤트 도구는 사용자 ID 또는 세션 ID가 필요 없는 유일한 사용 도구입니다.
+
+[여기](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)에서 이러한 ID를 보내기 시작합니다.
 
 ## <a name="explore-usage-demographics-and-statistics"></a>사용 현황 인구 통계 및 통계 탐색
 사람들이 사용자의 앱을 사용하는 경우, 가장 큰 관심을 갖는 페이지, 사용자가 있는 위치 및 사용하는 브라우저 및 운영 체제를 알아봅니다. 
@@ -166,9 +170,9 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
 새로운 모든 TelemetryClient는 사용자가 지정하는 속성 값을 자동으로 추가합니다. 개별 원격 분석 이벤트는 기본값을 재정의할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-* [사용자 및 세션](app-insights-usage-segmentation.md)
-* [보존](app-insights-usage-retention.md)
-* [사용자 지정 이벤트 코딩](app-insights-api-custom-events-metrics.md)
-
+   - [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
+   - [깔때기](usage-funnels.md)
+   - [보존](app-insights-usage-retention.md)
+   - [통합 문서](app-insights-usage-workbooks.md)
+   - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
 

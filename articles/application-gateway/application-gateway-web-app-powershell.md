@@ -30,6 +30,9 @@ ms.lasthandoff: 07/28/2017
 다음 예에서는 웹앱을 기존 응용 프로그램 게이트웨이에 백 엔드 풀 멤버로 추가합니다. 웹앱이 작동하려면 프로브 구성의 `-PickHostNamefromBackendHttpSettings` 스위치와 백 엔드 http 설정의 `-PickHostNameFromBackendAddress` 스위치를 모두 제공해야 합니다.
 
 ```powershell
+# FQDN of the web app
+$webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
+
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
@@ -46,7 +49,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses mywebapp.azurewebsites.net
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -66,20 +69,18 @@ $webappname="mywebapp$(Get-Random)"
 # Creates a resource group
 $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 
-# Creates a new app service plan
+# Create an App Service plan in Free tier.
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
-# Defines the property object to configure the source control for the web app
+# Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
     isManualIntegration = "true";
 }
-
-# Configure the source control for the web app
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.ResourceGroupName -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 
 # Creates a subnet for the application gateway
@@ -119,7 +120,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -161,3 +162,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>다음 단계
 
 [PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](application-gateway-configure-redirect-powershell.md)을 방문하여 리디렉션 구성 방법을 알아봅니다.
+

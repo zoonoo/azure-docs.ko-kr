@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence 갤러리의 대회 검색
@@ -32,10 +32,9 @@ Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 �
 ## <a name="discover"></a>검색
   갤러리에서 대회를 찾아보려면, [갤러리](http://gallery.cortanaintelligence.com)를 열고, 갤러리 홈 페이지의 맨 위에 있는 **추가**를 마우스로 가리키고 **대회**를 선택합니다.
 
-![갤러리 홈 페이지에서 대회 선택](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+![갤러리 홈페이지에서 대회 선택](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- **[대회](https://gallery.cortanaintelligence.com/competitions)**
- 페이지에는 가장 인기 있는 대회 목록이 표시됩니다.
+ **[대회](https://gallery.cortanaintelligence.com/competitions)** 페이지에 가장 인기 있는 대회 목록이 나와 있습니다.
 모든 대회를 보려면 **모두 표시**를 클릭합니다.
 이 페이지에서 갤러리의 모든 대회를 찾아볼 수 있습니다. 또한 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에 검색어를 입력하여 검색할 수 있습니다.
 
@@ -46,13 +45,11 @@ Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 �
 ![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>대회 참가
-대회가 진행 중이면 세부 정보 페이지의 상태가 **활성**입니다. 대회에 참가하기 위해 **대회 참가**를 클릭하면 필요한 리소스와 진행해야 하는 단계에 대한 지침이 제공됩니다.
+대회가 열리면 세부 정보 페이지의 상태가 **활성**입니다. 대회에 참가하기 위해 **대회 참가**를 클릭하면 필요한 리소스와 진행해야 하는 단계에 대한 지침이 제공됩니다.
 
-![대회가 완료됨](media/machine-learning-gallery-competitions/open-competition.png)
+![경쟁이 활성화됨](media/machine-learning-gallery-competitions/open-competition.png)
 
-대회가 진행되고 있지 않다면 세부 정보 페이지의 상태가 **완료됨**이고 **대회 참가** 링크가 **마침**이라는 단어로 대체됩니다.
-
-![대회가 완료됨](media/machine-learning-gallery-competitions/completed-competition.png)
+경쟁이 완료되면 우승자 목록이 표시됩니다.
 
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 

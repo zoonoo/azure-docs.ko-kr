@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
@@ -33,7 +33,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -51,7 +51,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 1. 새 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다.
 
-2.  **빨리 시작하기** 페이지에서 **WebHook + API**를 선택한 후 함수에 대한 언어를 선택하고 **이 함수 만들기**를 클릭합니다. 
+2.  **빨리 시작하기** 페이지에서 **WebHook + API**를 선택한 후 함수에 대한 **언어를 선택**하고 **이 함수 만들기**를 클릭합니다. 
    
     ![Azure Portal에서 함수 빨리 시작하기.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 

@@ -65,7 +65,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.
 
-*오류 AADSTS50011: 회신 주소 'https://contoso.com'은 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.*
+*오류 AADSTS50011: 회신 주소 'https://contoso.com' 은 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.*
 
 **가능한 원인**
 

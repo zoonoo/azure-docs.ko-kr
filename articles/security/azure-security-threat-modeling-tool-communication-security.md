@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 125a9cd2ac9892a090b729a0a5a5a2f7d4580507
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 955d67795caff67c1ffff55f74f04622c952ed05
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
-| Azure 이벤트 허브 | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
+| Azure Event Hub | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
 | Dynamics CRM | <ul><li>[서비스 계정 권한 확인 및 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인](#priv-aspnet)</li></ul> |
 | Azure 데이터 팩터리 | <ul><li>[온-프레미스 SQL Server를 Azure Data Factory에 연결하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | Identity Server | <ul><li>[Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인](#identity-https)</li></ul> |
 | 웹 응용 프로그램 | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대한 SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
 | 데이터베이스 | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
-| Azure 저장소 | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
+| Azure Storage | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | 모바일 클라이언트 | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | WCF | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
 | Web API | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/21/2017
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| 구성 요소               | Azure 이벤트 허브 | 
+| 구성 요소               | Azure Event Hub | 
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
@@ -102,7 +102,7 @@ ms.lasthandoff: 07/21/2017
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | EnvironmentType - Azure |
-| 참조              | [Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| 참조              | [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
 | 단계 | 기본적으로 Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 모든 앱에 대해 HTTPS를 이미 사용하도록 설정합니다. 그러나 모든 와일드카드 도메인과 마찬가지로 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다([참조](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). 배포된 앱에 액세스할 수 있는 사용자 지정 도메인에 대한 SSL을 사용하도록 설정하는 것이 좋습니다.|
 
 ## <a id="appservice-https"></a>Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용
@@ -175,18 +175,18 @@ ms.lasthandoff: 07/21/2017
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| 구성 요소               | Azure 저장소 | 
+| 구성 요소               | Azure Storage | 
 | SDL 단계               | 배포 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
 | 참조              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| 단계 | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 저장소의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure 저장소 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
+| 단계 | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 저장소의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
 
 ## <a id="md5-https"></a>HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| 구성 요소               | Azure 저장소 | 
+| 구성 요소               | Azure Storage | 
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | StorageType - Blob |
@@ -208,40 +208,76 @@ ms.lasthandoff: 07/21/2017
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| 구성 요소               | Azure 저장소 | 
+| 구성 요소               | Azure Storage | 
 | SDL 단계               | 빌드 |  
-| 적용 가능한 기술 | 일반, Windows Phone |
+| 적용 가능한 기술 | 일반, Windows Mobile |
 | 특성              | 해당 없음  |
 | 참조              | [인증서 및 공개 키 고정](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net)(영문) |
-| 단계 | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 SSL MITM 공격을 시도하면 SSL 핸드셰이크 중에 공격자 서버의 키가 고정된 인증서 키와 다르고 요청이 무시되므로 ServicePointManager의 `ServerCertificateValidationCallback` 위임을 구현함으로써 MITM 인증서 고정을 방지할 수 있습니다.</p>|
+| 단계 | <p>인증서 고정은 TLS 기반 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X.509 인증서 또는 공개 키와 호스트를 TLS 연결하는 프로세스입니다. 이 연결은 최초 연결 성공 이후(“최초 사용 신뢰") 또는 그 전(사전 로드 필요)에 일어날 수 있습니다.</p><p>악의적 사용자가 TLS MITM 공격을 수행하려 하면 클라이언트가 수신된 인증서/키가 예상되는 값과 일치하는지 확인합니다. 따라서 악의적 사용자가 어떤 식으로 인증되어 인증서를 신뢰 받았다 하더라도 연결은 여전히 실패합니다.</p><p>인증서 고정은 [HttpWebRequest.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.httpwebrequest.servercertificatevalidationcallback)(기본 설정) 또는 [ServicePointManager.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.servercertificatevalidationcallback) 위임을 구현하여 .NET에서 구현할 수 있습니다. 아래 예제에서는 하드 코딩된 공개 키 및 알고리즘에 대해 유효성을 검사하지만 실제 응용에서는 그러한 값이 안전한 구성 영역에 저장되어 필요에 따라 업데이트됩니다. </p>|
 
 ### <a name="example"></a>예제
 ```C#
-private static String PUB_KEY = "30818902818100C4A06B7B52F8D17DC1CCB47362" +
-    "C64AB799AAE19E245A7559E9CEEC7D8AA4DF07CB0B21FDFD763C63A313A668FE9D764E" +
-    "D913C51A676788DB62AF624F422C2F112C1316922AA5D37823CD9F43D1FC54513D14B2" +
-    "9E36991F08A042C42EAAEEE5FE8E2CB10167174A359CEBF6FACC2C9CA933AD403137EE" +
-    "2C3F4CBED9460129C72B0203010001";
+using System;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography;
 
-public static void Main(string[] args)
+namespace CertificatePinningExample
 {
-  ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-  WebRequest wr = WebRequest.Create("https://encrypted.google.com/");
-  wr.GetResponse();
-}
+    class CertificatePinningExample
+    {
+        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+           demonstration purposes. In a real-world application, this should be stored in a secure
+           configuration area that can be updated as needed. */
 
-public static bool PinPublicKey(object sender, X509Certificate certificate, X509Chain chain,
-                                SslPolicyErrors sslPolicyErrors)
-{
-  if (null == certificate)
-    return false;
+        private static readonly string PINNED_ALGORITHM = "RSA";
 
-  String pk = certificate.GetPublicKeyString();
-  if (pk.Equals(PUB_KEY))
-    return true;
+        private static readonly string PINNED_PUBLIC_KEY = "3082010A0282010100B0E75B7CBE56D31658EF79B3A1" +
+            "294D506A88DFCDD603F6EF15E7F5BCBDF32291EC50B2B82BA158E905FE6A83EE044A48258B07FAC3D6356AF09B2" +
+            "3EDAB15D00507B70DB08DB9A20C7D1201417B3071A346D663A241061C151B6EC5B5B4ECCCDCDBEA24F051962809" +
+            "FEC499BF2D093C06E3BDA7D0BB83CDC1C2C6660B8ECB2EA30A685ADE2DC83C88314010FFC7F4F0F895EDDBE5C02" +
+            "ABF78E50B708E0A0EB984A9AA536BCE61A0C31DB95425C6FEE5A564B158EE7C4F0693C439AE010EF83CA8155750" +
+            "09B17537C29F86071E5DD8CA50EBD8A409494F479B07574D83EDCE6F68A8F7D40447471D05BC3F5EAD7862FA748" +
+            "EA3C92A60A128344B1CEF7A0B0D94E50203010001";
 
-  // Bad dog
-  return false;
+
+        public static void Main(string[] args)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://azure.microsoft.com");
+            request.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                if (certificate == null || sslPolicyErrors != SslPolicyErrors.None)
+                {
+                    // Error getting certificate or the certificate failed basic validation
+                    return false;
+                }
+
+                var targetKeyAlgorithm = new Oid(certificate.GetKeyAlgorithm()).FriendlyName;
+                var targetPublicKey = certificate.GetPublicKeyString();
+                
+                if (targetKeyAlgorithm == PINNED_ALGORITHM &&
+                    targetPublicKey == PINNED_PUBLIC_KEY)
+                {
+                    // Success, the certificate matches the pinned value.
+                    return true;
+                }
+                // Reject, either the key or the algorithm does not match the expected value.
+                return false;
+            };
+
+            try
+            {
+                var response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine($"Success, HTTP status code: {response.StatusCode}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Failure, {ex.Message}");
+            }
+            Console.WriteLine("Press any key to end.");
+            Console.ReadKey();
+        }
+    }
 }
 ```
 

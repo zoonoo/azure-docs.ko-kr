@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 7f472bf6669bcf0c1cab048a3a5969fc71aadd8e
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
@@ -59,19 +59,13 @@ JSON 또는 DSV(구분 기호 쉼표, 세미콜론 또는 탭으로 구분된 �
 
  * Blob에 대한 전용 저장소 계정을 만드는 것이 좋습니다. Blob이 다른 프로세스와 공유되면 프로세스에서 blob을 읽는 데 더 오래 걸립니다.
 
-2. 이 기능이 미리 보기 상태인 경우 액세스 권한을 요청해야 합니다.
-
- * [Azure Portal](https://portal.azure.com)의 Application Insights 리소스에서 Analytics를 엽니다. 
- * 스키마 창 아래쪽에서 **기타 데이터 원본** 아래의 '문의처' 링크를 클릭합니다. 
- * '데이터 원본 추가'가 표시되면 이미 액세스 권한이 있는 것입니다.
-
 
 ## <a name="define-your-schema"></a>스키마 정의
 
 데이터를 가져오려면 데이터 스키마를 지정하는 *데이터 원본*를 정의해야 합니다.
 단일 Application Insights 리소스에 최대 50개의 데이터 원본을 유지할 수 있습니다.
 
-1. 데이터 원본 마법사를 시작합니다.
+1. 데이터 원본 마법사를 시작합니다. "새 데이터 원본 추가" 버튼을 사용합니다. 또는 오른쪽 위 모서리에서 설정 단추를 클릭하고 드롭다운 메뉴에서 "데이터 원본"을 선택합니다.
 
     ![새 데이터 원본 추가](./media/app-insights-analytics-import/add-new-data-source.png)
 

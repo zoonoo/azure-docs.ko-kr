@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 495afb2d6e166e8f8cbb5157ef2182804c91a4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
@@ -127,7 +126,7 @@ HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 �
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-이전 예제에서 HiveQL 문은 다음 작업을 수행합니다:
+이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
 
 * `set hive.execution.engine=tez;`: Tez를 사용하도록 실행 엔진을 설정합니다. MapReduce 대신 Tez를 사용하면 쿼리 성능 향상을 제공할 수 있습니다. Tez에 대한 자세한 내용은 [향상된 성능을 위해 Apache Tez 사용](#usetez)을 참조하세요.
 
@@ -177,7 +176,7 @@ HDInsight에서 Hive는 `hivesampletable`이라는 내부 테이블로 미리 �
 [Apache Tez](http://tez.apache.org) 는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 사용할 수 있습니다.
 
 > [!NOTE]
-> Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다:
+> Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다.
 >
 > `set hive.execution.engine=tez;`
 >

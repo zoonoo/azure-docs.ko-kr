@@ -179,6 +179,7 @@
 #### [드라이브 매니페스트 백업](storage-import-export-backing-up-drive-manifests.md)
 #### [Import/Export 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -209,7 +210,8 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage 클라이언트 도구](storage-explorers.md)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
-## [가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [가격](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storage)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [저장소 탐색기(미리 보기)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [저장소 탐색기(미리 보기)를 사용하여 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Azure File Storage와 함께 저장소 탐색기(미리 보기) 사용](../vs-azure-tools-storage-explorer-files.md)
+### [저장소 탐색기(미리 보기) 릴리스 정보](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet 패키지
 ### [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -29,29 +29,34 @@ ms.lasthandoff: 07/28/2017
 온-프레미스 데이터 저장소 간에 데이터 이동을 사용할 수 있도록 온-프레미스 컴퓨터에 데이터 관리 게이트웨이를 설치해야 합니다. 게이트웨이가 데이터 저장소에 연결할 수 있는 한 데이터 저장소와 동일한 컴퓨터 또는 다른 컴퓨터에 게이트웨이를 설치할 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.   
->
->
+> 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 
 
 다음 연습에서는 온-프레미스 **SQL Server** 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 파이프라인을 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>연습: 클라우드에 온-프레미스 데이터 복사
+이 연습에서는 다음 단계를 수행합니다. 
+
+1. 데이터 팩터리를 만듭니다.
+2. 데이터 관리 게이트웨이를 만듭니다. 
+3. 원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.
+4. 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다.
+5. 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure 저장소 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
-이 단계에서는 Azure 포털을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
+이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+ 새로 만들기**, **인텔리전스 + 분석** 및 **데이터 팩터리s**을 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. **새 데이터 팩터리** 블레이드에서 이름으로 **ADFTutorialOnPremDF**를 입력합니다.
+3. **새 데이터 팩터리** 페이지에서 이름으로 **ADFTutorialOnPremDF**를 입력합니다.
 
     ![시작 보드에 추가](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
@@ -63,27 +68,30 @@ ms.lasthandoff: 07/28/2017
    >
 4. 데이터 팩터리를 만들려는 위치의 **Azure 구독** 을 선택합니다.
 5. 기존 **리소스 그룹** 을 선택하거나 리소스 그룹을 만듭니다. 이 자습서에서는 **ADFTutorialResourceGroup**이라는 이름의 리소스 그룹을 만듭니다.
-6. **새 Data Factory** 블레이드에서 **만들기**를 클릭합니다.
+6. **새 데이터 팩터리** 페이지에서 **만들기**를 클릭합니다.
 
    > [!IMPORTANT]
    > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
-7. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 블레이드가 표시됩니다.
+7. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 페이지가 표시됩니다.
 
-   ![데이터 팩터리 홈 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
+   ![데이터 팩터리 홈페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>게이트웨이 만들기
-1. **Data Factory** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
+1. **데이터 팩터리** 페이지에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
     ![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2. Data Factory Editor의 도구 모음에서 **... 추가**를 클릭한 다음 **새 데이터 게이트웨이**를 클릭합니다. 또는 트리 보기에서 마우스 오른쪽 단추로 **데이터 게이트웨이**를 클릭하고 **새 데이터 게이트웨이**를 클릭할 수 있습니다.
 
    ![도구 모음의 새 데이터 게이트웨이](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다.     
+3. **만들기** 페이지에서 **이름**에 **adftutorialgateway**를 입력하고 **확인**을 클릭합니다.     
 
-    ![게이트웨이 만들기 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
-4. **구성** 블레이드에서 **이 컴퓨터에 직접 설치**를 클릭합니다. 이렇게 하면 컴퓨터에 게이트웨이의 설치 패키지가 다운로드되고 게이트웨이가 설치, 구성 및 등록됩니다.  
+    ![게이트웨이 만들기 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+
+    > [!NOTE]
+    > 이 연습에서는 하나의 노드(온-프레미스 Windows 컴퓨터)만 있는 논리 게이트웨이를 만듭니다. 여러 온-프레미스 컴퓨터를 게이트웨이와 연결하여 데이터 관리 게이트웨이의 규모를 확장할 수 있습니다. 노드에서 동시에 실행할 수 있는 데이터 이동 작업의 수를 늘려 강화할 수 있습니다. 이 기능은 단일 노드가 있는 논리 게이트웨이에서도 사용할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 관리 게이트웨이 확장](data-factory-data-management-gateway-high-availability-scalability.md) 문서를 참조하세요.  
+4. **구성** 페이지에서 **이 컴퓨터에 직접 설치**를 클릭합니다. 이렇게 하면 컴퓨터에 게이트웨이의 설치 패키지가 다운로드되고 게이트웨이가 설치, 구성 및 등록됩니다.  
 
    > [!NOTE]
    > Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용합니다.
@@ -94,11 +102,11 @@ ms.lasthandoff: 07/28/2017
    >
    >
 
-    ![게이트웨이 - 구성 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    ![게이트웨이 - 구성 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
     이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
-    또한 이 블레이드에서 링크를 사용하여 게이트웨이를 수동으로 다운로드하여 설치하고 **새 키** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
+    또한 이 페이지에서 링크를 사용하여 게이트웨이를 수동으로 다운로드하여 설치하고 **새 키** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 
     게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
@@ -109,7 +117,7 @@ ms.lasthandoff: 07/28/2017
 5. 몇 분 정도 기다리거나 다음과 같은 알림 메시지가 나타날 때까지 기다립니다.
 
     ![성공적인 게이트웨이 설치](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램을 시작합니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램을 시작합니다. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
     ![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. `adftutorialgateway is connected to the cloud service` 메시지를 확인합니다. 맨 아래 상태 표시줄에 **색 확인 표시**와 함께 **클라우드 서비스에 연결됨**이 표시됩니다.
@@ -140,7 +148,7 @@ ms.lasthandoff: 07/28/2017
    * **로그 보기**를 클릭하여 이벤트 뷰어 창에서 데이터 관리 게이트웨이 로그를 확인합니다.
    * **로그 보내기**를 클릭하여 지난 7일 간의 로그가 포함된 zip 파일을 Microsoft에 업로드하여 문제를 원활하게 해결할 수 있습니다.
 10. **진단** 탭의 **연결 테스트** 섹션에서 데이터 저장소 유형으로 **SqlServer**를 선택하고, 데이터베이스 서버 이름과 데이터베이스 이름을 입력하며, 인증 유형을 지정하고, 사용자 이름과 암호를 입력하며, **테스트**를 클릭하여 게이트웨이를 데이터베이스에 연결할 수 있는지 여부를 테스트합니다.
-11. 웹 브라우저로 전환하고, **Azure Portal**의 **구성** 블레이드에서 **확인**을 클릭한 다음 **새 데이터 게이트웨이** 블레이드에서 [확인]을 클릭합니다.
+11. 웹 브라우저로 전환하고, **Azure Portal**의 **구성** 페이지에서 **확인**을 클릭한 다음 **새 데이터 게이트웨이** 페이지에서 [확인]을 클릭합니다.
 12. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다.  이 항목을 클릭하면 연결된 JSON이 나타납니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -157,7 +165,7 @@ ms.lasthandoff: 07/28/2017
 
       1. **servername**의 경우 SQL Server 데이터베이스를 호스팅하는 서버의 이름을 입력합니다.
       2. **databasename**의 경우 데이터베이스의 이름을 입력합니다.
-      3. 도구 모음에서 **암호화** 단추를 클릭합니다. 그러면 자격 증명 관리자 응용 프로그램이 다운로드되고 실행됩니다.
+      3. 도구 모음에서 **암호화** 단추를 클릭합니다. 자격 증명 관리자 응용 프로그램이 표시됩니다.
 
          ![자격 증명 관리자 응용 프로그램](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
       4. **자격 증명 설정** 대화 상자에서 인증 유형, 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다. 연결이 성공하면 암호화된 자격 증명이 JSON에 저장되고 대화 상자가 닫힙니다.
@@ -362,7 +370,7 @@ ms.lasthandoff: 07/28/2017
 
    예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.        
 3. 명령 모음에서 **배포**를 클릭하여 데이터 집합을 배포합니다(테이블은 사각형 데이터 집합임). **파이프라인** 노드의 트리 보기에서 파이프라인이 표시되는지 확인합니다.  
-4. 이제 **X**를 두 번 클릭하여 블레이드를 닫고 **ADFTutorialOnPremDF**의 **데이터 팩터리** 블레이드로 돌아갑니다.
+4. 이제 **X**를 두 번 클릭하여 페이지를 닫고 **ADFTutorialOnPremDF**의 **데이터 팩터리** 페이지로 돌아갑니다.
 
 **축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
 
@@ -383,25 +391,25 @@ ms.lasthandoff: 07/28/2017
 
     ![EmpOnPremSQLTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. 파이프라인 기간(시작 시간에서 종료 시간까지)이 과거이기 때문에 모든 데이터 조각이 **준비** 상태에 있습니다. 또한 SQL Server 데이터베이스에 데이터를 삽입했기 때문이며 항상 데이터베이스에 데이터가 있습니다. 맨 아래의 **Problem slices(문제 조각)** 섹션에 표시되는 조각이 없는지 확인합니다. 모든 조각을 보려면 조각 목록의 맨 아래에 있는 **자세히 보기**를 클릭합니다.
-3. 이제 **데이터 집합** 블레이드에서 **OutputBlobTable**을 클릭합니다.
+3. 이제 **데이터 집합** 페이지에서 **OutputBlobTable**을 클릭합니다.
 
     ![OputputBlobTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. 목록에서 아무 데이터 조각이나 클릭하면 **데이터 조각** 블레이드가 표시됩니다. 해당 조각에 대한 작업 실행이 표시됩니다. 일반적으로 하나의 작업 실행만 표시됩니다.  
+4. 목록에서 아무 데이터 조각이나 클릭하면 **데이터 조각** 페이지가 표시됩니다. 해당 조각에 대한 작업 실행이 표시됩니다. 일반적으로 하나의 작업 실행만 표시됩니다.  
 
     ![데이터 조각 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
     조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림 슬라이스** 목록에서 [준비] 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
 5. 맨 아래 목록에서 **작업 실행**을 클릭하여 **작업 실행 세부 정보**를 표시합니다.
 
-   ![작업 실행 세부 정보 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   ![작업 실행 세부 정보 페이지](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
    처리량, 기간 및 데이터를 전송하는 데 사용하는 게이트웨이와 같은 정보가 표시됩니다.
-6. **X**를 클릭하여 모든 블레이드를 닫아
-7. **ADFTutorialOnPremDF**의 홈 블레이드로 돌아갑니다.
+6. **X**를 클릭하여 모든 페이지를 닫아
+7. **ADFTutorialOnPremDF**의 홈페이지로 돌아갑니다.
 8. (선택 사항) **파이프라인**, **ADFTutorialOnPremDF**를 차례로 클릭한 다음 입력 데이터 집합(**Consumed**) 또는 출력 데이터 집합(**Produced**)을 드릴스루합니다.
 9. [Microsoft 저장소 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 매 시간마다 Blob/파일이 만들어졌는지 확인합니다.
 
-   ![Azure 저장소 탐색기](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Azure Storage 탐색기](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 관리 게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.

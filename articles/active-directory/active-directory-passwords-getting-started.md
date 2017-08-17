@@ -1,5 +1,5 @@
 ---
-title: "빠른 시작: Azure AD SSPR | Microsoft 문서"
+title: "빠른 시작: Azure AD SSPR | Microsoft Docs"
 description: "신속하게 Azure AD 셀프 서비스 암호 재설정 배포"
 services: active-directory
 keywords: 
@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>빠른 시작: Azure AD 셀프 서비스 암호 재설정
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>빠른 시작: Azure AD 셀프 서비스 암호 재설정
+
+> [!IMPORTANT]
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>신속하게 셀프 서비스 암호 재설정 배포
 
@@ -76,7 +79,7 @@ Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에
 
 셀프 서비스 암호 재설정을 사용하지 않도록 설정하려면 Azure AD 테넌트를 열고 **암호 재설정 > 속성**으로 이동하여 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **아무도 없음**을 선택하면 됩니다.
 
-## <a name="next-steps"></a>다음 단계
+### <a name="learn-more"></a>자세한 정보
 다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
 
 * [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
@@ -88,4 +91,12 @@ Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
+
+## <a name="next-steps"></a>다음 단계
+
+이 퀵스타트에서는 사용자를 위한 셀프 서비스 암호 재설정 구성 방법을 알게 되었습니다. 이 단계를 완료하기 위해 Azure Portal로 진행하려면 아래 포털 링크를 따라 가십시오.
+
+> [!div class="nextstepaction"]
+> [셀프 서비스 암호 재설정 사용](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

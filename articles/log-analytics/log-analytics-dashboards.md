@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Log Analytics에서 사용할 사용자 지정 대시보드 만들기
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우, 새 대시보드를 만들거나 기존 대시보드를 편집할 수 없습니다. 
+
 이 가이드는 Log Analytics 대시보드가 저장된 모든 로그 검색을 시각화하여 환경을 보는 단일 렌즈를 제공하는 방법을 이해하는 데 도움이 됩니다.
 
 ![예제 대시보드](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)

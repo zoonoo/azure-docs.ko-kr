@@ -70,6 +70,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
-## [가격 책정](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [가격](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

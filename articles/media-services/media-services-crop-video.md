@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>미디어 인코더 표준으로 비디오 자르기
@@ -142,9 +143,4 @@ MES에서 자르기는 전처리 단계이므로 인코딩 사전 설정의 자�
 AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azure 미디어 서비스 학습 경로를 참조하세요.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

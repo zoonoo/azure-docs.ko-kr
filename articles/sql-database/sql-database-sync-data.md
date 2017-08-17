@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
@@ -142,13 +142,19 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Database 및 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
+SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [SQL 데이터 동기화 시작](sql-database-get-started-sql-data-sync.md)
+
+-   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
+    -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [전체 SQL 데이터 동기화 기술 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 

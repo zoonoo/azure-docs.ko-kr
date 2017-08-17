@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm의 정의 - Azure HDInsight | Microsoft Docs"
+title: "Apache Storm이란? - Azure HDInsight | Microsoft Docs"
 description: "Apache Storm을 사용하면 데이터 스트림을 실시간으로 처리할 수 있습니다. Azure HDInsight를 사용하면 Azure 클라우드에 Storm 클러스터를 쉽게 만들 수 있습니다. Visual Studio를 사용하면 C#을 사용하여 Storm 솔루션을 만든 다음 HDInsight Storm 클러스터에 배포할 수 있습니다."
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 0d565c29767e778873dad2421c93b62455706f27
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
-[Apache Storm](http://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm 클러스터를 사용하여 Hadoop을 통해 데이터 스트림을 실시간으로 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
+[Apache Storm](http://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 Hadoop에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
 HDInsight의 Storm은 다음과 같은 주요 이점을 제공합니다.
 
@@ -45,13 +44,13 @@ HDInsight의 Storm은 다음과 같은 주요 이점을 제공합니다.
 
 * 다음 Azure 서비스와의 통합:
 
-    * Azure 이벤트 허브
+    * Azure Event Hubs
 
-    * Azure 가상 네트워크
+    * Azure Virtual Network
 
-    * Azure SQL 데이터베이스
+    * Azure SQL Database
 
-    * Azure 저장소
+    * Azure Storage
 
     * Azure Cosmos DB
 
@@ -156,7 +155,7 @@ Python은 Storm 구성 요소를 개발하는 데에도 사용합니다. 자세�
 
 Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 응용 프로그램은 최소한 한 번 처리를 보장할 수 있고 Trident는 정확히 한 번 처리를 보장할 수 있습니다.
 
-자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html) 을 참조하세요.
+자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html)을 참조하세요.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 

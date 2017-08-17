@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 516618653064fd4e334197bba767a013a805260a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 78737c681a91f24f73502a9cc25a301efc9304a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="require-secure-transfer"></a>보안 전송 필요
@@ -50,6 +50,64 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
   ![스크린샷](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+
+## <a name="enable-secure-transfer-required-programmatically"></a>프로그래밍 방식으로 "보안 전송 필요" 사용
+
+설정 이름은 저장소 계정 속성에서 _supportsHttpsTrafficOnly_입니다. REST API, 도구 또는 라이브러리를 사용하여 "보안 전송 필요" 설정을 사용할 수 있습니다.
+
+* **REST API**(버전: 2016-12-01): [릴리스 패키지](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)
+* **PowerShell**(버전: 4.1.0): [릴리스 패키지](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
+* **CLI**(버전: 2.0.11): [릴리스 패키지](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)
+* **NodeJS**(버전: 1.1.0): [릴리스 패키지](https://www.npmjs.com/package/azure-arm-storage/)
+* **.NET SDK**(버전: 6.3.0): [릴리스 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)
+* **Python SDK**(버전: 1.1.0): [릴리스 패키지](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)
+* **Ruby SDK**(버전: 0.11.0): [릴리스 패키지](https://rubygems.org/gems/azure_mgmt_storage)
+
+### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>REST API를 사용하여 "보안 전송 필요" 설정 사용
+
+REST API를 사용하여 테스트를 단순화하기 위해 [ArmClient](https://github.com/projectkudu/ARMClient)를 사용하여 명령줄에서 호출할 수 있습니다.
+
+ 아래 명령줄을 사용하여 REST API로 설정을 확인할 수 있습니다.
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+```
+
+응답에서 _supportsHttpsTrafficOnly_ 설정을 찾을 수 있습니다. 샘플:
+
+```Json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+  "kind": "Storage",
+  ...
+  "properties": {
+    ...
+    "supportsHttpsTrafficOnly": false
+  },
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
+
+아래 명령줄을 사용하여 REST API로 설정을 사용할 수 있습니다.
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
+```
+Input.json의 샘플:
+```Json
+{
+  "location": "westus",
+  "properties": {
+    "supportsHttpsTrafficOnly": true
+  }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 Azure Storage는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.

@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux 컨테이너용 Kubernetes 클러스터 배포
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Kubernetes 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Kubernetes 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다. 
+
+이 문서에서 사용된 응용 프로그램은 Python으로 작성되었습니다. 여기에 상세하게 설명된 개념 및 단계는 Kubernetes 클러스터에 컨테이너 이미지를 배포하는 데 사용할 수 있습니다. 이 프로젝트와 관련된 코드, Dockerfile 및 사전 생성된 Kubernetes 매니페스트 파일은 [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git)에 있습니다.
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ az group create --name myResourceGroup --location eastus
 [az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *myK8sCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다. 
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행 하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 
 
-`azure-vote.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
+`azure-vote.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ Azure Container Service에 대해 자세히 알아보고 배포 예제에 대한
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes 클러스터 관리](./container-service-tutorial-kubernetes-prepare-app.md)
+

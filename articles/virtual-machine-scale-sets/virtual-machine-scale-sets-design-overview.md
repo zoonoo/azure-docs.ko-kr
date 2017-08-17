@@ -1,6 +1,6 @@
 ---
-title: "확장용 Azure 가상 컴퓨터 크기 집합 설계 | Microsoft Docs"
-description: "확장용 Azure 가상 컴퓨터 크기 집합을 설계하는 방법에 대해 알아보기"
+title: "Azure 가상 컴퓨터 확장 집합에 대한 디자인 고려 사항 | Microsoft Docs"
+description: "Azure 가상 컴퓨터 확장 집합에 대한 디자인 고려 사항에 대해 알아보기"
 keywords: "linux 가상 컴퓨터, 가상 컴퓨터 크기 집합"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 88ab6322fed853c73af981a1de4cd2c2f480c959
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-scale-sets-for-scale"></a>확장용 확장 집합 설계
-이 항목은 가상 컴퓨터 크기 집합을 설계할 때 고려할 사항에 대해 논의합니다. 가상 컴퓨터 크기 집합에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
+# <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
+이 항목은 Virtual Machine 크기 집합을 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine 크기 집합에 대한 자세한 내용은 [Virtual Machine 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 컴퓨터 대신 확장 집합을 사용하는 경우
 일반적으로 확장 집합은 유사한 구성을 가진 일련의 컴퓨터로 구성된 고가용성 인프라를 배포하는 데 유용합니다. 그러나 일부 기능은 확장 집합에서만 사용할 수 있고, 다른 일부 기능은 VM에서만 사용할 수 있습니다. 각 기술을 언제 사용할지에 대한 정보를 바탕으로 의사 결정을 내리려면 먼저, 일반적으로 사용되는 기능 중 확장 집합에서는 사용 가능하지만 VM에서는 사용할 수 없는 기능 몇 가지를 살펴보면 됩니다.

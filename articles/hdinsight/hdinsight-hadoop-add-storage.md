@@ -12,20 +12,20 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
-스크립트 동작을 사용하여 추가 Azure Storage 계정을 운영 체제로 Linux를 사용하는 기존 HDInsight 클러스터에 추가하는 방법에 대해 알아봅니다.
+스크립트 동작을 사용하여 추가 Azure 저장소 계정을 HDInsight에 추가하는 방법에 대해 알아봅니다. 이 문서의 단계는 기존 Linux 기반 HDInsight 클러스터에 저장소 계정을 추가합니다.
 
 > [!IMPORTANT]
 > 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 저장소 계정을 추가하는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/26/2017
 
 * core-site.xml 파일에 저장소 계정을 추가합니다.
 
-* Oozie, YARN, MapReduce2 및 HDFS 서비스를 중지하고 다시 시작하여 새 저장소 계정 정보를 선택합니다.
+* Oozie, YARN, MapReduce2 및 HDFS 서비스를 중지하고 다시 시작합니다. 이러한 서비스를 중지하고 시작하면 서비스에서 새 저장소 계정을 사용할 수 있습니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
@@ -65,12 +65,14 @@ __요구 사항__:
 
 ## <a name="to-use-the-script"></a>스크립트 사용
 
-Azure Portal, Azure PowerShell 및 Azure CLI를 통한 스크립트 동작 사용에 대한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정 ](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)문서의 [실행 중인 클러스터에 스크립트 동작 적용] 섹션을 참조하세요.
+Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 사용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조하세요.
 
-사용자 지정 문서에 제공된 정보를 사용할 경우 예제 스크립트 동작 URI를 이 스크립트의 URI(https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)로 바꿉니다. 모든 예제 매개 변수를 Azure 저장소 계정 이름과 클러스터에 추가할 저장소 계정의 키로 바꿉니다.
-
-> [!NOTE]
-> 클러스터의 Ambari 구성을 직접 업데이트하므로 이 스크립트를 __지속형__으로 표시할 필요가 없습니다.
+> [!IMPORTANT]
+> 사용자 지정 문서에 제공된 단계를 사용할 때는 다음 정보를 사용하여 이 스크립트를 적용하세요.
+>
+> * 예제 스크립트 동작 URI를 이 스크립트의 URI(https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)로 바꿉니다.
+> * 모든 예제 매개 변수를 Azure 저장소 계정 이름과 클러스터에 추가할 저장소 계정의 키로 바꿉니다. Azure Portal을 사용하는 경우 이러한 매개 변수는 공백으로 구분되어야 합니다.
+> * 클러스터의 Ambari 구성을 직접 업데이트하므로 이 스크립트를 __지속형__으로 표시할 필요가 없습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -142,7 +144,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 ### <a name="additional-charges"></a>추가 요금
 
-저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 Azure 청구에서 추가 송신 요금이 발생할 수 있습니다. 트래픽이 다른 하위 지역의 또 다른 Azure 데이터 센터로 전송되는 경우에도 데이터가 하위 지역 데이터 센터를 떠날 때 송신 요금이 적용됩니다.
+저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 Azure 청구에서 추가 송신 요금이 발생할 수 있습니다. 데이터가 지역 데이터 센터를 떠날 때 송신 요금이 부과됩니다. 트래픽이 다른 하위 지역의 또 다른 Azure 데이터 센터로 전송되는 경우에도 이 요금이 적용됩니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 지역에서는 저장소 계정을 사용할 수 없습니다.

@@ -11,16 +11,17 @@ keywords: "Docker, 컨테이너, 마이크로 서비스, Kubernetes, DC/OS, Azur
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 5f3fc5f3624cf1ef881adf2af0cb69ad67d09ad3
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -61,7 +62,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="get-azure-container-registry-information"></a>Azure Container Registry 정보 가져오기
 
-컨테이너 레지스트리를 만들면 해당 로그인 서버 및 암호를 쿼리할 수 있습니다. 다음 코드는 이러한 값을 반환합니다. 이 자습서 전체에서 참조되므로 각 값을 기록해 둡니다.
+컨테이너 레지스트리를 만들면 해당 로그인 서버 및 암호를 쿼리할 수 있습니다. 다음 코드는 이러한 값을 반환합니다. 이 자습서 전체에서 참조되므로 로그인 서버 및 암호의 각 값을 기록해 둡니다.
 
 컨테이너 레지스트리 로그인 서버(레지스트리 이름을 업데이트):
 
@@ -74,7 +75,7 @@ az acr show --name <acrName> --query loginServer
 컨테이너 레지스트리 암호:
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 이 자습서의 나머지 부분에서는 컨테이너 레지스트리 암호 값의 자리 표시자로 `<acrPassword>`를 사용합니다.
@@ -91,7 +92,7 @@ docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
 
 ## <a name="tag-container-image"></a>컨테이너 이미지 태그 지정
 
-개인 레지스트리의 컨테이너 이미지를 배포하기 위해 이미지는 레지스트리 `loginServer` 이름으로 태그를 지정해야 합니다.
+개인 레지스트리의 컨테이너 이미지를 배포하려면 이미지는 레지스트리 `loginServer` 이름으로 태그를 지정해야 합니다.
 
 현재 이미지 목록을 보려면 `docker images` 명령을 사용합니다.
 
@@ -179,3 +180,4 @@ Azure Container Instances를 사용하여 컨테이너를 Azure에 배포하는 
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances에 컨테이너 배포](./container-instances-tutorial-deploy-app.md)
+

@@ -47,6 +47,9 @@
 ### [Azure Portal 환경 미리 보기 사용](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
 
+# 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -56,5 +59,6 @@
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

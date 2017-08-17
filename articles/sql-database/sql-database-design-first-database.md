@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>첫 번째 Azure SQL Database 디자인
 
-Azure SQL Database는 Microsoft 클라우드("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
+Azure SQL Database는 Microsoft Cloud("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터베이스 만들기
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 - 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 설치합니다.
-- 최신 버전의 [BCP 및 SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433]
+- 최신 버전의 [BCP 및 SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
-## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
@@ -135,7 +135,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 SQL Server Management Studio를 사용하는 서버에 연결합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
 

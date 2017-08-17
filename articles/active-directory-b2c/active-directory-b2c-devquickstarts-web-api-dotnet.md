@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7610ae44d8c9b828fb46333b143d7b1f6dc915eb
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
@@ -36,9 +36,9 @@ Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에
 
 1. [Azure AD B2C 테넌트를 만듭니다](active-directory-b2c-get-started.md).
 2. [웹 API를 등록합니다](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [정책을 설정합니다](active-directory-b2c-reference-policies.md).
-5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > 클라이언트 응용 프로그램 및 웹 API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.

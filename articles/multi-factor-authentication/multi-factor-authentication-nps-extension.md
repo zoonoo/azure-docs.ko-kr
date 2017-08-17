@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/24/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1615f1ebbc4ade9dddbab3bd964bc27e6150a4c5
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
@@ -107,7 +107,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 어떤 인증 방법을 NPS 확장 배포와 함께 사용할 수 있는지에 영향을 미치는 두 가지 요소가 있습니다.
 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
-   - **PAP**는 클라우드에서 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
+   - **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 2. 클라이언트 응용 프로그램(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
@@ -158,11 +158,14 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure 포털에서 복사한 디렉터리 ID GUID를 사용합니다.
+4. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure Portal에서 복사한 디렉터리 ID GUID를 사용합니다.
 5. 관리자 권한으로 Azure AD에 로그인합니다.
 6. PowerShell은 스크립트가 완료되면 성공 메시지를 표시합니다.  
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
+
+>[!NOTE]
+>PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -173,7 +176,7 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드의 MFA 세부 정보를 채워야 합니다.  
 - NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 AD 필드와 같은 다른 식별자를 사용하도록 구성될 수 없습니다.  
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
-   - **PAP**는 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
+   - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 
 ### <a name="control-radius-clients-that-require-mfa"></a>MFA가 필요한 RADIUS 클라이언트 제어

@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 07/02/2017
 ms.author: kgremban
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: dc49397f76f982cc7d35bbe3e073cb828a4965c6
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/09/2017
 응용 프로그램 프록시 서비스를 사용하도록 설정하고 사용하려면 다음이 필요합니다.
 
 * 사용자가 전역 관리자인 [Microsoft Azure AD 기본 또는 프리미엄 구독](active-directory-editions.md) 및 Azure AD 디렉터리입니다.
-* 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 Windows 2016 이상을 실행하는 서버 이 서버는 클라우드의 응용 프로그램 프록시 서비스에 요청을 보내고 게시 중인 응용 프로그램에 대한 HTTP 및 HTTPS 연결이 필요합니다.
+* 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 2016을 실행하는 서버입니다. 이 서버는 클라우드의 응용 프로그램 프록시 서비스에 요청을 보내고 게시 중인 응용 프로그램에 대한 HTTP 및 HTTPS 연결이 필요합니다.
   * 게시된 응용 프로그램에 대한 Single Sign-On의 경우 이 컴퓨터는 게시하는 응용 프로그램과 동일한 AD 도메인에 가입되어야 합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하는 Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)을 참조하세요.
 * 조직에서 프록시 서버를 사용하여 인터넷에 연결하려면 구성하는 방법에 대한 세부 내용은 [기존 온-프레미스 프록시 서버로 작업](application-proxy-working-with-proxy-servers.md)을 읽어보세요.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 06/09/2017
 
 Azure AD 응용 프로그램 프록시를 위한 환경을 준비하려면 먼저 Azure 데이터 센터와 통신할 수 있어야 합니다. 방화벽이 경로에 있는 경우 커넥터가 응용 프로그램 프록시에 HTTPS(TCP) 요청을 할 수 있도록 방화벽이 열려 있는지 확인합니다.
 
-1. **아웃바운드** 트래픽에 대해 다음 포트가 열립니다.
+1. **아웃바운드** 트래픽에 대한 다음 포트를 엽니다.
 
    | 포트 번호 | 사용 방법 |
    | --- | --- |
@@ -76,13 +76,13 @@ Azure AD 응용 프로그램 프록시를 위한 환경을 준비하려면 먼�
 
    * Azure AD 전역 관리자 자격 증명을 제공합니다. 전역 관리자 테넌트는 Microsoft Azure 자격 증명과 다를 수 있습니다.
    * 커넥터를 등록하는 관리자가 응용 프로그램 프록시 서비스를 사용할 수 있는 동일한 디렉터리에 있는지 확인합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 별칭이어야 합니다.
-   * 커넥터를 설치하는 서버에 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 차단될 수 있습니다. 오류 메시지의 지침에 따라 액세스를 허용합니다. Internet Explorer 보안 강화가 해제되어 있는지 확인하세요.
+   * 서버에서 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 차단될 수 있습니다. 액세스를 허용하려면 오류 메시지의 지침에 따릅니다. Internet Explorer 보안 강화가 해제되어 있는지 확인하세요.
    * 커넥터 등록에 실패한 경우 [응용 프로그램 프록시 문제 해결](active-directory-application-proxy-troubleshoot.md)을 참조하세요.  
 4. 설치가 완료되면 두 개의 새 서비스가 서버에 추가됩니다.
 
    * **Microsoft AAD 응용 프로그램 프록시 커넥터** 에서 연결 사용
 
-     * **Microsoft AAD 응용 프로그램 프록시 커넥터 업데이터** 는 정기적으로 커넥터의 새 버전을 확인하고 필요에 따라 커넥터를 업데이트하는 자동화된 업데이트 서비스입니다.
+     * **Microsoft AAD 응용 프로그램 프록시 커넥터 업데이터**는 자동화된 업데이트 서비스입니다. 이 서비스는 주기적으로 새 버전의 커넥터가 있는지 확인하고 필요에 따라 커넥터를 업데이트합니다.
 
      ![앱 프록시 커넥터 서비스 - 스크린샷](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. 설치 창에서 **마침** 을 클릭합니다.

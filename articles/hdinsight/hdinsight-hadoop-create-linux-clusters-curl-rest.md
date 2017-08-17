@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 08/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Hadoop 클러스터 만들기

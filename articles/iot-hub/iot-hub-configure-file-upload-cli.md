@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8b16f163b20a4dd31857838ddafcc7ba36ac9817
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e2cd7eae50006717dfc0da358436ae3553a81d00
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/21/2017
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
 * [Azure CLI 2.0][lnk-CLI-install].
 * Azure IoT Hub - IoT Hub가 없는 경우 `az iot hub create` [명령][lnk-cli-create-iothub]을 사용하여 IoT Hub를 만들거나, 포털을 사용하여 [IoT Hub를 만들][lnk-portal-hub] 수 있습니다.
-* Azure 저장소 계정. Azure Storage 계정이 없는 경우 [Azure CLI 2.0 - 저장소 계정 관리][lnk-manage-storage]를 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들][lnk-portal-storage] 수 있습니다.
+* Azure Storage 계정. Azure Storage 계정이 없는 경우 [Azure CLI 2.0 - 저장소 계정 관리][lnk-manage-storage]를 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들][lnk-portal-storage] 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
@@ -63,7 +63,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
 다음 단계에서는 **클래식** 배포 모델이 아니라 **Resource Manager** 배포 모델을 사용하여 저장소 계정을 만들었다고 가정합니다.
 
-장치에서 파일 업로드를 구성하려면 IoT Hub와 동일한 구독에 Azure 저장소 계정의 연결 문자열이 필요합니다. 또한 저장소 계정에 Blob 컨테이너의 이름도 필요합니다. 다음 명령을 사용하여 저장소 계정 키를 검색합니다.
+장치에서 파일 업로드를 구성하려면 Azure 저장소 계정에 대한 연결 문자열이 필요합니다. 저장소 계정은 IoT Hub와 동일한 구독 내에 있어야 합니다. 또한 저장소 계정에 Blob 컨테이너의 이름도 필요합니다. 다음 명령을 사용하여 저장소 계정 키를 검색합니다.
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
@@ -135,7 +135,7 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 IoT Hub 개발자 가이드의 [장치에서 파일 업로드][lnk-upload]를 참조하세요.
+IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 [장치에서 파일 업로드][lnk-upload]를 참조하세요.
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 

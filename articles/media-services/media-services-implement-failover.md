@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 장애 조치 스트리밍 구현
@@ -458,7 +458,6 @@ ms.lasthandoff: 03/15/2017
             var targetContainer = targetBlobClient.GetContainerReference(targetContainerName);
             targetContainer.CreateIfNotExists();
 
-
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
                 // Specify the expiration time for the signature.
@@ -466,7 +465,6 @@ ms.lasthandoff: 03/15/2017
                 // Specify the permissions granted by the signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
-
 
             foreach (var sourceBlob in sourceContainer.ListBlobs())
             {
@@ -941,7 +939,6 @@ ms.lasthandoff: 03/15/2017
             }
             return request;
         }
-
 
 ## <a name="next-steps"></a>다음 단계
 이제 두 데이터 센터 간의 경로 요청에 Traffic Manager를 사용하면 중단된 경우 장애 조치할 수 있습니다.

@@ -17,6 +17,9 @@
 ### [실제 장치 사용](iot-hub-get-started-physical.md)
 #### [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Python을 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-python-get-started.md)
+
+#### [Visual Studio Code를 사용하는 IoT DevKit](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Node.js를 사용하는 Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
 #### [C를 사용하는 Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +87,7 @@
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +107,7 @@
 ### 작업 예약 및 브로드캐스트
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## 관리
 ### IoT Hub 만들기 
 #### [포털 사용](iot-hub-create-through-portal.md)
@@ -150,6 +155,7 @@
 #### [네이티브 모듈 호스트](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
@@ -179,7 +185,8 @@
 ## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [가격](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [기술 사례 연구](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

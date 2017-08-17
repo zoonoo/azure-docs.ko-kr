@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 13811996654a238fd28d17547eacbdf74c932e9f
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
@@ -72,7 +71,7 @@ ms.lasthandoff: 06/17/2017
 동적 라우팅 게이트웨이를 사용한 사이트 간 VPN이 이미 있으면 좋습니다. [가상 네트워크 구성 설정 내보내기](#export)로 진행할 수 있습니다. 아직 만들지 않은 경우는 아래 작업을 수행합니다.
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>사이트 간 가상 네트워크가 이미 있지만 정적(정책 기반) 라우팅 게이트웨이가 있는 경우:
-1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다. 자세한 내용은 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.  
+1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다. 자세한 내용은 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.  
 2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 자세한 내용은 [Azure 클래식 포털에서 VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요. 먼저, 게이트웨이 유형을 동적 라우팅으로 변경합니다.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:

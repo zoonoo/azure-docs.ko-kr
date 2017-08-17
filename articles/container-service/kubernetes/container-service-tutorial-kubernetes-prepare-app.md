@@ -11,11 +11,12 @@ keywords: "Docker, 컨테이너, 마이크로 서비스, Kubernetes, DC/OS, Azur
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 851ce819b9a1a0d917981223cc54e959b3306709
@@ -98,7 +99,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-http://localhost:8080으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
+http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 

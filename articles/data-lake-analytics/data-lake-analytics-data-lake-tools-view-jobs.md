@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기 사용
@@ -31,7 +30,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 [쿼리 저장소](#q
 [Data Lake Tools for Visual Studio 필수 구성 요소](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)를 참조하세요.
 
 ## <a name="open-the-job-browser"></a>작업 브라우저 열기
-작업 브라우저는 Visual Studio에서 **서버 탐색기>Azure>Data Lake Analytics>작업**을 통해 액세스할 수 있습니다.  브라우저를 사용하여 Data Lake Analytics 계정의 쿼리 저장소에 액세스할 수 있습니다. 작업 브라우저에서 왼쪽 쿼리 저장소에는 작업에 대한 기본 정보가 표시되고 오른쪽 작업 보기에는 작업에 대한 세부 정보가 표시됩니다.
+작업 브라우저는 Visual Studio에서 **서버 탐색기>Azure>Data Lake Analytics>작업**을 통해 액세스합니다.  작업 브라우저를 사용하여 Data Lake Analytics 계정의 쿼리 저장소에 액세스할 수 있습니다. 작업 브라우저의 왼쪽 쿼리 저장소에는 기본 작업 정보가 표시되고 오른쪽 작업 보기에는 세부적인 작업 정보가 표시됩니다.
 
 ## <a name="job-view"></a>작업 보기
 작업 보기에는 작업에 대한 세부 정보가 표시됩니다. 작업을 열려면 작업 브라우저에서 작업을 두 번 클릭하거나 Data Lake에서 작업 보기를 클릭하여 엽니다. 작업 URL이 표시된 대화 상자가 나타납니다.

@@ -215,6 +215,7 @@
 ### [재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell(리소스 관리자)](/powershell/module/azurerm.media)
 ## [PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -223,6 +224,7 @@
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
+## [가격](https://azure.microsoft.com/pricing/details/media-services/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](media-services-release-notes.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)

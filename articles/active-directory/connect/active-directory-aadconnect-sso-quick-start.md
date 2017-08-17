@@ -12,28 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
+## <a name="how-to-deploy-seamless-sso"></a>Seamless SSO를 배포하는 방법
+
 Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
 
-## <a name="how-to-deploy-azure-ad-seamless-sso"></a>Azure AD Seamless SSO를 배포하는 방법
+>[!IMPORTANT]
+>Seamless SSO 기능은 현재 미리 보기로 제공됩니다.
 
 Seamless SSO를 배포하려면 다음 단계를 수행해야 합니다.
-1. *필수 조건 확인*: 이 기능을 활성화하기 전에 테넌트 및 온-프레미스 환경을 올바르게 설정합니다.
-2. *기능 활성화*: Azure AD Connect를 사용하여 테넌트의 Seamless SSO를 사용하도록 설정합니다.
-3. *기능 배포*: 그룹 정책을 사용하여 일부 또는 모든 사용자에게 기능을 배포합니다.
-4. *기능 테스트*: Seamless SSO를 사용하여 사용자 로그인을 테스트합니다.
-5. *키 롤오버*: 컴퓨터 계정의 Kerberos 암호 해독 키를 자주 롤오버합니다.
 
 ## <a name="step-1-check-prerequisites"></a>1단계: 필수 조건 확인
 
@@ -63,6 +61,15 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 "�
 
 >[!NOTE]
 > 도메인 관리자 자격 증명은 Azure AD Connect 또는 Azure AD에 저장되지는 않지만 이 기능을 사용하도록 설정하는 데에만 사용됩니다.
+
+다음 지침에 따라 Seamless SSO를 올바르게 설정했는지 확인합니다.
+
+1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+2. 왼쪽 탐색에서 **Azure Active Directory**를 선택합니다.
+3. **Azure AD Connect**를 선택합니다.
+4. **Seamless Single Sign-on** 기능이 **설정**으로 표시되는지 확인합니다.
+
+![Azure Portal - Azure AD Connect 블레이드](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
@@ -118,6 +125,9 @@ Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google 크롬의 경우 통�
 #### <a name="known-limitations"></a>알려진 제한 사항
 
 Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
+
+>[!IMPORTANT]
+>최근 고객이 신고한 문제를 조사하기 위해 에지에 대한 지원을 롤백했습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
