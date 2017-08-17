@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 05/17/2017
 몇 가지 프로필 요소는 가상 컴퓨터 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
 - [크기](sizes.md)
-- [이름](../linux/infrastructure-naming-guidelines.md) 및 자격 증명
+- [이름](/architecture/best-practices/naming-conventions) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
 - [네트워크 인터페이스](../../virtual-network/virtual-networks-multiple-nics.md) 
 - 부트 진단
