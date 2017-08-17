@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 컴퓨터 개요
@@ -38,7 +38,7 @@ Azure 가상 컴퓨터는 다양한 방식으로 사용할 수 있습니다. 일
 응용 프로그램에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 응용 프로그램 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -49,7 +49,7 @@ Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나
 * VM에 필요한 관련 리소스
 
 ### <a name="naming"></a>이름 지정
-가상 컴퓨터에는 할당된 [이름](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
+가상 컴퓨터에는 할당된 [이름](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
 
 Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 컴퓨터 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-generalized-managed.md) 이 이미지를 사용하여 가상 컴퓨터를 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 컴퓨터 이름을 동일하게 지정하는 것이 좋습니다.
 
@@ -106,7 +106,7 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
-| [데이터 디스크](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
+| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
 VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속해 있는 환경에 따라 달라집니다. 
@@ -142,7 +142,7 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 ### <a name="manage-availability"></a>가용성 관리
 응용 프로그램의 [높은 가용성을 보장](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
-99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ### <a name="back-up-the-vm"></a>VM 백업
 [Recovery Services 자격 증명 모음](../../backup/backup-introduction-to-azure-backup.md)은 Azure Backup 및 Azure Site Recovery 서비스 모두에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하면 [PowerShell을 통해 Resource Manager 배포 VM에 대한 백업을 배포하고 관리할 수 있습니다](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 ## <a name="next-steps"></a>다음 단계
 * Linux VM으로 작업할 계획이면 [Azure 및 Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 살펴봅니다.
 * [Azure 인프라 연습 예제](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 인프라를 설정하는 관련 지침에 대해 알아봅니다.
-* [Azure에서 Windows VM 실행에 대한 모범 사례](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 따릅니다.
-
-

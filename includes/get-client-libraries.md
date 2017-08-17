@@ -1,8 +1,8 @@
 ### <a name="install-via-composer"></a>작성기를 통해 설치
-1. [Git 설치][install-git]. Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다. 
+1. [Git를 설치합니다][install-git]. Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다. 
 2. 프로젝트 루트에 **composer.json** 이라는 파일을 만들고 다음 코드를 추가합니다.
    
-    ```
+    ```json
     {
       "require": {
         "microsoft/windowsazure": "^0.4"

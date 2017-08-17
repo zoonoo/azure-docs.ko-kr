@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
@@ -61,7 +61,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     그래프 ID|sample-graph|새 그래프에 대한 ID입니다. 그래프 이름은 데이터베이스 ID와 동일한 문자 요구 사항을 갖습니다.
     저장소 용량| 10 GB|기본값을 그대로 둡니다. 데이터베이스의 저장소 용량입니다.
     처리량|400RU|기본값을 그대로 둡니다. 대기 시간을 단축하려면 나중에 처리량을 증가시킬 수 있습니다.
-    RU/m|꺼짐|기본값을 그대로 둡니다. 나중에 까다로운 워크로드를 처리해야 할 때 [RU/m](request-units-per-minute.md) 기능을 켜도 됩니다.
+    RU/m|꺼짐|기본값을 그대로 둡니다.
     파티션 키|비워 둠|이 빠른 시작의 목적으로 파티션 키를 비워 둡니다.
 
 3. 양식을 작성한 후 **확인**을 클릭합니다.
