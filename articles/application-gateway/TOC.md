@@ -7,6 +7,7 @@
 ## [URL 라우팅](application-gateway-url-route-overview.md)
 ## [다중 사이트](application-gateway-multi-site-overview.md)
 ## [종단 간 SSL](application-gateway-backend-ssl.md)
+## [SSL 정책](application-gateway-ssl-policy-overview.md)
 ## [리디렉션](application-gateway-redirect-overview.md)
 ## [다중 테넌트 지원](application-gateway-web-app-overview.md)
 ## [Websocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## 웹 응용 프로그램 방화벽 규칙 사용자 지정
 ### [포털](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## SSL 오프로드 구성
+## SSL 구성
 ### [포털](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell(클래식)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [정책 및 종단 간](application-gateway-end-to-end-ssl-powershell.md)
+### [종단 간](application-gateway-end-to-end-ssl-powershell.md)
+### [SSL 정책](application-gateway-configure-ssl-policy-powershell.md)
 ## URL 경로 기반 라우팅 구성
 ### [포털](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

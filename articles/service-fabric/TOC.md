@@ -133,11 +133,12 @@
 ### 컨테이너 서비스 빌드
 #### [Windows 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers.md)
 #### [Linux 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)
-#### [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
+#### [컨테이너 보안](service-fabric-securing-containers.md)
 #### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 #### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
 #### [볼륨 및 로깅 드라이버](service-fabric-containers-volume-logging-drivers.md)
 #### [컨테이너 내 서비스](service-fabric-services-inside-containers.md)
+#### [컨테이너 네트워킹 모드](service-fabric-networking-modes.md)
 
 ### Reliable Services 서비스 빌드
 #### [개요](service-fabric-reliable-services-introduction.md)

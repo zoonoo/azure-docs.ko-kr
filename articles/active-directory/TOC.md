@@ -9,6 +9,7 @@
 # 시작
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
+## [회사 브랜딩 구성](customize-branding.md)
 ## [셀프 서비스 암호 재설정 구성](active-directory-passwords-getting-started.md)
 ## Azure AD 라이선스 관리
 ### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## 장치 관리
+### [소개](device-management-introduction.md)
 ### [장치 등록](active-directory-device-registration-overview.md)
 #### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### 도메인 이름 관리
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [클래식 포털](active-directory-add-manage-domain-names.md)
-### 로그인 페이지 사용자 지정
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [언어별](active-directory-branding-localize-azure-portal.md)
-#### [클래식 포털](active-directory-add-company-branding.md)
 ### [디렉터리 관리](active-directory-administer.md)
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
 ### [O365 디렉터리](active-directory-manage-o365-subscription.md)

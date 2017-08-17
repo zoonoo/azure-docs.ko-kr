@@ -33,12 +33,13 @@
 # 가이드
 ## [응용 프로그램 등록](active-directory-integrating-applications.md)
 ## [다중 테넌트 앱](active-directory-devhowto-multi-tenant-overview.md)
+## [조건부 액세스](active-directory-conditional-access-developer.md)
 ## OAuth 및 OpenID Connect
 ### [OpenID Connect 프로토콜](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 인증 코드 부여](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 암시적 허용](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [클레임 사용자 지정](active-directory-saml-claims-customization.md)
+### [차트 사용자 지정](active-directory-saml-claims-customization.md)
 ### [SAML 기반 SSO 디버그](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML 프로토콜](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML 프로토콜](active-directory-single-sign-out-protocol-reference.md)
@@ -78,7 +79,7 @@
 ### [앱 및 Azure AD](active-directory-how-applications-are-added.md)
 ## [응용 프로그램 매니페스트](active-directory-application-manifest.md)
 ## [토큰 수명](../active-directory-configurable-token-lifetimes.md)
-## [서비스 제한](../active-directory-service-limits-restrictions.md)
+## [서비스 한도](../active-directory-service-limits-restrictions.md)
 # v2.0 끝점
 ## [개요](active-directory-appmodel-v2-overview.md)
 ### [앱 형식](active-directory-v2-flows.md)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows 데스크톱 .NET](guidedsetups/active-directory-windesktop.md)
 ### 웹 앱
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET 웹 서버](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS 웹앱](active-directory-v2-devquickstarts-node-web.md)
 ## 가이드
