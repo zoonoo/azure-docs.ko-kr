@@ -28,19 +28,8 @@
 필요한 경우 다른 구성 요소의 추가 포트를 엽니다. 자세한 내용은 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](http://msdn.microsoft.com/library/cc646023.aspx)을 참조하십시오.
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>TCP 프로토콜을 수신 대기하도록 SQL Server 구성
-1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자** 를 입력하고 ENTER 키를 누릅니다.
-   
-    ![SSCM 열기](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. SQL Server 구성 관리자의 콘솔 창에서 **SQL Server 네트워크 구성**을 확장합니다.
-3. 콘솔 창에서 **MSSQLSERVER용 프로토콜**(기본 인스턴스 이름)을 클릭합니다. 세부 정보 창에서 **TCP**를 마우스 오른쪽 단추로 클릭하고 아직 사용으로 설정하지 않은 경우 **사용**을 클릭합니다.
-   
-    ![TCP 사용](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. 콘솔 창에서 **SQL Server 서비스** 를 클릭합니다. 세부 정보 창에서 **SQL Server(*인스턴스 이름*)**(기본 인스턴스는 **SQL Server(MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
-   
-    ![데이터베이스 엔진 다시 시작](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. SQL Server 구성 관리자를 닫습니다.
 
-SQL Server 데이터베이스 엔진용 프로토콜 사용 설정에 대한 자세한 내용은 [서버 네트워크 프로토콜 설정 또는 해제](http://msdn.microsoft.com/library/ms191294.aspx)를 참조하십시오.
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>혼합 모드 인증을 위해 SQL Server 구성
 SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다.

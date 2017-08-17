@@ -92,8 +92,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 최근 Azure는 [Azure 리소스 관리](../articles/resource-manager-deployment-model.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../articles/resource-group-authoring-templates.md) 으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
 * [Azure Portal의 템플릿](https://github.com/Azure/azure-quickstart-templates)&mdash;(힌트: "DeployToAzure" 버튼을 사용하세요.)
-* [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure PowerShell 모듈](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>전체 Azure VM 및 컨테이너 그룹의 배포 및 관리
 몇몇 인기 시스템에서는 전체 Azure VM 그룹을 배포하고 거기에 Docker 또는 기타 Linux 컨테이너 호스트 시스템을 자동화 가능한 그룹으로 설치할 수 있습니다. 바로 가기 링크는 아래의 [컨테이너 및 도구](#containers-and-vm-technologies) 섹션에서 확인하시기 바랍니다. 이러한 작업이 가능한 시스템은 성능 수준 면에서 다양하며 여기에 소개된 목록이 전부가 아닙니다. 또한 이 시스템들은 사용자의 기술과 시나리오에 따라 유용할 수도, 유용하지 않을 수도 있습니다.
@@ -104,7 +103,7 @@ Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) 역시 Google의 경험에 기반하여 탄생한 VM 및 컨테이너 그룹 관리용 공개 소스 시스템입니다. [kubernetes는 Weave와 함께 사용하여 네트워킹 지원](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)에 사용할 수도 있습니다.
 
-[Deis](http://deis.com/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다. [3개 노드의 Azure VM 그룹을 간단하게 만들어 Deis를](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure에 설치한 후 [Hello World Go 응용 프로그램을 설치](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application)할 수 있습니다.
+[Deis](http://deis.io/overview/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다.
 
 Linux에서 배포한 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](https://coreos.com/fleet/docs/latest/)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
 
@@ -163,9 +162,6 @@ Linux 배포 도구 및 Azure 예시:
 
 * [CoreOS의 Fleet](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [3개 노드의 Azure VM 그룹 생성, Azure에 Deis 설치, Hello World Go 응용 프로그램 설치 시작](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* kubernetes
 
   * [CoreOS 및 Weave로 자동화된 Kubernetes 클러스터에 대한 완벽한 가이드](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
