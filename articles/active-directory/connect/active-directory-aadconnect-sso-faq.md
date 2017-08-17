@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bd50e622773c091b3dc4dbd683a6441128c95144
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 518b2719f24be96dffba3458f6c15e65f16b7e0d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -26,13 +26,16 @@ ms.lasthandoff: 07/25/2017
 
 이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On)에 대한 질문과 대답을 다룹니다. 새로운 내용을 계속 확인해 주세요.
 
+>[!IMPORTANT]
+>Seamless SSO 기능은 현재 미리 보기로 제공됩니다.
+
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Seamless SSO에서 사용되는 로그인 방법은 무엇인가요?
 
 Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md) 또는 [통과 인증](active-directory-aadconnect-pass-through-authentication.md) 로그인 방법과 결합할 수 있습니다. 그러나 AD FS(Active Directory Federation Services)에는 이 기능을 사용할 수 없습니다.
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Seamless SSO는 평가판 체험 기능인가요?
 
-평가판 체험 기능이며, Azure AD 유료 버전으로 이 기능을 사용할 필요가 없습니다. 이 기능을 일반적으로 공급할 때에도 추가 비용 없이 제공될 것입니다.
+평가판 체험 기능이며, Azure AD 유료 버전으로 이 기능을 사용할 필요가 없습니다. 이 기능은 일반 공급될 때도 추가 비용 없이 제공될 것입니다.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
 
@@ -40,7 +43,7 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Seamless SSO에서는 사용자 이름으로 `userPrincipalName` 대신 `Alternate ID`를 지원하는가요?
 
-예. Seamless SSO는 [여기서](active-directory-aadconnect-get-started-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 해당 응용 프로그램의 설명서를 참조하세요.
+예. Seamless SSO는 [여기서](active-directory-aadconnect-get-started-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 응용 프로그램의 설명서를 참조하세요.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>AD FS를 사용하지 않고 비Windows 10 장치를 Azure AD에 등록하려고 합니다. Seamless SSO를 대신 사용할 수 있나요?
 

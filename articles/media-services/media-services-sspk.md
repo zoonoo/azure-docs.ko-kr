@@ -12,19 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 08/09/2017
 ms.author: xpouyat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: bb14f94ee2b51c8b1c8eb4754ead670d7f82689f
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 12c6bdf6986d57f20df9ce84a8b12a5e4c93b6ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
 ## <a name="overview"></a>개요
-Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK** )는 임베디드 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 가변 스트리밍 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 장치 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 장치 및 플랫폼 독립적인 구현입니다. 
+Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 임베디드 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 가변 스트리밍 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 장치 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 장치 및 플랫폼 독립적인 구현입니다. 
 
 아래 내용은 상위 수준의 아키텍처를 보여주며 IIS 부드러운 스트리밍 이식 키트 상자는 Microsoft에서 제공하는 부드러운 스트리밍 클라이언트 구현으로, 부드러운 스트리밍 콘텐츠 재생을 위한 모든 핵심 논리를 포함합니다. 그런 다음 파트너는 적절한 인터페이스를 구현하며 특정 장치 또는 플랫폼에 맞게 이식합니다. 
 
@@ -106,6 +105,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -130,6 +130,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
@@ -151,6 +152,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.
@@ -158,7 +160,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * ZTE Corporation
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

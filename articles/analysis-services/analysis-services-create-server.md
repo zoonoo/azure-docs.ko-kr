@@ -15,22 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/14/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 458459e9bed5ebee6188b5f282e66df1e2a988a8
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Azure Portal에서 Azure Analysis Services 서버 만들기
 이 문서에서는 Azure 구독에서 Analysis Services 서버 리소스를 만드는 과정을 안내합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-시작하려면 다음이 필요합니다.
+이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
-* **Azure Active Directory**: 구독이 Azure Active Directory와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. Microsoft 계정은 지원되지 않습니다. 자세한 내용은 [사용자 인증](analysis-services-overview.md#secure)을 참조하세요.
+* **Azure Active Directory**: 구독이 Azure Active Directory와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. Microsoft 계정은 지원되지 않습니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 * **리소스 그룹**: 기존 리소스 그룹을 사용하거나 [새 리소스 그룹을 만듭니다](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
@@ -39,7 +38,7 @@ ms.lasthandoff: 06/17/2017
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Azure Portal에서 서버를 만들려면
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 2. **+새로 만들기** > **데이터 + 분석** > **Analysis Services**를 클릭합니다.
 3. **Analysis Services** 블레이드에서 필수 필드를 입력한 다음 **만들기**를 누릅니다.
    

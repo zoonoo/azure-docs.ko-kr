@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 1eef8d38e33f80880d54ce6019eb837b82aba341
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9bc70ec9e271a8e0b34ed415e27cd350390b21d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -42,6 +42,10 @@ Managed Disks를 사용하면 구독에 VM **디스크**를 10,000개까지 만�
 
 Managed Disks는 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 이 기능은 디스크를 다른 저장소 배율 단위(스탬프)에 자동으로 배치하여 구현됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 응용 프로그램을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 응용 프로그램 인스턴스가 계속해서 실행됩니다.
 
+### <a name="highly-durable-and-available"></a>뛰어난 내구성 및 가용성
+
+Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 복제본을 3개 만들어 내구성이 뛰어나므로 데이터에 대해 안심하셔도 됩니다. 즉, 하나 또는 두 개의 복제본에서 문제가 발생하는 경우 나머지 복제본을 사용하면 데이터의 지속성과 우수한 내결함성을 확보할 수 있습니다. 이러한 아키텍처를 통해 Azure는 IaaS 디스크에 엔터프라이즈급 내구성을 지속적으로 제공할 뿐만 아니라 연간 실패율 0%로 업계 최고를 자랑합니다. 
+
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
 [Azure 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-what-is.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
@@ -52,7 +56,6 @@ Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
 Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
-
 * 저장소 유형
 
 * 디스크 크기
@@ -88,7 +91,12 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
-**Managed Disk 스냅숏(전체 디스크 복사)**: 관리 스냅숏은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
+Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조하세요.
+
+
+## <a name="managed-disk-snapshots"></a>관리 디스크 스냅숏
+
+관리 스냅숏은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 Managed Disks를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
 
 [증분 스냅숏](storage-incremental-snapshots.md)은 현재 Managed Disks에 지원되지 않지만 나중에 지원될 예정입니다.
 
@@ -97,8 +105,6 @@ Managed Disks를 사용하여 스냅숏을 만드는 방법에 대해 자세히 
 * [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
-Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조하세요.
 
 ## <a name="images"></a>이미지
 
@@ -127,7 +133,7 @@ Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다.
 
 ### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)
 
-Azure Disk Encryption을 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 여기에 Managed Disks가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure 키 자격 증명 모음과 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 참조하세요.
+Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 여기에 Managed Disks가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

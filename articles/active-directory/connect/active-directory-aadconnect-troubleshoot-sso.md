@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,14 +29,23 @@ ms.lasthandoff: 07/25/2017
 ## <a name="known-issues"></a>알려진 문제
 
 - 30개 이상의 AD 포리스트를 동기화하면 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)하여 해결할 수 있습니다.
-- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net)을 추가하면 사용자가 로그인 할 수 없습니다.
-- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
+- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net)을 추가하면 **사용자가 로그인 할 수 없습니다**.
+- Firefox 및 Edge의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 Internet Explorer에서 향상된 보호 모드가 켜져 있을 때도 마찬가지입니다.
+
+>[!IMPORTANT]
+>최근 고객이 신고한 문제를 조사하기 위해 에지에 대한 지원을 롤백했습니다.
+
+## <a name="check-status-of-the-feature"></a>기능의 상태 확인
+
+테넌트에서 Seamless SSO 기능이 여전히 **활성화**되어 있는지 확인합니다. [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)의 **Azure AD Connect** 블레이드로 이동하여 상태를 확인할 수 있습니다.
+
+![Azure Active Directory 관리 센터 - Azure AD Connect 블레이드](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유
 
 Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 살펴보는 것이 좋습니다.
 
-![로그인 보고서](./media/active-directory-aadconnect-sso/sso9.png)
+![Azure Active Directory 관리 센터 - 로그인 보고서](./media/active-directory-aadconnect-sso/sso9.png)
 
 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 **Azure Active Directory** -> **로그인**으로 차례로 이동하고 특정 사용자의 로그인 활동을 클릭합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
@@ -81,7 +90,7 @@ Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azur
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Azure AD Seamless SSO의 수동 다시 설정
+## <a name="manual-reset-of-the-feature"></a>기능의 수동 다시 설정
 
 문제 해결이 도움이 되지 않으면 테넌트에서 해당 기능을 수동으로 다시 설정할 수 있습니다. Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 따릅니다.
 

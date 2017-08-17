@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/21/2017
 |$schema|아니요|정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 지정합니다. 정의를 외부에서 참조할 때 이 위치가 필요합니다. 이 문서에서 위치는 다음과 같습니다. <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|아니요|정의 버전을 지정합니다. 정의를 사용하여 워크플로를 배포할 때 이 값을 사용하여 올바른 정의가 사용되는지 확인할 수 있습니다.|  
 |매개 변수|아니요|정의에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다.|  
-|트리거|아니요|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 250개의 트리거를 정의할 수 있습니다.|  
+|트리거|아니요|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 10개의 트리거를 정의할 수 있습니다.|  
 |actions|아니요|흐름이 실행될 때 수행할 작업을 지정합니다. 최대 250개의 작업을 정의할 수 있습니다.|  
 |outputs|아니요|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
   

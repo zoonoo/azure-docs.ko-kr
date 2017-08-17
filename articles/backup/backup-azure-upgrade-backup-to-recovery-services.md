@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/02/2017
-ms.author: markgal;arunak
+ms.date: 08/03/2017
+ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: cf5a7c1ac323a33c5f6985fb25b5b005ae06657c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
@@ -108,11 +108,11 @@ Recovery Services 자격 증명 모음은 백업 정책에서 표준 시간대 �
 
 Recovery Services 자격 증명 모음에 백업 자격 증명 모음을 업그레이드할 때 해당 자격 증명 모음에 대한 보안 설정은 자동으로 켜집니다. 보안 설정이 켜지면 백업 삭제 또는 암호 변경과 같은 특정 작업에는 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN이 필요합니다. 향상된 보안에 대한 자세한 내용은 [하이브리드 백업을 보호하는 보안 기능](backup-azure-security-feature.md) 문서를 참조하세요. 
 
-향상된 보안이 켜지면 청구 가능 데이터가 자격 증명 모음에서 삭제하고 최대 14일 후까지 데이터가 유지됩니다. 이 데이터 보존은 Azure Backup 에이전트, Azure Backup Server 및 System Center Data Protection Manager에 대한 백업된 데이터에 적용됩니다.
+향상된 보안이 사용 설정된 경우 볼트에서 복구 지점 데이터가 삭제되고 최대 14일 후까지 데이터가 유지됩니다. 고객에게 이 보안 데이터의 저장에 대한 비용이 청구됩니다. 보안 이터 보존은 Azure Backup 에이전트, Azure Backup Server 및 System Center Data Protection Manager에 대해 가져온 복구 지점에 적용됩니다. 
 
 ## <a name="gather-data-on-your-vault"></a>자격 증명 모음에서 데이터 수집
 
-Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(IaaS VM 및 MARS(Microsoft Azure Recovery Services)의 경우)에 대한 보고서를 구성하고 Power BI를 사용하여 보고서에 액세스할 수 있습니다.
+Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(IaaS VM 및 MARS(Microsoft Azure Recovery Services)의 경우)에 대한 보고서를 구성하고 Power BI를 사용하여 보고서에 액세스할 수 있습니다. 데이터 수집에 대한 자세한 내용은 [Azure Backup 보고서 구성](backup-azure-configure-reports.md)을 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

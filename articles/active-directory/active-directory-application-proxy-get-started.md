@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5f500e1e0d3f9cafa67f255d1603e8db5716d469
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -66,15 +66,14 @@ Azure AD 응용 프로그램 프록시를 사용하면 다양한 유형의 내�
 
 외부 끝점은 사용자가 네트워크 외부에서 응용 프로그램에 도달하는 방법입니다. 결정하는 외부 URL로 직접 이동하거나 MyApps 포털을 통해 응용 프로그램에 액세스할 수 있습니다. 사용자가 이러한 끝점 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 응용 프로그램에 라우팅됩니다.
 
- ![Azure Ad 응용 프로그램 프록시 다이어그램](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
+ ![Azure Ad 응용 프로그램 프록시 다이어그램](./media/active-directory-application-proxy-get-started/azureappproxxy.png)
 
-1. 사용자는 응용 프로그램 프록시를 통해 응용 프로그램에 액세스하고 인증을 위해 Azure AD 로그인 페이지로 전달됩니다.
-2. 성공적인 로그인 후에 토큰을 생성하고 사용자에게 보냅니다.
-3. 사용자는 토큰에서 사용자 주체 이름(UPN) 및 보안 주체 이름(SPN)을 검색하고 커넥터에 요청을 전달하는 응용 프로그램 프록시에 토큰을 보냅니다.
-4. 커넥터는 사용자를 대신하여 내부(Windows) 인증에 사용할 수 있는 Kerberos 티켓을 요청합니다. 이 단계는 Kerberos 제한된 위임이라고 합니다.
-5. Active Directory는 Kerberos 티켓을 검색합니다.
-6. 티켓은 응용 프로그램 서버에 전송되고 확인됩니다.
-7. 응답은 응용 프로그램 프록시를 통해 최종 사용자에게 전송됩니다.
+1. 사용자는 응용 프로그램 프록시 서비스를 통해 응용 프로그램에 액세스하고 인증을 위해 Azure AD 로그인 페이지로 전달됩니다.
+2. 성공적인 로그인 후에 토큰을 생성하고 클라이언트 장치에 보냅니다.
+3. 클라이언트는 토큰에서 UPN(사용자 주체 이름) 및 SPN(보안 주체 이름)을 검색한 다음 응용 프로그램 프록시 커넥터에 요청을 전달하는 응용 프로그램 프록시 서비스에 토큰을 보냅니다.
+4. Single Sign-On을 구성한 경우 커넥터는 사용자를 대신하는 데 필요한 모든 추가 인증을 수행합니다.
+5. 커넥터는 온-프레미스 응용 프로그램에 요청을 보냅니다.  
+6. 응답은 응용 프로그램 프록시 서비스 및 커넥터를 통해 사용자에게 전송됩니다.
 
 ### <a name="single-sign-on"></a>SSO(Single sign-on)
 Azure AD 응용 프로그램 프록시는 Windows 통합 인증(IWA) 또는 클레임 인식 응용 프로그램을 사용하는 응용 프로그램에 SSO(Single Sign-On)를 제공합니다. 응용 프로그램에서 IWA를 사용하는 경우 응용 프로그램 프록시는 SSO를 제공하는 Kerberos 제한 위임을 사용하여 사용자를 가장합니다. Azure Active Directory를 신뢰하는 클레임 인식 응용 프로그램이 있는 경우에는 사용자가 이미 Azure AD에 의해 인증되었으므로 SSO가 작동합니다.

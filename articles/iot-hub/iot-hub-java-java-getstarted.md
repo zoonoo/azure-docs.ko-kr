@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Java를 사용하여 IoT Hub에 장치 연결
@@ -65,7 +65,7 @@ IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT H
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 
@@ -303,12 +303,8 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>장치 앱 만들기
-=======
-## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
-
->>>>>>> master 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
+이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
 
 1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **simulated-device**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
@@ -324,7 +320,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -378,19 +374,10 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
       }
     }
     ```
-<<<<<<< HEAD
 9. 다음의 중첩된 **EventCallback** 클래스를 **App** 클래스 안에 추가하여 장치 앱의 메시지를 처리할 때 IoT Hub가 반환하는 확인 상태를 표시합니다. 이 메서드는 또한 메시지가 처리되면 앱에서 메인 스레드를 알립니다.
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     ![IoT Hub에 전송된 메시지의 수를 보여주는 Azure Portal 사용량 타일][43]
 
 ## <a name="next-steps"></a>다음 단계
-<<<<<<< HEAD 이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 이 장치 ID를 사용하여 장치-클라우드 메시지를 IoT Hub로 보내기 위해 장치 앱을 사용하도록 설정했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다. 
-=======
-
-이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 장치-클라우드 메시지를 IoT Hub로 보내기 위해 시뮬레이션된 장치 앱을 사용하는 이 장치 ID를 사용했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다.
->>>>>>> master
+이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 이 장치 ID를 사용하여 장치-클라우드 메시지를 IoT Hub로 보내기 위해 장치 앱을 사용하도록 설정했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다.
 
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 

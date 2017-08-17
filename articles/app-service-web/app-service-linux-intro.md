@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5d1dc8caab804914ac7e94be7f080b713674bc0a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Linux의 Azure Web App 소개
@@ -58,7 +57,7 @@ Linux의 웹앱은 Service는 현재 다음과 같은 응용 프로그램 스택
 
 응용 프로그램 크기 조정:
 
-* 고객은 App Service 계획에서 계층을 변경하여 웹앱을 확장 및 축소할 수 있습니다.
+* 고객은 App Service 계획의 계층을 변경하여 웹앱을 확장 및 축소할 수 있습니다.
 * 고객은 자신의 SKU 범위 내에서 응용 프로그램을 규모 확장하고 여러 앱 인스턴스를 실행할 수 있습니다.
 
 Kudu의 경우 일부 기본 기능은 다음과 같습니다.
@@ -71,7 +70,7 @@ Kudu의 경우 일부 기본 기능은 다음과 같습니다.
 devops:
 
 * 스테이징 환경
-* DockerHub CI/CD
+* ACR 및 DockerHub CI/CD
 
 ## <a name="limitations"></a>제한 사항
 Azure Portal에는 Linux의 웹앱에 대해 작동하는 기능만 표시되고 나머지는 숨겨집니다. 더 많은 기능이 사용 가능해지면 포털에 표시될 것입니다.
@@ -81,18 +80,22 @@ Azure Portal에는 Linux의 웹앱에 대해 작동하는 기능만 표시되고
 이 공개 미리 보기는 현재 다음 지역에서 사용할 수 있습니다.
 
 * 미국 서부
-* 서유럽 
+* 미국 동부
+* 서유럽
+* 북유럽
 * 동남아시아
 * 오스트레일리아 동부
+* 일본 동부
+* 브라질 남부
 
-Linux의 웹앱은 전용 App Service 계획에서만 지원되며 무료 또는 공유 계층은 없습니다. 또한 일반 및 Linux 웹앱에 대한 App Service 계획은 상호 배타적이므로 비 Linux App Service 계획에서 Linux 웹앱을 만들 수 없습니다.
+Linux의 Web Apps는 전용 App Service 계획에서만 지원되며 무료 또는 공유 계층은 없습니다. 또한 일반 및 Linux 웹앱에 대한 App Service 계획은 상호 배타적이므로 비 Linux App Service 계획에서 Linux 웹앱을 만들 수 없습니다.
 
-Linux의 웹앱은 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
+Linux의 Web Apps는 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
+* [Linux의 Azure Web App에서 Web Apps 만들기](app-service-linux-how-to-create-web-app.md)
 * [Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지를 사용하는 방법](app-service-linux-using-custom-docker-image.md)
 * [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure App Service Web App에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)

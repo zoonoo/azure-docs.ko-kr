@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2082e4e9b23271be93f3e3ab43997c3243238da8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Azure Functions 외부 파일 바인딩(미리 보기)
@@ -35,12 +34,10 @@ ms.lasthandoff: 05/02/2017
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[파일 시스템](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google 드라이브](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
@@ -72,13 +69,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>이름 패턴
-`path` 속성에서 파일 이름 패턴을 지정할 수 있습니다. 예:
+`path` 속성에서 파일 이름 패턴을 지정할 수 있습니다. 참조된 폴더는 SaaS 공급자에 있어야 합니다.
+예제:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-이 경로에는 *input* 폴더에서 *original-File1.txt*라는 파일이 있으며 함수 코드의 `name` 변수값은 `File1`이 됩니다.
+이 경로에는 *input* 폴더에서 *original-File1.txt*라는 파일이 있으며 함수 코드의 `name` 변수값은 `File1.txt`이 됩니다.
 
 다른 예제:
 
@@ -149,17 +147,11 @@ C# 함수에서 `<T> <name>`같은 함수 시그니처의 명명된 매개 변�
 
 C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Functions 런타임이 해당 형식을 사용하여 파일 데이터를 deserialize하려고 시도하게 됩니다.
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## <a name="trigger-sample"></a>트리거 샘플
 외부 파일 트리거를 정의하는 다음과 같은 function.json이 있다고 가정합니다.
@@ -186,7 +178,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>C에서 트리거 사용# #
+### <a name="trigger-usage-in-c"></a>C#에서 트리거 사용 #
 
 ```cs
 public static void Run(string myFile, TraceWriter log)
@@ -249,11 +241,11 @@ C# 함수에서 `<T> <name>`같은 함수 시그니처의 명명된 매개 변�
 
 C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Functions 런타임이 해당 형식을 사용하여 파일 데이터를 deserialize하려고 시도하게 됩니다.
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
 
 <a name="output"></a>
@@ -340,7 +332,7 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 
 <a name="incsharp"></a>
 
-### <a name="usage-in-c"></a>C에서 사용# #
+### <a name="usage-in-c"></a>C#에서 사용 #
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)

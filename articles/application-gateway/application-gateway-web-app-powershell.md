@@ -73,7 +73,7 @@ $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -162,3 +162,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>다음 단계
 
 [PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](application-gateway-configure-redirect-powershell.md)을 방문하여 리디렉션 구성 방법을 알아봅니다.
+

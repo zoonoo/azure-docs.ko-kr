@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증에 대한 질문과 대답을 다룹니다. 새로운 내용을 계속 확인해 주세요.
+
+>[!IMPORTANT]
+>통과 인증 기능은 현재 미리 보기로 제공됩니다.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>통과 인증, 암호 해시 동기화, AD FS(Active Directory Federation Services) 중 어떤 Azure AD 로그인 방법을 선택해야 하나요?
 
@@ -48,7 +51,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화는 통과 인증의 대체 방식으로 작동하나요?
 
-아니요, 암호 해시 동기화는 통과 인증의 일반적인 대체 방식이 아닙니다. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아니요, 암호 해시 동기화는 통과 인증의 일반적인 대체 방식이 아닙니다. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../active-directory-application-proxy-get-started.md)를 설치할 수 있나요?
 
@@ -62,7 +65,7 @@ ms.lasthandoff: 08/01/2017
 
 특정 사용자에 대해 [비밀번호 쓰기 저장](../active-directory-passwords-update-your-own-password.md)을 구성한 경우 이 사용자가 통과 인증으로 로그인하면 암호를 변경하거나 다시 설정할 수 있습니다. 암호는 예상대로 온-프레미스 Active Directory에 쓰기 저장됩니다.
 
-하지만 비밀번호 쓰기 저장이 구성되지 않았거나 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. "조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
+하지만 비밀번호 쓰기 저장이 특정 사용자에 대해 구성되지 않았거나 사용자에게 유효한 Azure AD 라이선스가 할당되어 있지 않으면 사용자가 클라우드에서 암호를 업데이트할 수 없습니다. 암호가 만료된 경우에도 암호를 업데이트할 수 없습니다. 대신에 다음과 같은 메시지가 사용자에게 표시됩니다. "조직이 이 사이트에서 암호 업데이트를 허용하지 않습니다. 조직에서 권장하는 방법에 따라 암호를 업데이트하거나 도움이 필요한 경우 관리자에게 문의하세요." 사용자 또는 관리자가 온-프레미스 Active Directory에서 해당 암호를 다시 설정해야 합니다.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>통과 인증을 통해 무차별 암호 대입 공격으로부터 사용자를 보호하려면 어떻게 할까요?
 
@@ -70,11 +73,11 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>통과 인증 에이전트가 포트 80 및 443을 통해 통신하는 것은 무엇인가요?
 
-- 인증 에이전트는 포트 443을 통해 기능 활성화, 모든 사용자 로그인 요청 처리 등 모든 기능 작업에 대한 HTTPS 요청을 수행합니다.
+- 인증 에이전트는 모든 기능 작업에 대해 포트 443을 통해 HTTPS 요청을 만듭니다.
 - 인증 에이전트는 포트 80을 통해 HTTP 요청을 수행하여 SSL 인증서 해지 목록을 다운로드합니다.
 
      >[!NOTE]
-     >최근 업데이트 중 인증 에이전트에서 Azure AD와 통신하는 데 필요한 포트 수를 줄였습니다. 이전 버전의 Azure AD Connect 및/또는 독립 실행형 인증 에이전트를 실행하는 경우 해당 추가 포트(5671, 8080, 9090, 9091, 9350, 9352, 10100-10120)를 계속 열어 두어야 합니다.
+     >최근 업데이트에서 기능에 필요한 포트 수를 줄였습니다. 이전 버전의 Azure AD Connect 또는 인증 에이전트를 사용하는 경우 이러한 포트를 열어 둡니다. 5671, 8080, 9090, 9091, 9350, 9352 및 10100-10120
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>통과 인증 에이전트는 아웃바운드 웹 프록시 서버를 통해 통신할 수 있나요?
 
@@ -82,7 +85,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>동일한 서버에 둘 이상의 통과 인증 에이전트를 설치할 수 있나요?
 
-아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대해 통과 인증을 구성하려면 이 [문서](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)의 지침을 대신 따르세요.
+아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대해 통과 인증을 구성하려면 이 [문서](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)의 지침을 대신 따르세요.
 
 ## <a name="i-already-use-active-directory-federation-services-ad-fs-for-azure-ad-sign-in-how-do-i-switch-it-to-pass-through-authentication"></a>Azure AD 로그인에 AD FS(Active Directory Federation Services)를 이미 사용하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 
@@ -99,7 +102,7 @@ Azure AD Connect 마법사 _외부_에서 AD FS가 로그인 방법으로 구성
 
 ## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>통과 인증 에이전트는 부하 분산 기능을 제공하나요?
 
-아니요, 여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)이 보장되지만 부하 분산 기능은 제공되지 않습니다. 인증 에이전트 중 한두 개가 로그인 요청을 대량 처리할 수 있습니다.
+아니요, 여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)이 보장되지만 부하 분산 기능은 제공되지 않습니다. 인증 에이전트 중 한두 개가 로그인 요청을 대량 처리할 수 있습니다.
 
 인증 에이전트가 처리해야 하는 암호 유효성 검사 요청은 간단합니다. 따라서 대부분의 고객에서 최고 및 평균 부하는 총 두세 개의 인증 에이전트를 통해 쉽게 처리됩니다.
 
@@ -113,11 +116,12 @@ Azure AD Connect 마법사 _외부_에서 AD FS가 로그인 방법으로 구성
 
 다음이 권장됩니다.
 
-- 총 두세 개의 인증 에이전트를 설치합니다. 대부분의 고객은 이것으로 충분합니다.
+- 총 두세 개의 인증 에이전트를 설치합니다. 대부분의 고객은 이 구성으로 충분합니다.
 - 로그인 대기 시간을 개선하려면 도메인 컨트롤러나 최대한 가까운 곳에 인증 에이전트를 설치합니다.
 - 인증 에이전트가 설치된 서버가 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트에 추가되었는지 확인합니다.
 
-테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다.
+>[!NOTE]
+>테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>통과 인증을 사용하지 않도록 설정하려면 어떻게 하나요?
 
@@ -131,7 +135,7 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 - [**현재 제한 사항**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [**빠른 시작**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Azure AD 통과 인증을 작동하고 실행합니다.
 - [**기술 심층 분석**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
-- [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
+- [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**Azure AD 원활한 SSO**](active-directory-aadconnect-sso.md) - 이 보완 기능에 대해 자세히 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
 

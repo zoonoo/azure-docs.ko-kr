@@ -8,32 +8,36 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a648852fadfeb5c9a4ff61c85bbe0af856e445d4
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
-AzLog(Azure 로그 통합)를 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서에서는 Azure Key Vault 활동이 이벤트 허브에 기록되도록 하고 JSON 파일로 SIEM 시스템에 제공하는 프로세스를 안내합니다. 그런 다음 JSON 파일을 처리하도록 SIEM 시스템을 구성할 수 있습니다.
+AzLog(Azure Log Integration)를 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서의 목적은 Azure Log Integration을 사용하여 Event Hubs를 통해 획득한 로그를 처리하는 방법의 예제를 안내하는 것입니다. 예제 단계를 따르고 각 단계가 솔루션을 어떻게 지원하는지 이해하면 Azure Log Integration 및 Event Hubs가 연동하는 방식에 익숙해질 수 있습니다. 그런 다음 여기서 학습한 내용을 바탕으로 회사 고유의 요구 사항을 지원하기 위한 자신만의 단계를 만들 수 있습니다.
+
+>[!WARNING]
+이 자습서에서 사용한 단계와 명령은 복사하여 붙여넣을 수 없고 예제로만 제공됩니다. PowerShell 명령을 라이브 환경에 "있는 그대로" 사용하지 마십시오. 이러한 명령은 고유 환경에 맞게 사용자 지정해야 합니다.
+
+
+이 자습서에서는 Azure Key Vault 활동이 이벤트 허브에 기록되도록 하고 JSON 파일로 SIEM 시스템에 제공하는 프로세스를 안내합니다. 그런 다음 JSON 파일을 처리하도록 SIEM 시스템을 구성할 수 있습니다.
 
 >[!NOTE]
->이 자습서의 단계는 대부분 Key Vault, 저장소 계정 및 이벤트 허브 구성과 관련이 있습니다. 특정 Azure 로그 통합 단계는 이 자습서의 끝에 나와 있습니다.
+>이 자습서의 단계는 대부분 Key Vault, 저장소 계정 및 이벤트 허브 구성과 관련이 있습니다. 특정 Azure 로그 통합 단계는 이 자습서의 끝에 나와 있습니다. 프러덕션 환경에서 이 단계를 수행하면 안 됩니다. 오직 랩 환경용으로 작성되었습니다. 프러덕션 환경에서 사용하기 전에 먼저 단계를 사용자 지정해야 합니다.
 
 함께 제공되는 정보는 각 단계를 수행하는 이유를 이해하는 데 도움이 됩니다. 다른 아티클에 대한 링크는 특정 토픽에 대한 자세한 정보를 제공합니다.
 
 이 자습서에 언급된 서비스에 대한 자세한 내용은 다음을 참조하세요. 
 
-- [Azure 키 자격 증명 모음](../key-vault/key-vault-whatis.md)
-- [Azure 이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure 로그 통합](security-azure-log-integration-overview.md)
 
 

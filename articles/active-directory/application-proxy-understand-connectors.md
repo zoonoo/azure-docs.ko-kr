@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f86d37e32b77dc8411138542de573ee840bf9a64
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,7 +41,8 @@ ms.lasthandoff: 08/01/2017
 커넥터와 서비스는 모든 고가용성 작업을 처리합니다. 동적으로 추가하거나 제거할 수 있습니다. 새 요청이 수신될 때마다 현재 사용할 수 있는 커넥터 중 하나로 라우팅됩니다. 일시적으로 커넥터를 사용할 수 없는 경우 커넥터가 이 트래픽에 응답하지 않습니다.
 
 커넥터는 상태 비저장이며 컴퓨터에 구성 데이터가 없습니다. 커넥터가 저장하는 유일한 데이터는 서비스와 인증 인증서를 연결하기 위한 설정입니다. 서비스에 연결할 때 필요한 모든 구성 데이터를 끌어오고 몇 분마다 새로 고쳐집니다.
-또한 서버를 풀링하여 최신 버전의 커넥터가 있는지 확인합니다. 최신 버전이 있으면 커넥터가 자체적으로 업데이트합니다.
+
+커넥터는 또한 서버를 풀링하여 최신 버전의 커넥터가 있는지 확인합니다. 최신 버전이 있으면 커넥터가 자체적으로 업데이트합니다.
 
 커넥터가 실행 중인 컴퓨터에서 이벤트 로그 및 성능 카운터를 사용하여 커넥터를 모니터링할 수 있습니다. 또는 Azure Portal의 응용 프로그램 프록시 페이지에서 커넥터의 상태를 볼 수 있습니다.
 
@@ -63,13 +64,11 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 ## <a name="creating-connector-groups"></a>커넥터 그룹 만들기
 
-다음을 포함하여 커넥터 그룹을 만드는 여러 이유가 있습니다.
+커넥터 그룹을 사용하면 특정 응용 프로그램을 서비스하기 위해 특정 커넥터를 할당할 수 있습니다. 여러 커넥터를 하나로 그룹화한 다음 각 응용 프로그램을 그룹에 할당할 수 있습니다. 
 
-* 보다 높은 가용성
-* 응용 프로그램을 여러 영역에 배치하여 테넌트의 대기 시간 향상
-* 보다 쉽게 관리할 수 있도록 잘 구성된 리소스
+커넥터 그룹을 사용하면 대규모 배포를 관리하기 쉽습니다. 또한 로컬 응용 프로그래만 서비스하기 위해 위치 기반 커넥터 그룹을 만들 수 있으므로 서로 다른 지역에서 호스팅되는 응용 프로그램이 있는 테넌트의 대기 시간을 낮출 수 있습니다. 
 
-커넥터 그룹의 이점에 대한 자세한 내용은 [커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시](active-directory-application-proxy-connectors-azure-portal.md)를 참조하세요.
+커넥터 그룹에 대한 자세한 내용은 [커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시](active-directory-application-proxy-connectors-azure-portal.md)를 참조하세요.
 
 ## <a name="security-and-networking"></a>보안 및 네트워킹
 

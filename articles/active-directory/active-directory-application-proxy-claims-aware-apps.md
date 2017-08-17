@@ -12,29 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>응용 프로그램 프록시에서 클레임 인식 앱으로 작업
-클레임 인식 앱은 STS(보안 토큰 서비스)에 리디렉션을 수행하며, 이에 대한 반응으로 사용자를 응용 프로그램에 리디렉션하기 전에 토큰 대신 사용자에게 자격 증명을 요청합니다. 이러한 리디렉션에서 응용 프로그램 프록시를 사용하려면 다음 단계를 수행해야 합니다.
+[클레임 인식 앱](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 응용 프로그램에 사용자를 리디렉션합니다. 응용 프로그램 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-이 절차를 수행하기 전에 클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다.
+클레임 인식 앱이 리디렉션되는 STS가 온-프레미스 네트워크 외부에서 사용 가능한지 확인합니다. 프록시를 통해 노출하거나 외부 연결을 허용하여 STS를 사용할 수 있도록 할 수 있습니다. 
 
-## <a name="azure-classic-portal-configuration"></a>Azure 클래식 포털 구성
-1. [응용 프로그램 프록시로 응용 프로그램 게시](active-directory-application-proxy-publish.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
-2. 응용 프로그램 목록에서 클레임 인식 앱을 선택하고 **구성**을 클릭합니다.
-3. **통과**를 **사전 인증 메서드**로 선택한 경우 **HTTPS**를 **외부 URL** 구성표로 선택해야 합니다.
-4. **Azure Active Directory**를 **사전 인증 메서드**로 선택했다면 **없음**을 **내부 인증 방법**으로 선택합니다.
+## <a name="publish-your-application"></a>응용 프로그램 게시
 
-## <a name="adfs-configuration"></a>ADFS 구성
+1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다.
+2. 포털에서 응용 프로그램 페이지로 이동하고 **Single Sign-On**을 선택합니다.
+3. **Azure Active Directory**를 **사전 인증 방법**으로 선택했다면 **Azure AD Single Sign-On 비활성화**를 **내부 인증 방법**으로 선택합니다. **사전 인증 방법**으로 **통과**를 선택하면 아무 것도 변경할 필요가 없습니다.
+
+## <a name="configure-adfs"></a>ADFS 구성
+
+두 가지 방법 중 하나에서 클레임 인식 앱에 대한 ADFS를 구성할 수 있습니다. 첫 번째는 사용자 지정 도메인을 사용하는 것입니다. 두 번째는 WS-Federation을 사용하는 것입니다. 
+
+### <a name="option-1-custom-domains"></a>옵션 1: 사용자 지정 도메인
+
+응용 프로그램에 대한 모든 내부 URL이 FQDN(정규화된 도메인 이름)인 경우 응용 프로그램에 대한 [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 구성할 수 있습니다. 사용자 지정 도메인을 사용하여 내부 URL과 동일한 외부 URL을 만듭니다. 이 구성을 사용하면 STS가 만드는 리디렉션이 사용자가 온-프레미스 또는 원격인지 관계 없이 동일하게 작동합니다. 
+
+### <a name="option-2-ws-federation"></a>옵션 2: WS-Federation
+
 1. ADFS 관리를 엽니다.
 2. **신뢰 당사자 트러스트**로 이동하여 응용 프로그램 프록시로 게시하려는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
 
@@ -46,8 +54,7 @@ ms.lasthandoff: 02/06/2017
    ![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>다음 단계
-* [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-* [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+* 클레임 인식이 아닌 응용 프로그램에 대한 [Single Sign-On 사용](application-proxy-sso-overview.md)
 * [네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용](active-directory-application-proxy-native-client.md)
 
 

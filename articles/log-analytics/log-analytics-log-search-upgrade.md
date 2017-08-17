@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 5101d0356460160aed8559a314e8287ff5845121
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8cde51313f683fbf96a89c8335eb75348b05dee6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -41,6 +41,7 @@ ms.lasthandoff: 08/01/2017
 - **스마트 분석.**  새 언어에는 데이터 집합의 패턴을 평가하고 다양한 데이터 집합을 비교하는 고급 알고리즘이 있습니다.
 - **고급 분석 포털.**  고급 분석 포털은 쿼리, 추가 시각화 및 고급 진단의 여러 줄 편집을 포함하는 Log Analytics 포털에서 사용할 수 없는 분석 기능을 제공합니다.
 - **다른 응용 프로그램과의 일관성.**  새로운 언어와 고급 분석 포털은 이미 Application Insights에서 분석에 사용됩니다.  Log Analytics에 대한 구현은 Azure 서비스 전반에 걸쳐 일관성을 제공합니다.
+- **Power BI와의 더 나은 통합.** 새 언어로 된 쿼리를 Power BI Desktop에 내보내어 다양한 데이터 변환 기능을 활용할 수 있습니다.
 - **그 외 더 많은 요소들이 있습니다.** [Azure Log Analytics 쿼리 언어](https://docs.loganalytics.io/index.html) 사이트에서 새로운 언어에 대한 전체 세부 정보 및 자습서를 참조하세요.
 
 
@@ -60,7 +61,7 @@ ms.lasthandoff: 08/01/2017
 ![레거시 복원](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
 
 ## <a name="how-do-i-perform-the-upgrade"></a>업그레이드를 수행하려면 어떻게 해야 합니까?
-포털의 위쪽에 보라색 배너가 표시되면 작업 영역을 업그레이드할 수 있습니다.  업그레이드가 완료된 후 변환된 작업 영역은 Azure Portal에서 사용할 수 있긴 하지만, 업그레이드는 OMS 포털에서만 수행할 수 있습니다.
+포털의 위쪽에 보라색 배너가 표시되면 작업 영역을 업그레이드할 수 있습니다.  
 
 1.  **자세히 알아보고 업그레이드**라는 보라색 배너를 클릭하여 업그레이드 프로세스를 시작합니다.<br>![업그레이드 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 2.  업그레이드 정보 페이지에서 업그레이드에 관한 추가 정보를 자세히 읽어보세요.<br>![업그레이드 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>

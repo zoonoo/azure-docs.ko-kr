@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 912e3e25680034828aee93d23c6a725c2cec0d45
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -67,9 +67,11 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
 
 
 ## <a name="next-steps"></a>다음 단계
-
-* [사용 현황 개요](app-insights-usage-overview.md)
-* [보존](app-insights-usage-retention.md)
-* [사용자 지정 이벤트 코딩](app-insights-api-custom-events-metrics.md)
+- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
+- 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
+    - [깔때기](usage-funnels.md)
+    - [보존](app-insights-usage-retention.md)
+    - [통합 문서](app-insights-usage-workbooks.md)
+    - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
 
 

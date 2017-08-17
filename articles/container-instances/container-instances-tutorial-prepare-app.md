@@ -94,7 +94,7 @@ aci-tutorial-app             latest              5c745774dfa9        39 seconds 
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-http://localhost:8080을 브라우저에서 열어 컨테이너가 실행 중인지 확인합니다.
+http://localhost:8080 을 브라우저에서 열어 컨테이너가 실행 중인지 확인합니다.
 
 ![브라우저에서 앱을 로컬로 실행][aci-tutorial-app-local]
 

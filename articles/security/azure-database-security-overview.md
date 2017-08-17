@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 8280669ac74b46232de81a0bf4f8094f8d9b069e
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -34,7 +34,7 @@ Microsoft는 엔터프라이즈 데이터를 암호화하는 추가적인 방법
 -   하드웨어 보안 모듈 또는 암호화 키 계층의 중앙 관리가 필요한 경우 Azure VM에서 SQL Server와 함께 Azure Key Vault 사용을 고려합니다.
 -   Always Encrypted(현재 미리 보기 상태)를 사용하면 암호화가 응용 프로그램에 하며 클라이언트가 SQL Database와 암호화 키를 공유하지 않고도 클라이언트 응용 프로그램 내부에서 중요 데이터를 암호화할 수 있습니다.
 
-Azure SQL 데이터베이스 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터베이스 감사 기능을 Microsoft Power BI와 통합합니다.
+Azure SQL Database 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터베이스 감사 기능을 Microsoft Power BI와 통합합니다.
 
  SQL Azure 데이터베이스는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](http://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
 
@@ -61,7 +61,7 @@ SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https:/
 데이터를 암호화하는 다른 방법으로 다음을 고려해 보세요.
 
 -   [셀 수준 암호화](https://msdn.microsoft.com/library/ms179331.aspx) 는 특정 열 또는 서로 다른 암호화 키를 가진 데이터의 셀도 암호화합니다.
--   하드웨어 보안 모듈 또는 암호화 키 계층의 중앙 관리가 필요한 경우 [Azure VM에서 SQL Server와 함께 Azure 키 자격 증명 모음](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)을 사용하는 것을 고려해 보세요.
+-   하드웨어 보안 모듈 또는 암호화 키 계층의 중앙 관리가 필요한 경우 [Azure VM에서 SQL Server와 함께 Azure Key Vault](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)를 사용하는 것을 고려해 보세요.
 
 ### <a name="encryption-in-motion"></a>진행 중인 암호화
 
@@ -71,7 +71,7 @@ SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https:/
 
 인증 프로세스에서 TLS/SSL 클라이언트는 TLS/SSL 서버에 메시지를 보내고 서버는 서버가 자신을 인증하는 데 필요한 정보로 응답합니다. 클라이언트와 서버가 추가적인 세션 키 교환을 수행하고 인증 대화가 종료됩니다. 인증이 완료되면 인증 프로세스 중에 수립된 대칭 암호화 키를 사용하여 서버와 클라이언트 간에 SSL로 보호되는 통신을 시작할 수 있습니다.
 
-Azure SQL 데이터베이스에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. SQL Azure는 TLS/SSL을 사용하여 서버 및 클라이언트를 인증한 다음 인증된 당사자 간의 메시지를 암호화하는 데 사용할 수 있습니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 않도록 매개 변수를 지정해야 합니다(Azure 클래식 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 Encrypt=True 및 TrustServerCertificate=False입니다.
+Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. SQL Azure는 TLS/SSL을 사용하여 서버 및 클라이언트를 인증한 다음 인증된 당사자 간의 메시지를 암호화하는 데 사용할 수 있습니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 않도록 매개 변수를 지정해야 합니다(Azure 클래식 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 Encrypt=True 및 TrustServerCertificate=False입니다.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 보안 시스템 설계, 중요한 자산 암호화 및 데이터베이스 서버 방화벽 구축과 같은 데이터베이스 보호에 도움이 되는 몇 가지 예방 조치를 취할 수 있습니다. 그러나 물리적 미디어(예: 드라이브 또는 백업 테이프)가 도난되는 시나리오에서는 악의적인 사용자가 데이터베이스를 단순히 복원하거나 연결하여 데이터를 찾아 볼 수 있습니다.
@@ -113,7 +113,7 @@ SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하�
 
 #### <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
 
-Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)를 참조하세요.
+Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)를 참조하세요.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL 데이터베이스에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 응용 프로그램에 필요하지 않은 경우 TCP 포트 1433의 인바운드 연결을 차단합니다.
 
@@ -151,7 +151,7 @@ SQL Database 인증은 데이터베이스에 연결할 때 사용자의 ID를 �
 
 또 다른 예로, 적합한 데이터 마스크를 정의하여 PII(개인 식별이 가능한 정보) 데이터를 보호하여 준수 규정을 위반하지 않고 문제 해결을 위해 프로덕션 환경을 쿼리할 수 있습니다.
 
-[SQL 데이터베이스 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. Azure SQL 데이터베이스의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
+[SQL 데이터베이스 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. Azure SQL Database의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
 
 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 수행하면 응용 프로그램 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
 
@@ -208,7 +208,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 -   [Azure SQL Database 위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)에 대한 경고를 통합합니다.
 -   보안 센터는 역할 기반 액세스를 지원합니다.
 
-## <a name="azure-marketplace"></a>Azure 마켓플레이스
+## <a name="azure-marketplace"></a>Azure Marketplace
 
 Azure Marketplace는 신생 기업 및 ISV(독자적 소프트웨어 공급업체)가 전 세계 Azure 고객에게 자사의 솔루션을 제공할 수 있도록 하는 온라인 응용 프로그램 및 서비스 마켓플레이스입니다.
 Azure Marketplace는 고객과 파트너에게 더 좋은 서비스를 제공하기 위해 Microsoft Azure 파트너 생태계를 하나의 통합된 플랫폼으로 결합합니다. Azure Marketplace에서 제공되는 데이터베이스 보안 제품을 간략히 확인하려면 [여기](https://azuremarketplace.microsoft.com/marketplace/apps?search=Database%20Security&page=1)를 클릭하세요.

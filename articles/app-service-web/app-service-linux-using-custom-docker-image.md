@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,7 +32,7 @@ App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원�
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>방법: 웹앱에 대한 사용자 지정 Docker 이미지 설정
-신규 및 기존 웹앱에 대해 사용자 지정 Docker 이미지를 설정할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 Linux의 웹앱을 만들 경우 **컨테이너 구성**을 클릭하여 사용자 지정 Docker 이미지를 설정합니다.
+신규 및 기존 웹앱에 대해 사용자 지정 Docker 이미지를 설정할 수 있습니다. [Azure Portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux)에서 Linux의 웹앱을 만들 경우 **컨테이너 구성**을 클릭하여 사용자 지정 Docker 이미지를 설정합니다.
 
 ![Linux의 새 웹앱에 대한 사용자 지정 Docker 이미지][1]
 
@@ -65,18 +64,20 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>방법: Docker 이미지에 사용되는 포트 설정 ##
 
-웹앱에 대한 사용자 지정 Docker 이미지를 사용하는 경우 생성된 컨테이너에 추가된 `PORT` 환경 변수를 Dockerfile에서 사용할 수 있습니다. 다음의 Ruby 응용 프로그램용 docker 파일 예제를 살펴보세요.
+웹앱에 대한 사용자 지정 Docker 이미지를 사용하는 경우 생성된 컨테이너에 추가된 `WEBSITES_PORT` 환경 변수를 Dockerfile에서 사용할 수 있습니다. 다음의 Ruby 응용 프로그램용 docker 파일 예제를 살펴보세요.
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-명령의 마지막 줄에서 런타임에 PORT 환경 변수가 전달된다는 것을 알 수 있습니다. 명령은 대/소문자를 구분해야 합니다.
+명령의 마지막 줄에서 런타임에 WEBSITES_PORT 환경 변수가 전달된다는 것을 알 수 있습니다. 명령은 대/소문자를 구분해야 합니다.
 
-다른 사용자가 작성한 기존 Docker 이미지를 사용하면 응용 프로그램에 대해 포트 80 이외의 포트를 지정해야 할 수도 있습니다. 포트를 구성하려면 아래와 같이 값과 함께 `PORT`라는 응용 프로그램 설정을 추가합니다.
+이전에 플랫폼은 `PORT` 앱 설정을 사용했으며 이 앱 설정 사용을 사용되지 않도록 하고 `WEBSITES_PORT`를 단독으로 사용하도록 이동할 예정입니다.
+
+다른 사용자가 작성한 기존 Docker 이미지를 사용하면 응용 프로그램에 대해 포트 80 이외의 포트를 지정해야 할 수도 있습니다. 포트를 구성하려면 아래와 같이 값과 함께 `WEBSITES_PORT`라는 응용 프로그램 설정을 추가합니다.
 
 ![사용자 지정 Docker 이미지에 대한 PORT 앱 설정 구성][6]
 
@@ -94,8 +95,8 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 ## <a name="troubleshooting"></a>문제 해결 ##
 
-응용 프로그램이 사용자 지정 Docker 이미지로 시작하지 못할 경우 LogFiles/docker 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
-컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **웹 서버 로깅**을 활성화해야 합니다.
+응용 프로그램이 사용자 지정 Docker 이미지로 시작하지 못할 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
 
 ![로깅 사용][8]
 
@@ -108,7 +109,7 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 Linux에서 웹앱을 시작하려면 다음 링크를 따르세요.   
 
 * [Linux의 Azure Web App 소개](./app-service-linux-intro.md)
-* [Linux의 Azure Web App에서 웹앱 만들기](./app-service-linux-how-to-create-web-app.md)
+* [Linux의 Azure Web App에서 Web Apps 만들기](./app-service-linux-how-to-create-web-app.md)
 * [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](./app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
 

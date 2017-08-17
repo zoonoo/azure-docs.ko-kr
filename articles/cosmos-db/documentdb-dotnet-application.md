@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발 | Microsoft Docs"
-description: "Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure 웹 사이트 - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다."
+description: "Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure Websites - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다."
 keywords: "ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서"
 services: cosmos-db
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/25/2016
+ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cc8d26864f455572ad4e2652afbff7447f87f726
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 86b34c6c44b957009610f20ee0b9d7ed7fc441be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
@@ -33,30 +33,30 @@ ms.lasthandoff: 07/28/2017
 
 Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
 
-![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
+![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-이 연습에서는 Azure에서 제공하는 Azure Cosmos DB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 Azure Cosmos DB에만 집중하는 자습서를 찾는 경우 [Azure Cosmos DB C# 콘솔 응용 프로그램 빌드](documentdb-get-started.md)를 참조하세요.
+이 연습에서는 Azure Cosmos DB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 Azure Cosmos DB에만 집중하는 자습서를 찾는 경우 [Azure Cosmos DB C# 콘솔 응용 프로그램 빌드](documentdb-get-started.md)를 참조하세요.
 
 > [!TIP]
-> 이 자습서에서는 이전에 ASP.NET MVC 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub][GitHub]에서 전체 샘플 프로젝트를 다운로드하고 이 샘플의 지침을 따르는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
+> 이 자습서에서는 이전에 ASP.NET MVC 및 Azure Websites를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub][GitHub]에서 전체 샘플 프로젝트를 다운로드하고 이 샘플의 지침을 따르는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
 > 
 > 
 
 ## <a name="_Toc395637760"></a>이 데이터베이스 자습서의 필수 조건
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 
     또는
 
     [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 로컬 설치
-* [Visual Studio 2015](http://www.visualstudio.com/) 또는 Visual Studio 2013 업데이트 4 이상 Visual Studio 2013을 사용하는 경우 C# 6.0 지원을 추가하기 위해 [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. 
-* Azure SDK for .NET 버전 2.5.1 이상([Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 사용 가능)
+* [Visual Studio 2017](http://www.visualstudio.com/).  
+* Microsoft Azure SDK for .NET for Visual Studio 2017, Visual Studio 설치 관리자를 통해 사용 가능합니다.
 
-이 문서의 모든 스크린샷은 Visual Studio 2013 업데이트 4 및 Azure SDK for .NET 버전 2.5.1을 사용하여 생성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
+이 문서의 모든 스크린 샷은 Microsoft Visual Studio Community 2017을 사용하여 작성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
 ## <a name="_Toc395637761"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
-Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB용 SQL(DocumentDB) 계정이 이미 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -66,34 +66,25 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 이제 새 ASP.NET MVC 응용 프로그램을 처음부터 만드는 방법을 살펴보겠습니다. 
 
 ## <a name="_Toc395637762"></a>2단계: 새 ASP.NET MVC 응용 프로그램 만들기
-계정을 만들었으므로 이제 새 ASP.NET 프로젝트를 만들어 보겠습니다.
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다.
-   
-       The **New Project** dialog box appears.
+1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.
+
 2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
-   
-      ![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
+
+      ![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+
 3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 todo 네임스페이스를 지칭할 때마다 지정한 응용 프로그램 이름을 사용하도록 제공된 코드 샘플을 조정해야 합니다. 
 4. **찾아보기**를 클릭하여 프로젝트를 만들 폴더로 이동한 후 **확인**을 클릭합니다.
    
-      **새 ASP.NET 프로젝트** 대화 상자가 나타납니다.
+      **새 ASP.NET 웹 응용 프로그램** 대화 상자가 나타납니다.
    
-      ![MVC 응용 프로그램 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
+    ![새 ASP.NET 웹 응용 프로그램 대화 상자 스크린샷(MVC 응용 프로그램 템플릿이 강조 표시됨)](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. 템플릿 창에서 **MVC**를 선택합니다.
-6. Azure에서 응용 프로그램을 호스트하려는 경우 오른쪽 아래에서 **클라우드의 호스트** 를 선택하여 Azure에서 응용 프로그램이 호스트되도록 합니다. 클라우드에 호스트하도록 선택하고 Azure 웹 사이트에서 호스트되는 응용 프로그램을 실행하도록 선택했습니다. 이 옵션을 선택하면 Azure 웹 사이트가 미리 프로비전되며 최종 응용 프로그램을 훨씬 쉽게 배포할 수 있습니다. 다른 곳에 호스트하거나 Azure에서 구성하지 않으려면 **클라우드의 호스트**옵션을 선택 취소합니다.
-7. **확인** 을 클릭하면 Visual Studio에서 빈 ASP.NET MVC 템플릿을 스캐폴딩합니다. 
 
-    "An error occurred while processing your request" 오류가 나타나면 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+6. **확인** 을 클릭하면 Visual Studio에서 빈 ASP.NET MVC 템플릿을 스캐폴딩합니다. 
 
-8. 클라우드에 호스트를 선택하면 Azure 계정에 로그인하고 새 웹 사이트에 대한 값을 입력하라는 추가 화면이 하나 이상 표시됩니다. 모든 추가 값을 지정하고 계속합니다. 
-   
-      여기서 Azure SQL Database 서버를 사용하지 않기 때문에 "데이터베이스 서버"를 선택하지 않았고 나중에 Azure Portal에서 새 Azure Cosmos DB 계정을 만들 예정입니다.
-   
-    **App Service 계획** 및 **리소스 그룹** 선택에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
-   
-      ![Microsoft Azure 웹사이트 구성 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11_1.png)
-9. Visual Studio에서 상용구 MVC 응용 프로그램을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 응용 프로그램을 갖게 됩니다.
+          
+7. Visual Studio에서 상용구 MVC 응용 프로그램을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 응용 프로그램을 갖게 됩니다.
    
     모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 Azure Cosmos DB를 추가하고 응용 프로그램을 작성하겠습니다.
 
@@ -102,21 +93,22 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 
 1. Azure Cosmos DB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
    
-      ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
+    ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     **NuGet 패키지 관리** 대화 상자가 나타납니다.
-2. NuGet **찾아보기** 상자에 ***Azure Cosmos DB***를 입력합니다.
+2. NuGet **찾아보기** 상자에 ***Azure DocumentDB***를 입력합니다. (패키지 이름은 Azure Cosmos DB로 업데이트되지 않았습니다.)
    
-    결과에서 **Microsoft Azure Cosmos DB Client Library** 패키지를 설치합니다. 그러면 Azure Cosmos DB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다. **미리 보기** 창에서 **확인**을 클릭하고 **라이선스 승인** 창에서 **동의**를 클릭하여 설치를 완료합니다.
+    결과에서 **Microsoft.Azure.DocumentDB by Microsoft** 패키지를 설치합니다. 그러면 Azure Cosmos DB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다. **미리 보기** 창에서 **확인**을 클릭하고 **라이선스 승인** 창에서 **동의**를 클릭하여 설치를 완료합니다.
    
-      ![Microsoft Azure Cosmos DB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/nuget.png)
+    ![Microsoft Azure DocumentDB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       또는 패키지 관리자 콘솔을 사용하여 패키지를 설치할 수 있습니다. 이렇게 하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 프롬프트에 다음을 입력합니다.
    
         Install-Package Microsoft.Azure.DocumentDB
+        
 3. 패키지가 설치되고 나면 Visual Studio 솔루션은 Microsoft.Azure.Documents.Client 및 Newtonsoft.Json이라는 두 개의 새 참조가 추가된 상태로 다음과 유사합니다.
    
-      ![솔루션 탐색기에서 JSON 데이터 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/image22.png)
+    ![솔루션 탐색기에서 JSON 데이터 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
 ## <a name="_Toc395637763"></a>4단계: ASP.NET MVC 응용 프로그램 설정
 이제 이 MVC 응용 프로그램에 모델, 뷰 및 컨트롤러를 추가합니다.
@@ -170,14 +162,14 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
     **스캐폴드 추가** 대화 상자가 나타납니다.
 2. **MVC 5 컨트롤러 - 비어 있음**을 선택한 후 **추가**를 클릭합니다.
    
-    ![MVC 5 컨트롤러 - 비어 있음 옵션이 강조 표시된 스캐폴드 추가 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image14.png)
+    ![MVC 5 컨트롤러 - 비어 있음 옵션이 강조 표시된 스캐폴드 추가 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. 새 컨트롤러의 이름을 **ItemController**
    
-    ![컨트롤러 추가 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image15.png)
+    ![컨트롤러 추가 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
     파일을 만들고 나면 Visual Studio 솔루션은 **솔루션 탐색기**에 새 ItemController.cs 파일이 있는 상태로 다음과 유사합니다. 이전에 만든 새 Item.cs 파일도 표시됩니다.
    
-    ![Visual Studio 솔루션의 스크린샷 - 새 ItemController.cs 파일 및 Item.cs 파일이 강조 표시된 솔루션 탐색기](./media/documentdb-dotnet-application/image16.png)
+    ![Visual Studio 솔루션의 스크린샷 - 새 ItemController.cs 파일 및 Item.cs 파일이 강조 표시된 솔루션 탐색기](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
     나중에 돌아올 것이므로 ItemController.cs를 닫아도 됩니다. 
 
@@ -191,16 +183,15 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 #### <a name="AddItemIndexView"></a>항목 인덱스 뷰 추가
 1. **솔루션 탐색기**에서 **Views** 폴더를 확장하고 앞에서 **ItemController**를 추가할 때 Visual Studio에서 만들어진 빈 **Item** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **보기**를 차례로 클릭합니다.
    
-    ![뷰 추가 명령이 강조 표시된 Visual Studio에서 만든 항목 폴더를 보여 주는 솔루션 탐색기의 스크린샷](./media/documentdb-dotnet-application/image17.png)
+    ![뷰 추가 명령이 강조 표시된 Visual Studio에서 만든 항목 폴더를 보여 주는 솔루션 탐색기의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
    
    * **뷰 이름** 상자에 ***인덱스***를 입력합니다.
    * **템플릿** 상자에서 ***목록***을 선택합니다.
    * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
-   * **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
      
-     ![뷰 추가 대화 상자를 보여주는 스크린샷](./media/documentdb-dotnet-application/image18.png)
+   ![뷰 추가 대화 상자를 보여주는 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. 이러한 값이 모두 설정된 후 **추가** 를 클릭하면 Visual Studio에서 새 템플릿 뷰를 만듭니다. 완료되면 만들어진 cshtml 파일이 열립니다. 나중에 돌아올 것이므로 Visual Studio에서 해당 파일을 닫아도 됩니다.
 
 #### <a name="AddNewIndexView"></a>새 항목 뷰 추가
@@ -212,10 +203,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    * **뷰 이름** 상자에 ***Create***를 입력합니다.
    * **템플릿** 상자에서 ***Create***를 선택합니다.
    * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
-   * **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
-
+   
 #### <a name="_Toc395888515"></a>항목 편집 뷰 추가
 마지막으로, 이전과 동일한 방식으로 **항목** 을 편집하기 위한 최종 뷰를 추가합니다.
 
@@ -225,7 +215,6 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    * **뷰 이름** 상자에 ***Edit***를 입력합니다.
    * **템플릿** 상자에서 ***Edit***를 선택합니다.
    * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
-   * **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
 
@@ -252,7 +241,8 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-   
+        using System.Net
+        
     이제 이 코드를 
    
         public class DocumentDBRepository
@@ -389,7 +379,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.    
 
-![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image23.png)
+![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>항목 추가
 빈 그리드 외에 확인할 항목이 있도록 데이터베이스에 일부 항목을 추가하겠습니다.
@@ -516,55 +506,48 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
 
 1. 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 응용 프로그램이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
    
-    ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image24.png)
+    ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
-    Visual Studio 2013을 사용하고 "Cannot await in the body of a catch clause." 오류를 수신하는 경우  [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. [GitHub][GitHub]에서 샘플 프로젝트에 대해 코드를 비교할 수도 있습니다. 
+     
 2. **새로 만들기** 링크를 클릭하고 **이름** 및 **설명** 필드에 값을 추가합니다. **완료** 확인란을 선택 취소된 상태로 둡니다. 그렇지 않으면 새 **항목**이 완료 상태로 추가되며 초기 목록에 나타나지 않습니다.
    
-    ![만들기 뷰의 스크린샷](./media/documentdb-dotnet-application/image25.png)
+    ![만들기 뷰의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. **만들기**를 클릭하면 **인덱스** 뷰로 다시 리디렉션되고 **항목**이 목록에 나타납니다.
    
-    ![인덱스 뷰의 스크린샷](./media/documentdb-dotnet-application/image26.png)
+    ![인덱스 뷰의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
     Todo 목록에 **항목** 을 더 추가해도 됩니다.
+    
 4. 목록에서 **항목** 옆의 **편집**을 클릭합니다. **편집** 뷰로 이동되며, 여기서 **완료** 플래그를 비롯한 개체 속성을 업데이트할 수 있습니다. **완료** 플래그를 표시하고 **저장**을 클릭하면 **항목**이 완료되지 않은 작업 목록에서 제거됩니다.
    
-    ![완료 상자가 선택된 인덱스 뷰의 스크린샷](./media/documentdb-dotnet-application/image27.png)
+    ![완료 상자가 선택된 인덱스 뷰의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. 앱을 테스트하고 나면 Ctrl+F5를 눌러 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
-## <a name="_Toc395637774"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
-이제 전체 응용 프로그램이 Azure Cosmos DB와 올바르게 작동하므로 Azure Websites에 이 웹앱을 배포하겠습니다. 빈 ASP.NET MVC 프로젝트를 만들 때 **클라우드의 호스트** 를 선택한 경우 Visual Studio에서 대부분의 작업을 수행하므로 쉽게 배포할 수 있습니다. 
+## <a name="_Toc395637774"></a>7단계: Azure App Service에 응용 프로그램 배포 
+이제 전체 응용 프로그램이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
 
 1. 이 응용 프로그램을 게시하기 위해 할 일은 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하는 것뿐입니다.
    
-    ![솔루션 탐색기 내 게시 옵션의 스크린샷](./media/documentdb-dotnet-application/image28.png)
-2. 사용자 자격 증명에 따라 모든 항목이 이미 구성되어 있어야 합니다. 실제로 Azure의 표시된 **대상 URL**에 웹 사이트가 이미 만들어져 있으므로 **게시**를 클릭하기만 하면 됩니다.
+    ![솔루션 탐색기 내 게시 옵션의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
+
+2. **게시** 대화 상자에서 **Microsoft Azure App Service**를 클릭한 다음 **새로 만들기**를 선택하여 App Service 프로필을 만들거나 **기존 항목 선택**을 클릭하여 기존 프로필을 사용합니다.
+
+    ![Visual Studio에서 대화 상자 게시](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
+
+3. 기존 Azure App Service 프로필이 있는 경우 구독 이름을 입력합니다. **보기** 필터를 사용하여 리소스 그룹 또는 리소스 종류별로 정렬한 다음 Azure App Service를 선택합니다. 
    
-    ![Visual Studio 웹 게시 대화 상자의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/image29.png)
+    ![Visual Studio의 App Service 대화 상자](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+
+4. 새 Azure App Service 프로필을 만들려면 **게시** 대화 상자에서 **새로 만들기**를 클릭합니다. **앱 서비스 만들기** 대화 상자에서 웹앱 이름 및 적절한 구독, 리소스 그룹 및 App Service 계획을 입력하고 **만들기**를 클릭합니다.
+
+    ![Visual Studio의 앱 서비스 만들기 대화 상자](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
-## <a name="Troubleshooting"></a>문제 해결
-
-웹앱을 배포하는 동안 "An error occurred while processing your request" 메시지가 나타나면 다음을 수행합니다. 
-
-1. 오류 메시지를 취소한 다음 **Microsoft Azure Web Apps**를 다시 선택합니다. 
-2. 로그인 후 **새로 만들기**를 선택하여 새 웹앱을 만듭니다. 
-3. **Microsoft Azure에서 웹앱 만들기** 화면에서 다음을 수행합니다. 
-    
-    - 웹앱 이름: "todo-net-app"
-    - App Service 계획: 새로 만들기, 이름: "todo-net-app"
-    - 리소스 그룹: 새로 만들기, 이름: "todo-net-app"
-    - 지역: 앱 사용자에게 가장 가까운 지역 선택
-    - 데이터베이스 서버: 데이터베이스 없음을 클릭한 다음 **만들기**를 클릭합니다. 
-
-4. "todo-net-app  **화면”에서** 연결 유효성 검사를 클릭합니다. 연결을 확한 후 **게시***합니다. 
-    
-    그러면 응용 프로그램이 브라우저에 표시됩니다.
 
 
 ## <a name="_Toc395637775"></a>다음 단계
-축하합니다. 지금까지 Azure Cosmos DB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure Websites에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
+축하합니다. 지금까지 Azure Cosmos DB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
 응용 프로그램에 기능을 더 추가하려면 [Azure Cosmos DB .NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)에서 사용 가능한 API를 검토하고 [GitHub][GitHub]의 Azure Cosmos DB .NET 라이브러리에 자유롭게 기여하세요. 
 

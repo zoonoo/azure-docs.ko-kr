@@ -13,51 +13,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 178d7a53ec1f05d79a077a016ef869df2bb014b1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 4b6fd87b057d93175d3ef284238d77be3bdde61d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure 이벤트 허브에서 이벤트 처리
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
 
-Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대량의 데이터를 처리할 수 있습니다. 이벤트 허브 Spout를 사용하면 HDInsight에서 Apache Storm을 사용하여 이 데이터를 실시간으로 분석하기가 쉽습니다. 또한 이벤트 허브 Bolt를 사용하여 Storm에서 이벤트 허브에 데이터를 기록할 수도 있습니다.
-
-이 자습서에서는 HDInsight Tools for Visual Studio와 함께 설치된 Visual Studio 템플릿을 사용하여 Event Hubs에서 작동하는 두 가지 토폴로지를 만드는 방법을 알아봅니다.
-
-* **EventHubWriter**: 무작위로 데이터를 생성하여 Event Hubs에 기록합니다.
-* **EventHubReader**: Event Hubs에서 데이터를 읽어 Storm 로그에 데이터를 기록합니다.
+HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Evbent Hubs에서 데이터를 읽고 씁니다.
 
 > [!NOTE]
 > 이 프로젝트의 Java 버전은 [HDInsight의 Storm(Java)으로 Azure Event Hubs에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
 
-이러한 프로젝트는 NuGet 패키지인 SCP.NET을 사용하여 HDInsight에서 Storm과 함께 사용할 C# 토폴로지 및 구성 요소를 쉽게 만들 수 있습니다.
+이 문서의 단계에서는 NuGet 패키지인 SCP.NET을 사용하여 HDInsight에서 Storm과 함께 사용할 C# 토폴로지 및 구성 요소를 쉽게 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에서는 Visual Studio를 사용하는 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux를 사용하는 HDInsight 클러스터의 Storm에 제출할 수 있습니다. 2016년 10월 28일 이후에 만든 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
 
+HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. 이 문서에 사용된 예제는 HDInsight 3.6에서 작동합니다. HDInsight용 .NET 솔루션을 만들 계획인 경우 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
+
 ### <a name="cluster-versioning"></a>클러스터 버전 관리
 
-프로젝트에 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주 버전과 일치해야 합니다. HDInsight 버전 3.3 및 3.4의 Storm은 Storm 버전 0.10.x를 사용하므로 SCP.NET 버전 0.10.x.x를 사용해야 합니다. HDInsight 버전 3.5 및 3.6은 Storm 1.x를 사용하므로 이 클러스터와 함께 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
+프로젝트에 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주 버전과 일치해야 합니다. HDInsight 버전 3.5 및 3.6은 Storm 1.x를 사용하므로 이 클러스터와 함께 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
 
 > [!IMPORTANT]
+> 이 문서의 예제는 HDInsight 3.5 또는 3.6 클러스터를 가정합니다.
+>
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
-HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
 
 C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
 ## <a name="how-to-work-with-event-hubs"></a>Event Hubs 작동 방법
 
-Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/)에서 이러한 구성 요소의 HDInsight 3.3 및 3.4 호환 버전이 포함된 JAR(Java archive) 파일을 찾을 수 있습니다.
-
-HDInsight 3.5 이상인 경우 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib)에도 구성 요소가 있습니다.
+Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. 이러한 구성 요소의 HDInsight 3.6 호환 버전이 포함된 Java 아카이브(JAR) 파일을 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 구성 요소는 Java로 작성되지만 C# 토폴로지에서 쉽게 사용할 수 있습니다.
@@ -68,99 +62,47 @@ HDInsight 3.5 이상인 경우 [GitHub](https://github.com/hdinsight/hdinsight-s
 * __EventHubBolt__: Event Hubs에 데이터를 씁니다.
 * __EventHubSpoutConfig__: EventHubSpout를 구성하는 데 사용됩니다.
 * __EventHubBoltConfig__: EventHubBolt를 구성하는 데 사용됩니다.
-* __UnicodeEventDataScheme__: Event Hubs에서 읽을 때 UTF-8 인코딩을 사용하도록 Spout를 구성하는 데 사용됩니다. 기본 인코딩은 문자열입니다.
 
 ### <a name="example-spout-usage"></a>예제 Spout 사용
 
 SCP.NET은 토폴로지에 EventHubSpout를 추가하기 위한 메서드를 제공합니다. 이러한 메서드를 사용하면 Java 구성 요소를 추가하기 위한 제네릭 메서드를 사용하는 것보다 더 쉽게 Spout를 추가할 수 있습니다. 다음 예제에서는 SCP.NET에서 제공하는 __SetEventHubSpout__ 및 **EventHubSpoutConfig**를 사용하여 Spout를 만드는 방법을 보여 줍니다.
 
 ```csharp
-topologyBuilder.SetEventHubSpout(
+ topologyBuilder.SetEventHubSpout(
     "EventHubSpout",
     new EventHubSpoutConfig(
-        // the shared access signature name and key used to read the data
         ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"],
         ConfigurationManager.AppSettings["EventHubSharedAccessKey"],
-        // The namespace that contains the event hub to read from
         ConfigurationManager.AppSettings["EventHubNamespace"],
-        // The event hub name to read from
         ConfigurationManager.AppSettings["EventHubEntityPath"],
-        // The number of partitions in the event hub
         eventHubPartitions),
-    // Parallelism hint for this component. Should be set to the partition count.
     eventHubPartitions);
 ```
 
 앞의 예제에서는 __EventHubSpout__라는 새 Spout 구성 요소를 만들고 이벤트 허브와 통신하도록 구성합니다. 구성 요소에 대한 병렬 처리 힌트는 이벤트 허브의 파티션 수로 설정됩니다. 이 설정을 통해 Storm은 각 파티션에 대한 구성 요소의 인스턴스를 만들 수 있습니다.
-
-> [!IMPORTANT]
-> 2017년 1월 1일부터 **SetEventHubSpout** 및 **EventHubSpoutConfig** 메서드를 사용하면 Event Hubs에서 데이터를 읽을 때 문자열 인코딩을 사용하는 Spout를 만들 수 있습니다.
-
-또한 Spout를 만들 때 **JavaComponentConstructor** 제네릭 메서드를 사용할 수도 있습니다. 다음 예제에서는 **JavaComponentConstructor** 메서드를 사용하여 Spout를 만드는 방법을 보여 줍니다. 또한 문자열 대신 UTF-8 인코딩을 사용하여 데이터를 읽도록 Spout를 구성하는 방법도 보여 줍니다.
-
-```csharp
-// Create an instance of UnicodeEventDataScheme
-var schemeConstructor = new JavaComponentConstructor("com.microsoft.eventhubs.spout.UnicodeEventDataScheme");
-// Create an instance of EventHubSpoutConfig
-var eventHubSpoutConfig = new JavaComponentConstructor(
-    "com.microsoft.eventhubs.spout.EventHubSpoutConfig",
-    new List<Tuple<string, object>>()
-    {
-        // the shared access signature name and key used to read the data
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"]),
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKey"]),
-        // The namespace that contains the event hub to read from
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubNamespace"]),
-        // The event hub name to read from
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubEntityPath"]),
-        // The number of partitions in the event hub
-        Tuple.Create<string, object>("int", eventHubPartitions),
-        // The encoding scheme to use when reading
-        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.IEventDataScheme", schemeConstructor)
-    }
-    );
-// Create an instance of the spout
-var eventHubSpout = new JavaComponentConstructor(
-    "com.microsoft.eventhubs.spout.EventHubSpout",
-    new List<Tuple<string, object>>()
-    {
-        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.EventHubSpoutConfig", eventHubSpoutConfig)
-    }
-    );
-// Set the spout in the topology
-topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions);
-```
-
-> [!IMPORTANT]
-> **UnicodeEventDataScheme**은 Event Hubs 구성 요소 버전 9.5에서만 사용할 수 있으며 이것은 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/)에서 사용이 가능합니다.
 
 ### <a name="example-bolt-usage"></a>예제 Bolt 사용
 
 **JavaComponmentConstructor** 메서드를 사용하여 Bolt의 인스턴스를 만듭니다. 다음 예제에서는 **EventHubBolt**의 새 인스턴스를 만들고 구성하는 방법을 보여 줍니다.
 
 ```csharp
-//Create constructor for the Java bolt
-JavaComponentConstructor constructor =
-    // Use a Clojure expression to create the EventHubBoltCOnfig
-    JavaComponentConstructor.CreateFromClojureExpr(
-        String.Format(@"(org.apache.storm.eventhubs.bolt.EventHubBolt. (org.apache.storm.eventhubs.bolt.EventHubBoltConfig. " +
+// Java construcvtor for the Event Hub Bolt
+JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
+    String.Format(@"(org.apache.storm.eventhubs.bolt.EventHubBolt. (org.apache.storm.eventhubs.bolt.EventHubBoltConfig. " +
         @"""{0}"" ""{1}"" ""{2}"" ""{3}"" ""{4}"" {5}))",
-    // The policy name and key used to read from Event Hubs
-    ConfigurationManager.AppSettings["EventHubPolicyName"],
-    ConfigurationManager.AppSettings["EventHubPolicyKey"],
-    // The namespace that contains the event hub
-    ConfigurationManager.AppSettings["EventHubNamespace"],
-    "servicebus.windows.net", //suffix for the namespace fqdn
-    // The Evetn Hub Name)
-    ConfigurationManager.AppSettings["EventHubName"],
-    "true"));
+        ConfigurationManager.AppSettings["EventHubPolicyName"],
+        ConfigurationManager.AppSettings["EventHubPolicyKey"],
+        ConfigurationManager.AppSettings["EventHubNamespace"],
+        "servicebus.windows.net",
+        ConfigurationManager.AppSettings["EventHubName"],
+        "true"));
 
-//Set the bolt
+// Set the bolt to subscribe to data from the spout
 topologyBuilder.SetJavaBolt(
-        "EventHubBolt",
-        constructor,
-        partitionCount). //Parallelism hint uses partition count
-    shuffleGrouping("Spout"); //Consume data from spout
+    "eventhubbolt",
+    constructor,
+    partitionCount)
+        .shuffleGrouping("Spout");
 ```
 
 > [!NOTE]
@@ -172,10 +114,10 @@ topologyBuilder.SetJavaBolt(
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [HDInsight 클러스터 버전 3.5의 Apache Storm](hdinsight-apache-storm-tutorial-get-started.md)
+* [HDInsight 클러스터 버전 3.5 또는 3.6의 Apache Storm](hdinsight-apache-storm-tutorial-get-started.md).
 
     > [!WARNING]
-    > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
+    > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5 또는 3.6에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
 
 * [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
@@ -183,24 +125,20 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
-* 개발 환경에서 Java JDK 1.7 이상 JDK 다운로드는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 사용할 수 있습니다.
+* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 사용할 수 있습니다.
 
   * **JAVA_HOME** 환경 변수가 Java를 포함하고 있는 디렉터리를 가리켜야 합니다.
   * **%JAVA_HOME%/bin** 디렉터리가 경로에 있어야 합니다.
 
 ## <a name="download-the-event-hubs-components"></a>Event Hubs 구성 요소 다운로드
 
-Spout 및 Bolt는 **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**이라는 단일 JAR 파일로 분산됩니다. 여기서 #.#은 파일의 버전입니다.
-
-이 솔루션을 HDInsight 3.3 또는 3.4와 함께 사용하려면 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/)의 버전 0.9.5 JAR 파일을 사용합니다.
-
-HDInsight 3.5 또는 3.6의 경우, [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib)의 이 JAR 파일을 사용합니다.
+Event Hubs Spout 및 Bolt 구성 요소를 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 다운로드하세요.
 
 `eventhubspout`라는 디렉터리를 만들고 이 디렉터리에 파일을 저장합니다.
 
-## <a name="configure-event-hubs"></a>이벤트 허브 구성
+## <a name="configure-event-hubs"></a>Event Hubs 구성
 
-이벤트 허브는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)의 "이벤트 허브 만들기" 섹션에 있는 정보를 참조하세요.
+Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)의 "이벤트 허브 만들기" 섹션에 있는 정보를 참조하세요.
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 블레이드를 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/21/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d1acbc609d1928101eb3e4b9eaa6ea05856e17d3
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 530749275b720caefd7e7e57291b4bc0d313faf0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -94,12 +94,18 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 2. **VoteDataController.cs** 파일을 열고 이 Web API의 **Put** 메서드(50줄)에서 중단점을 설정합니다.
 
 3. 브라우저로 돌아가서 투표 옵션을 클릭하거나 새 투표 옵션을 추가합니다. 웹 프런트 엔드의 api 컨트롤러에서 첫 번째 중단점에 도달합니다.
-    - 여기서 브라우저의 JavaScript가 프런트 엔드 서비스의 Web API 컨트롤러에 요청을 보냅니다. 그런 다음 프런트 엔드 서비스의 컨트롤러는 ReverseProxy를 사용하여 백 엔드 서비스로 PUT 요청을 보냅니다.
+    - 여기서 브라우저의 JavaScript가 프런트 엔드 서비스의 Web API 컨트롤러에 요청을 보냅니다.
+    
+    ![투표 프런트 엔드 서비스 추가](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+
+    - 먼저 백 엔드 서비스 **(1)**에 대해 ReverseProxy에 대한 URL을 구성해야 합니다.
+    - 그런 다음 ReverseProxy **(2)**에 HTTP PUT 요청을 보냅니다.
+    - 마지막으로로 백 엔드 서비스로부터 클라이언트 **(3)**에 응답을 반환합니다.
 
 4. 계속하려면 **F5** 키를 누릅니다.
     - 이제 백 엔드 서비스의 중단점에 있습니다.
     
-    ![투표 비동기 메서드 추가](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![투표 백 엔드 서비스 추가](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
     - 메서드의 첫 번째 줄**(1)**에서는 신뢰할 수 있는 사전 `counts`를 가져오거나 추가하기 위해 `StateManager`를 사용합니다.
     - 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문**(2)**으로 트랜잭션이 만들어집니다.
@@ -109,7 +115,9 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 디버깅 세션을 중지하려면 **Shift+F5** 키를 누릅니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
-응용 프로그램을 Azure의 클러스터에 배포하려면 사용자 고유의 클러스터를 만들거나 Party 클러스터를 만들도록 선택할 수 있습니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. Party 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따라](http://aka.ms/tryservicefabric) 클러스터에 대한 액세스 권한을 얻습니다. 
+응용 프로그램을 Azure의 클러스터에 배포하려면 사용자 고유의 클러스터를 만들거나 Party 클러스터를 만들도록 선택할 수 있습니다.
+
+Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
 
 사용자 고유의 클러스터를 만드는 방법은 [Azure에서 첫 번째 Service Fabric 클러스터 만들기](service-fabric-get-started-azure-cluster.md)를 참조하세요.
 

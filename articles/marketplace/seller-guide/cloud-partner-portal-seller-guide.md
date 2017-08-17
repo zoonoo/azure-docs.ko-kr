@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 판매자 가이드
@@ -31,7 +29,7 @@ Azure Marketplace 판매자 가이드를 시작합니다. 이 가이드는 Azure
 
 이 가이드의 끝부분에서는 다음 항목에 대한 자세한 정보를 어디에서 확인할 수 있는지 알게 됩니다.
 
-- Azure 마켓플레이스란 무엇인가요?
+- Azure Marketplace란 무엇인가요?
 - 내 제품이 Marketplace에 맞는지 어떻게 확인하나요?
 - Marketplace에서 판매하면 어떤 이점이 있나요?
 - Marketplace에서 판매하기 위한 필수 조건(기술 및 비기술)은 무엇인가요?
@@ -205,7 +203,7 @@ Marketplace는 Marketplace [게시자 보고 포털](https://reports.azure.com)�
 
 이 [비디오](https://player.vimeo.com/video/200859918)는 다음과 같은 보고서 기능 및 혜택의 미리 보기를 제공합니다.
 
-- 보고서 유형: 홈 페이지에서 주문, 사용량 및 고객 동향의 요약 스냅숏
+- 보고서 유형: 홈페이지에서 주문, 사용량 및 고객 동향의 요약 스냅숏
 - 주문, 사용량 및 고객 데이터의 세부 정보
 - 월간 요약 또는 6개월 추세 보기로 표시된 주문 및 사용량
 - 표준으로 표시된 다양한 통찰력
@@ -215,7 +213,7 @@ Marketplace는 Marketplace [게시자 보고 포털](https://reports.azure.com)�
   - 유행 제품
   - Marketplace 라이선스 유형
 
-상세 보고서에는 회사 이름 및 우편 번호와 같은 지리적 위치 등의 고객 정보가 표시되어 판매자를 지원할 수 있습니다. 다음 목록은 고객에 대해 제공하는 구체적인 특성입니다.
+상세 보고서에는 회사 이름 및 우편 번호와 같은 지리적 위치 등의 고객 정보가 표시되어 고객을 비교할 수 있습니다. 다음 목록은 고객에 대해 제공하는 구체적인 특성입니다.
 
 - Reseller
 - FirstName
