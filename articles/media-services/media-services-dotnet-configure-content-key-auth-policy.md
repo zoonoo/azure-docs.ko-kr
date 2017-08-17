@@ -54,7 +54,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 * 자산 배달 정책을 추가하거나 업데이트하는 경우 기존 로케이터(있는 경우)를 삭제하고 새 로케이터를 만들어야 합니다.
 * 현재 점진적 다운로드를 암호화할 수 없습니다.
 
-## <a name="aes-128-dynamic-encryption"></a>AES&128; 동적 암호화.
+## <a name="aes-128-dynamic-encryption"></a>AES 128 동적 암호화.
 ### <a name="open-restriction"></a>열기 제한
 열기 제한은 시스템이 키를 요청하는 사람에게 키를 제공하는 것을 의미합니다. 이 제한은 테스트 목적으로 유용할 수 있습니다.
 
