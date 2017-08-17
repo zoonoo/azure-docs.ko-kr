@@ -126,7 +126,7 @@ Application Insights 성능 블레이드로 이동합니다. [구성] 아이콘�
 
 1. 배포 템플릿에서 WAD(Windows Azure 진단) 리소스 선언을 찾습니다.
   * 아직 없는 경우 하나 만듭니다(전체 예제에서 어떻게 수행되는지 확인).
-  * Azure 리소스 웹 사이트 (https://resources.azure.com)에서 템플릿을 업데이트할 수 있습니다.
+  * Azure 리소스 웹 사이트 ( https://resources.azure.com ) 에서 템플릿을 업데이트할 수 있습니다.
 2. 게시자를 "Microsoft.Azure.Diagnostics"에서 "AIP.Diagnostics.Test"로 수정합니다.
 3. typeHandlerVersion은 "0.0"으로 사용합니다.
 4. autoUpgradeMinorVersion이 true로 설정되어 있는지 확인합니다.
