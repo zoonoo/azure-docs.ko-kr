@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 2180a11c53a3b283fed35844c5821aef744fb95e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 컴퓨터 배포 문제 해결
@@ -110,7 +110,7 @@ Windows Server 2016 또는 Windows Server 2012 R2를 실행하는 Azure N 시리
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10을 사용할 수 있습니다. 
 
 - [적격 개발/테스트 제품](client-images.md#eligible-offers) 내에서 Azure 갤러리의 특정 Windows 10 이미지를 사용할 수 있습니다. 
-- Visual Studio 구독자(사용 중인 제품 유형은 관계없음)는 64비트 Windows 7, Windows 8 또는 Windows 10 이미지를 [적절하게 준비하고 작성](prepare-for-upload-vhd-image.md)한 다음 [Azure에 업로드](upload-image.md)할 수도 있습니다. 이렇게 업로드하는 이미지 역시 활성 Visual Studio 구독자가 개발/테스트용으로만 사용할 수 있습니다.
+- Visual Studio 구독자(사용 중인 제품 유형은 관계없음)는 64비트 Windows 7, Windows 8 또는 Windows 10 이미지를 [적절하게 준비하고 작성](prepare-for-upload-vhd-image.md)한 다음 [Azure에 업로드](upload-generalized-managed.md)할 수도 있습니다. 이렇게 업로드하는 이미지 역시 활성 Visual Studio 구독자가 개발/테스트용으로만 사용할 수 있습니다.
 
 이 [문서](client-images.md)에서는 Azure에서 Windows 클라이언트를 실행하고 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
 
