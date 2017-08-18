@@ -54,7 +54,7 @@ ms.lasthandoff: 07/28/2017
 
 **제목** 상자에 **무료 평가판**을 입력합니다.
 
-**설명** 상자에 **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.**를 입력합니다.
+**설명** 상자에 **구독자는 액세스가 거부 되었습니다 200 호출/주 최대 10 개의 호출/분을 실행할 수 있습니다** 를 입력합니다.
 
 API Management의 제품은 보호되거나 개방될 수 있습니다. 사용하기 전에 먼저 보호된 제품을 구독할 수 있어야 합니다. 개방된 제품은 구독하지 않고 사용할 수 있습니다. 구독이 필요한 보호된 제품을 만들기 위해 **구독 필요**가 선택되었는지 확인하세요. 기본 설정입니다.
 
