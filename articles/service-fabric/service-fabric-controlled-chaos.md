@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2017
+ms.date: 08/09/2017
 ms.author: motanv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 00f703cf9e727cd5981c4f8254fc11330e41a470
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도
@@ -53,10 +52,6 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="important-configuration-options"></a>중요 구성 옵션
 * **TimeToRun**: 성공적으로 완료될 때까지 비정상 상황이 실행되는 총 시간입니다. StopChaos API를 통해 TimeToRun 기간 동안 실행되기 전에 비정상 상황을 중지할 수 있습니다.
-
-> [!NOTE]
-> 비정상 상황은 *TimeToRun*이 작동되고 있을 때도 여전히 실행 중일 수 있으며, 자동으로 중지하는 데 (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations)의 추가 시간이 걸릴 수 있습니다.
->
 
 * **MaxClusterStabilizationTimeout**: 클러스터가 정상 상태가 될 때까지 기다리는 최대 시간입니다. 그 이후에는 ValidationFailedEvent가 생성됩니다. 이를 통해 복구되는 동안 클러스터의 부하를 줄일 수는 있습니다. 수행되는 검사는 다음과 같습니다.
   * 클러스터 상태가 정상인 경우

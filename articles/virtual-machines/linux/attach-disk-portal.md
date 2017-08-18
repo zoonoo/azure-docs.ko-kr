@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 185e09366a8d68746415f4cbbac217d4ad558de7
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: fb3b4ea612777d0ba801342dacf4b2ece46afed6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Azure 포털에서 Linux VM에 데이터 디스크를 연결하는 방법
-이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 컴퓨터에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. Azure Managed Disks 또는 관리되지 않는 디스크를 사용하도록 선택할 수 있습니다. 관리되는 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 관리되지 않는 디스크는 저장소 계정이 필요하며 [적용되는 할당량 및 제한](../../azure-subscription-service-limits.md#storage-limits)이 있습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요.
+이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 컴퓨터에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. Azure Managed Disks 또는 관리되지 않는 디스크를 사용하도록 선택할 수 있습니다. 관리되는 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 관리되지 않는 디스크는 저장소 계정이 필요하며 [적용되는 할당량 및 제한](../../azure-subscription-service-limits.md#storage-limits)이 있습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요.
 
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 

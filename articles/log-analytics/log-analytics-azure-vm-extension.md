@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Log Analytics 에이전트에서 Azure 가상 컴퓨터를 Log Analytics에 연결
@@ -414,8 +413,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
    * [Linux VM에 Azure VM 에이전트 설치](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. 그 밖의 비정상 상태에 대해 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`에서 OMS Agent for Linux VM 확장 로그 파일을 검토합니다. 
 3. 확장 상태가 정상이나 데이터가 업로드되지 않는 경우 `/var/opt/microsoft/omsagent/log/omsagent.log`에서 OMS Agent for Linux 로그 파일을 검토합니다.
-
-자세한 내용은 [Linux 확장 문제 해결](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 데이터 원본](log-analytics-data-sources.md) 을 구성하여 수집할 로그 및 메트릭을 지정합니다.

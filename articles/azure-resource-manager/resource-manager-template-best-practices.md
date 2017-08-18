@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 생성 모범 사례
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/11/2017
 * 고유해야 할 필요는 없지만 컨텍스트를 기반으로 리소스를 식별하는 데 도움이 될 수 있는 이름을 제공하도록 선택
 * 일반적일 수 있는 리소스 이름
 
-명명 규칙 설정에 대한 도움이 필요한 경우 [Azure 인프라 명명 지침](../virtual-machines/windows/infrastructure-naming-guidelines.md)을 참조하세요. 리소스 이름 제한에 대한 자세한 내용은 [Azure 리소스에 대한 권장 명명 규칙](../guidance/guidance-naming-conventions.md)을 참조하세요.
+ 리소스 이름 제한에 대한 자세한 내용은 [Azure 리소스에 대한 권장 명명 규칙](../guidance/guidance-naming-conventions.md)을 참조하세요.
 
 ### <a name="unique-resource-names"></a>고유한 리소스 이름
 데이터 액세스 끝점이 있는 모든 리소스 유형에 대해 고유한 리소스 이름을 제공해야 합니다. 고유 이름이 필요한 일반적인 리소스 유형은 다음과 같습니다.
@@ -396,7 +395,6 @@ JSON 유효성 검사기를 통해 템플릿을 전달하는 것이 좋습니다
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터를 위한 솔루션 설계에 대한 자세한 내용은 [Azure에서 Windows VM 실행](../guidance/guidance-compute-single-vm.md) 및 [Azure에서 Linux VM 실행](../guidance/guidance-compute-single-vm-linux.md)을 참조하세요.
 * 저장소 계정 설정에 대한 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](../storage/storage-performance-checklist.md)을 참조하세요.
-* 가상 네트워크에 대한 도움말을 보려면 [네트워킹 인프라 지침](../virtual-machines/windows/infrastructure-networking-guidelines.md)을 참조하세요.
 * 엔터프라이즈에서 Resource Manager를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대해 자세히 알아보려면 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 
 

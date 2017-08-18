@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -173,6 +173,7 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
    - [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
    - [깔때기](usage-funnels.md)
    - [보존](app-insights-usage-retention.md)
+   - [사용자 흐름](app-insights-usage-flows.md)
    - [통합 문서](app-insights-usage-workbooks.md)
    - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Azure 활동 메트릭 경고에 대한 웹후크 구성
@@ -31,7 +31,7 @@ Azure에서는 앞으로 정의될 JSON 형식과 스키마에 포함되는 경�
 
 ![경고 규칙 추가](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-[Azure PowerShell Cmdlet](insights-powershell-samples.md#create-alert-rules), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 webhook URI에 게시하도록 경고를 구성할 수 있습니다.
+[Azure PowerShell Cmdlet](insights-powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 webhook URI에 게시하도록 경고를 구성할 수 있습니다.
 
 ## <a name="authenticating-the-webhook"></a>웹후크 인증
 웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 토큰 ID를 사용하여 웹후크 URI를 저장합니다. 예를 들면 다음과 같습니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

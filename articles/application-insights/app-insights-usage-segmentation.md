@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -71,6 +71,7 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
 - 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
     - [깔때기](usage-funnels.md)
     - [보존](app-insights-usage-retention.md)
+    - [사용자 흐름](app-insights-usage-flows.md)
     - [통합 문서](app-insights-usage-workbooks.md)
     - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
 

@@ -16,10 +16,10 @@ ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: eb94f7222476af3d15089589a5e69556f7d6888b
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>클래식 포털에서 일반적인 Azure Backup 작업 및 트리거 경고 관리
@@ -244,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 이벤트 기반 경고는 다음과 같은 제한 사항에 종속됩니다.
 
 1. 백업 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. 이에 사용자 지정으로 백업 자격 증명 모음에서 가상 컴퓨터의 특정 집합에 대한 경고를 가져올 수 없습니다.
-2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. “alerts-noreply@mail.windowsazure.com”에서 경고를 받게 됩니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
