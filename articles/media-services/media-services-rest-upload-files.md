@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 14945cf23ead64b90a9e9ad6503a96f1b0669675
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
@@ -47,16 +47,20 @@ ms.lasthandoff: 04/25/2017
 
 또한 AMS을 사용하면 대량으로 자산을 업로드할 수 있습니다. 자세한 내용은 [이](media-services-rest-upload-files.md#upload_in_bulk) 섹션을 참조하세요.
 
-## <a name="upload-assets"></a>자산 업로드
-### <a name="create-an-asset"></a>자산 만들기
 > [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
 > 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 > 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+
+## <a name="upload-assets"></a>자산 업로드
+
+### <a name="create-an-asset"></a>자산 만들기
 
 자산은 여러 유형이나 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택된 캡션 파일을 포함한 미디어 서비스의 개체 집합에 대한 컨테이너입니다. REST API에서 자산을 만들려면 미디어 서비스에 POST 요청을 보내고 자산에 대한 속성 정보를 요청 본문에 배치해야 합니다.
 
@@ -90,7 +94,6 @@ ms.lasthandoff: 04/25/2017
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
-
 
 **HTTP 응답**
 
@@ -150,7 +153,6 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-
 **HTTP 응답**
 
     HTTP/1.1 201 Created
@@ -184,7 +186,6 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>쓰기 권한으로 AccessPolicy를 만듭니다.
 
@@ -269,7 +270,6 @@ SAS URL의 형식은 다음과 같습니다.
        "Type":1
     }
 
-
 **HTTP 응답**
 
 성공하면 다음 응답이 반환됩니다.
@@ -349,7 +349,6 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 **HTTP 응답**
 
@@ -518,7 +517,7 @@ ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결
 
 또한 Azure Functions를 사용하여 구성된 컨테이너에 도착하는 파일에 따라 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [이 샘플](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )을 참조하세요.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

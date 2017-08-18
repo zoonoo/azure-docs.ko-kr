@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 089bb12b66e772b1fe62eeca9a306b5723fc8c06
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK 릴리스 정보 및 리소스
@@ -58,7 +58,6 @@ ms.lasthandoff: 07/26/2017
 * Strong 및 BoundedStaleness 일관성 수준 관련 문제를 수정했습니다.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* 분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
 * ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
 * 세션 모드에서 컬렉션을 읽을 때 발생하는 버그를 수정했습니다.
 

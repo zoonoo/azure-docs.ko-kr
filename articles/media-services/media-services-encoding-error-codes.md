@@ -29,7 +29,7 @@ ms.lasthandoff: 01/27/2017
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
 | 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
-| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가&0;인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
+| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0 인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 저장소 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
 | ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 <see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
 | ErrorExecutingTaskMalformedContent |입력 미디어 파일 내의 문제로 인해 실패가 발생한 작업을 실행하는 동안 발생하는 오류 범주입니다. |

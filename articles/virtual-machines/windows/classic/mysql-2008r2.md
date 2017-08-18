@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1bfce97dba3cfc371900c0e3c6a93369e768c181
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>클래식 배포 모델을 사용하여 만든, Windows Server 2016을 실행하는 가상 컴퓨터에 MySQL 설치
@@ -36,7 +36,7 @@ Windows Server 2016을 실행하는 VM이 아직 없는 경우 이 [자습서](.
 ## <a name="attach-a-data-disk"></a>데이터 디스크 연결
 가상 컴퓨터가 만들어진 후에 선택적으로 데이터 디스크를 연결할 수 있습니다. 데이터 디스크 추가는 프로덕션 작업에 권장되며, 운영 체제를 포함하는 OS 드라이브(C:)의 공간 부족을 방지합니다.
 
-[Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../attach-disk-portal.md)을 참조하고 빈 디스크를 연결하는 방법에 대한 지침을 따르세요. 호스트 캐시 설정을 **없음** 또는 **읽기 전용**으로 설정합니다.
+[Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../attach-managed-disk-portal.md)을 참조하고 빈 디스크를 연결하는 방법에 대한 지침을 따르세요. 호스트 캐시 설정을 **없음** 또는 **읽기 전용**으로 설정합니다.
 
 ## <a name="log-on-to-the-virtual-machine"></a>가상 컴퓨터에 로그온
 다음으로, MySQL을 설치할 수 있도록 [가상 컴퓨터에 로그온](./connect-logon.md)합니다.

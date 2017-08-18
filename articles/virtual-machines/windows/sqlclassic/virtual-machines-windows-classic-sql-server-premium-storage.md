@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e8f191e7bc0ce49abc3f1b4b2329a0ee3b38cd4e
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/21/2017
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
+이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
 IaaS VM의 SQL Server에서 Azure 프리미엄 저장소를 활용하는 전체 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
 
@@ -100,7 +100,7 @@ DS* VM에 대해 VM을 호스팅하는 VNET(가상 네트워크)을 해당 지�
 VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
 ### <a name="windows-storage-spaces"></a>Windows 저장소 공간
-표준 저장소에서와 같이 [Windows 저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 저장소 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
+표준 저장소에서와 같이 [Windows 저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 저장소 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
 
 저장소 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure 저장소 계정에서 사용되었습니다. 새 배포의 경우 프리미엄 저장소에서도 저장소 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 저장소 설정이 더 복잡해집니다.
 
@@ -139,7 +139,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 
 이제 이 정보를 사용하여 연결된 VHD를 저장소 풀의 실제 디스크에 연결할 수 있습니다.
 
-저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 프리미엄 저장소 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서 8~12단계를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
+저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 프리미엄 저장소 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제에서 8~12단계를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 저장소 대역폭 및 VHD 저장소 처리량
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
@@ -418,7 +418,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 8. 유효성 검사가 정상적으로 완료되면 모든 SQL Server 서비스를 시작합니다.
 9. 트랜잭션 로그를 백업하고 사용자 데이터베이스를 복원합니다.
 10. Always On 가용성 그룹에 새 노드를 추가하고 복제를 **동기**로 설정합니다.
-11. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 다중 사이트 예제를 기준으로 하여 Always On용 PowerShell을 통해 새 클라우드 서비스 ILB/ELB의 IP 주소 리소스를 추가합니다. Windows 클러스터링에서 **IP 주소** 리소스의 **가능한 소유자**를 새 노드로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+11. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 다중 사이트 예제를 기준으로 하여 Always On용 PowerShell을 통해 새 클라우드 서비스 ILB/ELB의 IP 주소 리소스를 추가합니다. Windows 클러스터링에서 **IP 주소** 리소스의 **가능한 소유자**를 새 노드로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 12. 새 노드 중 하나로 장애 조치(failover)합니다.
 13. 새 노드를 자동 장애 조치(failover)로 지정한 다음 장애 조치(failover)를 테스트합니다.
 14. 가용성 그룹에서 원래 노드를 제거합니다.
@@ -466,7 +466,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 ##### <a name="points-of-downtime"></a>가동 중지 시간 발생 시점
 * 부하 분산된 끝점으로 최종 노드를 업데이트할 때 가동 중지 시간이 발생합니다.
 * 클라이언트/DNS 구성에 따라 클라이언트 다시 연결이 지연될 수 있습니다.
-* Always On 클러스터 그룹을 오프라인으로 설정하여 IP 주소를 교환하려는 경우에는 가동 중지 시간이 추가로 발생합니다. 추가되는 IP 주소 리소스에 대해 OR 종속성 및 가능한 소유자를 사용하면 이러한 가동 중지 시간을 방지할 수 있습니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+* Always On 클러스터 그룹을 오프라인으로 설정하여 IP 주소를 교환하려는 경우에는 가동 중지 시간이 추가로 발생합니다. 추가되는 IP 주소 리소스에 대해 OR 종속성 및 가능한 소유자를 사용하면 이러한 가동 중지 시간을 방지할 수 있습니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 
 > [!NOTE]
 > 추가한 노드를 Always On 장애 조치(failover) 파트너로 사용하려는 경우에는 부하 분산된 집합에 대한 참조와 함께 Azure 끝점을 추가해야 합니다. 이를 위해 **Add-AzureEndpoint** 명령을 실행하면 현재 연결은 계속 열려 있지만 부하 분산 장치를 업데이트할 때까지는 수신기에 대한 새 연결을 설정할 수 있습니다. 테스트에서는 이 시간이 90~120초로 확인되었지만 실제 환경에서 테스트를 수행해야 합니다.
@@ -488,7 +488,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
   * 클러스터 쿼럼을 올바르게 구성했는지 확인합니다.  
 
 ##### <a name="high-level-steps"></a>대략적인 단계
-이 문서에서는 전체 종단 간 예제를 제공하지는 않으며 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) 에서 이 단계를 수행하는 데 활용할 수 있는 세부 정보를 제공합니다.
+이 문서에서는 전체 종단 간 예제를 제공하지는 않으며 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 에서 이 단계를 수행하는 데 활용할 수 있는 세부 정보를 제공합니다.
 
 ![MinimalDowntime][8]
 
@@ -498,7 +498,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 * ILB/ELB를 구성하고 끝점 추가
 * 다음 중 하나를 수행하여 수신기 업데이트
   * Always On 그룹을 오프라인으로 설정하고 새 ILB/ELB IP 주소로 Always On 수신기를 업데이트합니다.
-  * PowerShell을 통해 새 클라우드 서비스 iLB/ELB의 IP 주소 리소스를 Windows 클러스터링에 추가합니다. 그런 다음 IP 주소 리소스의 가능한 소유자를 마이그레이션된 노드인 SQL2로 설정하고 네트워크 이름에서 해당 노드를 OR 종속성으로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
+  * PowerShell을 통해 새 클라우드 서비스 iLB/ELB의 IP 주소 리소스를 Windows 클러스터링에 추가합니다. 그런 다음 IP 주소 리소스의 가능한 소유자를 마이그레이션된 노드인 SQL2로 설정하고 네트워크 이름에서 해당 노드를 OR 종속성으로 설정합니다. 자세한 내용은 [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 ‘같은 서브넷에서 IP 주소 리소스 추가' 섹션을 참조하세요.
 * 클라이언트에 대한 DNS 구성/전파 확인
 * SQL1 VM을 마이그레이션하고 2~4단계 수행
 * 5ii단계를 사용하는 경우 추가된 IP 주소 리소스의 가능한 소유자로 SQL1 추가

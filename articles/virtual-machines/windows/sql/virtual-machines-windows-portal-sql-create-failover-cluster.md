@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 
 1. 사용자의 구독으로 [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
-1. [Azure 가용성 집합을 만듭니다](../create-availability-set.md).
+1. [Azure 가용성 집합을 만듭니다](../tutorial-availability-sets.md).
 
    가용성 집합은 장애 도메인 및 업데이트 도메인에 대해 가상 컴퓨터를 그룹화합니다. 가용성 집합을 사용하면 응용 프로그램은 네트워크 스위치 또는 서버 랙의 전원 장치와 같은 단일 지점의 오류에 영향을 받지 않습니다.
 
@@ -223,14 +223,14 @@ UI를 사용하여 클러스터의 유효성을 검사하려면 가상 컴퓨터
 
 1. **서버 관리자**에서 **도구**를 클릭한 다음 **장애 조치(Failover) 클러스터 관리자**를 클릭합니다.
 1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...**를 클릭합니다.
-1. **다음**을 클릭합니다.
+1. **다음**을 누릅니다.
 1. **서버 또는 클러스터 선택**에서 두 가상 컴퓨터의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 클릭합니다.
+1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 누릅니다.
 1. **테스트 선택**에서 **저장소**를 제외한 모든 테스트를 포함합니다. 다음 그림을 참조하세요.
 
    ![유효성 검사 테스트](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. **다음**을 클릭합니다.
+1. **다음**을 누릅니다.
 1. **확인**에서 **다음**을 클릭합니다.
 
 **구성 유효성 검사 마법사**가 유효성 검사 테스트를 실행합니다.

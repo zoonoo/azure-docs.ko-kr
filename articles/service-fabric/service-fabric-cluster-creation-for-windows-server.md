@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/24/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
@@ -113,9 +113,9 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 아래와 같이 포함된 `-FabricRuntimePackagePath` 매개 변수를 사용하여 `CreateServiceFabricCluster.ps1`을 실행하여 클러스터를 만듭니다. 
 
 ```powershell
-CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-여기서 `<path to ClusterConfig.json>` 및 `<path to MicrosoftAzureServiceFabric.cab>`는 각각 클러스터 구성 및 런타임 .cab 파일에 대한 경로입니다.
+여기서 `.\ClusterConfig.json` 및 `.\MicrosoftAzureServiceFabric.cab`는 각각 클러스터 구성 및 런타임 .cab 파일에 대한 경로입니다.
 
 
 ### <a name="step-2-connect-to-the-cluster"></a>2단계: 클러스터에 연결
@@ -125,7 +125,9 @@ CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterCon
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+예제:
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>3단계: Service Fabric Explorer 표시

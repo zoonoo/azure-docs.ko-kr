@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 08/10/2017
 ms.author: juliako;cenkdin
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e10c7b29469f9756803aaba64596bf86830893fa
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure 미디어 서비스 REST API로 필터 생성
@@ -42,14 +42,16 @@ ms.lasthandoff: 02/16/2017
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect 및 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-> [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+>[!NOTE]
+
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-filters"></a>필터 생성
 ### <a name="create-global-filters"></a>전역 Filter 생성

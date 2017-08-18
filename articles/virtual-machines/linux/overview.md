@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
@@ -117,8 +117,6 @@ Azure 웹 포털에서 Linux VM을 만들 경우 배포를 진행하기 위한 �
 
 ### <a name="login-using-ssh-without-a-password"></a>SSH를 사용하여 암호 없이 로그인
 VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  암호를 사용하여 SSH를 통해 로그인하는 것은 안전하지 않으며 시간이 많이 소요됩니다.  SSH 키를 사용하는 것이 가장 안전하고 로그인하는 데 가장 빠른 방법입니다.  포털 또는 CLI를 통해 Linux VM을 만들 경우 두 가지 인증 중에서 선택해야 합니다.  SSH에 대한 암호를 선택하면 Azure에서 암호를 통한 로그인을 허용하도록 VM이 구성됩니다.  SSH 공개 키를 사용하기로 선택한 경우 Azure에서 SSH 키를 통한 로그인만 허용하도록 VM을 구성하고 암호 로그인은 사용할 수 없게 설정합니다. SSH 키 로그인만 허용하여 Linux VM을 보호하려면 포털 또는 CLI에서 VM을 만드는 동안 SSH 공개 키 옵션을 사용합니다.
-
-* [SSHD를 구성하여 Linux VM에 SSH 암호 사용 안 함](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 ## <a name="storage"></a>저장소

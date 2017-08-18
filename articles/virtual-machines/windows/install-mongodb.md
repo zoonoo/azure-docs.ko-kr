@@ -14,29 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 5fdf061d6bf9961455377935304e9075ef4e59fa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# Azure에서 Windows VM에 MongoDB를 설치 및 구성
-<a id="install-and-configure-mongodb-on-a-windows-vm-in-azure" class="xliff"></a>
+# <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
 [MongoDB](http://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2012 R2 VM(가상 컴퓨터)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 MongoDB를 설치 및 구성하기 전에 VM을 만들고, 데이터 디스크를 추가해야 합니다. 다음 문서를 참조하여 VM을 만들고 데이터 디스크를 추가하세요.
 
 * [Azure Portal](quick-create-portal.md) 또는 [Azure PowerShell](quick-create-powershell.md)을 사용하여 Windows Server VM을 만듭니다.
-* [Azure Portal](attach-disk-portal.md) 또는 [Azure PowerShell](attach-disk-ps.md)을 사용하여 Windows Server VM에 데이터 디스크를 추가합니다.
+* [Azure Portal](attach-managed-disk-portal.md) 또는 [Azure PowerShell](attach-disk-ps.md)을 사용하여 Windows Server VM에 데이터 디스크를 추가합니다.
 
 MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여 [Windows Server VM에 로그온](connect-logon.md)합니다.
 
-## MongoDB 설치
-<a id="install-mongodb" class="xliff"></a>
+## <a name="install-mongodb"></a>MongoDB 설치
 > [!IMPORTANT]
 > 인증 및 IP 주소 바인딩과 같은 MongoDB 보안 기능은 기본적으로 사용하도록 설정되어 있지 않습니다. MongoDB를 프로덕션 환경에 배포하기 전에 보안 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [MongoDB 보안 및 인증](http://www.mongodb.org/display/DOCS/Security+and+Authentication)을 참조하세요.
 
@@ -59,8 +55,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
 6. 사용권 계약을 읽고 동의합니다. 메시지가 나타나면 **전체**를 선택합니다.
 7. 마지막 화면에서 **설치**를 클릭합니다.
 
-## VM 및 MongoDB 구성
-<a id="configure-the-vm-and-mongodb" class="xliff"></a>
+## <a name="configure-the-vm-and-mongodb"></a>VM 및 MongoDB 구성
 1. path 변수는 MongoDB 설치 관리자를 통해 업데이트되지 않습니다. path 변수에 MongoDB `bin` 위치가 없으면 MongoDB 실행 파일을 사용할 때마다 전체 경로를 지정해야 합니다. path 변수에 위치를 추가하려면:
    
    * **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
@@ -116,8 +111,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
    
     MongoDB 서비스를 만드는 방법에 대한 자세한 내용은 [MongoDB에 대한 Windows 서비스 구성](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#mongodb-as-a-windows-service)을 참조하세요.
 
-## MongoDB 인스턴스 테스트
-<a id="test-the-mongodb-instance" class="xliff"></a>
+## <a name="test-the-mongodb-instance"></a>MongoDB 인스턴스 테스트
 MongoDB를 단일 인스턴스로 실행하거나 서비스로 설치했으면, 이제 데이터베이스를 만들어 사용할 수 있습니다. MongoDB 관리 셸을 시작하려면 **시작** 메뉴에서 명령 프롬프트 창을 하나 더 열고 다음 명령을 입력합니다.
 
 ```
@@ -148,8 +142,7 @@ db.foo.find()
 exit
 ```
 
-## 방화벽 및 네트워크 보안 그룹 규칙 구성
-<a id="configure-firewall-and-network-security-group-rules" class="xliff"></a>
+## <a name="configure-firewall-and-network-security-group-rules"></a>방화벽 및 네트워크 보안 그룹 규칙 구성
 MongoDB를 설치하고 실행했으니, 원격으로 MongoDB에 연결할 수 있도록 Windows 방화벽에 있는 포트를 열어야 합니다. TCP 포트 27017을 허용하는 새 인바운드 규칙을 만들려면 관리 PowerShell 프롬프트를 열고 다음 명령을 입력합니다.
 
 ```powerahell
@@ -169,8 +162,7 @@ New-NetFirewallRule `
 > TCP 포트 27017은 MongoDB가 사용하는 기본 포트입니다. 수동으로 또는 서비스에서 `mongod.exe`를 시작하고 `--port` 매개 변수를 사용하여 이 포트를 변경할 수 있습니다. 포트를 변경하는 경우 이전 단계의 Windows 방화벽 및 네트워크 보안 그룹 규칙을 업데이트해야 합니다.
 
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Windows VM에 MongoDB를 설치하고 구성하는 방법을 배웠습니다. 이제 [MongoDB 설명서](https://docs.mongodb.com/manual/)(영문)의 고급 토픽에 따라 Windows VM의 MongoDB에 액세스할 수 있습니다.
 
 

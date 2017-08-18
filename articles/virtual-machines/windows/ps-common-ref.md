@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dd75685c2373f65965248656137f1551fa765b7b
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 047eae178d31797fc1b6969cce43da06290955ca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/21/2017
 | VM 업데이트 |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Get-AzureRmVM을 사용하여 현재 VM 구성을 가져오고, VM 개체에서 구성 설정을 변경한 후, 이 명령을 실행합니다. |
 | VM에 데이터 디스크 추가 |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. LUN 번호 및 디스크 크기를 지정합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. 추가한 디스크가 초기화되지 않았습니다. |
 | VM에서 데이터 디스크 제거 |[Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. |
-| VM에 확장 추가 |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>설치하려는 확장에 대한 해당 [구성 정보](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 이 명령을 실행합니다. |
+| VM에 확장 추가 |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>설치하려는 확장에 대한 해당 [구성 정보](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions)를 사용하여 이 명령을 실행합니다. |
 | VM 확장 제거 |[Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension) -ResourceGroupName $myResourceGroup -Name "extensionName" -VMName $myVM |
 
 ## <a name="next-steps"></a>다음 단계

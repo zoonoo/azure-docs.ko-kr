@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ee3a2e0fe4c8a554d763befc466d7fc0638964ce
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 9c56bf57250093e5f76e2e4e02e8734af6cf4102
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
@@ -110,5 +110,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>추가 리소스
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure.md)
-[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md#remote-desktop)
+[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md)
 
