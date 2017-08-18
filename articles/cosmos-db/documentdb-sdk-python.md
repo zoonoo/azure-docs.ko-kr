@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 43eaa0ae7ab5c3ea08d09c1fdda0033ab0fd2658
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
@@ -53,7 +53,6 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>릴리스 정보
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* 분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
 * ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
 
 

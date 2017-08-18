@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 15df34278db6fbda48b03123993a29909910ba67
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
@@ -38,6 +37,8 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+
+* SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
 ## <a name="mahout-versioning"></a>Mahout 버전 관리
 
@@ -168,16 +169,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     **Ctrl-X**, **Y**, **Enter** 키를 차례로 눌러 데이터를 저장합니다.
 
-4. 파일이 실행하도록 다음 명령을 사용합니다.
+4. Python 스크립트를 실행합니다. 다음 명령에서는 모든 파일이 다운로드된 디렉터리에 있다고 가정합니다.
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Python 스크립트를 실행합니다. 다음 명령에서는 모든 파일이 다운로드된 디렉터리에 있다고 가정합니다.
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     이 명령은 사용자 ID 4에 대해 생성된 권장을 조사합니다.

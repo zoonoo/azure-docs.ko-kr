@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 538b0064fef8d54c5cac9d4dd43f70ebf1772819
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
@@ -71,7 +71,6 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (ht
 
 로그에 액세스하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight 로그 분석](hdinsight-debug-jobs.md)
 * [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>다음 단계

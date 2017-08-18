@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory Single Sign-On과 SaaS 앱 통합 | Microsoft Docs"
 description: "Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비전 집중식 액세스 관리를 사용하도록 설정합니다. SaaS 앱에 Azure Active Directory를 통합하는 방법의 개요입니다."
 services: active-directory
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Azure Active Directory Single Sign-On과 SaaS 앱 통합

@@ -13,10 +13,10 @@ ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 29aa2510fc04f24c437d6bb6142eebb8859569c0
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9313f0713818f80bae99c32a438d97ba544a7a6b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/21/2017
 | 원하는 정보 | 참조할 문서 |
 | --- | --- |
 | Linux의 HDInsight 및 최적화 | [Linux에서 HDInsight 사용에 관한 정보](hdinsight-hadoop-linux-information.md)<br>[Hadoop 메모리 및 성능](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Hive 쿼리 성능](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| 로그 및 덤프 | [Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[HDInsight 로그 분석](hdinsight-debug-jobs.md)|
+| 로그 및 덤프 | [Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | 오류 | [WebHCat 오류 이해 및 해결](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[Hive 설정 수정 메모리 부족 오류](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | 도구 | [Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)<br>[Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md) |
 

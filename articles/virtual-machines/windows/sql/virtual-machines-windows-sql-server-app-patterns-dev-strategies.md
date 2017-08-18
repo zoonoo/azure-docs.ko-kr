@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8d884d660d4124e8eafdf3690fe8956904f50827
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
@@ -126,7 +126,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로 먼저 이동하도록 하는 것이 바람직합니다. 프레젠테이션 계층이 비즈니스 계층에 액세스한 다음 비즈니스 계층이 데이터 계층에 액세스합니다. 프레젠테이션 계층에 대한 액세스를 허용하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 또한 Azure 가상 네트워크를 사용하여 가상 컴퓨터에 대한 개인용 네트워크를 설정하는 것이 좋습니다. 이렇게 하면 개인 IP 주소를 통해 가상 컴퓨터 간에 통신할 수 있습니다. 자세한 내용은 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
@@ -159,7 +159,7 @@ Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치
 
 다음 그림은 온-프레미스 시나리오와 해당 클라우드 사용 솔루션을 보여줍니다. 이 시나리오에서는 Azure의 여러 가상 컴퓨터에서 프레젠테이션 계층 및 비즈니스 계층 구성 요소를 확장합니다. 또한 Azure에서 SQL Server 데이터베이스에 대한 고가용성 및 재해 복구(HADR) 기술을 구현합니다.
 
-서로 다른 VM에서 여러 응용 프로그램 사본을 실행하면 해당 VM에서 요청의 부하를 분산할 수 있습니다. 여러 가상 컴퓨터가 있을 때는 모든 VM이 어느 시점에 액세스 가능하고 실행 중이어야 합니다. 부하 분산을 구성할 경우 Azure Load Balancer가 VM 상태를 추적하고 들어오는 호출을 정상 작동하는 VM 노드로 전달합니다. 가상 컴퓨터의 부하 분산을 설정하는 방법에 대한 정보는 [Azure 인프라 서비스를 위한 부하 분산](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 부하 분산 장치 뒤에 여러 웹 및 응용 프로그램 서버 인스턴스가 있으면 프레젠테이션 및 비즈니스 계층의 고가용성이 보장됩니다.
+서로 다른 VM에서 여러 응용 프로그램 사본을 실행하면 해당 VM에서 요청의 부하를 분산할 수 있습니다. 여러 가상 컴퓨터가 있을 때는 모든 VM이 어느 시점에 액세스 가능하고 실행 중이어야 합니다. 부하 분산을 구성할 경우 Azure Load Balancer가 VM 상태를 추적하고 들어오는 호출을 정상 작동하는 VM 노드로 전달합니다. 가상 컴퓨터의 부하 분산을 설정하는 방법에 대한 정보는 [Azure 인프라 서비스를 위한 부하 분산](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 부하 분산 장치 뒤에 여러 웹 및 응용 프로그램 서버 인스턴스가 있으면 프레젠테이션 및 비즈니스 계층의 고가용성이 보장됩니다.
 
 ![수평 확장 및 고가용성](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 

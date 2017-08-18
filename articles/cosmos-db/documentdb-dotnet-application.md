@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 86b34c6c44b957009610f20ee0b9d7ed7fc441be
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
@@ -306,10 +306,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
             }
         }
    
-   > [!TIP]
-   > 새 DocumentCollection을 만들 때 새 컬렉션의 성능 수준을 지정할 수 있는 OfferType의 선택적 RequestOptions 매개 변수를 제공할 수 있습니다. 이 매개 변수를 전달하지 않으면 경우 기본 제공 유형이 사용됩니다. Azure Cosmos DB 제공 유형에 대한 자세한 내용은 [Azure Cosmos DB 성능 수준](performance-levels.md)을 참조하세요.
-   > 
-   > 
+    
 3. 구성에서 일부 값을 읽어올 것이므로 응용 프로그램의 **Web.config** 파일을 열고 `<AppSettings>` 섹션 아래에 다음 줄을 추가합니다.
    
         <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>

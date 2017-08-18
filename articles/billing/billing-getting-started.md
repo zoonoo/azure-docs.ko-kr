@@ -3,7 +3,7 @@ title: "예기치 않은 비용 방지, 청구 관리 - Azure | Microsoft Docs"
 description: "Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Microsoft Azure 구독에 대한 비용 추적 및 관리 기능을 사용합니다."
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지
 
 Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파악할 수 있습니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택할 때 현재 비용 분석 및 진행 속도가 표시됩니다. [과거 송장 및 자세한 사용 현황 파일도 다운로드](billing-download-azure-invoice-daily-usage-date.md)할 수 있습니다. 여러 다른 프로젝트 또는 팀에 사용되는 리소스에 대한 비용을 그룹화하려는 경우 [리소스 태그](../azure-resource-manager/resource-group-using-tags.md)를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 [청구 API](billing-usage-rate-card-overview.md)를 확인하세요. 
@@ -39,7 +40,7 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 [가격 계산기](https://azure.microsoft.com/pricing/calculator/) 및 [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 확인하여 관심 있는 서비스의 월별 비용을 예측하세요. 예를 들어 A1 Windows VM(가상 컴퓨터)은 계속 실행 상태를 유지할 경우 월별 계산 시간이 $66.96로 예측됩니다.
 
-![A1 Windows VM이 예상 월별 비용이 $66.96 USD임을 보여 주는 가격 계산기 스크린샷](./media/billing-getting-started/pricing-calc.PNG)
+![A1 Windows VM이 예상 월별 비용이 $66.96 USD임을 보여 주는 가격 계산기 스크린샷](./media/billing-getting-started/pricing-calcVM.png)
 
 자세한 내용은 [가격 책정 FAQ](https://azure.microsoft.com/pricing/faq/)를 참조하세요. 또는 직접 문의하려면 1-800-867-1389번으로 전화하세요.
 
@@ -136,7 +137,7 @@ CPU 코어 수 및 IP 주소 등과 같이 각 구독에 대한 기본 한도가
 
 7. 리소스를 클릭하여 사용 기록 및 매일 청구 비용을 확인할 수 있습니다.
 
-    ![Azure Portal의 사용 기록 보기 스크린 샷](./media/billing-getting-started/spend-history.PNG)
+    ![Azure Portal의 사용 기록 보기 스크린 샷](./media/billing-getting-started/costhistory.PNG)
 
 표시되는 비용과 서비스를 선택할 때 확인한 예측 비용을 비교하는 것이 좋습니다. 비용이 예측 비용과 크게 다른 경우 리소스에 대해 선택한 가격 책정 계획(예: A1 및 A0 VM)을 다시 확인합니다. 
 
@@ -187,3 +188,4 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+

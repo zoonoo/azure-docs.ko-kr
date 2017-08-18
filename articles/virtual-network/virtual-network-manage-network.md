@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: beb4f74012359f6a0a837f0194c7f43746977cea
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/01/2017
 
 - 가상 네트워크에서 처음 작업하는 경우 [첫 번째 Azure Virtual Network 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 검토하는 것이 좋습니다. 이 연습을 통해 가상 네트워크에 친숙해질 수 있습니다.
 - 가상 네트워크에 대한 제한 사항은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
-- Azure 계정을 사용하여 Azure Portal, Azure CLI(명령줄 도구) 또는 Azure PowerShell에 로그인합니다. Azure 계정이 없으면 [무료 평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
+- Azure 계정을 사용하여 Azure Portal, Azure CLI(명령줄 도구) 또는 Azure PowerShell에 로그인합니다. Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - PowerShell 명령을 사용하여 이 문서의 작업을 수행하려면 먼저 [Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)해야 합니다. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 예제에서 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
 - Azure CLI 명령을 사용하여 이 문서의 작업을 수행하려면 먼저 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)해야 합니다. 최신 버전의 Azure CLI를 설치했는지 확인합니다. Azure CLI 명령에 대한 도움말을 보려면 `az <command> --help`를 입력합니다.
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 08/01/2017
 |도구|명령|
 |---|---|
 |Azure CLI|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="add-address-spaces"></a>주소 공간 추가 또는 제거
@@ -146,7 +146,7 @@ ms.lasthandoff: 08/01/2017
 |도구|명령|
 |---|---|
 |Azure CLI|리소스 관리자에만 해당|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>DNS 서버 추가, 변경 또는 제거
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 08/01/2017
 |도구|명령|
 |---|---|
 |Azure CLI|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>가상 네트워크 삭제
 
@@ -190,7 +190,7 @@ ms.lasthandoff: 08/01/2017
 |도구|명령|
 |---|---|
 |Azure CLI|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>다음 단계

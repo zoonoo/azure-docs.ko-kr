@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f6fbefc212197ca8802e7857c67a5b9c297770a8
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 컴퓨터 또는 VHD의 이미지를 만드는 방법
@@ -36,7 +36,7 @@ Azure에서 사용할 가상 컴퓨터(VM)의 복사본을 여러 개 만들려�
 ## <a name="before-you-begin"></a>시작하기 전에
 다음 필수 조건을 충족하는지 확인합니다.
 
-* 관리 디스크를 사용하여 Resource Manager 배포 모델에서 만든 Azure VM이 있어야 합니다. Linux VM을 만들지 않은 경우 [포털](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Resource Manager 템플릿](cli-deploy-templates.md)을 사용할 수 있습니다. 필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](add-disk.md), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
+* 관리 디스크를 사용하여 Resource Manager 배포 모델에서 만든 Azure VM이 있어야 합니다. Linux VM을 만들지 않은 경우 [포털](quick-create-portal.md), [Azure CLI](quick-create-cli.md) 또는 [Resource Manager 템플릿](create-ssh-secured-vm-from-template.md)을 사용할 수 있습니다. 필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](add-disk.md), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
 
 * 또한 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)이 설치되어 있어 [az login](/cli/azure/#login)으로 Azure 계정에 로그인해야 합니다.
 
