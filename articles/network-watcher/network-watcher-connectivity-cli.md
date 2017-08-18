@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 81b0f76538b74edf1ebdfb40ff9190e5072e71c8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,13 +29,6 @@ ms.lasthandoff: 07/21/2017
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 연결을 사용하여 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
-
-이 문서에서는 일부 연결 확인 시나리오를 보여 줍니다.
-
-* [가상 컴퓨터에 대한 연결 확인](#check-connectivity-to-a-virtual-machine)
-* [라우팅 문제 확인](#validate-routing-issues)
-* [웹 사이트 대기 시간 확인](#check-website-latency)
-* [저장소 끝점에 대한 연결 확인](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장
@@ -55,7 +55,7 @@ Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager
     ```
    
     > [!NOTE]
-    > 회사 또는 학교 ID가 있고 2단계 인증이 사용되도록 설정되지 않은 경우 `azure login -u`와 해당 ID를 사용하여 대화형 세션 없이 로그인합니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > 회사 또는 학교 ID가 있고 2단계 인증이 사용되도록 설정되지 않은 경우 `azure login -u`와 해당 ID를 사용하여 대화형 세션 없이 로그인합니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **리소스 그룹 만들기**  
 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstest1**로 지정합니다.

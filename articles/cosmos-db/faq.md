@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 9d14022f46c15db531bb3430f302eb49e1335083
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
@@ -337,9 +337,6 @@ app.config 파일의 json 형식 문자열에서:
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-preview-table"></a>내 Table API(미리 보기) 테이블의 처리량을 늘리거나 줄일 수 있나요? 
 예, Azure Cosmos DB Azure 포털의 배율 창을 사용하여 처리량의 크기를 조정할 수 있습니다. 자세한 내용은 [처리량 설정](set-throughput.md)을 참조하세요.
 
-### <a name="can-the-premium-table-api-preview-take-advantage-of-the-ru-per-minute-offering"></a>프리미엄 Table API(미리 보기)는 분당 RU 서비스를 활용할 수 있나요? 
-예, 프리미엄 Table API(미리 보기)는 성능, 대기 시간, 가용성 및 일관성에 대한 SLA를 제공하기 위해 Azure Cosmos DB의 기능을 활용합니다. 이 기능은 테이블에서 분당 RU 서비스를 사용할 수 있도록 합니다. 자세한 내용은 [Azure Cosmos DB의 요청 단위](request-units.md)를 참조하세요. 이 기능을 통해 고객은 최대 사용을 대비해 프로비전하지 않고 워크로드 급증을 원활하게 처리할 수 있습니다.
-
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>새로 프로비전된 테이블에 대해 기본 TableThroughput이 설정되나요?
 예, app.config를 통해 TableThroughput을 재정의하지 않고 Azure Cosmos DB에서 미리 만든 컨테이너를 사용하지 않으면 서비스에서 처리량이 400인 테이블을 만듭니다.
  
@@ -400,7 +397,7 @@ Azure Cosmos DB는 2010년, Microsoft 내부에서 대규모 응용 프로그램
 
 DocumentDB의 [SQL 언어](../documentdb/documentdb-sql-query.md)는 기본 Azure Cosmos DB가 지원할 수 있는 많은 API 중 하나일 뿐이라는 점에 주목해야 합니다. Azure Cosmos DB와 같은 완전히 관리되는 서비스를 사용하는 개발자로서 서비스에 대한 유일한 인터페이스는 서비스에 노출된 API입니다. 기존 DocumentDB 고객에 대해 실제로 변경되는 사항은 아무 것도 없습니다. Azure Cosmos DB는 DocumentDB와 정확히 동일한 SQL API를 제공합니다. 또한 지금부터 이전에 액세스할 수 없었던 다른 기능에 액세스할 수 있습니다 
 
-지속적인 노력의 또 다른 결과는 처리량 및 저장소의 전역적이고 탄력적인 확장성을 위한 기반 확장입니다. 확장성의 첫 번째 징후 중 하나는 [RU/m](../cosmos-db/request-units-per-minute.md)이지만 여러 워크로드에 대한 고객 비용을 절감하는 데 도움이 될 수 있는 추가 기능을 발표할 예정입니다. 글로벌 배포 하위 시스템에 몇 가지 기본적인 향상된 기능을 제공하였습니다. 많은 개발자에게 제공되는 기능 하나는 일관된 접두사 일관성 모델입니다(총 5가지의 잘 정의된 일관성 모델 제공). 기술이 발전하면서 더 많은 흥미로운 기능을 출시할 예정입니다. 
+지속적인 노력의 또 다른 결과는 처리량 및 저장소의 전역적이고 탄력적인 확장성을 위한 기반 확장입니다. 글로벌 배포 하위 시스템에 몇 가지 기본적인 향상된 기능을 제공하였습니다. 많은 개발자에게 제공되는 기능 하나는 일관된 접두사 일관성 모델입니다(총 5가지의 잘 정의된 일관성 모델 제공). 기술이 발전하면서 더 많은 흥미로운 기능을 출시할 예정입니다. 
 
 ### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>내 DocumentDB 리소스가 Azure Cosmos DB에서 계속 실행되도록 하려면 어떻게 해야 하나요?
 
@@ -418,7 +415,7 @@ DocumentDB는 포털에 Azure 서비스로 더 이상 나타나지 않습니다.
 
 ### <a name="are-there-changes-to-pricing"></a>가격 책정에 변경 사항이 있나요?
 
-아니요, Azure Cosmos DB에서 앱 실행 비용은 이전과 동일합니다. 하지만 새로운 "분당 요청 단위" 기능을 활용할 수 있습니다. 자세한 내용은 [분당 처리량 조정](../cosmos-db/request-units-per-minute.md) 문서를 참조하세요.
+아니요, Azure Cosmos DB에서 앱 실행 비용은 이전과 동일합니다.
 
 ### <a name="are-there-changes-to-the-slas"></a>SLA에 대한 변경 사항이 있나요?
 

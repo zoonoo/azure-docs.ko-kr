@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ IP 주소 범위를 정의한 후에는 다음 작업이 수행되어야 합니�
      - ExpressRoute PeerID
 - ExpressRoute 회로 및 Azure VNet을 설정한 후 HANA 큰 인스턴스에 액세스하기 위한 데이터.
 
-[SAP HANA 큰 인스턴스에 대한 종단 간 설치](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf) 문서에서 HANA 큰 인스턴스를 연결하는 순서를 확인할 수 있습니다. 대다수의 다음 단계는 해당 문서의 배포 예에 표시됩니다. 
+[SAP HANA 큰 인스턴스에 대한 종단 간 설치](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) 문서에서 HANA 큰 인스턴스를 연결하는 순서를 확인할 수 있습니다. 대다수의 다음 단계는 해당 문서의 배포 예에 표시됩니다. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>VNet을 HANA 큰 인스턴스 ExpressRoute에 연결

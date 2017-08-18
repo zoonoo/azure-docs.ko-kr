@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure 가상 네트워크 계획 및 디자인
@@ -36,7 +35,7 @@ ms.lasthandoff: 06/29/2017
 * 다음을 사용하여 가상 네트워크를 서로 연결할 수 있습니다.
     * **[가상 네트워크 피어링](virtual-network-peering-overview.md)**: 피어링된 가상 네트워크는 동일한 Azure 지역에 있어야 합니다. 리소스가 같은 가상 네트워크에 연결된 것처럼 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
     * **Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: 가상 네트워크는 같은 Azure 지역에 있을 수도 있고 다른 Azure 지역에 있을 수도 있습니다. VPN Gateway를 통해 연결된 가상 네트워크의 리소스 간 대역폭은 VPN Gateway의 대역폭에 의해 제한됩니다.
-* Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
+* Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
 * [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)에서 다양한 리소스를 함께 그룹화하여 리소스를 단위로 보다 쉽게 관리할 수 있습니다. 리소스 그룹은 해당 리소스가 동일한 구독에 속하기만 하면 여러 하위 지역의 리소스를 포함할 수 있습니다.
 
 ### <a name="define-requirements"></a>요구 사항 정의
@@ -124,7 +123,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 * **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다.
 * **보안**. 서브넷을 사용하여 다중 계층 구조의 워크로드에 대해 VM 그룹을 서로 구분하고 해당 서브넷에 대해 서로 다른 [NSG(네트워크 보안 그룹)](virtual-networks-nsg.md#subnets) 를 적용할 수 있습니다.
-* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
+* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
 * **가상 어플라이언스**. Azure VNet에서 방화벽, WAN 가속기 또는 VPN 게이트웨이 같은 가상 어플라이언스를 사용할 수 있습니다. 이렇게 하려면 해당 어플라이언스로 [트래픽을 라우팅](virtual-networks-udr-overview.md) 하고 자체의 서브넷에서 이를 격리해야 합니다.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>서브넷 및 NSG 디자인 패턴
@@ -253,5 +252,5 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * [가상 네트워크를 배포](virtual-networks-create-vnet-arm-template-click.md) 합니다.
 * IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
 * [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md) 에 대해 알아봅니다.
-* [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)에 대해 알아봅니다.
+* [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)에 대해 알아봅니다.
 
