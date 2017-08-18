@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 webhook 호출
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/31/2017
 >
 >
 
-[Azure PowerShell Cmdlet](insights-powershell-samples.md#create-alert-rules), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 활동 로그 경고를 설정할 수 있습니다. 현재 Azure Portal에서는 설정할 수 없습니다.
+[Azure PowerShell Cmdlet](insights-powershell-samples.md#create-metric-alerts), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 활동 로그 경고를 설정할 수 있습니다. 현재 Azure Portal에서는 설정할 수 없습니다.
 
 ## <a name="authenticating-the-webhook"></a>웹후크 인증
 웹후크는 다음 방법 중 하나를 사용하여 인증할 수 있습니다.

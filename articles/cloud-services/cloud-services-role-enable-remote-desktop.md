@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f64c41733f8fa7e34a0b0dfbbff2b565af7cf7db
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -136,5 +136,5 @@ Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [�
 
 ## <a name="additional-resources"></a>추가 리소스
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure.md)
-[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md#remote-desktop)
+[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md)
 

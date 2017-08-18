@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Linux의 Azure Web App 소개
@@ -83,10 +83,14 @@ Azure Portal에는 Linux의 웹앱에 대해 작동하는 기능만 표시되고
 * 미국 동부
 * 서유럽
 * 북유럽
+* 미국 중남부
+* 미국 중북부
 * 동남아시아
+* 동아시아
 * 오스트레일리아 동부
 * 일본 동부
 * 브라질 남부
+* 인도 남부
 
 Linux의 Web Apps는 전용 App Service 계획에서만 지원되며 무료 또는 공유 계층은 없습니다. 또한 일반 및 Linux 웹앱에 대한 App Service 계획은 상호 배타적이므로 비 Linux App Service 계획에서 Linux 웹앱을 만들 수 없습니다.
 

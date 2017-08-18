@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
@@ -72,7 +72,7 @@ Azure Active Directory는 적응 기계 학습 알고리즘 및 추론을 사용
 | 익명 IP 주소에서 로그인 |5분 |15분 |2시간 |
 | 알 수 없는 위치에서 로그인 |5분 |15분 |2시간 |
 | 자격 증명이 손실된 사용자 |2시간 |4시간 |8시간 |
-| 비정상적 위치로 불가능한 이동 |2시간 |4시간 |8시간  |
+| 비정상적 위치로 불가능한 이동 |5분 |1시간 |8시간  |
 | 감염된 장치에서 로그인 |2시간 |4시간 |8시간  |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |2시간 |4시간 |8시간  |
 
