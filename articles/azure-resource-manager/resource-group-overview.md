@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
@@ -139,8 +139,6 @@ REQUEST BODY
 ![계층 템플릿](./media/resource-group-overview/tier-templates.png)
 
 템플릿 설계에 대한 더 많은 제안은 [Azure Resource Manager 템플릿 설계의 패턴](best-practices-resource-manager-design-templates.md)을 참조하세요. 중첩된 템플릿에 대한 자세한 내용은 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-
-배포 자동화에 대한 4가지 시리즈는 [Azure Virtual Machines에 대한 응용 프로그램 배포 자동화](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
 
 리소스가 올바른 순서로 생성되도록 Azure Resource Manager가 종속성을 분석합니다. 한 리소스가 다른 리소스(예: 디스크에 대한 저장소 계정을 필요로 하는 가상 컴퓨터)의 값에 의존하는 경우 종속성을 설정합니다. 자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 
