@@ -3,8 +3,8 @@ title: "클라우드 서비스 배포 준비(Node.js) | Microsoft Docs"
 description: "Azure 응용 프로그램을 스테이징 환경에 배포한 다음 VIP(가상 IP) 교환을 사용하여 프로덕션 환경에 배포하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/05/2017
-
 
 ---
 # <a name="staging-an-application-in-azure"></a>Azure에서 응용 프로그램 준비
