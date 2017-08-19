@@ -37,8 +37,8 @@ ms.lasthandoff: 03/09/2017
 6. 앞서 복사한 App Service **URL**을 **Authorized JavaScript Origins**에 붙여넣고, 리디렉션 URI를**Authorized Redirect URI**에 붙여넣습니다. 리디렉션 URI는 경로 */.auth/login/google/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/google/callback` HTTPS 체계를 사용 중인지 확인합니다. 그런 다음 **Create**를 클릭합니다.
 7. 다음 화면에서 클라이언트 ID 및 클라이언트 암호 값을 적어 둡니다.
 
-    > [AZURE.IMPORTANT]
-    클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
+    > [!IMPORTANT]
+    > 클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
 
 
 ## <a name="secrets"> </a>응용 프로그램에 Google 정보 추가
