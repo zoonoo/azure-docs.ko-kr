@@ -199,7 +199,6 @@
 #### [Hadoop 메모리 및 성능](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [HDInsight 로그 분석](hdinsight-debug-jobs.md)
 #### [WebHCat 오류 이해 및 해결](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Hive 설정 수정 메모리 부족 오류](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)
