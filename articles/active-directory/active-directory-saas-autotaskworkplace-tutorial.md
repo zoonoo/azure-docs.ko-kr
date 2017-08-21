@@ -137,7 +137,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     >[!Note]
     >IdP를 구성할 때 하위 도메인을 지정해야 합니다. 올바른 하위 도메인을 확인하려면 Workplace Online에 로그인합니다. 로그인되면 URL에서 하위 도메인을 만듭니다.
-    >하위 도메인은 “https://“와 “.awp.autotask.net/“ 사이의 부분이며 us, eu, ca 또는 au여야 합니다.
+    >하위 도메인은“https://“ 와 “.awp.autotask.net/“ 사이의 부분이며 us, eu, ca 또는 au여야 합니다.
 
 8. **구성** > **Single Sign-On**으로 이동하고 다음 단계를 수행합니다.
 
