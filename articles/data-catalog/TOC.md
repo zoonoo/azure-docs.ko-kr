@@ -28,7 +28,6 @@
 ## [REST (영문)](/rest/api/datacatalog/)
 ## [검색 구문 참조](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [개발자 개념](data-catalog-developer-concepts.md)
-## [개발자 샘플](data-catalog-samples.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
