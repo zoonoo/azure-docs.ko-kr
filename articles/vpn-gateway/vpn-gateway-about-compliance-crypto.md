@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7b0736eeaab387312206f94322684c020894f6c5
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c789e6c278fc0c58c64f5d96e57f94aee5a6cefc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
@@ -38,11 +37,13 @@ Azure VPN Gateway에 대한 기본 정책 집합은 [사이트 간 VPN Gateway �
 예를 들어 Azure VPN Gateway에 대한 IKEv2 기본 모드 정책은 Diffie-Hellman Group 2(1024비트)만 활용하는 반면, 고객은 Group 14(2048비트), Group 24(2048비트 MODP Group), ECP(elliptic curve groups) 256 또는 384비트(각각 Group 19 및 Group 20) 등 IKE에서 사용할 더 강력한 그룹을 지정해야 할 수 있습니다. 유사한 요구 사항은 IPsec 빠른 모드 정책에도 적용됩니다.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Azure VPN Gateway의 사용자 지정 IPsec/IKE 정책
-이제 Azure VPN Gateway에서 연결별 사용자 지정 IPsec/IKE 정책을 지원합니다. 아래 예제에 나와 있는 것처럼 S2S 또는 VNet 간 연결에 대해 원하는 키 강도를 가진 IPsec 및 IKE에 대한 특정 암호화 알고리즘 조합을 선택할 수 있습니다.
+이제 Azure VPN Gateway에서 연결별 사용자 지정 IPsec/IKE 정책을 지원합니다. 아래 예제에 나와 있는 것처럼 사이트 간 또는 VNet 간 연결에 대해 원하는 키 강도를 가진 IPsec 및 IKE에 대한 특정 암호화 알고리즘 조합을 선택할 수 있습니다.
 
 ![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
-IPsec/IKE 정책을 만들어 새 연결 또는 기존 연결에 적용할 수 있습니다. 워크플로는 아래와 같습니다.
+IPsec/IKE 정책을 만들어 새 연결 또는 기존 연결에 적용할 수 있습니다. 
+
+### <a name="workflow"></a>워크플로
 
 1. 다른 방법 문서에 설명된 대로 연결 토폴로지에 대한 가상 네트워크, VPN Gateway 또는 로컬 네트워크 게이트웨이 만들기
 2. IPsec/IKE 정책 만들기

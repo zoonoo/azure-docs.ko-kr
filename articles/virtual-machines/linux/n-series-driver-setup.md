@@ -17,10 +17,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9cb7aa1e0b4e96a6f40620685b5505587b94ec66
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -81,12 +81,18 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 
 6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
 
-7. 설치가 완료되면 다음을 `/etc/nvidia/gridd.conf.template`에 추가합니다.
+7. 설치가 완료되면 /etc/nvidia/gridd.conf.template을 /etc/nvidia/ 위치의 새 파일 gridd.conf에 복사합니다.
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. 다음 줄을 `/etc/nvidia/gridd.conf`에 추가합니다.
  
   ```
   IgnoreSP=TRUE
   ```
-8. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
@@ -139,12 +145,18 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
   ``` 
 6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
 
-7. 설치가 완료되면 다음을 `/etc/nvidia/gridd.conf.template`에 추가합니다.
+7. 설치가 완료되면 /etc/nvidia/gridd.conf.template을 /etc/nvidia/ 위치의 새 파일 gridd.conf에 복사합니다.
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. 다음 줄을 `/etc/nvidia/gridd.conf`에 추가합니다.
  
   ```
   IgnoreSP=TRUE
   ```
-8. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
 ### <a name="verify-driver-installation"></a>드라이버 설치 확인
 
@@ -349,3 +361,4 @@ sudo reboot
     * [NVIDIA 테슬라 M60](http://www.nvidia.com/object/tesla-m60.html) (Azure NV VM 용)
 
 * 설치한 NVIDIA 드라이버와 함께 Linux VM 이미지를 캡처하려면 [Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+

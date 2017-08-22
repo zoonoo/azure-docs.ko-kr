@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
@@ -32,7 +31,7 @@ Azure VNet(Virtual Network)은 클라우드의 사용자 네트워크를 나타�
 VNet을 다음에 사용합니다.
 
 * 전용 사설 클라우드 전용 VNet을 만듭니다. 경우에 따라 솔루션에 대해 프레미스간 구성이 필요하지 않을 수 있습니다. VNet을 만들 때 VNet 내의 서비스 및 VM은 클라우드 내에서 안전하게 직접 서로 통신할 수 있습니다. 이는 VNet 내에서 안전하게 트래픽을 유지하면서도 솔루션의 일부로 인터넷 통신을 필요로 하는 VM 및 서비스에 대한 끝점 연결을 구성할 수 있습니다.
-* 데이터 센터를 안전하게 확장합니다. VNet을 사용하여 기존의 사이트 간(S2S) VPN을 빌드하여 데이터 센터 용량을 안전하게 확장할 수 있습니다. S2S VPN은 IPSEC를 사용하여 회사 VPN 게이트웨이와 Azure 간의 보안 연결을 제공합니다.
+* 데이터 센터를 안전하게 확장합니다. VNet을 사용하여 기존의 사이트 간(S2S) VPN을 빌드하여 데이터 센터 용량을 안전하게 확장할 수 있습니다. S2S VPN은 IPSEC를 사용하여 회사 VPN Gateway와 Azure 간의 보안 연결을 제공합니다.
 * 하이브리드 클라우드 시나리오가 가능하도록 합니다. VNet은 다양한 하이브리드 클라우드 시나리오를 지원할 수 있는 유연성을 제공합니다. 메인프레임 및 Unix 시스템과 같은 모든 형식의 온-프레미스 시스템에 클라우드 기반 응용프로그램을 안전하게 연결할 수 있습니다.
 
 ### <a name="how-do-i-know-if-i-need-a-vnet"></a>VNet이 필요한 경우를 어떻게 알 수 있을까요?
@@ -59,7 +58,7 @@ VNet을 다음에 사용합니다.
 * Azure CLI(클래식 및 리소스 관리자 VNet용)
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>VNet 내에서 사용할 수 있는 주소 범위는 무엇입니까?
-공용 IP 주소 범위와 [RFC 1918](http://tools.ietf.org/html/rfc1918)에서 정의된 모든 IP 주소 범위를 사용할 수 있습니다.
+[RFC 1918](http://tools.ietf.org/html/rfc1918)에 정의되어 있는 모든 IP 주소 범위를 사용할 수 있습니다. 예를 들어 10.0.0.0/16을 사용할 수 있습니다.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>VNet 내에서 공용 IP 주소를 가질 수 있습니까?
 예. 공용 IP 주소 범위에 대한 자세한 내용은 [가상 네트워크의 공용 IP 주소 공간](virtual-networks-public-ip-within-vnet.md) 문서를 참조하세요. 사용자의 공용 IP 주소는 인터넷에서 직접 액세스할 수 없습니다.
@@ -111,7 +110,7 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Azure에서 다른 VNet에 VNet을 연결할 수 있습니까?
 예. 다음을 사용하여 하나의 VNet을 다른 VNet에 연결할 수 있습니다.
-- Azure VPN 게이트웨이. 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 문서를 참조하세요. 
+- Azure VPN Gateway. 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 문서를 참조하세요. 
 - VNet 피어링. 자세한 내용은 [VNet 피어링 개요](virtual-network-peering-overview.md) 문서를 참조하세요.
 
 ## <a name="name-resolution-dns"></a>이름 확인(DNS)

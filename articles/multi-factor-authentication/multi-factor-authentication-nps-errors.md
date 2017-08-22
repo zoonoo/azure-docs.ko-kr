@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4da95dc4bfc99be3f128dfaa53ba4dd9dc713d9d
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -38,8 +38,11 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **HTTP_CONNECT_ERROR** | NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 및 https://login.microsoftonline.com/에 연결할 수 있는지 확인합니다. 해당 사이트가 로드되지 않으면 해당 서버의 연결 문제를 해결합니다. |
 | **REGISTRY_CONFIG_ERROR** | 설치 후에 [PowerShell 스크립트](multi-factor-authentication-nps-extension.md#install-the-nps-extension)가 실행되지 않았으므로 레지스트리에 응용 프로그램에 대한 키가 없습니다. 오류 메시지에 누락된 키가 포함됩니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 아래에 키가 있는지 확인합니다. |
 | **REQUEST_FORMAT_ERROR** <br> Radius 요청에 필수 Radius userName\Identifier 특성이 없습니다. NPS가 RADIUS 요청을 수신하는지 확인합니다. | 이 오류는 일반적으로 설치 문제를 반영합니다. RADIUS 요청을 받을 수 있는 NPS 확장을 NPS 서버에 설치해야 합니다. RRAS 및 RDG와 같은 서비스에 대한 종속성으로 설치된 NPS 서버가 radius 요청을 수신하지 않습니다. 이러한 설치 위에 설치된 NPS 확장은 작동하지 않으며 인증 요청의 세부 정보를 읽을 수 없으므로 오류가 발생합니다. |
-| **REQUEST_MISSING_CODE** | 보조 인증 방법에 SMS 또는 Oath 토큰을 사용하는 경우 NPS 및 Nas 서버 간의 암호 암호화 프로토콜이 PAP여야 합니다. 지금은 NPS 확장이 다른 암호 암호화 방법을 지원하지 않습니다.|
+| **REQUEST_MISSING_CODE** | NPS 서버와 NAS 서버 간의 암호 암호화 프로토콜이 사용 중인 보조 인증 방법을 지원하는지 확인합니다. **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다. **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다. |
 | **USERNAME_CANONICALIZATION_ERROR** | 사용자가 온-프레미스 Active Directory 인스턴스에 존재하는지와 NPS 서비스에 디렉터리에 액세스할 수 있는 권한이 있는지 확인합니다. 포리스트 간 트러스트를 사용하는 경우 [지원 서비스](#contact-microsoft-support) 추가 지원을 요청하세요. |
+
+
+   
 
 ### <a name="alternate-login-id-errors"></a>대체 로그인 ID 오류
 

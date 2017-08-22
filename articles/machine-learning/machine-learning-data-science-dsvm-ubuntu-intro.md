@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 148603618a7da05d250a6c4f789a212e98791e53
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 가상 컴퓨터 프로비전
 Linux용 데이터 과학 가상 컴퓨터는 Azure에서 편리하게 심층 학습을 시작할 수 있도록 하는 Ubuntu 기반 가상 컴퓨터 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
 
   * [Caffe](http://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
-  * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 크로스 플랫폼 버전
+  * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
   * [CNTK(Computational Network Toolkit)](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
   * [H2O](https://www.h2o.ai/): 오픈 소스 빅 데이터 플랫폼 및 그래픽 사용자 인터페이스
   * [Keras](https://keras.io/): Python의 Theano 및 TensorFlow용 고급 신경망 네트워크 API
@@ -151,6 +150,13 @@ CNTK라고도 하는 Microsoft Cognitive Toolki는 오픈 소스, 심층 학습 
 
 #### <a name="caffe"></a>Caffe
 Caffe는 Berkeley Vision and Learning Center의 심층 학습 프레임워크입니다. /opt/caffe에서 사용할 수 있습니다. 예제는 /opt/caffe/examples에서 찾을 수 있습니다.
+
+#### <a name="caffe2"></a>Caffe2
+Caffe2는 Caffe를 기반으로 제작된 Facebook의 심층 학습 프레임워크입니다. Python 2.7의 Conda 루트 환경에서 Caffe2를 사용할 수 있습니다. Caffe2를 활성화하려면 셸에서 다음을 실행합니다.
+
+    source /anaconda/bin/activate root
+
+JupyterHub에서 몇 가지 예제 Notebook이 제공됩니다.
 
 #### <a name="h2o"></a>H2O
 H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321 을 검색하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.

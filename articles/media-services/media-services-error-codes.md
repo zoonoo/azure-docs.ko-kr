@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
@@ -28,7 +28,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 요청에 잘못된 정보가 들어 있으며 다음 이유 중 하나 때문에 요청이 거부됩니다.
 
 * 지원되지 않는 API 버전이 지정되었습니다. 가장 최신 버전은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-* Media Services의 API 버전이 지정되지 않았습니다. API 버전을 지정하는 방법에 대한 정보는 [Media Services REST API를 사용하여 Media Services에 연결](media-services-rest-connect-programmatically.md)을 참조하세요.
+* Media Services의 API 버전이 지정되지 않았습니다. API 버전을 지정하는 방법에 대한 정보는 [Media Services Operations REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)을 참조하세요.
   
   > [!NOTE]
   > .NET 또는 Java SDK를 사용하여 Media Services에 연결하는 경우, Media Services에 대해 작업을 수행하려고 할 때마다 API 버전이 지정됩니다.
@@ -48,8 +48,8 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 
 * 누락된 인증 헤더입니다.
 * 잘못된 인증 헤더 값입니다.
-  * 토큰이 만료되었습니다. REST API를 직접 사용하는 경우, 새 인증 토큰을 생성하는 방법을 알아보려면 [Media Services REST API를 사용하여 Media Services에 연결하기](media-services-rest-connect-programmatically.md)를 참조하세요. .NET 또는 Java SDK를 사용하는 경우, 토큰 생성을 위해 CloudMediaContext 또는 MediaContract 개체를 만듭니다. 이렇게 하는 방법에 대한 자세한 정보는 [ .NET용 Media Services SDK를 사용하여 Media Services에 연결하기 ](media-services-dotnet-connect-programmatically.md)를 참조하세요.
-  * 토큰에 잘못된 서명이 들어 있습니다.</li></ul></li></ul>
+  * 토큰이 만료되었습니다. 
+  * 토큰에 잘못된 서명이 들어 있습니다.
 
 ## <a name="403-forbidden"></a>403 사용할 수 없음
 요청은 다음과 같은 이유로 허용되지않습니다.

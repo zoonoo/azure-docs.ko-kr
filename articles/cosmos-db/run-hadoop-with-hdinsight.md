@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: dc947bb132b14278f38b378bc80ca232c94fcdb7
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Azure Cosmos DB 및 HDInsight를 사용하여 Apache Hive, Pig 또는 Hadoop 작업 실행
@@ -57,7 +56,7 @@ ms.lasthandoff: 06/09/2017
     <tr><th>지원되는 HDInsight 버전</th>
         <td>3.1, 3.2</td></tr>
     <tr><th>변경 로그</th>
-        <td>DocumentDB Java SDK가 1.6.0으로 업데이트됨</br>
+        <td>Azure Cosmos DB Java SDK가 1.6.0으로 업데이트됨</br>
             원본 및 싱크로 분할된 컬렉션에 대한 추가 지원</br>
         </td></tr>
 </table>
@@ -178,9 +177,9 @@ DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함�
 
         # Provide the HDInsight cluster name where you want to run the Hive job.
         $clusterName = "<HDInsightClusterName>"
-2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Hive 쿼리를 작성합니다.</p>
+2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 Azure Cosmos DB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 Azure Cosmos DB 컬렉션에 저장하는 Hive 쿼리를 작성합니다.</p>
 
-    <p>먼저 DocumentDB 컬렉션에서 Hive 테이블을 만듭니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 _ts 및 _rid로만 정리하려면 선택적인 DocumentDB.query 매개 변수를 포함해야 합니다.</p>
+    <p>먼저 Azure Cosmos DB 컬렉션에서 Hive 테이블을 만듭니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 _ts 및 _rid로만 정리하려면 선택적인 DocumentDB.query 매개 변수를 포함해야 합니다.</p>
 
    > [!NOTE]
    > **DocumentDB.inputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
@@ -256,8 +255,8 @@ DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함�
 
    1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
    2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
-   3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
-   4. 그런 후 <strong>DocumentDB 계정</strong>을 찾고, Hive 쿼리에 지정된 출력 컬렉션과 연관된 <strong>DocumentDB 데이터베이스</strong> 및 <strong>DocumentDB 컬렉션</strong>을 찾습니다.</br>
+   3. <strong>Azure Cosmos DB 계정</strong>을 찾아서 클릭합니다. </br>
+   4. <strong>Azure Cosmos DB 계정</strong>을 찾은 다음, Hive 쿼리에 지정된 출력 컬렉션과 연결된 <strong>Azure Cosmos DB 데이터베이스</strong> 및 <strong>Azure Cosmos DB 컬렉션</strong>을 찾습니다.</br>
    5. 끝으로, <strong>개발자 도구</strong> 아래에서 <strong>문서 탐색기</strong>를 클릭합니다.</br></p>
 
    Hive 쿼리 결과가 표시됩니다.
@@ -277,7 +276,7 @@ DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함�
 
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
-2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Pig 쿼리를 작성합니다.</p>
+2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 Azure Cosmos DB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 Azure Cosmos DB 컬렉션에 저장하는 Pig 쿼리를 작성합니다.</p>
     <p>먼저 Cosmos DB의 문서를 HDInsight에 로드합니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 just _ts 및 _rid로만 정리하려면 DocumentDB 쿼리를 선택적인 DocumentDB 쿼리 매개 변수에 추가해야 합니다.</p>
 
    > [!NOTE]
@@ -343,20 +342,20 @@ DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함�
 
     1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
     2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
-    3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
-    4. 그런 후 <strong>DocumentDB 계정</strong>을 찾고, Pig 쿼리에 지정된 출력 컬렉션과 연관된 <strong>DocumentDB 데이터베이스</strong> 및 <strong>DocumentDB 컬렉션</strong>을 찾습니다.</br>
+    3. <strong>Azure Cosmos DB 계정</strong>을 찾아서 클릭합니다. </br>
+    4. <strong>Azure Cosmos DB 계정</strong>을 찾은 다음, Pig 쿼리에 지정된 출력 컬렉션과 연결된 <strong>Azure Cosmos DB 데이터베이스</strong> 및 <strong>Azure Cosmos DB 컬렉션</strong>을 찾습니다.</br>
     5. 끝으로, <strong>개발자 도구</strong> 아래에서 <strong>문서 탐색기</strong>를 클릭합니다.</br></p>
 
     Pig 쿼리 결과가 표시됩니다.
 
     ![Pig 쿼리 결과][image-pig-query-results]
 
-## <a name="RunMapReduce"></a>5단계: DocumentDB 및 HDInsight를 사용하여 MapReduce 작업 실행
+## <a name="RunMapReduce"></a>5단계: Azure Cosmos DB 및 HDInsight를 사용하여 MapReduce 작업 실행
 1. PowerShell 스크립트 창에서 다음 변수를 설정합니다.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
         $clusterName = "<ClusterName>"             # HDInsight cluster name
-2. 여기에서는 DocumentDB 컬렉션에서 각 문서 속성의 발생 횟수를 기록하는 MapReduce 작업을 실행합니다. 이 스크립트 코드 조각을 위 코드 조각 **다음에** 추가합니다.
+2. 여기에서는 Azure Cosmos DB 컬렉션에서 각 문서 속성의 발생 횟수를 기록하는 MapReduce 작업을 실행합니다. 이 스크립트 코드 조각을 위 코드 조각 **다음에** 추가합니다.
 
         # Define the MapReduce job.
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
@@ -384,8 +383,8 @@ DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함�
 
    1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다.
    2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다.
-   3. <strong>Cosmos DB 계정</strong>을 찾아서 클릭합니다.
-   4. <strong>Cosmos DB 계정</strong>을 찾은 다음, MapReduce 작업에 지정된 출력 컬렉션과 연결된 <strong>Cosmos DB 데이터베이스</strong> 및 <strong>DocumentDB 컬렉션</strong>을 찾습니다.
+   3. <strong>Azure Cosmos DB 계정</strong>을 찾아서 클릭합니다.
+   4. <strong>Azure Cosmos DB 계정</strong>을 찾은 다음, MapReduce 작업에 지정된 출력 컬렉션과 연결된 <strong>Azure Cosmos DB 데이터베이스</strong> 및 <strong>Azure Cosmos DB 컬렉션</strong>을 찾습니다.
    5. 끝으로, <strong>개발자 도구</strong> 아래에서 <strong>문서 탐색기</strong>를 클릭합니다.
 
       MapReduce 작업 결과가 표시됩니다.

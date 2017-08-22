@@ -1,7 +1,7 @@
 ---
 title: "다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs"
 description: "Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리"
-keywords: "sql 데이터베이스 자습서"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
 
-[첫 번째 Wingtip SaaS 자습서](sql-database-saas-tutorial.md)는 앱이 테넌트 데이터베이스를 프로비전하고 카탈로그에 등록하는 방법을 보여줍니다. 다른 응용 프로그램과 마찬가지로 Wingtip SaaS 앱도 시간이 지나면서 개선될 것이며 때때로 데이터베이스를 변경해야 할 것입니다. 변경 내용에는 최적의 앱 성능을 보장하기 위해 새로운 스키마나 변경된 스키마, 새로운 참조 데이터나 변경된 참조 데이터, 일상적인 데이터베이스 유지 관리 작업이 포함될 수 있습니다. SaaS 응용 프로그램에서 이러한 변경 내용은 테넌트 데이터베이스의 잠재적인 대규모 fleet에 통합된 방식으로 배포되어야 합니다. 또한 변경 내용은 이후 테넌트 데이터베이스 프로비전 프로세스에 통합되어야 합니다.
+[첫 번째 Wingtip SaaS 자습서](sql-database-saas-tutorial.md)는 앱이 테넌트 데이터베이스를 프로비전하고 카탈로그에 등록하는 방법을 보여줍니다. 다른 응용 프로그램과 마찬가지로 Wingtip SaaS 앱도 시간이 지나면서 개선될 것이며 때때로 데이터베이스를 변경해야 할 것입니다. 변경 내용에는 최적의 앱 성능을 보장하기 위해 새로운 스키마나 변경된 스키마, 새로운 참조 데이터나 변경된 참조 데이터, 일상적인 데이터베이스 유지 관리 작업이 포함될 수 있습니다. SaaS 응용 프로그램에서 이러한 변경 내용은 테넌트 데이터베이스의 잠재적인 대규모 fleet에 통합된 방식으로 배포되어야 합니다. 이러한 변경 내용을 이후 테넌트 데이터베이스에 포함하려면 프로비전 프로세스에 해당 변경 내용을 통합해야 합니다.
 
 이 자습서에서는 모든 테넌트에 대한 참조 데이터 업데이트를 배포하고 참조 데이터가 포함된 테이블에서 인덱스를 재조정하는 두 시나리오에 대해 알아봅니다. [탄력적 작업](sql-database-elastic-jobs-overview.md) 기능은 모든 테넌트 및 새 데이터베이스에 대한 템플릿으로 사용되는 *golden* 테넌트 데이터베이스 간에 이러한 작업을 실행하는 데 사용됩니다.
 
@@ -34,7 +33,8 @@ ms.lasthandoff: 06/14/2017
 
 > [!div class="checklist"]
 
-> * 여러 테넌트에서 쿼리하는 작업 계정 만들기
+> * 작업 계정 만들기
+> * 여러 테넌트 쿼리
 > * 모든 테넌트 데이터베이스의 데이터 업데이트
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 06/14/2017
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있습니다. [SSMS 다운로드 및 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 제한된 미리 보기이므로 관련 질문 사항이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.*
+*이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
@@ -60,7 +60,7 @@ ms.lasthandoff: 06/14/2017
 현재 Azure SQL Database(추가 서비스 또는 구성 요소 불필요)의 통합 기능인 새로운 탄력적 작업 버전이 있습니다. 이 새로운 탄력적 작업 버전은 현재 제한된 미리 보기 상태입니다. 이 제한된 미리 보기에서는 현재 작업 계정을 만드는 PowerShell 및 작업을 만들고 관리하는 T-SQL을 지원합니다.
 
 > [!NOTE]
-> *이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 제한된 미리 보기이므로 관련 질문 사항이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.*
+> *이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
 
@@ -89,14 +89,14 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 1. 테넌트 서버에 연결: tenants1-\<사용자\>.database.windows.net
 1. *tenants1* 서버에서 *contosoconcerthall* 데이터베이스로 이동한 후 *VenueTypes* 테이블을 쿼리하여 *Motorcycle Racing* 및 *Swimming Club*이 결과 목록에 **없는지** 확인합니다.
 1. ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql 파일을 엽니다.
-1. \<사용자\>를 수정하되, 스크립트의 3개 위치 모두에 Wingtip 앱을 배포할 때 사용한 사용자 이름을 사용합니다.
+1. 문을 SET @wtpUser = &lt;user&gt;로 수정하고 Wingtip 앱을 배포할 때 사용했던 User 값을 바꿉니다.
 1. jobaccount 데이터베이스에 연결되어 있는지 확인하고 **F5**를 눌러 스크립트를 실행합니다.
 
 * **sp\_add\_target\_group**은 대상 그룹 이름 DemoServerGroup를 만듭니다. 이제 대상 멤버를 추가해야 합니다.
-* **sp\_add\_target\_group\_member**는 *server* 대상 멤버 유형을 추가하는데, 작업 실행 시 해당 서버(테넌트 데이터베이스를 포함하고 있는 customer1-&lt;User&gt; 서버) 내의 모든 데이터베이스가 작업에 포함되어야 합니다. 두 번째는 *database* 대상 멤버 유형, 특히 'golden' 데이터베이스, catalog-&lt;User&gt; 서버에 상주하는 baseTenantDB를 추가하고, 마지막으로 나중에 자습서에서 사용되는 임시 분석 데이터베이스가 포함된 다른 *database* 대상 그룹 멤버 유형을 추가합니다.
+* **sp\_add\_target\_group\_member**는 *server* 대상 멤버 유형을 추가하는데, 작업 실행 시 해당 서버(테넌트 데이터베이스를 포함하고 있는 tenants1-&lt;User&gt; 서버) 내의 모든 데이터베이스가 작업에 포함되어야 합니다. 두 번째로는 *database* 대상 멤버 유형이 추가됩니다. 이 유형은 구체적으로는 catalog-&lt;User&gt; 서버에 있는 'golden' 데이터베이스(basetenantdb)입니다. 그리고 마지막으로 자습서 뒷부분에서 사용되는 adhocanalytics 데이터베이스를 포함하는 또 다른 *database* 대상 그룹 멤버 유형이 추가됩니다.
 * **sp\_add\_job**은 "참조 데이터 배포"라는 작업을 만듭니다.
-* **sp\_add\_jobstep**은 VenueTypes 참조 테이블에 업데이트할 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
-* 스크립트의 남은 보기에서 개체의 존재 여부를 표시하고 작업 실행을 모니터링합니다. **lifecycle** 열에서 상태 값을 검토합니다. 모든 테넌트 데이터베이스 및 참조 테이블을 포함하는 두 개의 추가 데이터베이스에서 작업을 성공적으로 마쳤습니다.
+* **sp\_add\_jobstep**은 VenueTypes 참조 테이블을 업데이트하기 위한 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
+* 스크립트의 남은 보기에서 개체의 존재 여부를 표시하고 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 모든 테넌트 데이터베이스와 참조 테이블이 포함된 추가 데이터베이스 2개에서 작업이 정상적으로 완료된 시기를 확인합니다.
 
 1. SSMS에서 *tenants1* 서버의 *contosoconcerthall* 데이터베이스로 이동한 후 *VenueTypes* 테이블을 쿼리하여 이제 *Motorcycle Racing* 및 *Swimming Club***이** 결과 목록에 있는지 확인합니다.
 

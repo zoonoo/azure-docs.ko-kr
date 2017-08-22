@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 3823cfc0696c917a66d41e9dbde4349f635a4011
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -31,7 +31,7 @@ MongoDB API와 함께 사용하기 위해 MongoDB에서 Azure Cosmos DB 계정�
 * [MongoDB Download Center](https://www.mongodb.com/download-center)에서 *mongoimport.exe* 또는 *mongorestore.exe*를 다운로드합니다.
 * [MongoDB API 연결 문자열](connect-mongodb-account.md)을 가져옵니다.
 
-MongoDB에서 데이터를 가져오고 DocumentDB API와 함께 사용하려는 경우 [데이터 마이그레이션 도구](import-data.md)를 사용해서 데이터를 가져와야 합니다.
+MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경우 [데이터 마이그레이션 도구](import-data.md)를 사용해서 데이터를 가져와야 합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -130,7 +130,7 @@ MongoDB에서 데이터를 가져오고 DocumentDB API와 함께 사용하려는
     
     * 계산된 *batchSize* > 24이면 *batchSize* 값을 24로 설정합니다.
     
-    * *numInsertionWorkers*의 경우 다음 수식을 사용합니다.   *numInsertionWorkers =  (프로비전된 처리량 * 대기 시간(초)) / (배치 크기 * 단일 쓰기에 대해 사용한 RU)*.
+    * *numInsertionWorkers*의 경우 *numInsertionWorkers =  (프로비전된 처리량 * 초 단위 대기 시간)/(배치 크기 * 단일 쓰기에 사용한 RU)* 수식을 사용합니다.
         
     |속성|값|
     |--------|-----|
