@@ -83,6 +83,7 @@
 ## [청구 사용](active-directory-b2c-how-to-enable-billing.md)
 ## [위협 관리](active-directory-b2c-reference-threat-management.md)
 ## [디렉터리를 만들 때의 문제](active-directory-b2c-support-create-directory.md)
+## [앱 확장](active-directory-b2c-reference-extensions-app.md)
 
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

@@ -144,8 +144,14 @@
 
 ## 장치 관리
 ### [소개](device-management-introduction.md)
-### [장치 등록](active-directory-device-registration-overview.md)
-#### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [FAQ](device-management-faq.md)
+### 작업
+#### [하이브리드 Azure AD 가입 장치 구성](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### 문제 해결
+##### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### 장치 등록
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [FAQ](active-directory-device-registration-faq.md)
 #### 문제 해결

@@ -225,7 +225,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-[lnk-storage-account]: ../storage/storage-create-storage-account.md
+[lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

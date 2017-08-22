@@ -4,8 +4,6 @@
   items:
     - name: Azure Cosmos DB 정보
       href: introduction.md
-    - name: DocumentDB 고객 시작
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: 빠른 시작
   expanded: true
   items:

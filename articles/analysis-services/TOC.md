@@ -2,6 +2,7 @@
 ## [Azure Analysis Services란?](analysis-services-overview.md)
 ## [지원되는 데이터 원본](analysis-services-datasource.md)
 ## [인증 및 사용자 권한](analysis-services-manage-users.md)
+## [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)
 ## [호환성 수준](analysis-services-compat-level.md)
 ## [고가용성](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [서버 관리](analysis-services-manage.md)
 ## [데이터베이스 사용자 관리](analysis-services-database-users.md)
 ## [서버 관리자 관리](analysis-services-server-admins.md)
-## [온-프레미스 데이터 게이트웨이 설치](analysis-services-gateway.md)
+## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [백업 및 복원](analysis-services-backup.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)

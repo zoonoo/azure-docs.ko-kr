@@ -3,9 +3,10 @@
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [개요](http://aka.ms/datascienceprocess)
-### [수명 주기](data-science-process-overview.md)
+### [개요](data-science-process-overview.md)
+### [수명 주기](data-science-process-lifecycle.md)
 ### [연습](data-science-process-walkthroughs.md)
+### [Azure ML 사용](http://aka.ms/datascienceprocess)
 
 ## Machine Learning 스튜디오
 ### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)

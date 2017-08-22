@@ -37,11 +37,11 @@ ms.lasthandoff: 03/09/2017
    > [!NOTE]
    > 리디렉션 URI는 경로 */.auth/login/microsoftaccount/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`   
    > HTTPS 체계를 사용 중인지 확인합니다.
-   > 
-   > 
+   
 7. "응용 프로그램 암호" 아래에서 **새 암호 생성**을 클릭합니다. 표시되는 값을 기록해 둡니다. 이 페이지를 떠나면 다시 표시되지 않습니다.
 
-    > [AZURE.IMPORTANT] 암호는 중요한 보안 자격 증명입니다. 다른 사람과 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
+    > [!IMPORTANT]
+    > 암호는 중요한 보안 자격 증명입니다. 다른 사람과 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
 
 ## <a name="secrets"> </a>앱 서비스 응용 프로그램에 Microsoft 계정 정보 추가
 1. [Azure Portal]로 돌아가서 응용 프로그램으로 이동하여 **설정** > **인증/권한 부여**를 클릭합니다.

@@ -70,7 +70,7 @@ Service Fabric에는 다음과 같은 문서에서 자세히 설명하는 자체
 메트릭을 보고하려면 다음과 유사한 코드를 사용합니다.
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Service Fabric 지원 로그
