@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 문서 데이터베이스 만들기
@@ -42,7 +42,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
-그래프 데이터베이스를 만들려면 Azure Cosmos DB로 SQL (DocumentDB) 데이터베이스 계정을 만들어야 합니다.
+문서 데이터베이스를 만들려면 Azure Cosmos DB로 SQL(DocumentDB) 데이터베이스 계정을 만들어야 합니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

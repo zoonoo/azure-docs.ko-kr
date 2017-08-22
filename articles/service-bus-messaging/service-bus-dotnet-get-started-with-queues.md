@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
@@ -57,7 +57,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기** 탭을 클릭하고 **Microsoft Azure Service Bus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2. **찾아보기** 탭을 클릭하고 **Microsoft Azure Service Bus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
    
     ![NuGet 패키지 선택][nuget-pkg]
 

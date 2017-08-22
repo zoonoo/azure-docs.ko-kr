@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/21/2017
 > * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
 > 
 >
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/21/2017
 
 ![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before"></a>시작하기 전에
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/21/2017
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
 * 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet은 자주 업데이트되며, 일반적으로 PowerShell cmdlet을 업데이트하여 최신 기능을 가져와야 합니다. PowerShell cmdlet을 업데이트하지 않으면 지정된 값이 실패할 수 있습니다. PowerShell cmdlet 다운로드 및 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-### <a name="example-values"></a>예제 값
+### <a name="example"></a>예제 값
 
 이 문서의 예제에서는 다음 값을 사용합니다. 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 
@@ -88,7 +88,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>가상 네트워크 및 게이트웨이 서브넷을 만들려면
+### <a name="vnet"></a>가상 네트워크 및 게이트웨이 서브넷을 만들려면
 
 이 예제에서는 가상 네트워크 및 게이트웨이 서브넷을 만듭니다. 게이트웨이 서브넷을 추가해야 하는 가상 네트워크가 이미 있는 경우 [이미 만든 가상 네트워크에 게이트웨이 서브넷을 추가하려면](#gatewaysubnet)을 참조하세요.
 
@@ -137,8 +137,8 @@ New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 
 다음 값을 사용합니다.
 
-* *GatewayIPAddress* 는 온-프레미스 VPN 장치의 IP 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.
-* *AddressPrefix* 는 온-프레미스 주소 공간입니다.
+* *GatewayIPAddress*는 온-프레미스 VPN 장치의 IP 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.
+* *AddressPrefix*는 온-프레미스 주소 공간입니다.
 
 로컬 네트워크 게이트웨이에 단일 주소 접두사를 추가하려면:
 

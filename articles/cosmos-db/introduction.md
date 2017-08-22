@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
         * 추가 데이터 모델 제공 예정 
 
 * **전세계에서 필요 시 탄력적으로 처리량 및 저장소 확장**
-    * 데이터베이스 처리량을 [초](request-units.md) 및 [분](request-units-per-minute.md) 단위로 간편하게 확장하고 원하면 언제든 변경할 수 있습니다. 
+    * 데이터베이스 처리량을 [초](request-units.md) 단위로 간편하게 확장하고 원하면 언제든 변경할 수 있습니다. 
     * 크기 요구 사항에 맞게 지속적으로 저장소 크기를 [투명하게 자동으로](partition-data.md) 확장합니다.
 
 * **응답성 높은 중요 업무용 응용 프로그램 빌드**
