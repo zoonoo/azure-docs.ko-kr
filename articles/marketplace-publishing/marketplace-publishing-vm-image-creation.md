@@ -20,7 +20,6 @@ ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure 마켓플레이스에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -299,9 +298,9 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 Azure Marketplace에 대한 VHD를 공유하는 여러 가지 방법으로 SAS URL을 생성할 수 있습니다.
 3가지 권장되는 도구는 다음과 같습니다.
 
-1.    Azure Storage 탐색기
-2.    Microsoft Storage Explorer
-3.    Azure CLI
+1.  Azure Storage 탐색기
+2.  Microsoft Storage Explorer
+3.  Azure CLI
 
 **Azure Storage Explorer(Windows 사용자에 대해 권장됨)**
 
@@ -332,15 +331,15 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    컨테이너의 .vhd 파일을 선택한 후 **보안** 탭을 클릭합니다.
+8.  컨테이너의 .vhd 파일을 선택한 후 **보안** 탭을 클릭합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    **Blob 컨테이너 보안** 대화 상자의 **액세스 수준** 탭에서 기본값을 그대로 두고 **공유 액세스 서명** 탭을 클릭합니다.
+9.  **Blob 컨테이너 보안** 대화 상자의 **액세스 수준** 탭에서 기본값을 그대로 두고 **공유 액세스 서명** 탭을 클릭합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    .vhd 이미지에 대한 공유 액세스 서명 URI를 생성하려면 다음 단계를 따르세요.
+10. .vhd 이미지에 대한 공유 액세스 서명 URI를 생성하려면 다음 단계를 따르세요.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -360,45 +359,45 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
        - 서명 끝에 **"=rl"**이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
        - 서명 중간에 **"sr=c"**가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
 
-11.    생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 **Test in Browser(브라우저에서 테스트)**를 클릭합니다. 다운로드 프로세스가 시작됩니다.
+11. 생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 **Test in Browser(브라우저에서 테스트)**를 클릭합니다. 다운로드 프로세스가 시작됩니다.
 
-12.    공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+12. 공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
 
-13.    SKU에서 각 VHD에 대해 6~10단계를 반복합니다.
+13. SKU에서 각 VHD에 대해 6~10단계를 반복합니다.
 
 **Microsoft Azure Storage Explorer(Windows/MAC/Linux)**
 
 Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
-1.    [http://storageexplorer.com/](http://storageexplorer.com/) 웹 사이트에서 Microsoft Azure Storage Explorer를 다운로드합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html)로 이동하여 **"Windows용 다운로드"**를 클릭합니다.
+1.  [http://storageexplorer.com/](http://storageexplorer.com/) 웹 사이트에서 Microsoft Azure Storage Explorer를 다운로드합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html)로 이동하여 **"Windows용 다운로드"**를 클릭합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    설치한 후 응용 프로그램을 엽니다.
+2.  설치한 후 응용 프로그램을 엽니다.
 
-3.    **계정 추가**를 클릭합니다.
+3.  **계정 추가**를 클릭합니다.
 
-4.    계정에 로그인하여 구독에 Microsoft Azure Storage Explorer를 구성합니다.
+4.  계정에 로그인하여 구독에 Microsoft Azure Storage Explorer를 구성합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    저장소 계정으로 이동하여 컨테이너를 선택합니다.
+5.  저장소 계정으로 이동하여 컨테이너를 선택합니다.
 
-6.    **"공유 액세스 서명 가져오기"**를 선택합니다(**컨테이너**를 마우스 오른쪽 버튼으로 클릭).
+6.  **"공유 액세스 서명 가져오기"**를 선택합니다(**컨테이너**를 마우스 오른쪽 버튼으로 클릭).
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    다음에 따른 업데이트 시작 시간, 만료 시간 및 사용 권한
+7.  다음에 따른 업데이트 시작 시간, 만료 시간 및 사용 권한
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **시작 시간:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
+    a.  **시작 시간:** UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 
-    b.    **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
+    b.  **만료 시간:** **시작 시간** 날짜 이후 3주 이상 지난 날짜를 선택합니다.
 
-    c.    **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
+    c.  **사용 권한**: **나열** 및 **읽기** 권한을 선택합니다.
 
-8.    컨테이너 공유 액세스 서명 URI를 복사합니다.
+8.  컨테이너 공유 액세스 서명 URI를 복사합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -418,21 +417,21 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
     - 서명 중간에 **"sp=rl"**이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
     - 서명 중간에 **"sr=c"**가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
 
-9.    생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
+9.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 
-10.    공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+10. 공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
 
-11.    SKU에서 각 VHD에 대해 이 단계를 반복합니다.
+11. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
 **Azure CLI(Windows가 아닌 연속 통합에 권장됨)**
 
 Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
-1.    Microsoft Azure CLI를 [여기](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)에서 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)**에 대한 다양한 링크를 찾을 수도 있습니다.
+1.  Microsoft Azure CLI를 [여기](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)에서 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)**에 대한 다양한 링크를 찾을 수도 있습니다.
 
-2.    다운로드되면 설치하세요.
+2.  다운로드되면 설치하세요.
 
-3.    다음 코드를 사용하여 PowerShell 파일을 만들고 로컬에 저장합니다.
+3.  다음 코드를 사용하여 PowerShell 파일을 만들고 로컬에 저장합니다.
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -454,21 +453,21 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다.
+4.  "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다.
 
-5.    스크립트를 실행하면 컨테이너 수준 액세스에 대한 SAS URL을 제공합니다.
+5.  스크립트를 실행하면 컨테이너 수준 액세스에 대한 SAS URL을 제공합니다.
 
     다음은 SAS 서명의 출력으로 메모장에서 강조 표시된 부분을 복사합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    이제 컨테이너 수준 SAS URL이 있으므로 여기에 VHD의 이름을 추가해야 합니다.
+6.  이제 컨테이너 수준 SAS URL이 있으므로 여기에 VHD의 이름을 추가해야 합니다.
 
     컨테이너 수준 SAS URL #
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    아래 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.
+7.  아래 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.
 
     예제:
 
@@ -477,14 +476,14 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - 이미지 파일 이름과 ".vhd"가 URI에 있는지 확인합니다.
-    -    서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
-    -    서명 중간에 "sr=c"가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
+    -   서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
+    -   서명 중간에 "sr=c"가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
 
-8.    생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
+8.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 
-9.    공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
+9.  공유 액세스 서명 URI를 복사합니다. 이 URI는 게시 포털에 붙여넣을 URI입니다.
 
-10.    SKU에서 각 VHD에 대해 이 단계를 반복합니다.
+10. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 VM 이미지에 대한 정보를 제공하고 게시 포털에서 인증 요청
@@ -547,8 +546,8 @@ SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이�
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

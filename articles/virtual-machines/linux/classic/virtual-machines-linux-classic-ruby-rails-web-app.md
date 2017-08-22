@@ -21,7 +21,6 @@ ms.openlocfilehash: 4735a1789c33b7cc51896e26ec8e079f9b0de7d9
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
 이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
@@ -141,9 +140,9 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 * [Content Delivery Network로 높은 대역폭 콘텐츠 제공][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
+[tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
 [vm-instructions]:createportal.md
 
 <!-- External Links -->
