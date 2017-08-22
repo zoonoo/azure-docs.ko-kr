@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/08/2017
+ms.date: 08/14/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 98e307bc3b2dd876b74d64fbdeec162827a2e86e
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 SQL Server 가상 컴퓨터 프로비저닝
@@ -46,17 +46,17 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
    > [!NOTE]
    > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
-2. Azure Portal에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다.
+2. Azure Portal에서 **새로 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
 
-3. **새로 만들기** 블레이드에서 **Compute**를 클릭한 다음 **모두 표시**를 클릭합니다.
+3. **새로 만들기** 창에서 **Compute**를 클릭한 다음 **모두 표시**를 클릭합니다.
 
-   ![Azure 새 계산 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+   ![새 계산 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 4. 검색 필드에 **SQL Server**를 입력하고 ENTER 키를 누릅니다.
 
-5. 그런 다음, **필터** 아이콘을 클릭하고 게시자로 **Microsoft**를 선택합니다. 필터 블레이드에서 **완료**를 클릭하여 결과를 Microsoft 게시 SQL Server 이미지로 필터링합니다.
+5. 그런 다음, **필터** 아이콘을 클릭하고 게시자로 **Microsoft**를 선택합니다. 필터 창에서 **완료**를 클릭하여 결과를 Microsoft 게시 SQL Server 이미지로 필터링합니다.
 
-   ![Azure Virtual Machines 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Azure Virtual Machines 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다.
 
@@ -77,7 +77,7 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM 구성
-SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있습니다.
+SQL Server 가상 컴퓨터를 구성하기 위한 5개의 창이 있습니다.
 
 | 단계 | 설명 |
 | --- | --- |
@@ -89,7 +89,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 
 ## <a name="1-configure-basic-settings"></a>1. 기본 설정 구성
 
-**기본** 블레이드에서 다음 정보를 제공합니다.
+**기본** 창에서 다음 정보를 제공합니다.
 
 * 고유한 가상 컴퓨터 **이름**을 입력합니다.
 
@@ -110,14 +110,14 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 
 * **확인**을 클릭하여 설정을 저장합니다.
 
-    ![SQL 기본 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
+    ![SQL 기본 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. 가상 컴퓨터 크기 선택
 
-**크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다.
+**크기** 단계의 **크기 선택** 창에서 가상 컴퓨터 크기를 선택합니다. 창은 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다.
 
 > [!IMPORTANT]
-> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+> **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -130,7 +130,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 
 ## <a name="3-configure-optional-features"></a>3. 선택적 기능 구성
 
-**설정** 블레이드에서 가상 컴퓨터용 Azure Storage, 네트워킹 및 모니터링을 구성합니다.
+**설정** 창에서 가상 컴퓨터용 Azure Storage, 네트워킹 및 모니터링을 구성합니다.
 
 * **Storage**의 **Managed Disks**에서 **예**를 선택합니다.
 
@@ -139,22 +139,22 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 
 * **네트워크**아래에서 자동으로 채워진 값을 사용할 수 있습니다. 각 기능을 클릭하여 **가상 네트워크**, **서브넷**, **공용 IP 주소** 및 **네트워크 보안 그룹**을 수동으로 구성할 수도 있습니다. 이 자습서에서는 기본 값을 유지합니다.
 
-* Azure에서는 VM에 지정된 것과 동일한 저장소 계정을 통해 **모니터링** 이 기본적으로 사용됩니다. 여기에서 이러한 설정을 변경할 수 있습니다.
+* Azure에서는 VM에 지정된 것과 동일한 저장소 계정을 통해 **모니터링**이 기본적으로 사용됩니다. 여기에서 이러한 설정을 변경할 수 있습니다.
 
 * **가용성 집합**에서 이 자습서에 대해 기본값을 **없음**으로 남겨둘 수 있습니다. SQL AlwaysOn 가용성 그룹을 설정하려는 경우 가상 컴퓨터를 다시 만들지 않도록 가용성을 구성합니다.  자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이러한 설정 구성을 완료한 후 **확인**을 클릭합니다.
 
 ## <a name="4-configure-sql-server-settings"></a>4. SQL Server 설정 구성
-**SQL Server 설정** 블레이드에서 SQL Server에 대한 설정 및 최적화를 구성합니다. SQL Server에 대해 구성할 수 있는 설정은 다음과 같습니다.
+**SQL Server 설정** 창에서 SQL Server에 대한 설정 및 최적화를 구성합니다. SQL Server에 대해 구성할 수 있는 설정은 다음과 같습니다.
 
 | 설정 |
 | --- |
 | [연결](#connectivity) |
 | [인증](#authentication) |
-| [저장소 구성](#storage-configuration) |
+| [Storage 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
-| [자동화된 백업](#automated-backup) |
+| [자동화된 Backup](#automated-backup) |
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
 | [R 서비스](#r-services) |
 
@@ -194,9 +194,9 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 
 SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리자 계정을 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.
 
-### <a name="storage-configuration"></a>저장소 구성
+### <a name="storage-configuration"></a>Storage 구성
 
-저장소 요구 사항을 지정하려면 **저장소 구성**을 클릭합니다.
+저장소 요구 사항을 지정하려면 **Storage 구성**을 클릭합니다.
 
 ![SQL Storage 구성](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 
@@ -208,7 +208,7 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 초당 입/출력 작업(IOPs), 처리량(MB/s) 및 총 저장소 크기로 요구 사항을 지정할 수 있습니다. 슬라이딩 규모를 사용하여 이 값을 구성합니다. 워크로드에 따라 이러한 저장소 설정을 변경할 수 있습니다. 포털에는 이러한 요구 사항에 따라 장착 및 구성할 디스크 수를 자동으로 계산합니다.
 
-**다음에 대해 저장소 최적화**에서 다음 옵션 중 하나를 선택합니다.
+**다음에 대해 Storage 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
 * **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
 * **트랜잭션** 처리는 기존의 데이터베이스 OLTP 워크로드용으로 저장소를 최적화합니다.
@@ -236,9 +236,9 @@ SQL 자동화된 백업을 사용하면 다음을 구성할 수 있습니다.
 
 백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다.
 
-![SQL 자동화된 백업](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
+![SQL 자동화된 Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
- 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
+ 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 Backup](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault 통합
 
@@ -259,7 +259,7 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vau
 
 ### <a name="r-services"></a>R 서비스
 
-[SQL Server R 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2016을 사용하여 고급 분석을 사용할 수 있습니다. **사용** on the **SQL Server Settings** 블레이드가 열립니다.
+[SQL Server R 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2016을 사용하여 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용**을 클릭합니다.
 
 > [!NOTE]
 > SQL Server 2016 Developer Edition의 경우 이 옵션이 포털에서 잘못 비활성화되어 있습니다. Developer 버전의 경우 VM을 생성한 후 R 서비스를 수동으로 활성화해야 합니다.
@@ -270,7 +270,7 @@ SQL Server 설정 구성을 마치면 **확인**을 클릭합니다.
 
 ## <a name="5-review-the-summary"></a>5. 요약 검토
 
-**요약** 블레이드에서 요약을 검토하고 **구매**를 클릭하여 이 VM에 대해 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
+**요약** 창에서 요약을 검토하고 **구매**를 클릭하여 이 VM에 대해 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
 
 Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에 있는 **알림** 단추는 배포의 기본 상태를 표시합니다.
 
@@ -279,26 +279,33 @@ Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 
 ## <a name="open-the-vm-with-remote-desktop"></a>원격 데스크톱을 사용하여 VM 열기
 
+다음 단계를 사용하여 원격 데스크톱으로 SQL Server 가상 컴퓨터에 연결합니다.
+
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+
+SQL Server 가상 컴퓨터에 연결된 후에, SQL Server Management Studio를 시작하고 로컬 관리자 자격 증명을 사용하여 Windows 인증으로 연결할 수 있습니다. SQL Server 인증을 사용하도록 설정한 경우에는, 프로비전 중에 구성해 놓은 SQL 로그인 및 암호를 사용하여 SQL 인증에 연결할 수 있습니다.
+
+컴퓨터에 연결하면 요구 사항에 따라 컴퓨터와 SQL Server 설정을 직접 변경할 수 있습니다. 예를 들어, 방화벽 설정을 구성하거나 SQL Server 구성 설정을 변경할 수 있습니다.
+
+## <a name="enable-tcpip-for-developer-and-express-editions"></a>개발자 및 Express 버전에 대해 TCP/IP 사용
+
+새 SQL Server VM을 프로비전할 때 Azure는 SQL Server 개발자 및 Express 버전에 대해 TCP/IP 프로토콜을 자동으로 설정하지 않습니다. 아래 단계에서는 IP 주소를 통해 원격으로 연결할 수 있도록 TCP/IP를 수동으로 사용하도록 설정하는 방법을 설명합니다.
+
+다음 단계에서는 **SQL Server 구성 관리자**를 사용하여 SQL Server 개발자 및 Express 버전에 대해 TCP/IP 프로토콜을 사용하도록 설정합니다.
+
+> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-to-sql-server-remotely"></a>원격으로 SQL Server 연결
 
 이 자습서에서는 가상 컴퓨터와 **SQL Server 인증**에 대해 **공용** 액세스를 선택했습니다. 이러한 설정은 가상 컴퓨터가 인터넷을 통한 모든 클라이언트의 SQL Server 연결을 허용하도록 자동으로 구성합니다(올바른 SQL 로그인이 있다는 가정 하에).
 
 > [!NOTE]
-> 프로비전 중에 공용을 선택하지 않은 경우 인터넷을 통한 SQL Server 인스턴스 액세스에 추가 단계가 필요합니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
-> 
-> 
+> 프로비전 중에 공용을 선택하지 않은 경우 프로비전 후 포털을 통해 SQL 연결 설정을 변경할 수 있습니다. 자세한 내용은 [SQL 연결 설정 변경](virtual-machines-windows-sql-connect.md#change)을 참조하세요.
 
 다음 섹션은 인터넷 상의 다른 컴퓨터에서 VM의 SQL Server 인스턴스에 연결하는 방법을 보여줍니다.
 
 > [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
-> 
-> 
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 및 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
-
-Azure Virtual Machines의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
-
-Azure Virtual Machines에서 SQL Server용 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다.

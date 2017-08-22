@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Application Gateway에 대한 개요
@@ -42,6 +42,7 @@ Microsoft Azure Application Gateway는 ADC(응용 프로그램 배달 컨트롤�
 * **[다중 사이트 라우팅](application-gateway-multi-site-overview.md)** - Application Gateway를 사용하면 단일 Application Gateway에서 최대 20개의 웹 사이트를 통합할 수 있습니다.
 * **[Websocket 지원](application-gateway-websocket.md)** - Application Gateway의 또 다른 장점은 Websocket에 대한 네이티브 지원이라는 점입니다.
 * **[상태 모니터링](application-gateway-probe-overview.md)** - Application Gateway는 기본적인 백 엔드 리소스 상태 모니터링 및 보다 구체적인 시나리오를 모니터링하기 위한 사용자 지정 프로브를 제공합니다.
+* **[SSL 정책 및 암호화](application-gateway-ssl-policy-overview.md)** - 이 기능은 SSL 프로토콜 버전 및 지원되는 암호 그룹과 이들이 처리되는 순서를 제한하는 기능을 제공합니다.
 * **[요청 리디렉션](application-gateway-redirect-overview.md)** - HTTP 요청을 HTTPS 수신기로 리디렉션하는 기능을 제공합니다.
 * **[다중 테넌트 백 엔드 지원](application-gateway-web-app-overview.md)**  - 응용 프로그램 게이트웨이는 Azure Web Apps 및 API Gateway 같은 다중 테넌트 백 엔드 서비스를 백 엔드 풀 멤버로 구성하는 기능을 지원합니다. 
 * **[고급 진단](application-gateway-diagnostics.md)** - Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용할 수 있는 Application Gateway 리소스에 사용할 수 있습니다.
@@ -105,5 +106,5 @@ Application Gateway에 대해 학습한 후에 [응용 프로그램 게이트웨
 
 URL 기반 콘텐츠 라우팅을 사용하여 응용 프로그램 게이트웨이를 만드는 방법에 대한 자세한 내용은 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-arm-ps.md)를 참조하세요.
 
-Azure의 다른 주요 네트워킹 기능 중 일부에 대해 알아보려면 [Azure 네트워킹]((../networking/networkingoverview.md)을 참조하세요.
+Azure의 다른 주요 네트워킹 기능에 대해 알아보려면 [Azure 네트워킹](../networking/networking-overview.md)을 참조하세요.
 
