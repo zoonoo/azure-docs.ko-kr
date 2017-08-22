@@ -76,8 +76,9 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 6. 다음 코드를 추가하여 IoT Hub의 ID 레지스트리에서 장치 정의를 만듭니다. 이 코드는 장치 ID가 ID 레지스트리에 없는 경우 장치를 만들고, 있으면 기존 장치의 키를 반환합니다.
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

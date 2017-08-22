@@ -37,8 +37,7 @@ ms.lasthandoff: 03/09/2017
    > [!NOTE]
    > 리디렉션 URI는 경로 */.auth/login/microsoftaccount/callback*이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`   
    > HTTPS 체계를 사용 중인지 확인합니다.
-   > 
-   > 
+   
 7. "응용 프로그램 암호" 아래에서 **새 암호 생성**을 클릭합니다. 표시되는 값을 기록해 둡니다. 이 페이지를 떠나면 다시 표시되지 않습니다.
 
     > [!IMPORTANT]

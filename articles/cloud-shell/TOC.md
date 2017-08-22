@@ -14,6 +14,7 @@
 
 # 참조
 ## [Azure CLI 2.0](/cli/azure) 
+
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
