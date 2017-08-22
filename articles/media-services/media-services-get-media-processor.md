@@ -1,5 +1,5 @@
 ---
-title: "미디어 프로세서를 만드는 방법 | Microsoft Docs"
+title: "Azure Media Services SDK for .NET을 사용하여 미디어 프로세서를 만드는 방법 | Microsoft 문서"
 description: "Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다."
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
@@ -31,21 +31,16 @@ ms.lasthandoff: 04/12/2017
 ## <a name="overview"></a>개요
 미디어 서비스에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
-다음 표에서는 각 사용 가능한 미디어 프로세서의 이름과 설명을 제공합니다.
+## <a name="azure-media-processors"></a>Azure 미디어 프로세서 
 
-| 미디어 프로세서 이름 | 설명 | 추가 정보 |
-| --- | --- | --- |
-| 미디어 인코더 표준 |주문형 인코딩에 대한 표준 기능을 제공합니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md) |
-| 미디어 인코더 Premium 워크플로 |미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md) |
-| Azure 미디어 인덱서 |미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다. |[Azure 미디어 인덱서](media-services-index-content.md) |
-| Azure 미디어 Hyperlapse(미리 보기) |비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다. |[Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure 미디어 인코더 |사용되지 않음 | |
-| 저장소 암호 해독 |사용되지 않음 | |
-| Azure Media Packager |사용되지 않음 | |
-| Azure Media Encryptor |사용되지 않음 | |
+미디어 프로세스 목록은 다음 항목에서 제공됩니다.
+
+* [인코딩 미디어 프로세서](scenarios-and-availability.md#encoding-media-processors)
+* [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>미디어 프로세서 가져오기
-다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-dotnet-connect-programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
+
+다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 Media Services에 연결](media-services-use-aad-auth-to-access-ams-api.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
@@ -127,9 +127,9 @@ __Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용�
 
 * `wasb:///`: 암호화되지 않은 통신을 사용하여 기본 저장소에 액세스합니다.
 
-* `wasbs:///`: 암호화된 통신을 사용하여 기본 저장소에 액세스합니다.
+* `wasbs:///`: 암호화된 통신을 사용하여 기본 저장소에 액세스합니다.  wasbs 구성표는 HDInsight 버전 3.6 이상에서만 지원됩니다.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 저장소 계정과 통신할 때 사용됩니다. 예를 들어 추가 저장소 계정이 있거나 공개적으로 액세스할 수 있는 저장소 계정에 저장된 데이터에 액세스하는 경우입니다.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 저장소 계정과 통신할 때 사용됩니다. 예를 들어 추가 저장소 계정이 있거나 공개적으로 액세스할 수 있는 저장소 계정에 저장된 데이터에 액세스하는 경우입니다.
 
 __Data Lake Store__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
 
@@ -153,7 +153,7 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 
 이 명령은 다음 URI와 유사한 값을 반환합니다.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` - Azure Storage 계정을 사용하는 경우
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` - Azure Storage 계정을 사용하는 경우
 
     계정 이름은 Azure Storage 계정의 이름이고, 컨테이너 이름은 클러스터 저장소의 루트인 Blob 컨테이너입니다.
 

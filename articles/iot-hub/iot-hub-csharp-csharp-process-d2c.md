@@ -12,34 +12,32 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8c02e911770577bd51bc2bebbb3e29b66ed0235b
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리(.Net)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 다른 자습서([IoT Hub 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
+이 자습서는 [IoT Hub 시작] 자습서를 기반으로 합니다. 이 자습서의 내용은 다음과 같습니다.
 
-이 자습서는 [IoT Hub 시작] 자습서를 기반으로 하며, 라우팅 규칙을 사용하여 손쉬운 구성 기반 방식으로 장치-클라우드 메시지를 발송하는 방법을 보여 줍니다. 추가 처리를 위해 솔루션 백 엔드의 즉각적인 작업을 요구하는 메시지를 격리하는 방법을 보여 줍니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 이와 반대로 데이터 요소 메시지는 단순히 분석 엔진으로 전달됩니다. 예를 들어 나중에 분석을 위해 저장해야 하는 장치의 온도 원격 분석이 데이터 요소 메시지에 해당합니다.
+* I라우팅 규칙을 사용하여 손쉬운 구성 기반 방식으로 장치-클라우드 메시지를 발송하는 방법을 보여 줍니다.
+* 추가 처리를 위해 솔루션 백 엔드의 즉각적인 작업을 요구하는 대화형 메시지를 격리하는 방법을 보여 줍니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 반면 온도 원격 분석과 같은 데이터 요소 메시지는 분석 엔진으로 전달됩니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 .NET 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice** - [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQP 프로토콜을 사용합니다.
+* **SimulatedDevice** - [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다.
 * **ReadDeviceToCloudMessages** - 장치 앱에서 보낸 중요하지 않은 원격 분석을 표시합니다.
-* **ReadCriticalQueue** - IoT Hub에 연결된 Service Bus 큐에서 장치 앱이 보낸 중요한 메시지를 큐에서 제거합니다.
+* **ReadCriticalQueue** - Service Bus 큐에서 장치 앱이 보낸 중요한 메시지를 큐에서 제거합니다. 이 큐는 IoT Hub에 연결됩니다.
 
 > [!NOTE]
-> IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대해 알아보려면 [Azure IoT 개발자 센터]를 참조하세요.
-> 
-> 
+> IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 이 자습서의 시뮬레이션된 장치를 실제 장치로 바꾸는 방법에 대해 알아보려면 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -48,12 +46,13 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
-## <a name="send-interactive-messages-from-a-device-app"></a>장치 앱에서 대화형 메시지 보내기
-이 섹션에서는 [IoT Hub 시작] 자습서에서 만든 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
+## <a name="send-interactive-messages"></a>대화형 메시지 전송
+
+[IoT Hub 시작] 자습서에서 만든 장치 앱을 수정하여 대화형 메시지를 가끔씩 보낼 수 있습니다.
 
 Visual Studio의 **SimulatedDevice** 프로젝트에서 `SendDeviceToCloudMessagesAsync` 메서드를 다음 코드로 바꿉니다.
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
 {
     double minTemperature = 20;
@@ -103,7 +102,8 @@ private static async void SendDeviceToCloudMessagesAsync()
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>IoT Hub에 큐 추가 및 메시지 라우팅
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>IoT Hub에서 큐에 메시지 라우팅
+
 이 섹션에서는 다음을 수행합니다.
 
 * Service Bus 큐를 만듭니다.
@@ -134,6 +134,7 @@ Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내�
     ![대체(fallback) 경로][33]
 
 ## <a name="read-from-the-queue-endpoint"></a>큐 끝점에서 읽기
+
 이 섹션에서는 큐 끝점에서 메시지를 읽습니다.
 
 1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 현재 솔루션에 추가합니다. **ReadCriticalQueue** 프로젝트의 이름을 지정합니다.
@@ -144,14 +145,14 @@ Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내�
 
 4. **Program.cs** 파일의 맨 위에 다음 **using** 문을 추가합니다.
    
-    ```
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다. 연결 문자열을 큐에 대한 **수신 대기** 권한으로 바꿉니다.
    
-    ```
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -190,46 +191,20 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
-
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
-[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[일시적인 오류 처리]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 

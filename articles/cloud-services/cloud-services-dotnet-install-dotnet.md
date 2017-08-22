@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 07/24/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0ac8ca0c5407925728ed0431294a3234b58d6e63
-ms.openlocfilehash: 04506596ba21c3ebef7237eaad8c5d786ad672fe
-ms.lasthandoff: 02/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: e6154d990e10f67d4b30b889a62a99cedcbfccbe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -34,12 +35,15 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="add-the-net-installer-to-your-project"></a>프로젝트에 .NET 설치 관리자 추가
 * 설치하려는 .NET Framework의 웹 설치 관리자 다운로드
+  * [.NET 4.7 웹 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=825298)
   * [.NET 4.6.1 웹 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=671729)
+
 * 웹 역할의 경우
-  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 역할을 마우스 오른쪽 단추로 클릭하고 **추가>새 폴더**를 선택합니다. *bin*
-  2. **bin** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가>기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
+  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 역할을 마우스 오른쪽 단추로 클릭하고 **추가 > 새 폴더**를 선택합니다. *bin*
+  2. **bin** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가 > 기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
+  
 * 작업자 역할의 경우
-  1. 역할을 마우스 오른쪽 단추로 클릭하고 **추가>기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
+  1. 역할을 마우스 오른쪽 단추로 클릭하고 **추가 > 기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
 
 이러한 방식으로 역할 콘텐츠 폴더에 추가한 파일은 클라우드 서비스 패키지에 자동으로 추가되고 가상 컴퓨터의 일관된 위치에 배포됩니다. 모든 역할에 설치 관리자 복사본이 있도록 클라우드 서비스의 모든 웹 및 작업자 역할에 대해 이 프로세스를 반복합니다.
 
@@ -73,15 +77,17 @@ ms.lasthandoff: 02/27/2017
     </Startup>
     ```
    
-    위 구성은 .NET Framework를 설치할 수 있도록 관리자 권한으로 *install.cmd* 콘솔 명령을 실행합니다. 구성에서 이름이 *NETFXInstall*인 LocalStorage도 만듭니다. 시작 스크립트는 .NET Framework 설치 관리자를 다운로드하고 이 리소스에서 설치할 수 있도록 이 로컬 저장소 리소스를 사용하는 임시 폴더를 설정합니다. 프레임워크가 올바르게 설치되려면 이 리소스의 크기를 1024MB 이상으로 설정해야 합니다. 시작 작업에 대한 자세한 내용은 [일반적인 클라우드 서비스 시작 작업](cloud-services-startup-tasks-common.md) 
-2. **install.cmd** 파일을 만들고 역할을 마우스 오른쪽 단추로 클릭한 다음 **추가>기존 항목...**을 선택하여 이를 모든 역할에 추가합니다. 이제 모든 역할에 .NET 설치 관리자 파일과 install.cmd 파일이 있습니다.
+    위 구성은 .NET Framework를 설치하기 위해 관리자 권한으로 *install.cmd* 콘솔 명령을 실행합니다. 이 구성에서는 이름이 *NETFXInstall*인 *LocalStorage*도 만듭니다. 시작 스크립트는 이 로컬 저장소 리소스를 사용하도록 temp 폴더를 설정합니다. 프레임워크가 올바르게 설치되도록 하려면 이 리소스의 크기를 1024MB 이상으로 설정해야 합니다. 시작 작업에 대한 자세한 내용은 [일반적인 클라우드 서비스 시작 작업](cloud-services-startup-tasks-common.md)을 참조하세요. 
+
+2. **install.cmd** 파일을 만들고 역할을 마우스 오른쪽 단추로 클릭한 다음 **추가 > 기존 항목...**을 선택하여 해당 파일을 모든 역할에 추가합니다. 이제 모든 역할에 .NET 설치 관리자 파일과 install.cmd 파일이 있습니다.
    
-    ![모든 파일이 포함된 역할 콘텐츠][2]
+   ![모든 파일이 포함된 역할 콘텐츠][2]
    
    > [!NOTE]
-   > 메모장과 같은 간단한 텍스트 편집기를 사용하여 이 파일을 만듭니다. Visual Studio를 사용하여 텍스트 파일을 만든 다음 이름을 '.cmd'로 바꾼 경우 파일에 UTF-8 바이트 순서 표시가 여전히 포함되어 있을 수 있으며 스크립트의 첫째 줄을 실행하면 오류가 발생합니다. Visual Studio를 사용하여 파일을 만든 경우 실행 시 무시되도록 파일의 첫째 줄에 REM(Remark)을 추가합니다. 
+   > 메모장과 같은 기본적인 텍스트 편집기를 사용하여 이 파일을 만듭니다. Visual Studio를 사용하여 텍스트 파일을 만든 다음 이름을 '.cmd'로 바꾼 경우 파일에 UTF-8 바이트 순서 표시가 여전히 포함되어 있을 수 있으며 스크립트의 첫째 줄을 실행하면 오류가 발생합니다. 파일의 첫 줄이 REM 명령인지 확인하세요. 이 명령이 있으면 UTF-8 바이트 순서 표시 처리를 건너뛸 수 있습니다. 
    > 
    > 
+
 3. 다음 스크립트를 **install.cmd** 파일에 추가합니다.
    
     ```cmd
@@ -90,42 +96,48 @@ ms.lasthandoff: 02/27/2017
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    set netfx="NDP461"
-   
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
+    set netfx="NDP47"
+
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
     set "log=install.cmd started %timestamp%."
-   
+
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
-   
+
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-   
+
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
     if %netfx%=="NDP46" goto NDP46
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
-   
+
     :NDP46
     set "netfxinstallfile=NDP46-KB3045560-Web.exe"
     set netfxregkey="0x6004f"
     goto logtimestamp
-   
+
     :NDP461
     set "netfxinstallfile=NDP461-KB3102438-Web.exe"
     set netfxregkey="0x6040e"
     goto logtimestamp
-   
+
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-   
+
+    :NDP47
+    set "netfxinstallfile=NDP47-KB3186500-Web.exe"
+    set netfxregkey="0x707FE"
+
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -135,7 +147,7 @@ ms.lasthandoff: 02/27/2017
     echo Logfile generated at: %startuptasklog% >> %startuptasklog%
     echo TMP set to: %TMP% >> %startuptasklog%
     echo TEMP set to: %TEMP% >> %startuptasklog%
-   
+
     REM ***** Check if .NET is installed *****
     echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
     set /A netfxregkeydecimal=%netfxregkey%
@@ -143,7 +155,7 @@ ms.lasthandoff: 02/27/2017
     FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
     echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
     if %foundkey% GEQ %netfxregkeydecimal% goto installed
-   
+
     REM ***** Installing .NET *****
     echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
     start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -152,17 +164,17 @@ ms.lasthandoff: 02/27/2017
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
-   
+
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%
-   
+
     :end
     echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
-   
+
     :exit
     EXIT /B 0
     ```
@@ -177,7 +189,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>진단을 구성하여 Blob 저장소로 시작 작업 로그 전송
 설치 문제의 해결을 간소화하려면 시작 스크립트 또는 .NET 설치 관리자에 의해 생성된 모든 로그 파일을 Blob 저장소로 전송하도록 Azure 진단을 구성할 수 있습니다. 이 방법을 사용하면 원격 데스크톱을 통해 역할에 연결하는 대신 Blob 저장소에서 로그 파일을 다운로드하여 로그를 볼 수 있습니다.
 
-진단을 구성하려면 *diagnostics.wadcfgx* 를 열고 **디렉터리** 노드 아래에 다음을 추가합니다. 
+진단을 구성하려면 *diagnostics.wadcfgx*를 열고 **디렉터리** 노드 아래에 다음을 추가합니다. 
 
 ```xml 
 <DataSources>
@@ -187,10 +199,10 @@ ms.lasthandoff: 02/27/2017
 </DataSources>
 ```
 
-그러면 *log* 디렉터리의 *NETFXInstall* 리소스 아래에 있는 모든 파일을 *netfx-install* Blob 컨테이너 내 진단 저장소 계정으로 전송하도록 Azure 진단이 구성됩니다.
+이 xml은 *log* 디렉터리의 *NETFXInstall* 리소스 아래에 있는 모든 파일을 *netfx-install* Blob 컨테이너 내 진단 저장소 계정으로 전송하도록 Azure 진단을 구성합니다.
 
 ## <a name="deploying-your-service"></a>서비스 배포
-서비스를 배포할 때 시작 작업이 실행되고 .NET Framework(이미 설치되지 않은 경우)를 설치합니다. 프레임워크를 설치하는 동안 역할은 사용 중 상태가 되며, 프레임워크 설치에 필요한 경우 역할이 다시 시작될 수도 있습니다. 
+서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크를 설치하는 동안 역할은 *사용 중* 상태가 되며, 프레임워크 설치에 필요한 경우 역할이 다시 시작될 수도 있습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 * [.NET Framework 설치][Installing the .NET Framework]

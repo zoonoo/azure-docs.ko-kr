@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 06/14/2017
+ms.date: 07/25/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ed9945ae007d22c18d259984ee68f9c669927f9a
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2c42ff5b7ab87e8ef8af2c244a1313fb55503c37
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
@@ -67,25 +66,8 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **암호 다시 설정** 단추를 클릭합니다. **모드**를 **구성만 재설정**으로 설정한 다음 **업데이트** 단추를 클릭합니다.
    
     ![Azure Portal에서 RDP 구성 다시 설정](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **네트워크 보안 그룹 규칙 확인**. 이 문제 해결 단계에서는 네트워크 보안 그룹에 RDP 트래픽을 허용하는 규칙이 있는지 확인합니다. RDP의 기본 포트는 TCP 포트 3389입니다. VM을 만들 때 RDP 트래픽을 허용하는 규칙이 자동으로 생성되지 않을 수도 있습니다.
-   
-    Azure Portal에서 VM을 선택합니다. 설정 창에서 **네트워크 인터페이스**를 클릭합니다.
-   
-    ![Azure Portal에서 VM에 대한 네트워크 인터페이스 보기](./media/troubleshoot-rdp-connection/select-network-interfaces.png)
-   
-    목록에서 네트워크 인터페이스를 선택합니다(일반적으로 하나밖에 없음).
-   
-    ![Azure Portal에서 네트워크 인터페이스 선택](./media/troubleshoot-rdp-connection/select-interface.png)
-   
-    네트워크 인터페이스와 연결된 네트워크 보안 그룹을 보려면 **네트워크 보안 그룹**을 선택합니다.
-   
-    ![Azure Portal에서 네트워크 보안 그룹 선택](./media/troubleshoot-rdp-connection/select-nsg.png)
-   
-    TCP 포트 3389에서 RDP 트래픽을 허용하는 인바운드 규칙이 있는지 확인합니다. 다음 예제에서는 RDP 트래픽을 허용하는 유효한 보안 규칙을 보여 줍니다. `Service` 및 `Action`가 올바르게 구성된 것을 볼 수 있습니다.
-   
-    ![Azure Portal에서 RDP NSG 규칙 확인](./media/troubleshoot-rdp-connection/verify-nsg-rules.png)
-   
-    RDP 트래픽을 허용하는 규칙이 없는 경우 [네트워크 보안 그룹 규칙을 만듭니다](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). TCP 포트 3389를 허용합니다.
+2. **네트워크 보안 그룹 규칙 확인**. [IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 컴퓨터 간에 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 RDP 포트(기본값: 3389)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)을 참조하세요.
+
 3. **VM 부트 진단 검토**. 이 문제 해결 단계에서는 VM 콘솔 로그를 검토하여 VM이 문제를 보고하는지 확인합니다. 모든 VM에서 부팅 진단이 지원되는 것은 아니므로 이 문제 해결 단계는 선택 사항입니다.
    
     구체적인 문제 해결 단계는 이 문서의 범위를 벗어나지만, RDP 연결에 영향을 주는 더 넓은 문제를 나타낼 수 있습니다. 콘솔 로그 및 VM 스크린샷 검토에 대한 자세한 내용은 [VM 부팅 진단](boot-diagnostics.md)을 참조하세요.

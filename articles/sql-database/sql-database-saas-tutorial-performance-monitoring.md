@@ -1,11 +1,11 @@
 ---
 title: "다중 테넌트 SaaS 앱에서 다수의 Azure SQL 데이터베이스 성능 모니터링 | Microsoft Docs"
 description: "Azure SQL Database Wingtip SaaS 앱에서 데이터베이스 및 풀의 성능 모니터링 및 관리"
-keywords: "sql 데이터베이스 자습서"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: a76b1fc1e3fad5f47ffc550833bf34937e62163d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="monitor-performance-of-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램의 성능 모니터링
@@ -118,7 +117,7 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
-풀에는 상위 5개 이외에 추가 데이터베이스가 있으므로 풀 사용률은 상위 5개 데이터베이스 차트에 반영되지 않은 작업을 표시합니다. 추가 세부 정보를 보려면 **데이터베이스 리소스 사용률**을 클릭합니다.
+풀에는 상위 5개 데이터베이스 이외에 추가 데이터베이스가 있으므로 풀 사용률은 상위 5개 데이터베이스 차트에 반영되지 않은 작업을 표시합니다. 추가 세부 정보를 보려면 **데이터베이스 리소스 사용률**을 클릭합니다.
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
@@ -143,7 +142,6 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
    ![경고 설정](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
 
-
 ## <a name="scale-up-a-busy-pool"></a>사용 중인 풀 확장
 
 풀에 대한 집계 부하 수준이 풀에서 최대로 출력되는 지점까지 증가하고 eDTU 사용률이 100%에 도달한 경우 개별 데이터베이스 성능에 영향을 주며 풀에 있는 모든 데이터베이스에 대한 쿼리 응답 시간이 느려질 가능성이 있습니다.
@@ -157,12 +155,12 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
 1. *$DemoScenario* = **3**를 설정하고, 데이터베이스별로 더 오래 더 잦은 버스트를 사용하여 부하를 생성하여 각 데이터베이스에서 요구하는 최고 부하를 변경하지 않고 _풀에 대한 집계 부하의 강도를 증가_시킵니다.
 1. **F5**를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
 
-1. 포털에서 **Pool1**로 이동합니다.
+1. Azure Portal에서 **Pool1**로 이동합니다.
 
 상위 차트에 대해 증가한 풀 eDTU 사용량을 모니터링합니다. 더 높은 새 부하를 시작하려면 몇 분 걸리지만 풀이 최대 사용률에 도달하기 시작하는 것을 보고 바로 알 수 있으며 부하가 새로운 패턴으로 안정됨에 따라 풀에 빠르게 과부하가 걸립니다.
 
-1. 풀을 확장하려면 **풀 구성**을 클릭하세요
-1. **풀 eDTU** 슬라이더를 **100**으로 조정합니다. 풀 eDTU를 변경해도 데이터베이스별 설정은 변경되지 않습니다(여전히 데이터베이스별로 최대 50 eDTU). **풀 구성** 페이지의 오른쪽에서 데이터베이스별 설정을 볼 수 있습니다.
+1. 풀을 강화하려면 **Pool1** 페이지 위쪽의 **풀 구성**을 클릭합니다.
+1. **풀 eDTU** 설정을 **100**으로 조정합니다. 풀 eDTU를 변경해도 데이터베이스별 설정은 변경되지 않습니다(여전히 데이터베이스별로 최대 50 eDTU). **풀 구성** 페이지의 오른쪽에서 데이터베이스별 설정을 볼 수 있습니다.
 1. **저장**을 클릭하여 풀 크기 조정 요청을 제출합니다.
 
 **Pool1** > **개요**로 돌아가 모니터링 차트를 볼 수 있습니다. 풀에 더 많은 리소스를 제공한 효과를 모니터링합니다(데이터베이스 수가 적고 임의 부하이지만 일정 시간 동안 실행할 때까지 최종적으로 보는 것이 언제나 쉽지는 않음). 차트를 보는 동안 하위 차트 100%가 여전히 50 eDTU이지만 데이터베이스별 최대값이 여전히 50 eDTU이므로 상위 차트의 100%가 이제 100 eDTU를 나타낸다는 것을 염두에 둡니다.

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 6a1bde07ea04445849674712361892f5783c0f2d
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d6346419756cb0841c23f3ba63e479ba2397af54
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 클라우드 기반 데이터 과학 가상 컴퓨터에 대한 소개
-데이터 과학 가상 컴퓨터(DSVM)는 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. Windows Server 2012 및 Linux에서 사용할 수 있습니다. Ubuntu 16.04 LTS 또는 OpenLogic 7.2 CentOS 기반 Linux 배포에서 DSVM의 Linux 버전을 제공합니다. 
+데이터 과학 가상 컴퓨터(DSVM)는 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. DSVM은 Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Linux 버전의 DSVM은 Ubuntu 16.04 LTS 및 OpenLogic 7.2 CentOS 기반 Linux 배포에서 제공됩니다. 
 
 이 항목은 데이터 과학 VM으로 할 수 있는 작업 및 VM 사용에 대한 몇 가지 주요 시나리오를 설명하고 Windows 및 Linux 버전에서 사용할 수 있는 주요 기능을 항목별로 설명하고 이를 사용하여 시작하는 방법에 대한 지침을 제공합니다.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/22/2017
 데이터 과학 VM은 Microsoft R Server, SQL Server, Visual Studio Tools , Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. 데이터 과학 VM을 신속하게 설정할 수 있기 때문에 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션이나 회의 자습서의 과정 따라 연습하는 등의 기타 단기 사용 시나리오에 적용할 수 있습니다.
 
 ### <a name="deep-learning"></a>심층 학습
-GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리즘을 사용하여 학습 모델에 대한 데이터 과학 VM을 사용할 수 있습니다. DSVM은 큰 모델을 학습하거나 GPU의 힘을 활용하는 고속 계산을 할 때 필요에 따라 클라우드에서만 GPU 기반 하드웨어를 사용하도록 도와줍니다.  Windows에서는 현재 DSVM 상단에 있는 별도 추가 기능으로 [DSVM에 대한 심층 학습 도구 키트](http://aka.ms/dsvm/deeplearning)를 제공합니다. 이 추가 기능은 VM 인스턴스를 만드는 동안 심층 학습 알고리즘의 GPU 드라이버, 프레임워크 및 GPU 버전을 자동으로 설치합니다. Linux에서 GPU 심층 학습은 [Linux(Ubuntu) 버전에 대한 데이터 과학 가상 컴퓨터](http://aka.ms/dsvm/ubuntu)에서만 사용 가능합니다. 모든 심층 학습 프레임워크가 CPU 모드로 대체하는 경우 데이터 과학 VM의 Ubuntu 버전을 비GPU 기반 Azure 가상 컴퓨터로 배포할 수 있습니다. DSVM의 CentOS 기반 Linux 버전은 일부 심층 학습 도구(CNTK, Tensorflow, MXNet)의 CPU 빌드만 포함하지만 GPU 드라이버 및 프레임워크와 사전 설치되지 않습니다. 
+GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리즘을 사용하여 학습 모델에 대한 데이터 과학 VM을 사용할 수 있습니다. DSVM은 Azure Cloud의 VM 확장 기능을 활용하여 클라우드에서 필요에 따라 GPU 기반 하드웨어를 사용할 수 있도록 합니다. 같은 OS 디스크를 유지하면서 고속 계산 기능을 사용해야 하거나 큰 모델을 학습할 때 GPU 기반 VM으로 전환할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 알고리즘이 미리 설치되어 있습니다. Linux에서 GPU 심층 학습은 [Linux(Ubuntu) 버전에 대한 데이터 과학 가상 컴퓨터](http://aka.ms/dsvm/ubuntu)에서만 사용 가능합니다. GPU를 기반으로 하지 않는 Azure Virtual Computer에 Ubuntu/Windows 2016 버전의 데이터 과학 VM을 배포할 수 있습니다. 이 경우 모든 심층 학습 프레임워크가 CPU 모드로 대체됩니다. 이전에는 Windows Server 2012용으로 [심층 학습 도구 키트](http://aka.ms/dsvm/deeplearning)가 게시되었지만, 이제 Windows 기반 심층 학습 작업에는 Windows Server 2016을 사용하는 것이 좋습니다. DSVM의 CentOS 기반 Linux 버전은 일부 심층 학습 도구(CNTK, Tensorflow, MXNet)의 CPU 빌드만 포함하지만 GPU 드라이버 및 프레임워크와 사전 설치되지 않습니다. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>데이터 과학 VM에는 무엇이 포함되어 있나요?
 데이터 과학 가상 컴퓨터에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 다양한 Azure 데이터 및 분석 제품을 사용하기 쉽게 해주는 도구도 포함되어 있습니다. Microsoft R Server를 사용하거나 SQL Server 2016을 사용하여 대규모 데이터 집합에서 예측 모델을 조사하고 구축할 수 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 가상 컴퓨터의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
@@ -58,6 +58,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | 인기 있는 패키지가 사전 설치된 [Microsoft R Open](https://mran.microsoft.com/open/)   |Y                      | Y             |
 | [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition은 다음을 포함합니다. <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) 병렬 및 분산된 고성능 R 프레임워크<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) -Microsoft의 새로운 기계 학습 알고리즘 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 운영](https://msdn.microsoft.com/microsoft-r/operationalize/about)                                            |Y                      | Y <br/> (MicrosoftML은 아직 사용할 수 없음)|
+| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 정품 인증) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
 | 관계형 데이터베이스                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
@@ -72,7 +73,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub(다중 사용자 노트북 서버)| N | Y |
 | **개발 도구, IDE 및 코드 편집기**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2015 (Community Edition)](https://www.visualstudio.com/community/) >Git 플러그인, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) 및 [R Tools for Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017(Community Edition)](https://www.visualstudio.com/community/) - Git 플러그 인, Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) 및 [RTVS(Visual Studio용 R 도구)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
@@ -103,7 +104,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu에만 해당) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (Ubuntu에만 해당) |
-| **GPU 기반 심층 학습 도구** |[DSVM에 대한 심층 학습 도구 키트](http://aka.ms/dsvm/deeplearning) 사용 |Ubuntu 버전에만 해당|
+| **GPU 기반 심층 학습 도구** |Windows Server 2016 버전  |Ubuntu 버전 |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](http://cntk.ai) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Tensorflow](https://www.tensorflow.org/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y | Y|
@@ -119,15 +120,26 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 
 
 
-## <a name="get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM 시작
-* [이 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/)로 이동하고 녹색 **가상 컴퓨터 만들기**를 선택하여 Windows에서 VM 인스턴스를 생성합니다.
+## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM을 시작하는 방법
+* 다음 항목으로 이동하여 원하는 Windows DSVM 버전의 인스턴스를 만듭니다.
+  * [Windows Server 2016 기반 DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
+  
+  또는 
+  * [Windows Server 2012 기반 DSVM](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
+* **지금 받기** 단추를 클릭합니다.
 * VM을 생성할 때 지정해둔 자격 증명을 사용하여 원격 데스크톱에서 VM에 로그인합니다.
 * 사용할 수 있는 도구를 검색하고 시작하려면 **시작** 메뉴를 클릭합니다.
 
 ## <a name="get-started-with-the-linux-data-science-vm"></a>Linux 데이터 과학 VM 시작
-* Linux에서 VM의 인스턴스를 만듭니다
-  * OpenLogic CentOS 기반 버전의 경우 [이 페이지](http://aka.ms/dsvm/centos)로 이동하여 **지금 시작** 단추를 선택합니다.
-  * Ubuntu 버전의 경우 [이 페이지](http://aka.ms/dsvm/ubuntu)로 이동하여 **지금 시작** 단추를 선택합니다.
+* 다음 항목으로 이동하여 원하는 Linux DSVM 버전의 인스턴스를 만듭니다. 
+  * [Ubuntu 기반 DSVM](http://aka.ms/dsvm/ubuntu)
+
+  또는
+
+  * [OpenLogic CentOS 기반 DSVM](http://aka.ms/dsvm/centos)
+
+  
+* **지금 받기** 단추를 클릭합니다.
 * VM을 생성할 때 지정해둔 자격 증명을 사용하여 Putty 또는 SSH 명령과 같은 SSH 클라이언트에서 VM에 로그인합니다.
 * Shell 프롬프트에서 dsvm-more-info를 입력합니다.
 * 그래픽 데스크톱은 [여기](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 클라이언트 플랫폼을 위한 X2Go 클라이언트를 다운로드하고 Linux 데이터 과학 VM 문서 [Linux 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client)의 지침을 따르십시오.

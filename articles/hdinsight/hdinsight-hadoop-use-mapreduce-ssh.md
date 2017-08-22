@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 7af00e78536907a983285ef271e7945b83bd5619
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용
@@ -46,11 +45,15 @@ SSH(Secure Shell) 연결에서 HDInsight로 MapReduce 작업을 제출하는 방
 
 SSH를 사용하여 클러스터에 연결합니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **SSH 인증을 위해 인증서 키를 사용하는 경우** 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **SSH 인증을 위해 암호를 사용하는 경우** 메시지가 표시되면 암호를 제공해야 합니다.
 
@@ -93,7 +96,7 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    이 명령은 **wasbs://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록과 각 단어가 나타나는 횟수를 표시합니다. 다음 텍스트는 파일에 포함된 데이터의 예입니다.
+    이 명령은 **wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록과 각 단어가 나타나는 횟수를 표시합니다. 다음 텍스트는 파일에 포함된 데이터의 예입니다.
 
         wreathed        3
         wreathing       1

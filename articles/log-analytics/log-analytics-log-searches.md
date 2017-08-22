@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 07/26/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6dbe7713c48a60974f1026dddc8ee9d2aeb01708
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="find-data-using-log-searches"></a>로그 검색을 사용하여 데이터 찾기
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Log Analytics에서 로그 검색을 사용하여 데이터 찾기
+
+>[!NOTE]
+> 이 문서에서는 Log Analytics에서 최신 쿼리 언어를 사용하는 로그 검색에 대해 설명합니다.  작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 [Log Analytics의 로그 검색 이해(신규)](log-analytics-log-search-new.md)를 참조해야 합니다.
+
 
 Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 컴퓨터 데이터를 서로 연결하고 결합할 수 있게 하는 로그 검색 기능입니다. 솔루션도 로그 검색에서 제공되어 특정 문제 영역 주위에 피벗된 메트릭을 가져옵니다.
 

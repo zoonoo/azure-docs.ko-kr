@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: milanga;juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 549be7c3439dfc00a5a8b771811d59261f56ddc9
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 4ccd5efb0d5651d90d70f382fd7d2ebed8bed4eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
@@ -164,7 +164,7 @@ ms.lasthandoff: 07/21/2017
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
-2. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 동영상 동작 검색 작업을 만듭니다. 
+2. 다음 json 사전 설정을 포함하는 구성 파일을 기반으로 비디오 동작 탐지 태스크가 포함된 작업을 만듭니다. 
    
         {
           "Version": "1.0",

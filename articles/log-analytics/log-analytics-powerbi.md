@@ -12,15 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/24/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Log Analytics 데이터를 Power BI로 내보내기
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Log Analytics 데이터를 Power BI로 내보내는 이 프로세스가 더 이상 작동하지 않습니다.  그러면 업그레이드 전에 만든 모든 기존 일정을 사용할 수 없게 됩니다. 
+>
+> 업그레이드 후 Azure Log Analytics는 Application Insights와 같은 플랫폼을 사용하며, [Application Insights 쿼리를 Power BI로 내보내는 프로세스](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)와 같은 프로세스를 사용하여 Log Analytics 쿼리를 Power BI로 내보냅니다.  해당 문서의 설명에 따라 분석 콘솔을 사용하여 쿼리를 내보낼 수도 있고, 로그 검색 포털의 화면 위쪽에 있는 **Power BI** 단추를 선택할 수도 있습니다.
+
+
+
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)는 서로 다른 데이터 집합의 분석을 위해 다양한 시각화 및 보고서를 제공하는 Microsoft의 클라우드 기반 비즈니스 분석 서비스입니다.  Log Analytics는 시각화 및 분석 도구를 활용할 수 있도록 OMS 리포지토리에서 Power BI로 데이터를 자동으로 내보낼 수 있습니다.
 
 Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 데이터 집합으로 내보내는 로그 쿼리를 만듭니다.  쿼리 및 내보내기는 Log Analytics에 의해 수집된 최신 데이터로 데이터 집합을 최신 상태로 유지하도록 정의한 일정에 따라 계속해서 자동으로 실행합니다.
@@ -34,8 +43,8 @@ Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 �
 
 > [!NOTE]
 > [Measure](log-analytics-search-reference.md#measure)와 같은 명령을 사용하여 모든 통합을 수행하는 것과 달리 원시 데이터를 반환하는 로그 검색 쿼리를 사용하는 것이 가장 좋은 방법입니다.  원시 데이터에서 Power BI의 모든 집계와 계산을 수행할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>OMS 작업 영역을 Power BI에 연결
 Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Power BI 계정에 OMS 작업 영역을 연결해야 합니다.  
@@ -117,10 +126,4 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 ## <a name="next-steps"></a>다음 단계
 * Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

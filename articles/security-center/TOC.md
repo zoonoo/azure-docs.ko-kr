@@ -6,6 +6,7 @@
 ### [사고 대응](security-center-incident-response.md)
 ### [권장 사항을 사용하여 보안 강화](security-center-using-recommendations.md)
 ## [플랫폼 마이그레이션](security-center-platform-migration.md)
+### [플랫폼 마이그레이션 FAQ](security-center-platform-migration-faq.md)
 
 # 시작
 ## [빠른 시작](security-center-get-started.md)

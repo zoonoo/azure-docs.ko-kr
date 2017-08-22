@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -171,6 +171,22 @@ VM은 경우에 따라 선점될 수 있습니다. 이 경우 Batch는 다음을
 -   VM은 효과적으로 삭제되므로 VM에 로컬로 저장된 모든 데이터는 손실됩니다.
 -   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견되면 노드는 해당 ID를 유지하지만 다시 초기화되며, 작업 예약에 사용되기 전에 먼저 **만드는 중** 및 **시작 중** 상태를 거치게 됩니다.
 -   선점 수는 Azure Portal에서 메트릭으로 사용할 수 있습니다.
+
+## <a name="metrics"></a>메트릭
+
+우선 순위가 낮은 노드의 경우 [Azure Portal](https://portal.azure.com)에서 새 메트릭을 사용할 수 있습니다. 이러한 메트릭은 다음과 같습니다.
+
+- 우선 순위가 낮은 노드 수
+- 우선 순위가 낮은 코어 수 
+- 선점된 노드 수
+
+Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
+
+1. Portal에서 배치 계정으로 이동하여 배치 계정의 설정을 확인합니다.
+2. **모니터링** 섹션에서 **메트릭**을 선택합니다.
+3. **사용 가능한 메트릭** 목록에서 원하는 메트릭을 선택합니다.
+
+![우선 순위가 낮은 노드의 메트릭](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>다음 단계
 

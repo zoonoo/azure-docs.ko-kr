@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/20/2017
+ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 02b3095bb77a122fddd74e636395628333a13936
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 로그 통합과 Azure 진단 로깅 및 Windows 이벤트 전달
@@ -136,7 +135,7 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
  ![추가 서비스](./media/security-azure-log-integration-get-started/more-services.png)
  3. **필터** 텍스트 상자에 **저장소**를 입력합니다. **저장소**를 입력한 뒤 나타나는 **저장소 계정**을 클릭합니다.
 
-  ![필터 상자](./media/security-azure-log-integration-get-started/filter.png)
+   ![필터 상자](./media/security-azure-log-integration-get-started/filter.png)
  4. 저장소 계정 목록이 나타납니다. 로그 저장소에 할당한 계정을 두 번 클릭합니다.
 
    ![저장소 계정 목록](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -182,8 +181,8 @@ Azure 로그 통합에 대한 자세한 내용은 다음 문서를 참조하세�
 
 * [Azure 로그에 대한 Microsoft Azure 로그 통합](https://www.microsoft.com/download/details.aspx?id=53324) – Azure 로그 통합에 대한 세부 정보, 시스템 요구 사항 및 설치 지침을 다운로드할 수 있습니다.
 * [Azure 로그 통합 소개](security-azure-log-integration-overview.md) - 이 문서에서는 Azure 로그 통합, 주요 기능 및 작동 원리를 소개합니다.
-* [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure 로그 통합을 구성하는 방법을 보여줍니다.
+* [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure 로그 통합을 구성하는 방법을 보여줍니다. 그리고 SIEM 구성 요소를 구성하는 방법에 대한 최신 지침을 제공합니다. 먼저 SIEM 공급업체에 추가 세부 정보를 확인하세요.
 * [Azure 로그 통합 FAQ(질문과 대답)](security-azure-log-integration-faq.md) - 이 FAQ는 Azure 로그 통합에 대한 질문에 답변합니다.
-* [보안 센터 경고를 Azure 로그 통합과 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) - 이 문서에서는 Azure 진단 및 Azure 감사 로그에 수집된 가상 컴퓨터 보안 이벤트와 함께 보안 센터 경고를 로그 분석 또는 SIEM 솔루션과 동기화하는 방법을 보여줍니다.
+* [Security Center 경고를 Azure 로그 통합과 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) - 이 문서에서는 Azure 진단 및 Azure 활동 로그에 수집된 가상 컴퓨터 보안 이벤트와 함께 Security Center 경고를 로그 분석 또는 SIEM 솔루션과 동기화하는 방법을 보여줍니다.
 * [Azure 진단 및 Azure 감사 로그를 위한 새 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.
 

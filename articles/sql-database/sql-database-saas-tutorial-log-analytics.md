@@ -1,11 +1,11 @@
 ---
 title: "SQL Database 다중 테넌트 앱과 함께 Log Analytics 사용 | Microsoft Docs"
-description: "Azure SQL Database 샘플 Wingtip Tickets(WTP) 앱을 사용하여 Log Analytics(OMS) 설정 및 사용"
-keywords: "sql 데이터베이스 자습서"
+description: "Azure SQL Database 샘플 Wingtip SaaS 앱을 사용하여 Log Analytics(OMS) 설정 및 사용"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: 813a947ce4deb0755b44f4d287e00ae5218abfc4
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wtp-sample-saas-app"></a>WTP 샘플 SaaS 응용 프로그램을 통한 Log Analytics(OMS) 설정 및 사용
+# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Wingtip SaaS 앱을 사용하여 Log Analytics(OMS) 설정 및 사용
 
-이 자습서에서는 탄력적 풀 및 데이터베이스 모니터링을 위한 WTP 앱을 통해 *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))*를 설정 및 사용합니다. 이 자습서는 [성능 모니터링 및 관리 자습서](sql-database-saas-tutorial-performance-monitoring.md)를 기반으로 구성되었으며 *Log Analytics*을 사용하여 Azure Portal에서 제공하는 모니터링 및 경고를 강화하는 방법을 보여 줍니다. Log Analytics는 수백 개의 풀과 무수히 많은 데이터베이스를 지원하므로 특히 일정 규모의 모니터링 및 경고에 적합합니다. 또한 여러 Azure 구독에서 다양한 응용 프로그램과 Azure 서비스의 모니터링을 통합할 수 있는 단일 모니터링 솔루션을 제공합니다.
+이 자습서에서는 탄력적 풀 및 데이터베이스 모니터링을 위해 *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))*를 설정 및 사용하는 방법을 알아봅니다. 이 자습서는 [성능 모니터링 및 관리 자습서](sql-database-saas-tutorial-performance-monitoring.md)를 기반으로 구성되었으며 *Log Analytics*을 사용하여 Azure Portal에서 제공하는 모니터링 및 경고를 강화하는 방법을 보여 줍니다. Log Analytics는 수백 개의 풀과 무수히 많은 데이터베이스를 지원하므로 특히 일정 규모의 모니터링 및 경고에 적합합니다. 또한 여러 Azure 구독에서 다양한 응용 프로그램과 Azure 서비스의 모니터링을 통합할 수 있는 단일 모니터링 솔루션을 제공합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 05/23/2017
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* WTP 앱이 배포되었습니다. 5분 내에 배포하려면 [WTP SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
+* Wingtip SaaS 앱이 배포되었습니다. 5분 내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 SaaS 시나리오 및 패턴에 대한 논의와 모니터링 솔루션의 요구 사항에 미치는 영향은 [성능 모니터링 및 관리 자습서](sql-database-saas-tutorial-performance-monitoring.md)를 참조하세요.
@@ -65,7 +64,7 @@ Wingtip Tickets 스크립트 및 응용 프로그램 소스 코드는 [WingtipSa
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Log Analytics 및 Azure SQL Analytics 솔루션 설치 및 구성
 
-Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 로그 분석 작업 영역에 로그 데이터 및 원격 분석과 메트릭을 수집합니다. 작업 영역은 Azure의 다른 리소스와 마찬가지로 리소스이며 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 응용 프로그램과 동일한 리소스 그룹에서 만들 필요는 없지만 대부분의 경우 이렇게 하는 것이 적합합니다. WTP 응용 프로그램의 경우 리소스 그룹을 삭제하기만 하면 간단하게 작업 영역을 응용 프로그램과 함께 삭제할 수 있습니다.
+Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 로그 분석 작업 영역에 로그 데이터 및 원격 분석과 메트릭을 수집합니다. 작업 영역은 Azure의 다른 리소스와 마찬가지로 리소스이며 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 응용 프로그램과 동일한 리소스 그룹에서 만들 필요는 없지만 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip SaaS 앱의 경우 리소스 그룹을 삭제하기만 하면 간단하게 작업 영역을 응용 프로그램과 함께 삭제할 수 있습니다.
 
 1. **PowerShell ISE**에서 \\학습 모듈\\성능 모니터링 및 관리\\Log Analytics\\*Demo-LogAnalytics.ps1*을 엽니다.
 1. **F5** 키를 눌러 스크립트를 실행합니다.
@@ -76,7 +75,7 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Log Analytics 및 SQL Analytics 솔루션을 사용하여 풀 및 데이터베이스 모니터링
 
 
-이 연습에서는 Log Analytics 및 OMS 포털을 열고 WTP 데이터베이스 및 풀에 대해 원격 분석이 생성되는 것을 살펴봅니다.
+이 연습에서는 Log Analytics 및 OMS 포털을 열고 데이터베이스 및 풀에 대해 원격 분석이 수집되는 과정을 살펴봅니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하고 다른 서비스를 클릭하여 Log Analytics를 연 다음 Log Analytics를 검색합니다.
 
@@ -134,7 +133,7 @@ SQL Database용 Log Analytics는 작업 영역의 데이터 크기에 따라 과
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [초기 WTP(Wingtip Tickets Platform) 응용 프로그램 배포를 기반으로 하는 추가 자습서](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [초기 Wingtip SaaS 응용 프로그램 배포를 기반으로 작성된 추가 자습서](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
 
