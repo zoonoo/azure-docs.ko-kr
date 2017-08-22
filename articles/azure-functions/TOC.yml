@@ -19,6 +19,8 @@
       items:
         - name: 타이머
           href: functions-create-scheduled-function.md
+        - name: 제네릭 웹후크
+          href: functions-create-generic-webhook-triggered-function.md
         - name: GitHub 웹후크
           href: functions-create-github-webhook-triggered-function.md
         - name: Blob 저장소

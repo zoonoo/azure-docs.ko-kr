@@ -54,14 +54,12 @@
 ### [Visual Studio를 사용한 웹 응용 프로그램](web-app-visual-studio.md)
 ### [MPI 응용 프로그램을 실행하는 RDMA 클러스터](rdma-cluster.md)
 ### [Hudson Continuous CI와 함께 Azure 슬레이브 플러그인을 사용하는 방법](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC 팩
-### [MPI 앱을 실행하는 Windows RDMA 클러스터](hpcpack-cluster.md)
-### [HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터](hpcpack-cluster-starccm.md)
-### [계산 노드의 수 및 가용성 관리](hpcpack-cluster-powershell-script.md)
-### [주문형 노드 추가](hpcpack-cluster-openfoam.md)
-### [리소스 자동 확장](hpcpack-cluster-namd.md)
+### HPC 팩
+#### [Linux 작업에 대한 클러스터 만들기](hpcpack-cluster-powershell-script.md)
+#### [Linux 노드가 포함된 클러스터 관리](hpcpack-cluster.md)
+#### [STAR-CCM+ 실행](hpcpack-cluster-starccm.md)
+#### [OpenFOAM 실행](hpcpack-cluster-openfoam.md)
+#### [NAMD 실행](hpcpack-cluster-namd.md)
 
 ## 문제 해결
 ### [VM 배포](troubleshoot-deployment-new-vm.md)
