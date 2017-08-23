@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.sourcegitcommit: 495a695466c47c6030716d97c52b3bbf5ce9bf99
 ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD 계정을 사용하여 로그인
