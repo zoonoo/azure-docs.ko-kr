@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
@@ -45,7 +45,7 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 [이전 자습서](./container-service-tutorial-kubernetes-prepare-acr.md)에서 *myResourceGroup*이라는 리소스 그룹을 만들었습니다. 만들지 않은 경우 지금 이 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 [az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 

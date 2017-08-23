@@ -3,7 +3,7 @@ title: "독립 실행형 Azure Service Fabric 클러스터 설정 | Microsoft Do
 description: "동일한 컴퓨터에서 실행되는 3개의 노드가 있는 독립 실행형 개발 클러스터를 만듭니다. 이 설정을 마치면 다중 컴퓨터 클러스터를 만들 수 있습니다."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
-ms.author: ryanwi
+ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 

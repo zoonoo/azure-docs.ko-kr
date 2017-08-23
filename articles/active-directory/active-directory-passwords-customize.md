@@ -53,7 +53,7 @@ ADFS 관리자는 [Add sign-in page description](https://docs.microsoft.com/wind
 
 ADFS 서버에서 다음에 나오는 명령을 사용하면 사용자가 셀프 서비스 암호 재설정 워크플로를 직접 입력할 수 있는 ADFS 로그인 페이지의 링크가 추가됩니다.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>로그인 및 액세스 패널 모양과 느낌 사용자 지정
 
