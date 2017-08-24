@@ -55,6 +55,7 @@
 #### [Azure Backup Server를 사용하여 SharePoint 팜 백업](backup-azure-backup-sharepoint-mabs.md)
 #### [Azure Backup Server를 사용하여 SQL 백업](backup-azure-sql-mabs.md)
 #### [시스템 상태 및 완전 복구 보호](backup-mabs-system-state-and-bmr.md)
+### [Azure Backup Server에서 데이터 복구](backup-azure-alternate-dpm-server.md)
 
 ## Data Protection Manager
 ### [Azure 포털에서 DPM 작업 준비](backup-azure-dpm-introduction.md)

@@ -10,16 +10,9 @@
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
 ## [회사 브랜딩 구성](customize-branding.md)
+## [Azure AD에 사용자 추가](add-users-azure-active-directory.md)
+## [사용자에게 라이선스 할당](license-users-groups.md)
 ## [셀프 서비스 암호 재설정 구성](active-directory-passwords-getting-started.md)
-## Azure AD 라이선스 관리
-### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
-### [클래식 포털](active-directory-licensing-what-is.md)
-### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
-#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
-#### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
-#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
-#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 
 
 # 방법
@@ -44,11 +37,6 @@
 #### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## 사용자 관리
-### 사용자 추가
-#### [Azure Portal](active-directory-users-create-azure-portal.md)
-#### [클래식 포털](active-directory-create-users.md)
-
-
 ### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
 #### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -147,16 +135,10 @@
 ### [FAQ](device-management-faq.md)
 ### 작업
 #### [하이브리드 Azure AD 가입 장치 구성](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### 문제 해결
-##### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### 장치 등록
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
-#### [FAQ](active-directory-device-registration-faq.md)
-#### 문제 해결
-##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-device-registration-troubleshoot-windows.md)
-##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### 문제 해결
+#### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD 조인](active-directory-azureadjoin-overview.md)
 #### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [장치 등록 설정](active-directory-azureadjoin-setup.md)

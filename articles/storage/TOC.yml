@@ -1,0 +1,12 @@
+- name: 개요
+  items:
+    - name: 소개
+      href: ./common/storage-introduction.md
+    - name: 'Blob, 파일 또는 데이터 디스크 선택'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: 파일
+  href: ./files/storage-files-introduction.md
+- name: 큐
+  href: ./queues/storage-queues-introduction.md

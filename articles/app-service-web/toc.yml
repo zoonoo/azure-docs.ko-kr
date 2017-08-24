@@ -115,6 +115,8 @@
           items:
             - name: 개요
               href: app-service-linux-intro.md
+            - name: CLI를 사용하여 관리
+              href: app-service-linux-cli.md
             - name: Linux에서 Web App 만들기
               href: app-service-linux-how-to-create-web-app.md
             - name: Linux에서 Ruby Web App

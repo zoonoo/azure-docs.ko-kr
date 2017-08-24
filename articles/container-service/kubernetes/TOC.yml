@@ -33,17 +33,15 @@
   items:
     - name: 컨테이너 보안
       href: container-service-security.md
-    - name: 서비스 사용자 - Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: 방법 가이드
   items:
-    - name: Windows를 사용한 Kubernetes 빠른 시작
+    - name: Windows를 사용하는 Kubernetes
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: 컨테이너 관리 - Kubernetes UI
+    - name: Kubernetes 웹 인터페이스
       href: container-service-kubernetes-ui.md
     - name: Helm 차트 배포
       href: container-service-kubernetes-helm.md
-    - name: Kubernetes 및 Jenkins를 사용하는 CI/CD
+    - name: Jenkins 및 ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: ACR 및 ACS에서 초안 사용
       href: container-service-draft-up.md

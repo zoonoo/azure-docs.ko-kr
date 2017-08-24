@@ -219,7 +219,29 @@
         - name: 테이블 API
           items:
             - name: 테이블 저장소
-              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
+              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: 테이블 저장소 디자인 가이드
+              href: table-storage-design-guide.md
+            - name: 자습서
+              items:
+                - name: .NET
+                  href: table-storage-how-to-use-dotnet.md
+                - name: 'F#'
+                  href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                - name: Node.js
+                  href: table-storage-cloud-service-nodejs.md
+                - name: Java
+                  href: table-storage-how-to-use-java.md
+                - name: Node.js
+                  href: table-storage-how-to-use-nodejs.md
+                - name: C++
+                  href: table-storage-how-to-use-c-plus.md
+                - name: PHP
+                  href: table-storage-how-to-use-php.md
+                - name: Python
+                  href: table-storage-how-to-use-python.md
+                - name: 루비
+                  href: table-storage-how-to-use-ruby.md
         - name: 변경 피드
           href: change-feed.md
         - name: 지리 공간적

@@ -8,6 +8,7 @@
 ## [Service Fabric 보안](azure-service-fabric-security-overview.md)
 ## [ID 관리](security-identity-management-overview.md)
 ## [IoT 보안](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure 암호화 개요](security-azure-encryption-overview.md)
 ## [보안 아키텍처](azure-security-architecture-overview.md)
 ### [운영 보안 사용](azure-operational-security.md)
 ### [고급 위협 감지](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## 저장소 보안
 ### [데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
-### [저장소 보안 지침](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [저장소 보안 지침](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## 보안 계산
 ### [Azure VM에 대한 모범 사례](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS 서비스
 ### [PaaS 배포 보안](security-paas-deployments.md)
-#### [SQL을 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-sql.md)
-#### [SQL Database 보안 모범 사례](azure-database-security-best-practices.md)
-#### [SQL Database 보안 검사 목록](azure-database-security-checklist.md)
 #### [App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
+#### [SQL을 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-sql.md)
+##### [SQL Database 보안 모범 사례](azure-database-security-best-practices.md)
+##### [SQL Database 보안 검사 목록](azure-database-security-checklist.md)
 ####[운영 보안 검사 목록](azure-operational-security-checklist.md)
+#### [Azure Storage를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-storage.md)
 
 ## 사물 인터넷
 ### [IoT 배포 보안 유지](../iot-suite/iot-suite-security-deployment.md)
