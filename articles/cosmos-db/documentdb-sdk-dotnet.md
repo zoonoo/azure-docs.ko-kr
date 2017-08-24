@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* 특정 파티션 키 범위 값으로 쿼리 결과의 범위를 지정하기 위해 PartitionKeyRangeId에 대한 지원이 FeedOption으로 추가되었습니다. 
+* 해당 시간 이후에 변경 검색을 시작할 수 있도록 StartTime에 대한 지원이 ChangeFeedOption으로 추가되었습니다.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * 스택 오버플로 예외를 일으킬 수 있는 JsonSerializable 클래스의 문제가 수정되었습니다.
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   SSE4 명령을 지원하지 않고 Azure Cosmos DB DocumentDB API 쿼리를 실행할 때 SEHException을 throw하는 x64 컴퓨터에 영향을 준 문제가 해결되었습니다.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
 *   ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
 *   개별 파티션의 쿼리 메트릭에 대한 지원이 추가되었습니다.
 *   쿼리의 연속 토큰 크기 제한에 대한 지원이 추가되었습니다.
@@ -254,6 +258,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |2017년 8월 10일 |--- |
 | [1.16.1](#1.16.1) |2017년 8월 7일 |--- |
 | [1.16.0](#1.16.0) |2017년 8월 2일 |--- |
 | [1.15.0](#1.15.0) |2017년 6월 30일 |--- |

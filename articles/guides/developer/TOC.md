@@ -64,12 +64,12 @@
 ### [템플릿에서 Linux VM](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [템플릿에서 Windows VM](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## 데이터 저장
-### [Blob](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [파일 공유](../../storage/storage-dotnet-how-to-use-files.md)
-### [키-값 쌍](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [파일 공유](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [키-값 쌍](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON 문서](../../documentdb/documentdb-get-started.md)
 ### [관계형 테이블](../../sql-database/sql-database-get-started.md)
-### [메시지 큐](../../storage/storage-dotnet-how-to-use-queues.md)
+### [메시지 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## 확장
 ### [웹 및 모바일 앱](../../app-service-web/web-sites-scale.md)

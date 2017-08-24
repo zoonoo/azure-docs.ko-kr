@@ -298,6 +298,16 @@
     - name: 저장소
       tocHref: /azure/storage/
       topicHref: /azure/storage/
+      items:
+        - name: Blob
+          tocHref: /azure/storage/blobs/
+          topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: 파일
+          tocHref: /azure/storage/files/
+          topicHref: /azure/storage/files/storage-files-introduction
+        - name: 큐
+          tocHref: /azure/storage/queues/
+          topicHref: /azure/storage/queues/storage-queues-introduction
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/

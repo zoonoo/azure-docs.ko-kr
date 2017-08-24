@@ -22,7 +22,6 @@ ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL 데이터베이스의 중요한 데이터 보호 및 Azure 주요 자격 증명 모음에 암호화 키 저장
 
@@ -80,7 +79,7 @@ ms.lasthandoff: 04/27/2017
 
 
     Login-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location

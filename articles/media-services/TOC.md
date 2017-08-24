@@ -25,9 +25,6 @@
 
 # 방법
 ## 관리
-### 계정
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST (영문)](/rest/api/media/mediaservice)
 ### 엔터티
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST (영문)](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [온-프레미스 인코더](media-services-live-streaming-with-onprem-encoders.md)
 #### [포털](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [클라우드 인코더를 사용한 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
 #### [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
 #### [포털](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### 스트리밍 끝점
 #### [포털](media-services-portal-scale-streaming-endpoints.md)
 

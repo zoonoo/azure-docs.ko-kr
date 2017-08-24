@@ -17,9 +17,9 @@
 ### [Node.js 응용 프로그램 빌드 및 배포](cloud-services-nodejs-develop-deploy-app.md)
 ### [Express를 사용하여 Node.js 웹 응용 프로그램 빌드](cloud-services-nodejs-develop-deploy-express-app.md)
 ### 저장소 및 Visual Studio
-#### [Blob 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [큐 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [테이블 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [큐 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [테이블 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### 연속 빌드 및 배포에 대한 패키지 구성
 #### [TFS 및 팀 빌드](cloud-services-dotnet-continuous-delivery.md)
 ### [역할에 대한 트래픽 규칙 구성](cloud-services-enable-communication-role-instances.md)

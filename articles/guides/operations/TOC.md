@@ -72,18 +72,18 @@
 
 ## [저장소](azure-operations-guide.md#azure-storage)
 
-### [Azure Blob 저장소](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [.NET을 사용하여 Azure Blob 저장소 시작](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Windows에서 Azure 파일 저장소 시작](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Linux에서 Azure 파일 저장소 사용 방법](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Table Storage 시작](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Queue Storage 시작](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [저장소 계정을 만드는](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [Azure 저장소와 함께 Azure PowerShell 사용](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Storage에서 Azure CLI 사용.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Storage 클라이언트 도구](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Blob 저장소](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [.NET을 사용하여 Azure Blob 저장소 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Windows에서 Azure 파일 저장소 시작](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Linux에서 Azure 파일 저장소 사용 방법](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [저장소 계정을 만드는](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Azure 저장소와 함께 Azure PowerShell 사용](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Storage에서 Azure CLI 사용.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [공유 액세스 서명 사용](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [공유 액세스 서명 사용](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 
