@@ -29,7 +29,7 @@ ms.lasthandoff: 08/07/2017
 ## <a name="known-issues"></a>알려진 문제
 
 - 30개 이상의 AD 포리스트를 동기화하면 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)하여 해결할 수 있습니다.
-- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net)을 추가하면 **사용자가 로그인 할 수 없습니다**.
+- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net )을 추가하면 **사용자가 로그인 할 수 없습니다**.
 - Firefox 및 Edge의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 Internet Explorer에서 향상된 보호 모드가 켜져 있을 때도 마찬가지입니다.
 
 >[!IMPORTANT]
@@ -67,7 +67,7 @@ Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azur
 다음 검사 목록을 사용하여 Seamless SSO 문제를 해결합니다.
 
 - Azure AD Connect에서 Seamless SSO 기능이 활성화되는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 활성화할 수 없으면 모든 [필수 조건](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites)가 제대로 충족되고 있는지 확인합니다.
-- 이러한 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)이 모두 사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
+- 이러한 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )이 모두 사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
 - 회사 장치가 AD 도메인에 가입되어 있는지 확인합니다.
 - 사용자가 AD 도메인 계정으로 장치에 로그인했는지 확인합니다.
 - 사용자의 계정이 Seamless SSO가 설정된 AD 포리스트에 있는지 확인합니다.
