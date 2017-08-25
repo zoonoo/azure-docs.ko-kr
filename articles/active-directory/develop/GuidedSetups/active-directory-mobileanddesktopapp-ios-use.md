@@ -19,9 +19,7 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 81d5ae3775cca7cea5abf1922a25be0663a8a949
 ms.contentlocale: ko-kr
 
-
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL(Microsoft 인증 라이브러리)를 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
 `ViewController.swift`를 열고 코드를 다음으로 바꿉니다.

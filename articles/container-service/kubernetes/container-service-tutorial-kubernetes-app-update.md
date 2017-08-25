@@ -72,7 +72,7 @@ SHOWHOST = 'false'
 [docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up --build -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
 ```
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
