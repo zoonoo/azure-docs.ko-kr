@@ -4,7 +4,7 @@ description: "Azure 미디어 서비스를 사용하여 부드러운 스트림 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법

@@ -4,7 +4,7 @@ description: "이 기사는 미디어 서비스 콘텐츠 보호에 대한 개�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
 ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 ms.contentlocale: ko-kr
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="protecting-content-overview"></a>콘텐츠 보호 개요

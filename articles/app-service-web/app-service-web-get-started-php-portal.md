@@ -1,5 +1,5 @@
 ---
-title: "WordPress 앱을 Azure Portal에&5;분 안에 배포 | Microsoft Docs"
+title: "WordPress 앱을 Azure Portal에 5분 안에 배포 | Microsoft Docs"
 description: "WordPress 앱을 배포하여 App Service에서 웹앱을 간편하게 실행하는 방법을 알아봅니다. 결과를 즉시 확인합니다."
 services: app-service\web
 documentationcenter: 
@@ -21,7 +21,7 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-a-wordpress-app-in-the-azure-portal-in-five-minutes"></a>WordPress 앱을 Azure Portal에&5;분 안에 배포
+# <a name="deploy-a-wordpress-app-in-the-azure-portal-in-five-minutes"></a>WordPress 앱을 Azure Portal에 5분 안에 배포
 
 이 자습서에서는 첫 번째 [WordPress](https://wordpress.org/) 웹앱을 몇 분 내에 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 배포하는 방법을 보여줍니다.
 

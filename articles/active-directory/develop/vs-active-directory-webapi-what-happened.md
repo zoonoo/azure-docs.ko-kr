@@ -3,8 +3,8 @@ title: "Azure AD에 연결할 때의 WebApi 프로젝트 변경 내용 | Microso
 description: "Visual Studio를 사용하여 Azure AD에 연결할 때 프로젝트 WebApi에서 변경되는 사항에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용

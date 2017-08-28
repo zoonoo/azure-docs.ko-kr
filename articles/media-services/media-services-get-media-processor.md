@@ -4,7 +4,7 @@ description: "Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services

@@ -20,7 +20,6 @@ ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 디스크 드라이브 교체
 
@@ -105,6 +104,7 @@ StorSimple 장치에서 드라이브 오류가 발생하고 드라이브를 꺼�
 3. 드라이브 캐리어를 삽입한 후 드라이브 캐리어 핸들이 잠긴 위치에 올 때까지 드라이브 캐리어를 섀시 안으로 계속 누르면서 드라이브 캐리어 핸들을 닫습니다.
 4. Microsoft에서 제공한 잠금 키(조작 방지 Torx 드라이버)로 잠금 나사를 시계 방향으로 1/4 돌려 캐리어 핸들을 제자리에 고정합니다.
 5. 교체에 성공했고 드라이브가 작동하는지 확인합니다. Azure Portal에 액세스하고 **설정** > **하드웨어 상태**로 이동합니다. **공유 구성 요소** 또는 **EBOD 공유 구성 요소** 아래에서 드라이브 상태가 정상임을 나타내는 녹색이어야 합니다.
+<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
    
    > [!NOTE]
    > 교체 후 디스크 상태가 녹색으로 바뀌는 데 몇 시간이 걸릴 수 있습니다.

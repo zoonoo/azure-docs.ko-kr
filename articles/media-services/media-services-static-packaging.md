@@ -4,7 +4,7 @@ description: "이 토픽에서는 Azure Media Packager를 사용하여 수행되
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services

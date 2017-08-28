@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services

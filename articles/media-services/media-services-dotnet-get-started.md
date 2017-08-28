@@ -4,7 +4,7 @@ description: "이 자습서에서는 .NET을 사용한 Azure Media Services로 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "이 문서에서는 미디어 인코더 표준으로 비디오를 
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services

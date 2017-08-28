@@ -4,7 +4,7 @@ description: "이 항목에서는 Tricaster 라이브 인코더를 구성하여 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 4c1a50e26e5cde606d0ef34889fb1c9db80e8ee0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/11/2017
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpaconfigure-the-newtek-tricaster-encoder"></a><a id=configure_tricaster_rtmp></a>NewTek TriCaster 인코더 구성
+## <a id=configure_tricaster_rtmp></a>NewTek TriCaster 인코더 구성
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
 **비디오**:

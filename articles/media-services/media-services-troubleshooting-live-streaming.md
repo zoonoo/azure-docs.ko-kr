@@ -4,7 +4,7 @@ description: "이 토픽에서는 라이브 스트리밍 문제를 해결하는 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services

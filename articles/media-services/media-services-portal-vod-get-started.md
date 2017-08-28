@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure Portal을 사용한 AMS(Azure Media S
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services

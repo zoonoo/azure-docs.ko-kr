@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 사용하여 단일 비트 
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services

@@ -3,8 +3,8 @@ title: "클라우드 서비스의 성능 테스트 | Microsoft Docs"
 description: "Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능을 테스트합니다."
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7bd8de649ba2975c47f7e84feb0438c51756a697
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>클라우드 서비스의 성능 테스트
@@ -113,10 +114,5 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

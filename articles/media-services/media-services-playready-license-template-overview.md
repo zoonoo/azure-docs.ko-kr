@@ -2,7 +2,7 @@
 title: "Media Services PlayReady 라이선스 템플릿 개요"
 description: "이 토픽에서는 PlayReady 라이선스를 구성하는 데 사용되는 PlayReady 라이선스 템플릿에 대해 간략히 설명합니다."
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
 ms.contentlocale: ko-kr
 ms.lasthandoff: 01/13/2017
-
 
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요

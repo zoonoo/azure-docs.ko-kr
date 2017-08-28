@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure 미디어 서비스 개념에 대한 개
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services

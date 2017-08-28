@@ -4,7 +4,7 @@ description: "Microsoft® 부드러운 스트리밍 클라이언트 이식 키�
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services

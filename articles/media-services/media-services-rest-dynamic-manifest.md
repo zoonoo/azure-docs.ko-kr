@@ -4,7 +4,7 @@ description: "이 항목에서는 클라이언트가 스트림의 특정 섹션�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services

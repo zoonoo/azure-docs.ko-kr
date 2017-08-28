@@ -3,7 +3,7 @@ title: "Actions 및 NotActions - Azure RBAC(역할 기반 액세스 제어) | Mi
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다. 역할은 지속적으로 추가되므로 설명서가 최신 상태인지 확인합니다."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/28/2017
-ms.author: curtand
+ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

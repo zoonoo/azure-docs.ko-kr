@@ -2,7 +2,7 @@
 title: "H264 다중 비트 전송률 720p Media Encoder Standard 사전 설정-Azure | Microsoft Docs"
 description: "이 문서에서는 **H264 다중 비트 전송률 720p** 태스크 사전 설정에 대한 개요를 제공합니다."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

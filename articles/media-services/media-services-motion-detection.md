@@ -4,7 +4,7 @@ description: "Azure 미디어 동작 탐지기 MP(미디어 프로세서)를 사
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services

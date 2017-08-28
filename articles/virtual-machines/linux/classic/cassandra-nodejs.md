@@ -3,7 +3,7 @@ title: "Azure에서 Linux로 Cassandra 실행 | Microsoft Docs"
 description: "Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
+author: tomarcher
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: hanuk;tarcher
+ms.author: tarcher
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024

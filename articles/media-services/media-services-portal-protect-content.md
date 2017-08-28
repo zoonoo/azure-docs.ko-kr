@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services

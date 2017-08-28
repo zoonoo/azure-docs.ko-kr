@@ -3,8 +3,8 @@ title: "Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터
 description: "Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터 디버깅
@@ -165,9 +166,4 @@ Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있�
 ## <a name="next-steps"></a>다음 단계
 * **Intellitrace** 를 사용하여 릴리스 서버에서 호출 및 이벤트 로그를 수집합니다. [IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/?LinkID=623016)을 참조하세요.
 * **Azure 진단** 을 이용하여 개발 환경 또는 Azure에서 실행되는 역할 내에서 실행되는 코드의 자세한 내용을 기록합니다. [Azure 진단을 사용하여 로깅 데이터 수집](http://go.microsoft.com/fwlink/p/?LinkId=400450)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

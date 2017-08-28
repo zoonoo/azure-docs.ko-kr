@@ -3,7 +3,7 @@ title: "웹 응용 프로그램용 Linux 가상 컴퓨터 만들기 | Microsoft 
 description: "Visual Studiod 및 Linux를 사용하여 웹 프로젝트용 VM 만들기"
 services: virtual-machines-linux
 documentationcenter: 
-author: TomArcher
+author: kraigb
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 136a82084d06227a71e1ad7632a31b9d764fda58
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Visual Studio에서 웹 응용 프로그램용 가상 컴퓨터 만들기

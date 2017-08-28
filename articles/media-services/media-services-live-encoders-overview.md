@@ -4,7 +4,7 @@ description: "이 토픽에서는 추가 처리를 위해 라이브 이벤트를
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
 ms.service: media-services
