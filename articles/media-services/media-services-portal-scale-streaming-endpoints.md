@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 사용하여 스트리밍 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
 ms.service: media-services

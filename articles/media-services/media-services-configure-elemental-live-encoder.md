@@ -4,7 +4,7 @@ description: "이 항목에서는 Elemental 라이브 인코더를 구성하여 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services

@@ -2,7 +2,7 @@
 title: "Media Services PlayReady 라이선스 템플릿 개요"
 description: "이 토픽에서는 PlayReady 라이선스를 구성하는 데 사용되는 PlayReady 라이선스 템플릿에 대해 간략히 설명합니다."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

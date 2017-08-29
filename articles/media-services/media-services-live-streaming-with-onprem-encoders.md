@@ -4,7 +4,7 @@ description: "이 항목에서는 온-프레미스 인코더에서 다중 비트
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services

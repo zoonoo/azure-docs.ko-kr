@@ -2,7 +2,7 @@
 title: "DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함 | Microsoft 문서"
 description: "이 토픽에서는 DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오를 포함시키는 방법을 보여 줍니다."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -2,7 +2,7 @@
 title: "MES(Media Encoder Standard)에 대한 작업 미리 설정 | Microsoft Docs"
 description: "이 항목에서는 MES(Media Encoder Standard)에 대한 작업 미리 설정에 대해 간단히 설명합니다."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -2,7 +2,7 @@
 title: "Azure Media Services 동적 패키징 개요 | Microsoft Docs"
 description: "이 항목에서는 동적 패키징에 대해 간략하게 설명합니다."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

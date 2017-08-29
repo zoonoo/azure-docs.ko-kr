@@ -4,7 +4,7 @@ description: "Azure Media Services API에 대한 액세스를 인증하는 데 A
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

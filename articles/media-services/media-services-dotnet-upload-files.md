@@ -4,7 +4,7 @@ description: "자산을 만들고 업로드하여 미디어 서비스에 미디�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
 ms.service: media-services

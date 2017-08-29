@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services를 사용하는 DRM 하�
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "이 토픽에는 Azure Media Analytics로 얼굴 및 감정을 감
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services

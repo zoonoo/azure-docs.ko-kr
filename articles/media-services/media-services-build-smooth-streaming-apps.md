@@ -4,7 +4,7 @@ description: "Azure 미디어 서비스를 사용하여 부드러운 스트림 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Media Services를 사용하여 인코딩
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services

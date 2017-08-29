@@ -4,7 +4,7 @@ description: "REST를 사용하여 Azure Active Directory 인증으로 Azure Med
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

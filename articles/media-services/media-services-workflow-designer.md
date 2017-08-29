@@ -4,7 +4,7 @@ description: "워크플로 디자이너와 고급 인코딩 워크플로를 만�
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services

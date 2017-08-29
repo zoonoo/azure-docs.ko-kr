@@ -2,7 +2,7 @@
 title: "Azure Media Services 오류 코드 | Microsoft 문서"
 description: "이 항목에서는 Azure Media Services 오류 코드에 대한 개요를 제공합니다."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

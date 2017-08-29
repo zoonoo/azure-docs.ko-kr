@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Indexer의 미리 설정된 작업
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

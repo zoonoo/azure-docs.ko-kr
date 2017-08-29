@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure 미디어 서비스를 사용하는 라�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services

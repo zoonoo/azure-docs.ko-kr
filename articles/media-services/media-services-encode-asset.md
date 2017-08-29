@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure 주문형 미디어 인코더를 대략�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services

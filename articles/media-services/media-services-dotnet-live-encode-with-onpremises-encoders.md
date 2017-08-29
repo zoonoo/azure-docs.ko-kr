@@ -4,7 +4,7 @@ description: "이 항목에서는 .NET을 사용하여 온-프레미스 인코�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services

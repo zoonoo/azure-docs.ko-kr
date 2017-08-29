@@ -4,7 +4,7 @@ description: "이 자습서에서는 Java를 사용하는 AMS(Azure Media Servic
 services: media-services
 documentationcenter: java
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services

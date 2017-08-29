@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services에 대한 개요를 제�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services

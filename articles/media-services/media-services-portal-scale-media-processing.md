@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure Portal을 사용하여 미디어 처�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services

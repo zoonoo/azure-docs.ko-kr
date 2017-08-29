@@ -4,7 +4,7 @@ description: "이 기사는 미디어 서비스 콘텐츠 보호에 대한 개�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services

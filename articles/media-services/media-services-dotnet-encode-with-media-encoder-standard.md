@@ -4,7 +4,7 @@ description: "이 항목에서는 .NET을 사용하여 미디어 인코더 표�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services

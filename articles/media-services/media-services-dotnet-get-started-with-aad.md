@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure AD(Azure Active Directory) 인증을 사
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

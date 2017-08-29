@@ -4,7 +4,7 @@ description: "미디어 서비스 REST API를 사용하여 콘텐츠 키에 대�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
 ms.service: media-services

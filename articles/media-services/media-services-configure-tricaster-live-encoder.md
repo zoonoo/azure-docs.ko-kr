@@ -4,7 +4,7 @@ description: "이 항목에서는 Tricaster 라이브 인코더를 구성하여 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services

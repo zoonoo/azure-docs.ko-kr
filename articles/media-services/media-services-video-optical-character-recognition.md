@@ -4,7 +4,7 @@ description: "Azure 미디어 분석 OCR(광학 문자 인식)을 사용하면 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services

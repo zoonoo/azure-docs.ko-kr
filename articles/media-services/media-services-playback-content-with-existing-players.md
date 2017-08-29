@@ -4,7 +4,7 @@ description: "이 항목에서는 콘텐츠를 재생하는 데 사용할 수 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services

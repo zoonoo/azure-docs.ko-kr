@@ -4,7 +4,7 @@ description: "이 토픽에서는 장기 실행 작업을 폴링하는 방법을
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services

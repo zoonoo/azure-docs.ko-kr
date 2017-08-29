@@ -4,7 +4,7 @@ description: "이 항목에서는 CLI 2.0을 사용하여 Azure AD 앱을 만들
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

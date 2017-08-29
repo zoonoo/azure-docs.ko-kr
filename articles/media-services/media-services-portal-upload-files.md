@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 사용하여 미디어 서�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services

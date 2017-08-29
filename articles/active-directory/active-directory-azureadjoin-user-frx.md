@@ -3,8 +3,8 @@ title: "설치하는 동안 Azure AD로 새 장치 설정| Microsoft Docs"
 description: "첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -20,7 +20,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
 ms.contentlocale: ko-kr
 ms.lasthandoff: 12/29/2016
-
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>설치하는 동안 Azure AD로 새 장치 설정

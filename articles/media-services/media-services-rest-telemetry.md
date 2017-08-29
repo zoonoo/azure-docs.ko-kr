@@ -4,7 +4,7 @@ description: "이 문서는 REST API를 사용하여 Azure Media Services 원격
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services

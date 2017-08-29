@@ -2,7 +2,7 @@
 title: "H264 다중 비트 전송률 720p Audio 5.1 | Microsoft Docs"
 description: "이 항목은 **H264 다중 비트 전송률 720p Audio 5.1** 태스크 미리 설정에 대한 개요를 제공합니다."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
