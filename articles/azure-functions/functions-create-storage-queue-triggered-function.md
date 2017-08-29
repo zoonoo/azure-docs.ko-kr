@@ -4,7 +4,7 @@ description: "Azure Functions를 사용하여 Azure Storage 큐에 제출된 메
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4

@@ -4,7 +4,7 @@ description: "함수 앱을 배포하는 Azure Resource Manager 템플릿을 빌
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 서버 없는 아키텍처, 코드로서의 인프라, Azure Resource Manager"

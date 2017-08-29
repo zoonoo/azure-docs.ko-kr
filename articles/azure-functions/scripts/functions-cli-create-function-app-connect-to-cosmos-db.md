@@ -4,7 +4,7 @@ description: "Azure CLI 스크립트 샘플 - Azure Cosmos DB에 연결하는 Az
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

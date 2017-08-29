@@ -4,7 +4,7 @@ description: "JavaScript를 사용하여 함수를 개발하는 방법을 알아
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"

@@ -4,7 +4,7 @@ description: "Azure Functions를 사용하여 비동기 워크로드를 몇 분 
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"

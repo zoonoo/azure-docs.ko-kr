@@ -4,7 +4,7 @@ description: "Azure에서 정의한 일정에 따라 실행되는 함수를 만�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701

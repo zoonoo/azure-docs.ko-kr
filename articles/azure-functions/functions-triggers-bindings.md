@@ -4,7 +4,7 @@ description: "Azure Functions에서 트리거 및 바인딩을 사용하여 코�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/23/2017
-
 
 ---
 

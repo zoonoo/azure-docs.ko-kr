@@ -4,7 +4,7 @@ description: "Azure Functions와 함께 사용할 .NET 클래스 라이브러리
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"

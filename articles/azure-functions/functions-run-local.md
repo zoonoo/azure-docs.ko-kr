@@ -4,7 +4,7 @@ description: "Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 A
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions

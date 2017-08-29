@@ -4,7 +4,7 @@ description: "Azure Functions에서 외부 파일 바인딩 사용"
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
