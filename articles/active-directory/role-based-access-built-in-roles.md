@@ -802,7 +802,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Compute/availabilitySets/* |계산 가용성 집합 만들기 및 관리 |
 | Microsoft.Compute/locations/* |계산 위치 만들기 및 관리 |
 | Microsoft.Compute/virtualMachines/* |가상 컴퓨터 만들기 및 관리 |
-| Microsoft.Compute/virtualMachineScaleSets/* |가상 컴퓨터 크기 집합 만들기 및 관리 |
+| Microsoft.Compute/virtualMachineScaleSets/* |가상 컴퓨터 확장 집합 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* |Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action |네트워크 응용 프로그램 게이트웨이 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |부하 분산 장치 백 엔드 주소 풀 연결 |

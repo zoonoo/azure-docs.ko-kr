@@ -1,5 +1,5 @@
 ---
-title: "자동 크기 조정 및 가상 컴퓨터 크기 집합 | Microsoft Docs"
+title: "자동 크기 조정 및 가상 컴퓨터 확장 집합 | Microsoft Docs"
 description: "진단 및 자동 크기 조정 리소스를 사용하여 규모 집합의 가상 컴퓨터를 자동적으로 크기 조정하는 방법을 알아봅니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -25,11 +25,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>자동 크기 조정 및 가상 컴퓨터 규모 집합 사용 방법
-크기 집합에서 수행되는 가상 컴퓨터 자동 크기 조정은 성능 요구 사항에 일치하기 위해 필요에 따라 집합에서 컴퓨터를 만들거나 삭제하는 것입니다. 작업량이 증가하면 작업을 효과적으로 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다.
+확장 집합에서 수행되는 가상 컴퓨터 자동 크기 조정은 성능 요구 사항에 일치하기 위해 필요에 따라 집합에서 컴퓨터를 만들거나 삭제하는 것입니다. 작업량이 증가하면 작업을 효과적으로 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다.
 
 자동 크기 조정은 관리 오버헤드를 줄이기 위해 자동화된 프로세스입니다. 오버헤드를 줄이면 지속적으로 시스템 성능을 모니터링하거나 리소스 관리 방법을 결정할 필요가 없습니다. 크기 조정은 탄력적인 프로세스입니다. 부하가 증가하면 더 많은 리소스를 추가할 수 있습니다. 수요가 감소할 경우 비용을 최소화하고 성능 수준을 유지하기 위해 리소스를 제거할 수 있습니다.
 
-Azure Resource Manager 템플릿, Azure PowerShell, Azure CLI 또는 Azure Portal을 사용하여 크기 집합에 자동 크기 조정을 설정합니다.
+Azure Resource Manager 템플릿, Azure PowerShell, Azure CLI 또는 Azure Portal을 사용하여 확장 집합에 자동 크기 조정을 설정합니다.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용하여 크기 조정 설정
 각 응용 프로그램의 리소스를 개별적으로 배포하고 관리하는 대신, 모든 리소스를 하나의 조정된 작업으로 배포하는 템플릿을 사용합니다. 템플릿에서 응용 프로그램 리소스를 정의하고 다양한 환경에 대한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 살펴보세요.
@@ -97,7 +97,7 @@ Azure Resource Manager 템플릿, Azure PowerShell, Azure CLI 또는 Azure Porta
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
 ### <a name="configure-the-autoscalesettings-resource"></a>autoScaleSettings 리소스 구성
-autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수를 늘릴지 또는 줄일지를 결정하기 위해 진단 확장의 정보를 사용합니다.
+autoScaleSettings 리소스는 확장 집합에 있는 가상 컴퓨터의 수를 늘릴지 또는 줄일지를 결정하기 위해 진단 확장의 정보를 사용합니다.
 
 이 예제에서는 템플릿의 리소스 구성을 보여 줍니다.
 
@@ -173,7 +173,7 @@ autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수�
 | 규칙 | 설명 |
 | ---- | ----------- |
 | metricName        | 이 값은 진단 확장에 대한 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 위의 예제에서는 스레드 수 카운터를 사용합니다.    |
-| metricResourceUri | 이 값은 가상 컴퓨터 크기 집합의 리소스 식별자입니다. 이 식별자는 리소스 그룹 이름, 리소스 공급자 이름 및 크기 조정을 위한 규모 집합 이름을 포함합니다. |
+| metricResourceUri | 이 값은 가상 컴퓨터 확장 집합의 리소스 식별자입니다. 이 식별자는 리소스 그룹 이름, 리소스 공급자 이름 및 크기 조정을 위한 규모 집합 이름을 포함합니다. |
 | timeGrain         | 이 값은 수집되는 메트릭의 세분성입니다. 위의 예제에서는 1분 간격으로 데이터를 수집합니다. 이 값은 timeWindow와 함께 사용됩니다. |
 | statistic         | 이 값은 자동 크기 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다. |
 | timeWindow        | 이 값은 인스턴스 데이터가 수집되는 시간 범위입니다. 5분에서 12시간 사이여야 합니다. |
@@ -243,7 +243,7 @@ Azure Portal을 사용하여 자동 크기 조정을 설정하는 예제를 보�
 * 다른 컴퓨터와 마찬가지로 jumpbox 가상 컴퓨터에 연결한 다음 개별 프로세스를 모니터링하도록 규모 집합의 가상 컴퓨터에 원격으로 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 구성된 자동 크기 조정을 사용하여 크기 집합을 만드는 방법에 대한 예제를 보려면 [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](virtual-machine-scale-sets-windows-autoscale.md) 을 살펴보세요.
+* 구성된 자동 크기 조정을 사용하여 확장 집합을 만드는 방법에 대한 예제를 보려면 [가상 컴퓨터 확장 집합에서 자동으로 컴퓨터 크기 조정](virtual-machine-scale-sets-windows-autoscale.md) 을 살펴보세요.
 
 * [Azure Monitor PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)에서 Azure Monitor 모니터링 기능 예제를 찾아보세요.
 
