@@ -4,7 +4,7 @@ description: "이 자습서는 개발자에게 Azure App Service에 Spring Boot 
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a071cd1933caafce1f176cd5c5c4f41a60c54357
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 07/25/2017
 
 1. Azure Portal의 계정에 로그인한 후 **App Services** 메뉴 아이콘을 클릭합니다.
    
-   ![Azure 포털][AZ01]
+   ![Azure Portal][AZ01]
 
 1. **App Services** 페이지가 표시되면 **+ 추가**를 클릭하여 새 App Service를 만듭니다.
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/25/2017
 
 1. 웹앱을 만든 후 **App Services** 메뉴 아이콘을 클릭한 다음 새로 만든 웹앱을 클릭합니다.
 
-   ![웹앱 나열][AZ06]
+   ![Web Apps 나열][AZ06]
 
 1. 웹앱이 표시되면 다음 단계를 사용하여 Java 버전을 지정합니다.
 
@@ -196,11 +196,9 @@ ms.lasthandoff: 07/25/2017
 
 Azure에서 Spring Boot 응용 프로그램을 사용 하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Container Service에서 Linux에 Spring Boot 응용 프로그램 실행](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
+* [Azure Container Service에서 Linux에 Spring Boot 응용 프로그램 배포](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Azure Container Service의 Kubernetes 클러스터에 Spring Boot 응용 프로그램 실행](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-## <a name="additional-resources"></a>추가 리소스
+* [Azure Container Service의 Kubernetes 클러스터에 Spring Boot 응용 프로그램 배포](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터] 및 [Visual Studio Team Services용 Java 도구]를 참조하세요.
 

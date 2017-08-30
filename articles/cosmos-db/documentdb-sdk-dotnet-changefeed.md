@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: b2987800aa0d8aaf237f46a9435d53fec7372a92
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
@@ -48,6 +48,10 @@ ms.lasthandoff: 07/31/2017
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* 변경 피드에서 처리될 나머지 작업의 추정치를 얻을 수 있는 메서드가 추가되었습니다.
+* [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 * [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 버전 1.14.1 이하와 호환 가능
@@ -63,6 +67,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |2017년 8월 13일 |--- |
 | [1.0.0](#1.0.0) |2017년 7월 7일 |--- |
 
 

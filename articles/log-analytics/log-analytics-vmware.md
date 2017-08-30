@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -54,7 +54,7 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 4. vSphere 콘솔에서 해당 syslog가 제대로 설정되어 있는지 확인합니다. ESXi 호스트에서 포트가 **1514**로 구성되어 있는지 확인합니다.
 5. Linux용 OMS 에이전트를 다운로드하여 Linux 서버에 설치합니다. 자세한 내용은 [Linux용 OMS 에이전트 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux)를 참조하세요.
-6. Linux용 OMS 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을  /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 다음 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예:
+6. Linux용 OMS 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 다음 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
@@ -79,9 +79,9 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 OMS 에이전�
 
 다음 테이블은 데이터 수집 방법 및 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | Linux 용 OMS 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | Linux 용 OMS 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![예](./media/log-analytics-vmware/oms-bullet-green.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |매 3분 |
+| Linux |&#8226; |  |  |  |  |매 3분 |
 
 다음 표에서는 VMware 모니터링 솔루션에서 수집한 데이터 형식의 예를 보여 줍니다.
 

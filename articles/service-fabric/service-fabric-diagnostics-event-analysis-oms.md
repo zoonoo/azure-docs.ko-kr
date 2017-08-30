@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 78778e2601ca91c1921a5d987ec7845332c8e27a
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -32,7 +32,7 @@ Log Analytics는 Azure Storage 테이블이나 에이전트를 비롯한 관리 
 
 OMS가 구성되면 대시보드에서 데이터를 쿼리하거나 시각화할 수 있는 특정 *OMS 작업 영역*에 액세스할 수 있습니다.
 
-Log Analytics가 데이터를 수신한 후 OMS는 들어오는 데이터를 모니터링하기 위해 미리 패키지화되고 여러 시나리오에 맞게 사용자 지정된 솔루션인 여러 *관리 솔루션*을 사용합니다. 여기에는 Service Fabric 클러스터를 사용할 때 진단 및 모니터링과 가장 관련된 두 개의 솔루션인 *Service Fabric 분석* 솔루션과 *컨테이너* 솔루션이 포함됩니다. OMS에는 살펴볼 만한 여러 가지 솔루션이 있지만 사용자 지정 솔루션도 만들 수 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)를 참조하세요. 클러스터에 사용하도록 선택한 각 솔루션은 Log Analytics와 함께 동일한 OMS 작업 영역에서 구성됩니다. 작업 영역을 통해 사용자 지정 대시보드 및 데이터의 시각화뿐만 아니라 수집, 처리 및 분석하려는 데이터를 수정할 수 있습니다.
+Log Analytics가 데이터를 수신한 후 OMS는 들어오는 데이터를 모니터링하기 위해 미리 패키지화되고 여러 시나리오에 맞게 사용자 지정된 솔루션인 여러 *관리 솔루션*을 사용합니다. 여기에는 Service Fabric 클러스터를 사용할 때 진단 및 모니터링과 가장 관련된 두 개의 솔루션인 *Service Fabric 분석* 솔루션과 *컨테이너* 솔루션이 포함됩니다. OMS에는 살펴볼 만한 여러 가지 솔루션이 있지만 사용자 지정 솔루션도 만들 수 있습니다. 자세한 내용은 [여기](../operations-management-suite/operations-management-suite-solutions.md)를 참조하세요. 클러스터에 사용하도록 선택한 각 솔루션은 Log Analytics와 함께 동일한 OMS 작업 영역에서 구성됩니다. 작업 영역을 통해 사용자 지정 대시보드 및 데이터의 시각화뿐만 아니라 수집, 처리 및 분석하려는 데이터를 수정할 수 있습니다.
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Service Fabric 솔루션을 사용하여 OMS 작업 영역 설정
 
@@ -61,9 +61,9 @@ Resource Manager 템플릿을 사용하거나 Azure Marketplace에서 직접 OMS
 
 ## <a name="using-the-oms-agent"></a>OMS 에이전트 사용
 
-EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 예를 들어 EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 OMS를 사용하기로 결정하고 이벤트 분석을 위해 계속 사용하려는 경우(사용하는 유일한 플랫폼일 필요는 없지만 플랫폼 중 적어도 하나) [OMS 에이전트](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 설정을 탐색하는 것이 좋습니다.
+EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 예를 들어 EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 OMS를 사용하기로 결정하고 이벤트 분석을 위해 계속 사용하려는 경우(사용하는 유일한 플랫폼일 필요는 없지만 플랫폼 중 적어도 하나) [OMS 에이전트](../log-analytics/log-analytics-windows-agents.md) 설정을 탐색하는 것이 좋습니다. 또한 아래 설명된 대로 클러스터에 컨테이너를 배포하는 경우 OMS 에이전트를 사용해야 합니다.
 
-이 작업을 수행하는 프로세스는 각 노드에 에이전트가 설치되도록 Resource Manager 템플릿에 가상 컴퓨터 확장 집합 확장으로 에이전트를 추가하기만 하면 되므로 비교적 간단합니다 Service Fabric 솔루션과 함께 OMS 작업 영역을 배포하고(위의 설명 참조) 노드에 에이전트를 추가하는 샘플 Resource Manager 템플릿은 [여기](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample)에서 찾을 수 있습니다.
+이 작업을 수행하는 프로세스는 각 노드에 에이전트가 설치되도록 Resource Manager 템플릿에 가상 컴퓨터 확장 집합 확장으로 에이전트를 추가하기만 하면 되므로 비교적 간단합니다 Service Fabric 솔루션과 함께 OMS 작업 영역을 배포하고(위의 설명 참조) 노드에 에이전트를 추가하는 샘플 Resource Manager 템플릿은 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 또는 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)를 실행하는 클러스터에서 찾을 수 있습니다.
 
 이 방법의 장점은 다음과 같습니다.
 

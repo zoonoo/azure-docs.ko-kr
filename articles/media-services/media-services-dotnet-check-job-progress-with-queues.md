@@ -4,7 +4,7 @@ description: "Azure 큐 저장소를 사용하여 Media Services 작업 알림�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
@@ -12,38 +12,38 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 08/14/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: a9bb00c6f0a691ac3a67d19ada4341d8d94876c1
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 269ff9adde706715ad5889170470821a884daf3d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure 큐 저장소를 사용하여 .NET으로 Media Services 작업 알림 모니터링
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Queue Storage를 사용해 Azure Media Services 작업 알림을 모니터링하여 진행률을 확인할 수 있습니다(이 문서의 설명 참조). [.NET을 사용하여 작업 진행률 모니터링](media-services-check-job-progress.md)에 설명된 대로 **StateChanged** 이벤트 처리기를 정의할 수도 있습니다.  
-
-## <a name="use-queue-storage-to-monitor-media-services-job-notifications"></a>Queue Storage를 사용하여 Media Services 작업 알림 모니터링
-미디어 작업을 처리할 때 Media Services에서 [Queue Storage](../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달할 수 있습니다. 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여 줍니다.
+인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. 큐 저장소에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
 
 세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Queue Storage 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 방법을 사용하는 것보다 메시지에 대한 Queue Storage를 폴링하는 것이 좋습니다.
 
 Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 작업 후 일부 추가 작업을 수행해야 하는 콘텐츠 관리 시스템을 개발하는 경우(예를 들어, 다음에는 워크플로에서 다음 단계를 트리거하거나 콘텐츠를 게시)입니다.
 
-### <a name="considerations"></a>고려 사항
+이 항목에서는 큐 저장소에서 알림 메시지를 가져오는 방법을 보여 줍니다.  
+
+## <a name="considerations"></a>고려 사항
 Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
 
-* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
+* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure Service Bus 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
 * Queue Storage는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
 * 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)를 참조하세요.
 * Queue Storage에는 알아야 할 몇 가지 제한 사항 및 주의 사항이 있습니다. 이러한 내용은 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)에 설명되어 있습니다.
 
-### <a name="code-example"></a>코드 예제
+## <a name="net-code-example"></a>.NET 코드 예제
+
 이 섹션의 코드는 다음 작업을 수행합니다.
 
 1. 알림 메시지 형식에 매핑되는 **EncodingJobMessage** 클래스를 정의합니다. 코드는 큐에서 수신한 메시지를 **EncodingJobMessage** 유형의 개체로 deserialize합니다.
-2. app.config 파일에서 미디어 서비스 및 저장소 계정 정보를 로드합니다. 코드 예제에서는 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
+2. app.config 파일에서 Media Services 및 저장소 계정 정보를 로드합니다. 코드 예제에서는 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
 3. 인코딩 작업에 대한 알림 메시지를 받는 큐를 만듭니다.
 4. 큐에 매핑되는 알림 끝점을 만듭니다.
 5. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
@@ -61,262 +61,272 @@ Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 �
 >
 >
 
-    using System;
-    using System.Linq;
-    using System.Configuration;
-    using System.IO;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Web;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
-    using System.Runtime.Serialization.Json;
+### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-    namespace JobNotification
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+2. 로컬 드라이브 내 임의의 위치에 새 폴더를 만들고, 인코딩하여 스트리밍하거나 점진적으로 다운로드하려는 .mp4 파일을 복사합니다. 이 예제에서는 "C:\Media" 경로가 사용됩니다.
+
+### <a name="code"></a>코드
+
+```
+using System;
+using System.Linq;
+using System.Configuration;
+using System.IO;
+using System.Threading;
+using System.Collections.Generic;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
+using System.Runtime.Serialization.Json;
+
+namespace JobNotification
+{
+    public class EncodingJobMessage
     {
-        public class EncodingJobMessage
+        // MessageVersion is used for version control.
+        public String MessageVersion { get; set; }
+
+        // Type of the event. Valid values are
+        // JobStateChange and NotificationEndpointRegistration.
+        public String EventType { get; set; }
+
+        // ETag is used to help the customer detect if
+        // the message is a duplicate of another message previously sent.
+        public String ETag { get; set; }
+
+        // Time of occurrence of the event.
+        public String TimeStamp { get; set; }
+
+        // Collection of values specific to the event.
+
+        // For the JobStateChange event the values are:
+        //     JobId - Id of the Job that triggered the notification.
+        //     NewState- The new state of the Job. Valid values are:
+        //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
+        //     OldState- The old state of the Job. Valid values are:
+        //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
+
+        // For the NotificationEndpointRegistration event the values are:
+        //     NotificationEndpointId- Id of the NotificationEndpoint
+        //          that triggered the notification.
+        //     State- The state of the Endpoint.
+        //          Valid values are: Registered and Unregistered.
+
+        public IDictionary<string, object> Properties { get; set; }
+    }
+
+    class Program
+    {
+
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+        private static readonly string _StorageConnectionString = 
+            ConfigurationManager.AppSettings["StorageConnectionString"];
+
+        private static CloudMediaContext _context = null;
+        private static CloudQueue _queue = null;
+        private static INotificationEndPoint _notificationEndPoint = null;
+
+        private static readonly string _singleInputMp4Path =
+            Path.GetFullPath(@"C:\Media\BigBuckBunny.mp4");
+
+        static void Main(string[] args)
         {
-            // MessageVersion is used for version control.
-            public String MessageVersion { get; set; }
+            string endPointAddress = Guid.NewGuid().ToString();
 
-            // Type of the event. Valid values are
-            // JobStateChange and NotificationEndpointRegistration.
-            public String EventType { get; set; }
+            // Create the context.
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            // ETag is used to help the customer detect if
-            // the message is a duplicate of another message previously sent.
-            public String ETag { get; set; }
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Time of occurrence of the event.
-            public String TimeStamp { get; set; }
+            // Create the queue that will be receiving the notification messages.
+            _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
-            // Collection of values specific to the event.
+            // Create the notification point that is mapped to the queue.
+            _notificationEndPoint =
+                    _context.NotificationEndPoints.Create(
+                    Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
 
-            // For the JobStateChange event the values are:
-            //     JobId - Id of the Job that triggered the notification.
-            //     NewState- The new state of the Job. Valid values are:
-            //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
-            //     OldState- The old state of the Job. Valid values are:
-            //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
 
-            // For the NotificationEndpointRegistration event the values are:
-            //     NotificationEndpointId- Id of the NotificationEndpoint
-            //          that triggered the notification.
-            //     State- The state of the Endpoint.
-            //          Valid values are: Registered and Unregistered.
+            if (_notificationEndPoint != null)
+            {
+                IJob job = SubmitEncodingJobWithNotificationEndPoint(_singleInputMp4Path);
+                WaitForJobToReachedFinishedState(job.Id);
+            }
 
-            public IDictionary<string, object> Properties { get; set; }
+            // Clean up.
+            _queue.Delete();
+            _notificationEndPoint.Delete();
         }
 
-        class Program
+
+        static public CloudQueue CreateQueue(string storageAccountConnectionString, string endPointAddress)
         {
-            private static CloudMediaContext _context = null;
-            private static CloudQueue _queue = null;
-            private static INotificationEndPoint _notificationEndPoint = null;
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
 
-            private static readonly string _singleInputMp4Path =
-                Path.GetFullPath(@"C:\supportFiles\multifile\BigBuckBunny.mp4");
+            // Create the queue client
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-            static void Main(string[] args)
+            // Retrieve a reference to a queue
+            CloudQueue queue = queueClient.GetQueueReference(endPointAddress);
+
+            // Create the queue if it doesn't already exist
+            queue.CreateIfNotExists();
+
+            return queue;
+        }
+
+
+        public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
+        {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
+
+            //Create an encrypted asset and upload the mp4.
+            IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
+                inputMediaFilePath);
+
+            // Get a media processor reference, and pass to it the name of the
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Create a task with the conversion details, using a configuration file.
+            ITask task = job.Tasks.AddNew("My encoding Task",
+                processor,
+                "Adaptive Streaming",
+                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+
+            // Add an output asset to contain the results of the job.
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+
+            // Add a notification point to the job. You can add multiple notification points.  
+            job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
+                _notificationEndPoint);
+
+            job.Submit();
+
+            return job;
+        }
+
+        public static void WaitForJobToReachedFinishedState(string jobId)
+        {
+            int expectedState = (int)JobState.Finished;
+            int timeOutInSeconds = 600;
+
+            bool jobReachedExpectedState = false;
+            DateTime startTime = DateTime.Now;
+            int jobState = -1;
+
+            while (!jobReachedExpectedState)
             {
-                // Get the values from app.config file.
-                string mediaServicesAccountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                string mediaServicesAccountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-                string storageConnectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+                // Specify how often you want to get messages from the queue.
+                Thread.Sleep(TimeSpan.FromSeconds(10));
 
-
-                string endPointAddress = Guid.NewGuid().ToString();
-
-                // Create the context.
-                _context = new CloudMediaContext(mediaServicesAccountName, mediaServicesAccountKey);
-
-                // Create the queue that will be receiving the notification messages.
-                _queue = CreateQueue(storageConnectionString, endPointAddress);
-
-                // Create the notification point that is mapped to the queue.
-                _notificationEndPoint =
-                        _context.NotificationEndPoints.Create(
-                        Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
-
-
-                if (_notificationEndPoint != null)
+                foreach (var message in _queue.GetMessages(10))
                 {
-                    IJob job = SubmitEncodingJobWithNotificationEndPoint(_singleInputMp4Path);
-                    WaitForJobToReachedFinishedState(job.Id);
-                }
-
-                // Clean up.
-                _queue.Delete();      
-                _notificationEndPoint.Delete();
-           }
-
-
-            static public CloudQueue CreateQueue(string storageAccountConnectionString, string endPointAddress)
-            {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
-
-                // Create the queue client
-                CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-                // Retrieve a reference to a queue
-                CloudQueue queue = queueClient.GetQueueReference(endPointAddress);
-
-                // Create the queue if it doesn't already exist
-                queue.CreateIfNotExists();
-
-                return queue;
-            }
-
-
-            public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
-            {
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
-
-                //Create an encrypted asset and upload the mp4.
-                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
-                    inputMediaFilePath);
-
-                // Get a media processor reference, and pass to it the name of the
-                // processor to use for the specific task.
-                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                // Create a task with the conversion details, using a configuration file.
-                ITask task = job.Tasks.AddNew("My encoding Task",
-                    processor,
-                    "Adaptive Streaming",
-                    Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
-
-                // Specify the input asset to be encoded.
-                task.InputAssets.Add(asset);
-
-                // Add an output asset to contain the results of the job.
-                task.OutputAssets.AddNew("Output asset",
-                    AssetCreationOptions.None);
-
-                // Add a notification point to the job. You can add multiple notification points.  
-                job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
-                    _notificationEndPoint);
-
-                job.Submit();
-
-                return job;
-            }
-
-            public static void WaitForJobToReachedFinishedState(string jobId)
-            {
-                int expectedState = (int)JobState.Finished;
-                int timeOutInSeconds = 600;
-
-                bool jobReachedExpectedState = false;
-                DateTime startTime = DateTime.Now;
-                int jobState = -1;
-
-                while (!jobReachedExpectedState)
-                {
-                    // Specify how often you want to get messages from the queue.
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
-
-                    foreach (var message in _queue.GetMessages(10))
+                    using (Stream stream = new MemoryStream(message.AsBytes))
                     {
-                        using (Stream stream = new MemoryStream(message.AsBytes))
+                        DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+                        settings.UseSimpleDictionaryFormat = true;
+                        DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
+                        EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(stream);
+
+                        Console.WriteLine();
+
+                        // Display the message information.
+                        Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
+                        Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
+                        Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
+                        Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
+                        foreach (var property in encodingJobMsg.Properties)
                         {
-                            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
-                            settings.UseSimpleDictionaryFormat = true;
-                            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
-                            EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(stream);
+                            Console.WriteLine("    {0}: {1}", property.Key, property.Value);
+                        }
 
-                            Console.WriteLine();
-
-                            // Display the message information.
-                            Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
-                            Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
-                            Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
-                            Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
-                            foreach (var property in encodingJobMsg.Properties)
+                        // We are only interested in messages
+                        // where EventType is "JobStateChange".
+                        if (encodingJobMsg.EventType == "JobStateChange")
+                        {
+                            string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
+                            if (JobId == jobId)
                             {
-                                Console.WriteLine("    {0}: {1}", property.Key, property.Value);
-                            }
+                                string oldJobStateStr = (String)encodingJobMsg.Properties.
+                                                            Where(j => j.Key == "OldState").FirstOrDefault().Value;
+                                string newJobStateStr = (String)encodingJobMsg.Properties.
+                                                            Where(j => j.Key == "NewState").FirstOrDefault().Value;
 
-                            // We are only interested in messages
-                            // where EventType is "JobStateChange".
-                            if (encodingJobMsg.EventType == "JobStateChange")
-                            {
-                                string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
-                                if (JobId == jobId)
+                                JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
+                                JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
+
+                                if (newJobState == (JobState)expectedState)
                                 {
-                                    string oldJobStateStr = (String)encodingJobMsg.Properties.
-                                                                Where(j => j.Key == "OldState").FirstOrDefault().Value;
-                                    string newJobStateStr = (String)encodingJobMsg.Properties.
-                                                                Where(j => j.Key == "NewState").FirstOrDefault().Value;
-
-                                    JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
-                                    JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
-
-                                    if (newJobState == (JobState)expectedState)
-                                    {
-                                        Console.WriteLine("job with Id: {0} reached expected state: {1}",
-                                            jobId, newJobState);
-                                        jobReachedExpectedState = true;
-                                        break;
-                                    }
+                                    Console.WriteLine("job with Id: {0} reached expected state: {1}",
+                                        jobId, newJobState);
+                                    jobReachedExpectedState = true;
+                                    break;
                                 }
                             }
                         }
-                        // Delete the message after we've read it.
-                        _queue.DeleteMessage(message);
                     }
+                    // Delete the message after we've read it.
+                    _queue.DeleteMessage(message);
+                }
 
-                    // Wait until timeout
-                    TimeSpan timeDiff = DateTime.Now - startTime;
-                    bool timedOut = (timeDiff.TotalSeconds > timeOutInSeconds);
-                    if (timedOut)
-                    {
-                        Console.WriteLine(@"Timeout for checking job notification messages,
-                                            latest found state ='{0}', wait time = {1} secs",
-                            jobState,
-                            timeDiff.TotalSeconds);
+                // Wait until timeout
+                TimeSpan timeDiff = DateTime.Now - startTime;
+                bool timedOut = (timeDiff.TotalSeconds > timeOutInSeconds);
+                if (timedOut)
+                {
+                    Console.WriteLine(@"Timeout for checking job notification messages,
+                                        latest found state ='{0}', wait time = {1} secs",
+                        jobState,
+                        timeDiff.TotalSeconds);
 
-                        throw new TimeoutException();
-                    }
+                    throw new TimeoutException();
                 }
             }
+        }
 
-            static private IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
-            {
-                var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(),
-                    assetCreationOptions);
+        static private IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
+        {
+            var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(),
+                assetCreationOptions);
 
-                var fileName = Path.GetFileName(singleFilePath);
+            var fileName = Path.GetFileName(singleFilePath);
 
-                var assetFile = asset.AssetFiles.Create(fileName);
+            var assetFile = asset.AssetFiles.Create(fileName);
 
-                Console.WriteLine("Created assetFile {0}", assetFile.Name);
-                Console.WriteLine("Upload {0}", assetFile.Name);
+            Console.WriteLine("Created assetFile {0}", assetFile.Name);
+            Console.WriteLine("Upload {0}", assetFile.Name);
 
-                assetFile.Upload(singleFilePath);
-                Console.WriteLine("Done uploading of {0}", assetFile.Name);
+            assetFile.Upload(singleFilePath);
+            Console.WriteLine("Done uploading of {0}", assetFile.Name);
 
-                return asset;
-            }
+            return asset;
+        }
 
-            static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+                ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-                if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-                return processor;
-            }
+            return processor;
         }
     }
-
+}
+```
 위 예제는 다음과 같이 출력됩니다. 값은 달라질 수 있습니다.
 
     Created assetFile BigBuckBunny.mp4
@@ -346,7 +356,7 @@ Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 �
 
 
 ## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a3c287c5317bd7db2b560e37ddacc9e43d7292d1
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Azure SQL Database에서 사용할 수 있는 성능 옵션은 무엇입니까?
@@ -97,8 +97,9 @@ ms.lasthandoff: 07/21/2017
 
 * 상위 서비스 계층이나 성능 수준으로 업그레이드하는 경우 더 큰 최대 크기를 명시적으로 지정하지 않는 한 최대 데이터베이스 크기는 증가하지 않습니다.
 * 데이터베이스를 다운그레이드하려면 데이터베이스가 대상 서비스 계층의 최대 허용 크기보다 작아야 합니다. 
-* [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드합니다(일반 지침).
-* **프리미엄** 서비스 계층에서 더 낮은 서비스 계층으로 다운그레이드하는 경우 먼저 지역에서 복제 관계를 모두 종료해야 합니다. [가동 중단에서 복구](sql-database-disaster-recovery.md) 항목에서 설명한 단계에 따라 주 데이터베이스와 보조 데이터베이스 간의 복제 프로세스를 중지할 수 있습니다.
+* [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드합니다(일반 지침). 다른 버전으로 업그레이드할 때 보조 데이터베이스를 먼저 업그레이드해야 합니다. 
+* [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 다운그레이드하는 경우 보조 데이터베이스를 다운그레이드하기 전에 먼저 해당 주 데이터베이스를 원하는 성능 계층으로 다운그레이드합니다(일반 지침). 다른 버전으로 다운그레이드할 때 주 데이터베이스를 먼저 다운그레이드해야 합니다. 
+
 * 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운그레이드하는 경우 백업 보존 기간이 더 짧아집니다. [Azure SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
@@ -170,7 +171,7 @@ Transact-SQL을 사용하여 Azure SQL 데이터베이스 서비스 계층, 성�
 | 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
-| [ALTER DATABASE (Azure SQL 데이터베이스)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
 |[sys.database_usage(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Azure SQL Database 서버의 데이터베이스 수, 유형 및 기간을 나열합니다.|
 

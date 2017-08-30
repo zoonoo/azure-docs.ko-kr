@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
@@ -50,7 +50,14 @@ ms.lasthandoff: 06/14/2017
 
 ### <a name="leaked-credentials"></a>유출된 자격 증명
 
-Microsoft 보안 연구원은 Dark 웹에 공개적으로 게시된 유출된 자격 증명을 찾습니다. 일반적으로 이러한 자격 증명은 일반 텍스트에 있습니다. Azure AD 자격 증명에 대해 확인하여 일치하는 경우 ID 보호에서 "유출된 자격 증명"으로 보고됩니다.
+사이버 범죄자가 합법적인 사용자의 유효한 암호를 손상시키는 경우 범죄자는 종종 이러한 자격 증명을 공유합니다. 보통 이러한 작업은 Dark 웹 또는 붙여넣기 사이트에 공개적으로 게시하거나 암시장에서 자격 증명을 거래 또는 판매하는 방식으로 이루어집니다. Microsoft 유출된 자격 증명 서비스는 공개 및 Dark 웹 사이트를 모니터링하고 다음 대상과 협력하여 사용자 이름/암호 쌍을 획득합니다.
+
+- 연구원
+- 사법 기관
+- Microsoft 보안 팀
+- 신뢰할 수 있는 기타 소스 
+
+서비스에서 사용자 이름/암호 쌍을 획득하면 AAD에 대해 사용자의 현재 유효한 자격 증명인지 확인합니다. 일치하면 사용자의 암호가 손상된 것이며 *누출된 자격 증명 위험 이벤트*가 만들어집니다.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 73dcb0db2f940f75bca0edfb12b3e713628ced6a
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3aafe209aad7383cd0610d147b5fdba673023c93
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -121,13 +120,13 @@ ms.lasthandoff: 07/08/2017
 
 이 태스크를 시작하기 전에 [태스크 4](#task-4---enable-secure-ldap-access-over-the-internet)에 나와 있는 단계를 완료해야 합니다.
 
-인터넷을 통해 LDAPS 액세스가 가능하도록 관리되는 도메인을 노출하면 보안 위협이 됩니다. 관리되는 도메인은 보안 LDAP에 사용되는 포트(즉, 포트 636)에서 인터넷을 통해 접속할 수 있습니다. 따라서 관리되는 도메인에 대한 액세스를 알려진 특정 IP 주소로 제한할 수 있습니다. 보안이 향상되도록 NSG(네트워크 보안 그룹)를 만들고 가상 네트워크와 연결합니다.
+인터넷을 통해 LDAPS 액세스가 가능하도록 관리되는 도메인을 노출하면 보안 위협이 됩니다. 관리되는 도메인은 보안 LDAP에 사용되는 포트(즉, 포트 636)에서 인터넷을 통해 접속할 수 있습니다. 따라서 관리되는 도메인에 대한 액세스를 알려진 특정 IP 주소로 제한할 수 있습니다. 보안이 향상되도록 NSG(네트워크 보안 그룹)를 만들고 Azure AD Domain Services를 사용하도록 설정된 서브넷과 연결합니다.
 
 다음 표에서는 구성 가능한 예제 NSG를 통해 인터넷을 통한 보안 LDAP 액세스를 잠그는 방법을 보여 줍니다. 이 NSG에는 지정된 IP 주소 집합에서만 TCP 포트 636을 통해 인바운드 LDAPS 액세스를 허용하는 규칙 집합이 포함되어 있습니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다. 지정된 IP 주소에서 인터넷을 통해 LDAPS 액세스를 허용하는 NSG 규칙은 DenyAll NSG 규칙보다 우선 순위가 높습니다.
 
 ![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**자세한 내용** - [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+**자세한 정보** - [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md).
 
 <br>
 
@@ -135,4 +134,6 @@ ms.lasthandoff: 07/08/2017
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 * [Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
+* [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
+* [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 

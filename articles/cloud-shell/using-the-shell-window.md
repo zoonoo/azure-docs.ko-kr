@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 345217452a25448f31fabdcc25dca182bbcf72eb
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a47961dfdaf178a6b793bd68105d9792a9275bb3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -54,7 +54,8 @@ Cloud Shell을 사용하면 각 세션이 별도의 Bash 프로세스로 존재�
 * 마우스 또는 터치 패드로 터미널 텍스트까지 스크롤합니다.
 
 ## <a name="exit-command"></a>종료 명령
-`exit`를 실행하면 활성 세션이 종료됩니다. 이 동작은 기본적으로 상호 작용 없이 10분 후에 발생합니다.
+`exit`를 실행하면 활성 세션이 종료됩니다. 이 동작은 기본적으로 상호 작용 없이 20분 후에 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell 빠른 시작](quickstart.md)
+

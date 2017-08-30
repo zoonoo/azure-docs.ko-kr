@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 823ff810ffc0b65ec1bb38e4dc314da1d0f9a64a
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -37,7 +37,7 @@ Apache Storm을 사용하여 Apache Kafka에서 읽고 쓰는 방법에 대해 �
 
 이 프로젝트를 컴파일하려면 개발 환경에 대한 다음 구성이 필요합니다.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상 HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -50,8 +50,8 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 * `JAVA_HOME` - JDK가 설치된 디렉터리를 가리켜야 합니다.
 * `PATH` - 다음 경로를 포함해야 합니다.
   
-    * `JAVA_HOME`(또는 그와 동등한 경로)
-    * `JAVA_HOME\bin`(또는 그와 동등한 경로)
+    * `JAVA_HOME`(또는 이와 동등한 경로)
+    * `JAVA_HOME\bin`(또는 이와 동등한 경로)
     * Maven이 설치된 디렉터리
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
@@ -73,7 +73,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     
     * Azure 리소스 그룹
     * Azure 가상 네트워크
-    * Azure 저장소 계정
+    * Azure Storage 계정
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 
@@ -164,12 +164,12 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
         -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
-    $brokerHosts = $respObj.host_components.HostRoles.host_name
+    $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
     ```bash
-    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
     ```
 
     > [!IMPORTANT]
@@ -177,9 +177,10 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    나중에 사용하므로 이 값을 저장합니다.
+    > [!IMPORTANT]
+    > 클러스터에 대해 두 개 이상의 브로커 호스트가 있을 수 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
 
 2. 다음 방법 중 하나를 사용하여 Kafka Zookeeper 호스트를 검색합니다.
 
@@ -189,12 +190,12 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
         -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
-    $zookeeperHosts = $respObj.host_components.HostRoles.host_name
+    $zookeeperHosts = $respObj.host_components.HostRoles.host_name[0..1]
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
     ```bash
-    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
     ```
 
     > [!IMPORTANT]
@@ -202,14 +203,17 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
 
     반환되는 값은 다음 텍스트와 유사합니다.
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+
+    > [!IMPORTANT]
+    > 두 개 이상의 Zookeeper 노드가 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
 
     나중에 사용하므로 이 값을 저장합니다.
 
 3. 프로젝트의 루트에서 `dev.properties` 파일을 편집합니다. 이 파일에서 일치하는 줄에 Broker 및 Zookeeper 호스트 정보를 추가합니다. 다음 예제는 이전 단계의 예제 값을 사용하여 구성됩니다.
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
 4. `dev.properties` 파일을 저장하고 다음 명령을 사용하여 Storm 클러스터로 업로드합니다.
@@ -288,7 +292,7 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
 1. Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 판독기 토폴로지를 시작합니다.
 
   ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
 2. 토폴로지가 시작되면 Storm UI를 엽니다. 이 웹 UI는 https://storm-BASENAME.azurehdinsight.net/stormui에 있습니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다. 

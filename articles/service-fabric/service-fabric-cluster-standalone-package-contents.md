@@ -11,14 +11,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/10/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -54,6 +53,9 @@ ms.lasthandoff: 05/11/2017
 
 ## <a name="cluster-configuration-samples"></a>클러스터 구성 샘플
 최신 버전의 클러스터 구성 템플릿은 [독립 실행형 클러스터 구성 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) GitHub 페이지에서 찾을 수 있습니다.
+
+## <a name="independent-runtime-package"></a>독립 런타임 패키지
+클러스터 배포 시 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 최신 런타임 패키지를 자동으로 다운로드합니다.
 
 ## <a name="related"></a>관련 항목
 * [독립 실행형 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)

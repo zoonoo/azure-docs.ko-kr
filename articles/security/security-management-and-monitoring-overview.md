@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
@@ -26,7 +26,7 @@ Azure는 Azure 클라우드 서비스 및 가상 컴퓨터 관리 및 모니터�
 
 Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파트너십과 공동 책임입니다. 공동 책임은 Microsoft가 Microsoft Azure와 해당 데이터 센터의 물리적 보안에 책임을 진다는 것을 의미합니다(잠금식 배지 출입구, 펜스 및 경비원 등의 보안 보호 조치 사용). 또한 Azure는 까다로운 고객의 보안, 개인 정보 및 규정 준수 요구 사항을 충족하는 소프트웨어 계층에서 강력한 수준의 클라우드 보안을 제공합니다.
 
-사용자는 데이터와 ID를 소유하고 있으며, 이들을 보호하고 온-프레미스 리소스의 보안, 제어할 수 있는 클라우드 구성 요소의 보안에 대한 책임이 있습니다. Microsoft는 사용자에게 사용자의 데이터와 응용 프로그램을 보호하는 데 도움이 되는 보안 제어 및 기능을 제공하고 있습니다. 보안에 대한 사용자의 책임은 클라우드 서비스의 형식에 기반합니다.
+사용자는 데이터와 ID를 소유하고 있으며, 이들을 보호하고 온-프레미스 리소스의 보안, 제어할 수 있는 클라우드 구성 요소의 보안에 대한 책임이 있습니다. Microsoft는 사용자에게 사용자의 데이터와 응용 프로그램을 보호하는 데 도움이 되는 보안 제어 및 기능을 제공하고 있습니다. 보안에 대한 사용자의 책임 정도는 클라우드 서비스의 형식에 기반합니다.
 
 다음 차트에는 Microsoft와 고객 모두에 대한 책임의 균형이 요약되어 있습니다.
 
@@ -39,7 +39,7 @@ Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파�
 * 역할 기반 액세스 제어
 * 맬웨어 방지
 * Multi-Factor Authentication
-* Express 경로
+* ExpressRoute
 * 가상 네트워크 게이트웨이
 * Privileged Identity Management
 * ID 보호
@@ -64,11 +64,11 @@ SEP(Symantec End Point Protection)도 Azure에서 지원됩니다. 포털 통합
 
 자세한 정보:
 
-* [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Azure Cloud Services 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)
+* [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)
 * [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-trend.md)
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-symantec.md)
-* [Azure 가상 컴퓨터에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
+* [Azure Virtual Machines에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
@@ -80,14 +80,14 @@ Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사
 * [Azure Multi-Factor Authentication 작동 방법](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="expressroute"></a>ExpressRoute
-Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 자세한 정보:
 
-* [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)
+* [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)
 
 ## <a name="virtual-network-gateways"></a>가상 네트워크 게이트웨이
-Azure 가상 네트워크 게이트웨이라는 VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(VNet 간)에 트래픽을 보내는 데에도 사용됩니다.  VPN 게이트웨이는 Azure와 인프라 사이의 안전한 프레미스 간 연결을 제공합니다.
+Azure Virtual Network 게이트웨이라는 VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(VNet 간)에 트래픽을 보내는 데에도 사용됩니다.  VPN 게이트웨이는 Azure와 인프라 사이의 안전한 프레미스 간 연결을 제공합니다.
 
 자세한 정보:
 
@@ -116,7 +116,7 @@ Azure AD(Active Directory) ID 보호는 의심스러운 로그인 활동 및 잠
 * [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>보안 센터
-Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+Azure Security Center는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 보안 센터는 다음과 같은 방법을 통해 Azure 리소스의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
@@ -126,7 +126,7 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 
 자세한 정보:
 
-* [Azure 보안 센터 소개](../security-center/security-center-intro.md)
+* [Azure Security Center 소개](../security-center/security-center-intro.md)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png

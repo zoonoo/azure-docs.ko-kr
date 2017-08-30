@@ -1,24 +1,25 @@
 ---
 title: "Azure Container Service에서 Kubernetes에 Spring Boot 앱 배포 | Microsoft Docs"
 description: "이 자습서에서는 Microsoft Azure에서 Kubernetes 클러스터에 Spring Boot 응용 프로그램을 배포하는 단계를 안내합니다."
-services: 
+services: container-service
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: container-service
 ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 824eaf3362243763c8e24080c351e5c43d319ad7
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -298,10 +299,7 @@ ms.lasthandoff: 07/25/2017
 Azure에서 Spring Boot를 사용 하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure App Service에 Spring Boot 응용 프로그램 배포](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
-* [Azure Container Service에서 Linux에 Spring Boot 응용 프로그램 실행](container-service-deploy-spring-boot-app-on-linux.md)
-
-## <a name="additional-resources"></a>추가 리소스
+* [Azure Container Service에서 Linux에 Spring Boot 응용 프로그램 배포](container-service-deploy-spring-boot-app-on-linux.md)
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터] 및 [Visual Studio Team Services용 Java 도구]를 참조하세요.
 

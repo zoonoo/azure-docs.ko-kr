@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
@@ -71,9 +71,9 @@ Active Directory 평가는 사용자가 사용하도록 설정한 에이전트�
 
 다음 표에는 에이전트에 대한 데이터 수집 방법, Operations Manager(SCOM)가 필요한지 여부 및 에이전트에서 데이터가 수집되는 빈도가 나와 있습니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![아니요](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![아니요](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 일 |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 일 |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>권장 사항 우선 순위 이해
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
@@ -176,13 +176,6 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 *데이터를 수집하려면 시간이 얼마나 걸리나요?*
 
 * 서버에서의 실제 데이터 수집은 약 1시간이 걸립니다. Active Directory 서버가 많은 서버에서는 더 오래 걸릴 수 있습니다.
-
-*어떤 유형의 데이터를 수집하나요?*
-
-* 다음 유형의 데이터를 수집합니다.
-  * WMI
-  * 레지스트리
-  * 성능 카운터
 
 *데이터를 수집하는 경우 구성하는 방법이 있나요?*
 

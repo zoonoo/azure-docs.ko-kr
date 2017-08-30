@@ -1,5 +1,5 @@
 ---
-title: "Application Gateway에서 SSL 정책 및 종단 간 SSL 구성 | Microsoft Docs"
+title: "Azure Application Gateway에서 종단 간 SSL 구성 | Microsoft Docs"
 description: "이 문서에서는 Azure Resource Manager PowerShell을 사용하여 Application Gateway로 종단 간 SSL을 구성하는 방법에 대해 설명합니다."
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>PowerShell을 사용하여 Application Gateway에서 SSL 정책 및 종단 간 SSL 구성
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>PowerShell을 사용하여 Application Gateway에서 종단 간 SSL 구성
 
 ## <a name="overview"></a>개요
 
 Application Gateway는 트래픽의 종단 간 암호화를 지원합니다. Application Gateway는 이를 위해 응용 프로그램 게이트웨이에서 SSL 연결을 종료합니다. 그러면 게이트웨이에서 트래픽에 라우팅 규칙을 적용하고, 패킷을 다시 암호화하고, 정의된 라우팅 규칙에 따라 적절한 백 엔드에 패킷을 전달합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다.
 
-Application Gateway가 지원하는 또 다른 기능은 특정 SSL 프로토콜 버전 비활성화입니다. Application Gateway는 프로토콜 버전 **TLSv1.0**, **TLSv1.1** 및 **TLSv1.2** 비활성화를 지원합니다.
+Application Gateway가 사용자 지정 SSL 옵션을 정의하도록 지원하는 다른 기능입니다. Application Gateway는 **TLSv1.0**, **TLSv1.1** 및 **TLSv1.2**와 같은 프로토콜 버전을 사용하지 않고 사용할 암호 그룹 및 기본 설정의 순서를 정의하도록 지원합니다.  구성 가능한 SSL 옵션에 대한 자세한 내용은 [SSL 정책 개요](application-gateway-SSL-policy-overview.md)를 방문하세요.
 
 > [!NOTE]
 > SSL 2.0 및 SSL 3.0은 기본적으로 사용할 수 없도록 설정되며 사용하도록 설정할 수 없습니다. 보안되지 않은 것으로 간주되며 Application Gateway와 함께 사용할 수 없습니다.
@@ -40,15 +41,15 @@ Application Gateway가 지원하는 또 다른 기능은 특정 SSL 프로토콜
 이 시나리오에서는 다음을 수행합니다.
 
 * **appgw-rg**라는 리소스 그룹 만들기
-* 예약된 CIDR 블록이 10.0.0.0/16이고 이름이 **appgwvnet**인 가상 네트워크를 만듭니다.
+* 주소 공간이 10.0.0.0/16인 **appgwvnet**이라는 가상 네트워크를 만듭니다.
 * **appgwsubnet** 및 **appsubnet**라는 두 개의 서브넷을 만듭니다.
-* 특정 SSL 프로토콜을 비활성화하는 종단 간 SSL 암호화를 지원하는 소형 Application Gateway를 만듭니다.
+* SSL 프로토콜 버전 및 암호 그룹을 제한하는 종단 간 SSL 암호화를 지원하는 소형 Application Gateway를 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 Application Gateway를 사용하여 종단 간 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL을 사용하여 전송되는 트래픽을 암호화하고 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(pfx) 형식이어야 합니다. 이 파일 형식을 사용하면 응용 프로그램 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 개인 키를 내보낼 수 있습니다.
 
-종단 간 ssl 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 이 작업은 백 엔드의 공개 인증서를 Application Gateway에 업로드하여 수행합니다. 이렇게 하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
+종단 간 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 이 작업은 백 엔드의 공개 인증서를 Application Gateway에 업로드하여 수행합니다. 이렇게 하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
 
 이 프로세스는 다음 단계에 설명되어 있습니다.
 
@@ -132,11 +133,11 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 dns 이름이 필요한 경우 cname 레코드를 별칭으로 사용하는 것이 좋습니다.
+> Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 DNS 이름이 필요한 경우 CNAME 레코드를 별칭으로 사용하는 것이 좋습니다.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
 
-Application Gateway를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Application Gateway에 대한 인증서를 구성합니다. 이 인증서는 Application Gateway의 트래픽을 암호화하고 해독하는 데 사용됩니다.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -186,15 +187,15 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 ### <a name="step-6"></a>6단계
 
-Application Gateway에 대한 HTTP 수신기를 만듭니다. 사용할 프런트 엔드 IP 구성, 포트 및 ssl 인증서를 할당합니다.
+Application Gateway에 대한 HTTP 수신기를 만듭니다. 사용할 프런트 엔드 IP 구성, 포트 및 SSL 인증서를 할당합니다.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>7단계
 
-ssl이 활성화된 백 엔드 풀 리소스에 사용할 인증서를 업로드합니다.
+SSL이 활성화된 백 엔드 풀 리소스에 사용할 인증서를 업로드합니다.
 
 > [!NOTE]
 > 기본 프로브는 공용 키를 백엔드의 IP 주소에 바인딩된 **기본** SSL에서 가져오고 프로브가 받는 공용 키 값과 여기서 사용자가 제공한 공용 키 값을 비교합니다. 검색된 공용 키는 사용자가 호스트 헤더 및 SNI를 사용하는 **경우** 트래픽이 이동하는 대상 사이트에 반드시 존재하는 것은 아닙니다. 확실하지 않은 경우 백엔드에서 https://127.0.0.1/을 방문하여 **기본** SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. 호스트 헤더 및 HTTPS의 SNI를 사용하고, 수동 브라우저 요청에서 https://127.0.0.1/로 응답 및 인증서를 받지 않은 경우 백엔드에서 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
@@ -235,31 +236,31 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>11단계
 
-Application Gateway에서 사용할 SSL 정책을 구성합니다. Application Gateway는 특정 SSL 프로토콜 버전을 비활성화하는 기능을 지원합니다.
+Application Gateway에서 사용할 SSL 정책을 구성합니다. Application Gateway는 SSL 프로토콜 버전에 최소 버전을 설정하는 기능을 지원합니다.
 
-다음 값은 비활성화할 수 있는 프로토콜 버전 목록입니다.
+다음 값은 정의될 수 있는 프로토콜 버전 목록입니다.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-다음 예제에서는 **TLSv1\_0**을 비활성화합니다.
+최소 프로토콜 버전을 **TLSv1_2**로 설정하고 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**만 사용하도록 설정합니다.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
-## <a name="create-the-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
 위의 모든 단계를 사용하여 Application Gateway를 만듭니다. 게이트웨이 만들기는 긴 프로세스입니다.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>기존 Application Gateway의 SSL 프로토콜 버전 비활성화
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>기존 Application Gateway의 SSL 프로토콜 버전 제한
 
-이전 단계에서는 종단 간 ssl을 사용하여 응용 프로그램을 만들고 특정 SSL 프로토콜 버전을 비활성화했습니다. 다음 예제에서는 기존 Application Gateway의 특정 SSL 정책을 비활성화합니다.
+이전 단계에서는 종단 간 SSL을 사용하여 응용 프로그램을 만들고 특정 SSL 프로토콜 버전을 비활성화했습니다. 다음 예제에서는 기존 Application Gateway의 특정 SSL 정책을 비활성화합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -271,15 +272,16 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>2단계
 
-SSL 정책을 정의합니다. 다음 예제에서는 TLSv1.0 및 TLSv1.1이 비활성화됩니다.
+SSL 정책을 정의합니다. 다음 예제에서 TLSv1.0 및 TLSv1.1은 비활성화하고 암호 그룹 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**만 허용합니다.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>3단계
 
-마지막으로 게이트웨이를 업데이트합니다. 이 마지막 단계는 오래 걸리는 작업입니다. 작업이 완료되면 Application Gateway에 종단 간 ssl이 구성됩니다.
+마지막으로 게이트웨이를 업데이트합니다. 이 마지막 단계는 오래 걸리는 작업입니다. 작업이 완료되면 Application Gateway에 종단 간 SSL이 구성됩니다.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 [웹 응용 프로그램 방화벽 개요](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

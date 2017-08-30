@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/21/2017
 최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. 이 문서는 자동으로 관리되는 것과 스스로 구성할 수 있는 것을 설명합니다.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
-Microsoft에서 새로운 버전을 릴리스하거나 클러스터에 대해 지원되는 패브릭 버전을 선택하도록 한 경우 클러스터가 자동 패브릭 업그레이드를 수신하도록 설정할 수 있습니다.
+Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터가 수신하도록 설정할 수 있습니다. 또는 클러스터를 배치하려는 지원되는 패브릭 버전을 선택할 수 있습니다.
 
 포털에서 "upgradeMode" 클러스터를 설정하거나 라이브 클러스터 생성 시 또는 나중에 Resource Manager를 사용하여 이 작업을 수행합니다. 
 
@@ -165,7 +165,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 ### <a name="certificates"></a>인증서
 포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다. [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
 
-![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
+![Azure Portal의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
 ### <a name="application-ports"></a>응용 프로그램 포트
 노드 유형에 연결된 부하 분산 장치 리소스 속성을 변경하여 응용 프로그램 포트를 변경할 수 있습니다. 포털을 사용하거나 리소스 관리자 PowerShell을 직접 사용할 수 있습니다.
@@ -203,7 +203,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 ![사용자 지정 상태 정책 관리][HealthPolices]
 
 ### <a name="customize-fabric-settings-for-your-cluster"></a>클러스터에 대한 패브릭 설정 사용자 지정
-설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 을 참조하세요.
+설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 패치
 [패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows 업데이트에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 

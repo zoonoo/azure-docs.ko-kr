@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d8b0bde3778054042c32dbc9c9e08d0b2f1fd3ca
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
@@ -153,7 +153,7 @@ Azure Cosmos DB 쿼리 성능에 영향을 주는 가장 일반적인 요소는 
 | 쿼리 실행 메트릭 | 쿼리 실행 메트릭을 분석하여 쿼리 및 데이터 셰이프의 재작성 가능성을 파악합니다.  |
 
 ### <a name="provisioned-throughput"></a>프로비전된 처리량
-Cosmos DB에서 각각 초 및 분당 RU(요청 단위)로 표현된 예약된 처리량을 포함하는 데이터의 컨테이너를 만듭니다. 1KB 문서의 읽기는 1RU이고 쿼리를 포함한 모든 작업은 해당 복잡성에 따라 고정된 RU로 정규화됩니다. 예를 들어 사용자 컨테이너에 대해 프로비전된 1000 RU/s가 있고 5RU를 사용하는 `SELECT * FROM c WHERE c.city = 'Seattle'`과 같은 쿼리가 있는 경우 이러한 쿼리는 초당 (1000 RU/s) / (5 RU/query) = 200 query/s를 수행할 수 있습니다. 
+Cosmos DB에서 각각 초당 RU(요청 단위)로 표현된 예약된 처리량을 포함하는 데이터의 컨테이너를 만듭니다. 1KB 문서의 읽기는 1RU이고 쿼리를 포함한 모든 작업은 해당 복잡성에 따라 고정된 RU로 정규화됩니다. 예를 들어 사용자 컨테이너에 대해 프로비전된 1000 RU/s가 있고 5RU를 사용하는 `SELECT * FROM c WHERE c.city = 'Seattle'`과 같은 쿼리가 있는 경우 이러한 쿼리는 초당 (1000 RU/s) / (5 RU/query) = 200 query/s를 수행할 수 있습니다. 
 
 초당 200개가 넘는 쿼리를 제출하는 경우 서비스는 200/s를 초과하는 들어오는 요청에 대해 속도 제한을 시작합니다. SDK는 백오프/재시도를 수행하여 이러한 사례를 처리하므로 이러한 쿼리에 대해서는 대기 시간이 더 높게 나타날 수 있습니다. 필요한 값에 대해 프로비전된 처리량을 높이면 쿼리 대기 시간 및 처리량이 향상됩니다. 
 
@@ -174,18 +174,73 @@ Azure Cosmos DB에서 쿼리는 일반적으로 가장 빠른/가장 효율적�
 ### <a name="sdk-and-query-options"></a>SDK 및 쿼리 옵션
 Azure Cosmos DB에서 가장 좋은 클라이언트 쪽 성능을 얻는 방법은 [성능 팁](performance-tips.md) 및 [성능 테스트](performance-testing.md)를 참조하세요. 여기에는 최신 SDK 사용, 기본 연결 수와 같은 플랫폼별 구성, 가비지 수집 빈도 및 직접/TCP와 같은 경량의 연결 옵션 사용이 포함됩니다. 
 
-쿼리의 경우 `MaxBufferedItemCount` 및 `MaxDegreeOfParallelism`을 조정하여 사용자 응용 프로그램에 가장 적합한 구성을 식별합니다. 특히 파티션 키 값에 대한 필터 없이 파티션 간 쿼리를 수행하는 경우 해당됩니다.
+
+#### <a name="max-item-count"></a>최대 항목 수
+쿼리의 경우 `MaxItemCount`의 값은 종단 간 쿼리 시간에 상당한 영향을 미칠 수 있습니다. 서버에 대한 각 왕복은 `MaxItemCount`의 항목 수 이상을 반환하지 않습니다(기본값은 100개 항목). 이를 더 높은 값으로 설정하면(-1이 최대이자 권장됨) 서버와 클라이언트 간 왕복 횟수를 제한되어 쿼리 기간이 전체적으로 개선됩니다. 특히 대규모 결과 집합의 쿼리의 경우가 해당됩니다.
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxItemCount = -1, 
+    }).AsDocumentQuery();
+```
+
+#### <a name="max-degree-of-parallelism"></a>병렬 처리의 최대 수준
+쿼리의 경우 `MaxDegreeOfParallelism`을 조정하여 사용자 응용 프로그램에 가장 적합한 구성을 식별합니다. 특히 파티션 키 값에 대한 필터 없이 파티션 간 쿼리를 수행하는 경우 해당됩니다. `MaxDegreeOfParallelism`은 병렬로 방문할 최대 파티션 수와 같이 최대 병렬 작업 수를 제어합니다. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxDegreeOfParallelism = -1, 
+        EnableCrossPartitionQuery = true 
+    }).AsDocumentQuery();
+```
+
+다음을 가정해보세요.
+* D = 기본 최대 병렬 작업 수(= 클라이언트 컴퓨터의 총 프로세서 수)
+* P = 사용자 지정 최대 병렬 작업 수
+* N = 쿼리 응답을 위해 방문해야 하는 파티션 수
+
+다음은 병렬 쿼리가 P의 여러 다른 값에 대해 어떻게 작동하는지를 나타냅니다.
+* (P == 0) => 직렬 모드
+* (P == 1) => 한 작업의 최대
+* (P > 1) => 최소(P, N) 병렬 작업 
+* (P < 1) => 최소(N, D) 병렬 작업
 
 SDK 릴리스 정보 및 구현된 클래스와 메서드에 대한 자세한 내용은 [DocumentDB SDK](documentdb-sdk-dotnet.md)를 참조하세요.
 
 ### <a name="network-latency"></a>네트워크 대기 시간
 글로벌 분포를 설정하고 가장 가까운 지역에 연결하는 방법은 [Azure Cosmos DB 글로벌 분포](tutorial-global-distribution-documentdb.md)를 참조하세요. 네트워크 대기 시간은 여러 왕복을 수행하거나 쿼리에서 큰 결과 집합을 검색해야 하는 경우 쿼리 성능에 상당한 영향을 미칩니다. 
 
+쿼리 실행 메트릭에 관한 섹션은 쿼리의 서버 실행 시간을 검색하는 방법을 설명합니다(`totalExecutionTimeInMs`). 따라서 쿼리 실행에 걸린 시간과 네트워크 전송에 소요된 시간을 구별할 수 있습니다.
+
 ### <a name="indexing-policy"></a>인덱싱 정책
 인덱싱 경로, 종류, 모드 및 쿼리 실행에 어떻게 영향을 주는지에 대한 내용은 [인덱싱 정책 구성](indexing-policies.md)을 참조하세요. 기본적으로 인덱싱 정책은 같음 쿼리에는 유효하지만 범위 쿼리/order by 쿼리에는 유효하지 않은 문자열용 해시 인덱싱을 사용합니다. 문자열에 대해 범위 쿼리가 필요한 경우 모든 문자열에 대해 범위 인덱스 유형을 지정하는 것이 좋습니다. 
 
 ## <a name="query-execution-metrics"></a>쿼리 실행 메트릭
 선택 사항인 `x-ms-documentdb-populatequerymetrics` 헤더(.NET SDK에서 `FeedOptions.PopulateQueryMetrics`)에 전달하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. `x-ms-documentdb-query-metrics`에서 반환된 값은 쿼리 실행의 고급 문제 해결을 위한 다음 키-값 쌍을 포함합니다. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        PopulateQueryMetrics = true, 
+    }).AsDocumentQuery();
+
+FeedResponse<dynamic> result = await query.ExecuteNextAsync();
+
+// Returns metrics by partition key range Id
+IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
+
+```
 
 | 메트릭 | 단위 | 설명 | 
 | ------ | -----| ----------- |

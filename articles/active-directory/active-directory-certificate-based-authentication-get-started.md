@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c32f2ca2c799332652d38d882a4d6337bade4f93
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
@@ -40,6 +40,8 @@ ms.lasthandoff: 05/18/2017
 ## <a name="requirements"></a>요구 사항
 
 인증서 기반 인증을 구성하려면 다음에 해당되어야 합니다.  
+
+- CBA(인증서 기반 인증)는 최신 인증(ADAL)을 사용하는 브라우저 응용 프로그램 또는 네이티브 클라이언트의 페더레이션 환경에서만 지원됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO용 EAS(Exchange Active Sync)는 예외입니다. 
 
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.  
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 10ca10b2f644c29aad244abab720d2ce5586714f
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics의 Azure 네트워킹 모니터링 솔루션
@@ -64,7 +63,7 @@ Azure Application Gateway 분석 및 네트워크 보안 그룹 분석 관리 �
 
 | 플랫폼 | 직접 에이전트 | Systems Center Operations Manager 에이전트 | Azure | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![아니요](./media/log-analytics-azure-networking/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-networking/oms-bullet-red.png) |![예](./media/log-analytics-azure-networking/oms-bullet-green.png) |![아니요](./media/log-analytics-azure-networking/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-networking/oms-bullet-red.png) |기록될 때 |
+| Azure |  |  |&#8226; |  |  |기록될 때 |
 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Application Gateway 분석 솔루션

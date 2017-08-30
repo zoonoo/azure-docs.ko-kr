@@ -1,4 +1,24 @@
+---
+title: "Azure AD v2 iOS 시작 - 구성 | Microsoft Docs"
+description: "iOS(Swift) 응용 프로그램이 Azure Active Directory v2 끝점으로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
+ms.contentlocale: ko-kr
 
+---
 ## <a name="create-an-application-express"></a>응용 프로그램(Express) 만들기
 이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)을 통해 응용 프로그램을 등록합니다.
@@ -49,3 +69,4 @@ Ctrl 키를 누른 채로 <code>Info.plist</code>를 클릭하여 상황에 맞�
 <i><code>[Your_Application_Id_Here]</code></i>를 방금 등록한 응용 프로그램 ID로 바꿉니다.
 </li>
 </ol>
+

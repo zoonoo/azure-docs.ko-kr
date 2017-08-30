@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed867e1e7702d3f178feeab007ac94fb1d67c140
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Azure Table Storage에 센서 데이터를 포함한 IoT Hub 메시지 저장
@@ -47,7 +47,7 @@ Azure Storage 계정 및 Azure 함수 앱을 만들어 Table Storage에 IoT Hub 
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **저장소** > **저장소 계정**을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **저장소** > **저장소 계정** > **만들기**를 차례로 클릭합니다.
 
 2. 저장소 계정에 필요한 정보를 입력합니다.
 
@@ -109,7 +109,7 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>Azure 함수 앱 만들기 및 배포
 
-1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **계산** > **함수 앱**을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **새로 만들기** > **계산** > **함수 앱** > **만들기**를 차례로 클릭합니다.
 
 2. 함수 앱에 필요한 정보를 입력합니다.
 
@@ -169,7 +169,7 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
 
 8. **Event Hub 소비자 그룹** 아래에서 만든 소비자 그룹의 이름을 입력한 다음 **저장**을 클릭합니다.
 
-9. **개발**을 클릭한 다음 **파일 보기**를 클릭합니다.
+9. 왼쪽에서 만든 함수를 클릭한 다음 오른쪽의 **파일 보기**를 클릭합니다.
 
 10. `index.js`의 코드를 다음으로 바꿉니다.
 

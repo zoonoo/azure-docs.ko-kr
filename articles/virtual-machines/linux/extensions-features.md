@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -34,13 +34,12 @@ Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Linux용 DSC 확장을 사용하여 가상 컴퓨터에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)을 참조하세요.
-- Microsoft Monitoring Agent VM 확장을 사용하여 가상 컴퓨터의 모니터링을 구성합니다. 자세한 내용은 [VM 모니터링 사용 또는 사용 안 함](vm-monitoring.md)을 참조하세요.
+- Microsoft Monitoring Agent VM 확장을 사용하여 가상 컴퓨터의 모니터링을 구성합니다. 자세한 내용은 [Linux VM을 모니터링하는 방법](tutorial-monitoring.md)을 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 - Docker VM 확장을 사용하여 Azure Virtual Machine에서 Docker 호스트를 구성합니다. 자세한 내용은 [Docker VM 확장](dockerextension.md)을 참조하세요.
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](extensions-customscript.md)을 참조하세요.
 
-VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](../linux/dotnet-core-1-landing.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,7 +87,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 통해 기존 가상 컴퓨터에 VM 확장을 적용할 수 있습니다. 이렇게 하려면 가상 컴퓨터를 선택하고 **확장**을 선택한 후 **추가**를 클릭합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -131,7 +130,7 @@ Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포�
 }
 ```
 
-자세한 내용은 [Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](../linux/extensions-authoring-templates.md)을 참조하세요.
+자세한 내용은 [Azure Resource Manager 템플릿 작성](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions)을 참조하세요.
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 

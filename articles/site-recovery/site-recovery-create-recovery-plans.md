@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>복구 계획 만들기
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 
 이 문서는 [Azure Site Recovery](site-recovery-overview.md)에서 복구 계획을 만들고 사용자 지정하는 정보를 제공합니다.
 
-이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
  다음을 수행하는 복구 계획을 만듭니다.
 
@@ -44,6 +44,7 @@ ms.lasthandoff: 06/16/2017
     - VMM에서 Azure까지의 경우 **원본 형식** > **VMM**을 선택합니다.  원본 VMM 서버 및 **Azure**를 대상으로 선택합니다.
     - Hyper-V 복제에서 VMM 없는 Azure까지의 경우 **원본 형식** > **Hyper-V 사이트**를 선택합니다. 이 사이트를 원본으로, **Azure**를 대상으로 선택합니다.
     - VMware 또는 물리적 온-프레미스 서버에서 Azure까지의 경우 구성 서버를 원본으로, **Azure**를 대상으로 선택합니다.
+    - Azure에서 Azure 복구 계획까지의 경우 원본으로 Azure 지역을 선택하고 대상으로 보조 Azure 지역을 선택합니다. 가상 컴퓨터에 해당하는 보조 Azure 지역만 보호됩니다.
 2. **가상 컴퓨터 선택**에서 복구 계획 내 기본 그룹(그룹 1)에 추가하고자 하는 가상 컴퓨터(또는 복제 그룹)를 선택합니다.
 
 ## <a name="customize-and-extend-recovery-plans"></a>복구 계획 사용자 지정 및 확장

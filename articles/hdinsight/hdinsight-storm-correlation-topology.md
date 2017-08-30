@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
@@ -35,8 +35,8 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
 
 * HDInsight 클러스터의 Apache Storm(Windows 기반).
 
-  > [!IMPORTANT]
-  > 2016년 10월 28일 이후 생성된 Linux 기반 Storm 클러스터에서는 SCP.NET 토폴로지가 지원되지만 2016년 10월 28일 기준으로 사용 가능한 HBase SDK for .NET 패키지는 Linux에서 제대로 작동하지 않습니다.
+  > [!WARNING]
+  > 2016년 10월 28일 이후 생성된 Linux 기반 Storm 클러스터에서는 SCP.NET 토폴로지가 지원되지만 2016년 10월 28일 기준으로 사용 가능한 HBase SDK for .NET 패키지는 Linux 기반 HDInsight에서 제대로 작동하지 않습니다.
 
 * HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반)
 

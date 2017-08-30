@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="1.12.2"/>1.12.2</a>
+*   npm 설명서가 수정되었습니다.
+
+### <a name="1.12.1"/>1.12.1</a>
+* 관련된 문서에 특수 유니코드 문자(LS, PS)가 있는 executeStoredProcedure의 버그를 수정했습니다.
+* 파티션 키의 유니코드 문자를 사용하여 문서를 처리할 때 버그를 수정했습니다.
+* 이름 미디어를 사용하여 컬렉션을 만들기 위한 지원을 수정했습니다. Github 문제 #114.
+* 권한 부여 토큰에 대한 지원을 수정했습니다. Github 문제 #178.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* [분당 요청 단위(RU/m)](../cosmos-db/request-units-per-minute.md) 기능에 대한 지원이 추가되었습니다.
 * ConsistentPrefix라고 하는 새로운 [일관성 수준](consistency-levels.md)에 대한 지원이 추가되었습니다.
 * UriFactory에 대한 지원이 추가되었습니다.
-* 유니코드 지원 버그가 해결되었습니다. (GitHub 문제 #171)
+* 유니코드 지원 버그를 수정했습니다. GitHub 문제 #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
 * 파티션 간 쿼리에 대한 병렬 처리 수준을 제어하기 위한 옵션을 추가했습니다.
 * Azure Cosmos DB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
-* 단일 파티션 컬렉션(github #107)에 대한 연속 토큰 버그를 수정했습니다.
-* 단일 매개 변수(github #155)인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다.
+* 단일 파티션 컬렉션에 대한 연속 토큰 버그를 수정했습니다. Github 문제 #107.
+* 단일 매개 변수인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다. Github 문제 #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * SDK 버전을 포함하도록 수정된 사용자 에이전트 헤더입니다.
@@ -118,7 +126,7 @@ ms.lasthandoff: 07/25/2017
 * 문제 해결 [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter 수신기 누수 경고
 
 ### <a name="1.5.1"/>1.5.1</a>
-* 문제 해결 [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - 대/소문자 구분 시스템으로 인해 Hash 폴더의 이름을 hash로 바꿉니다.
+* 문제 [#92](https://github.com/Azure/azure-documentdb-node/issues/90) 해결 - 대/소문자 구분 시스템으로 인해 Hash 폴더의 이름을 hash로 바꿉니다.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * 해시 및 범위 파티션 해결 프로그램을 추가하여 분할 지원 구현
@@ -160,7 +168,7 @@ ms.lasthandoff: 07/25/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
-Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
+Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
@@ -170,6 +178,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |2017년 8월 10일 |--- |
+| [1.12.1](#1.12.1) |2017년 8월 10일 |--- |
 | [1.12.0](#1.12.0) |2017년 5월 10일 |--- |
 | [1.11.0](#1.11.0) |2017년 3월 16일 |--- |
 | [1.10.2](#1.10.2) |2017년 1월 27일 |--- |

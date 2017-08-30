@@ -1,6 +1,6 @@
 ---
-title: "Azure Network Watcher를 사용하여 연결 확인 - Azure REST API | Microsoft Docs"
-description: "이 페이지에서는 Azure REST API를 사용하여 Network Watcher를 통해 연결을 확인하는 방법을 설명합니다."
+title: "Azure Network Watcher를 사용하여 연결 확인 - Azure Portal | Microsoft Docs"
+description: "이 페이지에서는 Azure Portal에서 Network Watcher를 사용하여 연결을 확인하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -11,31 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9a900752dccfd82524951a01ebf70f882a35afd9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher를 통해 연결 확인
+# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher를 통해 연결 확인
 
 > [!div class="op_single_selector"]
+> - [포털](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 연결을 사용하여 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
-
-이 문서에서는 연결을 통해 실행할 수 있는 다양한 유형의 확인을 안내합니다.
-
-* [가상 컴퓨터에 대한 연결 확인](#check-connectivity-to-a-virtual-machine)
-* [라우팅 문제 확인](#validate-routing-issues)
-* [웹 사이트 대기 시간 확인](#check-website-latency)
-* [저장소 끝점에 대한 연결 확인](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -469,7 +463,7 @@ null
 
 ### <a name="response"></a>응답
 
-다음은 이전 API 호출 실행에서 가져온 예제 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
+다음 예제는 이전 API 호출 실행에서 가져온 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  저장소 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 
 ```json
 {

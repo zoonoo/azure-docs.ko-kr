@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Node.js 자습서: DocumentDB Node.js 콘솔 응용 프로그램
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 자습서: Azure Cosmos DB에서 DocumentDB API를 사용하여 Node.js 콘솔 응용 프로그램을 만들기
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -47,7 +47,7 @@ Azure Cosmos DB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습�
 * 문서 삭제
 * 노드 데이터베이스 삭제
 
-시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution) 를 참조하세요.
+시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
 Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있는 응답 단추를 통해 의견을 보내주세요. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
@@ -56,12 +56,12 @@ Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있�
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Node.js 자습서의 필수 조건
 다음 항목이 있는지 확인합니다.
 
-* 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+* 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
     * 또는 이 자습서에 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다.
 * [Node.js](https://nodejs.org/) 버전 v0.10.29 이상
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
-Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뜁니다.
+Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뜁니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -367,7 +367,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
 
 축하합니다. Azure Cosmos DB 문서를 성공적으로 만들었습니다.
 
-![Node.js 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램 - 노드 데이터베이스](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Node.js 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램 - 노드 데이터베이스](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>8단계: Azure Cosmos DB 리소스 쿼리
 Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다.
@@ -455,7 +455,7 @@ Azure Cosmos DB는 JSON 문서 바꾸기를 지원합니다.
         });
     };
 
-**queryCollection**에 대한 호출 아래에 코드를 복사하고 붙여넣어서 **replaceDocument** 함수를 실행합니다. 또한 **queryCollection** 을 다시 호출하는 코드를 추가하여 문서가 성공적으로 변경되었는지 확인합니다.
+**queryCollection**에 대한 호출 아래에 코드를 복사하고 붙여넣어서 **replaceDocument** 함수를 실행합니다. 또한 **queryCollection**을 다시 호출하는 코드를 추가하여 문서가 성공적으로 변경되었는지 확인합니다.
 
     .then(() => getFamilyDocument(config.documents.Andersen))
     .then(() => getFamilyDocument(config.documents.Wakefield))
@@ -553,7 +553,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ## <a id="Run"></a>12단계: Node.js 응용 프로그램 모두 함께 실행
-함수를 호출는 시퀀스는 모두 다음과 같아야 합니다.
+함수를 호출하는 시퀀스는 모두 다음과 같아야 합니다.
 
     getDatabase()
     .then(() => getCollection())

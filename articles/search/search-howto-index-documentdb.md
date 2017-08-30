@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 05/01/2017
+ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
@@ -78,7 +78,7 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 * **컨테이너**:
   
   * **이름**: 필수입니다. 인덱싱할 Cosmos DB 컬렉션의 ID를 지정합니다.
-  * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
+  * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 * **dataChangeDetectionPolicy**: 권장 사항입니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.
 * **dataDeletionDetectionPolicy**: 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.
 
@@ -99,25 +99,25 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 
 필터 쿼리:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
 
 평면화 쿼리:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
     
     
 프로젝션 쿼리:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
 배열 평면화 쿼리:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
 ## <a name="step-2-create-an-index"></a>2단계: 인덱스 만들기
-대상 Azure 검색 인덱스가 아직 없으면 만듭니다. [Azure Portal UI](search-create-index-portal.md)를 사용하거나 [인덱스 REST API 만들기](/rest/api/searchservice/create-index) 또는 [인덱스 클래스](/dotnet/api/microsoft.azure.search.models.index)를 사용하여 인덱스를 만들 수 있습니다.
+대상 Azure Search 인덱스가 아직 없으면 만듭니다. [Azure Portal UI](search-create-index-portal.md)를 사용하거나 [인덱스 REST API 만들기](/rest/api/searchservice/create-index) 또는 [인덱스 클래스](/dotnet/api/microsoft.azure.search.models.index)를 사용하여 인덱스를 만들 수 있습니다.
 
 다음 예제에서는 id 및 설명 필드를 사용해서 인덱스를 만듭니다.
 
@@ -149,7 +149,7 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 > 
 > 
 
-### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure Search 데이터 형식 사이의 매핑
 | JSON 데이터 형식 | 호환되는 대상 인덱스 필드 형식 |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -241,7 +241,21 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 
 적절한 인덱서 성능을 보장하기 위해서는 반드시 이 정책을 사용하는 것이 좋습니다. 
 
-사용자 지정 쿼리를 사용하는 경우 `_ts` 속성이 쿼리에 의해 프로젝션되어야 합니다. 
+사용자 지정 쿼리를 사용하는 경우 `_ts` 속성이 쿼리에 의해 프로젝션되어야 합니다.
+
+<a name="IncrementalProgress"></a>
+### <a name="incremental-progress-and-custom-queries"></a>증분 진행률 및 사용자 지정 쿼리
+인덱싱하는 동안 증분 진행률은 인덱서 실행이 일시적 오류 또는 실행 시간 제한에 의해 중단되었는지를 확인합니다. 인덱서는 처음부터 전체 컬렉션을 다시 인덱스하는 대신 다음으로 실행할 위치를 선택할 수 있습니다. 대규모 컬렉션을 인덱싱할 때 특히 유용합니다. 
+
+사용자 지정 쿼리를 사용하는 경우 증분 진행률을 사용하려면 쿼리가 `_ts` 열을 기준으로 결과를 정렬해야 합니다. 그러면 Azure Search에서 사용하는 정기적 검사점이 오류가 있는 경우 증분 진행률을 제공할 수 있습니다.   
+
+어떤 경우에는 쿼리에 `ORDER BY [collection alias]._ts` 절이 포함되더라도 Azure Search이 `_ts` 기준으로 쿼리를 정렬하는지 유추하지 않을 수 있습니다. Azure Search에서 결과가 `assumeOrderByHighWaterMarkColumn` 구성 속성을 사용하여 정렬되도록 지시할 수 있습니다. 이 힌트를 지정하려면 다음과 같이 인덱서를 만들거나 업데이트합니다. 
+
+    {
+     ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
+    } 
 
 <a name="DataDeletionDetectionPolicy"></a>
 ## <a name="indexing-deleted-documents"></a>삭제된 문서 인덱싱
@@ -283,5 +297,5 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 축하합니다. Cosmos DB용 인덱서를 사용하여 Azure Search에 Azure Cosmos DB를 통합하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
-* Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
+* Azure Search에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
 

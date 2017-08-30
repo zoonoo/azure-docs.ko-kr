@@ -1,4 +1,25 @@
+---
+title: "Azure AD v2 iOS 시작 - 구성(ARP) | Microsoft Docs"
+description: "iOS(Swift) 응용 프로그램이 Azure Active Directory v2 끝점으로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 5ce5d26943839d9fe53508d396825289d77cf2f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/15/2017
 
+---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 
 이 단계에서는 프로젝트에 응용 프로그램 ID를 추가해야 합니다.
@@ -33,3 +54,4 @@ Ctrl 키를 누른 채로 <code>Info.plist</code>를 클릭하여 상황에 맞�
     </dict>
 </array>
 ```
+

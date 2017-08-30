@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 14736524bf3c6d299838d8e3dc8b18db117d1041
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C 등록, 로그인, 프로필 편집 및 암호 재설정을 사용하여 ASP.NET 웹앱 만들기
@@ -61,7 +61,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ### <a name="add-your-identity-providers"></a>ID 공급자 추가
 
-설정에서 **ID 공급자**를 선택하고 사용자 ID 등록 또는 전자 메일 등록을 선택합니다.
+설정에서 **ID 공급자**를 선택하고 사용자 이름 등록 또는 전자 메일 등록을 선택합니다.
 
 ### <a name="create-a-sign-up-and-sign-in-policy"></a>등록 및 로그인 정책 만들기
 

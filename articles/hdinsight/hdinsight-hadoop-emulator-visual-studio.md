@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: da8029f5cd69f3fd9d423c8e3ff22f2a7527f480
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
-Azure Data Lake 도구에는 Data Lake 및 Azure HDInsight를 사용하기 위한 도구 외에도 일반 Hadoop 클러스터를 사용하기 위한 도구가 포함됩니다. 이 문서에서는 로컬 가상 컴퓨터에서 실행되는 Hortonworks Sandbox와 Data Lake 도구를 사용하는 데 필요한 단계를 제공합니다.
+Azure Data Lake는 제네릭 Hadoop 클러스터를 사용하기 위한 도구를 포함합니다. 이 문서에서는 로컬 가상 컴퓨터에서 실행되는 Hortonworks Sandbox와 Data Lake 도구를 사용하는 데 필요한 단계를 제공합니다.
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 개발 환경의 가상 컴퓨터에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, [Hadoop 에코시스템에서 시작](hdinsight-hadoop-emulator-get-started.md)의 정보를 사용하여 설정되었습니다.
+* 개발 환경의 가상 컴퓨터에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hdinsight-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
 * Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017(모든 에디션)
 
@@ -41,7 +40,7 @@ Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사�
 
 ## <a name="configure-passwords-for-the-sandbox"></a>샌드박스의 암호 구성
 
-Hortonworks Sandbox가 실행 중인지 확인합니다. 그런 다음, [Hadoop 에코 시스템에서 시작](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords)의 단계를 따릅니다. 이러한 단계에서 SSH `root` 계정 및 Ambari `admin` 계정의 암호를 구성합니다. Visual Studio에서 샌드박스에 연결할 때 이러한 암호를 사용합니다.
+Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박스에서 시작](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) 문서에 나온 단계에 따릅니다. 이러한 단계에서 SSH `root` 계정 및 Ambari `admin` 계정의 암호를 구성합니다. Visual Studio에서 샌드박스에 연결할 때 이러한 암호를 사용합니다.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>샌드박스에 도구 연결
 
@@ -80,19 +79,19 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. 그런 다음, [Hadoop 
 
 ## <a name="write-a-hive-query"></a>Hive 쿼리 작성
 
-Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼리 언어(HiveQL)를 제공합니다. 다음 단계를 사용하여 로컬 클러스터에 대해 임시 쿼리를 실행하는 방법을 알아봅니다.
+Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼리 언어(HiveQL)를 제공합니다. 다음 단계를 사용하여 로컬 클러스터에 대해 주문형 쿼리를 실행하는 방법을 알아봅니다.
 
 1. **서버 탐색기**에서 이전에 추가한 로컬 클러스터에 대한 항목을 마우스 오른쪽 단추로 클릭한 다음 **Hive 쿼리 작성**을 선택합니다.
 
     ![Hive 쿼리 작성이 강조 표시된 서버 탐색기의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    그러면 로컬 클러스터에는 쿼리를 신속하게 작성하고 제출할 수 있는 새 쿼리 창이 열립니다.
+    새 쿼리 창이 표시됩니다. 쿼리를 신속하게 쓰고 로컬 클러스터에 제출할 수 있습니다.
 
 2. 새 쿼리 창에서 다음 명령을 입력합니다.
 
         select count(*) from sample_08;
 
-    쿼리 창의 위쪽에서 로컬 클러스터에 대한 구성이 선택되었는지 확인한 다음 **제출**을 선택합니다. 다른 값(**Batch** 및 서버 이름)을 기본값으로 그대로 둡니다.
+    쿼리를 실행하려면 창의 위쪽에 있는 **제출**을 선택합니다. 다른 값(**Batch** 및 서버 이름)을 기본값으로 그대로 둡니다.
 
     ![제출 단추가 강조 표시된 쿼리 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
@@ -124,7 +123,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 ## <a name="create-a-hive-project"></a>Hive 프로젝트 만들기
 
-또한 여러 Hive 스크립트를 포함하는 프로젝트를 만들 수 있습니다. 프로젝트는 버전 제어 시스템을 사용하여 함께 보관하거나 유지 관리해야 하는 관련 스크립트가 있는 경우에 유용합니다.
+또한 여러 Hive 스크립트를 포함하는 프로젝트를 만들 수 있습니다. 스크립트와 관련되거나 스크립트를 버전 제어 시스템에 저장하려는 경우 프로젝트를 사용합니다.
 
 1. Visual Studio에서 **파일**, **새로 만들기** 및 **프로젝트**를 차례로 선택합니다.
 
@@ -132,7 +131,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
     ![Azure Data Lake, HIVE, Hive 예제 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-**Hive 샘플** 프로젝트에는 **WebLogAnalysis.hql** 및 **SensorDataAnalysis.hql**이라는 두 개의 스크립트가 포함되어 있습니다. 창 위쪽의 **제출** 단추를 사용하여 이러한 스크립트를 제출할 수 있습니다.
+**Hive 샘플** 프로젝트에는 **WebLogAnalysis.hql** 및 **SensorDataAnalysis.hql**이라는 두 개의 스크립트가 포함되어 있습니다. 창 위쪽의 동일한 **제출** 단추를 사용하여 이러한 스크립트를 제출할 수 있습니다.
 
 ## <a name="create-a-pig-project"></a>Pig 프로젝트 만들기
 

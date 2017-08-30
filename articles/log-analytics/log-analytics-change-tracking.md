@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
@@ -28,13 +28,13 @@ ms.lasthandoff: 07/06/2017
 
 이 문서를 통해 Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 파일 및 레지스트리 키, Windows 서비스 및 Linux 데몬의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
-설치된 에이전트의 유형을 업데이트하려면 이 솔루션을 설치합니다. 모니터링되는 서버에서 설치된 소프트웨어, Windows 서비스 및 Linux 데몬에 대한 변경 내용을 읽은 다음, 해당 데이터는 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
+설치된 에이전트의 유형을 업데이트하려면 이 솔루션을 설치합니다. 모니터링되는 서비스에서 설치된 소프트웨어, Windows 서비스 및 Linux 디먼에 대한 변경 내용은 읽혀집니다. 그런 다음 데이터는 처리를 위해 클라우드의 Log Analytics 서비스에 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 * 변경 내용을 모니터링할 각 컴퓨터에 [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) 또는 [Linux](log-analytics-linux-agents.md) 에이전트가 있어야 합니다.
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 [변경 내용 추적] 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+* 변경 내용 추적 솔루션을 [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview)의 OMS 작업 영역에 추가합니다. 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 정보를 사용하여 솔루션을 추가할 수 있습니다. 추가 구성은 필요하지 않습니다.
 
 ### <a name="configure-linux-files-to-track"></a>추적할 Linux 파일 구성
 다음 단계를 사용하여 Linux 컴퓨터에서 추적할 파일을 구성합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/06/2017
 2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Linux 파일 추적**을 클릭합니다.
 3. Linux 파일 변경 내용 추적에서 추적하려는 파일의 파일 이름을 포함한 전체 경로를 입력한 다음 **추가** 기호를 클릭합니다. 예: "/etc/*.conf"
 4. **Save**를 클릭합니다.  
-  
+
 > [!NOTE]
 > Linux 파일 추적에는 디렉터리 추적, 디렉터리 재귀 및 와일드 카드 추적과 같은 부가 기능이 포함됩니다.
 
@@ -72,11 +72,11 @@ ms.lasthandoff: 07/06/2017
 2. **Links**(다른 파일 또는 디렉터리에 대한 Linux symlink 참조 처리)
    * **Ignore**(참조된 파일/디렉터리를 포함하지 않도록 재귀 중에 symlink 무시)
    * **Follow**(참조된 파일/디렉터리를 포함하도록 재귀 중에 symlink 따라 이동)
-   * **Manage**(symlink 따라 이동 및 반환된 콘텐츠 처리 변경) 
-   
+   * **Manage**(symlink 따라 이동 및 반환된 콘텐츠 처리 변경)
+
    > [!NOTE]   
-   > 파일 콘텐츠 검색은 현재 지원되지 않으므로 “관리” 링크 옵션을 사용하지 않는 것이 좋습니다.
-   
+   > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
+
 3. **Recurse**(폴더 수준 재귀 및 경로 문을 충족하는 모든 파일 추적)
 4. **Sudo**(sudo 권한이 필요한 액세스 파일 또는 디렉터리 사용)
 
@@ -102,9 +102,9 @@ ms.lasthandoff: 07/06/2017
 
 다음 표에서는 데이터 수집 방법 및 변경 내용 추적에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Linux 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Linux 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows 및 Linux |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) | 변경 유형에 따라 5분부터 50분 자세한 내용은 아래를 참조하세요. |
+| Windows 및 Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 변경 유형에 따라 5분부터 50분 자세한 내용은 다음 테이블을 참조하세요. |
 
 
 다음 테이블에서는 변경 형식에 대한 데이터 컬렉션 빈도를 보여 줍니다.
@@ -128,7 +128,7 @@ Log Analytics는 변경 내용 추적 솔루션을 사용하여 Windows 레지�
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - 종료 시 실행되는 스크립트를 모니터링합니다.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - 사용자가 64비트 컴퓨터에서 실행되는 32비트 프로그램을 사용하기 위해 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다.
+    - 사용자가 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다. 키는 64비트 컴퓨터에서 실행되는 32비트 프로그램에 사용됩니다.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - 응용 프로그램 설정의 변경 내용을 모니터링합니다.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -142,9 +142,9 @@ Log Analytics는 변경 내용 추적 솔루션을 사용하여 Windows 레지�
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대한 아이콘 오버레이 처리기 등록을 모니터링합니다.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용할 수 있는 Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다.
+    - Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용할 수 있는 Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다.
+    - Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
@@ -183,5 +183,5 @@ Log Analytics는 변경 내용 추적 솔루션을 사용하여 Windows 레지�
 3. 로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
 
