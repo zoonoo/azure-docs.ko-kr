@@ -16,10 +16,10 @@ ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 79122493a8639dba1c1d6c92072dd682dae040a7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
@@ -55,13 +55,13 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | SQL(v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 진단 | [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md) |
 | 저장소                 |                                         |             | 스크립트      | [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | 가상 컴퓨터        | Microsoft.Compute/virtualMachines       | 내선 번호   | 내선 번호 <br> 진단  | |
-| 가상 컴퓨터 크기 집합 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 진단 | |
+| 가상 컴퓨터 확장 집합 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 진단 | |
 | 웹 서버 팜        | Microsoft.Web/serverfarms               |             | 진단 | |
 | 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps 분석(미리 보기)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
 
 
 > [!NOTE]
-> Azure 가상 컴퓨터(Linux 및 Windows 모두)를 모니터링하려면 [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)을 설치하는 것이 좋습니다. 이 에이전트는 가상 컴퓨터 내에서 수집된 통찰력을 제공합니다. 또한 가상 컴퓨터 크기 집합에 대한 확장을 사용할 수도 있습니다.
+> Azure 가상 컴퓨터(Linux 및 Windows 모두)를 모니터링하려면 [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)을 설치하는 것이 좋습니다. 이 에이전트는 가상 컴퓨터 내에서 수집된 통찰력을 제공합니다. 또한 가상 컴퓨터 확장 집합에 대한 확장을 사용할 수도 있습니다.
 >
 >
 
@@ -71,7 +71,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 지원하는 Azure 리소스는 해당 로그 및 메트릭을 Log Analytics으로 직접 보낼 수 있습니다.
 
 * 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 참조하세요.
-* 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs)를 참조하세요.
+* 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md)를 참조하세요.
 
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell에서 진단 사용
 [Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스가 필요합니다.
