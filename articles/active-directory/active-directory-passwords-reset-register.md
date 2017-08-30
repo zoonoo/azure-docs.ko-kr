@@ -4,7 +4,7 @@ description: "Azure AD 셀프 서비스 암호 재설정을 위한 인증 데이
 services: active-directory
 keywords: 
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.reviewer: sahenry
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: joflore
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
@@ -67,5 +67,4 @@ ms.lasthandoff: 08/08/2017
 * [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "등록된 방법을 보여 주는 암호 재설정 등록 페이지 및 마침 단추"
-
 

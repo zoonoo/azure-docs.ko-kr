@@ -4,7 +4,7 @@ description: "연락처 정보를 변경하거나 장치를 구성하는 등 Azu
 services: multi-factor-authentication
 keywords: "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
@@ -60,10 +60,10 @@ IT 관리자가 2단계 인증을 관리하기 위한 특정 URL 또는 단계�
 
 ## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>신뢰할 수 있는 것으로 표시된 장치에서 2단계 인증이 다시 필요
 
-조직 설정에 따라 브라우저에서 2단계 인증을 수행할 때 "**X**일 동안 다시 묻지 않음"이라는 확인란이 포함될 수 있습니다. 이 확인란을 선택한 후 장치를 분실하거나 계정이 손상된 것으로 생각되는 경우 2단계 인증을 모든 장치로 복원해야 합니다. 
+조직 설정에 따라 브라우저에서 2단계 인증을 수행할 때 "**X**일 동안 다시 묻지 않음"이라는 확인란이 포함될 수 있습니다. 이 확인란을 선택한 후 장치를 분실하거나 계정이 손상된 것으로 생각되는 경우 2단계 인증을 모든 장치로 복원해야 합니다.
 
 1. 추가 보안 확인 페이지에서 **이전에 신뢰할 수 있는 장치에서 Multi-Factor Authentication 복원**을 선택합니다.
-2. 장치에 다음에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다. 
+2. 장치에 다음에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다.
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>이전 장치에서 Microsoft Authenticator를 제거하고 새 장치로 이동하려는 경우
 장치에서 앱을 제거하거나 장치를 재설정하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. 자세한 내용은 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)를 참조하세요.

@@ -13,6 +13,3 @@
 ### [앱 시작](microsoft-authenticator-app-how-to.md)
 ### [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
-# 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

@@ -3,7 +3,7 @@ title: "Azure MFA에서 앱 암호를 사용하는 방법 | Microsoft Docs"
 description: "이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA와 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
@@ -36,21 +36,21 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 
 * 사용자 고유의 앱 암호를 만들지 않습니다. 대신 앱 암호는 자동으로 생성됩니다. 앱마다 앱 암호를 한 번만 입력하면 되므로 기억할 수 있는 암호를 만드는 것보다 더 복잡한 자동 생성 암호를 사용하는 것이 더 안전합니다.
 * 현재 사용자 당 40개의 암호로 제한되어 있습니다. 이 제한에 도달한 후에 만들려고 하면 기존 앱 암호 중 하나를 삭제해야 새로 만들 수 있다는 메시지가 표시됩니다.
-* 응용 프로그램 단위가 아니라 장치별로 앱 암호 하나만 사용해야 합니다. 예를 들어 노트북에 사용할 앱 암호를 하나 만든 다음 노트북의 모든 응용 프로그램에 이 앱 암호를 사용할 수 있습니다. 그런 다음 바탕 화면에 있는 모든 앱에 사용할 두 번째 앱 암호를 만듭니다. 
+* 응용 프로그램 단위가 아니라 장치별로 앱 암호 하나만 사용해야 합니다. 예를 들어 노트북에 사용할 앱 암호를 하나 만든 다음 노트북의 모든 응용 프로그램에 이 앱 암호를 사용할 수 있습니다. 그런 다음 바탕 화면에 있는 모든 앱에 사용할 두 번째 앱 암호를 만듭니다.
 * 처음으로 2단계 인증에 등록하면 앱 암호가 하나만 부여됩니다.  추가 암호가 필요한 경우 만들 수 있습니다.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>앱 암호 만들기 및 삭제
-초기 로그인 중에 사용할 수 있는 앱 암호가 제공됩니다.  또한 나중에 앱 암호를 만들고 삭제할 수도 있습니다.  이 방법은 다단계 인증을 사용하는 방법에 따라 달라집니다. 다음 질문에 대답하여 앱 암호를 관리해야 하는 위치를 결정합니다. 
+초기 로그인 중에 사용할 수 있는 앱 암호가 제공됩니다.  또한 나중에 앱 암호를 만들고 삭제할 수도 있습니다.  이 방법은 다단계 인증을 사용하는 방법에 따라 달라집니다. 다음 질문에 대답하여 앱 암호를 관리해야 하는 위치를 결정합니다.
 
 1. 개인 Microsoft 계정에 대해 2단계 인증을 사용합니까? 그렇다면 [앱 암호 및 2단계 인증](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) 문서를 참조하여 도움을 받습니다. 그렇지 않은 경우 2번 질문으로 계속합니다.
 
-2. 이제 직장이나 학교 계정에 대해 2단계 인증을 사용합니다. Office 365 앱에 로그인하는 데 2단계 인증을 사용합니까? 그렇다면 [Office 365용 앱 암호 만들기](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183)를 참조하여 도움을 받습니다. 그렇지 않은 경우 3번 질문으로 계속합니다. 
+2. 이제 직장이나 학교 계정에 대해 2단계 인증을 사용합니다. Office 365 앱에 로그인하는 데 2단계 인증을 사용합니까? 그렇다면 [Office 365용 앱 암호 만들기](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183)를 참조하여 도움을 받습니다. 그렇지 않은 경우 3번 질문으로 계속합니다.
 
 3. Microsoft Azure에서 2단계 인증을 사용합니까? 그렇다면 이 문서의 [Azure Portal에서 앱 암호 관리](#manage-app-passwords-in-the-Azure-portal) 섹션에서 계속합니다. 그렇지 않은 경우 4번 질문으로 계속합니다.
 
-4. 2단계 인증을 사용하는 위치를 모르십니까? 이 문서의 [MyApps 포털에서 앱 암호 관리](#manage-app-passwords-with-the-myapps-portal) 섹션에서 계속합니다. 
+4. 2단계 인증을 사용하는 위치를 모르십니까? 이 문서의 [MyApps 포털에서 앱 암호 관리](#manage-app-passwords-with-the-myapps-portal) 섹션에서 계속합니다.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Azure Portal에서 앱 암호 관리
@@ -63,7 +63,7 @@ Azure에서 2단계 인증을 사용하는 경우 Azure Portal을 통해 앱 암
 4. **만들기**를 클릭합니다.
 5. 앱 암호의 이름을 입력하고 **다음**
 6. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
-   
+
    ![클라우드](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
@@ -115,5 +115,5 @@ Azure에서 2단계 인증을 사용하는 경우 Azure Portal을 통해 앱 암
 
 - [2단계 인증 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하여 텍스트 또는 전화를 받는 대신 앱 알림으로 로그인을 확인합니다. 
+- [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하여 텍스트 또는 전화를 받는 대신 앱 알림으로 로그인을 확인합니다.
 
