@@ -162,7 +162,6 @@
 ##### [지원 패키지 만들기](storsimple-8000-create-manage-support-package.md)
 
 ### 마이그레이션
-#### [5000-7000 시리즈에서](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 업데이트
@@ -301,16 +300,17 @@
 ##### [지원 패키지 만들기](storsimple-create-manage-support-package.md)
 
 ### 마이그레이션
-#### [5000-7000 시리즈에서](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 업데이트
+#### [업데이트 5 설치 - 현재](storsimple-install-update-5.md)
 #### [업데이트 4 설치](storsimple-install-update-4.md)
 #### [업데이트 3 설치](storsimple-install-update-3.md)
 #### [장치 업데이트](storsimple-update-device.md)
 
 ## 릴리스 정보
-### [업데이트 4 - 현재](storsimple-update4-release-notes.md)
+### [업데이트 5 - 현재](storsimple-update5-release-notes.md)
+### [업데이트 4](storsimple-update4-release-notes.md)
 ### [업데이트 3](storsimple-update3-release-notes.md)
 ### [업데이트 2.2](storsimple-update21-release-notes.md)
 
