@@ -116,7 +116,7 @@ ms.lasthandoff: 07/21/2017
 * 가상 컴퓨터
 * Key Vault에 저장된 인증서를 사용하는 Virtual Machines - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
-* 가상 컴퓨터 크기 집합
+* 가상 컴퓨터 확장 집합
 * Virtual Networks - 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다. 또한 Virtual Network에 리소스 탐색 링크가 포함된 서브넷이 있는 경우 Virtual Network를 다른 구독으로 이동할 수 없습니다. 예를 들어, Virtual Network 서브넷은 Microsoft.Cache redis 리소스가 이 서브넷에 배포된 경우 리소스 탐색 링크를 포함합니다.
 * VPN 게이트웨이
 

@@ -80,7 +80,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 사용하여 Service Fabric 클러스터의 기반이 되는 다양한 Azure 리소스를 모니터링할 수 있습니다. [가상 컴퓨터 크기 집합](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) 및 개별 [가상 컴퓨터](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)에 대한 일단의 메트릭이 자동으로 수집되어 Azure Portal에 표시됩니다. 수집된 정보를 보려면 Azure Portal에서 Service Fabric 클러스터가 포함된 리소스 그룹을 선택합니다. 그런 다음 보려는 가상 컴퓨터 크기 집합을 선택합니다. **모니터링** 섹션에서 **메트릭**을 선택하여 값의 그래프를 봅니다.
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 사용하여 Service Fabric 클러스터의 기반이 되는 다양한 Azure 리소스를 모니터링할 수 있습니다. [가상 컴퓨터 확장 집합](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) 및 개별 [가상 컴퓨터](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)에 대한 일단의 메트릭이 자동으로 수집되어 Azure Portal에 표시됩니다. 수집된 정보를 보려면 Azure Portal에서 Service Fabric 클러스터가 포함된 리소스 그룹을 선택합니다. 그런 다음 보려는 가상 컴퓨터 확장 집합을 선택합니다. **모니터링** 섹션에서 **메트릭**을 선택하여 값의 그래프를 봅니다.
 
 ![수집된 메트릭 정보의 Azure Portal 보기](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
