@@ -124,7 +124,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OperationNotAllowed  |  복원 지점 컬렉션 '{1}'을 삭제하도록 표시하는 경우 작업 '{0}'이 허용되지 않습니다.  |
 |  OperationNotAllowed  |  VM 확장 '{1}'이 삭제 예정으로 표시되었으므로 이 VM 확장에서는 작업 '{0}'이(가) 허용되지 않습니다. 삭제 작업을 다시 시도(하거나 실행 중인 작업이 완료되기를 기다림)할 수 있습니다.  |
 |  OperationNotAllowed  |  가상 컴퓨터 '{1}'이 이미지 '{2}'를 사용하여 프로비전되기 때문에 작업 '{0}'이(가) 허용되지 않습니다.  |
-|  OperationNotAllowed  |  가상 컴퓨터 크기 집합 '{1}'이 현재 '{2}' 이미지를 사용 중이므로 '{0}' 작업이 허용되지 않습니다.  |
+|  OperationNotAllowed  |  가상 컴퓨터 확장 집합 '{1}'이 현재 '{2}' 이미지를 사용 중이므로 '{0}' 작업이 허용되지 않습니다.  |
 |  OperationNotAllowed  |  VM '{1}'이 삭제 예정으로 표시되었으므로 이 VM에서는 작업 '{0}'이(가) 허용되지 않습니다. 삭제 작업을 다시 시도(하거나 실행 중인 작업이 완료되기를 기다림)할 수 있습니다.  |
 |  OperationNotAllowed  |  VM '{1}'이 할당 취소되었거나 할당 취소된 것으로 표시되었으므로 '{0}' 작업이 이 VM에서 허용되지 않습니다.  |
 |  OperationNotAllowed  |  VM '{1}'이 실행되었으므로 작업 '{0}'은 이 VM에서 허용되지 않습니다. 게스트 운영 체제 내부에서 VM을 종료하는 경우 명시적으로 전원을 끄세요.  |
@@ -134,8 +134,8 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OperationNotAllowed  |  '{0}' 작업은 가상 컴퓨터 '{1}'을 일반화해야 합니다.  |
 |  OperationNotAllowed  |  작업을 수행하려면 VM이 실행되고 있거나 실행되도록 설정되어 있어야 합니다.  |
 |  OperationNotAllowed  |  디스크 크기가 {0}GB로 이미지의 해당 디스크 크기 {1}GB보다 작아 디스크가 허용되지 않습니다.  |
-|  OperationNotAllowed  |  처리기 '{0}'의 VM 크기 집합 확장은 VM 크기 집합을 만들 때만 추가할 수 있습니다.  |
-|  OperationNotAllowed  |  처리기 '{0}'의 VM 크기 집합 확장은 VM 크기 집합을 삭제할 때만 삭제할 수 있습니다.  |
+|  OperationNotAllowed  |  처리기 '{0}'의 VM 확장 집합 확장은 VM 확장 집합을 만들 때만 추가할 수 있습니다.  |
+|  OperationNotAllowed  |  처리기 '{0}'의 VM 확장 집합 확장은 VM 확장 집합을 삭제할 때만 삭제할 수 있습니다.  |
 |  OperationNotAllowed  |  '{0}' VM이 이미 Managed Disks를 사용하고 있습니다.  |
 |  OperationNotAllowed  |  '{0}' VM이 '클래식' 가용성 집합 '{1}'에 속해 있습니다. 가용성 집합을 업데이트하여 '정렬됨' SKU를 사용한 다음 변환을 다시 시도하세요.  |
 |  OperationNotAllowed  |  이미지에서 만든 VM은 Blob 기반 디스크를 사용할 수 없습니다. 모든 디스크는 Managed Disks여야 합니다.  |

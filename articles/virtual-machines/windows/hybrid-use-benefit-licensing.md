@@ -213,8 +213,8 @@ Windows Server:
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 가상 컴퓨터 크기 집합 배포
-VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 크기 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 아래 예제를 참조하세요.
+## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 가상 컴퓨터 확장 집합 배포
+VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 확장 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 아래 예제를 참조하세요.
 
 
 ```json
@@ -239,7 +239,7 @@ VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개
 ```
 
 > [!NOTE]
-> PowerShell 및 다른 SDK 도구를 통해 AHUB 기능을 활용하여 가상 컴퓨터 크기 집합을 배포하는 방식은 곧 지원될 예정입니다.
+> PowerShell 및 다른 SDK 도구를 통해 AHUB 기능을 활용하여 가상 컴퓨터 확장 집합을 배포하는 방식은 곧 지원될 예정입니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

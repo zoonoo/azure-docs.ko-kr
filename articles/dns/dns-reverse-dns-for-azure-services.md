@@ -31,7 +31,7 @@ Azure의 서비스는 Azure에서 할당하고 Microsoft가 소유하는 IP 주�
 이 문서를 읽기 전에 이 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md)에 익숙해지는 것이 좋습니다.
 
 Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다.
-* Resource Manager 배포 모델에서 계산 리소스(예: 가상 컴퓨터, 가상 컴퓨터 크기 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
+* Resource Manager 배포 모델에서 계산 리소스(예: 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
 * 클래식 배포 모델에서 계산 리소스는 Cloud Services를 사용하여 노출됩니다. 역방향 DNS 조회는 클라우드 서비스의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
 
 역방향 DNS는 현재 Azure App Service에 대해 지원되지 않습니다.
