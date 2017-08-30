@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 72f5a3cd6463befd5108040ed166984281bfc5f0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 
@@ -76,7 +77,7 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
    > 
 
 ## <a name="next-steps"></a>다음 단계
-확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장][scale-set]을 참조하세요. 
+확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [가상 컴퓨터 확장 집합에서 Linux 컴퓨터 자동 확장][scale-set]을 참조하세요. 
 
 <!-- links -->
 

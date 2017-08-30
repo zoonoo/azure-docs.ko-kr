@@ -3,7 +3,7 @@ title: "Azure Advisor 보안 권장 사항 | Microsoft Docs"
 description: "Azure Advisor를 사용하여 Azure 배포의 보안을 향상시킵니다."
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 ---

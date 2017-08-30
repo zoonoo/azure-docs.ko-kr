@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터 크기 집합을 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs"
+title: "가상 컴퓨터 확장 집합을 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs"
 description: "가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/31/2017
     실수하기 쉬우므로 작업에 증명된 위와 같은 템플릿으로 시작하고 조금씩 증분합니다. 
 * 수동으로 규모를 축소 또는 확장할 수 있나요?
   
-    VM 수를 수동으로 변경하려면 다른 "용량" 설정을 사용하여 VM 규모 집합 리소스를 다시 배포합니다. https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing 예제 템플릿에서 이를 수행합니다. 크기 집합에서 사용하는 크기와 동일한 컴퓨터 크기를 사용하도록 템플릿을 편집해야 할 수 있습니다. 성공적으로 VM 수를 수동으로 변경할 수 있으면 자동 크기 조정에 문제의 원인이 있는 것입니다.
+    VM 수를 수동으로 변경하려면 다른 "용량" 설정을 사용하여 VM 규모 집합 리소스를 다시 배포합니다. https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing 예제 템플릿에서 이를 수행합니다. 확장 집합에서 사용하는 크기와 동일한 컴퓨터 크기를 사용하도록 템플릿을 편집해야 할 수 있습니다. 성공적으로 VM 수를 수동으로 변경할 수 있으면 자동 크기 조정에 문제의 원인이 있는 것입니다.
 * Microsoft.Compute/virtualMachineScaleSet 및 [Azure 리소스 탐색기](https://resources.azure.com/)
   
     이는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. 계산 리소스 공급자 아래에서, 만든 VM 규모 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 VM 규모 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 올바른지 확인합니다.
@@ -57,7 +58,7 @@ ms.lasthandoff: 03/31/2017
     자동 크기 조정을 위한 호스트 기반 메트릭을 사용하는 것이 좋은 이유는 다음과 같습니다.
   
   * 진단 확장을 설치하지 않아도 되기 때문에 이동하는 부분이 더 적습니다.
-  * 템플릿이 간단합니다. 기존 크기 집합 템플릿에 insights 자동 크기 조정 규칙만 추가됩니다.
+  * 템플릿이 간단합니다. 기존 확장 집합 템플릿에 insights 자동 크기 조정 규칙만 추가됩니다.
   * 새 VM에 대한 더 신뢰할 수 있는 보고 및 빠른 시작이 가능합니다.
     
     진단 확장을 계속 사용하려는 유일한 이유는 메모리 진단 보고/크기 조정이 필요한 경우입니다. 호스트 기반 메트릭은 메모리를 보고하지 않습니다.

@@ -1,6 +1,6 @@
 ---
 title: "Azure Virtual Machine Scale Sets 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "가상 컴퓨터 크기 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
+description: "가상 컴퓨터 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
 
-가상 컴퓨터 크기 집합을 사용하여 동일한 일련의 자동 크기 조정 Windows 또는 Linux VM을 배포하고 관리하는 방법에 대해 알아봅니다. 설명서에서는 크기 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션을 대상으로 하는 서비스를 지원하는 방법을 보여 줍니다.
+가상 컴퓨터 확장 집합을 사용하여 동일한 일련의 자동 크기 조정 Windows 또는 Linux VM을 배포하고 관리하는 방법에 대해 알아봅니다. 설명서에서는 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션을 대상으로 하는 서비스를 지원하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>가상 컴퓨터 크기 집합 시작</h3>
+                        <h3>가상 컴퓨터 확장 집합 시작</h3>
                     </div>
                 </div>
             </div>
@@ -118,7 +119,7 @@ ms.lasthandoff: 04/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/virtualmachinescalesets/">가상 컴퓨터 크기 집합 API 참조</a></p>
+                        <p><a href="/rest/api/virtualmachinescalesets/">가상 컴퓨터 확장 집합 API 참조</a></p>
                     </div>
                 </div>
             </div>
