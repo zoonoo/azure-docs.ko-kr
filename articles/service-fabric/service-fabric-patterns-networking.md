@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 - [내부 전용 부하 분산 장치](#internallb)
 - [내부 및 외부 부하 분산 장치](#internalexternallb)
 
-Service Fabric은 표준 가상 컴퓨터 크기 집합에서 실행됩니다. 가상 컴퓨터 크기 집합에서 사용할 수 있는 모든 기능을 Service Fabric 클러스터에서 사용할 수 있습니다. 가상 컴퓨터 크기 집합 및 Service Fabric에 대한 Azure Resource Manager 템플릿의 네트워킹 섹션은 동일합니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크의 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다.
+Service Fabric은 표준 가상 컴퓨터 확장 집합에서 실행됩니다. 가상 컴퓨터 확장 집합에서 사용할 수 있는 모든 기능을 Service Fabric 클러스터에서 사용할 수 있습니다. 가상 컴퓨터 확장 집합 및 Service Fabric에 대한 Azure Resource Manager 템플릿의 네트워킹 섹션은 동일합니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크의 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다.
 
 Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 SFRP(Service Fabric 리소스 공급자)를 사용하여 노드 및 응용 프로그램에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 끝점에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 끝점을 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
@@ -166,7 +166,7 @@ DnsSettings              : {
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
-    배포 후 가상 네트워크에는 새 크기 집합 VM이 포함됩니다. 가상 네트워크 크기 집합 노드 형식은 기존 가상 네트워크 및 서브넷을 표시합니다. 또한 RDP(원격 데스크톱 프로토콜 )를 사용하여 가상 네트워크에 이미 있던 VM에 액세스하고 새 크기 집합 VM을 Ping할 수도 있습니다.
+    배포 후 가상 네트워크에는 새 확장 집합 VM이 포함됩니다. 가상 네트워크 확장 집합 노드 형식은 기존 가상 네트워크 및 서브넷을 표시합니다. 또한 RDP(원격 데스크톱 프로토콜 )를 사용하여 가상 네트워크에 이미 있던 VM에 액세스하고 새 확장 집합 VM을 Ping할 수도 있습니다.
 
     ```
     C:>\Users\users>ping 10.0.0.5 -n 1
@@ -261,7 +261,7 @@ DnsSettings              : {
                     ],
     ```
 
-7. `Microsoft.ServiceFabric/clusters` 리소스에서 `managementEndpoint`를 고정 IP 주소의 DNS FQDN으로 변경합니다. 보안 클러스터를 사용하는 경우 *http://*를 *https://*로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 컴퓨터 크기 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
+7. `Microsoft.ServiceFabric/clusters` 리소스에서 `managementEndpoint`를 고정 IP 주소의 DNS FQDN으로 변경합니다. 보안 클러스터를 사용하는 경우 *http://*를 *https://*로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 컴퓨터 확장 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
 
     ```
                     "fabricSettings": [],
@@ -363,7 +363,7 @@ DnsSettings              : {
                     ],
     ```
 
-6. `Microsoft.ServiceFabric/clusters` 리소스에서 내부 부하 분산 장치 주소를 가리키도록 `managementEndpoint`를 변경합니다. 보안 클러스터를 사용하는 경우 *http://*를 *https://*로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 컴퓨터 크기 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
+6. `Microsoft.ServiceFabric/clusters` 리소스에서 내부 부하 분산 장치 주소를 가리키도록 `managementEndpoint`를 변경합니다. 보안 클러스터를 사용하는 경우 *http://*를 *https://*로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 컴퓨터 확장 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
 
     ```
                     "fabricSettings": [],
@@ -596,7 +596,7 @@ DnsSettings              : {
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 끝점(포트 19000 및 19080)을 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 응용 프로그램 끝점(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 컴퓨터 크기 집합 백 엔드 풀을 사용합니다.
+배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 끝점(포트 19000 및 19080)을 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 응용 프로그램 끝점(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 컴퓨터 확장 집합 백 엔드 풀을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [클러스터 만들기](service-fabric-cluster-creation-via-arm.md)
