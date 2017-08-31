@@ -4,7 +4,7 @@ description: "IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로
 keywords: "analytics as a service, 관리 서비스, 스트림 처리, 스트림 분석, 스트림 분석이란"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Stream Analytics는 들어오는 데이터를 초당 최대 1GB의 속도로 처
 * Stream Analytics용 SQL형 쿼리 언어와 [window 함수](stream-analytics-window-functions.md)와 고유한 개념에 대해 자세히 알아보세요.
 * [Stream Analytics 작업 크기를 조정하는 방법](stream-analytics-scale-jobs.md)을 알아봅니다. 
 * [Stream Analytics 및 Azure Machine Learning을 통합하는 방법](stream-analytics-machine-learning-integration-tutorial.md)을 알아봅니다.
-* [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)에서 Stream Analytics에 대한 질문의 답변을 찾아보세요.
+* [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)에서 Stream Analytics에 대한 질문의 답변을 찾아보세요.
 
 

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
@@ -342,32 +342,37 @@ scaleR 함수를 사용하여 작업을 제출할 수 있습니다. 다음은 �
 
 2. 다음과 비슷한 결과가 나타나야 합니다.
     
-    R 버전 3.2.2(2015-08-14) -- "실행 안전" Copyright (C) 2015 The R Foundation for Statistical Computing  Platform: x86_64-pc-linux-gnu(64비트)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R은 평가판 소프트웨어이며 절대로 어떠한 보증도 제공되지 않습니다.
-    특정 조건에서 재배포는 허용합니다.
-    배포에 대한 자세한 내용을 보려면 'license()' 또는 'licence()'를 입력하세요.
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     자연어가 지원되지만 영어 로캘로 실행됩니다.
 
-    R은 많은 참가자가 함께한 공동 프로젝트입니다.
-    자세한 내용을 보려면 'contributors()'를 입력하고 게시물에 R 또는 R 패키지를 명시하는 방법을 보려면 'citation()'을 입력하세요.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    몇 가지 데모를 보려면 'demo()'를, 온라인 도움말은 'help()'를, HTML 브라우저 인터페이스를 보려면 'help.start()'를 입력하세요.
-    R을 끝내려면 'q()'를 입력하세요.
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Microsoft R Server 버전 8.0: R Microsoft 패키지의 향상된 배포 Copyright (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     릴리스 정보를 보려면 'readme()'를 입력하세요.
     >
 
 3. `>` 프롬프트에서 R 코드를 입력할 수 있습니다. R 서버에는 Hadoop과 쉽게 상호 작용하고 분산된 계산을 실행할 수 있는 패키지가 포함되어 있습니다. 예를 들어, 다음 명령을 사용하여 HDInsight 클러스터에 대한 기본 파일 시스템의 루트를 볼 수입니다.
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. WASB 스타일 주소 지정을 사용할 수도 있습니다.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
