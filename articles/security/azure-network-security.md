@@ -145,7 +145,7 @@ VNet에 연결된 모든 리소스는 기본적으로 인터넷에 아웃바운�
 
 Cloud Services 및 VM과 같은 [Azure 리소스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
 
-VM(Virtual Machines), Cloud Services, App Service 환경 및 가상 컴퓨터 크기 집합과 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
+VM(Virtual Machines), Cloud Services, App Service 환경 및 가상 컴퓨터 확장 집합과 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
 
 **VNet 연결**
 

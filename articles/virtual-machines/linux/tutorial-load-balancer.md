@@ -50,7 +50,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 
 트래픽 흐름을 제어하려면 VM에 매핑되는 특정 포트 및 프로토콜에 대해 부하 분산 장치 규칙을 정의합니다.
 
-이전 자습서를 따라 [가상 컴퓨터 크기 집합을 만든 경우](tutorial-create-vmss.md) 부하 분산 장치가 생성되었을 것입니다. 이러한 모든 구성 요소는 확장 집합의 일부로 구성되었습니다.
+이전 자습서를 따라 [가상 컴퓨터 확장 집합을 만든 경우](tutorial-create-vmss.md) 부하 분산 장치가 생성되었을 것입니다. 이러한 모든 구성 요소는 확장 집합의 일부로 구성되었습니다.
 
 
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
