@@ -3,7 +3,7 @@ title: "Azure API Management 개발자 포털 템플릿 | Microsoft Docs"
 description: "Azure API Management에서 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="azure-api-management-developer-portal-templates"></a>Azure API Management 개발자 포털 템플릿
@@ -27,7 +29,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 
   
-##  <a name="a-namedeveloperportaltemplatesa-developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> 개발자 포털 템플릿  
+##  <a name="DeveloperPortalTemplates"></a> 개발자 포털 템플릿  
   
 -   [API](api-management-api-templates.md)  
     -   [API 목록](api-management-api-templates.md#APIList)  
@@ -65,8 +67,3 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 -   [데이터 모델 참조](api-management-template-data-model-reference.md)  
 -   [페이지 컨트롤](api-management-page-controls.md)  
 -   [템플릿 리소스](api-management-template-resources.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

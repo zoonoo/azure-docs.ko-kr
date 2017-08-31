@@ -2,7 +2,7 @@
 title: "Azure Data Lake Store 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 대규모의 Hadoop 호환 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법에 대해 알아봅니다."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

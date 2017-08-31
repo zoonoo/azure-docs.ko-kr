@@ -2,7 +2,7 @@
 title: "Azure Security 설명서 - 자습서 | Microsoft Docs"
 description: "클라우드에 있는 서비스 및 데이터의 배포 요구 사항에 맞게 Azure 서비스에서 보안 옵션을 사용자 지정하는 방법에 대해 알아봅니다."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Azure Resource Manager 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "일관적이고 반복 가능한 리소스 배포를 위해 Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포 및 관리하고 템플릿을 만드는 방법에 대해 알아봅니다."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

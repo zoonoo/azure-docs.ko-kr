@@ -2,7 +2,7 @@
 title: "Azure Application Gateway 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드 응용 프로그램 배달 컨트롤러를 배포하는 방법에 대해 알아봅니다. 설명서에서는 웹 프런트 엔드에 대한 응용 프로그램 수준 라우팅 및 부하 분산을 설정하는 방법을 보여 줍니다."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ ADC(Application Deliver Controller)인 Application Gateway를 서비스로 배�
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

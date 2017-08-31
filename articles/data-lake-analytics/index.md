@@ -2,8 +2,8 @@
 title: "Azure Data Lake Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Data Lake Analytics를 사용하는 빅 데이터 분석에 대해 알아봅니다. 자습서에서는 실시간으로 일괄 처리 대화형 분석을 실행하는 방법 및 U-SQL 쿼리를 작성하는 방법을 보여 줍니다."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

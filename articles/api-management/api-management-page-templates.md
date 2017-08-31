@@ -3,7 +3,7 @@ title: "Azure API Management의 페이지 템플릿 | Microsoft Docs"
 description: "Azure API Management에서 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: d3c947ec67a6acba3058afcef36a18bf5debd55d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
@@ -33,7 +35,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
   
-##  <a name="a-namesignina-sign-in"></a><a name="SignIn"></a> 로그인  
+##  <a name="SignIn"></a> 로그인  
  **로그인** 템플릿을 통해 개발자 포털에서 로그인 페이지를 사용자 지정할 수 있습니다.  
   
  ![로그인 페이지](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM 로그인 페이지 개발자 포털 템플릿")  
@@ -132,7 +134,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="a-namesignupa-sign-up"></a><a name="SignUp"></a> 등록  
+##  <a name="SignUp"></a> 등록  
  **로그인** 템플릿을 통해 개발자 포털에서 로그인 페이지를 사용자 지정할 수 있습니다.  
   
  ![등록 페이지](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM 등록 페이지 개발자 포털 템플릿")  
@@ -180,7 +182,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="a-namepagenotfounda-page-not-found"></a><a name="PageNotFound"></a> 페이지를 찾을 수 없음  
+##  <a name="PageNotFound"></a> 페이지를 찾을 수 없음  
  **페이지를 찾을 수 없음** 템플릿을 통해 개발자 포털에서 페이지를 찾을 수 없음 페이지를 사용자 지정할 수 있습니다.  
   
  ![페이지를 찾을 수 없음](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM 페이지를 찾을 수 없음 개발자 포털 템플릿")  
@@ -244,8 +246,3 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

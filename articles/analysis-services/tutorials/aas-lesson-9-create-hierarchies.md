@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 9: 계층 구조 만들기 | Mi
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

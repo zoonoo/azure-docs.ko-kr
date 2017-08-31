@@ -2,7 +2,7 @@
 title: "Azure IoT Hub 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API, 참조, 비디오 및 기타 설명서입니다."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

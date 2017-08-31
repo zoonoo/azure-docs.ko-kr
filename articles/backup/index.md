@@ -2,7 +2,7 @@
 title: "Azure Backup 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Backup 설명서를 사용하여 클라우드에 백업하는 방법을 알아보세요. 응용 프로그램, Windows Server 및 Azure 가상 컴퓨터 백업을 위한 자습서 및 동영상을 참조하세요."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Azure API Management 가져오기에서 제한 사항 및 알려진 문�
 description: "Open API, WSDL 또는 WADL 형식을 사용하여 Azure API Management로 가져오기 시 알려진 문제 및 제한 사항입니다."
 services: api-management
 documentationcenter: 
-author: mattfarm
+author: vladvino
 manager: vlvinogr
 editor: 
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
 ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제

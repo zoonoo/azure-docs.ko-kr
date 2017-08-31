@@ -2,7 +2,7 @@
 title: "Azure Mobile Engagement 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모바일 앱 사용량과 실시간 사용자 구분에 대한 정보를 가져오는 방법 및 컨텍스트 인식 푸시 알림과 앱 내 메시징을 사용하도록 설정하는 방법에 대해 알아봅니다."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
 ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -207,10 +209,5 @@ Mobile Engagement를 사용하여 모바일 앱의 사용량, 보존 및 경제�
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

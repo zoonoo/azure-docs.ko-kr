@@ -2,7 +2,7 @@
 title: "Azure Virtual Machine Scale Sets 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "가상 컴퓨터 확장 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

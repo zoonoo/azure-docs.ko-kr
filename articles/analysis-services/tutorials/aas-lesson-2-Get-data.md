@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 2: 데이터 가져오기 | Mic
 description: "Azure Analysis Services 자습서 프로젝트에서 데이터를 가져오는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

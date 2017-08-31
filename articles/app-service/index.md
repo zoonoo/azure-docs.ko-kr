@@ -2,7 +2,7 @@
 title: "Azure App Service 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "자습서, 비디오, API 참조 및 기타 설명서를 사용하여 플랫폼이나 장치에 대한 웹 및 모바일 앱을 만드는 데 App Service를 사용하는 방법에 대해 알아봅니다."
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>App Service 설명서
@@ -132,10 +134,5 @@ ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

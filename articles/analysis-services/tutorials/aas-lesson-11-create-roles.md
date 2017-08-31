@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 11: 역할 만들기 | Microsof
 description: "Azure Analysis Services 자습서 프로젝트에서 역할을 만드는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

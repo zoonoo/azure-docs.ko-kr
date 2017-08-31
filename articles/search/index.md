@@ -2,7 +2,7 @@
 title: "Azure Search 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "작업 모니터링을 포함하는 강력한 검색 기능을 사용자 지정 웹 또는 모바일 응용 프로그램에 추가하는 방법에 대해 알아봅니다. API, 참조 및 기타 설명서입니다."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
 
 ---

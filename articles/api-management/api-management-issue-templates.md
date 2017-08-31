@@ -3,7 +3,7 @@ title: "Azure API Management의 문제 템플릿 | Microsoft Docs"
 description: "Azure API Management의 개발자 포털에서 문제 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
@@ -29,7 +31,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.  
   
-##  <a name="a-nameissuelista-issue-list"></a><a name="IssueList"></a> 문제 목록  
+##  <a name="IssueList"></a> 문제 목록  
  **문제 목록** 템플릿을 통해 개발자 포털에서 문제 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![문제 목록 개발자 포털](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 문제 목록 개발자 포털")  
@@ -134,8 +136,3 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

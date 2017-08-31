@@ -2,7 +2,7 @@
 title: "Azure Monitor 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. API 참조, 모범 사례 등입니다."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

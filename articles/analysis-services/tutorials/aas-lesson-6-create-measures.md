@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 6: 측정값 만들기 | Micros
 description: "Azure Analysis Services 자습서 프로젝트에서 측정값을 만드는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

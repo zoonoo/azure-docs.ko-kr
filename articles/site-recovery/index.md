@@ -2,7 +2,7 @@
 title: "Azure Site Recovery 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "복제본을 배포하고 관리하여 물리적 서버 및 가상 컴퓨터에 대한 클라우드 재해 복구 및 비즈니스 연속성을 설정하는 방법에 대해 알아봅니다."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 추가 단원: 세부 정보 행 | Mic
 description: "Azure Analysis Services 자습서에서 세부 정보 행 식을 만드는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

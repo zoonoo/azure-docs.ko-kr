@@ -2,7 +2,7 @@
 title: "Azure Application Insights 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "확장 가능한 응용 프로그램 성능 관리인 Application Insights를 사용하여 웹앱 및 서비스의 문제를 감지, 심사 및 진단하는 방법에 대해 알아봅니다."
 services: application-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
 ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="application-insights-documentation"></a>Application Insights 설명서
@@ -163,10 +165,5 @@ ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

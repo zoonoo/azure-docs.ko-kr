@@ -2,7 +2,7 @@
 title: "Azure Analysis Services 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터를 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여 줍니다."
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: f5358e2395d5380841894e62a694a6d1253c9126
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/25/2017
 
 ---

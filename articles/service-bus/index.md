@@ -2,7 +2,7 @@
 title: "Azure Service Bus 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다.  자습서, 비디오, API 참조 등입니다."
 services: service-bus
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 3401257f406c71ff26d0eb2f7ca5f7e830d91882
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/27/2017
 
 ---

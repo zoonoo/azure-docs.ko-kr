@@ -1,7 +1,17 @@
 ---
-layout: LandingPage
 title: "Service Bus 메시징 설명서"
 description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab

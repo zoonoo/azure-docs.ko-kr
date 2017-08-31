@@ -2,7 +2,7 @@
 title: "Azure Devtest Labs 설명서 - 자습서 | Microsoft Docs"
 description: "다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
+ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
 
 ---

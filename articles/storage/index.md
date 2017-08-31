@@ -2,7 +2,7 @@
 title: "Azure Storage 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 Azure Storage - Blob, 테이블, 큐, 파일 및 Virtual Machine 디스크 저장소를 사용하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

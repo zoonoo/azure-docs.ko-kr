@@ -2,7 +2,7 @@
 title: "Azure VPN Gateway 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드 가상 네트워크와 온-프레미스 또는 클라우드 VNet간에 트래픽을 관리하도록 VPN(가상 사설망) Gateway를 구성하는 방법에 대해 알아봅니다."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
