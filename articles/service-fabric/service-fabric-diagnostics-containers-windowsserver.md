@@ -50,10 +50,10 @@ OMS(Operations Management Suite) 팀은 컨테이너의 모니터링 및 진단�
 [Azure Portal](https://portal.azure.com/)로 이동한 후 배포를 찾아 리소스 그룹이 제대로 설정되어 있는지 확인합니다. 리소스 그룹에는 모든 Service Fabric 리소스가 포함되고 Service Fabric 솔루션 뿐 아니라 Log Analytics 솔루션도 있습니다.
 
 기존 Service Fabric 클러스터 수정:
-* 진단이 사용되도록 설정되어 있는지 확인(설정되어 있지 않으면 [가상 컴퓨터 크기 집합을 업데이트](/rest/api/virtualmachinescalesets/create-or-update-a-set)하여 설정)
+* 진단이 사용되도록 설정되어 있는지 확인(설정되어 있지 않으면 [가상 컴퓨터 확장 집합을 업데이트](/rest/api/virtualmachinescalesets/create-or-update-a-set)하여 설정)
 * Azure Marketplace를 통해 "Service Fabric 분석" 솔루션을 만들어 OMS 작업 영역 추가
 * 클러스터가 있는 리소스 그룹의 해당 Azure Storage 테이블(WAD에서 설정)에서 데이터를 선택하도록 Service Fabric 솔루션의 데이터 원본 편집
-* PowerShell을 통해 또는 가상 컴퓨터 크기 집합을 업데이트하여 [가상 컴퓨터 크기 집합에 대한 확장](/powershell/module/azurerm.compute/add-azurermvmssextension)으로 에이전트 추가(Resource Manager 템플릿을 수정하려는 경우에도 위와 동일한 링크 사용)
+* PowerShell을 통해 또는 가상 컴퓨터 확장 집합을 업데이트하여 [가상 컴퓨터 확장 집합에 대한 확장](/powershell/module/azurerm.compute/add-azurermvmssextension)으로 에이전트 추가(Resource Manager 템플릿을 수정하려는 경우에도 위와 동일한 링크 사용)
 
 ## <a name="2-deploy-a-container"></a>2. 컨테이너 배포
 
