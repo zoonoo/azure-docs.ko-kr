@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'C#과 템플릿 사용'
           href: csharp-template.md
+        - name: Chef로 VM 만들기
+          href: chef-automation.md
+        - name: Java 사용
+          href: java.md
         - name: Python 사용
           href: python.md
         - name: 템플릿 사용

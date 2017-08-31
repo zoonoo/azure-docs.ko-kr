@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8d0d10a53be9299931821c75c8c17bb967a05449
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 <div id="main" class="v2">
@@ -705,6 +705,12 @@ ms.lasthandoff: 08/23/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>디스크</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
@@ -739,7 +745,7 @@ ms.lasthandoff: 08/23/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>사이트 복구</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>데이터 + 분석</h3>
                                     <ul>
@@ -1200,7 +1206,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>배치</h3>
-                                                    <p>컨테이너를 사용하여 계산 작업 실행</p>
+                                                    <p>클라우드 크기 조정 작업 예약 및 계산 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1483,6 +1489,25 @@ ms.lasthandoff: 08/23/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>디스크</h3>
+                                                    <p>VM의 디스크 저장소</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/files/storage-files-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1595,7 +1620,7 @@ ms.lasthandoff: 08/23/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -1865,7 +1890,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>배치</h3>
-                                                    <p>컨테이너를 사용하여 계산 작업 실행</p>
+                                                    <p>클라우드 크기 조정 작업 예약 및 계산 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,3 +3753,4 @@ ms.lasthandoff: 08/23/2017
         </ul>
     </div>
 </div>
+

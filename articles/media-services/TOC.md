@@ -190,6 +190,7 @@
 #### [Adobe 오픈 소스 미디어 프레임 워크 플레이어](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [클라이언트 쪽에 광고 삽입](media-services-inserting-ads-on-client-side.md)
 ### [Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스](media-services-sspk.md)
+### [Safari에서 AES 암호화 HLS 재생](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## 통합
 ### [Media Services에서 Azure Functions 사용](media-services-dotnet-how-to-use-azure-functions.md)

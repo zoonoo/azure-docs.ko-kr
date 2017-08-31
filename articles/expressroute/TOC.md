@@ -32,7 +32,9 @@
 ### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
-## [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)
+## Microsoft 피어링에 대한 경로 필터 구성
+### [Azure 포털](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성

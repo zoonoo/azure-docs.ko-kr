@@ -3,8 +3,8 @@
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [개요](http://aka.ms/datascienceprocess)
-### [수명 주기](data-science-process-overview.md)
+### [개요](data-science-process-overview.md)
+### [수명 주기](data-science-process-lifecycle.md)
 ### [연습](data-science-process-walkthroughs.md)
 ####[PySpark 및 Scala를 사용하는 Spark](data-science-process-walkthroughs-spark.md)
 ##### [데이터 탐색](machine-learning-data-science-spark-data-exploration-modeling.md)
@@ -14,6 +14,7 @@
 ####[Azure Data Lake를 사용하는 U-SQL](data-science-process-walkthroughs-azure-data-lake.md)
 ####[SQL Server를 사용하는 R, Python 및 T-SQL](data-science-process-walkthroughs-sql-server.md)
 ####[SQL DW를 사용하는 T-SQL 및 Python](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [Azure ML 사용](http://aka.ms/datascienceprocess)
 
 ## Machine Learning 스튜디오
 ### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)

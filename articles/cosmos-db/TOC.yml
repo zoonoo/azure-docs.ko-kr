@@ -218,10 +218,12 @@
               href: gremlin-support.md
         - name: 테이블 API
           items:
-            - name: 테이블 저장소
-              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: 테이블 저장소 개요
+              href: table-storage-overview.md
             - name: 테이블 저장소 디자인 가이드
               href: table-storage-design-guide.md
+            - name: 테이블 저장소 REST API
+              href: /rest/api/storageservices/Table-Service-Concepts
             - name: 자습서
               items:
                 - name: .NET

@@ -53,6 +53,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [연결된 팩터리 FAQ](iot-suite-faq-cf.md)
 ## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 

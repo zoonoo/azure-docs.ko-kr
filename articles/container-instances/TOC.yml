@@ -43,6 +43,8 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: 템플릿 - Container Instances
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 지역 가용성
