@@ -1,20 +1,22 @@
 ---
 title: "Azure Mobile Apps 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android 또는 Windows 앱 또는 Xamarin이나 Cordova를 사용하는 교차 플랫폼 앱을 빌드하고 호스팅하는 방법에 대해 알아봅니다."
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 0286d0cab7eb774a13066beb838840892dfeeda5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps 설명서
@@ -141,7 +143,7 @@ Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>xamarin.Android 앱 만들기 시작</h3>
+                        <h3>Xamarin.Android 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -159,7 +161,7 @@ Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>xamarin.Forms 앱 만들기 시작</h3>
+                        <h3>Xamarin.Forms 앱 만들기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -208,9 +210,4 @@ Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android �
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

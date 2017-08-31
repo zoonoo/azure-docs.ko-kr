@@ -13,6 +13,7 @@
 ### [소셜 미디어](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Machine Learning으로 실시간 점수 매기기](stream-analytics-machine-learning-integration-tutorial.md)
 ### [실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Azure 사용 가이드에서 변칙 검색(미리 보기)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## 작업 만들기
 ### [입력 만들기](stream-analytics-define-inputs.md)
@@ -66,7 +67,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [블로그](http://blogs.msdn.com/b/streamanalytics/)
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [가격](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](stream-analytics-release-notes.md)

@@ -140,6 +140,8 @@
 ## 모니터링 및 문제 해결
 ### [Azure 간 복제 문제](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [온-프레미스와 Azure 간 복제 문제](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [모바일 서비스 설치 문제](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Azure 장애 조치(failover) 문제](site-recovery-failover-to-azure-troubleshoot.md)
 ### [로그 수집 및 온-프레미스 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조

@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [처리량 테스트](virtual-network-bandwidth-testing.md)
 ### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [VM 간 연결 문제](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

@@ -18,7 +18,7 @@
 # 샘플
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
 # 개념
 ## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
 ## [큰 그림](service-fabric-content-roadmap.md)
@@ -113,11 +113,14 @@
 #### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [API Management와 통합](service-fabric-api-management-overview.md)
+
 ## 모니터링 및 진단
 ### [개요](service-fabric-diagnostics-overview.md)
 ### [상태 모델](service-fabric-health-introduction.md)
 ### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
+### [Reliable Service Remoting에 대한 성능 카운터](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # 방법 가이드
 ## 개발 환경 설정
@@ -126,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## 응용 프로그램 빌드
+### [Visual Studio에서 첫 번째 C# 앱 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 ### 게스트 실행 가능한 서비스 빌드
 #### [Windows에서 Node.js 응용 프로그램 호스트](quickstart-guest-app.md)
 #### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
@@ -206,9 +210,7 @@
 ### [Eclipse에서 Java 서비스 디버그](service-fabric-debugging-your-application-java.md)
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## API Management와 통합
-### [개요](service-fabric-api-management-overview.md)
-### [빠른 시작](service-fabric-api-management-quick-start.md)
+## [Azure에 API Management 및 Service Fabric 배포](service-fabric-api-management-quick-start.md)
 
 ## Cloud Services에서 마이그레이션
 ### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
@@ -221,7 +223,7 @@
 ### 응용 프로그램 배포 또는 제거
 #### [로컬 클러스터에 응용 프로그램 배포](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [업그레이드](service-fabric-cluster-upgrade.md)
 #### [액세스 제어 설정](service-fabric-cluster-security-roles.md)
 #### [구성](service-fabric-cluster-fabric-settings.md)
+#### [Load Balancer에서 포트 열기](create-load-balancer-rule.md)
 #### [클러스터 인증서 관리](service-fabric-cluster-security-update-certs-azure.md)
 #### [삭제](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-### [XPlat CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md)
-### [Azure CLI 2.0 명령을 사용하여 클러스터 관리](service-fabric-azure-cli-2-0.md)
+### [Service Fabric CLI를 사용하여 클러스터 관리](service-fabric-cli.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션

@@ -44,7 +44,6 @@
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 ### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
-### [사용자 삭제](active-directory-users-delete-user-azure-portal.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
 ### [사용자 작업 정보 관리](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## 장치 관리
 ### [소개](device-management-introduction.md)
+### [Azure Portal 사용](device-management-azure-portal.md)
 ### [FAQ](device-management-faq.md)
 ### 작업
+#### [Azure AD 등록 Windows 10 장치 구성](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD 가입 장치 구성](device-management-azuread-joined-devices-setup.md)
 #### [하이브리드 Azure AD 가입 장치 구성](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
+#### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
 ### 문제 해결
 #### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
-#### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 #### [재구성](active-directory-conditional-access-device-remediation.md)
