@@ -1,6 +1,6 @@
 ---
-title: "Windows 가상 컴퓨터 크기 집합 자동 크기 조정 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 Windows 가상 컴퓨터 크기 집합 자동 크기 조정 설정"
+title: "Windows 가상 컴퓨터 확장 집합 자동 크기 조정 | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 Windows 가상 컴퓨터 확장 집합 자동 크기 조정 설정"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정
-가상 컴퓨터 크기 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 규모 집합에 대한 자세한 내용은 [가상 컴퓨터 규모 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
+# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합에서 자동으로 컴퓨터 크기 조정
+가상 컴퓨터 확장 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 규모 집합에 대한 자세한 내용은 [가상 컴퓨터 규모 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
 
-이 자습서에서는 Windows 가상 컴퓨터의 가상 컴퓨터 크기 집합을 만들고 집합의 컴퓨터 규모를 자동 조정하는 방법을 보여 줍니다. Azure Resource Manager 템플릿을 작성하고 Azure PowerShell을 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
+이 자습서에서는 Windows 가상 컴퓨터의 가상 컴퓨터 확장 집합을 만들고 집합의 컴퓨터 규모를 자동 조정하는 방법을 보여 줍니다. Azure Resource Manager 템플릿을 작성하고 Azure PowerShell을 통해 배포하여 확장 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 확장 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 확장 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
 
 이 문서에서는 다음 리소스 및 확장을 배포합니다.
 
@@ -77,11 +78,11 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     "resourcePrefix": { "type": "string" }
     ```
    
-    * 크기 집합의 컴퓨터에 액세스하는 데 사용하는 별도 가상 컴퓨터의 이름입니다.
+    * 확장 집합의 컴퓨터에 액세스하는 데 사용하는 별도 가상 컴퓨터의 이름입니다.
     * 템플릿이 저장된 저장소 계정의 이름입니다.
-    * 처음에 크기 집합에서 만들 가상 컴퓨터의 수입니다.
+    * 처음에 확장 집합에서 만들 가상 컴퓨터의 수입니다.
     * 가상 컴퓨터의 관리자 계정 이름 및 암호입니다.
-    * 크기 집합을 지원하기 위해 만들어진 리소스에 대한 이름 접두사입니다.
+    * 확장 집합을 지원하기 위해 만들어진 리소스에 대한 이름 접두사입니다.
 
 3. 템플릿에서 변수를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다. 템플릿에 추가한 변수 부모 요소 아래에 다음과 같은 변수를 추가합니다.
 
@@ -218,7 +219,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     },
     ```
 
-8. 별도의 가상 컴퓨터에서 사용하는 네트워크 인터페이스 리소스를 추가합니다. 크기 집합의 컴퓨터는 공용 IP 주소를 통해 액세스할 수 없기 때문에 컴퓨터에 원격으로 액세스하기 위해 동일한 가상 네트워크에 별도의 가상 컴퓨터가 생성됩니다.
+8. 별도의 가상 컴퓨터에서 사용하는 네트워크 인터페이스 리소스를 추가합니다. 확장 집합의 컴퓨터는 공용 IP 주소를 통해 액세스할 수 없기 때문에 컴퓨터에 원격으로 액세스하기 위해 동일한 가상 네트워크에 별도의 가상 컴퓨터가 생성됩니다.
 
     ```json  
     {
@@ -249,7 +250,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     },
     ```
 
-9. 크기 집합과 동일한 네트워크에 별도의 가상 컴퓨터를 추가합니다.
+9. 확장 집합과 동일한 네트워크에 별도의 가상 컴퓨터를 추가합니다.
 
     ```json
     {
@@ -295,7 +296,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     },
     ```
 
-10. 가상 컴퓨터 크기 집합 리소스를 추가하고 크기 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 크기 집합의 가상 컴퓨터 수를 지정하는 용량 요소와 가상 컴퓨터를 업데이트하는 방식을 지정하는 upgradePolicy입니다. 크기 집합은 모든 저장소 계정이 dependsOn 요소로 지정된 대로 만들어질 때까지 생성되지 않습니다.
+10. 가상 컴퓨터 확장 집합 리소스를 추가하고 확장 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 확장 집합의 가상 컴퓨터 수를 지정하는 용량 요소와 가상 컴퓨터를 업데이트하는 방식을 지정하는 upgradePolicy입니다. 확장 집합은 모든 저장소 계정이 dependsOn 요소로 지정된 대로 만들어질 때까지 생성되지 않습니다.
 
     ```json
     {
@@ -400,7 +401,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     },
     ```
 
-11. 크기 집합이 크기 집합의 컴퓨터에서 프로세서 사용량에 따라 조정하는 방법을 정의하는 autoscaleSettings 리소스를 추가합니다.
+11. 확장 집합이 확장 집합의 컴퓨터에서 프로세서 사용량에 따라 조정하는 방법을 정의하는 autoscaleSettings 리소스를 추가합니다.
 
     ```json
     {
@@ -456,7 +457,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     이 값은 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 해당 변수를 사용하여 진단 확장은 **Processor(_Total)\% Processor Time** 카운터를 수집합니다.
     
     * **metricResourceUri**  
-    이 값은 가상 컴퓨터 크기 집합의 리소스 식별자입니다.
+    이 값은 가상 컴퓨터 확장 집합의 리소스 식별자입니다.
     
     * **timeGrain**  
     이 값은 수집되는 메트릭의 세분성입니다. 이 템플릿에서는 1분으로 설정됩니다.
@@ -483,7 +484,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     이 값은 발생되어야 하는 동작의 유형이며 ChangeCount로 설정되어 있어야 합니다.
     
     * **값**  
-    이 값은 크기 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다. 기본값은 1입니다. 이 템플릿에서 규모 집합의 컴퓨터 수는 임계값에 도달한 경우 1씩 증가합니다.
+    이 값은 확장 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다. 기본값은 1입니다. 이 템플릿에서 규모 집합의 컴퓨터 수는 임계값에 도달한 경우 1씩 증가합니다.
     
     * **cooldown**  
     이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은 1분에서 1주 사이여야 합니다.
@@ -556,7 +557,7 @@ vmName: vmsstestvm1
 이러한 메서드를 사용하여 가상 컴퓨터 규모 집합에 대한 정보를 얻을 수 있습니다.
 
 * Azure 포털 - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
-* [Azure 리소스 탐색기](https://resources.azure.com/) - 크기 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
+* [Azure 리소스 탐색기](https://resources.azure.com/) - 확장 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
   
     구독 > {사용자의 구독} > resourceGroups > vmsstestrg1 > 공급자 > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -591,8 +592,8 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
   ```
 
 ## <a name="next-steps"></a>다음 단계
-* 방금 [가상 컴퓨터 크기 집합의 가상 컴퓨터 관리](virtual-machine-scale-sets-windows-manage.md)의 정보에 따라 만든 크기 집합을 관리합니다.
-* [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+* 방금 [가상 컴퓨터 확장 집합의 가상 컴퓨터 관리](virtual-machine-scale-sets-windows-manage.md)의 정보에 따라 만든 확장 집합을 관리합니다.
+* [가상 컴퓨터 확장 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 * [Azure Monitor PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)에서 Azure Monitor 모니터링 기능 예제를 찾아보세요.
 * [크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)에서 알림 기능에 대해 알아보세요.
 * [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보내는](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 방법을 알아보세요.
