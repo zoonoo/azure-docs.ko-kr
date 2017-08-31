@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/26/2017
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 계정** | [Microsoft Azure 계정](http://azure.microsoft.com/)이 있어야 합니다.
-**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.<br/><br/> 저장소 계정은 Azure Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.<br/><br/>[지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage) 또는 로컬 중복 저장소를 사용할 수 있습니다. 지역 중복 저장소를 사용하는 것이 좋습니다. 지역 중복 저장소를 통해 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우 데이터를 복원할 수 있습니다.<br/><br/> 표준 Azure Storage 계정을 사용하거나 Azure [Premium Storage](../storage/storage-premium-storage.md)를 사용할 수 있습니다. Premium Storage는 I/O를 많이 사용하는 워크로드를 호스트할 수 있으며 일관된 I/O 고성능과 짧은 대기 시간이 요구되는 VM에 일반적으로 사용됩니다. 복제된 데이터에 대해 Premium Storage를 사용하는 경우 표준 저장소 계정도 필요합니다. 표준 저장소 계정은 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장합니다.
+**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.<br/><br/> 저장소 계정은 Azure Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.<br/><br/>[지역 중복 저장소](../storage/common/storage-redundancy.md#geo-redundant-storage) 또는 로컬 중복 저장소를 사용할 수 있습니다. 지역 중복 저장소를 사용하는 것이 좋습니다. 지역 중복 저장소를 통해 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우 데이터를 복원할 수 있습니다.<br/><br/> 표준 Azure Storage 계정을 사용하거나 Azure [Premium Storage](../storage/common/storage-premium-storage.md)를 사용할 수 있습니다. Premium Storage는 I/O를 많이 사용하는 워크로드를 호스트할 수 있으며 일관된 I/O 고성능과 짧은 대기 시간이 요구되는 VM에 일반적으로 사용됩니다. 복제된 데이터에 대해 Premium Storage를 사용하는 경우 표준 저장소 계정도 필요합니다. 표준 저장소 계정은 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장합니다.
 **Azure 네트워크** | 장애 조치(Failover) 후 Azure VM이 연결될 수 있도록 [Azure 네트워크](../virtual-network/virtual-network-get-started-vnet-subnet.md)가 필요합니다. Azure 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 **온-프레미스 VMM 서버** | System Center 2012 R2 이상에서 실행되는 하나 이상의 VMM 서버가 필요합니다.<br/><br/> 각 VMM 서버에 하나 이상의 사설 클라우드가 포함되어 있어야 합니다. 각 클라우드에 하나 이상의 호스트 그룹이 필요합니다.<br/><br/> VMM 서버는 인터넷 액세스가 필요합니다.
 **온-프레미스 Hyper-V** | Hyper-V 호스트 서버는 Windows Server 2012 R2 이상(Hyper-V 역할 수행) 또는 Microsoft Hyper-V Server 2012 R2를 실행해야 합니다. 최신 업데이트를 설치해야 합니다.<br/><br/> Hyper-V 호스트는 VMM 클라우드의 VMM 호스트 그룹에 있어야 합니다.<br/><br/> 호스트에는 복제하려는 VM이 하나 이상 있어야 합니다.<br/><br/> Hyper-V 호스트는 직접 또는 프록시를 통해 Azure에 복제를 위한 인터넷에 연결되어야 합니다. [2961977](https://support.microsoft.com/kb/2961977) 문서에서 설명한 수정 프로그램이 Hyper-V 서버에 있어야 합니다.

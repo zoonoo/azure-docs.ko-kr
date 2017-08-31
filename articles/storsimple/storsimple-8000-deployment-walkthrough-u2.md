@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b41e8eba7d1f5c999b3371d835b595b6caf161c1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 장치(업데이트 3 이상) 배포
@@ -170,7 +170,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 저장소 계정 구성
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure 저장소 계정이 필요합니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
 
 **StorSimple 장치 관리자 서비스** 페이지의 Azure Portal에서 다음 단계를 수행합니다.
 

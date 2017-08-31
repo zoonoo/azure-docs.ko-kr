@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: eea78b6616248aaf24053081ec99701c187111cc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 40a63339be90d0c5d972605c7f6fa029ca1e2ba4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
@@ -114,7 +114,7 @@ ms.lasthandoff: 07/21/2017
         }
     }
     ```
-    **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+    **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 2. Azure PowerShell에서 ADFGetStarted 폴더로 전환합니다.
 3. 연결된 서비스를 만드는 **New-AzureRmDataFactoryLinkedService** cmdlet을 사용할 수 있습니다. 이 자습서에서 사용하는 이 cmdlet 및 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzureRmDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureRmDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 

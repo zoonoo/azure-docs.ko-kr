@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100)
 | **최대 용량** |30TB |64TB |
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리)| Standard_DS3 (4 코어, 14GB 메모리)|
 | **지역 가용성** |모든 Azure 지역 |Premium Storage 및 DS3 Azure VM을 지원하는 Azure 지역<br></br>[이 목록](https://azure.microsoft.com/regions/services/)을 사용하여 **Virtual Machines > DS 시리즈** 및 **저장소 > 디스크 저장소**를 자신의 지역에서 사용할 수 있습니다. |
-| **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/storage-premium-storage.md) 방법 알아보기 |
+| **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/common/storage-premium-storage.md) 방법 알아보기 |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오 <br></br>짧은 대기 시간 및 더 높은 성능 워크로드<br></br>재해 복구용 보조 장치 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
@@ -94,7 +94,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 클라우드 어플라이언스를 만들기 전에 StorSimple 장치 관리자 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 클라우드 어플라이언스에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-8000-manage-acrs.md)를 추가합니다.
-* 클라우드 어플라이언스와 동일한 지역에 [저장소 계정](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 클라우드 어플라이언스에 Standard 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 만드는 방법을 참조하세요.
+* 클라우드 어플라이언스와 동일한 지역에 [저장소 계정](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 클라우드 어플라이언스에 Standard 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/common/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/common/storage-premium-storage.md)을 만드는 방법을 참조하세요.
 * 데이터에 사용된 계정이 아닌 클라우드 어플라이언스 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
 시작하기 전에 다음 정보가 있는지 확인합니다.

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
@@ -34,7 +34,7 @@ Analysis Services를 사용하면 여러 원본의 데이터를 매시업하고 
 [이 비디오](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)를 통해 Azure Analysis Services에서 전반적인 Microsoft BI 기능과 연동하는 방법과 데이터 모델을 클라우드로 가져옴으로써 얻을 수 있는 이점에 대해 알아보세요.
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services에 구축
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 및 1400 [호환성 수준](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)의 테이블 형식 모델을 지원합니다. 파티션, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다. 메모리 내 및 DirectQuery 모드는 복잡한 대용량 데이터 집합에 대해 매우 빠른 쿼리를 제공합니다.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 및 1400 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 파티션, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다. 메모리 내 및 DirectQuery 모드는 복잡한 대용량 데이터 집합에 대해 매우 빠른 쿼리를 제공합니다.
 
 테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 개발자의 경우 테이블 형식 모델에는 모델 개체를 설명하는 TOM(테이블 형식 개체 모델)이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다.
 

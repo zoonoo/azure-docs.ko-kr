@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기
 
-[보안 전송 필요](../storage/storage-require-secure-transfer.md) 기능은 보안 연결을 통해 모든 요청을 계정에 적용하여 Azure Storage 계정의 보안을 강화합니다. 이 기능과 wasbs 체계는 HDInsight 클러스터 버전 3.6 이상에서만 지원됩니다. 
-
->[!NOTE] 
-> .NET SDK를 사용하여 보안 전송이 활성화된 저장소 계정으로 클러스터 만들기는 현재 지원되지 않습니다. 해결 방법은 ClusterCreateParametersExtended의 일부로 코어 사이트 구성의 "fs.defaultFS" 속성에서 "wasbs"를 설정하는 것입니다.
+[보안 전송 필요](../storage/common/storage-require-secure-transfer.md) 기능은 보안 연결을 통해 모든 요청을 계정에 적용하여 Azure Storage 계정의 보안을 강화합니다. 이 기능과 wasbs 체계는 HDInsight 클러스터 버전 3.6 이상에서만 지원됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**: 1개월 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)로 이동합니다.
-* **보안 전송이 활성화된 Azure Storage 계정**. 자세한 지침은 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 및 [보안 전송 필요](../storage/storage-require-secure-transfer.md)를 참조하세요.
+* **보안 전송이 활성화된 Azure Storage 계정**. 자세한 지침은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요.
 * **저장소 계정의 Blob 컨테이너**. 
 ## <a name="create-cluster"></a>클러스터 만들기
 

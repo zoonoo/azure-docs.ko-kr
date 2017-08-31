@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -42,13 +42,13 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
 
 두 개의 서브넷이 있는 가상 네트워크를 만들려면 다음 단계를 완료합니다. 일반적으로 서브넷 간의 트래픽 흐름을 제어하기 위해 다른 서브넷이 사용됩니다.
 
-1. [Azure 포털](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
+1. [Azure Portal](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
 2. 포털의 **즐겨찾기** 창에서 **새로 만들기**를 클릭합니다.
 3. **새로 만들기** 블레이드에서 **네트워킹**을 클릭합니다. 다음 그림과 같이 **네트워킹** 블레이드에서 **Virtual Network**를 클릭합니다.
 
     ![가상 네트워크 다이어그램](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
 
-4.  **가상 네트워크** 블레이드에서 배포 모델로 *Resource Manager*를 선택한 상태로 두고 **만들기**를 클릭합니다.
+4.  **가상 네트워크** 블레이드에서 배포 모델로 *리소스 관리자*를 선택한 상태로 두고 **만들기**를 클릭합니다.
 5.  **가상 네트워크 만들기** 블레이드가 나타나면 다음 값을 입력한 다음 **만들기**를 클릭합니다.
 
     |**설정**|**값**|**세부 정보**|
@@ -58,12 +58,12 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
     |**서브넷 이름**|*프런트 엔드*|서브넷 이름은 가상 네트워크 내에서 고유해야 합니다.|
     |**서브넷 주소 범위**|*10.0.0.0/24*| 지정하는 범위가 가상 네트워크에 대해 정의한 주소 공간 내에 존재해야 합니다.|
     |**구독**|*[사용자의 구독]*|VNet을 만들 구독을 선택합니다. VNet은 단일 구독 내에 존재합니다.|
-    |**리소스 그룹**|**새로 만들기:** *MyRG*|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
+    |**리소스 그룹**|**새로 만들기:** *MyRG*|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [리소스 관리자](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
     |**위치**:|*미국 서부*| 일반적으로 물리적 위치에 가장 가까운 위치가 선택되어 있습니다.|
 
     VNet을 만드는 데 몇 초 정도 걸립니다. 만들어지면 Azure Portal 대시보드가 보입니다.
 
-6. 가상 네트워크가 만들어진 상태에서 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 블레이드에서 **MyVNet** 가상 네트워크를 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...** 상자에 *MyVNet*을 입력하면  VNet에 쉽게 액세스할 수 있습니다.
+6. 가상 네트워크가 만들어진 상태에서 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 블레이드에서 **MyVNet** 가상 네트워크를 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...** 상자에 *MyVNet*을 입력하여 쉽게 VNet에 액세스할 수 있습니다.
 7. 다음 그림과 같이 **MyVNet** 블레이드가 열리고 VNet에 대한 정보가 표시됩니다.
 
     ![가상 네트워크 다이어그램](./media/virtual-network-get-started-vnet-subnet/myvnet.png)
@@ -155,12 +155,12 @@ VNet 하나와 VM 둘을 만들었지만 Azure Portal은 MyRG 리소스 그룹�
 
 1. **즐겨찾기** 창에서 **추가 서비스**를 클릭합니다.
 2. **추가 서비스** 창에서 *필터*라는 단어가 포함된 상자에 *리소스 그룹*을 입력합니다. 필터링된 목록에 **리소스 그룹**이 표시되면 클릭합니다.
-3. **리소스 그룹** 창에서 *MyRG* 리소스 그룹을 클릭합니다. 구독에 기존 리소스 그룹이 많이 있는 경우 *이름을 기준으로 필터링…* 텍스트가 포함된 상자에 *MyRG*를 입력하면 MyRG 리소스 그룹에 신속하게 액세스할 수 있습니다.
+3. **리소스 그룹** 창에서 *MyRG* 리소스 그룹을 클릭합니다. 구독에 기존 리소스 그룹이 많이 있는 경우 *이름을 기준으로 필터링…* 텍스트가 포함된 상자에 *MyRG*를 입력하여 MyRG 리소스 그룹에 신속하게 액세스할 수 있습니다.
 4.  **MyRG** 블레이드에 다음 그림과 같이 12개의 리소스가 포함된 리소스 그룹이 표시됩니다.
 
     ![리소스 그룹 콘텐츠](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
+VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 
 ## <a name="connect-to-from-vms"></a>VM에 연결
 

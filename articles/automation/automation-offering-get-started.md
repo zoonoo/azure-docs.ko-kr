@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -45,8 +45,8 @@ Azure Automation에 저장된 DSC 구성은 Azure 가상 컴퓨터에 직접 적
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="automation-dsc"></a>자동화 DSC
-Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
+### <a name="automation-dsc"></a>Automation DSC
+Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터(클래식)
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터
@@ -67,8 +67,8 @@ Windows용 PowerShell DSC 에이전트가 Azure Automation과 통신하려면 �
 ### <a name="permissions-required-to-create-automation-account"></a>Automation 계정을 만드는 데 필요한 권한
 Automation 계정을 만들거나 업데이트하려면 이 항목을 완료하는 데 필요한 다음과 같은 특정 권한이 있어야 합니다.   
  
-* Automation 계정을 만들려면 [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md#contributor-role-permissions) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 참가자 역할과 동일한 권한을 가진 역할에 AD 사용자 계정을 추가해야 합니다.  
-* Azure AD 테넌트의 관리자가 아닌 사용자는 앱 등록 설정이 **예**로 지정되어 있는 경우 [AD 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다.  앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다. 
+* Automation 계정을 만들려면 [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 소유자 역할과 동일한 권한을 가진 역할에 AD 사용자 계정을 추가해야 합니다.  
+* 앱 등록 설정이 **예**로 지정되어 있는 경우 Azure AD 테넌트의 관리자가 아닌 사용자는 [AD 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다.  앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다. 
 
 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 상황에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고. 전역 관리자/공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
@@ -95,18 +95,18 @@ Azure Automation에서 Azure cmdlet을 사용하여 리소스에 대해 수행�
 
 Azure Portal에서 Automation 계정을 만들 경우 두 개의 인증 엔터티를 자동으로 만듭니다.
 
-* 실행 계정 이 계정은 Azure AD(Azure Active Directory)의 서비스 주체 및 인증서를 만듭니다. 또한 Runbook을 사용하여 Resource Manager 리소스를 관리하는 참가자 역할 기반 액세스 제어(RBAC)를 할당합니다.
+* 실행 계정 이 계정은 Azure AD(Azure Active Directory)의 서비스 주체 및 인증서를 만듭니다. 또한 Runbook을 사용하여 리소스 관리자 리소스를 관리하는 참가자 역할 기반 액세스 제어(RBAC)를 할당합니다.
 * 클래식 실행 계정 이 계정은 Runbook을 사용하여 클래식 리소스를 관리하는 데 사용되는 관리 인증서를 업로드합니다.
 
-Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azure AD 사용자 계정 및 실행 계정에 허용된 작업을 수락하고 서비스 주체를 인증할 수 있습니다.  Automation 사용 권한 관리 모델을 개발하는 방법에 대한 자세한 내용은 [Azure Automation에서 역할 기반 액세스 제어 문서](automation-role-based-access-control.md)를 참조하세요.  
+Azure 리소스 관리자에서 역할 기반 액세스 제어를 사용하여 Azure AD 사용자 계정 및 실행 계정에 허용된 작업을 수락하고 서비스 주체를 인증할 수 있습니다.  Automation 사용 권한 관리 모델을 개발하는 방법에 대한 자세한 내용은 [Azure Automation에서 역할 기반 액세스 제어 문서](automation-role-based-access-control.md)를 참조하세요.  
 
 #### <a name="authentication-methods"></a>인증 방법
 다음 표에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법이 요약되어 있습니다.
 
 | 메서드 | Environment 
 | --- | --- | 
-| Azure 실행 또는 클래식 실행 계정 |Azure Resource Manager 및 Azure 클래식 배포 |  
-| Azure AD 사용자 계정 |Azure Resource Manager 및 Azure 클래식 배포 |  
+| Azure 실행 또는 클래식 실행 계정 |Azure 리소스 관리자 및 Azure 클래식 배포 |  
+| Azure AD 사용자 계정 |Azure 리소스 관리자 및 Azure 클래식 배포 |  
 | Windows 인증 |Hybrid Runbook Worker를 사용하는 로컬 데이터 센터 또는 다른 클라우드 공급자 |  
 | AWS 자격 증명 |Amazon 웹 서비스 |  
 

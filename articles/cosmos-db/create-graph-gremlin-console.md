@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin 콘솔에서 그래프 만들기, 쿼리 및 트래버스
@@ -28,7 +28,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ![Apache Gremlin 콘솔의 Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행됩니다. [Apache TinkerPop 사이트](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip)에서 다운로드할 수 있습니다.
+Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행됩니다. [Apache TinkerPop 사이트](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip)에서 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-또한 [Gremlin 콘솔](http://tinkerpop.apache.org/)을 설치해야 합니다. 버전 3.2.4 이상을 사용합니다.
+또한 [Gremlin 콘솔](http://tinkerpop.apache.org/)을 설치해야 합니다. 버전 3.2.5 이상을 사용합니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -47,7 +47,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>앱 서비스에 연결
-1. Gremlin 콘솔을 시작하기 전에 apache-tinkerpop-gremlin-console-3.2.4/conf 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
+1. Gremlin 콘솔을 시작하기 전에 apache-tinkerpop-gremlin-console-3.2.5/conf 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
 2. *호스트*, *포트*, *사용자 이름*, *암호*, *connectionPool* 및 *serializer* 구성을 입력합니다.
 
     설정|제안 값|설명
@@ -64,7 +64,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
     암호 값의 경우 **키** 페이지의 **기본 키**를 복사합니다. ![Azure Portal의 키 페이지에서 기본 키 보기 및 복사](./media/create-graph-gremlin-console/keys.png)
 
 
-3. 터미널에서 `bin/gremlin.bat` 또는 `bin/gremlin.sh`를 실행하여 [Gremlin 콘솔](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/)을 시작합니다.
+3. 터미널에서 `bin/gremlin.bat` 또는 `bin/gremlin.sh`를 실행하여 [Gremlin 콘솔](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)을 시작합니다.
 4. 터미널에서 `:remote connect tinkerpop.server conf/remote-secure.yaml`을 실행하여 앱 서비스에 연결합니다.
 
     > [!TIP]

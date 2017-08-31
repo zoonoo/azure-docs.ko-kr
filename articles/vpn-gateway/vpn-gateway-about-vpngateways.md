@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ecfe6dab6e4deaa75d073badcb88d536396fe678
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway 정보
@@ -28,7 +28,7 @@ VPN Gateway는 공용 연결을 통해 온-프레미스 위치에 암호화된 �
 
 각 가상 네트워크에는 하나의 VPN Gateway만이 있을 수 있지만 동일한 VPN Gateway에 여러 연결을 만들 수 있습니다. 한 가지 예로 다중 사이트 연결 구성이 있습니다. 동일한 VPN Gateway에 대한 여러 연결을 만들면 지점 및 사이트 간 VPN을 비롯한 모든 VPN 터널이 해당 게이트웨이의 사용 가능한 대역폭을 공유합니다.
 
-### <a name="what-is-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이란?
+### <a name="whatis"></a>가상 네트워크 게이트웨이란?
 
 가상 네트워크 게이트웨이는 GatewaySubnet이라는 특정 서브넷에 배포되는 두 개 이상의 가상 컴퓨터로 구성됩니다. GatewaySubnet에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM을 직접 구성할 수 없고 GatewaySubnet에 추가 리소스를 배포하지 않아야 합니다.
 
@@ -38,7 +38,7 @@ VPN Gateway는 공용 연결을 통해 온-프레미스 위치에 암호화된 �
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>VPN Gateway 구성
+## <a name="configuring"></a>VPN Gateway 구성
 
 VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 다릅니다. 대부분의 리소스를 특정 순서로 구성해야 하지만 어떤 경우에는 개별적으로 구성할 수 있습니다.
 
@@ -46,13 +46,13 @@ VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 �
 
 각 리소스에 선택하는 설정은 성공적인 연결을 만드는 데 매우 중요합니다. VPN Gateway의 개별 리소스 및 설정에 대한 정보는 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요. 이 문서에는 게이트웨이 유형, VPN 유형, 연결 유형, 게이트웨이 서브넷, 로컬 네트워크 게이트웨이 및 고려해야 할 다른 다양한 리소스 설정을 이해하는 데 유용한 정보가 포함되어 있습니다.
 
-### <a name="deployment-tools"></a>배포 도구
+### <a name="tools"></a>배포 도구
 
 Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시작하고 구성할 수 있습니다. 나중에 PowerShell과 같은 다른 도구로 전환하도록 결정하여 추가 리소스를 구성하거나 해당하는 경우 기존 리소스를 수정할 수 있습니다. 현재, Azure Portal에서 모든 리소스 및 리소스 설정을 구성할 수 없습니다. 각 연결 토폴로지에 대한 문서의 지침은 특정 구성 도구가 필요한지 여부를 지정합니다. 
 
-### <a name="deployment-model"></a>배포 모델
+### <a name="models"></a>배포 모델
 
-VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [Resource Manager 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+VPN Gateway를 구성할 때 수행할 단계는 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이 설정을 만들고 구성합니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ## <a name="diagrams"></a>연결 토폴로지 다이어그램
 
@@ -64,7 +64,7 @@ VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실�
 
 다이어그램 및 설명을 사용하여 요구 사항에 맞게 연결 토폴로지를 선택하도록 도울 수 있습니다. 다이어그램은 기본 초기 토폴로지를 보여 주지만 다이어그램을 지침으로 사용하여 더 복잡한 구성을 작성할 수 있습니다.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>사이트 간 및 다중 사이트(IPsec/IKE VPN 터널)
+## <a name="s2smulti"></a>사이트 간 및 다중 사이트(IPsec/IKE VPN 터널)
 
 ### <a name="S2S"></a>사이트 간
 
@@ -84,7 +84,11 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 ## <a name="P2S"></a>지점 및 사이트 간(SSTP를 통한 VPN)
 
-지점 및 사이트 간(P2S) VPN Gateway 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S는 SSTP를 통한 VPN 연결입니다(보안 소켓 터널링 프로토콜). S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. 클라이언트 컴퓨터부터 시작하여 VPN 연결을 설정합니다. 이 솔루션은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 VNet에 연결해야 하는 경우에 유용합니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다.
+지점 및 사이트 간(P2S) VPN Gateway를 통해 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우에 사이트 간 VPN 대신 P2S VPN을 사용하는 것도 유용한 솔루션입니다. 
+
+S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다.
+
+P2S는 SSL 기반 VPN 프로토콜인 SSTP(Secure Socket Tunneling Protocol)를 사용합니다. 클라이언트 컴퓨터에서 시작하여 P2S VPN 연결을 설정합니다.
 
 ![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
@@ -106,7 +110,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 ### <a name="connections-between-deployment-models"></a>배포 모델 간의 연결
 
-Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델이 있습니다. 일정 기간 동안 Azure를 사용한 경우 Azure VM 및 인스턴스 역할이 클래식 VNet에서 실행되고 있을 것입니다. 이후의 VM 및 역할 인스턴스는 Resource Manager에서 만들 VNet에서 실행되고 있을 것입니다. VNet 간의 연결을 만들어 어떤 VNet의 리소스가 다른 리소스와 서로 직접 통신하도록 할 수 있습니다.
+Azure에는 현재 클래식 및 리소스 관리자 등 두 개의 배포 모델이 있습니다. 일정 기간 동안 Azure를 사용한 경우 Azure VM 및 인스턴스 역할이 클래식 VNet에서 실행되고 있을 것입니다. 이후의 VM 및 역할 인스턴스는 리소스 관리자에서 만들 VNet에서 실행되고 있을 것입니다. VNet 간의 연결을 만들어 어떤 VNet의 리소스가 다른 리소스와 서로 직접 통신하도록 할 수 있습니다.
 
 ### <a name="vnet-peering"></a>VNet 피어링
 

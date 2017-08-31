@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
@@ -28,7 +28,7 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
-**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요(https://manage.windowsazure.com)?**
+**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
 
 **A:** Azure 클래식 포털에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 있는 경우 일회성 활성화 단계를 위해 [http://aka.ms/accessAAD](http://aka.ms/accessAAD)로 이동하십시오. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
 
@@ -212,5 +212,5 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:** 아니요.  Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
+**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
 

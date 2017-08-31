@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET용 Batch 클라이언트 라이브러리를 사용한 솔루션 빌드 시작
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-이 문서에서는 C# 응용 프로그램 예제를 단계별로 설명하면서 [Azure Batch][azure_batch] 및 [Batch .NET][net_api] 라이브러리의 기본에 대해 알아봅니다. 샘플 응용 프로그램에서 Batch 서비스를 활용하여 클라우드에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure Storage](../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 Batch 응용 프로그램 워크플로를 습득하고 작업, 태스크, 풀 및 계산 노드와 같은 Batch의 주요 구성 요소에 대해 이해합니다.
+이 문서에서는 C# 응용 프로그램 예제를 단계별로 설명하면서 [Azure Batch][azure_batch] 및 [Batch .NET][net_api] 라이브러리의 기본에 대해 알아봅니다. 샘플 응용 프로그램에서 Batch 서비스를 활용하여 클라우드에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure Storage](../storage/common/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 Batch 응용 프로그램 워크플로를 습득하고 작업, 태스크, 풀 및 계산 노드와 같은 Batch의 주요 구성 요소에 대해 이해합니다.
 
 ![Batch 솔루션 워크플로(기본)][11]<br/>
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 08/04/2017
 ### <a name="accounts"></a>계정
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정][azure_free_account]을 만듭니다.
 * **Batch 계정**: Azure 구독이 있으면 [Azure Batch 계정을 만듭니다](batch-account-create-portal.md).
-* **Storage 계정**: [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
+* **Storage 계정**: [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
 
 > [!IMPORTANT]
-> Batch는 현재 [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만* 지원합니다.
+> Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만* 지원합니다.
 >
 >
 
@@ -128,7 +128,7 @@ private const string StorageAccountKey  = "";
 ![Azure Storage에 컨테이너 만들기][1]
 <br/>
 
-Batch에는 Azure Storage와의 상호 작용을 위해 기본 제공되는 지원이 포함됩니다. Storage 계정 내의 컨테이너는 Batch 계정에서 실행되는 태스크에 필요한 파일을 제공합니다. 컨테이너는 태스크가 생성하는 출력 데이터를 저장할 공간도 제공합니다. *DotNetTutorial* 클라이언트 응용 프로그램이 실행하는 첫 번째 작업은 [Azure Blob Storage](../storage/storage-introduction.md)에 세 개의 컨테이너를 만드는 것입니다.
+Batch에는 Azure Storage와의 상호 작용을 위해 기본 제공되는 지원이 포함됩니다. Storage 계정 내의 컨테이너는 Batch 계정에서 실행되는 태스크에 필요한 파일을 제공합니다. 컨테이너는 태스크가 생성하는 출력 데이터를 저장할 공간도 제공합니다. *DotNetTutorial* 클라이언트 응용 프로그램이 실행하는 첫 번째 작업은 [Azure Blob Storage](../storage/common/storage-introduction.md)에 세 개의 컨테이너를 만드는 것입니다.
 
 * **응용 프로그램**: 이 컨테이너는 태스크가 실행하는 응용 프로그램은 물론 DLL과 같은 모든 종속 파일을 저장합니다.
 * **입력**: 태스크가 *입력* 컨테이너에서 처리할 데이터 파일을 다운로드합니다.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 컨테이너를 만든 후 이제 응용 프로그램은 작업에 의해 사용될 파일을 업로드할 수 있습니다.
 
 > [!TIP]
-> [.NET에서 Blob Storage를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)에서는 Azure Storage 컨테이너 및 Blob을 사용한 작업의 개요를 제공합니다. Batch 작업 시작 단계 읽기 목록의 거의 위쪽에 있습니다.
+> [.NET에서 Blob Storage를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)에서는 Azure Storage 컨테이너 및 Blob을 사용한 작업의 개요를 제공합니다. Batch 작업 시작 단계 읽기 목록의 거의 위쪽에 있습니다.
 >
 >
 
@@ -286,7 +286,7 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 * **컨테이너 공유 액세스 서명**: 각 태스크는 계산 노드에서 작업을 완료하면 해당 출력 파일을 Azure Storage의 *출력* 컨테이너에 업로드합니다. 이렇게 하려면 TaskApplication은 파일을 업로드하는 경우 경로의 일부로 컨테이너에 쓰기 액세스를 제공하는 컨테이너 공유 액세스 서명을 사용합니다. 컨테이너 공유 액세스 서명 가져오기는 BLOB 공유 액세스 서명을 가져올 때와 유사한 방식으로 수행됩니다. DotNetTutorial에서 이렇게 하기 위해 `GetContainerSasUrl` 도우미 메서드가 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]를 호출하는 것을 확인할 수 있습니다. “6단계: 작업 모니터링"에서 TaskApplication이 컨테이너 공유 액세스 서명을 사용하는 방법에 대해 자세히 알아봅니다.
 
 > [!TIP]
-> 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: 공유 액세스 서명(SAS) 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob Storage를 통해 공유 액세스 서명(SAS) 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 Storage 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
+> 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: 공유 액세스 서명(SAS) 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob Storage를 통해 공유 액세스 서명(SAS) 만들기 및 사용](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 Storage 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
 >
 >
 

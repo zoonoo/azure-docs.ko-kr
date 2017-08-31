@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 6f31b082e47e46f023f593a5fe14ef6027b0d17d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77042219cbe698a33ab9447aa952586772897241
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
@@ -88,7 +88,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
     ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 

@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure 클라우드에서 Machine Learning 소개
 
 ## <a name="what-is-machine-learning"></a>기계 학습이란 무엇인가요?
-Machine Learning은 컴퓨터에서 기존 데이터를 사용하여 미래 동작, 결과 및 추세를 예측하는 데이터 과학 기술입니다. Machine Learning을 사용하면 컴퓨터에서 명시적으로 프로그래밍하지 않고 학습합니다.
+Machine Learning은 컴퓨터에서 기존 데이터를 사용하여 미래 동작, 결과 및 추세를 예측하는 데이터 과학 기술입니다. Machine Learning을 사용하면 컴퓨터에서 명시적으로 프로그래밍하지 않고 학습합니다. 
 
-Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 장치를 만드는 데 도움이 됩니다. 온라인 쇼핑 시 기계 학습은 사용자가 구매한 제품에 따라 좋아할만한 다른 제품을 추천하는 데 도움이 됩니다. 신용 카드를 읽을 때 기계 학습은 해당 거래를 거래 데이터베이스와 비교하여 부정 행위를 검색하는 데 도움을 줍니다. 로봇 진공 청소기가 방을 청소할 때, 기계 학습은 작업이 완료되었는지 여부를 판단하도록 해줍니다.
+Machine Learning은 AI(인공 지능)의 하위 범주로 간주됩니다. Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 장치를 만드는 데 도움이 됩니다. 온라인 쇼핑 시 기계 학습은 사용자가 구매한 제품에 따라 좋아할만한 다른 제품을 추천하는 데 도움이 됩니다. 신용 카드를 읽을 때 기계 학습은 해당 거래를 거래 데이터베이스와 비교하여 부정 행위를 검색하는 데 도움을 줍니다. 로봇 진공 청소기가 방을 청소할 때, 기계 학습은 작업이 완료되었는지 여부를 판단하도록 해줍니다.
 
 간략한 개요는 비디오 시리즈 [초급자를 위한 데이터 과학](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)을 참조하세요. 초보자를 위한 데이터 과학은 전문 용어 또는 수치를 사용하지 않고 기계 학습을 소개하며 간단한 예측 모델 과정도 안내합니다.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Microsoft Azure 클라우드의 기계 학습이란 무엇인가요?
+
+![기계 학습이란 무엇인가요? Azure 기계 학습에서 예측 분석을 운용하는 기본 워크플로입니다.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning은 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 클라우드 예측 분석 서비스입니다.
 
 즉시 사용 가능한 알고리즘 라이브러리에서 작업을 시작하고 이를 통해 인터넷 연결 PC에서 모델을 만들어 예측 솔루션에 신속히 배포할 수 있습니다. [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)에서 즉시 사용 예제와 솔루션을 시작합니다.
-
-![기계 학습이란 무엇인가요? Azure 기계 학습에서 예측 분석을 운용하는 기본 워크플로입니다.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure 기계 학습은 예측 분석을 모델링 하는 도구를 제공할 뿐 아니라 예측 모델을 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다.
 
@@ -70,13 +71,13 @@ Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>데이터 탐색, 설명이 포함된 분석 및 예측 분석
 
-**데이터 탐색** 은 집중 분석을 위한 특성을 찾기 위해 규모가 크고 구조화되지 않은 데이터 집합에 대한 정보를 수집하는 프로세스입니다.
+**데이터 탐색**은 집중 분석을 위한 특성을 찾기 위해 규모가 크고 구조화되지 않은 데이터 집합에 대한 정보를 수집하는 프로세스입니다.
 
 **데이터 마이닝** 은 자동화된 데이터 탐색을 나타냅니다.
 
-**설명이 포함된 분석** 은 발생한 현상을 요약하기 위해 데이터 집합을 분석하는 프로세스입니다. 대부분의 비즈니스 분석(예: 판매 보고서, 웹 메트릭 및 소셜 네트워크 분석)은 설명을 포함합니다.
+**설명이 포함된 분석**은 발생한 현상을 요약하기 위해 데이터 집합을 분석하는 프로세스입니다. 대부분의 비즈니스 분석(예: 판매 보고서, 웹 메트릭 및 소셜 네트워크 분석)은 설명을 포함합니다.
 
-**예측 분석** 은 미래 결과를 예측하기 위해 기록 데이터 또는 현재 데이터에서 모델을 작성하는 프로세스입니다.
+**예측 분석**은 미래 결과를 예측하기 위해 기록 데이터 또는 현재 데이터에서 모델을 작성하는 프로세스입니다.
 
 ### <a name="supervised-and-unsupervised-learning"></a>감독 학습 및 자율 학습
  **감독 학습** 알고리즘은 레이블이 지정된 데이터, 즉 원하는 응답 예제로 구성된 데이터로 학습됩니다. 예를 들어 사기성 신용 카드 사용을 식별하는 모델은 알려진 사기와 유효한 요금의 레이블된 데이터 요소가 있는 데이터 집합에서 학습됩니다. 대부분의 기계 학습은 감독 학습입니다.
@@ -103,10 +104,10 @@ Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델
 * **모듈**: 소규모 데이터 집합을 입력 및 편집할 수 있도록 하는 데이터 입력 모듈과 같은 기계 학습 스튜디오 모델의 기능 부분입니다. 알고리즘 또한 기계 학습 스튜디오의 모듈 유형에 해당합니다.
 * **모델**: 감독 학습의 경우, 모델은 학습 데이터, 알고리즘 모듈 및 기능 모듈(예: 모델 점수 매기기 모듈)로 구성된 기계 학습 실험 제품입니다.
 * **숫자 데이터**: 측정(연속 데이터) 또는 개수(불연속 데이터)의 의미를 갖는 데이터입니다. *양적 데이터*라고도 합니다.
-* **파티션**: 데이터를 샘플로 구분하는 방법입니다. 자세한 내용은 [파티션 및 샘플](https://msdn.microsoft.com/library/azure/dn905960.aspx) 을 참조하세요.
+* **파티션**: 데이터를 샘플로 구분하는 방법입니다. 자세한 내용은 [파티션 및 샘플](https://msdn.microsoft.com/library/azure/dn905960.aspx)을 참조하세요.
 * **예측**: 예측은 기계 학습 모델에서 값을 예측하는 것입니다. "예측된 점수" 용어도 볼 수 있습니다. 그러나 예측된 점수는 모델의 최종 출력이 아닙니다. 모델에 대한 평가 점수는 다음과 같습니다.
 * **회귀**: 연식 및 제조업체에 따라 자동차 가격을 예측하는 것처럼 독립 변수를 기반으로 값을 예측하는 모델입니다.
-* **점수**: 기계 학습 스튜디오의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx) 을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
+* **점수**: 기계 학습 스튜디오의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx)을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
 * **샘플**: 전체를 대표하는 데이터 집합의 부분입니다. 샘플을 임의로 선택하거나 데이터 집합의 특정 기능에 따라 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

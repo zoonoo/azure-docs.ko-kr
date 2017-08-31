@@ -20,7 +20,7 @@ ACU: 210-250
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
-*Fs 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+*Fs 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/common/storage-premium-storage.md)를 참조하세요.
 
 
 <br>

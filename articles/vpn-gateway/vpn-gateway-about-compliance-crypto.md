@@ -53,7 +53,7 @@ IPsec/IKE 정책을 만들어 새 연결 또는 기존 연결에 적용할 수 �
 
 ## <a name="ipsecike-policy-faq"></a>IPsec/IKE 정책 FAQ
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>다음 단계

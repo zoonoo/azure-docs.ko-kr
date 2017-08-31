@@ -59,7 +59,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 응용 프로그램을 
 | 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
-[여기에서 Azure Storage 복제 옵션](../articles/storage/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/storage/storage-managed-disks-overview.md)를 참조하세요.
+[여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 ### <a name="storage-costs"></a>저장소 비용
 가격은 선택한 저장소 형식 및 가용성에 따라 달라집니다.
@@ -75,7 +75,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 응용 프로그램을 
 다양한 저장소 형식 및 가용성에 대한 가격 책정 정보를 보려면 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 ## <a name="availability-sets"></a>가용성 집합
-가용성 집합은 중복성과 가용성을 제공하기 위해 Azure에서 응용 프로그램이 빌드되는 방식을 이해할 수 있도록 하는 VM의 논리적 그룹입니다. 고가용성 응용 프로그램을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 단일 VM이 [Azure Premium Storage](../articles/storage/storage-premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 
+가용성 집합은 중복성과 가용성을 제공하기 위해 Azure에서 응용 프로그램이 빌드되는 방식을 이해할 수 있도록 하는 VM의 논리적 그룹입니다. 고가용성 응용 프로그램을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 단일 VM이 [Azure Premium Storage](../articles/storage/common/storage-premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 
 
 가용성 집합은 하드웨어 오류를 방지하고 업데이트를 안전하게 적용할 수 있도록 하는 두 가지 추가 그룹, 즉 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다.
 
@@ -90,7 +90,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 응용 프로그램을 
 업데이트 도메인은 동시에 유지 관리를 진행하거나 다시 부팅될 수 있는 기본 하드웨어의 논리적 그룹입니다. 가용성 집합 내에서 VM을 만들 때 Azure 플랫폼에서는 이러한 업데이트 도메인에 걸쳐 VM을 자동으로 분산합니다. 이 방법을 통해 Azure 플랫폼이 정기적으로 유지 관리를 거치는 동안 응용 프로그램에 있는 하나 이상의 인스턴스가 항상 실행됩니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다.
 
 ### <a name="managed-disk-fault-domains"></a>관리 디스크 장애 도메인
-[Azure Managed Disks](../articles/storage/storage-faq-for-disks.md)를 사용하는 VM의 경우, 관리 가용성 집합을 사용할 때 VM은 관리 디스크 장애 도메인에 맞춰집니다. 이러한 정렬은 VM에 연결된 모든 관리 디스크가 동일한 관리 디스크 장애 도메인 내에 있도록 합니다. 관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당 2개 또는 3개의 관리 디스크 장애 도메인이 있을 수 있습니다.
+[Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md)를 사용하는 VM의 경우, 관리 가용성 집합을 사용할 때 VM은 관리 디스크 장애 도메인에 맞춰집니다. 이러한 정렬은 VM에 연결된 모든 관리 디스크가 동일한 관리 디스크 장애 도메인 내에 있도록 합니다. 관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당 2개 또는 3개의 관리 디스크 장애 도메인이 있을 수 있습니다.
 
 ![Managed Disk FD](./media/virtual-machines-common-manage-availability/md-fd.png)
 

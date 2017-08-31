@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
@@ -98,7 +98,7 @@ Azure Resource Manager 모델을 사용하면 리소스 그룹에 키 자격 증
 > 
 
 ## <a name="example"></a>예제
-SSL에는 인증서를, 데이터 저장에는 Azure 저장소를, 로그인 작업에는 RSA 2048비트 키를 사용하는 응용 프로그램을 개발하고, VM(또는 VM 크기 집합)에서 이 응용 프로그램을 실행한다고 가정해 보겠습니다. 이 경우 키 자격 증명 모음을 사용하면 모든 응용 프로그램 암호를 저장하고, 키 자격 증명 모음을 사용하면 응용 프로그램에서 Azure Active Directory를 통해 인증하는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
+SSL에는 인증서를, 데이터 저장에는 Azure 저장소를, 로그인 작업에는 RSA 2048비트 키를 사용하는 응용 프로그램을 개발하고, VM(또는 VM 확장 집합)에서 이 응용 프로그램을 실행한다고 가정해 보겠습니다. 이 경우 키 자격 증명 모음을 사용하면 모든 응용 프로그램 암호를 저장하고, 키 자격 증명 모음을 사용하면 응용 프로그램에서 Azure Active Directory를 통해 인증하는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
 이제 여기서는 키 자격 증명 모음에 저장될 모든 키와 암호 정보를 요약하겠습니다.
 
@@ -197,7 +197,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 개발자/운영자의 사용자 지정 역할로 "deploy/action" 권한을 할당하면 범위가 리소스 그룹으로 지정됩니다. 이렇게 하면 'ContosoAppRG' 리소스 그룹에서 만든 VM만 암호(SSL 인증서 및 부트스트랩 인증서)를 가져오게 됩니다. dev/ops(개발자/운영자) 팀 구성원이 다른 리소스 그룹에 만든 VM에서는 암호 URI를 알고 있어도 이러한 암호를 가져올 수 없습니다.
 
-이 예제에서는 간단한 시나리오를 보여 줍니다. 실생활 시나리오에서는 더 복잡할 수 있으며 필요에 따라 키 자격 증명 모음에 대한 권한을 조정해야 할 수도 있습니다. 예를 들어 이 예제에서는 개발자/운영자 팀이 해당 응용 프로그램에서 참조해야 하는 키 및 암호 참조(URI 및 지문)를 보안 팀에서 제공한다고 가정합니다. 따라서 개발자/운영자에게 어떤 데이터 평면 액세스 권한도 부여할 필요가 없습니다. 또한 이 예제에서는 키 자격 증명 모음 보호에 중점을 둡니다. 마찬가지로 [VM](https://azure.microsoft.com/services/virtual-machines/security/), [스토리지 계정](../storage/storage-security-guide.md) 및 기타 Azure 리소스 보안도 고려해야 합니다.
+이 예제에서는 간단한 시나리오를 보여 줍니다. 실생활 시나리오에서는 더 복잡할 수 있으며 필요에 따라 키 자격 증명 모음에 대한 권한을 조정해야 할 수도 있습니다. 예를 들어 이 예제에서는 개발자/운영자 팀이 해당 응용 프로그램에서 참조해야 하는 키 및 암호 참조(URI 및 지문)를 보안 팀에서 제공한다고 가정합니다. 따라서 개발자/운영자에게 어떤 데이터 평면 액세스 권한도 부여할 필요가 없습니다. 또한 이 예제에서는 키 자격 증명 모음 보호에 중점을 둡니다. 마찬가지로 [VM](https://azure.microsoft.com/services/virtual-machines/security/), [스토리지 계정](../storage/common/storage-security-guide.md) 및 기타 Azure 리소스 보안도 고려해야 합니다.
 
 > [!NOTE]
 > 참고: 이 예제에서는 프로덕션 환경에서 키 자격 증명 모음 액세스를 잠글 수도 있습니다. 개발자는 개발한 응용 프로그램에 속한 자격 증명 모음, VM 및 저장소 계정을 관리할 수 있는 모든 권한을 갖춘 구독 또는 리소스 그룹을 가지고 있어야 합니다.

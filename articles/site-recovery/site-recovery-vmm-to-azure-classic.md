@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
@@ -52,7 +51,7 @@ Azure에서 다음 항목이 필요합니다.
 | **필수 요소** | **세부 정보** |
 | --- | --- |
 | **Azure 계정** |[Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). |
-| **Azure 저장소** |복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>[자세히 알아보세요](../storage/storage-introduction.md) . |
+| **Azure 저장소** |복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/common/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>[자세히 알아보세요](../storage/common/storage-introduction.md) . |
 | **Azure 네트워크** |장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다. |
 
 ## <a name="on-premises-prerequisites"></a>온-프레미스 필수 조건

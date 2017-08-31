@@ -463,7 +463,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 
 ## <a name="faq"></a>VNet 간 FAQ
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

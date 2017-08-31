@@ -1,6 +1,6 @@
 ---
-title: "Azure 앱 서비스에서 Java API 앱 빌드 및 배포"
-description: "Java API 앱 패키지를 만들고 Azure 앱 서비스에 배포하는 방법을 알아봅니다."
+title: "Azure App Service에서 Java API 앱 빌드 및 배포"
+description: "Java API 앱 패키지를 만들고 Azure App Service에 배포하는 방법을 알아봅니다."
 services: app-service\api
 documentationcenter: java
 author: rmcmurray
@@ -14,24 +14,23 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Azure 앱 서비스에서 Java API 앱 빌드 및 배포
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Azure App Service에서 Java API 앱 빌드 및 배포
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-이 자습서에서는 Java 응용 프로그램을 만들고 [Git]를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 자습서의 코드는 [Maven]을 사용하여 만들어집니다. [Jax-RS]는 RESTful 서비스를 만드는 데 사용되고 [Swagger 편집기]를 사용하여 [Swagger] 메타데이터 사양을 기반으로 생성됩니다.
+이 자습서에서는 Java 응용 프로그램을 만들고 [Git]를 사용하여 Azure App Service API Apps에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 자습서의 코드는 [Maven]을 사용하여 만들어집니다. [Jax-RS]는 RESTful 서비스를 만드는 데 사용되고 [Swagger 편집기]를 사용하여 [Swagger] 메타데이터 사양을 기반으로 생성됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 1. [Java 개발자 키트 8] \(이상)
 2. [Maven] 설치됨
 3. [Git] 설치됨
-4. [Microsoft Azure]에 대한 유료 또는 [무료 평가판] 구독
+4. [Microsoft Azure]에 대한 유료 또는 [평가판] 구독
 5. [Postman]
 
 ## <a name="scaffold-the-api-using-swaggerio"></a>Swagger.IO를 사용하여 API 스캐폴드
@@ -239,8 +238,8 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## <a name="publish-the-output-to-azure-app-service"></a>Azure 앱 서비스에 출력 게시
-이 섹션에서는 Azure 포털을 사용 하여 새 API 앱을 만들고 Java 응용 프로그램을 호스팅하기 위해 해당 API 앱을 준비하며 새 API 앱을 실행하기 위해 Azure 앱 서비스에 새로 만든 WAR 파일을 배포하는 방법을 알아봅니다. 
+## <a name="publish-the-output-to-azure-app-service"></a>Azure App Service에 출력 게시
+이 섹션에서는 Azure Portal을 사용 하여 새 API 앱을 만들고 Java 응용 프로그램을 호스팅하기 위해 해당 API 앱을 준비하며 새 API 앱을 실행하기 위해 Azure App Service에 새로 만든 WAR 파일을 배포하는 방법을 알아봅니다. 
 
 1. **새로 만들기 -> 웹 + 모바일 -> API 앱** 메뉴 항목을 클릭하고 앱의 세부 정보를 입력한 다음 **만들기**를 클릭하여 [Azure Portal]에서 새 API 앱을 만듭니다.
    
@@ -257,7 +256,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 5. 새 Git 리포지토리의 URL을 클립보드에 복사합니다. 잠시 후에 중요하다고 생각되면 저장합니다. 
    
     ![앱에 대한 새 Git 리포지토리 설정][copy-git-repo-url]
-6. Git는 온라인 리포지토리에 WAR 파일을 푸시합니다. 이 작업을 수행하려면 앞에서 만든 **배포** 폴더로 이동하므로 코드를 앱 서비스에서 실행하는 리포지토리까지 쉽게 커밋할 수 있습니다. 콘솔 창에 위치하고 webapps 폴더가 있는 폴더로 이동하면 다음 Git 명령을 발급하여 프로세스를 시작하고 배포를 시작합니다. 
+6. Git는 온라인 리포지토리에 WAR 파일을 푸시합니다. 이 작업을 수행하려면 앞에서 만든 **배포** 폴더로 이동하므로 코드를 App Service에서 실행하는 리포지토리까지 쉽게 커밋할 수 있습니다. 콘솔 창에 위치하고 webapps 폴더가 있는 폴더로 이동하면 다음 Git 명령을 발급하여 프로세스를 시작하고 배포를 시작합니다. 
    
          git init
          git add .
@@ -266,35 +265,35 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
          git push azure master
    
     **푸시** 요청을 발급하면 이전에 배포 자격 증명에 대해 만든 암호를 요청하는 메시지가 표시됩니다. 자격 증명을 입력하면 업데이트가 배포되었다는 메시지가 포털에 표시되어야 합니다.
-7. 다시 한 번 Postman을 사용하여 Azure 앱 서비스에서 실행되는 새로 배포된 API 앱을 누르면 동작이 일관되고 예상 대로 연락처 데이터를 반환하며 Swagger.io로 스캐폴드된 Java 코드에 간단한 코드 변경 내용을 사용하는 것을 확인할 수 있습니다. 
+7. 다시 한 번 Postman을 사용하여 Azure App Service에서 실행되는 새로 배포된 API 앱을 누르면 동작이 일관되고 예상 대로 연락처 데이터를 반환하며 Swagger.io로 스캐폴드된 Java 코드에 간단한 코드 변경 내용을 사용하는 것을 확인할 수 있습니다. 
    
     ![Azure에서 Java 연락처 REST API 라이브 사용][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Swagger.io 편집기에서 가져온 Swagger JSON 파일 및 스캐폴드된 Java 코드를 시작할 수 있었습니다. 여기서부터 간단한 변경 내용 및 Git 배포 프로세스가 Java로 작성된 기능 API 앱을 갖게 됩니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용][App Service API CORS]하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-이 샘플을 작성하려면 JSON blob를 유지하기 위해 [Java용 저장소 SDK] 에 대한 자세한 정보를 알아볼 수 있습니다. 또는 [Document DB Java SDK] 를 사용하여 Azure Document DB에 연락처 데이터를 저장할 수 있습니다. 
+이 샘플을 작성하려면 JSON blob를 유지하기 위해 [Java용 Storage SDK]에 대한 자세한 정보를 알아볼 수 있습니다. 또는 [Document DB Java SDK]를 사용하여 Azure Document DB에 연락처 데이터를 저장할 수 있습니다. 
 
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>참고 항목
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
+Java에서 Azure를 사용하는 방법에 대한 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 참조하세요.
 
 <!-- URL List -->
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
 [Azure Portal]: https://portal.azure.com/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
-[무료 평가판]: https://azure.microsoft.com/pricing/free-trial/
+[평가판]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Azure Java 개발자 센터]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java 개발자 키트 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [온라인 Swagger 편집기]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Java용 저장소 SDK]: ../storage/storage-java-how-to-use-blob-storage.md
+[Java용 Storage SDK]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger 편집기]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

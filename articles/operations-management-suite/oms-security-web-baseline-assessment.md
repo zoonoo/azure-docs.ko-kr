@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 웹 기준 평가
@@ -29,6 +29,9 @@ ms.lasthandoff: 08/01/2017
 현재 OMS 보안은 운영 체제에 대한 보안 기준 평가를 제공합니다. 24시간마다 서버의 OS 설정을 검색하고 잠재적으로 취약한 설정에 대한 보기를 제공합니다. 이에 대한 자세한 내용은 [Operations Management Suite 보안 및 감사 솔루션의 기준 평가](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline)를 참조하세요.
 
 웹 기준 평가의 목표는 잠재적으로 취약한 웹 서버 설정을 찾는 것입니다. 웹 기준 구성에 대한 세 가지 기본 소스는 .NET, ASP.NET 및 IIS 구성입니다.  운영 체제 기준 평가와 마찬가지로 OMS 보안은 24시간마다 웹 서버를 검색하고 그 중 보안 상태에 대한 보기를 제공하게 됩니다.  IIS(인터넷 정보 서비스)에서 구성은 고도로 사용자 지정되어 다양한 사이트 및 응용 프로그램 수준을 재정의할 수 있습니다. 스캐너는 기본 루트 수준 외에도 각 응용 프로그램/사이트 수준의 설정을 확인합니다. 잠재적으로 취약한 설정을 찾아서 신속하게 해결하는 데 도움이 되며, 해당 설정에 대한 권장 사항이 제공됩니다.
+
+>[!NOTE] 
+>이 [페이지](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0)에서는 OMS 보안에서 사용하는 일반 구성 식별자 및 기준 규칙을 다운로드할 수 있습니다.
 
 
 ## <a name="web-security-baseline-assessment"></a>웹 보안 기준 평가

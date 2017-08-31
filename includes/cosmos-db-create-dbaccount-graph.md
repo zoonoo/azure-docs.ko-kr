@@ -1,5 +1,5 @@
 1. 새 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 창에서 **새로 만들기**, **데이터베이스**, **Azure Cosmos DB**를 차례로 클릭합니다.
+2. 왼쪽 창에서 **새로 만들기**, **데이터베이스**를 차례로 클릭한 다음 **Azure Cosmos DB**에서 **만들기**를 클릭합니다.
    
    ![Azure Portal 데이터베이스 창](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 

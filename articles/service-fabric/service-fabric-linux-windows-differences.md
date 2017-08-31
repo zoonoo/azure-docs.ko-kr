@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux(미리 보기)와 Windows(일반적으로 사용 가능)의 Service Fabric 간의 차이점
@@ -107,5 +107,5 @@ Windows와 Linux의 개발 도구도 서로 다릅니다. VisualStudio, Powershe
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
 * [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Linux에서 첫 번째 CSharp 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [Azure CLI를 사용하여 Service Fabric 응용 프로그램 관리](service-fabric-azure-cli.md)
+* [Service Fabric CLI를 사용하여 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)
 

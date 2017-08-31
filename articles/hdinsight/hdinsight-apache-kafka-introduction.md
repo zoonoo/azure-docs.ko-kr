@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight의 Apache Kafka 소개(미리 보기)
@@ -42,7 +42,7 @@ Kafka에서 제공하는 기능은 다음과 같습니다.
 
 * Azure Managed Disks와 통합: 관리 디스크는 HDInsight 클러스터에서 가상 컴퓨터에 사용된 디스크에 대해 더 높은 규모와 처리량을 제공합니다.
 
-    기본적으로 관리 디스크는 HDInsight에서 Kafka에 대해 사용하도록 설정되며 HDInsight 생성 중에 노드당 사용된 디스크 수를 구성할 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../storage/storage-managed-disks-overview.md)를 참조하세요.
+    기본적으로 관리 디스크는 HDInsight에서 Kafka에 대해 사용하도록 설정되며 HDInsight 생성 중에 노드당 사용된 디스크 수를 구성할 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
     HDInsight에서 Kafka로 관리 디스크 구성에 대한 자세한 내용은 [HDInsight에서 Kafka의 확장성 높이기](hdinsight-apache-kafka-scalability.md)를 참조하세요.
 

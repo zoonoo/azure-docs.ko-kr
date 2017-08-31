@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 1: 새 테이블 형식 모델 
 description: "새 Azure Analysis Services 자습서 프로젝트를 만드는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 40aac182af22d03c4cff535fd8c87b29ecae376a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ebd160372fc75c6d0fc323be9e948fa2475b71cf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="lesson-1-create-a-new-tabular-model-project"></a>단원 1: 새 테이블 형식 모델 프로젝트 만들기
+# <a name="lesson-1-create-a-tabular-model-project"></a>단원 1: 테이블 형식 모델 프로젝트 만들기
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 

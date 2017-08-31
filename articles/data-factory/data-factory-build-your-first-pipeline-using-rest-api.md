@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 197d75a06cce6ffc9111de6351f6a217073423c6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b0c237667f1f55298df20ab0f525202aa1b42e0b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
@@ -82,7 +82,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+> **accountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 >
 >
 

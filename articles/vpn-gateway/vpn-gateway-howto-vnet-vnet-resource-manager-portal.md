@@ -187,7 +187,7 @@ TestVNet1를 구성한 후 TestVNet4 TestVNet4의 값을 대체하고 이전 단
 ## <a name="faq"></a>VNet 간 FAQ
 VNet 간 연결에 대한 자세한 내용은 FAQ 세부 정보를 봅니다.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.

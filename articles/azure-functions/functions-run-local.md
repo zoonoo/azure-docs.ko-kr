@@ -76,7 +76,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
   "IsEncrypted": false,   
   "Values": {
     "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>", 
+    "AzureWebJobsDashboard": "<connection string>" 
   },
   "Host": {
     "LocalHttpPort": 7071, 

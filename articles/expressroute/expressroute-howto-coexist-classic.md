@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 594dee64f49e83949403fc85903ec66f9cf0d996
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8dafdf8183e2a30773274c2433fbcb4346727996
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
@@ -52,13 +52,18 @@ ms.lasthandoff: 04/27/2017
 * **ExpressRoute 게이트웨이를 먼저 구성해야 합니다.** 사이트 간 VPN Gateway를 추가하기 전에 ExpressRoute 게이트웨이를 먼저 만들어야 합니다.
 
 ## <a name="configuration-designs"></a>구성 디자인
-### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 Express 경로에 대한 장애 조치(failover) 경로로 구성
-Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. Azure 개인 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. 공용 Azure 및 Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치 솔루션은 없습니다. Express 경로 회로는 항상 기본 링크입니다. Express 경로 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 ExpressRoute에 대한 장애 조치(failover) 경로로 구성
+ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. Azure 개인 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. 공용 Azure 및 Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치 솔루션은 없습니다. Express 경로 회로는 항상 기본 링크입니다. Express 경로 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 
+
+> [!NOTE]
+> 두 경로가 동일한 경우 사이트 간 VPN보다 ExpressRoute 회로가 사용되며, Azure는 가장 긴 접두사 일치 항목을 사용하여 패킷의 대상에 대한 경로를 선택합니다.
+> 
+> 
 
 ![공존](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 Express 경로를 통해 연결되지 않은 사이트에 연결
-일부 사이트는 사이트 간 VPN을 통해 Azure에 직접 연결하고 일부 사이트는 Express 경로를 통해 연결된 네트워크를 구성할 수 있습니다. 
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결
+일부 사이트는 사이트 간 VPN을 통해 Azure에 직접 연결하고 일부 사이트는 ExpressRoute를 통해 연결된 네트워크를 구성할 수 있습니다. 
 
 ![공존](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
@@ -149,7 +154,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
         OperationDescription : Get-AzureVirtualNetworkGateway
         OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
         OperationStatus      : Succeeded
-7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN 게이트웨이를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
+7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
    
    > [!IMPORTANT]
    > 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.

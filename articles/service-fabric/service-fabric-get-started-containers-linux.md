@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -33,6 +33,7 @@ Service Fabric 클러스터의 Linux 컨테이너에서 기존 응용 프로그�
 * 다음을 실행하는 개발 컴퓨터
   * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md). 
 
@@ -201,12 +202,12 @@ gradle
 ```
 
 ## <a name="deploy-the-application"></a>응용 프로그램 배포
-응용 프로그램이 빌드되면 Azure CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.
+응용 프로그램이 빌드되면 Service Fabric CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.
 
 로컬 Service Fabric 클러스터에 연결합니다.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.

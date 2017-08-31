@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2016
+ms.date: 08/21/2016
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -147,6 +146,9 @@ Eclipse Neon을 사용하여 응용 프로그램을 업그레이드하려면 중
 이 프로세스는 응용 프로그램을 업그레이드하기 위해 언제든지 사용할 수 있는 실행 구성 프로필을 만들고 저장합니다. 그러면 응용 프로그램 매니페스트 파일에서 최신 업데이트된 응용 프로그램 유형 버전을 가져옵니다.
 
 응용 프로그램 업그레이드에는 몇 분 정도가 소요됩니다. Service Fabric Explorer에서 응용 프로그램 업그레이드를 모니터링할 수 있습니다.
+
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>이전의 Service Fabric Java 응용 프로그램을 마이그레이션하여 Maven에서 사용
+최근에 Service Fabric Java 라이브러리를 Service Fabric Java SDK에서 Maven 리포지토리로 이동했습니다. Eclipse를 사용하여 생성한 새 응용 프로그램은 최신 업데이트된 프로젝트를 생성하는 반면(Maven에서 작업할 수 있음) Maven에서 Service Fabric Java 종속성을 사용하기 위해 이전에 Service Fabric Java SDK를 사용했던 기존 Service Fabric 상태 비저장 또는 작업자 Java 응용 프로그램을 업데이트할 수 있습니다. [여기](service-fabric-migrate-old-javaapp-to-use-maven.md)에서 언급한 단계에 따라 Maven에서 이전의 응용 프로그램이 작동되는지 확인합니다.
 
 <!-- Images -->
 

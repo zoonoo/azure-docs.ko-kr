@@ -1,6 +1,6 @@
 ---
 title: Azure VPN Gateway FAQ | Microsoft Docs
-description: "VPN 게이트웨이 FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다."
+description: "VPN Gateway FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="vpn-gateway-faq"></a>VPN 게이트웨이 FAQ
+# <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
-## <a name="connecting-to-virtual-networks"></a>가상 네트워크에 연결
+## <a name="connecting"></a>가상 네트워크에 연결
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>다양한 Azure 지역에서 가상 네트워크를 연결할 수 있습니까?
 
@@ -58,7 +57,7 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 
 게이트웨이에 경로 기반 VPN 유형을 사용하여 사이트 간 연결을 만들기만 하면 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다. 경로 기반 VPN 유형은 클래식 배포 모델에서 동적 게이트웨이라고 합니다.
 
-## <a name="virtual-network-gateways"></a>가상 네트워크 게이트웨이
+## <a name="gateways"></a>가상 네트워크 게이트웨이
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>VPN Gateway는 가상 네트워크 게이트웨이인가요?
 
@@ -78,7 +77,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소가 할당되어야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /27 이상으로 만드는 것이 좋습니다(/27, /26, /25 등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 그러한 요구 사항을 충족하는지 확인하세요.
 
-### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Virtual Machines 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
 아니요.
 
@@ -88,7 +87,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>VPN Gateway에 고정 공용 IP 주소를 요청할 수 있나요?
 
-안 됩니다. 동적 IP 주소 할당만 지원됩니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 VPN Gateway IP 주소가 변경됩니다. VPN Gateway 공용 IP 주소는 VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드에서 변경되지 않습니다. 
+아니요. 동적 IP 주소 할당만 지원됩니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 VPN Gateway IP 주소가 변경됩니다. VPN Gateway 공용 IP 주소는 VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드에서 변경되지 않습니다. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>내 VPN 터널을 어떻게 인증합니까?
 
@@ -112,7 +111,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 #### <a name="classic-deployment-model"></a>클래식 배포 모델
 
 * Azure Portal: 클래식 가상 네트워크 > VPN 연결 > 사이트 간 VPN 연결 > 로컬 사이트 이름 > 로컬 사이트 > 클라이언트 주소 공간으로 이동합니다. 
-* 클래식 포털: 로컬 네트워크의 네트워크 페이지에서 가상 네트워크의 게이트웨이를 통해 보낼 각 범위를 추가합니다. 
+* 클래식 포털: 로컬 Networks의 Networks 페이지에서 가상 네트워크의 게이트웨이를 통해 보낼 각 범위를 추가합니다. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있습니까?
 
@@ -120,7 +119,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Azure에서 내 VPN 서버를 설정하여 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니까?
 
-예, Azure 마켓플레이스에서 또는 사용자 VPN 라우터를 만들어서 Azure에 사용자 VPN 게이트웨이 또는 서버를 배포할 수 있습니다. 온-프레미스 네트워크와 가상 네트워크 서브넷 간에 트래픽이 적절하게 라우팅되도록 하려면 가상 네트워크에서 사용자 정의 경로를 구성해야 합니다.
+예, Azure Marketplace에서 또는 사용자 VPN 라우터를 만들어서 Azure에 사용자 VPN 게이트웨이 또는 서버를 배포할 수 있습니다. 온-프레미스 네트워크와 가상 네트워크 서브넷 간에 트래픽이 적절하게 라우팅되도록 하려면 가상 네트워크에서 사용자 정의 경로를 구성해야 합니다.
 
 ### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>내 VPN 게이트웨이에서 특정 포트가 열리는 이유는 무엇인가요?
 
@@ -132,11 +131,11 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 
 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>사이트 간 연결 및 VPN 장치
+## <a name="s2s"></a>사이트 간 연결 및 VPN 장치
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN 장치를 선택할 때 고려할 사항은 무엇입니까?
 
-장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 문서에서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 가상 네트워크에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
+장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 문서에서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 Virtual Network에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
 
 ### <a name="where-can-i-find-vpn-device-configuration-settings"></a>VPN 장치 구성 설정을 어디서 찾을 수 있나요?
 
@@ -162,11 +161,11 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 ## <a name="P2S"></a>지점 및 사이트 간 연결
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="V2VMulti"></a>VNet 간 연결 및 다중 사이트 연결
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
 
@@ -174,11 +173,11 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 예. 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
 
 **클래식 배포 모델**<br>
-Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
+Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure Virtual Networks 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
-아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 ~ 128자 사이의 영숫자 문자열이어야 합니다.
+아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN Gateway 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 ~ 128자 사이의 영숫자 문자열이어야 합니다.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>단일 가상 네트워크보다 더 많은 사이트 간 VPN을 사용하면 대역폭이 증가합니까?
 
@@ -192,20 +191,20 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 예, 여러 온-프레미스 사이트 및 기타 가상 네트워크에 연결하는 VPN 게이트웨이에서 지정 및 사이트 간(P2S) VPN을 사용할 수 있습니다.
 
-### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>IPsec VPN을 사용하는 가상 네트워크를 Express 경로 회로에 연결할 수 있습니까?
+### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>IPsec VPN을 사용하는 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니까?
 
-예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
+예, 지원됩니다. 자세한 내용은 [공존하는 ExpressRoute 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
 
-## <a name="ipsecike-policy"></a>IPsec/IKE 정책
+## <a name="ipsecike"></a>IPsec/IKE 정책
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="bgp"></a>BGP
 
-[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>크로스-프레미스 연결 및 VM
+## <a name="vms"></a>크로스-프레미스 연결 및 VM
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>가상 컴퓨터가 가상 네트워크에 있고 프레미스 간 연결을 사용하는 경우 VM에 연결하려면 어떻게 해야 합니까?
 
@@ -222,11 +221,12 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>가상 네트워크 FAQ
+## <a name="faq"></a>Virtual Network FAQ
 
-[가상 네트워크 FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 제공합니다.
+[Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
+

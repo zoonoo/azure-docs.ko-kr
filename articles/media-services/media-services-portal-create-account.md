@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 사용하여 Azure 미디�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f6bcb18a04be9a802e14b960a1e2d04a71a691cc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Media Services 계정 만들기
@@ -63,7 +63,7 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
    4. **위치**에서 Media Services 계정에 대한 메타데이터 레코드 및 미디어를 저장하는 데 사용할 지리적 지역을 선택합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 미디어 서비스 지역만 드롭다운 목록 상자에 표시됩니다. 
    5. **저장소 계정**에서 미디어 서비스 계정의 미디어 콘텐츠가 포함된 Blob 저장소를 제공할 저장소 계정을 선택합니다. 미디어 서비스 계정과 동일한 지역의 기존 저장소 계정을 선택하거나 저장소 계정을 만들 수 있습니다. 동일한 지역에 새 저장소 계정이 생성됩니다. 저장소 계정 이름에 대한 규칙은 미디어 서비스 계정의 경우와 같습니다.
       
-       저장소에 대한 자세한 내용은 [여기](../storage/storage-introduction.md)를 참조하세요.
+       저장소에 대한 자세한 내용은 [여기](../storage/common/storage-introduction.md)를 참조하세요.
    6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
 4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
    
