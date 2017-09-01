@@ -85,7 +85,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 다음 명령을 사용하여 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 공용 IP 주소로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:Public IP Address
 ```
 
 ## <a name="install-iis-using-powershell"></a>PowerShell을 사용하여 IIS 설치

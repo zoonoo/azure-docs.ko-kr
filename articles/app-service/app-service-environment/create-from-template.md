@@ -41,7 +41,7 @@ ASE 만들기를 자동화하려면:
 
 2. ILB ASE를 만든 후에 ILB ASE 도메인과 일치하는 SSL 인증서를 업로드합니다.
 
-3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootcomain.com)을 사용할 때 ILB ASE의 앱으로 이동되는 SSL 트래픽에 사용됩니다.
+3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootcomain.com ) 을 사용할 때 ILB ASE의 앱으로 이동되는 SSL 트래픽에 사용됩니다.
 
 
 ## <a name="create-the-ase"></a>ASE 만들기

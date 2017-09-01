@@ -27,7 +27,7 @@ ms.lasthandoff: 07/26/2017
 
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-컨테이너는 클라우드 응용 프로그램을 패키지, 배포 및 관리하기 위한 기본 방법으로 신속히 도입되고 있습니다. Azure Container Instances는 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다. 
+컨테이너는 클라우드 응용 프로그램을 패키지, 배포 및 관리하기 위한 기본 방법으로 신속히 도입되고 있습니다. Azure Container Instances는 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 
 Azure Container Instances는 간단한 응용 프로그램, 작업 자동화 및 빌드 작업 등 격리된 컨테이너에서 작동할 수 있는 모든 시나리오에 적합한 솔루션입니다. 여러 컨테이너 간 서비스 검색, 자동 크기 조정 및 조정된 응용 프로그램 업그레이드를 비롯한 전체 컨테이너 오케스트레이션이 필요한 시나리오에는 [Azure Container Service](https://docs.microsoft.com/azure/container-service/)를 사용하는 것이 좋습니다.
 
