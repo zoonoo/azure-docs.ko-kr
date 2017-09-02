@@ -14,22 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/05/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Azure에서 첫 번째 Service Fabric 클러스터 만들기
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 이 빠른 시작을 사용하여 몇 분만에 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 또는 [Azure Portal](http://portal.azure.com)을 통해 Windows 또는 Linux에서 실행하는 다섯 개의 노드 클러스터를 만들 수 있습니다.  
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합니다.
 
@@ -61,11 +60,11 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 
 7. **보안** 양식을 입력합니다.  이 빠른 시작의 경우 **보안 해제**를 선택합니다.  하지만 누구든지 안전하지 않은 클러스터에 연결하고 관리 작업을 수행할 수 있게 되므로 프로덕션 워크로드에 대한 보안 클러스터를 만드는 것이 좋습니다.  
 
-    인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.  Azure Active Directory를 사용하여 사용자 인증을 사용하거나 응용 프로그램 보안에 대한 인증서를 설정하려면 [Resource Manager 템플릿에서 클러스터를 만듭니다](service-fabric-cluster-creation-via-arm.md).
+    인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.  Azure Active Directory를 사용하여 사용자 인증을 사용하거나 응용 프로그램 보안에 대한 인증서를 설정하려면 [리소스 관리자 템플릿에서 클러스터를 만듭니다](service-fabric-cluster-creation-via-arm.md).
 
     **확인**을 선택합니다.
 
-8. 요약을 검토합니다.  입력한 설정에서 빌드된 Resource Manager 템플릿을 다운로드하려는 경우 **템플릿 및 매개 변수 다운로드**를 선택합니다.  **만들기**를 선택하여 클러스터를 만듭니다.
+8. 요약을 검토합니다.  입력한 설정에서 빌드된 리소스 관리자 템플릿을 다운로드하려는 경우 **템플릿 및 매개 변수 다운로드**를 선택합니다.  **만들기**를 선택하여 클러스터를 만듭니다.
 
     알림에서 만들기 진행률을 볼 수 있습니다. (화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 모양 아이콘을 클릭합니다.) 클러스터를 만드는 동안 **시작 보드에 고정**을 클릭하면 **Service Fabric 클러스터 배포 중**이 **시작** 보드에 고정됩니다.
 
