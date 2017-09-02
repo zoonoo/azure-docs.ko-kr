@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: dfe06ee6b8fadfe6d34397661c974181f870239e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
@@ -44,7 +43,7 @@ ms.lasthandoff: 06/20/2017
 | 클라우드-장치 보내기 | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
 | 클라우드-장치 받기 <br/> (장치에서 HTTP를 사용하는 경우에만)| 16.67/초/단위(1000/분/단위) | 16.67/초/단위(1000/분/단위) | 833.33/초/단위(50000/분/단위) |
 | 파일 업로드 | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 83.33 파일 업로드 알림/초/단위(5000/분/단위) |
-| 직접 메서드 | 10/초/단위 | 30/초/단위 | 1500/초/단위 | 
+| 직접 메서드 | 20/초/단위 | 60/초/단위 | 3000/초/단위 | 
 | 장치 쌍 읽기 | 10/초 | 최대 10/초 또는 1/초/단위 | 50/초/단위 |
 | 장치 쌍 업데이트 | 10/초 | 최대 10/초 또는 1/초/단위 | 50/초/단위 |
 | 작업 연산 <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |

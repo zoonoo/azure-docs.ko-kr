@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/03/2017
 
 **사용자 인터페이스** |  **지원됨/지원되지 않음**
 --- | ---
-**Azure 포털** | 지원됨
+**Azure Portal** | 지원됨
 **클래식 포털** | 지원되지 않음
 **PowerShell** | 현재 지원되지 않음
 **REST API** | 현재 지원되지 않음
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/03/2017
 
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
-**클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
+**클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. 리소스 관리자 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
 **리소스 관리자** | 지원됨 |
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
@@ -114,7 +114,7 @@ ms.lasthandoff: 08/03/2017
 > 브라질 남부 지역의 경우 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2 및 미국 중북부 지역 중 하나로만 복제 및 장애 조치(failover)하고 장애 복구(failback)할 수 있습니다.
 
 
-## <a name="support-for-compute-configuration"></a>계산 구성 지원
+## <a name="support-for-compute-configuration"></a>Compute 구성 지원
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
@@ -127,14 +127,14 @@ Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에�
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recovery를 사용하여 Azure에 마이그레이션된 VMware/물리적 컴퓨터인 경우 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
 
-## <a name="support-for-storage-configuration"></a>저장소 구성 지원
+## <a name="support-for-storage-configuration"></a>Storage 구성 지원
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
-최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
-최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
+최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
-임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)를 참조하세요.
+임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)를 참조하세요.
 디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
@@ -152,7 +152,7 @@ ZRS | 지원되지 않음 |
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 컴퓨터 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 
 >[!IMPORTANT]
-> 성능 문제를 방지하려면 원본 Azure Virtual Machines에 대한 [저장소 지침](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM으로 (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
+> 성능 문제를 방지하려면 원본 Azure Virtual Machines에 대한 [저장소 지침](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM으로 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
 
 ## <a name="support-for-network-configuration"></a>네트워크 구성 지원
 **구성** | **지원됨/지원되지 않음** | **설명**
@@ -161,8 +161,8 @@ NIC(네트워크 인터페이스) | 특정 Azure VM 크기에서 지원되는 �
 인터넷 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결해야 합니다.
 내부 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결해야 합니다.
 공용 IP| 지원됨 | 기존 공용 IP를 NIC에 연결하거나, 복구 계획에서 Azure Automation 스크립트를 사용하여 공용 IP를 만들어 NIC에 연결해야 합니다.
-NIC의 NSG(Resource Manager)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.  
-서브넷의 NSG(Resource Manager 및 클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
+NIC의 NSG(리소스 관리자)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.  
+서브넷의 NSG(리소스 관리자 및 클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 VM의 NSG(클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 예약된 IP(고정 IP)/원본 IP 유지 | 지원됨 | 원본 VM의 NIC에 고정 IP 구성이 있고 대상 서브넷에서 동일한 IP를 사용할 수 있는 경우 해당 IP가 장애 조치 VM에 할당됩니다. 대상 서브넷에서 동일한 IP를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 중 하나가 이 VM용으로 예약됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
 동적 IP| 지원됨 | 원본 VM의 NIC에 동적 IP 구성이 있는 경우 장애 조치 VM의 NIC도 기본적으로 동적으로 설정됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.

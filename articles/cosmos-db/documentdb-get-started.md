@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 312cb366924767cd0ad645dc4a435dd549494188
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: DocumentDB API 시작 자습서
@@ -58,7 +58,7 @@ Azure Cosmos DB DocumentDB API 시작 자습서를 시작합니다. 이 자습�
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
     * 또는 이 자습서에 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다.
-* [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+* [Visual Studio Community 2017](http://www.visualstudio.com/).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
 Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [Visual Studio 솔루션 설치](#SetupVS)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
@@ -66,7 +66,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>2단계: Visual Studio 솔루션 설치
-1. 컴퓨터에서 **Visual Studio 2015** 를 엽니다.
+1. 컴퓨터에서 **Visual Studio 2017**을 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
 3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다.
    ![새 프로젝트 창의 스크린샷](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -113,7 +113,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
 Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클릭합니다.
 
-포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URL>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여 넣습니다.
+포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URL>`에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여 넣습니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷 액티브 허브, Azure Cosmos DB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 줌][keys]
 
@@ -503,7 +503,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 ## <a id="Run"></a>11단계: C# 콘솔 응용 프로그램 모두 함께 실행
 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다.
 
-시작한 앱의 출력이 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
+시작한 앱의 출력이 콘솔 창에 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
 
     Created FamilyDB
     Press any key to continue ...
@@ -534,7 +534,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
-* [Azure Cosmos DB 계정][cosmos-db-create-account]
+* [Azure Cosmos DB 계정][cosmos-db-create-account].
 * GitHub에서 제공하는 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 솔루션
 
 Visual Studio에서 Azure Cosmos DB .NET SDK에 대한 참조를 복원하려면 솔루션 탐색기에서 **GetStarted** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 복원 사용**을 클릭합니다. 다음으로, App.config 파일에서 EndpointUrl 및 AuthorizationKey 값을 [Azure Cosmos DB 계정에 연결](#Connect)에 설명된 대로 업데이트합니다.
@@ -543,11 +543,11 @@ Visual Studio에서 Azure Cosmos DB .NET SDK에 대한 참조를 복원하려면
 
 
 ## <a name="next-steps"></a>다음 단계
-* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [Azure Cosmos DB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
+* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](documentdb-dotnet-application.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
-* [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
+* [Azure Cosmos DB 요청, 사용 및 저장소 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
-* [Azure Cosmos DB 설명서](https://azure.microsoft.com/documentation/services/documentdb/) 페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
+* Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 시작](https://docs.microsoft.com/azure/cosmos-db/introduction)을 참조하세요.
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account

@@ -14,94 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a24b82243cb9758b0b256c40138222357bf6e72c
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
+
 클라이언트가 Service Fabric 클러스터 노드에 연결하는 경우 클라이언트는 인증서 보안 또는 Azure Active Directory(AAD)를 사용하여 인증을 받고 보안 통신이 설정될 수 있습니다. 이 인증을 통해 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 또는 AAD 보안은 클러스터가 만들어지기 전에 클러스터에서 설정되어 있어야 합니다.  클러스터 보안 시나리오에 대한 자세한 내용은 [보안 클러스터](service-fabric-cluster-security.md)를 참조하세요. 인증서로 보호되는 클러스터에 연결하는 경우 클러스터에 연결할 컴퓨터에서 [클라이언트 인증서를 설정](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)하세요. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-cli"></a>CLI를 사용하여 보안 클러스터에 연결
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 보안 클러스터에 연결
 
-몇 가지 방법으로 Service Fabric Azure CLI 2.0 명령 또는 XPlat CLI를 사용하는 보안 클러스터에 연결할 수 있습니다.
+몇 가지 방법으로 Service Fabric CLI(sfctl)를 사용하는 보안 클러스터에 연결할 수 있습니다. 인증에 클라이언트 인증서를 사용하는 경우 인증서 세부 정보는 클러스터 노드에 배포된 인증서와 일치해야 합니다. 인증서에 CA(인증 기관)가 있으면 신뢰할 수 있는 CA를 추가적으로 지정해야 합니다.
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
-
-인증에 클라이언트 인증서를 사용하는 경우 인증서 세부 정보는 클러스터 노드에 배포된 인증서와 일치해야 합니다. 인증서에 CA(인증 기관)가 있으면 신뢰할 수 있는 CA를 추가적으로 지정해야 합니다. 연결할 XPlat CLI 및 Azure CLI 2.0에 다음 샘플을 사용합니다.
-
-#### <a name="xplat-cli"></a>XPlat CLI
-
-XPlat CLI를 사용하는 경우 연결하는 데 다음 명령을 실행합니다.
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
-```
-
-`,`를 사용하여 경로를 구분하는 방법으로 여러 CA 인증서를 지정할 수 있습니다.
-
-인증서에 있는 일반 이름이 연결 끝점과 일치하지 않는 경우 `--strict-ssl-false` 매개 변수를 사용하여 확인을 바이패스할 수 있습니다. 예:
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
-```
-
-CA 확인을 건너뛰려면 ``--reject-unauthorized-false`` 매개 변수를 추가하면 됩니다. 예:
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
-
-자체 서명된 인증서로 보호되는 클러스터에 연결하기 위해서는 CA 확인 및 일반 이름 확인을 제거하는 다음 명령을 사용합니다.
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
-```
-
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
-
-Azure CLI 2.0을 사용하는 경우 `az sf cluster select` 명령을 사용하여 클러스터에 연결할 수 있습니다.
+`sfctl cluster select` 명령을 사용하여 클러스터에 연결할 수 있습니다.
 
 클라이언트 인증서는 인증서 및 키 쌍 또는 단일 pem 파일이라는 두 가지 형태로 지정할 수 있습니다. 암호로 보호되는 `pem` 파일의 경우 암호를 입력하라는 메시지가 자동으로 표시됩니다.
 
 클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예:
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-추가 명령을 실행하기 전에 암호로 보호되는 pem 파일에 암호를 묻는 메시지가 나타납니다.
+명령을 실행하기 전에 암호로 보호되는 pem 파일에 암호를 묻는 메시지가 나타납니다.
 
 인증서, 키 쌍을 지정하려면 `--cert` 및 `--key` 인수를 사용하여 각 파일에 대한 파일 경로를 지정합니다.
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
+
 경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 예:
 
 > [!WARNING]
 > 프로덕션 Service Fabric 클러스터에 연결할 때 `no-verify` 옵션을 사용하지 마세요.
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 예:
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-연결 후에는 클러스터와 상호 작용하기 위해 [다른 CLI 명령을 실행](service-fabric-azure-cli.md)할 수 있습니다.
+연결 후에는 클러스터와 상호 작용하기 위해 [다른 sfctl 명령을 실행](service-fabric-cli.md)할 수 있습니다.
 
 <a id="connectsecurecluster"></a>
 
@@ -387,13 +350,10 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md).
+* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 * [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
-
-## <a name="related-articles"></a>관련 문서
-
-* [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
-* [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)
+* [Service Fabric CLI 시작](service-fabric-cli.md)
 

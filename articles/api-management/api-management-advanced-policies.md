@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
@@ -28,7 +28,9 @@ ms.lasthandoff: 05/08/2017
   
 -   [흐름 제어](api-management-advanced-policies.md#choose) - 부울 [식](api-management-policy-expressions.md)의 평가 결과에 따라 정책 문을 조건부로 적용합니다.  
   
--   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.  
+-   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
+
+-   [동시성 제한](#LimitConcurrency) - 지정된 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다.
   
 -   [이벤트 허브에 기록](#log-to-eventhub) - 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다. 
 
@@ -266,6 +268,56 @@ ms.lasthandoff: 05/08/2017
   
 -   **정책 범위:** 모든 범위  
   
+##  <a name="LimitConcurrency"></a> 동시성 제한  
+ `limit-concurrency` 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다. 임계값을 초과할 때 최대 큐 길이가 될 때까지 새 요청이 큐에 추가됩니다. 큐가 고갈되면 새 요청은 즉시 실패합니다.
+  
+###  <a name="LimitConcurrencyStatement"></a> 정책 문  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>예  
+  
+####  <a name="ChooseExample"></a> 예  
+ 다음 예제에서는 컨텍스트 변수 값에 따라 백 엔드로 전달되는 요청 수를 제한하는 방법을 보여 줍니다.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>요소  
+  
+|요소|설명|필수|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|루트 요소입니다.|예|  
+  
+### <a name="attributes"></a>특성  
+  
+|특성|설명|필수|기본값|  
+|---------------|-----------------|--------------|--------------|  
+|key|문자열입니다. 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다.|예|해당 없음|  
+|max-count|정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.|예|해당 없음|  
+|시간 제한|정수입니다. 허용되는 식입니다. 요청이 "403 너무 많은 요청"을 표시하며 실패하기 전에 범위에 포함되기 위해 대기해야 하는 시간(초)을 지정합니다.|아니요|Infinity|  
+|max-queue-length|정수입니다. 허용되는 식입니다. 최대 큐 길이를 지정합니다. 큐가 고갈되는 즉시, 이 정책에 들어오려고 하는 수신 요청은 "403 너무 많은 요청"을 나타내며 종료됩니다.|아니요|Infinity|  
+  
+###  <a name="ChooseUsage"></a> 사용 방법  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** inbound, outbound, backend, on-error  
+  
+-   **정책 범위:** 모든 범위  
+
 ##  <a name="log-to-eventhub"></a> 이벤트 허브에 기록  
  `log-to-eventhub` 정책은 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다. 이름에서 알 수 있듯이 이 정책은 온라인 또는 오프라인 분석을 위해 선택한 요청 또는 응답 컨텍스트 정보를 저장하는 데 사용됩니다.  
   
@@ -963,6 +1015,6 @@ status code and media type. If no example or schema found, the content is empty.
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
--    [API 관리의 정책](api-management-howto-policies.md) 
--    [정책 식](api-management-policy-expressions.md)
+-   [API 관리의 정책](api-management-howto-policies.md) 
+-   [정책 식](api-management-policy-expressions.md)
 

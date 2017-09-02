@@ -4,23 +4,23 @@ description: "Azure Functions를 사용하여 Azure Storage 큐에 제출된 메
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
@@ -51,7 +51,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
     | ------------ |  ------- | -------------------------------------------------- |
     | **큐 이름**   | myqueue-items    | Storage 계정에서 연결할 큐의 이름입니다. |
     | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
-    | **메시지 매개 변수 이름** | outQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
+    | **메시지 매개 변수 이름** | outputQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
 
 4. **저장**을 클릭하여 바인딩을 추가합니다.
  
@@ -61,11 +61,11 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 1. 편집기에서 함수 코드를 표시할 함수를 선택합니다. 
 
-2. C# 함수의 경우 **outQueueItem** 저장소 바인딩 매개 변수를 추가하기 위해 함수 정의를 다음과 같이 업데이트합니다. JavaScript 함수에 대해서는 이 단계를 건너뜁니다.
+2. C# 함수의 경우 **outputQueueItem** 저장소 바인딩 매개 변수를 추가하기 위해 함수 정의를 다음과 같이 업데이트합니다. JavaScript 함수에 대해서는 이 단계를 건너뜁니다.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 3. 메서드가 반환하기 직전에 함수에 다음 코드를 추가합니다. 함수의 언어에 대해 적절한 코드 조각을 사용합니다.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. **저장**을 선택하여 변경 내용을 저장합니다.
@@ -112,7 +112,7 @@ Storage 탐색기를 이미 설치했고 저장소 계정에 연결한 경우 �
   
     ![저장소 자격 증명을 붙여 넣고 연결합니다.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. 연결된 저장소 계정을 확장하고 **큐**를 마우스 오른쪽 단추로 클릭하고 **myqueue-items**라는 큐가 존재하는지 확인합니다. 큐에 이미 있는 메시지도 표시됩니다.  
+4. 연결된 저장소 계정을 확장하고 **큐**를 확장하고 **myqueue-items**라는 큐가 존재하는지 확인합니다. 큐에 이미 있는 메시지도 표시됩니다.  
  
     ![저장소 큐 만들기.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

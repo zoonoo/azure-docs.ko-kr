@@ -1,6 +1,6 @@
 ---
-title: "Azure Log Analytics의 컨테이너 솔루션 | Microsoft Docs"
-description: "Log Analytics의 컨테이너 솔루션을 사용하여 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다."
+title: "Azure Log Analytics의 컨테이너 모니터링 솔루션 | Microsoft Docs"
+description: "Log Analytics의 컨테이너 모니터링 솔루션을 사용하여 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,42 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/18/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 5fe0c4c5642fcaa83bcfc830e64600986b8fbf7f
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b2e03531ee401f4552198e5dd50fbfe1d970f0e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="containers-preview-solution-in-log-analytics"></a>Log Analytics에서 컨테이너(미리 보기) 솔루션
+# <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
 ![컨테이너 기호](./media/log-analytics-containers/containers-symbol.png)
 
-이 문서에서는 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있게 Log Analytics의 컨테이너 솔루션을 설정 및 사용하는 방법을 설명합니다. Docker는 IT 인프라에 대한 소프트웨어 배포를 자동화하는 컨테이너를 만드는 데 사용되는 소프트웨어 가상화 시스템입니다.
+이 문서에서는 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있게 Log Analytics의 컨테이너 모니터링 솔루션을 설정 및 사용하는 방법을 설명합니다. Docker는 IT 인프라에 대한 소프트웨어 배포를 자동화하는 컨테이너를 만드는 데 사용되는 소프트웨어 가상화 시스템입니다.
 
-이 솔루션을 통해 컨테이너 호스트에서 어떤 컨테이너가 실행 중이며 컨테이너에서 어떤 이미지가 실행 중인지 확인할 수 있습니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 저장소, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다.
+솔루션은 어떤 컨테이너가 실행 중인지, 실행 중인 컨테이너 이미지 및 컨테이너가 실행 중인 위치를 표시합니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 저장소, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다. 솔루션은 다음과 같은 컨테이너 오케스트레이터를 지원합니다.
+
+- Docker Swarm
+- DC/OS
+- kubernetes
+- 서비스 패브릭
+- Red Hat OpenShift
+
 
 다음 다이어그램에서는 OMS에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여 줍니다.
 
 ![컨테이너 다이어그램](./media/log-analytics-containers/containers-diagram.png)
 
 ## <a name="system-requirements"></a>시스템 요구 사항
+
 시작하기 전에 다음 세부 정보를 검토하여 필수 구성 요소를 충족하는지 확인합니다.
 
-### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원 
+### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원
 아래 표에는 Log Analytics를 통한 컨테이너 인벤토리/성능/로그의 Docker 오케스트레이션 및 운영 체제 모니터링 지원에 대한 설명이 요약되어 있습니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 | 
+| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>이벤트 | 이벤트<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| kubernetes | 예 | 예 | | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 
-| Mesosphere<br>DC/OS | 예 | 예 | | 예 | 예 | 예 | 예| 예 | 예 | 예 | 
-| Docker<br>Swarm | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | | 예 |
-| 부여<br>Fabric | | | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 
-| Red Hat Open<br>Shift | | 예 | | 예 | 예| 예 | 예 | 예 | | 예 | 
-| Windows Server<br>(독립 실행형) | | | 예 | 예 | 예 | 예 | 예 | 예 | | 예 |
-| Linux 서버<br>(독립 실행형) | | 예 | | 예 | 예 | 예 | 예 | 예 | | 예 |
+| kubernetes | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
+| Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| 부여<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(독립 실행형) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux 서버<br>(독립 실행형) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### <a name="docker-versions-supported-on-linux"></a>Linux에서 지원되는 Docker 버전
@@ -78,16 +86,16 @@ ms.lasthandoff: 08/09/2017
 ### <a name="docker-versions-supported-on-windows"></a>Windows에서 지원되는 Docker 버전
 
 - Docker 1.12 - 1.13
-- Docker 17.03.0 
+- Docker 17.03.0 이상
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 솔루션을 추가합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
-2. OMS를 사용하여 Docker를 설치 및 사용합니다.  운영 체제에 따라 다음 방법 중에서 선택할 수 있습니다.
+2. OMS 에이전트를 사용하여 Docker를 설치 및 사용합니다.  운영 체제에 따라 다음 방법 중에서 선택할 수 있습니다.
 
-  * 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음 OMS Agent for Linux를 설치 및 구성합니다.  
+  * 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음 [Linux용 OMS 에이전트](log-analytics-agent-linux.md)를 설치 및 구성합니다.  
   * CoreOS에서는 Linux 용 OMS 에이전트를 실행할 수 없습니다. 대신 컨테이너화된 Linux 용 OMS 에이전트 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
   * Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다.  
 
@@ -102,14 +110,11 @@ ms.lasthandoff: 08/09/2017
 
 > [!IMPORTANT]
 > Docker는 컨테이너 호스트에 [OMS Agent for Linux](log-analytics-agent-linux.md)를 설치하기 **전에** 실행해야 합니다.  Docker 설치에 앞서 에이전트를 설치한 경우 Linux용 OMS 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
->
->
 
-컨테이너를 모니터링하려면 먼저 컨테이너 호스트에 다음 설정을 구성해야 합니다.
 
 ## <a name="linux-container-hosts"></a>Linux 컨테이너 호스트
 
-Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. [OMS 클래식 포털](https://mms.microsoft.com)로 전환하면 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다.  **개요** 페이지의 맨 위 메뉴에서 **설정**을 선택한 다음, **Connected Sources\Windows Servers**로 이동합니다.  **작업 영역 ID** 및 **기본 키** 오른쪽에 값이 표시됩니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.    
+Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터**를 클릭하여 **작업 영역 ID** 및 **기본 키**를 확인합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우
 
@@ -145,8 +150,8 @@ Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습�
     ```
 
 ### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 OMS 에이전트 구성
-컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 OMS 에이전트를 추가하는 방법에는 세 가지가 있습니다. 
- 
+컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 OMS 에이전트를 추가하는 방법에는 세 가지가 있습니다.
+
 * 각 OpenShift 노드에서 직접 [Linux용 OMS 에이전트를 설치](log-analytics-agent-linux.md)  
 * Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](log-analytics-azure-vm-extension.md)  
 * OpenShift 디먼 집합으로 OMS 에이전트 설치  
@@ -164,14 +169,14 @@ Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습�
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. 디먼 집합을 배포하려면 다음을 실행합니다. 
-    
+4. 디먼 집합을 배포하려면 다음을 실행합니다.
+
     `oc create -f ocp-omsagent.yaml`
 
-5. 올바르게 구성되어 있고 작동하는지 확인하려면 다음을 입력합니다. 
+5. 올바르게 구성되어 있고 작동하는지 확인하려면 다음을 입력합니다.
 
     `oc describe daemonset omsagent`  
-    
+
     출력은 다음과 유사합니다.
 
     ```
@@ -194,7 +199,7 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
 
 1. OpenShift 마스터 노드에 로그온하고 GitHub에서 yaml 파일 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 및 비밀 생성 스크립트 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)를 복사합니다.  이 스크립트는 비밀 정보를 보호하기 위해 OMS 작업 영역 ID와 기본 키에 대한 비밀 yaml 파일을 생성합니다.  
 2. 다음 명령을 실행하여 OMS에 대한 프로젝트를 만들고 사용자 계정을 설정합니다. 비밀 생성 스크립트는 OMS 작업 영역 ID<WSID> 및 기본 키<KEY>를 요청하고, 완료되면 ocp-secret.yaml 파일이 생성됩니다.  
-    
+
     ```
     oadm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
@@ -207,12 +212,12 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
 
     `oc create -f ocp-secret.yaml`
 
-5. 다음을 실행하여 배포를 확인합니다. 
+5. 다음을 실행하여 배포를 확인합니다.
 
     `oc describe secret omsagent-secret`  
 
     출력은 다음과 유사합니다.  
-    
+
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -229,14 +234,14 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
     No events.  
     ```
 
-6. 다음을 실행하여 OMS 에이전트 디먼 집합 yaml 파일을 배포합니다. 
+6. 다음을 실행하여 OMS 에이전트 디먼 집합 yaml 파일을 배포합니다.
 
     `oc create -f ocp-ds-omsagent.yaml`  
-  
-7. 다음을 실행하여 배포를 확인합니다. 
+
+7. 다음을 실행하여 배포를 확인합니다.
 
     `oc describe ds oms`
-  
+
     출력은 다음과 유사합니다.
 
     ```
@@ -245,16 +250,16 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
     Namespace:      omslogging  
     Labels:         <none>  
     Annotations:    <none>  
-    
+
     Type:   Opaque  
-    
+
      Data  
      ====  
      KEY:    89 bytes  
      WSID:   37 bytes  
     ```
 
-### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Docker Swarm 및 Kubernetes에 대한 비밀 정보를 보호합니다. 
+### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Docker Swarm 및 Kubernetes에 대한 비밀 정보를 보호합니다.
 
 Docker Swarm 및 Kubernetes 컨테이너 서비스에 대한 비밀 OMS 작업 영역 ID 및 기본 키를 보호할 수 있습니다.
 
@@ -424,43 +429,46 @@ Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면
 
 Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 컴퓨터](log-analytics-azure-vm-extension.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-windows-agents.md)만 현재 Service Fabric에 대해 지원됩니다.
 
-컨테이너 솔루션이 올바르게 설정되었는지 확인하려면
-
-- *ContainerManagement.xxx*를 확인하여 관리 팩이 제대로 다운로드되었는지 확인합니다.
-    - 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
-- **제어판** > **시스템 및 보안**으로 이동하여 OMS 작업 영역 ID가 올바른지 확인합니다.
-    - **Microsoft Monitoring Agent**를 열고 작업 영역 정보가 올바른지 확인합니다.
+컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
 
-## <a name="containers-data-collection-details"></a>컨테이너 데이터 수집 세부 정보
-컨테이너 솔루션은 사용자가 활성화한 에이전트를 사용하여 컨테이너 호스트 및 컨테이너로부터 다양한 성능 메트릭과 로그 데이터를 수집합니다.
+## <a name="solution-components"></a>솔루션 구성 요소
 
-다음 표에서는 데이터 수집 방법 및 컨테이너에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
+Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
 
-| 플랫폼 | [OMS Agent for Linux](log-analytics-linux-agents.md) | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Linux |![예](./media/log-analytics-containers/oms-bullet-green.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |매 3분 |
+- C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에 설치된 *ContainerManagement.xxx*
 
-| 플랫폼 | [Windows 에이전트](log-analytics-windows-agents.md) | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![예](./media/log-analytics-containers/oms-bullet-green.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |매 3분 |
+## <a name="container-data-collection-details"></a>컨테이너 데이터 컬렉션 세부 정보
+컨테이너 모니터링 솔루션은 사용자가 활성화한 에이전트를 사용하여 컨테이너 호스트 및 컨테이너로부터 다양한 성능 메트릭과 로그 데이터를 수집합니다.
 
-| 플랫폼 | [Log Analytics VM 확장](log-analytics-azure-vm-extension.md) | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Azure |![예](./media/log-analytics-containers/oms-bullet-green.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |매 3분 |
+데이터는 다음 에이전트 형식으로 3분마다 수집됩니다.
 
-다음 테이블은 컨테이너 솔루션에 의해 수집된 데이터 형식, 로그 검색에 사용된 데이터 유형 및 결과의 예를 보여줍니다.
+- [OMS Agent for Linux](log-analytics-linux-agents.md)
+- [Windows 에이전트](log-analytics-windows-agents.md)
+- [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)
+
+
+### <a name="container-records"></a>컨테이너 레코드
+
+다음 테이블은 컨테이너 모니터링 솔루션에 의해 수집된 레코드 및 로그 검색 결과에 표시된 데이터 형식의 예를 보여줍니다.
 
 | 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
 | --- | --- | --- |
 | 호스트 및 컨테이너에 대한 성능 | `Type=Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| 컨테이너 인벤토리 | `Type=ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContinerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| 컨테이너 인벤토리 | `Type=ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | 컨테이너 이미지 인벤토리 | `Type=ContainerImageInventory` | TimeGenerated, 컴퓨터, 이미지, ImageTag, ImageSize, VirtualSize, 실행 중, 일시 중지됨, 중지됨, 실패, SourceSystem, ImageID, TotalContainer |
 | 컨테이너 로그 | `Type=ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | 컨테이너 서비스 로그 | `Type=ContainerServiceLog`  | TimeGenerated, 컴퓨터, TimeOfCommand, 이미지, 명령, SourceSystem, ContainerID |
+| 컨테이너 노드 인벤토리 | `Type=ContainerNodeInventory_CL`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes 인벤토리 | `Type=KubePodInventory_CL` | TimeGenerated, 컴퓨터, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| 컨테이너 프로세스 | `Type=ContainerProcess_CL` | TimeGenerated, 컴퓨터, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| kubernetes 이벤트 | `Type=KubeEvents_CL` | TimeGenerated, 컴퓨터, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, 메시지 |
+
+*PodLabel* 데이터 형식에 추가된 레이블은 사용자 고유의 사용자 지정 레이블입니다. 테이블에 표시된 추가된 PodLabel 레이블은 예입니다. 따라서 `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s`는 사용자 환경의 데이터 집합에 따라 달라지며 일반적으로 `PodLabel_yourlabel_s`와 비슷합니다.
+
 
 ## <a name="monitor-containers"></a>모니터 컨테이너
-OMS 포털에서 솔루션을 사용하도록 설정한 후에는 컨테이너 호스트와 호스트에서 실행 중인 컨테이너에 대한 요약 정보를 표시하는 **컨테이너** 타일이 나타납니다.
+OMS 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너** 타일에 컨테이너 호스트와 호스트에서 실행 중인 컨테이너에 대한 요약 정보가 표시됩니다.
 
 ![컨테이너 타일](./media/log-analytics-containers/containers-title.png)
 
@@ -469,57 +477,68 @@ OMS 포털에서 솔루션을 사용하도록 설정한 후에는 컨테이너 �
 ### <a name="using-the-containers-dashboard"></a>컨테이너 대시보드 사용
 **컨테이너** 타일을 클릭합니다. 여기에서는 다음에 따라 구성된 보기를 확인할 수 있습니다.
 
-* 컨테이너 이벤트
-* 오류
-* 컨테이너 상태
-* 컨테이너 이미지 인벤토리
-* CPU 및 메모리 성능
+- **컨테이너 이벤트** - 컨테이너 상태 및 실패한 컨테이너가 있는 컴퓨터를 보여 줍니다.
+- **컨테이너 로그** - 시간에 따라 생성되는 컨테이너 로그 파일의 차트 및 로그 파일 수가 가장 높은 컴퓨터의 목록을 보여 줍니다.
+- **Kubernetes 이벤트** - 시간에 따라 생성되는 Kubernetes 이벤트의 차트 및 Pod가 이벤트를 생성하는 이유에 대한 목록을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **Kubernetes 네임스페이스 인벤토리** - 네임스페이스 및 Pod의 수를 표시하고 해당 계층을 보여 줍니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **컨테이너 노드 인벤토리** - 컨테이너 노드/호스트에서 사용되는 오케스트레이션 형식의 수를 보여 줍니다. 컴퓨터 노드/호스트가 컨테이너의 수를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **컨테이너 이미지 인벤토리** - 사용된 총 컨테이너 이미지 수 및 이미지 형식의 수를 표시합니다. 이미지 수는 이미지 태그를 기준으로 나열됩니다.
+- **컨테이너 상태** - 컨테이너를 실행 중인 총 컨테이너 노드/호스트 컴퓨터 수를 표시합니다. 컴퓨터는 실행 중인 호스트 수를 기준으로 나열됩니다.
+- **컨테이너 프로세스** - 시간에 따른 실행 중인 컨테이너 프로세스의 꺾은선형 차트를 보여 줍니다. 컨테이너는 컨테이너 내 실행 중인 명령/프로세스를 기준으로 나열됩니다. *이 데이터 집합은 Linux 환경에만 사용됩니다.*
+- **컨테이너 CPU 성능** - 컴퓨터 노드/호스트에 대한 시간에 따른 평균 CPU 사용률의 꺾은선형 차트를 보여 줍니다. 또한 평균 CPU 사용률을 기준으로 컴퓨터 노드/호스트를 나열합니다.
+- **컨테이너 메모리 성능** - 시간에 따른 메모리 사용량의 꺾은선형 차트를 보여 줍니다. 또한 인스턴스 이름을 기준으로 컴퓨터 메모리 사용률을 나열합니다.
+- **컴퓨터 성능** - 시간에 따른 CPU 성능의 백분율, 시간에 따른 메모리 사용량의 백분율 및 시간에 따른 사용 가능한 디스크 공간의 메가바이트를 꺾은 선형 차트로 표시합니다. 차트에서 해당 줄 위로 마우스를 이동하면 자세한 정보를 볼 수 있습니다.
 
-대시보드의 각 창은 수집된 데이터에서 실행되는 검색을 시각적으로 나타냅니다.
+
+대시보드의 각 영역은 수집된 데이터에서 실행되는 검색을 시각적으로 나타냅니다.
 
 ![컨테이너 대시보드 ](./media/log-analytics-containers/containers-dash01.png)
 
 ![컨테이너 대시보드 ](./media/log-analytics-containers/containers-dash02.png)
 
-**컨테이너 상태** 블레이드에서 아래 그림과 같이 위쪽 영역을 클릭합니다.
+**컨테이너 상태** 영역에서 아래 그림과 같이 위쪽 영역을 클릭합니다.
 
 ![컨테이너 상태](./media/log-analytics-containers/containers-status.png)
 
-로그 검색이 열리고 호스트와, 호스트에서 실행 중인 컨테이너에 대한 정보를 표시합니다.
+로그 검색이 열리고 컨테이너 상태에 대한 정보가 표시됩니다.
 
 ![컨테이너에 대한 로그 검색](./media/log-analytics-containers/containers-log-search.png)
 
 여기에서 검색 쿼리를 편집 수정하여 관심 있는 특정 정보를 찾을 수 있습니다. 로그 검색에 대한 자세한 내용은 [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 참조하세요.
 
-예를 들어, 검색 쿼리에서 **Running**을 **Stopped**로 변경하여 실행 중인 컨테이너 대신 중지된 모든 컨테이너를 표시하도록 검색 쿼리를 수정할 수 있습니다.
-
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>실패한 컨테이너를 검색하여 문제 해결
-0이 아닌 종료 코드로 종료된 경우 OMS는 이 컨테이너를 **Failed**로 표시합니다. **실패한 컨테이너** 블레이드에서 환경의 오류 및 실패 개요를 볼 수 있습니다.
+
+0이 아닌 종료 코드로 종료된 경우 Log Analytics는 이 컨테이너를 **Failed**로 표시합니다. **실패한 컨테이너** 영역에서 환경의 오류 및 실패 개요를 볼 수 있습니다.
 
 ### <a name="to-find-failed-containers"></a>실패한 컨테이너 찾기
-1. **컨테이너 이벤트** 블레이드를 클릭합니다.  
-   ![컨테이너 이벤트](./media/log-analytics-containers/containers-events.png)
-2. 로그 검색이 열리고 다음과 유사한 컨테이너 상태를 표시합니다.  
-   ![컨테이너 상태](./media/log-analytics-containers/containers-container-state.png)
-3. 다음으로 실패한 값을 클릭하여 이미지 크기, 중지 및 실패한 이미지 수와 같은 추가 정보를 확인합니다. **자세히 표시**를 확장하여 이미지 ID를 봅니다.  
-   ![실패한 컨테이너](./media/log-analytics-containers/containers-state-failed.png)
-4. 다음으로 이 이미지를 실행 중인 컨테이너를 찾습니다. 검색 쿼리에 다음을 입력합니다.
-   `Type=ContainerInventory <ImageID>` 로그를 표시합니다. 스크롤하여 실패한 컨테이너를 볼 수 있습니다.  
+1. **컨테이너 상태** 영역을 클릭합니다.  
+   ![컨테이너 상태](./media/log-analytics-containers/containers-status.png)
+2. 로그 검색이 열리고 다음과 유사한 컨테이너 상태가 표시됩니다.  
+   ![컨테이너 상태](./media/log-analytics-containers/containers-log-search.png)
+3. 추가 정보를 보려면 실패한 컨테이너의 집계 값을 클릭합니다. **자세히 표시**를 확장하여 이미지 ID를 봅니다.  
+   ![실패한 컨테이너](./media/log-analytics-containers/containers-state-failed.png)  
+4. 검색 쿼리에 `Type=ContainerInventory <ImageID>`를 입력하여 이미지 크기 및 중지되고 실패한 이미지 수와 같은 이미지에 대한 세부 정보를 확인합니다.  
    ![실패한 컨테이너](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>컨테이너 데이터에 대한 로그 검색
 특정 오류 문제를 해결할 때는 환경 내 발생 위치를 확인하는 것이 도움이 될 수 있습니다. 다음 로그 유형은 원하는 정보를 반환하는 쿼리를 만드는 데 도움이 됩니다.
 
-* **ContainerInventory** – 컨테이너 위치, 해당 컨테이너 이름, 실행 중인 이미지에 대한 정보가 필요할 때 이 유형을 사용합니다.
-* **ContainerImageInventory** – 이미지별로 정리하여 정보를 찾고 이미지 ID나 크기 같은 이미지 정보를 보려는 경우 이 유형을 사용합니다.
-* **ContainerLog** – 특정 오류 로그 정보와 항목을 찾으려 할 때 이 유형을 사용합니다.
-* **ContainerServiceLog** – 시작, 중지, 삭제, 끌어오기 명령 등과 같이 Docker 데몬의 감사 추적 정보를 찾으려 할 때 이 유형을 사용합니다. 
+
+- **ContainerImageInventory** – 이미지별로 정리하여 정보를 찾고 이미지 ID나 크기 같은 이미지 정보를 보려는 경우 이 유형을 사용합니다.
+- **ContainerInventory** – 컨테이너 위치, 해당 컨테이너 이름, 실행 중인 이미지에 대한 정보가 필요할 때 이 유형을 사용합니다.
+- **ContainerLog** – 특정 오류 로그 정보와 항목을 찾으려 할 때 이 유형을 사용합니다.
+- **ContainerNodeInventory_CL** 컨테이너가 상주하는 호스트/노드에 대한 정보를 얻으려면 이 유형을 사용합니다. Docker 버전, 오케스트레이션 형식, 저장소 및 네트워크 정보를 제공합니다.
+- **ContainerProcess_CL** 컨테이너 내에서 실행 중인 프로세스를 신속하게 확인하려면 이 형식을 사용합니다.
+- **ContainerServiceLog** – 시작, 중지, 삭제, 끌어오기 명령 등과 같이 Docker 데몬의 감사 추적 정보를 찾으려 할 때 이 유형을 사용합니다. 
+- **KubeEvents_CL** Kubernetes 이벤트를 확인하려면 이 형식을 사용합니다.
+- **KubePodInventory_CL** 클러스터 계층 구조 정보를 이해하려면 이 형식을 사용합니다.
+
 
 ### <a name="to-search-logs-for-container-data"></a>컨테이너 데이터에 대한 로그 검색
 * 최근에 실패했다고 알고 있는 이미지를 선택하고 그에 대한 오류 로그를 찾습니다. **ContainerInventory** 검색을 통해 해당 이미지를 실행 중인 컨테이너 이름부터 찾습니다. 예를 들어, `Type=ContainerInventory ubuntu Failed`를 검색합니다.  
     ![Ubuntu 컨테이너에 대한 검색](./media/log-analytics-containers/search-ubuntu.png)
 
-  **이름** 옆에 컨테이너 이름을 확인하고 해당 로그를 검색합니다. 이 예제에서는 `Type=ContainerLog adoring_meitner`입니다.
+  **이름** 옆에 컨테이너 이름을 확인하고 해당 로그를 검색합니다. 이 예제에서는 `Type=ContainerLog cranky_stonebreaker`입니다.
 
 **성능 정보 보기**
 
@@ -530,10 +549,6 @@ Type=Perf
 ```
 
 ![컨테이너 성능](./media/log-analytics-containers/containers-perf01.png)
-
-결과에서 **메트릭**이라는 단어를 클릭하면 더 그래픽적인 형태로 이 내용을 확인할 수 있습니다.
-
-![컨테이너 성능](./media/log-analytics-containers/containers-perf02.png)
 
 쿼리 오른쪽에 이름을 입력하여 확인하는 성능 데이터의 범위를 특정 데이터로 한정할 수 있습니다.
 
@@ -546,7 +561,7 @@ Type=Perf <containerName>
 ![컨테이너 성능](./media/log-analytics-containers/containers-perf03.png)
 
 ## <a name="example-log-search-queries"></a>로그 검색 쿼리 예제
-한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 먼저 **주목할 만한 쿼리** 블레이드에서 테스트하면 고급 쿼리를 구성하는 데 도움이 될 수 있습니다.
+한두 가지 예제로 쿼리 구성을 시작한 다음 환경에 맞게 수정하는 것이 유용한 경우가 종종 있습니다. 먼저 **샘플 쿼리** 영역에서 테스트하면 고급 쿼리를 빌드하는 데 도움이 될 수 있습니다.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

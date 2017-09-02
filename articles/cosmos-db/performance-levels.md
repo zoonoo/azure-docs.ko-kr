@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
@@ -59,7 +58,7 @@ S1, S2 및 S3 성능 수준은 DocumentDB API 컬렉션에서 제공하는 유�
 |최대 처리량|Unlimited|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
 |최소 처리량|2,500RU/s|400RU/s|250RU/s|1,000RU/s|2,500RU/s|
 |최대 저장소|Unlimited|10 GB|10 GB|10 GB|10 GB|
-|가격|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
+|가격(월별)|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
 
 EA 고객입니까? 그렇다면 [EA 고객에게 미치는 영향은?](#ea-customer)을 참조하세요.
 

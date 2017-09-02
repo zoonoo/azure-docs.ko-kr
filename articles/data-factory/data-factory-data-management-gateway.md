@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 221eadc2e93c2be0f985386277fcfab69e46416b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e40eba285aeb1cce6b77311d1b69a6b96967a0b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/10/2017
 3. 게이트웨이는 클라우드에서 자격 증명을 저장하기 전에 게이트웨이(데이터 개발자가 제공함)에 연결된 인증서로 자격 증명을 암호화합니다.
 4. Data Factory 서비스는 공유 Azure 서비스 버스 큐를 사용하는 컨트롤 채널을 통해 작업의 예정 및 관리에 대한 게이트웨이와 통신합니다. 복사 작업이 시작되어야 할 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 보관합니다. 게이트웨이는 큐를 폴링한 후에 작업을 시작합니다.
 5. 게이트웨이는 동일한 인증서를 사용하여 자격 증명의 암호를 해독하고 적절한 인증 형식 및 자격 증명을 사용하여 온-프레미스 데이터 저장소에 연결합니다.
-6. 게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사합니다. 이 단계에서 게이트웨이는 보안(HTTPS) 채널을 통해 Azure Blob 저장소 등의 클라우드 기반 저장소 서비스와 직접 통신합니다.
+6. 게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사합니다. 이 단계에서 게이트웨이는 보안(HTTPS) 채널을 통해 Azure Blob Storage 등의 클라우드 기반 저장소 서비스와 직접 통신합니다.
 
 ### <a name="considerations-for-using-gateway"></a>게이트웨이 사용을 위한 고려 사항
 * 데이터 관리 게이트웨이의 단일 인스턴스를 여러 온-프레미스 데이터 소스에 사용할 수 있습니다. 그러나 **각 게이트웨이 인스턴스는 Azure Data Factory 하나에만 연결**되며, 다른 Data Factory와 공유할 수는 없습니다.
@@ -60,8 +60,8 @@ ms.lasthandoff: 08/10/2017
 * **게이트웨이가 데이터 소스와 같은 컴퓨터에 있을 필요는 없습니다**. 그러나 게이트웨이를 데이터 소스에 가까이 배치하면 게이트웨이가 데이터 소스에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 온-프레미스 데이터 소스를 호스트하는 컴퓨터와는 다른 컴퓨터에 게이트웨이를 설치하는 것이 좋습니다. 게이트웨이와 데이터 소스가 서로 다른 컴퓨터에 있으면 게이트웨이와 데이터 소스 간에 리소스 경합이 발생하지 않습니다.
 * **서로 다른 컴퓨터의 여러 게이트웨이가 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 게이트웨이가 2개의 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
 * 컴퓨터에 **Power BI** 시나리오를 처리할 게이트웨이가 이미 설치된 경우 **별도의 Azure Data Factory용 게이트웨이**를 다른 컴퓨터에 설치하세요.
-* **Express 경로**를 사용할 때도 게이트웨이를 사용해야 합니다.
-* **Express 경로**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 게이트웨이를 사용하여 서비스와 데이터 소스 간의 연결을 설정합니다.
+* **ExpressRoute**를 사용할 때도 게이트웨이를 사용해야 합니다.
+* **ExpressRoute**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 게이트웨이를 사용하여 서비스와 데이터 소스 간의 연결을 설정합니다.
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
@@ -268,6 +268,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 ### <a name="to-disableenable-auto-update-feature"></a>자동 업데이트 기능 사용 안 함/사용
 다음 단계를 수행하여 자동 업데이트 기능을 사용하지 않거나/사용할 수 있습니다.
 
+[단일 노드 게이트웨이의 경우]
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
 2. C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
@@ -280,153 +281,167 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
+[[다중 노드 고가용성 및 확장 가능 게이트웨이(미리 보기)의 경우](data-factory-data-management-gateway-high-availability-scalability.md)]
+1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
+2. C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 폴더로 전환합니다.
+3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
 
-## <a name="configuration-manager"></a>구성 관리자
-게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
+    고가용성 기능(미리 보기)이 있는 게이트웨이의 경우 추가 AuthKey 매개 변수가 필요합니다.
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    ```
+4. 다시 켜려면:
 
-1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
-2. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 실행합니다.
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
 
-### <a name="home-page"></a>홈 페이지
-홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
 
-* 게이트웨이의 상태를 봅니다(클라우드 서비스에 연결되어 있는지 등).
-* **Register**합니다.
-* 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 호스트 서비스**를 **중지**하고 시작합니다.
-* **업데이트를 예약**합니다.
-* 게이트웨이가 **마지막으로 업데이트된** 날짜를 봅니다.
+## Configuration Manager
+Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
-### <a name="settings-page"></a>설정 페이지
-설정 페이지를 통해 다음 작업을 수행할 수 있습니다.
+1. In the **Search** window, type **Data Management Gateway** to access this utility.
+2. Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-* 게이트웨이에서 사용한 **인증서**를 보고 변경하고 내보냅니다. 이 인증서는 데이터 원본 자격 증명을 암호화하는 데 사용됩니다.
-* 끝점에 대한 **HTTPS 포트**를 변경합니다. 게이트웨이는 데이터 원본 자격 증명을 설정하기 위한 포트를 엽니다.
-* **상태** 
-* **SSL 인증서**는 포털과 게이트웨이 간의 SSL 통신에서 데이터 원본에 대한 자격 증명을 설정하는 데 사용됩니다.  
+### Home page
+The Home page allows you to do the following actions:
 
-### <a name="diagnostics-page"></a>진단 페이지
-진단 페이지를 통해 다음 작업을 수행할 수 있습니다.
+* View status of the gateway (connected to the cloud service etc.).
+* **Register** using a key from the portal.
+* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
+* **Schedule updates** at a specific time of the days.
+* View the date when the gateway was **last updated**.
 
-* 자세한 정보 **로깅**을 사용하고 이벤트 뷰어에서 로그를 보고 오류 발생 시 Microsoft에 로그를 보냅니다.
-* **연결을 테스트**합니다.  
+### Settings page
+The Settings page allows you to do the following actions:
 
-### <a name="help-page"></a>도움말 페이지
-도움말 페이지에는 다음 정보가 표시됩니다.  
+* View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
+* Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
+* **Status** of the endpoint
+* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
 
-* 게이트웨이의 간략한 설명
-* 버전 번호
-* 온라인 도움말, 개인 정보 취급 방침 및 사용권 규약에 대한 링크  
+### Diagnostics page
+The Diagnostics page allows you to do the following actions:
 
-## <a name="monitor-gateway-in-the-portal"></a>포털에서 게이트웨이 모니터링
-Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모리, 네트워크(수신/송신) 등)에 대한 스냅숏을 거의 실시간으로 볼 수 있습니다.  
+* Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft if there was a failure.
+* **Test connection** to a data source.  
 
-1. Azure Portal에서 Data Factory의 홈페이지로 이동하여 **연결된 서비스** 타일을 클릭합니다. 
+### Help page
+The Help page displays the following information:  
 
-    ![데이터 팩터리 홈페이지](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
-2. **연결된 서비스** 페이지에서 **게이트웨이**를 선택합니다.
+* Brief description of the gateway
+* Version number
+* Links to online help, privacy statement, and license agreement.  
 
-    ![연결된 서비스 페이지](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
-3. **게이트웨이** 페이지에서 게이트웨이의 메모리 및 CPU 사용량을 볼 수 있습니다.
+## Monitor gateway in the portal
+In the Azure portal, you can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine.  
 
-    ![게이트웨이의 CPU 및 메모리 사용량](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
-4. **고급 설정**을 사용하도록 설정하여 네트워크 사용량과 같은 자세한 정보를 확인할 수 있습니다.
+1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile. 
+
+    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+2. Select the **gateway** in the **Linked services** page.
+
+    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
+
+    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+4. Enable **Advanced settings** to see more details such as network usage.
     
-    ![게이트웨이의 고급 모니터링](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
+The following table provides descriptions of columns in the **Gateway Nodes** list:  
 
-모니터링 속성 | 설명
+Monitoring Property | Description
 :------------------ | :---------- 
-이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.    
-가동 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예를 들어 온라인/오프라인/제한 등이 있습니다. 이러한 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요. 
-버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). 
-사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅숏입니다. 
-CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거의 실시간 스냅숏입니다. 
-네트워킹(수신/송신) | 게이트웨이 노드의 네트워크 사용률입니다. 이 값은 거의 실시간 스냅숏입니다. 
-동시 작업(실행/제한) | 각 노드에서 실행되는 작업 또는 태스크의 수입니다. 이 값은 거의 실시간 스냅숏입니다. 제한은 각 노드의 최대 동시 작업 수를 나타냅니다. 이 값은 컴퓨터 크기에 따라 정의됩니다. CPU/메모리/네트워크의 활용도가 낮지만 작업은 시간이 초과된 고급 시나리오에서 동시 작업 실행을 강화하도록 제한을 높일 수 있습니다. 이 기능은 단일 노드 게이트웨이에서도 사용할 수 있습니다(확장성 및 가용성 기능을 사용할 수 없는 경우에도 적용됨).  
-역할 | 다중 노드 게이트웨이에는 발송자 및 작업자라는 두 가지 역할이 있습니다. 모든 노드는 작업자이며, 이는 모두 작업을 실행하는 데 사용할 수 있음을 의미합니다. 디스패처 노드는 하나만 존재합니다. 이 노드는 클라우드 서비스에서 작업/태스크를 가져와서 다른 작업자 노드(자체 포함)에 전달하는 데 사용됩니다.
+Name | Name of the logical gateway and nodes associated with the gateway. Node is an on-premises Windows machine that has the gateway installed on it. For information on having more than one node (up to four nodes) in a single logical gateway, see [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md).    
+Status | Status of the logical gateway and the gateway nodes. Example: Online/Offline/Limited/etc. For information about these statuses, See [Gateway status](#gateway-status) section. 
+Version | Shows the version of the logical gateway and each gateway node. The version of the logical gateway is determined based on version of majority of nodes in the group. If there are nodes with different versions in the logical gateway setup, only the nodes with the same version number as the logical gateway function properly. Others are in the limited mode and need to be manually updated (only in case auto-update fails). 
+Available memory | Available memory on a gateway node. This value is a near real-time snapshot. 
+CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
+Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
+Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
+Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
 
-이 페이지에서 게이트웨이에 두 개 이상의 노드(확장 시나리오)가 있는 경우에 더 적절한 일부 설정을 볼 수 있습니다. 다중 노드 게이트웨이를 설정하는 세부 정보는 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
+In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
 
-### <a name="gateway-status"></a>게이트웨이 상태
-다음 표에서는 **게이트웨이 노드**에 가능한 상태에 대해 설명합니다. 
+### Gateway status
+The following table provides possible statuses of a **gateway node**: 
 
-가동 상태  | 설명/시나리오
+Status  | Comments/Scenarios
 :------- | :------------------
-온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다.
-오프라인 | 노드가 오프라인 상태입니다.
-업그레이드 중 | 노드가 자동 업데이트 중입니다.
-제한적 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다. 
-비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다.<br/><br/> 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다. 
+Online | Node connected to Data Factory service.
+Offline | Node is offline.
+Upgrading | The node is being auto-updated.
+Limited | Due to Connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or credential sync issue. 
+Inactive | Node is in a configuration different from the configuration of other majority nodes.<br/><br/> A node can be inactive when it cannot connect to other nodes. 
 
 
-다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다. 
+The following table provides possible statuses of a **logical gateway**. The gateway status depends on statuses of the gateway nodes. 
 
-가동 상태 | 설명
+Status | Comments
 :----- | :-------
-등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
-온라인 | 게이트웨이 노드가 온라인 상태입니다.
-오프라인 | 온라인 상태의 노드가 없습니다.
-제한적 | 이 게이트웨이의 모든 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. <br/><br/>디스패처/작업자 노드의 자격 증명 동기화 문제 일 수 있습니다. 
+Needs Registration | No node is yet registered to this logical gateway
+Online | Gateway Nodes are online
+Offline | No node in online status.
+Limited | Not all nodes in this gateway are in healthy state. This status is a warning that some node might be down! <br/><br/>Could be due to credential sync issue on dispatcher/worker node. 
 
-## <a name="scale-up-gateway"></a>게이트웨이 강화
-노드에서 실행할 수 있는 **동시 데이터 이동 작업** 수를 구성하여 온-프레미스 및 클라우드 데이터 저장소 간에 데이터를 이동하는 기능을 강화할 수 있습니다. 
+## Scale up gateway
+You can configure the number of **concurrent data movement jobs** that can run on a node to scale up the capability of moving data between on-premises and cloud data stores. 
 
-사용 가능한 메모리와 CPU가 잘 사용되지는 않지만 유휴 용량이 0이면 노드에서 실행할 수 있는 동시 작업 수를 늘려 강화할 수 있습니다. 또한 게이트웨이 오버로드로 인해 활동 시간이 초과되는 경우에도 강화할 수 있습니다. 게이트웨이 노드의 고급 설정에서 노드에 대한 최대 수용작업량을 늘릴 수 있습니다. 
+When the available memory and CPU are not utilized well, but the idle capacity is 0, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the gateway is overloaded. In the advanced settings of a gateway node, you can increase the maximum capacity for a node. 
   
 
-## <a name="troubleshooting-gateway-issues"></a>게이트웨이 문제 해결
-데이터 관리 게이트웨이를 사용하여 문제를 해결하는 방법에 대한 정보/팁은 [게이트웨이 문제 해결](data-factory-troubleshoot-gateway-issues.md) 문서를 참조하세요.  
+## Troubleshooting gateway issues
+See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the data management gateway.  
 
-## <a name="move-gateway-from-one-machine-to-another"></a>컴퓨터 간에 게이트웨이 이동
-이 섹션에서는 컴퓨터 간에 게이트웨이 클라이언트를 이동하는 단계를 제공합니다.
+## Move gateway from one machine to another
+This section provides steps for moving gateway client from one machine to another machine.
 
-1. 포털에서 **데이터 팩터리 홈페이지**로 이동하여 **연결된 서비스** 타일을 클릭합니다.
+1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
 
-    ![데이터 게이트웨이 링크](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
-2. **연결된 서비스** 페이지의 **데이터 게이트웨이** 섹션에서 게이트웨이를 선택합니다.
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
 
-    ![게이트웨이가 선택된 연결된 서비스 페이지](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. **데이터 게이트웨이** 페이지에서 **데이터 게이트웨이 다운로드 및 설치**를 클릭합니다.
+    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+3. In the **Data gateway** page, click **Download and install data gateway**.
 
-    ![게이트웨이 다운로드 링크](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. 그러면 **구성** 페이지에서 **데이터 게이트웨이 다운로드 및 설치**를 클릭하고 지침에 따라 데이터 게이트웨이를 컴퓨터에 설치합니다.
+    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
 
-    ![구성 페이지](./media/data-factory-data-management-gateway/ConfigureBlade.png)
-5. **Microsoft 데이터 관리 게이트웨이 구성 관리자**를 열어 둡니다.
+    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
 
-    ![구성 관리자](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. 포털의 **구성** 페이지에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.  
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
+6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.  
 
-    ![키 다시 만들기](./media/data-factory-data-management-gateway/RecreateKey.png)
-7. 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자**의 **게이트웨이 등록** 페이지에서 **키**를 텍스트 상자에 붙여 넣습니다. (선택 사항) **게이트웨이 키 표시** 확인란을 클릭하여 키 텍스트를 확인합니다.
+    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
+7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
-    ![키 복사 및 등록](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. **등록**을 클릭하여 클라우드 서비스에 게이트웨이를 등록합니다.
-9. **설정** 탭에서 **변경**을 클릭하여 이전 게이트웨이에 사용된 것과 동일한 인증서를 선택하고 **암호**를 입력한 다음 **마침**을 클릭합니다.
+    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+8. Click **Register** to register the gateway with the cloud service.
+9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
 
-   ![인증서 지정](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-   이전 게이트웨이에서 인증서를 내보낼 수 있습니다. 이전 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작하고 **인증서** 탭으로 전환한 후 **내보내기** 단추를 클릭하고 지침을 따르면 됩니다.
-10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈페이지에 **등록**이 **등록됨**으로 설정되고 **상태**가 **시작됨**으로 설정됩니다.
+   You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
+10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
 
-## <a name="encrypting-credentials"></a>자격 증명 암호화
-Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계를 수행합니다.
+## Encrypting credentials
+To encrypt credentials in the Data Factory Editor, do the following steps:
 
-1. **게이트웨이 컴퓨터**에서 웹 브라우저를 시작하여 [Azure Portal](http://portal.azure.com)로 이동합니다. 필요한 경우 Data Factory를 검색하여 **Data Factory** 페이지에서 Data Factory를 연 다음 **작성자 및 배포**를 클릭하여 Data Factory 편집기를 시작합니다.   
-2. 트리 뷰에서 기존 **연결된 서비스**를 클릭하여 해당 JSON 정의를 보거나 데이터 관리 게이트웨이(예: SQL Server 또는 Oracle)를 필요로 하는 연결된 서비스를 만듭니다.
-3. JSON 편집기에서 **gatewayName** 속성으로 게이트웨이의 이름을 입력합니다.
-4. **connectionString**에 **데이터 원본** 속성의 서버 이름을 입력합니다.
-5. **connectionString**에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.    
-6. 명령 모음에서 **암호화** 단추를 클릭하여 ClickOnce **자격 증명 관리자** 응용 프로그램을 시작합니다. **자격 증명 설정** 대화 상자가 표시됩니다.
+1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.   
+2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
+3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
+4. Enter server name for the **Data Source** property in the **connectionString**.
+5. Enter database name for the **Initial Catalog** property in the **connectionString**.    
+6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 
-    ![자격 증명 대화 상자 설정](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-7. **자격 증명 설정** 대화 상자에서 다음 단계를 수행합니다.
-   1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다.
-   2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다.
-   3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다.  
-   4. **확인**을 클릭하여 자격 증명을 암호화하고 대화 상자를 닫습니다.
-8. 이제 **connectionString**에 **encryptedCredential** 속성이 표시되어야 합니다.
+    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+7. In the **Setting Credentials** dialog box, do the following steps:
+   1. Select **authentication** that you want the Data Factory service to use to connect to the database.
+   2. Enter name of the user who has access to the database for the **USERNAME** setting.
+   3. Enter password for the user for the **PASSWORD** setting.  
+   4. Click **OK** to encrypt credentials and close the dialog box.
+8. You should see a **encryptedCredential** property in the **connectionString** now.
 
     ```JSON
     {

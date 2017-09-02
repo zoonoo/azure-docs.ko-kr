@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 80b58ac0a5a34a9ff573d161ca26dbfd2dba25c7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 50bd4eb02be8f03baf186255429bec51c036aa43
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/25/2017
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Azure Cosmos DB 보안의 새로운 기능은 무엇인가요?
 
-이제 정부 지역, 중국 Azure, 독일 Azure를 제외한 모든 Azure 지역에서 Azure Cosmos DB에 저장된 문서에 미사용 암호화를 사용할 수 있습니다. 남은 영역은 백업에 대한 미사용 암호화와 함께 다음 주 활성화됩니다. 이러한 영역의 신규 및 기존 고객에 대해 미사용 데이터의 암호화가 자동으로 적용됩니다. 아무 것도 구성할 필요가 없으며 이전과 동일한 대기 시간, 처리량, 가용성, 기능과 함께 미사용 데이터를 암호화해 안전하게 보호하는 이점을 얻을 수 있습니다.
+이제 휴지 상태의 암호화를 모든 Azure 지역에서 Azure Cosmos DB에 저장된 문서 및 백업에 대해 사용할 수 있습니다. 이러한 영역의 신규 및 기존 고객에 대해 미사용 데이터의 암호화가 자동으로 적용됩니다. 아무 것도 구성할 필요가 없으며 이전과 동일한 대기 시간, 처리량, 가용성, 기능과 함께 미사용 데이터를 암호화해 안전하게 보호하는 이점을 얻을 수 있습니다.
 
 ## <a name="how-do-i-secure-my-database"></a>내 데이터베이스를 보호하려면 어떻게 하나요? 
 

@@ -5,23 +5,24 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치
 사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 문서는 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있게 하는 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/15/2017
 * 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
 * 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
 
-응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 그러나 Windows PowerShell을 사용하여 자격 증명 개체를 만들어 등록 정보를 입력하거나, 고유한 토큰을 만들고 이 토큰을 사용하여 등록 정보를 입력할 수 있습니다.
+응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 그러나 등록 정보를 입력하기 위해 자격 증명 개체를 만드는 데 Windows PowerShell을 사용할 수 있습니다. 또는 고유한 토큰을 만들고 등록 정보를 입력하는 데 사용할 수 있습니다.
 
 ## <a name="install-the-connector"></a>커넥터 설치
 다음과 같이 커넥터를 등록하지 않고 커넥터 MSI를 설치합니다.
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/15/2017
 * 오프라인에서 만든 토큰을 사용하여 커넥터 등록
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
-1. 다음 명령을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. *\<사용자 이름\>* 및 *\<암호\>*를 디렉터리에 대한 사용자 이름과 암호로 바꿉니다.
+1. 이 명령을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. *\<사용자 이름\>* 및 *\<암호\>*를 디렉터리에 대한 사용자 이름과 암호로 바꿉니다.
    
         $User = "<username>"
         $PlainPassword = '<password>'

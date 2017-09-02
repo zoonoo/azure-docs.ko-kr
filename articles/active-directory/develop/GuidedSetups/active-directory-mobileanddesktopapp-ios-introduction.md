@@ -1,3 +1,24 @@
+---
+title: "Azure AD v2 iOS 시작 - 소개 | Microsoft Docs"
+description: "iOS(Swift) 응용 프로그램이 Azure Active Directory v2 끝점으로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: e1a28c70edddca878c18d860b3029324955fff15
+ms.contentlocale: ko-kr
+
+---
 
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>iOS 앱에서 Microsoft Graph API 호출
 
@@ -32,4 +53,5 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 |라이브러리|설명|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS용 Microsoft 인증 라이브러리 미리 보기|
+
 

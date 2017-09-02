@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 31eeaa3df41065b65d6202f00c01ad2f706e230a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5f482a92b8fcd71a1b767fcc5741bc57605997ea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결
@@ -31,8 +31,8 @@ Linux OS 디스크 암호화에서는 전체 디스크 암호화 프로세스를
 
 이는 지원되는 재고 갤러리 이미지에서 수정되거나 변경된 대상 VM 환경에서 OS 디스크 암호화를 시도할 때 발생합니다.  OS 확장을 분리하는 확장의 기능을 방해할 수 있는 지원되는 이미지로부터의 편차 예는 다음과 같습니다.
 - 지원되는 파일 시스템 및/또는 파티션 구성표와 더 이상 일치하지 않는 사용자 지정 이미지
-- 암호화하기 전에 SAP, MongoDB 또는 Apache Cassandra와 같은 대규모 응용 프로그램이 OS에 설치되어 실행된 경우 -  확장에서 이러한 응용 프로그램을 이를 제대로 종료할 수 없고, OS 드라이브에 열려 있는 파일 핸들을 유지하는 경우 드라이브를 분리할 수 없어 오류가 발생합니다.
-- 암호화가 활성화된 시간에 근접하여 사용자 지정 스크립트가 실행되고 있거나 암호화 프로세스 중에 다른 변경 작업이 VM에서 수행되고 있는 경우 -   이러한 경우는 Resource Manager 템플릿에서 동시에 실행하도록 여러 확장을 정의하거나 사용자 지정 스크립트 확장 또는 다른 작업을 디스크 암호화와 동시에 실행할 때 발생할 수 있습니다.   이러한 단계를 직렬화하고 격리하면 문제가 해결될 수 있습니다.
+- 암호화하기 전에 바이러스 백신, Docker, SAP, MongoDB 또는 Apache Cassandra와 같은 응용 프로그램이 OS에서 실행되는 사용자 지정 이미지  이러한 응용 프로그램은 종료하기 어려우며 OS 드라이브에 대해 파일 핸들이 열려 있는 경우 드라이브를 분리할 수 없게 되어 오류가 발생합니다.
+- 암호화 단계에 거의 근접한 시간에 실행되는 사용자 지정 스크립트는 문제를 일으켜 이 오류를 유발할 수 있습니다. 이러한 경우는 Resource Manager 템플릿에서 동시에 실행하도록 여러 확장을 정의하거나 사용자 지정 스크립트 확장 또는 다른 작업을 디스크 암호화와 동시에 실행할 때 발생할 수 있습니다.   이러한 단계를 직렬화하고 격리하면 문제가 해결될 수 있습니다.
 - 암호화를 활성화하기 전에 SELinux가 비활성화되지 않은 경우 - 분리 단계가 실패합니다.  암호화가 완료되면 SELinux를 다시 활성화할 수 있습니다.
 - OS 디스크에서 LVM 구성표를 사용하는 경우 - 제한된 LVM 데이터 디스크 지원은 사용할 수 있지만, LVM OS 디스크는 사용할 수 없습니다.
 - 최소 메모리 요구 사항이 충족되지 않는 경우 - OS 디스크 암호화에 권장되는 메모리 크기는 7GB입니다.
@@ -41,7 +41,7 @@ Linux OS 디스크 암호화에서는 전체 디스크 암호화 프로세스를
 
 ## <a name="unable-to-encrypt"></a>암호화할 수 없음
 
-경우에 따라 Linux 디스크 암호화가 "OS 디스크 암호화 시작됨" 상태에서 중단된 것으로 나타나고, SSH가 비활성화됩니다. 이 프로세스는 완료하는 데 3-16시간이 걸릴 수 있으며, 더 많은 시간이 필요할 수도 있습니다.  Linux OS 디스크 암호화 시퀀스에서는 OS 드라이브를 임시로 분리하고, 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 암호화를 수행합니다.   Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다.  디스크 크기 및 저장소 계정이 표준 또는 프리미엄(SSD) 저장소에서 지원되는지 여부를 포함한 VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 크게 영향을 줄 수 있습니다.
+경우에 따라 Linux 디스크 암호화가 "OS 디스크 암호화 시작됨" 상태에서 중단된 것으로 나타나고, SSH가 비활성화됩니다. 이 프로세스를 재고 갤러리 이미지에 대해 완료하는 데 3-16시간이 걸릴 수 있습니다.  다중 TB 크기 데이터 디스크가 추가될 경우 이 프로세스는 며칠이 걸릴 수도 있습니다. Linux OS 디스크 암호화 시퀀스에서는 OS 드라이브를 임시로 분리하고, 암호화된 상태로 다시 탑재하기 전에 전체 OS 디스크의 블록 암호화를 수행합니다.   Windows의 Azure Disk Encryption과 달리 Linux 디스크 암호화는 암호화를 진행하는 동안 VM을 동시에 사용할 수 없습니다.  디스크 크기 및 저장소 계정이 표준 또는 프리미엄(SSD) 저장소에서 지원되는지 여부를 포함한 VM의 성능 특성은 암호화를 완료하는 데 필요한 시간에 크게 영향을 줄 수 있습니다.
 
 상태를 확인하기 위해 [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 명령에서 반환된 ProgressMessage 필드를 폴링할 수 있습니다.   OS 드라이브가 암호화되는 동안 VM은 서비스 상태가 되고 SSH도 진행 중인 프로세스의 중단을 방지하기 위해 비활성화됩니다.  암호화가 진행되는 대부분의 시간 동안 EncryptionInProgress가 보고되고, 몇 시간 후에 VM을 다시 시작하라는 VMRestartPending 메시지가 뒤따릅니다.  예:
 
@@ -76,9 +76,42 @@ VM에서 키 자격 증명 모음에 액세스할 수 있어야 합니다. [Key 
 ### <a name="linux-package-management-behind-firewall"></a>방화벽 뒤에 있는 Linux 패키지 관리
 런타임 시 Linux용 Azure Disk Encryption은 대상 배포판의 패키지 관리 시스템을 사용하여 암호화를 사용하기 전에 필요한 필수 구성 요소를 설치합니다.  방화벽 설정으로 인해 VM에서 이러한 구성 요소를 다운로드하여 설치할 수 없으면 뒤이어서 실패하게 됩니다.    이를 구성하는 단계는 배포판마다 다를 수 있습니다.  Red Hat에서 프록시가 필요한 경우에는 subscription-manager와 yum이 올바르게 설정되었는지 확인해야 합니다.  이 항목은 [여기](https://access.redhat.com/solutions/189533)에 있는 Red Hat 지원 문서를 참조하세요.  
 
+## <a name="troubleshooting-windows-server-2016-server-core"></a>Windows Server 2016 Server Core 문제 해결
+
+Windows Server 2016 Server Core에서 bdehdcfg 구성 요소는 기본적으로 사용할 수 없습니다. 이 구성 요소는 Azure Disk Encryption에 필요합니다.
+
+이 문제를 해결하려면 Windows Server 2016 Data Center VM의 다음 4개 파일을 Server Core 이미지의 c:\windows\system32 폴더에 복사합니다.
+
+```
+bdehdcfg.exe
+bdehdcfglib.dll
+bdehdcfglib.dll.mui
+bdehdcfg.exe.mui
+```
+
+다음 명령을 실행합니다.
+
+```
+bdehdcfg.exe -target default
+```
+
+이렇게 하면 550MB 시스템 파티션이 만들어지고, 다시 부팅한 후에는 Diskpart를 사용하여 볼륨을 확인하고 계속 진행할 수 있습니다.  
+
+예:
+
+```
+DISKPART> list vol
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    126 GB  Healthy    Boot
+  Volume 1                      NTFS   Partition    550 MB  Healthy    System
+  Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
+```
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Azure 가상 컴퓨터 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure 미사용 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+

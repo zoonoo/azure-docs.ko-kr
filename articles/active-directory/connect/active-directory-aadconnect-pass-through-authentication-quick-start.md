@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: e5fb323090d8c3a533199b396047a1c63b5ae9f4
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -125,6 +125,9 @@ Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aad
 ![Azure Active Directory 관리 센터 - 인증 에이전트 다운로드 버튼](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory 관리 센터 - 에이전트 다운로드 블레이드](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>[여기](https://aka.ms/getauthagent)에서 인증 에이전트를 다운로드할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [**현재 제한 사항**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.

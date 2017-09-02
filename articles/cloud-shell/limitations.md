@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3ac234b27a0675f484018c357a65ab65049ceee0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e42841b126a9df9240bec3f489589d5ce4a6db80
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,12 +39,12 @@ Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 20분 
 Cloud Shell은 Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox 및 Apple Safari의 최신 버전을 지원합니다. Safari는 개인 모드에서 지원되지 않습니다.
 
 ## <a name="copy-and-paste"></a>복사 및 붙여넣기
-Ctrl+C 및 Ctrl+V가 Windows 컴퓨터에서의 복사 및 붙여넣기에 대한 키보드 바로 가기처럼 작동하지 않으므로 복사하여 붙여넣으려면 Ctrl+Insert 및 Shift+Insert를 사용하여 붙여넣습니다.
+Ctrl+C 및 Ctrl+V가 Windows 컴퓨터에서 Cloud Shell의 복사/붙여넣기 바로 가기처럼 작동하지 않으므로 복사하여 붙여넣으려면 각각 Ctrl+Insert 및 Shift+Insert를 사용합니다.
 
-복사 및 붙여넣기 옵션을 마우스 오른쪽 단추로 클릭할 수도 있지만 마우스 오른쪽 단추 클릭 기능은 브라우저 전용 클립보드 액세스의 적용을 받습니다.
+복사 및 붙여넣기 옵션을 마우스 오른쪽 단추로 클릭하여 사용할 수도 있지만 마우스 오른쪽 단추 클릭 기능은 브라우저 전용 클립보드 액세스의 적용을 받습니다.
 
 ## <a name="editing-bashrc"></a>.bashrc 편집
-.bashrc를 편집하는 경우 Cloud Shell에 예기치 않은 오류가 발생할 수 있으므로 주의해야 합니다.
+.bashrc를 편집할 때는 Cloud Shell에 예기치 않은 오류가 발생할 수 있으니 주의하세요.
 
 ## <a name="bashhistory"></a>.bash_history
 Cloud Shell 세션 중단 또는 동시 세션으로 인해 bash 명령의 기록이 일관되지 않을 수 있습니다.

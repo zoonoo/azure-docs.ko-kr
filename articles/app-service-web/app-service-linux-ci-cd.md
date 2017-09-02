@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Linux에서 Azure Web App을 사용한 연속 배포
@@ -32,7 +32,13 @@ ms.lasthandoff: 07/21/2017
 
 Azure Portal( http://portal.azure.com )에 로그인합니다.
 
-## <a name="step-2---enable-docker-hub-continuous-deployment"></a>2단계 - Docker 허브 연속 배포 사용
+## <a name="step-2---enable-container-continuous-deployment-feature"></a>2단계 - 컨테이너 연속 배포 기능 사용
+
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 연속 배포 기능을 사용하도록 설정할 수 있습니다.
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 **[Azure Portal](https://portal.azure.com/)**에서 페이지 왼쪽의 **App Service** 옵션을 클릭합니다.
 
@@ -43,6 +49,12 @@ Docker 허브 연속 배포를 구성하려는 앱의 이름을 클릭합니다.
 ![앱 설정 이미지 삽입](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>3단계 - 웹후크 URL 준비
+
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 웹후크 URL을 가져올 수 있습니다.
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 웹후크 URL에는 끝점 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`가 필요합니다.
 
@@ -83,6 +95,7 @@ Docker 허브 페이지에서 **웹후크**를 클릭한 후 **웹후크 만들�
 * [Linux의 Azure Web App에서 Ruby 사용](app-service-linux-ruby-get-started.md)
 * [Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지를 사용하는 방법](./app-service-linux-using-custom-docker-image.md)
 * [Linux의 Azure App Service Web App에 대한 FAQ](./app-service-linux-faq.md) 
+* [Azure CLI 2.0을 사용하여 Linux에서 웹앱 관리](./app-service-linux-cli.md)
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20a720833842f9579fd4fccaa39e964def48197e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -26,16 +26,16 @@ ms.lasthandoff: 03/30/2017
 
 Azure Import/Export 도구(WAImportExport.exe)는 Azure Import/Export 서비스의 작업을 만들고 관리하는 데 사용되어 Azure Blob Storage 내부 또는 외부로 대량의 데이터를 전송할 수 있게 해줍니다.
 
-이 설명서는 Azure Import/Export 도구의 최신 버전에 대한 것입니다. V1 도구를 사용하는 방법에 대한 내용은 [Azure Import/Export 도구 V1 사용](storage-import-export-tool-how-to-v1.md)을 참조하세요.
+이 설명서는 Azure Import/Export 도구의 최신 버전에 대한 것입니다. 클래식 배포 모델을 사용하는 방법에 대한 내용은 [Azure Import/Export 도구 V1 사용](storage-import-export-tool-how-to-v1.md)을 참조하세요.
 
-이 문서에서는 다음을 수행하는 도구를 사용하는 방법이 표시됩니다.  
+다음 문서에서는 해당 방법을 보여 줍니다.  
 
-- Import/Export 도구를 설치 및 설정합니다.
+- Azure Import/Export 도구를 설치 및 설정합니다.
 - 드라이브에서 Azure Blob Storage로 데이터를 가져오는 작업을 위한 하드 드라이브를 준비합니다.
 - 로그 파일 복사를 사용하여 작업 상태를 검토합니다. 
 - 가져오기 작업을 복구합니다. 
 - 내보내기 작업을 복구합니다. 
-- 프로세스 중에 문제가 발생한 경우 Azure Import/Export 도구 문제를 해결합니다. 
+- Azure Import/Export 도구 문제 해결 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: ad20216374306d8b5035140f3d8e107c595b623e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="service-fabric-on-linux"></a>Linux의 서비스 패브릭
@@ -40,13 +40,14 @@ Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으�
 
 
 ## <a name="supported-tooling"></a>지원되는 도구
-미리 보기는 Azure CLI를 통해 클러스터와의 상호 작용을 지원합니다. Java 개발자를 위해 Linux 및 OSX에서 지원되는 Eclipse에 Eclipse 및 Yeoman과의 통합이 제공됩니다. OSX 통합은 Vagrant를 통해 내부에서 Linux VM을 사용합니다. C# 개발자를 위해 Yeoman과의 통합이 응용 프로그램 템플릿을 생성하도록 제공됩니다.
+미리 보기는 Service Fabric CLI를 통해 클러스터와의 상호 작용을 지원합니다. Java 개발자를 위해 Linux 및 OSX에서 지원되는 Eclipse에 Eclipse 및 Yeoman과의 통합이 제공됩니다. OSX 통합은 Vagrant를 통해 내부에서 Linux VM을 사용합니다. C# 개발자를 위해 Yeoman과의 통합이 응용 프로그램 템플릿을 생성하도록 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. [Reliable Actors](service-fabric-reliable-actors-introduction.md) 및 [Reliable Services](service-fabric-reliable-services-introduction.md) 프로그래밍 프레임워크에 대해 알아봅니다.
-2. [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
-3. [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
-4. [Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Jenkins 및 GitHub로 Setup Service Fabric 연속 통합 및 배포 설정](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Service Fabric Windows/Linux 간 차이점](service-fabric-linux-windows-differences.md)
+
+* [Reliable Actors](service-fabric-reliable-actors-introduction.md) 및 [Reliable Services](service-fabric-reliable-services-introduction.md) 프로그래밍 프레임워크에 대해 알아봅니다.
+* [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
+* [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
+* [Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
+* [Jenkins 및 GitHub로 Setup Service Fabric 연속 통합 및 배포 설정](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Service Fabric Windows/Linux 간 차이점](service-fabric-linux-windows-differences.md)
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장
@@ -591,6 +591,6 @@ azure group delete vmsstestrg1
 * [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)에서 Azure Monitor 모니터링 기능 예제를 찾아보세요.
 * [크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)에서 알림 기능에 대해 알아보세요.
 * [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보내는](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 방법을 알아보세요.
-* 가상 컴퓨터 크기 집합의 자동 크기 조정 기능을 실행하도록 LAMP 스택을 설정하는 [Ubuntu/Apache/PHP 앱을 실행하는 VM 크기 집합 자동 크기 조정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 템플릿을 확인합니다.
+* Virtual Machine Scale Sets의 자동 크기 조정 기능을 실행하도록 Python/bottle 앱을 설정하는 [Ubuntu 16.04의 자동 크기 조정 데모 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 템플릿을 확인합니다.
 
 

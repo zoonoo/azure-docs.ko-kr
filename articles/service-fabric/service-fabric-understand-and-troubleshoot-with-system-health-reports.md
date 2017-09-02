@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/18/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 458e14f48a329cd36d3986986724e587839b355e
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
@@ -213,7 +213,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-다음 예제는 대상 복제본 개수 이하인 파티션의 상태를 보여줍니다. 다음 단계는 파티션이 구성된 방식을 보여 주는 파티션 설명을 가져옵니다. 여기서 **MinReplicaSetSize**는 2이고 **TargetReplicaSetSize**는 7입니다. 그런 다음 클러스터에 있는 노드 수를 가져옵니다.5 따라서 이 경우 두 개의 복제본을 배치할 수 없습니다.
+다음 예제는 대상 복제본 개수 이하인 파티션의 상태를 보여줍니다. 다음 단계는 파티션이 구성된 방식을 보여 주는 파티션 설명을 가져옵니다. 여기서 **MinReplicaSetSize**는 3이고 **TargetReplicaSetSize**는 7입니다. 그런 다음 클러스터에 있는 노드 수를 가져옵니다.5 따라서 이 경우 복제본의 목표 수가 사용 가능한 노드 수보다 더 높으므로 두 개의 복제본을 배치할 수 없습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -388,7 +388,7 @@ PartitionLowKey        : -9223372036854775808
 PartitionHighKey       : 9223372036854775807
 PartitionStatus        : InQuorumLoss
 LastQuorumLossDuration : 00:00:13
-MinReplicaSetSize      : 2
+MinReplicaSetSize      : 3
 TargetReplicaSetSize   : 3
 HealthState            : Error
 DataLossNumber         : 130743746152927699

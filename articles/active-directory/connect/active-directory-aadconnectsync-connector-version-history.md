@@ -3,7 +3,7 @@ title: "커넥터 버전 릴리스 내역 | Microsoft Docs"
 description: "이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)에 대한 커넥터의 모든 버전을 보여 줍니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
 
 > [!NOTE]
-> 이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 지원되지 않습니다.
+> 이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 설치하도록 지원되지 않습니다. 출시된 커넥터는 지정된 빌드로 업그레이드할 때 AADConnect에 미리 설치됩니다.
 
 이 항목은 출시된 커넥터의 모든 버전을 나열합니다.
 
@@ -38,23 +38,36 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0(AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* 일반 웹 서비스:
+  * 두 개 이상의 끝점이 있을 때 SOAP 프로젝트가 만들어지지 않도록 방지하는 문제를 해결했습니다.
+* 일반 SQL:
+  * 가져오기 작업에서 커넥터 공간에 저장할 때 GSQL이 시간을 제대로 변환하지 않았습니다. GSQL의 커넥터 공간에 대한 기본 날짜 및 시간 형식이 'yyyy-MM-dd hh:mm:ssZ'에서 'yyyy-MM-dd HH:mm:ssZ'로 변경되었습니다.
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0(AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>수정된 문제:
 
 * 일반 웹 서비스:
   * Wsconfig 도구는 REST 서비스 메서드에 대한 "샘플 요청"의 Json 배열을 제대로 변환하지 못했습니다. 이로 인해 REST 요청에 대한 이 Json 배열의 직렬화와 관련된 문제가 발생했습니다.
-  * 웹 서비스 커넥터 구성 도구는 JSON 특성 이름에 공백 기호를 사용하는 기능을 지원하지 않습니다. WSConfigTool.exe.config 파일에 대체 패턴을 수동으로 추가할 수 있습니다(예: ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```).
+  * 웹 서비스 커넥터 구성 도구는 JSON 속성 이름에 공백 기호를 사용하는 것을 지원하지 않습니다. 
+    * WSConfigTool.exe.config 파일에 대체 패턴을 수동으로 추가할 수 있습니다(예: ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```).
 
 * Lotus Notes:
-  * **조직/조직 구성 단위에 대해 사용자 지정 인증자 허용** 옵션이 해제된 경우 내보내기(업데이트) 중 커넥터가 실패합니다. 내보내기 흐름 후에 모든 특성이 Domino로 내보내지지만, 내보내기 시 KeyNotFoundException이 동기화에 반환됩니다. 이 문제는 아래 특성 중 하나를 변경하여 DN(UserName 특성) 변경을 시도할 때 이름 바꾸기 작업이 실패하기 때문에 발생합니다.  
-    - LastName
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - ou
-    - altcommonname
+  * **조직/조직 구성 단위에 대해 사용자 지정 인증자 허용** 옵션이 해제된 경우 내보내기(업데이트) 중 커넥터가 실패합니다. 내보내기 흐름 후에 모든 특성이 Domino로 내보내지지만, 내보내기 시 KeyNotFoundException이 동기화에 반환됩니다. 
+    * 이 문제는 아래 특성 중 하나를 변경하여 DN(UserName 특성) 변경을 시도할 때 이름 바꾸기 작업이 실패하기 때문에 발생합니다.  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
 
   * **조직/조직 구성 단위에 대한 사용자 지정 인증자 허용** 옵션이 설정되었지만 필수 인증자가 여전히 비어 있으면 KeyNotFoundException이 발생합니다.
 

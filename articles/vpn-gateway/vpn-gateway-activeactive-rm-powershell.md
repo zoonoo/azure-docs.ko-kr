@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 93873a530ba7190de964b9f5b2e0e63371d95fcc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateway와의 활성-활성 S2S VPN 연결 구성
@@ -39,7 +39,9 @@ ms.lasthandoff: 04/27/2017
 이러한 요소를 결합하여 필요에 따라 더 복잡하고 가용성이 높은 네트워크 토폴로지를 빌드할 수 있습니다.
 
 > [!IMPORTANT]
-> HighPerformance SKU에서는 활성-활성 모드만 작동합니다.
+> 활성-활성 모드에서 다음 SKU만 사용하는지 확인하세요. 
+  * VpnGw1, VpnGw2, VpnGw3
+  * HighPerformance(이전 레거시 SKU)
 > 
 > 
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 04/27/2017
 
 * 두 개의 공용 IP 주소를 갖는 두 게이트웨이 IP 구성을 만들어야 합니다.
 * EnableActiveActiveFeature 플래그를 설정해야 합니다.
-* 게이트웨이 SKU는 HighPerformance여야 합니다.
+* 게이트웨이 SKU는 VpnGw1, VpnGw2, VpnGw3 또는 HighPerformance(레거시 SKU)이어야 합니다.
 
 다른 속성은 비 활성-활성 게이트웨이와 동일합니다. 
 
@@ -122,10 +124,10 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. 활성-활성 구성으로 VPN Gateway 만들기
-TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 활성-활성 모드에는 HighPerformance SKU의 경로 기반 VPN 게이트웨가 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 30분 이상).
+TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상).
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. 게이트웨이 공용 IP 주소 및 BGP 피어 IP 주소 획득
@@ -253,15 +255,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
 마찬가지로 아래에는 두 번째 VPN 장치에 입력하는 매개 변수가 나와 있습니다.
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 연결(터널)이 설정되면 이중 중복 VPN 장치와 터널을 통해 온-프레미스 네트워크와 Azure가 연결됩니다.
 
@@ -331,7 +335,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 AS 번호 및 "EnableActiveActiveFeature" 플래그를 사용하여 VPN Gateway를 만듭니다. Azure VPN 게이트웨이에서 기본 ASN을 재정의해야 합니다. BGP 및 전송 라우팅을 사용할 수 있도록 하려면 연결된 VNet용 ASN은 서로 달라야 합니다.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2단계 - TestVNet1 및 TestVNet2 게이트웨이 연결
@@ -366,8 +370,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ## <a name ="aaupdate"></a>4부 - 활성-활성 및 활성-대기 간에 기존 게이트웨이 업데이트
 마지막 섹션에서는 기존 Azure VPN Gateway를 활성-대기 모드에서 활성-활성 모드로 또는 그 반대로 구성하는 방법을 설명합니다.
 
-> [!IMPORTANT]
-> HighPerformance SKU에서는 활성-활성 모드만 작동합니다.
+> [!NOTE]
+> 이 섹션에는 이미 만든 VPN Gateway의 레거시 SKU(이전 SKU) 크기를 Standard에서 HighPerformance로 조정하기 위한 단계가 포함되어 있습니다. 이러한 단계에서 이전 레거시 SKU는 새 SKU 중 하나로 업그레이드되지 않습니다.
 > 
 > 
 
@@ -396,7 +400,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. 활성-활성 모드를 사용하도록 설정하고 게이트웨이 업데이트
-실제 업데이트를 트리거하도록 PowerShell에서 gateway 개체를 설정해야 합니다. 또한 게이트웨이 개체의 SKU가 이전에 Standard로 생성되었으므로 이를 HighPerformance로 변경해야 합니다.
+실제 업데이트를 트리거하도록 PowerShell에서 gateway 개체를 설정해야 합니다. 또한 가상 네트워크 게이트웨이의 SKU가 이전에 Standard로 생성되었으므로 이를 HighPerformance로 변경(크기 조정)해야 합니다.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
@@ -428,5 +432,3 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 
 ## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
-
-

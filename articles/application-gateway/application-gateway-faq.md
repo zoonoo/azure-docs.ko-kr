@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 4e6244d92f41e0aa5c8a70db0db2881036984247
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -80,7 +80,7 @@ Application Gateway에서는 하나의 공용 IP 주소만 지원됩니다.
 
 **Q. Application Gateway에서 x-forwarded-for 헤더를 지원하나요?**
 
-예, Application Gateway는 백 엔드로 전달되는 요청에 x-forwarded-for, x-forwarded-proto 및 x-forwarded-port 헤더를 삽입합니다. x-forwarded-for 헤더의 형식은 쉼표로 구분된 IP:Port 목록입니다. x-forwarded-proto 에 대해 유효한 값은 http 또는 https입니다. X-forwarded-port는 Application Gateway에서 요청이 도달한 포트를 지정합니다.
+예, Application Gateway는 백 엔드로 전달되는 요청에 x-forwarded-for, x-forwarded-proto 및 x-forwarded-port 헤더를 삽입합니다. x-forwarded-for 헤더의 형식은 쉼표로 구분된 IP:Port 목록입니다. x-forwarded-proto에 대해 유효한 값은 http 또는 https입니다. X-forwarded-port는 Application Gateway에서 요청이 도달한 포트를 지정합니다.
 
 **Q. Application Gateway를 배포하는 데 얼마의 시간이 걸리나요? Application Gateway가 업데이트되어도 여전히 작동하나요?**
 
@@ -132,7 +132,11 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 **Q. 사용자 지정 프로브가 응답 데이터에 와일드 카드/regex를 지원하나요?**
 
-사용자 지정 프로브는 응답 데이터에 와일드 카드 또는 regex를 지원하지 않습니다.
+사용자 지정 프로브는 응답 데이터에 와일드 카드 또는 regex를 지원하지 않습니다. 
+
+**Q. 규칙은 어떻게 처리되나요?**
+
+규칙은 구성된 순서대로 처리됩니다. 기본 규칙은 다중 사이트 규칙보다 먼저 포트를 기준으로 트래픽과 일치하는지 평가되므로 트래픽이 잘못된 백 엔드로 라우팅될 가능성을 줄이려면 기본 규칙보다 먼저 다중 사이트 규칙을 구성하는 것이 좋습니다.
 
 **Q. 규칙은 어떻게 처리되나요?**
 
@@ -186,45 +190,53 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 **Q. Application Gateway에서 지원되는 현재 암호 그룹은 무엇인가요?**
 
-다음은 현재 지원되는 암호 그룹을 우선 순위에 따라 나열한 것입니다.
+Application Gateway에서 지원되는 현재 암호 그룹은 다음과 같습니다. [Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성](application-gateway-configure-ssl-policy-powershell.md)을 방문하여 SSL 옵션을 사용자 지정하는 방법에 대해 알아봅니다.
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **Q. Application Gateway에서 백 엔드에 대해 트래픽의 재암호화를 지원하나요?**
 
-예, Applicated Gateway는 SSL 오프로드와 백 엔드에 대한 트래픽을 재암호화하는 종단 간 SSL을 지원합니다.
+예, Application Gateway는 SSL 오프로드와 백 엔드에 대한 트래픽을 다시 암호화하는 종단 간 SSL을 지원합니다.
 
 **Q. SSL 프로토콜 버전을 제어하는 SSL 정책을 구성할 수 있나요?**
 
 예, TLS1.0, TLS1.1 및 TLS1.2를 거부하도록 Application Gateway를 구성할 수 있습니다. SSL 2.0 및 3.0은 기본적으로 비활성화되며 구성할 수 없습니다.
 
-**Q. 암호 그룹을 제어하는 SSL 정책을 구성할 수 있나요?**
+**Q. 암호 그룹 및 정책 순서를 구성할 수 있나요?**
 
-아니요, 현재는 아닙니다.
+예, [암호 그룹을 구성](application-gateway-ssl-policy-overview.md)하도록 지원됩니다. 사용자 지정 정책을 정의할 때 다음 암호 그룹 중 하나 이상을 사용해야 합니다. Application Gateway는 백 엔드 관리를 위해 SHA256을 사용합니다.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **Q. 몇 개의 SSL 인증서가 지원되나요?**
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 67dee77dd4e46d097358d86626a859b7dc7982e7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Linux의 Azure Web App 소개
@@ -39,6 +39,9 @@ Linux의 웹앱은 Service는 현재 다음과 같은 응용 프로그램 스택
     * 6.6
     * 6.9
     * 6.10
+    * 6.11
+    * 8.0
+    * 8.1
 * PHP
     * 5.6
     * 7.0
@@ -96,6 +99,17 @@ Linux의 Web Apps는 전용 App Service 계획에서만 지원되며 무료 또�
 
 Linux의 Web Apps는 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
 
+## <a name="troubleshooting"></a>문제 해결 ##
+
+응용 프로그램이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
+
+![로깅 사용][2]
+
+![Kudu를 사용하여 Docker 로그 보기][1]
+
+**고급 도구**의 **개발 도구** 메뉴에서 SCM 사이트에 액세스할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
@@ -109,4 +123,6 @@ Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [�
 * [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
 * [Linux에서 Azure Web App을 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
 
-
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

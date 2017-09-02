@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
@@ -59,6 +59,10 @@ ms.lasthandoff: 07/25/2017
 > 기본적으로 Azure Cosmos DB는 해시 인덱스를 사용하여 문서 내의 모든 문자열 속성을 일관되게 인덱싱하고, 범위 인덱스를 사용하여 숫자 속성을 인덱싱합니다.  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>포털을 사용하여 인덱싱 정책 사용자 지정
+
+Azure Portal을 사용하여 컬렉션의 인덱싱 정책을 변경할 수 있습니다. Azure Portal에서 Azure Cosmos DB 계정을 열고 컬렉션을 선택하고 왼쪽 탐색 메뉴에서 **설정**을 클릭한 다음, **인덱싱 정책**을 클릭합니다. **인덱싱 정책** 블레이드에서 인덱싱 정책을 변경한 다음, **확인**을 클릭하여 변경 내용을 저장합니다. 
 
 ### <a id="indexing-modes"></a>데이터베이스 인덱싱 모드
 Azure Cosmos DB는 Azure Cosmos DB 컬렉션의 인덱싱 정책을 통해 구성될 수 있는 세 가지 인덱싱 모드, 일관성, 지연 및 없음을 지원합니다.
@@ -165,12 +169,12 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리
 #### <a name="index-kind"></a>인덱스 종류
 Azure Cosmos DB는 모든 경로에 대해 해시 및 범위 인덱스 종류를 지원합니다(문자열, 숫자 또는 둘 다로 구성할 수 있음).
 
-* **해시** 는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
+* **해시**는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 * **범위**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 Order By 쿼리를 지원합니다. 또한 Order By 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
 Azure Cosmos DB는 점, 다각형 또는 LineString 데이터 형식에 지정할 수 있는 공간 인덱스 종류도 모든 경로에 대해 지원합니다. 지정된 경로에 있는 값은 `{"type": "Point", "coordinates": [0.0, 10.0]}`과 같은 유효한 GeoJSON 조각이어야 합니다.
 
-* **공간** 은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다.
+* **공간**은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 점, 다각형 및 LineStrings의 자동 인덱싱을 지원합니다.

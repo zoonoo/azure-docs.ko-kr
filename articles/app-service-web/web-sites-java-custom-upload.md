@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>Azure에 사용자 지정 Java 웹 앱 업로드
@@ -201,7 +201,7 @@ Liferay를 다운로드한 후에 Tomcat과 함께 제공되는 Liferay 6.1.2 Co
 **Server.xml**
 
 * 종료 포트를 -1로 변경합니다.
-* HTTP 커넥터를       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`로 변경합니다.
+* HTTP 커넥터를 `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`로 변경합니다.
 * AJP 커넥터를 주석으로 처리합니다.
 
 **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** 폴더에서 이름이 **portal-ext.properties**인 파일을 만듭니다. 이 파일에 다음과 같은 줄을 포함해야 합니다.
@@ -241,7 +241,7 @@ tomcat-7.0.40 폴더와 동일한 디렉터리 수준에서 다음 내용을 포
 ## <a name="next-steps"></a>다음 단계
 Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.liferay.com)을 참조하세요.
 
-Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+Java에 대한 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 참조하세요.
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

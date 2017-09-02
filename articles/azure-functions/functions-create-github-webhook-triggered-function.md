@@ -1,26 +1,26 @@
 ---
 title: "Azure에서 GitHub webhook를 통해 트리거되는 함수 만들기 | Microsoft 문서"
 description: "Azure Functions를 사용하여 GitHub webhook를 통해 호출되는 서버 없는 함수를 만듭니다."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub webhook를 통해 트리거되는 함수 만들기
@@ -52,7 +52,7 @@ GitHub별 페이로드와 함께 HTTP 웹후크 요청에 의해 트리거되는
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. 원하는 언어에 해당하는 **GitHubWebHook** 템플릿을 선택합니다. **함수 이름을 지정한** 후 **만들기**를 선택합니다.
+2. 원하는 언어에 해당하는 **GitHub WebHook** 템플릿을 선택합니다. **함수 이름을 지정한** 후 **만들기**를 선택합니다.
 
      ![Azure Portal에서 GitHub 웹후크를 통해 트리거되는 함수를 만듭니다.](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

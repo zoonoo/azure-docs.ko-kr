@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a5cec02045e7db70dffbe8089c44e8c3a2b37cd4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 65236f527b62b4990b062fb6a54ce13b3c182e93
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -378,14 +378,14 @@ ms.lasthandoff: 04/03/2017
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -442,22 +442,22 @@ ms.lasthandoff: 04/03/2017
 
 Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, Storage 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
-이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하기 위한 단계를 설명합니다. 다음과 같은 주요 작업을 진행하게 됩니다.
+이 문서에서는 Azure 리소스 관리자 배포 모델을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하기 위한 단계를 설명합니다. 다음과 같은 주요 작업을 진행하게 됩니다.
 
 * 적절한 SAP Note 및 설치 가이드를 찾습니다([리소스][sap-ha-guide-2] 섹션에 나열). 이 문서는 특정 플랫폼에 SAP 소프트웨어를 설치 및 배포하는 데 도움이 되는 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
-* Azure Resource Manager 배포 모델 및 Azure 클래식 배포 모델 간 차이를 알아봅니다.
+* Azure 리소스 관리자 배포 모델 및 Azure 클래식 배포 모델 간 차이를 알아봅니다.
 * Windows Server 장애 조치 클러스터링 쿼럼 모드에 대해 자세히 알아보고 사용 중인 Azure 배포에 적합한 모델을 선택할 수 있습니다.
 * Azure 서비스의 Windows Server 장애 조치 클러스터링 공유 Storage에 대해 자세히 알아보세요.
 * Azure의 단일 실패 지점 구성 요소(예: ASCS(ABAP(고급 비즈니스 응용 프로그램 프로그래밍) SAP 중앙 서비스)/SCS(SAP 중앙 서비스) 및 DBMS(데이터베이스 관리 시스템)) 및 중복 구성 요소(예: SAP 응용 프로그램 서버)를 보호하는 방법을 알아보세요.
-* Azure Resource Manager를 사용하여 Azure의 Windows Server 장애 조치 클러스터링 클러스터에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 작업 예제를 따르세요.
+* Azure 리소스 관리자를 사용하여 Azure의 Windows Server 장애 조치 클러스터링 클러스터에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 작업 예제를 따르세요.
 * Azure에서 Windows Server 장애 조치 클러스터링을 사용하는 데 필요한 추가 단계도 알아봅니다. 이러한 단계는 온-프레미스 배포에는 필요하지 않습니다.
 
-이 문서에서는 배포 및 구성을 단순화하기 위해 SAP 3계층 고가용성 Resource Manager 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 응용 프로그램 성능 표준) 크기 조정도 지원합니다.
+이 문서에서는 배포 및 구성을 단순화하기 위해 SAP 3계층 고가용성 리소스 관리자 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 응용 프로그램 성능 표준) 크기 조정도 지원합니다.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에서 나열하는 리소스도 모두 확인해야 합니다.
 
-이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)에 대한 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
+이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)에 대한 Azure 리소스 관리자 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure 리소스 관리자 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> 리소스
 이 문서에서는 Azure의 SAP 배포에 대해 설명합니다.
@@ -485,30 +485,30 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 일반적인 기본 및 최대 제한 사항을 포함하여 [Azure 구독 제한][azure-subscription-service-limits-subscription]에 대해 자세히 알아보세요.
 
-## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Azure Resource Manager 및 Azure 클래식 배포 모델의 고가용성 SAP
-Azure Resource Manager와 Azure 클래식 배포 모델은 다음과 같은 영역에서 차이가 있습니다.
+## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Azure 리소스 관리자 및 Azure 클래식 배포 모델의 고가용성 SAP
+Azure 리소스 관리자와 Azure 클래식 배포 모델은 다음과 같은 영역에서 차이가 있습니다.
 
 - 리소스 그룹
 - Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 - SAP 다중 SID 지원 시나리오
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> 리소스 그룹
-Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
+Azure 리소스 관리자에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../../../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 
 Azure 클래식 배포 모델에는 Azure 내부 부하 분산 장치(Azure Load Balancer 서비스)와 클라우드 서비스 그룹 간의 종속성이 있습니다. 모든 내부 부하 분산 장치에는 하나의 클라우드 서비스 그룹이 필요합니다.
 
-Azure Resource Manager에서는 Azure Load Balancer를 사용하기 위해 Azure 리소스 그룹이 필요하지 않습니다. 환경은 더 간단하고 보다 유연합니다.
+Azure 리소스 관리자에서는 Azure Load Balancer를 사용하기 위해 Azure 리소스 그룹이 필요하지 않습니다. 환경은 더 간단하고 보다 유연합니다.
 
 ### <a name="support-for-sap-multi-sid-scenarios"></a>SAP 다중 SID 지원 시나리오
 
-Azure Resource Manager에서 하나의 클러스터에 여러 SAP SID(시스템 식별자) ASCS/SCS 인스턴스를 설치할 수 있습니다. 각 Azure 내부 부하 분산 장치의 여러 IP 주소에 대한 지원으로 인해 다중 SID 인스턴스가 가능합니다.
+Azure 리소스 관리자에서 하나의 클러스터에 여러 SAP SID(시스템 식별자) ASCS/SCS 인스턴스를 설치할 수 있습니다. 각 Azure 내부 부하 분산 장치의 여러 IP 주소에 대한 지원으로 인해 다중 SID 인스턴스가 가능합니다.
 
 Azure 클래식 배포 모델을 사용하려면 [Azure의 SAP NetWeaver: SIOS Datakeeper를 통해 Azure에서 Windows Server 장애 조치 클러스터를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링](http://go.microsoft.com/fwlink/?LinkId=613056)에 설명된 절차를 따라야 합니다.
 
 > [!IMPORTANT]
-> SAP 설치를 위해서는 Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 이 모델은 클래식 배포 모델에서 사용할 수 없는 다양한 이점을 제공합니다. Azure [배포 모델][virtual-machines-azure-resource-manager-architecture-benefits-arm]에 대해 자세히 알아봅니다.   
+> SAP 설치를 위해서는 Azure 리소스 관리자 배포 모델을 사용하는 것이 좋습니다. 이 모델은 클래식 배포 모델에서 사용할 수 없는 다양한 이점을 제공합니다. Azure [배포 모델][virtual-machines-azure-resource-manager-architecture-benefits-arm]에 대해 자세히 알아봅니다.   
 >
 >
 
@@ -631,10 +631,10 @@ DBMS는 SAP 시스템의 단일 연락 지점이기도 합니다. 따라서 고�
 
 _**그림 7:** SQL Server Always On을 사용하는 고가용성 SAP DBMS 예제_
 
-Azure Resource Manager 배포 모델을 사용하는 Azure의 SQL Server 클러스터링에 대한 자세한 내용은 다음 문서를 참조하세요.
+Azure 리소스 관리자 배포 모델을 사용하는 Azure의 SQL Server 클러스터링에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Resource Manager를 사용하여 Azure Virtual Machines에서 수동으로 Always On 가용성 그룹 구성][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
-* [Azure에서 Always On 가용성 그룹에 대한 Azure 내부 부하 분산 장치 구성][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Azure 리소스 관리자를 사용하여 Azure Virtual Machines에서 수동으로 Always On 가용성 그룹 구성][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Azure에서 AlwaysOn 가용성 그룹에 대한 Azure 내부 부하 분산 장치 구성][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> 종단간 고가용성 배포 시나리오
 
@@ -677,11 +677,11 @@ _**그림 10:** SAP 고가용성 아키텍처 템플릿 3 - 다른 ASCS/SCS 인�
 ## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> 인프라 준비
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-1"></a>아키텍처 템플릿 1에 대한 인프라 준비
-SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간소화하도록 도와줍니다.
+SAP용 Azure 리소스 관리자 템플릿은 필요한 리소스의 배포를 간소화하도록 도와줍니다.
 
-또한 Azure Resource Manager의 3계층 템플릿은 2개의 클러스터가 있는 아키텍처 템플릿 1과 같은 고가용성 시나리오도 지원합니다. 각 클러스터는 SAP ASCS/SCS 및 DBMS에 대한 SAP 단일 실패 지점입니다.
+또한 Azure 리소스 관리자의 3계층 템플릿은 2개의 클러스터가 있는 아키텍처 템플릿 1과 같은 고가용성 시나리오도 지원합니다. 각 클러스터는 SAP ASCS/SCS 및 DBMS에 대한 SAP 단일 실패 지점입니다.
 
-이 문서에서 설명하는 예제 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
+이 문서에서 설명하는 예제 시나리오를 위한 Azure 리소스 관리자 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
 * [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
@@ -690,9 +690,9 @@ SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간�
 
 - Azure Portal에서 **매개 변수** 블레이드의 **SYSTEMAVAILABILITY** 상자에서 **HA**를 선택합니다.
 
-  ![그림 11: SAP 고가용성 Azure Resource Manager 매개 변수 설정][sap-ha-guide-figure-3000]
+  ![그림 11: SAP 고가용성 Azure 리소스 관리자 매개 변수 설정][sap-ha-guide-figure-3000]
 
-_**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
+_**그림 11:** SAP 고가용성 Azure 리소스 관리자 매개 변수 설정_
 
 
   템플릿은 다음을 만듭니다.
@@ -730,7 +730,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 프로덕션 SAP 시스템의 경우 Azure 사이트 간 VPN 또는 Azure ExpressRoute를 사용하여 [회사 네트워크 연결(크로스-프레미스)][planning-guide-2.2]를 통해 Azure 가상 컴퓨터를 배포합니다.
 
 > [!NOTE]
-> Azure 가상 네트워크 인스턴스를 사용할 수 있습니다. 가상 네트워크 및 서브넷은 이미 생성되고 준비되어 있습니다.
+> Azure Virtual Network 인스턴스를 사용할 수 있습니다. 가상 네트워크 및 서브넷은 이미 생성되고 준비되어 있습니다.
 >
 >
 
@@ -760,19 +760,19 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 - Azure Portal에서 **매개 변수** 블레이드의 **NEWOREXISTINGSUBNET** 상자에서 **신규**를 선택합니다. **SUBNETID** 필드는 비워둡니다.
 
-  SAP Azure Resource Manager 템플릿은 Azure 가상 네트워크 및 서브넷을 자동으로 만듭니다.
+  SAP Azure 리소스 관리자 템플릿은 Azure 가상 네트워크 및 서브넷을 자동으로 만듭니다.
 
 > [!NOTE]
-> 또한 동일한 Azure 가상 네트워크 인스턴스에 Active Directory 및 DNS에 대한 하나 이상의 전용 가상 컴퓨터를 배포해야 합니다. 이 템플릿이 이러한 가상 컴퓨터를 만들지는 않습니다.
+> 또한 동일한 Azure Virtual Network 인스턴스에 Active Directory 및 DNS에 대한 하나 이상의 전용 가상 컴퓨터를 배포해야 합니다. 이 템플릿이 이러한 가상 컴퓨터를 만들지는 않습니다.
 >
 >
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-2"></a>아키텍처 템플릿 2에 대한 인프라 준비
 
-이 Azure Resource Manager 템플릿을 사용하면 SAP에서 SAP 아키텍처 템플릿 2에 필요한 인프라 리소스를 간단히 배포할 수 있습니다.
+이 Azure 리소스 관리자 템플릿을 사용하면 SAP에서 SAP 아키텍처 템플릿 2에 필요한 인프라 리소스를 간단히 배포할 수 있습니다.
 
-이 배포 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
+이 배포 시나리오를 위한 Azure 리소스 관리자 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
 * [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
 * [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
@@ -780,7 +780,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>아키텍처 템플릿 3에 대한 인프라 준비
 
-인프라를 준비하고 **다중 SID**용 SAP를 구성할 수 있습니다. 예를 들어 추가 SAP ASCS/SCS 인스턴스를 *기존* 클러스터 구성에 추가할 수 있습니다. 자세한 내용은 [추가 SAP ASCS/SCS 인스턴스를 기존 클러스터 구성에 구성하여 Azure Resource Manager에서 SAP 다중 SID 구성 만들기][sap-ha-multi-sid-guide]를 참조하세요.
+인프라를 준비하고 **다중 SID**용 SAP를 구성할 수 있습니다. 예를 들어 추가 SAP ASCS/SCS 인스턴스를 *기존* 클러스터 구성에 추가할 수 있습니다. 자세한 내용은 [추가 SAP ASCS/SCS 인스턴스를 기존 클러스터 구성에 구성하여 Azure 리소스 관리자에서 SAP 다중 SID 구성 만들기][sap-ha-multi-sid-guide]를 참조하세요.
 
 새 다중 SID 클러스터를 만들려면 [GitHub에 있는 다중 SID 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용할 수 있습니다.
 새 다중 SID 클러스터를 만들려면 다음 세 가지 템플릿을 배포해야 합니다.
@@ -939,7 +939,7 @@ DNS 서버에서 다른 두 가상 호스트 이름 **pr1 ascs sap** 및 **pr1 d
 
 ### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Azure 내부 부하 분산 장치의 고정 IP 주소 설정
 
-SAP Azure Resource Manager 템플릿은 SAP ASCS/SCS 인스턴스 클러스터 및 DBMS 클러스터에 사용되는 Azure 내부 부하 분산 장치를 만듭니다.
+SAP Azure 리소스 관리자 템플릿은 SAP ASCS/SCS 인스턴스 클러스터 및 DBMS 클러스터에 사용되는 Azure 내부 부하 분산 장치를 만듭니다.
 
 > [!IMPORTANT]
 > SAP ASCS/SCS의 가상 호스트 이름 IP 주소는 SAP ASCS/SCS 내부 부하 분산 장치 **pr1-lb-ascs**의 IP 주소와 같습니다.
@@ -967,7 +967,7 @@ Azure 내부 부하 분산 장치의 고정 IP 주소를 설정하려면:
 
 ### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙
 
-SAP Azure Resource Manager 템플릿은 다음에 대해 필요한 포트를 만듭니다.
+SAP Azure 리소스 관리자 템플릿은 다음에 대해 필요한 포트를 만듭니다.
 * 기본 인스턴스 번호가 **00**인 ABAP ASCS 인스턴스
 * 기본 인스턴스 번호가 **01**인 Java SCS 인스턴스
 
@@ -1074,7 +1074,7 @@ _**표 4:** 두 번째 TCP/IP 매개 변수 변경_
 
 ### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> SAP ASCS/SCS 인스턴스에 대한 Windows Server 장애 조치 클러스터링 클러스터 설정
 
-SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터링 클러스터 설정은 다음과 같은 작업을 포함합니다.
+SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터링 클러스터 설정은 다음과 같은 작업을 포함합니다.
 
 - 클러스터 구성에서 클러스터 노드 수집
 - 클러스터 파일 공유 감시 구성
@@ -1236,11 +1236,11 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
-Windows 장애 조치(Failover) 클러스터를 성공적으로 설치한 후 장애 조치(Failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
+Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
-이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(Failover)를 제공했습니다. 
+이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(failover)를 제공했습니다. 
 
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치
 
@@ -1492,7 +1492,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
   _**그림 58:** 기본 클러스터 구성 프로브 포트는 0_
 
-  포트 번호는 SAP Azure Resource Manager 템플릿에서 정의됩니다. PowerShell에서 포트 번호를 할당할 수 있습니다.
+  포트 번호는 SAP Azure 리소스 관리자 템플릿에서 정의됩니다. PowerShell에서 포트 번호를 할당할 수 있습니다.
 
   **SAP <*SID*> IP** 클러스터 리소스에 대한 새 ProbePort 값을 설정하려면 다음 PowerShell 스크립트를 실행합니다. 사용자 환경에 맞게 PowerShell 변수를 업데이트합니다. 스크립트가 실행된 후 변경 내용을 활성화하도록 SAP 클러스터 그룹을 다시 시작할 것인지 묻는 메시지가 나타납니다.
 
@@ -1600,7 +1600,7 @@ PAS(기본 응용 프로그램 서버)를 호스트하도록 지정한 가상 �
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 응용 프로그램 서버 설치
 
-SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모든 가상 컴퓨터에 SAP AAS(추가 응용 프로그램 서버)를 설치합니다. 예로 <*SID*>-di-1 ~ <*SID*>-di-&lt;n&gt;을 들 수 있습니다.
+SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모든 가상 컴퓨터에 SAP AAS(추가 응용 프로그램 서버)를 설치합니다. <*SID*>-di-1 ~ <*SID*>-di-&lt;n&gt;을 예로 들 수 있습니다.
 
 > [!NOTE]
 > 이는 고가용성 SAP NetWeaver 시스템의 설치를 완료합니다. 다음으로 장애 조치 테스트를 진행합니다.

@@ -12,31 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/9/2017
+ms.date: 8/16/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
-| [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
-| [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
-Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다. 여기에는 Azure Monitor API를 통한 Azure 감사 로그가 포함됩니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
+Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API를 통한 Azure Activity Log를 포함하여 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
 
 [설명서로 이동합니다.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Service(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
+AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Services(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
 
 [설명서로 이동합니다.][appdynamics-doc]
 
@@ -44,6 +44,11 @@ AppDynamics APM(Application Performance Management)을 사용하면 응용 프�
 Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다.
 
 [설명서로 이동합니다.][atlassian-doc]
+
+## <a name="circonus"></a>Circonus
+Circonus는 온-프레미스 또는 SaaS 배포용으로 빌드된 마이크로 서비스 모니터링 및 분석 플랫폼입니다. 완전히 자동화 가능한 API 중심 플랫폼은 모니터링하는 시스템에 비해 더 확장 가능하고 안정적입니다. DevOps의 요구 사항에 대해 개발된 Circonus는 비즈니스 최적화를 사용할 수 있는 백분위수 기반 경고, 그래프, 대시보드 및 Machine Learning 인텔리전스를 제공합니다. Circonus는 Microsoft Azure 클라우드 리소스 및 해당 응용 프로그램을 실시간으로 모니터링합니다. Circonus를 사용하여 리소스 및 응용 프로그램에서 측정하려는 변수에 대해 메트릭을 수집하고 추적할 수 있습니다. Circonus를 사용하면 Azure의 리소스 사용률, 응용 프로그램 성능 및 작동 상태를 시스템 수준에서 표시할 수 있습니다.
+
+[설명서로 이동합니다.][circonus-doc]
 
 ## <a name="cloudhealth"></a>CloudHealth
 상당한 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 통해 CloudHealth는 클라우드 관리를 재정의하고 있습니다. Cloudhealth 플랫폼을 사용하면 엔터프라이즈 및 MSP가 클라우드 투자에 따른 수익을 최대화하고 비용, 사용량, 성능 및 보안과 관련하여 확고한 결정을 내릴 수 있습니다.
@@ -66,7 +71,7 @@ Datadog는 클라우드급 응용 프로그램을 위한 세계 선두의 모니
 [설명서로 이동합니다.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent는 해당하는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. 메트릭을 단순히 표시하는 것 외에도 Dynatrace는 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다. 문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
+Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. 메트릭을 단순히 표시하는 것 외에도 Dynatrace는 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다. 문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
 
 [설명서로 이동합니다.][dynatrace-doc]
 
@@ -101,13 +106,14 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor에 대한 자세한 정보](monitoring-overview.md)
 * [REST API를 사용하여 메트릭 액세스](monitoring-rest-api-walkthrough.md)
-* [타사 서비스에 활동 로그 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
-* [타사 서비스에 진단 로그 스트리밍](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [타사 서비스에 활동 로그 스트림](monitoring-stream-activity-logs-event-hubs.md)
+* [타사 서비스에 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
@@ -124,6 +130,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
@@ -140,6 +147,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 설명서."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 소개."

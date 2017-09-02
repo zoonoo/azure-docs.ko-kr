@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Stream Analytics에서 JSON 출력의 대상을 Azure Cosmos DB로 지정
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
 
-Cosmos DB에 대해 잘 모를 경우 먼저 [Azure Cosmos DB의 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 살펴보세요.
+Cosmos DB에 대해 잘 모를 경우 먼저 [Azure Cosmos DB의 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 살펴보세요. 
+
+참고: Mongo DB API 기반 Cosmos DB 컬렉션은 현재 지원되지 않습니다. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>출력 대상으로서 Cosmos DB의 기본 사항
 Stream Analytics의 Azure Cosmos DB 출력을 사용하면 스트림 처리 결과를 Cosmos DB 컬렉션에 JSON 출력으로 쓸 수 있습니다. Stream Analytics에서는 데이터베이스에 컬렉션을 만들지 않습니다. 대신 사용자가 사전에 만들어야 합니다. 이는 Cosmos DB 컬렉션에 대한 청구 비용을 사용자에게 투명하게 하고, 사용자가 [Cosmos DB API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 컬렉션의 성능, 일관성 및 용량을 직접 조정할 수 있도록 하기 위한 것입니다. 스트리밍 작업당 하나의 Cosmos DB 데이터베이스를 사용하여 스트리밍 작업을 위한 컬렉션을 논리적으로 분리하는 것이 좋습니다.

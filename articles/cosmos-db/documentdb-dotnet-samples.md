@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e7b910ae94b178b5370d4938698e8bcce10775ea
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 5f0a7f59c114ab65a19617a62d39dcfa93a25c00
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: DocumentDB API에 대한 .NET 예제
@@ -39,7 +39,7 @@ Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 **필수 구성 요소**
 
 1. 이러한 예제를 사용하려면 Azure 계정이 필요합니다.
-   * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+   * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: Websites)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
      * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 2. 또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
 
@@ -137,6 +137,16 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [분할된 컬렉션에 대해 Order by로 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
 쿼리를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 내에서 SQL 쿼리](documentdb-sql-query.md)를 참조하세요.
+
+## <a name="change-feed-examples"></a>변경 피드 예제 
+변경 피드 샘플인 [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다. 
+
+| 작업 | API 참조 |
+| --- | --- |
+| [읽기 변경 피드](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
+| [읽기 파티션 키 범위](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
+
+변경 피드 프로세서 샘플: [변경 피드 마이그레이션 도구](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)는 변경 피드 프로세서 라이브러리를 사용하여 다른 Cosmos DB 컬렉션에 데이터를 복제하는 방법을 보여 줍니다.   
 
 ## <a name="server-side-programming-examples"></a>서버 쪽 프로그래밍 예제
 서버 쪽 프로그래밍 파일인 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.

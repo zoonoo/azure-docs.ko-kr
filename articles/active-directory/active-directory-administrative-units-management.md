@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory에서 관리 단위 관리"
+title: "Azure Active Directory의 관리 단위 관리 미리 보기"
 description: "Azure Active Directory에서 보다 세부적인 권한 위임을 위해 관리 단위 사용"
 services: active-directory
 documentationcenter: 
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 439dc6635a0df8c70da41bd3aadfa04616e4cc1b
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: e12a0aea8264b1ea67c26294ec5bbe9c404a171e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
-# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - 공용 미리 보기에서 관리 단위 관리
+# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD의 관리 단위 관리 - 공용 미리 보기
 이 문서에서는 사용자의 하위 집합에 대해 관리 권한을 위임하고 사용자의 하위 집합에 정책을 적용하는 데 사용할 수 있는 리소스의 새로운 Azure Active Directory 컨테이너인 관리 단위에 대해 설명합니다. Azure Active Directory에서 관리 단위를 통해 중앙 관리자는 지역 관리자에게 권한을 위임하거나 세부적인 수준에서 정책을 설정할 수 있습니다.
 
 이는 각각 독립된 많은 자치 학교(경영대학, 공과대학 등)로 구성된 종합 대학교와 같이 독립된 부서가 있는 조직에서 유용합니다. 그러한 부서는 자체 IT 관리자를 통해 액세스를 제어하고, 사용자를 관리하고, 특히 부서에 대한 정책을 설정합니다. 중앙 관리자는 특정 부서의 사용자에게 부서 관리자 권한을 부여할 수 있습니다. 이 예를 통해 보다 구체적으로 설명하자면, 중앙 관리자는 특정 학교(경영대학)에 대해 관리 단위를 만들고 경영대학 사용자만 채울 수 있습니다. 그런 다음 중앙 관리자는 경영대학 IT 직원을 범위 역할에 추가할 수 있습니다. 즉, IT 직원의 경영대학 관리 권한을 경영대학 관리 단위에만 부여할 수 있습니다.

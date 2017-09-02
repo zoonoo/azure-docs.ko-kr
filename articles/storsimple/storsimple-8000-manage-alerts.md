@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/31/2017
+ms.date: 08/22/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 3b55e2f382d2ee9a1f6d459c7fdec0378f2de9d1
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
@@ -202,12 +202,13 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 | StorSimple 서비스를 시작하지 못했습니다. |데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 'Data0'에 대한 중복 IP 주소가 검색되었습니다. | |시스템에서 IP 주소 '10.0.0.1'에 대한 충돌을 발견했습니다. 장치 *<device1>* 의 네트워크 리소스 'Data0'이 오프라인 상태입니다. 이 IP 주소가 이 네트워크의 다른 엔터티에서 사용되지 않음을 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. 이 문제 해결에 대한 도움은 네트워크 관리자에게 문의합니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 'Data0'에 대한 IPv4(또는 IPv6) 주소가 오프라인 상태입니다. | |IP 주소가 '10.0.0.1'이고 접두사 길이가 ‘22’면서 *<device1>* 장치에 있는 네트워크 리소스 'Data0'이(가) 오프라인입니다. 이 인터페이스가 연결된 스위치 포트가 작동하는지 확인합니다. 네트워크 문제를 해결하려면 [Get-NetAdapter cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)로 이동합니다. |
+| 인증 서비스에 연결할 수 없습니다. |데이터 경로 오류 |인증에 사용되는 URL에 연결할 수 없습니다. 방화벽 규칙에 StorSimple 장치에 대해 지정된 URL 패턴이 포함되어 있는지 확인합니다. Azure Portal의 URL 패턴에 대한 자세한 내용은 https://aka.ms/ss-8000-network-reqs로 이동합니다. Azure Government 클라우드를 사용하는 경우 https://aka.ms/ss8000-gov-network-reqs의 URL 패턴으로 이동합니다.|
 
 ### <a name="performance-alerts"></a>성능 경고
 
 | 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
 |:--- |:--- |:--- |
-| 장치 부하가 <*임계값*>을 초과했습니다. |예상된 응답 시간보다 느립니다. |장치는 입/출력 부하가 높은 상태에서 사용률을 보고합니다. 이 때문에 장치가 예상대로 잘 작동하지 않을 수 있습니다. 장치에 연결한 워크로드를 검토하고 다른 장치로 이동하거나 더 이상 필요하지 않은지를 결정합니다.<br>현재 상태를 이해하려면 [StorSimple 장치 관리자 서비스를 사용하여 장치 모니터링](storsimple-monitor-device.md)으로 이동하세요. |
+| 장치 부하가 <*임계값*>을 초과했습니다. |예상된 응답 시간보다 느립니다. |장치는 입/출력 부하가 높은 상태에서 사용률을 보고합니다. 이 때문에 장치가 예상대로 잘 작동하지 않을 수 있습니다. 장치에 연결한 워크로드를 검토하고 다른 장치로 이동하거나 더 이상 필요하지 않은지를 결정합니다.| StorSimple 서비스를 시작하지 못했습니다. |데이터 경로 오류 |문제가 지속되면 Microsoft 지원에 문의하세요. |현재 상태를 이해하려면 [StorSimple 장치 관리자 서비스를 사용하여 장치 모니터링](storsimple-monitor-device.md)으로 이동하세요. |
 
 ### <a name="security-alerts"></a>보안 경고
 

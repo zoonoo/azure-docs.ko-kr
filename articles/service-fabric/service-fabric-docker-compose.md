@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f4899748ee191a64156c0e2fae87c195ae4dbc8c
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 응용 프로그램 지원(미리 보기)
@@ -27,10 +27,10 @@ Docker는 다중 컨테이너 응용 프로그램을 정의하기 위해 [docker
 
 이 지원은 미리 보기로 제공되므로 Compose 지시문의 하위 집합만 지원됩니다. 예를 들어 응용 프로그램 업그레이드는 지원되지 않습니다. 그러나 응용 프로그램을 업그레이드하는 대신 항상 제거한 후 배포할 수 있습니다.
 
-이 미리 보기를 사용하려면 Azure Portal을 통해 미리 보기 SDK(버전 255.255.x.x)를 설치한 클러스터를 만듭니다. 
+이 미리 보기를 사용하려면 해당하는 SDK와 함께 Azure Portal을 통해 Service Fabric 런타임 버전 5.7 이상을 사용하여 클러스터를 만듭니다. 
 
 > [!NOTE]
-> 이 기능은 미리 보기로 제공되며 지원되지 않습니다.
+> 이 기능은 미리 보기로 제공되며 프로덕션에서 지원되지 않습니다.
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Service Fabric에서 Docker Compose 파일 배포
 
@@ -56,24 +56,24 @@ PowerShell을 통해 Compose 응용 프로그램을 삭제하려면 다음 명�
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
-### <a name="use-azure-cli-20"></a>Azure CLI 2.0 사용
+### <a name="use-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl) 사용
 
-또는 다음 Azure CLI 명령을 사용할 수 있습니다.
+또는 다음 Service Fabric CLI 명령을 사용할 수 있습니다.
 
 ```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 응용 프로그램을 만든 후에는 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
 
 ```azurecli
-az sf compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --application-id TestContainerApp [ --timeout ]
 ```
 
 Compose 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
 
 ```azurecli
-az sf compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
 ## <a name="supported-compose-directives"></a>지원되는 Compose 지시문
@@ -117,9 +117,5 @@ docker-compose.yml 파일은 해당 속성 및 구성을 포함하는 컨테이�
 ## <a name="next-steps"></a>다음 단계
 
 * [Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)에 대해 자세히 알아보기
-
-## <a name="related-articles"></a>관련 문서
-
-* [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
-* [Service Fabric XPlat CLI 시작](service-fabric-azure-cli.md)
+* [Service Fabric CLI 시작](service-fabric-cli.md)
 

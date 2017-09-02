@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory B2C: iOS 응용 프로그램을 사용하여 토큰 가져오기 | Microsoft Docs"
+title: "iOS 응용 프로그램을 사용하여 토큰 가져오기 - Azure AD B2C | Microsoft Docs"
 description: "이 문서에서는 Azure Active Directory B2C와 함께 AppAuth를 사용하여 iOS 앱을 만들고 사용자 ID를 관리하고 사용자를 인증하는 방법을 보여 줍니다."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: 
+editor: parakhj
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 9756e9019d1f79c1fb17cf142daaaaca442722c7
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ebec5d910b8987dcc8155cd4ead00f87d219941c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 응용 프로그램을 사용하여 로그인
@@ -40,7 +39,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱 등록은 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 모바일 앱을 만들려면 [이러한 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
 * 응용 프로그램에 **네이티브 클라이언트**를 포함합니다.
-* 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 이 가이드는 나중에 필요합니다.
+* 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 가이드는 나중에 필요합니다.
 * 사용자 지정 스키마를 사용하는 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 URI는 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]

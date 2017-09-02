@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
-ms.reviewer: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.reviewer: aaronsm
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Azure Active Directory Single Sign-On과 SaaS 앱 통합
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/08/2017
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 조직으로 가져오는 앱에 대한 Single Sign-On 설정을 시작하려면 Azure AD(Azure Active Directory)에서 기존 디렉터리를 사용하게 됩니다. Microsoft Azure, Office 365 또는 Windows Intune을 통해 얻은 Azure AD 디렉터리를 사용할 수 있습니다. 이러한 항목이 두 개 이상 있는 경우 사용할 것을 결정하려면 [Azure AD 디렉터리 관리](active-directory-administer.md) 를 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 관리자 역할을 할당하는 방법은 [Azure Active Directory에서 관리자 역할 할당](active-directory-enterprise-apps-manage-sso.md)을 참조하세요.
 
 ## <a name="authentication"></a>인증
 SAML 2.0, WS-Federation 또는 OpenID Connect 프로토콜을 지원하는 응용 프로그램의 경우 Azure Active Directory는 서명 인증서를 사용하여 트러스트 관계를 설정합니다. 이에 대한 자세한 내용은 [페더레이션된 Single Sign-On에 대한 인증서 관리](active-directory-sso-certs.md)를 참조하세요.

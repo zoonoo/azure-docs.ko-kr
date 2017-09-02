@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b819bf4461f14033dd2c00331e3c3e4d0fbafde6
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24ca844007acf445455714c9a530bfe1ad9a9c32
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/31/2017
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Blob 전용 저장소 계정](../storage/storage-create-storage-account.md#blob-storage-accounts)은 지원되지 않습니다. Blob Storage 트리거 및 바인딩에는 범용 저장소 계정이 필요합니다. 
+> [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)은 지원되지 않습니다. Blob Storage 트리거 및 바인딩에는 범용 저장소 계정이 필요합니다. 
 > 
 
 <a name="trigger"></a>
@@ -131,7 +130,7 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 ### <a name="handling-poison-blobs"></a>포이즌 Blob 처리
 지정된 Blob에 대한 Blob 트리거 함수가 실패한 경우 Azure Functions는 기본적으로 총 5번 해당 함수를 다시 시도합니다. 
 
-5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 저장소 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
+5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 Storage 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
 * FunctionId(형식에서 *&lt;함수 앱 이름>*.Functions.*&lt;함수 이름>*)
 * BlobType("BlockBlob" 또는 "PageBlob")
@@ -140,8 +139,7 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
 ### <a name="blob-polling-for-large-containers"></a>큰 컨테이너에 대한 Blob 폴링
-모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 하지 않습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/storage-dotnet-how-to-use-queues.md) 
-를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다.
+모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 하지 않습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다.
 
 <a name="triggerusage"></a>
 

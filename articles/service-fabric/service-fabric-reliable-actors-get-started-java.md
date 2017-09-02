@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
@@ -188,20 +187,16 @@ $ gradle
 
 그러면 Service Fabric CLI 도구를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
 
-### <a name="deploy-with-xplat-cli"></a>XPlat CLI를 사용하여 배포
+### <a name="deploy-service-fabric-cli"></a>Service Fabric CLI 배포
 
-XPlat CLI를 사용하는 경우 install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Azure CLI 명령을 포함합니다. install.sh 스크립트를 실행하여 응용 프로그램을 배포합니다.
+install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Service Fabric CLI(sfctl) 명령을 포함합니다.
+install.sh 스크립트를 실행하여 응용 프로그램을 배포합니다.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 배포
+## <a name="next-steps"></a>다음 단계
 
-Azure CLI 2.0을 사용하는 경우 [Azure CLI 2.0을 사용하여 응용 프로그램 수명 주기](service-fabric-application-lifecycle-azure-cli-2-0.md)를 관리하는 방법에 대한 참조 문서를 참조하세요.
-
-## <a name="related-articles"></a>관련된 문서
-
-* [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
-* [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)
+* [Service Fabric CLI 시작](service-fabric-cli.md)
 

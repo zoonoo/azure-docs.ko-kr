@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b0ff68902f671518ff53772b1956272a7f6e1614
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API 시작
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/21/2017
 Azure Active Directory는 다양한 보고서를 제공합니다. 이러한 보고서의 데이터는 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 응용 프로그램에 매우 유용할 수 있습니다. Azure AD Reporting API는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 다양한 프로그래밍 언어 및 도구에서 이러한 API를 호출할 수 있습니다.
 
 이 문서에서는 Azure AD Reporting API를 시작하는 데 필요한 정보를 제공합니다.
-다음 섹션에는 감사 및 로그인 API를 사용하는 방법에 대한 자세한 정보가 있습니다. 다른 모든 API는 [Azure AD 보고서 및 이벤트](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) 문서를 참조하세요.
+다음 섹션에는 감사 및 로그인 API를 사용하는 방법에 대한 자세한 정보가 있습니다. 
 
 질문과 대답(FAQ)는 [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq)를 참고하세요. 문제는 [지원 티켓을 파일로 저장하세요](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
@@ -43,6 +43,6 @@ Azure Active Directory는 다양한 보고서를 제공합니다. 이러한 보�
    * [로그인 활동 보고서 API 참조 사용](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>다음 단계
-궁금하시다면 [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)로 이동하여 모든 사용 가능한 Azure AD Graph API 끝점을 볼 수 있습니다.
+모든 사용 가능한 Azure AD Graph API 끝점을 보려면 이 링크: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)를 사용합니다.
 
 
