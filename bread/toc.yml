@@ -317,7 +317,7 @@
     - name: 트래픽 관리자
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
-    - name: 가상 컴퓨터 크기 집합
+    - name: 가상 컴퓨터 확장 집합
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
     - name: 가상 컴퓨터

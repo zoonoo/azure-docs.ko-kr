@@ -65,7 +65,7 @@
       href: azure-vm-storage-overview.md
     - name: 네트워킹
       href: azure-vm-network-overview.md
-    - name: VM 크기 집합
+    - name: VM 확장 집합
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
     - name: 컨테이너
       href: containers.md
