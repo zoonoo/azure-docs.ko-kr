@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
@@ -29,6 +28,11 @@ ms.lasthandoff: 07/08/2017
 스프레드시트 응용 프로그램에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다. 사용할 수 있는 두 가지 버전이 표시되면 버전 2를 다운로드합니다. 최신 파일 형식입니다.
 
 사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용 요금에서는 신용 또는 할인이 고려되지 않습니다.
+
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>세부 사용량 파일에 대한 자세한 내용 및 설명
 다음 섹션에서는 자세한 사용 현황 파일 버전 2에 표시된 중요한 용어에 대해 설명합니다.
