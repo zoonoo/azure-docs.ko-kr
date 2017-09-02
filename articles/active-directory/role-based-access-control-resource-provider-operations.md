@@ -583,24 +583,24 @@ ms.lasthandoff: 05/18/2017
 |/restorePointCollections/restorePoints/write|새 복원 지점을 만듭니다.|
 |/restorePointCollections/restorePoints/delete|복원 지점을 삭제합니다.|
 |/restorePointCollections/restorePoints/retrieveSasUris/action|Blob SAS URI와 함께 복원 지점의 속성을 가져옵니다.|
-|/virtualMachineScaleSets/read|가상 컴퓨터 크기 집합의 속성을 가져옵니다.|
-|/virtualMachineScaleSets/write|새 가상 컴퓨터 크기 집합을 만들거나 기존 가상 컴퓨터 크기 집합을 업데이트합니다.|
-|/virtualMachineScaleSets/delete|가상 컴퓨터 크기 집합을 삭제합니다.|
-|/virtualMachineScaleSets/start/action|가상 컴퓨터 크기 집합의 인스턴스를 시작합니다.|
-|/virtualMachineScaleSets/powerOff/action|가상 컴퓨터 크기 집합의 인스턴스를 끕니다.|
-|/virtualMachineScaleSets/restart/action|가상 컴퓨터 크기 집합의 인스턴스를 다시 시작합니다.|
-|/virtualMachineScaleSets/deallocate/action|가상 컴퓨터 크기 집합의 인스턴스에 대한 Compute 리소스를 끄고 해제합니다. |
-|/virtualMachineScaleSets/manualUpgrade/action|수동으로 인스턴스를 최신 모델의 가상 컴퓨터 크기 집합으로 업데이트합니다.|
-|/virtualMachineScaleSets/scale/action|기존 가상 컴퓨터 크기 집합의 인스턴스 수 규모를 감축/확장합니다.|
-|/virtualMachineScaleSets/instanceView/read|가상 컴퓨터 크기 집합의 인스턴스 보기를 가져옵니다.|
-|/virtualMachineScaleSets/skus/read|기존 가상 컴퓨터 크기 집합에 대한 유효한 SKU를 나열합니다.|
-|/virtualMachineScaleSets/virtualMachines/read|VM 크기 집합에서 가상 컴퓨터의 속성을 가져옵니다.|
-|/virtualMachineScaleSets/virtualMachines/delete|VM 크기 집합에서 특정 가상 컴퓨터를 삭제합니다.|
-|/virtualMachineScaleSets/virtualMachines/start/action|VM 크기 집합에서 가상 컴퓨터 인스턴스를 시작합니다.|
-|/virtualMachineScaleSets/virtualMachines/powerOff/action|VM 크기 집합에서 가상 컴퓨터 인스턴스를 끕니다.|
-|/virtualMachineScaleSets/virtualMachines/restart/action|VM 크기 집합에서 가상 컴퓨터 인스턴스를 다시 시작합니다.|
-|/virtualMachineScaleSets/virtualMachines/deallocate/action|VM 크기 집합의 가상 컴퓨터에 대한 Compute 리소스를 끄고 해제합니다.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/read|VM 크기 집합에 있는 가상 컴퓨터의 인스턴스 보기를 검색합니다.|
+|/virtualMachineScaleSets/read|가상 컴퓨터 확장 집합의 속성을 가져옵니다.|
+|/virtualMachineScaleSets/write|새 가상 컴퓨터 확장 집합을 만들거나 기존 가상 컴퓨터 확장 집합을 업데이트합니다.|
+|/virtualMachineScaleSets/delete|가상 컴퓨터 확장 집합을 삭제합니다.|
+|/virtualMachineScaleSets/start/action|가상 컴퓨터 확장 집합의 인스턴스를 시작합니다.|
+|/virtualMachineScaleSets/powerOff/action|가상 컴퓨터 확장 집합의 인스턴스를 끕니다.|
+|/virtualMachineScaleSets/restart/action|가상 컴퓨터 확장 집합의 인스턴스를 다시 시작합니다.|
+|/virtualMachineScaleSets/deallocate/action|가상 컴퓨터 확장 집합의 인스턴스에 대한 Compute 리소스를 끄고 해제합니다. |
+|/virtualMachineScaleSets/manualUpgrade/action|수동으로 인스턴스를 최신 모델의 가상 컴퓨터 확장 집합으로 업데이트합니다.|
+|/virtualMachineScaleSets/scale/action|기존 가상 컴퓨터 확장 집합의 인스턴스 수 규모를 감축/확장합니다.|
+|/virtualMachineScaleSets/instanceView/read|가상 컴퓨터 확장 집합의 인스턴스 보기를 가져옵니다.|
+|/virtualMachineScaleSets/skus/read|기존 가상 컴퓨터 확장 집합에 대한 유효한 SKU를 나열합니다.|
+|/virtualMachineScaleSets/virtualMachines/read|VM 확장 집합에서 가상 컴퓨터의 속성을 가져옵니다.|
+|/virtualMachineScaleSets/virtualMachines/delete|VM 확장 집합에서 특정 가상 컴퓨터를 삭제합니다.|
+|/virtualMachineScaleSets/virtualMachines/start/action|VM 확장 집합에서 가상 컴퓨터 인스턴스를 시작합니다.|
+|/virtualMachineScaleSets/virtualMachines/powerOff/action|VM 확장 집합에서 가상 컴퓨터 인스턴스를 끕니다.|
+|/virtualMachineScaleSets/virtualMachines/restart/action|VM 확장 집합에서 가상 컴퓨터 인스턴스를 다시 시작합니다.|
+|/virtualMachineScaleSets/virtualMachines/deallocate/action|VM 확장 집합의 가상 컴퓨터에 대한 Compute 리소스를 끄고 해제합니다.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/read|VM 확장 집합에 있는 가상 컴퓨터의 인스턴스 보기를 검색합니다.|
 |/images/read|이미지의 속성을 가져옵니다.|
 |/images/write|새 이미지를 만들거나 기존 이미지를 업데이트합니다.|
 |/images/delete|이미지를 삭제합니다.|
