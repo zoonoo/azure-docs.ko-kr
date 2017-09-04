@@ -296,8 +296,8 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 > 
 > 
 
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결
-클러스터에서 지정한 각 NodeType에 따라 가상 컴퓨터 크기 집합이 설정됩니다. 자세한 내용은 [가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결][remote-connect-to-a-vm-scale-set]을 참조하세요.
+## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
+클러스터에서 지정한 각 NodeType에 따라 가상 컴퓨터 확장 집합이 설정됩니다. 자세한 내용은 [가상 컴퓨터 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결][remote-connect-to-a-vm-scale-set]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
