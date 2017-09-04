@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 레지스트리 이름의 자리 표시자로 `<acrname>`을 사용합니다.
 
-## <a name="get-azure-container-registry-information"></a>Azure Container Registry 정보 가져오기
+## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
-컨테이너 레지스트리를 만들면 해당 로그인 서버 및 암호를 쿼리할 수 있습니다. 다음 코드는 이러한 값을 반환합니다. 이 자습서 전체에서 참조되므로 로그인 서버 및 암호의 각 값을 기록해 둡니다.
-
-컨테이너 레지스트리 로그인 서버(레지스트리 이름을 업데이트):
+ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인해야 합니다. [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-이 자습서의 나머지 부분에서는 컨테이너 레지스트리 로그인 서버 값의 자리 표시자로 `<acrLoginServer>`를 사용합니다.
-
-컨테이너 레지스트리 암호:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-이 자습서의 나머지 부분에서는 컨테이너 레지스트리 암호 값의 자리 표시자로 `<acrPassword>`를 사용합니다.
-
-## <a name="login-to-the-container-registry"></a>컨테이너 레지스트리에 로그인
-
-컨테이너 레지스트리 인스턴스에 이미지를 푸시하기 전에 로그인해야 합니다. [Docker 로그인](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 작업을 완료합니다. Docker 로그인을 실행할 때 레지스트리 로그인 서버 이름 및 자격 증명을 제공해야 합니다.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 이 명령은 완료되면 ‘로그인했습니다.’ 메시지를 반환합니다.
@@ -105,6 +85,12 @@ docker images
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+loginServer 이름을 가져오려면 다음 명령을 실행합니다.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 *aci-tutorial-app* 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 `:v1`을 추가합니다. 이 태그는 이미지 버전 번호를 나타냅니다.
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#list) 명령을 사용합니다. 이 명령을 컨테이너 레지스트리 이름으로 업데이트합니다.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 출력:
@@ -156,7 +142,7 @@ aci-tutorial-app
 그런 다음 특정 이미지에 대한 태그를 보려면 [az acr repository show-tags](/cli/azure/acr/repository#show-tags) 명령을 사용합니다.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 출력:

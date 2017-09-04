@@ -3,8 +3,8 @@ title: "Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로�
 description: "Visual Studio 연결된 서비스를 사용하여 Azure 저장소에 연결한 후 WebJob 프로젝트에서 Blob 저장소 사용을 시작하는 방법입니다."
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -40,7 +41,7 @@ ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
             output = input.ReadToEnd();
         }
 
-특성 생성자는 컨테이너 이름과 Blob 이름의 자리 표시자를 지정하는 문자열 매개 변수를 가져옵니다. 이 예제에서는 *Blob1.txt*라는 Blob이 *입력* 컨테이너에 생성된 경우 함수가 *출력* 컨테이너에 *Blob1.txt*라는 Blob를 만듭니다.
+특성 생성자는 컨테이너 이름과 Blob 이름의 자리 표시자를 지정하는 문자열 매개 변수를 가져옵니다. 이 예제에서는 *Blob1.txt*라는 Blob이 *입력* 컨테이너에 생성된 경우 함수가 *출력* 컨테이너에 *Blob1.txt*라는 Blob을 만듭니다.
 
 다음 코드 샘플과 같이 Blob 이름 자리 표시자를 사용하여 이름 패턴을 지정할 수 있습니다.
 
@@ -85,7 +86,7 @@ ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-*  [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+* [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
 Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수도 있습니다.
 
@@ -219,10 +220,5 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

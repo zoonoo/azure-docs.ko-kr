@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
-
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>알림 허브를 사용하여 지역화된 속보 보내기
@@ -182,38 +183,33 @@ Windows 스토어 앱에서
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 <!-- Anchors. -->
-[템플릿 개념]: #concepts
-[앱 사용자 인터페이스]: #ui
-[Windows 스토어 클라이언트 앱 빌드]: #building-client
-[백 엔드에서 알림 보내기]: #send
-[다음 단계]:#next-steps
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /manage/services/notification-hubs/notify-users
-[알림 허브를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[알림 허브를 사용하여 속보 보내기]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Mobile Services 시작]: /develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[앱 사용자에 대한 푸시 알림]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript 및 HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
-[Notification Hubs Windows 스토어용 방법]: http://msdn.microsoft.com/library/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 

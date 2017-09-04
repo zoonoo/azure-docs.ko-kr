@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Linux의 Azure Web App에 대한 SSH 지원
@@ -111,7 +111,6 @@ SSH 클라이언트 연결을 만들려면 주 사이트를 시작해야 합니�
 ## <a name="next-steps"></a>다음 단계
 Linux의 웹앱에 대한 자세한 내용은 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Linux의 Azure Web App에서 앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지를 사용하는 방법](app-service-linux-using-custom-docker-image.md)
 * [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure Web App에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Linux에서 Azure Web App을 사용한 연속 배포
@@ -88,7 +88,6 @@ Docker 허브 페이지에서 **웹후크**를 클릭한 후 **웹후크 만들�
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux에서 Azure Web App이란?](./app-service-linux-intro.md)
-* [Linux의 Azure Web App에서 앱 만들기](./app-service-linux-how-to-create-web-app.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure Web App에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)

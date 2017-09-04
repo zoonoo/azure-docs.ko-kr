@@ -4,7 +4,7 @@ description: "Linux의 Azure App Service Web App에서 Ruby 사용"
 keywords: "azure app service, 웹앱, faq, linux, oss, ruby"
 services: app-service
 documentationCenter: 
-authors: aelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -49,7 +48,6 @@ Ruby 앱 만들기에 대한 자세한 내용은 [시작 가이드](app-service-
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux의 웹앱이란?](app-service-linux-intro.md)
-* [Linux의 웹앱에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Azure App Service에 대한 로컬 Git 배포](app-service-deploy-local-git.md)
 * [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
 * [Linux에서 Azure 웹앱을 사용하여 Ruby 앱 만들기](app-service-linux-ruby-get-started.md)

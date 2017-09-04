@@ -3,8 +3,8 @@ title: "Azure Cloud Services 및 Virtual Machines에 대한 진단 구성 | Micr
 description: "Visual Studio에서 Azure 클라우드 서비스 및 가상 컴퓨터(VM) 디버깅을 위해 진단 정보를 구성하는 방법을 설명합니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성
@@ -51,7 +52,7 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 * 진단 연결 문자열이.cscfg 파일에 지정되지 않은 경우 Visual Studio에서는 게시할 때와 패키징 중 공용 구성 xml 파일을 생성할 때 .wadcfgx 파일에 지정된 저장소 계정을 대신 사용하여 진단 확장을 구성합니다.
 * .cscfg 파일의 진단 연결 문자열은 .wadcfgx 파일의 저장소 계정보다 우선합니다. 진단 연결 문자열이.cscfg 파일에 지정된 경우, Visual Studio에서는 이 문자열을 사용하고 .wadcfgx의 저장소 계정은 무시합니다.
 
-### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>"개발 저장소 연결 문자열 업데이트..."  확인란의 기능은 무엇입니까?
+### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>"개발 저장소 연결 문자열 업데이트..." 확인란의 기능은 무엇입니까?
 **Microsoft Azure에 게시할 때 Microsoft Azure 저장소 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 저장소 연결 문자열 업데이트** 확인란은 게시하는 동안 지정된 Azure 저장소 계정으로 개발 저장소 계정 연결 문자열을 업데이트하는 편리한 방법을 제공합니다.
 
 예를 들어, 사용자가 이 확인란을 선택하고 진단 연결 문자열에서 `UseDevelopmentStorage=true`를 지정한다고 가정합니다. Azure에 프로젝트를 게시할 때 Visual Studio는 사용자가 게시 마법사에 지정한 저장소 계정을 사용하여 진단 연결 문자열을 자동으로 업데이트합니다. 그러나 실제 저장소 계정을 진단 연결 문자열로 지정한 경우 해당 계정이 대신 사용됩니다.
@@ -301,10 +302,5 @@ RoleEntryPoint 메서드는 IIS가 아닌, WAIISHost.exe 컨텍스트에서 호�
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 로깅 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 사용](cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

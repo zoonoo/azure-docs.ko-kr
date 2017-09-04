@@ -12,14 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 406ef84e72d253fec51a0b37c48f326dafd511b6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb5e500b922522e4cdfa7dd07b5233688b916b3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
@@ -113,11 +112,11 @@ ms.lasthandoff: 05/18/2017
     다음과 유사한 출력이 표시됩니다.
 
         {
-              "coordinator_address" : [ {
+            "coordinator_address" : [ {
                 "value" : "10.0.0.12:9090",
                 "level" : "application",
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
-          } ]
+        } ]
 
 3. 출력에서 **값** 속성에 대한 값을 적어 둡니다. 클러스터 에지 노드에 Airpal을 설치하는 동안 필요합니다. 위의 출력에서 필요한 값은 **10.0.0.12:9090**입니다.
 

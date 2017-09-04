@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Storage 트리거 및 바인딩을 사
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24ca844007acf445455714c9a530bfe1ad9a9c32
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b123578dbac48018f674f85ec923e4c6e65fb9f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
@@ -130,7 +130,7 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 ### <a name="handling-poison-blobs"></a>포이즌 Blob 처리
 지정된 Blob에 대한 Blob 트리거 함수가 실패한 경우 Azure Functions는 기본적으로 총 5번 해당 함수를 다시 시도합니다. 
 
-5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 Storage 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
+5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison*이라는 저장소 큐에 메시지를 추가합니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
 * FunctionId(형식에서 *&lt;함수 앱 이름>*.Functions.*&lt;함수 이름>*)
 * BlobType("BlockBlob" 또는 "PageBlob")
@@ -214,7 +214,8 @@ module.exports = function(context) {
     context.done();
 };
 ```
-<a name="outputusage"></a> <a name=storage-blob-output-binding"></a>
+<a name="outputusage"></a>
+<a name="storage-blob-output-binding"></a>
 
 ## <a name="using-a-blob-output-binding"></a>Blob 출력 바인딩 사용
 

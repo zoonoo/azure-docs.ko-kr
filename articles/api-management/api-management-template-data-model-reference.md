@@ -3,7 +3,7 @@ title: "Azure API Management 템플릿 데이터 모델 참조 | Microsoft Docs"
 description: "Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
@@ -49,7 +51,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 -   [사용자 로그인](#UseSignIn)  
 -   [사용자 등록](#UserSignUp)  
   
-##  <a name="a-nameapia-api"></a><a name="API"></a> API  
+##  <a name="API"></a> API  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -63,7 +65,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |authenticationSettings|[권한 부여 서버 인증 설정](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|이 API에 포함된 인증 설정의 컬렉션입니다.|  
 |subscriptionKeyParameterNames|object|구독 키가 포함된 쿼리 및/또는 헤더 매개 변수에 대한 사용자 지정 이름을 지정하는 데 사용할 수 있는 선택적 속성입니다. 이 속성이 있으면 다음 두 속성 중 하나 이상을 포함해야 합니다.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="a-nameapisummarya-api-summary"></a><a name="APISummary"></a> API 요약  
+##  <a name="APISummary"></a> API 요약  
  `API summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -72,7 +74,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |name|string|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |description|string|API에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> 응용 프로그램  
+##  <a name="Application"></a> 응용 프로그램  
  `application` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -90,7 +92,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |첨부 파일|[첨부 파일](#Attachment) 엔터티의 컬렉션입니다.|스크린샷 또는 아이콘과 같은 응용 프로그램에 대한 첨부 파일입니다.|  
 |아이콘|[첨부 파일](#Attachment)|응용 프로그램에 대한 아이콘입니다.|  
   
-##  <a name="a-nameattachmenta-attachment"></a><a name="Attachment"></a> 첨부 파일  
+##  <a name="Attachment"></a> 첨부 파일  
  `attachment` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -100,7 +102,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |유형|string|첨부 파일의 형식입니다.|  
 |ContentType|string|첨부 파일의 미디어 형식입니다.|  
   
-##  <a name="a-namesamplea-code-sample"></a><a name="Sample"></a> 코드 샘플  
+##  <a name="Sample"></a> 코드 샘플  
   
 |속성|형식|설명|  
 |--------------|----------|-----------------|  
@@ -117,7 +119,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |헤더|[헤더](#Header) 엔터티의 컬렉션입니다.|이 작업에 대한 헤더입니다.|  
 |매개 변수|[매개 변수](#Parameter) 엔터티의 컬렉션입니다.|이 작업에 대해 정의된 매개 변수입니다.|  
   
-##  <a name="a-namecommenta-comment"></a><a name="Comment"></a> 주석  
+##  <a name="Comment"></a> 주석  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -127,7 +129,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |DeveloperCompany|string|개발자의 회사 이름입니다.|  
 |PostedOn|DateTime|의견이 게시된 날짜 및 시간입니다.|  
   
-##  <a name="a-nameissuea-issue"></a><a name="Issue"></a> 문제  
+##  <a name="Issue"></a> 문제  
  `issue` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -143,7 +145,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |첨부 파일|[첨부 파일](api-management-template-data-model-reference.md#Attachment) 엔터티의 컬렉션입니다.|문제에 대한 첨부 파일입니다.|  
 |서비스|[API](#API) 엔터티의 컬렉션입니다.|문제를 정리하는 사용자가 구독한 API입니다.|  
   
-##  <a name="a-namefilteringa-filtering"></a><a name="Filtering"></a> 필터링  
+##  <a name="Filtering"></a> 필터링  
  `filtering` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -151,7 +153,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |패턴|string|검색 용어가 없는 경우 현재 검색 용어 또는 `null`입니다.|  
 |Placeholder|string|지정된 검색 용어가 없는 경우 검색 상자에 표시할 텍스트입니다.|  
   
-##  <a name="a-nameheadera-header"></a><a name="Header"></a> 헤더  
+##  <a name="Header"></a> 헤더  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|설명|유형|  
@@ -164,7 +166,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |필수|부울|필수 헤더인지 여부입니다.|  
 |readOnly|부울|헤더가 읽기 전용인지 여부입니다.|  
   
-##  <a name="a-namehttprequesta-http-request"></a><a name="HTTPRequest"></a> HTTP 요청  
+##  <a name="HTTPRequest"></a> HTTP 요청  
  이 섹션에서는 `request` 표현을 설명합니다.  
   
 |속성|형식|설명|  
@@ -174,7 +176,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |매개 변수|[매개 변수](#Parameter)의 배열|작업 요청 매개 변수의 컬렉션입니다.|  
 |표현|[표현](#Representation)의 배열|작업 요청 표현의 컬렉션입니다.|  
   
-##  <a name="a-namehttpresponsea-http-response"></a><a name="HTTPResponse"></a> HTTP 응답  
+##  <a name="HTTPResponse"></a> HTTP 응답  
  이 섹션에서는 `response` 표현을 설명합니다.  
   
 |속성|형식|설명|  
@@ -183,7 +185,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |description|string|작업 응답 설명입니다.|  
 |표현|[표현](#Representation)의 배열|작업 응답 표현의 컬렉션입니다.|  
   
-##  <a name="a-nameoperationa-operation"></a><a name="Operation"></a> 작업  
+##  <a name="Operation"></a> 작업  
  `operation` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -198,7 +200,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |request|[HTTP 요청](#HTTPRequest)|요청 세부 정보를 포함하는 엔터티입니다.|  
 |응답|[HTTP 응답](#HTTPResponse)의 배열|작업 [HTTP 응답](#HTTPResponse) 엔터티의 배열입니다.|  
   
-##  <a name="a-namemenua-operation-menu"></a><a name="Menu"></a> 작업 메뉴  
+##  <a name="Menu"></a> 작업 메뉴  
  `operation menu` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -208,7 +210,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |작업|string|메뉴 형식입니다.|  
 |MenuItems|[작업 메뉴 항목](#MenuItem) 엔터티의 컬렉션입니다.|현재 API에 대한 작업입니다.|  
   
-##  <a name="a-namemenuitema-operation-menu-item"></a><a name="MenuItem"></a> 작업 메뉴 항목  
+##  <a name="MenuItem"></a> 작업 메뉴 항목  
  `operation menu item` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -217,7 +219,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |제목|string|작업에 대한 설명입니다.|  
 |HttpMethod|string|작업의 Http 메서드입니다.|  
   
-##  <a name="a-namepaginga-paging"></a><a name="Paging"></a> 페이징  
+##  <a name="Paging"></a> 페이징  
  `paging` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -228,7 +230,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |ShowAll|부울|단일 페이지에 모든 결과를 표시할지 여부입니다.|  
 |PageCount|number|결과의 페이지 수입니다.|  
   
-##  <a name="a-nameparametera-parameter"></a><a name="Parameter"></a> 매개 변수  
+##  <a name="Parameter"></a> 매개 변수  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|설명|유형|  
@@ -241,7 +243,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |kind|number|이 매개 변수가 경로 매개 변수(1) 또는 쿼리 문자열 매개 변수(2)인지 여부입니다.|  
 |typeName|string|매개 변수 유형입니다.|  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> 제품  
+##  <a name="Product"></a> 제품  
  `product` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -254,7 +256,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |AllowMultipleSubscriptions|부울|사용자가 동시에 이 제품에 여러 구독을 소유할 수 있는지 여부를 지정합니다.|  
 |MultipleSubscriptionsCount|number|현재 사용자의 이 제품에 대한 구독 수입니다.|  
   
-##  <a name="a-nameprovidera-provider"></a><a name="Provider"></a> 공급자  
+##  <a name="Provider"></a> 공급자  
  `provider` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -263,7 +265,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |AuthenticationType|string|공급자 유형입니다. (Azure Active Directory, Facebook 로그인, Google 계정, Microsoft 계정, Twitter).|  
 |Caption|string|공급자의 표시 이름입니다.|  
   
-##  <a name="a-namerepresentationa-representation"></a><a name="Representation"></a> 표현  
+##  <a name="Representation"></a> 표현  
  이 섹션에서는 `representation`을 설명합니다.  
   
 |속성|형식|설명|  
@@ -271,7 +273,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |contentType|string|이 표현에 대한 등록된 또는 사용자 지정 콘텐츠 형식을 지정합니다(예: `application/xml`).|  
 |샘플|string|표현의 예제입니다.|  
   
-##  <a name="a-namesubscriptiona-subscription"></a><a name="Subscription"></a> 구독  
+##  <a name="Subscription"></a> 구독  
  `subscription` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -297,7 +299,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |CancelUrl|string|구독을 취소하는 상대 Url입니다.|  
 |RenewUrl|string|구독을 갱신하는 상대 Url입니다.|  
   
-##  <a name="a-namesubscriptionsummarya-subscription-summary"></a><a name="SubscriptionSummary"></a> 구독 요약  
+##  <a name="SubscriptionSummary"></a> 구독 요약  
  `subscription summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -305,7 +307,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |Id|string|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `{sid}`가 구독 식별자인 `subscriptions/{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |DisplayName|string|구독의 표시 이름|  
   
-##  <a name="a-nameuseraccountinfoa-user-account-info"></a><a name="UserAccountInfo"></a> 사용자 계정 정보  
+##  <a name="UserAccountInfo"></a> 사용자 계정 정보  
  `user account info` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -318,7 +320,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |ProviderName|string|인증 공급자 이름입니다.|  
 |IsBasicAccount|부울|이 계정이 전자 메일 및 암호를 사용하여 등록된 경우 true이며 공급자를 사용하여 등록된 경우 false입니다.|  
   
-##  <a name="a-nameusesignina-user-sign-in"></a><a name="UseSignIn"></a> 사용자 로그인  
+##  <a name="UseSignIn"></a> 사용자 로그인  
  `user sign in` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -336,7 +338,7 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 |UserRegistrationTerms|string|로그인하기 전에 사용자가 동의해야 하는 약관입니다.|  
 |UserRegistrationTermsEnabled|부울|약관이 활성화되었는지 여부입니다.|  
   
-##  <a name="a-nameusersignupa-user-sign-up"></a><a name="UserSignUp"></a> 사용자 등록  
+##  <a name="UserSignUp"></a> 사용자 등록  
  `user sign up` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|형식|설명|  
@@ -356,9 +358,4 @@ ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

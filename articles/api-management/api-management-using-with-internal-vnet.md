@@ -3,7 +3,7 @@ title: "내부 가상 네트워크에서 Azure API Management를 사용하는 �
 description: "내부 가상 네트워크에서 Azure API Management를 설정하고 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
@@ -63,23 +62,23 @@ PowerShell cmdlet을 사용하여 VNET 연결을 사용하도록 설정할 수�
 ### <a name="access-on-default-host-names"></a>기본 호스트 이름에 대한 액세스
 예를 들어 "contoso"라는 공용 Azure 클라우드에서 API Management 서비스를 만들면 기본적으로 다음 서비스 끝점이 구성됩니다.
 
->    게이트웨이/프록시 - contoso.azure-api.net
+>   게이트웨이/프록시 - contoso.azure-api.net
 
 > 게시자 포털 및 개발자 포털 - contoso.portal.azure-api.net
 
 > 직접 관리 끝점 - contoso.management.azure-api.net
 
->    GIT - contoso.scm.azure-api.net
+>   GIT - contoso.scm.azure-api.net
 
 이러한 API Management 서비스 끝점에 액세스하려면 API Management를 배포한 가상 네트워크에 연결된 서브넷에 Virtual Machine을 만들 수 있습니다. 서비스의 내부 가상 IP 주소가 10.0.0.5라고 가정하면 다음과 같이 호스트 파일 매핑(%SystemDrive%\drivers\etc\hosts)을 수행할 수 있습니다.
 
-> 10.0.0.5      contoso.azure-api.net
+> 10.0.0.5    contoso.azure-api.net
 
-> 10.0.0.5      contoso.portal.azure-api.net
+> 10.0.0.5    contoso.portal.azure-api.net
 
-> 10.0.0.5      contoso.management.azure-api.net
+> 10.0.0.5    contoso.management.azure-api.net
 
-> 10.0.0.5      contoso.scm.azure-api.net
+> 10.0.0.5    contoso.scm.azure-api.net
 
 그런 다음 만든 Virtual Machine에서 모든 서비스 끝점에 액세스할 수 있습니다. 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 A DNS 레코드를 만들고 가상 네트워크의 어느 곳에서나 이러한 끝점에 액세스할 수 있습니다. 
 

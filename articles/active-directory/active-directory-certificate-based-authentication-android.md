@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
@@ -41,15 +41,15 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 ## <a name="office-mobile-applications-support"></a>Office 모바일 응용 프로그램 지원
 | 앱 | 지원 |
 | --- | --- |
-| Word / Excel / PowerPoint |![확인][1] |
+| Azure Information Protection 앱 |![확인][1] |
+| Microsoft 팀 |![확인][1] |
 | OneNote |![확인][1] |
 | OneDrive |![확인][1] |
 | Outlook |![확인][1] |
-| Yammer |![확인][1] |
+| Power BI |![확인][1] |
 | 비즈니스용 Skype |![확인][1] |
-| Azure Information Protection 앱 |![확인][1] |
-| Microsoft 팀 |![확인][1] |
-
+| Word / Excel / PowerPoint |![확인][1] |
+| Yammer |![확인][1] |
 
 
 ### <a name="implementation-requirements"></a>구현 요구 사항

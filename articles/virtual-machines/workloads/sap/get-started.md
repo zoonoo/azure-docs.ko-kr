@@ -18,10 +18,10 @@ ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c35892421c3d3019204c9e763980e813930d19a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -349,7 +349,7 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 요약: 이 가이드에서는 Azure 환경에서 SAP HANA의 모니터링 설정 시 유용한 정보와 추가적인 문제 해결 정보를 제공합니다. 
 
-업데이트한 날짜: 2016년 12월
+업데이트 날짜: 2017년 8월
 
 [이 문서는 여기에서 찾을 수 있습니다.](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

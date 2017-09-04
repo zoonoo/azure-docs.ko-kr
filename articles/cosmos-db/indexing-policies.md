@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
@@ -77,8 +77,6 @@ Azure Cosmos DB는 Azure Cosmos DB 컬렉션의 인덱싱 정책을 통해 구�
 > “없음”으로 인덱싱 정책을 구성하면 모든 기존 인덱스를 삭제하는 부작용이 있습니다. 액세스 패턴이 "Id" 및/또는 "자체 링크"만을 필요로 하면 이를 사용합니다.
 > 
 > 
-
-다음 샘플은 모든 문서 삽입에 일관된 자동 인덱싱을 사용하여 .NET SDK로 Azure Cosmos DB 컬렉션을 만드는 방법을 보여 줍니다.
 
 다음 표에서 컬렉션에 대해 구성된 인덱싱 모드(일관성 및 지연) 및 쿼리 요청에 대해 지정된 일관성 수준에 따라 쿼리에 대한 일관성을 보여줍니다. 모든 인터페이스 - REST API, SDK또는 저장 프로시저 및 트리거 내에서 사용하여 만든 쿼리에 적용합니다. 
 
@@ -169,12 +167,12 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리
 #### <a name="index-kind"></a>인덱스 종류
 Azure Cosmos DB는 모든 경로에 대해 해시 및 범위 인덱스 종류를 지원합니다(문자열, 숫자 또는 둘 다로 구성할 수 있음).
 
-* **해시**는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
+* **해시** 는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 * **범위**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 Order By 쿼리를 지원합니다. 또한 Order By 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다. 데이터 형식은 문자열 또는 숫자일 수 있습니다.
 
 Azure Cosmos DB는 점, 다각형 또는 LineString 데이터 형식에 지정할 수 있는 공간 인덱스 종류도 모든 경로에 대해 지원합니다. 지정된 경로에 있는 값은 `{"type": "Point", "coordinates": [0.0, 10.0]}`과 같은 유효한 GeoJSON 조각이어야 합니다.
 
-* **공간**은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다.
+* **공간** 은 효율적인 공간(이내 및 거리) 쿼리를 지원합니다. 데이터 형식은 점, 다각형 또는 LineString일 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 점, 다각형 및 LineStrings의 자동 인덱싱을 지원합니다.
