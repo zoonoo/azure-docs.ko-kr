@@ -3,7 +3,7 @@ title: "Azure Managed Application UI 정의 만들기 함수 | Microsoft Docs"
 description: "Azure Managed Applications에 대한 UI 정의를 생성할 때 사용하는 함수에 대해 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: HT
 ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 62ee10eb8e6f33cc4d828cf01b405c846bef8aa4

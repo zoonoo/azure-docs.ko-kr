@@ -386,7 +386,8 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>다음 단계 
+
+## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [활성 지역 복제 및 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)을 참조하세요.
 
