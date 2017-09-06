@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
@@ -47,7 +47,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ### <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
-분할된 큐 및 항목은 프리미엄 메시지에서 지원됩니다. 사실 이러한 엔터티는 항상 분할됩니다(또한 비활성화될 수 없습니다). 그러나 프리미엄 분할된 큐 및 토픽은 Service Bus 메시지의 표준 및 기본 계층의 경우와 동일하게 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 성능을 개선하기 위해 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 
+분할된 큐 및 항목은 프리미엄 메시지에서 지원됩니다. 사실 이러한 엔터티는 항상 분할됩니다(또한 비활성화될 수 없습니다). 그러나 분할된 프리미엄 큐 및 토픽은 Service Bus 메시지의 표준 계층과 동일한 방식으로 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 성능을 개선하기 위해 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 
 
 프리미엄 메시지를 사용하면 [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes)로 엔터티의 크기를 지정할 때 총 크기가 지정된 크기의 16배인 [표준 분할 엔터티](service-bus-partitioning.md#standard)와는 달리, 크기가 두 파티션으로 고르게 분할됩니다. 
 

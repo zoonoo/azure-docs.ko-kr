@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3f8dd4b820da8a14437aa313e4296dc17111674
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-# Azure 클래식 포털을 사용하여 Azure Active Directory Domain Services 활성화
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Azure 클래식 포털을 사용하여 Azure Active Directory Domain Services 활성화
 
-## 작업 3: Azure Active Directory Domain Services 활성화
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+> [!IMPORTANT]
+> 이 문서에 표시된 Azure AD Domain Services를 사용하도록 설정한 Azure 클래식 포털 환경은 곧 제거될 예정입니다. 새로운 배포의 경우 [**대신 새로운 (미리 보기) Azure Portal 환경을 사용하세요**](active-directory-ds-getting-started.md).
+>
+
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>작업 3: Azure Active Directory Domain Services 활성화
 이 작업에서는 다음 단계를 수행하여 디렉터리에 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정합니다.
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
@@ -97,7 +98,6 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-## 다음 단계
-<a id="next-step" class="xliff"></a>
+## <a name="next-step"></a>다음 단계
 [작업 4: Azure 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-update-dns.md)
 

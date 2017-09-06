@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: briz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 장치 관리 개요
@@ -90,7 +89,7 @@ IoT Hub는 다음과 같은 장치 관리 패턴을 가능하게 합니다.  [�
     ![장치 관리 보고 진행률 및 상태 패턴 그래픽][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>다음 단계
-IoT Hub에서 장치 관리를 위해 제공하는 기능, 패턴 및 코드 라이브러리를 사용하여 각 장치 수명 주기 단계에서 기업 IoT 운영자 요구 사항을 충족하는 IoT 응용 프로그램을 만들 수 있습니다.
+IoT Hub에서 장치 관리를 위해 제공하는 기능, 패턴 및 코드 라이브러리를 사용하면 각 장치 수명 주기 단계에서 기업 IoT 운영자 요구 사항을 충족하는 IoT 응용 프로그램을 만들 수 있습니다.
 
 IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시작][lnk-get-started] 자습서를 참조하세요.
 

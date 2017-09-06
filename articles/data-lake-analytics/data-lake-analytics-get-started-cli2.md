@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 35d30e90a8a390e21b08b0796f441f0e9154c499
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: fe2b84aac718ff5eddd4d73b5dc2120362952c1e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Azure CLI 2.0를 사용하여 Azure Data Lake Analytics 시작
@@ -109,7 +108,7 @@ az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Sour
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
-데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다.  Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
+데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다.  Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure CLI 사용](../storage/common/storage-azure-cli.md)을 참조하세요.
 
 ## <a name="submit-data-lake-analytics-jobs"></a>데이터 레이크 분석 작업 제출
 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
@@ -180,7 +179,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-##<a name="retrieve-job-results"></a>작업 결과 검색
+## <a name="retrieve-job-results"></a>작업 결과 검색
 
 작업이 완료된 후 다음 명령을 사용하여 출력 파일을 나열하고 파일을 다운로드할 수 있습니다.
 
@@ -195,6 +194,26 @@ az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Out
 
 ```
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+```
+
+## <a name="pipelines-and-recurrences"></a>파이프라인 및 되풀이
+
+**파이프라인 및 되풀이에 대한 정보 가져오기**
+
+`az dla job pipeline` 명령을 사용하여 이전에 제출한 작업의 파이프라인 정보를 확인합니다.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+`az dla job recurrence` 명령을 사용하여 이전에 제출한 작업의 되풀이 정보를 확인합니다.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
@@ -52,7 +52,7 @@ Azure AD는 사용자 계정에 관련된 의심스러운 작업을 감지합니
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 무료 및 기본 버전
 
-Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된 위험한 로그인 목록을 제공합니다. 위험 이벤트 보고서는 다음을 제공합니다.
+Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된 위험한 로그인 목록을 제공합니다. 이 보고서는 다음을 표시합니다.
 
 - **사용자** - 로그인 작업 중에 사용한 사용자의 이름
 - **IP** - Azure Active Directory에 연결하는 데 사용한 장치의 IP 주소
@@ -60,7 +60,6 @@ Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된
 - **로그인 시간** - 로그인을 수행한 시간
 - **상태** - 로그인의 상태
 
-이 보고서는 보고서 데이터를 다운로드하는 옵션을 제공합니다.
 
 ![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된
 ![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 자세한 내용은 [수동으로 위험 이벤트 닫기](active-directory-identityprotection.md#closing-risk-events-manually)를 참조하세요.
+
+이 보고서는 다음과 같은 옵션을 제공합니다.
+
+- 리소스 검색
+- 보고서 데이터 다운로드
+
+
+![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 
