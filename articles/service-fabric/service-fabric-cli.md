@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ce9adf6c82e3a5521883c5de1e0689d5bf0d94e
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-service-fabric-command-line"></a>Azure Service Fabric 명령줄
@@ -23,17 +23,75 @@ Azure Service Fabric CLI(sfctl)는 Azure Service Fabric 엔터티와 상호 작�
 
 설치 이전에 사용자 환경이 Python 및 PIP를 모두 설치했는지를 확인합니다. 자세한 내용은 [PIP 빠른 시작 설명서](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서](https://wiki.python.org/moin/BeginnersGuide/Download)를 살펴보세요.
 
-Python 2.7 및 3.6이 모두 지원되지만 Python 3.6을 사용하는 것이 좋습니다.
+Python 2.7 및 3.6이 모두 지원되지만 Python 3.6을 사용하는 것이 좋습니다. 다음 섹션에서는 모든 필수 구성 요소 및 CLI를 설치하는 방법에 대해 설명합니다.
 
-## <a name="install"></a>설치
+## <a name="install-pip-python-and-sfctl"></a>pip, python 및 sfctl 설치
 
-Azure Service Fabric CLI(sfctl)가 Python 패키지로 패키징됩니다. 최신 버전을 설치하려면 다음을 실행합니다.
+플랫폼에 pip와 python을 모두 설치하는 방법은 다양하지만, 다음은 주요 OS용 python 3.6 및 pip로 빠르게 설정하는 몇 가지 단계입니다.
 
-```bash
-pip install sfctl
+### <a name="windows"></a>Windows
+
+Windows 10, Server 2016 및 Server 2012 R2의 경우 표준 공식 설치 지침을 사용할 수 있습니다. 또한 python 설치 관리자는 기본적으로 pip를 설치합니다.
+
+- 공식 [python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 python 3.6의 최신 릴리스를 다운로드합니다.
+- 설치 관리자를 시작합니다.
+- 프롬프트 아래쪽의 옵션을 `Add Python 3.6 to PATH`로 선택합니다.
+- `Install Now`을(를) 선택합니다.
+- 설치를 완료합니다.
+
+이제 새로운 명령 창을 열고 python과 pip의 버전 모두를 가져올 수 있습니다.
+
+```bat
+python --version
+pip --version
 ```
 
-설치 후에 `sfctl -h`를 실행하여 사용 가능한 명령에 대한 정보를 얻을 수 있습니다.
+그런 후에 다음을 실행하여 Service Fabric CLI를 설치합니다
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### <a name="ubuntu"></a>Ubuntu
+
+Ubuntu 16.04 Desktop의 경우 타사 PPA를 사용하여 python 3.6을 설치할 수 있습니다.
+
+터미널에서 다음 명령을 실행합니다.
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+그런 다음 python 3.6을 설치하기 위해 sfctl을 설치하려면 다음 명령을 실행합니다.
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+이러한 단계는 python 3.5 및 2.7을 설치한 시스템에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
+
+### <a name="macos"></a>MacOS
+
+MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 것이 좋습니다. HomeBrew가 아직 설치되지 않은 경우 다음 명령을 실행하여 설치합니다.
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+그런 다음 터미널에서 python 3.6, pip 및 sfctl을 설치합니다.
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+이러한 단계는 python 2.7의 시스템 설치를 수정하지 않습니다.
 
 ## <a name="cli-syntax"></a>CLI 구문
 

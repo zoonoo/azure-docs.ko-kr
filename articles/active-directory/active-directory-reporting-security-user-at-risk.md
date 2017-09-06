@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서
@@ -62,6 +62,16 @@ Azure Active Directory 평가판 및 기본 버전의 위험에 대한 플래그
 위험에 노출된 사용자에 대해 사용자의 로그인 기록을 검토하고 필요한 경우 암호를 다시 설정할 수 있습니다.
 
 ![위험한 로그인](./media/active-directory-reporting-security-user-at-risk/46.png)
+
+
+이 대화 상자는 다음과 같은 옵션을 제공합니다.
+
+- 보고서 다운로드
+
+- 사용자 검색
+
+![위험한 로그인](./media/active-directory-reporting-security-user-at-risk/16.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 

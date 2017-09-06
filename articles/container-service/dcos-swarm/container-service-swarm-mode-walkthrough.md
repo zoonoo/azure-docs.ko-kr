@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작 - Linux용 Azure Docker Swarm Mode 클러스터 | Microsoft Docs"
-description: "Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker Swarm Mode 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
+title: "빠른 시작 - Linux용 Azure Docker CE 클러스터 | Microsoft Docs"
+description: "Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker CE 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 3f49e72fa647d2b6c854123c271a88e1a8ff3cf8
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 7b8336e3865e7032e3ee0d5e4ee712bcb95aa4b5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="deploy-docker-swarm-mode-cluster"></a>Docker Swarm Mode 클러스터 배포
+# <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Docker Swarm Mode 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Docker CE 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
 
-Azure Container Service에서 Docker Swarm Mode는 미리 보기 상태이며 **프로덕션 워크로드에는 사용할 수 없습니다**.
+Azure Container Service에서 Docker CE는 미리 보기 상태이며 **프로덕션 워크로드에는 사용할 수 없습니다**.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroup --location ukwest
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm 클러스터 만들기
 
-[az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Docker Swarm Mode 클러스터를 만듭니다. 
+[az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. 
 
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *mySwarmCluster*라는 클러스터를 만듭니다.
 
