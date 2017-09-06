@@ -34,7 +34,7 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 설명서 및 코드 예제에 대한 새롭거나 중요한 변경 내용을 통해 끌어오기 요청을 제출하면, Microsoft 직원이 아닌 경우 온라인 참가 사용권 계약(CLA)을 제출하도록 요청하는 GitHub의 설명이 전송됩니다. 온라인 양식 작성을 먼저 완료해야 Microsoft에서 끌어오기 요청을 수락할 수 있습니다.
 
 ## <a name="repository-organization"></a>리포지토리 조직
-azure-docs 리포지토리의 콘텐츠는 https://docs.microsoft.com/azure에 있는 설명서의 구성을 따릅니다. 이 리포지토리에는 두 개의 루트 폴더가 포함됩니다.
+azure-docs 리포지토리의 콘텐츠는 https://docs.microsoft.com/azure 에 있는 설명서의 구성을 따릅니다. 이 리포지토리에는 두 개의 루트 폴더가 포함됩니다.
 
 ### <a name="articles"></a>\articles
 *\articles* 폴더는 *.md* 확장명의 markdown 파일 형식의 설명서를 포함합니다. 일반적으로 문서는 Azure 서비스별로 그룹화됩니다.
