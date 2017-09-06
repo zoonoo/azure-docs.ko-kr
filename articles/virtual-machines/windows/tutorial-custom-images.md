@@ -65,13 +65,13 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm)을 사용하여 VM의 할당을 취소합니다.
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm)을 사용하여 가상 컴퓨터의 상태를 `-Generalized`으로 설정합니다. 
    
 ```powershell
-Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
+Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
 
@@ -82,7 +82,7 @@ Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
 가상 컴퓨터를 가져옵니다. 
 
 ```powershell
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
+$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 이미지 구성을 만듭니다.
@@ -94,8 +94,8 @@ $image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID
 이미지를 만듭니다.
 
 ```powershell
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroupImages
-```    
+New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+``` 
 
  
 ## <a name="create-vms-from-the-image"></a>이미지에서 VM 만들기
@@ -164,7 +164,7 @@ $vmConfig = New-AzureRmVMConfig `
 # Here is where we create a variable to store information about the image 
 $image = Get-AzureRmImage `
     -ImageName myImage `
-    -ResourceGroupName myResourceGroupImages
+    -ResourceGroupName myResourceGroup
 
 # Here is where we specify that we want to create the VM from and image and provide the image ID
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
