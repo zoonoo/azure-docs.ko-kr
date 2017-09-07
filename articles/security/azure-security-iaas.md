@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/30/2017
 
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
 작업을 Azure IaaS(Infrastructure as a Service)로 이동할 생각이라면 몇 가지 고려 사항에 대해 이미 잘 알고 있다는 사실을 인식하게 될 것입니다. 이미 가상 환경 보안을 설정해본 적이 있을 수 있습니다. Azure IaaS로 이동하면 가상 환경 보안 유지에 기존 전문 지식을 활용할 수 있으며 자산 보호에 도움이 되는 몇 가지 새로운 옵션도 사용할 수 있습니다.
@@ -42,11 +39,11 @@ ms.lasthandoff: 03/28/2017
 
 조직에서 관리자는 권한이 상승된 계정을 사용하여 작업을 수행하므로 사이버 공격을 받기 쉽습니다. 일반적으로 이러한 공격은 악의적이기 보다는 기존 구성 및 프로세스에서 허용하기 때문에 초래됩니다. 이러한 사용자 대부분은 개념적 관점에서 위험을 이해하면서도 해당 단계를 여전히 선택하게 됩니다.
 
-전자 메일을 확인하고 인터넷을 검색하는 등의 작업은 위험하지 않은 것처럼 보이지만 검색 활동, 특수하게 조작된 전자 메일 또는 기타 기술을 사용하여 귀사에 액세스 권한을 얻을 수 있는 악의적인 사용자에게 권한이 상승된 계정이 노출될 수 있습니다. 모든 Azure 관리 작업을 수행할 때 보안 관리 워크스테이션을 사용하면 노출을 줄여 보안이 침해되는 경우를 줄일 수 있으므로 강력하게 권장됩니다.
+전자 메일을 확인하고 인터넷을 검색하는 등의 작업은 위험하지 않은 것처럼 보이지만 악의적인 행위자에 의해 손상되도록 상승된 계정을 노출할 수 있습니다. 검색 활동, 특수하게 작성된 전자 메일 또는 기타 기술은 기업에 대한 액세스 권한을 얻는 데 사용될 수 있습니다. 모든 Azure 관리 작업을 수행할 때 SAW(보안 관리 워크스테이션)를 사용하는 것을 강력하게 권장합니다. SAW는 실수로 인한 손상에 대한 노출을 줄이는 방법입니다.
 
-PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다.
+PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 매우 강력한 보호 효과를 얻을 수 있습니다. 이 분리는 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격의 영향으로 제한됩니다. (키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)
 
-PAW 방법은 표준 사용자 계정과는 별도인 개별적으로 할당된 관리 계정을 사용하는 체계적이고 권장되는 방법의 확장입니다. PAW는 이러한 중요한 계정에 대해 신뢰할 수 있는 워크스테이션을 제공합니다.
+PAW 방법은 개별적으로 할당된 관리 계정을 사용하는 체계적이고 권장되는 방법의 확장입니다. 관리 계정은 표준 사용자 계정과는 별도입니다. PAW는 이러한 중요한 계정에 대해 신뢰할 수 있는 워크스테이션을 제공합니다.
 
 자세한 내용 및 구현 지침에 대해서는 [권한 있는 액세스 워크스테이션](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations)을 참조하세요.
 
@@ -68,7 +65,7 @@ Azure 구독을 관리하는 계정과 가상 컴퓨터에 로그인할 수 있�
 
 ## <a name="limit-and-constrain-administrative-access"></a>관리 액세스 제한
 
-Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요합니다. 이러한 계정이 노출되면 데이터의 기밀성 및 무결성을 보장하기 위해 수행할 수 있는 다른 모든 단계의 가치도 떨어지게 됩니다. 최근에 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden)이 분류한 정보 누출에 따르면, 내부 공격이 조직의 전반적인 보안에 큰 위협을 초래합니다.
+Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요합니다. 이러한 계정이 노출되면 데이터의 기밀성 및 무결성을 보장하기 위해 수행할 수 있는 다른 모든 단계의 가치도 떨어지게 됩니다. 최근에 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden)에 따르면, 내부 공격이 조직의 전반적인 보안에 큰 위협을 초래합니다.
 
 다음과 유사한 기준으로 개인에 대한 관리 권한을 평가합니다.
 
@@ -146,7 +143,7 @@ Azure를 구독하는 사용자는 Key Vault를 만들고 사용할 수 있습�
 
 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption.md)을 참조하세요.
 
-[Azure Storage 서비스 암호화](../storage/storage-service-encryption.md)는 미사용 데이터를 보호합니다. 저장소 계정 수준에서 사용되도록 설정됩니다. 데이터 센터에 기록될 때 데이터를 암호화하고, 사용자가 액세스할 때 자동으로 암호가 해독됩니다. 다음과 같은 시나리오가 지원됩니다.
+[Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)는 미사용 데이터를 보호합니다. 저장소 계정 수준에서 사용되도록 설정됩니다. 데이터 센터에 기록될 때 데이터를 암호화하고, 사용자가 액세스할 때 자동으로 암호가 해독됩니다. 다음과 같은 시나리오가 지원됩니다.
 
 - 블록 Blob, 추가 Blob 및 페이지 Blob의 암호화
 - 온-프레미스에서 Azure로 가져온 보관된 VHD 및 템플릿의 암호화
@@ -228,10 +225,7 @@ Operations Management Suite에서 보안 및 규정 준수 기능을 사용하�
 
 ![Operations Management Suite 보안 기준](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>다음 단계
-
 
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft 보안 대응 센터](https://technet.microsoft.com/library/dn440717.aspx)

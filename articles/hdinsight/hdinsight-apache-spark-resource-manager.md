@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 952fa15162a40bccb3f8c7a88508556757ca6675
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1d69c361b609a2f50ce11432bc422acd0d8cb178
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
@@ -29,22 +29,20 @@ ms.lasthandoff: 07/24/2017
 
 **필수 조건:**
 
-다음이 있어야 합니다.
-
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="how-do-i-launch-the-ambari-web-ui"></a>Ambari 웹 UI를 시작하는 방법
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
-2. Spark 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+2. Spark 클러스터의 경우 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
     ![Ambari 시작](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Resource Manager 시작")
-3. 이렇게 하면 아래와 같이 Ambari 웹 UI가 시작됩니다.
+3. 이렇게 하면 스크린샷에 보이는 대로 Ambari 웹 UI가 시작됩니다.
 
     ![Ambari 웹 UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari 웹 UI")   
 
 ## <a name="how-do-i-launch-the-spark-history-server"></a>Spark 기록 서버를 시작하는 방법
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우).
+1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우).
 2. 클러스터 블레이드의 **빠른 링크**에서 **클러스터 대시보드**를 클릭합니다. **클러스터 대시보드** 블레이드에서 **Spark 기록 서버**를 클릭합니다.
 
     ![Spark 기록 서버](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Spark 기록 서버")
@@ -59,17 +57,17 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프
     ![YARN UI 시작](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
    > [!TIP]
-   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 리소스 관리자, **ResourceManager UI**를 차례로 클릭합니다.
+   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 Resource Manager, **Resource Manager UI**를 차례로 클릭합니다.
    >
    >
 
 ## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark 응용 프로그램을 실행하는 데 최적화된 클러스터 구성이란?
-응용 프로그램 요구 사항에 따라 Spark 구성에 사용할 수 있는 세 가지 주요 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 작업자 노드에서 실행되며 응용 프로그램에 대한 작업을 수행해야 합니다. 각 클러스터에 대한 실행자 및 실행자 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 클러스터 헤드 노드의 `spark-defaults.conf` 에 저장됩니다.
+응용 프로그램 요구 사항에 따라 Spark 구성에 사용할 수 있는 세 가지 주요 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 작업자 노드에서 실행되며 응용 프로그램에 대한 작업을 수행해야 합니다. 각 클러스터에 대한 실행자 및 실행자 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 이 정보는 클러스터 헤드 노드의 `spark-defaults.conf`에 저장됩니다.
 
 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 응용 프로그램의 경우) 클러스터 수준에서 구성될 수 있거나 각 개별 응용 프로그램에 대해 지정될 수 있습니다.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari UI를 사용하여 매개 변수 변경
-1. Ambari UI에서 **Spark**, **Configs**를 차례로 클릭한 다음 **사용자 지정 spark 기본값**을 확장합니다.
+1. Ambari UI에서 **Spark**, **구성**을 차례로 클릭한 다음 **사용자 지정 Spark 기본값**을 확장합니다.
 
     ![Ambari를 사용하여 매개 변수 설정](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. 기본값으로 Spark 클러스터에서 4개의 응용 프로그램을 동시에 실행할 수 있습니다. 아래와 같이 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
@@ -102,7 +100,7 @@ Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure`
 ### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server"></a>Spark Thrift 서버에서 이러한 매개 변수를 변경하려면 어떻게 해야 하나요?
 Spark Thrift 서버에서는 Spark 클러스터에 대한 JDBC/ODBC 액세스를 제공하고 Spark SQL 쿼리를 제공하는 데 사용됩니다. Power BI, Tableau 등과 같은 도구는 ODBC 프로토콜을 사용하여 Spark SQL 쿼리를 Spark 응용 프로그램으로 실행하기 위해 Spark Thrift 서버와 통신합니다. Spark 클러스터를 만들 경우 Spark Thrift 서버에서 각 헤드 노드에 하나씩 두 개의 인스턴스를 시작합니다. 각 Spark Thrift 서버는 YARN UI에서 Spark 응용 프로그램으로 표시됩니다.
 
-Spark Thrift 서버는 Spark 동적 실행자 할당을 사용하며 따라서 `spark.executor.instances` 을 사용하지 않습니다. 대신 Spark Thrift 서버는 `spark.dynamicAllocation.minExecutors` 및 `spark.dynamicAllocation.maxExecutors`을 사용하여 실행자 수를 지정합니다. 구성 매개 변수 `spark.executor.cores` 및 `spark.executor.memory`를 사용하여 실행자 크기를 수정합니다. 아래와 같이 이러한 매개 변수를 변경할 수 있습니다.
+Spark Thrift 서버는 Spark 동적 실행자 할당을 사용하며 따라서 `spark.executor.instances` 을 사용하지 않습니다. 대신 Spark Thrift 서버는 `spark.dynamicAllocation.minExecutors` 및 `spark.dynamicAllocation.maxExecutors`을 사용하여 실행자 수를 지정합니다. 구성 매개 변수 `spark.executor.cores` 및 `spark.executor.memory`를 사용하여 실행자 크기를 수정합니다. 다음 단계와 같이 이러한 매개 변수를 변경할 수 있습니다.
 
 * **고급 spark-thrift-sparkconf** 범주를 확장하여 `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` 및 `spark.executor.memory` 매개 변수를 업데이트합니다.
 

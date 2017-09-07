@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -188,6 +189,7 @@ user.mail-ne null
 | 속성 | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>다중 값 속성
@@ -237,7 +239,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
+사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 현재 온-프레미스 Active Directory에서 동기화되는 다중 값 특성을 지원하지 않습니다. 
 
 ## <a name="direct-reports-rule"></a>"직접 보고" 규칙
 관리자의 직접 보고서를 모두 포함하는 그룹을 만들 수 있습니다. 관리자의 직접 보고서가 나중에 변경될 경우 그룹의 멤버 자격은 자동으로 조정됩니다.

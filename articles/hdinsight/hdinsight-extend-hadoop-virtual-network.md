@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5574a234076797852b32631b90bb563441bbc6e7
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 00f2ecbf0d8542741bd78dcfe2692e6627b1f3cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
@@ -214,6 +214,9 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 * **NSG(네트워크 보안 그룹)**를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-networks-nsg.md) 문서를 참조하세요.
 
+    > [!WARNING]
+    > HDInsight는 아웃바운드 트래픽을 제한하도록 지원하지 않습니다.
+
 * **UDR(사용자 정의 경로)**은 네트워크에 있는 리소스 간에 트래픽이 흐르는 방식을 정의합니다. 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md) 문서를 참조하세요.
 
 * **네트워크 가상 어플라이언스**는 방화벽 및 라우터와 같은 장치 기능을 복제합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
@@ -228,7 +231,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
-2. HDInsight에 필요한 IP 주소를 식별합니다. 허용되어야 하는 IP 주소는 HDInsight 클러스터 및 Virtual Network가 상주하는 하위 지역으로 특정됩니다. 지역별 IP 주소 목록은 [HDInsight에 필요한 IP 주소](#hdinsight-ip) 섹션을 참조하세요.
+2. HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight에 필요한 IP 주소](#hdinsight-ip) 섹션을 참조하세요.
 
 3. HDInsight을 설치하려는 서브넷에 대한 사용자 정의 경로 또는 네트워크 보안 그룹을 만들거나 수정합니다.
 
@@ -247,11 +250,14 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 
 ## <a id="hdinsight-ip"></a> 필수 IP 주소
 
-Azure 상태 및 관리 서비스는 HDInsight와 통신할 수 있어야 합니다. 네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 이러한 서비스의 IP 주소에서 HDInsight로 트래픽이 전송되도록 할 수 있습니다.
+> [!IMPORTANT]
+> Azure 상태 및 관리 서비스는 HDInsight와 통신할 수 있어야 합니다. 네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 이러한 서비스의 IP 주소에서 HDInsight로 트래픽이 전송되도록 할 수 있습니다.
+>
+> 트래픽을 제어하는 네트워크 보안 그룹 또는 사용자 정의 경로를 사용하지 않는 경우 이 섹션을 무시할 수 있습니다.
 
-다음 2가지 IP 주소 집합이 있습니다.
+네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 Azure 상태 및 관리 서비스의 트래픽이 HDInsight에 도달하도록 해야 합니다. 다음 단계를 사용하여 다음을 허용해야 하는 IP 주소를 찾을 수 있습니다.
 
-* 허용해야 하는 4가지 __전역__ IP 주소 집합:
+1. 다음 IP 주소에서 트래픽을 항상 허용해야 합니다.
 
     | IP 주소 | 허용되는 포트 | 방향 |
     | ---- | ----- | ----- |
@@ -260,10 +266,10 @@ Azure 상태 및 관리 서비스는 HDInsight와 통신할 수 있어야 합니
     | 168.61.48.131 | 443 | 인바운드 |
     | 138.91.141.162 | 443 | 인바운드 |
 
-* 허용해야 하는 __지역별__ IP 주소:
+2. HDInsight 클러스터가 다음 지역 중에 있으면 해당 지역에 대해 나열된 IP 주소에서 트래픽을 허용해야 합니다.
 
     > [!IMPORTANT]
-    > 사용하는 Azure 지역이 나열되지 않으면 앞서 언급된 4가지 전역 IP만 사용합니다.
+    > 사용하는 Azure 지역이 나열되지 않으면 1단계의 4가지 IP 주소만 사용합니다.
 
     | 국가 | 지역 | 허용된 IP 주소 | 허용되는 포트 | 방향 |
     | ---- | ---- | ---- | ---- | ----- |
@@ -294,11 +300,7 @@ Azure 상태 및 관리 서비스는 HDInsight와 통신할 수 있어야 합니
 
     Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
 
-> [!WARNING]
-> HDInsight는 아웃바운드 트래픽 제한은 지원하지 않으며 인바운드 트래픽만 제한합니다.
-
-> [!IMPORTANT]
-> 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 __168.63.129.16__에서의 액세스도 허용해야 합니다. 이 주소는 Azure 재귀 확인자입니다. 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
+3. 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 __168.63.129.16__에서의 액세스도 허용해야 합니다. 이 주소는 Azure 재귀 확인자입니다. 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
 
 자세한 내용은 [네트워크 트래픽 제어](#networktraffic) 섹션을 참조하세요.
 

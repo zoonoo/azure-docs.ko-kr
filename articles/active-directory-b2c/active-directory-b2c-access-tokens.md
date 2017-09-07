@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C: 액세스 토큰 요청 | Microsoft Docs"
+title: "액세스 토큰 요청 - Azure AD B2C | Microsoft Docs"
 description: "이 문서에서는 클라이언트 응용 프로그램을 설정하고 액세스 토큰을 획득하는 방법을 보여 줍니다."
 services: active-directory-b2c
 documentationcenter: android
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 4b361a8e69f885d5b89ac9b2086e2731ee4d8b48
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
@@ -40,8 +40,8 @@ ms.lasthandoff: 08/09/2017
 
 ### <a name="register-a-web-api"></a>웹 API 등록
 
-1. Azure Portal의 B2C 기능 블레이드에서 **응용 프로그램**을 클릭합니다.
-1. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
+1. Azure Portal의 Azure AD B2C 기능 메뉴에서 **응용 프로그램**을 클릭합니다.
+1. 메뉴의 위쪽에서 **+추가**를 클릭합니다.
 1. 소비자에게 응용 프로그램을 설명하는 응용 프로그램의 **이름** 을 입력합니다. 예를 들어 "Contoso API"를 입력할 수 있습니다.
 1. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다.
 1. **회신 URL**에 대한 임의 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다. API가 Azure AD B2C에서 직접 토큰을 받지 않아야 하므로 값은 중요하지 않습니다.
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/09/2017
 
 권한과 유사한 범위는 앱에서 API를 호출하는 경우에 필요합니다. 범위의 일부 예는 "읽기" 또는 "쓰기"입니다. 웹 또는 네이티브 앱이 API에서 "읽기"를 원한다고 가정합니다. 앱은 Azure AD B2C를 호출하고 범위 "읽기"에 대한 액세스를 제공하는 액세스 토큰을 요청합니다. Azure AD B2C가 이러한 액세스 토큰을 내보내기 위해 앱은 특정 API에서 "읽기"에 대한 권한을 부여 받아야 합니다. 이렇게 하려면 API는 먼저 "읽기" 범위를 게시해야 합니다.
 
-1. Azure AD B2C **응용 프로그램** 블레이드 내에서 웹 API 응용 프로그램("Contoso API")을 엽니다.
+1. Azure AD B2C **응용 프로그램** 메뉴 내에서 웹 API 응용 프로그램("Contoso API")을 엽니다.
 1. **게시된 범위**를 클릭합니다. 다른 응용 프로그램에 부여할 수 있는 사용 권한(범위)을 정의한 위치입니다.
 1. 필요에 따라 **범위 값**을 추가합니다(예: "읽기"). 기본적으로 "user_impersonation" 범위를 정의합니다. 원하는 경우 이를 무시할 수 있습니다. **범위 이름** 열에 범위에 대한 설명을 입력합니다.
 1. **Save**를 클릭합니다.
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/09/2017
 
 API가 범위를 게시하도록 구성되면 클라이언트 응용 프로그램은 Azure Portal을 통해 해당 범위 권한을 부여 받아야 합니다.
 
-1. B2C 기능 블레이드의 **응용 프로그램** 메뉴로 이동합니다.
+1. Azure AD B2C 기능 메뉴의 **응용 프로그램** 메뉴로 이동합니다.
 1. 이미 없는 클라이언트 응용 프로그램([웹앱](active-directory-b2c-app-registration.md#register-a-web-app) 또는 [네이티브 클라이언트](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app))을 등록합니다. 시작 지점부터 이 가이드를 따르는 경우 클라이언트 응용 프로그램을 등록해야 합니다.
 1. **API 액세스**를 클릭합니다.
 1. **추가**를 클릭합니다.

@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: a0d26b594ddbdcc7f1e414ebe2a2e936751a3c02
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 78afb2f065dde4a3e7a3ab787c939b3c52b72cc6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 로그 검색 REST API
 이 가이드는 Log Analytics 검색 REST API를 사용하는 방법의 예제를 비롯한 기본 자습서를 제공합니다. Log Analytics는 OMS(Operations Management Suite)의 일부입니다.
+
+> [!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드하는 경우 이 문서에 설명된 대로 로그 검색 API와 함께 레거시 쿼리 언어를 계속 사용해야 합니다.  새로운 API는 업그레이드된 작업 영역에 릴리스되며 설명서는 해당 시점에 업데이트될 예정입니다. 
 
 > [!NOTE]
 > Log Analytics는 이전에 Operational Insights라고 했기 때문에 리소스 공급자에서는 Operational Insights라고 합니다.

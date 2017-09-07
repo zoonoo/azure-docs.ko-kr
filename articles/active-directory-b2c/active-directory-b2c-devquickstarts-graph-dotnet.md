@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C: Graph API 사용 | Microsoft Docs"
+title: "Graph API 사용 - Azure AD B2C | Microsoft Docs"
 description: "프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다."
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: Graph API 사용
@@ -38,25 +38,25 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 �
 B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 통해 응용 프로그램을 등록해야 합니다.
 
 > [!IMPORTANT]
-> B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C *응용 프로그램* 블레이드가 **아닌** Azure Portal의 제네릭 *앱 등록*을 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure AD B2C의 *응용 프로그램* 블레이드에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
+> B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C *응용 프로그램* 메뉴가 **아닌** Azure Portal의 제네릭 *앱 등록* 메뉴를 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure AD B2C의 *응용 프로그램* 메뉴에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭한 다음 **추가**를 클릭합니다.
 4. 프롬프트에 따라 새 응용 프로그램을 만듭니다. 
     1. 응용 프로그램 형식에 **Web App/API**를 입력합니다.    
     2. 이 예제와 관련이 없지만 **모든 리디렉션 URI**(예: https://B2CGraphAPI )를 제공합니다.  
 5. 이제 응용 프로그램은 응용 프로그램의 목록을 표시합니다. 이를 클릭하여 **응용 프로그램 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
-6. 설정 블레이드에서 **키**를 클릭하고 새 키(클라이언트 암호라고도 함)를 추가합니다. 또한 뒤에 나오는 섹션에서 사용하기 위해 복사합니다.
+6. 설정 메뉴에서 **키**를 클릭하고 새 키(클라이언트 암호라고도 함)를 추가합니다. 또한 뒤에 나오는 섹션에서 사용하기 위해 복사합니다.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>응용 프로그램에 대한 만들기, 읽기 및 업데이트 사용 권한 구성
 이제 사용자를 만들기, 읽기, 업데이트 및 삭제하는 데 필요한 모든 권한을 가져오도록 응용 프로그램을 구성해야 합니다.
 
-1. Azure Portal의 [앱 등록] 블레이드에서 계속 진행하여 응용 프로그램을 선택합니다.
-2. 설정 블레이드에서 **필요한 사용 권한**을 클릭합니다.
-3. 필요한 사용 권한 블레이드에서 **Windows Azure Active Directory**를 클릭합니다.
-4. [액세스 사용] 블레이드에서 **응용 프로그램 사용 권한**의 **디렉터리 데이터 읽기 및 쓰기** 사용 권한을 선택하고 **저장**을 클릭합니다.
-5. 마지막으로 필요한 사용 권한 블레이드로 돌아가서 **사용 권한 부여** 단추를 클릭합니다.
+1. Azure Portal의 앱 등록 메뉴에서 계속 진행하여 응용 프로그램을 선택합니다.
+2. 설정 메뉴에서 **필수 사용 권한**을 클릭합니다.
+3. 필수 사용 권한 메뉴에서 **Windows Azure Active Directory**를 클릭합니다.
+4. 액세스 사용 메뉴에서 **응용 프로그램 사용 권한**의 **디렉터리 데이터 읽기 및 쓰기** 사용 권한을 선택하고 **저장**을 클릭합니다.
+5. 마지막으로 필수 사용 권한 메뉴로 돌아가서 **사용 권한 부여** 단추를 클릭합니다.
 
 이제 B2C 테넌트에서 사용자를 만들기, 읽기 및 업데이트하는 권한을 가진 응용 프로그램이 있습니다.
 

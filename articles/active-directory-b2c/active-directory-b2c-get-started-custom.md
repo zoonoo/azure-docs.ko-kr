@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1cc36d1fd40121fed23ab6a84429a303690c2726
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책 시작
@@ -31,7 +31,8 @@ ms.lasthandoff: 06/08/2017
 
 계속하기 전에 모든 사용자, 응용 프로그램, 정책 등을 위한 컨테이너인 Azure AD B2C 테넌트가 있어야 합니다. 아직 없으면 [Azure AD B2C 테넌트를 만들어야 합니다](active-directory-b2c-get-started.md). 계속하기 전에 모든 개발자가 Azure AD B2C 기본 제공 정책 연습을 완료하고 기본 제공 정책으로 응용 프로그램을 구성하는 것이 좋습니다. 정책 이름을 약간 변경하여 사용자 지정 정책을 호출하면 응용 프로그램이 두 유형의 정책 모두에서 작동합니다.
 
-사용자 지정 정책 편집에 액세스하려면 테넌트와 연결된 유효한 Azure 구독이 있어야 합니다.
+>[!NOTE]
+>사용자 지정 정책 편집에 액세스하려면 테넌트와 연결된 유효한 Azure 구독이 있어야 합니다. [Azure AD B2C 테넌트를 Azure 구독에 연결](active-directory-b2c-how-to-enable-billing.md)하지 않았거나 Azure 구독을 사용할 수 없는 경우 ID 경험 프레임워크 단추를 사용할 수 없습니다.
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>사용자 지정 정책에서 사용하도록 B2C 테넌트에 서명 및 암호화 키 추가
 
@@ -83,8 +84,8 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
    * **로그온 URL**에는 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트 도메인 이름입니다.
 5. **만들기**를 선택합니다.
 6. 만들어졌으면 새로 만든 **IdentityExperienceFramework** 응용 프로그램을 선택합니다.<br>
-   a. **속성**을 선택합니다.<br>
-   b. 응용 프로그램 ID를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
+   * **속성**을 선택합니다.<br>
+   * 응용 프로그램 ID를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 응용 프로그램 만들기
 
@@ -95,8 +96,8 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
    * **리디렉션 URI**에는 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트입니다.
 1. **만들기**를 선택합니다.
 1. 만들어졌으면 **ProxyIdentityExperienceFramework** 응용 프로그램을 선택합니다.<br>
-   a. **속성**을 선택합니다. <br>
-   b. 응용 프로그램 ID를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
+   * **속성**을 선택합니다. <br>
+   * 응용 프로그램 ID를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
 1. **필요한 권한**을 선택합니다.
 1. **추가**를 선택합니다.
 1. **API 선택**을 선택합니다.
@@ -117,10 +118,10 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
 
 * 정책의 [기본 파일](active-directory-b2c-overview-custom.md#policy-files) - 기본 파일에 몇 가지 수정이 필요합니다.
 * 정책의 [확장 파일](active-directory-b2c-overview-custom.md#policy-files) -  이 파일은 구성이 대부분 변경되었습니다.
-* [신뢰 당사자 파일](active-directory-b2c-overview-custom.md#policy-files) - 응용 프로그램에서 호출하는 작업 관련 파일입니다.
+* [신뢰 당사자 파일](active-directory-b2c-overview-custom.md#policy-files)은 응용 프로그램에서 호출하는 작업 관련 파일입니다.
 
 >[!NOTE]
->XML 편집기에서 유효성 검사를 지원하는 경우 시작 팩의 루트 디렉터리에 있는 TrustFrameworkPolicy_0.3.0.0.xsd XML 스키마 파일에 대해 파일의 유효성을 검사할 수도 있습니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
+>XML 편집기에서 유효성 검사를 지원하는 경우 시작 팩의 루트 디렉터리에 있는 TrustFrameworkPolicy_0.3.0.0.xsd XML 스키마에 대해 파일의 유효성을 검사합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
 
  이제 시작하겠습니다.
 
@@ -166,7 +167,7 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
 
 1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환하고 **Azure AD B2C** 블레이드를 엽니다.
 2. **ID 경험 프레임워크**를 선택합니다.
-3. **정책 업로드**를 선택하여 정책 파일을 업로드합니다.
+3. **정책 업로드**를 선택합니다.
 
     >[!WARNING]
     >다음과 같은 순서로 사용자 지정 정책 파일을 업로드해야 합니다.

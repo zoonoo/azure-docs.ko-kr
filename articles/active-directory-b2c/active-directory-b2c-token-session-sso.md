@@ -1,27 +1,28 @@
 ---
-title: "Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성 | Microsoft Docs"
+title: "토큰, 세션 및 Single Sign-On 구성 - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성
+
 이 기능은 다음의 [정책별](active-directory-b2c-reference-policies.md)세분화된 제어를 제공합니다.
 
 1. Azure AD(Azure Active Directory) B2C에서 내보낸 보안 토큰의 수명.
@@ -29,21 +30,22 @@ ms.lasthandoff: 08/08/2017
 3. Azure AD B2C에서 내보낸 보안 토큰의 중요한 클레임 형식
 4. B2C 테넌트에 있는 여러 앱 및 정책의 SSO(Single Sign-On) 동작.
 
-다음과 같이 B2C 테넌트에서 이 기능을 사용할 수 있습니다.
+기본 제공 정책의 경우 다음과 같이 Azure AD B2C 디렉터리에서 이 기능을 사용할 수 있습니다.
 
-1. 다음 단계에 따라 [Azure Portal의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
-2. **로그인 정책**을 클릭합니다. *참고: **로그인 정책**뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다*.
-3. 클릭하여 정책을 엽니다. 예를 들어 **B2C_1_SiIn**을 클릭합니다.
-4. 블레이드 위쪽에서 **편집** 을 클릭합니다.
+1. 다음 단계에 따라 Azure Portal의 [B2C 기능 메뉴로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+2. **등록 또는 로그인 정책**을 클릭합니다. *참고: **등록 또는 로그인 정책**뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다*.
+3. 클릭하여 정책을 엽니다. 예를 들어 **B2C_1_SiUpIn**을 클릭합니다.
+4. 메뉴 위쪽에서 **편집**을 클릭합니다.
 5. **토큰, 세션 및 Single Sign-On 구성**을 클릭합니다.
 6. 원하는 변경 사항을 적용합니다. 이후 섹션에서 사용할 수 있는 속성에 대해 알아봅니다.
 7. **확인**을 클릭합니다.
-8. 블레이드 맨 위의 **저장**을 클릭합니다.
+8. 메뉴 위쪽에서 **저장**을 클릭합니다.
 
 ## <a name="token-lifetimes-configuration"></a>토큰 수명 구성
+
 Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하도록 [OAuth 2.0 권한 부여 프로토콜](active-directory-b2c-reference-protocols.md)을 지원합니다. 이 지원을 구현하기 위해 Azure AD B2C는 다양한 [보안 토큰](active-directory-b2c-reference-tokens.md)을 내보냅니다. 다음은 Azure AD B2C에서 내보낸 보안 토큰의 수명을 관리하는 데 사용할 수 있는 속성입니다.
 
-* **액세스 및 ID 토큰 수명(분)**: OAuth 2.0 전달자 토큰의 수명은 보호된 리소스에 대한 액세스를 얻는 데 사용됩니다. Azure AD B2C는 이때 ID 토큰을 발급합니다. 이 값은 해당 지원을 추가하는 경우 액세스 토큰에도 적용됩니다.
+* **액세스 및 ID 토큰 수명(분)**: OAuth 2.0 전달자 토큰의 수명은 보호된 리소스에 대한 액세스를 얻는 데 사용됩니다.
   * 기본값: 60분.
   * 최소(포함) = 5분.
   * 최대(포함) = 1440분.
@@ -67,6 +69,7 @@ Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하�
     > 
 
 ## <a name="token-compatibility-settings"></a>토큰 호환성 설정
+
 Azure AD B2C에서 내보낸 보안 토큰에서 중요한 클레임에 대한 형식을 변경했습니다. 이는 표준 프로토콜 지원을 개선하고 타사 ID 라이브러리와의 상호 운용성을 향상시키기 위해 수행되었습니다. 그러나 기존 앱을 손상시키지 않기 위해 고객이 필요에 따라 옵트인할 수 있도록 다음과 같은 속성을 만들었습니다.
 
 * **발급자(iss) 클레임**: 토큰을 발급한 Azure AD B2C 테넌트를 식별합니다.
@@ -80,6 +83,7 @@ Azure AD B2C에서 내보낸 보안 토큰에서 중요한 클레임에 대한 �
   * **acr**: 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 `tfp`로 전환하는 것이 좋습니다.
 
 ## <a name="session-behavior"></a>세션 동작
+
 Azure AD B2C는 웹 응용 프로그램에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](active-directory-b2c-reference-oidc.md)을 지원합니다. 다음은 웹 응용 프로그램 세션을 관리하는 데 사용할 수 있는 속성입니다.
 
 * **웹앱 세션 수명(분)**: 인증 성공 시 사용자의 브라우저에 저장된 Azure AD B2C 세션 쿠키의 수명입니다.

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 25ad960e456d20a3695d4245ddddc9772cbf47a0
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
@@ -46,7 +46,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
 **simulated-device**: IoT Hub에 연결되고, **lockDoor** 직접 메서드를 구현하고, 원하는 속성 변경 내용을 처리합니다.
 
-**schedule-jobs: 작업을 사용하여 **lockDoor** 직접 메서드를 호출하고 여러 장치에서 장치 쌍의 원하는 속성을 업데이트합니다.
+**schedule-jobs** 작업을 사용하여 **lockDoor** 직접 메서드를 호출하고 여러 장치에서 장치 쌍의 원하는 속성을 업데이트합니다.
 
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 문서는 장치 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.

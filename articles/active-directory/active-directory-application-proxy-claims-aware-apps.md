@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>응용 프로그램 프록시에서 클레임 인식 앱으로 작업
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/07/2017
 
 ### <a name="option-1-custom-domains"></a>옵션 1: 사용자 지정 도메인
 
-응용 프로그램에 대한 모든 내부 URL이 FQDN(정규화된 도메인 이름)인 경우 응용 프로그램에 대한 [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 구성할 수 있습니다. 사용자 지정 도메인을 사용하여 내부 URL과 동일한 외부 URL을 만듭니다. 이 구성을 사용하면 STS가 만드는 리디렉션이 사용자가 온-프레미스 또는 원격인지 관계 없이 동일하게 작동합니다. 
+응용 프로그램에 대한 모든 내부 URL이 FQDN(정규화된 도메인 이름)인 경우 응용 프로그램에 대한 [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 구성할 수 있습니다. 사용자 지정 도메인을 사용하여 내부 URL과 동일한 외부 URL을 만듭니다. 외부 URL이 내부 URL과 일치하는 경우 사용자가 온-프레미스 또는 원격인지 관계 없이 STS 리디렉션이 작동합니다. 
 
 ### <a name="option-2-ws-federation"></a>옵션 2: WS-Federation
 

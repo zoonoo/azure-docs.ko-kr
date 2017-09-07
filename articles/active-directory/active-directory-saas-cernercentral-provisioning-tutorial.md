@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 8f9c3fa677a93be109bcf423af651a5cd91c7679
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -105,9 +105,9 @@ Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 
 
    * **테넌트 URL** 필드에 아래 형식으로 URL을 입력합니다. 여기서 "User-Roster-Realm-ID"를 4단계에서 획득한 영역 ID로 바꿉니다.
 
-> 샌드박스: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/Users 
+> 샌드박스: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> 프로덕션: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/Users 
+> 프로덕션: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * **비밀 토큰** 필드에 3단계에서 생성한 OAuth 전달자 토큰을 입력하고 **연결 테스트**를 클릭합니다.
 

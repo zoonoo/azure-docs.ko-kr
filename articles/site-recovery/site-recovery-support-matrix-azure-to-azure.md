@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/21/2017
 
 **사용자 인터페이스** |  **지원됨/지원되지 않음**
 --- | ---
-**Azure Portal** | 지원됨
+**Azure 포털** | 지원됨
 **클래식 포털** | 지원되지 않음
 **PowerShell** | 현재 지원되지 않음
 **REST API** | 현재 지원되지 않음
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/21/2017
 
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
-**클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. 리소스 관리자 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
+**클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
 **리소스 관리자** | 지원됨 |
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
@@ -73,12 +73,15 @@ ms.lasthandoff: 08/21/2017
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
+
+복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다.
 
 >[!NOTE]
 >
@@ -90,7 +93,9 @@ ms.lasthandoff: 08/21/2017
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-125-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-83-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-83-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-27-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Linux OS를 실행하는 Azure Virtual Machines에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -114,7 +119,7 @@ ms.lasthandoff: 08/21/2017
 > 브라질 남부 지역의 경우 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2 및 미국 중북부 지역 중 하나로만 복제 및 장애 조치(failover)하고 장애 복구(failback)할 수 있습니다.
 
 
-## <a name="support-for-compute-configuration"></a>Compute 구성 지원
+## <a name="support-for-compute-configuration"></a>계산 구성 지원
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
@@ -127,7 +132,7 @@ Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에�
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recovery를 사용하여 Azure에 마이그레이션된 VMware/물리적 컴퓨터인 경우 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
 
-## <a name="support-for-storage-configuration"></a>Storage 구성 지원
+## <a name="support-for-storage-configuration"></a>저장소 구성 지원
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
@@ -161,8 +166,8 @@ NIC(네트워크 인터페이스) | 특정 Azure VM 크기에서 지원되는 �
 인터넷 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결해야 합니다.
 내부 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결해야 합니다.
 공용 IP| 지원됨 | 기존 공용 IP를 NIC에 연결하거나, 복구 계획에서 Azure Automation 스크립트를 사용하여 공용 IP를 만들어 NIC에 연결해야 합니다.
-NIC의 NSG(리소스 관리자)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.  
-서브넷의 NSG(리소스 관리자 및 클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
+NIC의 NSG(Resource Manager)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.  
+서브넷의 NSG(Resource Manager 및 클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 VM의 NSG(클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 예약된 IP(고정 IP)/원본 IP 유지 | 지원됨 | 원본 VM의 NIC에 고정 IP 구성이 있고 대상 서브넷에서 동일한 IP를 사용할 수 있는 경우 해당 IP가 장애 조치 VM에 할당됩니다. 대상 서브넷에서 동일한 IP를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 중 하나가 이 VM용으로 예약됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
 동적 IP| 지원됨 | 원본 VM의 NIC에 동적 IP 구성이 있는 경우 장애 조치 VM의 NIC도 기본적으로 동적으로 설정됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.

@@ -4,7 +4,7 @@ description: "Linux의 Azure App Service Web App에 대한 FAQ"
 keywords: "Azure App Service, 웹앱, faq, linux, oss"
 services: app-service
 documentationCenter: 
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 6122f28b35d143ec26a379ae9aa8aee9bdaaff9e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -51,6 +51,10 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **A:** 예, SCM 사이트를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [Linux의 웹앱에 대한 SSH 지원](./app-service-linux-ssh-support.md) 문서를 참조하세요.
 
+**Q:** SDK 또는 ARM 템플릿을 통해 Linux App Service 계획을 만들려고 합니다. 어떻게 할 수 있을까요?
+
+**A:** App Service의 `reserved` 필드를 `true`로 설정해야 합니다.
+
 ## <a name="continuous-integrationdeployment"></a>지속적인 통합/배포
 
 **Q:** Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합/배포를 지원하나요?
@@ -80,6 +84,14 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 **Q:** 나만의 사용자 지정 컨테이너를 사용하고 있습니다. 앱이 `\home\` 디렉터리에 상주하는데 [SCM 사이트](https://github.com/projectkudu/kudu) 또는 FTP 클라이언트를 사용하여 콘텐츠를 찾아볼 때 파일을 찾을 수 없습니다. 내 파일은 어디에 있나요?
 
 **A:** `\home\` 디렉터리에 SMB 공유를 탑재합니다. 포함된 모든 콘텐츠를 재정의합니다.
+
+**Q:** 나만의 사용자 지정 컨테이너를 사용하고 있습니다. 플랫폼에서 `\home\`에 SMB 공유를 탑재하지 않으려고 합니다.
+
+**A:** `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 앱 설정을 `false`로 설정하여 수행할 수 있습니다.
+
+**Q:** 내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.
+
+**A:** 컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값(초)으로 설정하여 이 작업을 수행할 수 있습니다. 기본값은 230초이고 최대값은 600초입니다.
 
 **Q:** 개인 레지스트리 서버 URL의 형식은 무엇인가요?
 
@@ -127,7 +139,6 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux에서 Azure Web App이란?](app-service-linux-intro.md)
-* [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Linux의 Azure Web App에 대한 SSH 지원](./app-service-linux-ssh-support.md)
 * [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
 * [Linux에서 Azure 웹앱을 사용한 연속 배포](./app-service-linux-ci-cd.md)

@@ -4,7 +4,7 @@ description: "Azure CLI를 사용하여 Linux에서 웹앱 관리"
 keywords: "azure app service, 웹앱, cli, linux, oss"
 services: app-service
 documentationCenter: 
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: e0c913ef50db3572940928d9f739e26994c96981
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 04aceecf0cb4cad5c838b7254bf7079a36bbd0d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -48,6 +48,14 @@ az appservice plan create -n appname -g rgname --islinux -l "South Central US" -
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
+```
+ 
+## <a name="activate-the-docker-container-logging"></a>Docker 컨테이너 로깅 활성화
+
+Docker 컨테이너 로깅을 활성화하려면 다음 명령을 사용하면 됩니다.
+
+```azurecli-interactive
+az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
  
 ## <a name="change-the-custom-docker-container-for-an-existing-web-app-on-linux-app"></a>Linux 앱에서 기존 웹앱에 대한 사용자 지정 Docker 컨테이너 변경
@@ -103,7 +111,6 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Linux에서 Azure Web App이란?](app-service-linux-intro.md)
 * [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../cloud-shell/overview.md)
-* [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
 * [Linux에서 Azure 웹앱을 사용한 연속 배포](./app-service-linux-ci-cd.md)
 

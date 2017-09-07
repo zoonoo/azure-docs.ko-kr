@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: a0414648dc6cecf4a502f7efa75adbcb1456a8b4
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
@@ -77,7 +76,8 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 예제:
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### <a name="common-causes"></a>일반적인 원인
@@ -88,7 +88,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
     작동 조건에 대한 작업 시간 제한이 너무 작을 수도 있습니다. 클라이언트 SDK에서 작업 시간 제한에 대한 기본값은 60초입니다. 코드의 값이 너무 작은 값으로 설정되었는지 확인합니다. CPU 사용 및 네트워크의 상태는 작업을 완료하는 데 걸리는 시간에 영향을 줄 수 있습니다. 작업 시간 초과를 매우 작은 값으로 설정하는 것이 좋습니다.
 *   **일시적인 서비스 오류**
 
-    경우에 따라 릴레이에서 요청을 처리하는 데 지연이 발생할 수 있습니다. 예를 들어 트래픽이 높은 경우 발생할 수 있습니다. 이러한 경우 작업이 성공할 때까지 지연 후 작업을 다시 시도할 수 있습니다. 동일한 작업을 여러 번 시도한 후에도 계속 실패하는 경우 알려진 서비스 중단이 있는지 확인하기 위해 [Azure 서비스 상태 사이트](https://azure.microsoft.com/status/)를 확인하세요.
+    경우에 따라 릴레이 서비스에서 요청을 처리하는 데 지연이 발생할 수 있습니다. 예를 들어 트래픽이 높은 경우 발생할 수 있습니다. 이러한 경우 작업이 성공할 때까지 지연 후 작업을 다시 시도할 수 있습니다. 동일한 작업을 여러 번 시도한 후에도 계속 실패하는 경우 알려진 서비스 중단이 있는지 확인하기 위해 [Azure 서비스 상태 사이트](https://azure.microsoft.com/status/)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Relay FAQ](relay-faq.md)

@@ -1,7 +1,7 @@
 ---
 title: "Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs"
 description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록"
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
 editor: 
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/05/2017
-ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
+ms.date: 8/24/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 51255244a286fe1aed75b342e6a9b8d4681a1979
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
@@ -74,6 +74,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ShortParsingIdleThreads|스레드: 짧은 구문 분석 유휴 상태 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
 |ShortParsingJobQueueLength|스레드: 짧은 구문 분석 작업 큐 길이|개수|평균|짧은 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
 |memory_thrashing_metric|메모리 쓰래싱|백분율|평균|평균 메모리 쓰래싱입니다.|
+|mashup_engine_qpu_metric|M 엔진 QPU|개수|평균|매시업 엔진 프로세스별 QPU 사용량|
+|mashup_engine_memory_metric|M 엔진 메모리|바이트|평균|매시업 엔진 프로세스별 메모리 사용량|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -84,6 +86,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |UnauthorizedRequests|허가되지 않은 게이트웨이 요청|개수|합계|허가되지 않은 게이트웨이 요청 수|
 |FailedRequests|실패한 게이트웨이 요청|개수|합계|게이트웨이 요청 실패 수|
 |OtherRequests|기타 게이트웨이 요청|개수|합계|기타 게이트웨이 요청 수|
+|기간|게이트웨이 요청의 전체 기간|밀리초|평균, 최대값|게이트웨이 요청의 전체 기간(밀리초)|
+|용량|용량(미리 보기)|백분율|평균, 최대값|ApiManagement 서비스에 대한 사용률 메트릭|
+
+## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|TotalJob|총 작업 수|개수|합계|총 작업 수|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -284,6 +294,30 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cacheRead9|캐시 읽기(분할 9)|초당 바이트 수|최대||
 |percentProcessorTime9|CPU(분할 9)|백분율|최대||
 
+## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율.|
+|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|
+|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|
+|디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|
+|디스크 쓰기 바이트/초|디스크 쓰기|초당 바이트 수|평균|모니터링 기간 동안 디스크에 쓴 평균 바이트.|
+|디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|
+|디스크 쓰기 작업/초|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS.|
+
+## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율.|
+|네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|
+|네트워크 아웃|네트워크 아웃|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 내보낸(나가는 트래픽) 바이트 수.|
+|디스크 읽기 바이트/초|디스크 읽기|초당 바이트 수|평균|모니터링 기간 동안 디스크에서 읽은 평균 바이트.|
+|디스크 쓰기 바이트/초|디스크 쓰기|초당 바이트 수|평균|모니터링 기간 동안 디스크에 쓴 평균 바이트.|
+|디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS.|
+|디스크 쓰기 작업/초|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS.|
+
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
@@ -374,6 +408,16 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |JobAUEndedFailure|실패한 AU 시간|초|합계|실패한 작업에 대한 총 AU 시간입니다.|
 |JobAUEndedCancelled|취소된 AU 시간|초|합계|취소된 작업에 대한 총 AU 시간입니다.|
 
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|TotalStorage|총 저장소|바이트|최대|계정에 저장된 총 데이터 양.|
+|DataWritten|기록된 데이터|바이트|합계|계정에 기록된 총 데이터 양.|
+|DataRead|데이터 읽기|바이트|합계|계정에서 읽어 온 총 데이터 양.|
+|WriteRequests|쓰기 요청|개수|합계|계정에 데이터 쓰기 요청 수.|
+|ReadRequests|읽기 요청|개수|합계|계정에 데이터 읽기 요청 수.|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
@@ -428,6 +472,10 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |d2c.endpoints.latency.serviceBusTopics|Service Bus 항목 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|
 |d2c.endpoints.egress.builtIn.events|기본 제공 끝점에 배달된 메시지(메시지/이벤트)|개수|합계|메시지가 기본 제공 끝점에 성공적으로 작성된 횟수(메시지/이벤트)|
 |d2c.endpoints.latency.builtIn.events|기본 제공 끝점에 대한 메시지 대기 시간(메시지/이벤트)|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 끝점(메시지.이벤트)에 대한 메시지 수신 간의 평균 대기 시간(밀리초) |
+|d2c.endpoints.egress.storage|저장소 끝점에 배달된 메시지|개수|합계|메시지가 저장소 끝점에 성공적으로 기록된 횟수|
+|d2c.endpoints.latency.storage|저장소 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 저장소 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|
+|d2c.endpoints.egress.storage.bytes|저장소에 기록된 데이터|바이트|합계|저장소 끝점에 기록된 데이터 양(바이트)|
+|d2c.endpoints.egress.storage.blobs|저장소에 기록된 Blob|개수|합계|저장소 끝점에 기록된 Blob 수|
 |d2c.twin.read.success|장치에서의 성공한 쌍 읽기|개수|합계|성공한 모든 장치 시작 쌍 읽기 수입니다.|
 |d2c.twin.read.failure|장치에서의 실패한 쌍 읽기|개수|합계|실패한 모든 장치 시작 쌍 읽기 수입니다.|
 |d2c.twin.read.size|장치에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 장치 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|
@@ -519,14 +567,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|처리량|처리량|초당 바이트 수|평균||
+|처리량|처리량|초당 바이트 수|평균|Application Gateway에서 제공하는 초당 바이트 수|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|BytesIn|BytesIn|개수|합계||
-|BytesOut|BytesOut|개수|합계||
+|BytesIn|BytesIn|개수|합계|Azure 수신 바이트|
+|BytesOut|BytesOut|개수|합계|Azure 송신 바이트|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -794,6 +842,41 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
 |FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
 |FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
+
+## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|요청|요청|개수|합계|요청|
+|BytesReceived|데이터 입력|바이트|합계|데이터 입력|
+|BytesSent|데이터 출력|바이트|합계|데이터 출력|
+|Http101|Http 101|개수|합계|Http 101|
+|Http2xx|Http 2xx|개수|합계|Http 2xx|
+|Http3xx|Http 3xx|개수|합계|Http 3xx|
+|Http401|Http 401|개수|합계|Http 401|
+|Http403|Http 403|개수|합계|Http 403|
+|Http404|Http 404|개수|합계|Http 404|
+|Http406|Http 406|개수|합계|Http 406|
+|Http4xx|Http 4xx|개수|합계|Http 4xx|
+|Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
+|AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
+|CpuPercentage|CPU 비율|백분율|평균|CPU 비율|
+|MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|
+|DiskQueueLength|디스크 큐 길이|개수|합계|디스크 큐 길이|
+|HttpQueueLength|Http 큐 길이|개수|합계|Http 큐 길이|
+|ActiveRequests|활성 요청|개수|합계|활성 요청|
+|TotalFrontEnds|총 프런트 엔드|개수|평균|총 프런트 엔드|
+|SmallAppServicePlanInstances|소형 App Service 계획 작업자|개수|평균|소형 App Service 계획 작업자|
+|MediumAppServicePlanInstances|중형 App Service 계획 작업자|개수|평균|중형 App Service 계획 작업자|
+|LargeAppServicePlanInstances|대형 App Service 계획 작업자|개수|평균|대형 App Service 계획 작업자|
+
+## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|WorkersTotal|총 작업자|개수|평균|총 작업자|
+|WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|
+|WorkersUsed|사용된 작업자|개수|평균|사용된 작업자|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)

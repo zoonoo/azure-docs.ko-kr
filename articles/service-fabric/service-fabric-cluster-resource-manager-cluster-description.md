@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 369389f7f8ce56435dcbb9d9264c2db48a294d55
+ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
+ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
 # <a name="describing-a-service-fabric-cluster"></a>서비스 패브릭 클러스터 설명
-Service Fabric 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 리소스 관리자는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장합니다. 이러한 주요 규칙을 적용하는 동시에 클러스터의 리소스 사용도 최적화되도록 시도합니다.
+서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 Resource Manager는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장합니다. 이러한 주요 규칙을 적용하는 동시에 클러스터의 리소스 사용도 최적화되도록 시도합니다.
 
 ## <a name="key-concepts"></a>주요 개념
-클러스터 리소스 관리자는 클러스터를 설명하는 다음과 같은 몇 가지 기능을 지원합니다.
+클러스터 Resource Manager는 클러스터를 설명하는 다음과 같은 몇 가지 기능을 지원합니다.
 
 * 장애 도메인
 * 업그레이드 도메인
@@ -53,7 +53,7 @@ Service Fabric이 이러한 정보를 사용하여 서비스를 안전하게 배
 
 런타임에 Service Fabric 클러스터 리소스 관리자는 클러스터의 장애 도메인을 고려하여 레이아웃을 계획합니다. 지정된 서비스에 대한 상태 저장 복제본 또는 상태 비저장 인스턴스가 별도의 장애 도메인에 있도록 분산됩니다. 장애 도메인을 통해 서비스를 분산하면 장애 도메인이 모든 계층 수준에서 실패할 때 서비스의 가용성이 손상되지 않습니다.
 
-Service Fabric의 클러스터 리소스 관리자는 장애 도메인 계층 구조에 있는 계층 수를 고려하지 않습니다. 그러나 계층 구조의 일부가 손실되어도 실행되는 서비스에 영향을 주지 않도록 보장하려고 합니다. 
+Service Fabric의 Cluster Resource Manager는 장애 도메인 계층 구조에 있는 계층 수를 고려하지 않습니다. 그러나 계층 구조의 일부가 손실되어도 실행되는 서비스에 영향을 주지 않도록 보장하려고 합니다. 
 
 장애 도메인 계층 구조의 각 수준에서 노드 수가 동일한 것이 가장 좋습니다. 장애 도메인의 "트리"가 클러스터에서 분산되지 않은 경우 클러스터 리소스 관리자에서 최상의 서비스 재할당을 계산하기가 더 어려워집니다. 분산되지 않은 오류 도메인 레이아웃은 일부 도메인의 손실이 다른 도메인보다 서비스 가용성에 더 많은 영향을 미친다는 것을 의미합니다. 결과적으로 클러스터 리소스 관리자는 두 가지 목표 사이에서 고민합니다. 즉 서비스를 배치하여 "사용량이 많은" 도메인의 컴퓨터를 사용하려고 하며, 도메인의 손실로 인해 문제가 발생하지 않도록 다른 도메인에 서비스를 배치하려고 합니다. 
 
@@ -97,7 +97,7 @@ Azure에서는 장애 도메인에 노드가 포함된 선택 항목이 사용�
 가장 일반적인 모델은 FD/UD 행렬이며, 여기서 FD와 UD는 테이블을 형성하고 노드는 대각선을 따라 배치됩니다. 이는 Azure의 Service Fabric 클러스터에서 기본적으로 사용되는 모델입니다. 노드가 많은 클러스터의 경우 위의 조밀한 행렬 패턴처럼 보입니다.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>장애 도메인 및 업그레이드 도메인 제약 조건 및 결과 동작
-클러스터 리소스 관리자는 장애 도메인 및 업그레이드 도메인에 분산된 서비스를 제약 조건으로 지정합니다. [이 문서](service-fabric-cluster-resource-manager-management-integration.md)에서 제약 조건에 대한 자세한 내용을 확인할 수 있습니다. 장애 도메인 및 업그레이드 도메인 제약 조건은 다음과 같습니다. "지정된 서비스 파티션에서 두 도메인 간의 서비스 개체(상태 비저장 서비스 인스턴스 또는 상태 저장 서비스 복제본) 수는 *1개 이상* 차이가 나지 않아야 합니다." 이렇게 하면 이 제약 조건을 위반하는 특정 이동 또는 배열을 방지합니다.
+Cluster Resource Manager는 장애 도메인 및 업그레이드 도메인에 분산된 서비스를 제약 조건으로 지정합니다. [이 문서](service-fabric-cluster-resource-manager-management-integration.md)에서 제약 조건에 대한 자세한 내용을 확인할 수 있습니다. 장애 도메인 및 업그레이드 도메인 제약 조건은 다음과 같습니다. "지정된 서비스 파티션에서 두 도메인 간의 서비스 개체(상태 비저장 서비스 인스턴스 또는 상태 저장 서비스 복제본) 수는 *1개 이상* 차이가 나지 않아야 합니다." 이렇게 하면 이 제약 조건을 위반하는 특정 이동 또는 배열을 방지합니다.
 
 한 가지 예를 살펴보겠습니다. 6개의 노드를 포함하며 5개의 장애 도메인과 5개의 업그레이드 도메인으로 구성된 클러스터가 있다고 가정해 보겠습니다.
 
@@ -135,7 +135,7 @@ Azure에서는 장애 도메인에 노드가 포함된 선택 항목이 사용�
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-이 레이아웃은 장애 도메인 제약 조건에 대한 정의를 위반합니다. FD0에는 두 개의 복제본이 있는 반면 FD1에는 없으며 FD0 및 FD1이라는 총 두 번의 차이가 발생하게 됩니다. 클러스터 리소스 관리자는 이 정렬을 허용하지 않습니다. 마찬가지로 N2 및 N6(N1 및 N2 대신)을 선택한 경우 다음에서 얻을 수 있습니다.
+이 레이아웃은 장애 도메인 제약 조건에 대한 정의를 위반합니다. FD0에는 두 개의 복제본이 있는 반면 FD1에는 없으며 FD0 및 FD1이라는 총 두 번의 차이가 발생하게 됩니다. Cluster Resource Manager는 이 정렬을 허용하지 않습니다. 마찬가지로 N2 및 N6(N1 및 N2 대신)을 선택한 경우 다음에서 얻을 수 있습니다.
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -313,7 +313,7 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다. 
+독립 실행형 배포의 경우 ClusterConfig.json, Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다. 
 
 > [!NOTE]
 > Azure 리소스 관리자 템플릿에서 노드 형식은 대개 매개 변수화됩니다. "NodeType01" 대신 "[parameters('vmNodeType1Name')]"와 비슷합니다.
@@ -380,12 +380,12 @@ Service Fabric은 리소스를 `Metrics`으로 나타냅니다. 메트릭은 서
 
 메트릭은 배치 제약 조건 및 노드 속성이 서로 다릅니다. 노드 속성은 노드 자체의 정적 설명자입니다. 메트릭은 노드에 있고 노드에서 실행될 때 서비스에서 사용하는 리소스를 설명합니다. 노드 속성은 "HasSSD"일 수 있고 true 또는 false로 설정될 수 있습니다. 해당 SSD에서 사용할 수 있는 공간의 양과 서비스에서 사용되는 양은 "DriveSpaceInMb"와 같은 메트릭일 수 있습니다. 
 
-배치 제약 조건 및 노드 속성의 경우와 같이 Service Fabric 클러스터 리소스 관리자가 메트릭 이름의 의미를 이해하지 못한다는 점에 유의합니다. 메트릭 이름은 단순한 문자열입니다. 만든 메트릭 이름이 모호할 경우 단위를 그 일부로 선언하는 것이 좋습니다.
+배치 제약 조건 및 노드 속성의 경우와 같이 Service Fabric Cluster Resource Manager가 메트릭 이름의 의미를 이해하지 못한다는 점에 유의합니다. 메트릭 이름은 단순한 문자열입니다. 만든 메트릭 이름이 모호할 경우 단위를 그 일부로 선언하는 것이 좋습니다.
 
 ## <a name="capacity"></a>용량
-모든 리소스 *분산*을 해제한 경우에도 Service Fabric의 클러스터 리소스 관리자는 여전히 노드가 해당 용량을 초과하지 않도록 합니다. 클러스터가 가득 차지 않았거나 워크로드가 어떤 노드보다 크지 않으면 용량 초과를 관리할 수 있습니다. 용량은 클러스터 리소스 관리자가 노드에 있는 리소스의 양을 이해하기 위해 사용하는 또 다른 *제약 조건*입니다. 전체 클러스터에 대해 남은 용량을 추적합니다. 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭이 "ClientConnections"이고 지정된 노드에 대한 "ClientConnections" 용량이 32768일 수 있습니다. 다른 노드에는 다른 제한이 있을 수 있습니다. 해당 노드에서 실행 중인 어떤 서비스에서 현재 "ClientConnections" 메트릭 중 32256을 사용하고 있다고 말할 수 있습니다.
+모든 리소스 *분산*을 해제한 경우에도 Service Fabric의 클러스터 리소스 관리자는 여전히 노드가 해당 용량을 초과하지 않도록 합니다. 클러스터가 가득 차지 않았거나 워크로드가 어떤 노드보다 크지 않으면 용량 초과를 관리할 수 있습니다. 용량은 Cluster Resource Manager가 노드에 있는 리소스의 양을 이해하기 위해 사용하는 또 다른 *제약 조건*입니다. 전체 클러스터에 대해 남은 용량을 추적합니다. 서비스 수준에서 용량과 소비량은 메트릭을 기준으로 표현됩니다. 예를 들어 메트릭이 "ClientConnections"이고 지정된 노드에 대한 "ClientConnections" 용량이 32768일 수 있습니다. 다른 노드에는 다른 제한이 있을 수 있습니다. 해당 노드에서 실행 중인 어떤 서비스에서 현재 "ClientConnections" 메트릭 중 32256을 사용하고 있다고 말할 수 있습니다.
 
-런타임 중에 클러스터 리소스 관리자는 클러스터 및 노드에서 남아 있는 용량을 추적합니다. 용량을 추적하기 위해 클러스터 리소스 관리자는 서비스에서 실행되는 노드의 용량에서 각 서비스의 사용량을 뺍니다. 이 정보를 통해 Service Fabric 클러스터 리소스 관리자는 노드가 용량을 초과하지 않도록 복제본을 배치하거나 이동시킬 위치를 결정할 수 있습니다.
+런타임 중에 클러스터 리소스 관리자는 클러스터 및 노드에서 남아 있는 용량을 추적합니다. 용량을 추적하기 위해 클러스터 리소스 관리자는 서비스에서 실행되는 노드의 용량에서 각 서비스의 사용량을 뺍니다. 이 정보를 통해 Service Fabric Cluster Resource Manager는 노드가 용량을 초과하지 않도록 복제본을 배치하거나 이동시킬 위치를 결정할 수 있습니다.
 
 <center>
 ![클러스터 노드 및 용량][Image7]
@@ -422,7 +422,7 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다. 
+독립 실행형 배포의 경우 ClusterConfig.json, Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다. 
 
 ```json
 "nodeTypes": [
@@ -435,10 +435,10 @@ ClusterManifest.xml
 ],
 ```
 
-일반적으로 서비스의 로드는 동적으로 변경됩니다. 복제본의 "ClientConnections"로드가 1024에서 2048로 변경되었지만, 실행 중인 노드에는 해당 메트릭에 대해 512 용량만 남아 있습니다. 이제 해당 노드에 있는 충분한 공간이 없기 때문에 해당 복제본 또는 인스턴스의 배치가 유효하지 않습니다. 클러스터 리소스 관리자가 시작되고 노드를 용량 이하로 다시 가져와야 합니다. 하나 이상의 복제본 또는 인스턴스를 해당 노드에서 다른 노드로 이동하여 용량을 초과한 노드의 로드를 줄입니다. 복제본을 이동하는 경우 클러스터 리소스 관리자에서는 이러한 움직임의 비용을 최소화하려고 합니다. 이동 비용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)에서 설명하고, 클러스터 리소스 관리자의 재분산 전략 및 규칙에 대한 자세한 내용은 [여기](service-fabric-cluster-resource-manager-metrics.md)에서 설명하고 있습니다.
+일반적으로 서비스의 로드는 동적으로 변경됩니다. 복제본의 "ClientConnections"로드가 1024에서 2048로 변경되었지만, 실행 중인 노드에는 해당 메트릭에 대해 512 용량만 남아 있습니다. 이제 해당 노드에 있는 충분한 공간이 없기 때문에 해당 복제본 또는 인스턴스의 배치가 유효하지 않습니다. 클러스터 리소스 관리자가 시작되고 노드를 용량 이하로 다시 가져와야 합니다. 하나 이상의 복제본 또는 인스턴스를 해당 노드에서 다른 노드로 이동하여 용량을 초과한 노드의 로드를 줄입니다. 복제본을 이동하는 경우 Cluster Resource Manager에서는 이러한 움직임의 비용을 최소화하려고 합니다. 이동 비용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)에서 설명하고, 클러스터 리소스 관리자의 재분산 전략 및 규칙에 대한 자세한 내용은 [여기](service-fabric-cluster-resource-manager-metrics.md)에서 설명하고 있습니다.
 
 ## <a name="cluster-capacity"></a>클러스터 용량
-그렇다면 Service Fabric 클러스터 리소스 관리자에서 전체 클러스터가 가득 차지 않도록 유지하는 방법은 어떨까요? 물론 동적 로드로 수행할 수 있는 작업은 많지 않습니다. 서비스에서는 클러스터 리소스 관리자에서 수행한 작업과 독립적으로 해당 부하가 급증할 수 있습니다. 즉, 오늘은 여유가 많은 클러스터가 내일은 수요가 많아져 전력이 부족해질 수 있습니다. 즉 문제를 방지하기 위해 변환된 몇 가지 컨트롤이 있습니다. 가장 먼저 할 수 있는 작업은 클러스터가 꽉 차도록 만드는 워크로드가 생성되지 않도록 하는 것입니다.
+그렇다면 Service Fabric 클러스터 리소스 관리자에서 전체 클러스터가 가득 차지 않도록 유지하는 방법은 어떨까요? 물론 동적 로드로 수행할 수 있는 작업은 많지 않습니다. 서비스에서는 Cluster Resource Manager에서 수행한 작업과 독립적으로 해당 부하가 급증할 수 있습니다. 즉, 오늘은 여유가 많은 클러스터가 내일은 수요가 많아져 전력이 부족해질 수 있습니다. 즉 문제를 방지하기 위해 변환된 몇 가지 컨트롤이 있습니다. 가장 먼저 할 수 있는 작업은 클러스터가 꽉 차도록 만드는 워크로드가 생성되지 않도록 하는 것입니다.
 
 상태 비저장 서비스를 만들고 여기에는 이 서비스와 연결되는 일부 로드가 있습니다. 서비스가 "DiskSpaceInMb" 메트릭을 고려하지 않는다고 가정해 봅니다. 서비스의 모든 인스턴스에 대해 5단위의 "DiskSpaceInMb"를 사용하게 된다고 가정하겠습니다. 3개의 서비스 인스턴스를 만들려고 합니다. 잘하셨습니다. 즉, 이러한 서비스 인스턴스를 만들기 위해서는 클러스터에서 15단위의 "DiskSpaceInMb"가 있어야 합니다. 클러스터 리소스 관리자에서 각 메트릭의 용량 및 사용량을 지속적으로 계산하여 클러스터에 남아 있는 용량을 결정할 수 있습니다. 공간이 충분하지 않으면 클러스터 리소스 관리자에서 서비스 만들기 호출을 거부합니다.
 
@@ -458,7 +458,7 @@ ClusterManifest.xml
         </Section>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다.
+독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json를 통해 수행됩니다.
 
 ```json
 "fabricSettings": [
@@ -517,10 +517,10 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 클러스터 리소스 관리자 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
+* Cluster Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
 * 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-* 처음부터 시작 및 [Service Fabric 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
-* 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
+* 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
+* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 이 문서에서는 .NET SDK를 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법을 보여 줍니다.
+
+.NET SDK를 사용하여 Azure HDInsight 클러스터에서 Hadoop 클러스터를 만드는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에서는 하나의 작업자 노드가 있는 클러스터를 만듭니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -39,14 +40,14 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure Storage 계정** [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+* **Azure Storage 계정** [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 * **Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017**
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
 1. Visual Studio 2017을 엽니다.
 2. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
-3. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+3. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
 4. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
 
     ```powershell
@@ -192,7 +193,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
     ```
 
 6. 클래스 멤버 값을 대체합니다.
-7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다. 일반적으로 15분 정도입니다.
+7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 일반적으로 15분 정도입니다.
 
 ## <a name="use-bootstrap"></a>부트스트랩 사용
 

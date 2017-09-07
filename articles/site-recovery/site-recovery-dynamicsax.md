@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
@@ -59,7 +58,7 @@ Azure Site Recovery를 사용하여 Dynamics AX 응용 프로그램을 위한 �
 **VMware** | 예 | 예
 **물리적 서버** | 예 | 예
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>ASR을 사용하여 Dynamics AX 응용 프로그램의 DR 사용
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 DR 사용
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 응용 프로그램 보호
 완전한 응용 프로그램 복제 및 복구를 위해서는 Dynamics AX의 각 구성 요소를 보호해야 합니다. 이 섹션에서는 다음을 설명합니다.
 
@@ -103,7 +102,7 @@ VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-rec
 ### <a name="4-configure-networking"></a>4. 네트워킹 구성
 VM 계산 및 네트워크 설정 구성
 
-AX 클라이언트 및 AOS VM의 경우 ASR에서 네트워크 설정을 구성하여 장애 조치(failover) 후에 VM 네트워크가 올바른 DR 네트워크에 연결되도록 합니다. 이러한 계층에 대한 DR 네트워크가 SQL 계층으로 라우팅할 수 있는지 확인합니다.
+AX 클라이언트 및 AOS VM의 경우 Azure Site Recovery에서 네트워크 설정을 구성하여 장애 조치(failover) 후에 VM 네트워크가 올바른 DR 네트워크에 연결되도록 합니다. 이러한 계층에 대한 DR 네트워크가 SQL 계층으로 라우팅할 수 있는지 확인합니다.
 
 아래 스냅숏에 나온 것처럼 복제 항목에서 VM을 선택하여 네트워크 설정을 구성할 수 있습니다.
 
@@ -115,9 +114,9 @@ AX 클라이언트 및 AOS VM의 경우 ASR에서 네트워크 설정을 구성�
 
 ### <a name="5-creating-a-recovery-plan"></a>5. 복구 계획 만들기
 
-ASR에서 복구 계획을 만들어 장애 조치(failover) 프로세스를 자동화할 수 있습니다. 복구 계획의 앱 계층 및 웹 계층을 추가합니다. 앱 계층 이전에 프런트 엔드가 종료되도록 다른 그룹으로 순서를 정합니다.
+Azure Site Recovery에서 복구 계획을 만들어 장애 조치(failover) 프로세스를 자동화할 수 있습니다. 복구 계획의 앱 계층 및 웹 계층을 추가합니다. 앱 계층 이전에 프런트 엔드가 종료되도록 다른 그룹으로 순서를 정합니다.
 
-1)  구독에서 ASR 자격 증명 모음을 선택하고 ‘복구 계획’ 타일을 클릭합니다.
+1)  구독에서 Azure Site Recovery 자격 증명 모음을 선택하고 ‘복구 계획’ 타일을 클릭합니다.
 
 2)  ‘+ 복구 계획’을 클릭하고 이름을 지정합니다.
 

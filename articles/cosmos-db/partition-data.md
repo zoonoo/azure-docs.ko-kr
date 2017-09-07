@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 9f341438fc0bf239f47ae87db70b067862652786
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -65,7 +65,7 @@ Cosmos DB는 해시 기반 분할을 사용합니다. 항목을 작성하는 경
 Azure Cosmos DB 컨테이너를 "고정" 또는 "무제한"으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 일부 API를 사용하면 고정된 크기의 컨테이너에서 파티션 키를 생략할 수 있습니다. 무제한으로 컨테이너를 만들려면 최소 처리량 2500RU/s를 지정해야 합니다.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>분할 및 프로비전된 처리량
-Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이너를 만들 때 **RU/m의 잠재적인 기능으로 초당 [요청 단위](request-units.md)(RU)** 측면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU, 메모리 및 IO 같은 시스템 리소스의 양에 비례하는 요청 단위 요금이 할당됩니다. 세션 일관성에 따라 1KB 문서를 읽을 경우 1RU(요청 단위)가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 항목의 크기가 클수록 크기에 따라 더 높은 요청 단위가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다. 
+Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이너를 만들 때 **초당 [RU(요청 단위)](request-units.md)** 면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU, 메모리 및 IO 같은 시스템 리소스의 양에 비례하는 요청 단위 요금이 할당됩니다. 세션 일관성에 따라 1KB 문서를 읽을 경우 1RU(요청 단위)가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 항목의 크기가 클수록 크기에 따라 더 높은 요청 단위가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다. 
 
 > [!NOTE]
 > 컨테이너의 전체 처리량을 달성하려면 다양한 파티션 키 값 간에 요청을 균등하게 분산시킬 수 있는 파티션 키를 선택해야 합니다.

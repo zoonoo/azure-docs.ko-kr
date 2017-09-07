@@ -3,7 +3,7 @@ title: "Azure Network Watcher를 사용하여 연결 확인 - PowerShell | Micro
 description: "이 페이지에서는 PowerShell을 사용하여 Network Watcher를 통해 연결을 테스트하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc

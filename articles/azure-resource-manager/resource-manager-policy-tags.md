@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="apply-resource-policies-for-tags"></a>태그에 대한 리소스 정책 적용
 
 이 항목에서는 리소스에서 태그의 일관된 사용을 확인하는 데 적용할 수 있는 일반적인 정책 규칙을 제공합니다.
 
-기존 리소스를 사용하는 리소스 그룹 또는 구독에 태그 정책을 적용하면 해당 리소스에 정책을 소급 적용하지 않습니다. [기존 리소스에 대한 업데이트 트리거](#trigger-updates-to-existing-resources)에 표시된 대로 해당 리소스에 대한 정책을 적용하려면 기존 리소스에 대한 업데이트를 트리거합니다.
+기존 리소스를 사용하는 리소스 그룹 또는 구독에 태그 정책을 적용하면 해당 리소스에 정책을 소급 적용하지 않습니다. 해당 리소스에 대한 정책을 적용하려면 기존 리소스에 대한 업데이트를 트리거합니다. 이 문서는 업데이트를 트리거하기 위해 PowerShell 예제를 포함합니다.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>리소스 그룹의 모든 리소스에 태그/값이 있는지 확인
 

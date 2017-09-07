@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
@@ -37,6 +37,9 @@ ms.lasthandoff: 08/17/2017
 
 > [!NOTE]
 > Azure Cosmos DB용 Power BI 커넥터는 데이터 추출 및 변환을 위해 Power BI Desktop에 연결합니다. Power BI Desktop에서 만든 보고서를 PowerBI.com에 게시할 수 있습니다. Azure Cosmos DB 데이터의 직접 추출 및 변환은 PowerBI.com에서 수행할 수 없습니다. 
+
+> [!NOTE]
+> MongoDB API를 사용하여 Azure Cosmos DB를 Power BI에 연결하려면 [Simba MongoDB ODBC 드라이버](http://www.simba.com/drivers/mongodb-odbc-jdbc/)를 사용해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
@@ -95,7 +98,7 @@ Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같�
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 데스크톱 연결 창](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **[읽기 전용 키](manage-account.md#keys)** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 데모 계정의 경우 키는 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`입니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
-    보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다.  이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Portal의 [키](manage-account.md#keys) 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.
+    보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다.  이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 [키](manage-account.md#keys) 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 계정 키](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
     
@@ -128,7 +131,7 @@ Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같�
    
     좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 좌표 목록](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. 좌표 배열을 평면화하기 위해 이름이 LatLong인 **사용자 지정 열**을 만듭니다.  **열 추가** 리본을 선택하고 **사용자 지정 열 추가**를 클릭합니다.  **사용자 지정 열 추가** 창이 나타납니다.
+7. 좌표 배열을 평면화하기 위해 이름이 LatLong인 **사용자 지정 열** 을 만듭니다.  **열 추가** 리본을 선택하고 **사용자 지정 열 추가**를 클릭합니다.  **사용자 지정 열 추가** 창이 나타납니다.
 8. LatLong 등, 새 열에 대한 이름을 입력합니다.
 9. 다음으로 새 열에 사용자 지정 수식을 지정합니다.  이 예에서는 `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`수식을 사용하여 쉼표로 구분하여 위도와 경도 값을 연결합니다. **확인**을 클릭합니다.
    
@@ -147,7 +150,7 @@ Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같�
 11. 이제 탭 형식으로 데이터를 평면화했습니다.  쿼리 편집기에서 사용 가능한 모든 기능을 활용하여 Cosmos DB에서 데이터를 형성 및 변환할 수 있습니다.  샘플을 사용하는 경우 **홈** 리본 메뉴에서 **데이터 형식**을 변경하여 상승의 데이터 형식을 **정수**로 변경합니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 열 형식 변경](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. **닫고 적용**을 클릭하여 데이터 모델을 저장합니다.
+12. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 닫기 및 적용](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -181,7 +184,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 1. Power BI 데스크톱에서 **홈** 리본을 클릭합니다.
 2. **게시**를 클릭합니다.  PowerBI.com 계정의 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 3. 자격 증명이 인증되면 보고서가 선택한 대상에 게시됩니다.
-4. **Power BI에서 'PowerBITutorial.pbix' 열기**를 클릭하여 PowerBI.com에서 보고서를 보고 공유합니다.
+4. **Power BI에서 'PowerBITutorial.pbix' 열기** 를 클릭하여 PowerBI.com에서 보고서를 보고 공유합니다.
    
     ![Power BI에 게시 성공! Power BI에서 자습서 열기](./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
@@ -209,7 +212,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 예약된 새로 고침의 경우 다음을 수행합니다.
 
-1. 작업 목록에서 **새로 고침 예약**을 클릭합니다. 
+1. 작업 목록에서 **새로 고침 예약** 을 클릭합니다. 
 
     ![PowerBI.com에서 새로 고침 예약의 스크린샷](./media/powerbi-visualize/power-bi-schedule-refresh.png)
 2. **설정** 페이지에서 **데이터 원본 자격 증명**을 확장합니다. 
@@ -217,8 +220,8 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
    
     구성 팝업이 나타납니다. 
 4. 키를 입력하여 해당 데이터 집합에 대한 Cosmos DB 계정에 연결한 다음 **로그인**을 클릭합니다. 
-5. **새로 고침 예약**을 확장하고 데이터 집합을 새로 고치려는 일정을 설정합니다. 
-6. **적용**을 클릭하고 예약된 새로 고침 설정을 완료합니다.
+5. **새로 고침 예약** 을 확장하고 데이터 집합을 새로 고치려는 일정을 설정합니다. 
+6. **적용** 을 클릭하고 예약된 새로 고침 설정을 완료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.

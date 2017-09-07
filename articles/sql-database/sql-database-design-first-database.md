@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/03/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -57,7 +57,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **데이터베이스** 페이지에서 **SQL Database**를 선택합니다. 
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **SQL Database** 아래에서 **만들기**를 선택합니다.
 
    ![빈 데이터베이스 만들기](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -79,23 +79,33 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
    | **위치** | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
-   ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+   ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. **선택**을 클릭합니다.
 
-6. **가격 책정 계층**을 클릭하고 새 데이터베이스의 서비스 계층 및 성능 수준을 지정합니다. 이 자습서에서는 **20 DTU** 및 **250**GB의 저장소를 선택합니다.
+6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU 수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU 수 및 저장소 크기에 대한 옵션을 살펴봅니다. 
+
+7. 이 자습서에서는 **표준** 서비스 계층을 선택한 다음 슬라이더를 사용하여 **100DTU(S3)** 및 **400**GB 저장소를 선택합니다.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. **Apply**를 클릭합니다.  
+8. **추가 기능 저장소** 옵션을 사용하려면 미리 보기 약관에 동의합니다. 
 
-8. 빈 데이터베이스에 대한 **데이터 정렬**을 선택합니다(이 자습서의 경우 기본값 사용). 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
+   > [!IMPORTANT]
+   > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+   >
+   >\* 프리미엄 계층의 경우 현재 미국 동부 2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+   > 
 
-9. **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전을 완료하는 데 약 1분 30초가 걸립니다. 
+9. 서버 계층, DTU 수 및 저장소 크기를 선택한 후에 **적용**을 클릭합니다.  
 
-10. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
+10. 빈 데이터베이스에 대한 **데이터 정렬**을 선택합니다(이 자습서의 경우 기본값 사용). 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
 
-   ![알림](./media/sql-database-get-started-portal/notification.png)
+11. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
+
+12. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
+    
+     ![알림](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
@@ -105,26 +115,21 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 >
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열리고 이 페이지에 정규화된 서버 이름(예: **mynewserver20170313.database.windows.net**)이 표시되며 추가 구성을 위한 옵션도 제공됩니다. 나중에 사용하기 위해 이 정규화된 서버 이름을 복사합니다.
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20170824.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
-   > [!IMPORTANT]
-   > 이후 빠른 시작에서 서버 및 해당 데이터베이스에 연결하려면 이 정규화된 서버 이름이 필요합니다.
-   > 
+2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 
 
-   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![서버 이름](./media/sql-database-get-started-portal/server-name.png) 
 
-2. 이전 이미지에 표시된 대로 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
+3. 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
 
    ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
+4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-3. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+5. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
-4. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
-
-   ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
+6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
 이제 SQL Server Management Studio 또는 이전에 만든 서버 관리자 계정을 사용하여 이 IP 주소에서 원하는 다른 도구를 사용하여 SQL Database 서버 및 해당 데이터베이스에 연결할 수 있습니다.
 
@@ -139,7 +144,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
 
-   ![연결 정보](./media/sql-database-connect-query-dotnet/server-name.png)
+   ![연결 정보](./media/sql-database-get-started-portal/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>SSMS로 데이터베이스에 연결
 
@@ -315,7 +320,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
     * 복원 지점: 데이터베이스를 변경하기 이전 시간 선택
     * 대상 서버: 데이터베이스를 복원할 때는 이 값을 변경할 수 없습니다. 
     * 탄력적 데이터베이스 풀: **없음** 선택  
-    * 가격 책정 계층: **20DTU** 및 **250**GB의 저장소를 선택합니다.
+    * 가격 책정 계층: **20DTU** 및 **40GB**의 저장소를 선택합니다.
 
    ![복원 시점](./media/sql-database-design-first-database/restore-point.png)
 

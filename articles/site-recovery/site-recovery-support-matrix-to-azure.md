@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a2ccc3d43a56a569897e1efe24f576eb92610ec3
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30ccdc62e68ff86d693b9eb3477c65e4e6a1fe3f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -66,7 +66,7 @@ Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사�
 
  **VMware/물리적 서버** | **Hyper-V(VMM 포함/제외)** |
 --- | --- |
-64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/>*Windows Server 2016* - VMware 가상 컴퓨터 및 물리적 서버에서 현재 지원되지 않습니다. <br/><br/> Red Hat Enterprise Linux : 5.2 ~ 5.11, 6.1 ~ 6.8, 7.0 ~ 7.3 <br/><br/>Cent OS : 5.2 ~ 5.11, 6.1 ~ 6.8, 7.0 ~ 7.3 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
+64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/>*Windows Server 2016* - VMware 가상 컴퓨터 및 물리적 서버에서 현재 지원되지 않습니다. <br/><br/> Red Hat Enterprise Linux : 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 to 7.3 <br/><br/>CentOS : 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
 
 
 >[!IMPORTANT]
@@ -82,8 +82,9 @@ Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사�
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-128-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-91-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
-
+16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-91-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-32-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux(VMware/물리적 서버)에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -187,7 +188,7 @@ Import/Export 서비스 | 아니요 | 아니요
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
 
 **Compute 기능** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
---- | --- | --- 
+--- | --- | ---
 가용성 집합 | 예 | 예
 HUB | 예 | 예  
 관리 디스크 | 예 | 예<br/><br/>관리되는 디스크를 사용한 Azure VM에서 온-프레미스로의 장애 복구(failback)는 현재 지원되지 않습니다.

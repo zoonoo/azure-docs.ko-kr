@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b6e1c7587c0b47d04862b4850741aaa3b7d191a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -38,6 +38,28 @@ Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소�
 * 이벤트에는 "이벤트-형식: 유효성 검사" 헤더 값을 포함합니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
 * 이벤트 데이터는 다음과 같이 임의로 생성된 문자열을 포함한 “ValidationCode” 속성을 포함합니다. “ValidationCode: acb13…”.
+
+SubscriptionValidationEvent 예는 아래에 표시됩니다.
+```json
+[{
+  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "Subject": "",
+  "Data": {
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  },
+  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
+  "EventTime": "2017-08-06T22:09:30.740323Z"
+}]
+```
+
+끝점 소유권을 증명하기 위해 “validation_response: acb13…”과 같이 유효성 검사 코드를 반환합니다.
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
 
 끝점 소유권을 증명하기 위해 “ValidationResponse: acb13…”과 같이 유효성 검사 코드를 반환합니다.
 
@@ -176,7 +198,7 @@ Azure Event Grid는 다음 작업을 지원합니다.
   ] 
 }
 ```
- 
+
 **EventGridContributorRole.json**: 모든 Event Grid 작업을 허용합니다.  
 ```json
 { 
@@ -201,7 +223,7 @@ Azure Event Grid는 다음 작업을 지원합니다.
 #### <a name="install-and-login-to-azure-cli"></a>Azure CLI에 설치 및 로그인
 
 * Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../cli-install-nodejs.md)을 참조하세요.
-* Azure CLI에서 Azure 리소스 관리자입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 으로 이동합니다.
+* Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 으로 이동합니다.
 
 #### <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 

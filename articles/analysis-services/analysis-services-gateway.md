@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure 온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/24/2017
 
 1. 쿼리는 온-프레미스 데이터 원본의 암호화된 자격 증명을 사용하여 클라우드 서비스에서 생성합니다. 그런 다음 처리할 게이트웨이의 큐로 전송됩니다.
 2. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/)에 대한 요청을 보냅니다.
-3. 온-프레미스 데이터 게이트웨이가 보류 중인 요청을 위해 Azure Service Bus를 폴링합니다.
+3. 온-프레미스 데이터 게이트웨이가 보류 중인 요청을 위해 Azure 서비스 버스를 폴링합니다.
 4. 게이트웨이가 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명으로 데이터 원본에 연결합니다.
 5. 게이트웨이가 실행을 위해 데이터 원본에 쿼리를 보냅니다.
 6. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 클라우드 서비스 및 서버로 전송됩니다.
@@ -61,7 +61,7 @@ ms.lasthandoff: 08/24/2017
 인증으로 인해 프록시 서버와 함께 문제가 발생하는 경우 Windows 서비스 계정을 도메인 사용자 또는 관리되는 서비스 계정으로 변경할 수도 있습니다.
 
 ## <a name="ports"> </a>포트
-게이트웨이는 Azure Service Bus에 대한 아웃바운드 연결을 만듭니다. 아웃바운드 포트 TCP 443(기본값), 5671, 5672, 9350-9354에서 통신합니다.  게이트웨이에는 인바운드 포트가 필요하지 않습니다.
+게이트웨이는 Azure 서비스 버스에 대한 아웃바운드 연결을 만듭니다. 아웃바운드 포트 TCP 443(기본값), 5671, 5672, 9350-9354에서 통신합니다.  게이트웨이에는 인바운드 포트가 필요하지 않습니다.
 
 방화벽에서 사용자 데이터 영역에 대한 IP 주소를 허용 목록에 추가하는 것이 좋습니다. [Microsoft Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 다운로드할 수 있습니다. 이 목록은 매주 업데이트됩니다.
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/24/2017
 | *.analysis.windows.net |443 |HTTPS |
 | *.login.windows.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |AMQP(고급 메시지 큐 프로토콜) |
-| *.servicebus.windows.net |443, 9350-9354 |TCP의 Service Bus Relay에 대한 수신기(Access Control 토큰 획득에 443 필요) |
+| *.servicebus.windows.net |443, 9350-9354 |TCP의 서비스 버스 릴레이에 대한 수신기(액세스 제어 토큰 획득에 443 필요) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
@@ -99,11 +99,11 @@ ms.lasthandoff: 08/24/2017
 
 ### <a name="general"></a>일반
 
-**Q**: SQL Azure와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요하나요? <br/>
+**Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요하나요? <br/>
 **A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에만 연결됩니다.
 
 **Q**: 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치해야 하나요? <br/>
-**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
+**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 일반적으로 동일한 네트워크에서 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -124,13 +124,13 @@ ms.lasthandoff: 08/24/2017
 **A**: Azure Service Bus를 통해 결과가 전송됩니다.
 
 **Q**: 클라우드에서 게이트웨이로의 인바운드 연결이 있나요? <br/>
-**A**: 아니요. 게이트웨이는 Azure Service Bus에 대해 아웃바운드 연결을 사용합니다.
+**A**: 아니요. 게이트웨이는 Azure 서비스 버스에 대해 아웃바운드 연결을 사용합니다.
 
 **Q**: 아웃바운드 연결을 차단하면 어떻게 되나요? 이러한 연결을 열려면 무엇이 필요한가요? <br/>
 **A**: 게이트웨이가 사용하는 포트 및 호스트를 참조하세요.
 
 **Q**: 실제 Windows 서비스를 어떻게 지칭하나요?<br/>
-**A**: 서비스에서 게이트웨이를 Power BI 엔터프라이즈 게이트웨이 서비스라고 합니다.
+**A**: 서비스에서 게이트웨이를 온-프레미스 게이트웨이 서비스라고 합니다.
 
 **Q**: Azure Active Directory 계정으로 게이트웨이 Windows 서비스를 실행할 수 있나요? <br/>
 **A**: 아니요. Windows 서비스에는 유효한 Windows 계정이 있어야 합니다. 기본적으로 서비스는 서비스 SID, NT SERVICE\PBIEgwService를 사용하여 실행됩니다.
@@ -151,7 +151,7 @@ ms.lasthandoff: 08/24/2017
 또한 추적 쿼리를 위해 데이터 원본이 포함하는 도구를 살펴볼 수도 있습니다. 예를 들어 SQL Server 및 Analysis Services의 경우 확장 이벤트 또는 SQL 프로파일러를 사용할 수 있습니다.
 
 **Q**: 게이트웨이 로그는 어디에 있나요? <br/>
-**A**: 이 항목 뒷부분에 나오는 도구를 참조하세요.
+**A**: 이 항목 뒷부분에 나오는 로그를 참조하세요.
 
 ### <a name="update"></a>최신 버전으로 업데이트
 

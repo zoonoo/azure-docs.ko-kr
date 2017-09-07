@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -58,7 +57,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
    > 파일과 경로 이름의 대/소문자가 적절한지 확인합니다.
    >
    >
-3. Data Lake Store 계정이 있는 Azure 구독에 대한 자격 증명을 입력하라는 메시지가 표시됩니다. 다음과 유사한 출력이 표시됩니다.
+3. Data Lake Store 계정이 있는 Azure 구독에 대한 자격 증명을 입력하라는 메시지가 표시됩니다. 다음 코드 조각과 유사한 결과가 표시됩니다.
 
         Initializing Copy.
         Copy Started.

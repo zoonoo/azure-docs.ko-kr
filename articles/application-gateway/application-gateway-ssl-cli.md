@@ -1,6 +1,6 @@
 ---
 title: "SSL 오프로드 구성 - Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs"
-description: "이 페이지에서는 Azure CLI 2.0을 사용하여 SSL 오프로드와 함께 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
+description: "이 문서에서는 Azure CLI 2.0을 사용하여 SSL 오프로드와 함께 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
@@ -32,23 +32,25 @@ Azure Application Gateway 구성을 사용하여 웹 팜에서 발생하는 비�
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>필수 조건: Azure CLI 2.0 설치
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스)를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
 
 ## <a name="required-components"></a>필수 구성 요소
 
-* **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP/VIP이어야 합니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
-* **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
-* **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
-* **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
+* **백 엔드 서버 풀**: 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP 주소 또는 VIP(가상 IP 주소)이어야 합니다.
+* **백 엔드 서버 풀 설정**: 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
+* **프런트 엔드 포트**: 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
+* **수신기**: 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
+* **규칙**: 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽을 이동하는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 **추가 구성 정보**
 
-SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 *Https* (대/소문자 구분)로 바꿔야 합니다. **SslCertificate** 요소는 SSL 인증서에 대해 구성된 변수 값과 함께 **HttpListener**에 추가됩니다. 프런트 엔드 포트는 443으로 업데이트되어야 합니다.
+SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 *Https* (대/소문자 구분)로 바꿔야 합니다. **SslCertificate** 요소를 SSL 인증서에 대해 구성된 변수 값과 함께 **HttpListener**에 추가합니다. 프런트 엔드 포트는 **443**으로 업데이트되어야 합니다.
 
-**쿠키 기반 선호도를 사용하도록 설정**: 응용 프로그램 게이트웨이는 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 구성될 수 있습니다. 게이트웨이에서 트래픽을 적절하게 지시할 수 있는 세션 쿠키를 삽입하면 이 시나리오가 완료됩니다. 쿠키 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 *Enabled*로 설정합니다.
+**쿠키 기반 선호도를 사용하도록 설정**: 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 이를 완료하려면 게이트웨이에서 트래픽을 적절하게 지시할 수 있는 세션 쿠키를 삽입합니다. 쿠키 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 *Enabled*로 설정합니다.
 
 ## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 SSL 오프로드 구성
+
+다음 명령을 입력하여 기존 응용 프로그램 게이트웨이에 대한 SSL 오프로드를 구성합니다.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -107,7 +109,7 @@ az network application-gateway rule create \
 
 ## <a name="create-an-application-gateway-with-ssl-offload"></a>SSL 오프로드를 사용하여 응용 프로그램 게이트웨이 만들기
 
-다음 예제에서는 SSL 오프로드를 사용하여 응용 프로그램 게이트웨이를 만듭니다.  인증서 및 인증서 암호는 유효한 개인 키로 업데이트되어야 합니다.
+다음 예제에서는 SSL 오프로드를 사용하여 응용 프로그램 게이트웨이를 만듭니다. 인증서 및 인증서 암호는 유효한 개인 키로 업데이트되어야 합니다.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -136,9 +138,11 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
+## <a name="get-an-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 식별 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 Application Gateway를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 Application Gateway의 공용 끝점을 가리키도록 합니다. [Azure에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md). 별칭을 구성하려면 응용 프로그램 게이트웨이에 연결된 PublicIPAddress 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름은 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만드는 데 사용됩니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
+게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다.  공용 IP를 사용할 때 Application Gateway는 친근한 이름이 아닌 동적으로 할당된 DNS 이름이 필요합니다. 최종 사용자가 응용 프로그램 게이트웨이를 누를 수 있도록 하려면 CNAME 레코드를 사용하여 응용 프로그램 게이트웨이의 공용 끝점을 가리키도록 합니다. 자세한 내용은 [Azure에서 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요. 
+
+별칭을 구성하려면 응용 프로그램 게이트웨이에 연결된 **PublicIPAddress** 요소를 사용하여 응용 프로그램 게이트웨이 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. 응용 프로그램 게이트웨이의 DNS 이름을 사용하여 두 개의 웹 응용 프로그램을 이 DNS 이름으로 가리키는 CNAME 레코드를 만듭니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이 다시 시작 시 VIP가 변경될 수 있으므로 이는 권장되지 않습니다.
 
 
 ```azurecli-interactive
@@ -183,9 +187,9 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="next-steps"></a>다음 단계
 
-ILB(내부 부하 분산 장치)에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [내부 부하 분산 장치를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
-보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
+일반적 부하 분산 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
