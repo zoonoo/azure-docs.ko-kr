@@ -1,6 +1,6 @@
 ---
 title: "지점 및 사이트 간 연결과 인증서 인증을 사용하여 Azure Virtual Network에 컴퓨터 연결: PowerShell | Microsoft Docs"
-description: "인증서 인증을 사용하여 지점 및 사이트 간 VPN 게이트웨이 연결을 만들어 가상 네트워크에 안전하게 컴퓨터를 연결합니다. 이 문서는 리소스 관리자 배포 모델에 적용되며 PowerShell을 사용합니다."
+description: "인증서 인증을 사용하여 지점 및 사이트 간 VPN 게이트웨이 연결을 만들어 가상 네트워크에 안전하게 컴퓨터를 연결합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2e072ada13b8c742fe7f2e14737c9376f7677906
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ebba36a0f6f9a3f2c8980741dd333ffc56a361cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
-이 문서에서는 리소스 관리자 배포 모델에서 PowerShell을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성은 인증서를 사용하여 연결 중인 클라이언트를 인증합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서에서는 Resource Manager 배포 모델에서 PowerShell을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성은 인증서를 사용하여 연결 중인 클라이언트를 인증합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -50,10 +50,10 @@ P2S는 SSL 기반 VPN 프로토콜인 SSTP(Secure Socket Tunneling Protocol)를 
 
 지점 및 사이트 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [지점 및 사이트 간 FAQ](#faq)를 참조하세요.
 
-## <a name="before-beginning"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전에
 
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ### <a name="example"></a>예제 값
 
@@ -414,7 +414,7 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 
 ## <a name="faq"></a>지점 및 사이트 간 FAQ
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 컴퓨터에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
