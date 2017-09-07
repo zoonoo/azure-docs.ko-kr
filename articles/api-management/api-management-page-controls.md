@@ -74,7 +74,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 -   [응용 프로그램](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin">basic-signin</a>  
+##  <a name="basic-signin"></a>basic-signin  
  `basic-signin` 컨트롤은 개발자 포털의 로그인 페이지에서 사용자 로그인 정보를 수집하기 위한 컨트롤을 제공합니다.  
   
  ![basic&#45;signin 컨트롤](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic-signin 컨트롤")  

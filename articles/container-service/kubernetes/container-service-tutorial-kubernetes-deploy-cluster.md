@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location westeurope
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *myK8sCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
 몇 분 후 명령이 완료되고 ACS 배포에 대해 json으로 형식화된 정보가 반환됩니다.
@@ -77,7 +77,7 @@ Windows에서 기본 설치는 *c:\program files (x86)\kubectl.exe*입니다. Wi
 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다.
 
 ```azurecli-interactive 
-az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
+az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 클러스터에 대한 연결을 확인하려면 [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 실행합니다.
