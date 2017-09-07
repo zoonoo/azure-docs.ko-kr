@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>이벤트 허브 인증 및 보안 모델 개요
+
 Azure 이벤트 허브 보안 모델은 다음 요구 사항을 만족합니다.
 
 * 유효한 자격 증명을 제공하는 클라이언트만 이벤트 허브로 데이터를 보낼 수 있습니다.
@@ -30,6 +30,7 @@ Azure 이벤트 허브 보안 모델은 다음 요구 사항을 만족합니다.
 * 악성 클라이언트는 이벤트 허브로 데이터를 보내지 못하도록 차단할 수 있습니다.
 
 ## <a name="client-authentication"></a>클라이언트 인증
+
 Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messaging/service-bus-sas.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
 
 일반적으로 이벤트 허브에서는 클라이언트당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내의 큐에 삽입됩니다. 게시자는 세분화된 액세스 제어 및 제한을 사용하도록 설정합니다.
@@ -42,7 +43,7 @@ Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messag
 
 ### <a name="create-the-sas-key"></a>SAS 키 만들기
 
-Event Hubs 네임스페이스를 만들면, 서비스는 **RootManageSharedAccessKey**라는 256비트 SAS 키를 생성합니다. 이 키는 네임스페이스에 대한 송신, 수신 및 관리 권한을 부여합니다. 추가 키를 만들 수도 있습니다. 특정 이벤트 허브에 대한 전송 권한을 부여하는 키를 생성하는 것이 좋습니다. 이 항목의 나머지 부분에서는 이 키의 이름을 **EventHubSendKey**로 지정했다고 가정합니다.
+Event Hubs 네임스페이스를 만들면, 서비스는 자동으로 **RootManageSharedAccessKey**라는 256비트 SAS 키를 생성합니다. 이 규칙에는 네임스페이스에 대해 전송, 수신 대기 및 관리 권한을 부여하는 연결된 기본 및 보조 키 쌍이 있습니다. 추가 키를 만들 수도 있습니다. 특정 이벤트 허브에 대한 전송 권한을 부여하는 키를 생성하는 것이 좋습니다. 이 항목의 나머지 부분에서는 이 키의 이름을 **EventHubSendKey**로 지정했다고 가정합니다.
 
 다음 예제에서는 이벤트 허브를 만들 때 전송 전용 키를 만듭니다.
 
@@ -89,11 +90,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 일반적으로 토큰의 수명은 클라이언트와 유사하거나 더 깁니다. 클라이언트에 새 토큰을 가져오는 기능이 있는 경우 짧은 수명의 토큰을 사용할 수 있습니다.
 
 ### <a name="sending-data"></a>데이터 전송
+
 토큰이 생성된 후에 각 클라이언트는 자체의 고유한 토큰과 함께 프로비전됩니다.
 
 클라이언트가 이벤트 허브로 데이터를 전송할 경우 토큰을 사용해서 보내기 요청에 태그를 지정합니다. 공격자가 도청 및 토큰 가로채기를 하지 못하도록 방지하려면 클라이언트와 이벤트 허브 간의 통신은 암호화된 채널을 통해 이루어져야 합니다.
 
 ### <a name="blacklisting-clients"></a>클라이언트 차단 목록
+
 토큰이 공격자에 의해 도난당한 경우 공격자가 토큰을 도난당한 클라이언트로 가장할 수 있습니다. 클라이언트를 차단할 경우 해당 클라이언트는 다른 게시자를 사용하는 새 토큰을 수신할 때까지 사용할 수 없게 됩니다.
 
 ## <a name="authentication-of-back-end-applications"></a>백 엔드 응용 프로그램의 인증
@@ -105,6 +108,7 @@ Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 
 개별 소비자 그룹에 대한 SAS 인증이 없는 경우, 공용 키가 있는 모든 소비자 그룹을 보호하기 위해 SAS 키를 사용할 수 있습니다. 이 방식에서는 응용 프로그램이 이벤트 허브의 임의의 소비자 그룹에서 데이터를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이벤트 허브에 대한 자세한 내용은 다음 항목을 방문하세요.
 
 * [이벤트 허브 개요]

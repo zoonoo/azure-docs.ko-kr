@@ -4,7 +4,7 @@ description: "입력 파티션을 구성하고, 쿼리 정의를 조정하고, �
 keywords: "데이터 스트리밍, 스트리밍 데이터 처리, 분석 조정"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9a2b16fc6dff687e2a1fa03c9194d50711f53476
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Azure Stream Analytics 작업 크기를 조정하여 스트림 데이터 처리량 증가
@@ -32,7 +31,7 @@ Stream Analytics 작업 정의에는 입력, 쿼리 및 출력이 포함됩니�
 작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 원본은 Azure 이벤트 허브 또는 Azure Blob Storage에 저장될 수 있습니다. 자세한 내용은 [Azure Stream Analytics 소개](stream-analytics-introduction.md) 및 [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)을 참조하세요.
 
 ## <a name="partitions-in-event-hubs-and-azure-storage"></a>이벤트 허브와 Azure Storage의 파티션
-Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티션을 활용합니다. 분할을 통해 데이터를 파티션 키에 따라 하위 집합으로 분할할 수 있습니다. 데이터를 사용하는 프로세스(예: Streaming Analytics 작업)는 서로 다른 파티션을 병렬로 사용 및 기록하여 처리량을 증가시킬 수 있습니다. Streaming Analytics로 작업할 때 이벤트 허브 및 Blob Storage에서 분할을 활용할 수 있습니다. 
+Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티션을 활용합니다. 분할을 통해 데이터를 파티션 키에 따라 하위 집합으로 분할할 수 있습니다. 데이터를 사용하는 프로세스(예: Streaming Analytics 작업)는 서로 다른 파티션을 병렬로 사용 및 기록하여 처리량을 증가시킬 수 있습니다. Stream Analytics로 작업할 때 이벤트 허브 및 Blob Storage에서 분할을 활용할 수 있습니다. 
 
 파티션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -339,7 +338,7 @@ Stream Analytics 작업의 크기를 조정하는 방법을 이해하기 위해 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

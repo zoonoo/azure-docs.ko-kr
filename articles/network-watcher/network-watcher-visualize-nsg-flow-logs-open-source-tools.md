@@ -3,7 +3,7 @@ title: "오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 �
 description: "이 페이지에서는 오픈 소스 도구를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/07/2017
 
 ---

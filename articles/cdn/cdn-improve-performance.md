@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7546650e6096a880f4fb4d0c94dd4ecc00b70160
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
@@ -29,7 +30,7 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 * CDN 에지 서버에서 직접 압축을 사용하도록 설정할 수 있으며, 이런 경우 CDN이 파일을 압축하여(원본 서버에 의해 압축되지 않더라도) 최종 사용자에게 제공합니다.
 
 > [!IMPORTANT]
-> CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로&1;분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우, 변경 내용이 일반적으로 90분 내에 적용됩니다.  CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다렸다가 문제 해결을 시도하는 것이 좋습니다.
+> CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우, 변경 내용이 일반적으로 90분 내에 적용됩니다.  CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다렸다가 문제 해결을 시도하는 것이 좋습니다.
 > 
 > 
 
@@ -45,16 +46,16 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 
 
-1. CDN 프로필 블레이드에서 관리하려는 CDN 끝점을 클릭합니다.
+1. CDN 페이지에서 관리하려는 CDN 끝점을 클릭합니다.
    
-    ![CDN 프로필 블레이드 끝점](./media/cdn-file-compression/cdn-endpoints.png)
+    ![CDN 프로필 페이지 끝점](./media/cdn-file-compression/cdn-endpoints.png)
    
-    CDN 끝점 블레이드가 열립니다.
+    CDN 끝점 페이지가 열립니다.
 2. **구성** 단추를 클릭합니다.
    
-    ![CDN 프로필 블레이드 관리 단추](./media/cdn-file-compression/cdn-config-btn.png)
+    ![CDN 프로필 페이지 관리 단추](./media/cdn-file-compression/cdn-config-btn.png)
    
-    CDN 구성 블레이드가 열립니다.
+    CDN 구성 페이지가 열립니다.
 3. **압축**을 켭니다.
    
     ![CDN 압축 옵션](./media/cdn-file-compression/cdn-compress-standard.png)
@@ -72,12 +73,14 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 
 
-1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
+1. CDN 프로필 페이지에서 **관리** 단추를 클릭합니다.
    
-    ![CDN 프로필 블레이드 관리 단추](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN 프로필 페이지 관리 단추](./media/cdn-file-compression/cdn-manage-btn.png)
    
     CDN 관리 포털이 열립니다.
 2. **HTTP Large** 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다.  **압축**을 클릭합니다.
+
+    ![파일 압축 선택](./media/cdn-file-compression/cdn-compress-select.png)
    
     압축 옵션이 표시됩니다.
    
@@ -103,11 +106,11 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 모든 Azure CDN 제품의 경우, 파일은 [압축용으로 구성된](#enabling-compression)MIME 형식이어야 합니다.
 > 
-> **Verizon의 Azure CDN** 프로필(Standard 및 Premium)은 **gzip**, **deflate** 또는 **bzip2** 인코딩을 지원합니다.  **Akamai의 Azure CDN** 프로필은 **gzip** 인코딩만 지원합니다.
+> **Verizon의 Azure CDN** 프로필(Standard 및 Premium)은 **gzip**(GNU zip), **deflate** 또는 **bzip2** 또는 **br**(Brotli) 인코딩을 지원합니다. Brotli 인코딩의 경우 에지에서만 압축이 수행됩니다. 클라이언트/브라우저는 Brotli 인코딩에 대한 요청을 전송해야 하고 압축된 자산은 처음에 원본 쪽에서 먼저 압축되었을 것입니다. 
+>
+>**Akamai의 Azure CDN** 프로필은 **gzip** 인코딩만 지원합니다.
 > 
-> **Akamai의 Azure CDN** 끝점은 클라이언트 요청에 상관없이, 원본으로부터 항상 **gzip** 인코딩 파일을 요청합니다.
-> 
-> 
+> **Akamai의 Azure CDN** 끝점은 클라이언트 요청에 상관없이, 원본으로부터 항상 **gzip** 인코딩 파일을 요청합니다. 
 
 ### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>압축이 비활성화되었거나 파일이 압축에 부적합
 | 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
@@ -134,10 +137,5 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 
 ## <a name="see-also"></a>참고 항목
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

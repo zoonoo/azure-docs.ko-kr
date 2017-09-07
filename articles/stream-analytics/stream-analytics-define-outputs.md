@@ -4,7 +4,7 @@ description: "분석 결과에 대한 Power BI를 포함하는 스트림 분석 
 keywords: "데이터 변환, 분석 결과, 데이터 저장소 옵션"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>스트림 분석 출력: 저장소에 대한 옵션, 분석
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/04/2017
 스트림 분석은 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)를 지원합니다. 이 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. 또한 스트림 분석에는 Data Lake 저장소에 액세스할 수 있는 권한이 필요합니다. 권한 부여 및 Data Lake Store 미리 보기에 등록하는 방법에 대한 세부 정보는 (필요한 경우) [Data Lake 출력 문서](stream-analytics-data-lake-output.md)에서 설명합니다.
 
 ### <a name="authorize-an-azure-data-lake-store"></a>Azure Data Lake 저장소 권한 부여
-Azure 관리 포털에서 출력으로 Data Lake 저장소를 선택하는 경우 기존 Data Lake 저장소에 대한 연결을 허가할지 묻는 메시지가 표시됩니다.  
+Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기존 Data Lake 저장소에 대한 연결을 허가할지 묻는 메시지가 표시됩니다.  
 
 ![Data Lake 저장소 권한 부여](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -57,7 +56,7 @@ Azure 관리 포털에서 출력으로 Data Lake 저장소를 선택하는 경�
 <td>출력을 보내는 Data Lake 저장소 계정의 이름 포털에 로그인한 사용자가 액세스할 수 있는 Data Lake 저장소 계정이 드롭다운 목록으로 나타납니다.</td>
 </tr>
 <tr>
-<td>경로 접두사 패턴[<I>선택 사항</I>]</td>
+<td>경로 접두사 패턴</td>
 <td>지정된 Data Lake 저장소 계정 내에서 파일을 작성하는 데 사용되는 파일 경로입니다. <BR>{date}, {time}<BR>예제 1: folder1/logs/{date}/{time}<BR>예제 2: folder1/logs/{date}</td>
 </tr>
 <tr>
@@ -110,7 +109,7 @@ Azure 관리 포털에서 출력으로 Data Lake 저장소를 선택하는 경�
 > 
 
 ## <a name="blob-storage"></a>Blob 저장소
-클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션을 제공합니다.  Azure Blob 저장소 및 사용법에 대한 소개 내용은 [Blob 사용 방법](../storage/storage-dotnet-how-to-use-blobs.md)설명서를 참조하세요.
+클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션을 제공합니다.  Azure Blob 저장소 및 사용법에 대한 소개 내용은 [Blob 사용 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)설명서를 참조하세요.
 
 다음 테이블은 Blob 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -162,7 +161,7 @@ Azure 관리 포털에서 출력으로 Data Lake 저장소를 선택하는 경�
 </tr>
 <tr>
 <td>형식</td>
-<td>JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다.</td>
+<td>JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간대로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다.</td>
 </tr>
 </tbody>
 </table>
@@ -189,7 +188,7 @@ Azure 관리 포털에서 출력으로 Data Lake 저장소를 선택하는 경�
 [Power BI](https://powerbi.microsoft.com/) 를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
 
 ### <a name="authorize-a-power-bi-account"></a>Power BI 계정 권한 부여
-1. Azure 관리 포털에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.  
+1. Azure Portal에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.  
    
    ![Power BI 사용자 권한 부여](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. 아직 없다면 새 계정을 만들고 지금 권한 부여를 클릭합니다.  다음과 같은 화면이 표시됩니다.  
@@ -255,7 +254,7 @@ DateTime | string | string |  DateTime | string
   ![Power BI 갱신 권한 부여](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>테이블 저장소
-[Azure Table Storage](../storage/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
+[Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -319,14 +318,14 @@ DateTime | string | string |  DateTime | string
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

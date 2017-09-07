@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 그룹이 속하는 그룹 관리 | Microsoft Docs"
 description: "Azure Active Directory에서 그룹은 다른 그룹을 포함할 수 있습니다. 해당 멤버 자격을 관리하는 방법은 다음과 같습니다."
 services: active-directory
@@ -13,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: b6227d86bf5d52316334a0b7ecf975aadf2ba635
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 그룹이 속하는 그룹 관리
 Azure Active Directory에서 그룹은 다른 그룹을 포함할 수 있습니다. 해당 멤버 자격을 관리하는 방법은 다음과 같습니다.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>내 그룹이 멤버인 그룹을 찾으려면 어떻게 해야 합니까?
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+## <a name="how-do-i-find-the-groups-of-which-my-group-is-a-member"></a>내 그룹이 멤버인 그룹을 찾으려면 어떻게 할까요?
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
    ![사용자 관리 열기](./media/active-directory-groups-membership-azure-portal/search-user-management.png)

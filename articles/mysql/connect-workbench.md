@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ffeca6670521fe2b43c4ac47cac26fd2ad30f968
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -71,7 +71,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
 6.   새 SQL 탭이 쿼리를 입력할 수 있는 빈 편집기로 열립니다.
 
     > [!NOTE]
-    > 서버에서 기본적으로 적용되는 SSL은 연결의 성공을 위해 추가적인 구성이 필요합니다. [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.  이 빠른 시작에 대해 SSL을 사용하지 않도록 하려면 Azure Portal을 방문하고 연결 보안 페이지를 클릭하여 SSL 연결 적용 토글 단추를 사용하지 않도록 설정합니다.
+    > 기본적으로 SSL 연결 보안이 필요하며 MySQL 서버용 Azure Database에서 적용됩니다. 일반적으로 MySQL 워크벤치에서 서버에 연결하기 위해 SSL 인증서에 대한 추가 구성은 필요하지 않습니다. SSL에 대한 자세한 내용은 [MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요.  SSL을 사용하지 않도록 설정해야 하는 경우 Azure Portal을 방문하고 연결 보안 페이지를 클릭하여 SSL 연결 적용 토글 단추를 사용하지 않도록 설정합니다.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>테이블 만들기, 데이터 삽입, 데이터 읽기, 데이터 업데이트, 데이터 삭제
 1. 몇 가지 샘플 데이터를 설명하기 위해 샘플 SQL 코드를 빈 SQL 탭에 복사하여 붙여넣습니다.
@@ -108,7 +108,7 @@ GUI 도구 MySQL Workbench를 사용하여 Azure MySQL 서버에 연결하려면
     ![샘플 SQL 코드를 실행하기 위한 MySQL Workbench SQL 탭](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. 샘플 SQL 코드를 실행하려면 **SQL 파일** 탭의 도구 모음에서 번갯불 아이콘을 클릭합니다.
-3. 페이지 중앙의 **결과 집합** 섹션에서 세 개의 탭 결과를 확인합니다. 
+3. 페이지 중앙의 **결과 그리드** 섹션에서 세 개의 탭 결과를 확인합니다. 
 4. 페이지 하단에서 **출력** 목록을 확인합니다. 각 명령의 상태가 표시됩니다. 
 
 이제 MySQL Workbench를 사용하여 MySQL용 Azure Database에 연결했고 SQL 언어를 사용하여 데이터를 쿼리했습니다.

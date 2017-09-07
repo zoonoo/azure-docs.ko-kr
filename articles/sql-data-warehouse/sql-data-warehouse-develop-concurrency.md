@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
@@ -152,7 +152,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 ## <a name="concurrency-slot-consumption"></a>동시성 슬롯 사용량  
 SQL 데이터 웨어하우스는 더 많은 리소스 클래스에서 실행되는 쿼리에 더 많은 메모리를 부여합니다. 메모리는 고정된 리소스입니다.  따라서 쿼리당 할당되는 메모리가 많을수록 동시에 실행할 수 있는 쿼리의 수가 줄어듭니다. 다음 테이블에서는 앞에서 설명한 모든 개념을 단일 보기로 다시 제공합니다. 이 보기에는 DWU에서 사용 가능한 동시성 슬롯의 수와 각 리소스 클래스가 사용하는 슬롯 수가 나와 있습니다.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>동시성 슬롯의 할당 및 사용량  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>동적 리소스 클래스에 대한 동시성 슬롯의 할당 및 사용량  
 | DWU | 최대 동시 쿼리 수 | 할당된 동시성 슬롯 수 | smallrc에서 사용되는 슬롯 | mediumrc에서 사용되는 슬롯 | largerc에서 사용되는 슬롯 | xlargerc에서 사용되는 슬롯 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ SQL 데이터 웨어하우스는 더 많은 리소스 클래스에서 실행되�
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>정적 리소스 클래스에 대한 동시성 슬롯의 할당 및 사용량
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>정적 리소스 클래스에 대한 동시성 슬롯의 할당 및 사용량  
 | DWU | 최대 동시 쿼리 수 | 할당된 동시성 슬롯 수 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |

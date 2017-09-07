@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -31,7 +31,9 @@ ms.lasthandoff: 07/21/2017
 Service Fabric은 다음 이벤트를 생성하는 다섯 가지 기본 제공 로그 채널을 제공합니다.
 
 * 작동 채널: 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램 또는 SF 업그레이드 롤백 등이 포함된 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업
-* 고객 정보 채널: 상태 보고서 및 부하 분산 결정
+* 작동 채널 - 상세: 상태 보고서 및 부하 분산 결정
+* 데이터 및 메시징 채널: 메시징(현재는 ReverseProxy만) 및 데이터 경로(신뢰할 수 있는 서비스 모델)에서 생성된 중요한 로그 및 이벤트
+* 데이터 및 메시징 채널 - 상세: 클러스터의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널(이 채널은 상당한 양의 이벤트 포함)   
 * [Reliable Services 이벤트](service-fabric-reliable-services-diagnostics.md): 프로그래밍 모델 특정 이벤트
 * [Reliable Actors 이벤트](service-fabric-reliable-actors-diagnostics.md): 프로그래밍 모델 특정 이벤트 및 성능 카운터
 * 지원 로그: 지원을 제공할 때만 사용되는 Service Fabric에서 생성된 시스템 로그
@@ -79,9 +81,9 @@ Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft �
 
 ## <a name="enabling-diagnostics-for-a-cluster"></a>클러스터에 대한 진단 사용
 
-이러한 로그를 활용하려면 클러스터를 만드는 동안 "진단"을 사용하도록 설정하는 것이 좋습니다. 진단을 켜면 클러스터가 배포될 때 Miscrosoft Azure 진단에서는 작동, Reliable Services 및 Reliable Actors 채널을 인식하고 **여기**서 추가로 설명된 대로 데이터를 저장할 수 있습니다.
+이러한 로그를 활용하려면 클러스터를 만드는 동안 "진단"을 사용하도록 설정하는 것이 좋습니다. 진단을 켜면 클러스터가 배포될 때 Microsoft Azure 진단에서는 작동, Reliable Services 및 Reliable Actors 채널을 인식하고 [Azure 진단을 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md)에 추가로 설명된 대로 데이터를 저장할 수 있습니다.
 
-위에 표시된 것처럼 Application Insights(AppInsights) 계측 키를 추가할 선택적 필드도 있습니다. 이벤트 분석에 AppInsights를 사용하도록 선택하면(이에 대한 자세한 내용은 **여기** 참조) AppInsights 리소스 instrumentationKey(GUID)를 여기에 포함합니다.
+위에 표시된 것처럼 AI(Application Insights) 계측 키를 추가할 선택적 필드도 있습니다. 이벤트 분석에 AI를 사용하도록 선택하면(이에 대한 자세한 내용은 [Application Insights를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md) 참조) AppInsights 리소스 instrumentationKey(GUID)를 여기에 포함합니다.
 
 
 클러스터에 컨테이너를 배포하려는 경우 "WadCfg > DiagnosticMonitorConfiguration"에 이 컨테이너를 추가하는 방식으로 WAD를 통해 Docker 통계를 선택할 수 있습니다.

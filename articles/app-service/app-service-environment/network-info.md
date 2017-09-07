@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/19/2017
 - **외부 ASE** - ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조하세요.
 - **ILB ASE** - ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 끝점은 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
-현재 App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. ASEv1에 대한 자세한 내용은 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요. ASEv1은 클래식 또는 리소스 관리자 VNet에서 배포할 수 있습니다. ASEv2는 리소스 관리자 VNet에만 배포할 수 있습니다.
+현재 App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. ASEv1에 대한 자세한 내용은 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요. ASEv1은 클래식 또는 Resource Manager VNet에서 배포할 수 있습니다. ASEv2는 Resource Manager VNet에만 배포할 수 있습니다.
 
 인터넷으로 이동하는 ASE의 모든 호출은 VNet을 출발하여 ASE에 할당된 VIP로 갑니다. 이 VIP의 공용 IP는 인터넷으로 이동하는 ASE의 모든 호출에 대한 원본 IP입니다. 사용자의 ASE에 있는 앱이 VNet 또는 VPN의 리소스를 호출하는 경우 원본 IP는 ASE에서 사용되는 서브넷의 IP 중 하나가 됩니다. ASE가 VNet 내에 있으므로 추가 구성 없이 VNet 내 리소스에 액세스할 수 있습니다. VNet이 온-프레미스 네트워크에 연결되어 있으면 ASE의 앱도 해당 네트워크의 리소스에 액세스할 수 있습니다. 즉, ASE나 앱을 추가로 구성할 필요가 없습니다.
 
@@ -79,8 +79,8 @@ IP 주소가 할당된 앱을 사용하는 경우 앱에 할당된 IP에서 ASE 
 
 | 사용 | 원본 | 받는 사람 |
 |-----|------|----|
-| Azure Storage | ASE 서브넷 | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445(445는 ASEv1의 경우에만 필요함) |
-| Azure SQL Database | ASE 서브넷 | database.windows.net: 1433, 11000-11999, 14000-14999(자세한 내용은 [SQL Database V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md) 참조)|
+| Azure 저장소 | ASE 서브넷 | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445(445는 ASEv1의 경우에만 필요함) |
+| Azure SQL 데이터베이스 | ASE 서브넷 | database.windows.net: 1433, 11000-11999, 14000-14999(자세한 내용은 [SQL Database V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md) 참조)|
 | Azure 관리 | ASE 서브넷 | management.core.windows.net, management.azure.com: 443 
 | SSL 인증서 확인 |  ASE 서브넷            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ASE 서브넷            |  인터넷: 443
@@ -104,13 +104,13 @@ ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 �
 
 -   웹 작업
 -   함수
--   Logstream
+-   스트리밍 로그
 -   Kudu
 -   확장
 -   Process Explorer
 -   콘솔
 
-ILB ASE를 사용할 때는 VNet 외부에서 인터넷을 통해 SCM 사이트에 액세스할 수 없습니다. 앱이 ILB ASE에서 호스트될 때는 SCM 사이트에 연결할 수 없는 기능이 Azure Portal에서 회색으로 표시됩니다.
+ILB ASE를 사용할 때는 VNet 외부에서 인터넷을 통해 SCM 사이트에 액세스할 수 없습니다. ILB ASE에서 앱이 호스트되는 경우 포털에서 일부 기능이 작동하지 않습니다.  
 
 SCM 사이트에 종속된 이러한 기능 중 많은 부분은 Kudu 콘솔에서 직접 사용할 수 있습니다. Portal을 사용하는 대신 콘솔에 직접 연결할 수 있습니다. 앱이 ILB ASE에서 호스트되는 경우에는 게시 자격 증명을 사용하여 로그인합니다. ILB ASE에 호스팅된 앱의 SCM 사이트에 액세스하는 URL은 다음 형식으로 표시됩니다. 
 
@@ -120,9 +120,13 @@ SCM 사이트에 종속된 이러한 기능 중 많은 부분은 Kudu 콘솔에�
 
 ILB ASE 도메인 이름이 *contoso.net*이고 앱 이름이 *testapp*이면 *testapp.contoso.net*에서 앱에 연결할 수 있습니다. 그리고 앱과 함께 제공되는 SCM 사이트는 *testapp.scm.contoso.net*에서 연결할 수 있습니다.
 
+## <a name="functions-and-web-jobs"></a>함수 및 웹 작업 ##
+
+함수 및 웹 작업은 SCM 사이트에 따라 다르지만, 브라우저가 SCM 사이트에 연결될 수 있는 한, 앱이 ILB ASE에 있더라도 포털에서 사용할 수 있도록 지원됩니다.  ILB ASE에 자체 서명된 인증서를 사용하는 경우 브라우저에서 해당 인증서를 신뢰하도록 설정해야 합니다.  IE와 Edge의 경우 인증서가 컴퓨터의 신뢰 저장소에 있어야 함을 의미합니다.  크롬을 사용하는 경우 브라우저에서 scm 사이트를 이미 직접 방문하여 이전에 인증서를 수락했음을 의미합니다.  가장 좋은 방법은 브라우저의 신뢰 체인에 있는 상용 인증서를 사용하는 것입니다.  
+
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 
-ASE에는 알고 있어야 할 적지 않은 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
@@ -187,8 +191,7 @@ VNet이 ExpressRoute로 구성된 상태로 ASE가 작동하도록 하기 위해
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 충분히 구체적이어야 합니다. 이전 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 따라서 더 구체적인 주소 범위를 사용하는 경로 보급 알림으로 인해 주소 범위가 잘못 재정의될 가능성이 있습니다.
 >
-
-공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 ASE가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure IP 주소 범위 집합이 포함되어 있습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 ASE 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 ASE에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로의 교차 보급 경로를 중지합니다.
+> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 ASE가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure IP 주소 범위 집합이 포함되어 있습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 ASE 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 ASE에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로의 교차 보급 경로를 중지합니다.
 
 UDR를 만들려면 다음 단계를 수행합니다.
 
@@ -210,7 +213,7 @@ UDR를 만들려면 다음 단계를 수행합니다.
 
 ### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>ExpressRoute와 통합된 기존 Azure Virtual Networks에 배포 ###
 
-ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브넷을 미리 구성합니다. 그런 다음 리소스 관리자 템플릿을 사용하여 ASE를 배포합니다. ASE를 이미 구성된 ExpressRoute가 있는 VNet에 만들려면 다음을 수행합니다.
+ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브넷을 미리 구성합니다. 그런 다음 Resource Manager 템플릿을 사용하여 ASE를 배포합니다. ASE를 이미 구성된 ExpressRoute가 있는 VNet에 만들려면 다음을 수행합니다.
 
 - ASE를 호스팅하는 서브넷을 만듭니다.
 
@@ -218,7 +221,7 @@ ExpressRoute와 통합된 VNet에 ASE를 배포하려면 ASE를 배포할 서브
     > ASE 이외의 항목을 서브넷에 포함해서는 안 됩니다. 향후 확장이 가능한 주소 공간을 선택해야 합니다. 이 설정은 나중에 변경할 수 없습니다. 주소 128개를 포함할 수 있는 `/25` 크기를 사용하는 것이 좋습니다.
 
 - 앞에서 설명한 대로 UDR(예: 경로 테이블)을 만들고 서브넷에서 UDR을 설정합니다.
-- [리소스 관리자 템플릿을 사용하여 ASE 만들기][MakeASEfromTemplate]에서 설명한 대로 리소스 관리자 템플릿을 사용하여 ASE를 만듭니다.
+- [Resource Manager 템플릿을 사용하여 ASE 만들기][MakeASEfromTemplate]에서 설명한 대로 Resource Manager 템플릿을 사용하여 ASE를 만듭니다.
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png

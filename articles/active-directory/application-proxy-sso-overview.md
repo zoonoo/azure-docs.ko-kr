@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a1b8445a4547f8742c8a60de2df8f3b535dfab5d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -61,6 +61,8 @@ Azure Active Directory를 온-프레미스 응용 프로그램의 암호 자격 
 ## <a name="linked-sign-on"></a>연결된 로그온
 
 온-프레미스 ID에 대한 Single Sign-On 솔루션이 이미 설치된 경우 **연결된 로그온**을 선택합니다. 이 옵션을 사용하면 Azure Active Directory가 기존 SSO 솔루션을 활용하지만, 사용자에게 응용 프로그램에 대한 원격 액세스를 계속 제공합니다. 
+
+연결된 로그온(공식적으로 기존 Single Sign-On으로 알려짐)에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)를 참조하세요.
 
 ## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 

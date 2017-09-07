@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure 대시보드 공유
@@ -32,9 +32,9 @@ ms.lasthandoff: 08/24/2017
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>대시보드에 대한 액세스 제어 이해
-역할 기반 액세스 제어를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
 
-* (구독당)
+* subscription
 * 리소스 그룹
 * resource
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/24/2017
 그러나 여러 대시보드를 포함하는 리소스 그룹 또는 개별 대시보드에 대한 사용 권한을 할당할 수도 있습니다. 예를 들어, 사용자 그룹이 구독에 걸친 제한된 사용 권한을 갖지만 특정 대시보드에 더 큰 액세스 권한을 가져야 한다고 결정할 수 있습니다. 해당 대시보드에 대한 역할에 해당 사용자를 할당합니다. 
 
 ## <a name="publish-dashboard"></a>대시보드 게시
-구독에 사용자 그룹과 공유할 대시보드의 구성을 완료한 경우를 가정하겠습니다. 다음 단계에서는 Storage 관리자라는 사용자 지정된 그룹을 설명하지만 원하는 모든 그룹에 이름을 지정할 수 있습니다. Active Directory 그룹을 만들고 해당 그룹에 사용자를 추가하는 방법에 대한 정보는 [Azure Active Directory에서 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
+구독에 사용자 그룹과 공유할 대시보드의 구성을 완료한 경우를 가정하겠습니다. 다음 단계에서는 저장소 관리자라는 사용자 지정된 그룹을 설명하지만 원하는 모든 그룹에 이름을 지정할 수 있습니다. Active Directory 그룹을 만들고 해당 그룹에 사용자를 추가하는 방법에 대한 정보는 [Azure Active Directory에서 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
 
 1. 대시보드에서 **공유**를 선택합니다.
    

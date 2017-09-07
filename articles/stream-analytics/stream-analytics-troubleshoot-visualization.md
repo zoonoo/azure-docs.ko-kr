@@ -4,7 +4,7 @@ description: "진단 다이어그램 기능을 사용하여 셀프 서비스 문
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
@@ -14,22 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Stream Analytics 작업 시각화 및 문제 해결
-다른 클라우드 기반 기술과 마찬가지로 Stream Analytics에서도 작업이 예상된 출력(또는 해당 문제에 대한 출력)을 생성하지 않는 이유를 알아내기 위해 문제 해결이 필요합니다. 이러한 점을 고려할 때 Stream Analytics은 스트리밍 작업을 시각화하는 기능을 제공합니다. 이 기능은 모델링 도구만큼 유용하며 업무에 필요한 문서 작성이라는 부수적인 효과도 제공합니다.
+다른 클라우드 기반 기술과 마찬가지로 Stream Analytics에서도 작업이 예상된 출력(또는 해당 문제에 대한 출력)을 생성하지 않는 이유를 알아내기 위해 문제 해결이 필요합니다. 이러한 개념을 고려할 때 Stream Analytics은 스트리밍 작업을 시각화하는 기능을 제공합니다. 이 기능은 모델링 도구만큼 유용하며 업무에 필요한 문서 작성이라는 부수적인 효과도 제공합니다.
 
 시각화 패널에는 실행되는 쿼리뿐만 아니라 입력 내용과 구성된 모든 출력 내용이 표시됩니다. 연결 또는 구성 문제가 좀 더 명확히 드러나며, 구성을 시각적으로 나타내는 것도 도움이 될 수 있습니다.
 
 ## <a name="using-the-diagnosis-diagram-tool"></a>진단 다이어그램 도구 사용
-이 시각화 도우미에 액세스하려면 Stream Analytics 작업의 "설정" 블레이드에서 "진단 다이어그램" 단추를 클릭하면 됩니다.
+이 시각화 도우미에 액세스하려면 Stream Analytics 작업의 "설정" 영역에서 "진단 다이어그램" 단추를 클릭하면 됩니다.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
@@ -44,8 +43,8 @@ ms.lasthandoff: 07/04/2017
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 

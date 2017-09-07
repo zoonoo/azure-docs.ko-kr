@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 1458217a31c4781b28877c030a665f5b22819e13
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -81,6 +81,13 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 ![사용자 지정 Docker 이미지에 대한 PORT 앱 설정 구성][6]
 
+## <a name="how-to-set-the-startup-time-for-your-docker-image"></a>방법: Docker 이미지의 시작 시간 설정 ##
+
+기본적으로 컨테이너가 230초 전에 시작되지 않으면 플랫폼이 컨테이너를 다시 시작합니다. 사용자 지정 Docker 이미지가 230초 이후에 시작하는 경우 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 사용할 수 있습니다. 이 설정에 대한 값은 초 단위이고 다시 시작하기 전에 실행 중인 컨테이너 플랫폼을 유지할 수 있습니다. 기본값은 230초이고 허용되는 최대 값은 600초입니다.
+
+## <a name="how-to-unmount-the-platform-provided-storage"></a>방법: 플랫폼 제공 저장소 탑재 해제 ##
+
+플랫폼은 영구 저장소 공유를 `\home\` 디렉터리에 기본적으로 탑재합니다. 컨테이너 이미지에 영구 공유가 필요하지 않은 경우 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 앱 설정을 `false`로 설정하여 해당 저장소의 탑재를 비활성화할 수 있습니다. SCM 사이트에서 해당 저장소에 액세스할 수 있으며 모든 Docker 로그(설정된 경우)를 플랫폼에 의해 생성된 로그 파일에 기록합니다.
 
 ## <a name="how-to-switch-back-to-using-a-built-in-image"></a>방법: 기본 제공 이미지 사용 방식으로 다시 전환 ##
 
@@ -109,7 +116,6 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 Linux에서 웹앱을 시작하려면 다음 링크를 따르세요.   
 
 * [Linux의 Azure Web App 소개](./app-service-linux-intro.md)
-* [Linux의 Azure Web App에서 Web Apps 만들기](./app-service-linux-how-to-create-web-app.md)
 * [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](./app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
 

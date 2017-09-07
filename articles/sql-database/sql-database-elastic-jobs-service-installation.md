@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>탄력적 데이터베이스 작업 설치 개요
@@ -95,7 +94,7 @@ ms.lasthandoff: 04/27/2017
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>스탠더드 버전에 대한 서비스 수준 목표를 제공합니다. 이 매개 변수의 기본값은 S0입니다. Azure SQL 데이터베이스가 해당 SLO를 사용하도록 하는 매개 변수 값 S0/S1/S2/S3이 허용됩니다. SQL Database SLO에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
+    <td>스탠더드 버전에 대한 서비스 수준 목표를 제공합니다. 이 매개 변수의 기본값은 S0입니다. Azure SQL Database가 해당 SLO를 사용하도록 하는 매개 변수 값 S0/S1/S2/S3/S4/S6/S9/S12가 허용됩니다. SQL Database SLO에 대한 자세한 내용은 [Elastic Database 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)을 참조하세요.</td>
 </tr>
 
 </tr>

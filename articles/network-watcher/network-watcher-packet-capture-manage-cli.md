@@ -3,7 +3,7 @@ title: "Azure Network Watcher를 사용하여 패킷 캡처 관리 - Azure CLI 2
 description: "이 페이지에서는 Azure CLI 2.0을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c94eb46f31f2f19b843ccd7bf77b8a39943a07d4

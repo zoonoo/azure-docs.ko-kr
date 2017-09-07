@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ab463eac7eba2b0abf2da7b2ae56b6e2c05baefb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 메모리 부족 오류 수정
 
 Hive 메모리 설정을 구성하여 큰 테이블을 처리할 때 Hive 메모리 부족 오류를 수정하는 방법에 대해 알아봅니다.
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>시나리오: 큰 테이블에서 Hive 쿼리 실행
+## <a name="run-hive-query-against-large-tables"></a>큰 테이블에서 Hive 쿼리 실행
 
 고객은 Hive 쿼리를 실행했습니다.
 
@@ -124,10 +123,6 @@ D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 �
 
 새로운 설정에 따라 쿼리는 10분 이내에 성공적으로 실행됩니다.
 
-## <a name="conclusion-oom-errors-and-container-size"></a>결론: OOM 오류 및 컨테이너 크기
-
-OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-- Hive 쿼리 최적화는 [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)를 참조하세요.
+OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다. Hive 쿼리 최적화는 [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)를 참조하세요.

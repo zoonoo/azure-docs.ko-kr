@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e0e33882acc90130ef93cd66c3d57bb90f78ccee
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -33,7 +32,7 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 * 더 길어진 이벤트 보존 기간
 * 추가 조정된 연결, 포함된 수보다 많은 경우 초과분 요금 있음
 * 단일 소비자 그룹 이상
-* [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 전용 Event Hubs를 비롯한 가격 책정 계층에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
@@ -59,7 +58,7 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 예, 모든 이벤트 허브가 동일한 네임스페이스에 있는 경우 가능합니다.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>이벤트의 최대 보존 기간은 어떻게 되나요?
-이벤트 허브 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일 이상 메시지 보존이 필요할 경우 이벤트 허브에서 [Event Hubs 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)를 사용하도록 설정하면 이벤트 허브의 데이터가 선택한 저장소로 옮겨집니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
+이벤트 허브 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일 이상 메시지 보존이 필요할 경우 이벤트 허브에서 [Event Hubs 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)를 사용하도록 설정하면 이벤트 허브의 데이터가 선택한 저장소 계정 또는 Azure Data Lake 서비스 계정으로 옮겨집니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
 
 ### <a name="where-is-azure-event-hubs-available"></a>어디에서 Azure Event Hubs를 사용할 수 있나요?
 Azure 이벤트 허브는 지원되는 모든 Azure 지역에서 사용할 수 있습니다. 목록은 [Azure 지역](https://azure.microsoft.com/regions/)를 참조하세요.  

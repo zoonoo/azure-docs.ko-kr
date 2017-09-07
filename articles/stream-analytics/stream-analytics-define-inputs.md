@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>데이터 연결: 이벤트에서 Stream Analytics으로의 데이터 스트림 입력에 대해 알아보기
@@ -126,7 +126,7 @@ Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob
 CSV 형식의 입력은 데이터 집합에 대한 필드를 정의하는 헤더 행이 *필요*합니다. 또한 모든 헤더 행 필드는 고유해야 합니다.
 
 > [!NOTE]
-> Stream Analytics에서는 기존 blob에 콘텐츠를 추가할 수 없습니다. Stream Analytics에서는 Blob을 한 번만 보며 작업에서 데이터를 읽은 후 Blob에서 발생한 모든 변경 내용은 처리되지 않습니다. 따라서 모든 데이터를 한 번에 업로드하고 Blob Storage에 추가 이벤트를 추가하지 않는 것이 좋습니다.
+> Stream Analytics에서는 기존 blob 파일에 콘텐츠를 추가할 수 없습니다. Stream Analytics에서는 각 파일을 한 번만 보며 작업에서 데이터를 읽은 후 파일에서 발생한 모든 변경 내용은 처리되지 않습니다. Blob 파일에 대한 모든 데이터를 한 번에 업로드한 후 다른 새 Blob 파일에 최신 이벤트를 추가하는 것이 좋습니다.
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>데이터 스트림 입력으로 Blob Storage 구성
@@ -165,14 +165,14 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Stream Analytics 작업을 위한 Azure의 데이터 연결 옵션에 대해 알아보았습니다. Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

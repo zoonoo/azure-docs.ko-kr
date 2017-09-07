@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
@@ -56,6 +56,34 @@ Azure 진단 사용과 관련된 문제 해결 정보입니다. Azure 진단에 
 | **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Packages |
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>메트릭 데이터는 Azure Portal에 표시되지 않습니다.
+Azure 진단은 Azure Portal에 표시될 수 있는 다수의 메트릭 데이터를 제공합니다. 포털에서 이러한 데이터를 보는 데 문제가 있는 경우 진단 저장소 계정 -> WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다. 여기에서 테이블의 PartitionKey는 가상 컴퓨터 또는 가상 컴퓨터 확장 집합의 리소스 ID 이며 RowKey는 메트릭 이름(예: 성능 카운터 이름)입니다.
+
+리소스 ID가 올바르지 않으면 진단 구성 -> 메트릭 -> ResourceId를 확인하여 리소스 ID가 올바르게 설정되었는지 확인합니다.
+
+특정 메트릭에 대한 데이터가 없는 경우 진단 구성 -> PerformanceCounter를 확인하여 메트릭(성능 카운터)이 포함되어 있는지 확인합니다. 다음 카운터를 기본적으로 활성화합니다.
+- \Processor(_Total)\% Processor Time
+- \Memory\Available Bytes
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\대기 중인 요청
+- \ASP.NET\거부된 요청
+- \Processor(w3wp)\% Processor Time
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
+- \Memory\Page Faults/sec
+- \.NET CLR Memory(_Global_)\% Time in GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+구성이 올바르게 설정되어 있지만 여전히 메트릭 데이터를 볼 수 없는 경우 추가 조사를 위해 아래 지침을 따릅니다.
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단이 시작되지 않음
 진단을 시작하지 못한 이유에 대한 정보는 위에서 제공한 로그 파일의 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 검토합니다. 
 
@@ -87,9 +115,9 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 진단 구성에는 수집할 데이터의 특정 형식을 지시하는 부분이 있습니다. [구성을 검토](#how-to-check-diagnostics-extension-configuration)하여 수집에 대해 구성하지 않은 데이터를 찾지 않았는지 확인합니다.
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
-- **추적 로그**: 원격 데스크톱을 VM에 연결하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  텍스트 수신기를 설정하려면 http://msdn.microsoft.com/en-us/library/sk36c28t.aspx를 참조하세요.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그**: 원격 데스크톱을 VM에 연결하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  텍스트 수신기를 설정하려면 http://msdn.microsoft.com/library/sk36c28t.aspx를 참조하세요.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 [누락된 추적 로그에 대한 자세한 정보](#more-about-trace-logs-missing)를 따릅니다.
-- **ETW 추적**: 원격 데스크톱을 VM에 연결하고 PerfView를 설치합니다.  PerfView에서 파일 -> 사용자 명령 -> Listen etwprovder1,etwprovider2, 등을 차례로 실행합니다.  Listen 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다.  명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 '로그' 단추를 클릭하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 팝업되고 몇 초 후에 ETW 추적을 볼 수 있습니다.
+- **ETW 추적**: 원격 데스크톱을 VM에 연결하고 PerfView를 설치합니다.  PerfView에서 파일 -> 사용자 명령 -> Listen etwprovder1,etwprovider2 등을 차례로 실행합니다.  Listen 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다.  명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 '로그' 단추를 클릭하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 팝업되고 몇 초 후에 ETW 추적을 볼 수 있습니다.
 - **이벤트 로그**: 원격 데스크톱을 VM에 연결합니다. `Event Viewer`를 열고 이벤트가 있는지 확인합니다.
 #### <a name="is-data-getting-captured-locally"></a>데이터가 로컬로 캡처되고 있습니까?
 다음으로 데이터가 로컬에서 캡처되고 있는지 확인합니다.
@@ -122,13 +150,13 @@ ETW 이벤트를 보유하는 Azure 저장소의 테이블 이름은 다음 코�
 다음은 예제입니다.
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -244,3 +272,4 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 성능 카운터 이름에 와일드카드(\*)를 사용하면 포털에서 구성된 카운터와 수집된 카운터 사이의 상관 관계를 지정할 수 없습니다.
 
 **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 제어판 -> 지역 -> 관리 -> 복사 설정으로 차례로 이동한 다음 "시작 화면 및 시스템 계정"을 선택 취소하여 사용자 지정 언어가 시스템 계정에 적용되지 않도록 합니다. 또한 포털이 기본 사용 환경이 되도록 하려면 와일드카드를 사용하지 않도록 합니다.
+

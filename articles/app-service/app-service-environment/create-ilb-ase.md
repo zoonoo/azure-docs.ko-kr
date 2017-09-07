@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
@@ -182,12 +182,15 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
     ![ILB IP 주소][5]
 
-### <a name="functions-and-the-ilb-ase"></a>함수 및 ILB ASE
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>웹 작업, 함수 및 ILB ASE ##
 
-ILB ASE에서 Azure Functions를 사용할 경우 다음과 같은 오류 메시지가 발생할 수 있습니다. "함수를 지금 바로 검색할 수 없습니다. 나중에 다시 시도하십시오." Functions UI가 HTTPS를 통해 SCM 사이트를 활용하기 때문에 이 오류가 발생합니다. 브라우저에 루트 인증서가 없는 ASE에 HTTP 인증서를 사용하는 경우 이 상황이 발생할 수 있습니다. 또한 Internet Explorer\Edge 브라우저는 탭 간에 *accept-invalid-cert* 설정을 공유하지 않습니다. 따라서 다음 두 가지 중 하나를 수행할 수 있습니다.
+함수 및 웹 작업 모두 ILB ASE에서 지원되지만 포털에서 작동되려면 네트워크를 통해 SCM 사이트에 액세스할 수 있어야 합니다.  즉, 가상 네트워크에 있거나 가상 네트워크에 연결된 호스트에 브라우저가 있어야 합니다.  
 
-- 신뢰할 수 있는 인증서 저장소에 인증서를 추가합니다. 
-- Chrome을 사용합니다. 그러나 먼저 SCM 사이트로 이동하고 신뢰할 수 없는 인증서에 동의해야 합니다. 그러면 포털로 이동합니다.
+ILB ASE에서 Azure Functions를 사용할 경우 다음과 같은 오류 메시지가 발생할 수 있습니다. "함수를 지금 바로 검색할 수 없습니다. 나중에 다시 시도하십시오." 이 오류는 Functions UI가 HTTPS를 통해 SCM 사이트를 사용하며 루트 인증서가 브라우저의 신뢰 체인에 없기 때문에 발생합니다. 웹 작업에도 비슷한 문제가 있습니다. 이 문제를 방지하기 위해 다음 중 하나를 수행할 수 있습니다.
+
+- 신뢰할 수 있는 인증서 저장소에 인증서를 추가합니다. 그러면 Edge 및 Internet Explorer가 차단 해제됩니다.
+- Chrome을 사용하고 먼저 SCM 사이트로 이동한 후 신뢰할 수 없는 인증서를 수락한 다음 포털로 이동합니다.
+- 브라우저의 신뢰 체인에 있는 상용 인증서를 사용합니다.  이것이 최상의 옵션입니다.  
 
 ## <a name="dns-configuration"></a>DNS 구성 ##
 

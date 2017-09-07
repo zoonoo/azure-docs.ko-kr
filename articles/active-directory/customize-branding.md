@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 로그인 페이지 사용자 지정 | Micr
 description: "회사 브랜딩을 Azure 로그인 페이지 에 추가하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>빠른 시작: Azure AD에서 로그인 페이지에 회사 브랜딩 추가
@@ -62,7 +63,7 @@ ms.lasthandoff: 08/15/2017
 ### <a name="sign-in-page-image"></a>로그인 페이지 이미지  
 설명 | 제약 조건 | 추천
 ------- | ------- | ----------
-로그인 페이지의 배경에 표시되며 볼 수 있는 공간의 가운데에 고정되고 브라우저 창에 맞도록 크기 조정하고 자릅니다.    <br>전화와 같은 좁은 화면에서는 이 이미지가 표시되지 않습니다.<br>0.55 불투명도의 검은색 마스크는 페이지가 로드될 때 코드에 의해 이 이미지 위에 적용됩니다. | JPG 또는 PNG<br>이미지 크기: 1920x1080px<br>파일 크기: &gt; 300KB | <br>강력한 제목 포커스가 없는 곳에 이미지를 사용합니다. 불투명 로그인 양식이 이 이미지의 가운데 위로 표시되고 브라우저 창 크기에 따라 이미지의 모든 부분을 덮을 수 있습니다.<br>빠른 로드 시간을 보장하려면 파일 크기를 가능한 한 작게 유지합니다. 
+로그인 페이지의 배경에 표시되며 볼 수 있는 공간의 가운데에 고정되고 브라우저 창에 맞도록 크기 조정하고 자릅니다.    <br>전화와 같은 좁은 화면에서는 이 이미지가 표시되지 않습니다.<br>0.55 불투명도의 검은색 마스크는 페이지가 로드될 때 코드에 의해 이 이미지 위에 적용됩니다. | JPG 또는 PNG<br>이미지 크기: 1920x1080px<br>파일 크기: &lt; 300KB | <br>강력한 제목 포커스가 없는 곳에 이미지를 사용합니다. 불투명 로그인 양식이 이 이미지의 가운데 위로 표시되고 브라우저 창 크기에 따라 이미지의 모든 부분을 덮을 수 있습니다.<br>빠른 로드 시간을 보장하려면 파일 크기를 가능한 한 작게 유지합니다. 
 
 ### <a name="background-color"></a>배경색
 설명 | 제약 조건 | 추천

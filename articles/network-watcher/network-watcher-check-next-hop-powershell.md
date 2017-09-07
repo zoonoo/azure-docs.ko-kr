@@ -3,7 +3,7 @@ title: "Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - Power
 description: "이 문서에서는 PowerShell에서 Next Hop을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 00161e7c6fb4becdb7d8eab266fa27128e50f8ca
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

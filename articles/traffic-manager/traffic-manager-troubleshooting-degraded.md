@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure 트래픽 관리자의 성능 저하 상태 문제해결"
 description: "성능 저하 상태로 표시할 때 Traffic Manager 문제를 해결하는 방법입니다."
 services: traffic-manager

@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Cosmos DB 바인딩을 사용하는 �
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB 바인딩
@@ -39,16 +39,18 @@ DocumentDB API 입력 바인딩은 Cosmos DB 문서를 검색하고 함수의 �
 
 DocumentDB API 입력 바인딩은 *function.json*에 다음 속성이 있습니다.
 
-- `name` : 문서에 대한 함수 코드에 사용되는 식별자 이름입니다.
-- `type` : “documentdb”로 설정해야 합니다.
-- `databaseName` : 문서를 포함하는 데이터베이스입니다.
-- `collectionName` : 문서를 포함하는 컬렉션입니다.
-- `id` : 검색할 문서의 ID입니다. 이 속성은 바인딩 매개 변수를 지원합니다. [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md) 문서에서 [바인딩 식에서 사용자 지정 입력 속성에 바인딩](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)을 참조하세요.
-- `sqlQuery`: 여러 문서를 검색하는 데 사용되는 Cosmos DB SQL 쿼리입니다. 쿼리는 런타임 바인딩을 지원합니다. 예: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.
-- `direction` : `"in"`으로 설정해야 합니다.
+|속성  |설명  |
+|---------|---------|
+|**name**     | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | `documentdb`로 설정해야 합니다.        |
+|**databaseName** | 문서를 포함하는 데이터베이스입니다.        |
+|**collectionName**  | 문서를 포함하는 컬렉션의 이름입니다. |
+|**id**     | 검색할 문서의 ID입니다. 이 속성은 바인딩 매개 변수를 지원합니다. 자세한 내용은 [바인딩 식에서 사용자 지정 입력 속성에 바인딩](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)을 참조하세요. |
+|**sqlQuery**     | 여러 문서를 검색하는 데 사용되는 Cosmos DB SQL 쿼리입니다. 쿼리는 `SELECT * FROM c where c.departmentId = {departmentId}` 예제와 같이 런타임 바인딩을 지원합니다.        |
+|**연결**     |Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**direction**     | `in`으로 설정해야 합니다.         |
 
-속성 `id` 및 `sqlQuery`를 둘 다 지정할 수는 없습니다. `id` 및 `sqlQuery`를 둘 다 설정하지 않으면 전체 컬렉션이 검색됩니다.
+**id** 및 **sqlQuery** 속성을 둘 다 설정할 수는 없습니다. 둘 다 설정하지 않으면 전체 컬렉션이 검색됩니다.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>DocumentDB API 입력 바인딩 사용
 
@@ -180,18 +182,20 @@ module.exports = function (context, input) {
 ## <a id="docdboutput"></a>DocumentDB API 출력 바인딩
 DocumentDB API 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 새 문서를 작성할 수 있습니다. *function.json*에 다음 속성이 있습니다.
 
-- `name` : 새 문서에 대한 함수 코드에 사용되는 식별자입니다.
-- `type` : `"documentdb"`로 설정해야 합니다.
-- `databaseName` : 새 문서를 만들 컬렉션을 포함하는 데이터베이스입니다.
-- `collectionName` : 새 문서를 만들 컬렉션입니다.
-- `createIfNotExists` : 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
-- `connection`: Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.
-- `direction` : `"out"`으로 설정해야 합니다.
+|속성  |설명  |
+|---------|---------|
+|**name**     | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
+|**type**     | `documentdb`로 설정해야 합니다.        |
+|**databaseName** | 문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
+|**collectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
+|**createIfNotExists**     | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.  |
+|**연결**     |Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**direction**     | `out`으로 설정해야 합니다.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>DocumentDB API 출력 바인딩 사용
 이 섹션에서는 함수 코드에서 DocumentDB API 출력 바인딩을 사용하는 방법을 보여 줍니다.
 
-함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
+기본적으로 함수에서 출력 매개 변수에 쓸 경우 데이터베이스에서 문서가 생성됩니다. 이 문서에는 자동으로 생성된 GUID가 문서 ID로 지정되어 있습니다. 출력 매개 변수에 전달되는 JSON 개체에 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
 
 >[!Note]  
 >기존 문서의 ID를 지정하면 새 출력 문서에 의해 덮어쓰여집니다. 

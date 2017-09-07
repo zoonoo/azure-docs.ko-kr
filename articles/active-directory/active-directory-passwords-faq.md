@@ -6,21 +6,21 @@ keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
@@ -38,6 +38,7 @@ ms.lasthandoff: 05/03/2017
 * [**비밀번호 쓰기 저장에 대한 질문**](#password-writeback)
 
 ## <a name="password-reset-registration"></a>암호 재설정 등록
+
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
 
   > **A:** 예, 암호 재설정이 사용되고 라이선스가 부여된 경우 http://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 인증 정보를 등록할 수 있습니다. 사용자는 http://myapps.microsoft.com의 액세스 패널로 이동하고, 프로필 탭을 클릭하고 암호 재설정 등록 옵션을 클릭하여 등록할 수도 있습니다.
@@ -82,7 +83,9 @@ ms.lasthandoff: 05/03/2017
   > **A:** 사용자가 적어도 [Azure Portal](https://portal.azure.com)에서 설정한 **재설정에 필요한 메서드의 수**를 등록한 경우 SSPR에 등록된 것으로 간주됩니다.
   >
   >
+
 ## <a name="password-reset"></a>암호 재설정
+
 * **Q: 암호 재설정에서 전자 메일, SMS 또는 전화 통화를 받으려면 얼마나 오래 대기해야 합니까?**
 
   > **A:** 전자 메일, SMS 메시지 및 전화 통화는 1초 미만이며, 일반적인 경우 5-20초 대기해야 합니다.
@@ -105,7 +108,7 @@ ms.lasthandoff: 05/03/2017
   >
 * **Q: 암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
-  > **A:** 사용자를 https://passwordreset.microsoftonline.com에 직접 보내거나, 모든 회사 또는 학교 ID 로그인 화면에서 찾은 **계정 링크에 액세스할 수 없음**을 클릭하도록 지시합니다. 또한 사용자에게 쉽게 액세스할 수 있는 곳에 이러한 링크를 게시할 수 있습니다.
+  > **A:** 의 제안 사항을 중 일부를 시도 우리의 [SSPR 배포 문서](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **Q: 모바일 장치에서 이 페이지를 사용할 수 있습니까?**
@@ -158,6 +161,11 @@ ms.lasthandoff: 05/03/2017
   > **A:** 예, 등록에 대해 하나의 제한, 재설정에 대해 또 하나의 제한을 설정할 수 있습니다. 3-5개의 보안 질문을 등록해야 하며 3-5개 질문은 재설정을 위해 필요할 수 있습니다.
   >
   >
+* **Q: 사용자가 재설정에 대한 보안 질문을 사용해야 하도록 내 정책을 구성했지만 Azure 관리자는 다르게 구성할 것 같습니다.**
+
+  > **A:** 이는 정상적인 동작입니다. Microsoft에서는 Azure 관리자 역할에 강력한 두 개의 기본 게이트 암호 재설정 정책을 적용합니다. 그러면 관리자가 보안 질문을 사용하지 않도록 설정합니다. 이 정책에 대한 자세한 내용은 [Azure Active Directory의 암호 정책 및 제한 사항](active-directory-passwords-policy.md#administrator-password-policy-differences) 문서에 있습니다.
+  >
+  >
 * **Q: 사용자가 재설정에 필요한 질문의 최대 개수 보다 많은 질문을 등록한 경우, 재설정 중 보안 질문은 어떻게 선택됩니까?**
 
   > **A:** N개의 보안 질문이 사용자가 등록한 전체 질문 개수에서 임의로 선택되며, 여기서 N은 **재설정에 필요한 질문 개수**입니다. 예를 들어, 사용자가 5개의 보안 질문을 등록했지만 3개만 재설정에 필요한 경우, 5개 중 3개가 임의로 선택되며 재설정 시 표시됩니다. 사용자가 질문에 대답을 잘못하면, 선택 프로세스가 다시 시작되어 계속되는 질문을 방지합니다.
@@ -175,6 +183,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-change"></a>암호 변경
+
 * **Q: 내 사용자는 어디서 자신의 암호를 변경해야 합니까?**
 
   > **A:** 사용자는 자신의 [Office 365](https://portal.office.com) 또는 [액세스 패널](https://myapps.microsoft.com) 환경의 오른쪽 위 모서리와 같이 프로필 사진이나 아이콘이 표시된 곳이면 어디서나 자신의 암호를 변경할 수 있습니다. 사용자는 [액세스 패널 프로필 페이지](https://account.activedirectory.windowsazure.com/r#/profile)에서 자신의 암호를 변경할 수 있습니다. 또한 암호가 만료된 경우 사용자는 Azure AD 로그인 화면에서 자신의 암호를 변경하도록 자동으로 요청받을 수 있습니다. 마지막으로 자신의 암호를 변경하려는 경우 사용자는 [Azure AD 암호 변경 포털](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)로 직접 이동할 수 있습니다.
@@ -187,6 +196,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-management-reports"></a>암호 관리 보고서
+
 * **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
 
   > **A:** 데이터는 5~10분 내에 암호 관리 보고서를 표시됩니다. 최대 한 시간이 소요되는 경우도 있습니다.
@@ -219,6 +229,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-writeback"></a>비밀번호 쓰기 저장
+
 * **Q: 비밀번호 쓰기 저장은 배후에서 어떻게 작동합니까?**
 
   > **A:** 비밀번호 쓰기 저장을 사용하는 경우 및 시스템을 통해 온-프레미스 환경으로 다시 데이터가 흐르는 경우에 발생하는 일에 대한 설명은 [비밀번호 쓰기 저장 작동 원리](active-directory-passwords-writeback.md)를 참조하세요.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 47f211237332dba3402339780c3c13fdf03c96bb
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 8ca04ac79665d5ecc639addd48939f71825f2024
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
@@ -337,7 +337,7 @@ Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트
 이 문서에서는 Service Fabric에서 제공하는 네트워킹 모드에 대해 알아보았습니다.  
 
 * [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)
-* [Service Fabric 서비스 매니페스트 리소스](service-fabric-application-model.md)
+* [Service Fabric 서비스 매니페스트 리소스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers.md)
 * [Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers-linux.md)
 

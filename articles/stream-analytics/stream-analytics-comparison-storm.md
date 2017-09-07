@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>스트리밍 분석 플랫폼 선택: Apache Storm 및 Azure Stream Analytics 비교
@@ -231,29 +231,12 @@ temporal 연산자는 사용자가 구현해야 합니다.
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>UDF(사용자 정의 함수) 지원</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-쿼리는 JavaScript UDF를 지원합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 통합</a>을 참조하세요.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-C#, Java 또는 기타 언어로 UDF를 작성할 수 있습니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>사용자 지정 코드를 사용하여 확장 가능 여부</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-아니요. Stream Analytics에 확장 가능한 코드에 대한 지원은 없습니다.
+JavaScript UDF에서 부분적으로 지원됩니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 통합</a>을 참조하세요.
                 </p>
             </td>
             <td width="246" valign="top">

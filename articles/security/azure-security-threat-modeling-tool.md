@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 381922a7e83a65a855dc906a22c354380914f31e
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구 
+# <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
 위협 모델링 도구는 Microsoft SDL(Security Development Lifecycle)의 핵심 요소입니다. 소프트웨어 설계자는 이 도구를 사용하여 비교적 쉽고 비용 효과적으로 문제를 해결할 수 있는 조기에 잠재적인 보안 문제를 식별하고 완화할 수 있습니다. 결과적으로 전체 개발 비용이 크게 절감됩니다. 또한 보안 전문가가 아닌 사용자를 염두에 두고 개발되었으므로 위협 모델을 만들고 분석하기 위한 정확한 지침을 제공하여 모든 개발자가 쉽게 위협 모델링을 수행할 수 있도록 합니다. 
 
@@ -43,10 +43,24 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="next-steps"></a>다음 단계
 
+아래 표는 위협 모델링 도구를 시작하는 데 중요한 링크를 포함합니다.
+
+| 단계  | 설명                                                                                   |
+| ----- | --------------------------------------------------------------------------------------------- |
+| **1** | [위협 모델링 도구 다운로드](https://aka.ms/tmtpreview)                                |
+| **2** | [시작 가이드 읽기](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [기능 익히기](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [생성된 위협 범주에 대해 알아보기](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [생성된 위협에 대한 해결 방법 찾기](./azure-security-threat-modeling-tool-mitigations.md) |
+
+## <a name="resources"></a>리소스
+
 위협 모델링에 여전히 관련이 있는 몇 가지 이전 문서는 다음과 같습니다.
+
 * [위협 모델링의 중요성에 대한 문서](https://msdn.microsoft.com/magazine/dd347831.aspx)
 * [신뢰할 수 있는 컴퓨팅으로 게시된 학습](https://www.microsoft.com/download/details.aspx?id=16420)
 
 몇 가지 위협 모델링 도구 전문가가 수행한 작업을 확인해 보세요.
+
 * [위협 관리자](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Simone Curzi 보안 블로그](https://simoneonsecurity.com/)

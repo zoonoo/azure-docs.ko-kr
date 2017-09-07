@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 `DimDate` 및 `DimSalesTerritory`를 라운드 로빈 테이블로 다시 만들었습니다. 그에 따라 쿼리에 다수의 브로드캐스트 이동 작업이 포함된 다음과 같은 쿼리 계획이 표시되었습니다. 
  
-![라운드 로빈 쿼리 계획](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "라운드 로빈 쿼리 계획") 
+![라운드 로빈 쿼리 계획](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 `DimDate` 및 `DimSalesTerritory`를 복제 테이블로 다시 만들고 쿼리를 다시 실행했습니다. 결과 쿼리 계획은 훨씬 더 짧으며 브로드캐스트 이동이 하나도 없습니다.
 
-![복제 쿼리 계획](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "라운드 로빈 쿼리 계획") 
+![복제된 쿼리 계획](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>복제 테이블 수정에 대한 성능 고려 사항

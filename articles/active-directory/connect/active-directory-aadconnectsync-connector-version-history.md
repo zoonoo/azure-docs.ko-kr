@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/18/2017
+ms.date: 08/24/2017
 ms.author: fimguy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
@@ -39,7 +39,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
 
-## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0(AADConnect 1.1.XXX.0)
+## <a name="116040-aadconnect-pending-release"></a>1.1.604.0(AADConnect 보류 중 릴리스)
 
 
 ### <a name="fixed-issues"></a>수정된 문제:
@@ -74,7 +74,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 ### <a name="enhancements"></a>향상된 기능:
 
 * 일반 SQL:
-  * **시나리오: 다시 구현됨:** "*" 기능
+  * **시나리오: 다시 설계되고 구현됨:** "*" 기능
   * **솔루션 설명:** [다중 값 참조 특성 처리](active-directory-aadconnectsync-connector-genericsql.md) 접근 방식이 변경되었습니다.
 
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 26fb0914de571aa0e398f0e2a2f8e439d3d27680
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
@@ -109,11 +109,13 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
 | &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부 |
-| 일본 | 일본 동부 | 일본 동부 |
-| &nbsp; | 일본 서부 | 일본 동부 |
 | 인도 | 인도 중부 | 인도 중부 |
 | &nbsp; | 인도 서부 | 인도 중부 |
 | &nbsp; | 인도 남부 | 인도 중부 |
+| 일본 | 일본 동부 | 일본 동부 |
+| &nbsp; | 일본 서부 | 일본 동부 |
+| 한국 | 한국 중부 | 한국 중부 |
+| &nbsp; | 한국 남부 | 한국 중부 |
 
 또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 하위 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
@@ -308,8 +308,8 @@ ms.lasthandoff: 08/23/2017
 |---------------|-----------------|--------------|--------------|  
 |key|문자열입니다. 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다.|예|해당 없음|  
 |max-count|정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.|예|해당 없음|  
-|시간 제한|정수입니다. 허용되는 식입니다. 요청이 "403 너무 많은 요청"을 표시하며 실패하기 전에 범위에 포함되기 위해 대기해야 하는 시간(초)을 지정합니다.|아니요|Infinity|  
-|max-queue-length|정수입니다. 허용되는 식입니다. 최대 큐 길이를 지정합니다. 큐가 고갈되는 즉시, 이 정책에 들어오려고 하는 수신 요청은 "403 너무 많은 요청"을 나타내며 종료됩니다.|아니요|Infinity|  
+|시간 제한|정수입니다. 허용되는 식입니다. 요청이 "429 너무 많은 요청"을 표시하며 실패하기 전에 범위에 포함되기 위해 대기해야 하는 시간(초)을 지정합니다.|아니요|Infinity|  
+|max-queue-length|정수입니다. 허용되는 식입니다. 최대 큐 길이를 지정합니다. 큐가 고갈되는 즉시, 이 정책에 들어오려고 하는 수신 요청은 "429 너무 많은 요청"을 나타내며 종료됩니다.|아니요|Infinity|  
   
 ###  <a name="ChooseUsage"></a> 사용 방법  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  

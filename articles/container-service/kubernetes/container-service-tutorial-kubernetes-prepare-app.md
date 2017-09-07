@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 851ce819b9a1a0d917981223cc54e959b3306709
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -62,10 +62,10 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 
 [Docker Compose](https://docs.docker.com/compose/)는 컨테이너 이미지 빌드 및 다중 컨테이너 응용 프로그램 배포를 자동화하는 데 사용할 수 있습니다.
 
-docker-compose.yaml 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 응용 프로그램을 시작합니다.
+docker-compose.yml 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 응용 프로그램을 시작합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
 완료되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 만든 이미지를 확인합니다.
@@ -110,13 +110,13 @@ http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 �
 다음을 실행하여 실행 중인 컨테이너를 중지합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
 다음 명령을 사용하여 중지된 컨테이너를 삭제합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
 완료되면 Azure Vote 응용 프로그램을 구성하는 컨테이너 이미지가 있는 상태가 됩니다.
