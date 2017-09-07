@@ -13,20 +13,32 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2017
+ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 72c5c2efe2c8a60f13d18b595062448e6a0d1816
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지를 찾는 방법
 이 항목에서는 Azure CLI 2.0을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 이 정보를 사용하여 Linux VM을 만들 때 Marketplace 이미지를 지정합니다.
 
 최신 Azure CLI 2.0을 [설치](/cli/azure/install-az-cli2)하고 Azure 계정(`az login`)에 로그인했는지 확인합니다.
+
+## <a name="terminology"></a>용어
+
+Marketplace 이미지는 CLI 및 다른 Azure 도구에서 계층 구조에 따라 식별됩니다.
+
+* **Publisher** - 이미지를 만든 조직입니다. 예제: Canonical
+* **Offer** - 게시자에 의해 생성 되는 관련 이미지 그룹입니다. 예제: Ubuntu Server
+* **SKU** - 제공의 인스턴스(예: 배포의 주 릴리스)입니다. 예제: 16.04-LTS
+* **Version** - 이미지 SKU의 버전 번호입니다. 이미지를 지정하면 버전 번호를 “최신”으로 바꿀 수 있습니다. 그러면 배포의 최신 버전이 선택됩니다.
+
+Marketplace 이미지를 지정하려면 일반적으로 이미지 *URN*을 사용합니다. URN은 다음 값을 콜론(:) 문자로 구분해서 조합합니다. *Publisher*:*Offer*:*Sku*:*Version* 
+
 
 ## <a name="list-popular-images"></a>인기 있는 이미지 나열
 
@@ -36,7 +48,7 @@ ms.lasthandoff: 07/21/2017
 az vm image list --output table
 ```
 
-출력은 URN(*Urn* 열의 값)을 포함합니다. 이 항목의 양식은 *게시자*:*제품*:*Sku*:*버전*과 같습니다. `az vm create`을 사용하여 VM을 만들 때 이미지를 지정하기 위해 이 값을 사용합니다. 또한 인기있는 VM 이미지 중 하나를 사용하여 VM을 만드는 경우 *UbuntuLTS*와 같은 URN 별칭을 지정할 수 있습니다.
+출력에는 이미지를 지정하는 데 사용할 수 있는 URN(*Urn* 열의 값)이 포함됩니다. 또한 인기있는 마켓플레이스 이미지 중 하나를 사용하여 VM을 만드는 경우 *UbuntuLTS*와 같은 URN 별칭을 지정할 수 있습니다.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -49,42 +61,21 @@ openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
-WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+...
 ```
-
-## <a name="list-all-current-images"></a>모든 현재 이미지 나열
-
-Marketplace에서 모든 VM 이미지의 현재 목록을 가져오려면 `az vm image list` 명령과 `--all` 옵션을 사용합니다. 이 버전의 명령을 완료하는 데 다소 시간이 걸립니다.
-
-
-```azurecli
-az vm image list --all
-```
-
-`--location` 옵션을 사용하여 특정 위치를 지정하지 않는 경우 기본적으로 `westus`에 대한 값이 반환됩니다. (`az configure --defaults location=<location>`을 실행하여 다른 기본 위치를 설정합니다.)
-
-
-대화형으로 조사하려는 경우 로컬 파일에 출력을 전송합니다. 예:
-
-```azurecli
-az vm image list --all > allImages.json
-```
-
-
-
 
 ## <a name="find-specific-images"></a>특정 이미지 찾기
 
-추가 옵션과 함께 `az vm image list`을 사용하여 특정 위치, 제품, 게시자 또는 SKU에 대한 검색을 제한합니다. 예를 들어, 다음 명령은 모든 Debian 제품을 표시합니다(`--all` 스위치 없이는 공용 이미지의 로컬 캐시만을 검색함).
+Marketplace에서 특정 VM 이미지를 찾으려면 `az vm image list` 명령에 `--all` 옵션을 사용합니다. 명령의 이 버전은 완료하는 데 다소 시간이 걸리며 긴 출력을 생성할 수 있으므로 일반적으로 `--publisher` 또는 다른 매개 변수를 기준으로 목록을 필터링합니다. 
+
+예를 들어, 다음 명령은 모든 Debian 제품을 표시합니다(`--all` 스위치 없이는 공용 이미지의 로컬 캐시만을 검색함).
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
+
 ```
 
-출력의 목록이 길 수 있으므로 여기에서 자릅니다. 
+부분 출력: 
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
@@ -95,11 +86,26 @@ Debian   credativ     7                  credativ:Debian:7:7.0.201604200        
 Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
 Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
 Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
 ...
 ```
 
-
 `--location`, `--publisher` 및 `--sku` 옵션을 사용하여 비슷한 필터를 적용합니다. 모든 Debian 이미지를 찾는 `--offer Deb`을 검색하는 등 필터에서 부분적 일치도 수행할 수 있습니다.
+
+`--location` 옵션을 사용하여 특정 위치를 지정하지 않는 경우 기본적으로 `westus`에 대한 값이 반환됩니다. (`az configure --defaults location=<location>`을 실행하여 다른 기본 위치를 설정합니다.)
 
 예를 들어 다음 명령은 `westeurope`에 있는 모든 Debian 8개의 SKU를 나열합니다.
 
@@ -107,7 +113,7 @@ Debian   credativ     7                  credativ:Debian:7:7.0.201611020        
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-출력:
+부분 출력:
 
 ```
 Offer    Publisher    Sku                Urn                                              Version
@@ -128,7 +134,6 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-
 ## <a name="navigate-the-images"></a>이미지 이동 
 위치에서 이미지를 찾는 또 다른 방법은 [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](/cli/azure/vm/image#list-offers) 및 [az vm image list-skus](/cli/azure/vm/image#list-skus)의 순서로 명령을 실행하는 것입니다. 이러한 명령을 사용하여 값을 결정합니다.
 
@@ -143,11 +148,12 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 az vm image list-publishers --location westus --output table
 ```
 
-출력:
+부분 출력:
 
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      1e
 westus      4psa
 westus      7isolutions
 westus      a10networks
@@ -161,7 +167,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-이러한 목록이 길 수 있으므로 이 예제의 출력은 코드 조각입니다. 이 정보를 사용하여 특정 게시자의 제안을 찾을 수 있습니다. 예를 들어 Canonical이 미국 서부에 있는 이미지 게시자인 경우 `azure vm image list-offers`을 실행하여 해당 제품을 찾을 수 있습니다. 다음 예제와 같이 위치 및 게시자를 전달합니다.
+이 정보를 사용하여 특정 게시자의 제안을 찾을 수 있습니다. 예를 들어 Canonical이 미국 서부에 있는 이미지 게시자인 경우 `azure vm image list-offers`을 실행하여 해당 제품을 찾을 수 있습니다. 다음 예제와 같이 위치 및 게시자를 전달합니다.
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -214,7 +220,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-마지막으로 `az vm image list` 명령을 사용하여 원하는 SKU의 특정 버전을 찾습니다(예: **14.04-LTS**).
+마지막으로 `az vm image list` 명령을 사용하여 원하는 SKU의 특정 버전을 찾습니다(예: **16.04-LTS**).
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -245,7 +251,12 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>다음 단계
-이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. 이미지를 지정할 경우 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 배포입니다. 방금 찾은 URN 정보를 사용하여 가상 컴퓨터를 빠르게 만들려면 [Azure CLI를 사용하여 Linux VM 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. [az vm create](/cli/azure/vm#create) 명령을 사용하여 VM을 만들 때 이 값을 `--image` 매개 변수와 함께 제공합니다. 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 배포입니다. URN 정보를 사용하여 가상 컴퓨터를 빠르게 만들려면 [Azure CLI로 Linux VM 만들기 및 관리](tutorial-manage-vm.md)를 참조하세요.
 

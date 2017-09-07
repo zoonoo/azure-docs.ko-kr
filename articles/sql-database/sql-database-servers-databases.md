@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,8 +31,8 @@ Azure SQL Database는 [다양한 워크로드에 대한 계산 및 저장소 리
 
 Azure SQL Database는 다음과 같을 수 있습니다.
 
-- [고유한 리소스 집합](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus)(DTU)이 있는 단일 데이터베이스
-- [리소스 집합을 공유](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus)(eDTU)하는 [SQL 탄력적 풀](sql-database-elastic-pool.md)의 일부
+- 고유한 리소스 집합이 있는 [단일 데이터베이스](sql-database-single-database-resources.md)
+- 리소스 집합을 공유하는 [탄력적 풀](sql-database-elastic-pool.md)의 일부
 - 일부 [분할 데이터베이스의 확장된 집합](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)은 단일 또는 풀링된 데이터베이스
 - [다중 테넌트 SaaS 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)에 속한 데이터베이스 집합의 일부 및 해당 데이터베이스는 단일 또는 풀링된 데이터베이스 또는 둘 다일 수 있습니다. 
 
@@ -46,7 +46,7 @@ Azure SQL Database는 다음과 같을 수 있습니다.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Azure SQL 논리 서버란?
 
-논리 서버는 [SQL 탄력적 풀](sql-database-elastic-pool.md) [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치 그룹](sql-database-geo-replication-overview.md)을 포함하여 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다. 
+논리 서버는 [탄력적 풀](sql-database-elastic-pool.md) [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치 그룹](sql-database-geo-replication-overview.md)을 포함하여 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다. 
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database는 SQL Database 방화벽으로 보호됩니다.
 
-데이터를 보호하기 위해 [SQL Database 방화벽](sql-database-firewall-configure.md)은 Azure 구독 연결을 통해 직접 서버에 대한 연결 외부에서 데이터베이스 서버 또는 데이터베이스에 대한 모든 액세스를 방지합니다. 추가 연결을 사용하도록 설정하려면 [하나 이상의 방화벽 규칙을 만들](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)어야 합니다. SQL 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+데이터를 보호하기 위해 [SQL Database 방화벽](sql-database-firewall-configure.md)은 Azure 구독 연결을 통해 직접 서버에 대한 연결 외부에서 데이터베이스 서버 또는 데이터베이스에 대한 모든 액세스를 방지합니다. 추가 연결을 사용하도록 설정하려면 [하나 이상의 방화벽 규칙을 만들](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)어야 합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
@@ -99,7 +99,8 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [중요] 데이터베이스의 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+> [!IMPORTANT]
+> 데이터베이스의 가격 책정 계층을 선택하는 방법에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 >
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
@@ -122,7 +123,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. SQL 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -146,7 +147,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-[Azure CLI](/cli/azure/overview)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. SQL 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+[Azure CLI](/cli/azure/overview)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -176,7 +177,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 T-SQL cmdlet을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . SQL 탄력적 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 T-SQL cmdlet을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . 탄력적 풀 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
@@ -206,11 +207,33 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>REST API를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-REST API를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 [Azure SQL Database REST API](/rest/api/sql/)를 참조하세요.
+Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 REST API 요청을 사용하세요.
+
+| 명령 | 설명 |
+| --- | --- |
+|[Servers - Create 또는 Update](/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|SQL 서버를 삭제합니다.|
+|[Servers - Get](/rest/api/sql/servers/get)|서버를 가져옵니다.|
+|[Servers - List](/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
+|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
+|[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
+|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|지정된 이름의 리소스를 만들 수 있는지 여부를 결정합니다.|
+|[Databases - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[Databases - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
+|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[Databases - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[Firewall Rules - Create 또는 Update](/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
+|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
+|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
+|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL 탄력적인 풀을 사용하여 데이터베이스를 풀하는 방법에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+- 탄력적 풀을 사용하여 데이터베이스를 풀하는 방법에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 - Azure SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요.
 - SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

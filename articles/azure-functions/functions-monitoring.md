@@ -4,7 +4,7 @@ description: "Azure Functions를 모니터링하는 방법에 대해 알아봅�
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -34,14 +35,12 @@ ms.lasthandoff: 04/27/2017
 
 실행을 클릭하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다. 이 탭은 함수를 디버그하고 성능을 조정하는 데 유용합니다.
 
-
 > [!IMPORTANT]
-> Azure Functions에 [소비 호스팅 계획](functions-overview.md#pricing)을 사용하는 경우 함수 앱 개요 블레이드의 **모니터링** 타일에서 데이터를 표시하지 않습니다. 이는 플랫폼에서 계산 인스턴스를 동적으로 확장하고 관리하여 이러한 메트릭이 소비 계획에서 의미가 없기 때문입니다. 함수 앱의 사용을 모니터링하려면 이 문서의 지침을 대신 사용해야 합니다.
+> Azure Functions에 [소비 호스팅 계획](functions-overview.md#pricing)을 사용하는 경우 함수 앱의 **모니터링** 타일에서 데이터를 표시하지 않습니다. 플랫폼이 동적으로 확장되고 계산 인스턴스를 관리하기 때문입니다. 이러한 메트릭은 소비 계획에서 의미가 없습니다. 함수 앱의 사용을 모니터링하려면 이 문서의 지침을 대신 사용해야 합니다.
 > 
 > 다음 스크린샷에서는 예제를 보여 줍니다.
 > 
-> ![기본 리소스 블레이드에서 모니터링](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![함수 모니터링](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## <a name="real-time-monitoring"></a>실시간 모니터링
@@ -50,7 +49,7 @@ ms.lasthandoff: 04/27/2017
 
 ![모니터 탭의 라이브 이벤트 스트림 옵션](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-라이브 이벤트 스트림은 아래와 같이 새 브라우저 탭에서 그래프로 표시됩니다. 
+라이브 이벤트 스트림은 다음 예제와 같이 브라우저의 새 탭에 그래프로 표시됩니다. 
 
 ![라이브 이벤트 스트림 예제](./media/functions-monitoring/live-event-stream.png)
 
@@ -68,24 +67,19 @@ ms.lasthandoff: 04/27/2017
 이러한 통계는 실시간이지만 실행 데이터의 실제 그래프표시에는 약 10초의 대기 시간이 있을 수 있습니다.
 
 
-
-
-
-
 ## <a name="monitoring-log-files-from-a-command-line"></a>명령줄에서 로그 파일 모니터링
 
+Azure CLI(명령줄 인터페이스) 1.0 또는 PowerShell을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다.
 
-Azure CLI(Command Line Interface) 또는 PowerShell을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다.
+### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>Azure CLI 1.0으로 함수 앱 로그 파일 모니터링
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Azure CLI로 함수 앱 로그 파일 모니터링
+시작하려면 [Azure CLI 1.0을 설치](../cli-install-nodejs.md)합니다.
 
-시작하려면 [Azure CLI를 설치](../cli-install-nodejs.md)합니다.
-
-다음 명령 또는 [Azure CLI에서 Azure에 로그인](../xplat-cli-connect.md)에 나오는 다른 옵션을 사용하여 Azure 계정에 로그인합니다.
+다음 명령 또는 [Azure CLI 1.0에서 Azure에 로그인](../xplat-cli-connect.md)에 나오는 다른 옵션을 사용하여 Azure 계정에 로그인합니다.
 
     azure login
 
-다음 명령을 사용하여 ASM(Azure CLI Service Management) 모드를 사용하도록 설정합니다.
+다음 명령을 사용하여 클래식 Service Management 모드에서 Azure CLI 1.0을 사용하도록 설정합니다.
 
     azure config mode asm
 

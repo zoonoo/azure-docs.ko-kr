@@ -1,0 +1,140 @@
+---
+title: "Azure Blob Storage 이벤트에 응답(미리 보기) | Microsoft Docs"
+description: "Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다."
+services: storage,event-grid
+keywords: 
+author: cbrooksmsft
+ms.author: cbrooks
+ms.date: 08/25/2017
+ms.topic: article
+ms.service: storage
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b9b117bdeb62f5ebb2e4e3fbfe71572068927082
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
+
+---
+
+# <a name="reacting-to-blob-storage-events-preview"></a>Blob Storage 이벤트에 응답(미리 보기)
+
+Azure Blob Storage 이벤트를 사용하면 응용 프로그램은 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스 없이도 최신 서버 아키텍처를 사용하여 blob의 생성 및 삭제에 대응할 수 있습니다.  대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) 또는 사용자 지정 http 수신기와 같은 구독자로 푸시되며 사용한 부분에 대한 비용만 청구됩니다.
+
+공용 Blob Storage 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱 또는 모든 파일 관련 워크플로가 포함됩니다.  비동기 파일 업로드는 이벤트에 매우 적합합니다.  변경이 자주 수행되지 않지만 바로 대처해야 하는 상황이면 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
+
+![Event Grid 모델](./media/storage-blob-event-overview/event-grid-functional-model.png)
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="join-the-preview"></a>미리 보기에 연결
+Blob Storage 이벤트는 미리 보기에 사용할 수 있습니다.  사용자가 구독에 대해 다음 명령을 실행하여 미리 보기에 연결하도록 요청할 수 있습니다.
+```azurecli-interactive
+az provider register --namespace  Microsoft.EventGrid
+az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
+```
+용량이 사용 가능하면 구독이 미리 보기 프로그램에 추가됩니다.  다음 명령을 실행하여 요청 상태를 모니터링할 수 있습니다.
+```azurecli-interactive
+az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
+```
+등록 상태가 "등록됨"으로 변경되면 미리 보기 프로그램에 연결되도록 허용된 것이며 *미국 중서부* 위치에서 계정에 대해 Blob Storage 이벤트를 구독할 수 있습니다.  빠른 예제를 보려면 [사용자 지정 웹 끝점에 대한 Blob Storage 이벤트 라우팅](storage-blob-event-quickstart.md)을 확인하세요.
+
+## <a name="blob-storage-accounts"></a>Blob Storage 계정
+Blob Storage 이벤트는 [Blob Storage 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)에서 사용할 수 있습니다(일반 용도의 저장소 계정 아님).  Blob 저장소 계정은 Azure 저장소에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 저장소 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.
+
+## <a name="available-blob-storage-events"></a>사용 가능한 Blob Storage 이벤트
+Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  Blob Storage 이벤트 구독에는 다음 두 가지 유형의 이벤트가 포함될 수 있습니다.  
+
+> |이벤트 이름|설명|
+> |----------|-----------|
+> |`Microsoft.Storage.BlobCreated`|`PutBlob`, `PutBlockList` 또는 `CopyBlob` 작업을 통해 Blob를 만들거나 바꿀 때 발생합니다.|
+> |`Microsoft.Storage.BlobDeleted`|`DeleteBlob` 작업을 통해 Blob을 삭제할 때 발생합니다.|
+
+## <a name="event-schema"></a>이벤트 스키마
+Blob Storage 이벤트에는 데이터 변경에 응답하는 데 필요한 모든 정보가 포함됩니다.  eventType 속성은 "Microsoft.Storage"로 시작되므로 Blob Storage 이벤트를 식별할 수 있습니다.  
+Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../event-grid/event-schema.md)에 설명되어 있습니다.  
+
+> |속성|형식|설명|
+> |-------------------|------------------------|-----------------------------------------------------------------------|
+> |토픽|string|이벤트를 내보내는 저장소 계정의 전체 Azure Resource Manager ID입니다.|
+> |subject|string|이벤트 주체인 개체에 대한 상대 리소스 경로로, Azure RBAC용 저장소 계정, 서비스 및 컨테이너를 설명하는 데 사용하는 것과 동일한 확장 Azure Resource Manager 형식을 사용합니다.  이 형식에는 소문자 blob 이름이 포함됩니다.|
+> |eventTime|string|이벤트가 생성된 날짜/시간(ISO 8601 형식)|
+> |eventType|string|"Microsoft.Storage.BlobCreated" 또는 "Microsoft.Storage.BlobDeleted"|
+> |Id|string|이 이벤트의 고유 식별자|
+> |데이터|object|Blob Storage 관련 이벤트 데이터 컬렉션|
+> |data.contentType|string|Blob에서 Content-Type 헤더에 반환된 blob의 콘텐츠 형식|
+> |data.contentLength|number|Blob의 Content-Length 헤더에 반환된 Blob의 크기(바이트 수를 나타내는 정수).  BlobCreated 이벤트와 함께 전송되지만 BlobDeleted와 함께 전송되지 않습니다.|
+> |data.url|string|이벤트의 주체인 개체의 URL|
+> |data.eTag|string|이 이벤트가 발생하는 경우 개체의 etag.  BlobDeleted 이벤트에 대해서는 사용할 수 없습니다.|
+> |data.api|string|이 이벤트를 트리거한 api 작업의 이름.  BlobCreated 이벤트의 경우 이 값은 "PutBlob", "PutBlockList" 또는 "CopyBlob"입니다.  BlobDeleted 이벤트의 경우 이 값은 "DeleteBlob"입니다.  이러한 값은 Azure Storage 진단 로그에 있는 것과 동일한 api 이름입니다.  [기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요.|
+> |data.sequencer|string|특정 blob 이름에 대해 이벤트의 논리 시퀀스를 나타내는 불투명 문자열 값.  사용자는 표준 문자열 비교를 사용하여 동일한 blob 이름에 대한 두 이벤트의 상대 순서를 이해할 수 있습니다.|
+> |data.requestId|string|저장소 API 작업에 대한 서비스 생성 요청 ID.  로그의 “request-id-header” 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, ‘x-ms-request-id’ 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요.|
+> |data.clientRequestId|string|저장소 API 작업에 대한 클라이언트 제공 요청 ID.  로그의 “client-request-id” 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, ‘x-ms-client-request-id’ 헤더를 사용하여 클라이언트 요청에 제공될 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요.|
+> |data.storageDiagnostics|object|경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터.  제공될 경우 이벤트 소비자가 무시합니다.|
+
+다음은 BlobCreated 이벤트의 예입니다.
+```json
+[{
+  "topic": "/subscriptions/319a9601-1ec0-0000-aebc-8fe82724c81e/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myaccount",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/file1.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2017-08-16T01:57:26.005121Z",
+  "id": "602a88ef-0001-00e6-1233-1646070610ea",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "799304a4-bbc5-45b6-9849-ec2c66be800a",
+    "requestId": "602a88ef-0001-00e6-1233-164607000000",
+    "eTag": "0x8D4E44A24ABE7F1",
+    "contentType": "text/plain",
+    "contentLength": 447,
+    "blobType": "BlockBlob",
+    "url": "https://myaccount.blob.core.windows.net/testcontainer/file1.txt",
+    "sequencer": "00000000000000EB000000000000C65A",
+  }
+}]
+
+```
+
+자세한 내용은 [Blob Storage 이벤트 스키마](../../event-grid/event-schema.md#azure-blob-storage)를 참조하세요.
+
+## <a name="filtering-events"></a>이벤트 필터링
+Blob 이벤트 구독은 이벤트 형식에 따라, 생성 또는 삭제된 개체의 컨테이너 이름 및 blob 이름을 기준으로 필터링할 수 있습니다.  Event Grid의 제목 필터는 "시작 문자" 및 "끝 문자" 일치 항목을 기준으로 작동하므로 일치하는 제목이 있는 이벤트는 구독자로 배달됩니다.
+Blob Storage 이벤트의 제목은 다음 형식을 사용합니다.
+```json
+/blobServices/default/containers/<containername>/blobs/<blobname>
+```
+저장소 계정에 대해 일치하는 모든 이벤트를 찾으려면 제목 필터를 비워 둡니다.
+
+접두사를 공유하는 컨테이너 집합에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 다음과 같은 `subjectBeginsWith` 필터를 사용합니다.
+```json
+/blobServices/default/containers/containerprefix
+```
+특정 컨테이너에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 다음과 같은 `subjectBeginsWith` 필터를 사용합니다.
+```json
+/blobServices/default/containers/containername/
+```
+Blob 이름 접두사를 공유하는 특정 컨테이너에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 다음과 같은 `subjectBeginsWith` 필터를 사용합니다.
+```json
+/blobServices/default/containers/containername/blobs/blobprefix
+```
+
+Blob 접미사를 공유하는 특정 컨테이너에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 `subjectEndsWith` 필터(예: “.log” 또는 “.jpg”)를 사용합니다.
+
+자세한 내용은 [Event Grid 개념](../../event-grid/concepts.md#filters)을 참조하세요.
+
+## <a name="practices-for-consuming-events"></a>이벤트를 소비 지침
+Blob Storage 이벤트를 처리하는 응용 프로그램은 다음과 같은 권장되는 몇 가지 지침을 따라야 합니다.
+> [!div class="checklist"]
+> * 동일한 이벤트 처리기로 이벤트 경로를 지정하기 위해 여러 구독을 구성할 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않는 것이 중요하며 메시지 토픽을 확인하여 예상하는 저장소 계정에서 온 것인지 알아봅니다.
+> * 마찬가지로 eventType이 처리하려고 하는 대상인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
+> * 메시지가 잘못된 순서로 지연되어 도착할 수 있으므로 etag 필드를 사용하여 개체에 대한 정보가 여전히 최신 상태인지 이해합니다.  또한 특정 개체에 대한 이벤트 순서를 이해하려면 sequencer 필드를 사용합니다.
+> * blobType 필드를 사용하여 Blob에 허용되는 작업 유형 및 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 이해할 수 있습니다.
+> * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
+> * 이해할 수 없는 필드는 무시합니다.  이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
+
+
+## <a name="next-steps"></a>다음 단계
+
+Event Grid에 대해 알아보고 Blob Storage 이벤트를 사용해보세요.
+
+- [Event Grid 정보](../../event-grid/overview.md)
+- [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](storage-blob-event-quickstart.md)

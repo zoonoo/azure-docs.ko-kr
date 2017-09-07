@@ -1,11 +1,10 @@
-
 ---
 title: "Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기 | Microsoft Docs"
 description: "Azure Functions Tools for Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수를 Azure에 만들고 게시합니다."
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처"
@@ -19,10 +18,10 @@ ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
@@ -60,6 +59,10 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
     ![새 Azure 함수 만들기](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    함수 코드를 구현하는 클래스가 들어 있는 프로젝트에 코드 파일이 추가됩니다. 이 코드는 이름 값을 수신한 후 다시 에코하는 템플릿을 기준으로 합니다. **FunctionName** 특성은 함수의 이름을 설정합니다. **HttpTrigger** 특성은 함수를 트리거하는 메시지를 나타냅니다. 
+
+    ![함수 코드 파일](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 이제 HTTP에서 트리거한 함수를 만들었으므로 로컬 컴퓨터에서 해당 함수를 테스트할 수 있습니다.
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
@@ -72,7 +75,7 @@ Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure 
 
     ![Azure 로컬 런타임](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 이 URL에 쿼리 문자열 `&name=<yourname>`을 추가하고 요청을 실행합니다. 다음은 함수에서 반환된 로컬 GET 요청에 대한 브라우저의 응답을 보여 줍니다. 
+3. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다. 다음은 함수에서 반환된 로컬 GET 요청에 대한 브라우저의 응답을 보여 줍니다. 
 
     ![브라우저의 localhost 함수 응답](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +91,7 @@ Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure 
 
 ## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
 
-1. 게시 프로필 페이지에서 함수 앱의 기준 URL을 복사합니다. 로컬에서 함수를 테스트할 때 사용한 URL의 `localhost:port` 부분을 새 기준 URL로 바꿉니다. 이전처럼 이 URL에 `&name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행합니다.
+1. 게시 프로필 페이지에서 함수 앱의 기준 URL을 복사합니다. 로컬에서 함수를 테스트할 때 사용한 URL의 `localhost:port` 부분을 새 기준 URL로 바꿉니다. 이전처럼 이 URL에 `?name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행합니다.
 
     HTTP에서 트리거한 함수를 호출하는 URL은 다음과 같습니다.
 

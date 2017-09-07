@@ -3,7 +3,7 @@ title: "Stream Analytics 릴리스 정보 | Microsoft Docs"
 description: "Stream Analytics 릴리스 정보"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/03/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e1ab8dd89c0590c8ee309a032efc17edeacf4d0e
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3251cd47bb917912d63330345dbf392e724448ea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics 릴리스 정보
@@ -79,14 +78,14 @@ ms.lasthandoff: 07/04/2017
 | 제목 | 설명 |
 | --- | --- |
 | REST API 버전 업데이트 |REST API 버전은 2015-10-01에 업데이트되었습니다. 자세한 내용은 MSDN의 [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx) 및 [Stream Analytics에서 기계 학습 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)에서 확인할 수 있습니다. |
-| Azure 기계 학습 통합 |이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 추가 정보는 [자습서](stream-analytics-machine-learning-integration-tutorial.md) 및 [일반 블로그 알림](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)을 참조합니다. |
+| Azure 기계 학습 통합 |이 릴리스에서는 Azure Machine Learning 사용자 정의 함수에 대해 지원합니다. 추가 정보는 [자습서](stream-analytics-machine-learning-integration-tutorial.md) 및 [일반 블로그 알림](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)을 참조합니다. |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Stream Analytics의 2015/11/12 릴리스에 대한 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
 | 제목 | 설명 |
 | --- | --- |
-| SELECT의 새 동작 |Stream Analytics의 SELECT가 중첩된 레코드의 속성 접근자로 *를 허용하도록 확장되었습니다. 추가 정보는 [http://msdn가 있습니다.microsoft가 있습니다.com/library/mt622759가 있습니다.aspx](http://msdn.microsoft.com/library/mt622759.aspx "복합 데이터 형식")가 있습니다. |
+| SELECT의 새 동작 |Stream Analytics의 SELECT가 중첩된 레코드의 속성 접근자로 *를 허용하도록 확장되었습니다. 자세한 내용은 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "복합 데이터 형식")을 참조하세요. |
 
 ## <a name="notes-for-10222015-release-of-stream-analytics"></a>Stream Analytics의 2015/10/22 릴리스에 대한 정보
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
@@ -104,7 +103,7 @@ ms.lasthandoff: 07/04/2017
 | 제목 | 설명 |
 | --- | --- |
 | Azure IoT Suite 공개 미리 보기 |Stream Analytics이 Azure IoT Suite의 공개 미리 보기에 포함되어 있습니다. |
-| Azure 포털 통합 |Azure 관리 포털에서 지속적으로 존재할 뿐만 아니라 이제 Stream Analytics은 [Azure 포털](https://azure.microsoft.com/overview/preview-portal/)에 통합되었습니다. Preview 포털의 Stream Analytics 기능은 현재 Azure 관리 포털에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다. |
+| Azure Portal 통합 |Azure Portal에서 지속적으로 존재할 뿐만 아니라 이제 Stream Analytics은 [Azure Portal](https://azure.microsoft.com/overview/preview-portal/)에 통합되었습니다. Preview 포털의 Stream Analytics 기능은 현재 Azure Portal에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다. |
 | Cosmos DB 출력 지원 |이제 Stream Analytics 작업이 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)에 출력할 수 있습니다. |
 | IoT Hub 입력에 대한 지원 |이제 Stream Analytics 작업이 IoT Hub에서 데이터를 수집할 수 있습니다. |
 | 다른 유형의 이벤트를 위한 TIMESTAMP BY |단일 데이터 스트림에 서로 다른 필드의 타임스탬프를 가진 여러 이벤트 형식이 포함된 경우 이제 식에서 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 를 사용하여 각 사례에 대해 서로 다른 타임스탬프 필드를 지정할 수 있습니다. |
@@ -163,12 +162,12 @@ ms.lasthandoff: 07/04/2017
 | PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다. |PowerBI는 지정된 데이터 집합에서 둘 이상의 테이블을 지원하지 않습니다. |
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

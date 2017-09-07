@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
@@ -31,8 +31,11 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
 
 비용 관리 보고서에 대한 세부 정보는 [Azure Portal 비용 관리](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started)를 참조하세요.
 
-
 ## <a name="charges"></a>청구서의 요금이 맞는지 확인하려면 어떻게 할까요?
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
+
 자세한 내용을 보려는 청구서에 대한 요금이 청구되는 경우 다음과 같은 두 가지 옵션이 있습니다.
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>옵션 1: 청구서를 검토하고 자세한 사용 현황 CSV 파일과 사용 현황 및 비용 비교

@@ -4,7 +4,7 @@ description: "Azure Functions에서 이벤트 기반 워크로드의 수요를 �
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Azure Functions 소비 및 App Service 계획 
@@ -61,9 +60,10 @@ App Service 계획에서 함수 앱은 Web Apps와 유사하게 기본, 표준, 
 
 다음과 같은 경우에 App Service 계획을 고려합니다.
 - 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있습니다.
-- 함수 앱을 계속해서 또는 거의 끊임없이 실행할 예정입니다.
+- 함수 앱을 계속해서 또는 거의 끊임없이 실행할 예정입니다. 이 경우 App Service 계획은 좀 더 비용 효율적이 될 수 있습니다.
 - 소비 계획에서 제공하는 것보다 많은 CPU 또는 메모리 옵션이 필요합니다.
 - 소비 계획에 허용된 최대 실행 시간보다 오래 실행해야 합니다.
+- App Service 환경에 대한 지원, VNET/VPN 연결 및 더 큰 VM 크기와 같이 App Service 계획에서만 사용할 수 있는 기능이 필요합니다. 
 
 VM은 런타임 및 메모리에서 비용을 분리합니다. 결과적으로, 할당하는 VM 인스턴스의 비용보다 더 지불하지 않습니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
 
@@ -81,7 +81,7 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 
 소비 계획 또는 App Service 계획에서 함수 앱에는 Azure Blob, Queue 및 Table storage를 지원하는 Azure Storage 계정이 필요합니다. 내부적으로 Azure Functions는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Azure Storage를 사용합니다. Blob 전용 저장소 계정(Premium Storage 포함) 및 영역 중복 저장소 복제가 사용되는 범용 저장소 계정 같은 일부 저장소 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정은 함수 앱을 만들 때 **저장소 계정** 블레이드에서 필터링됩니다.
 
-저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
+저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
 
 ## <a name="how-the-consumption-plan-works"></a>소비 계획의 작동 원리
 

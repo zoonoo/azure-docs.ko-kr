@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 750540d0866e69ce043133e9c668c8a2e09b9d1c
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>데이터 레이크 저장소와 다른 Azure 서비스 통합
@@ -64,6 +63,9 @@ SSIS에서 Azure Data Lake Store 연결 관리자를 사용하여 SSIS 패키지
 
 ## <a name="use-data-lake-store-with-sql-data-warehouse"></a>SQL Data Warehouse에서 Data Lake Store 사용
 PolyBase를 사용하여 Azure Data Lake Store에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 자세한 내용은 [SQL Data Warehouse에서 Data Lake Store 사용](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)을 참조하세요.
+
+## <a name="use-data-lake-store-with-azure-event-hubs"></a>Azure Event Hubs에 Data Lake Store 사용
+Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를 보관하고 캡처할 수 있습니다. 자세한 내용은 [Azure Event Hubs에 Data Lake Store 사용](data-lake-store-archive-eventhub-capture.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)

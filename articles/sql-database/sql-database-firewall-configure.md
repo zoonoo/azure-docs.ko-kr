@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 
@@ -40,7 +39,7 @@ Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응�
    ![방화벽 구성을 설명하는 다이어그램입니다.][1]
 
 * **서버 수준 방화벽 규칙:** 이 규칙은 모든 Azure SQL 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 **master** 데이터베이스에 저장됩니다. 포털 또는 Transact-SQL 문을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다. Azure Portal 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들려면 구독 소유자 또는 구독 참가자여야 합니다. Transact-SQL을 사용하여 서버 수준 방화벽 규칙을 만들려면 서버 수준 주체 로그인 또는 Azure Active Directory 관리자로 SQL Database 인스턴스에 연결해야 합니다. 다시 말하면 Azure 수준 권한을 가진 사용자가 먼저 서버 수준 방화벽 규칙을 만들어야 합니다.
-* **데이터베이스 수준 방화벽 규칙:** 이 규칙은 동일한 논리 서버 내의 특정(보안) 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 각 데이터베이스(**master** 데이터베이스 포함)에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. 데이터베이스 수준 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽을 구성한 후에 구성할 수 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. master 및 사용자 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 통해서만 만들고 관리할 수 있습니다. 데이터베이스 수준의 방화벽 규칙 구성에 대한 자세한 내용은 이 문서 뒷부분에 나오는 예제와 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
+* **데이터베이스 수준 방화벽 규칙:** 이 규칙은 동일한 논리 서버 내의 특정(보안) 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 각 데이터베이스(**master** 데이터베이스 포함)에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. master 및 user 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽을 구성한 후에만 구성할 수 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. 데이터베이스 수준의 방화벽 규칙 구성에 대한 자세한 내용은 이 문서 뒷부분에 나오는 예제와 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
 
 **권장 사항:** Microsoft는 보안을 강화하고 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 관리자의 경우 서버 수준 방화벽 규칙을 사용하면 동일한 액세스를 요구하는 데이터베이스가 많을 때 각 데이터베이스를 개별적으로 구성할 필요가 없습니다.
 

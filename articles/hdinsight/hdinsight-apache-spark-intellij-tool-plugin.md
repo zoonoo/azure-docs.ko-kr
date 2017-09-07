@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 97414ee55663662fb40a91b930d61634c83e30fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
@@ -172,15 +172,6 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
 ## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 실행 또는 디버그
 Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
 
-## <a name="choose-azure-data-lake-store-as-spark-scala-application-storage"></a>Spark Scala 응용 프로그램 저장소로 Azure Data Lake Store 선택
-응용 프로그램을 Azure Data Lake Store에 제출하려면 Azure 로그인 프로세스 중에 **대화형** 모드를 선택합니다. 
-
-![로그인 시 대화형 옵션](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-**자동화된** 모드를 선택하는 경우 다음 오류가 발생합니다.
-
-![로그인 오류](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
-
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 수 있습니다.
 
@@ -306,6 +297,13 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
 ![IntelliJ의 "VM 옵션" 상자에 옵션 추가](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
+## <a name="faq"></a>FAQ
+응용 프로그램을 Azure Data Lake Store에 제출하려면 Azure 로그인 프로세스 중에 **대화형** 모드를 선택합니다. **자동화된** 모드를 선택하는 경우 오류가 발생할 수 있습니다.
+
+![interative-signin](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
+
+현재 이 오류는 해결했습니다. 임의의 로그인 방법으로 응용 프로그램을 제출하기 위해 Azure Data Lake 클러스터를 선택할 수 있습니다.
 
 ## <a name="feedback-and-known-issues"></a>사용자 의견 및 알려진 문제
 현재 직접 Spark 출력 보기는 지원되지 않습니다.
