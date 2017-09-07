@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/22/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
@@ -75,7 +74,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 템플릿
 
-이 문서의 예제에서는 Service Fabric template.json을 사용합니다. 클러스터를 만들기 전에 표준 포털 마법사를 사용하여 포털에서 템플릿을 다운로드할 수 있습니다. [템플릿 갤러리](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric)에서 [five-node Service Fabric cluster](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/)와 같은 템플릿 하나를 사용할 수도 있습니다.
+이 문서의 예제에서는 Service Fabric template.json을 사용합니다. 클러스터를 만들기 전에 표준 포털 마법사를 사용하여 포털에서 템플릿을 다운로드할 수 있습니다. [템플릿 갤러리](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric)에서 [five-node Service Fabric cluster](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)와 같은 템플릿 하나를 사용할 수도 있습니다.
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>기존 가상 네트워크 또는 서브넷

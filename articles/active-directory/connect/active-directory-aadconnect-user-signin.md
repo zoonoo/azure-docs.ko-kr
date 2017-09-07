@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 99df1c65ee59a3c12e8818d9069a8b487839b08d
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: da517c096357bb8db4334715fa46aa209c273f22
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
@@ -104,7 +104,7 @@ Active Directory에서 기본 사용자 계정 이름(UPN) 접미사는 사용�
 ### <a name="user-principal-name-in-azure-ad"></a>Azure AD의 사용자 계정 이름
 Azure AD Connect 마법사는 userPrincipalName 특성을 사용하거나 온-프레미스에서 Azure AD의 사용자 계정 이름으로 사용할 수 있는 특성을 사용자 지정 설치로 지정할 수 있습니다. Azure AD에 로그인하는 데 사용할 값입니다. userPrincipalName 특성의 값이 Azure AD에서 확인된 도메인에 해당하지 않으면 Azure AD는 이를 기본 .onmicrosoft.com 값으로 바꿉니다.
 
-Azure Active Directory의 모든 디렉터리는 contoso.onmicrosoft.com 형식의 기본 제공 도메인 이름을 함께 제공되어 Azure 또는 다른 Microsoft 서비스를 사용할 수 있게 해줍니다. 사용자 지정 도메인을 사용하여 로그인 환경을 향상시키고 단순화할 수 있습니다. Azure AD에서 사용자 지정 도메인 이름 및 도메인을 확인하는 방법에 대한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../add-custom-domain.md#add-your-custom-domain)를 참조하세요.
+Azure Active Directory의 모든 디렉터리는 contoso.onmicrosoft.com 형식의 기본 제공 도메인 이름을 함께 제공되어 Azure 또는 다른 Microsoft 서비스를 사용할 수 있게 해줍니다. 사용자 지정 도메인을 사용하여 로그인 환경을 향상시키고 단순화할 수 있습니다. Azure AD에서 사용자 지정 도메인 이름 및 도메인을 확인하는 방법에 대한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../add-custom-domain.md#add-the-custom-domain-name-to-your-directory)를 참조하세요.
 
 ## <a name="azure-ad-sign-in-configuration"></a>Azure AD 로그인 구성
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD connect을 사용하여 Azure AD 로그인 구성
@@ -116,7 +116,7 @@ Azure AD 로그인 페이지는 온-프레미스 Active Directory에 대해 정�
 | 시스템 상태 | 설명 | 작업 필요 |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |어떤 조치가 필요하지 않습니다. |
-| 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../add-custom-domain.md#verify-the-domain-name-with-azure-ad) |
+| 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
 | 추가되지 않음 |Azure AD Connect는 UPN 접미사에 해당하는 사용자 지정 도메인을 찾지 못했습니다. 이 도메인의 사용자의 UPN 접미사는 Azure에서 도메인이 추가 및 확인되지 않으면 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [UPN 접미사에 해당하는 사용자 지정 도메인의 추가 및 확인](../add-custom-domain.md) |
 
 Azure AD 로그인 페이지는 현재 확인 상태를 사용하여 Azure AD에서 온-프레미스 Active Directory와 해당 사용자 지정 도메인에 정의된 UPN 접미사를 나열합니다. 이제 사용자 지정 설치에서 **Azure AD 로그인** 페이지의 사용자 계정 이름에 대한 특성을 선택할 수 있습니다

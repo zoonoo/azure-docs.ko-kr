@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
-ms.author: cherylmc
+ms.date: 09/01/2017
+ms.author: ganesr,cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: d98b08a93d9d620971cfc8402a0cf12f10f488b1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Express 경로 회로 및 라우팅 도메인
@@ -51,7 +51,7 @@ Azure 계산 서비스, 즉 가상 컴퓨터 (IaaS) 및 가상 네트워크 내�
 ### <a name="public-peering"></a>공용 피어링
 Azure Storage, SQL 데이터베이스 및 웹사이트와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 DMZ에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다. 
 
-연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. 공용 피어링을 사용하도록 설정하면 모든 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다. [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653) 페이지에서 이 피어링을 통해 보급하는 접두사 목록을 검토할 수 있습니다. 이 페이지는 매주 업데이트됩니다.
+연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. 공용 피어링을 사용하도록 설정하면 모든 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다.
 
 필요한 경로만 이용하도록 네트워크 내에 사용자 지정 경로 필터를 정의할 수 있습니다. 라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요. 
 

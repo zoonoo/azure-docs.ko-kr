@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: c187819e9392908c8979556f80e8c94739eb14d5
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
@@ -99,7 +98,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    | 작업 | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
-   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |개발이 완료되면 한 번에 모든 랩을 삭제합니다.|
+   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |개발이 완료되면 한 번에 모든 랩을 삭제합니다.|
 
 1. **VM에 가상 네트워크 추가** 
    
@@ -133,7 +132,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
    | 작업 | 학습 내용 |
    | --- | --- |
-   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
+   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

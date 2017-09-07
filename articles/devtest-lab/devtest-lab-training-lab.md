@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a85999b7963e9a07d3f91ec47f298f91439c0808
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
@@ -79,7 +79,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | 작업 | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
-   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
+   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
 5. **각 실습생과 랩 공유**
    
     실습생과 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](devtest-lab-faq.md#what-is-a-microsoft-account)이 있는 실습생은 Azure 계정이 없어도 됩니다. 실습생은 다른 실습생이 만든 VM을 볼 수 없습니다.  
@@ -99,7 +99,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
    | 작업 | 학습 내용 |
    | --- | --- |
-   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
+   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

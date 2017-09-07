@@ -1,10 +1,10 @@
 ---
-title: "IntelliJ용 Azure 도구 키트에 대한 로그인 지침 | Microsoft Docs"
+title: "IntelliJ용 Azure 도구 키트에 대한 로그인 지침"
 description: "IntelliJ용 Azure 도구 키트를 사용하여 Microsoft Azure에 로그인하는 방법을 알아봅니다."
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: def5957b2ed58aee2e03c879ba9fd3d6c714e358
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,46 +26,12 @@ ms.lasthandoff: 05/15/2017
 
 IntelliJ용 Azure 도구 키트는 Azure 계정에 로그인하는 두 가지 방법을 제공합니다.
 
-  * **대화형**: Azure 계정에 로그인할 때마다 Azure 자격 증명을 입력합니다.
   * **자동**: 자동으로 Azure 계정에 로그인하는 데 사용할 수 있는 자격 증명 파일을 만듭니다.
+  * **대화형**: Azure 계정에 로그인할 때마다 Azure 자격 증명을 입력합니다.
 
 다음 섹션에서는 각 방법을 사용하는 방법을 설명합니다.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
-
-## <a name="sign-in-to-your-azure-account-interactively"></a>대화형으로 Azure 계정에 로그인
-
-Azure 자격 증명을 수동으로 입력하여 Azure에 로그인하려면 다음을 수행합니다.
-
-1. IntelliJ IDEA로 프로젝트를 엽니다.
-
-2. **도구**를 클릭하고 **Azure**를 가리킨 다음, **Azure 로그인**을 클릭합니다.
-
-   ![IntelliJ Azure 로그인 명령][I01]
-
-3. **Azure 로그인** 창에서 **대화형**을 선택한 다음 **로그인**을 클릭합니다.
-
-   ![선택한 대화형을 사용한 Azure 로그인 창][I02]
-
-4. **Azure 로그인** 대화 상자가 나타나면 Azure 자격 증명을 입력한 다음, **로그인**을 클릭합니다.
-
-   ![Azure 로그인 대화 상자 창][I03]
-
-5. **구독 선택** 대화 상자에서 사용하려는 구독을 선택한 다음, **확인**을 클릭합니다.
-
-   ![구독 선택 대화 상자][I04]
-
-## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>대화형으로 로그인한 후 Azure 계정에서 로그아웃
-
-이전 단계를 사용하여 계정을 구성한 후에는 IntelliJ IDEA를 다시 시작할 때마다 Azure 계정에서 자동으로 로그아웃됩니다. 그러나 IntelliJ IDEA를 다시 시작하지 *않고* Azure 계정에서 로그아웃하려면 다음을 수행합니다.
-
-1. IntelliJ IDEA에서 **도구** 메뉴에서 **Azure**를 가리킨 다음, **Azure 로그아웃**을 클릭합니다.
-
-   ![IntelliJ Azure 로그아웃 명령][L01]
-
-2. **Azure 로그아웃** 확인 창에서 **예**를 클릭합니다.
-
-   ![Azure 로그아웃 확인 창][L02]
 
 ## <a name="sign-in-to-your-azure-account-automatically"></a>Azure 계정에 자동으로 로그인
 
@@ -140,37 +105,59 @@ IntelliJ IDEA를 사용할 때 Azure 계정에서 로그아웃하는 경우 기�
 
    ![구독 선택 대화 상자][A07]
 
+## <a name="sign-in-to-your-azure-account-interactively"></a>대화형으로 Azure 계정에 로그인
+
+Azure 자격 증명을 수동으로 입력하여 Azure에 로그인하려면 다음을 수행합니다.
+
+1. IntelliJ IDEA로 프로젝트를 엽니다.
+
+2. **도구**를 클릭하고 **Azure**를 가리킨 다음, **Azure 로그인**을 클릭합니다.
+
+   ![IntelliJ Azure 로그인 명령][I01]
+
+3. **Azure 로그인** 창에서 **대화형**을 선택한 다음 **로그인**을 클릭합니다.
+
+   ![선택한 대화형을 사용한 Azure 로그인 창][I02]
+
+4. **Azure 로그인** 대화 상자가 나타나면 Azure 자격 증명을 입력한 다음, **로그인**을 클릭합니다.
+
+   ![Azure 로그인 대화 상자 창][I03]
+
+5. **구독 선택** 대화 상자에서 사용하려는 구독을 선택한 다음, **확인**을 클릭합니다.
+
+   ![구독 선택 대화 상자][I04]
+
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>대화형으로 로그인한 후 Azure 계정에서 로그아웃
+
+이전 단계를 사용하여 계정을 구성한 후에는 IntelliJ IDEA를 다시 시작할 때마다 Azure 계정에서 자동으로 로그아웃됩니다. 그러나 IntelliJ IDEA를 다시 시작하지 *않고* Azure 계정에서 로그아웃하려면 다음을 수행합니다.
+
+1. IntelliJ IDEA에서 **도구** 메뉴에서 **Azure**를 가리킨 다음, **Azure 로그아웃**을 클릭합니다.
+
+   ![IntelliJ Azure 로그아웃 명령][L01]
+
+2. **Azure 로그아웃** 확인 창에서 **예**를 클릭합니다.
+
+   ![Azure 로그아웃 확인 창][L02]
+
 ## <a name="next-steps"></a>다음 단계
-Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Eclipse용 Azure 도구 키트]
-  * [Eclipse용 Azure 도구 키트의 새로운 기능]
-  * [Eclipse용 Azure 도구 키트 설치]
-  * [Eclipse용 Azure 도구 키트에 대한 로그인 지침]
-  * [Eclipse에서 Azure용 헬로 월드 웹앱 만들기]
-* [IntelliJ용 Azure 도구 키트]
-  * [IntelliJ용 Azure 도구 키트의 새로운 기능]
-  * [IntelliJ용 Azure 도구 키트 설치]
-  * *IntelliJ용 Azure 도구 키트에 대한 로그인 지침*(이 문서)
-  * [IntelliJ에서 Azure용 헬로 월드 웹앱 만들기]
-
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터] 및 [Visual Studio Team Services용 Java 도구]를 참조하세요.
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
 <!-- URL List -->
 
-[Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
-[IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
-[Eclipse에서 Azure용 헬로 월드 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[IntelliJ에서 Azure용 헬로 월드 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
-[Eclipse용 Azure 도구 키트에 대한 로그인 지침]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
-[IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
+[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
-[Visual Studio Team Services용 Java 도구]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 

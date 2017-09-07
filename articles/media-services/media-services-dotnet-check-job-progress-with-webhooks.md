@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 615b1886137031b405eb512f2b175de34d0e1115
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링
@@ -71,13 +71,13 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 3. **제네릭 웹후크 - C#**을 선택합니다.
 4. 웹후크에 이름을 지정하고 **만들기**를 누릅니다.
 
-## <a name="files"></a>파일
+### <a name="files"></a>파일
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. 기본적으로 함수는 **function.json** 및 **run.csx**(C#) 파일과 연결됩니다. **project.json** 파일을 추가해야 합니다. 이 섹션의 나머지 부분에서는 이러한 파일의 정의를 보여 줍니다.
 
 ![업로드](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합니다. 런타임은 이 파일을 사용하여 모니터링할 이벤트와 함수 실행에서 데이터를 전달하고 반환하는 방법을 결정합니다. 
 
@@ -100,7 +100,7 @@ function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합�
 }
 ```
 
-### <a name="projectjson"></a>project.json
+#### <a name="projectjson"></a>project.json
 
 project.json 파일은 종속성을 포함합니다. 
 
@@ -119,7 +119,7 @@ project.json 파일은 종속성을 포함합니다.
 }
 ```
     
-### <a name="runcsx"></a>run.csx
+#### <a name="runcsx"></a>run.csx
 
 이 섹션의 코드는 웹후크인 Azure Function의 구현을 보여 줍니다. 이 샘플에서 함수는 Media Services 알림의 Webhook 호출을 수신 대기하고 작업이 완료되면 출력 자산을 게시합니다.
 
@@ -128,7 +128,7 @@ Webhook은 알림 끝점을 구성하는 경우에 전달되는 것과 일치하
 다음에 나오는 웹후크 정의 코드에서 **VerifyWebHookRequestSignature** 메서드는 알림 메시지에 대한 검증을 수행합니다. 이 유효성 검사는 메시지가 Azure Media Services에서 전송되었는지, 손상되지 않았는지를 확인하기 위해 수행됩니다. TLS(전송 계층 보안)에서 쿼리 매개 변수로 **코드** 값을 보유하는 것처럼 서명도 Azure Functions에 대해 선택적입니다. 
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies)을 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
 ```
 ///////////////////////////////////////////////////
@@ -346,7 +346,7 @@ internal sealed class NotificationMessage
 
 저장하고 함수를 실행합니다.
 
-## <a name="function-output"></a>함수 출력
+### <a name="function-output"></a>함수 출력
 
 웹후크가 트리거되면 위의 예제는 다음과 같이 출력되고 사용자의 값이 달라집니다.
 
