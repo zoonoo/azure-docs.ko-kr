@@ -1,4 +1,3 @@
- 
 ---
 title: "Azure Logic Apps에서 MQ 커넥터를 사용하는 방법 알아보기 | Microsoft Docs"
 description: "논리 앱 워크플로에서 온-프레미스 또는 Azure MQ 서버에 연결하여 메시지 찾아보기, 수신 및 WebSphere MQ에 전송"

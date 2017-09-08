@@ -21,7 +21,6 @@ ms.openlocfilehash: 0b6f4fa657a16196ba8f42c2137dc3c245d25a07
 ms.contentlocale: ko-kr
 ms.lasthandoff: 02/16/2017
 
-
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Azure SQL 데이터 웨어하우스 복원(PowerShell)
 > [!div class="op_single_selector"]
@@ -64,7 +63,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
