@@ -5,7 +5,7 @@
 다음 명령에서 *\<app_name>*을 고유한 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). `<app_name>`이 고유하지 않으면 "지정된 이름이 <app_name>인 웹 사이트가 이미 있습니다."라는 오류 메시지가 표시됩니다. 웹앱의 기본 URL은 `https://<app_name>.azurewebsites.net`입니다. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 웹앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
