@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 09/08/2017
 ms.author: masaran;jimpark;delhan;trinadhk;markgal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 2ee4bfa8c7dce45c6366ddc8aa6e723fe91431a7
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure 백업에 Exchange 서버 백업
@@ -125,9 +126,4 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 백업 - FAQ](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

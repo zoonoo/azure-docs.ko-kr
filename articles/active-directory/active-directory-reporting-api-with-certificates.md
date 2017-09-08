@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기
@@ -26,10 +26,10 @@ ms.lasthandoff: 03/28/2017
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Azure AD Reporting API 사용 
 Azure AD Reporting API은 다음 단계를 완료해야 합니다.
- *    필수 구성 요소 설치
- *    앱에서 인증서 설정
- *    액세스 토큰 가져오기
- *    액세스 토큰을 사용하여 Graph API 호출
+ *  필수 구성 요소 설치
+ *  앱에서 인증서 설정
+ *  액세스 토큰 가져오기
+ *  액세스 토큰을 사용하여 Graph API 호출
 
 원본 코드에 대한 정보는 [보고서 API 모듈 활용](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils)을 참조하세요. 
 

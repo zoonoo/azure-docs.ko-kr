@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 09/07/2017
 ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
@@ -28,7 +28,6 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
 
-
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
@@ -41,3 +40,5 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>다음 단계
 [ACU(Azure Compute 단위)](../windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+
+
