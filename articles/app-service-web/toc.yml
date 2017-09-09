@@ -172,6 +172,8 @@
           href: app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md
         - name: Azure Container Registry의 Spring Boot 앱을 Azure App Service에 배포
           href: app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin.md
+        - name: IntelliJ용 Azure 도구 키트를 사용하여 Linux 컨테이너에서 Hello World 웹앱 실행
+          href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: DB/리소스에 연결
       items:
         - name: 온-프레미스 데이터 연결
