@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - SQL DB 보안
       href: sql-database-security-tutorial.md
-    - name: 4 - SQL DB 성능 향상
-      href: sql-database-performance-tutorial.md
-    - name: 5 - 다중 테넌트 앱 구현
-      href: sql-database-multi-tenant-application.md
-    - name: 6 - 지역 분산 데이터베이스 구현
+    - name: 4 - 지역 분산 데이터베이스 구현
       href: sql-database-implement-geo-distributed-database.md
 - name: 샘플
   items:
