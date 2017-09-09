@@ -6,11 +6,13 @@
 ## [Azure 리소스 관리자](../azure-resource-manager/resource-group-overview.md)
 ## [바로 가기 키](azure-portal-keyboard-shortcuts.md)
 ## [지원되는 브라우저 및 장치](../azure-preview-portal-supported-browsers-devices.md)
+## [Azure 대시보드의 구조](azure-portal-dashboards-structure.md)
 # 방법 가이드
 ## 배포
 ### [Azure Resource Manager 템플릿 만들기](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Resource Manager 템플릿을 사용하여 배포](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Azure 대시보드 만들기 및 공유](azure-portal-dashboards.md)
+### [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)
 ## 관리
 ### [고대비 켜기 및 테마 변경](azure-portal-change-theme-high-contrast.md)
 ### [포털을 사용하여 리소스 관리](../azure-resource-manager/resource-group-portal.md)

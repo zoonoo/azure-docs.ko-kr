@@ -6,8 +6,8 @@
 ## [Managed Applications](managed-application-overview.md)
 
 # 시작
-## [템플릿 내보내기](resource-manager-export-template.md)
 ## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
+## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 샘플
@@ -20,8 +20,8 @@
 
 # 방법
 ## 템플릿 만들기
-### [템플릿 모범 사례](resource-manager-template-best-practices.md)
 ### [템플릿 섹션](resource-group-authoring-templates.md)
+### [템플릿 모범 사례](resource-manager-template-best-practices.md)
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
 
+
 ## 배포
 ### PowerShell
 #### [템플릿 배포](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [템플릿 배포](resource-group-template-deploy-cli.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
-### [포털](resource-group-template-deploy-portal.md)
+### 포털
+#### [리소스 배포](resource-group-template-deploy-portal.md)
+#### [템플릿 내보내기](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [크로스 리소스 그룹 배포](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

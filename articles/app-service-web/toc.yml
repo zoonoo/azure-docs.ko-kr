@@ -129,6 +129,8 @@
               href: app-service-linux-ssh-support.md
             - name: 연속 배포
               href: app-service-linux-ci-cd.md
+            - name: 배포 형식 - 사용자 지정 이미지 또는 기본 제공?
+              href: app-service-linux-choose-deployment-type.md
             - name: Linux FAQ에서 Web App
               href: app-service-linux-faq.md
     - name: Deploy to Azure
