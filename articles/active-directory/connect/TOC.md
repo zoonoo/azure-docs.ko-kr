@@ -16,7 +16,7 @@
 ### [사용자 지정 설정](active-directory-aadconnect-get-started-custom.md)
 ### [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [이전 버전에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [기존 ADSync 데이터베이스를 사용하여 설치](active-directory-aadconnect-existing-database.md)
 
 # 방법
 ## 계획 및 디자인

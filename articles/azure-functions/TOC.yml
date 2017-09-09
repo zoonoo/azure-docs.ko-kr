@@ -49,7 +49,7 @@
       href: functions-cli-samples.md
 - name: 개념
   items:
-    - name: 소비 및 App Service 계획
+    - name: 호스팅 계획 비교
       href: functions-scale.md
     - name: 트리거 및 바인딩
       href: functions-triggers-bindings.md

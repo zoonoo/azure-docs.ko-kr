@@ -13,7 +13,7 @@
 ## [소개 영상 보기](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # 시작
-## [Azure VM 복제(미리 보기)](site-recovery-azure-to-azure.md)
+## [Azure VM을 Azure에 복제(미리 보기)](site-recovery-azure-to-azure.md)
 ## [VMware VM을 Azure에 복제](vmware-walkthrough-overview.md)
 ### [1단계: 아키텍처 검토](vmware-walkthrough-architecture.md)
 ### [2단계: 필수 조건 및 제한 사항 검토](vmware-walkthrough-prerequisites.md)

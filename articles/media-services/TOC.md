@@ -142,7 +142,9 @@
 ### 콘텐츠 키 인증 정책 구성
 #### [포털](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
-#### [REST](media-services-rest-configure-content-key-auth-policy.md)
+#### [REST (영문)](media-services-rest-configure-content-key-auth-policy.md)
+### [Safari에서 AES 암호화 HLS 재생](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [인증 토큰 전달](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [분석](media-services-analytics-overview.md)
 ### [포털을 사용하여 미디어 분석](media-services-portal-analyze.md)
@@ -190,7 +192,6 @@
 #### [Adobe 오픈 소스 미디어 프레임 워크 플레이어](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [클라이언트 쪽에 광고 삽입](media-services-inserting-ads-on-client-side.md)
 ### [Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스](media-services-sspk.md)
-### [Safari에서 AES 암호화 HLS 재생](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## 통합
 ### [Media Services에서 Azure Functions 사용](media-services-dotnet-how-to-use-azure-functions.md)

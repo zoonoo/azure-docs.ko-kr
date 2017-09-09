@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: 개념
   items:
+    - name: 지역 및 가용성
+      href: container-instances-region-availability.md
     - name: 오케스트레이터와의 관계
       href: container-instances-orchestrator-relationship.md
     - name: 컨테이너 그룹
