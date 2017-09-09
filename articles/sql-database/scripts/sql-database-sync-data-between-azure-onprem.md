@@ -46,7 +46,7 @@ using namespace System.Collections.Generic
 # Hub database info
 # Subscription id for hub database
 $SubscriptionId = "subscription_guid"
-# Resrouce group name for hub database
+# Resource group name for hub database
 $ResourceGroupName = "ResourceGroupName"
 # Server name for hub database
 $ServerName = "ServerName"
@@ -350,6 +350,10 @@ else
         }
     }
 }
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+# Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+
 ```
 
 ## <a name="clean-up-deployment"></a>배포 정리
@@ -357,7 +361,8 @@ else
 샘플 스크립트를 실행한 후에는 다음 명령을 실행하여 리소스 그룹 및 해당 그룹에 연결된 모든 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명

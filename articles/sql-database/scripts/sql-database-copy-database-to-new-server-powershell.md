@@ -39,7 +39,8 @@ PowerShell 스크립트 예제에서는 새 서버에 기존 데이터베이스�
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
