@@ -132,6 +132,7 @@
 ## 장치 관리
 ### [소개](device-management-introduction.md)
 ### [Azure Portal 사용](device-management-azure-portal.md)
+### [Azure AD 조인 계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### 작업
 #### [Azure AD 등록 Windows 10 장치 구성](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### 문제 해결
 #### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD 조인](active-directory-azureadjoin-overview.md)
-#### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [장치 등록 설정](active-directory-azureadjoin-setup.md)
-#### [새 장치 등록](active-directory-azureadjoin-user-frx.md)
-#### [배포](active-directory-azureadjoin-devices-group-policy.md)
-#### [Windows 10 통합 이해](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Windows 10 장치 사용](active-directory-azureadjoin-windows10-devices.md)
-#### [장치 연결](active-directory-azureadjoin-personal-device.md)
-#### [Windows 10 장치 연결](active-directory-azureadjoin-user-upgrade.md)
 
 ## 앱 관리
 ### [개요](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
+#### [VPN 연결](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [모바일 앱 관리](active-directory-conditional-access-mam.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [FAQ](active-directory-conditional-faqs.md)
 #### [클래식 포털](active-directory-conditional-access.md)
 ##### [시작](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [암호 없이 인증](active-directory-azureadjoin-passport.md)
