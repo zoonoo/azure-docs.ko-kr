@@ -175,4 +175,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]:../storage/common/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az_iot_hub_create
