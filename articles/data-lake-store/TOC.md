@@ -57,7 +57,7 @@
 
 ## 관리
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
-### [고가용성을 위한 설계](data-lake-store-troubleshooting-guidance.md)
+### [고가용성을 위한 설계](data-lake-store-disaster-recovery-guidance.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

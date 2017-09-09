@@ -33,6 +33,8 @@
   items:
     - name: 컨테이너 보안
       href: container-service-security.md
+    - name: 서비스 사용자 - Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: 방법 가이드
   items:
     - name: Windows를 사용하는 Kubernetes
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: ACS 클러스터 확장
       href: container-service-scale.md
+    - name: Kubernetes ACS 클러스터 부하 분산
+      href: container-service-kubernetes-load-balancing.md
     - name: 모니터
       items:
+        - name: OMS로 모니터링
+          href: container-service-kubernetes-oms.md
         - name: Datadog로 모니터링
           href: container-service-kubernetes-datadog.md
         - name: Sysdig로 모니터링
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST (영문)
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: 리소스
   items:
     - name: Azure 로드맵

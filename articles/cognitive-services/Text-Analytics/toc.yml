@@ -26,13 +26,9 @@
     - name: API 참조
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
     - name: .Net Standard SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
+      href: 'https://aka.ms/tasdkdotnet'
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 문의처
-      href: 'https://azure.microsoft.com/overview/sales-number/'
     - name: 외부 및 커뮤니티 콘텐츠
       href: text-analytics-resource-external-community.md
     - name: FAQ
