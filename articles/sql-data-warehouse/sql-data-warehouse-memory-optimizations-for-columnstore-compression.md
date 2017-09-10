@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -142,7 +142,7 @@ OPTION (MAXDOP 1);
 DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼리에 사용 가능한 메모리 양을 결정합니다. 로드 쿼리에 대한 메모리 부여를 늘리려면 DWU 수를 늘리거나 리소스 클래스 수를 늘리면 됩니다.
 
 - DWU 수를 늘리려면 [성능을 조정하려면 어떻게 해야 합니까?](sql-data-warehouse-manage-compute-overview.md#scale-compute)를 참조하세요.
-- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)를 참조하세요.
+- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)를 참조하세요.
 
 예를 들어 DWU 100에서는 smallrc 리소스 클래스의 사용자는 배포당 100MB의 메모리를 사용할 수 있습니다. 자세한 내용은 [SQL Data Warehouse의 동시성](sql-data-warehouse-develop-concurrency.md)을 참조하세요.
 

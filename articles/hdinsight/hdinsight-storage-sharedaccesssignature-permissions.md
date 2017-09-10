@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
@@ -55,7 +55,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 두 가지 형태의 공유 액세스 서명이 있습니다.
 
-* 애드혹: SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다. 시작 시간이 생략되는 경우에는 묵시적으로 지정됩니다.
+* Ad hoc: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
 
 * 저장된 액세스 정책: 저장된 액세스 정책은 Blob 컨테이너 같은 리소스 컨테이너에서 정의됩니다. 정책은 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용될 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
@@ -63,18 +63,21 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 1. SAS에 지정된 만료 시간에 도달한 경우
 
-2. SAS에서 참조된 저장된 액세스 정책에 대해 지정된 만료 시간에 도달했습니다. 시간 간격이 경과하거나 저장된 액세스 정책에서 만료 시간을 과거의 시간으로 수정한 경우에 해당하며, 이는 SAS를 해지하는 한 가지 방법입니다.
+2. SAS에서 참조된 저장된 액세스 정책에 대해 지정된 만료 시간에 도달했습니다. 다음과 같은 시나리오에서는 만료 시간에 도달합니다.
+
+    * 시간 간격이 경과되었습니다.
+    * 저장된 액세스 정책이 과거 만료 시간을 갖도록 수정되어 있습니다. SAS를 철회하는 한 가지 방법은 만료 시간을 변경하는 것입니다.
 
 3. SAS에서 참조되는 저장된 액세스 정책을 삭제한 경우(SAS를 해지하는 다른 방법). 똑같은 이름을 사용하여 저장된 액세스 정책을 다시 만들면 이전 정책에 대한 모든 SAS 토큰이 다시 유효해집니다(SAS의 만료 시간이 경과하지 않은 경우). SAS를 해지하기 위해 만료 시간을 미래의 시간으로 지정하여 액세스 정책을 다시 만들 경우 다른 이름을 사용해야 합니다.
 
-4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 키를 다시 생성하면 이전 키를 사용하는 모든 응용 프로그램이 인증에 실패합니다. 새 키에 모든 구성 요소를 업데이트해야 합니다.
+4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 키를 다시 생성하면 이전 키를 사용하는 모든 응용 프로그램이 인증에 실패합니다. 모든 구성 요소를 새 키로 업데이트합니다.
 
 > [!IMPORTANT]
 > 공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
 
-항상 저장된 액세스 정책을 사용하여 필요에 따라 서명을 해지하거나 만료 날짜를 연장할 수 있도록 하는 것이 좋습니다. 이 문서의 단계에서는 SAS를 생성하는 데 저장된 액세스 정책을 사용합니다.
+항상 저장된 액세스 정책을 사용하는 것이 좋습니다. 저장된 정책을 사용하는 경우 필요에 따라 서명을 철회하거나 만료 날짜를 연장할 수 있습니다. 이 문서의 단계에서는 SAS를 생성하는 데 저장된 액세스 정책을 사용합니다.
 
-공유 액세스 서명에 대한 자세한 내용은 [SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+공유 액세스 서명에 대한 자세한 내용은 [SAS 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 ### <a name="create-a-stored-policy-and-sas-using-c"></a>C\#을 사용하여 저장된 정책 및 SAS 만들기
 
@@ -92,7 +95,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
    * FileToUpload: 컨테이너에 업로드할 파일에 대한 경로입니다.
 
-4. 프로젝트를 실행합니다. 콘솔 창이 나타나고 SAS가 생성되면 다음 텍스트와 유사한 정보가 표시됩니다.
+4. 프로젝트를 실행합니다. SAS가 생성되면 다음 텍스트와 유사한 정보가 표시됩니다.
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
@@ -133,39 +136,48 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 1. 텍스트 편집기에서 `CreateCluster\HDInsightSAS.ps1` 파일을 열고 문서 맨 앞에 있는 다음 값을 수정합니다.
 
-        # Replace 'mycluster' with the name of the cluster to be created
-        $clusterName = 'mycluster'
-        # Valid values are 'Linux' and 'Windows'
-        $osType = 'Linux'
-        # Replace 'myresourcegroup' with the name of the group to be created
-        $resourceGroupName = 'myresourcegroup'
-        # Replace with the Azure data center you want to the cluster to live in
-        $location = 'North Europe'
-        # Replace with the name of the default storage account to be created
-        $defaultStorageAccountName = 'mystorageaccount'
-        # Replace with the name of the SAS container created earlier
-        $SASContainerName = 'sascontainer'
-        # Replace with the name of the SAS storage account created earlier
-        $SASStorageAccountName = 'sasaccount'
-        # Replace with the SAS token generated earlier
-        $SASToken = 'sastoken'
-        # Set the number of worker nodes in the cluster
-        $clusterSizeInNodes = 2
+    ```powershell
+    # Replace 'mycluster' with the name of the cluster to be created
+    $clusterName = 'mycluster'
+    # Valid values are 'Linux' and 'Windows'
+    $osType = 'Linux'
+    # Replace 'myresourcegroup' with the name of the group to be created
+    $resourceGroupName = 'myresourcegroup'
+    # Replace with the Azure data center you want to the cluster to live in
+    $location = 'North Europe'
+    # Replace with the name of the default storage account to be created
+    $defaultStorageAccountName = 'mystorageaccount'
+    # Replace with the name of the SAS container created earlier
+    $SASContainerName = 'sascontainer'
+    # Replace with the name of the SAS storage account created earlier
+    $SASStorageAccountName = 'sasaccount'
+    # Replace with the SAS token generated earlier
+    $SASToken = 'sastoken'
+    # Set the number of worker nodes in the cluster
+    $clusterSizeInNodes = 3
+    ```
 
     예를 들어 `'mycluster'` 를 만들려는 클러스터의 이름으로 변경합니다. SAS 값은 저장소 계정 및 SAS 토큰을 만들 때 이전 단계에서 사용한 값과 일치해야 합니다.
 
     값을 변경한 후 파일을 저장합니다.
-2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][powershell]을 참조하세요.
-3. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
 
-        Login-AzureRmAccount
+2. 새 Azure PowerShell 프롬프트를 엽니다. Azure PowerShell에 익숙하지 않거나 설치되지 않은 경우 [Azure PowerShell 설치 및 구성][powershell]을 참조하세요.
+
+1. 프롬프트에서 다음 명령을 사용하여 Azure 구독에 대해 인증합니다.
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
     메시지가 표시되면 Azure 구독 계정으로 로그인합니다.
 
     계정이 여러 Azure 구독과 연결되는 경우 `Select-AzureRmSubscription` 을 사용하여 사용할 구독을 선택해야 합니다.
+
 4. 프롬프트에서 디렉터리를 HDInsightSAS.ps1 파일이 있는 `CreateCluster` 디렉터리로 변경합니다. 그런 후 다음 명령을 사용하여 스크립트를 실행합니다.
 
-        .\HDInsightSAS.ps1
+    ```powershell
+    .\HDInsightSAS.ps1
+    ```
 
     스크립트를 실행하면 리소스 그룹 및 저장소 계정이 생성되면서 출력이 PowerShell 프롬프트에 기록됩니다. HDInsight 클러스터에 대한 HTTP 사용자를 입력하라는 메시지가 표시됩니다. 이 계정은 클러스터에 대한 보안 HTTP/s 액세스를 보호하는 데 사용됩니다.
 
@@ -218,31 +230,42 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 * **Windows 기반** HDInsight 클러스터의 경우 원격 데스크톱을 사용하여 클러스터에 연결합니다. 자세한 내용은 [RDP를 사용하여 HDInsight에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요.
 
     연결된 후에는 바탕 화면의 **Hadoop 명령줄** 아이콘을 사용하여 명령 프롬프트를 엽니다.
+
 * **Linux 기반** HDInsight 클러스터의 경우 SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 클러스터에 연결되면 다음 단계에 따라 SAS 저장소 계정의 항목에 대한 읽기 및 목록 전용 권한이 있는지 확인합니다.
 
-1. 프롬프트에 다음을 입력합니다. **SASCONTAINER** 를 SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. **SASACCOUNTNAME** 을 SAS에 사용된 저장소 계정의 이름으로 바꿉니다.
+1. 컨테이너의 콘텐츠를 나열하려면 프롬프트에서 다음 명령을 사용합니다. 
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```bash
+    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
 
-    이 명령은 컨테이너의 내용을 나열하며 여기에는 컨테이너 및 SAS를 만들 때 업로드한 파일도 포함됩니다.
+    **SASCONTAINER** 를 SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. **SASACCOUNTNAME**을 SAS에 사용된 저장소 계정의 이름으로 바꿉니다.
+
+    목록에는 컨테이너와 SAS를 만들 때 업로드된 파일이 포함됩니다.
 
 2. 다음 명령을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계처럼 **SASCONTAINER** 및 **SASACCOUNTNAME**을 바꿉니다. **FILENAME** 을 이전 명령에 표시된 파일 이름으로 바꿉니다.
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```bash
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```
 
     이 명령은 파일 내용을 나열합니다.
 
 3. 다음 명령을 사용하여 파일을 로컬 파일 시스템에 다운로드합니다.
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```bash
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```
 
     이 명령은 파일을 **testfile.txt**라는 로컬 파일에 다운로드합니다.
 
 4. 다음 명령을 사용하여 로컬 파일을 SAS 저장소의 새 **testupload.txt** 파일에 업로드합니다.
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```
 
     다음 텍스트와 유사한 메시지가 표시됩니다.
 
@@ -250,7 +273,9 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
     저장소 위치가 읽기 + 목록 전용이므로 이 오류가 발생합니다. 다음 명령을 사용하여 쓰기 가능한 클러스터의 기본 저장소에 데이터를 저장합니다.
 
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```
 
     이때 작업이 성공적으로 완료되어야 합니다.
 

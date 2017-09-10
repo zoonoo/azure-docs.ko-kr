@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: b25e2d5738a5d8a0f98470678ff03950b0aa4e36
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 40abff72278c9f8d9f701023fd473fe52c17b421
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-vmware-replication-to-azure"></a>5단계: Azure에 VMWare을 복제하도록 Azure 리소스 준비
@@ -33,10 +32,10 @@ Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site
 
 [필수 조건](vmware-walkthrough-prerequisites.md)을 읽었는지 확인합니다.
 
-## <a name="set-up-an-azure-account"></a>Azure 계정을 설정합니다.
+## <a name="set-up-an-azure-account"></a>Azure 계정 설정
 
 - [Microsoft Azure 계정](http://azure.microsoft.com/)을 가져옵니다.
-- [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
+- [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 - [Azure Site Recovery 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)의 지역 가용성에서 Site Recovery에 지원되는 지역을 확인하세요.
 - [Site Recovery 가격 책정](site-recovery-faq.md#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
 
@@ -54,9 +53,9 @@ Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site
 ## <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치가 발생한 후에 저장소에서 Azure VM을 만듭니다.
-- 복제 데이터를 저장할 [Azure Storage 계정](../storage/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
+- 복제 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
 - Azure Portal의 Site Recovery에서는 리소스 관리자 또는 클래식 모드에서 설정된 저장소 계정을 사용할 수 있습니다.
-- 저장소 계정은 표준 또는 [프리미엄](../storage/storage-premium-storage.md)일 수 있습니다.
+- 저장소 계정은 표준 또는 [프리미엄](../storage/common/storage-premium-storage.md)일 수 있습니다.
 - 프리미엄 계정을 설정하는 경우 로그 데이터에 추가 표준 계정이 필요합니다.
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a55bec84bebf9d86886fcd255b84a665b6d04638
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/12/2017
 
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
-3. 데이터를 저장할 [Azure Storage 계정](../storage/storage-introduction.md)을 만들거나 선택합니다.
+3. 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-introduction.md)을 만들거나 선택합니다.
 
     > [!Warning]
     > 기본적으로 저장소 위치는 Application Insights 리소스와 동일한 지역으로 설정됩니다. 다른 지역에 저장하는 경우 전송 요금이 발생할 수 있습니다.

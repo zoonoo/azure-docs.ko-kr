@@ -18,10 +18,10 @@ ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: cdac6362f0d51b3144024efd28af09eb6d97515f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -34,10 +34,10 @@ Azure Container Registry는 Docker 컨테이너 이미지를 위한 Azure 기반
 Azure CLI에는 Azure Container Instances에서 컨테이너를 만들고 관리하는 명령이 포함되어 있습니다. `create` 명령에서 개인 이미지를 지정하는 경우 컨테이너 레지스트리를 사용하여 인증하는 데 필요한 이미지 레지스트리 암호를 지정할 수도 있습니다.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-`create` 명령은 `image-registry-login-server` 및 `image-registry-username`도 지정하도록 지원합니다. 그러나 Azure Container Registry의 로그인 서버는 단순히 *registryname*.azurecr.io이며 사용자 이름은 *registryname*입니다. 따라서 이러한 값을 명시적으로 제공하지 않으면 이미지 이름에서 유추됩니다.
+`create` 명령은 `registry-login-server` 및 `registry-username`도 지정하도록 지원합니다. 그러나 Azure Container Registry의 로그인 서버는 단순히 *registryname*.azurecr.io이며 사용자 이름은 *registryname*입니다. 따라서 이러한 값을 명시적으로 제공하지 않으면 이미지 이름에서 유추됩니다.
 
 ## <a name="using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
@@ -91,3 +91,4 @@ Azure Container Registry에서 컨테이너 이미지를 유지할 경우 Azure 
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
 
 [aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+

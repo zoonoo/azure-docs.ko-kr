@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 만들기
@@ -90,7 +90,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 
 사용자 지정 디스크를 업로드하고 VM을 만들기 전에 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만들어야 합니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)
+다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. [Azure Managed Disks 개요](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -113,7 +113,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>저장소 계정 키 나열
-Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../../storage/storage-create-storage-account.md#manage-your-storage-account)에 대해 자세히 알아 봅니다. [az storage account keys list](/cli/azure/storage/account/keys#list)를 사용하여 액세스 키를 확인합니다.
+Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)에 대해 자세히 알아 봅니다. [az storage account keys list](/cli/azure/storage/account/keys#list)를 사용하여 액세스 키를 확인합니다.
 
 만든 저장소 계정에 대한 선택키를 봅니다.
 

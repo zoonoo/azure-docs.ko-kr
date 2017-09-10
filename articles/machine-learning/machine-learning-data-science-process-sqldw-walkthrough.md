@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 244684bc875e3917b8fd0d1a6bc1464a7c36a938
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ce7de48af0f2f21576c66a962b88635a0f9f8333
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용
@@ -71,7 +71,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 **고유한 Azure Blob 저장소 계정 만들기**
 
 * 고유한 Azure Blob 저장소를 프로비전할 때 Azure Blob 저장소에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. 데이터는 공용 Blob 저장소 컨테이너에서 AzCopy를 사용하여 자체 저장소 계정의 컨테이너로 복사됩니다. Azure Blob 저장소가 미국 중남부에 가까울수록 이 작업(4단계)이 완료가 더 빨라집니다.
-* 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
+* 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
   
   * **저장소 계정 이름**
   * **저장소 계정 키**

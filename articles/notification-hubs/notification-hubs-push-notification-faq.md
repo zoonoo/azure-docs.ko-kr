@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
@@ -143,7 +142,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 등록을 만들기 전에 클라이언트를 인증해야 하는 경우 앱 백 엔드에서 등록하는 것이 유용합니다. 또한 앱 논리 기반 앱 백 엔드에서 생성 또는 수정해야 하는 태그가 있는 경우에도 유용합니다. 자세한 내용을 보려면 [백 엔드 등록 지침] 및 [백 엔드 등록 지침 2] 페이지로 이동하세요.
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>푸시 알림 배달 보안 모델이란?
-Azure Notification Hubs에서는 [공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 공유 액세스 서명 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙에 따라 공유 액세스 서명 토큰을 설정할 수 있습니다. 자세한 내용은 [Notification Hubs 보안 모델] 문서를 참조하세요.
+Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 기반 보안 모델을 사용합니다. 루트 네임스페이스 수준 또는 상세한 알림 허브 수준에서 공유 액세스 서명 토큰을 사용할 수 있습니다. 메시지 보내기 권한, 알림 수신 대기 권한 등의 여러 권한 부여 규칙에 따라 공유 액세스 서명 토큰을 설정할 수 있습니다. 자세한 내용은 [Notification Hubs 보안 모델] 문서를 참조하세요.
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>푸시 알림의 중요한 페이로드를 어떻게 처리해야 하나요?
 모든 알림은 플랫폼의 PNS를 통해 대상 장치로 배달됩니다. 알림을 Azure Notification Hubs로 보내면 처리된 후 각 PNS로 전달됩니다.

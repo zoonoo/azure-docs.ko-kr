@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
@@ -87,7 +87,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>사용자가 액세스할 파일 공유를 설정합니다.
-이제 SMB 파일 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. 다음은 헤드 노드에 공유 폴더를 탑재하는 단계입니다. 현재 Azure 파일 서비스를 지원하지 않는 CentOS 6.6과 같은 배포의 경우 공유를 사용하는 것이 좋습니다. Linux 노드에서 Azure 파일 공유를 지원하는 경우 [Linux에서 Azure File Storage 사용 방법](../../../storage/storage-how-to-use-files-linux.md)을 참조하세요. HPC 팩의 추가 파일 공유 옵션에 대해서는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
+이제 SMB 파일 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. 다음은 헤드 노드에 공유 폴더를 탑재하는 단계입니다. 현재 Azure 파일 서비스를 지원하지 않는 CentOS 6.6과 같은 배포의 경우 공유를 사용하는 것이 좋습니다. Linux 노드에서 Azure 파일 공유를 지원하는 경우 [Linux에서 Azure File Storage 사용 방법](../../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요. HPC 팩의 추가 파일 공유 옵션에 대해서는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
 
 1. 헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 이 예에서, \\\\CentOS66HN\Namd는 폴더의 이름이고 여기서 CentOS66HN은 헤드 노드의 호스트 이름입니다.
 2. 공유 폴더에 namd2라는 하위 폴더를 만듭니다. namd2에 namdsample이라는 또 다른 하위 폴더를 만듭니다.

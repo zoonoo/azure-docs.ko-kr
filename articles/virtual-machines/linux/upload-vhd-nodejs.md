@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
-VM은 저장소 계정 내에서 페이지 blob으로 저장됩니다. [여기서 Azure Blob 저장소](../../storage/storage-introduction.md#blob-storage)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지 및 VM에 대한 저장소 계정을 만듭니다. 사용자 지정 디스크 이미지에서 만든 모든 VM는 그 이미지와 동일한 저장소 계정에 있어야 합니다.
+VM은 저장소 계정 내에서 페이지 blob으로 저장됩니다. [여기서 Azure Blob 저장소](../../storage/common/storage-introduction.md#blob-storage)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지 및 VM에 대한 저장소 계정을 만듭니다. 사용자 지정 디스크 이미지에서 만든 모든 VM는 그 이미지와 동일한 저장소 계정에 있어야 합니다.
 
 다음 예제에서는 이전에 만든 리소스 그룹에 `mystorageaccount`라는 저장소 계정을 만듭니다.
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>저장소 계정 키 나열
-Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../../storage/storage-create-storage-account.md#manage-your-storage-account)에 대해 자세히 알아 봅니다. `azure storage account keys list` 명령을 사용하여 선택키를 볼 수 있습니다.
+Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)에 대해 자세히 알아 봅니다. `azure storage account keys list` 명령을 사용하여 선택키를 볼 수 있습니다.
 
 만든 저장소 계정에 대한 선택키를 봅니다.
 

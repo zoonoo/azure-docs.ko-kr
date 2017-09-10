@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 09b65ccd77f6e0898f07c4262940e517a8f913fa
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47f4441612be4f363ba82cc22b09786a6f3bfdc3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>HDInsight에서 R 서버의 계산 컨텍스트 옵션
@@ -30,7 +29,7 @@ Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure HDInsight의 Microsoft R Server
-[Azure HDInsight의 Microsoft R Server](hdinsight-hadoop-r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../storage/storage-introduction.md "Azure Blob Storage") 저장소 계정, Data Lake Store 또는 로컬 Linux 파일 시스템에 있는 컨테이너에 저장된 HDFS를 사용할 수 있습니다. R Server가 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. R Server와 함께 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler)에서 루틴을 활용할 수도 있습니다.  
+[Azure HDInsight의 Microsoft R Server](hdinsight-hadoop-r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../storage/common/storage-introduction.md "Azure Blob Storage") 저장소 계정, Data Lake Store 또는 로컬 Linux 파일 시스템에 있는 컨테이너에 저장된 HDFS를 사용할 수 있습니다. R Server가 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. R Server와 함께 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler)에서 루틴을 활용할 수도 있습니다.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>에지 노드에 대한 계산 컨텍스트
 일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 ScaleR 함수를 호출하는 단계입니다. ScaleR 호출은 ScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.

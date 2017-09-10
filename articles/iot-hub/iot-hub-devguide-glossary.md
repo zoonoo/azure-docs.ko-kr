@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
@@ -56,7 +56,7 @@ IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통�
 [Service Bus](../service-bus/index.md)에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 일부 IoT Hub 자습서는 Service Bus [큐](../service-bus-messaging/service-bus-messaging-overview.md)를 활용합니다.
 
 ## <a name="azure-storage"></a>Azure 저장소
-[Azure Storage](../storage/storage-introduction.md)는 클라우드 저장소 솔루션입니다. 여기에는 구조화되지 않은 개체 데이터를 저장하는 데 사용할 수 있는 Blob Storage 서비스가 포함됩니다. 일부 IoT Hub 자습서는 Blob Storage를 사용합니다.
+[Azure Storage](../storage/common/storage-introduction.md)는 클라우드 저장소 솔루션입니다. 여기에는 구조화되지 않은 개체 데이터를 저장하는 데 사용할 수 있는 Blob Storage 서비스가 포함됩니다. 일부 IoT Hub 자습서는 Blob Storage를 사용합니다.
 
 ## <a name="back-end-app"></a>백 엔드 앱
 [IoT Hub](#iot-hub)의 컨텍스트에서 백 엔드 앱은 IoT Hub에서 서비스 지향 끝점 중 하나에 연결되는 앱입니다. 예를 들어 백 엔드 앱은 [장치-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 대부분의 자습서에 나오는 백 엔드 앱은 로컬 개발 환경에서 실행 중인 콘솔 앱입니다.

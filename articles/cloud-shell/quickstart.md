@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7a2ed1c890eb22b3aff9aaadf2b420eeb21dd207
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 07/21/2017
 > `/home/<user>/.azure/azureProfile.json`을 사용하여 이후 세션에서 구독을 기억합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-미국 서부에 "MyRG"라는 새 리소스 그룹을 만듭니다. <br>
+미국 서부에 “MyRG”라는 새 리소스 그룹을 만듭니다. <br>
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Linux VM 만들기
@@ -73,4 +73,4 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell의 저장소 유지 알아보기](persisting-shell-storage.md) <br>
 [Azure CLI 2.0에 대해 알아보기](https://docs.microsoft.com/cli/azure/) <br>
-[Azure File Storage에 대해 알아보기](../storage/storage-files-introduction.md) <br>
+[Azure File Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a5735d51230b8547ec9d2bb909927756be172a52
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,7 +76,7 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute(PaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로비전해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](resiliency/resiliency-technical-guidance.md)을 참조하세요.
 
-![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - GRS(지역 중복 저장소)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage/storage-redundancy.md)을 참조하세요.
+![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - GRS(지역 중복 저장소)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – Azure SQL 표준 지리적 복제를 사용하면 쌍을 이루는 지역으로의 비동기 트랜잭션 복제를 구성할 수 있습니다. Premium 지리적 복제를 사용하면 전 세계 모든 지역으로의 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에서 이러한 리소스를 쌍을 이루는 지역에 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 

@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure 미디어 서비스 원격 분석에 대
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25520a447a9f2c459fd073779e4922377b6d1d4d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -74,7 +74,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 자산|값|예제/참고 사항
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 저장소 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../storage/storage-table-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
 Timestamp|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 형식|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
 이름|원격 분석 이벤트의 이름입니다.|ChannelHeartbeat/StreamingEndpointRequestLog

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/17/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dd151e222d6920b8c464146bd30af916925a60bc
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f120caf4ea21299e52782db33994b9bd8f63780d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>정부 포털에서 온-프레미스 StorSimple 장치 배포
@@ -210,7 +211,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 저장소 계정 구성
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure 저장소 계정이 필요합니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
 
 **StorSimple 관리자 서비스** 페이지의 정부 포털에서 다음 단계를 수행합니다.
 
@@ -260,10 +261,5 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,12 +13,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e5ebc1bf370b655d320f726a2792453218898006
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,5 +75,5 @@ VM에서 파일을 저장하고 액세스하는 방법으로 Azure 파일 공유
 
 ## <a name="next-steps"></a>다음 단계
 
-또한 PowerShell을 사용하여 파일 공유를 만들고 관리할 수 있습니다. 자세한 내용은 [Windows에서 Azure File storage 시작](../../storage/storage-dotnet-how-to-use-files.md)을 참조하세요.
+또한 PowerShell을 사용하여 파일 공유를 만들고 관리할 수 있습니다. 자세한 내용은 [Windows에서 Azure File storage 시작](../../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
 

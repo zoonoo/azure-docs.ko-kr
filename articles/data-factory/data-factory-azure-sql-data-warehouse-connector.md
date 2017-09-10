@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: bf4c327804e0e9d40512adacd7f13db56b799508
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8cba89e0947646b498af07aa484511bf07bf7b0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
@@ -264,7 +263,7 @@ Polybase 부하는 **1MB**보다 작고 VARCHR(MAX), NVARCHAR(MAX) 또는 VARBIN
 1MB보다 큰 크기의 행을 포함한 원본 데이터가 있는 경우 각 항목의 최대 행 크기가 제한을 초과하지 않는 정도의 작은 테이블로 원본 테이블을 수직으로 분할하는 것이 좋습니다. 작은 테이블은 PolyBase를 사용하여 로드될 수 있고 Azure SQL 데이터 웨어하우스에서 병합될 수 있습니다.
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
-가능한 최상의 처리량을 달성하려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 더 큰 리소스 클래스를 할당하는 것이 좋습니다. [사용자 리소스 클래스 변경 예제](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.
+가능한 최상의 처리량을 달성하려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 더 큰 리소스 클래스를 할당하는 것이 좋습니다. [사용자 리소스 클래스 변경 예제](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 tableName
 다음 테이블은 스키마와 테이블 이름의 다양한 조합에 대한 JSON 데이터 집합에서 **tableName** 속성을 지정하는 방법에 대한 예제를 제공합니다.

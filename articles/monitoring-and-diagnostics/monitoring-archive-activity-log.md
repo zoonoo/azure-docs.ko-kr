@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 195751d4c5ac4021eb929e96d39b9d0e72d3070f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 활동 로그를 보관하려면 [저장소 계정을 만들](../storage/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 진단 로그 및 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 활동 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 사용하는 저장소 계정은 Blob 저장소 계정이 아닌 범용 저장소 계정이어야 합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
+시작하기 전에 활동 로그를 보관하려면 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 진단 로그 및 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 활동 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 사용하는 저장소 계정은 Blob 저장소 계정이 아닌 범용 저장소 계정이어야 합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
 
 ## <a name="log-profile"></a>로그 프로필
 다음 방법 중 하나를 사용하여 활동 로그를 보관하려면 구독에 대해 **로그 프로필** 을 설정합니다. 로그 프로필은 저장 또는 스트리밍되는 이벤트 및 출력(저장소 계정 및/또는 이벤트 허브)의 형식을 정의합니다. 또한 저장소 계정에 저장되는 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 이벤트 무기한으로 저장됩니다. 그렇지 않으면 1에서 2147483647 사이의 값으로 설정할 수 있습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. [여기에서 로그 프로필에 대한 자세한 내용을 확인할 수 있습니다](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
@@ -165,7 +165,7 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [분석을 위한 Blob 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [활동 로그를 이벤트 허브로 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
 * [활동 로그에 대한 자세한 내용](monitoring-overview-activity-logs.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일 | Microsoft Docs"
+title: "데이터 과학 가상 컴퓨터에서 수행할 수 있는 10가지 작업 | Microsoft 문서"
 description: "데이터 과학 가상 컴퓨터에서 다양한 데이터 탐색 및 모델링 작업을 수행합니다."
 services: machine-learning
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b6ad821a89df17441921a157f136f3ca0869c8fb
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 45af1cd3a05b483429d2307659f1882ef28921f6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일
@@ -262,7 +262,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리를 추가할 수 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../storage/storage-use-azcopy.md)
+* 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리를 추가할 수 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../storage/common/storage-use-azcopy.md)
 * Azure 저장소 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
 ![AzureStorageExplorer_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)

@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d84c20dc74feedd7329cd390ff35765532bcf74d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -204,7 +204,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> 로컬 파일에서 템플릿 및 매개 변수를 배포할 수도 있습니다. 자세한 내용은 [Azure Storage와 함께 Azure PowerShell 사용](../../storage/storage-powershell-guide-full.md)을 참조하세요.
+> 로컬 파일에서 템플릿 및 매개 변수를 배포할 수도 있습니다. 자세한 내용은 [Azure Storage와 함께 Azure PowerShell 사용](../../storage/common/storage-powershell-guide-full.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

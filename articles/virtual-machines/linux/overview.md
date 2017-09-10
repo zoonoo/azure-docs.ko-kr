@@ -9,17 +9,17 @@ editor:
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
@@ -39,7 +39,7 @@ Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산
 
 Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(Standard 또는 Premium)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장/축소하더라도 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI 2.0을 사용](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수 있습니다.
 
-또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. Managed Disks에 대한 자세한 내용은 [Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요.
+또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. Managed Disks에 대한 자세한 내용은 [Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines--instances"></a>Azure Virtual Machines 및 인스턴스
 Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾습니다. 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 목록에 다양한 옵션을 추가합니다.
@@ -60,7 +60,7 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 
 참고: DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 워크로드에 SSD가 지원하는 높은 성능과 짧은 대기 시간을 갖는 저장소인 Premium Storage에 대한 권한을 갖습니다. Premium Storage는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../../storage/storage-premium-storage.md)
+* [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>자동화
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다.  모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다(Phoenix 서버).  Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다.  또한 Azure는 자체 자동화 도구도 제공합니다.
@@ -120,7 +120,7 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 ## <a name="storage"></a>저장소
-* [Microsoft Azure 저장소 소개](../../storage/storage-introduction.md)
+* [Microsoft Azure 저장소 소개](../../storage/common/storage-introduction.md)
 * [azure-cli를 사용하여 Linux VM에 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Portal에서 Linux VM에 데이터 디스크를 연결하는 방법](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

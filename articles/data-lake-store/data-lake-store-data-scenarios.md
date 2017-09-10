@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2a2801e5c506dcc8aa9ca2ecd275b52c72d5fbbf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
@@ -89,7 +89,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 용량이 수 테라바이트에 달하는 데이터 집합을 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 아래의 옵션을 사용할 수 있습니다.
 
 * **Azure Express 경로 사용**. Azure Express 경로를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 개인 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure Express 경로 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
-* **데이터를 "오프라인"으로 업로드**. Azure Express 경로를 사용할 수 없는 경우 [Azure 가져오기/내보내기 서비스](../storage/storage-import-export-service.md) 를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blobs에서 Data Lake Store로 데이터를 복사할 수 있습니다.
+* **데이터를 "오프라인"으로 업로드**. Azure Express 경로를 사용할 수 없는 경우 [Azure 가져오기/내보내기 서비스](../storage/common/storage-import-export-service.md) 를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blobs에서 Data Lake Store로 데이터를 복사할 수 있습니다.
 
   > [!NOTE]
   > 가져오기/내보내기 서비스를 사용할 때 Azure 데이터 센터로 보내는 디스크의 파일 크기가 195GB를 초과하면 안 됩니다.

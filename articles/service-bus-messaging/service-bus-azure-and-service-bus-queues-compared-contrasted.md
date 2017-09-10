@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/07/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
@@ -132,7 +132,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
-| 최대 큐 크기 |**500TB**<br/><br/>([단일 저장소 계정 용량](../storage/storage-introduction.md#queue-storage)으로 제한됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
+| 최대 큐 크기 |**500TB**<br/><br/>([단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
 | 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
 | 최대 메시지 TTL |**7일** |**`TimeSpan.Max`** |
 | 최대 큐 수 |**무제한** |**10,000**<br/><br/>(서비스 네임스페이스당, 확장 가능) |
@@ -192,7 +192,7 @@ Service Bus 큐의 경우 세션, 트랜잭션, 중복 검색, 배달 못한 메
 다음은 Storage 큐 또는 Service Bus 큐에 대해 추가적인 지침과 정보를 제공하는 문서입니다.
 
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
-* [Queue Storage 서비스를 사용하는 방법](../storage/storage-dotnet-how-to-use-queues.md)
+* [Queue Storage 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](service-bus-performance-improvements.md)
 * [Azure Service Bus의 큐 및 토픽 소개(블로그 게시물)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Service Bus에 대한 개발자 가이드](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)

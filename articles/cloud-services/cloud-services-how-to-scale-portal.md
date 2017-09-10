@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 05/23/2017
 
     역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 응용 프로그램의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이라고 해보겠습니다. 중간 크기의 클라우드 서비스 두 대에서 응용 프로그램을 실행할 경우(총 코어 수 4개), 구독에 있는 다른 클라우드 서비스 배포를 나머지 16코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md)를 참조하세요.
 
-* 큐 메시지 임계값에 따라 크기를 조정할 수 있습니다. 큐 사용 방법에 대한 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](../storage/storage-dotnet-how-to-use-queues.md)을 참조하세요.
+* 큐 메시지 임계값에 따라 크기를 조정할 수 있습니다. 큐 사용 방법에 대한 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
 * 구독에 연결된 다른 리소스의 크기도 조정할 수 있습니다.
 

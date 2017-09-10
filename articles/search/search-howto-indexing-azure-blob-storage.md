@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -92,7 +92,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 - **저장소 계정 SAS(공유 액세스 서명)** 연결 문자열: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS에 컨테이너 및 개체(이 경우 Blob)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **컨테이너 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다.
 
-저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 > [!NOTE]
 > SAS 자격 증명을 사용하는 경우 자격 증명이 만료되는 것을 방지하기 위해 갱신된 서명을 사용하여 데이터 원본 자격 증명을 주기적으로 업데이트해야 합니다. SAS 자격 증명이 만료되면 `Credentials provided in the connection string are invalid or have expired.`와 유사한 오류 메시지가 표시되면서 인덱서가 실행되지 못합니다.  
@@ -268,7 +268,7 @@ Azure Search 문서 추출 논리는 완벽하지 않으며 .DOCX 또는 .PDF와
 
 `dataToExtract` 구성 매개 변수를 사용하여 Blob에서 인덱싱할 부분을 제어할 수 있습니다. 사용되는 값은 다음과 같습니다.
 
-* `storageMetadata` - [표준 BLOB 속성 및 사용자가 지정한 메타데이터](../storage/storage-properties-metadata.md)만 인덱싱되도록 지정합니다.
+* `storageMetadata` - [표준 BLOB 속성 및 사용자가 지정한 메타데이터](../storage/blobs/storage-properties-metadata.md)만 인덱싱되도록 지정합니다.
 * `allMetadata` - BLOB 콘텐츠에서 추출한 [Content-Type별 메타데이터](#ContentSpecificMetadata) 및 저장소 메타데이터가 인덱싱되도록 지정합니다.
 * `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 기본값입니다.
 

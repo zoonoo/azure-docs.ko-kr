@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 8af9c566a267e6e9d332805c5b3e82503c092d22
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8e6143bca819c9a0484221f8b4feb319aaaa73f5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
@@ -64,7 +63,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 다음 3단계에 따라 HDInsight 클러스터를 사용하여 예측 분석 솔루션을 빌드하기 위한 Azure 데이터 과학 환경을 설정합니다.
 
-1. [저장소 계정 만들기](../storage/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
+1. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
 2. [데이터 과학용 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md):이 단계에서는 모든 노드에 설치된 64비트 Anaconda Python 2.7을 사용하여 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
    
    * 1단계에서 만든 저장소 계정을 HDInsight 클러스터와 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
@@ -78,7 +77,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 **다운로드 계속하기** 를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
 
-데이터는 공용 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob 저장소 위치를 나타냅니다. 
+데이터는 공용 [Azure Blob 저장소](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob 저장소 위치를 나타냅니다. 
 
 1. 이 공용 Blob Storage의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
    

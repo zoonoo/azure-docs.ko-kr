@@ -14,10 +14,10 @@ ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6f7df68f8bc594ebd2b58798f02c1c513c0d86c7
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/25/2017
 
 이렇게 하면 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
-이 항목에서는 [Azure Storage](../storage/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
+이 항목에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/25/2017
 
 * 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
 * [자동화 계정](automation-sec-configure-azure-runas-account.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
-* [Azure Storage 계정](../storage/storage-create-storage-account.md) - Resource Manager 템플릿을 저장하는 위치입니다.
+* [Azure Storage 계정](../storage/common/storage-create-storage-account.md) - Resource Manager 템플릿을 저장하는 위치입니다.
 * 로컬 컴퓨터에 설치된 Azure Powershell. Azure PowerShell을 얻는 방법에 대한 자세한 내용은 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)(Azure Powershell 설치 및 구성)을 참조하세요.
 
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/25/2017
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Azure Storage에 Resource Manager 템플릿 저장
 
 이제 PowerShell을 사용하여 Azure Storage 파일 공유를 만들고 `TemplateTest.json` 파일을 업로드합니다.
-Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 대한 지침은 [Windows에서 Azure File Storage 시작](../storage/storage-dotnet-how-to-use-files.md)을 참조하세요.
+Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 대한 지침은 [Windows에서 Azure File Storage 시작](../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
 
 로컬 컴퓨터에서 PowerShell을 시작하고, 다음 명령을 실행하여 파일 공유를 만들고 Resource Manager 템플릿을 해당 파일 공유에 업로드합니다.
 
@@ -242,7 +242,7 @@ Get-AzureRmStorageAccount
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-* Azure Storage를 시작하려면 [Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
+* Azure Storage를 시작하려면 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 * 다른 유용한 Azure Automation Runbook을 찾으려면 [Azure Automation용 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)를 참조하세요.
 * 다른 유용한 Resource Manager 템플릿을 찾으려면 [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하세요.
 

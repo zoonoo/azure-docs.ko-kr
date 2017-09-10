@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 5cc565adf4a4b6820ad676d9689c9697e9158b9f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
@@ -42,7 +42,7 @@ Azure Cosmos DB의 변경 내용이 유지되면 비동기적으로 처리되고
 변경 피드를 사용하면 많은 양의 쓰기가 포함된 큰 데이터 집합을 효율적으로 처리할 수 있고 변경된 내용을 식별하는 전체 데이터 집합을 쿼리하는 대안을 제공합니다. 예를 들어, 다음 작업을 효율적으로 수행할 수 있습니다.
 
 * Azure Cosmos DB에 저장된 데이터를 사용하여 캐시, 검색 인덱스 또는 데이터 웨어하우스를 업데이트합니다.
-* 응용 프로그램 수준 데이터 계층 및 보관을 구현합니다. 즉, Azure Cosmos DB에 "핫 데이터"를 저장하고 "콜드 데이터"를 [Azure Blob Storage](../storage/storage-introduction.md) 또는 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)로 내보냅니다.
+* 응용 프로그램 수준 데이터 계층 및 보관을 구현합니다. 즉, Azure Cosmos DB에 "핫 데이터"를 저장하고 "콜드 데이터"를 [Azure Blob Storage](../storage/common/storage-introduction.md) 또는 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)로 내보냅니다.
 * [Apache Hadoop](run-hadoop-with-hdinsight.md)를 사용하여 데이터에 대한 Batch 분석을 구현합니다.
 * Azure Cosmos DB를 사용하여 [Azure의 람다 파이프라인](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)을 구현합니다. Azure Cosmos DB는 수집 및 쿼리를 모두 처리할 수 있는 확장성이 뛰어난 데이터베이스 솔루션을 제공하고 TCO가 낮은 람다 아키텍처를 구현합니다. 
 * 다른 파티션 구성표를 사용하여 다른 Azure Cosmos DB 계정에 대한 중단 시간이 없는 마이그레이션을 수행합니다.
@@ -53,14 +53,15 @@ Azure Cosmos DB의 변경 내용이 유지되면 비동기적으로 처리되고
 
 Azure Cosmos DB를 사용하여 장치, 센서, 인프라 및 응용 프로그램에서 이벤트 데이터를 수신하고 저장하며 [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) 또는 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md)를 사용하여 이러한 이벤트를 실시간으로 처리합니다. 
 
-웹 및 모바일 앱 내에서는 [Azure Functions](../azure-functions/functions-bindings-documentdb.md) 또는 [App Services](https://azure.microsoft.com/services/app-service/)를 사용하여 해당 장치에 푸시 알림을 보내는 등의 특정 작업을 트리거하기 위해 고객의 프로필, 기본 설정 또는 위치에 대한 변경 내용과 같은 이벤트를 추적할 수 있습니다. 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
+[서버를 사용하지 않는](http://azure.com/serverless) 웹 및 모바일 앱 내에서는 [Azure Functions](../azure-functions/functions-bindings-documentdb.md) 또는 [App Services](https://azure.microsoft.com/services/app-service/)를 사용하여 해당 장치에 푸시 알림을 보내는 등의 특정 작업을 트리거하기 위해 고객의 프로필, 기본 설정 또는 위치에 대한 변경 내용과 같은 이벤트를 추적할 수 있습니다. 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
 
 ## <a name="how-change-feed-works-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드의 작동 방식
 Azure Cosmos DB에서는 증분 방식으로 Azure Cosmos DB 컬렉션에 이뤄진 업데이트를 읽는 기능을 제공합니다. 이 변경 피드에는 다음과 같은 속성이 있습니다.
 
 * 변경 내용이 Azure Cosmos DB에서 지속되면 비동기적으로 처리될 수 있습니다.
 * 컬렉션 내 문서에 대한 변경 내용은 변경 피드에서 즉시 사용할 수 있습니다.
-* 문서에 대한 변경 내용은 각각 변경 피드에 한 번만 표시됩니다. 지정된 문서에 대한 가장 최근의 변경 내용만이 변경 로그에 포함됩니다. 중간 변경 내용을 사용할 수 없습니다.
+* 각 문서에 대한 변경 내용이 한 번 변경 피드에 즉시 표시되고 클라이언트는 해당 검사점 논리를 관리합니다. 변경 피드 프로세서 라이브러리는 자동 검사점 및 “최소 한 번” 의미 체계를 제공합니다.
+* 지정된 문서에 대한 가장 최근의 변경 내용만이 변경 로그에 포함됩니다. 중간 변경 내용을 사용할 수 없습니다.
 * 변경 피드는 각 파티션 키 값 내에서 수정된 순서로 정렬됩니다. 파티션 키 값에 보장된 순서가 없습니다.
 * 특정 시점에서 변경 내용을 동기화할 수 있습니다. 즉, 변경 내용을 사용할 수 있는 고정 데이터 보존 기간이 없습니다.
 * 변경 내용은 파티션 키 범위에서 사용할 수 있습니다. 이 기능을 사용하면 대규모 컬렉션의 변경 내용을 여러 소비자/서버에 의해 병렬로 처리할 수 있습니다.
@@ -70,7 +71,7 @@ Azure Cosmos DB의 변경 피드는 모든 계정에 기본적으로 사용됩�
 
 ![Azure Cosmos DB 변경 피드의 분산 처리](./media/change-feed/changefeedvisual.png)
 
-클라이언트 코드에서 변경 피드를 구현하는 방법에는 몇 가지 옵션이 있습니다. 바로 다음에 있는 섹션에서는 Azure Cosmos DB REST API 및 DocumentDB SDK를 사용하여 변경 피드를 구현하는 방법을 설명합니다. 그러나 .NET 응용 프로그램의 경우 변경 피드에서 이벤트를 처리하기 위해 새로운 [변경 피드 프로세서 라이브러리](#change-feed-processor)를 사용하는 것이 좋습니다. 그러면 파티션 간에 읽기 변경 사항을 간소화하고 여러 스레드를 병렬로 작동할 수 있습니다.
+클라이언트 코드에서 변경 피드를 구현하는 방법에는 몇 가지 옵션이 있습니다. 바로 다음에 있는 섹션에서는 Azure Cosmos DB REST API 및 DocumentDB SDK를 사용하여 변경 피드를 구현하는 방법을 설명합니다. 그러나 .NET 응용 프로그램의 경우 변경 피드에서 이벤트를 처리하기 위해 새로운 [변경 피드 프로세서 라이브러리](#change-feed-processor)를 사용하는 것이 좋습니다. 그러면 파티션 간에 읽기 변경 사항을 간소화하고 여러 스레드를 병렬로 작동할 수 있습니다. 
 
 ## <a id="rest-apis"></a>REST API 및 DocumentDB SDK 사용
 Azure Cosmos DB에서는 **컬렉션**이라는 저장소 및 처리량의 탄력적인 컨테이너를 제공합니다. 확장성 및 성능을 위해 [파티션 키](partition-data.md)를 사용하여 컬렉션 내의 데이터를 논리적으로 그룹화합니다. Azure Cosmos DB에서는 ID(읽기/가져오기), 쿼리 및 읽기-피드(검색) 기준 조회를 포함하여 이 데이터에 액세스하기 위한 다양한 API를 제공합니다. 변경 피드는 DocumentDB의 `ReadDocumentFeed` API에 두 가지 새로운 요청 헤더를 채워서 가져올 수 있으며 파티션 키 범위에서 동시에 처리할 수 있습니다.
@@ -198,7 +199,7 @@ Azure Cosmos DB에서는 옵션 `x-ms-documentdb-partitionkeyrangeid` 헤더를 
 ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리하는 다음과 같은 시나리오/작업을 지원합니다.
 
 * 처음부터 즉, 컬렉션 생성에서부터 문서에 대한 모든 변경 내용을 읽습니다.
-* 현재 시간부터 문서의 향후 업데이트에 대한 모든 변경 내용을 읽습니다.
+* 현재 시간부터 문서의 향후 업데이트에 대한 모든 변경 내용 또는 사용자가 지정한 시간 이후의 변경 내용을 읽습니다.
 * 컬렉션의 논리 버전부터 문서에 대한 모든 변경 내용을 읽습니다(ETag). 증분 읽기 피드 요청에서 반환된 ETag에 따라 소비자의 검사점을 지정할 수 있습니다.
 
 변경 내용에는 문서에 대한 삽입 및 업데이트가 포함됩니다. 삭제를 캡처하려면 문서 내에서 "soft delete" 속성을 사용하거나 [기본 제공 TTL 속성](time-to-live.md)을 사용하여 변경 피드에서 보류 중인 삭제를 알려야 합니다.
@@ -220,10 +221,14 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
         <td>If-None-Match</td>
         <td>
             <p>헤더 없음: 처음(컬렉션 생성)부터 모든 변경 내용을 반환합니다.</p>
-            <p>"*": 컬렉션 내의 데이터에 대한 새 변경 내용을 모두 반환합니다.</p>
+            <p>"*": 컬렉션 내의 데이터에 대한 새 변경 내용을 모두 반환합니다.</p>           
             <p>&lt;etag&gt;: ETag 컬렉션에 설정한 경우 해당 논리 타임스탬프 이후에 변경한 모든 내용을 반환합니다.</p>
         </td>
     </tr>
+    <tr>    
+        <td>If-Modified-Since</td> 
+        <td>RFC 1123 시간 형식: If-None-Match가 지정된 경우 무시합니다.</td> 
+    </tr> 
     <tr>
         <td>x-ms-documentdb-partitionkeyrangeid</td>
         <td>데이터를 읽는 파티션 키 범위 ID입니다.</td>
@@ -232,8 +237,7 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
 
 **증분 ReadDocumentFeed에 대한 응답 헤더**:
 
-<table>
-    <tr>
+<table> <tr>
         <th>헤더 이름</th>
         <th>설명</th>
     </tr>
@@ -263,6 +267,8 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
 
 > [!NOTE]
 > 변경 피드를 사용하면 저장된 프로시저 또는 트리거 내에서 여러 문서를 삽입 또는 업데이트할 때 `x-ms-max-item-count`에 지정된 것보다 더 많은 항목이 한 페이지에 반환됩니다. 
+
+.NET SDK(1.17.0)를 사용하는 경우 `CreateDocumentChangeFeedQuery`를 호출할 때 `StartTime` 이후에 변경된 문서를 즉시 반환하도록 `ChangeFeedOptions`의 `StartTime` 필드를 설정합니다. REST API를 사용하여 `If-Modified-Since`를 지정하면 사용자 요청은 문서 자체가 아닌 응답 헤더의 연속 토큰 또는 `etag`를 반환하게 됩니다. 지정된 시간이 수정된 문서를 반환하려면 `If-None-Match`를 사용하는 다음 요청에 연속 토큰 `etag`를 사용하여 실제 문서를 반환해야 합니다. 
 
 .NET SDK는 컬렉션의 변경 내용에 액세스할 수 있도록 [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) 및 [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) 도우미 클래스를 제공합니다. 다음 코드 조각에서는 단일 클라이언트에서 .NET SDK를 사용하여 처음부터 모든 변경 내용을 검색하는 방법을 보여 줍니다.
 
@@ -384,7 +390,7 @@ Cosmos SDK에서 API를 사용하면 각 파티션의 변경 피드 업데이트
 
 변경 피드 프로세서 NuGet 패키지를 설치하기 전에 먼저 다음을 설치합니다. 
 * Microsoft.Azure.DocumentDB, 버전 1.13.1 이상 
-* Newtonsoft.Json, 버전 9.0.1 이상`Microsoft.Azure.DocumentDB.ChangeFeedProcessor`를 설치하고 참조로 포함합니다.
+* Newtonsoft.Json, 9.0.1 버전 이상 `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` 설치 및 참조로 포함합니다.
 
 **모니터링된 임대 및 대상 컬렉션 만들기** 
 

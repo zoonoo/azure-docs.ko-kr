@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: aa1b28301eec88ac1be160722ce3b734f4fea43f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
@@ -92,7 +92,7 @@ StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키�
 * 클라우드에서 개수에 제한 없이 클라우드 어플라이언스를 만들고 필요에 따라 설정 및 해제할 수 있습니다.
 * 재해 복구, 개발 및 테스트 시나리오에서 온-프레미스 환경을 시뮬레이션할 수 있고 백업에서 항목 수준의 검색에 도움이 될 수 있습니다.
 
-StorSimple Cloud Appliance는 8010 장치(이전의 1100 모델)와 8020 장치라는 두 가지 모델에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (로컬 계층에서 Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](../storage/storage-premium-storage.md)로 이동합니다.
+StorSimple Cloud Appliance는 8010 장치(이전의 1100 모델)와 8020 장치라는 두 가지 모델에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (로컬 계층에서 Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](../storage/common/storage-premium-storage.md)로 이동합니다.
 
 StorSimple Cloud Appliance에 대한 자세한 내용은 [Azure에서 StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동합니다.
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5de81da3c6b77f1a80876d68def66792b6a21bb9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ Azure에서는 VM 및 확장 집합에서 수집되는 두 유형의 메트릭�
 
 실행 가능한 최소 확장 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 게스트 기반 자동 크기 조정을 사용하여 Linux 확장 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set existing-vnet`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
 
-먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 저장소 계정의 [테이블](../storage/storage-dotnet-how-to-use-tables.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 저장소 액세스 키를 사용하는 것이 지원되지 않습니다. [SAS 토큰](../storage/storage-dotnet-shared-access-signature-part-1.md)을 사용해야 합니다.
+먼저, `storageAccountName` 및 `storageAccountSasToken`의 매개 변수를 추가합니다. 진단 에이전트가 이 저장소 계정의 [테이블](../cosmos-db/table-storage-how-to-use-dotnet.md)에 메트릭 데이터를 보관합니다. Linux 진단 에이전트 버전 3.0부터는 저장소 액세스 키를 사용하는 것이 지원되지 않습니다. [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 사용해야 합니다.
 
 ```diff
      },

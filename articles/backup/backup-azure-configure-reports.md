@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/25/2017
 4. Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 임시 새로 고침을 수행할 수도 있으며, 이 경우 고객 저장소 계정의 최신 데이터가 보고서 렌더링에 사용됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-1. [Azure 저장소 계정](../storage/storage-create-storage-account.md#create-a-storage-account)을 만들어 보고서에 대해 구성합니다. 이 저장소 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
+1. [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 만들어 보고서에 대해 구성합니다. 이 저장소 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
 2. [Power BI 계정을 만들어](https://powerbi.microsoft.com/landing/signin/) Power BI 포털에서 보고서를 확인, 사용자 지정 및 생성합니다.
 3. 아직 등록되지 않은 경우 리소스 공급자 **Microsoft.insights**를 저장소 계정 구독 및 Recovery Services 자격 증명 모음 구독에 등록하여 보고 데이터가 저장소 계정으로 흐르도록 합니다. 동일한 작업을 수행하려면 Azure Portal > 구독 > 리소스 공급자로 이동한 다음 이 공급자를 선택해서 등록해야 합니다. 
 
@@ -82,7 +82,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 4. 위의 5단계에서 구성한 저장소 계정 이름을 입력하고 **다음** 단추를 클릭합니다.
 
     ![저장소 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 이 저장소 계정에 대한 저장소 계정 키를 입력합니다. Azure Portal에서 저장소 계정으로 이동하면 [저장소 액세스 키를 확인하고 복사](../storage/storage-create-storage-account.md#manage-your-storage-account)할 수 있습니다. 
+5. 이 저장소 계정에 대한 저장소 계정 키를 입력합니다. Azure Portal에서 저장소 계정으로 이동하면 [저장소 액세스 키를 확인하고 복사](../storage/common/storage-create-storage-account.md#manage-your-storage-account)할 수 있습니다. 
 
      ![저장소 계정 입력](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

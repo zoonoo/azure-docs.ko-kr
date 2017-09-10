@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 9704c6cc846df5a8e129f48ea6378140c8338279
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
@@ -42,8 +41,8 @@ SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 
 | 영역 | 최적화 |
 | --- | --- |
 | [VM 크기](#vm-size-guidance) |SQL Enterprise Edition [DS3](../../virtual-machines-windows-sizes-memory.md) 이상<br/><br/>SQL Standard 및 Web Edition [DS2](../../virtual-machines-windows-sizes-memory.md) 이상 |
-| [저장소](#storage-guidance) |[프리미엄 저장소](../../../storage/storage-premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
-| [디스크](#disks-guidance) |최소 2개의 [P30 디스크](../../../storage/storage-premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다. |
+| [저장소](#storage-guidance) |[프리미엄 저장소](../../../storage/common/storage-premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/common/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
+| [디스크](#disks-guidance) |최소 2개의 [P30 디스크](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다. |
 | [I/O](#io-guidance) |데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 증가를 제한하거나 사용하지 않도록 설정합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다. |
 | [기능 관련](#feature-specific-guidance) |Blob 저장소에 직접 백업합니다. |
 
@@ -58,7 +57,7 @@ SQL Server 이미지를 만들 때 [Azure Portal에서 VM을 프로비전하는 
 
 ## <a name="storage-guidance"></a>저장소 지침
 
-DS 시리즈(DSv2 시리즈 및 GS 시리즈와 함께) VM은 [프리미엄 저장소](../../../storage/storage-premium-storage.md)를 지원합니다. 프리미엄 저장소는 모든 프로덕션 워크로드에 권장됩니다.
+DS 시리즈(DSv2 시리즈 및 GS 시리즈와 함께) VM은 [프리미엄 저장소](../../../storage/common/storage-premium-storage.md)를 지원합니다. 프리미엄 저장소는 모든 프로덕션 워크로드에 권장됩니다.
 
 > [!WARNING]
 > 표준 저장소는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 프리미엄 저장소를 사용해야 합니다.
@@ -91,7 +90,7 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
 ### <a name="data-disks"></a>데이터 디스크
 
-* **데이터 및 로그 파일에 데이터 디스크 사용**: 최소 2개의 Premium Storage [P30 디스크](../../../storage/storage-premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 및 TempDB 파일용 1개). 각 Premium Storage 디스크는 [디스크에 Premium Storage 사용](../../../storage/storage-premium-storage.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOPs 및 대역폭(MB/s)을 제공합니다.
+* **데이터 및 로그 파일에 데이터 디스크 사용**: 최소 2개의 Premium Storage [P30 디스크](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 및 TempDB 파일용 1개). 각 Premium Storage 디스크는 [디스크에 Premium Storage 사용](../../../storage/common/storage-premium-storage.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOPs 및 대역폭(MB/s)을 제공합니다.
 
 * **디스크 스트라이프**: 더 많은 처리량이 필요한 경우 추가 데이터 디스크를 추가하고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 확인하려면 로그 파일과 데이터 및 TempDB 파일에 필요한 IOPS 및 대역폭 수를 분석해야 합니다. VM 크기에 따라 IOPs 및 대역폭 수에 대한 제한이 다릅니다. [VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)별 IOPS에 대한 표를 참조하세요. 다음 지침을 사용하세요.
 

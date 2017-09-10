@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f1f01b660c4eb780e178a68036327fafa9ba6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/07/2017
 >
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 집합을 저장합니다.  Azure Storage 계정이 없을 경우 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+* Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 집합을 저장합니다.  Azure Storage 계정이 없을 경우 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 집합을 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -77,7 +77,7 @@ ms.lasthandoff: 06/07/2017
 
     이 실험에서는 `xlargerc` 리소스 클래스를 사용하여 Azure SQL Data Warehouse로 데이터를 로드합니다.
 
-    최상의 처리량을 얻으려면 `xlargerc` 리소스 클래스에 속한 SQL Data Warehouse 사용자를 사용하여 복사해야 합니다.  [사용자 리소스 클래스 변경 예제](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.  
+    최상의 처리량을 얻으려면 `xlargerc` 리소스 클래스에 속한 SQL Data Warehouse 사용자를 사용하여 복사해야 합니다.  [사용자 리소스 클래스 변경 예제](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.  
 * 다음 DDL 문을 실행하여 Azure SQL Data Warehouse 데이터베이스에서 대상 테이블 스키마를 만듭니다.
 
     ```SQL  

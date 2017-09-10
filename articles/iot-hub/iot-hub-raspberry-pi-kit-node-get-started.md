@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -120,8 +120,8 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그�
 | -----------------------  | ---------------------- | ------------: |
 | VDD(5G 핀)             | 3.3V PWR(1 핀)       | 흰색 케이블   |
 | GND(7G 핀)             | GND(6 핀)            | 갈색 케이블   |
-| SCK(8G 핀)             | I2C1 SDA(3 핀)       | 주황색 케이블  |
-| SDI(10G 핀)            | I2C1 SCL(5 핀)       | 빨간색 케이블     |
+| SDI(10G 핀)            | I2C1 SDA(3 핀)       | 빨간색 케이블     |
+| SCK(8G 핀)             | I2C1 SCL(5 핀)       | 주황색 케이블  |
 | LED VDD(18F 핀)        | GPIO 24(18 핀)       | 흰색 케이블   |
 | LED GND(17F 핀)        | GND(20 핀)           | 검은색 케이블   |
 

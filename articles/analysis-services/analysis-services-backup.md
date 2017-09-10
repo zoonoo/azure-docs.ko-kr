@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="backup-and-restore"></a>백업 및 복원
 
-Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. 백업 파일은 [Azure Storage 계정](../storage/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 저장소 계정과 컨테이너를 사용하거나 서버에 대한 저장소 설정을 구성할 때 만들 수 있습니다.
+Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. 백업 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 저장소 계정과 컨테이너를 사용하거나 서버에 대한 저장소 설정을 구성할 때 만들 수 있습니다.
 
 > [!NOTE]
 > 저장소 계정을 만들면 새로운 유료 서비스가 발생할 수 있습니다. 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
@@ -83,7 +83,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet을 사용합니다.
 
 ## <a name="restore"></a>복원
-복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 저장소 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
+복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 저장소 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
 
 
 
@@ -112,7 +112,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 ## <a name="related-information"></a>관련 정보
 
-[Azure Storage 계정](../storage/storage-create-storage-account.md)  
+[Azure Storage 계정](../storage/common/storage-create-storage-account.md)  
 [고가용성](analysis-services-bcdr.md)     
 [Azure Analysis Services 관리](analysis-services-manage.md)
 

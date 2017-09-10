@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 41019b4ae022602d2688399d1fc309151174e157
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 스트리밍: HDInsight에서 Spark 클러스터로 Azure Event Hubs의 데이터 처리
@@ -287,7 +287,7 @@ ssc.awaitTermination()
 
         java -cp com-microsoft-azure-eventhubs-client-example-0.2.0.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. 스트리밍 jar(**spark-streaming-data-persistence-examples.jar**)을 클러스터와 연결된 Azure Blob Storage에 복사합니다. 이렇게 하면 jar이 Livy에 액세스할 수 있습니다. [**AzCopy**](../storage/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+2. 스트리밍 jar(**spark-streaming-data-persistence-examples.jar**)을 클러스터와 연결된 Azure Blob Storage에 복사합니다. 이렇게 하면 jar이 Livy에 액세스할 수 있습니다. [**AzCopy**](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 3. 이러한 응용 프로그램을 실행 중인 컴퓨터에 CURL을 설치합니다. Livy 끝점을 호출하는 CURL을 사용하여 작업을 원격으로 실행합니다.
 
 ### <a name="run-the-spark-streaming-application-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>텍스트로 Azure Storage Blob에 이벤트를 수신하는 Spark 스트리밍 응용 프로그램 실행

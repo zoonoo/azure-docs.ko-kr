@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
@@ -26,15 +26,15 @@ Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요�
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Azure VM은 이제 [Azure Storage 계정](../../storage/storage-introduction.md)을 직접 만들거나 관리하지 않고 VM을 만들 수 있도록 하는 [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다. 프리미엄 또는 표준 저장소를 원하는지 여부와 디스크의 크기를 지정하고 Azure는 VM 디스크를 만듭니다. Managed Disks가 있는 VM에는 다음을 포함한 여러 가지 중요한 기능이 있습니다.
+Azure VM은 이제 [Azure Storage 계정](../../storage/common/storage-introduction.md)을 직접 만들거나 관리하지 않고 VM을 만들 수 있도록 하는 [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다. 프리미엄 또는 표준 저장소를 원하는지 여부와 디스크의 크기를 지정하고 Azure는 VM 디스크를 만듭니다. Managed Disks가 있는 VM에는 다음을 포함한 여러 가지 중요한 기능이 있습니다.
 
 - 자동 확장성 지원. Azure는 디스크를 만들고 기본 저장소를 관리하여 구독당 최대 10,000개의 디스크를 지원합니다.
 - 가용성 집합으로 향상된 안정성. Azure는 가용성 집합 내에서 자동으로 VM 디스크를 서로 분리합니다.
 - 향상된 액세스 제어. Managed Disks는 [Azure RBAC(역할 기반 액세스 제어)](../../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다.
 
-Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../../storage/storage-managed-disks-overview.md#pricing-and-billing)를 참조하세요.
+Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../windows/managed-disks-overview.md#pricing-and-billing)를 참조하세요.
 
-관리되지 않는 디스크를 사용하는 기존 VM을 [az vm convert](/cli/azure/vm#convert)로 관리되는 디스크를 사용하도록 변환할 수 있습니다. 자세한 내용은 [Linux VM을 관리되지 않는 디스크에서 Azure Managed Disks로 변환하는 방법](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 현재 또는 이전에 [Azure SSE(Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 저장소 계정에 관리되지 않는 디스크가 있는 경우 관리되지 않는 디스크를 관리되는 디스크로 변환할 수 없습니다. 다음은 현재 암호화되었거나 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크를 변환하는 자세한 단계입니다.
+관리되지 않는 디스크를 사용하는 기존 VM을 [az vm convert](/cli/azure/vm#convert)로 관리되는 디스크를 사용하도록 변환할 수 있습니다. 자세한 내용은 [Linux VM을 관리되지 않는 디스크에서 Azure Managed Disks로 변환하는 방법](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 현재 또는 이전에 [Azure SSE(Storage Service Encryption)](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 저장소 계정에 관리되지 않는 디스크가 있는 경우 관리되지 않는 디스크를 관리되는 디스크로 변환할 수 없습니다. 다음은 현재 암호화되었거나 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크를 변환하는 자세한 단계입니다.
 
 - [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage 서비스 암호화를 사용하도록 설정되지 않은 저장소 계정으로 VHD(가상 하드 디스크)를 복사합니다.
 - 관리되는 디스크를 사용하는 VM을 만들고 [az vm create](/cli/azure/vm#create)로 생성되는 동안 해당 VHD 파일을 지정합니다. 또는
@@ -92,7 +92,7 @@ Premium Storage 기능은 다음과 같습니다.
 * Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
 * 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
 * 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
-* [Premium Storage](../../storage/storage-premium-storage.md)
+* [Premium Storage](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
 프리미엄 저장소는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. 프리미엄 저장소 지원 VM에서 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 하지만 Premium Storage와 호환되지 않는 VM 시리즈에서는 Premium Storage 디스크를 사용할 수 없습니다.
@@ -115,7 +115,7 @@ Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드�
 
 파일 저장소는 Blob, 테이블 및 큐 저장소와 동일한 기술을 토대로 만들어졌으므로 파일 저장소는 Azure 저장소 플랫폼에 기본 제공되는 기존 가용성, 내구성, 확장성 및 지리적 중복을 활용할 수 있습니다. File Storage 성능 목표 및 제한에 대한 자세한 내용은 Azure Storage 확장성 및 성능 목표를 참조하세요.
 
-* [Linux에서 Azure File Storage 사용 방법](../../storage/storage-how-to-use-files-linux.md)
+* [Linux에서 Azure File Storage 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>핫 저장소
 Azure 핫 저장소 계층은 자주 액세스하는 데이터 저장에 최적화되어 있습니다.  핫 저장소는 Blob 저장소에 대한 기본 저장소 유형입니다.
@@ -155,7 +155,7 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 Azure Storage 중복에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Azure 저장소 복제](../../storage/storage-redundancy.md)
+* [Azure 저장소 복제](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>확장성
 Azure 저장소는 대규모로 확장할 수 있으므로, 수백 테라바이트의 데이터를 저장 및 처리함으로써 과학, 재무 분석 및 미디어 응용 프로그램에 필요한 빅 데이터 시나리오를 지원할 수 있습니다. 또는 소규모 비즈니스 웹 사이트에 필요한 소량의 데이터를 저장할 수도 있습니다. 저장소 요구량이 줄면 저장하는 데이터에 대해서만 비용을 지불하면 됩니다. Azure 저장소는 현재 수십조에 달하는 고유한 고객 개체를 저장하고 초당 평균 수백만 건의 요청을 처리합니다.
@@ -197,7 +197,7 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하�
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정에 사용하도록 설정하는 방법을 알아보고, 이로 인해 블록 Blob, 페이지 Blob 및 추가 Blob을 Azure 저장소에 쓸 때 자동으로 암호화되는 과정을 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
 
-* [Azure Storage 보안 가이드](../../storage/storage-security-guide.md)
+* [Azure Storage 보안 가이드](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>임시 디스크
 각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
