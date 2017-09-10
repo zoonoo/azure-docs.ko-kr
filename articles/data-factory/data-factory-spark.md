@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
@@ -52,7 +52,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 4. 2단계에서 만든 Apache HDInsight 연결된 서비스를 참조하는 Spark 활동을 포함하는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 집합으로 만든 데이터 집합을 통해 구성됩니다. 출력 데이터 집합은 일정(매시간, 매일 등)을 구동하는 기능입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 집합을 지정해야 합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-1. 연습의 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 지침에 따라 **범용 Azure Storage 계정**을 만듭니다.  
+1. 연습의 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 지침에 따라 **범용 Azure Storage 계정**을 만듭니다.  
 2. 자습서의 [Azure HDInsight에서 Apache Spark 클러스터 만들기](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) 지침에 따라 **Azure HDInsight에서 Apache Spark 클러스터**를 만듭니다. 1단계에서 만든 Azure 저장소 계정을 이 클러스터와 연결합니다.  
 3. [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)에 있는 **test.py** python 스크립트 파일을 다운로드하여 검토합니다.  
 3.  Azure Blob 저장소의 **adfspark** 컨테이너에 있는 **test.py**를 **pyFiles** 폴더로 업로드합니다. 컨테이너와 폴더가 없으면 만듭니다.
@@ -91,7 +91,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 3. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 **JSON 스크립트**가 표시됩니다.
 
    ![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. **계정 이름** 및 **계정 키**를 Azure 저장소 계정의 이름 및 계정 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
+4. **계정 이름** 및 **계정 키**를 Azure 저장소 계정의 이름 및 계정 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 5. 연결된 서비스를 배포하려면 명령 모음에서 **배포**를 클릭합니다. 연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라지고 왼쪽의 트리 보기에 **AzureStorageLinkedService**가 표시됩니다.
 
 #### <a name="create-hdinsight-linked-service"></a>HDInsight 연결된 서비스 만들기

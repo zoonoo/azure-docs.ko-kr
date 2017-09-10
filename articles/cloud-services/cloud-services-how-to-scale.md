@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +38,7 @@ Azure 클래식 포털의 크기 조정 페이지에서 웹 역할 또는 작업
 
     역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 응용 프로그램의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이라고 해보겠습니다. 중간 크기의 클라우드 서비스 두 대에서 응용 프로그램을 실행할 경우(총 코어 수 4개), 구독에 있는 다른 클라우드 서비스 배포를 나머지 16코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md)를 참조하세요.
 
-* 메시지 임계값을 기반으로 응용 프로그램의 크기를 조정하려면 큐를 만든 후 역할에 연결해야 합니다. 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](../storage/storage-dotnet-how-to-use-queues.md)(영문)을 참조하세요.
+* 메시지 임계값을 기반으로 응용 프로그램의 크기를 조정하려면 큐를 만든 후 역할에 연결해야 합니다. 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](../storage/queues/storage-dotnet-how-to-use-queues.md)(영문)을 참조하세요.
 
 * 클라우드 서비스에 연결되는 리소스의 크기를 조정할 수 있습니다. 리소스를 연결하는 방법에 대한 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service)을 참조하세요.
 

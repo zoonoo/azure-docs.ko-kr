@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -374,7 +374,7 @@ NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 �
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure에는 Blob Storage, File Storage, Table Storage 및 Queue Storage의 네 가지 저장소 유형이 있습니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/storage-blob-storage-tiers.md)를 참조하세요.
+Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 저장소를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure에는 Blob Storage, File Storage, Table Storage 및 Queue Storage의 네 가지 저장소 유형이 있습니다. 저장소 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 저장소 계정을 사용하면 네 가지 저장소 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
 
 Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
 
@@ -400,7 +400,7 @@ Azure Storage는 세 종류의 Blob을 지원합니다.
 
 -   **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 응용 프로그램에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
 
-자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 **File Storage**
 
@@ -408,7 +408,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
 
-자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/storage-file-how-to-use-files-windows.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/storage-how-to-use-files-linux.md)을 참조하세요.
+자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/files/storage-how-to-use-files-windows.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 **Table Storage**
 
@@ -416,13 +416,13 @@ Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하
 
 Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 저장소 계정은 저장소 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
 
-자세한 내용은 [Azure Table Storage 시작](../../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
+자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
 
 **Queue storage**
 
 Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
-자세한 내용은 [Azure Queue Storage 시작](../../storage/storage-dotnet-how-to-use-queues.md)을 참조하세요.
+자세한 내용은 [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
 ### <a name="deploying-a-storage-account"></a>저장소 계정 배포
 
@@ -430,19 +430,19 @@ Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 **포털**
 
-Azure Portal을 사용하여 저장소 계정을 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 저장소 계정을 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 저장소 계정을 만든 후에는 포털을 사용하여 Blob 컨테이너 또는 파일 공유를 만들 수 있습니다. 프로그래밍 방식으로 Table 및 Queue Storage 엔터티를 만들 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../../storage/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요.
+Azure Portal을 사용하여 저장소 계정을 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 저장소 계정을 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 저장소 계정을 만든 후에는 포털을 사용하여 Blob 컨테이너 또는 파일 공유를 만들 수 있습니다. 프로그래밍 방식으로 Table 및 Queue Storage 엔터티를 만들 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요.
 
 Azure Portal에서 저장소 계정을 배포하는 것 외에도 포털에서 Azure Resource Manager 템플릿을 배포할 수 있습니다. 이렇게 하면 저장소 계정을 포함한 모든 리소스가 템플릿에 정의된 대로 배포되고 구성됩니다. 자세한 내용은 [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 
 **PowerShell**
 
-PowerShell을 사용하여 Azure storage 계정을 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/storage-powershell-guide-full.md)을 참조하세요.
+PowerShell을 사용하여 Azure storage 계정을 배포하면 저장소 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/common/storage-powershell-guide-full.md)을 참조하세요.
 
 Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell 모듈을 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
 **명령줄 인터페이스(CLI)**
 
-PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 저장소 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/storage-azure-cli.md)을 참조하세요.
+PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 저장소 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md)을 참조하세요.
 
 마찬가지로 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../resource-group-template-deploy-cli.md)를 참조하세요.
 
@@ -452,11 +452,11 @@ Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage �
 
 **가상 컴퓨터 디스크**
 
-가상 컴퓨터를 배포할 때는 가상 컴퓨터 운영 체제 디스크와 추가 데이터 디스크를 보관할 저장소 계정을 만들어야 합니다. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. Blob의 최대 크기는 1,024GB이므로 단일 VM 디스크의 최대 크기는 1,023GB입니다. 대용량 데이터 디스크를 구성하려면 여러 데이터 디스크를 가상 컴퓨터에 사용하고 단일 논리 디스크로 함께 풀링하면 됩니다. 자세한 내용은 [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) 및 [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md)에 대한 "저장소 인프라 지침"을 참조하세요.
+가상 컴퓨터를 배포할 때는 가상 컴퓨터 운영 체제 디스크와 추가 데이터 디스크를 보관할 저장소 계정을 만들어야 합니다. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. Blob의 최대 크기는 1,024GB이므로 단일 VM 디스크의 최대 크기는 1,023GB입니다. 대용량 데이터 디스크를 구성하려면 여러 데이터 디스크를 가상 컴퓨터에 사용하고 단일 논리 디스크로 함께 풀링하면 됩니다. 자세한 내용은 [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) 및 [Linux](../../virtual-machines/linux/tutorial-manage-disks.md)용"Azure 디스크 관리"를 참조하세요.
 
 **저장소 도구**
 
-Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 저장소 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 저장소 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/storage-explorers.md)를 참조하세요.
+Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한 저장소 탐색기를 통해 액세스할 수 있습니다. 이러한 도구를 사용하면 저장소 계정 및 데이터를 검색할 수 있습니다. 자세한 내용 및 사용 가능한 저장소 탐색기 목록은 [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md)를 참조하세요.
 
 **저장소 API**
 
@@ -468,7 +468,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 **공유 액세스 서명**
 
-저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명은 저장소 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](../../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+저장소 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명은 저장소 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 

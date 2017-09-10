@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>역할을 재활용하게 하는 일반적인 문제
@@ -52,7 +52,7 @@ Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnec
 
 * `DiagnosticsConnectionString` 설정이 Azure의 유효한 저장소 계정을 가리킵니다.  
   기본적으로 이 설정은 에뮬레이트된 저장소 계정을 가리키므로 응용 프로그램 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.
-* 연결 문자열은 다음과 같은 [형식](../storage/storage-configure-connection-string.md)으로 지정해야 합니다. (HTTPS 프로토콜을 지정해야 합니다.) *MyAccountName*을 저장소 계정의 이름으로 바꾸고 *MyAccountKey*를 선택키로 바꿉니다.    
+* 연결 문자열은 다음과 같은 [형식](../storage/common/storage-configure-connection-string.md)으로 지정해야 합니다. (HTTPS 프로토콜을 지정해야 합니다.) *MyAccountName*을 저장소 계정의 이름으로 바꾸고 *MyAccountKey*를 선택키로 바꿉니다.    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 9993d6f6ef46366d00f5c44812380b3f1e07d9ef
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정
@@ -71,7 +71,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 * **보존 기간** - 기본적으로 로그는 **Blob Storage**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention** 을 선택하고 로그를 보관할 기간(일)을 입력합니다.
 
 > [!NOTE]
-> [저장소 계정의 선택키를 다시 생성](../storage/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
+> [저장소 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 저장소 계정 Blob 또는 테이블에 로깅을 다시 사용합니다. 설정을 저장합니다.

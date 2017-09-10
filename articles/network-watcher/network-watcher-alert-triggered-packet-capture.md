@@ -3,7 +3,7 @@ title: "패킷 캡처를 사용하여 경고 및 Azure Functions로 자동 관�
 description: "이 문서에서는 Azure Network Watcher에서 경고로 트리거된 패킷 캡처를 만드는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8e0b9181bcd43692619726e7215e90116e5b9221
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b813172fc1fc1cc683f463f05370c95bfec10f8d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
@@ -362,7 +362,7 @@ $Encryptedpassword
 
 캡처 파일이 로컬에 저장된 경우 가상 컴퓨터에 로그인하여 캡처 파일을 검색합니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [저장소 탐색기](http://storageexplorer.com/)입니다.
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [저장소 탐색기](http://storageexplorer.com/)입니다.
 
 캡처를 다운로드했으면 **.cap** 파일을 읽을 수 있는 도구를 사용하여 볼 수 있습니다. 다음은 이러한 두 도구에 대한 링크입니다.
 

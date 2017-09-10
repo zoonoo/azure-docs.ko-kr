@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 069e662ce70f1ec78d796c29d8b5331fc8a5a3e7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21d8c1ee0877df8d317d5a14131dc574fa5303c4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell을 사용하여 한 실험에서 여러 기계 학습 모델 및 웹 서비스 끝점 만들기
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/17/2016
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell을 사용하여 별도의 학습 데이터 집합을 사용하도록 끝점 업데이트
 다음 단계는 각 고객의 개별 데이터에서 고유하게 학습된 모델로 끝점을 업데이트하는 것입니다. 하지만 먼저 **Bike Rental Training** 웹 서비스에서 이러한 모델을 생성해야 합니다. **Bike Rental Training** 웹 서비스를 다시 살펴보겠습니다. 10가지 서로 다른 모델을 생성하기 위해서는 10개의 서로 다른 학습 데이터 집합으로 BES 끝점을 10번 호출해야 합니다. 이를 위해 **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet을 사용합니다.
 
-Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **클래식 Azure 관리 포털**(*저장소* 탭)에 표시되는 계정 이름 중 하나가 될 수 있습니다. 저장소 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키*를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 저장소의 상대적인 경로입니다. 예를 들어 아래 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage 탐색기](../storage/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.ilearner 파일)을 저장할 새 컨테이너를 저장소에 만드는 것이 좋습니다. 저장소 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 아래 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
+Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **클래식 Azure 관리 포털**(*저장소* 탭)에 표시되는 계정 이름 중 하나가 될 수 있습니다. 저장소 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키*를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 저장소의 상대적인 경로입니다. 예를 들어 아래 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage 탐색기](../storage/common/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.ilearner 파일)을 저장할 새 컨테이너를 저장소에 만드는 것이 좋습니다. 저장소 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 아래 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

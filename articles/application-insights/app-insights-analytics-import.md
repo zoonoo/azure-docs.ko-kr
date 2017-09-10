@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
@@ -134,7 +134,7 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 
 다음 프로세스를 수동으로 수행하거나 정기적으로 수행하도록 자동화 시스템을 설정할 수 있습니다. 가져올 데이터의 각 블록에 대해 이러한 단계를 수행해야 합니다.
 
-1. [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md)에 데이터를 업로드합니다. 
+1. [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md)에 데이터를 업로드합니다. 
 
  * Blob은 압축하지 않은 상태로 최대 1GB 크기일 수 있습니다. 성능 측면에서는 수백 MB 단위의 큰 blob이 이상적입니다.
  * 데이터를 쿼리에 사용하기 위해 Gzip으로 압축하여 업로드 시간 및 대기 시간을 향상시킬 수 있습니다. `.gz` 파일 이름 확장명을 사용합니다.
@@ -142,7 +142,7 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
  * 데이터를 몇 초 단위로 매우 자주 전송할 때는 성능상의 이유로 둘 이상의 저장소 계정을 사용하는 것이 좋습니다.
 
  
-2. [Blob에 대한 공유 액세스 서명 키를 생성합니다](../storage/storage-dotnet-shared-access-signature-part-2.md). 이 키는 만료 기간이 1일이고 읽기 액세스 권한을 부여해야 합니다.
+2. [Blob에 대한 공유 액세스 서명 키를 생성합니다](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). 이 키는 만료 기간이 1일이고 읽기 액세스 권한을 부여해야 합니다.
 3. 데이터가 대기 중임을 Application Insights에 알리기 위해 REST 호출을 수행합니다.
 
  * 끝점: `https://dc.services.visualstudio.com/v2/track`

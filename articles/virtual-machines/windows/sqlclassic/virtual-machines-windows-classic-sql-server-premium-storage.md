@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용
 ## <a name="overview"></a>개요
-[Azure Premium Storage](../../../storage/storage-premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 워크로드에서 매우 효율적입니다.
+[Azure Premium Storage](../../../storage/common/storage-premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 워크로드에서 매우 효율적입니다.
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
@@ -144,7 +144,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 저장소 대역폭 및 VHD 저장소 처리량
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형의 테이블을 참조하세요](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형의 테이블을 참조하세요](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -1097,7 +1097,7 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure 프리미엄 저장소](../../../storage/storage-premium-storage.md)
+* [Azure 프리미엄 저장소](../../../storage/common/storage-premium-storage.md)
 * [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

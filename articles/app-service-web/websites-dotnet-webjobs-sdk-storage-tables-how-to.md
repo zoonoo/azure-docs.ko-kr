@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법
@@ -139,7 +139,7 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 `CloudS
             tableBinding.Execute(insertOperation);
         }
 
-`CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요 
+`CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요 
 
 ## <a id="queues"></a>큐 방법 문서에서 다루는 관련 항목
 큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요 

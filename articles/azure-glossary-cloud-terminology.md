@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
@@ -30,8 +30,8 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
 
 ## <a name="account"></a>계정
-Azure 구독에 액세스하고 관리하는 데 사용하는 회사, 학교 또는 개인 Microsoft 계정입니다.  
-[Azure 구독과 Azure Active Directory의 연관 관계](active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. 계정이 기존 회사, 학교나 개인 Microsoft 계정 또는 Office 365 사용자 이름 및 암호 중 하나일 수 있지만 Azure 계정이라고 말합니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
+[Office 365 계정을 사용하여 Azure 구독에 등록](billing/billing-use-existing-office-365-account-azure-subscription.md) 및 [로그인하는 데 사용할 수 있는 계정](active-directory/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a name="api-app"></a>API 앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
@@ -119,11 +119,11 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 ## <a name="sas"></a>SAS(공유 액세스 서명)
-계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 장치에 부여합니다.
+계정 키를 노출하지 않고 리소스에 대한 제한된 액세스 권한을 부여할 수 있는 서명입니다. 예를 들어 [Azure Storage는 SAS를 사용하여](storage/common/storage-dotnet-shared-access-signature-part-1.md) BLOB과 같은 개체에 대한 클라이언트 액세스 권한을 부여합니다. [IoT Hub는 SAS를 사용하여](iot-hub/iot-hub-devguide-security.md#security-tokens) 원격 분석을 보낼 수 있는 권한을 장치에 부여합니다.
 
 ## <a name="storage-account"></a>저장소 계정 만들기
 Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액세스 권한을 제공하는 계정입니다. 저장소 계정 이름은 Azure Storage 데이터 개체의 고유한 네임스페이스를 정의합니다.  
-[Azure Storage 계정 정보](storage/storage-create-storage-account.md)를 참조하세요.
+[Azure Storage 계정 정보](storage/common/storage-create-storage-account.md)를 참조하세요.
 
 ## <a name="subscription"></a>subscription
 Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제공 사항에 따라 제어됩니다.

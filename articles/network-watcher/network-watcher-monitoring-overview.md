@@ -3,7 +3,7 @@ title: "Azure Network Watcher 소개 | Microsoft Docs"
 description: "Azure에서 네트워크에 연결된 리소스를 모니터링하고 시각화하는 Network Watcher 서비스에 대한 개요를 간략히 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
 
-|Resource| Permission| | |---|---| | |Microsoft.
-|Microsoft.Storage/ |Read| | |Microsoft.Authorization/| Read| | |Microsoft.Resources/subscriptions/resourceGroups/| Read| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Action| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Action| | |Microsoft.Storage/storageAccounts/listKeys/ | Action| | |Microsoft.Compute/virtualMachines/ |Read| | |Microsoft.Compute/virtualMachines/ |Write| | |Microsoft.Compute/virtualMachineScaleSets/ |Read| | |Microsoft.Compute/virtualMachineScaleSets/ |Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Read| | |Microsoft.Network/networkWatchers/packetCaptures/| Write| | |Microsoft.Network/networkWatchers/packetCaptures/| Delete| | |Microsoft.Network/networkWatchers/ |Write| | |Microsoft.Network/networkWatchers/| Read| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
+|리소스| 사용 권한|
+|---|---| 
+|Microsoft.Storage/ |읽기|
+|Microsoft.Authorization/| 읽기| 
+|Microsoft.Resources/subscriptions/resourceGroups/| 읽기|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | 작업|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |작업|
+|Microsoft.Storage/storageAccounts/listKeys/ | 작업|
+|Microsoft.Compute/virtualMachines/ |읽기|
+|Microsoft.Compute/virtualMachines/ |쓰기|
+|Microsoft.Compute/virtualMachineScaleSets/ |읽기|
+|Microsoft.Compute/virtualMachineScaleSets/ |쓰기|
+|Microsoft.Network/networkWatchers/packetCaptures/ |읽기|
+|Microsoft.Network/networkWatchers/packetCaptures/| 쓰기|
+|Microsoft.Network/networkWatchers/packetCaptures/| 삭제|
+|Microsoft.Network/networkWatchers/ |쓰기 |
+|Microsoft.Network/networkWatchers/| 읽기 |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>네트워크 구독 제한
 

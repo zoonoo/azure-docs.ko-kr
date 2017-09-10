@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 4be4cb8285d2e0e8b8520c289ef7668164c9fe50
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>12단계: Azure에 VMware VM에 대한 테스트 장애 조치 실행
@@ -35,13 +34,13 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="managed-disk-considerations"></a>Managed Disk 고려 사항
 
-[Managed Disks](../storage/storage-managed-disks-overview.md)는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure VM의 디스크 관리를 간소화합니다. 
+[Managed Disks](../virtual-machines/windows/managed-disks-overview.md)는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure VM의 디스크 관리를 간소화합니다. 
 
 - VM에 보호를 활성화하면 VM 데이터는 저장소 계정에 복제됩니다. Managed Disks는 장애 조치(failover) 시에만 생성되고 VM에 연결됩니다.
 - Resource Manager 배포 모델을 사용하여 배포된 VM에 대해서만 Managed Disks를 만들 수 있습니다.  
-- 이 설정을 사용하면, **Managed Disks 사용**을 활성화한 리소스 그룹의 가용성 집합만 선택할 수 있습니다. Managed Disks가 있는 VM은 가용성 집합에 있어야 하며 **Managed Disks 사용** 설정이 **예**로 되어 있어야 합니다. VM에서 이 설정을 사용하지 않는 경우 활성화한 Managed Disks가 없는 리소스 그룹의 가용성 집합만 선택할 수 있습니다.
-- Managed Disks와 가용성 집합에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
-- 복제에 사용하는 저장소 계정이 저장소 서비스 암호화로 암호화된 경우에는 장애 조치(failover)를 수행하는 도중에 Managed Disks를 만들 수 없습니다. 이 경우 Managed Disks의 사용을 활성화하거나 VM에 대한 보호를 비활성화하고, 활성화된 암호화가 없는 저장소 계정을 사용하도록 다시 활성화합니다. [자세히 알아보세요](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)을 확인하세요.
+- 이 설정을 사용하면, **Managed Disks 사용**을 활성화한 리소스 그룹의 가용성 집합만 선택할 수 있습니다. 관리 디스크가 있는 VM은 가용성 집합에 있어야 하며 **관리 디스크 사용** 설정이 **예**로 되어 있어야 합니다. VM에서 이 설정을 사용하지 않는 경우 활성화한 관리 디스크가 없는 리소스 그룹의 가용성 집합만 선택할 수 있습니다.
+- 관리 디스크와 가용성 집합에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+- 복제에 사용하는 저장소 계정이 저장소 서비스 암호화로 암호화된 경우에는 장애 조치(failover)를 수행하는 도중에 관리 디스크를 만들 수 없습니다. 이 경우 관리 디스크의 사용을 활성화하거나 VM에 대한 보호를 비활성화하고, 활성화된 암호화가 없는 저장소 계정을 사용하도록 다시 활성화합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
@@ -70,10 +69,10 @@ ms.lasthandoff: 06/29/2017
 2. **복제된 항목** 창에서 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약을 볼 수 있습니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
 3. **계산 및 네트워크**에서 다음을 수행할 수 있습니다.
     - Azure VM 이름을 수정합니다. 이름은 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
-    - 장애 조치(failover) 후 [리소스 그룹](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)을 지정합니다.
+    - 장애 조치(failover) 후 [리소스 그룹]을 지정합니다.
     - Azure VM에 대한 대상 크기를 지정합니다.
-    - [가용성 집합](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)을 선택합니다.
-    - [Managed Disks](#managed-disk-considerations)의 사용 여부를 지정합니다. Managed Disks를 Azure로의 마이그레이션에서 컴퓨터에 연결하려는 경우 **예**를 선택합니다.
+    - [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)을 선택합니다.
+    - [관리 디스크](#managed-disk-considerations)의 사용 여부를 지정합니다. 관리 디스크를 Azure로의 마이그레이션에서 컴퓨터에 연결하려는 경우 **예**를 선택합니다.
     - 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보거나 수정합니다.
 4. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
@@ -82,12 +81,12 @@ ms.lasthandoff: 06/29/2017
 모든 항목을 설정한 후 모든 것이 예상대로 작동하는지 확인할 수 있도록 테스트 장애 조치를 실행합니다.
 
 - 장애 조치(failover) 후 RDP를 사용하여 Azure VM에 연결하려면 [연결을 준비](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)합니다.
- - 완벽하게 테스트하려면 테스트 환경에 Active Directory 및 DNS 복사본이 필요합니다. [자세히 알아보세요](site-recovery-active-directory.md#test-failover-considerations)을 확인하세요.
+ - 완벽하게 테스트하려면 테스트 환경에 Active Directory 및 DNS 복사본이 필요합니다. [자세히 알아보기](site-recovery-active-directory.md#test-failover-considerations).
  - 테스트 장애 조치(failover)에 대한 전체 정보는 [이 문서](site-recovery-test-failover-to-azure.md)를 읽어보세요.
 - 시작하기 전에 간단한 동영상 개요를 보세요.
 
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
 이제 장애 조치(Failover)를 실행합니다.
@@ -98,7 +97,7 @@ ms.lasthandoff: 06/29/2017
 
 2. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
 
-3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
+3. **테스트 장애 조치(failover)**에서 장애 조치(failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
 
 4. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **Site Recovery 작업**의 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
 

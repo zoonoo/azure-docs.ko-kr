@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 이 문서에서는 [Microsoft Azure 저장소 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 랩의 저장소 계정에 VHD 파일을 업로드합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../storage/storage-about-disks-and-vhds-linux.md)를 참조하세요.
+Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 이 문서에서는 [Microsoft Azure 저장소 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 랩의 저장소 계정에 VHD 파일을 업로드합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../virtual-machines/linux/about-disks-and-vhds.md)를 참조하세요.
 
 ## <a name="step-by-step-instructions"></a>단계별 지침
 
@@ -137,9 +138,4 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프�
 [8]: ./media/devtest-lab-upload-vhd-using-storage-explorer/select-file.png
 [9]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png
 [10]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

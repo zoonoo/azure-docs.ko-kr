@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 2b277f1fb96f347cc60d1395fafb7e2707883a77
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>5단계: Azure에 물리적 서버 복제를 위한 Azure 리소스 준비
@@ -54,9 +53,9 @@ Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site
 ## <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
 
 - Site Recovery는 온-프레미스 서버를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 저장소에서 Azure VM을 만듭니다.
-- 복제 데이터를 저장할 [Azure Storage 계정](../storage/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
+- 복제 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
 - Azure Portal의 Site Recovery에서는 리소스 관리자 또는 클래식 모드에서 설정된 저장소 계정을 사용할 수 있습니다.
-- 저장소 계정은 표준 또는 [프리미엄](../storage/storage-premium-storage.md)일 수 있습니다.
+- 저장소 계정은 표준 또는 [프리미엄](../storage/common/storage-premium-storage.md)일 수 있습니다.
 - 프리미엄 계정을 설정하는 경우 로그 데이터에 추가 표준 계정이 필요합니다.
 
 

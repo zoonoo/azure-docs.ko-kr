@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Python에서 서비스 관리를 사용하는 방법
@@ -172,7 +171,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>방법: 저장소 서비스 만들기
-[저장소 서비스](../storage/storage-create-storage-account.md)로 Azure [Blob](../storage/storage-python-how-to-use-blob-storage.md), [테이블](../storage/storage-python-how-to-use-table-storage.md), [큐](../storage/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스(3자에서 24자 사이의 소문자로서 Azure 내에서 고유해야 함), 설명, 레이블(base64로 자동 인코딩되며 최대 100자까지 가능) 및 위치에 대해 이름이 있어야 합니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다.
+[저장소 서비스](../storage/common/storage-create-storage-account.md)로 Azure [Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md), [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스(3자에서 24자 사이의 소문자로서 Azure 내에서 고유해야 함), 설명, 레이블(base64로 자동 인코딩되며 최대 100자까지 가능) 및 위치에 대해 이름이 있어야 합니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다.
 
     from azure import *
     from azure.servicemanagement import *

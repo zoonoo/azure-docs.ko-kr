@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure Site Recovery 서비스는 다음 오케스트레이션을 통해 BCDR(무
 **Azure 계정** | [Microsoft Azure](http://azure.microsoft.com/) 계정.<br/><br/> [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 **Site Recovery 서비스** | Site Recovery 가격 책정에 대한 자세한 내용은 [Site Recovery 가격](https://azure.microsoft.com/pricing/details/site-recovery/)을 참조하세요. 재해 복구 위치로 사용할 대상 Azure 지역에 Recovery Services 자격 증명 모음을 만드는 것이 좋습니다. 예를 들어 미국 동부에서 원본 VM이 실행되고 있고 미국 중부로 복제하려는 경우 미국 중부에 자격 증명 모음을 만드는 것이 좋습니다.|
 **Azure 용량** | 재해 복구 위치로 사용할 대상 Azure 지역의 경우 가상 컴퓨터, 저장소 계정 및 네트워크 구성 요소에 사용할 용량이 충분한 구독이 있어야 합니다. 지원에 문의하여 용량을 더 추가할 수 있습니다.
-**저장소 지침** | 성능 문제를 방지하려면 원본 Azure 가상 컴퓨터에 대한 [저장소 지침](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 [가상 컴퓨터 디스크에 대한 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
+**저장소 지침** | 성능 문제를 방지하려면 원본 Azure 가상 컴퓨터에 대한 [저장소 지침](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 [가상 컴퓨터 디스크에 대한 확장성 목표](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
 **네트워킹 지침** | 특정 URL 또는 IP 범위에 대해 Azure VM의 아웃바운드 연결이 허용 목록에 있어야 합니다. 자세한 내용은 [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md)(Azure 가상 컴퓨터 복제를 위한 네트워킹 지침) 문서를 참조하세요.
 **Azure VM** | Windows 또는 Linux VM에 모든 최신 루트 인증서가 있는지 확인합니다. 최신 루트 인증서가 없는 경우 보안 제약 조건으로 인해 Site Recovery에 VM을 등록할 수 없습니다.
 

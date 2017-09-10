@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9defbf7a6a515740fa3b3cb1c67a2f5f9d9baa01
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>데이터 팩터리 및 배치를 사용하여 대규모 데이터 집합 처리
@@ -83,7 +82,7 @@ Data Factory에는 원본 데이터 저장소의 데이터를 대상 데이터 �
 Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 #### <a name="azure-storage-account"></a>Azure 저장소 계정
-이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
+이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure 배치 계정
 [Azure 포털](http://manage.windowsazure.com/)을 사용하여 Azure 배치 계정을 만듭니다. [Azure 배치 계정 만들기 및 관리](../batch/batch-account-create-portal.md)를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다. [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 대한 자세한 지침은 [Azure 배치 PowerShell cmdlet 시작](../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
@@ -374,7 +373,7 @@ public IDictionary<string, string> Execute(
 #### <a name="execute-method"></a>메서드 실행
 이 섹션에서는 Execute 메서드에서 코드에 대한 자세한 내용과 참고 사항을 제공합니다.
 
-1. 입력 컬렉션을 반복하는 멤버는 [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) 네임스페이스에 있습니다. Blob 컬렉션을 반복하려면 **BlobContinuationToken** 클래스를 사용해야 합니다. 본질적으로 루프를 종료하기 위한 메커니즘으로 토큰과 함께 do-while 루프를 사용해야 합니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)(영문)을 참조하세요. 기본 루프는 다음과 같습니다.
+1. 입력 컬렉션을 반복하는 멤버는 [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) 네임스페이스에 있습니다. Blob 컬렉션을 반복하려면 **BlobContinuationToken** 클래스를 사용해야 합니다. 본질적으로 루프를 종료하기 위한 메커니즘으로 토큰과 함께 do-while 루프를 사용해야 합니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)(영문)을 참조하세요. 기본 루프는 다음과 같습니다.
 
     ```csharp
     // Initialize the continuation token.
@@ -513,7 +512,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#manage-your-storage-account)을 참조하세요.
+3. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/common/storage-create-storage-account.md#manage-your-storage-account)을 참조하세요.
 
 4. 명령 모음에서 **배포** 를 클릭하여 연결된 서비스를 배포합니다.
 

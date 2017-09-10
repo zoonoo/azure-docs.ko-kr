@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
@@ -51,7 +51,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 이 글을 읽기 전에 SQL Server 및 Azure에 대한 기본 개념을 알고 있어야 합니다. 관련 정보는 [SQL Server Books Online](https://msdn.microsoft.com/library/bb545450.aspx), [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 및 [Azure.com](https://azure.microsoft.com/)을 참조하세요.
 
-이 문서에서는 간단한 응용 프로그램과 매우 복잡한 엔터프라이즈급 응용 프로그램 모두에 맞게 조절 가능한 몇 가지 응용 프로그램 패턴을 설명합니다. 각 패턴을 자세히 설명하기 전에 [Azure Storage](../../../storage/storage-introduction.md), [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 및 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 등, Azure에서 사용 가능한 데이터 저장소 서비스에 대해 잘 알고 있어야 합니다. 응용 프로그램에 대한 최적의 설계 의사 결정을 위해서는 어떤 데이터 저장소를 언제 사용할지에 대해 분명히 이해하고 있어야 합니다.
+이 문서에서는 간단한 응용 프로그램과 매우 복잡한 엔터프라이즈급 응용 프로그램 모두에 맞게 조절 가능한 몇 가지 응용 프로그램 패턴을 설명합니다. 각 패턴을 자세히 설명하기 전에 [Azure Storage](../../../storage/common/storage-introduction.md), [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 및 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 등, Azure에서 사용 가능한 데이터 저장소 서비스에 대해 잘 알고 있어야 합니다. 응용 프로그램에 대한 최적의 설계 의사 결정을 위해서는 어떤 데이터 저장소를 언제 사용할지에 대해 분명히 이해하고 있어야 합니다.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Azure 가상 컴퓨터에서의 SQL Server 선택 조건:
 * SQL Server 및 Windows에서 제어를 해야 하는 경우. 예를 들어, SQL Server 버전, 특수 핫픽스, 성능 구성 등이 여기에 포함될 수 있습니다.
@@ -192,7 +192,7 @@ Azure에서 프러덕션 코드를 실행하는 대부분의 고객은 Azure에 
 
 ![클라우드 서비스가 있는 응용 프로그램 패턴](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-이 응용 프로그램 패턴을 구현하기 위한 또 다른 방법은 다음 그림처럼 프레젠테이션 계층과 비즈니스 계층 구성 요소를 모두 포함하는 통합 웹 역할을 사용하는 것입니다. 이 응용 프로그램 패턴은 안정적인 설계가 필요한 응용 프로그램에 유용합니다. Azure는 웹 및 작업자 역할에서 상태 비저장 계산 노드를 제공하므로 [Azure 캐싱](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../storage/storage-dotnet-how-to-use-tables.md) 또는 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 중 한 기술을 사용하여 세션 상태를 저장하는 논리를 구현하는 것이 좋습니다.
+이 응용 프로그램 패턴을 구현하기 위한 또 다른 방법은 다음 그림처럼 프레젠테이션 계층과 비즈니스 계층 구성 요소를 모두 포함하는 통합 웹 역할을 사용하는 것입니다. 이 응용 프로그램 패턴은 안정적인 설계가 필요한 응용 프로그램에 유용합니다. Azure는 웹 및 작업자 역할에서 상태 비저장 계산 노드를 제공하므로 [Azure 캐싱](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) 또는 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 중 한 기술을 사용하여 세션 상태를 저장하는 논리를 구현하는 것이 좋습니다.
 
 ![클라우드 서비스가 있는 응용 프로그램 패턴](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

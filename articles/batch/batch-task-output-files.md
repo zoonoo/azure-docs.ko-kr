@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b3a4e8f9c8580ad4c7899964dbfe99ad74e0c744
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -54,7 +53,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>컨테이너에 대한 공유 액세스 서명 가져오기
 
-컨테이너를 만든 후에는 컨테이너에 대한 쓰기 액세스 권한이 있는 SAS(공유 액세스 서명)를 가져옵니다. SAS는 컨테이너에 대해 위임된 액세스를 제공합니다. SAS는 지정된 권한 집합 및 지정된 시간 간격으로 액세스 권한을 부여합니다. Batch 서비스에는 컨테이너에 태스크 출력을 기록하는 쓰기 권한이 있는 SAS가 필요합니다. SAS에 대한 자세한 내용은 [Azure Storage에서 \(SAS\)(공유 액세스 서명) 사용](../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+컨테이너를 만든 후에는 컨테이너에 대한 쓰기 액세스 권한이 있는 SAS(공유 액세스 서명)를 가져옵니다. SAS는 컨테이너에 대해 위임된 액세스를 제공합니다. SAS는 지정된 권한 집합 및 지정된 시간 간격으로 액세스 권한을 부여합니다. Batch 서비스에는 컨테이너에 태스크 출력을 기록하는 쓰기 권한이 있는 SAS가 필요합니다. SAS에 대한 자세한 내용은 [Azure Storage에서 \(SAS\)(공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 Azure Storage API를 사용하여 SAS를 가져오면 API에서 SAS 토큰 문자열을 반환합니다. 이 토큰 문자열에는 SAS가 유효한 권한과 간격을 포함하여 SAS의 모든 매개 변수가 포함됩니다. SAS를 사용하여 Azure Storage의 컨테이너에 액세스하려면 SAS 토큰 문자열을 리소스 URI에 추가해야 합니다. 리소스 URI는 추가된 SAS 토큰과 함께 Azure Storage에 대해 인증된 액세스를 제공합니다.
 
@@ -146,7 +145,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Azure Storage의 가상 디렉터리에 대한 자세한 내용은 [컨테이너의 Blob 나열](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)에 있는 Blob 나열을 참조하세요.
+Azure Storage의 가상 디렉터리에 대한 자세한 내용은 [컨테이너의 Blob 나열](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)에 있는 Blob 나열을 참조하세요.
 
 
 ## <a name="diagnose-file-upload-errors"></a>파일 업로드 오류 진단

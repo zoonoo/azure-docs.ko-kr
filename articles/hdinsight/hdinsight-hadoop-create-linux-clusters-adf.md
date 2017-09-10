@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기
@@ -175,7 +175,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-PowerShell 스크립트에 대해 도움이 필요한 경우 [Azure Storage에서 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)을 참조하세요. 대신 Azure CLI를 사용하려는 경우 Azure CLI 스크립트에 대한 [부록](#appendix) 섹션을 참조하세요.
+PowerShell 스크립트에 대해 도움이 필요한 경우 [Azure Storage에서 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md)을 참조하세요. 대신 Azure CLI를 사용하려는 경우 Azure CLI 스크립트에 대한 [부록](#appendix) 섹션을 참조하세요.
 
 **저장소 계정 및 그 내용을 검사하려면**
 
@@ -595,5 +595,5 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 Resource Manager 템플릿을 업데이트해야 합니다. 이 CLI 스크립트에 대해 도움이 필요한 경우 [Azure 저장소에서 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
+컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 Resource Manager 템플릿을 업데이트해야 합니다. 이 CLI 스크립트에 대해 도움이 필요한 경우 [Azure 저장소에서 Azure CLI 사용](../storage/common/storage-azure-cli.md)을 참조하세요.
 

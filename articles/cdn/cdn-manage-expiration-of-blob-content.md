@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Azure CDN에서 Azure Storage Blob의 만료 관리
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-[Azure Storage](../storage/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/storage-introduction.md)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다.  TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다.  TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 에 의해 결정됩니다.
+[Azure Storage](../storage/common/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/common/storage-introduction.md)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다.  TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다.  TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 에 의해 결정됩니다.
 
 > [!TIP]
 > Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
@@ -64,7 +64,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## <a name="azure-storage-client-library-for-net"></a>.NET용 Azure 저장소 클라이언트 라이브러리
-.NET을 사용하여 Blob의 TTL을 설정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
+.NET을 사용하여 Blob의 TTL을 설정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
 
 ```csharp
 class Program

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: c5fa164c1095a343402d28142efb92a832441d23
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
@@ -120,7 +119,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 다음 사항을 확인합니다.
 
 * **원본 및 대상 저장소 계정**에 대한 정보가 있습니다. 원본 VM의 경우 저장소 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 저장소 계정도 있어야 합니다. 아직 없는 경우 포털(**더 많은 서비스** > 저장소 계정 > 추가) 또는 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
-* [AzCopy 도구](../../storage/storage-use-azcopy.md)를 다운로드 및 설치했습니다. 
+* [AzCopy 도구](../../storage/common/storage-use-azcopy.md)를 다운로드 및 설치했습니다. 
 
 ### <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.
 VM 할당을 취소하여 복사할 VHD를 해제합니다. 
@@ -147,7 +146,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>저장소 액세스 키 가져오기
-원본 및 대상 저장소 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 방법](../../storage/storage-create-storage-account.md)을 참조하세요.
+원본 및 대상 저장소 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 * **포털**: **추가 서비스** > **저장소 계정** > *저장소 계정* > **액세스 키**를 클릭합니다. **key1**로 레이블이 지정된 키를 복사합니다.
 * **Powershell**: [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 저장소 계정에 대한 저장소 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.

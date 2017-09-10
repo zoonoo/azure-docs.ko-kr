@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: vvasic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 71c286061e214898a7f10fa8dfd6c6d86af8db39
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bf41aa530c68ea0e94a09d1dab63237c6f42bce7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
@@ -223,7 +222,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-azure-storage"></a>Azure Storage에서 메트릭 및 로그 다운로드
 
-[Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
+[Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
 
 ## <a name="1-minute-metrics"></a>1분 메트릭
 
@@ -240,5 +239,5 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 - Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
    - [Azure Event Hubs란](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
+- [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
 

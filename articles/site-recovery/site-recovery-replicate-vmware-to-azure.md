@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: asgang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0478acb27f7e1f8ca85f43ac244b5bdb70109a93
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0047a996c9bfd7d950b32f0871ddd7608924b42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -62,7 +62,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 7. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 다음 사항에 유의하세요.
 
    * 프리미엄 또는 표준 저장소 계정을 선택할 수 있습니다. 프리미엄 계정을 선택하는 경우 지속적인 복제 로그를 위한 추가 표준 저장소 계정을 지정해야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
-   * 소유하고 있는 저장소 계정이 아닌 다른 저장소 계정을 사용하려는 경우 *시작에서 다룰 리소스 관리자를 사용하여 저장소 계정 만들기에 대한 자리 표시자 링크*를 하나 만들 수 있습니다. Resource Manager 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털에서](../storage/storage-create-storage-account-classic-portal.md)만들면 됩니다.
+   * 소유하고 있는 저장소 계정이 아닌 다른 저장소 계정을 사용하려는 경우 *시작에서 다룰 리소스 관리자를 사용하여 저장소 계정 만들기에 대한 자리 표시자 링크*를 하나 만들 수 있습니다. Resource Manager 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털에서](../storage/common/storage-create-storage-account.md)만들면 됩니다.
 
 8. 장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 네트워크가 없는 경우 [만들어야](#set-up-an-azure-network) 합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 네트워크를 만들려면 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 만들면 됩니다. 해당하는 경우 서브넷을 선택합니다. 그런 후 **OK**를 클릭합니다.
 

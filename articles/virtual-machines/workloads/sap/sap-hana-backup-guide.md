@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,7 +72,7 @@ _아니요, 현재는 기본 쪽에서만 데이터 및 로그 백업을 수행�
 
 ### <a name="why-sap-hana-backup"></a>SAP HANA를 백업하는 이유
 
-Azure 저장소는 기본적으로 가용성과 안정성을 제공합니다(Azure 저장소에 대한 자세한 내용은 [Microsoft Azure Storage 소개](../../../storage/storage-introduction.md) 참조).
+Azure 저장소는 기본적으로 가용성과 안정성을 제공합니다(Azure 저장소에 대한 자세한 내용은 [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md) 참조).
 
 &quot;백업&quot;은 적어도 Azure SLA에 따라 SAP HANA 서버 VM에 연결된 Azure VHD에서 SAP HANA 데이터 및 로그 파일을 유지해야 합니다. 이 방법은 VM 실패를 다루는 한편, SAP HANA 데이터 및 로그 파일의 잠재적 손상이나 우발적인 데이터 또는 파일 삭제와 같은 논리적 오류는 다루지 않습니다. 또한 규정 준수 또는 법적 이유로도 백업이 필요합니다. 요약하자면, SAP HANA 백업은 항상 필요합니다.
 
@@ -171,7 +170,7 @@ Microsoft Azure에서 고객은 IaaS VM 암호화 기능을 사용하여 암호�
 
 Azure Backup 서비스는 암호화된 VM/디스크를 처리할 수 있습니다([Azure Backup으로 암호화된 가상 컴퓨터를 백업 및 복원하는 방법](../../../backup/backup-azure-vms-encryption.md) 참조).
 
-또 다른 옵션은 암호화를 사용하지 않고 SAP HANA VM과 해당 디스크를 유지 관리하고, 암호화를 사용하도록 설정된 저장소 계정에 SAP HANA 백업 파일을 저장하는 것입니다([휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../../../storage/storage-service-encryption.md) 참조).
+또 다른 옵션은 암호화를 사용하지 않고 SAP HANA VM과 해당 디스크를 유지 관리하고, 암호화를 사용하도록 설정된 저장소 계정에 SAP HANA 백업 파일을 저장하는 것입니다([휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../../../storage/common/storage-service-encryption.md) 참조).
 
 ## <a name="test-setup"></a>테스트 설정
 

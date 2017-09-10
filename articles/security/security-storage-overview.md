@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Azure 저장소 보안 개요
@@ -31,7 +31,7 @@ Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요
 * 공유 액세스 서명을 사용하여 Azure 저장소의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
 * 저장소 분석을 사용하여 저장소에 액세스할 때 사용자가 사용하는 인증 방법을 추적할 수 있습니다.
 
-Azure Storage의 보안에 대해 보다 자세히 알아보려면 [Azure Storage 보안 가이드](../storage/storage-security-guide.md)를 참조하세요. 이 가이드에서는 저장소 계정 키, 전송 중 및 휴지 상태인 데이터 암호화 및 저장소 분석과 같은 Azure 저장소의 보안 기능에 대한 심층 분석을 제공합니다.
+Azure Storage의 보안에 대해 보다 자세히 알아보려면 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)를 참조하세요. 이 가이드에서는 저장소 계정 키, 전송 중 및 휴지 상태인 데이터 암호화 및 저장소 분석과 같은 Azure 저장소의 보안 기능에 대한 심층 분석을 제공합니다.
 
 이 문서에서는 Azure Storage에서 사용할 수 있는 Azure 보안 기능의 개요를 제공합니다. 문서에는 각 기능에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
 
@@ -56,15 +56,15 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 
 자세한 정보:
 
-* [SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Blob 저장소와 함께 SAS 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [SAS 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Blob 저장소와 함께 SAS 만들기 및 사용](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure 저장소와 함께 다음을 사용하여 데이터를 보호할 수 있습니다.
 
-* [전송 수준 암호화](../storage/storage-security-guide.md#encryption-in-transit)(예: Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS)
-* [실시간 암호화](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)(예: Azure 파일 공유에 대한 SMB 3.0 암호화)
-* 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 [클라이언트 쪽 암호화](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage)
+* [전송 수준 암호화](../storage/common/storage-security-guide.md#encryption-in-transit)(예: Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS)
+* [실시간 암호화](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)(예: Azure 파일 공유에 대한 SMB 3.0 암호화)
+* 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 [클라이언트 쪽 암호화](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage)
 
 클라이언트 쪽 암호화에 대해 자세히 알아봅니다.
 
@@ -74,14 +74,14 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
-* [저장소 서비스 암호화](../storage/storage-security-guide.md#encryption-at-rest) 를 사용하면 저장소 서비스가 Azure 저장소에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
-* [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) 는 휴지 상태의 암호화 기능을 제공합니다.
-* [Azure 디스크 암호화](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) 를 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
+* [저장소 서비스 암호화](../storage/common/storage-security-guide.md#encryption-at-rest) 를 사용하면 저장소 서비스가 Azure 저장소에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
+* [Client-side Encryption](../storage/common/storage-security-guide.md#client-side-encryption) 는 휴지 상태의 암호화 기능을 제공합니다.
+* [Azure 디스크 암호화](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) 를 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
 저장소 서비스를 암호화에 대해 자세히 알아봅니다.
 
 * [Azure Blob 저장소](https://azure.microsoft.com/services/storage/blobs/)에 [Azure 저장소 서비스 암호화](https://azure.microsoft.com/services/storage/)를 사용할 수 있습니다. 다른 Azure Storage 형식에 대한 자세한 내용은 [파일](https://azure.microsoft.com/services/storage/files/), [디스크(Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [테이블](https://azure.microsoft.com/services/storage/tables/) 및 [큐](https://azure.microsoft.com/services/storage/queues/)를 참조하세요.
-* [휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화](../storage/storage-service-encryption.md)
+* [휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 VM(가상 컴퓨터)에 대한 Azure 디스크 암호화는 [Azure 주요 자격 증명 모음](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직 보안 및 규정 준수 요구 사항을 처리할 수 있도록 도와줍니다.

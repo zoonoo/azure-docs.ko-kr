@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 325be23cffc9c728a8af6f92a0f3dce6d31da4ae
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>클래식 포털을 사용하여 Azure Site Recovery를 통해 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
@@ -122,8 +122,8 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 * **마스터 대상 서버당 원본 수**- 단일 마스터 대상 서버로 여러 원본 컴퓨터를 보호할 수 있습니다. 하지만, 디스크 복제 시 디스크 크기를 미러링하는 VHD가 Azure Blob 저장소에 만들어지고 마스터 대상 서버에 데이터 디스크로 연결되기 때문에 여러 마스터 대상 서버에서 단일 컴퓨터를 보호할 수 없습니다.  
 * **원본당 일일 최대 변경률**- 원본당 권장 변경률을 고려할 때 세 가지 요소를 고려해야 합니다. 대상에서 고려할 사항은 원본의 각 작업용 대상 디스크에 2개의 IOPS가 필요하다는 점입니다. 그 이유는 오래된 데이터 읽기와 새 데이터 쓰기가 대상 디스크에서 발생하기 때문입니다.
   * **프로세스 서버에서 지원하는 일일 변경률**- 하나의 원본 컴퓨터를 여러 프로세스 서버로 확장할 수 없습니다. 단일 프로세스 서버는 최대 1TB의 일일 변경률을 지원합니다. 따라서 1TB는 원본 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.
-  * **대상 디스크에서 지원하는 최대 처리량**- 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 프리미엄 저장소 계정에 대한 대상을 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 참조하세요.
-  * **저장소 계정에서 지원하는 최대 처리량**- 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 프리미엄 저장소 계정에 대한 원본을 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 참조하세요.
+  * **대상 디스크에서 지원하는 최대 처리량**- 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 프리미엄 저장소 계정에 대한 대상을 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 참조하세요.
+  * **저장소 계정에서 지원하는 최대 처리량**- 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 프리미엄 저장소 계정에 대한 원본을 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 참조하세요.
 
 ### <a name="considerations-for-component-servers"></a>구성 요소 서버 고려 사항
 표 1에 구성 및 마스터 대상 서버의 가상 컴퓨터 크기가 요약되어 있습니다.
@@ -180,7 +180,7 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 * Azure 저장소의 성능 및 제한 사항
-  * 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [표준 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 및 [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 참조하세요.
+  * 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [표준 저장소 계정의 확장성 목표](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 및 [프리미엄 저장소 계정](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 참조하세요.
 * 일일 데이터 변경률
 * 보존 볼륨 저장소.
 
@@ -199,7 +199,7 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 | **구성 요소** | **요구 사항** | **세부 정보** |
 | --- | --- | --- |
 | **Azure 계정** |[Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. | |
-| **Azure 저장소** |복제된 데이터를 저장하려면 Azure Storage 계정이 필요합니다.<br/><br/> 계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.<br/><br/> 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.<br/><br/> 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요. | |
+| **Azure 저장소** |복제된 데이터를 저장하려면 Azure Storage 계정이 필요합니다.<br/><br/> 계정은 [표준 지역 중복 저장소 계정](../storage/common/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/common/storage-premium-storage.md)이어야 합니다.<br/><br/> 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 여러 리소스 그룹에 [새 Azure 포털](../storage/common/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.<br/><br/> 자세한 내용은 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요. | |
 | **Azure 가상 네트워크** |구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다. | |
 | **Azure 리소스** |모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요. | |
 | **Azure 가상 컴퓨터** |보호할 가상 컴퓨터는 [Azure 필수 구성 요소](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)를 충족해야 합니다.<br/><br/> **디스크 수**—하나의 보호된 서버에서 최대 31개의 디스크를 지원할 수 있습니다.<br/><br/> **디스크 크기**—개별 디스크 용량은 1023GB 이하여야 합니다.<br/><br/> **클러스터링**—클러스터형 서버는 지원되지 않습니다.<br/><br/> **부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> **볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.<br/><br/> **서버 이름**- 이름은 1~63자 사이여야 하며 문자, 숫자, 하이픈을 사용할 수 있습니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다. | |
@@ -352,7 +352,7 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
 > [!NOTE]
-> [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 사용하여 I/O를 많이 사용하는 작업을 호스트하기 위해 높은 I/O 성능과 짧은 대기 시간을 계속 유지해야 하는 작업의 경우 보호를 구성할 때 표준 DS4를 선택합니다.
+> [프리미엄 저장소 계정](../storage/common/storage-premium-storage.md)을 사용하여 I/O를 많이 사용하는 작업을 호스트하기 위해 높은 I/O 성능과 짧은 대기 시간을 계속 유지해야 하는 작업의 경우 보호를 구성할 때 표준 DS4를 선택합니다.
 >
 >
 
@@ -643,10 +643,10 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 3. **가상 컴퓨터 선택** 에서 VMware 가상 컴퓨터를 보호하는 경우 가상 컴퓨터(EXSi 호스트를 실행 중인 경우 EXSi 호스트)를 관리하는 vCenter Server를 선택한 다음 컴퓨터를 선택합니다.
 
     ![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)    
-4. **대상 리소스 지정** 에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md) 을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
+4. **대상 리소스 지정** 에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/common/storage-premium-storage.md) 을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
    > [!NOTE]
-   > 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
+   > 여러 리소스 그룹에 [새 Azure 포털](../storage/common/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
    >
    >
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
@@ -168,7 +167,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴보겠습니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다. 
 
 ### <a name="prerequisites"></a>필수 조건
-1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob 저장소를 **원본** 및 **대상** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob 저장소를 **원본** 및 **대상** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
 2. 저장소 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다. 
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
 5. [Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 다음 내용이 포함된 **emp.txt**라는 파일을 만들어 **input** 폴더에 업로드합니다.
@@ -263,8 +262,7 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
 ### <a name="monitor-the-pipeline-copy-task"></a>파이프라인(복사 활동) 모니터링
 
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다. 
-2. 별도의 탭에서 **응용 프로그램 모니터링 및 관리**를 보아야 합니다. 
-    ![앱 모니터링 및 관리](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. 별도의 탭에서 **응용 프로그램 모니터링 및 관리**를 보아야 합니다.  ![앱 모니터링 및 관리](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. 상단의 **시작** 시간을 `04/19/2017` 및 **종료** 시간을 `04/27/2017`로 변경한 다음 **적용**을 클릭합니다. 
 4. **활동 창** 목록에 5개의 활동 창이 표시됩니다. **WindowStart** 시간은 파이프라인 시작부터 파이프라인 종료 시간까지의 모든 날을 포함해야 합니다. 
 5. 모든 활동 창의 상태가 준비로 설정될 때까지 **활동 창** 목록에 대한 **새로 고침** 단추를 몇 번 클릭합니다. 

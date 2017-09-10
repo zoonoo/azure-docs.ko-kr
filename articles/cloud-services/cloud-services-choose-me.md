@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>클라우드 서비스 또는 다른 항목을 선택해야 합니까?
@@ -43,7 +42,7 @@ IIS를 통해 앱을 자동으로 배포하고 호스팅합니다.
 * **작업자 역할**  
 IIS를 사용하지 않고 앱을 독립 실행형으로 실행합니다.
 
-예를 들어, 간단한 응용 프로그램은 단일 웹 역할만 사용하여 웹 사이트를 제공할 수 있습니다. 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 해당 요청을 작업자 역할에 전달하여 처리할 수 있습니다. (이 통신에는 [서비스 버스](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../storage/storage-introduction.md)를 사용할 수 있습니다.)
+예를 들어, 간단한 응용 프로그램은 단일 웹 역할만 사용하여 웹 사이트를 제공할 수 있습니다. 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 해당 요청을 작업자 역할에 전달하여 처리할 수 있습니다. (이 통신에는 [서비스 버스](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../storage/common/storage-introduction.md)를 사용할 수 있습니다.)
 
 이전 그림에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 Cloud Services 응용 프로그램에 VM을 [확장 및 배포](cloud-services-how-to-scale.md)합니다.
 

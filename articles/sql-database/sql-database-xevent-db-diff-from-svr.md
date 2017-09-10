@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
@@ -54,7 +54,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 
 - PowerShell
-    - [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
+    - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
 
 ## <a name="code-samples"></a>코드 샘플
 
@@ -195,10 +195,10 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 
 ## <a name="related-links"></a>관련 링크
 
-- [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)
+- [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md)
 - [Azure Storage Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
-- [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
+- [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION(Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

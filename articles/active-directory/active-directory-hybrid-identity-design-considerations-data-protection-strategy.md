@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 3d0508c5cc31ab9fda728596895aaab8e4cb7814
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6c9b7423fa56886104bc6060d25904277b75f30c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/09/2017
 
 인증되면 사용자 계정 이름(UPN)은 인증 토큰 및 복제된 파티션에서 읽히고 사용자의 도메인에 해당하는 컨테이너를 확인합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다. 권한이 부여된 특정 작업(특히 사용자, 암호 재설정 만들기)은 규정 준수 또는 조사를 관리하는 테넌트 관리자가 사용할 수 있는 감사 내역을 만듭니다.
 
-인터넷 연결을 통해 온-프레미스 데이터 센터에서 Azure 저장소로 데이터를 이동하는 작업은 데이터 볼륨, 대역폭 가용성 또는 기타 고려 사항으로 인해 항상 가능하지는 않습니다. [Azure 저장소 가져오기/내보내기 서비스](../storage/storage-import-export-service.md) 는 Blob 저장소에 있는 데이터의 큰 볼륨을 배치/검색하는 하드웨어 기반 옵션을 제공합니다. 이렇게 하면 클라우드 연산자가 저장소 계정에 콘텐츠를 업로드하는 Azure 데이터 센터에 [BitLocker로 암호화된](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) 하드 디스크 드라이브를 직접 보낼 수 있거나 반환되도록 Azure 데이터를 드라이브를 다운로드할 수 있습니다. 암호화된 디스크는(작업을 설치하는 동안 서비스 자체에서 생성된 BitLocker 키를 사용하여) 이 프로세스에 허용됩니다. BitLocker 키는 별도로 Azure에 제공되므로 공유할 밴드 키를 벗어나 제공됩니다.
+인터넷 연결을 통해 온-프레미스 데이터 센터에서 Azure 저장소로 데이터를 이동하는 작업은 데이터 볼륨, 대역폭 가용성 또는 기타 고려 사항으로 인해 항상 가능하지는 않습니다. [Azure 저장소 가져오기/내보내기 서비스](../storage/common/storage-import-export-service.md) 는 Blob 저장소에 있는 데이터의 큰 볼륨을 배치/검색하는 하드웨어 기반 옵션을 제공합니다. 이렇게 하면 클라우드 연산자가 저장소 계정에 콘텐츠를 업로드하는 Azure 데이터 센터에 [BitLocker로 암호화된](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) 하드 디스크 드라이브를 직접 보낼 수 있거나 반환되도록 Azure 데이터를 드라이브를 다운로드할 수 있습니다. 암호화된 디스크는(작업을 설치하는 동안 서비스 자체에서 생성된 BitLocker 키를 사용하여) 이 프로세스에 허용됩니다. BitLocker 키는 별도로 Azure에 제공되므로 공유할 밴드 키를 벗어나 제공됩니다.
 
 전송 중인 데이터가 다양한 시나리오에 위치할 수 있으므로 또한 Microsoft Azure가 [가상 네트워킹](https://azure.microsoft.com/documentation/services/virtual-network/)을 사용하여 서로에서 테넌트 트래픽을 격리한다는 점을 인식하며 호스트 및 게스트 수준 방화벽, IP 패킷 필터링, 포트 차단 및 HTTPS 끝점과 같은 측정값을 사용합니다. 그러나 인프라간 및 인프라 및 고객(온-프레미스)을 포함하여 Azure의 내부 통신 대부분은 암호화됩니다. 다른 중요한 시나리오는 Azure 데이터 센터 내의 통신입니다. Microsoft는 VM이 다른 IP 주소를 가장하거나 가로챌 수 없도록 네트워크를 관리합니다. TLS/SSL는 Azure 저장소 또는 SQL 데이터베이스에 액세스할 때 또는 클라우드 서비스에 연결할 때 사용됩니다. 이 경우에 고객 관리자는 TLS/SSL 인증서를 취득하고 테넌트 인프라에 배포하는 일을 담당합니다. Microsoft Azure 가상 네트워크를 통해 동일한 배포 내의 가상 컴퓨터 또한 단일 배포의 테넌트 간에 이동하는 데이터 트래픽은 HTTPS, SSL/TLS 또는 다른 사용자와 같은 암호화된 통신 프로토콜을 통해 보호될 수 있습니다.
 

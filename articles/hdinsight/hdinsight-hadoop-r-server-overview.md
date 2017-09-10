@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e1812bf867abff1ddd1b0534ceae692fad70484
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 R Server 및 오픈 소스 기능 소개
@@ -39,11 +38,11 @@ HDInsight의 R Server는 Azure Blob 또는 Data Lake Store에 로드된 거의 �
 HDInsight 클러스터에 R Server를 포함하려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 R Server 클러스터 유형을 선택해야 합니다. R Server 클러스터 유형으로 클러스터의 데이터 노드에 있는 R Server 및 R Server 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 R Server가 있습니다. 클러스터를 만드는 방법에 대한 연습은 [HDInsight의 R Server 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
 
 ## <a name="learn-about-data-storage-options"></a>데이터 저장소 옵션에 대해 자세히 알아보기
-HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 저장소는 Azure Storage 계정 또는 Azure Data Lake Store와 연결될 수 있습니다. 이러한 연결을 통해 분석 중에 클러스터 저장소에 업로드되는 모든 데이터가 영구적으로 유지됩니다. 저장소 계정의 포털 기반 업로드 기능과 [AzCopy](../storage/storage-use-azcopy.md) 유틸리티를 포함하여 선택한 저장소 옵션에 대한 데이터 전송을 처리할 수 있는 다양한 도구가 있습니다.
+HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 저장소는 Azure Storage 계정 또는 Azure Data Lake Store와 연결될 수 있습니다. 이러한 연결을 통해 분석 중에 클러스터 저장소에 업로드되는 모든 데이터가 영구적으로 유지됩니다. 저장소 계정의 포털 기반 업로드 기능과 [AzCopy](../storage/common/storage-use-azcopy.md) 유틸리티를 포함하여 선택한 저장소 옵션에 대한 데이터 전송을 처리할 수 있는 다양한 도구가 있습니다.
 
 사용 중인 기본 저장소 옵션과 관계없이 클러스터 프로비전 프로세스 중에 추가 Blob 및 Data Lake Store에 대한 액세스를 추가할 수 있는 옵션이 있습니다. 추가 계정에 액세스 추가에 대한 자세한 내용은 [HDInsight의 R Server 시작](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)을 참조하세요. 여러 저장소 계정 사용에 대해 자세히 알아보려면 보충 정보로 [HDInsight의 R Server에 대한 Azure Storage 옵션](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) 문서를 참조하세요.
 
-[Azure 파일](../storage/storage-how-to-use-files-linux.md) 을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure 저장소에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 R Server에 대한 데이터 저장소 옵션에 대한 자세한 내용은 [HDInsight 클러스터의 R Server에 대한 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)을 참조하세요.
+[Azure 파일](../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure 저장소에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 R Server에 대한 데이터 저장소 옵션에 대한 자세한 내용은 [HDInsight 클러스터의 R Server에 대한 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)을 참조하세요.
 
 ## <a name="access-r-server-on-the-cluster"></a>클러스터에서 R 서버에 액세스
 프로비전 프로세스 중 RStudio Server를 포함하기로 선택한 경우 브라우저를 사용하여 에지 서버의 R Server에 연결할 수 있습니다. 클러스터 프로비전 시 설치하지 않았다면 나중에 추가할 수 있습니다. 클러스터를 만든 후에 RStudio Server를 설치하는 방법에 대한 자세한 내용은 [HDInsight 클러스터에 RStudio Server 설치](hdinsight-hadoop-r-server-install-r-studio.md)를 참조하세요. SSH/PuTTY를 사용하여 R Server에 연결하여 R 콘솔에 액세스할 수도 있습니다. 
@@ -103,6 +102,6 @@ HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한
 
 * [HDInsight에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 * [HDInsight에 RStudio Server 추가(클러스터를 만드는 중에 설치되지 않은 경우)](hdinsight-hadoop-r-server-install-r-studio.md)
-* [HDInsight의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
+* [HDInsight의 R 서버에 대한 Compute 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)
 

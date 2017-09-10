@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Azure Site Recovery로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제
@@ -51,7 +51,7 @@ Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래
 
 ## <a name="azure-prerequisites"></a>Azure 필수 조건
 * [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
-* 복제된 데이터를 저장하려면 Azure 저장소 계정이 필요합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md). 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
+* 복제된 데이터를 저장하려면 Azure 저장소 계정이 필요합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/common/storage-introduction.md). 여러 리소스 그룹에 [새 Azure 포털](../storage/common/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 * 기본 사이트에서 장애 조치(failover) 시 Azure 가상 컴퓨터가 네트워크에 연결되도록 하기 위해서는 Azure 가상 네트워크가 필요합니다.
 
 ## <a name="hyper-v-prerequisites"></a>Hyper-V 필수 조건
@@ -167,7 +167,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
     ![저장소 계정 만들기](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
+> 1. 여러 리소스 그룹에 [새 Azure 포털](../storage/common/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 > 2. [저장소 계정 마이그레이션](../azure-resource-manager/resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 저장소 계정에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 >
 

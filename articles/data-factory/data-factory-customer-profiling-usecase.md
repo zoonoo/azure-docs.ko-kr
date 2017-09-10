@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4ee4c3a979a3cdd7ec793d12f812e5b126a2ce94
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
@@ -32,7 +32,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 이 솔루션에서는 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가하려고 합니다. 원시 게임 로그로 시작하여, 지리적 위치 데이터를 처리하고 보강하고, 광고 참조 데이터와 조인하고 마지막으로 Azure SQL Database에 복사하여 캠페인의 영향을 분석합니다.
 
 ## <a name="deploy-solution"></a>솔루션 배포
-액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../storage/storage-create-storage-account.md#create-a-storage-account) 및 [Azure SQL Database](../sql-database/sql-database-get-started.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
+액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account) 및 [Azure SQL Database](../sql-database/sql-database-get-started.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
 
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob 저장소에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.

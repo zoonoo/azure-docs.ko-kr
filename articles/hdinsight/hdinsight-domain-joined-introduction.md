@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개(미리 보기)
@@ -52,7 +51,7 @@ HDInsight에서 경계 보안은 가상 네트워크 및 게이트웨이 서비�
 데이터는 권한이 없는 사용자에게서 HDInsight 클러스터 리소스를 보호하고 데이터 보안을 유지하며 클러스터 리소스에 대한 모든 액세스를 감사하는 작업과 함께 리소스의 무단 또는 실수로 실행된 액세스를 추적해야 합니다. 관리자는 이 미리 보기를 통해 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 끝점에서 수행한 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 도메인에 가입된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](http://hortonworks.com/apache/solr/)을 사용합니다.
 
 ### <a name="encryption"></a>암호화
-데이터 보호는 권한이 없는 직원의 데이터 액세스 제한만큼이나 조직 보안 및 규정 준수 요구 사항을 충족하기 위해 중요하므로 암호화하여 보호되어야 합니다. HDInsight 클러스터, Azure Storage Blob 및 Azure Data Lake Storage의 데이터 저장소는 모두 투명한 서버 쪽 [미사용 데이터의 암호화](../storage/storage-service-encryption.md)를 지원합니다. HDInsight 클러스터의 보안 유지는 미사용 데이터 용량의 서버 쪽 암호화에서 원활하게 작동합니다.
+데이터 보호는 권한이 없는 직원의 데이터 액세스 제한만큼이나 조직 보안 및 규정 준수 요구 사항을 충족하기 위해 중요하므로 암호화하여 보호되어야 합니다. HDInsight 클러스터, Azure Storage Blob 및 Azure Data Lake Storage의 데이터 저장소는 모두 투명한 서버 쪽 [미사용 데이터의 암호화](../storage/common/storage-service-encryption.md)를 지원합니다. HDInsight 클러스터의 보안 유지는 미사용 데이터 용량의 서버 쪽 암호화에서 원활하게 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 도메인에 가입된 HDInsight 클러스터 구성에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -108,7 +108,7 @@ SSH 및 I2C를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.
 
 실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 [이 섹션을 건너뛰세요](#connect-pi-to-the-network).
 
-![Raspberry Pi와 센서 연결](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi와 센서 연결](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그리고 장치와 클라우드 간에 통신이 있으면 LED가 깜박입니다. 
 
@@ -116,27 +116,27 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그�
 
 | 시작(센서 및 LED)     | 끝(보드)            | 케이블 색   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD(5G 핀)         | GPIO 4(7 핀)         | 흰색 케이블   |
-| LED GND(6G 핀)         | GND(6 핀)            | 검은색 케이블   |
-| VDD(18F 핀)            | 3.3V PWR(17 핀)      | 흰색 케이블   |
-| GND(20F 핀)            | GND(20 핀)           | 검은색 케이블   |
-| SCK(21F 핀)            | SPI0 SCLK(23 핀)     | 주황색 케이블  |
-| SDO(22F 핀)            | SPI0 MISO(21 핀)     | 노란색 케이블  |
-| SDI(23F 핀)            | SPI0 MOSI(19 핀)     | 녹색 케이블   |
-| CS(24F 핀)             | SPI0 CS(24 핀)       | 파란색 케이블    |
+| VDD(5G 핀)             | 3.3V PWR(1 핀)       | 흰색 케이블   |
+| GND(7G 핀)             | GND(6 핀)            | 갈색 케이블   |
+| SDI(10G 핀)            | I2C1 SDA(3 핀)       | 빨간색 케이블     |
+| SCK(8G 핀)             | I2C1 SCL(5 핀)       | 주황색 케이블  |
+| LED VDD(18F 핀)        | GPIO 24(18 핀)       | 흰색 케이블   |
+| LED GND(17F 핀)        | GND(20 핀)           | 검은색 케이블   |
 
 참조용으로 [Raspberry Pi 2 및 3 핀 매핑](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)을 보려면 클릭하세요.
 
 BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 보여야 합니다.
 
-![Pi와 BME280 연결](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi와 BME280 연결](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>네트워크에 Pi 연결
 
 마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/learning/software-guide/wifi/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)를 적어 두어야 합니다.
 
-![유선 네트워크에 연결](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![유선 네트워크에 연결](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Pi가 컴퓨터와 같은 네트워크에 연결되어 있어야 합니다. 예를 들어 컴퓨터는 무선 네트워크, Pi는 유선 네트워크에 연결되었다면 devdisco 출력에 IP 주소가 표시되지 않을 수 있습니다.
 
 ## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 응용 프로그램 실행
 
