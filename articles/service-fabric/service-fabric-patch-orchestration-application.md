@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
-패치 오케스트레이션 응용 프로그램은 Azure에서 가동 중지 시간 없이 Service Fabric 클러스터에 대한 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
+패치 오케스트레이션 응용 프로그램은 Azure의 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
 
 패치 오케스트레이션 앱은 다음과 같은 기능을 제공합니다.
 
@@ -70,9 +70,14 @@ ms.lasthandoff: 07/21/2017
 
 실버 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있습니다. 골드 내구성 계층의 Azure 클러스터에는 해당 클러스터가 만들어진 시기에 따라 복구 관리자 서비스가 사용하도록 설정되어 있을 수도 있고 그렇지 않을 수도 있습니다. 브론즈 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있지 않습니다. 서비스가 이미 사용하도록 설정되어 있는 경우 Service Fabric Explorer의 시스템 서비스 섹션에서 서비스가 실행되고 있는 것을 볼 수 있습니다.
 
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Resource Manager 템플릿을 만들 수 있습니다. 
+##### <a name="azure-portal"></a>Azure portal
+클러스터를 설정할 때 Azure Portal에서 복구 관리자를 설정할 수 있습니다. 클러스터 구성 시 `Add on features`에서 `Include Repair Manager` 옵션을 선택합니다.
+![Azure Portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-복구 관리자 서비스를 사용하도록 설정하려면 다음을 수행합니다.
+##### <a name="azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿
+또는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 리소스 관리자 템플릿을 만들 수 있습니다. 
+
+[Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 복구 관리자 서비스를 사용하도록 설정하려면:
 
 1. 먼저 다음 코드 조각과 같이 `Microsoft.ServiceFabric/clusters` 리소스에 대해 `apiversion`이 `2017-07-01-preview`로 설정되었는지 확인합니다. 값이 다르면 `apiVersion`을 `2017-07-01-preview` 값으로 업데이트해야 합니다.
 
@@ -135,9 +140,11 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="optional-enable-azure-diagnostics"></a>선택 사항: Azure 진단 사용
 
-패치 오케스트레이션 앱에 대한 로그는 각 클러스터 노드에서 로컬로 수집합니다. 또한 Service Fabric 런타임 버전 `5.6.220.9494` 이상에서 실행되는 클러스터의 경우 Service Fabric 로그의 일부로 로그가 수집됩니다.
+Service Fabric 런타임 버전 `5.6.220.9494` 이상을 실행하는 클러스터는 Service Fabric 로그의 일부로 패치 오케스트레이션 앱 로그를 수집합니다.
+클러스터가 Service Fabric 런타임 버전 `5.6.220.9494` 이상에서 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
 
-`5.6.220.9494` 미만의 Service Fabric 런타임 버전을 실행하는 클러스터의 경우 모든 노드에서 중앙 위치로 로그를 업로드하도록 Azure 진단을 구성하는 것이 좋습니다.
+Service Fabric 런타임 버전 `5.6.220.9494` 미만을 실행하는 클러스터의 경우 패치 오케스트레이션 앱에 대한 로그가 각 클러스터 노드에서 로컬로 수집됩니다.
+모든 노드에서 중앙 위치로 로그를 업로드하도록 Azure 진단을 구성하는 것이 좋습니다.
 
 Azure 진단을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure 진단을 사용하여 로그 수집](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)을 참조하세요.
 
@@ -148,7 +155,7 @@ Azure 진단을 사용하도록 설정하는 방법에 대한 자세한 내용�
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Resource Manager 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
+리소스 관리자 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
 
 ```json
   {
@@ -294,7 +301,7 @@ Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니�
 
 #### <a name="locally-on-each-node"></a>각 노드에 로컬로
 
-로그는 각 Service Fabric 클러스터 노드에 로컬로 수집됩니다. 로그에 액세스하는 위치는 \[Service Fabric\_설치\_드라이브\]:\\PatchOrchestrationApplication\\logs입니다.
+Service Fabric 런타임 버전이 `5.6.220.9494` 미만인 경우 각 Service Fabric 클러스터 노드에서 로그가 로컬로 수집됩니다. 로그에 액세스하는 위치는 \[Service Fabric\_설치\_드라이브\]:\\PatchOrchestrationApplication\\logs입니다.
 
 예를 들어 Service Fabric이 드라이브 D에 설치된 경우 경로는 D:\\PatchOrchestrationApplication\\logs입니다.
 
@@ -354,6 +361,10 @@ A. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 - 업데이트를 다운로드하고 설치하는 데 필요한 평균 시간, 1-2시간을 넘지 않아야 함
 - VM 및 네트워크 대역폭의 성능
 
+Q. **REST API를 통해 가져온 Windows Update 결과에 표시된 일부 업데이트가 컴퓨터에서 Windows Update 기록에서 표시되지 않는 이유는 무엇인가요?**
+
+A. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서 확인해야 합니다. 예: Windows Defender 업데이트는 Windows Server 2016의 Windows 업데이트에서 표시되지 않습니다.
+
 ## <a name="disclaimers"></a>고지 사항
 
 - 패치 오케스트레이션 앱은 사용자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다. 필요에 따라 응용 프로그램 구성에서 설정을 해제할 수 있습니다.
@@ -391,4 +402,18 @@ A. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 잘못된 Windows 업데이트는 특정 노드 또는 업그레이드 도메인에 있는 응용 프로그램 또는 클러스터의 상태를 중단시킬 수 있습니다. 패치 오케스트레이션 앱은 클러스터가 다시 정상 상태가 될 때까지 후속 Windows 업데이트 작업을 중단합니다.
 
 관리자가 개입하여 Windows 업데이트로 인해 응용 프로그램 또는 클러스터가 비정상 상태가 된 이유를 확인해야 합니다.
+
+## <a name="release-notes-"></a>릴리스 정보:
+
+### <a name="version-110"></a>버전 1.1.0
+- 공개 릴리스
+
+### <a name="version-111"></a>버전 1.1.1
+- NodeAgentNTService의 설치를 방지하는 NodeAgentService의 SetupEntryPoint에서 버그 수정
+
+### <a name="version-120-latest"></a>버전 1.2.0(최신)
+
+- 시스템 다시 시작 워크플로 관련 버그 수정
+- 복구 중 상태 확인이 예상 대로 작동하지 않는 문제로 인해 RM 작업 생성의 버그 수정
+- Windows 서비스 POANodeSvc 시작 모드를 자동에서 지연 자동으로 변경
 

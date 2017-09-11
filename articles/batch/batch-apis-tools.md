@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c11f0c0a6cdc89449b7aa515319bbe6b6bdf1a4a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c8c76944f4a95d3c8181454a7103ea0a3022189a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 
 * **Azure 계정 및 구독** - Azure 구독이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
 * **배치 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure 배치 리소스는 Azure 배치 계정과 연결됩니다. 응용 프로그램에서 배치 서비스를 요청할 때는 Azure 배치 계정 이름, 계정의 URL 및 액세스 키를 사용하여 요청을 인증합니다. Azure 포털에서 [Azure 배치 계정을 만들](batch-account-create-portal.md) 수 있습니다.
-* **저장소 계정** - 배치는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 배치 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
+* **저장소 계정** - 배치는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 배치 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
 
 ## <a name="batch-service-apis"></a>Batch 서비스 API
 

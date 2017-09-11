@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics 작업에 스트리밍 데이터 입력 또는 참조 데이터 추가
 Blob 저장소에서 참조 데이터 또는 이벤트 허브에서 데이터 입력을 스트리밍하면서 데이터 소스를 Stream Analytics 작업에 연결하는 방법을 배웁니다.
 
-Azure Stream Analytics 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 Stream Analytics 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. Stream Analytics는 작업 구독 내부 및 외부의 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다.
+Azure Stream Analytics 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 Stream Analytics 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. Stream Analytics는 작업 구독 내부 및 외부의 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](../storage/blobs/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다.
 
 이 문서는 [Stream Analytics 학습 경로](/documentation/learning-paths/stream-analytics/)의 한 단계입니다.
 
@@ -74,13 +74,13 @@ Stream Analytics 작업에 입력을 추가하려면
     ![스트리밍 데이터 입력의 연결 테스트](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>스트리밍 데이터 입력에 대한 도움 받기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 

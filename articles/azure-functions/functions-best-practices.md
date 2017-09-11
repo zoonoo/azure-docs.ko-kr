@@ -4,7 +4,7 @@ description: "Azure Functions에 대한 모범 사례 및 패턴에 알아봅니
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -88,9 +87,9 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 
 
-## <a name="use-async-code-but-avoid-taskresult"></a>비동기 코드는 사용, Task.Result는 방지
+## <a name="use-async-code-but-avoid-blocking-calls"></a>비동기 코드는 사용, 호출 차단 방지
 
-비동기 프로그래밍은 권장되는 최상의 방법입니다. 단, 항상 `Task.Result` 속성 참조는 피하세요. 이 방법은 스레드를 소진시킬 수 있습니다.
+비동기 프로그래밍은 권장되는 최상의 방법입니다. 그러나 `Task` 인스턴스의 `Result` 속성을 참조하거나 `Wait` 메서드를 호출하는 것은 항상 피하세요. 이 방법은 스레드를 소진시킬 수 있습니다.
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

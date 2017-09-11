@@ -1,10 +1,10 @@
 ---
 title: "Stream Analytics Data Lake Store 출력 | Microsoft Docs"
-description: "스트림 분석 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
+description: "Stream Analytics 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/12/2017
 
 ---
-# <a name="stream-analytics-data-lake-store-output"></a>스트림 분석 Data Lake 저장소 출력
-스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
+# <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake 저장소 출력
+Stream Analytics 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Data Lake 저장소 계정 권한 부여
-1. Data Lake Store를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 Azure 클래식 포털을 통해 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
+1. Data Lake Store를 Azure Portal에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 클래식 포털을 통해 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Data Lake 저장소에 대한 액세스 권한이 이미 있는 경우 "지금 권한 부여"를 클릭하고 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 Data Lake 저장소 출력을 구성할 수 있도록 하는 페이지와 함께 나타납니다.
+2. Data Lake Store에 대한 액세스 권한이 이미 있는 경우 "지금 권한 부여"를 클릭하고 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 Data Lake 저장소 출력을 구성할 수 있도록 하는 페이지와 함께 나타납니다.
 
 Data Lake Store에 등록하지 않은 경우 "지금 등록" 링크를 클릭하여 등록 페이지로 이동해 요청을 시작하거나 [시작 지침](../data-lake-store/data-lake-store-get-started-portal.md)을 따릅니다.
 
@@ -49,7 +49,7 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 </tr>
 <tr>
 <td>Data Lake 저장소 계정</td>
-<td>출력을 보내는 저장소 계정의 이름 포털에 로그인한 사용자가 액세스할 수 있는 Data Lake 저장소 계정이 드롭다운 목록으로 나타납니다.</td>
+<td>출력을 보내는 저장소 계정의 이름 로그인한 사용자가 액세스를 가진 Data Lake Store 계정의 목록이 나타납니다.</td>
 </tr>
 <tr>
 <td>경로 접두사 패턴[<I>선택 사항</I>]</td>
@@ -73,7 +73,7 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 </tr>
 <tr>
 <td>구분 기호</td>
-<td>CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
+<td>CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
 </tr>
 <tr>
 <td>형식</td>

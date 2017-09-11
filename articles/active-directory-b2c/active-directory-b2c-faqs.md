@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: FAQ | Microsoft Docs'
+title: "FAQ(질문과 대답) - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C에 대해 자주 묻는 질문과 대답입니다."
 services: active-directory-b2c
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 08/16/2017
 ms.author: saeeda
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C FAQ
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
@@ -36,7 +36,11 @@ Azure AD 테넌트에서 테넌트에 속한 사용자는 `<xyz>@<tenant domain>
 Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)로 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다.  또한 임의의 사용자 이름이 로컬 계정으로 지원됩니다(예: joe, bob, sarah 또는 jim). Azure Portal에서 Azure AD B2C를 구성하여 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
-현재 Facebook, Google+, LinkedIn, Microsoft 계정, Amazon, Twitter(미리 보기), WeChat(미리 보기), Weibo(미리 보기) 및 QQ(미리 보기)가 지원됩니다.  고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원도 계속 추가됩니다.
+현재 Facebook, Google+, LinkedIn, Amazon, Twitter(미리 보기), WeChat(미리 보기), Weibo(미리 보기) 및 QQ(미리 보기)가 지원됩니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
+
+Azure AD B2C에서는 [사용자 지정 정책](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)에 대한 지원도 추가했습니다.  이러한 [사용자 지정 정책](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)을 통해 개발자는 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지원하는 모든 ID 공급자가 있는 사용자 고유의 정책을 만들 수 있습니다. 
+
+[사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>범위를 구성하여 다양한 소셜 ID 공급자에서 소비자에 대한 자세한 정보를 수집할 수 있나요?
 아니요, 하지만 이 기능은 우리의 로드맵입니다. 지원되는 소셜 ID 공급자 집합에 사용되는 기본 범위는 다음과 같습니다.
@@ -51,7 +55,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 아니요, 어디서나 응용 프로그램을 호스팅할 수 있습니다.(클라우드 또는 온-프레미스) 공개적으로 액세스할 수 있는 끝점에서 HTTP 요청을 보내고 받는 기능만 있으면 Azure AD B2C와 상호 작용할 수 있습니다.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>여러 개의 Azure AD B2C 테넌트가 있습니다. Azure Portal에서 관리하려면 어떻게 하나요?
-각 Azure AD B2C 테넌트는 Azure 포털에 고유의 B2C 기능 블레이드가 있습니다. Azure 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는 방법을 알아보려면 [Azure AD B2C: 응용 프로그램 등록](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)을 참조하세요. Azure Portal에서 Azure AD B2C 디렉터리 간에 전환할 경우 대부분의 브라우저에서 B2C 기능 블레이드가 열린 상태로 유지되지 않습니다.
+Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려는 디렉터리로 전환해야 합니다.  Azure Portal의 오른쪽 위에 있는 사용자 ID를 클릭하여 디렉터리를 전환한 후 나타나는 드롭다운에서 디렉터리를 선택합니다.  이미지를 포함하는 단계별 지침을 보려면 [Azure AD B2C 설정으로 이동](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)을 참조하세요.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Azure AD B2C에서 보낸 확인 메일(콘텐츠 및 "From:" 필드)을 어떻게 사용자 지정하나요?
 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
@@ -84,7 +88,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 아니요. 보안상의 이유로, Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다.  Microsoft 서비스에서 브라우저와 통신하여 iFrames를 금지합니다.  일반적인 보안 커뮤니티와 OAUTH2 사양에서는 클릭재킹(clickjacking) 위험 때문에 ID 환경에 iFrames를 사용하지 않도록 권장합니다.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
-Microsoft Dynamics 365 포털과의 기본 통합이 곧 제공됩니다.
+Microsoft Dynamics 365 포털과의 통합을 사용할 수 있습니다.  [인증에 Azure AD B2C를 사용하도록 Dynamics 365 포털 구성](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c)을 참조하세요.
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C가 SharePoint 온-프레미스 2016 또는 이전 버전과 함께 작동하나요?
 Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.
@@ -108,8 +112,8 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
-1. **응용 프로그램**, **ID 공급자** 및 **모든 정책** 블레이드로 이동하여 각 블레이드에서 모든 항목을 삭제합니다.
+1. 다음 단계에 따라 Azure Portal의 [Azure AD B2C 설정으로 이동](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)합니다.
+1. **응용 프로그램**, **ID 공급자** 및 **모든 정책**으로 이동하여 각 블레이드에서 모든 항목을 삭제합니다.
 1. 이제 [Azure 클래식 포털](https://manage.windowsazure.com/) 에 구독 관리자로 로그인합니다. Azure에 등록하는 데 사용한 동일한 Microsoft 계정이나 동일한 회사 또는 학교 계정을 사용합니다.
 1. 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
 1. **사용자** 탭을 클릭합니다.

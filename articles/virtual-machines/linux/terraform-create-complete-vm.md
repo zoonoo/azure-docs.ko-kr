@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5377f84a29482e07ae089c7025dc41b8e12bfa3a
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: aa0926de32dd85f4460bbfa84b7a6007e2199d51
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -38,7 +38,7 @@ provider "azurerm" {
   tenant_id       = "your_tenant_id_from_script_execution"
 }
 
-# create a resource group 
+# create a resource group if it doesn't exist
 resource "azurerm_resource_group" "helloterraform" {
     name = "terraformtest"
     location = "West US"
@@ -74,7 +74,7 @@ Ubuntu를 실행하는 가상 컴퓨터를 프로비전하는 데 필요한 세�
 
 * 단일 서브넷이 있는 네트워크
 * 네트워크 인터페이스 카드 
-* 저장소 컨테이너가 있는 저장소 계정
+* 가상 컴퓨터 진단을 위한 저장소 계정
 * 공용 IP
 * 모든 이전 리소스를 활용하는 가상 컴퓨터 
 
@@ -91,6 +91,10 @@ resource "azurerm_virtual_network" "helloterraformnetwork" {
     address_space = ["10.0.0.0/16"]
     location = "West US"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 
 # create subnet
@@ -112,7 +116,7 @@ resource "azurerm_public_ip" "helloterraformips" {
     public_ip_address_allocation = "dynamic"
 
     tags {
-        environment = "TerraformDemo"
+        environment = "Terraform Demo"
     }
 }
 
@@ -129,6 +133,10 @@ resource "azurerm_network_interface" "helloterraformnic" {
         private_ip_address = "10.0.2.5"
         public_ip_address_id = "${azurerm_public_ip.helloterraformips.id}"
     }
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 ~~~~
 이전 스크립트 코드 조각은 공용 IP와 생성된 공용 IP를 활용하는 네트워크 인터페이스를 만듭니다. subnet_id 및 public_ip_address_id에 대한 참조를 기록해 둡니다. Terraform에는 네트워크 인터페이스가 해당 네트워크 인터페이스를 만들기 전에 생성해야 하는 리소스에 대한 종속성을 포함하고 있음을 알고 있는 기본 제공 인텔리전스 기능이 있습니다.
@@ -136,31 +144,27 @@ resource "azurerm_network_interface" "helloterraformnic" {
 ~~~~
 # create a random id
 resource "random_id" "randomId" {
-  byte_length = 4
+  keepers = {
+    # Generate a new id only when a new resource group is defined
+    resource_group = "${azurerm_resource_group.helloterraform.name}"
+  }
+
+  byte_length = 8
 }
 
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name                = "tfstorage${random_id.randomId.hex}"
+    name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    location = "westus"
+    location = "West US"
     account_type = "Standard_LRS"
 
     tags {
-        environment = "staging"
+        environment = "Terraform Demo"
     }
 }
-
-# create storage container
-resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
-    name = "vhd"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    storage_account_name = "${azurerm_storage_account.helloterraformstorage.name}"
-    container_access_type = "private"
-    depends_on = ["azurerm_storage_account.helloterraformstorage"]
-}
 ~~~~
-여기에서 저장소 계정을 만들고 해당 저장소 계정 내에서 저장소 컨테이너를 정의합니다. 이 저장소 계정은 만들 가상 컴퓨터의 VHD(가상 하드 디스크)를 저장하는 위치입니다.
+여기에서 저장소 계정을 만들었습니다. 이 저장소 계정은 가상 컴퓨터가 진단 세부 정보를 저장하는 계정입니다.
 
 ~~~~
 # create virtual machine
@@ -169,38 +173,49 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     location = "West US"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     network_interface_ids = ["${azurerm_network_interface.helloterraformnic.id}"]
-    vm_size = "Standard_A0"
+    vm_size = "Standard_DS1_v2"
+
+    os_profile {
+        computer_name = "hostname"
+        admin_username = "azureuser"
+        admin_password = ""
+    }
+
+    os_profile_linux_config {
+        disable_password_authentication = true
+
+        ssh_keys {
+            path = "/home/azureuser/.ssh/authorized_keys"
+            key_data = "... INSERT OPENSSH PUBLIC KEY HERE ..."
+        }
+    }
 
     storage_image_reference {
         publisher = "Canonical"
         offer = "UbuntuServer"
-        sku = "14.04.2-LTS"
+        sku = "16.04.0-LTS"
         version = "latest"
     }
 
     storage_os_disk {
         name = "myosdisk"
-        vhd_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}${azurerm_storage_container.helloterraformstoragestoragecontainer.name}/myosdisk.vhd"
-        caching = "ReadWrite"
+        managed_disk_type = "Premium_LRS"
         create_option = "FromImage"
-    }
+    } 
 
-    os_profile {
-        computer_name = "hostname"
-        admin_username = "testadmin"
-        admin_password = "Password1234!"
-    }
-
-    os_profile_linux_config {
-        disable_password_authentication = false
+    boot_diagnostics {
+        enabled = "true"
+        storage_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}"
     }
 
     tags {
-        environment = "staging"
+        environment = "Terraform Demo"
     }
 }
 ~~~~
-마지막으로, 이전 코드 조각은 이미 프로비전된 모든 리소스를 활용하는 가상 컴퓨터를 만듭니다. VHD의 저장소 계정 및 컨테이너, 공용 IP 및 서브넷을 지정한 네트워크 인터페이스 및 이미 만든 리소스 그룹이 있습니다. vm_size 속성을 기록해 둡니다. 여기서 스크립트는 Azure A0 SKU를 지정합니다.
+마지막으로, 이전 코드 조각은 이미 프로비전된 모든 리소스를 활용하는 가상 컴퓨터를 만듭니다. 가상 컴퓨터 진단을 위한 저장소 계정, 공용 IP 및 서브넷을 지정한 네트워크 인터페이스 및 이미 만든 리소스 그룹이 있습니다. vm_size 속성을 기록해 둡니다. 여기서 스크립트는 Azure 표준 DS1v2 SKU를 지정합니다.
+
+SSH 공개 키를 제공해야 합니다. 공개 키 값을 위의 섹션 **... INSERT OPENSSH PUBLIC KEY HERE ...**에 배치합니다. 기존 SSH 키 쌍을 사용하거나 [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) 또는 [Linux/macOS](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) 설명서에 따라 키 쌍을 생성합니다.
 
 ### <a name="execute-the-script"></a>스크립트 실행
 전체 스크립트가 저장되었으면 콘솔/명령줄을 끝내고 다음을 입력합니다.
@@ -214,10 +229,6 @@ terraform apply
 편의를 위해 이 문서에서 설명하는 모든 인프라를 프로 비전하는 전체 Terraform 스크립트는 아래와 같습니다.
 
 ```
-variable "resourcesname" {
-  default = "helloterraform"
-}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   subscription_id = "XXX"
@@ -232,24 +243,27 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 
-# create virtual network
+# create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
-    name = "tfvn"
+    name = "acctvn"
     address_space = ["10.0.0.0/16"]
     location = "West US"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 
 # create subnet
 resource "azurerm_subnet" "helloterraformsubnet" {
-    name = "tfsub"
+    name = "acctsub"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     virtual_network_name = "${azurerm_virtual_network.helloterraformnetwork.name}"
     address_prefix = "10.0.2.0/24"
 }
 
-
-# create public IPs
+# create public IP
 resource "azurerm_public_ip" "helloterraformips" {
     name = "terraformtestip"
     location = "West US"
@@ -257,7 +271,7 @@ resource "azurerm_public_ip" "helloterraformips" {
     public_ip_address_allocation = "dynamic"
 
     tags {
-        environment = "TerraformDemo"
+        environment = "Terraform Demo"
     }
 }
 
@@ -274,32 +288,32 @@ resource "azurerm_network_interface" "helloterraformnic" {
         private_ip_address = "10.0.2.5"
         public_ip_address_id = "${azurerm_public_ip.helloterraformips.id}"
     }
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 
 # create a random id
 resource "random_id" "randomId" {
-  byte_length = 4
+  keepers = {
+    # Generate a new id only when a new resource group is defined
+    resource_group = "${azurerm_resource_group.helloterraform.name}"
+  }
+
+  byte_length = 8
 }
 
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name                = "tfstorage${random_id.randomId.hex}"
+    name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    location = "westus"
+    location = "West US"
     account_type = "Standard_LRS"
 
     tags {
-        environment = "staging"
+        environment = "Terraform Demo"
     }
-}
-
-# create storage container
-resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
-    name = "vhd"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    storage_account_name = "${azurerm_storage_account.helloterraformstorage.name}"
-    container_access_type = "private"
-    depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 
 # create virtual machine
@@ -308,34 +322,43 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     location = "West US"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     network_interface_ids = ["${azurerm_network_interface.helloterraformnic.id}"]
-    vm_size = "Standard_A0"
+    vm_size = "Standard_DS1_v2"
+
+    os_profile {
+        computer_name = "hostname"
+        admin_username = "azureuser"
+        admin_password = ""
+    }
+
+    os_profile_linux_config {
+        disable_password_authentication = true
+
+        ssh_keys {
+            path = "/home/azureuser/.ssh/authorized_keys"
+            key_data = "... INSERT OPENSSH PUBLIC KEY HERE ..."
+        }
+    }
 
     storage_image_reference {
         publisher = "Canonical"
         offer = "UbuntuServer"
-        sku = "14.04.2-LTS"
+        sku = "16.04.0-LTS"
         version = "latest"
     }
 
     storage_os_disk {
         name = "myosdisk"
-        vhd_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}${azurerm_storage_container.helloterraformstoragestoragecontainer.name}/myosdisk.vhd"
-        caching = "ReadWrite"
+        managed_disk_type = "Premium_LRS"
         create_option = "FromImage"
-    }
+    } 
 
-    os_profile {
-        computer_name = "hostname"
-        admin_username = "testadmin"
-        admin_password = "Password1234!"
-    }
-
-    os_profile_linux_config {
-        disable_password_authentication = false
+    boot_diagnostics {
+        enabled = "true"
+        storage_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}"
     }
 
     tags {
-        environment = "staging"
+        environment = "Terraform Demo"
     }
 }
 ```

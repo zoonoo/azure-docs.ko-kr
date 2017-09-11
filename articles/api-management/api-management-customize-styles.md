@@ -3,7 +3,7 @@ title: "Azure API Management에서 개발자 포털의 스타일 사용자 지�
 description: "Azure API Management에서 개발자 포털의 페이지에 사용되는 스타일을 수정하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: antonba
+author: vladvino
 manager: vlvinogr
 editor: 
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
 ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 스타일 사용자 지정
@@ -54,7 +54,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 > 
 > 
 
-이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고 **#000000**을 입력합니다. 이는 검정색의&16;진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
+이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고 **#000000**을 입력합니다. 이는 검정색의 16진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
 
 ![색 선택][api-management-customization-toolbar-color-picker]
 

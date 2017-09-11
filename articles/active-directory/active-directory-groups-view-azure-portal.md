@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 기존의 모든 그룹 보기 | Microsoft Docs"
 description: "Azure Active Directory에서 그룹을 보거나 검색하는 방법"
 services: active-directory
@@ -13,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Azure Active Directory에서 사용자 그룹을 보거나 검색

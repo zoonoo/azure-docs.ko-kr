@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9253e05931e7434f9e69765fa552f1157b1c8cbb
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -31,7 +31,7 @@ Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Act
 
 Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 응용 프로그램에 대한 액세스 및 Single Sign-On을 사용자에게 부여할 수 있도록 하는 PingAccess 제품입니다. 응용 프로그램 프록시는 Azure AD를 사용하여 액세스를 인증한 다음 커넥터 서비스를 통해 트래픽을 전달하여 다른 앱과 같이 이러한 앱을 처리합니다. PingAccess는 응용 프로그램에서 읽을 수 있는 형식으로 인증을 받도록 앱 앞에 위치하고 Azure AD의 액세스 토큰을 헤더로 변환합니다.
 
-사용자는 회사 앱을 사용하기 위해 로그인할 때 다른 점을 알아차리지 못합니다. 여전히 어디에서든지 모든 장치에서 작업할 수 있습니다. 사용자가 사무실에 있는 경우 응용 프로그램 프록시와 PingAccess 둘다 트래픽을 가로채는 일이 없으므로 사용자는 평소와 동일한 환경을 사용하게 됩니다.
+사용자는 회사 앱을 사용하기 위해 로그인할 때 다른 점을 알아차리지 못합니다. 여전히 어디에서든지 모든 장치에서 작업할 수 있습니다. 
 
 응용 프로그램 프록시 커넥터는 해당 인증 유형에 관계 없이 모든 앱에 원격 트래픽을 보내므로 계속해서 자동으로 부하 균형을 유지합니다.
 
@@ -131,6 +131,20 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 6. 앱 등록 블레이드를 닫거나 왼쪽으로 스크롤하여 Azure Active Directory 메뉴로 돌아갑니다.
 7. **속성**을 선택합니다.
 8. **디렉터리 ID** GUID를 저장합니다.
+
+### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
+
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 GraphAPI를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다. Azure AD Graph Explorer 또는 MS Graph를 사용하여 이 구성을 만들 수 있습니다. 
+
+이 예에서는 Graph Explorer를 사용합니다.
+
+```
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+
+{
+  "acceptMappedClaims":true
+}
+```
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess 다운로드 및 앱 구성
 

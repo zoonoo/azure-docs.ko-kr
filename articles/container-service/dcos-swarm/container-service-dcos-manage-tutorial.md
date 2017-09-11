@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 2b4ebe3d026b38916dd127312ad684b7c973ac0d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -45,10 +45,10 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 
 먼저 [az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *westeurope* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 다음으로 [az acs create](/cli/azure/acs#create) 명령을 사용하여 DC/OS 클러스터를 만듭니다.

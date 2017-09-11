@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
@@ -86,7 +85,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
 * [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
-* [Azure 저장소](../storage/storage-introduction.md)
+* [Azure 저장소](../storage/common/storage-introduction.md)
 
 분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 ADL 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 저장소 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다. 
 

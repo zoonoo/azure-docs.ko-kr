@@ -2,7 +2,7 @@
 title: "Azure DNS 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Azure Domain Name System을 사용하여 DNS 레코드를 관리하는 방법에 대해 알아봅니다. 설명서에서는 도메인 이름에 대한 DNS 영역 및 레코드를 설정하고 관리하는 방법을 보여 줍니다."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
 
 ---

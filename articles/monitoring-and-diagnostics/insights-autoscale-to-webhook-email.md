@@ -37,8 +37,8 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 
 ![배율 기준](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
-## <a name="virtual-machine-scale-sets"></a>가상 컴퓨터 크기 집합
-Resource Manager(가상 컴퓨터 크기 집합)로 만든 새 가상 컴퓨터의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
+## <a name="virtual-machine-scale-sets"></a>가상 컴퓨터 확장 집합
+Resource Manager(가상 컴퓨터 확장 집합)로 만든 새 가상 컴퓨터의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
 REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션으로 알림 요소를 포함합니다.
 
 ```
@@ -120,7 +120,7 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | subscriptionId |yes |크기 조정 중인 대상 리소스의 구독 ID입니다. |
 | resourceGroupName |yes |크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다. |
 | resourceName |yes |크기 조정 중인 대상 리소스의 이름입니다. |
-| resourceType |예 |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - 가상 컴퓨터 크기 집합/"Microsoft.Web/serverfarms" - Web App |
+| resourceType |예 |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - 가상 컴퓨터 확장 집합/"Microsoft.Web/serverfarms" - Web App |
 | resourceId |yes |크기 조정 중인 대상 리소스의 Resource Manager ID |
 | portalLink |yes |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
 | oldCapacity |yes |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |

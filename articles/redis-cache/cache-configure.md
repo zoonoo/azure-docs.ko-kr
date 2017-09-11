@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/13/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
@@ -224,29 +224,13 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="redis-data-persistence"></a>Redis 데이터 지속성
-**Redis 데이터 지속성** 을 클릭하여 프리미엄 캐시에 대해 데이터 지속성 구성 및 사용 여부를 설정합니다.
+**Redis 데이터 지속성** 을 클릭하여 프리미엄 캐시에 대해 데이터 지속성 구성 및 사용 여부를 설정합니다. Azure Redis Cache는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
 
-![Redis 데이터 지속성](./media/cache-configure/redis-cache-persistence-settings.png)
+자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 
-Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이터베이스) 백업을 사용하도록 설정합니다. Redis 지속성을 사용하지 않으려면 **사용 안 함**을 클릭합니다.
-
-백업 간격을 구성하려면 드롭다운 목록에서 다음 **백업 빈도** 항목 중 하나를 선택합니다. 
-
-- **15분**
-- **30분**
-- **60분**
-- **6시간**
-- **12시간**
-- **24시간**
-
-이 백업 간격은 이전 백업 작업이 성공적으로 완료된 후부터 계산하기 시작합니다. 해당 간격이 경과되면 새 백업이 시작됩니다.
-
-**저장소 계정**을 클릭하여 사용할 저장소 계정을 선택하고 **저장소 키** 드롭다운 목록에서 사용할 **기본 키** 또는 **보조 키**를 선택합니다. 캐시와 동일한 영역에 있는 저장소 계정을 선택해야 하며 높은 처리량을 가진 **프리미엄 저장소** 계정을 사용하는 것이 좋습니다. 지속성 계정에 대한 저장소 키가 다시 생성된 경우에는 **저장소 키** 드롭다운에서 원하는 키를 다시 선택해야 합니다.
-
-**확인** 을 클릭하여 지속성 구성을 저장합니다.
 
 > [!IMPORTANT]
-> Redis 데이터 지속성은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+> Redis 데이터 지속성은 프리미엄 캐시에만 사용할 수 있습니다. 
 > 
 > 
 

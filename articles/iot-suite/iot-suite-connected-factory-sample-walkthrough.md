@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
 IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 종단 간 산업 솔루션의 구현입니다.
 
-* 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다. OPC UA에 대한 자세한 내용은 [FAQ][lnk-faq]를 참조하세요.
+* 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 * 이러한 장치 및 생산 라인의 운영 KPI 및 OEE를 보여 줍니다.
 * OPC UA 서버 시스템과 상호 작용하는 데 클라우드 기반 응용 프로그램을 사용하는 방법을 보여 줍니다.
 * 고유한 OPC UA 서버 장치를 연결할 수 있습니다.
@@ -40,6 +40,8 @@ IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-soluti
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
 * Azure 서비스를 사용하는 고유한 IoT 솔루션을 디자인합니다.
+
+OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
@@ -128,6 +130,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
 
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
+* [연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

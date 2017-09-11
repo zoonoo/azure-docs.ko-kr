@@ -4,7 +4,7 @@ description: "이 문서에서는 여러 저장소 계정에서 미디어 서비
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -73,12 +73,15 @@ ms.lasthandoff: 08/03/2017
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
+
+복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다.
 
 >[!NOTE]
 >
@@ -90,7 +93,9 @@ ms.lasthandoff: 08/03/2017
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic에서 3.13.0-121-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic에서 3.13.0-125-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-83-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic에서 4.4.0-81-generic<br/>4.8.0-34-generic에서 4.8.0-56-generic<br/>4.10.0-14-generic에서 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-generic에서 4.4.0-83-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-27-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Linux OS를 실행하는 Azure Virtual Machines에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -131,10 +136,10 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
-최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
-최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)를 참조하세요.
+최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
-임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)를 참조하세요.
+임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)를 참조하세요.
 디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
@@ -152,7 +157,7 @@ ZRS | 지원되지 않음 |
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 컴퓨터 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 
 >[!IMPORTANT]
-> 성능 문제를 방지하려면 원본 Azure Virtual Machines에 대한 [저장소 지침](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM으로 (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
+> 성능 문제를 방지하려면 원본 Azure Virtual Machines에 대한 [저장소 지침](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM으로 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
 
 ## <a name="support-for-network-configuration"></a>네트워크 구성 지원
 **구성** | **지원됨/지원되지 않음** | **설명**

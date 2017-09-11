@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 
@@ -70,7 +71,7 @@ SQL Data Warehouse는 현재 @@NESTLEVEL을 지원하지 않습니다. 따라서
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 SQL 데이터 웨어하우스는 INSERT 문을 사용하여 저장된 프로시저의 결과 집합을 사용하도록 허용하지 않습니다. 그러나 대체 방법을 사용할 수 있습니다.
 
-이 작업을 수행하는 방법의 예는 [임시 테이블] 의 다음 문서를 참조하세요.
+이 작업을 수행하는 방법의 예는 [임시 테이블]의 다음 문서를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 프로시저의 일부 측면이 있습니다.

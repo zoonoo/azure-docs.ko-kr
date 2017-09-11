@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2017
+ms.date: 07/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9c9eff8c828329b9d8358f88b90c174c64f5c29f
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
@@ -29,9 +29,9 @@ ms.lasthandoff: 05/16/2017
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-<a id="deploy-local-template" />
+Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-cloud-shell)을 사용할 수 있습니다.
 
-## <a name="deploy-a-template-from-your-local-machine"></a>로컬 컴퓨터에서 템플릿 배포
+## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
 Azure에 리소스를 배포할 때 다음을 수행합니다.
 
@@ -60,13 +60,16 @@ az group deployment create \
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-a-template-from-an-external-source"></a>외부 원본에서 템플릿 배포
+## <a name="deploy-external-template"></a>외부 템플릿 배포
 
 로컬 컴퓨터에 Resource Manager 템플릿을 저장하는 대신, 외부 위치에 저장할 수 있습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
 
 외부 템플릿을 배포하려면 **template-uri** 매개 변수를 사용합니다. 예제의 URI를 사용하여 GitHub에서 샘플 템플릿을 배포합니다.
    
 ```azurecli
+az login
+
+az group create --name ExampleGroup --location "Central US"
 az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
@@ -75,6 +78,59 @@ az group deployment create \
 ```
 
 앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 개인 저장소 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)를 참조하세요.
+
+## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
+
+[Cloud Shell](../cloud-shell/overview.md)을 사용하여 템플릿 배포를 위한 Azure CLI 명령을 실행할 수 있습니다. 그러나 먼저 Cloud Shell용 파일 공유에 템플릿을 로드해야 합니다. Cloud Shell을 사용해 본 적이 없다면 [Azure Cloud Shell 개요](../cloud-shell/overview.md)에서 Cloud Shell 설정 방법을 참조하세요.
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.   
+
+2. Cloud Shell 리소스 그룹을 선택합니다. 이름 패턴은 `cloud-shell-storage-<region>`입니다.
+
+   ![리소스 그룹 선택](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
+
+3. Cloud Shell용 저장소 계정을 선택합니다.
+
+   ![저장소 계정 선택](./media/resource-group-template-deploy-cli/select-storage.png)
+
+4. **파일**을 선택합니다.
+
+   ![파일 선택](./media/resource-group-template-deploy-cli/select-files.png)
+
+5. Cloud Shell용 파일 공유를 선택합니다. 이름 패턴은 `cs-<user>-<domain>-com-<uniqueGuid>`입니다.
+
+   ![파일 공유 선택](./media/resource-group-template-deploy-cli/select-file-share.png)
+
+6. **디렉터리 추가**를 선택합니다.
+
+   ![디렉터리 추가](./media/resource-group-template-deploy-cli/select-add-directory.png)
+
+7. 이름을 **templates**로 지정하고 **확인**을 선택합니다.
+
+   ![디렉터리 이름 지정](./media/resource-group-template-deploy-cli/name-templates.png)
+
+8. 새 디렉터리를 선택합니다.
+
+   ![디렉터리 선택](./media/resource-group-template-deploy-cli/select-templates.png)
+
+9. **업로드**를 선택합니다.
+
+   ![업로드 선택](./media/resource-group-template-deploy-cli/select-upload.png)
+
+10. 템플릿을 찾아서 업로드합니다.
+
+   ![파일 업로드](./media/resource-group-template-deploy-cli/upload-files.png)
+
+11. 프롬프트를 엽니다.
+
+   ![Cloud Shell 열기](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
+
+12. Cloud Shell에서 다음 명령을 입력합니다.
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
+   ```
 
 ## <a name="parameter-files"></a>매개 변수 파일
 

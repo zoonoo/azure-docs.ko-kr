@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
@@ -88,7 +88,7 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 1. 먼저 명령줄 인터페이스(cmd.exe)를 게시합니다. **게시** 탭에서 **cmd**를 선택한 다음 **게시 > Publish program using path(경로를 사용하여 프로그램 게시)**를 클릭합니다.
 2. 앱의 이름과 경로를 입력합니다. 여기서는 "File Explorer"를 이름으로 사용하고 "%SYSTEMDRIVE%\windows\explorer.exe"를 경로로 사용합니다.
    ![cmd.exe 파일을 게시합니다.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. 이제 Azure [저장소 계정](../storage/storage-create-storage-account.md)을 만들어야 합니다. 현재는 "accessstorage"만 지정되어 있으므로 원하는 이름을 선택하세요. Highlander를 잘못 인용하기 위해 한 개의 "accessstorage"만 사용할 수 있습니다. ![Azure 저장소 계정](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. 이제 Azure [저장소 계정](../storage/common/storage-create-storage-account.md)을 만들어야 합니다. 현재는 "accessstorage"만 지정되어 있으므로 원하는 이름을 선택하세요. Highlander를 잘못 인용하기 위해 한 개의 "accessstorage"만 사용할 수 있습니다. ![Azure 저장소 계정](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 이제 대시보드로 돌아가서 저장소(끝점 위치)에 대한 경로를 가져올 수 있습니다. 한 동안 이 경로를 사용할 것이므로 경로를 다른 곳에 복사해 두세요.
    ![저장소 계정 경로](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. 저장소 계정을 만들었으므로 이제 기본 액세스 키가 필요합니다. **액세스 키 관리**를 클릭한 다음 기본 액세스 키를 복사합니다.

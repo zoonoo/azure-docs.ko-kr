@@ -53,7 +53,7 @@ ms.lasthandoff: 06/30/2017
 | 공용 IP 주소 1개 | 공용 IP 주소 | Microsoft.Network | 
 | 가상 네트워크 1개 | 가상 네트워크 | Microsoft.Network | 
 | 네트워크 보안 그룹 1개 | 네트워크 보안 그룹 | Microsoft.Network | 
-| 가상 컴퓨터 확장 집합 1개 | 가상 컴퓨터 크기 집합 | Microsoft.Compute | 
+| 가상 컴퓨터 확장 집합 1개 | 가상 컴퓨터 확장 집합 | Microsoft.Compute | 
 | 부하 분산 장치 1개 | 부하 분산 장치 | Microsoft.Network | 
 
 지역 수준 또는 VM 제품군별 코어 할당량은 Batch 풀 또는 풀에 필요한 VM 크기에 따라 설정해야 합니다.

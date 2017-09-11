@@ -3,7 +3,7 @@ title: "Azure Functions를 사용하여 서버 없는 API 만들기 | Microsoft 
 description: "Azure Functions를 사용하여 서버 없는 API를 만드는 방법"
 services: functions
 author: mattchenderson
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple

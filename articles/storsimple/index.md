@@ -2,7 +2,7 @@
 title: "Azure StorSimple 설명서 - 자습서 | Microsoft Docs"
 description: "온-프레미스 장치 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 21f24f387e96ac763419c37eeb16c75eab0bc452
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/28/2017
 
 ---

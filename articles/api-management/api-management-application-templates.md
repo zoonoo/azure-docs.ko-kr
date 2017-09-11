@@ -3,7 +3,7 @@ title: "Azure API Management의 응용 프로그램 템플릿 | Microsoft Docs"
 description: "Azure API Management의 개발자 포털에서 응용 프로그램 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API Management의 응용 프로그램 템플릿
@@ -31,7 +33,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
   
-##  <a name="a-nameproductlista-application-list"></a><a name="ProductList"></a> 응용 프로그램 목록  
+##  <a name="ProductList"></a> 응용 프로그램 목록  
  **응용 프로그램 목록** 템플릿을 사용하여 개발자 포털에서 응용 프로그램 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 목록 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 목록 페이지 개발자 포털 템플릿")  
@@ -132,7 +134,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> 응용 프로그램  
+##  <a name="Application"></a> 응용 프로그램  
  **응용 프로그램** 템플릿을 사용하여 개발자 포털에서 응용 프로그램 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 페이지 개발자 포털 템플릿")  
@@ -220,8 +222,3 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

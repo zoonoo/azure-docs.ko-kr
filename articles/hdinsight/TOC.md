@@ -57,14 +57,11 @@
 ### [Pig와 함께 DataFu 사용](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [주문형 클러스터](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R 서버 사용
-### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
-### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
-### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 메모리 내 처리에 Spark 사용
+### 시작 - Spark 개발자
+#### [독립 실행형 앱 만들기](hdinsight-apache-spark-create-standalone-application.md)
+#### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [독립 실행형 앱 만들기](hdinsight-apache-spark-create-standalone-application.md)
 ### [Eclipse를 사용하여 앱 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ를 사용하여 앱 만들기](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [스트리밍 이벤트 프로세스](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [셀 매직을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [스크립트 동작을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-python-package-installation.md)
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
 ### [IntelliJ를 사용하여 VPN을 통해 원격으로 작업 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
+## R 서버 사용
+### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
+### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
+### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## HBase 사용
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [실시간 트윗 분석](hdinsight-hbase-analyze-twitter-sentiment.md)

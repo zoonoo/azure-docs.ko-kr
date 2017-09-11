@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Event Hubs 바인딩을 사용하는 �
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure Functions Event Hubs 바인딩

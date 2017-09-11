@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/11/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="application-upgrade-parameters"></a>응용 프로그램 업그레이드 매개 변수
@@ -61,11 +61,11 @@ ms.lasthandoff: 03/11/2017
 MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService 및 MaxPercentUnhealthyReplicasPerPartition 조건은 응용 프로그램 인스턴스에 대한 서비스 형식별로 지정할 수 있습니다. 이러한 매개 변수를 서비스별로 설정하면 응용 프로그램이 서로 다른 평가 정책을 갖는 다른 서비스 형식을 포함할 수 있습니다. 예를 들어, 상태 비저장 게이트웨이 서비스 형식은 특정 응용 프로그램 인스턴스에 대한 상태 저장 엔진 서비스 형식과는 다른 MaxPercentUnhealthyPartitionsPerService를 가집니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[Linux에서 Azure CLI를 사용하여 응용 프로그램 업그레이드](service-fabric-azure-cli.md#upgrading-your-application)에서는 Azure CLI를 사용하여 응용 프로그램 업그레이드를 진행하는 과정을 안내합니다.
+[Linux에서 Service Fabric CLI를 사용하여 응용 프로그램 업그레이드](service-fabric-application-lifecycle-sfctl.md#upgrade-application)에서는 Service Fabric CLI를 사용하여 응용 프로그램 업그레이드를 진행하는 과정을 안내합니다.
 
 [Service Fabric Eclipse 플러그 인을 사용하여 응용 프로그램 업그레이드](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 

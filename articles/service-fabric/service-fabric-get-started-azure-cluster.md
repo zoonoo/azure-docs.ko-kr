@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -41,9 +40,11 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 
     ![클러스터 설정 출력][cluster-setup-basics]
 
-4. **클러스터 구성** 양식을 입력합니다.  **노드 유형 수**의 경우 "1"을 입력하고 [지속성 계층](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)을 "동"으로 입력합니다.
+4. **클러스터 구성** 양식을 입력합니다.  **노드 유형 개수**에는 "1"을 입력합니다.
 
-5. **각 노드 형식 구성**을 선택하고 **노드 유형 구성** 양식을 입력합니다. 노드 유형은 VM 크기, VM 수, 사용자 지정 끝점 및 해당 유형 VM의 기타 설정을 정의합니다. 정의된 각 노드 유형은 별도의 가상 컴퓨터 크기 집합으로 설정되고 가상 컴퓨터를 집합으로 배포하고 관리하는 데 사용됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다.  첫 번째 또는 주 노드 유형은 Service Fabric 시스템 서비스가 호스팅되는 위치이며 5개 이상의 VM이 있어야 합니다.
+5. **노드 유형 1(기본)**을 선택하고 **노드 유형 구성** 양식을 채웁니다.  노드 유형 이름을 입력하고 [내구성 계층](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)을 "동"으로 설정합니다.  VM 크기를 선택합니다.
+
+    노드 유형은 VM 크기, VM 수, 사용자 지정 끝점 및 해당 유형 VM의 기타 설정을 정의합니다. 정의된 각 노드 유형은 별도의 가상 컴퓨터 크기 집합으로 설정되고 가상 컴퓨터를 집합으로 배포하고 관리하는 데 사용됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다.  첫 번째 또는 주 노드 유형은 Service Fabric 시스템 서비스가 호스팅되는 위치이며 5개 이상의 VM이 있어야 합니다.
 
     프로덕션 배포의 경우 [용량 계획](service-fabric-cluster-capacity.md)은 중요한 단계입니다.  하지만 이 빠른 시작의 경우 응용 프로그램을 실행하지 않으므로 *DS1_v2 표준* VM 크기를 선택합니다.  [안정성 계층](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) 및 초기 가상 컴퓨터 크기 집합인 5에서 "은"을 선택합니다.  
 
@@ -85,20 +86,20 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 PowerShell을 사용하도록 연결하여 클러스터가 실행되고 있는지 확인합니다.  ServiceFabric PowerShell 모듈은 [Service Fabric SDK](service-fabric-get-started.md)에서 설치됩니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet은 클러스터에 대한 연결을 설정합니다.   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 클러스터에 연결하는 다른 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요. 클러스터에 연결한 후에는 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 사용하여 클러스터의 노드 목록과 각 노드에 대한 상태 정보를 표시합니다. **HealthState**는 노드마다 *OK* 상태여야 합니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>클러스터 제거
@@ -107,65 +108,58 @@ Service Fabric 클러스터는 클러스터 리소스 외에도 다른 Azure 리
 Azure Portal에서 리소스 그룹을 삭제합니다.
 1. 삭제하려는 서비스 패브릭 클러스터로 이동합니다.
 2. 클러스터 필수 페이지에서 **리소스 그룹** 이름을 클릭합니다.
-3. **리소스 그룹 Essentials** 페이지에서 **삭제**를 클릭하고 해당 페이지의 지침에 따라 리소스 그룹 삭제를 완료합니다.
+3. **Resource Group Essentials**(필수 리소스 그룹) 페이지에서 **리소스 그룹 삭제**를 클릭하고 해당 페이지의 지침에 따라 리소스 그룹의 삭제를 완료합니다.
     ![리소스 그룹 삭제][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure PowerShell을 사용하여 보안 클러스터 배포
+1. [Azure PowerShell 모듈 버전 4.0 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 컴퓨터에 다운로드합니다.
 
-
-1) [Azure PowerShell 모듈 버전 4.0 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 컴퓨터에 다운로드합니다.
-
-2) Windows PowerShell 창을 열고 다음 명령을 실행합니다. 
+2. Windows PowerShell 창을 열고 다음 명령을 실행합니다. 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-다음과 유사한 결과가 표시됩니다.
+    다음과 유사한 결과가 표시됩니다.
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) Azure에 로그인하고 클러스터를 만들려는 구독을 선택합니다.
+3. Azure에 로그인하고 클러스터를 만들려는 구독을 선택합니다.
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. 이제 다음 명령을 실행하여 보안 클러스터를 만듭니다. 매개 변수를 사용자 지정해야 합니다. 
 
-4) 이제 다음 명령을 실행하여 보안 클러스터를 만듭니다. 매개 변수를 사용자 지정해야 합니다. 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    명령을 완료하는 데 10~30분이 걸릴 수 있습니다. 작업이 끝나면 다음과 유사한 출력이 표시되어야 합니다. 출력에는 인증서, KeyVault 업로드 위치 및 인증서가 복사되는 위치에 대한 정보가 포함됩니다. 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. 참조하는 데 필요하기 때문에 전체 출력을 복사하고 텍스트 파일에 저장합니다. 출력에서 다음 정보를 기록해 둡니다. 
 
-````
-
-명령을 완료하는 데 10~30분이 걸릴 수 있습니다. 작업이 끝나면 다음과 유사한 출력이 표시되어야 합니다. 출력에는 인증서, KeyVault 업로드 위치 및 인증서가 복사되는 위치에 대한 정보가 포함됩니다. 
-
-![ps-out][ps-out]
-
-5) 참조하는 데 필요하기 때문에 전체 출력을 복사하고 텍스트 파일에 저장합니다. 출력에서 다음 정보를 기록해 둡니다.
- 
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>로컬 컴퓨터에 인증서 설치
   

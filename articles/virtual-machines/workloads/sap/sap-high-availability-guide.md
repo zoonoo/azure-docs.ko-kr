@@ -17,16 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: be42447ac95ccc100680d1a360a706fa3b4a58aa
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 
-# <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
+# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -145,8 +144,11 @@ ms.lasthandoff: 05/10/2017
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
 
@@ -171,7 +173,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에서 나열하는 리소스도 모두 확인해야 합니다.
 
-이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)에 대한 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
+이 문서에서는 [관리 디스크를 사용하는 3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/)용 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> 리소스
 이 문서에서는 Azure의 SAP 배포에 대해 설명합니다.
@@ -211,9 +213,9 @@ Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 
-Azure 클래식 배포 모델에는 Azure 내부 부하 분산 장치(Azure Load Balancer 서비스)와 클라우드 서비스 그룹 간의 종속성이 있습니다. 모든 내부 부하 분산 장치에는 하나의 클라우드 서비스 그룹이 필요합니다.
+Azure 클래식 배포 모델에는 Azure 내부 부하 분산 장치(Azure Load Balancer 서비스)와 클라우드 서비스 간의 종속성이 있습니다. 모든 내부 부하 분산 장치에는 하나의 클라우드 서비스가 필요합니다.
 
-Azure Resource Manager에서는 Azure Load Balancer를 사용하기 위해 Azure 리소스 그룹이 필요하지 않습니다. 환경은 더 간단하고 보다 유연합니다.
+Azure Resource Manager에서는 모든 Azure 리소스를 Azure 리소스 그룹에 배치해야 합니다. Azure Load Balancer의 경우에도 마찬가지입니다. 그러나 Azure 리소스 그룹이 Azure Load Balancer당 하나씩 있어야 하는 것은 아닙니다. 즉, Azure 리소스 그룹 하나에 여러 Azure Load Balancer가 포함될 수 있습니다. 환경은 더 간단하고 보다 유연합니다. 
 
 ### <a name="support-for-sap-multi-sid-scenarios"></a>SAP 다중 SID 지원 시나리오
 
@@ -278,9 +280,9 @@ _**그림 2:** 공유 디스크를 사용하지 않는 Azure의 Windows Server �
 ### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> SIOS DataKeeper를 사용한 Azure의 공유 디스크
 고가용성 SAP ASCS/SCS 인스턴스를 위해서는 클러스터 공유 Storage가 필요합니다. 2016년 9월을 기준으로 Azure는 공유 Storage 클러스터를 만드는 데 사용할 수 있는 공유 Storage를 제공하지 않습니다. 타사 소프트웨어 SIOS DataKeeper Cluster Edition을 사용하여 클러스터 공유 Storage를 시뮬레이션하는 미러링된 Storage를 만들 수 있습니다. SIOS 솔루션은 실시간 동기 데이터 복제 기능을 제공합니다. 다음은 클러스터에 대한 공유 디스크 리소스를 만드는 방법입니다.
 
-1. Windows 클러스터 구성에 있는 각 VM(가상 컴퓨터)에 추가 Azure VHD(가상 하드 디스크)를 추가합니다.
+1. Windows 클러스터 구성에 있는 각 VM(가상 컴퓨터)에 추가 디스크 하나를 연결합니다.
 2. 두 가상 컴퓨터 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
-3. 원본 가상 컴퓨터의 추가 VHD 연결 볼륨의 콘텐츠를 대상 가상 컴퓨터의 추가 VHD 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
+3. 원본 가상 컴퓨터의 추가 디스크 연결 볼륨의 콘텐츠를 대상 가상 컴퓨터의 추가 디스크 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
 
 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
@@ -322,7 +324,7 @@ SAP 응용 프로그램 서버 인스턴스를 호스트하는 모든 가상 컴
 
 [가상 컴퓨터의 가용성 관리][virtual-machines-manage-availability] 방법에 대해 자세히 알아보세요.
 
-Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 두 개 이상의 가상 컴퓨터가 배포될 2개 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 저장소 계정에 배포합니다.
+비관리 디스크에만 해당하는 설명: Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 컴퓨터가 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 저장소 계정에 배포합니다.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> 고가용성 SAP ASCS/SCS 인스턴스
 그림 5는 고가용성 SAP ASCS/SCS 인스턴스의 예입니다.
@@ -398,7 +400,9 @@ SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간�
 이 문서에서 설명하는 예제 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
 * [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [관리 디스크를 사용하는 Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [관리 디스크를 사용하는 사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 아키텍처 템플릿 1에 대한 인프라를 준비하려면:
 
@@ -421,7 +425,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
     * <*SAPSystemSID*>-nic-ascs-<*Number*>
     * <*SAPSystemSID*>-nic-db-<*Number*>
 
-  * **Azure Storage 계정**
+  * **Azure Storage 계정(비관리 디스크에만 해당)**
 
   * 다음에 대한 **가용성 그룹**:
     * SAP 응용 프로그램 서버 가상 컴퓨터: <*SAPSystemSID*>-avset-di
@@ -489,7 +493,9 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 이 배포 시나리오를 위한 Azure Resource Manager 템플릿을 가져올 수 있는 위치는 다음과 같습니다
 
 * [Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [관리 디스크를 사용하는 Azure Marketplace 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [관리 디스크를 사용하는 사용자 지정 이미지](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>아키텍처 템플릿 3에 대한 인프라 준비
@@ -507,9 +513,9 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 #### <a name="ASCS-SCS-template"></a> ASCS/SCS 템플릿
 
-ASCS/SCS 템플릿은 여러 ASCS/SCS 인스턴스를 호스팅하는 Windows 서버 장애 조치(Failover) 클러스터를 만드는 데 사용할 수 있는 두 개의 가상 컴퓨터를 배포합니다.
+ASCS/SCS 템플릿은 여러 ASCS/SCS 인스턴스를 호스팅하는 Windows 서버 장애 조치(failover) 클러스터를 만드는 데 사용할 수 있는 두 개의 가상 컴퓨터를 배포합니다.
 
-ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image]에서 다음 매개 변수 값을 입력합니다.
+ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image] 또는 [관리 디스크를 사용하는 ASCS/SCS 다중 SID 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   - **리소스 접두사**.  배포 중에 만들어진 모든 리소스 앞에 붙는 접두사로 사용되는 리소스 접두사를 설정합니다. 리소스는 하나의 SAP 시스템에만 속하지 않으므로 리소스의 접두사는 SAP 시스템 하나의 SID가 아닙니다.  접두사는 **3-6자** 사이여야 합니다.
   - **스택 유형**. SAP 시스템의 스택 유형을 선택합니다. 스택 유형에 따라 Azure Load Balancer에는 SAP 시스템당 하나(ABAP 또는 Java 중 하나만) 또는 둘(ABAP 및 Java 각각 하나씩)의 개인 IP 주소가 있습니다.
@@ -546,7 +552,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 데이터베이스 템플릿은 단일 SAP 시스템에 대한 관계형 데이터베이스 관리 시스템(RDBMS)을 설치하는 데 사용할 수 있는 하나 또는 두 개의 가상 컴퓨터를 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
-데이터베이스 다중 SID 템플릿을 설정하려면 [데이터베이스 다중 SID 템플릿][sap-templates-3-tier-multisid-db-marketplace-image]에서 다음 매개 변수 값을 입력합니다.
+데이터베이스 다중 SID 템플릿을 설정하려면 [데이터베이스 다중 SID 템플릿][sap-templates-3-tier-multisid-db-marketplace-image] 또는 [관리 디스크를 사용하는 데이터베이스 다중 SID 템플릿][sap-templates-3-tier-multisid-db-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**. 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
   -  **OS 종류**. 가상 컴퓨터의 운영 체제를 선택합니다.
@@ -563,7 +569,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 응용 프로그램 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 응용 프로그램 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 컴퓨터를 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
-응용 프로그램 서버 다중 SID 템플릿을 설정하려면 [응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image]에서 다음 매개 변수 값을 입력합니다.
+응용 프로그램 서버 다중 SID 템플릿을 설정하려면 [응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [관리 디스크를 사용하는 응용 프로그램 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**. 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
   -  **OS 종류**. 가상 컴퓨터의 운영 체제를 선택합니다.
@@ -788,7 +794,7 @@ _**표 4:** 두 번째 TCP/IP 매개 변수 변경_
 
 ### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> SAP ASCS/SCS 인스턴스에 대한 Windows Server 장애 조치 클러스터링 클러스터 설정
 
-SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터링 클러스터 설정은 다음과 같은 작업을 포함합니다.
+SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터링 클러스터 설정은 다음과 같은 작업을 포함합니다.
 
 - 클러스터 구성에서 클러스터 노드 수집
 - 클러스터 파일 공유 감시 구성
@@ -950,11 +956,11 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
-Windows 장애 조치(Failover) 클러스터를 성공적으로 설치한 후 장애 조치(Failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
+Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
-이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(Failover)를 제공했습니다. 
+이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(failover)를 제공했습니다. 
 
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치
 
@@ -1036,7 +1042,7 @@ SIOS DataKeeper를 설치하려면:
 
 #### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> SIOS DataKeeper 설정
 
-두 노드에 SIOS DataKeeper를 설치한 후 구성을 시작해야 합니다. 각 가상 컴퓨터에 연결된 추가 VHD 간에 동기식으로 데이터를 복제하기 위해 이러한 구성이 필요합니다.
+두 노드에 SIOS DataKeeper를 설치한 후 구성을 시작해야 합니다. 이러한 구성의 목표는 각 가상 컴퓨터에 연결된 추가 디스크 간에 동기식으로 데이터를 복제하는 것입니다.
 
 1.  DataKeeper 관리 및 구성 도구를 시작한 다음 **서버 연결**을 선택합니다. 그림 46에서 이 옵션은 빨간색 원으로 표시되어 있습니다.
 
@@ -1113,7 +1119,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 ### <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> 고가용성 ASCS/SCS 인스턴스에 SAP 설치
 
 > [!IMPORTANT]
-> DataKeeper 미러된 볼륨에 페이지 파일을 배치하지 마세요. DataKeeper는 미러된 볼륨을 지원하지 않습니다. Azure Virtual Machines의 임시 드라이브 D에 페이지 파일을 둘 수 있습니다. 이것이 기본 설정입니다. Windows 페이지 파일을 Azure Virtual Machines의 D 드라이브로 이동하지 않은 경우 이동합니다.
+> DataKeeper 미러된 볼륨에 페이지 파일을 배치하지 마세요. DataKeeper는 미러된 볼륨을 지원하지 않습니다. Azure Virtual Machines의 임시 드라이브 D에 페이지 파일을 둘 수 있습니다. 이것이 기본 설정입니다. Windows 페이지 파일을 Azure 가상 컴퓨터의 D 드라이브로 이동하지 않은 경우 이동합니다.
 >
 >
 

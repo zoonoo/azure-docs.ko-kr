@@ -1,4 +1,24 @@
+---
+title: "Azure AD v2 iOS 시작 - 설치 | Microsoft Docs"
+description: "iOS(Swift) 응용 프로그램이 Azure Active Directory v2 끝점으로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
+ms.contentlocale: ko-kr
 
+---
 ## <a name="setting-up-your-ios-application"></a>iOS 응용 프로그램 설정
 
 이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 iOS 응용 프로그램(Swift)을 *Microsoft에 로그인*과 통합하는 방식을 설명하기 위해 새 프로젝트를 만드는 방법에 대한 단계별 지침을 제공합니다.
@@ -137,3 +157,4 @@ Main.storyboard 파일은 프로젝트 템플릿의 일부로 자동으로 만�
     </scene>
 </scenes>
 ```
+

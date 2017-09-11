@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>대규모 컴퓨팅 워크로드를 위한 Batch 및 HPC 솔루션
@@ -106,7 +106,7 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 ### <a name="storage-services"></a>저장소 서비스
 일반적으로 큰 계산 솔루션은 입력된 데이터 집합에 대해 작동하며 그 결과 대한 데이터를 생성합니다. 빅 컴퓨팅 솔루션에서 사용하는 Azure 저장소 서비스 중 일부는 다음과 같습니다.
 
-* [Blob, 테이블 및 큐 저장소](https://azure.microsoft.com/documentation/services/storage/) - 대량의 구조화되지 않은 데이터, NoSQL 데이터 및 워크플로와 통신에 대한 메시지를 각각 관리합니다. 예: 큰 기술 데이터 집합 또는 응용 프로그램이 처리하는 입력된 이미지 또는 미디어 파일에 대해 blob 저장소를 사용할 수 있습니다. 솔루션에서 비동기 통신을 위한 큐를 사용할 수 있습니다. [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
+* [Blob, 테이블 및 큐 저장소](https://azure.microsoft.com/documentation/services/storage/) - 대량의 구조화되지 않은 데이터, NoSQL 데이터 및 워크플로와 통신에 대한 메시지를 각각 관리합니다. 예: 큰 기술 데이터 집합 또는 응용 프로그램이 처리하는 입력된 이미지 또는 미디어 파일에 대해 blob 저장소를 사용할 수 있습니다. 솔루션에서 비동기 통신을 위한 큐를 사용할 수 있습니다. [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 * [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/) - 일부 HPC 클러스터 솔루션에 필요한 표준 SMB 프로토콜을 사용하여 Azure에 일반적인 파일 및 데이터를 공유합니다.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - 배치, 실시간 및 대화형 분석에 유용한 클라우드용 대규모 Apache Hadoop Distributed File System을 제공합니다.
 

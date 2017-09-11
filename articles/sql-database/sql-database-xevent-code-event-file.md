@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: aeaed63e00b77f885312204f17f024af462dbf25
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e8c7a9af11ac4c22be00426337ab7c8b8ff0860f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
@@ -543,7 +543,7 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 
 Azure 저장소 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
-* [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
+* [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [루트 컨테이너 사용](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](http://msdn.microsoft.com/library/dn466430.aspx)

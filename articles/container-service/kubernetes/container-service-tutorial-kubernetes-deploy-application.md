@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 매니페스트 파일은 복제된 리포지토리의 다음 디렉터리에 있습니다.
 
 ```bash
-/azure-voting-app-redis/kubernetes-manifests/
+/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
 ```
 
 ## <a name="update-manifest-file"></a>매니페스트 파일 업데이트
@@ -83,7 +83,7 @@ containers:
 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 명령을 사용하여 응용 프로그램을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
+kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
 ```
 
 출력:

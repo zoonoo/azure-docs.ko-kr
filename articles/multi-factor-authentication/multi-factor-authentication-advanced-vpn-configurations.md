@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f68cf75cb8261ddac3fd56a8718f900bedb51c2b
-ms.openlocfilehash: 7e0f7d8fefad539960436a58a254087a4ebd2f78
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/15/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure Multi-Factor Authentication 및 타사 VPN 솔루션을 사용한 고급 시나리오
-Azure Multi-Factor Authentication은 다양한 타사 VPN 솔루션과 원활하게 연결하는 데 사용할 수 있습니다. 이 문서는 Cisco ® ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 어플라이언스를 중점적으로 다룹니다. 이러한 세 가지 공통 어플라이언스를 해결하는 구성 가이드를 작성했지만, Multi-Factor Authentication Server는 RADIUS, LDAP, IIS 또는 AD FS에 대한 클레임 기반 인증을 사용하는 대부분의 시스템을 통합할 수 있습니다. [MFA 서버 구성](multi-factor-authentication-get-started-server.md#next-steps)에서 자세한 내용을 볼 수 있습니다.
+Azure Multi-Factor Authentication은 다양한 타사 VPN 솔루션과 원활하게 연결하는 데 사용할 수 있습니다. 이 문서는 Cisco ® ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 어플라이언스를 중점적으로 다룹니다. 이러한 세 가지 일반적인 어플라이언스를 해결하기 위해 구성 지침을 작성했습니다. Multi-Factor Authentication Server는 RADIUS, LDAP, IIS 또는 AD FS에 대한 클레임 기반 인증을 사용하는 다른 시스템과 통합할 수도 있습니다. [MFA 서버 구성](multi-factor-authentication-get-started-server.md#next-steps)에서 자세한 내용을 볼 수 있습니다.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN 어플라이언스 및 Azure Multi-Factor Authentication
-Azure Multi-factor Authentication은 Cisco AnyConnect ® VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Cisco ® ASA VPN 어플라이언스와 통합됩니다.  이는 LDAP 또는 RADIUS 프로토콜을 사용하여 수행할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
+Azure Multi-factor Authentication은 Cisco AnyConnect ® VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Cisco ® ASA VPN 어플라이언스와 통합됩니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
 | 구성 가이드 | 설명 |
 | --- | --- |
@@ -34,7 +34,7 @@ Azure Multi-factor Authentication은 Cisco AnyConnect ® VPN 로그인 및 포�
 | [Anyconnect VPN을 사용한 Cisco ASA 및 RADIUS를 위한 Azure MFA 구성](http://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | RADIUS를 사용하는 Azure MFA와 Cisco ASA VPN 어플라이언스 통합 |
 
 ## <a name="citrix-netscaler-ssl-vpn-and-azure-multi-factor-authentication"></a>Citrix NetScaler SSL VPN 및 Azure Multi-Factor Authentication
-Azure Multi-factor Authentication은 Citrix NetScaler SSL VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Citrix NetScaler SSL VPN 어플라이언스와 통합됩니다.  이는 LDAP 또는 RADIUS 프로토콜을 사용하여 수행할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
+Azure Multi-factor Authentication은 Citrix NetScaler SSL VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Citrix NetScaler SSL VPN 어플라이언스와 통합됩니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
 | 구성 가이드 | 설명 |
 | --- | --- |
@@ -42,7 +42,7 @@ Azure Multi-factor Authentication은 Citrix NetScaler SSL VPN 로그인 및 포�
 | [Citrix NetScaler SSL VPN 및 RADIUS를 위한 Azure MFA 구성](http://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | RADIUS를 사용하는 Azure MFA와 Citrix NetScaler SSL VPN 어플라이언스 통합 |
 
 ## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-multi-factor-authentication"></a>Juniper/Pulse Secure SSL VPN 어플라이언스 및 Azure Multi-Factor Authentication
-Azure Multi-factor Authentication은 Juniper/Pulse Secure SSL VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Juniper/Pulse Secure SSL VPN 어플라이언스와 통합됩니다.  이는 LDAP 또는 RADIUS 프로토콜을 사용하여 수행할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
+Azure Multi-factor Authentication은 Juniper/Pulse Secure SSL VPN 로그인 및 포털 액세스에 대한 보안을 추가하기 위해 Juniper/Pulse Secure SSL VPN 어플라이언스와 통합됩니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
 | 구성 가이드 | 설명 |
 | --- | --- |

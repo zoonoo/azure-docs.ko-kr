@@ -2,7 +2,7 @@
 title: "Android용 H264 단일 비트 전송률 고품질 SD | Microsoft Docs"
 description: "이 항목은 **Android용 H264 단일 비트 전송률 고품질 SD** 태스크 미리 설정에 대한 개요를 제공합니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

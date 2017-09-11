@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f4134d10e57ff7c8ea6308f076f33e4dc703082c
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -48,7 +47,7 @@ ms.lasthandoff: 07/08/2017
 5. **인증서 용도** - 인증서는 SSL 서버 인증에 대해 유효해야 합니다.
 
 > [!NOTE]
-> **엔터프라이즈 인증 기관:** Azure AD 도메인 서비스는 현재 조직의 엔터프라이즈 인증 기관에서 발급한 보안 LDAP 인증서를 사용하도록 지원하지 않습니다. 이러한 제한은 이 서비스가 엔터프라이즈 CA를 루트 인증 기관으로 신뢰하지 않기 때문입니다. 앞으로는 엔터프라이즈 CA에 대한 지원이 추가될 예정입니다. 반드시 엔터프라이즈 CA에서 발급한 인증서를 사용해야 하는 경우 [저희에게 지원을 요청](active-directory-ds-contact-us.md)하세요.
+> **엔터프라이즈 인증 기관:** Azure AD Domain Services는 조직의 엔터프라이즈 인증 기관에서 발급한 보안 LDAP 인증서를 사용하도록 지원하지 않습니다. 이러한 제한은 이 서비스가 엔터프라이즈 CA를 루트 인증 기관으로 신뢰하지 않기 때문입니다. 
 >
 >
 

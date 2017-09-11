@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
@@ -29,7 +29,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 작업을 수행하려면 다음이 필요합니다.
+시작하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
 * Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제공 항목][member offers] 또는 [무료 계정][free account]을 참조하세요.
 * Azure PowerShell이 설치된 컴퓨터 관련 지침은 [Azure PowerShell Cmdlet 시작](/powershell/azure/get-started-azureps)을 참조하세요.

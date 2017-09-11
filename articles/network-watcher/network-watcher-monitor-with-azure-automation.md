@@ -3,7 +3,7 @@ title: "Azure Network Watcher 문제 해결로 VPN Gateway 모니터링 | Micros
 description: "이 문서에서는 Azure Automation 및 Network Watcher로 온-프레미스 연결을 진단하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 655469b88a77bcf54b775cbde991b8cba415c024
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -42,11 +42,11 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 이 시나리오를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.
 
-- Azure에서 Azure Automation 계정.
+- Azure에서 Azure Automation 계정. Automation 계정에 최신 모듈 및 AzureRM.Network 모듈이 있는지 확인합니다. AzureRM.Network 모듈을 Automation 계정에 추가해야 하는 경우 모듈 갤러리에서 해당 모듈을 사용할 수 있습니다.
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
 - Azure Automation에 정의된 유효한 SMTP 서버(Office 365, 온-프레미스 전자 메일 또는 기타) 및 자격 증명
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
-- 로그를 저장할 기존 저장소 계정입니다.
+- 로그를 저장할 기존 컨테이너가 포함된 기존 저장소 계정
 
 > [!NOTE]
 > 이전 이미지에 나와 있는 인프라는 설명을 위한 것이며 이 문서에 포함된 단계로는 만들어지지 않습니다.
@@ -86,15 +86,27 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 다음 코드를 사용하고 **저장**을 클릭합니다.
 
 ```PowerShell
+# Set these variables to the proper values for your environment
+$o365AutomationCredential = "<Office 365 account>"
+$fromEmail = "<from email address>"
+$toEmail = "<to email address>"
+$smtpServer = "<smtp.office365.com>"
+$smtpPort = 587
+$runAsConnectionName = "<AzureRunAsConnection>"
+$subscriptionId = "<subscription id>"
+$region = "<Azure region>"
+$vpnConnectionName = "<vpn connection name>"
+$vpnConnectionResourceGroup = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$storageAccountResourceGroup = "<resource group name>"
+$storageAccountContainer = "<container name>"
+
 # Get credentials for Office 365 account
-$MyCredential = "Office 365 account"
-$Cred = Get-AutomationPSCredential -Name $MyCredential
-$username = "<from email address>"
+$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 
 # Get the connection "AzureRunAsConnection "
-$connectionName = "AzureRunAsConnection"
-$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-$subscriptionId = "<subscription id>"
+$servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
+
 "Logging in to Azure..."
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -104,27 +116,28 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "<Azure Region>" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $region }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "<vpn connection name>" -ResourceGroupName "<resource group name>"
-$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name>" 
-$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
-
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName -ResourceGroupName $vpnConnectionResourceGroup
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $storageAccountResourceGroup 
+$storagePath = "$($sa.PrimaryEndpoints.Blob)$($storageAccountContainer)"
+$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath $storagePath
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for $($connection.name) is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
+        $body = "Connection for $($connection.name) is: $($result.code) `n$($result.results[0].summary) `nView the logs at $($storagePath) to learn more."
+        Write-Output $body
         $subject = "$($connection.name) Status"
         Send-MailMessage `
-        -To 'admin@contoso.com' `
+        -To $toEmail `
         -Subject $subject `
-        -Body $Body `
+        -Body $body `
         -UseSsl `
-        -Port 587 `
-        -SmtpServer 'smtp.office365.com' `
-        -From $username `
+        -Port $smtpPort `
+        -SmtpServer $smtpServer `
+        -From $fromEmail `
         -BodyAsHtml `
-        -Credential $Cred
+        -Credential $cred
     }
 else
     {

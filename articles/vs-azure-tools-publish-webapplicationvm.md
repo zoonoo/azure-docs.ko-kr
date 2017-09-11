@@ -3,8 +3,8 @@ title: Publish-WebApplicationVM | Microsoft Docs
 description: "가상 컴퓨터에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 스크립트)
@@ -184,10 +185,5 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프�
 ```
 
 프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

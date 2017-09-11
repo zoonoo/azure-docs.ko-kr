@@ -11,20 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
-Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, SMS 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
+Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, 문자 메시지 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
 
 이 확장은 Azure MFA 서버를 배포하지 않고 VPN 연결을 보호하려는 조직을 위해 작성되었습니다. NPS 확장은 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동하여 페더레이션 사용자 또는 동기화된 사용자를 위한 또 다른 인증을 제공합니다.
 
@@ -43,7 +43,7 @@ Azure MFA용 NPS 확장을 사용하면 인증 흐름에 다음 구성 요소가
 
 NPS 확장은 자동으로 중복을 처리하므로 특별한 구성이 필요하지 않습니다.
 
-Azure Multi-factor Authentication이 사용되는 NPS 서버를 필요에 따라 많이 만들 수 있습니다. 여러 서버를 설치한 경우 중 각각에 대해 다른 클라이언트 인증서를 사용해야 합니다. 각 서버에 대한 인증서를 만드는 것은 각 인증서를 개별적으로 업데이트할 수 있고 모든 서버 간의 가동 중지 시간을 걱정하지 않아도 된다는 의미입니다.
+Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있습니다. 여러 서버를 설치한 경우 중 각각에 대해 다른 클라이언트 인증서를 사용해야 합니다. 각 서버에 대한 인증서를 만드는 것은 각 인증서를 개별적으로 업데이트할 수 있고 모든 서버 간의 가동 중지 시간을 걱정하지 않아도 된다는 의미입니다.
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
@@ -67,7 +67,7 @@ Windows Server 2008 R2 SP1 이상
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 Azure Active Directory와 동기화해야 하며 MFA를 사용하도록 설정해야 합니다.
+NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 Azure Active Directory와 동기화되어야 하며 MFA에 등록되어야 합니다.
 
 확장을 설치할 때 Azure AD 테넌트에 대한 디렉터리 ID와 관리자 자격 증명이 필요합니다. [Azure Portal](https://portal.azure.com)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인하고 왼쪽의 **Azure Active Directory** 아이콘을 선택한 다음 **속성**을 선택합니다. **디렉터리 ID** 상자에서 GUID를 복사하고 저장합니다. NPS 확장을 설치할 때 이 GUID를 테넌트 ID로 사용합니다.
 
@@ -135,7 +135,7 @@ Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정]
 
 1.  Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
 2.  이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
-3.  *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 요소 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
+3.  *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 조건 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
 
@@ -173,8 +173,8 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 ### <a name="configuration-limitations"></a>구성 제한 사항
 
-- Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드의 MFA 세부 정보를 채워야 합니다.  
-- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 AD 필드와 같은 다른 식별자를 사용하도록 구성될 수 없습니다.  
+- Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드에 MFA 세부 정보를 채워야 합니다.  
+- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](multi-factor-authentication-advanced-vpn-configurations.md)을 참조하세요.
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
@@ -244,6 +244,8 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 ## <a name="next-steps"></a>다음 단계
 
 - [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](nps-extension-advanced-configuration.md)에서 2단계 확인을 수행하지 않아야 하는 IP 예외 목록 설정 또는 로그인에 대한 대체 ID 구성
+
+- NPS 확장을 사용하여 [원격 데스크톱 게이트웨이](nps-extension-remote-desktop-gateway.md) 및 [VPN 서버](nps-extension-vpn.md)를 통합하는 방법 알아보기
 
 - [Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결](multi-factor-authentication-nps-errors.md)
 

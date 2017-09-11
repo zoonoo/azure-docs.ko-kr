@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
@@ -34,7 +34,11 @@ ms.lasthandoff: 05/25/2017
 
 1. **청구서**를 선택하고 **청구서 액세스**를 선택합니다.
 
-1. 액세스 권한을 **켭니다**.
+    ![청구서에 대한 액세스를 위임하는 방법을 보여 주는 스크린샷](./media/billing-manage-access/AA-optin.png)
+
+1. 액세스를 **설정**한 후 변경 사항을 저장하면 구독 범위 역할의 사용자가 청구서를 다운로드할 수 있습니다.
+
+    ![청구서 액세스에 대한 위임을 설정/해제하는 방법을 보여 주는 스크린샷](./media/billing-manage-access/AA-optinAllow.png)
 
 옵트인(opt in)하면 구독의 서비스 관리자, 공동 관리자, 소유자, 참가자, 읽기 권한자 및 청구 읽기 권한자가 Azure Portal에서 PDF 청구서를 다운로드할 수 있습니다. 그러나 2016년 12월보다 오래된 청구서는 현재 계정 관리자만 사용할 수 있습니다.
 

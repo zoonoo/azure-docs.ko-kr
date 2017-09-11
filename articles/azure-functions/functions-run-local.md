@@ -4,7 +4,7 @@ description: "Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 A
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 07/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 07ad15c61bd4b3912dfa2f629218deebdebd6dc8
@@ -76,7 +76,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
   "IsEncrypted": false,   
   "Values": {
     "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>", 
+    "AzureWebJobsDashboard": "<connection string>" 
   },
   "Host": {
     "LocalHttpPort": 7071, 

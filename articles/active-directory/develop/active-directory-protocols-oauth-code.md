@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c6670b97ebc0545dbcb01d2b0cb1e260f99cfed9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
@@ -266,7 +266,7 @@ JSON 웹 토큰에 대한 자세한 내용은 [JWT IETF 초안 사양](http://go
 | invalid_client |클라이언트 인증에 실패했습니다. |클라이언트 자격 증명이 잘못되었습니다. 해결하려면 응용 프로그램 관리자가 자격 증명을 업데이트합니다. |
 | unsupported_grant_type |권한 부여 서버가 해당 권한 부여 유형을 지원하지 않습니다. |요청에서 권한 부여 유형을 변경하십시오. 이 유형의 오류는 개발 중에만 발생하며 초기 테스트 중에 검색됩니다. |
 | invalid_resource |대상 리소스가 존재하지 않거나 Azure AD에서 해당 리소스를 찾을 수 없거나 올바르게 구성되지 않았기 때문에 잘못되었습니다. |리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 응용 프로그램이 사용자에게 응용 프로그램을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
-| interaction_required |요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. |동일한 리소스를 사용하여 요청을 다시 시도하십시오. |
+| interaction_required |요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 동일한 리소스에 대해 비대화형 요청 대신, 대화형 권한 부여 요청을 다시 시도해 보세요. |
 | temporarily_unavailable |서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. |요청을 다시 시도하십시오. 클라이언트 응용 프로그램이 일시적 상태 때문에 응답이 지연되었음을 사용자에게 설명할 수 있습니다. |
 
 ## 리소스에 액세스하는 데 액세스 토큰 사용
@@ -329,15 +329,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| 매개 변수 | 설명 |
-| --- | --- |
-| access_token |요청된 새 액세스 토큰입니다. |
-| expires_in |토큰의 남은 수명(초)입니다. 일반적인 값은 3600(한 시간)입니다. |
-| expires_on |토큰이 만료되는 날짜 및 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. |
-| refresh_token |이 응답에 있는 토큰이 만료될 때 새 액세스 토큰을 요청하는 데 사용할 수 있는 새 OAuth 2.0 refresh_token입니다. |
-| resource |액세스하는 데 액세스 토큰을 사용할 수 있는 보안 리소스를 식별합니다. |
-| scope |네이티브 클라이언트 응용 프로그램에 부여된 권한을 가장합니다. 기본 권한은 **user_impersonation**입니다. 대상 리소스의 소유자는 Azure AD에서 대체 값을 등록할 수 있습니다. |
-| token_type |토큰 형식입니다. 현재 지원되는 유일한 값은 **bearer**입니다. |
 
 ### 성공적인 응답
 성공적인 토큰 응답은 다음과 같습니다.
@@ -352,6 +343,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| 매개 변수 | 설명 |
+| --- | --- |
+| token_type |토큰 형식입니다. 현재 지원되는 유일한 값은 **bearer**입니다. |
+| expires_in |토큰의 남은 수명(초)입니다. 일반적인 값은 3600(한 시간)입니다. |
+| expires_on |토큰이 만료되는 날짜 및 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. |
+| resource |액세스하는 데 액세스 토큰을 사용할 수 있는 보안 리소스를 식별합니다. |
+| scope |네이티브 클라이언트 응용 프로그램에 부여된 권한을 가장합니다. 기본 권한은 **user_impersonation**입니다. 대상 리소스의 소유자는 Azure AD에서 대체 값을 등록할 수 있습니다. |
+| access_token |요청된 새 액세스 토큰입니다. |
+| refresh_token |이 응답에 있는 토큰이 만료될 때 새 액세스 토큰을 요청하는 데 사용할 수 있는 새 OAuth 2.0 refresh_token입니다. |
 
 ### 오류 응답
 샘플 오류 응답은 다음과 같습니다.

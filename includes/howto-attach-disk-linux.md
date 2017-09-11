@@ -1,5 +1,5 @@
 
-디스크에 대한 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+디스크에 대한 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 <a id="attachempty"></a>
 

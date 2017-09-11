@@ -3,7 +3,7 @@ title: "Azure API 관리 FAQ | Microsoft Docs"
 description: "Azure API Management에서 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23

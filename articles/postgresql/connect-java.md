@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
@@ -19,12 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-# PostgreSQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Java 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 - [DB 만들기 - 포털](quickstart-create-server-database-portal.md)
 - [DB 만들기 - Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -33,8 +31,7 @@ ms.lasthandoff: 06/26/2017
 - Java 및 Java 개발 키트 버전과 일치하는 [PostgreSQL JDBC 드라이버](https://jdbc.postgresql.org/download.html)를 다운로드합니다.
 - 응용 프로그램 클래스 경로에 PostgreSQL JDBC jar 파일(예: postgresql-42.1.1.jar)을 포함합니다. 자세한 내용은 [클래스 경로 정보](https://jdbc.postgresql.org/documentation/head/classpath.html)를 참조하세요.
 
-## 연결 정보 가져오기
-<a id="get-connection-information" class="xliff"></a>
+## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -44,8 +41,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
  ![PostgreSQL용 Azure Database - 서버 관리자 로그인](./media/connect-java/1-connection-string.png)
 5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 
-## 테이블 연결, 생성 및 데이터 삽입
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
+## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **INSERT** SQL 문이 있는 함수를 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요. [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 메서드는 테이블을 연결하고, 삭제하고, 만드는 데 사용됩니다. [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) 개체는 매개 변수 값을 바인딩하는 setString() 및 setInt()를 사용하여 insert 명령을 작성하는 데 사용됩니다. [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 메서드는 각 매개 변수 집합에 대한 명령을 실행합니다. 
 
 host, database, user 및 password 매개 변수를 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
@@ -145,8 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-## 데이터 읽기
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 읽으려면 다음 코드를 사용하세요. [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 메서드는 select 문을 연결하고, 만들고, 실행하는 데 사용됩니다. 결과는 [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) 개체를 사용하여 처리됩니다. 
 
 host, database, user 및 password 매개 변수를 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
@@ -233,8 +228,7 @@ public class ReadTable {
 
 ```
 
-## 데이터 업데이트
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 변경하려면 다음 코드를 사용하세요. [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 메서드는 update 문을 연결하고, 준비하고, 실행하는 데 사용됩니다. 
 
 host, database, user 및 password 매개 변수를 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
@@ -314,8 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-## 데이터 삭제
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 제거하려면 다음 코드를 사용하세요. [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 메서드는 delete 문을 연결하고, 준비하고, 실행하는 데 사용됩니다. 
 
 host, database, user 및 password 매개 변수를 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
@@ -395,8 +388,7 @@ public class DeleteTable {
 }
 ```
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
 

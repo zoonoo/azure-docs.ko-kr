@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 소개: DocumentDB API
@@ -48,6 +48,8 @@ Azure Cosmos DB는 DocumentDB API를 통해 다음과 같은 주요 기능 및 �
 * **의도적인 개방성:** 기존 기술과 도구를 사용하여 신속하게 시작합니다. DocumentDB API에 대한 프로그래밍은 단순하고 사용하기 쉬우며 새 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. 단순한 RESTful HTTP 인터페이스를 통해 CRUD, 쿼리 및 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB API는 기존 형식, 언어 및 표준을 수용하며 이를 바탕으로 중요한 데이터베이스 기능을 제공합니다.
 
 * **자동 인덱싱:** Azure Cosmos DB는 기본적으로 데이터베이스에 있는 모든 문서를 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. 모든 항목을 인덱스하지 않으시겠습니까? 걱정하지 마세요. [JSON 파일에서 경로를 옵트아웃](indexing-policies.md)할 수 있습니다.
+
+* **변경 피드 지원:** 변경 피드는 Azure Cosmos DB 컬렉션 내 문서의 정렬된 목록을 수정된 순서로 제공합니다. 데이터를 복제하거나, API 호출을 트리거하거나 업데이트에서 스트림 처리를 수행하기 위해 데이터에 대한 수정을 수신 대기하는 데 이 피드를 사용할 수 있습니다. 변경 피드는 자동으로 사용하도록 설정되고 사용하기 쉬습니다. [변경 피드에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>DocumentDB API를 사용하여 데이터를 어떻게 관리하나요?
 DocumentDB API는 잘 정의된 데이터베이스 리소스를 통해 JSON 데이터를 관리합니다. 이러한 리소스는 고가용성을 위해 복제되며 논리적 URI로 고유한 주소 지정이 가능합니다. DocumentDB API는 모든 리소스에 대해 단순한 HTTP 기반 RESTful 프로그래밍 모델을 제공합니다. 

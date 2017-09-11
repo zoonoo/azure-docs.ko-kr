@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: b5ce7d5e0e353002803991f58dde78ab5c4627b9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
@@ -27,6 +27,11 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure PowerShell 4.0.0 이상 - 설치하지 않은 경우 Azure PowerShell을 설치하고 Azure 구독에 연결합니다. [Azure PowerShell 설치 및 구성하는 방법](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요. 
+
+>[!NOTE]
+> 올바른 버전이 아니며 사용자 환경으로 로드될 **수도** 있는 Key Vault PowerShell 출력 서식 지정 파일의 오래된 버전이 있습니다. PowerShell의 업데이트된 버전에는 출력 서식 지정에 대한 필요한 수정 사항이 포함되고, 이 토픽은 해당 시점에 업데이트될 예정입니다. 이 서식 지정 문제에 대한 현재 해결 방법은 다음과 같습니다.
+> - 이 토픽에 설명된 일시 삭제가 활성화된 속성이 표시되지 않을 경우 다음 쿼리를 사용합니다. `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`
+
 
 PowerShell에 대한 Key Vault 관련 참조 내용은 [Azure Key Vault PowerShell 참조](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)를 참조하세요.
 

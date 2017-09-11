@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Linux VM에서 가상 디스크를 암호화하는 방법
@@ -143,7 +143,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 디스크 암호화에 대해 지원되는 시나리오 및 요구 사항은 다음과 같습니다.
 
 * 다음 Linux Server SKU - Ubuntu, CentOS, SUSE 및 SLES(SUSE Linux Enterprise Server)와 Red Hat Enterprise Linux.
-* 모든 리소스(예: Key Vault, 저장소 계정, VM)는 동일한 Azure 지역 및 구독 내에 있어야 합니다.
+* 모든 리소스(예: Key Vault, Storage 계정, VM)는 동일한 Azure 지역 및 구독 내에 있어야 합니다.
 * 표준 A, D, DS, G 및 GS 시리즈 VM.
 
 다음 시나리오의 경우 디스크 암호화가 현재 지원되지 않습니다.
@@ -273,15 +273,13 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 
 
 ## <a name="add-additional-data-disks"></a>데이터 디스크 더 추가하기
-데이터 디스크를 암호화하고 나면 나중에 VM에 가상 디스크를 더 추가하고 암호화할 수도 있습니다. `az vm encryption enable` 명령을 실행할 때 `--sequence-version` 매개 변수를 사용하여 시퀀스 버전을 증가시킵니다. 이 시퀀스 버전 매개 변수를 사용하면 동일한 VM에서 반복 작업을 수행할 수 있습니다.
-
-예를 들어 다음과 같이 VM에 두 번째 가상 디스크를 추가해보겠습니다.
+데이터 디스크를 암호화하고 나면 나중에 VM에 가상 디스크를 더 추가하고 암호화할 수도 있습니다. 예를 들어 다음과 같이 VM에 두 번째 가상 디스크를 추가해보겠습니다.
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-명령을 다시 실행하여 가상 디스크를 암호화 하고, 이번에는 `--sequence-version` 매개 변수를 추가하여, 다음과 같이 첫 번째 실행의 값을 증가시킵니다.
+명령을 다시 실행하여 다음과 같이 가상 디스크를 암호화합니다.
 
 ```azurecli
 az vm encryption enable \
@@ -291,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

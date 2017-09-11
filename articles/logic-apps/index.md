@@ -2,7 +2,7 @@
 title: "Azure Logic Apps 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 및 클라우드에 비즈니스 워크플로를 자동화하고 간소화하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조입니다."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

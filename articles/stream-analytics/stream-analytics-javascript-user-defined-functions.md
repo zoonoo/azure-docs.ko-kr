@@ -3,7 +3,7 @@ title: "Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Do
 description: "JavaScript 사용자 정의 함수로 고급 쿼리 역학 수행"
 keywords: "javascript, 사용자 정의 함수, udf"
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 3dfe8571114d936cc07d887392ec294ec8a67120
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -141,7 +141,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>도움말 보기
-추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 도움이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

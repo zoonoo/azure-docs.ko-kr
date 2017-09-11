@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
@@ -83,7 +83,8 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | 5.3.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
 | 5.4.* |버전 2.4보다 작거나 같음 |2017년 5월 10일     |
 | 5.5.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
-| 5.6.* |버전 2.6보다 작거나 같음 |현재 버전 및 종료 날짜
+| 5.6.* |버전 2.6보다 작거나 같음 |2017년 10월 13일    |
+| 5.7.* |버전 2.7보다 작거나 같음 |현재 버전 및 종료 날짜
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.

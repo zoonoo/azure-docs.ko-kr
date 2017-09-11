@@ -3,7 +3,7 @@ title: "Azure API Management의 API 템플릿 | Microsoft Docs"
 description: "Azure API Management의 개발자 포털에서 API 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
@@ -39,7 +41,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
   
-##  <a name="a-nameapilista-api-list"></a><a name="APIList"></a> API 목록  
+##  <a name="APIList"></a> API 목록  
  **API 목록** 템플릿을 통해 개발자 포털에서 API 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 API 목록](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM 개발자 포털 템플릿 API 목록")  
@@ -83,7 +85,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|유형|설명|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |apis|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -107,7 +109,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="a-nameproducta-operation"></a><a name="Product"></a> 작업  
+##  <a name="Product"></a> 작업  
  **작업** 템플릿을 통해 개발자 포털에서 작업 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 작업 페이지](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM 개발자 포털 템플릿 작업 페이지")  
@@ -338,7 +340,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|유형|설명|  
+|속성|형식|설명|  
 |--------------|----------|-----------------|  
 |apiId|string|현재 API의 ID입니다.|  
 |apiName|string|API 이름입니다.|  
@@ -637,7 +639,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="a-namecodesamplesa-code-samples"></a><a name="CodeSamples"></a> 코드 샘플  
+##  <a name="CodeSamples"></a> 코드 샘플  
  다음 템플릿을 사용하여 작업 페이지에서 개별 코드 샘플의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 템플릿 코드 샘플](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM 개발자 포털 템플릿 코드 샘플")  
@@ -658,7 +660,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [Ruby](#Ruby)  
   
-###  <a name="a-namecurla-curl"></a><a name="Curl"></a> Curl  
+###  <a name="Curl"></a> Curl  
  **DocumentationSamplesCurl** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -711,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="a-namecsharpa-c"></a><a name="CSharp"></a> C#  
+###  <a name="CSharp"></a> C#  
  **DocumentationSamplesCsharp** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -890,7 +892,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="a-namestuba-java"></a><a name="Stub"></a> Java  
+###  <a name="Stub"></a> Java  
  **DocumentationSamplesJava** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -986,7 +988,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-namejavascripta-javascript"></a><a name="JavaScript"></a> JavaScript  
+###  <a name="JavaScript"></a> JavaScript  
  **DocumentationSamplesJs** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1075,7 +1077,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-nameobjectiveca-objective-c"></a><a name="ObjectiveC"></a> Objective C  
+###  <a name="ObjectiveC"></a> Objective C  
  **DocumentationSamplesObjc** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1187,7 +1189,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="a-namephpa-php"></a><a name="PHP"></a> PHP  
+###  <a name="PHP"></a> PHP  
  **DocumentationSamplesPhp** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1277,7 +1279,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="a-namepythona-python"></a><a name="Python"></a> Python  
+###  <a name="Python"></a> Python  
  **DocumentationSamplesPython** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1395,7 +1397,7 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="a-namerubya-ruby"></a><a name="Ruby"></a> Ruby  
+###  <a name="Ruby"></a> Ruby  
  **DocumentationSamplesRuby** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1468,8 +1470,3 @@ puts response.body
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

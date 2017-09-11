@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 973730bfdd4d13714ce7d0256a32af9eb8183e7a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
@@ -86,7 +86,7 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
    사용자 자격 증명 모음을 만들면 포털에서 열립니다.
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/storage-redundancy.md)를 참조하세요.
+저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 
@@ -113,7 +113,7 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 
     ![다운로드](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-포털에서는 저장소 이름과 현재 날짜를 조합하여 저자격 증명 모음 자격 증명을 생성합니다. **저장** 을 클릭하여 자격 증명 모음 자격 증명을 로컬 계정의 다운로드 폴더로 다운로드하거나, 저장 메뉴에서 다른 이름으로 저장을 선택하여 자격 증명 모음 자격 증명을 저장할 위치를 지정합니다. 파일이 생성되기 까지 최대&1;분이 소요됩니다.
+포털에서는 저장소 이름과 현재 날짜를 조합하여 저자격 증명 모음 자격 증명을 생성합니다. **저장** 을 클릭하여 자격 증명 모음 자격 증명을 로컬 계정의 다운로드 폴더로 다운로드하거나, 저장 메뉴에서 다른 이름으로 저장을 선택하여 자격 증명 모음 자격 증명을 저장할 위치를 지정합니다. 파일이 생성되기 까지 최대 1분이 소요됩니다.
 
 ### <a name="note"></a>참고
 * 보관 자격 증명 파일이 컴퓨터에서 액세스할 수 있는 위치에 저장되었는지 확인하세요. 파일 공유/SMB에 저장된 경우 액세스 권한을 확인합니다.

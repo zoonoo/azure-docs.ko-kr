@@ -4,7 +4,7 @@ description: "이 항목에는 인코딩 작업을 실행하는 동안 오류가
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services

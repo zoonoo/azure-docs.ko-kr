@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6f1c43ca0113dc7579b0fc3743d3314c16ce78a4
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
@@ -54,7 +53,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 | 문서에서 TTL = n |문서 수준에서 아무 것도 재정의하지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 간격 -1을 상속하며 만료되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 컬렉션에서 "n" 간격을 상속합니다. |
 
 ## <a name="configuring-ttl"></a>TTL 구성
-기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다.
+기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다. TTL은 프로그래밍 방식으로 또는 Azure Portal의 해당 컬렉션에 대한 **설정**에서 설정할 수 있습니다. 
 
 ## <a name="enabling-ttl"></a>TTL 사용
 컬렉션 또는 컬렉션 내 문서에서 TTL을 사용하려면 컬렉션의 DefaultTTL 속성을 -1 또는 0이 아닌 양수로 설정해야 합니다. DefaultTTL을 -1로 설정하면 기본적으로 컬렉션에 있는 모든 문서가 계속 존재하지만 Cosmos DB 서비스는 이 기본값을 재정의한 문서에 대해 이 컬렉션을 모니터링해야 합니다.

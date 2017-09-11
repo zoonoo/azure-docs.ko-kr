@@ -11,29 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad3549a9e8278c3364533ec2cd2321744ecda3b9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
-Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 이 문서는 다음 정보를 제공합니다.
+Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 이 문서는 다음에 대한 계획 정보를 제공합니다.
 
-* 온-프레미스 네트워크에 연결되는 Azure Virtual Network를 만드는 방법
+* 온-프레미스 네트워크에 연결되는 Azure Virtual Network에서 HDInsight 사용.
 
-* 가상 네트워크와 온-프레미스 네트워크 간에 DNS 이름 확인을 사용하도록 설정하는 방법
+* 가상 네트워크와 온-프레미스 네트워크 간에 DNS 이름 확인 구성.
 
-* HDInsight에 대한 인터넷 액세스를 제한하도록 네트워크 보안 그룹을 사용하는 방법
+* HDInsight에 대한 인터넷 액세스를 제한하도록 네트워크 보안 그룹 구성.
 
-* 가상 네트워크의 HDInsight에서 제공하는 포트를 검색하는 방법입니다.
+* 가상 네트워크의 HDInsight에서 제공하는 포트.
 
 ## <a name="create-the-virtual-network-configuration"></a>가상 네트워크 구성 만들기
+
+> [!IMPORTANT]
+> Azure Virtual Network를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 단계별 지침을 찾으려면 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
 
 다음 문서를 사용하여 온-프레미스 네트워크에 연결된 Azure Virtual Network를 만드는 방법을 알아봅니다.
     
@@ -77,7 +80,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
     ![Ubuntu 가상 컴퓨터 만들기](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. __기본__ 블레이드에서 다음 정보를 입력합니다.
+2. __기본__ 섹션에서 다음 정보를 입력합니다.
 
     * __이름__: 이 가상 컴퓨터를 식별하는 친숙한 이름입니다. 예: __DNSProxy__
     * __사용자 이름__: SSH 계정의 이름입니다.
@@ -89,9 +92,9 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
     기본 값에 다른 항목을 그대로 두고 __확인__을 선택합니다.
 
-3. __크기 선택__ 블레이드에서 VM 크기를 선택합니다. 이 자습서의 경우 가장 적고 낮은 비용 옵션을 선택합니다. 계속하려면 __선택__ 단추를 사용합니다.
+3. __크기 선택__ 섹션에서 VM 크기를 선택합니다. 이 자습서의 경우 가장 적고 낮은 비용 옵션을 선택합니다. 계속하려면 __선택__ 단추를 사용합니다.
 
-4. __설정__ 블레이드에서 다음 정보를 입력합니다.
+4. __설정__ 섹션에서 다음 정보를 입력합니다.
 
     * __가상 네트워크__: 이전에 만든 가상 네트워크를 선택합니다.
 
@@ -103,9 +106,9 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
     기본 값에 다른 항목을 그대로 두고 __확인__을 선택하여 계속합니다.
 
-5. __구매__ 블레이드에서 __구매__ 단추를 선택하여 가상 컴퓨터를 만듭니다.
+5. __구매__ 섹션에서 __구매__ 단추를 선택하여 가상 컴퓨터를 만듭니다.
 
-6. 가상 컴퓨터를 만들면 해당 __개요__ 블레이드가 표시됩니다. 왼쪽에 있는 목록에서 __속성__을 선택합니다. __공용 IP 주소__ 및 __개인 IP 주소__ 값을 저장합니다. 이 값은 다음 섹션에서 사용됩니다.
+6. 가상 컴퓨터를 만들면 해당 __개요__ 섹션이 표시됩니다. 왼쪽에 있는 목록에서 __속성__을 선택합니다. __공용 IP 주소__ 및 __개인 IP 주소__ 값을 저장합니다. 이 값은 다음 섹션에서 사용됩니다.
 
     ![공용 및 개인 IP 주소](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -120,7 +123,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     `sshuser`을 클러스터를 만들 때 지정한 SSH 사용자 계정으로 바꿉니다.
 
     > [!NOTE]
-    > 다양한 방법으로 `ssh` 유틸리티를 가져올 수 있습니다. Linux, Unix 및 macOS에서 일반적으로 운영 체제의 일부분으로 제공됩니다. Windows를 사용하는 경우 다음 옵션 중 하나를 고려하세요.
+    > 다양한 방법으로 `ssh` 유틸리티를 가져올 수 있습니다. Linux, Unix 및 macOS에서 운영 체제의 일부분으로 제공됩니다. Windows를 사용하는 경우 다음 옵션 중 하나를 고려하세요.
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Windows 10에서 Ubuntu의 Bash](https://msdn.microsoft.com/commandline/wsl/about)
@@ -220,7 +223,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     > [!IMPORTANT]
     > `dns.mynetwork.net`을 온-프레미스 네트워크에 있는 리소스의 FQDN(정규화된 도메인 이름)으로 바꿉니다.
     >
-    > `10.0.0.4`을 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__로 바꿉니다.
+    > `10.0.0.4`를 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__로 바꿉니다.
 
     응답은 다음 텍스트와 유사합니다.
 
@@ -280,7 +283,7 @@ NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)를 사용하
 >    * __NSG__: __인터넷__에서 __443__ 포트에 대한 __인바운드__ 트래픽을 허용합니다.
 >    * __UDR__: 경로의 __다음 홉__ 유형을 __인터넷__으로 설정합니다.
 
-Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Network에서 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
+Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Networks에서 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
 
 ## <a name="create-the-hdinsight-cluster"></a>HDInsight 클러스터 만들기
 
@@ -331,10 +334,11 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+* 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Networks를 사용하여 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
+

@@ -1,5 +1,4 @@
 ---
-
 title: "PowerShell을 사용하여 Azure에서 Windows Server 백업 관리| Microsoft Docs"
 description: "PowerShell을 사용하여 Windows Server 백업을 배포하고 관리합니다."
 services: backup
@@ -13,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -33,8 +31,8 @@ ms.lasthandoff: 06/16/2017
 이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 워크스테이션 데이터를 백업 자격 증명 모음으로 백업하는 방법을 설명합니다. 모든 새 배포에 Recovery Services 자격 증명 모음을 사용하는 것이 좋습니다. 새 Azure Backup 사용자이며 구독에 백업 자격 증명 모음을 만들지 않은 경우 [PowerShell을 사용하여 Data Protection Manager 데이터를 Azure로 배포 및 관리](backup-client-automation.md) 문서를 사용하여 Recovery Services 자격 증명 모음에 데이터를 저장합니다. 
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 11월 1일 시작**:
->- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 백업 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일**:
+>- 남아 있는 모든 백업 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
 

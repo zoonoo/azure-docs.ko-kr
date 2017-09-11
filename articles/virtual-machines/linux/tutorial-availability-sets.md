@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 486405aca760922ebed5f413495d3a0e1e339229
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 63fe3f165864f06228604cac56d06cc061ab25f5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -71,6 +71,32 @@ az vm availability-set create \
 
 가용성 집합을 사용하면 "장애 도메인" 및 "업데이트 도메인"에서 리소스를 격리할 수 있습니다. **장애 도메인**은 서버 + 네트워크 + 저장소 리소스의 격리된 컬렉션을 나타냅니다. 위의 예제에서는 VM을 배포할 때 가용성 집합이 적어도 두 개의 장애 도메인에 분산되도록 했습니다. 또한 가용성 집합이 두 개의 **업데이트 도메인**에도 분산되도록 했습니다.  두 개의 업데이트 도메인은 Azure에서 소프트웨어 업데이트를 수행할 때 VM 리소스가 격리되어 해당 VM에서 실행되는 모든 소프트웨어가 동시에 업데이트되지 않도록 합니다.
 
+## <a name="configure-virtual-network"></a>가상 네트워크 구성
+일부 VM을 배포하고 부하 분산 장치를 테스트하려면 지원하는 가상 네트워크 리소스를 만듭니다. 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 관리](tutorial-virtual-network.md) 자습서를 참조하세요.
+
+### <a name="create-network-resources"></a>네트워크 리소스 만들기
+[az network vnet create](/cli/azure/network/vnet#create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*이라는 서브넷을 만듭니다.
+
+```azurecli-interactive 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+가상 NIC는 [az network nic create](/cli/azure/network/nic#create)를 사용하여 만듭니다. 다음 예제에서는 3개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## <a name="create-vms-inside-an-availability-set"></a>가용성 집합에 포함된 VM 만들기
 
 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용성 집합 내에 만들어야 합니다. VM을 만든 후에는 가용성 집합에 기존 VM을 추가할 수 없습니다. 
@@ -83,6 +109,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/30/2017
+ms.date: 08/21/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9f13e6300f77e2d9e84b0f7ce7f3cf289c327157
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH 터널링을 사용하여 Ambari 웹 UI, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스
@@ -40,6 +39,9 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 * HBase Master and Logs UI
 
 클러스터를 사용자 지정하는 스크립트 작업을 사용하는 경우 웹 UI를 노출하는 설치하는 모든 서비스 또는 유틸리티는 SSH 터널이 필요합니다. 예를 들어 스크립트 작업을 사용하여 Hue를 설치하는 경우 SSH 터널을 사용하여 Hue 웹 UI에 액세스해야 합니다.
+
+> [!IMPORTANT]
+> 가상 네트워크를 통해 HDInsight에 대한 직접 액세스가 있는 경우 SSH 터널을 사용할 필요가 없습니다. 가상 네트워크를 통해 HDInsight에 직접 액세스하는 예는 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
 
 ## <a name="what-is-an-ssh-tunnel"></a>SSH 터널이란
 
@@ -114,7 +116,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    > [!NOTE]
    > **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
 
-2. [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 터널이 작동하는지 확인합니다. 프록시가 올바르게 구성된 경우 반환된 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
+2. [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 터널이 작동하는지 확인합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari 웹 UI 통해 확인
 
@@ -134,7 +136,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 현상이 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
+   > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
    >
    > **빠른 링크** 메뉴의 일부 항목이 화면 오른쪽에서 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
 

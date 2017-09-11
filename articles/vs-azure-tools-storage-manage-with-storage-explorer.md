@@ -3,22 +3,22 @@ title: "저장소 탐색기(미리 보기) 시작 | Microsoft Docs"
 description: "저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리"
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: tarcher
+ms.date: 07/17/2017
+ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
@@ -156,7 +156,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 2. 확인 메시지에서 **예**를 선택하여 외부 저장소 계정에서 분리를 확인합니다.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>SAS를 사용하여 저장소 계정 연결
-[SAS](storage/storage-dotnet-shared-access-signature-part-1.md)를 사용하면 Azure 구독 관리자는 Azure 구독 자격 증명을 제공하지 않고도 저장소 계정에 대한 임시 액세스 권한을 부여할 수 있습니다.
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하면 Azure 구독 관리자는 Azure 구독 자격 증명을 제공하지 않고도 저장소 계정에 대한 임시 액세스 권한을 부여할 수 있습니다.
 
 이 시나리오를 설명하기 위해 다음과 같은 상황을 가정하겠습니다. Azure 구독의 관리자인 사용자 A는 사용자 B에게 특정 권한으로 제한된 시간 동안 저장소 계정에 액세스할 수 있는 권한을 부여하려 합니다.
 

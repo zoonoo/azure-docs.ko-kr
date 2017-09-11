@@ -15,10 +15,10 @@ ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9adaf46743bad039e2a5680a7d6dca767d964459
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -199,7 +199,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 ## <a name="resource-files"></a>리소스 파일
 다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일**입니다.
 
-작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리**로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
+작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/common/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리**로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
 
 다중 인스턴스 작업 자체에 대해 지정한 리소스 파일은 작업의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`에 기본적으로 다운로드됩니다. 언급한 대로 공용 리소스 파일과 달리 주 작업만이 다중 인스턴스 작업 자체에 대해 지정된 리소스 파일을 다운로드합니다.
 

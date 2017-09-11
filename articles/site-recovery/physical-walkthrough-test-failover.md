@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: e6ebab3e4d7deeefbab395b0a898fbf441d75b5d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>11단계: Azure에 물리적 서버의 테스트 장애 조치(failover) 실행
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="managed-disk-considerations"></a>Managed Disk 고려 사항
 
-[관리 디스크](../storage/storage-managed-disks-overview.md)는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure VM의 디스크 관리를 간소화합니다. 
+[관리 디스크](../virtual-machines/windows/managed-disks-overview.md)는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure VM의 디스크 관리를 간소화합니다. 
 
 - 서버에 보호를 활성화하면 VM 데이터는 저장소 계정에 복제됩니다. 관리 디스크는 장애 조치(failover) 시에만 생성되고 VM에 연결됩니다.
 - Resource Manager 배포 모델을 사용하여 배포된 Azure VM에 대해서만 관리 디스크를 만들 수 있습니다.  
@@ -70,9 +69,9 @@ ms.lasthandoff: 06/29/2017
 2. **복제된 항목** 창에서 컴퓨터 정보, 상태 및 최신 사용 가능한 복구 지점의 요약을 볼 수 있습니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
 3. **계산 및 네트워크**에서 다음을 수행할 수 있습니다.
     - Azure VM 이름을 수정합니다. 이름은 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
-    - 장애 조치(failover) 후 [리소스 그룹](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)을 지정합니다.
+    - 장애 조치(failover) 후 [리소스 그룹]을 지정합니다.
     - Azure VM에 대한 대상 크기를 지정합니다.
-    - [가용성 집합](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)을 선택합니다.
+    - [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)을 선택합니다.
     - [관리 디스크](#managed-disk-considerations)의 사용 여부를 지정합니다. 관리 디스크를 Azure로의 마이그레이션에서 컴퓨터에 연결하려는 경우 **예**를 선택합니다.
     - 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보거나 수정합니다.
 4. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
@@ -97,7 +96,7 @@ ms.lasthandoff: 06/29/2017
 
 2. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
 
-3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
+3. **테스트 장애 조치(failover)**에서 장애 조치(failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
 
 4. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. 컴퓨터를 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **Site Recovery 작업**의 **테스트 장애 조치(failover)** 작업에서 진행률을 추적할 수 있습니다.
 

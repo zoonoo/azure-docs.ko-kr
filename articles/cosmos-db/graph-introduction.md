@@ -10,21 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/21/2017
+ms.date: 08/29/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 4ee52c2665d5856cb0022365edf0485458b629fe
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: af4c67accf43c2f4f1498e3cafad6e9087a923af
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개
 
 [Azure Cosmos DB](introduction.md)는 중요 업무용 응용 프로그램에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 모두 지원되는 [턴키 전역 배포](distribute-data-globally.md), 전 세계적인 [처리량 및 저장소의 탄력적인 확장](partition-data.md), 백분위 99의 1자리 수 밀리초 단위 대기 시간, [잘 정의된 5가지 일관성 수준](consistency-levels.md), 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다.
 
-![Gremlin, 그래프 및 Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png)
+먼저 Kirill Gavrylyuk가 Azure Cosmos DB에서 그래프를 사용하는 방법을 보여 주는 다음 비디오를 시청하는 것이 좋습니다.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
+> 
+> 
 Azure Cosmos DB Graph API에서는 다음을 제공합니다.
 
 - 그래프 모델링

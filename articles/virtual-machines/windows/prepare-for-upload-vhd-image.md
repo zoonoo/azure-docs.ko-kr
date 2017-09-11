@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 91c443f6d9998f15f4b1b1eaad33f0a319fcf4d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
@@ -265,9 +265,12 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     ```
     보고서에 정리되어 있고 정상인 디스크가 표시되는지 확인합니다.
 
-2. BCD(부팅 구성 데이터) 설정을 지정합니다. 관리자 권한 CMD 창에서 이러한 명령을 실행합니다.
+2. BCD(부팅 구성 데이터) 설정을 지정합니다. 
+
+    > [!Note]
+    > 이러한 명령을 PowerShell이 **아닌** 관리자 권한 CMD 창에서 실행하고 있는지 확인합니다.
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

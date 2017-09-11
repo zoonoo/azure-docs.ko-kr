@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
@@ -65,7 +65,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
     * **운영 체제**: Linux
 
-    * **버전**: Storm 1.0.1(HDI 3.5)
+    * **버전**: Storm 1.1.0(HDI 3.6)
 
     * **클러스터 계층**: 표준
 
@@ -110,7 +110,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     >
     > WordCount 예제 및 다른 storm-starter 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
-storm-starter 예제의 소스를 보려면 [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter)에서 코드를 찾을 수 있습니다. 이 링크는 Storm 1.0.x에 해당하며 HDInsight 3.5와 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
+storm-starter 예제의 소스를 보려면 [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter)에서 코드를 찾을 수 있습니다. 이 링크는 Storm 1.1.x에 해당하며 HDInsight 3.6과 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
 
 ## <a name="monitor-the-topology"></a>토폴로지 모니터링
 
@@ -118,7 +118,7 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 
 Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 사용합니다.
 
-1. Storm UI를 표시하려면 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net/stormui를 엽니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
+1. Storm UI를 표시하려면 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net/stormui를 엽니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 
     > [!NOTE]
     > 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.

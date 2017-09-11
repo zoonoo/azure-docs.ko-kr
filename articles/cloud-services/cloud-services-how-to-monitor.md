@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Cloud Services를 모니터링하는 방법
@@ -39,7 +41,7 @@ Azure 클래식 포털의 모니터링 표시는 매우 다양하게 구성할 �
 다음 절차를 사용하여 Azure 클래식 포털에서 자세한 모니터링 또는 최소 모니터링을 구성합니다. 
 
 ### <a name="before-you-begin"></a>시작하기 전에
-* 모니터링 데이터를 저장할 *클래식* 저장소 계정을 만듭니다. 역할에 따라 다른 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+* 모니터링 데이터를 저장할 *클래식* 저장소 계정을 만듭니다. 역할에 따라 다른 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 * 클라우드 서비스 역할에 대해 Azure 진단을 사용하도록 설정합니다. [Cloud Services에 대한 진단 구성](cloud-services-dotnet-diagnostics.md)을 참조하십시오.
 
 역할 구성에서 진단 연결 문자열이 있는지 확인하십시오. Azure 진단을 사용하도록 설정하고 역할 구성에 진단 연결 문자열을 포함할 때까지 자세한 정보 표시를 켤 수 없습니다.   
@@ -74,7 +76,7 @@ Azure 클래식 포털의 모니터링 표시는 매우 다양하게 구성할 �
 ## <a name="how-to-add-metrics-to-the-metrics-table"></a>방법: 메트릭 테이블에 메트릭 추가
 1. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 클라우드 서비스에 대한 **모니터** 페이지를 엽니다.
    
-    기본적으로 메트릭 테이블에는 사용 가능한 메트릭의 하위 집합이 표시됩니다. 다음 그림에서는 역할 수준에서 집계된 데이터를 사용하여 Memory\Available MBytes 성능 카운터로 제한되는 클라우드 서비스에 대한 기본적인 자세한 정보 표시 메트릭을 보여 줍니다. **메트릭 추가** 를 사용하여 Azure 클래식 포털에서 모니터링할 추가 집계 및 역할 수준 메트릭을 선택합니다.
+    기본적으로 메트릭 테이블에는 사용 가능한 메트릭의 하위 집합이 표시됩니다. 다음 그림에서는 역할 수준에서 집계된 데이터를 사용하여 Memory\Available MBytes 성능 카운터로 제한되는 클라우드 서비스에 대한 기본적인 자세한 정보 표시 메트릭을 보여 줍니다. **메트릭 추가**를 사용하여 Azure 클래식 포털에서 모니터링할 추가 집계 및 역할 수준 메트릭을 선택합니다.
    
     ![자세한 표시](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
 2. 메트릭 테이블에 메트릭을 추가하려면
@@ -116,7 +118,7 @@ Azure 클래식 포털의 모니터링 표시는 매우 다양하게 구성할 �
     ![Visual Studio 서버 Explorer](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
 2. 패턴 **DeploymentId/RoleName/RoleInstance**을 사용하여 blob 경로로 이동하여 역할 인스턴스에 대한 구성을 찾습니다. 
    
-    ![Visual Studio 저장소 Explorer](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
+    ![Visual Studio Storage Explorer](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
 3. 역할 인스턴스에 대한 구성 파일을 다운로드 하고 모든 사용자 지정 성능 카운터를 포함하도록 업데이트합니다. 예를 들어 *C 드라이브*에 대해 *Disk Write Bytes/sec*를 모니터링하려면 **PerformanceCounters\Subscriptions** 노드 아래에 다음을 추가합니다.
    
     ```xml
@@ -175,9 +177,4 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

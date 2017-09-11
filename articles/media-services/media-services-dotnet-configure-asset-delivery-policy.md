@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services.NET SDK를 사용하여 �
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
 ms.service: media-services

@@ -14,20 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: c3eac45065bad80fd7b1fd29ac77a162eef3fa28
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 7b1a5f7ea3b2bda438727dc75a85557ea7930280
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 알아봅니다.
+HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. Hive 테이블을 나열하기 위한 Hive 쿼리를 제출한 후 결과를 표시하는 C# 프로그램을 작성합니다.
 
 > [!NOTE]
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
@@ -37,7 +36,7 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-use-sqoop.md#create-cluster-and-sql-database)을 참조하세요.
+* **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](./hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **Visual Studio 2013/2015/2017**
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 제출

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 08/18/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -29,21 +29,28 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ## <a name="cluster-setup-and-management"></a>클러스터 설정 및 관리
 
-### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions"></a>여러 Azure 지역에 걸쳐서 클러스터를 만들 수 있나요?
+### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>여러 Azure 지역 또는 나만의 데이터 센터에 걸쳐서 클러스터를 만들 수 있나요?
 
-당장은 아니지만, 조사를 진행하는 데 받는 일반적인 요청입니다.
+예. 
 
-코어 Service Fabric 클러스터링 기술은 Azure 지역에 대해 어떠한 정보도 알지 못하며 서로 네트워크로 연결되어 있기만 하다면 전 세계 어디서나 실행되는 컴퓨터를 결합하는 데 사용할 수 있습니다. 하지만 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 컴퓨터 크기 집합이므로 지역에 국한됩니다. 또한 멀리 떨어져 있는 컴퓨터 간에 일관성 있는 데이터 복제를 제공하는 것은 본질적인 도전입니다. 사용자는 지역 간 클러스터를 지원하기 전에 성능을 확실히 예측하고 허용할 수 있기를 원합니다.
+코어 Service Fabric 클러스터링 기술은 서로 네트워크로 연결되어 있기만 한다면 전 세계 어디서나 실행되는 컴퓨터를 결합하는 데 사용할 수 있습니다. 그러나 이러한 클러스터를 구축하고 실행하는 것은 복잡할 수 있습니다.
+
+이 시나리오에 관심이 있는 경우 [Service Fabric Github 문제 목록](https://github.com/azure/service-fabric-issues)을 확인하거나 지원 담당자를 통해 추가 지침을 얻는 것이 좋습니다. Service Fabric 팀은 이 시나리오에 대해 추가적인 설명, 지침 및 권장 사항을 제공하기 위해 작업 중입니다. 
+
+고려할 사항은 다음과 같습니다. 
+
+1. 현재 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 컴퓨터 크기 집합이므로 지역에 국한됩니다. 즉, 하위 지역에서 오류가 발생할 때 Azure Resource Manager 또는 Azure Portal을 통해 클러스터를 관리하지 못하게 될 수 있습니다. 클러스터는 계속 실행되는데도 이러한 문제가 발생할 수도 있으며, 이 경우 직접 개입하는 것이 나을 수 있습니다. 또한 현재 Azure에서는 하위 지역에 걸쳐 사용할 수 있는 단일 가상 네트워크를 유지하는 기능을 제공하지 않습니다. 즉, Azure의 다중 지역 클러스터에는 [VM Scale Sets의 각 VM에 대한 공용 IP 주소](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 또는 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)가 필요합니다. 이러한 네트워킹 선택 항목은 비용, 성능 및 응용 프로그램 디자인에 어느 정도 다르게 영향을 미치므로 이러한 환경을 구성하기 전에 신중하게 분석하고 계획해야 합니다.
+2. 이러한 컴퓨터의 유지 관리, 관리, 모니터링은 복잡할 수 있으며 다른 클라우드 공급자 간 또는 온-프레미스 리소스와 Azure 간 등, 여러 환경 _유형_ 간에 걸쳐 있는 경우에는 특히 복잡할 수 있습니다. 이러한 환경에서 프로덕션 워크로드를 실행하기 전에 클러스터 및 응용 프로그램 둘 다에 대해 업그레이드, 모니터링, 관리 및 진단을 파악하도록 해야 합니다. Azure에서 또는 자체 데이터 센터 내에서 이러한 문제를 여러 번 해결해본 적이 있으면 Service Fabric 클러스터를 구축하거나 실행할 때도 이러한 동일한 해결 방법을 적용할 수 있습니다. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
-당장은 아니지만, 이것 역시 우리가 제공하고자 하는 일반적인 요청입니다.
+당장은 아니지만, 이것 역시 Azure에서 제공하고자 하는 일반적인 요청입니다.
+
+일단 Service Fabric 노드 아래의 운영 체제를 패치하고 최신 상태로 유지하는 [응용 프로그램을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
 
 OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 이로 인해 일시적인 가용성 손실이 발생합니다. Service Fabric에서 해당 서비스에 대한 트래픽을 다른 노드로 리디렉션하므로 이것 자체는 문제가 아닙니다. 하지만 OS 업데이트가 클러스터 간에 조정되지 않는다면 많은 노드가 한 번에 다운될 가능성이 있습니다. 이러한 동시 재부팅은 서비스 또는 적어도 특정 파티션(상태 저장 서비스)에 대한 총체적인 가용성 손실을 유도할 수 있습니다.
 
 향후에는 완전 자동화되고 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 할 것입니다.
-
-그 동안에는 클러스터 관리자가 수동으로 각 노드의 패치를 안전한 방식으로 시작할 수 있는 [스크립트를 제공](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/)합니다.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>SF 클러스터 내에서 큰 가상 컴퓨터 크기 집합을 사용할 수 있나요? 
 
@@ -121,7 +128,7 @@ Reliable Services는 일반적으로 분할되므로 저장할 수 있는 양은
 
 이 계산에서는 다음 사항도 가정합니다.
 
-- 파티션 간 데이터 분포는 대략적으로 균일하거나 부하 메트릭을 클러스터 Resource Manager에 보고합니다. 기본적으로 Service Fabric은 복제본 수에 따라 부하 분산을 수행합니다. 위의 예에서는 클러스터의 각 노드에 주 복제본 10개와 보조 복제본 20개를 배치합니다. 파티션 간에 부하가 고르게 분포된 경우에는 원활하게 작동합니다. 부하가 고르게 분포되지 않은 경우 로드를 보고하여 Resource Manager에서 작은 크기의 복제본을 함께 패킹하여 큰 복제본이 개별 노드에서 더 많은 메모리를 사용하도록 합니다.
+- 파티션 간 데이터 분포는 대략적으로 균일하거나 부하 메트릭을 Cluster Resource Manager에 보고합니다. 기본적으로 Service Fabric은 복제본 수에 따라 부하 분산을 수행합니다. 위의 예에서는 클러스터의 각 노드에 주 복제본 10개와 보조 복제본 20개를 배치합니다. 파티션 간에 부하가 고르게 분포된 경우에는 원활하게 작동합니다. 부하가 고르게 분포되지 않은 경우 로드를 보고하여 Resource Manager에서 작은 크기의 복제본을 함께 패킹하여 큰 복제본이 개별 노드에서 더 많은 메모리를 사용하도록 합니다.
 
 - 문제가 되는 Reliable Services는 클러스터에서 유일한 저장 상태입니다. 여러 서비스를 클러스터에 배포할 수 있으므로 각각 해당 상태를 실행 및 관리해야 하는 리소스에 유념해야 합니다.
 

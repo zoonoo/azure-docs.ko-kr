@@ -2,7 +2,7 @@
 title: "Azure ExpressRoute 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
+
+연결된 팩터리 관련 [FAQ](iot-suite-faq-cf.md)도 참조하세요.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 * [미리 구성된 원격 모니터링 솔루션][lnk-remote-monitoring-github]
 * [예측 유지 관리 미리 구성된 솔루션][lnk-predictive-maintenance-github]
+* [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IoT Hub 장치 관리 기능을 사용하는 미리 구성된 원격 모니터링 솔루션을 최신 버전으로 업데이트하려면 어떻게 해야 합니까?
 
@@ -95,22 +97,14 @@ ms.lasthandoff: 05/26/2017
 
 Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk-delete-aad-tennant]을 참조하세요.
 
-### <a name="what-is-opc-ua"></a>OPC UA란?
-
-2008년에 출시된 OPC UA(통합 아키텍처)는 산업용 PC, PLC, 센서 등의 다양한 산업용 시스템 및 장치에서 사용되는 플랫폼 독립적인 서비스 지향 상호 운용성 표준입니다. OPC UA는 개별 OPC 클래식 사양의 모든 기능을 보안이 기본적으로 제공되는 확장 가능한 단일 프레임워크에 통합합니다. 이 표준은 OPC Foundation에서 운영합니다. [OPC Foundation][lnk-opc-foundation]은 440명이 넘는 구성원이 OPC 사양을 사용하여 다중 공급업체, 다중 플랫폼, 안전하고 신뢰할 수 있는 상호 운용성을 지원하기 위한 인프라, 사양, 기술 및 프로세스를 제공한다는 공통의 목표를 공유하는 비영리 조직입니다.
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Microsoft가 연결된 팩터리 미리 구성된 솔루션으로 OPC UA를 선택한 이유
-
-Microsoft는 플랫폼 독립적이고 업계에서 통용되며 입증된 오픈 비독점 표준인 OPC UA를 선택했습니다. 광범위한 제조 프로세스 및 장비 간의 상호 운용성을 보장하는 Industrie 4.0(RAMI4.0) 참조 아키텍처 솔루션을 위해 이 제품이 필요합니다. Microsoft는 Industrie 4.0 솔루션을 빌드하려는 고객의 요청을 확인했습니다. OPC UA에 대한 지원은 고객의 목표 달성을 가로막는 장애물을 해소하는 데 도움을 주고 즉각적인 비즈니스 가치를 제공합니다.
-
 ### <a name="next-steps"></a>다음 단계
 
 미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
 
 * [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
+* [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
 * [처음부터 IoT 보안을 고려][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

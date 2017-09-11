@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
@@ -122,7 +122,8 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-Aure Active Directory는 일부 [위험 이벤트 유형](active-directory-reporting-risk-events.md#risk-event-types)을 실시간으로 검색합니다. 사용자의 로그인 주에 검색된 모든 실시간 위험 이벤트는 *위험한 로그인*이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다. 위험한 로그인의 수명 주기는 사용자가 로그아웃하면 끝납니다.
+Azure Active Directory는 [위험 이벤트 유형](active-directory-reporting-risk-events.md#risk-event-types)을 실시간 및 오프라인으로 검색합니다. 사용자 로그인 중에 검색된 각 위험 이벤트는 위험한 로그인이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다.
+
 
 ### <a name="sign-in-risk-level"></a>로그인 위험 수준
 
@@ -212,7 +213,7 @@ ID 보호 콘솔의 **위험 이벤트** 페이지에서는 모든 이벤트를 
 
 ## <a name="users-flagged-for-risk"></a>위험에 대한 플래그가 지정된 사용자
 
-사용자에 대해 Azure Active Directory에서 검색된 모든 [위험 이벤트](active-directory-identity-protection-risk-events.md)는 *위험에 대한 플래그가 지정된 사용자*라는 논리적 개념을 파생시킵니다. *위험에 대한 사용자 플래그* 또는 *위험한 사용자*는 손상되었을 수 있는 사용자 계정에 대한 지표입니다.   
+사용자에 대해 Azure Active Directory에서 검색된 모든 활성 [위험 이벤트](active-directory-identity-protection-risk-events.md)는 사용자 위험이라는 논리적 개념을 파생시킵니다. 위험 플래그가 지정된 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 ![위험에 대한 플래그가 지정된 사용자](./media/active-directory-identityprotection/1200.png)
 

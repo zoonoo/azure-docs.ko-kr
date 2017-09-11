@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure 모바일 앱 바인딩을 사용하�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/31/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: c5e1c02984f9773b263c0bee7685c7d5ff62e658
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: d2c0e4e233761584bad2df05a8e702e4fc77e84f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-mobile-apps-bindings"></a>Azure Functions 모바일 앱 바인딩
@@ -109,7 +110,7 @@ C# 및 F# 함수에서 함수가 성공적으로 종료되면 입력 레코드�
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>C의 입력 샘플# #
+### <a name="input-sample-in-c"></a>C#의 입력 샘플 #
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -220,7 +221,7 @@ C# 함수에서 `out object` 형식의 명명된 출력 매개 변수를 사용�
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
+### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -255,10 +256,5 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "C#을 사용하여 Azure Functions를 개발하는 방법을 알�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 1d0143d72ab18deeba7a32cc732445cc7ba64019
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 25c5f72be8dc79d8b33a598c7be494bd955eb850
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure Functions C# 스크립트 개발자 참조
@@ -152,7 +151,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`.
+* `Microsoft.Azure.WebJobs.Host`
 
 ## <a name="referencing-external-assemblies"></a>외부 어셈블리 참조
 프레임워크 어셈블리의 경우 `#r "AssemblyName"` 지시문을 사용하여 참조를 추가합니다.
@@ -178,7 +177,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`.
+* `System.Net.Http.Formatting`
 
 다음 어셈블리는 단순한 이름(예: `#r "AssemblyName"`)으로 참조될 수 있습니다.
 
@@ -446,3 +445,4 @@ public static async Task Run(string input, Binder binder)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
 [host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
+

@@ -37,13 +37,13 @@
       href: container-service-kubernetes-service-principal.md
 - name: 방법 가이드
   items:
-    - name: Windows를 사용한 Kubernetes 빠른 시작
+    - name: Windows를 사용하는 Kubernetes
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: 컨테이너 관리 - Kubernetes UI
+    - name: Kubernetes 웹 인터페이스
       href: container-service-kubernetes-ui.md
     - name: Helm 차트 배포
       href: container-service-kubernetes-helm.md
-    - name: Kubernetes 및 Jenkins를 사용하는 CI/CD
+    - name: Jenkins 및 ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: ACR 및 ACS에서 초안 사용
       href: container-service-draft-up.md
@@ -51,8 +51,12 @@
       href: container-service-connect.md
     - name: ACS 클러스터 확장
       href: container-service-scale.md
+    - name: Kubernetes ACS 클러스터 부하 분산
+      href: container-service-kubernetes-load-balancing.md
     - name: 모니터
       items:
+        - name: OMS로 모니터링
+          href: container-service-kubernetes-oms.md
         - name: Datadog로 모니터링
           href: container-service-kubernetes-datadog.md
         - name: Sysdig로 모니터링
@@ -70,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST (영문)
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: 리소스
   items:
     - name: Azure 로드맵

@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/22/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 62a5b47d3b3fe452bfdff3005192e5066bb7c7da
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Hadoop에 Excel 연결
@@ -68,9 +67,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
    |  호스트 |&lt;HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
    |  포트 |<strong>443</strong>을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |<strong>기본값</strong>을 사용합니다. |
-   |  Hive 서버 유형 |<strong>Hive 서버 2</strong> 선택 |
    |  메커니즘 |<strong>Azure HDInsight Service</strong> 선택 |
-   |  HTTP 경로 |비워 둠 |
    |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 <strong>admin</strong>입니다. |
    |  암호 |HDInsight 클러스터 사용자 암호 입력 |
    
@@ -87,30 +84,22 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
     ![고급 옵션](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "고급 DSN 구성 옵션")
 
 1. **테스트** 를 클릭하여 데이터 원본을 테스트합니다. 원본이 올바르게 구성된 경우 *테스트를 성공적으로 완료했습니다.*가 표시됩니다.
-2. **확인** 을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다.
+2. **확인** 을 클릭하여 테스트 대화 상자를 닫습니다. 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다.
 3. **확인** 을 클릭하여 마법사를 종료합니다.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>HDInsight에서 Excel로 데이터 가져오기
-다음 단계는 위 단계에서 만든 ODBC 데이터 원본을 사용하여 hive 테이블에서 Excel 통합 문서로 데이터를 가져오는 방법을 설명합니다.
+다음 단계는 이전 섹션에서 만든 ODBC 데이터 원본을 사용하여 Hive 테이블에서 Excel 통합 문서로 데이터를 가져오는 방법을 설명합니다.
 
 1. Excel에서 새 통합 문서나 기존 통합 문서를 엽니다.
-2. **데이터** 탭에서 **다른 데이터 원본에서**를 클릭한 다음 **데이터 연결 마법사에서**를 클릭하여 **데이터 연결 마법사**를 시작합니다.
+2. **데이터** 탭에서 **데이터 가져오기**를 클릭한 다음 **다른 데이터 원본에서**를 클릭하고 **ODBC에서**를 클릭하여 **데이터 연결 마법사**를 시작합니다.
    
     ![데이터 연결 마법사 열기](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "데이터 연결 마법사 열기")
-3. 데이터 원본으로 **ODBC DSN**을 선택한 후 **다음**을 클릭합니다.
-4. ODBC 데이터 원본에서 이전 단계에서 만든 데이터 원본 이름을 선택한 후 **다음**을 클릭합니다.
-5. 마법사에서 클러스터의 암호를 다시 입력한 다음 **테스트**를 클릭하여 구성을 다시 확인합니다.
-6. **확인** 을 클릭하여 테스트 대화 상자를 닫습니다.
-7. **확인**을 클릭합니다. **데이터베이스 및 테이블 선택** 대화 상자가 열릴 때까지 기다립니다. 이 단계는 몇 초 정도 걸릴 수 있습니다.
-8. 가져올 테이블을 선택한 후 **다음**을 클릭합니다. *hivesampletable* 은 HDInsight 클러스터와 함께 제공되는 샘플 hive 테이블입니다.  만들지 않은 경우 선택할 수 있습니다. Hive 쿼리 실행 및 Hive 테이블 만들기에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
-9. **Finish**를 클릭합니다.
-10. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성**을 클릭합니다. 이 단계는 몇 초 정도 걸릴 수 있습니다.
-11. **정의** 탭을 클릭한 다음 **명령 텍스트** 텍스트 상자에서 Hive select 문에 **LIMIT 200**을 추가합니다. 이렇게 수정하면 반환되는 레코드 제한을 200으로 설정합니다.
-    
-    ![연결 속성](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png "DSN 연결 속성 구성")
-12. **확인** 을 클릭하여 연결 속성 대화 상자를 닫습니다.
-13. **확인**을 클릭하여 **데이터 가져오기** 대화 상자를 닫습니다.  
-14. 암호를 다시 입력한 후 **확인**을 클릭합니다. 데이터를 Excel로 가져올 때까지 몇 초 정도 걸립니다.
+4. 마지막 섹션에서 만든 데이터 원본 이름을 선택하고 **확인**을 클릭합니다.
+5. Hadoop 사용자 이름(기본 이름은 admin) 및 암호를 입력한 다음 **연결**을 클릭합니다.
+6. 탐색 창에서 **HIVE**를 확장하고 **default**를 확장한 후 **hivesampletable**을 클릭하고 **로드**를 클릭합니다. 데이터를 Excel로 가져올 때까지 몇 초 정도 걸립니다.
+
+    ![HDInsight Hive ODBC 탐색기](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "데이터 연결 열기 마법사")
+
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Hive ODBC 드라이버를 사용하여 HDInsight Service에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight Service에서 SQL 데이터베이스로 데이터를 가져올 수 있습니다. 데이터를 HDInsight Service에 업로드할 수도 있습니다. 자세한 내용은 다음을 참조하세요.

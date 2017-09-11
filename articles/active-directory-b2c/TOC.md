@@ -46,6 +46,7 @@
 ## [토큰 구성](active-directory-b2c-token-session-sso.md)
 ## [MFA 사용](active-directory-b2c-reference-mfa.md)
 ## [사용자 지정 특성 사용](active-directory-b2c-reference-custom-attr.md)
+## [암호 사용자 지정](active-directory-b2c-reference-password-complexity.md)
 ## [UI 사용자 지정](active-directory-b2c-reference-ui-customization.md)
 ### [사용자 지정을 위한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [사용자 지정 정책](active-directory-b2c-overview-custom.md)
 ## 가이드
 ### [시작](active-directory-b2c-get-started-custom.md)
-### OIDC 공급자 구성
+### OIDC/OAUTH2 공급자 구성
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft 계정](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### SAML 공급자 구성
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API 통합
 #### [사용자 입력 유효성 검사](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,11 +72,12 @@
 #### [사용자 지정 특성](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)
 #### [토큰 사용자 지정](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [암호 사용자 지정](active-directory-b2c-reference-password-complexity-custom.md)
 ### 문제 해결
 #### [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)
 ## 참조
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
-
+### [보안 프레임워크 정의](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 용어

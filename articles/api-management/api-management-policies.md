@@ -3,7 +3,7 @@ title: "Azure API Management 정책 | Microsoft Docs"
 description: "Azure API Management에 사용할 수 있는 정책에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-policies"></a>API 관리 정책
@@ -26,7 +28,7 @@ ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
   
  정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](api-management-advanced-policies.md#choose) 및 [변수 설정](api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](api-management-policy-expressions.md)을 참조하세요.  
   
-##  <a name="a-nameproxypoliciesa-policies"></a><a name="ProxyPolicies"></a> 정책  
+##  <a name="ProxyPolicies"></a> 정책  
   
 -   [액세스 제한 정책](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
   
@@ -120,9 +122,4 @@ ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -17,10 +17,10 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 컴퓨터 개요
@@ -73,7 +73,7 @@ Azure는 VM의 크기와 운영 체제에 기반한 [시간당 가격](https://a
 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 [할당량 제한](../../azure-subscription-service-limits.md)이 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다. 증가를 요구하는 지원 티켓을 제출하면 제한 량이 늘어날 수 있습니다.
 
 ### <a name="operating-system-disks-and-images"></a>운영 체제 디스크 및 이미지
-가상 컴퓨터는 [VHD(가상 하드 디스크)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 
+가상 컴퓨터는 [VHD(가상 하드 디스크)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 
 
 Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 사용할 수 있도록 많은 [마켓플레이스 이미지](https://azure.microsoft.com/marketplace/virtual-machines/)를 제공합니다. 마켓플레이스 이미지는 이미지 게시자, 제안, SKU 및 버전(대개 최신으로 지정된 버전)으로 식별됩니다. 
 
@@ -102,7 +102,7 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | 리소스 | 필수 | 설명 |
 | --- | --- | --- |
 | [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
-| [저장소 계정](../../storage/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
+| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |

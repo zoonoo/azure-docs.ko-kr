@@ -3,7 +3,7 @@ title: "Azure API Management 도메인 간 정책 | Microsoft Docs"
 description: "Azure API Management에 사용할 수 있는 도메인 간 정책에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API 관리
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
-##  <a name="a-namecrossdomainpoliciesa-cross-domain-policies"></a><a name="CrossDomainPolicies"></a> 도메인 간 정책  
+##  <a name="CrossDomainPolicies"></a> 도메인 간 정책  
   
 -   [도메인 간 호출 허용](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 합니다.  
   
@@ -30,7 +32,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.  
   
-##  <a name="a-nameallowcrossdomaincallsa-allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> 도메인 간 호출 허용  
+##  <a name="AllowCrossDomainCalls"></a> 도메인 간 호출 허용  
  `cross-domain` 정책을 사용하여 API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 설정합니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -65,7 +67,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **정책 범위:** global  
   
-##  <a name="a-namecorsa-cors"></a><a name="CORS"></a> CORS  
+##  <a name="CORS"></a> CORS  
  `cors` 정책은 CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.  
   
  CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 요청(즉, 웹 페이지의 JavaScript에서 다른 도메인으로 실행한 XMLHttpRequests 호출)을 허용할지 여부를 결정할 수 있습니다. 따라서 동일 원본의 요청만 허용하는 것보다 유연성이 더 뛰어나며 모든 원본 간 요청을 허용하는 것보다 보안도 더 높아집니다.  
@@ -149,7 +151,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **정책 범위:** API, operation  
   
-##  <a name="a-namejsonpa-jsonp"></a><a name="JSONP"></a> JSONP  
+##  <a name="JSONP"></a> JSONP  
  `jsonp` 정책은 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다. JSONP는 JavaScript 프로그램에서 다른 도메인의 서버로부터 데이터를 요청하는 데 사용하는 메서드입니다. JSONP는 웹 페이지에 대한 액세스 권한이 동일한 도메인 내에 있어야 하는 경우 대부분의 웹 브라우저에서 적용하는 제한을 무시합니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -189,8 +191,3 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

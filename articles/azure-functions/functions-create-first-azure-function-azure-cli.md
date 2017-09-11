@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 05/02/2017
-ms.topic: quickstart
+ms.date: 08/22/2017
+ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: erikre
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
+manager: cfowler
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -44,12 +44,15 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 함수 앱, 데이터베이스, 저장소 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.  
+Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+
+
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 함수는 Azure Storage 계정을 사용하여 함수에 대한 상태 및 기타 정보를 유지 관리합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
 
@@ -86,7 +89,8 @@ az storage account create --name <storage_name> --location westeurope --resource
 다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
+--consumption-plan-location westeurope
 ```
 기본적으로 함수 앱은 소비 호스팅 계획에 따라 만들어지므로 함수에서 요구하는 대로 동적으로 리소스가 추가되고 함수가 실행될 때만 비용이 청구됩니다. 자세한 내용은 [올바른 호스팅 계획 선택](functions-scale.md)을 참조하세요. 
 
@@ -117,7 +121,9 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 새 함수 앱에서 사용자의 함수 코드를 만드는 여러 가지 방법이 있습니다. 이 항목은 GitHub의 샘플 리포지토리에 연결됩니다. 이전처럼, 다음 코드는 `<app_name>` 자리 표시자를 작성한 함수 앱의 이름으로 바꿉니다. 
 
 ```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
+--repo-url https://github.com/Azure-Samples/functions-quickstart \
+--manual-integration 
 ```
 배포 소스가 설정되었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
 

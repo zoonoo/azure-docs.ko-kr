@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2779655aee3af3a351b30f18b4c9d9918e9f2210
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
@@ -40,22 +39,19 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 > [!NOTE]
 > 복사 작업에 대해 전반적으로 잘 알지 못하는 경우, 이 문서를 읽기 전에 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)을 참조하세요.
 >
->
 
 ## <a name="performance-reference"></a>성능 참조
+
+참조로 아래 테이블에 사내 테스트에 따른 지정된 원본 및 싱크 쌍에 대한 복사 처리량(MBps)이 나와 있습니다. 비교를 위해 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 또는 [데이터 관리 게이트웨이 확장성](data-factory-data-management-gateway-high-availability-scalability.md)(여러 게이트웨이 노드)의 다른 설정이 어떻게 복사 성능에 도움이 되는지도 설명합니다.
+
 ![성능 매트릭스](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> 기본 최대 DMU(데이터 이동 단위)보다 많은 DMU를 활용하여 더 많은 처리량을 획득할 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DMU를 사용하면 **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 섹션을 참조하세요. DMU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
->
->
 
 **주의할 사항:**
 * 처리량은 다음 수식을 사용하여 계산됩니다. [원본에서 읽은 데이터의 크기]/[복사 작업 실행 기간]
 * 테이블의 성능 참조 번호는 [TPC-H](http://www.tpc.org/tpch/) 데이터 집합을 사용하여 단일 복사 작업 실행을 통해 측정된 것입니다.
-* 클라우드 데이터 저장소 간에 복사하려면 비교를 위해 **cloudDataMovementUnits**를 1과 4 (또는 8)로 설정합니다. **parallelCopies**는 지정하지 않습니다. 이러한 기능에 대한 자세한 내용은 [병렬 복사](#parallel-copy) 섹션을 참조하세요.
 * Azure 데이터 저장소에서는 원본 및 싱크는 동일한 Azure 지역에 있습니다.
-* 하이브리드(온-프레미스와 클라우드 또는 클라우드와 온-프레미스) 데이터 이동의 경우 게이트웨이의 단일 인스턴스는 온-프레미스 데이터 저장소와 별개인 컴퓨터에서 실행되었습니다. 이 구성은 다음 표에 나와 있습니다. 게이트웨이에 단일 작업이 실행 중인 경우 복사 작업은 테스트 컴퓨터의 CPU, 메모리 또는 네트워크 대역폭의 작은 부분만 사용합니다.
+* 온-프레미스와 클라우드 데이터 저장소 간 하이브리드 복사의 경우 각 게이트웨이 노드는 아래 사양을 사용하는 온-프레미스 데이터 저장소에서 분리된 컴퓨터에서 실행되었습니다. 게이트웨이에 단일 작업이 실행 중인 경우 복사 작업은 테스트 컴퓨터의 CPU, 메모리 또는 네트워크 대역폭의 작은 부분만 사용합니다. [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway)에서 자세히 알아보세요.
     <table>
     <tr>
         <td>CPU</td>
@@ -70,6 +66,10 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
         <td>인터넷 인터페이스: 10Gbps. 인트라넷 인터페이스: 40Gbps</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> 기본 최대 DMU(데이터 이동 단위)보다 많은 DMU를 활용하여 더 많은 처리량을 획득할 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DMU를 사용하면 **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 섹션을 참조하세요. DMU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="parallel-copy"></a>병렬 복사
 **복사 작업 실행 내에서 병렬로** 원본에서 데이터를 읽어 오거나 대상에 데이터를 쓸 수 있습니다. 이 기능을 통해 복사 작업의 처리량을 늘리고 데이터를 이동하는 데 소요되는 시간을 줄일 수 있습니다.
@@ -115,7 +115,6 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 > [!NOTE]
 > 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
    * 성능 기능:
      * [병렬 복사](#parallel-copy)
      * [클라우드 데이터 이동 단위](#cloud-data-movement-units)
-     * [준비된 복사](#staged-copy)   
+     * [준비된 복사](#staged-copy)
+     * [데이터 관리 게이트웨이 확장성](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
    * [원본](#considerations-for-the-source)
    * [싱크](#considerations-for-the-sink)
    * [직렬화 및 역직렬화](#considerations-for-serialization-and-deserialization)
    * [압축](#considerations-for-compression)
    * [열 매핑](#considerations-for-column-mapping)
-   * [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
    * [기타 고려 사항](#other-considerations)
 3. **전체 데이터 집합으로 구성 확장**. 실행 결과 및 성능에 만족하면 정의 및 파이프라인 활성 기간을 확장하여 전체 데이터 집합을 포함할 수 있습니다.
+
+## <a name="considerations-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 고려 사항
+**게이트웨이 설정**: 전용 컴퓨터를 사용하여 데이터 관리 게이트웨이를 호스팅하는 것이 좋습니다. [데이터 관리 게이트웨이에 대한 고려 사항](data-factory-data-management-gateway.md#considerations-for-using-gateway)을 참조하세요.  
+
+**게이트웨이 모니터링 및 강화/확장**: 하나 이상의 게이트웨이 노드를 사용하는 단일 논리 게이트웨이는 동시에 한 번에 여러 개의 복사 작업 실행을 사용할 수 있습니다. Azure Portal에서 제한 대비 실행 중인 동시 작업 수뿐만 아니라, 게이트웨이 컴퓨터에서 리소스 사용률(CPU, 메모리, 네트워크(내부/외부) 등)의 스냅숏을 거의 실시간으로 확인할 수 있습니다. [포털에서 게이트웨이 모니터링](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)을 참조하세요. 동시 복사 작업 실행 수가 많거나 복사할 데이터 양이 많은 하이브리드 데이터 이동이 절실한 경우 리소스를 더 효율적으로 활용하거나, 복사를 지원하도록 더 많은 리소스를 프로비전할 수 있도록 [게이트웨이 강화 또는 확장](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)을 고려해 보세요. 
 
 ## <a name="considerations-for-the-source"></a>원본에 대한 고려 사항
 ### <a name="general"></a>일반
@@ -342,13 +347,6 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 원본 데이터 저장소를 쿼리할 수 있는 경우 예를 들어 SQL Database 또는 SQL Server와 같은 관계형 저장소이거나 테이블 저장소 또는 Azure Cosmos DB와 같은 NoSQL 저장소인 경우 열 매핑을 사용하는 대신, 열 필터링 및 재정렬 논리를 **query** 속성에 푸시하는 것이 좋습니다. 이러한 방식으로 데이터 이동 서비스가 원본 데이터 저장소에서 데이터를 읽는 동안 프로젝션이 발생하며 이는 훨씬 효율적입니다.
 
-## <a name="considerations-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 고려 사항
-게이트웨이 설치 권장 사항은 [데이터 관리 게이트웨이의 사용에 대한 고려 사항](data-factory-data-management-gateway.md#considerations-for-using-gateway)을 참조하세요.
-
-**게이트웨이 컴퓨터 환경**: 전용 컴퓨터를 사용하여 데이터 관리 게이트웨이를 호스팅하는 것이 좋습니다. 게이트웨이 컴퓨터에서 복사 작업을 하는 동안 PerfMon과 같은 도구를 사용하여 CPU, 메모리 및 대역폭 사용을 검토합니다. CPU, 메모리 또는 네트워크 대역폭에 병목 상태가 발생하는 경우 더 강력한 컴퓨터로 전환합니다.
-
-**동시 복사 작업 실행**: 데이터 관리 게이트웨이의 단일 인스턴스는 동시에 여러 복사 작업을 제공할 수 있습니다. 최대 동시 작업 수는 게이트웨이 컴퓨터의 하드웨어 구성에 따라 계산됩니다. 추가 복사 작업은 게이트웨이에서 선택되거나 다른 작업 제한 시간이 초과될 때까지 큐에서 대기합니다. 게이트웨이 컴퓨터에서 리소스 경합을 방지하려면 한 번에 큐에 대기하는 복사 작업 수를 줄이도록 복사 작업 일정을 준비하거나 여러 게이트웨이 컴퓨터에 부하를 분할하는 것이 좋습니다.
-
 ## <a name="other-considerations"></a>기타 고려 사항
 복사하려는 데이터 크기가 큰 경우 Data Factory에서 조각화 메커니즘을 사용하여 데이터를 추가 파티션하도록 비즈니스 논리를 조정할 수 있습니다. 그런 다음 각 복사 작업 실행에 대해 데이터 크기를 줄이기 위해 더 자주 실행할 복사 작업을 예약합니다.
 
@@ -404,7 +402,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 ## <a name="reference"></a>참조
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../storage/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../storage/storage-performance-checklist.md)
+* Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../storage/common/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 계산 능력 관리(개요)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../documentdb/documentdb-performance-levels.md)

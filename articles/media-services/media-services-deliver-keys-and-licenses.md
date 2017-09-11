@@ -4,7 +4,7 @@ description: "이 문서에서는 AMS(Azure 미디어 서비스)를 사용하여
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services

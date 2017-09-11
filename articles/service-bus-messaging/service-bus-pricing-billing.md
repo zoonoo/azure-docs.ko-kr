@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5161b555db96886f556a4fe96eab4415d8ccf047
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-pricing-and-billing"></a>서비스 버스 가격 및 대금 청구
-Service Bus는 기본, 표준 및 [프리미엄](service-bus-premium-messaging.md) 계층으로 제공됩니다. 자신이 만든 Service Bus 서비스 네임스페이스 각각에 서비스 계층을 선택할 수 있으며, 이 계층 선택은 해당 네임스페이스 안에서 모든 엔터티에 적용됩니다.
+Service Bus는 표준 및 [프리미엄](service-bus-premium-messaging.md) 계층으로 제공됩니다. 자신이 만든 Service Bus 서비스 네임스페이스 각각에 서비스 계층을 선택할 수 있으며, 이 계층 선택은 해당 네임스페이스 안에서 모든 엔터티에 적용됩니다.
 
 > [!NOTE]
 > 최신 Service Bus 가격 책정에 대한 자세한 내용은 [Azure Service Bus 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/) 및 [Service Bus FAQ](service-bus-faq.md#pricing)를 참조하세요.
@@ -41,7 +40,7 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
 표준 기본 계층 기본 요금은 Azure 구독별로 매월 한 번만 청구됩니다. 즉, 표준 계층 Service Bus 네임스페이스를 하나 만든 후에는 추가 기본 요금을 발생시키지 않으면서 동일한 Azure 구독에서 추가로 표준 네임스페이스를 원하는 만큼 만들 수 있습니다.
 
-다음 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 표에서는 기본, 표준 및 프리미엄 계층 간의 기능적 차이점에 대해 요약합니다.
+다음 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 표에서는 표준 및 프리미엄 계층 간의 기능적 차이점에 대해 요약합니다.
 
 ## <a name="messaging-operations"></a>메시징 운영
 새로운 가격 책정 모델의 일부로, 큐 및 토픽/구독에 대한 요금 청구가 변경됩니다. 이러한 엔터티는 메시지당 청구에서 작업당 요금 청구로 전환 중입니다. "작업"은 큐나 토픽/구독 서비스 끝점에 대한 모든 API 호출을 의미합니다. 여기에는 관리, 송신/수신 및 세션 상태 작업이 포함됩니다.
@@ -57,7 +56,7 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 ## <a name="brokered-connections"></a>조정된 연결
 *조정된 연결*에서는 큐, 토픽 또는 구독에 대해 대용량의 "영구적인 연결"을 포함하는 고객 사용 패턴을 허용합니다. 영구적으로 연결된 발신자/수신자는 0이 아닌 수신 시간 제한(예: HTTP 긴 폴링)이 있는 AMQP나 HTTP를 사용하여 연결합니다. 즉각적인 시간 제한이 적용된 HTTP 발신자와 수신자는 조정된 연결을 생성하지 않습니다.
 
-연결 할당량 및 기타 서비스 제한에 대해서는 [Service Bus 할당량](service-bus-quotas.md) 문서를 참조하세요.
+연결 할당량 및 기타 서비스 제한에 대해서는 [Service Bus 할당량](service-bus-quotas.md) 문서를 참조하세요. 조정된 연결에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 [FAQ](#faq) 섹션을 참조하세요.
 
 표준 계층은 네임스페이스당 조정된 연결 제한이 없으며 전체 Azure 구독에서 조정된 연결 사용을 집계 산출합니다. 자세한 내용은 [조정된 연결](https://azure.microsoft.com/pricing/details/service-bus/) 표를 참조하세요.
 
@@ -73,11 +72,9 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 >
 >
 
-| 프리미엄 계층 |
-| --- |
-| 프리미엄 계층에서는 조정된 연결에 요금이 부과되지 않습니다. |
+### <a name="premium-tier"></a>프리미엄 계층
 
-조정된 연결에 대한 자세한 내용은 이 항목의 뒷부분에 나오는 [FAQ](#faq) 섹션을 참조하세요.
+프리미엄 계층에서는 조정된 연결에 요금이 부과되지 않습니다.
 
 ## <a name="faq"></a>FAQ
 
@@ -95,7 +92,7 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 2. 10,000개의 장치가 시간 제한이 0이 아니며 HTTP를 통해 서비스 버스 큐에서 메시지를 수신합니다. 모든 장치가 매일 12시간 동안 연결하는 경우 다음 연결 요금이 적용됩니다(타 Service Bus 요금 외에 추가): HTTP 수신 연결 10,000개 * 일일 12시간 * 31일/744=조정된 연결 5,000개.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>조정된 연결 요금은 큐와 토픽/구독에 적용되나요?
-예. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. 0이 아닌 시간 제한을 사용한 HTTP를 통한 이벤트 수신은 경우에 따라 "긴 폴링"이라고 하며 조정된 연결 요금이 발생합니다. AMQP 연결에서는 연결이 송신 또는 수신에 사용되는지 여부에 관계없이 조정된 연결 요금이 발생합니다. 기본 네임스페이스에서는 조정된 연결 100개가 무료로 허용됩니다. Azure 구독에 대해 허용되는 조정된 연결의 최대 개수이기도 합니다. Azure 구독의 모든 표준 네임스페이스에서 최초 1,000개의 조정된 연결은 추가 비용 없이(기본 요금 외) 포함되어 있습니다. 이러한 허용치는 여러 서비스 간 메시징 상황에 충분히 부합하므로, 조정된 연결 요금은 보통 대규모 클라이언트에서 AMQP나 HTTP 롱 폴링을 사용하려는 경우에만 관련이 있습니다. 더 효율적인 이벤트 스트리밍이나 여러 장치 또는 응용 프로그램 인스턴스와의 양방향 통신을 구현하려는 경우를 예로 들 수 있습니다.
+예. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. 0이 아닌 시간 제한을 사용한 HTTP를 통한 이벤트 수신은 경우에 따라 "긴 폴링"이라고 하며 조정된 연결 요금이 발생합니다. AMQP 연결에서는 연결이 송신 또는 수신에 사용되는지 여부에 관계없이 조정된 연결 요금이 발생합니다. Azure 구독의 모든 표준 네임스페이스에서 최초 1,000개의 조정된 연결은 추가 비용 없이(기본 요금 외) 포함되어 있습니다. 이러한 허용치는 여러 서비스 간 메시징 상황에 충분히 부합하므로, 조정된 연결 요금은 보통 대규모 클라이언트에서 AMQP나 HTTP 롱 폴링을 사용하려는 경우에만 관련이 있습니다. 더 효율적인 이벤트 스트리밍이나 여러 장치 또는 응용 프로그램 인스턴스와의 양방향 통신을 구현하려는 경우를 예로 들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Service Bus 가격 책정에 대한 자세한 내용은 [Service Bus 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.

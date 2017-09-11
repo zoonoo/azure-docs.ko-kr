@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a5be3c9bcdd99128217e441d62ce9650c9764580
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
@@ -32,6 +31,10 @@ ms.lasthandoff: 07/08/2017
 -   이전 청구 기간이 끝날 때 최대 24시간 동안의 사용량이 현재 청구서에 표시될 수 있습니다.
 
 -   전 세계 고객용 청구 명세서에 나열된 요금은 예측 용도로만 사용합니다. 은행이 전환율에 대해 서로 다른 비용을 부과하기 때문입니다.
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>청구서에 대한 자세한 용어 및 설명
 다음 섹션에서는 청구서에 표시되는 중요한 용어와 각 용어에 대한 설명을 제공합니다.

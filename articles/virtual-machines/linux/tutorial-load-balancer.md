@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9dd85d38a64f0557fb4ef250b0e177e21bb84e53
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7b3a089d2f6386afcc46cbc4377594be0d758fc6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -50,7 +50,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 
 트래픽 흐름을 제어하려면 VM에 매핑되는 특정 포트 및 프로토콜에 대해 부하 분산 장치 규칙을 정의합니다.
 
-이전 자습서를 따라 [가상 컴퓨터 크기 집합을 만든 경우](tutorial-create-vmss.md) 부하 분산 장치가 생성되었을 것입니다. 이러한 모든 구성 요소는 확장 집합의 일부로 구성되었습니다.
+이전 자습서를 따라 [가상 컴퓨터 확장 집합을 만든 경우](tutorial-create-vmss.md) 부하 분산 장치가 생성되었을 것입니다. 이러한 모든 구성 요소는 확장 집합의 일부로 구성되었습니다.
 
 
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
@@ -167,7 +167,9 @@ done
 ## <a name="create-virtual-machines"></a>가상 컴퓨터 만들기
 
 ### <a name="create-cloud-init-config"></a>cloud-init 구성 만들기
-[처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다. *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다.
+[처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다.
+
+현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
 ```yaml
 #cloud-config
@@ -219,9 +221,7 @@ runcmd:
 ```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
-    --name myAvailabilitySet \
-    --platform-fault-domain-count 3 \
-    --platform-update-domain-count 2
+    --name myAvailabilitySet
 ```
 
 이제 [az vm create](/cli/azure/vm#create)로 VM을 만들 수 있습니다. 다음 예제에서는 3개의 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
@@ -233,7 +233,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -241,7 +241,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-3개의 VM을 만들고 구성하는 데 몇 분 정도 걸립니다. 부하 분산 장치 상태 프로브는 각 VM에서 앱을 실행될 경우를 자동으로 검색합니다. 앱이 실행되면 부하 분산 장치 규칙은 트래픽을 분산하기 시작합니다.
+Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. `--no-wait` 매개 변수는 모든 작업이 완료되기를 기다리지 않습니다. 앱에 액세스하려면 몇 분이 걸릴 수 있습니다. 부하 분산 장치 상태 프로브는 각 VM에서 앱을 실행될 경우를 자동으로 검색합니다. 앱이 실행되면 부하 분산 장치 규칙은 트래픽을 분산하기 시작합니다.
 
 
 ## <a name="test-load-balancer"></a>부하 분산 장치 테스트
@@ -255,7 +255,7 @@ az network public-ip show \
     --output tsv
 ```
 
-그런 다음 웹 브라우저에 공용 IP 주소를 입력할 수 있습니다. 다음 예제와 같이 부하 분산 장치가 트래픽을 분산한 VM의 호스트 이름을 포함하여 앱이 표시됩니다.
+그런 다음 웹 브라우저에 공용 IP 주소를 입력할 수 있습니다. 부하 분산 장치가 트래픽을 분산하도록 시작하기 전에 VM이 준비하는 데 몇 분 정도 걸립니다. 다음 예제와 같이 부하 분산 장치가 트래픽을 분산한 VM의 호스트 이름을 포함하여 앱이 표시됩니다.
 
 ![Node.js 앱 실행](./media/tutorial-load-balancer/running-nodejs-app.png)
 

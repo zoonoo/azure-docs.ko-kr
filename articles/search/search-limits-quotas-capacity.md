@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 검색의 서비스 제한 사항
@@ -49,13 +48,15 @@ ms.lasthandoff: 06/08/2017
 | 인덱스: 인덱스당 최대 점수 매기기 프로필 |100 |100 |100 |100 |100 |100 |
 | 인덱스: 프로필당 최대 함수 |8 |8 |8 |8 |8 |8 |
 | 인덱서: 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 없음<sup>2</sup> |
-| 인덱서: 최대 실행 시간 |3분 |24시간 |24시간 |24시간 |24시간 |해당 없음<sup>2</sup> |
+| 인덱서: 최대 실행 시간 | 1-3분 <sup>3</sup> |24시간 |24시간 |24시간 |24시간 |해당 없음<sup>2</sup> |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 없음<sup>2</sup> |
 | Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |400만 |400만 |400만 |해당 없음<sup>2</sup> |
 
 <sup>1</sup> 기본 계층은 인덱스당 100개 필드 제한보다 더 낮은 SKU입니다.
 
 <sup>2</sup> S3 HD는 현재 인덱서를 지원하지 않습니다. 이 기능이 긴급하게 필요한 경우 Azure 지원 서비스에 문의하세요.
+
+<sup>3</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다.
 
 ## <a name="document-size-limits"></a>문서 크기 제한
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD |

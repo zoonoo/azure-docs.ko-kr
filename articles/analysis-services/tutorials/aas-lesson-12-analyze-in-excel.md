@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 12: Excel에서 분석 | Micros
 description: "Azure Analysis Services 자습서 프로젝트에서 Excel에서 분석을 사용하는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

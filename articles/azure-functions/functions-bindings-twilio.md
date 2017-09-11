@@ -4,7 +4,7 @@ description: "Azure Functions와 함께 Twilio 바인딩을 사용하는 방법�
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Twilio 출력 바인딩을 사용하여 Azure Functions에서 SMS 메시지 전송
@@ -36,14 +36,16 @@ Azure Functions는 함수에서 몇 줄의 코드와 [Twilio](https://www.twilio
 ## <a name="functionjson-for-the-twilio-output-binding"></a>Twilio 출력 바인딩에 대한 function.json
 function.json 파일은 다음 속성을 제공합니다.
 
-* `name` : Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
-* `type` : *"twilioSms"*로 설정해야 합니다.
-* `accountSid` : 이 값은 Twilio 계정 Sid가 포함된 앱 설정의 이름으로 설정해야 합니다.
-* `authToken` : 이 값은 Twilio 인증 토큰이 포함된 앱 설정의 이름으로 설정해야 합니다.
-* `to` : 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.
-* `from` : 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.
-* `direction` : *"out"*으로 설정해야 합니다.
-* `body` : 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. 
+|속성  |설명  |
+|---------|---------|
+|**name**| Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**type**| `twilioSms`로 설정해야 합니다.|
+|**accountSid**| 이 값은 Twilio 계정 Sid가 포함된 앱 설정의 이름으로 설정해야 합니다.|
+|**authToken**| 이 값은 Twilio 인증 토큰이 포함된 앱 설정의 이름으로 설정해야 합니다.|
+|**to**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
+|**from**| 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.|
+|**direction**| `out`로 설정해야 합니다.|
+|**body**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |
 
 예제 function.json:
 

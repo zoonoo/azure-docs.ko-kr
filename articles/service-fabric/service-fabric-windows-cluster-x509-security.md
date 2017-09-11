@@ -3,7 +3,7 @@ title: "인증서를 사용하여 Windows에서 Azure Service Fabric 클러스�
 description: "이 문서에서는 클라이언트와 클러스터 사이 뿐만 아니라 독립 실행형 클러스터 또는 개인 클러스터 내에서 통신을 보호하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ebac24385560377bac27a8b8c425323c57392bd2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
@@ -40,10 +39,26 @@ ms.lasthandoff: 04/27/2017
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },        
+        "ClusterCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
+            "X509StoreName": "My"
         },
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
             "X509StoreName": "My"
         },
         "ClientCertificateThumbprints": [
@@ -67,6 +82,14 @@ ms.lasthandoff: 04/27/2017
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },
+        "ReverseProxyCertificateCommonNames": {
+            "CommonNames": [
+                {
+                "CertificateCommonName": "[CertificateCommonName]"
+                }
+            ],
+            "X509StoreName": "My"
         }
     }
 },
@@ -76,7 +99,7 @@ ms.lasthandoff: 04/27/2017
 
 
 > [!NOTE]
-> [지문](https://en.wikipedia.org/wiki/Public_key_fingerprint) 은 인증서의 기본 ID입니다. [인증서의 지문을 검색하는 방법](https://msdn.microsoft.com/library/ms734695.aspx) 을 참고하여 만든 인증서의 지문을 확인합니다.
+> [지문](https://en.wikipedia.org/wiki/Public_key_fingerprint) 은 인증서의 기본 ID입니다. [인증서의 지문을 검색하는 방법](https://msdn.microsoft.com/library/ms734695.aspx)을 참고하여 만든 인증서의 지문을 확인합니다.
 > 
 > 
 
@@ -84,13 +107,16 @@ ms.lasthandoff: 04/27/2017
 
 | **CertificateInformation 설정** | **설명** |
 | --- | --- |
-| ClusterCertificate |이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 업그레이드에 두 개의 다른 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. **지문** 섹션에서 기본 인증서의 지문 및 **ThumbprintSecondary** 변수에서 보조 인증서의 지문을 설정합니다. |
-| ServerCertificate |이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 *ClusterCertificate* 및 *ServerCertificate*에 동일한 인증서를 사용하도록 선택할 수 있습니다. 업그레이드에 두 개의 다른 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. **지문** 섹션에서 기본 인증서의 지문 및 **ThumbprintSecondary** 변수에서 보조 인증서의 지문을 설정합니다. |
-| ClientCertificateThumbprints |인증된 클라이언트에 설치하려는 인증서의 집합입니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. **CertificateThumbprint** 변수에서 각 인증서의 지문을 설정합니다. **IsAdmin** 을 *true*로 설정한 경우 이 인증서가 설치된 클라이언트는 클러스터에서 관리자 관리 작업을 수행할 수 있습니다. **IsAdmin** 이 *false*로 설정된 경우 이 인증서가 있는 클라이언트는 사용자 액세스 권한(일반적으로 읽기 전용)에 대해 허용되는 작업을 수행할 수만 있습니다. 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
-| ClientCertificateCommonNames |**CertificateCommonName**에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. **CertificateIssuerThumbprint** 는 이 인증서의 발급자 지문입니다. [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx) 을 참고하여 일반 이름 및 발급자에 대해 자세히 알아 봅니다. |
-| ReverseProxyCertificate |이는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어야 합니다. |
+| ClusterCertificate |테스트 환경에 권장됩니다. 이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 업그레이드에 두 개의 다른 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. **지문** 섹션에서 기본 인증서의 지문 및 **ThumbprintSecondary** 변수에서 보조 인증서의 지문을 설정합니다. |
+| ClusterCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다. 하나 또는 두 개의 클러스터 인증서 일반 이름을 사용할 수 있습니다. |
+| ServerCertificate |테스트 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 *ClusterCertificate* 및 *ServerCertificate*에 동일한 인증서를 사용하도록 선택할 수 있습니다. 업그레이드에 두 개의 다른 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다. **지문** 섹션에서 기본 인증서의 지문 및 **ThumbprintSecondary** 변수에서 보조 인증서의 지문을 설정합니다. |
+| ServerCertificateCommonNames |프로덕션 환경에 권장됩니다. 이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 편의상 *ClusterCertificateCommonNames* 및 *ServerCertificateCommonNames*에 동일한 인증서를 사용하도록 선택할 수 있습니다. 하나 또는 두 개의 서버 인증서 일반 이름을 사용할 수 있습니다. |
+| ClientCertificateThumbprints |인증된 클라이언트에 설치하려는 인증서의 집합입니다. 클러스터에 대한 액세스를 허용하려는 컴퓨터에 다양한 클라이언트 인증서가 설치되었을 수도 있습니다. **CertificateThumbprint** 변수에서 각 인증서의 지문을 설정합니다. **IsAdmin**을 *true*로 설정한 경우 이 인증서가 설치된 클라이언트는 클러스터에서 관리자 관리 작업을 수행할 수 있습니다. **IsAdmin** 이 *false*로 설정된 경우 이 인증서가 있는 클라이언트는 사용자 액세스 권한(일반적으로 읽기 전용)에 대해 허용되는 작업을 수행할 수만 있습니다. 역할에 대한 자세한 내용은 [RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
+| ClientCertificateCommonNames |**CertificateCommonName**에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. **CertificateIssuerThumbprint** 는 이 인증서의 발급자 지문입니다. [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참고하여 일반 이름 및 발급자에 대해 자세히 알아 봅니다. |
+| ReverseProxyCertificate |테스트 환경에 권장됩니다. 이는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어야 합니다. |
+| ReverseProxyCertificateCommonNames |프로덕션 환경에 권장됩니다. 이는 [역방향 프록시](service-fabric-reverseproxy.md)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. 이 인증서를 사용하는 경우 reverseProxyEndpointPort가 nodeTypes로 설정되어야 합니다. |
 
-다음은 클러스터, 서버 및 클라이언트 인증서가 제공된 예제 클러스터 구성입니다.
+다음은 클러스터, 서버 및 클라이언트 인증서가 제공된 예제 클러스터 구성입니다. cluster/server/reverseProxy 인증서의 경우 동일한 인증서 형식에 지문 및 일반 이름을 사용할 수 없습니다.
 
  ```JSON
  {
@@ -132,13 +158,21 @@ ms.lasthandoff: 04/27/2017
             "ClusterCredentialType": "X509",
             "ServerCredentialType": "X509",
             "CertificateInformation": {
-                "ClusterCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ClusterCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myClusterCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
-                "ServerCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ServerCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myServerCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
                 "ClientCertificateThumbprints": [{
                     "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
@@ -181,6 +215,10 @@ ms.lasthandoff: 04/27/2017
     }
 }
  ```
+
+## <a name="certificate-roll-over"></a>인증서 롤오버
+지문 대신 인증서 일반 이름을 사용하는 경우 인증서 롤오버를 위해 클러스터 구성을 업그레이드하지 않아도 됩니다.
+인증서 롤오버가 발급자 롤오버를 포함하는 경우 새 발급자 인증서를 설치한 후에 2시간 이상 인증서 저장소에 이전의 발급자 인증서를 저장하세요.
 
 ## <a name="acquire-the-x509-certificates"></a>X.509 인증서를 획득합니다.
 클러스터 내에서 통신을 보호하려면 클러스터 노드에 대한 X.509 인증서를 먼저 가져와야 합니다. 또한 권한이 있는 컴퓨터/사용자에게 이 클러스터에 연결을 제한하려면 클라이언트 컴퓨터에 인증서를 가져와서 설치해야 합니다.

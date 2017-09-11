@@ -4,7 +4,7 @@ description: "Media Encoder Standard를 사용하여 Azure Media Services에서 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e56b8d97a650813dcea1fde9d74ddc29154605d
-ms.lasthandoff: 03/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 4ec324d94717fa1f93eda6f24d9dbd9fc0cdc455
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard를 사용하여 자산을 인코딩하는 방법
@@ -32,29 +32,37 @@ ms.lasthandoff: 03/18/2017
 ## <a name="overview"></a>개요
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 대용량이기 때문에 인터넷을 통해 전달하거나 고객의 장치에서 제대로 표시하지 못할 수 있습니다. 인코딩은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
 
-인코딩 작업은 Azure Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코드할 때는 미디어 서비스 기본 제공 인코더(미디어 인코더 표준)를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 인코더에 정의된 미리 설정 문자열을 사용하여 또는 미리 설정 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다. 사용할 수 있는 미리 설정 유형을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](http://msdn.microsoft.com/library/mt269960)을 참조하세요.
+인코딩 작업은 Azure Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코드할 때는 Media Services 기본 제공 인코더(미디어 인코더 표준)를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 인코더에 정의된 미리 설정 문자열을 사용하여 또는 미리 설정 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다. 사용할 수 있는 미리 설정 유형을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](http://msdn.microsoft.com/library/mt269960)을 참조하세요.
 
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다.
 
 * 작업 엔터티에 대한 작업 탐색 속성을 통해 인라인으로 작업을 정의할 수 있습니다.
 * OData 배치 처리 사용.
 
-항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다.
+항상 원본 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다.
 
 출력 자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
-> [!NOTE]
-> 미디어 프로세서 참조를 시작하기 전에 올바른 미디어 프로세서 ID를 가지고 있는지 확인하십시오. 자세한 내용은 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)를 참조하세요.
->
->
+## <a name="considerations"></a>고려 사항
+
+Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+
+미디어 프로세서 참조를 시작하기 전에 올바른 미디어 프로세서 ID를 가지고 있는지 확인하십시오. 자세한 내용은 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)를 참조하세요.
+
+## <a name="connect-to-media-services"></a>Media Services에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>작업을 단일 인코딩 작업으로 만들기
 > [!NOTE]
 > Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 >
-> https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다.
+> https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 >
 > JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Accept: application/json;odata=verbose)으로 설정해야 합니다.
 >
@@ -99,7 +107,7 @@ ms.lasthandoff: 03/18/2017
 * OutputMediaAsset은 assetName 특성을 사용하여 명명할 수 있습니다. 이 특성이 없을 경우 OutputMediaAsset의 이름은 <outputAsset> 요소의 내부 텍스트 값이 작업 이름 값 또는 작업 Id 값(이름 속성이 정의되어 있지 않은 경우)의 접미사를 갖는 어떤 것이든 가능합니다. 예를 들어, assetName에 대한 값을 "Sample"로 설정하는 경우 OutputMediaAsset 이름 속성은 "Sample"로 설정됩니다. 하지만 assetName에 대한 값은 설정하지 않았지만 작업 이름을 "NewJob"으로 설정한 경우 OutputMediaAsset 이름은 "JobOutputAsset(값)_NewJob"이 됩니다.
 
 ## <a name="create-a-job-with-chained-tasks"></a>연결된 작업으로 작업 만들기
-대부분의 응용 프로그램 시나리오에서는 개발자가 일련의 처리 작업을 만들려고 합니다. 미디어 서비스에서 일련의 연결된 작업을 만들 수 있습니다. 각 작업은 서로 다른 처리 단계를 수행하고 다양한 미디어 프로세서를 사용할 수 있습니다. 연결된 작업은 한 작업에서 다른 작업으로 자산을 전달하여 자산에 대한 선형 시퀀스 작업을 수행할 수 있습니다. 그러나 작업에서 수행된 작업은 시퀀스에 있을 필요가 없습니다. 연결된 작업을 만들면 연결된 **ITask** 개체는 단일 **IJob** 개체에 만들어집니다.
+대부분의 응용 프로그램 시나리오에서는 개발자가 일련의 처리 작업을 만들려고 합니다. Media Services에서 일련의 연결된 작업을 만들 수 있습니다. 각 작업은 서로 다른 처리 단계를 수행하고 다양한 미디어 프로세서를 사용할 수 있습니다. 연결된 작업은 한 작업에서 다른 작업으로 자산을 전달하여 자산에 대한 선형 시퀀스 작업을 수행할 수 있습니다. 그러나 작업에서 수행된 작업은 시퀀스에 있을 필요가 없습니다. 연결된 작업을 만들면 연결된 **ITask** 개체는 단일 **IJob** 개체에 만들어집니다.
 
 > [!NOTE]
 > 현재 작업은 작업당 30개로 제한됩니다. 30개 이상의 작업을 연결해야 하는 경우 둘 이상의 작업을 만들어 작업을 연결합니다.
@@ -225,7 +233,7 @@ ms.lasthandoff: 03/18/2017
 
 
 > [!NOTE]
-> 다른 미디어 서비스 엔터티와 달리, 각 TaskTemplate에 대한 새 GUID 식별자를 정의하고 요청 본문의 taskTemplateId 및 Id 속성에 배치해야 합니다. 콘텐츠 식별 구성표는 Azure 미디어 서비스 엔터티 식별에 설명된 구성표를 따라야 합니다. 또한 JobTemplates는 업데이트할 수 없습니다. 대신 업데이트된 변경 사항으로 새로운 템플릿을 만들어야 합니다.
+> 다른 Media Services 엔터티와 달리, 각 TaskTemplate에 대한 새 GUID 식별자를 정의하고 요청 본문의 taskTemplateId 및 Id 속성에 배치해야 합니다. 콘텐츠 식별 구성표는 Azure Media Services 엔터티 식별에 설명된 구성표를 따라야 합니다. 또한 JobTemplates는 업데이트할 수 없습니다. 대신 업데이트된 변경 사항으로 새로운 템플릿을 만들어야 합니다.
 >
 >
 
@@ -259,7 +267,7 @@ ms.lasthandoff: 03/18/2017
 
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

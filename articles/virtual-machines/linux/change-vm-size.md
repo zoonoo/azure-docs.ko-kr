@@ -57,7 +57,7 @@ VM의 크기를 조정하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli
    > VM의 할당이 취소되면 VM에 할당된 모든 동적 IP 주소도 해제됩니다. OS 및 데이터 디스크는 영향을 받지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장][scale-set]을 참조하세요. 
+확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [가상 컴퓨터 확장 집합에서 Linux 컴퓨터 자동 확장][scale-set]을 참조하세요. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/

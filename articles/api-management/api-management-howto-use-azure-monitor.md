@@ -3,7 +3,7 @@ title: "Azure Monitor를 사용하여 API Management 모니터링 | Microsoft Do
 description: "Azure Monitor를 사용하여 Azure API Management 서비스를 모니터링하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0f64947755c79739bb6f15325929bd074cfd7210
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="monitor-api-management-with-azure-monitor"></a>Azure Monitor를 사용하여 API Management 모니터링

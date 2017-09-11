@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 53681c58ca1eff394d6a3db2d6a026845ac03df1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54afcf1e37f696979bfe270a473c72aedf20dc43
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
-비관리 디스크를 사용하는 기존 Windows VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
+비관리 디스크를 사용하는 기존 Windows VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
 이 문서에서는 Azure PowerShell을 사용하여 VM을 변환하는 방법을 보여 줍니다. 설치 또는 업그레이드가 필요한 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps.md)을 참조하세요.
 
@@ -94,45 +94,10 @@ ms.lasthandoff: 08/05/2017
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 
-
-## <a name="convert-standard-managed-disks-to-premium"></a>표준 관리 디스크를 프리미엄 관리 디스크로 변환
-VM을 관리 디스크로 변환한 후 저장소 유형 간에 전환할 수 있습니다. 디스크에서 표준 저장소와 프리미엄 저장소를 혼합해서 사용할 수도 있습니다. 
-
-다음 예제에서는 표준 저장소에서 프리미엄 저장소로 전환하는 방법을 보여 줍니다. 프리미엄 관리 디스크를 사용하려면 VM에서 프리미엄 저장소를 지원하는 [VM 크기](sizes.md)를 사용해야 합니다. 또한 이 예제에서는 프리미엄 저장소를 지원하는 크기로 전환합니다.
-
-```powershell
-$rgName = 'myResourceGroup'
-$vmName = 'YourVM'
-$size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
-
-# Stop and deallocate the VM before changing the size
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-
-# Change the VM size to a size that supports premium storage
-$vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
-
-# Get all disks in the resource group of the VM
-$vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
-
-# For disks that belong to the selected VM, convert to premium storage
-foreach ($disk in $vmDisks)
-{
-    if ($disk.OwnerId -eq $vm.Id)
-    {
-        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
-        Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
-        -DiskName $disk.Name
-    }
-}
-
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-```
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -140,6 +105,8 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 
 ## <a name="next-steps"></a>다음 단계
+
+[표준 관리 디스크를 프리미엄으로 변환](convert-disk-storage.md)
 
 [스냅숏](snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.
 

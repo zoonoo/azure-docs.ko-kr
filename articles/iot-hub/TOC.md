@@ -15,11 +15,11 @@
 ### [온라인 시뮬레이터 사용](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [실제 장치 사용](iot-hub-get-started-physical.md)
+#### [Python을 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [Python을 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-python-get-started.md)
 
-#### [Visual Studio Code를 사용하는 IoT DevKit](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+#### [Arduino에서 MXChip IoT DevKit](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Node.js를 사용하는 Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
 #### [C를 사용하는 Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)

@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 03ba6cc5e0bb4cfe88ca704d56083e204a1a576b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 97aa69745d200ee76f9f859eb3a8b0ad2f202bad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 가상 컴퓨터에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다.
 
 > [!WARNING]
-> 디스크를 분리해도 자동으로 삭제되지 않습니다. 프리미엄 저장소를 구독하는 경우 디스크에 대한 저장소 요금이 계속 부과됩니다. 자세한 내용은 [프리미엄 저장소 사용 시 가격 책정 및 청구](../../storage/storage-premium-storage.md#pricing-and-billing)를 참조하세요.
+> 디스크를 분리해도 자동으로 삭제되지 않습니다. 프리미엄 저장소를 구독하는 경우 디스크에 대한 저장소 요금이 계속 부과됩니다. 자세한 내용은 [프리미엄 저장소 사용 시 가격 책정 및 청구](../../storage/common/storage-premium-storage.md#pricing-and-billing)를 참조하세요.
 >
 >
 

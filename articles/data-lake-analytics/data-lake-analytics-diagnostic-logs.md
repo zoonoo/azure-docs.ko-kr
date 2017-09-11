@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -78,9 +78,9 @@ ms.lasthandoff: 08/01/2017
 
 3. 로그 항목에 대한 **다운로드** 링크를 클릭하여 해당 로그를 다운로드합니다.
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Data Lake 저장소 계정 사용
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Storage 계정 사용
 
-1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Data Lake 저장소 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
+1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Storage 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
 
     ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
 

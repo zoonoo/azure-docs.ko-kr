@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -60,7 +60,7 @@ Reliable Services의 수명 주기를 고려할 경우 수명 주기에 대한 �
 
 1. 병렬로
     - 열려 있는 수신기 닫힙니다(각 수신기에서 `CommunicationListener.closeAsync()`을 호출함).
-    - `runAsync()`에 전달된 취소 토큰이 취소됩니다(취소 토큰의 `isCancelled` 속성을 확인하면 true를 반환하고 토큰 `throwIfCancellationRequested` 메서드가 호출되면 `CancellationException`를 반환함).
+    - `runAsync()`에 전달된 취소 토큰이 취소됩니다(취소 토큰의 `isCancelled` 속성을 확인하면 true를 반환하고, 호출되는 경우 토큰의 `throwIfCancellationRequested` 메서드에서 `CancellationException`이 발생됨(throw)).
 2. `closeAsync()`이 각 수신기에 완료되고 `runAsync()`도 완료되면 있는 경우 서비스의 `StatelessService.onCloseAsync()` 메서드를 호출합니다(일반적이지 않은 재정의임).
 3. `StatelessService.onCloseAsync()`이 완료되면 서비스 개체는 소멸됩니다.
 

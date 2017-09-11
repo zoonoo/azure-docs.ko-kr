@@ -59,7 +59,8 @@
 #### [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Lucene 구문 쿼리 예제](search-query-lucene-examples.md)
 #### [필터 식 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### 사용자 지정 검색
+### Azure Search의 분석기
+#### [개요](search-analyzers.md)
 #### [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [페이징 결과](search-pagination-page-layout.md)

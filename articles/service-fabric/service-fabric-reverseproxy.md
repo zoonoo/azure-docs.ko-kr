@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
@@ -135,6 +135,15 @@ Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 �
 이 HTTP 응답 헤더는 요청한 리소스가 존재하지 않는 일반적인 HTTP 404 상황을 나타내며, Application Gateway는 서비스 주소를 다시 확인하려고 시도하지 않습니다.
 
 ## <a name="setup-and-configuration"></a>설정 및 구성
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>Azure Portal을 통해 역방향 프록시 사용
+
+Azure Portal은 새 Service Fabric 클러스터를 만드는 동안 역방향 프록시를 사용하는 옵션을 제공합니다.
+**Service Fabric 클러스터 만들기**, 2단계: 클러스터 구성, 노드 유형 구성에서 "역방향 프록시 사용"으로 확인란을 선택합니다.
+보안 역방향 프록시를 구성하기 위해 SSL 인증서는 3단계: 보안, 클러스터 보안 설정 구성에서 지정되고, "역방향 프록시에 대한 SSL 인증서 포함" 확인란을 선택하고, 인증서 세부 정보를 입력하면 됩니다.
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 통해 역방향 프록시 사용
+
 [Azure Resource Manager 템플릿](service-fabric-cluster-creation-via-arm.md)을 사용하여 클러스터에 대해 Service Fabric의 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
 인증서로 보안 역방향 프록시를 구성하고 인증서 롤오버를 처리하기 위한 Azure Resource Manager 템플릿 샘플에 대해서는 [보안 클러스터에서 HTTPS 역방향 프록시 구성](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster)을 참조하세요.
@@ -302,7 +311,7 @@ Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 �
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
-* 추가적인 역방향 프록시 구성 옵션은 [Service Fabric 클러스터 설정 사용자 지정](service-fabric-cluster-fabric-settings.md)의 응용 프로그램 게이트웨이/HTTP 섹션을 참조하세요.
+* 추가적인 역방향 프록시 구성 옵션은 [Service Fabric 클러스터 설정 사용자 지정](service-fabric-cluster-fabric-settings.md)의 Application Gateway/HTTP 섹션을 참조하세요.
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

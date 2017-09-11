@@ -4,7 +4,7 @@ description: "Azure CLI 스크립트 샘플 - Azure의 함수 앱에 사용자 �
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2

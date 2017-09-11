@@ -11,83 +11,158 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/25/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
-## <a name="services-enabled-with-conditional-access"></a>조건부 액세스로 설정된 서비스
+[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다.  
+이 항목에서는 조건부 액세스 정책의 다음 항목에 대한 지원 정보를 제공합니다. 
 
-조건부 액세스 규칙은 다양한 Azure AD 응용 프로그램 종류에서 지원됩니다. 이 목록에는 다음이 포함됩니다.
+- 클라우드 앱 할당
 
-
-* Azure 응용 프로그램 프록시에 등록된 응용 프로그램
-* Azure 원격 앱
-* Azure AD에 등록된 개발 LOB(기간 업무) 및 다중 테넌트 응용 프로그램
-* Dynamics CRM
-* Azure AD 응용 프로그램 갤러리의 페더레이션 응용 프로그램
-* Microsoft Office 365 Yammer
-* Microsoft Office 365 Exchange Online
-* Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 포함)
-* Microsoft Power BI 
-* Azure AD 응용 프로그램 갤러리의 암호 SSO 응용 프로그램
-* Visual Studio Team Services
-* Microsoft 팀
+- 클라이언트 앱 조건
 
 
 
+## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
+
+조건부 액세스 정책을 구성할 경우 [정책을 적용할 클라우드 앱을 선택](active-directory-conditional-access-azure-portal.md#who)해야 합니다. 
+
+![제어](./media/active-directory-conditional-access-technical-reference/09.png)
+
+
+### <a name="microsoft-cloud-apps"></a>Microsoft 클라우드 앱
+
+Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
+
+- Azure 원격 앱
+
+- Dynamics CRM
+
+- Microsoft Office 365 Yammer
+
+- Microsoft Office 365 Exchange Online
+
+- Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 포함)
+
+- Microsoft Power BI 
+
+- Visual Studio Team Services
+
+- Microsoft 팀
+
+
+### <a name="other-apps"></a>다른 앱 
+
+Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
+
+- Azure AD(Azure Active Directory) - 연결 응용 프로그램
+
+- 사전 통합되고 페더레이션된 SaaS(software as a service) 응용 프로그램
+
+- 암호 SSO(Single Sign-On)를 사용하는 응용 프로그램
+
+- 기간 업무 응용 프로그램
+
+- Azure AD 응용 프로그램 프록시를 사용하는 응용 프로그램 
+
+
+## <a name="client-apps-conditions"></a>클라이언트 앱 조건 
+
+조건부 액세스 정책을 구성할 경우 [클라이언트 앱 조건](active-directory-conditional-access-azure-portal.md#client-apps)을 설정할 수 있습니다. 클라이언트 앱 조건을 사용하면 이러한 형식의 클라이언트 앱에서 액세스하려는 경우 권한을 부여하거나 액세스를 차단할 수 있습니다.
+
+- 브라우저
+- 모바일 앱 및 데스크톱 앱
+
+![제어](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+### <a name="supported-browsers"></a>지원되는 브라우저 
+
+조건부 액세스 정책에서 *브라우저*를 선택하여 리소스에 대한 액세스 권한을 부여하는 경우 지원되는 브라우저를 사용하여 액세스를 시도할 때에만 액세스 권한이 부여됩니다. 지원되지 않는 브라우저를 사용하여 액세스하려는 경우 시도가 차단됩니다.
+
+![지원되는 브라우저](./media/active-directory-conditional-access-technical-reference/05.png)
+
+조건부 액세스 정책에서 다음 브라우저가 지원됩니다. 
+
+
+| OS                     | 브라우저                 | 지원     |
+| :--                    | :--                      | :-:         |
+| Win 10                 | IE, Edge                 | ![확인][1] |
+| Win 10                 | Chrome                   | 미리 보기     |
+| Win 8 / 8.1            | IE, Chrome               | ![확인][1] |
+| Win 7                  | IE, Chrome               | ![확인][1] |
+| iOS                    | Safari                   | ![확인][1] |
+| Android                | Chrome                   | ![확인][1] |
+| Windows Phone          | IE, Edge                 | ![확인][1] |
+| Windows Server 2016    | IE, Edge                 | ![확인][1] |
+| Windows Server 2016    | Chrome                   | 서비스 예정 |
+| Windows Server 2012 R2 | IE, Chrome               | ![확인][1] |
+| Windows Server 2008 R2 | IE, Chrome               | ![확인][1] |
+| Mac OS                 | Safari                   | ![확인][1] |
+| Mac OS                 | Chrome                   | 서비스 예정 |
+
+> [!NOTE]
+> Chrome 지원의 경우 Windows 10 크리에이터 업데이트를 사용하고 [여기](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)에 있는 확장을 설치해야 합니다.
+
+
+### <a name="supported-mobile-apps-and-desktop-clients"></a>지원되는 모바일 앱 및 데스크톱 클라이언트
+
+조건부 액세스 정책에서 **모바일 앱 및 데스크톱 클라이언트**를 선택하여 리소스에 대한 액세스 권한을 부여하는 경우 지원되는 모바일 앱 및 데스크톱 클라이언트를 사용하여 액세스를 시도할 때에만 액세스 권한이 부여됩니다. 지원되지 않는 모바일 앱 및 데스크톱 클라이언트를 사용하여 액세스하려는 경우 시도가 차단됩니다.
+
+![제어](./media/active-directory-conditional-access-technical-reference/06.png)
+
+Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 조건부 액세스를 지원하는 모바일 앱 및 데스크톱 클라이언트는 다음과 같습니다.
+
+
+| 클라이언트 앱| 대상 서비스| 플랫폼 |
+| :-- | --- | --- |
+| 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
+| Azure 원격 앱| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
+| Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, MAC OS X, iOS, Android, WP, 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS/Android 및 MAC OSX|
+| 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| 윈도우 10|
+| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook 모바일 앱| Office 365 Exchange Online| iOS|
+| Outlook 2016(macOS용 Office)| Office 365 Exchange Online| Mac OS X|
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.| Office 365 SharePoint Online| 윈도우 10|
+| Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 모바일 앱| Office 365 SharePoint Online| iOS, Android|
+| macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| Mac OS X|
+| Office Yammer 앱| Office 365 Yammer| Windows 10, iOS, Android|
+| PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS|
+| Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 
 
 
 
 
 
-## <a name="enable-access-rules"></a>액세스 규칙 사용
-각 규칙을 응용 프로그램 단위로 사용하거나 사용하지 않도록 설정할 수 있습니다. **설정** 인 경우 규칙을 사용할 수 있으며 응용 프로그램에 액세스하는 사용자에게 적용됩니다. **해제** 인 경우 규칙을 사용할 수 없으며 사용자 로그인 환경에 영향을 주지 않습니다.
-
-## <a name="applying-rules-to-specific-users"></a>특정 사용자에게 규칙 적용
-규칙은 **적용 대상**을 설정하여 보안 그룹을 기반으로 특정 사용자 집합에 적용할 수 있습니다. **적용 대상**으로 **모든 사용자** 또는 **그룹**을 설정할 수 있습니다. **모든 사용자** 로 설정하면 규칙은 응용 프로그램에 액세스하는 모든 사용자에게 적용됩니다. **그룹** 옵션을 통해 특정 보안 및 배포 그룹을 선택할 수 있으며 이러한 그룹에 대해서만 규칙이 적용됩니다.
-
-규칙을 배포하는 경우 파일럿 그룹의 멤버인 제한된 사용자 집합에 먼저 적용하는 것이 일반적입니다. 완료되면 규칙을 **모든 사용자**에 적용할 수 있습니다. 이렇게 하면 조직의 모든 사용자에게 규칙이 적용됩니다.
-
-**제외** 옵션을 사용하여 정책에서 제외되도록 그룹을 선택할 수 있습니다. 제외 옵션으로 선택한 그룹의 모든 멤버는 포함되는 그룹에 표시되더라도 제외됩니다.
-
-## <a name="at-work-networks"></a>"회사" 네트워크
-"회사" 네트워크를 사용하는 조건부 액세스 규칙은 Azure AD에서 구성된 신뢰할 수 있는 IP 주소 범위를 사용하거나 AD FS의 “Corpnet 내부" 클레임을 사용합니다. 이러한 규칙에는 다음이 포함됩니다.
-
-* 회사에 있지 않을 때 다단계 인증 필요
-* 회사에 있지 않을 때 액세스 차단
-
-“회사” 네트워크 지정 옵션
-
-1. 신뢰할 수 있는 IP 주소 범위는 [다단계 인증 구성 페이지](../multi-factor-authentication/multi-factor-authentication-whats-next.md)에서 구성합니다. 조건부 액세스 정책은 각 인증 요청 및 토큰 발급의 구성 범위를 사용하여 규칙을 평가합니다. 
-2. Corpnet 내부 클레임을 사용하여 구성합니다. 이 옵션은 AD FS를 이용하여 페더레이트된 디렉터리와 함께 사용할 수 있습니다. 회사 네트워크 내부 클레임에 대한 자세한 내용은 [Tusted IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.
 
 
-## <a name="rules-based-on-application-sensitivity"></a>응용 프로그램 민감도에 기반한 규칙
-다른 서비스에 대한 액세스에 영향을 주지 않고 중요한 서비스의 보안이 유지되도록 허용하는 응용 프로그램 단위로 규칙이 구성됩니다. 응용 프로그램의 **구성** 탭에서 조건부 액세스 규칙을 구성할 수 있습니다. 
 
-현재 제공되는 규칙은 다음과 같습니다.
 
-* **다단계 인증 필요**
-  
-  * 정책이 적용되는 모든 사용자는 다단계 인증을 한 번 이상 인증해야 합니다.
-* **회사에 있지 않을 때 다단계 인증 필요**
-  
-  * 이 정책이 적용되는 경우 모든 사용자는 회사 외부의 원격 위치에서 서비스를 액세스하는 경우 다단계 인증을 한 번 이상 수행해야 합니다. 회사에서 원격 위치로 이동하는 경우 서비스에 액세스할 때 다단계 인증을 수행해야 합니다.
-* **회사에 있지 않을 때 액세스 차단** 
-  
-  * 사용자가 회사에서 원격 위치로 이동할 때 "회사에 있지 않을 때 액세스 차단" 정책이 적용되는 경우 차단됩니다.  회사에 있을 때에는 액세스가 다시 허용됩니다.
 
-## <a name="related-topics"></a>관련된 항목
-* [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+
+
+## <a name="next-steps"></a>다음 단계
+
+- 조건부 액세스에 대한 개요는 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
+- 사용자 환경에서 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요.
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-technical-reference/01.png
+
 
 

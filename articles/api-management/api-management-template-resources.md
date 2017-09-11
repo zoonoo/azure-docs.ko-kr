@@ -3,7 +3,7 @@ title: "Azure API Management 템플릿 리소스 | Microsoft Docs"
 description: "Azure API Management에서 개발자 포털 템플릿에 사용할 수 있는 리소스 종류에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94

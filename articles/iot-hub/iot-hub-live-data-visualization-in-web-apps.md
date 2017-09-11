@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4f30643926def3259e603a94c741b8f65427b8da
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service의 Web Apps 기능을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
@@ -112,6 +112,9 @@ GitHub에서 IoT Hub의 실시간 센서 데이터를 표시하는 웹 응용 �
 IoT Hub에서 실시간 온도 및 습도 데이터를 볼 수 있습니다.
 
 ![실시간 온도 및 습도를 보여 주는 웹앱 페이지](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> 응용 프로그램 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 빈 차트를 받습니다. [사용자 장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 웹앱을 사용하여 IoT Hub에서 실시간 센서 데이터를 시각화했습니다.

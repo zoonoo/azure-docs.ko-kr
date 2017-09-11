@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bedf52a2a9b9ffc1c2546f25a09c0b1639a6e210
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b109d1f3082fa3017f34bed685fd008ff3630394
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
@@ -35,5 +35,7 @@ ms.lasthandoff: 07/21/2017
 | [응용 프로그램 인증서 추가](./scripts/service-fabric-powershell-add-application-certificate.md) .| 클러스터의 모든 노드에 응용 프로그램 X.509 인증서를 추가합니다. |
 | **응용 프로그램 관리** ||
 | [응용 프로그램 배포](./scripts/service-fabric-powershell-deploy-application.md)| 클러스터에 응용 프로그램을 배포합니다.|
+| [응용 프로그램 업그레이드](./scripts/service-fabric-powershell-upgrade-application.md)| 응용 프로그램 업그레이드 |
 | [응용 프로그램 제거](./scripts/service-fabric-powershell-remove-application.md)| 클러스터에서 응용 프로그램을 제거합니다.|
+| [Load Balancer에서 포트 열기](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Azure Load Balancer에서 응용 프로그램 포트를 엽니다. |
 

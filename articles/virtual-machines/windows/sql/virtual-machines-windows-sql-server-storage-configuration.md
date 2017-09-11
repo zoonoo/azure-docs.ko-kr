@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3fe2a44d7e05538bdc3341110a517e7e9bdf3e7d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 저장소 구성
@@ -32,7 +33,7 @@ Azure에서 SQL Server 가상 컴퓨터 이미지를 구성하는 경우 포털�
 
 * [SQL Server 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing)로 프로비전합니다.
 * [Resource Manager 배포 모델](../../../azure-resource-manager/resource-manager-deployment-model.md)을 사용합니다.
-* [프리미엄 저장소](../../../storage/storage-premium-storage.md)를 사용합니다.
+* [프리미엄 저장소](../../../storage/common/storage-premium-storage.md)를 사용합니다.
 
 ## <a name="new-vms"></a>새 VM
 다음 섹션에서는 새 SQL Server 가상 컴퓨터에 대한 저장소를 구성하는 방법을 설명합니다.
@@ -104,7 +105,7 @@ SQL Server VM에 이미 저장소를 구성한 경우 저장소를 확장하면 
 
 * VM에 대한 2TB 미만의 저장소를 선택한 경우 Azure는 저장소 풀을 만들지 않습니다.
 * VM에 대한 2TB 이상의 저장소를 선택한 경우 Azure는 저장소 풀을 구성합니다. 이 항목의 다음 섹션에서는 저장소 풀 구성의 세부 정보를 제공합니다.
-* 자동 저장소 구성은 항상 [프리미엄 저장소](../../../storage/storage-premium-storage.md) P30 데이터 디스크를 사용합니다. 따라서 선택한 테라바이트 수와 VM에 연결된 데이터 디스크의 수 간에 1:1 매핑이 됩니다.
+* 자동 저장소 구성은 항상 [프리미엄 저장소](../../../storage/common/storage-premium-storage.md) P30 데이터 디스크를 사용합니다. 따라서 선택한 테라바이트 수와 VM에 연결된 데이터 디스크의 수 간에 1:1 매핑이 됩니다.
 
 가격 책정 정보는 [디스크 저장소](https://azure.microsoft.com/pricing/details/storage) 탭의 **저장소 가격 책정** 페이지를 참조하세요.
 
@@ -143,9 +144,4 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 저장소 풀을 만듭�
 
 ## <a name="next-steps"></a>다음 단계
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -6,7 +6,7 @@ metadata:
   title: 'Azure Cosmos DB 설명서 - 자습서, API 참조'
   description: 'Azure Cosmos DB를 사용하여 전역적으로 분산된 다중 모델 데이터베이스를 사용하는 방법을 알아봅니다. 자습서는 문서, 키/값 및 그래프 데이터베이스를 빌드 및 쿼리하는 방법을 보여 줍니다.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

@@ -1,9 +1,9 @@
 ---
 title: "Azure Resource Health - 자습서 | Microsoft Docs"
-description: 
+description: "Azure Service Health는 영향을 주는 Azure 서비스에 문제가 있을 때 개인 설정된 지침 및 지원을 제공하고 예정된 계획된 유지 관리에 대해 준비하도록 도움을 줍니다. Azure Service Health는 대상 및 유연한 알림을 통해 사용자 및 팀에 경고합니다."
 services: Resource health
-author: bernardm
-manager: bernardm
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: service-health
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
-ms.author: bernardm
+ms.author: carolz
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1452c1dd56829d162d464c4a359fa8c86ce74a6b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 17f7d334380032eec4be7d0ce3071a62b04fdc62
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-service-health-documentation"></a>Azure Service Health 설명서

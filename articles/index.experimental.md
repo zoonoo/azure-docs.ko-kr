@@ -235,7 +235,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>가상 컴퓨터 크기 집합</p>
+                                                <p>가상 컴퓨터 확장 집합</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 07/24/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>가상 컴퓨터 크기 집합</h3>
+                                                    <h3>가상 컴퓨터 확장 집합</h3>
                                                     <p>수십 개에서 수천 개에 이르는 Linux 및 Windows 가상 컴퓨터 관리 및 규모 조정</p>
                                                 </div>
                                             </div>

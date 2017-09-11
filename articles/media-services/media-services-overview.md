@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services에 대한 개요를 제�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 38c3637cc477e24ac8d056611e7fda9a4d693cdb
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 

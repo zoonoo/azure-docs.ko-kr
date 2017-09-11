@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
@@ -75,13 +75,19 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 > [!NOTE]
 > 일부 서비스는 특정 클러스터 형식에서만 사용할 수 있습니다. 예를 들어 HBase는 HBase 클러스터 형식에서만 사용할 수 있습니다.
 
+> [!IMPORTANT]
+> 일부 서비스는 한 번에 하나의 헤드 노드에서만 실행됩니다. 기본 헤드 노드에서 서비스에 연결하려고 하는데 404 오류가 수신되면 보조 헤드 노드에 사용하여 다시 시도하세요.
+
 ### <a name="ambari"></a>Ambari
 
-| 부여 | 노드 | 포트 | Path | 프로토콜 | 
+| 부여 | 노드 | 포트 | URL 경로 | 프로토콜 | 
 | --- | --- | --- | --- | --- |
 | Ambari 웹 UI | 헤드 노드 | 8080 | / | http |
-| Ambari REST API | 헤드 노드 | 8080 | /api/v1 | http |
+| Ambari REST API | 헤드 노드 | 8080 | /api/v1 | HTTP |
 
+예제:
+
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS 포트
 
@@ -161,6 +167,11 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 ### <a name="spark-ports"></a>Spark 포트
 
-| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
-| --- | --- | --- | --- | --- |
-| Spark Thrift 서버 |헤드 노드 |10002 |Thrift |Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
+| 부여 | 노드 | 포트 | 프로토콜 | URL 경로 | 설명 |
+| --- | --- | --- | --- | --- | --- |
+| Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
+| Livy 서버 | 헤드 노드 | 8998 | HTTP | /batches | 문, 작업 및 응용 프로그램을 실행하기 위한 서비스 |
+
+예제:
+
+* Livy: `curl "http://10.0.0.11:8998/batches"`. 이 예제에서 `10.0.0.11`은 Livy 서비스를 호스트하는 헤드 노드의 IP 주소입니다.

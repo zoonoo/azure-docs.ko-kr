@@ -24,7 +24,7 @@ ms.lasthandoff: 03/31/2017
 ---
 
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Virtual Machine Scale Sets 템플릿에 대해 알아보기
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 크기 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
+[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
 
 이 템플릿은 간단하게 제작되었습니다. 확장 집합 템플릿의 전체 예제를 보려면 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 참조하고 문자열 `vmss`가 포함된 폴더를 검색하세요.
 
@@ -88,7 +88,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ## <a name="specify-virtual-network-properties"></a>가상 네트워크 속성 지정
-각 Resource Manager 리소스에는 해당 리소스 관련 구성에 대한 자체 `properties` 섹션이 있습니다. 이 경우에는 가상 네트워크에 개인 IP 주소 범위 `10.0.0.0/16`을 사용하는 하나의 서브넷만 있도록 지정합니다. 크기 집합은 항상 하나의 서브넷에 포함되며 여러 서브넷에 걸쳐 있을 수 없습니다.
+각 Resource Manager 리소스에는 해당 리소스 관련 구성에 대한 자체 `properties` 섹션이 있습니다. 이 경우에는 가상 네트워크에 개인 IP 주소 범위 `10.0.0.0/16`을 사용하는 하나의 서브넷만 있도록 지정합니다. 확장 집합은 항상 하나의 서브넷에 포함되며 여러 서브넷에 걸쳐 있을 수 없습니다.
 
 ```json
        "properties": {
@@ -112,7 +112,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ## <a name="add-dependson-list"></a>dependsOn 목록 추가
 필수 `type`, `name`, `apiVersion`, `location` 속성 외에도 각 리소스는 선택적인 `dependsOn` 목록 문자열을 가질 수 있습니다. 이 목록은 이 리소스를 배포하기 전에 이 배포의 다른 리소스가 완료해야 하는 것을 지정합니다.
 
-이 경우 목록에 요소가 하나만 있으며 해당 요소는 이전 예제의 가상 네트워크입니다. VM을 만들려면 먼저 크기 집합에 네트워크가 있어야 하므로 이러한 종속성을 지정합니다. 이러한 방식으로 확장 집합은 네트워크 속성에 이전에 지정된 IP 주소 범위의 개인 IP 주소를 이러한 VM에 제공할 수 있습니다. dependsOn 목록에 있는 각 문자열의 형식은 `<type>/<name>`입니다. 가상 네트워크 리소스 정의에 이전에 사용된 것과 동일한 `type` 및 `name`을 사용합니다.
+이 경우 목록에 요소가 하나만 있으며 해당 요소는 이전 예제의 가상 네트워크입니다. VM을 만들려면 먼저 확장 집합에 네트워크가 있어야 하므로 이러한 종속성을 지정합니다. 이러한 방식으로 확장 집합은 네트워크 속성에 이전에 지정된 IP 주소 범위의 개인 IP 주소를 이러한 VM에 제공할 수 있습니다. dependsOn 목록에 있는 각 문자열의 형식은 `<type>/<name>`입니다. 가상 네트워크 리소스 정의에 이전에 사용된 것과 동일한 `type` 및 `name`을 사용합니다.
 
 ```json
      {
@@ -137,7 +137,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ### <a name="choose-type-of-updates"></a>업데이트 유형 선택
-또한 크기 집합은 크기 집합의 업데이트 처리 방법을 알아야 합니다. 현재 `Manual` 및 `Automatic`의 두 가지 옵션이 있습니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [크기 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md)에 대한 설명서를 참조하세요.
+또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재 `Manual` 및 `Automatic`의 두 가지 옵션이 있습니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md)에 대한 설명서를 참조하세요.
 
 ```json
        "properties": {

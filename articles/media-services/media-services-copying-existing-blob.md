@@ -4,7 +4,7 @@ description: "이 토픽에서는 기존 Blob을 Media Services 자산에 복사
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services

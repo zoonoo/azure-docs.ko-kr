@@ -4,7 +4,7 @@ description: "Stream Analytics가 데이터 스트림의 잘못된 순서 또는
 keywords: "순서 비지정, 지연, 이벤트"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: d7a5620aef1f28ea065ec10ce095f7f3904a8060
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Azure Stream Analytics 이벤트 순서 처리
@@ -65,7 +64,7 @@ Stream Analytics가 이벤트 순서 이상을 수정하도록 하려면 0이 �
 버퍼링의 부작용은 출력이 **동일한 시간만큼 지연**된다는 것입니다. 값을 조정하여 잘못된 순서 이벤트의 수를 줄이고 작업 대기 시간을 낮게 유지할 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)

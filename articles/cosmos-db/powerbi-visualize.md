@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 08/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6221f5fa113bf58ed3f5e0767b79b2b647005c71
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
@@ -36,8 +35,14 @@ ms.lasthandoff: 07/08/2017
 * Power BI 데스크톱에서 중첩된 JSON 데이터를 변환하는 방법
 * PowerBI.com에서 내 보고서를 게시 및 공유하는 방법
 
+> [!NOTE]
+> Azure Cosmos DB용 Power BI 커넥터는 데이터 추출 및 변환을 위해 Power BI Desktop에 연결합니다. Power BI Desktop에서 만든 보고서를 PowerBI.com에 게시할 수 있습니다. Azure Cosmos DB 데이터의 직접 추출 및 변환은 PowerBI.com에서 수행할 수 없습니다. 
+
+> [!NOTE]
+> MongoDB API를 사용하여 Azure Cosmos DB를 Power BI에 연결하려면 [Simba MongoDB ODBC 드라이버](http://www.simba.com/drivers/mongodb-odbc-jdbc/)를 사용해야 합니다.
+
 ## <a name="prerequisites"></a>필수 조건
-이 Power BI 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
+이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * 데모 계정 또는 Cosmos DB 계정의 데이터 액세스.
@@ -46,10 +51,10 @@ ms.lasthandoff: 07/08/2017
     * 읽기 전용 키: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * 또는 고유 계정을 만들려면 [Azure Portal을 사용하여 Azure Cosmos DB 데이터베이스 계정 만들기](https://azure.microsoft.com/documentation/articles/create-account/)를 참조하세요. 그런 다음 이 자습서에서 사용된 것과 유사하지만 GeoJSON 블록이 포함되지 않은 샘플 화산 데이터를 가져오려면 [NOAA 사이트](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)를 참조하고, [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 데이터를 가져옵니다.
 
-PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI for Free 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
+PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  무료 Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
 ## <a name="lets-get-started"></a>이제 시작하겠습니다.
-이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 Cosmos DB 계정에 저장되며 JSON 문서는 아래와 같습니다.
+이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다.  화산 데이터는 Cosmos DB 계정에 저장되며 JSON 문서는 다음 샘플 문서와 같습니다.
 
     {
         "Volcano Name": "Rainier",
@@ -68,7 +73,7 @@ PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어�
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Cosmos DB 계정에서 화산 데이터를 검색하고 아래와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
+Cosmos DB 계정에서 화산 데이터를 검색하고 다음 보고서와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
 
 ![Power BI 커넥터를 사용하여 이 Power BI 자습서를 완료하여 Power BI Desktop 화산 보고서를 사용하여 데이터를 시각화할 수 있습니다.](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -82,30 +87,35 @@ Cosmos DB 계정에서 화산 데이터를 검색하고 아래와 같은 대화�
    
     ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
-5. **Azure**를 클릭하고 **Microsoft Azure Cosmos DB(베타)**를 선택한 다음 **연결**을 클릭합니다.  **Microsoft Azure Cosmos DB 연결** 창이 표시됩니다.
-   
-    ![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)
-6. 아래와 같이 데이터를 가져올 Cosmos DB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. Azure 포털의 **[키](manage-account.md#keys)** 블레이드에서 URI 상자로부터 URL을 가져오거나, 데모 계정을 사용할 수 있습니다. 이 경우 URL은 `https://analytics.documents.azure.com`입니다. 
+5. **Azure**를 클릭하고 **Microsoft Azure DocumentDB(베타)**를 클릭한 다음 **연결**을 클릭합니다. 
+
+    ![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
+6. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Microsoft Azure DocumentDB 연결** 창이 표시됩니다.
+7. 아래와 같이 데이터를 가져올 Cosmos DB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **[키](manage-account.md#keys)** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 데모 계정을 사용하려면 URL로 `https://analytics.documents.azure.com`을 입력합니다. 
    
     데이터베이스 이름, 컬렉션 이름 및 SQL 문을 비워 둡니다. 이러한 필드는 선택 사항입니다.  대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 데스크톱 연결 창](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다.  Azure 포털의 **[읽기 전용 키](manage-account.md#keys)** 블레이드에서 **기본 키** 상자로부터 키를 가져오거나, 데모 계정을 사용할 수 있습니다. 이 경우 키는 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`입니다. 계정 키를 입력하고 **연결**을 클릭합니다.
+8. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **[읽기 전용 키](manage-account.md#keys)** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 데모 계정의 경우 키는 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`입니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
     보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다.  이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 [키](manage-account.md#keys) 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 계정 키](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
-8. 계정이 성공적으로 연결되면 **탐색기** 가 표시됩니다.  **탐색기** 는 계정의 데이터베이스 목록을 표시합니다.
-9. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장합니다. 데모 계정을 사용하는 경우 **volcanodb**를 선택합니다.   
-10. 이제 데이터를 가져올 컬렉션을 선택합니다. 데모 계정을 사용하는 경우 **volcano1**을 선택합니다.
+    
+    > [!NOTE] 
+    > "지정된 데이터베이스를 찾을 수 없습니다."라는 오류가 발생할 경우 이 [Power BI 문제](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200) 커뮤니티의 문제 해결 단계를 참조하세요.
+    
+9. 계정이 성공적으로 연결되면 **탐색기** 가 표시됩니다.  **탐색기** 는 계정의 데이터베이스 목록을 표시합니다.
+10. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장합니다. 데모 계정을 사용하는 경우 **volcanodb**를 선택합니다.   
+11. 이제 데이터를 가져올 컬렉션을 선택합니다. 데모 계정을 사용하는 경우 **volcano1**을 선택합니다.
     
     미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 탐색기 창](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
-11. 데이터를 변환할 수 있게, **편집** 을 클릭하여 쿼리 편집기를 실행합니다.
+12. **편집**을 클릭하여 새 창에서 쿼리 편집기를 시작해 데이터를 변환합니다.
 
 ## <a name="flattening-and-transforming-json-documents"></a>JSON 문서 평면화 및 변환
-1. Power BI 쿼리 편집기의 가운데 창에 **문서** 열이 표시됩니다.
+1. Power BI 쿼리 편집기 창으로 전환합니다. 가운데 창에 **문서** 열이 표시됩니다.
    ![Power BI 데스크톱 쿼리 편집기](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 2. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다.  필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다.  화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등, 보고서에 필요한 필드를 선택하고 **확인**을 클릭합니다.
    

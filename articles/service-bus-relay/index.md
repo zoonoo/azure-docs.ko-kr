@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Service Bus Relay 설명서"
 description: "Azure Relay 서비스가 어떻게 하이브리드 클라우드 및 온-프레미스 환경에서 작동하고, 방법, 자습서, 비디오, API 참조 등으로 완료되는지 알아봅니다."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: ko-kr
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Relay 설명서
 Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크와 공용 클라우드 내에서 온-프레미스와 클라우드 환경 사이의 하이브리드 응용 프로그램을 어떻게 원활하게 작동하도록 하는지 알아봅니다.

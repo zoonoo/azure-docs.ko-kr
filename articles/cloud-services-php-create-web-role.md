@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 89092e75d10ece044be61ceba0baf16c9e1599be
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할을 만드는 방법
@@ -179,7 +179,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 6. 아래 [응용 프로그램 게시](#publish-your-application) 섹션에 설명된 대로 응용 프로그램을 게시합니다.
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>계산 및 저장소 에뮬레이터에서 응용 프로그램 실행 
-Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/storage-use-emulator.md)을 참조하세요.
+Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
 계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 응용 프로그램을 실행합니다.
 

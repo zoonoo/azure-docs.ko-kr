@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 4: 관계 만들기 | Microsoft
 description: "Azure Analysis Services 자습서 프로젝트에서 관계를 만드는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

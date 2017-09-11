@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터 크기 집합에 앱 배포"
+title: "가상 컴퓨터 확장 집합에 앱 배포"
 description: "확장을 사용하여 Azure 가상 컴퓨터 확장 집합에 앱을 배포합니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e6a5e3a378a5661c09f770a202c10d270f324447
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -47,7 +47,7 @@ Azure에 갖고 있는 가상 컴퓨터를 사용하여 확장 집합에 사용�
 
 4. 이전 단계에서 캡처한 이미지 URI를 사용하여 [가상 컴퓨터 확장 집합][vmss-create]을 만듭니다.
 
-디스크에 대한 자세한 내용은 [Managed Disks 개요](../storage/storage-managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요.
+디스크에 대한 자세한 내용은 [Managed Disks 개요](../virtual-machines/windows/managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요.
 
 ## <a name="install-when-the-scale-set-is-provisioned"></a>확장 집합이 프로비전되면 설치
 

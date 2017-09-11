@@ -4,7 +4,7 @@ description: "프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "개발자 가이드, Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드

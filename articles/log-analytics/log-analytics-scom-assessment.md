@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -65,9 +65,9 @@ System Center Operations Manager 평가는 사용하도록 설정한 서버를 �
 
 다음 테이블은 System Center Operations Manager 평가에 대한 데이터 수집 방법 및 에이전트에서 데이터가 수집되는 빈도를 보여줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![예](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7일 |
+| Windows | | | | &#8226; | | 7일 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS용 Operations Manager 실행 계정
 

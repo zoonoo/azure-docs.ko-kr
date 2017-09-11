@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/28/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36b4cd0674e0f9cec6fb2b00e809c71ee38a80c0
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 9d4ab890c35eebb2e59a9f4fa96843c854636272
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-이 예제는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "PrincipalNotFound: 보안 주체 {id}이(가) 디렉터리에 없습니다."라는 오류 메시지가 표시됩니다.
+이 예제는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 “PrincipalNotFound: 보안 주체 {ID}이(가) 디렉터리에 없습니다.”라는 오류 메시지가 표시됩니다.
 
 다음 스크립트를 통해 기본 구독 이외의 범위를 지정하고 오류가 발생하는 경우 역할 할당을 다시 시도할 수 있습니다.
 
@@ -117,7 +117,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -127,7 +127,7 @@ Param (
 * ID에기본 구독에 대한 액세스 권한을 부여하기 위해 ResourceGroup 또는 SubscriptionId 매개 변수를 제공할 필요는 없습니다.
 * 역할 할당의 범위를 리소스 그룹으로 제한하려는 경우에만 ResourceGroup 매개 변수를 지정합니다.
 *  이 예제에서는 참가자 역할에 서비스 주체를 추가합니다. 다른 역할에 대해서는 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
-* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "PrincipalNotFound: 보안 주체 {id}이(가) 디렉터리에 없습니다."라는 오류 메시지가 표시됩니다.
+* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 “PrincipalNotFound: 보안 주체 {ID}이(가) 디렉터리에 없습니다.”라는 오류 메시지가 표시됩니다.
 * 서비스 주체에게 더 많은 구독 또는 리소스 그룹에 대한 액세스 권한을 부여해야 할 경우 다른 범위를 지정해서 `New-AzureRMRoleAssignment` cmdlet을 다시 실행합니다.
 
 
@@ -136,7 +136,7 @@ Param (
 
 ```powershell   
 $creds = Get-Credential
-Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
+Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
 ```
 
 테넌트 ID는 대/소문자를 구분하지 않으므로 스크립트에 직접 포함할 수 있습니다. 테넌트 ID를 검색해야 할 경우 다음을 사용합니다.
@@ -159,7 +159,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-이 예제는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "PrincipalNotFound: 보안 주체 {id}이(가) 디렉터리에 없습니다."라는 오류 메시지가 표시됩니다.
+이 예제는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 “PrincipalNotFound: 보안 주체 {ID}이(가) 디렉터리에 없습니다.”라는 오류 메시지가 표시됩니다.
 
 다음 스크립트를 통해 기본 구독 이외의 범위를 지정하고 오류가 발생하는 경우 역할 할당을 다시 시도할 수 있습니다. Windows 10 또는 Windows Server 2016에서 Azure PowerShell 2.0이 있어야 합니다.
 
@@ -212,7 +212,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -222,7 +222,7 @@ Param (
 * ID에기본 구독에 대한 액세스 권한을 부여하기 위해 ResourceGroup 또는 SubscriptionId 매개 변수를 제공할 필요는 없습니다.
 * 역할 할당의 범위를 리소스 그룹으로 제한하려는 경우에만 ResourceGroup 매개 변수를 지정합니다.
 * 이 예제에서는 참가자 역할에 서비스 주체를 추가합니다. 다른 역할에 대해서는 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
-* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "PrincipalNotFound: 보안 주체 {id}이(가) 디렉터리에 없습니다."라는 오류 메시지가 표시됩니다.
+* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 “PrincipalNotFound: 보안 주체 {ID}이(가) 디렉터리에 없습니다.”라는 오류 메시지가 표시됩니다.
 * 서비스 주체에게 더 많은 구독 또는 리소스 그룹에 대한 액세스 권한을 부여해야 할 경우 다른 범위를 지정해서 `New-AzureRMRoleAssignment` cmdlet을 다시 실행합니다.
 
 **Windows 10 또는 Windows Server 2016 Technical Preview**사용자가 아니라면 Microsoft Script Center에서 [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) 를 다운로드해야 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
@@ -292,20 +292,14 @@ Param (
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -SubscriptionId $SubscriptionId
-
- $KeyId = (New-Guid).Guid
+ 
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
- $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
- $KeyCredential.StartDate = $PFXCert.NotBefore
- $KeyCredential.EndDate= $PFXCert.NotAfter
- $KeyCredential.KeyId = $KeyId
- $KeyCredential.CertValue = $KeyValue
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -KeyCredentials $keyCredential
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName
+ New-AzureRmADSpCredential -ObjectId $ServicePrincipal.Id -CertValue $KeyValue -StartDate $PFXCert.NotBefore -EndDate $PFXCert.NotAfter
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -315,7 +309,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
  
@@ -326,7 +320,7 @@ Param (
 
 * 해당 구독으로 액세스 범위가 지정됩니다.
 * 이 예제에서는 참가자 역할에 서비스 주체를 추가합니다. 다른 역할에 대해서는 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
-* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "PrincipalNotFound: 보안 주체 {id}이(가) 디렉터리에 없습니다."라는 오류 메시지가 표시됩니다.
+* 이 스크립트는 새 서비스 주체가 Azure Active Directory 전체에 전파될 시간을 허용하기 위해 15분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 “PrincipalNotFound: 보안 주체 {ID}이(가) 디렉터리에 없습니다.”라는 오류 메시지가 표시됩니다.
 * 서비스 주체에게 더 많은 구독 또는 리소스 그룹에 대한 액세스 권한을 부여해야 할 경우 다른 범위를 지정해서 `New-AzureRMRoleAssignment` cmdlet을 다시 실행합니다.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>자동화된 PowerShell 스크립트를 통해 인증서 제공
@@ -398,7 +392,7 @@ New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-프로필을 열고 해당 내용을 검사합니다. 액세스 토큰을 포함하는지 확인합니다. 수동으로 다시 로그인하는 대신 프로필을 로드하면 됩니다.
+프로필을 열고 해당 내용을 검사합니다. 액세스 토큰을 포함하는지 확인합니다. 수동으로 다시 로그인하는 대신 프로필을 로드합니다.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json

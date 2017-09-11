@@ -2,7 +2,7 @@
 title: "Azure Data Catalog 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "조직에서 데이터 원본을 찾아 이해하고 사용할 수 있는 데이터 카탈로그를 설정하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

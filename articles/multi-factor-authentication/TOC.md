@@ -21,6 +21,7 @@
 #### [사용자 포털 설치](multi-factor-authentication-get-started-portal.md)
 #### [고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)
+#### [고가용성 구성](mfa-server-high-availability.md)
 #### [Windows 인증](multi-factor-authentication-get-started-server-windows.md)
 #### [MFA 서버 업그레이드](multi-factor-authentication-server-upgrade.md)
 #### [PhoneFactor에서 업그레이드](multi-factor-authentication-get-started-server-upgrade.md)

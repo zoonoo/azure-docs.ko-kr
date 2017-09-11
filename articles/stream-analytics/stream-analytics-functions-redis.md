@@ -3,7 +3,7 @@ title: "Azure Functions에 대한 Stream Analytics 실시간 처리 | Microsoft 
 description: "Service Bus Queue에 연결된 Azure 함수를 사용하여 Stream Analytic 작업의 출력으로 Azure Redis Cache를 채우는 방법을 알아봅니다."
 keywords: "데이터 스트림, Redis Cache, Service Bus Queue"
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>Azure Functions를 사용하여 Azure Redis Cache에 Azure Stream Analytic의 데이터를 저장하는 방법
@@ -189,7 +188,7 @@ Azure Functions 및 Stream Analytic으로 수행할 수 있는 새로운 작업�
 
 Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록하여 사용해볼 수 있습니다. Stream Analytic을 처음 사용하는 경우 [첫 번째 Stream Analytic 작업을 만들어](stream-analytics-create-a-job.md)볼 수 있습니다.
 
-도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요. 
+도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요. 
 
 다음 리소스를 참조할 수도 있습니다.
 

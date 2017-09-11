@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d8c8ad96ba0ba55692e80a29b7de74165a2c13bd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Windows VM에 대한 가용성 집합 변경
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/31/2017
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. 데이터 디스크 및 확장을 추가합니다. 자세한 내용은 [VM에 데이터 디스크 연결](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [확장 구성 샘플](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. PowerShell 또는 Azure CLI를 사용하여 VM에 데이터 디스크 및 확장을 추가할 수 있습니다.
+5. 데이터 디스크 및 확장을 추가합니다. 자세한 내용은 [VM에 데이터 디스크 연결](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Resource Manager 템플릿에서의 확장](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions)을 참조하세요. PowerShell 또는 Azure CLI를 사용하여 VM에 데이터 디스크 및 확장을 추가할 수 있습니다.
 
 ## <a name="example-script"></a>예제 스크립트
 다음 스크립트는 필요한 정보를 수집하고, 원본 VM을 삭제한 다음 새 가용성 집합에서 다시 만드는 예제를 제공합니다.
@@ -147,8 +147,8 @@ ms.lasthandoff: 03/31/2017
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic.Id
     }
 
     #Create the VM
@@ -156,6 +156,6 @@ ms.lasthandoff: 03/31/2017
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[데이터 디스크](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
+[데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
 
 

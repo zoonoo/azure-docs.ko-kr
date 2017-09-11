@@ -4,7 +4,7 @@ description: "Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않�
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버가 없는 아키텍처"

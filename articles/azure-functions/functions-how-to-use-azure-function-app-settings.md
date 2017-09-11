@@ -4,7 +4,7 @@ description: "Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 services: 
 documentationcenter: .net
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions

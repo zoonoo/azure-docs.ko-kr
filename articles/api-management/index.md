@@ -2,7 +2,7 @@
 title: "Azure API Management 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "API Management를 사용하여 대규모로 안전하게 API를 게시하는 방법에 대해 알아봅니다. 설명서에서는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만드는 방법을 보여 줍니다."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>API Management 설명서
@@ -143,10 +145,5 @@ API Management를 사용하여 API를 대규모로 안전하게 외부, 파트�
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

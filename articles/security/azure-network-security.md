@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -131,11 +131,11 @@ Azure는 VNet에 연결되는 VM 및 [Cloud Services](https://azure.microsoft.co
 
 -   VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 
--   Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 클라우드 서비스의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
+-   Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다. VNet의 이름 확인에 대한 자세한 내용은 [VM 및 Cloud Services의 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)을 참조하세요.
 
 **인터넷 연결**
 
-VNet에 연결되는 모든 [Azure VM(Virtual Machines)](https://docs.microsoft.com/azure/virtual-machines/windows/) 및 클라우드 서비스 역할 인스턴스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수도 있습니다. (VM) 및 VNet에 연결된 Cloud Services 역할 인스턴스는 기본적으로는 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
+VNet에 연결되는 모든 [Azure VM(Virtual Machines)](https://docs.microsoft.com/azure/virtual-machines/windows/) 및 Cloud Services 역할 인스턴스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수도 있습니다. (VM) 및 VNet에 연결된 Cloud Services 역할 인스턴스는 기본적으로는 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
 
 VNet에 연결된 모든 리소스는 기본적으로 인터넷에 아웃바운드로 연결됩니다. 리소스의 개인 IP 주소는 Azure 인프라에서 공용 IP 주소로 변환하는 원본 네트워크 주소입니다. 사용자 지정 라우팅 및 트래픽 필터링을 구현하여 기본 연결을 변경할 수 있습니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -143,9 +143,9 @@ VNet에 연결된 모든 리소스는 기본적으로 인터넷에 아웃바운�
 
 **Azure 리소스 연결**
 
-클라우드 서비스 및 VM과 같은 [Azure 리소스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
+Cloud Services 및 VM과 같은 [Azure 리소스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 동일한 VNet에 연결할 수 있습니다. 리소스는 서로 다른 서브넷에 있더라도 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. Azure는 서브넷, VNet 및 온-프레미스 네트워크 간에 기본 라우팅을 제공하므로 경로를 구성하고 관리할 필요가 없습니다.
 
-VM(가상 컴퓨터), 클라우드 서비스, App Service 환경 및 가상 컴퓨터 크기 집합과 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
+VM(Virtual Machines), Cloud Services, App Service 환경 및 가상 컴퓨터 확장 집합과 같은 일부 Azure 리소스를 VNet에 연결할 수 있습니다. VM은 NIC(네트워크 인터페이스)를 통해 VNet 내의 서브넷에 연결합니다. NIC에 대한 자세한 내용은 [네트워크 인터페이스](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)를 참조하세요.
 
 **VNet 연결**
 
@@ -171,7 +171,7 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 **트래픽 필터링**
 
-VM 및 클라우드 서비스 역할 인스턴스 [네트워크 트래픽](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)을 원본 IP 주소 및 포트, 대상 IP 주소 및 포트 및 프로토콜별로 인바운드 및 아웃바운드에 따라 필터링할 수 있습니다.
+VM 및 Cloud Services 역할 인스턴스 [네트워크 트래픽](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)을 원본 IP 주소 및 포트, 대상 IP 주소 및 포트 및 프로토콜별로 인바운드 및 아웃바운드에 따라 필터링할 수 있습니다.
 
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
 
@@ -207,7 +207,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 기본적으로 서�
 이 시나리오에서는 인터넷에 공개되어야 하고, 작업의 구성에 따라 어디에서든지 또는 특정 위치에서만 액세스할 수 있어야 하는 응용 프로그램을 노출할 수 있습니다.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>지점 및 사이트 간 VPN 또는 사이트 간 VPN
-이러한 두 가지 방식은 같은 범주에 속합니다. 두 방식 모두 VNet에 VPN 게이트웨이가 필요하며, [지점-사이트 간 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)의 일부로 워크스테이션에 대한 VPN 클라이언트를 사용하여 연결하거나 사이트 간 VPN을 종료할 수 있게 온-프레미스 [VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 구성할 수 있습니다. 이러한 방식으로 온-프레미스 장치는 VNet 내에서 리소스에 연결할 수 있습니다.
+이러한 두 가지 방식은 같은 범주에 속합니다. 두 방식 모두 VNet에 VPN Gateway가 필요하며, [지점-사이트 간 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)의 일부로 워크스테이션에 대한 VPN 클라이언트를 사용하여 연결하거나 사이트 간 VPN을 종료할 수 있게 온-프레미스 [VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 구성할 수 있습니다. 이러한 방식으로 온-프레미스 장치는 VNet 내에서 리소스에 연결할 수 있습니다.
 
 지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S는 SSTP를 통한 VPN 연결입니다(보안 소켓 터널링 프로토콜).
 
@@ -228,7 +228,7 @@ P2S 연결에는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다
 
 사이트 간 VPN이 신뢰할 수 있고 안정적이며 인정받은 기술이지만 터널 내부 트래픽은 인터넷을 트래버스합니다. 뿐만 아니라 대역폭이 약 200Mbps로 제한됩니다.
 
-크로스-프레미스 연결에 강력한 보안 또는 성능 수준이 필요한 경우 크로스-프레미스 연결에 Azure Express 경로를 사용하는 것이 좋습니다. Express 경로는 온-프레미스 위치 또는 Exchange 호스팅 공급자 사이의 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않고, 따라서 인터넷 통신의 본질적인 잠재적 위험에 노출되지 않습니다.
+크로스-프레미스 연결에 강력한 보안 또는 성능 수준이 필요한 경우 크로스-프레미스 연결에 Azure ExpressRoute를 사용하는 것이 좋습니다. ExpressRoute는 온-프레미스 위치 또는 Exchange 호스팅 공급자 사이의 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않고, 따라서 인터넷 통신의 본질적인 잠재적 위험에 노출되지 않습니다.
 
 > [!Note]
 > VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)를 참조하세요.
@@ -236,7 +236,7 @@ P2S 연결에는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다
 #### <a name="dedicated-wan-link"></a>전용 WAN 링크
 Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장할 수 있습니다.
 
-Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 ![ 전용 WAN 링크](media/azure-network-security/azure-network-security-fig-7.png)
 
@@ -256,7 +256,7 @@ Azure Virtual Network는 다른 가상 네트워크와 분리되고 온-프레�
 
 -   네트워크 보안 어플라이언스
 
--   응용 프로그램 게이트웨이
+-   Application Gateway
 
 -   Azure 웹 응용 프로그램 방화벽
 
@@ -284,7 +284,7 @@ NSG는 5튜플을 사용하여 트래픽을 평가하며, NSG에 대해 구성�
 
 NSG는 알고 있어야 하는 몇 가지 기본 제공 규칙을 제공합니다. 다음과 같습니다.
 
--   **특정 Virtual Network 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 통신할 수 있습니다.
+-   **특정 가상 네트워크 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 통신할 수 있습니다.
 
 -   **인바운드에 대한 Azure 부하 분산 허용:** 이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
 
@@ -314,11 +314,11 @@ VM에서 공용 인터넷에 통신하는 경우는 물론, Azure와 사용자 �
 
 -   VPN Gateway를 통한 VNet과 사용자의 온-프레미스 네트워크 간 통신.
 
-대부분의 기업에서는 특정 정책 적용을 위해 모든 네트워크 패킷에 대한 온-프레미스 검사를 요구하는 엄격한 보안 및 준수 요구 사항을 유지합니다. Azure는 [강제 터널링](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)이라는 메커니즘을 제공합니다. 이 메커니즘은 사용자 지정 경로 만들거나 ExpressRoute 또는 VPN을 통한 [BGP(Border Gateway Protocol)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) 보급으로 VM에서 온-프레미스로 트래픽을 라우팅합니다. ExpressRoute 또는 VPN을 통한 보급
+대부분의 기업에서는 특정 정책 적용을 위해 모든 네트워크 패킷에 대한 온-프레미스 검사를 요구하는 엄격한 보안 및 준수 요구 사항을 유지합니다. Azure는 [강제 터널링](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)이라는 메커니즘을 제공합니다. 이 메커니즘은 사용자 지정 경로 만들거나 ExpressRoute 또는 VPN을 통한 [BGP(Border Gateway Protocol)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) 보급으로 VM에서 온-프레미스로 트래픽을 라우팅합니다.
 
-Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)을 통해 구성됩니다. 온-프레미스 사이트에 트래픽을 리디렉션하는 것은 Azure VPN 게이트웨이에 기본 경로로 표현됩니다.
+Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)을 통해 구성됩니다. 온-프레미스 사이트에 트래픽을 리디렉션하는 것은 Azure VPN Gateway에 기본 경로로 표현됩니다.
 
-다음 섹션에서는 Azure 가상 네트워크에 대한 라우팅 테이블 및 경로의 현재 제한 사항을 나열합니다.
+다음 섹션에서는 Azure Virtual Network에 대한 라우팅 테이블 및 경로의 현재 제한 사항을 나열합니다.
 
 -   각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
@@ -332,9 +332,9 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 -   가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 
--   강제 터널링은 동적 라우팅 VPN 게이트웨이(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
+-   강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
 
-- Express 경로 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 Express 경로 BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다.
+- ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다.
 
 > [!Note]
 > 자세한 내용은 [ExpressRoute 설명서](https://azure.microsoft.com/documentation/services/expressroute/)를 참조하세요.
@@ -372,7 +372,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)는 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
 
- ![응용 프로그램 게이트웨이](./media/azure-network-security/azure-network-security-fig-11.png)
+ ![Application Gateway](./media/azure-network-security/azure-network-security-fig-11.png)
 
 Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드(SSL 오프로딩)하여 웹 팜 성능 및 가용성을 최적화할 수도 있습니다. 또한 다음을 비롯한 기타 계층 7 라우팅 기능도 제공합니다.
 
@@ -386,11 +386,10 @@ Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료
 
 
 [WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 응용 프로그램을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
-인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합
 
 Application Gateway WAF는 탐지 또는 방지 모드에서 실행할 수 있습니다. 일반적인 사용 사례는 관리자가 트래픽에서 악의적인 패턴을 관찰하기 위해 탐지 모드에서 실행하는 경우입니다. 악용 가능성이 감지되면 방지 모드로 전환되어 의심스러운 수신 트래픽을 차단합니다.
 
- ![응용 프로그램 게이트웨이](./media/azure-network-security/azure-network-security-fig-12.png)
+ ![Application Gateway](./media/azure-network-security/azure-network-security-fig-12.png)
 
 또한 Application Gateway WAF는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) 및 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에 통합된 실시간 WAF 로그를 사용하여 WAF 경고를 추적하고 추세를 쉽게 모니터링하여 웹 응용 프로그램을 공격으로부터 보호할 수 있도록 합니다.
 
@@ -416,9 +415,9 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 -   Azure Load Balancer
 
--   응용 프로그램 게이트웨이
+-   Application Gateway
 
--   트래픽 관리자
+-   Traffic Manager
 
 **Azure Load Balancer**
 
@@ -449,7 +448,7 @@ Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요�
 
 Azure Traffic Manager를 사용하면 응용 프로그램 끝점에 트래픽 분산을 제어할 수 있습니다. 끝점은 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
 
-트래픽 관리자는 다음과 같은 두 가지 주요 이점을 제공합니다.
+Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 -   여러 가지 [트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 중 하나에 따라 트래픽 배포
 
@@ -471,7 +470,7 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 
 -   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
 
--   [Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+-   [ 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
 -   Azure 리소스 관리자
 
@@ -595,7 +594,7 @@ Network Watcher는 [진단 로그](https://docs.microsoft.com/azure/network-watc
 
 #### <a name="metrics"></a>메트릭
 
-메트릭은 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭은 현재 Application Gateway에서 사용할 수 있습니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 모든 리소스 상태를 모니터링하고 풀에서 비정상으로 간주한 모든 리소스를 자동으로 제거합니다. 응용 프로그램 게이트웨이는 비정상 인스턴스를 계속 모니터링하며 사용할 수 있게 되고 상태 프로브에 응답하게 되면 정상 백 엔드 풀에 다시 추가합니다. 응용 프로그램 게이트웨이에서 상태 프로브를 백 엔드 HTTP 설정에 정의된 동일한 포트와 함께 보냅니다. 이 구성으로 프로브에서 사용자가 백 엔드에 연결하는 데 사용하는 것과 동일한 포트를 테스트합니다.
+메트릭은 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭은 현재 Application Gateway에서 사용할 수 있습니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 상태를 모니터링하고 풀에서 비정상으로 간주한 모든 리소스를 자동으로 제거합니다. Application Gateway는 비정상 인스턴스를 계속 모니터링하며 사용할 수 있게 되고 상태 프로브에 응답하게 되면 정상 백 엔드 풀에 다시 추가합니다. 응용 프로그램 게이트웨이에서 상태 프로브를 백 엔드 HTTP 설정에 정의된 동일한 포트와 함께 보냅니다. 이 구성으로 프로브에서 사용자가 백 엔드에 연결하는 데 사용하는 것과 동일한 포트를 테스트합니다.
 
 > [!Note]
 > 메트릭을 사용하여 경고를 만드는 방법을 알아보려면 [Application Gateway 진단](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)을 참조하세요.

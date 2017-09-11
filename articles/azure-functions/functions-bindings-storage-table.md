@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Storage 바인딩을 사용하는 방�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure Functions Storage 테이블 바인딩
@@ -114,7 +114,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>C의 입력 샘플# #
+### <a name="input-sample-in-c"></a>C#의 입력 샘플 #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -132,7 +132,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### <a name="input-sample-in-f"></a>F의 입력 샘플# #
+### <a name="input-sample-in-f"></a>F#의 입력 샘플 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -226,7 +226,7 @@ Node.js 또는 C# 함수에서 개체를 직렬화할 수 있습니다. C# 함�
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
+### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -253,7 +253,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F에서 출력 샘플# #
+### <a name="output-sample-in-f"></a>F#에서 출력 샘플 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -293,7 +293,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>샘플: C에서 여러 테이블 엔터티 읽기#  #
+## <a name="sample-read-multiple-table-entities-in-c"></a>샘플: C#에서 여러 테이블 엔터티 읽기  #
 다음 *function.json* 및 C# 코드 예제에서는 큐 메시지에 지정된 파티션 키에 대한 엔터티를 읽습니다.
 
 ```json

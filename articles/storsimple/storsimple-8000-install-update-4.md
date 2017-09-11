@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/07/2017
+ms.date: 08/02/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 96f97cd36f45ebe8001bbcbf500305cb6380b644
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 4 설치
@@ -78,8 +78,8 @@ Azure Portal을 통해 업데이트를 설치하려고 할 때 게이트웨이 �
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |소프트웨어 업데이트 |일반 <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반 <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS 보안 업데이트 패키지 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS 업데이트 패키지 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS 업데이트 패키지 <br> Windows Server 2012 R2 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
 
 앞의 표에 나와 있는 모든 업데이트 맨 위에 디스크 펌웨어 업데이트를 설치해야 할 수도 있습니다. `Get-HcsFirmwareVersion` cmdlet을 실행하여 디스크 펌웨어 업데이트가 필요한지를 확인할 수 있습니다. 펌웨어 버전 `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002` ,`0106`을 실행하는 경우 이러한 업데이트를 설치할 필요가 없습니다.
 

@@ -2,7 +2,7 @@
 title: "Azure Machine Learning 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "응용 프로그램에서 예측 분석을 사용하는 데이터 과학자 및 개발자를 위한 클라우드 서비스인 Machine Learning에 대한 설명서, 비디오 및 예제 모델입니다."
 services: machine-learning
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
 ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/15/2017
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Azure Machine Learning 설명서
@@ -140,10 +142,5 @@ ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

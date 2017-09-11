@@ -4,7 +4,7 @@ description: "Stream Analytics 작업의 문제를 해결할 때 문제를 정�
 keywords: "순서도 문제 해결, 리소스 블레이드"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4ad6b8feff4c46b01613e422c090c0d30ee9c7a2
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 554dec5fbbe5c98585f8be58f5d4e8203d788a00
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -41,7 +40,7 @@ Stream Analytics 작업에 대한 Resource Health를 보려면 **Resource Health
 ![Stream Analytics 문제 해결 흐름 - 매핑](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics 소개](stream-analytics-introduction.md)

@@ -7,7 +7,7 @@
 * 앱 서비스 크기 조정 모범 사례
   
   * 포트 소모 및 연결 풀링
-  * [앱 서비스 앱에서 Azure 저장소 활용](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [앱 서비스 앱에서 Azure 저장소 활용](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [앱 서비스 앱에서 Azure CDN 활용](../articles/cdn/cdn-overview.md)
   * [앱 서비스 앱에서 Azure Redis Cache 활용](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * 지역 배포

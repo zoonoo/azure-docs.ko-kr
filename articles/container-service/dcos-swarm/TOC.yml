@@ -27,6 +27,8 @@
       href: container-service-security.md
 - name: 방법 가이드
   items:
+    - name: ACS 클러스터 만들기
+      href: container-service-create-acs-cluster-cli.md
     - name: ACS 클러스터와 연결
       href: container-service-connect.md
     - name: ACS 클러스터 확장
@@ -59,18 +61,20 @@
               href: container-service-monitoring-dynatrace.md
     - name: Docker Swarm
       items:
-        - name: Swarm 모드 빠른 시작
+        - name: Docker CE 빠른 시작
           href: container-service-swarm-mode-walkthrough.md
         - name: Docker 및 Docker Compose
           href: container-service-docker-swarm.md
         - name: Docker Swarm 및 VSTS를 사용하는 CI/CD
           href: container-service-docker-swarm-setup-ci-cd.md
+        - name: Docker Swarm(ACS 엔진) 및 VSTS를 사용하는 CI/CD
+          href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: 참조
   items:
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST (영문)
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: 리소스
   items:
     - name: Azure 로드맵

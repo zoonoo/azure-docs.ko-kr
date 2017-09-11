@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Storage 트리거 및 바인딩을 사
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b819bf4461f14033dd2c00331e3c3e4d0fbafde6
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b123578dbac48018f674f85ec923e4c6e65fb9f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/31/2017
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Blob 전용 저장소 계정](../storage/storage-create-storage-account.md#blob-storage-accounts)은 지원되지 않습니다. Blob Storage 트리거 및 바인딩에는 범용 저장소 계정이 필요합니다. 
+> [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)은 지원되지 않습니다. Blob Storage 트리거 및 바인딩에는 범용 저장소 계정이 필요합니다. 
 > 
 
 <a name="trigger"></a>
@@ -140,8 +139,7 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
 ### <a name="blob-polling-for-large-containers"></a>큰 컨테이너에 대한 Blob 폴링
-모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 하지 않습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/storage-dotnet-how-to-use-queues.md) 
-를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다.
+모니터링 중인 Blob 컨테이너에 10,000개 이상의 Blob이 포함된 경우 Functions 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 하지 않습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다. 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다.
 
 <a name="triggerusage"></a>
 
@@ -216,7 +214,8 @@ module.exports = function(context) {
     context.done();
 };
 ```
-<a name="outputusage"></a> <a name=storage-blob-output-binding"></a>
+<a name="outputusage"></a>
+<a name="storage-blob-output-binding"></a>
 
 ## <a name="using-a-blob-output-binding"></a>Blob 출력 바인딩 사용
 

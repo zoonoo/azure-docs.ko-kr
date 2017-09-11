@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/18/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: fa30f7b9aebf3b9a3fb1e037983e8460aa76442e
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 49a74648bd3953647d581c4e7c548985c5000f17
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -27,22 +27,13 @@ ms.lasthandoff: 06/15/2017
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 응용 프로그램 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 응용 프로그램 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
 
 
-## <a name="create-supporting-azure-resources"></a>지원 Azure 리소스 만들기
-빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹 및 저장소 계정을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹 및 저장소 계정에 저장됩니다.
+## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
+빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
-```
-
-다음으로 [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만듭니다. 저장소 계정 이름은 3자에서 24자 사이로 고유해야 하고 숫자 및 소문자만 포함할 수 있습니다. 다음 예제에서는 *mystorageaccount*라는 저장소 계정을 만듭니다.
-
-```azurecli
-az storage account create \
-    --resource-group myResourceGroup \
-    --name mystorageaccount \
-    --sku Standard_LRS
 ```
 
 
@@ -77,13 +68,14 @@ az account show --query [id] --output tsv
 
 *ubuntu.json*이라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다. 다음에 대해 사용자 고유의 값을 입력합니다.
 
-| 매개 변수       | 얻을 수 있는 위치 |
-|-----------------|----------------------------------------------------|
-| *client_id*      | `az ad sp` create 명령의 첫 번째 출력 줄 - *appId* |
-| *client_secret*  | `az ad sp` create 명령의 두 번째 출력 줄 - *password* |
-| *tenant_id*      | `az ad sp` create 명령의 세 번째 출력 줄 - *tenant* |
-| *subscription_id* | `az account show` 명령의 출력 |
-| *storage_account* | `az storage account create`에서 지정한 이름 |
+| 매개 변수                           | 얻을 수 있는 위치 |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | `az ad sp` create 명령의 첫 번째 출력 줄 - *appId* |
+| *client_secret*                     | `az ad sp` create 명령의 두 번째 출력 줄 - *password* |
+| *tenant_id*                         | `az ad sp` create 명령의 세 번째 출력 줄 - *tenant* |
+| *subscription_id*                   | `az account show` 명령의 출력 |
+| *managed_image_resource_group_name* | 첫 번째 단계에서 만든 리소스 그룹의 이름 |
+| *managed_image_name*                | 만들어진 관리되는 디스크 이미지의 이름 |
 
 
 ```json
@@ -96,16 +88,13 @@ az account show --query [id] --output tsv
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
 
-    "resource_group_name": "myResourceGroup",
-    "storage_account": "mystorageaccount",
-
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_name": "myPackerImage",
 
     "os_type": "Linux",
     "image_publisher": "Canonical",
     "image_offer": "UbuntuServer",
-    "image_sku": "16.04.0-LTS",
+    "image_sku": "16.04-LTS",
 
     "azure_tags": {
         "dept": "Engineering",
@@ -154,87 +143,68 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> Location          : 'East US'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Location          : ‘East US’
 ==> azure-arm:  -> Tags              :
-==> azure-arm:  ->> dept : engineering
-==> azure-arm:  ->> task : image deployment
+==> azure-arm:  ->> dept : Engineering
+==> azure-arm:  ->> task : Image deployment
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
-==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
-==> azure-arm:  -> NicName             : 'packerNic'
-==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '13.90.250.248'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
+==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
+==> azure-arm:  -> NicName             : ‘packerNic’
+==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
+==> azure-arm:  -> IP Address          : ‘40.76.218.147’
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
-==> azure-arm: Provisioning with shell script: /tmp/packer-shell529418469
-    azure-arm: Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
-    azure-arm: Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
-    azure-arm: Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
-    azure-arm: Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
-    [snip]
+==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-shell868574263
     azure-arm: WARNING! The waagent service will be stopped.
     azure-arm: WARNING! Cached DHCP leases will be deleted.
     azure-arm: WARNING! root password will be disabled. You will not be able to login as root.
     azure-arm: WARNING! /etc/resolvconf/resolv.conf.d/tail and /etc/resolvconf/resolv.conf.d/original will be deleted.
     azure-arm: WARNING! packer account and entire home directory will be deleted.
-==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
-==> azure-arm:  -> OS Disk           : 'https://mystorageaccount.blob.core.windows.net/images/pkroshlz1xtcy8n.vhd'
+==> azure-arm: Querying the machine’s properties ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk’
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Compute Name              : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Compute Location          : ‘East US’
+==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
+==> azure-arm:  -> Image Name                : ‘myPackerImage’
+==> azure-arm:  -> Image Location            : ‘eastus’
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm: Deleting the temporary OS disk ...
-==> azure-arm:  -> OS Disk : 'https://mystorageaccount.blob.core.windows.net/images/pkroshlz1xtcy8n.vhd'
-Build 'azure-arm' finished.
+==> azure-arm:  -> OS Disk : skipping, managed disk was used...
+Build ‘azure-arm’ finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
-StorageAccountLocation: eastus
-OSDiskUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-OSDiskUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd?se=2017-07-08T20%3A57%3A53Z&sig=yl1yl3I2gKnO0I%2B7paw%2FQzKT5dawf5i%2B
-LPmATMt5ot4%3D&sp=r&sr=b&sv=2015-02-21
-TemplateUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json
-TemplateUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json?se=2017-07-08T20%3A57%3A53Z&sig=GB1iSl0hhw1ZYG4nl%2BCfR9WEaquCF
-OEhNtKlvp%2B5TdE%3D&sp=r&sr=b&sv=2015-02-21
+ManagedImageResourceGroupName: myResourceGroup
+ManagedImageName: myPackerImage
+ManagedImageLocation: eastus
 ```
-
-
-## <a name="create-azure-image"></a>Azure 이미지 만들기
-Packer 빌드 프로세스의 출력은 지정된 저장소 계정에서 VHD(가상 하드 디스크)입니다. 이 VHD에서 [az image create](/cli/azure/image#create)를 사용하여 Azure 이미지를 만들고 Packer 빌드 출력의 끝에 설명된 `OSDiskUri` 경로를 지정합니다. 다음 예제는 `myImage`라는 이미지를 만듭니다.
-
-```azurecli
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --os-type linux \
-    --source https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-```
-
-이 이미지는 Azure 구독에서 VM을 만드는 데 사용할 수 있습니다. 원본 이미지로 동일한 리소스 그룹에서 VM 만들기에 제한되지 않습니다.
 
 
 ## <a name="create-vm-from-azure-image"></a>Azure 이미지에서 VM 만들기
-이제 [az vm create](/cli/azure/vm#create)를 사용하여 이미지에서 VM을 만들 수 있습니다. `--image` 매개 변수를 사용하여 만든 이미지를 지정합니다. 다음 예제에서는 *myImage*에서 *myVM*이라는 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
+이제 [az vm create](/cli/azure/vm#create)를 사용하여 이미지에서 VM을 만들 수 있습니다. `--image` 매개 변수를 사용하여 만든 이미지를 지정합니다. 다음 예제에서는 *myPackerImage*에서 *myVM*이라는 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image myImage \
+    --image myPackerImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

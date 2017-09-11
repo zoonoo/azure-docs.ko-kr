@@ -3,7 +3,7 @@ title: "Azure Network Watcher Next Hop을 사용하여 다음 홉 찾기 - REST 
 description: "이 문서에서는 Azure REST API로 Next Hop을 사용하여 다음 홉 유형 및 IP 주소를 찾을 수 있는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144

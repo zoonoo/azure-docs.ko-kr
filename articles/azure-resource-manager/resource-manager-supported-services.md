@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 09537fb4058f1fd27469fb9386bc52d938c027ec
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -55,7 +55,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 리소스 공급자를 등록하려면 다음과 같이 네임스페이스를 제공합니다.
+리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -69,6 +69,8 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
+
+구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
@@ -157,13 +159,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 리소스 공급자를 등록하려면 다음과 같이 네임스페이스를 제공합니다.
+리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 등록이 진행 중인 메시지를 반환합니다.
+
+구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
@@ -255,9 +259,11 @@ Azure의 모든 리소스 공급자 및 구독에 대한 등록 상태를 보려
 
 ![리소스 공급자 보기](./media/resource-manager-supported-services/show-resource-providers.png)
 
-기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 리소스 공급자를 등록하려면 **등록**을 선택합니다.
+리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 `/register/action` 작업을 수행할 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하려면 **등록**을 선택합니다.
 
 ![리소스 공급자 등록](./media/resource-manager-supported-services/register-provider.png)
+
+구독에 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 **추가 서비스**를 선택합니다.
 

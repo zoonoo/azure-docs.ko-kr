@@ -2,7 +2,7 @@
 title: "Azure Time Series Insights 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "완전히 관리되는 이벤트 처리를 사용하여 클라우드에서 IoT 분석을 실행하는 방법에 대해 알아봅니다. 응용 프로그램, 센서, 장치 등에서 실시간으로 데이터를 분석합니다."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
+ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
 
 --- 

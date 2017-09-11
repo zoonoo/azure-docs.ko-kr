@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 35896cc9891e2439df004cc4eab339219d47b805
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Azure CDN과 Azure Storage 계정 통합
 CDN을 사용하도록 설정하여 Azure 저장소의 콘텐츠를 캐시할 수 있습니다. CDN은 미국, 유럽, 아시아, 오스트레일리아 및 남아메리카의 물리적 노드에서 계산 인스턴스의 Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 개발자에게 제공합니다.
 
 ## <a name="step-1-create-a-storage-account"></a>1 단계: 저장소 계정 만들기
-다음 절차에 따라 Azure 구독에 대한 새 저장소 계정을 만듭니다. 저장소 계정을 통해 Azure 저장소 서비스에 액세스할 수 있습니다. 저장소 계정은 Blob 서비스, 큐 서비스, 테이블 서비스 등 각 Azure 저장소 서비스 구성 요소에 액세스하는 데 필요한 가장 높은 수준의 네임스페이스를 나타냅니다. 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.
+다음 절차에 따라 Azure 구독에 대한 새 저장소 계정을 만듭니다. 저장소 계정을 통해 Azure 저장소 서비스에 액세스할 수 있습니다. 저장소 계정은 Blob 서비스, 큐 서비스, 테이블 서비스 등 각 Azure 저장소 서비스 구성 요소에 액세스하는 데 필요한 가장 높은 수준의 네임스페이스를 나타냅니다. 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/common/storage-introduction.md)를 참조하세요.
 
 저장소 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 
@@ -109,7 +108,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="step-5-remove-content-from-the-cdn"></a>5단계: CDN에서 콘텐츠 제거
 더 이상 Azure CDN(콘텐츠 배달 네트워크)에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
-* 컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](../storage/storage-manage-access-to-resources.md) 를 참조하세요.
+* 컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md) 를 참조하세요.
 * 관리 포털을 사용하여 CDN 끝점을 사용하지 않도록 설정하거나 삭제할 수 있습니다.
 * 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정할 수 있습니다.
 

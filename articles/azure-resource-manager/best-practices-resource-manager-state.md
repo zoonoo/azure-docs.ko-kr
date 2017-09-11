@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿과 상태 공유
@@ -32,139 +33,143 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 다음 예제에서는 데이터 컬렉션을 나타내기 위한 복잡한 개체를 포함하는 변수의 정의 방법을 보여 줍니다. 이 컬렉션은 가상 컴퓨터 크기, 네트워크 설정, 운영 체제 설정 및 가용성 설정에 사용되는 값을 정의합니다.
 
-    "variables": {
-      "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
-      "tshirtSizeSmall": {
-        "vmSize": "Standard_A1",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-        "vmCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 1,
-          "pool": "db",
-          "map": [0,0],
-          "jumpbox": 0
-        }
+```json
+"variables": {
+  "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
+  "tshirtSizeSmall": {
+    "vmSize": "Standard_A1",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+    "vmCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 1,
+      "pool": "db",
+      "map": [0,0],
+      "jumpbox": 0
+    }
+  },
+  "tshirtSizeMedium": {
+    "vmSize": "Standard_A3",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
+    "vmCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 2,
+      "pool": "db",
+      "map": [0,1],
+      "jumpbox": 0
+    }
+  },
+  "tshirtSizeLarge": {
+    "vmSize": "Standard_A4",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+    "vmCount": 3,
+    "slaveCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 2,
+      "pool": "db",
+      "map": [0,1,1],
+      "jumpbox": 0
+    }
+  },
+  "osSettings": {
+    "scripts": [
+      "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+    ],
+    "imageReference": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
+      "sku": "14.04.2-LTS",
+      "version": "latest"
+    }
+  },
+  "networkSettings": {
+    "vnetName": "[parameters('virtualNetworkName')]",
+    "addressPrefix": "10.0.0.0/16",
+    "subnets": {
+      "dmz": {
+        "name": "dmz",
+        "prefix": "10.0.0.0/24",
+        "vnet": "[parameters('virtualNetworkName')]"
       },
-      "tshirtSizeMedium": {
-        "vmSize": "Standard_A3",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
-        "vmCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 2,
-          "pool": "db",
-          "map": [0,1],
-          "jumpbox": 0
-        }
-      },
-      "tshirtSizeLarge": {
-        "vmSize": "Standard_A4",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-        "vmCount": 3,
-        "slaveCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 2,
-          "pool": "db",
-          "map": [0,1,1],
-          "jumpbox": 0
-        }
-      },
-      "osSettings": {
-        "scripts": [
-          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-        ],
-        "imageReference": {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "14.04.2-LTS",
-          "version": "latest"
-        }
-      },
-      "networkSettings": {
-        "vnetName": "[parameters('virtualNetworkName')]",
-        "addressPrefix": "10.0.0.0/16",
-        "subnets": {
-          "dmz": {
-            "name": "dmz",
-            "prefix": "10.0.0.0/24",
-            "vnet": "[parameters('virtualNetworkName')]"
-          },
-          "data": {
-            "name": "data",
-            "prefix": "10.0.1.0/24",
-            "vnet": "[parameters('virtualNetworkName')]"
-          }
-        }
-      },
-      "availabilitySetSettings": {
-        "name": "pgsqlAvailabilitySet",
-        "fdCount": 3,
-        "udCount": 5
+      "data": {
+        "name": "data",
+        "prefix": "10.0.1.0/24",
+        "vnet": "[parameters('virtualNetworkName')]"
       }
     }
+  },
+  "availabilitySetSettings": {
+    "name": "pgsqlAvailabilitySet",
+    "fdCount": 3,
+    "udCount": 5
+  }
+}
+```
 
 **tshirtSize** 변수는 매개 변수(**Small**, **Medium**, **Large**)를 통해 제공한 티셔츠 크기를 **tshirtSize** 텍스트에 연결합니다. 이 변수를 사용하여 해당 티셔츠 크기에 대한 연결된 복잡한 개체 변수를 검색합니다.
 
 그런 다음 템플릿의 뒷부분에서 이러한 변수를 참조할 수 있습니다. 명명된 변수 및 해당 속성을 참조하는 기능이 구현되면 템플릿 구문이 단순화되며 컨텍스트를 쉽게 이해할 수 있습니다. 다음 예제에서는 위에 표시된 개체를 통해 값을 설정하여 배포할 리소스를 정의합니다. 예를 들어 디스크 크기 값은 `variables('tshirtSize').diskSize`에서 검색되지만 VM 크기는 `variables('tshirtSize').vmSize` 값을 검색하여 설정합니다. 또한 연결된 템플릿에 대한 URI는 `variables('tshirtSize').vmTemplate`값으로 설정됩니다.
 
-    "name": "master-node",
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
-    "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'shared')]"
-    ],
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('tshirtSize').vmTemplate]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adminPassword": {
-            "value": "[parameters('adminPassword')]"
-          },
-          "replicatorPassword": {
-            "value": "[parameters('replicatorPassword')]"
-          },
-          "osSettings": {
-            "value": "[variables('osSettings')]"
-          },
-          "subnet": {
-            "value": "[variables('networkSettings').subnets.data]"
-          },
-          "commonSettings": {
-            "value": {
-              "region": "[parameters('region')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "namespace": "ms"
-            }
-          },
-          "storageSettings": {
-            "value":"[variables('tshirtSize').storage]"
-          },
-          "machineSettings": {
-            "value": {
-              "vmSize": "[variables('tshirtSize').vmSize]",
-              "diskSize": "[variables('tshirtSize').diskSize]",
-              "vmCount": 1,
-              "availabilitySet": "[variables('availabilitySetSettings').name]"
-            }
-          },
-          "masterIpAddress": {
-            "value": "0"
-          },
-          "dbType": {
-            "value": "MASTER"
-          }
+```json
+"name": "master-node",
+"type": "Microsoft.Resources/deployments",
+"apiVersion": "2015-01-01",
+"dependsOn": [
+    "[concat('Microsoft.Resources/deployments/', 'shared')]"
+],
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "[variables('tshirtSize').vmTemplate]",
+      "contentVersion": "1.0.0.0"
+    },
+    "parameters": {
+      "adminPassword": {
+        "value": "[parameters('adminPassword')]"
+      },
+      "replicatorPassword": {
+        "value": "[parameters('replicatorPassword')]"
+      },
+      "osSettings": {
+        "value": "[variables('osSettings')]"
+      },
+      "subnet": {
+        "value": "[variables('networkSettings').subnets.data]"
+      },
+      "commonSettings": {
+        "value": {
+          "region": "[parameters('region')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "namespace": "ms"
         }
+      },
+      "storageSettings": {
+        "value":"[variables('tshirtSize').storage]"
+      },
+      "machineSettings": {
+        "value": {
+          "vmSize": "[variables('tshirtSize').vmSize]",
+          "diskSize": "[variables('tshirtSize').diskSize]",
+          "vmCount": 1,
+          "availabilitySet": "[variables('availabilitySetSettings').name]"
+        }
+      },
+      "masterIpAddress": {
+        "value": "0"
+      },
+      "dbType": {
+        "value": "MASTER"
       }
     }
+  }
+}
+```
 
 ## <a name="pass-state-to-a-template"></a>템플릿에 상태 전달
 배포 중에 직접 제공한 매개 변수를 통해 템플릿으로 상태를 공유합니다.
@@ -184,21 +189,22 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 이전 섹션에서 사용된 **tshirtSize** 매개 변수는 다음으로 정의됩니다.
 
-    "parameters": {
-      "tshirtSize": {
-        "type": "string",
-        "defaultValue": "Small",
-        "allowedValues": [
-          "Small",
-          "Medium",
-          "Large"
-        ],
-        "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
-        }
-      }
+```json
+"parameters": {
+  "tshirtSize": {
+    "type": "string",
+    "defaultValue": "Small",
+    "allowedValues": [
+      "Small",
+      "Medium",
+      "Large"
+    ],
+    "metadata": {
+      "Description": "T-shirt size of the MongoDB deployment"
     }
-
+  }
+}
+```
 
 ## <a name="pass-state-to-linked-templates"></a>연결된 템플릿에 상태 전달
 연결된 템플릿에 연결할 경우 정적 변수와 생성된 변수를 혼합해서 사용하게 됩니다.
@@ -210,24 +216,26 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 이 접근 방식의 이점은 템플릿 위치가 변경된 경우 한 곳에서만 정적 변수를 변경하면 된다는 점입니다. 그러면 연결된 템플릿 전체로 전달됩니다.
 
-    "variables": {
-      "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-      "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-      "tshirtSizeSmall": {
-        "vmSize": "Standard_A1",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-        "vmCount": 2,
-        "slaveCount": 1,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 1,
-          "pool": "db",
-          "map": [0,0],
-          "jumpbox": 0
-        }
-      }
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "tshirtSizeSmall": {
+    "vmSize": "Standard_A1",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+    "vmCount": 2,
+    "slaveCount": 1,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 1,
+      "pool": "db",
+      "map": [0,0],
+      "jumpbox": 0
     }
+  }
+}
+```
 
 ### <a name="generated-variables"></a>생성된 변수
 정적 변수 외에도 다양한 변수가 동적으로 생성됩니다. 이 섹션에서는 생성된 변수의 몇 가지 일반적인 유형에 대해 설명합니다.
@@ -240,71 +248,81 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 아래에서 네트워크 설정을 전달하는 예제를 볼 수 있습니다.
 
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        }
-      }
+```json
+"networkSettings": {
+  "vnetName": "[parameters('virtualNetworkName')]",
+  "addressPrefix": "10.0.0.0/16",
+  "subnets": {
+    "dmz": {
+      "name": "dmz",
+      "prefix": "10.0.0.0/24",
+      "vnet": "[parameters('virtualNetworkName')]"
+    },
+    "data": {
+      "name": "data",
+      "prefix": "10.0.1.0/24",
+      "vnet": "[parameters('virtualNetworkName')]"
     }
+  }
+}
+```
 
 #### <a name="availabilitysettings"></a>availabilitySettings
 연결된 템플릿에서 만든 리소스는 종종 가용성 집합에 배치됩니다. 다음 예에서는 가용성 집합 이름이 지정되고, 사용할 장애 도메인 및 업데이트 도메인 수도 지정됩니다.
 
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
-    }
+```json
+"availabilitySetSettings": {
+  "name": "pgsqlAvailabilitySet",
+  "fdCount": 3,
+  "udCount": 5
+}
+```
 
 여러 가용성 집합(예를 들어 마스터 노드용 하나와 데이터 노드용 하나)이 필요한 경우 이름을 접두사로 사용하거나, 여러 가용성 집합을 지정하거나, 앞서 제시된 특정 티셔츠 크기에 해당하는 변수 생성 방법 예를 따라 진행할 수 있습니다.
 
 #### <a name="storagesettings"></a>storageSettings
 저장소 세부 정보는 연결된 템플릿과 종종 공유됩니다. 아래 예제에서 *storageSettings* 개체는 저장소 계정 및 컨테이너 이름에 대한 세부 정보를 제공합니다.
 
-    "storageSettings": {
-        "vhdStorageAccountName": "[parameters('storageAccountName')]",
-        "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
-        "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
-    }
+```json
+"storageSettings": {
+    "vhdStorageAccountName": "[parameters('storageAccountName')]",
+    "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
+    "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
+}
+```
 
 #### <a name="ossettings"></a>osSettings
 연결된 템플릿을 사용할 경우 알려진 여러 구성 유형의 다양한 노드 형식에 운영 체제 설정을 전달해야 할 수 있습니다. 복잡한 개체는 운영 체제 정보를 쉽게 저장 및 공유하고 운영 체제에서 제공되는 다양한 배포 옵션을 보다 쉽게 지원할 수 있도록 하는 간편한 방법입니다.
 
 다음 예제에는 *osSettings*용 개체가 나와 있습니다.
 
-    "osSettings": {
-      "imageReference": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    }
+```json
+"osSettings": {
+  "imageReference": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "14.04.2-LTS",
+    "version": "latest"
+  }
+}
+```
 
 #### <a name="machinesettings"></a>machineSettings
 생성된 변수인 *machineSettings*는 VM을 만들기 위한 혼합된 핵심 변수를 포함하는 복잡한 개체입니다. 변수에는 관리자 사용자 이름 및 암호, VM 이름의 접두사 및 운영 체제 이미지 참조가 포함됩니다.
 
-    "machineSettings": {
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "machineNamePrefix": "mongodb-",
-        "osImageReference": {
-            "publisher": "[variables('osFamilySpec').imagePublisher]",
-            "offer": "[variables('osFamilySpec').imageOffer]",
-            "sku": "[variables('osFamilySpec').imageSKU]",
-            "version": "latest"
-        }
-    },
+```json
+"machineSettings": {
+    "adminUsername": "[parameters('adminUsername')]",
+    "adminPassword": "[parameters('adminPassword')]",
+    "machineNamePrefix": "mongodb-",
+    "osImageReference": {
+        "publisher": "[variables('osFamilySpec').imagePublisher]",
+        "offer": "[variables('osFamilySpec').imageOffer]",
+        "sku": "[variables('osFamilySpec').imageSKU]",
+        "version": "latest"
+    }
+},
+```
 
 *osImageReference*는 주 템플릿에 정의된 *osSettings* 변수에서 값을 검색합니다. 즉, VM에 대한 운영 체제를 완전히 또는 템플릿 소비자의 기본 설정에 따라 쉽게 변경할 수 있습니다.
 
@@ -318,28 +336,31 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 변수 섹션은 적절한 값으로 스크립트를 실행하기 위해 특정 텍스트를 정의하는 변수를 찾는 위치입니다.
 
-    "vmScripts": {
-        "scriptsToDownload": [
-            "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
-            "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
-        ],
-        "regularNodeInstallCommand": "[variables('installCommand')]",
-        "lastNodeInstallCommand": "[concat(variables('installCommand'), ' -l')]",
-        "arbiterNodeInstallCommand": "[concat(variables('installCommand'), ' -a')]"
-    },
-
+```json
+"vmScripts": {
+    "scriptsToDownload": [
+        "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
+        "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
+    ],
+    "regularNodeInstallCommand": "[variables('installCommand')]",
+    "lastNodeInstallCommand": "[concat(variables('installCommand'), ' -l')]",
+    "arbiterNodeInstallCommand": "[concat(variables('installCommand'), ' -a')]"
+},
+```
 
 ## <a name="return-state-from-a-template"></a>템플릿에서 상태 반환
 템플릿으로 데이터를 전달할 뿐만 아니라 호출 템플릿과 다시 데이터를 공유할 수도 있습니다. 연결된 템플릿의 **출력** 섹션에서는 원본 템플릿에서 사용될 수 있는 키/값 쌍을 제공할 수 있습니다.
 
 다음 예제에서는 연결된 템플릿에서 생성된 개인 IP 주소를 전달하는 방법을 보여 줍니다.
 
-    "outputs": {
-        "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
-            "type": "string"
-         }
-    }
+```json
+"outputs": {
+    "masterip": {
+        "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+        "type": "string"
+     }
+}
+```
 
 주 템플릿 내에서 다음 구문을 사용하여 해당 데이터를 사용할 수 있습니다.
 
@@ -347,74 +368,76 @@ ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 주 템플릿의 출력 섹션 또는 리소스 섹션에서 이 식을 사용할 수 있습니다. 변수 섹션은 런타임 상태에 의존하므로 이 식을 사용할 수 없습니다. 주 템플릿에서 이 값을 반환하려면 다음을 사용합니다.
 
-    "outputs": {
-      "masterIpAddress": {
-        "value": "[reference('master-node').outputs.masterip.value]",
-        "type": "string"
-      }
+```json
+"outputs": {
+  "masterIpAddress": {
+    "value": "[reference('master-node').outputs.masterip.value]",
+    "type": "string"
+  }
+```
 
 연결된 템플릿의 출력 섹션을 사용하여 가상 컴퓨터에 대한 데이터 디스크를 반환하는 예제는 [가상 컴퓨터에 대한 여러 데이터 디스크 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>가상 컴퓨터에 대한 인증 설정 정의
 위에 표시된 동일한 패턴을 구성 설정에 사용하여 가상 컴퓨터의 인증 설정을 지정할 수 있습니다. 인증 형식을 전달하기 위한 매개 변수를 만듭니다.
 
-    "parameters": {
-      "authenticationType": {
-        "allowedValues": [
-          "password",
-          "sshPublicKey"
-        ],
-        "defaultValue": "password",
-        "metadata": {
-          "description": "Authentication type"
-        },
-        "type": "string"
-      }
-    }
+```json
+"parameters": {
+  "authenticationType": {
+    "allowedValues": [
+      "password",
+      "sshPublicKey"
+    ],
+    "defaultValue": "password",
+    "metadata": {
+      "description": "Authentication type"
+    },
+    "type": "string"
+  }
+}
+```
 
 다른 인증 형식에 대한 변수 및 매개 변수 값에 따라 이 배포에 사용되는 형식을 저장할 변수를 추가합니다.
 
-    "variables": {
-      "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
-      "osProfilepassword": {
-        "adminPassword": "[parameters('adminPassword')]",
-        "adminUsername": "notused",
-        "computerName": "[parameters('vmName')]",
-        "customData": "[base64(variables('customData'))]"
-      },
-      "osProfilesshPublicKey": {
-        "adminUsername": "notused",
-        "computerName": "[parameters('vmName')]",
-        "customData": "[base64(variables('customData'))]",
-        "linuxConfiguration": {
-          "disablePasswordAuthentication": "true",
-          "ssh": {
-            "publicKeys": [
-              {
-                "keyData": "[parameters('sshPublicKey')]",
-                "path": "/home/notused/.ssh/authorized_keys"
-              }
-            ]
+```json
+"variables": {
+  "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
+  "osProfilepassword": {
+    "adminPassword": "[parameters('adminPassword')]",
+    "adminUsername": "notused",
+    "computerName": "[parameters('vmName')]",
+    "customData": "[base64(variables('customData'))]"
+  },
+  "osProfilesshPublicKey": {
+    "adminUsername": "notused",
+    "computerName": "[parameters('vmName')]",
+    "customData": "[base64(variables('customData'))]",
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": "true",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "[parameters('sshPublicKey')]",
+            "path": "/home/notused/.ssh/authorized_keys"
           }
-        }
+        ]
       }
     }
+  }
+}
+```
 
 가상 컴퓨터를 정의할 때 **osProfile** 을 사용자가 만든 변수로 설정합니다.
 
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      ...
-      "osProfile": "[variables('osProfile')]"
-    }
-
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  ...
+  "osProfile": "[variables('osProfile')]"
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)
 * 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,5 +1,4 @@
 ---
-
 title: "Azure SQL Data Warehouse에 데이터 로드 – Data Factory | Microsoft Docs"
 description: "이 자습서에서는 Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터를 로드하고 데이터 원본으로 SQL Server 데이터베이스를 사용합니다."
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 
 - 온라인 **SQL Data Warehouse**가 필요합니다. 데이터 웨어하우스가 아직 없는 경우 [Azure SQL Data Warehouse를 만드는 방법](sql-data-warehouse-get-started-provision.md)을 알아보세요.
 
-- **Azure Storage 계정**이 필요합니다. 저장소 계정이 아직 없을 경우 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 알아보세요. 최적의 성능을 위해 저장소 계정 및 데이터 웨어하우스를 동일한 Azure 지역에 배치합니다.
+- **Azure Storage 계정**이 필요합니다. 저장소 계정이 아직 없을 경우 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 알아보세요. 최적의 성능을 위해 저장소 계정 및 데이터 웨어하우스를 동일한 Azure 지역에 배치합니다.
 
 ## <a name="configure-a-data-factory"></a>Data Factory 구성
 1. [Azure 포털][]에 로그인합니다.
@@ -114,7 +111,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 
     ![맵 스키마](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. **Next**를 클릭합니다.
+4. **다음**을 누릅니다.
 
 ## <a name="configure-the-performance-settings"></a>성능 설정 구성
 성능 구성에서 [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly)를 사용하여 성능 기준에 맞게 데이터를 SQL Data Warehouse에 로드하기 전에 데이터 준비에 사용할 Azure Storage 계정을 구성합니다. 복사가 완료되면 저장소의 중간 데이터는 자동으로 정리됩니다.

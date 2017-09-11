@@ -42,8 +42,11 @@
 ## 재사용 가능한 템플릿 관리
 ### [아티팩트 및 템플릿에 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md)
 ### [Resource Manager 템플릿 사용](devtest-lab-use-resource-manager-template.md)
-### [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 ### [수식 관리](devtest-lab-manage-formulas.md)
+
+## 아티팩트 관리
+### [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
+### [아티팩트 실패 진단](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## 가상 네트워크 관리
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)

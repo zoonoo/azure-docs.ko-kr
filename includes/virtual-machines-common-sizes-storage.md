@@ -13,7 +13,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | 해당 없음/해당 없음(0)          | 40,000/1,000                            | 8 / 20000 | 
  
 
-Ls 시리즈 VM에서 가능한 최대 디스크 처리량은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요. 
+Ls 시리즈 VM에서 가능한 최대 디스크 처리량은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/common/storage-premium-storage.md)를 참조하세요. 
 
 *인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 

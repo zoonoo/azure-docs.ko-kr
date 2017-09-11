@@ -3,8 +3,8 @@ title: "서버 탐색기에서 Azure Virtual Machines 액세스 | Microsoft Docs
 description: "Visure Studio에서 Azure 서버 탐색기 (VM) 만들기 및 관리하기를 보는 방법에 대한 개요를 가져옵니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)
@@ -51,10 +52,5 @@ Azure에서 호스팅되는 가상 컴퓨터가 있는 경우 서버 탐색기�
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure 역할을 사용하는 방법에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

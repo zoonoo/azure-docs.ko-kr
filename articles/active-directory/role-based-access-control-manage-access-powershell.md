@@ -3,7 +3,7 @@ title: "Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) �
 description: "Azure PowerShell에서 역할을 나열하고, 역할을 할당하고, 역할 할당을 제거하는 등 RBAC를 관리하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22

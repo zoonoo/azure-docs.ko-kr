@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: b4357150d0be21672d0b8e212c4ea1a7bec99412
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Azure 응용 프로그램에서 성능 카운터 만들기 및 사용
@@ -244,7 +243,7 @@ Azure 진단 에이전트는 시작 1분 후 .wadcfg 파일에서 성능 카운�
 Azure 진단 모니터가 사용자 지정 성능 카운터 데이터를 수집합니다.
 
 ## <a name="step-3-query-performance-counter-data"></a>3단계: 성능 카운터 데이터 쿼리
-응용 프로그램이 배포되고 진단 모니터가 실행되면 성능 카운터를 수집하여 해당 데이터를 Azure Storage에 보관하기 시작합니다. Visual Studio의 서버 탐색기, [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com/) 또는 Cerebrata의 [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)와 같은 도구를 사용하여 WADPerformanceCountersTable 테이블의 성능 카운터 데이터를 확인합니다. 또한 [C#](../storage/storage-dotnet-how-to-use-tables.md),  [Java](../storage/storage-java-how-to-use-table-storage.md),  [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) 또는 [PHP](../storage/storage-php-how-to-use-table-storage.md)를 사용하여 Table service를 프로그래밍 방식으로 쿼리할 수도 있습니다.
+응용 프로그램이 배포되고 진단 모니터가 실행되면 성능 카운터를 수집하여 해당 데이터를 Azure Storage에 보관하기 시작합니다. Visual Studio의 서버 탐색기, [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com/) 또는 Cerebrata의 [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)와 같은 도구를 사용하여 WADPerformanceCountersTable 테이블의 성능 카운터 데이터를 확인합니다. 또한 [C#](../cosmos-db/table-storage-how-to-use-dotnet.md),  [Java](../cosmos-db/table-storage-how-to-use-java.md),  [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md) 또는 [PHP](../cosmos-db/table-storage-how-to-use-php.md)를 사용하여 Table service를 프로그래밍 방식으로 쿼리할 수도 있습니다.
 
 다음 C# 예제는 WADPerformanceCountersTable 테이블에 대한 기본적인 쿼리를 보여 주고 진단 데이터를 CSV 파일에 저장합니다. 성능 카운터를 CSV 파일에 저장하고 나면 Microsoft Excel 또는 다른 도구의 그래픽 기능을 사용하여 데이터를 시각화할 수 있습니다. Azure SDK for .NET 2012년 10월 이상 버전에 포함되어 있는 Microsoft.WindowsAzure.Storage.dll에 참조를 추가해야 합니다. 어셈블리는 %Program %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ 디렉터리에 설치됩니다.
 

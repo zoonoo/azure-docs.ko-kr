@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9e4decbcbbfca72475bfac032d39d1df7bdd4019
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="overview"></a>개요
 
-**[Spring Framework]**는 Java 개발자가 엔터프라이즈 수준의 응용 프로그램을 만드는 데 도움이 되는 오픈 소스 솔루션입니다. 해당 플랫폼 맨 위에 빌드되는 인기 있는 프로젝트 중 하나가 [Spring Boot]입니다. 이 프로젝트는 독립 실행형 Java 응용 프로그램을 만들기 위한 간단한 방법을 제공합니다. Spring Boot을 시작하는 개발자를 도우려면 <https://github.com/spring-guides/>에서 몇 가지 샘플 Spring Boot 패키지를 사용할 있습니다. 기본 Spring Boot 프로젝트 목록에서 선택하는 것 외에도 **[Spring Initializr]**를 통해 사용자 지정 Spring Boot 응용 프로그램을 만들기 시작하는 개발자에게 도움을 줍니다.
+**[Spring Framework]**는 Java 개발자가 엔터프라이즈 수준의 응용 프로그램을 만드는 데 도움이 되는 오픈 소스 솔루션입니다. 해당 플랫폼을 기반으로 하여 빌드되는 인기 있는 프로젝트 중 하나가 [Spring Boot]입니다. 이 프로젝트는 독립 실행형 Java 응용 프로그램을 만드는 간단한 방법을 제공합니다. Spring Boot을 시작하는 개발자를 도우려면 <https://github.com/spring-guides/>에서 몇 가지 샘플 Spring Boot 패키지를 사용할 있습니다. 기본 Spring Boot 프로젝트 목록에서 선택하는 것 외에도 **[Spring Initializr]**를 통해 사용자 지정 Spring Boot 응용 프로그램을 만들기 시작하는 개발자에게 도움을 줍니다.
 
 Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같은 표준 API를 사용하여 데이터를 사용할 수 있도록 하는 전역 분산 데이터베이스 서비스입니다. Microsoft의 Spring Boot Starter를 사용하면 개발자가 DocumentDB API를 사용하여 Azure Cosmos DB와 쉽게 통합하는 Spring Boot 응용 프로그램을 사용할 수 있습니다.
 
@@ -51,9 +51,9 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
 1. **데이터베이스**를 클릭한 후 **Azure Cosmos DB**를 클릭합니다.
 
-   ![Azure portal][AZ02]
+   ![Azure Portal][AZ02]
 
-1. **Azure Cosmos DB** 블레이드에서 다음 정보를 입력합니다.
+1. **Azure Cosmos DB** 페이지에서 다음 정보를 입력합니다.
 
    * 고유한 **ID**를 입력합니다. 이 항목은 데이터베이스의 URI로 사용합니다. 예: *wingtiptoysdata.documents.azure.com*
    * API에 **SQL(Document DB)**을 선택합니다.
@@ -65,13 +65,13 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
    ![Azure portal][AZ03]
 
-1. 데이터베이스를 만든 경우 Azure **대시보드** 및 **모든 리소스** 및 **Azure Cosmos DB** 블레이드에 나열됩니다. 해당 위치 중 하나에서 캐시를 클릭하여 데이터베이스의 속성 블레이드를 열 수 있습니다.
+1. 데이터베이스를 만든 경우 Azure **대시보드** 뿐 아니라 **모든 리소스** 및 **Azure Cosmos DB** 페이지에도 나열됩니다. 해당 위치 중 하나에서 데이터베이스를 클릭하여 캐시에 대한 속성 페이지를 열 수 있습니다.
 
    ![Azure portal][AZ04]
 
-1. 데이터베이스의 속성 블레이드가 표시되면 **선택키**를 클릭하고 데이터베이스에 대한 URI 및 선택키를 복사합니다. Spring Boot 응용 프로그램에서 이러한 값을 사용합니다.
+1. 데이터베이스에 대한 속성 페이지가 표시되면 **액세스 키**를 클릭하고 데이터베이스에 대한 URI 및 액세스 키를 복사합니다. 이러한 값은 Spring Boot 응용 프로그램에서 사용하게 됩니다.
 
-   ![Azure portal][AZ05]
+   ![Azure Portal][AZ05]
 
 ## <a name="create-a-simple-spring-boot-application-with-the-spring-initializr"></a>Spring Initializr를 사용하여 간단한 Spring Boot 응용 프로그램 만들기
 
@@ -151,76 +151,9 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
 ## <a name="add-sample-code-to-implement-basic-database-functionality"></a>기본 데이터베이스 기능을 구현하는 샘플 코드 추가
 
-### <a name="modify-the-main-application-class"></a>기본 응용 프로그램 클래스 수정
+이 섹션에서는 사용자 데이터 저장을 위해 두 가지 Java 클래스를 만든 다음, 기본 응용 프로그램 클래스를 수정하여 사용자 클래스의 인스턴스를 만들고 데이터베이스에 저장합니다.
 
-1. 앱의 패키지 디렉터리에서 기본 응용 프로그램 Java 파일을 찾습니다. 예:
-
-   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
-
-   또는
-
-   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
-
-   ![응용 프로그램 Java 파일 찾기][JV01]
-
-1. 텍스트 편집기에서 응용 프로그램 Java 파일을 열고 다음 줄을 파일에 추가합니다.
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.boot.CommandLineRunner;
-
-   @SpringBootApplication
-   public class WingtiptoysApplication implements CommandLineRunner {
-
-      @Autowired
-      private UserRepository repository;
-    
-      public static void main(String[] args) {
-         SpringApplication.run(WingtiptoysApplication.class, args);
-      }
-
-      public void run(String... var1) throws Exception {
-         final User testUser = new User("testId", "testFirstName", "testLastName");
-
-         repository.deleteAll();
-         repository.save(testUser);
-
-         final User result = repository.findOne(testUser.getId());
-
-         System.out.printf("\n\n%s\n\n",result.toString());
-      }
-   }
-   ```
-   > [!NOTE]
-   >
-   > 응용 프로그램 클래스에서는 *UserRepository* 및 *사용자*라는 두 개의 클래스를 사용합니다. 이 항목은 나중에 정의하고 구현합니다.
-   >
-
-1. 기본 응용 프로그램 Java 파일을 저장하고 닫습니다.
-
-### <a name="define-a-data-repository-interface"></a>데이터 리포지토리 인터페이스 정의
-
-1. 기본 응용 프로그램 Java 파일과 동일한 디렉터리에 *UserRepository.java*라는 새 파일을 만듭니다.
-
-1. 텍스트 편집기에서 *UserRepository.java* 파일을 열고 파일에 다음 줄을 추가하여 기본 DocumentDB 리포지토리 인터페이스를 확장하는 사용자 리포지토리 인터페이스를 정의합니다.
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
-   import org.springframework.stereotype.Repository;
-
-   @Repository
-   public interface UserRepository extends DocumentDbRepository<User, String> {}   
-   ```
-
-1. *UserRepository.java* 파일을 저장하고 닫습니다.
-
-### <a name="define-a-basic-class-for-storing-data"></a>데이터를 저장하는 기본 클래스 정의
+### <a name="define-a-basic-class-for-storing-user-data"></a>사용자 데이터를 저장하기 위한 기본 클래스 정의
 
 1. 기본 응용 프로그램 Java 파일과 동일한 디렉터리에 *User.java*라는 새 파일을 만듭니다.
 
@@ -273,6 +206,71 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
 1. *User.java* 파일을 저장하고 닫습니다.
 
+### <a name="define-a-data-repository-interface"></a>데이터 리포지토리 인터페이스 정의
+
+1. 기본 응용 프로그램 Java 파일과 동일한 디렉터리에 *UserRepository.java*라는 새 파일을 만듭니다.
+
+1. 텍스트 편집기에서 *UserRepository.java* 파일을 열고 파일에 다음 줄을 추가하여 기본 DocumentDB 리포지토리 인터페이스를 확장하는 사용자 리포지토리 인터페이스를 정의합니다.
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
+   import org.springframework.stereotype.Repository;
+
+   @Repository
+   public interface UserRepository extends DocumentDbRepository<User, String> {}   
+   ```
+
+1. *UserRepository.java* 파일을 저장하고 닫습니다.
+
+### <a name="modify-the-main-application-class"></a>기본 응용 프로그램 클래스 수정
+
+1. 앱의 패키지 디렉터리에서 기본 응용 프로그램 Java 파일을 찾습니다. 예:
+
+   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
+
+   또는
+
+   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
+
+   ![응용 프로그램 Java 파일 찾기][JV01]
+
+1. 텍스트 편집기에서 응용 프로그램 Java 파일을 열고 다음 줄을 파일에 추가합니다.
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+
+   @SpringBootApplication
+   public class WingtiptoysApplication implements CommandLineRunner {
+
+      @Autowired
+      private UserRepository repository;
+    
+      public static void main(String[] args) {
+         SpringApplication.run(WingtiptoysApplication.class, args);
+      }
+
+      public void run(String... var1) throws Exception {
+         final User testUser = new User("testId", "testFirstName", "testLastName");
+
+         repository.deleteAll();
+         repository.save(testUser);
+
+         final User result = repository.findOne(testUser.getId());
+
+         System.out.printf("\n\n%s\n\n",result.toString());
+      }
+   }
+   ```
+
+1. 기본 응용 프로그램 Java 파일을 저장하고 닫습니다.
+
 ## <a name="build-and-test-your-app"></a>앱 빌드 및 테스트
 
 1. 명령 프롬프트를 열고 디렉터리를 *pom.xml* 파일이 위치한 폴더로 변경합니다. 예:
@@ -294,7 +292,7 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
    ![응용 프로그램에서 성공적인 출력][JV02]
 
-1. 선택 사항: 콘텐츠를 보기 위해 **문서 탐색기**를 클릭하고 표시된 목록에서 항목을 선택하여 데이터베이스의 속성 블레이드에서 Azure Cosmos DB의 콘텐츠를 보도록 Azure Portal을 사용할 수 있습니다.
+1. 선택 사항: 콘텐츠를 보기 위해 **문서 탐색기**를 클릭하고 표시된 목록에서 항목을 선택하여 데이터베이스의 속성 페이지에서 Azure Cosmos DB의 콘텐츠를 보도록 Azure Portal을 사용할 수 있습니다.
 
    ![문서 탐색기를 사용하여 데이터 보기][JV03]
 

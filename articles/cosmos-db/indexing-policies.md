@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
@@ -60,6 +60,10 @@ ms.lasthandoff: 07/25/2017
 > 
 > 
 
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>포털을 사용하여 인덱싱 정책 사용자 지정
+
+Azure Portal을 사용하여 컬렉션의 인덱싱 정책을 변경할 수 있습니다. Azure Portal에서 Azure Cosmos DB 계정을 열고 컬렉션을 선택하고 왼쪽 탐색 메뉴에서 **설정**을 클릭한 다음, **인덱싱 정책**을 클릭합니다. **인덱싱 정책** 블레이드에서 인덱싱 정책을 변경한 다음, **확인**을 클릭하여 변경 내용을 저장합니다. 
+
 ### <a id="indexing-modes"></a>데이터베이스 인덱싱 모드
 Azure Cosmos DB는 Azure Cosmos DB 컬렉션의 인덱싱 정책을 통해 구성될 수 있는 세 가지 인덱싱 모드, 일관성, 지연 및 없음을 지원합니다.
 
@@ -73,8 +77,6 @@ Azure Cosmos DB는 Azure Cosmos DB 컬렉션의 인덱싱 정책을 통해 구�
 > “없음”으로 인덱싱 정책을 구성하면 모든 기존 인덱스를 삭제하는 부작용이 있습니다. 액세스 패턴이 "Id" 및/또는 "자체 링크"만을 필요로 하면 이를 사용합니다.
 > 
 > 
-
-다음 샘플은 모든 문서 삽입에 일관된 자동 인덱싱을 사용하여 .NET SDK로 Azure Cosmos DB 컬렉션을 만드는 방법을 보여 줍니다.
 
 다음 표에서 컬렉션에 대해 구성된 인덱싱 모드(일관성 및 지연) 및 쿼리 요청에 대해 지정된 일관성 수준에 따라 쿼리에 대한 일관성을 보여줍니다. 모든 인터페이스 - REST API, SDK또는 저장 프로시저 및 트리거 내에서 사용하여 만든 쿼리에 적용합니다. 
 

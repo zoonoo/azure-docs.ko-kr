@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,8 +72,7 @@ Docker 로그 드라이버가 지정된 경우 클러스터의 로그를 처리�
 
 Service Fabric 클러스터에 컨테이너를 배포하려면 다음 문서를 참조하세요.
 
-[Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-deploy-container.md)
 
-[Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-deploy-container-linux.md)
+[Service Fabric에 컨테이너 배포](service-fabric-deploy-container.md)
 
 

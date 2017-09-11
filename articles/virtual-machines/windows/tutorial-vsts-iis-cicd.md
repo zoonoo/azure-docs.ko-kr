@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: b4074c67c7a8214f8e103385d5aea75f019d2da6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -232,7 +232,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 새 웹 배포 패키지를 IIS에 게시하기 위한 릴리스 정의 만들기
 > * CI/CD 파이프라인 테스트
 
-미리 빌드된 가상 컴퓨터 스크립트 샘플을 보려면 이 링크를 따르세요.
+SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Windows 가상 컴퓨터 스크립트 샘플 ](./powershell-samples.md)
+> [SSL로 웹 서버 보호](tutorial-secure-web-server.md)

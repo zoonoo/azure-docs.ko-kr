@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 삭제된 Office 365 그룹 복원 | Microsoft Docs"
 description: "Azure Active Directory에서 삭제된 그룹을 복원하고 복원 가능한 그룹을 보고 영구적으로 그룹을 삭제하는 방법"
 services: active-directory
@@ -13,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 795b711542c0a200b80e414397094a102213caf2
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/19/2017
-
 
 ---
 
@@ -43,12 +43,12 @@ Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>복원할 수 있는 삭제된 Office 365 그룹 보기
 다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 이러한 cmdlet은 [Azure AD PowerShell 모듈](https://www.powershellgallery.com/packages/AzureAD/)에 포함됩니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0) 문서에서 찾을 수 있습니다.
 
-1.    다음 cmdlet을 실행하여 여전히 복원할 수 있는 테넌트의 모든 삭제된 Office 365 그룹을 표시합니다.
+1.  다음 cmdlet을 실행하여 여전히 복원할 수 있는 테넌트의 모든 삭제된 Office 365 그룹을 표시합니다.
   ```
   Get-AzureADMSDeletedGroup
   ```
 
-2.    또는 특정 그룹의 objectID를 아는 경우(및 1단계의 cmdlet에서 가져올 수 있는 경우) 다음 cmdlet을 실행하여 삭제된 특정 그룹이 영구적으로 제거되었는지 확인합니다.
+2.  또는 특정 그룹의 objectID를 아는 경우(및 1단계의 cmdlet에서 가져올 수 있는 경우) 다음 cmdlet을 실행하여 삭제된 특정 그룹이 영구적으로 제거되었는지 확인합니다.
   ```
   Get-AzureADMSDeletedGroup –Id <objectId>
   ```
@@ -58,7 +58,7 @@ Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 
 ## <a name="how-to-restore-your-deleted-office-365-group"></a>삭제된 Office 365 그룹을 복원하는 방법
 그룹을 복원할 수 있는지 확인한 후 다음 단계 중 하나를 사용하여 삭제된 그룹을 복원합니다. 그룹에 문서, SP 사이트 또는 기타 영구 개체가 포함된 경우 그룹 및 해당 내용을 완전히 복원하는 데 최대 24시간이 걸릴 수 있습니다.
 
-1.    다음 cmdlet을 실행하여 그룹 및 해당 내용을 복원합니다.
+1.  다음 cmdlet을 실행하여 그룹 및 해당 내용을 복원합니다.
   
   ```
   Restore-AzureADMSDeletedDirectoryObject –Id <objectId>

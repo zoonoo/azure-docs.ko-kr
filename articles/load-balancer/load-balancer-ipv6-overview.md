@@ -69,7 +69,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * 공용 IPv6 주소는 VM에 할당할 수 없습니다. 부하 분산 장치에만 할당할 수 있습니다.
 * 공용 IPv6 주소에 대해 역방향 DNS 조회를 구성할 수 없습니다.
 * IPv6 주소를 사용하는 VM은 Azure Cloud Service의 멤버가 될 수 없습니다. Azure Virtual Network (VNet)에 연결될 수 있으며 IPv4 주소를 통해 서로 통신합니다.
-* 개인 IPv6 주소를 리소스 그룹의 개별 VM에 배포할 수 있지만 크기 집합을 통해 리소스 그룹에 배포할 수는 없습니다.
+* 개인 IPv6 주소를 리소스 그룹의 개별 VM에 배포할 수 있지만 확장 집합을 통해 리소스 그룹에 배포할 수는 없습니다.
 * Azure VM은 IPv6를 통해 다른 VM, 다른 Azure 서비스 또는 온-프레미스 장치에 연결할 수 없습니다. 단지 IPv6를 통해 Azure Load Balancer와 통신할 수 있습니다. 그러나 IPv4를 사용하면 이러한 다른 리소스와 통신할 수 있습니다.
 * IPv4에 대한 Network Security Group (NSG) 보호는 이중 스택 (IPv6+IPv4) 배포에서 지원됩니다. NSG는 IPv6 끝점에 적용되지 않습니다.
 * VM의 IPv6 끝점은 인터넷에 직접 노출되지 않습니다. 부하 분산 장치 뒤에.있습니다. 부하 분산 장치 규칙에 지정된 포트만 IPv6를 통해 액세스할 수 있습니다.

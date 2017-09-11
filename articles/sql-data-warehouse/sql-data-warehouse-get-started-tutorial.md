@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Data Warehouse 시작
@@ -60,11 +59,10 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 
 ### <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기** > **데이터베이스** > **SQL Data Warehouse**를 차례로 클릭합니다.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. 배포 세부 정보 작성
 
@@ -84,8 +82,7 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 
     **성능 선택**: 표준 400DWU로 시작하는 것이 좋습니다.
 
-4. **대시보드에 고정**
-    ![대시보드에 고정](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)을 선택합니다.
+4. **대시보드에 고정** ![대시보드에 고정](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)을 선택합니다.
 
 5. 데이터 웨어하우스가 배포될 때까지 기다립니다. 일반적으로 이 프로세스는 몇 분 정도 걸립니다. 포털은 데이터 웨어하우스를 사용할 준비가 되면 알려줍니다. 
 
@@ -137,9 +134,9 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
 
 1. SSMS 또는 또 하나의 쿼리 클라이언트를 사용하여 **master**에 대한 새 쿼리를 엽니다.
 
-    ![master에서의 새 쿼리](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
+    ![Master에서의 새 쿼리](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
-    ![master1에서의 새 쿼리](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
+    ![Master1에서의 새 쿼리](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
 2. 쿼리 창에서 MedRCLogin라는 로그인과 LoadingUser라는 사용자를 만들려면 이 T-SQL 명령을 실행합니다. 이 로그인은 논리적 SQL 서버에 연결할 수 있습니다.
 
@@ -649,7 +646,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 
 [동시성 및 워크로드 관리][]
 
-[Azure SQL 데이터 웨어하우스에 대한 모범 사례][]
+[Azure SQL Data Warehouse에 대한 모범 사례][]
 
 [쿼리 모니터링][]
 
@@ -657,8 +654,8 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 
 [Azure SQL Data Warehouse로 데이터 마이그레이션][](영문)
 
-[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Azure SQL 데이터 웨어하우스에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
+[Azure SQL Data Warehouse에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [쿼리 모니터링]: sql-data-warehouse-manage-monitor.md
 [대규모 관계형 데이터 웨어하우스를 구축하기 위한 상위 10가지 모범 사례]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/(영문)
 [Azure SQL Data Warehouse로 데이터 마이그레이션]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/(영문)

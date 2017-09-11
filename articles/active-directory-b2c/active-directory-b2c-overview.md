@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory B2C: 개요 | Microsoft Docs"
+title: "개요 - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C를 사용하여 소비자 지향 응용 프로그램 개발"
 services: active-directory-b2c
 documentationcenter: 
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: parja
+editor: parakhj
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: f3c2760ec66c0292ebeb53d0acb5f9ee1df388ae
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: 등록 및 로그인에 대해 걱정할 필요 없이 앱에 초점 맞추기
@@ -80,6 +79,6 @@ Azure AD B2C를 사용하면 최소 구성으로 응용 프로그램을 인증�
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 
-[이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
 

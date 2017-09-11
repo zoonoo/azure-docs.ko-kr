@@ -1,5 +1,5 @@
 1. 새 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터베이스**를 클릭한 후 **Azure Cosmos DB**를 클릭합니다.
+2. 왼쪽 메뉴에서 **새로 만들기**, **데이터베이스**를 차례로 클릭한 다음 **Azure Cosmos DB**에서 **만들기**를 클릭합니다.
    
    ![더 많은 서비스와 Azure Cosmos DB를 강조 표시한 Azure Portal의 스크린샷](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -21,7 +21,7 @@
     리소스 그룹|*ID와 동일한 값*|계정의 새 리소스 그룹 이름입니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다. 
     위치|*사용자와 가장 가까운 지역*|Azure Cosmos DB 계정을 호스트할 지리적 위치입니다. 데이터에 빠르게 액세스할 수 있도록 사용자와 가장 가까운 위치를 선택합니다.   
 
-4. **만들기** 를 클릭하여 계정을 만듭니다.
+4. **만들기**를 클릭하여 계정을 만듭니다.
 5. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
 
     ![배포가 시작됨 알림](./media/cosmos-db-create-dbaccount-table/notification.png)

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
@@ -66,7 +65,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 |  |개발 및 마케팅에 시간 제약이 따르는 클라우드용으로 설계된 새 응용 프로그램 |기존 응용 프로그램을 변경은 최소로 하고 클라우드로 빠르게 마이그레이션해야 하는 경우 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 |
 |  | 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 |SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성하고 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. | |
 |  | 기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다. |모든 관리 권한이 있는 사용자 지정 환경이 필요합니다. | |
-|  | 확장 패턴을 사용하여 [가로 또는 세로로 분할](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 될 수 있는 최대 1TB 이상의 데이터베이스 |저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. | |
+|  | 확장 패턴을 사용하여 [가로 또는 세로로 분할](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 될 수 있는 최대 4TB 이상의 데이터베이스 |저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. | |
 |  | [SaaS(Software-as-a-Service) 응용 프로그램 빌드](sql-database-design-patterns-multi-tenancy-saas-applications.md) |엔터프라이즈 및 하이브리드 응용 프로그램 마이그레이션 및 빌드 | |
 |  | | |
 | **리소스:** |기본 인프라를 구성하고 관리하는 데 IT 리소스를 사용하지 않지만 응용 프로그램 계층에 중점을 두려고 합니다. |구성 및 관리를 위한 일부 IT 리소스가 있습니다. 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
@@ -140,7 +139,7 @@ Microsoft는 **SQL Database** Basic, Standard Premium 및 Premium RS 서비스 �
 
 **Azure VM의 SQL Server** 를 선택하는 경우:
 
-* 기존 온-프레미스 응용 프로그램을 마이그레이션 또는 클라우드로 확장하거나 1TB보다 큰 엔터프라이즈 응용 프로그램을 빌드하려는 경우. 이 방법을 통해 100% SQL 호환성, 큰 데이터베이스 용량, SQL Server 및 Windows 전체 제어 및 온-프레미스에 대한 안전한 터널링이라는 이점을 제공합니다. 이 방법은 기존 응용 프로그램의 개발 및 수정에 대한 비용을 최소화합니다.
+* 기존 온-프레미스 응용 프로그램을 마이그레이션 또는 클라우드로 확장하거나 4TB보다 큰 엔터프라이즈 응용 프로그램을 빌드하려는 경우. 이 방법을 통해 100% SQL 호환성, 큰 데이터베이스 용량, SQL Server 및 Windows 전체 제어 및 온-프레미스에 대한 안전한 터널링이라는 이점을 제공합니다. 이 방법은 기존 응용 프로그램의 개발 및 수정에 대한 비용을 최소화합니다.
 * 기존 IT 리소스가 있다면 패치, 백업 및 데이터베이스 고가용성을 궁극적으로 활용할 수 있습니다. 일부 자동화된 기능은 이러한 작업을 크게 간소화합니다. 
 
 ## <a name="next-steps"></a>다음 단계

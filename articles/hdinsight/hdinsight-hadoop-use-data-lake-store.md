@@ -16,18 +16,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 993cff63037017e37ff5b0787f50ba002df28d03
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 28a836aff65636ef0031ac63f633d746436d7e4a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
-# Azure HDInsight 클러스터에 Data Lake Store 사용
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
-HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) 또는 양 쪽 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) 또는 양 쪽 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 이 문서에서는 Data Lake Store가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. Azure Storage가 HDInsight 클러스터에서 작동하는 방식에 대해 알아보려면 [Azure HDInsight 클러스터에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -36,8 +34,7 @@ HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](..
 > 
 > 
 
-## HDInsight 클러스터에 대한 가용성
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
+## <a name="availabilities-for-hdinsight-clusters"></a>HDInsight 클러스터에 대한 가용성
 
 Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage에서 Blob 컨테이너를 기본 파일 시스템으로 지정하거나 HDInsight 3.5 이상을 통해, 몇 가지 예외를 제외하고 Azure Storage 또는 Azure Data Lake Store를 기본 파일 시스템으로 선택할 수 있습니다. 
 
@@ -61,8 +58,7 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 Data Lake Store를 추가 저장소 계정으로 사용하면 클러스터에서 Azure Storage로 읽거나 쓰는 성능 또는 기능에 영향을 주지 않습니다.
 
 
-## Data Lake Store를 기본 저장소로 사용
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
+## <a name="use-data-lake-store-as-default-storage"></a>Data Lake Store를 기본 저장소로 사용
 
 HDInsight가 Data Lake Store를 기본 저장소로 하여 배포되는 경우 클러스터 관련 파일은 Data Lake Store의 다음 위치에 저장됩니다.
 
@@ -84,8 +80,7 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 다음 경로�
 서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
 
-## 추가 저장소로 Data Lake Store 사용
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
+## <a name="use-data-lake-store-as-additional-storage"></a>추가 저장소로 Data Lake Store 사용
 
 Azure Data Lake Store를 클러스터에 대한 추가 저장소로 사용할 수도 있습니다. 이런 경우 클러스터 기본 저장소는 Azure Storage Blob 또는 Data Lake Store 계정입니다. 추가 저장소로 Data Lake Store에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예:
 
@@ -100,13 +95,11 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 파일이 저�
 서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
 
-## 둘 이상의 Data Lake Store 계정 사용
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
+## <a name="use-more-than-one-data-lake-store-accounts"></a>둘 이상의 Data Lake Store 계정 사용
 
 추가로 Data Lake Store 계정을 추가하고 둘 이상의 Data Lake Store 계정을 추가하는 것은 하나 이상의 Data Lake Store 계정에 있는 데이터에 HDInsight 클러스터 권한을 부여하여 수행합니다. [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
-## Data Lake Store 액세스 구성
-<a id="configure-data-lake-store-access" class="xliff"></a>
+## <a name="configure-data-lake-store-access"></a>Data Lake Store 액세스 구성
 
 HDInsight 클러스터에서 Data Lake Store 액세스를 구성하려면 Azure AD(Azure Active Directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [Data Lake Store 액세스 구성](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) 및 [자체 서명된 인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
@@ -114,8 +107,7 @@ HDInsight 클러스터에서 Data Lake Store 액세스를 구성하려면 Azure 
 > Azure Data Lake Store를 HDInsight 클러스터의 추가 저장소로 사용하려는 경우 이 문서에서 설명한 대로 클러스터를 만드는 동안 이 작업을 수행하는 것이 좋습니다. 기존의 HDInsight 클러스터에 Azure Data Lake Store를 추가 저장소로 추가하는 것은 복잡한 프로세스이며 오류가 발생하기 쉽습니다.
 >
 
-## 클러스터에서 파일 액세스
-<a id="access-files-from-the-cluster" class="xliff"></a>
+## <a name="access-files-from-the-cluster"></a>클러스터에서 파일 액세스
 
 HDInsight 클러스터에서 Data Lake Store의 파일에 액세스할 수 있는 방법은 여러 가지입니다.
 
@@ -135,8 +127,7 @@ HDInsight 클러스터에서 Data Lake Store의 파일에 액세스할 수 있�
 
         /example/data/sample.log
 
-## Data Lake Store에 대한 액세스로 HDInsight 클러스터 만들기
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Data Lake Store에 대한 액세스로 HDInsight 클러스터 만들기
 
 Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방법에 대한 자세한 지침은 다음 링크를 사용하세요.
 
@@ -146,8 +137,7 @@ Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방�
 * [Azure 템플릿 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight로 HDFS 호환 Azure Data Lake Store를 사용하는 방법을 알아보았습니다. 이제 장기적이고 확장성 있는 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
@@ -168,7 +158,7 @@ Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방�
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage/storage-create-storage-account.md
+[azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png

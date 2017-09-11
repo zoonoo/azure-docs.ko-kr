@@ -3,7 +3,7 @@ title: "2단계 인증 시작 | Microsoft Docs"
 description: "최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,5 +48,4 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 | [설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다. |
 | [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md) |앱 암호 만들기 및 사용에 대한 정보를 찾아보세요. |
 | [모바일 앱 사용](microsoft-authenticator-app-how-to.md) |[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
-
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/22/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/27/2017
 
 또한 **병합** 및 **MergeCaseInsensitive**가 있습니다. 이 옵션을 사용하면 다양한 원본에서 값을 병합할 수 있습니다. 예를 들어, 여러 다른 포리스트에서 구성원 또는 proxyAddresses 특성을 병합하는 데 사용할 수 있습니다. 이 옵션을 사용하는 경우 하나의 개체의 범위에 있는 모든 동기화 규칙은 동일한 병합 유형을 사용해야 합니다. 한 커넥터의 **업데이트** 및 다른 커넥터의 **병합**을 정의할 수는 없습니다. 시도하면 오류가 발생합니다.
 
-**병합** 및 **MergeCaseInsensitive** 간에는 중복 특성 값을 처리하는 방법에 차이가 있습니다. 동기화 엔진은 중복 값이 대상 특성에 삽입되지 않도록 합니다. **MergeCaseInsensitive**와 차이가 있는 경우 중복 값이 표시되지 않습니다. 예를 들어, 대상 특성에 "SMTP:bob@contoso.com" 및 "smtp:bob@contoso.com"이(가) 모두 표시되지 않습니다. **병합** 은 정확한 값을 확인하고 차이가 있는 경우 다중값이 표시되지 않을 수 있습니다.
+**병합** 및 **MergeCaseInsensitive** 간에는 중복 특성 값을 처리하는 방법에 차이가 있습니다. 동기화 엔진은 중복 값이 대상 특성에 삽입되지 않도록 합니다. **MergeCaseInsensitive**와 차이가 있는 경우 중복 값이 표시되지 않습니다. 예를 들어, 대상 특성에 SMTP:bob@contoso.com 및 smtp:bob@contoso.com이 모두 표시되지 않습니다. **병합** 은 정확한 값을 확인하고 차이가 있는 경우 다중값이 표시되지 않을 수 있습니다.
 
 **대체** 옵션은 **업데이트**와 동일하지만 사용되지 않습니다.
 

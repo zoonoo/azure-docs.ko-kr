@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 Azure PowerShell을 사용하여 Sqoop 작업 실행
@@ -35,7 +34,7 @@ HDInsight에서 Azure PowerShell을 사용하여 HDInsight 클러스터와 Azure
 > 
 
 ### <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
   
@@ -169,7 +168,7 @@ HDInsight에서 Azure PowerShell을 사용하여 HDInsight 클러스터와 Azure
 
 ## <a name="limitations"></a>제한 사항
 * 대량 내보내기 - Linux 기반 HDInsight와 함께 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 데이터를 내보내는 데 사용된 Sqoop 커넥터도 현재 대량 삽입을 지원하지 않습니다.
-* 배치 - Linux 기반 HDInsight와 함께 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 삽입 작업을 수행합니다.
+* 배치 - Linux 기반 HDInsight에서 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 번의 삽입 작업을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 단원 13: 배포 | Microsoft Docs"
 description: "Azure Analysis Services에 자습서 프로젝트를 배포하는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>단원 13: 배포

@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2017
+ms.date: 8/24/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="august-guest-os"></a>게스트 OS 8월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4034658] |Windows 10 업데이트 |5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4034679] |Windows 보안 전용 |2.65 |2017년 8월 8일 |
+| Rel 17-07 | [4034672] |Windows 보안 전용 |4.45 |2017년 8월 8일 |
+| Rel 17-07 | [4034666] |Windows 보안 전용 |3.52 |2017년 8월 8일 |
+| Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4034664], [4034665], [4034681] |Windows 월별 롤업 |2.65, 3.52, 4.45 |2017년 8월 8일 |
+| Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |CVE-2017-0071 다시 릴리스, CVE-2017-0228 다시 릴리스 |5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4025341] |7월 비보안 롤업 |2.65 |2017년 8월 8일 |
+| Rel 17-07 | [4025331] |7월 비보안 롤업 |3.52 |2017년 8월 8일 |
+| Rel 17-07 | [4025336] |7월 비보안 롤업 |4.45 |2017년 8월 8일 |
 
 ## <a name="july-guest-os"></a>게스트 OS 7월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -509,6 +523,23 @@ ms.lasthandoff: 08/04/2017
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034679]: http://support.microsoft.com/kb/4034679
+[4034672]: http://support.microsoft.com/kb/4034672
+[4034666]: http://support.microsoft.com/kb/4034666
+[4034733]: http://support.microsoft.com/kb/4034733
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+[4034668]: http://support.microsoft.com/kb/4034668
+[4034660]: http://support.microsoft.com/kb/4034660
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034674]: http://support.microsoft.com/kb/4034674
+[4025341]: http://support.microsoft.com/kb/4025341
+[4025331]: http://support.microsoft.com/kb/4025331
+[4025336]: http://support.microsoft.com/kb/4025336
 
 [4025339]: http://support.microsoft.com/kb/4025337
 [4025337]: http://support.microsoft.com/kb/4025333

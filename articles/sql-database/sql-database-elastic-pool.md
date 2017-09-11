@@ -1,5 +1,5 @@
 ---
-title: "탄력적 풀이란? 여러 SQL Database 관리 - Azure | Microsoft Docs"
+title: "탄력적 풀을 사용하여 여러 SQL Database 관리 - Azure | Microsoft Docs"
 description: "탄력적 풀을 사용하여 수백 및 수천 개의 SQL Database를 관리하고 크기를 조정합니다. 필요한 경우 배포할 수는 리소스에 대한 단일 가격"
 keywords: "여러 데이터베이스, 데이터베이스 리소스, 데이터베이스 성능"
 services: sql-database
@@ -11,25 +11,25 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 07/31/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e0d9067cd942fccf9eeb2750cff1d1f3b478eba
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 4e4483ce7473070591128375960daa2b2c26a55d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>탄력적 풀이 여러 SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
-SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 크기를 조정하기 위한 간단하고 비용 효과적인 솔루션입니다. 탄력적 풀에 있는 데이터베이스는 단일 Azure SQL Database 서버에 있으며 설정된 가격으로 설정된 수의 리소스(eDTU([Elastic Database 트랜잭션 단위](sql-database-what-is-a-dtu.md)))를 공유합니다. Azure SQL 데이터베이스의 탄력적 풀을 사용하면 SaaS 개발자가 각각의 데이터베이스에 성능 탄력성을 제공하는 동시에 규정된 예산 내의 데이터베이스 그룹에 가격 성능을 최적화할 수 있습니다.   
+SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 크기를 조정하기 위한 간단하고 비용 효과적인 솔루션입니다. 탄력적 풀에 있는 데이터베이스는 단일 Azure SQL Database 서버에 있으며 설정된 가격으로 설정된 수의 리소스(eDTU([Elastic Database 트랜잭션 단위](sql-database-what-is-a-dtu.md)))를 공유합니다. Azure SQL 데이터베이스의 탄력적 풀을 사용하면 SaaS 개발자가 각각의 데이터베이스에 성능 탄력성을 제공하는 동시에 규정된 예산 내의 데이터베이스 그룹에 가격 성능을 최적화할 수 있습니다. 
 
 > [!NOTE]
-> 탄력적 풀은 현재 미리 보기 상태인 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다.  이 영역에서 탄력적 풀의 GA는 가능한 한 빨리 수행될 예정입니다.
+> 탄력적 풀은 현재 미리 보기 상태인 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다. 이 영역에서 탄력적 풀의 GA는 가능한 한 빨리 수행될 예정입니다.
 >
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 탄력적 풀이란? 
@@ -48,13 +48,11 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀 내에서 개별 데이터베이스는 집합 매개 변수 내에서 자동 크기 조정에 유연성이 제공됩니다. 부하가 높은 상태에서 데이터베이스는 더 많은 eDTU를 사용하여 수요를 충족할 수 있습니다. 낮은 부하량에서 데이터베이스는 적게 사용하고 부하가 없는 데이터베이스는 eDTU를 사용하지 않습니다. 단일 데이터베이스가 아닌 전체 풀에 대한 리소스 프로비저닝은 관리 작업을 간소화합니다. 또한 풀에 대한 예측 가능한 예산이 있습니다. 새 eDTU 예약에 대한 추가 계산 리소스를 제공하기 위해 데이터베이스를 이동해야 한다는 점을 제외하면 데이터베이스 가동 중지 시간을 발생시키지 않고 추가 eDTU를 기존 풀에 추가할 수 있습니다. 마찬가지로, 추가 eDTU가 더 이상 필요하지 않은 경우에는 언제든지 기존 풀에서 제거할 수 있습니다. 풀에 데이터베이스를 추가하거나 뺄 수 있습니다. 데이터베이스가 예측 가능한 방식으로 리소스를 사용하는 경우 리소스를 이동합니다.
 
-[Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) 및 REST API를 사용하여 탄력적 풀을 만들고 관리할 수도 있습니다. 
-
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>SQL Database 탄력적 풀은 언제 고려해야 하나요?
 
 풀은 특정 사용 패턴을 사용하여 많은 수의 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다.
 
-풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 응용 프로그램 사용 패턴에 따라 S3 데이터베이스 두 개만큼 절감이 가능합니다.  
+풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 응용 프로그램 사용 패턴에 따라 S3 데이터베이스 두 개만큼 절감이 가능합니다. 
 
 다음 섹션에서는 데이터베이스의 특정 컬렉션이 풀에 있는 것이 이득이 될 수 있는지 평가하는 방법을 이해할 수 있습니다. 예제에서는 표준 풀을 사용하지만 기본 및 프리미엄 풀에도 동일한 원칙이 적용됩니다.
 
@@ -72,23 +70,23 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
    ![풀에 적합한 사용 패턴을 가진 네 개의 데이터베이스](./media/sql-database-elastic-pool/four-databases.png)
 
-  ![풀에 적합한 사용 패턴을 가진 20개의 데이터베이스](./media/sql-database-elastic-pool/twenty-databases.png)
+   ![풀에 적합한 사용 패턴을 가진 20개의 데이터베이스](./media/sql-database-elastic-pool/twenty-databases.png)
 
 전체 20개 데이터베이스의 총 DTU 사용률은 위 그림에서 검은색 선으로 표시되었습니다. 이는 DTU 사용률 집계가 100 DTU를 초과하지 않음을 보여 주며, 이 기간 동안 20개 데이터베이스가 100 eDTU를 공유할 수 있음을 나타냅니다. 이러한 결과 20X DTUs의 감소와 13x 가격 감소를 비교합니다. 단일 데이터베이스의 S3 퍼포먼스 수준내의 각각의 데이터베이스를 배치하기 위해
 
 이 예는 다음 이유로 이상적입니다.
 
-* 최고사용률과 데이터베이스당 평균 사용률간에 큰 차이가 있습니다.  
+* 최고사용률과 데이터베이스당 평균 사용률간에 큰 차이가 있습니다. 
 * 각 데이터베이스의 최고 사용률이 시간 내에 여러 지점에서 발생합니다.
 * eDTU는 많은 데이터베이스 간에 공유됩니다.
 
-풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스의 DTU 단가보다 1.5배 높지만, **풀 eDTU는 많은 데이터베이스에서 공유할 수 있으며 필요한 전체 eDTU가 더 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다.  
+풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스의 DTU 단가보다 1.5배 높지만, **풀 eDTU는 많은 데이터베이스에서 공유할 수 있으며 필요한 전체 eDTU가 더 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다. 
 
 데이터베이스 수 및 데이터베이스 사용에 관련된 다음 규칙은 풀이 단일 데이터베이스에 대한 성능 수준을 사용하는 데 비해 비용 절감을 제공하는 데 도움이 됩니다.
 
 ### <a name="minimum-number-of-databases"></a>데이터베이스의 최소 수
 
-단일 데이터베이스에 대한 성능 수준의 DTU의 합계가 풀에 필요한 eDTU의 1.5배 이상인 경우 탄력적 풀은 더욱 비용 효율적입니다. 사용 가능한 크기에 대해서는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
+단일 데이터베이스에 대한 성능 수준의 DTU의 합계가 풀에 필요한 eDTU의 1.5배 이상인 경우 탄력적 풀은 더욱 비용 효율적입니다. 사용 가능한 크기에 대해서는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
 
 ***예제***<br>
 단일 데이터베이스에 성능 수준을 사용하는 것보다 비용 효율을 증가시키려면 100 DTU 풀에 최소 두 개의 S3 데이터베이스 혹은 15개의 S0 데이터베이스가 필요합니다.
@@ -115,7 +113,7 @@ S3 데이터베이스의 최고 사용률이 100 DTU이며 평균 사용률이 6
 * 풀에 있는 모든 데이터베이스의 최대 DTU 수입니다.
 * 풀에 있는 모든 데이터베이스의 최대 저장된 바이트 수입니다.
 
-사용 가능한 크기에 대해서는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](#what-are-the-resource-limits-for-elastic-pools)을 참조하세요.
+사용 가능한 크기에 대해서는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
 
 SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure 포털의 적절한 풀 구성을 권장합니다. 권장 사항 외에도 기본 제공 환경은 서버에서 데이터베이스의 사용자 지정 그룹에 대한 eDTU 사용률을 예측합니다. 그러면 풀에 데이터베이스를 대화형으로 추가하고 제거하여 변경 사항을 커밋하기 전에 리소스 사용률 분석 및 크기 조정 조언을 가져오기 위해 "가정" 분석을 수행할 수 있습니다. 방법은 [탄력적 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)을 참조하세요.
 
@@ -125,36 +123,10 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 
    MAX(<*총 DB 수* X *DB당 평균 DTU 사용률*>,<br>
    <*동시 최고 DB의 수* X *DB당 최고 DTU 사용률*)
-2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다. eDTU 풀 크기에 기반한 풀 저장소 한도는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
+2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다. eDTU 풀 크기에 기반한 풀 저장소 한도는 [탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
 3. 1단계 및 2단계에서 eDTU 예측 중 큰 수를 사용합니다.
 4. [SQL 데이터베이스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 eDTU 풀 크기를 찾습니다.
 5. 단일 데이터베이스에 대한 적절한 성능 수준을 사용하는 가격에 5단계의 풀 가격을 비교합니다.
-
-### <a name="changing-elastic-pool-resources"></a>탄력적 풀 리소스 변경
-
-리소스 수요에 따라 탄력적 풀에 사용할 수 있는 리소스를 늘리거나 줄일 수 있습니다.
-
-* 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
-* 풀당 eDTU를 변경하는 작업은 풀에 있는 모든 데이터베이스에서 사용한 공간의 전체 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스에서 사용 중인 총 공간이 200GB일 경우, 풀당 풀 eDTU를 변경하는 예상 대기 시간은 3시간 이하입니다.
-
-## <a name="what-are-the-resource-limits-for-elastic-pools"></a>탄력적 풀에 대한 리소스 한도는 무엇입니까?
-
-다음 표에서는 탄력적 풀의 리소스 제한에 대해 설명합니다.  탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다.  예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다.  따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
-
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
-
-### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
-
-다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
-
-| 속성 | 설명 |
-|:--- |:--- |
-| 데이터베이스당 최대 eDTU |풀에 있는 다른 데이터베이스의 사용률에 따라 사용 가능한 경우 풀에 있는 임의 데이터베이스에서 사용할 수 있는 최대 eDTU 수입니다.  데이터베이스당 최대 eDTU는 데이터베이스에 대해 리소스를 보장하지 않습니다.  풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스 사용률의 최대치를 처리할 만큼 데이터베이스당 최대 eDTU를 충분히 높게 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 일정 수준의 오버커밋이 예상됩니다. 예를 들어, 데이터베이스당 최고 사용률이 20 eDTU이며 풀에 있는 100개의 데이터베이스 중 20%만 동시에 최대로 사용되는 것으로 가정합니다.  데이터베이스당 eDTU 최대값이 20 eDTU로 설정된 경우 풀을 5배만큼 오버커밋하고 풀당 eDTU를 400으로 설정하는 것이 적합합니다. |
-| 데이터베이스당 최소 eDTU |풀에 있는 임의 데이터베이스에 보장되는 최소 eDTU 수입니다.  풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 eDTU를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 기록 eDTU 사용률 사이의 값으로 설정됩니다. 풀에 있는 데이터베이스 수와 데이터베이스당 최소 eDTU를 곱한 값은 풀당 eDTU를 초과할 수 없습니다.  예를 들어, 풀에 20개의 데이터베이스가 있고 데이터베이스당 eDTU 최소값이 10 eDTU로 설정되면 풀당 eDTU는 200 eDTU 이상이어야 합니다. |
-| 데이터베이스당 최대 데이터 저장소 |풀에 있는 데이터베이스에 대한 최대 저장소입니다. 풀링된 데이터베이스는 풀 저장소를 공유하므로 데이터베이스 저장소는 남은 풀 저장소와 데이터베이스당 최대 저장소 중 작은 값으로 제한됩니다. 데이터 파일의 최대 저장소를 의미하는 데이터베이스당 최대 저장소는 로그 파일에서 사용하는 공간을 포함하지 않습니다. |
-|||
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>탄력적 풀과 기타 SQL Database 기능 사용
 
@@ -167,25 +139,25 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>탄력적 풀의 데이터베이스에 대한 비즈니스 연속성 옵션
 풀링된 데이터베이스는 일반적으로 단일 데이터베이스에서 사용할 수 있는 동일한 [비즈니스 연속성 기능](sql-database-business-continuity.md)을 지원합니다.
 
-- **특정 시점 복원**: 특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **지정 시간 복원**: 지정 시간 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - **지역 복원**: 지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
 
 - **활성 지역 복제**: 지역 복원에서 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램의 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)를 구성합니다.
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Database 탄력적 풀 관리
+## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Azure Portal을 사용하여 탄력적 풀 및 데이터베이스 관리
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Azure Portal을 사용하여 새 SQL Database 탄력적 풀 만들기
 
 Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니다. 원하는 풀 설정을 알고 있는 경우 처음부터 수행하거나 서비스에서 권장 내용으로 시작할 수 있습니다. SQL Database에는 데이터베이스에 대한 과거 사용량 원격 분석을 기반으로 보다 비용 효율적인 경우 탄력적 풀 설정을 권장하는 기본 제공 인텔리전스가 있습니다. 
 
-포털의 기존 **서버** 블레이드에서 탄력적 풀을 만드는 것은 기존 데이터베이스를 탄력적 풀로 이동하는 가장 쉬운 방법입니다. **Marketplace**에서 **SQL 탄력적 풀**을 검색하거나 **SQL 탄력적 풀** 찾아보기 블레이드에서 **+추가**를 클릭하여 탄력적 풀을 만들 수도 있습니다. 이 풀 프로비저닝 워크플로를 통해 새 서버 또는 기존 서버를 지정할 수 있습니다.
+포털의 기존 서버 페이지에서 탄력적 풀을 만드는 것은 기존 데이터베이스를 탄력적 풀로 이동하는 가장 쉬운 방법입니다. **Marketplace**에서 **SQL 탄력적 풀**을 검색하거나 SQL 탄력적 풀 페이지에서 **+추가**를 클릭하여 탄력적 풀을 만들 수도 있습니다. 이 풀 프로비저닝 워크플로를 통해 새 서버 또는 기존 서버를 지정할 수 있습니다.
 
 > [!NOTE]
 > 서버에 풀을 여러 개 만들 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다.
->  
+> 
 
-풀의 가격 책정 계층에 따라 풀에 있는 탄력적 데이터베이스에서 사용 가능한 기능과 각 데이터베이스에서 사용 가능한 최대 eDTU 수(eDTU MAX) 및 저장소(GB)가 결정됩니다. 자세한 내용은 [서비스 계층](#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
+풀의 가격 책정 계층에 따라 풀에 있는 탄력적 데이터베이스에서 사용 가능한 기능과 각 데이터베이스에서 사용 가능한 최대 eDTU 수(eDTU MAX) 및 저장소(GB)가 결정됩니다. 자세한 내용은 [탄력적 풀에 대한 리소스 한도](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)를 참조하세요.
 
 풀에 대한 가격 책정 계층을 변경하려면 **가격 책정 계층**, 원하는 가격 책정 계층, **선택**을 차례로 클릭합니다.
 
@@ -197,7 +169,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이터베이스를 사용하는 경우보다 비용 효율적인 경우 하나 이상의 풀을 권장합니다. 각 권장 사항은 풀에 가장 적합한 서버 데이터베이스의 고유한 하위 집합으로 구성됩니다.
 
-![권장되는 풀](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![권장되는 풀](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 풀 권장 사항은 다음으로 구성됩니다.
 
@@ -212,7 +184,7 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 
 서비스는 리소스 요구와 각 서비스 계층에 있는 단일 데이터베이스를 동일한 계층의 풀로 이동하는 경우 비용 효율성을 평가합니다. 예를 들어 서버의 모든 Standard 데이터베이스는 표준 탄력적 풀에 적합한지 평가됩니다. 즉, 서비스는 Standard 데이터베이스를 Premium 풀로 이동하는 경우와 같은 계층 간 권장 사항을 제공하지 않습니다.
 
-풀에 데이터베이스를 추가한 후에는, 사용자가 선택한 데이터베이스의 기존 사용 정보를 기반으로 권장 사항이 동적으로 생성됩니다. 권장 사항은 eDTU 및 GB 사용 현황 차트는 물론 **풀 구성** 블레이드 상단의 권장 사항 배너에도 표시됩니다. 권장 사항은 특정 데이터베이스에 최적화된 탄력적 풀을 만드는 데 도움을 주기 위해 제공됩니다.
+풀에 데이터베이스를 추가한 후에는, 사용자가 선택한 데이터베이스의 기존 사용 정보를 기반으로 권장 사항이 동적으로 생성됩니다. 권장 사항은 eDTU 및 GB 사용 현황 차트는 물론 **풀 구성** 페이지 상단의 권장 사항 배너에도 표시됩니다. 권장 사항은 특정 데이터베이스에 최적화된 탄력적 풀을 만드는 데 도움을 주기 위해 제공됩니다.
 
 ![동적 권장 사항](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -222,10 +194,10 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 다음 그림에서는 탄력적 풀 예제를 보여 줍니다. 보기에는 다음이 포함됩니다.
 
-*  탄력적 풀과 풀에 포함된 데이터베이스 모두의 리소스 사용을 모니터링하는 차트
-*  탄력적 풀을 변경하는 **구성** 풀 단추
-*  데이터베이스를 만들고 현재 탄력적 풀에 추가하는 **데이터베이스 만들기** 단추
-*  목록의 모든 데이터베이스에 대해 Transact SQL 스크립트를 실행하여 많은 데이터베이스를 관리하는 데 도움이 되는 탄력적 작업
+* 탄력적 풀과 풀에 포함된 데이터베이스 모두의 리소스 사용을 모니터링하는 차트
+* 탄력적 풀을 변경하는 **구성** 풀 단추
+* 데이터베이스를 만들고 현재 탄력적 풀에 추가하는 **데이터베이스 만들기** 단추
+* 목록의 모든 데이터베이스에 대해 Transact SQL 스크립트를 실행하여 많은 데이터베이스를 관리하는 데 도움이 되는 탄력적 작업
 
 ![풀 보기](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -233,11 +205,11 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 ![탄력적 풀 모니터링](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-![메트릭 블레이드](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![메트릭 페이지](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### <a name="to-customize-the-chart-display"></a>차트 표시를 사용자 지정하려면
 
-차트 및 메트릭 블레이드를 편집하여 CPU 비율, 데이터 IO 비율, 사용되는 로그 IO 백분율 등 다른 메트릭을 표시할 수 있습니다.
+차트 및 메트릭 페이지를 편집하여 CPU 비율, 데이터 IO 비율, 사용되는 로그 IO 백분율 등 다른 메트릭을 표시할 수 있습니다.
 
 ![편집 클릭](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
@@ -247,7 +219,7 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 > 측정 단위가 동일한 메트릭만 차트에 동시에 표시될 수 있습니다. 예를 들어, “eDTU 백분율”을 선택하면 측정 단위로 다른 백분율 메트릭만 선택할 수 있습니다.
 >
 
-[편집 클릭](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+![편집 클릭](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 ### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>탄력적 풀의 데이터베이스 관리 및 모니터링
 
@@ -255,9 +227,9 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 ![탄력적 풀 모니터링](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-**Elastic Database 모니터링**에서 **지난 시간 동안 데이터베이스에 대한 eDTU 사용량**을 클릭합니다. 그러면 **데이터베이스 리소스 사용률**이 열리고 풀의 데이터베이스 사용에 관한 자세한 보기가 표시됩니다. 블레이드의 아래쪽에 있는 표를 사용하여 차트(최대 5개의 데이터베이스)에서 사용량을 표시하도록 풀에서 모든 데이터베이스를 선택할 수 있습니다. **차트 편집**을 클릭하여 차트에 표시되는 메트릭 및 시간 창을 사용자 지정할 수도 있습니다.
+**Elastic Database 모니터링**에서 **지난 시간 동안 데이터베이스에 대한 eDTU 사용량**을 클릭합니다. 그러면 **데이터베이스 리소스 사용률**이 열리고 풀의 데이터베이스 사용에 관한 자세한 보기가 표시됩니다. 페이지의 아래쪽에 있는 그리드를 사용하여 차트(최대 5개의 데이터베이스)에서 사용량을 표시하도록 풀에서 모든 데이터베이스를 선택할 수 있습니다. **차트 편집**을 클릭하여 차트에 표시되는 메트릭 및 시간 창을 사용자 지정할 수도 있습니다.
 
-![데이터베이스 리소스 사용률 블레이드](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![데이터베이스 리소스 사용률 페이지](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-view"></a>보기를 사용자 지정하려면
 
@@ -273,7 +245,7 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 ### <a name="to-select-databases-to-monitor"></a>모니터링할 데이터베이스를 선택하려면
 
-데이터베이스 목록의 **데이터베이스 리소스 사용률** 블레이드에서 목록에 있는 페이지를 탐색하거나 데이터베이스의 이름을 입력하여 특정 데이터베이스를 찾을 수 있습니다. 확인란을 사용하여 데이터베이스를 선택합니다.
+데이터베이스 목록의 **데이터베이스 리소스 사용률** 페이지에서 목록에 있는 페이지를 탐색하거나 데이터베이스의 이름을 입력하여 특정 데이터베이스를 찾을 수 있습니다. 확인란을 사용하여 데이터베이스를 선택합니다.
 
 ![모니터링할 데이터베이스 검색](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
@@ -284,11 +256,11 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 **리소스에 경고 추가:**
 
-1. **리소스 사용률** 차트를 클릭하여 **메트릭** 블레이드를 열고 **경고 추가**를 클릭한 다음 **경고 규칙 추가** 블레이드에 정보를 입력합니다(**리소스**는 자동으로 작업 중인 풀로 설정됨).
+1. **리소스 사용률** 차트를 클릭하여 **메트릭** 페이지를 열고 **경고 추가**를 클릭한 다음 **경고 규칙 추가** 페이지에 정보를 입력합니다(**리소스**는 자동으로 작업 중인 풀로 설정됨).
 2. 사용자 및 받는 사람에 대한 경고를 식별하는 **이름** 및 **설명**을 입력합니다.
 3. 목록에서 경고하려는 **메트릭**을 선택합니다.
 
-    차트는 동적으로 임계값을 선택할 수 있도록 해당 메트릭에 대한 리소스 사용률을 보여줍니다.
+   차트는 동적으로 임계값을 선택할 수 있도록 해당 메트릭에 대한 리소스 사용률을 보여줍니다.
 
 4. **조건**(보다 큼, 보다 작음 등) 및 **임계값**을 선택합니다.
 5. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**을 선택합니다.
@@ -314,12 +286,6 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 ![데이터베이스 나열](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
-![데이터베이스 나열](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
-
-![데이터베이스 추가 및 제거 미리 보기](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
-
-![저장을 클릭합니다.](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
 ### <a name="change-performance-settings-of-an-elastic-pool"></a>탄력적 풀의 성능 설정 변경
 
 탄력적 풀의 리소스 사용률을 모니터링하면서 일부 조정이 필요함을 알 수 있습니다. 어쩌면 풀에서 성능이나 저장소 제한을 변경해야 합니다. 풀에서 데이터베이스 설정을 변경하려고 할 수도 있습니다. 언제든지 풀의 설치 프로그램을 변경하여 적절한 성능 및 비용을 얻을 수 있습니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
@@ -328,9 +294,7 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 ![탄력적 풀 리소스 사용률](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-![탄력적 풀 및 새 월별 비용 업데이트](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
-
-## <a name="manage-sql-database-elastic-pools-using-powershell"></a>PowerShell을 사용하여 SQL Database 탄력적 풀 관리
+## <a name="manage-elastic-pools-and-databases-using-powershell"></a>PowerShell을 사용하여 탄력적 풀 및 데이터베이스 관리
 
 Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 데이터베이스, 서버 및 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 Azure SQL Database 서버 및 데이터베이스 만들기 및 관리](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell)를 참조하세요. 
 
@@ -342,7 +306,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 만듭니다.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|논리 SQL Server에서 탄력적 풀과 해당 속성 값을 가져옵니다.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 저장소를 수정합니다.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 삭제합니다.|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|논리 SQL Server에서 탄력적 풀에 대한 작업 상태를 가져옵니다.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. |
@@ -350,11 +314,12 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|데이터베이스의 속성을 설정하거나 기존 데이터베이스와 탄력적 풀 사이를 이동합니다.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|데이터베이스를 제거합니다.|
 
+
 > [!TIP]
 > 탄력적 풀에 많은 수의 데이터베이스를 만드는 작업은 한 번에 단일 데이터베이스만을 만들 수 있는 포털 또는 PowerShell cmdlet을 사용하는 경우와 같은 시간이 걸릴 수 있습니다. 탄력적 풀로 만들기를 자동화하려면 [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)를 참조하세요.
 >
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-cli"></a>Azure CLI를 사용하여 SQL Database 탄력적 풀 관리
+## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Azure CLI를 사용하여 탄력적 풀 및 데이터베이스 관리
 
 [Azure CLI](/cli/azure/overview)를 사용하여 SQL Database 탄력적 풀을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 
 
@@ -371,7 +336,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|탄력적 풀을 업데이트합니다.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|탄력적 풀을 삭제합니다.|
 
-## <a name="manage-sql-database-elastic-pools-using-transact-sql"></a>Transact-SQL을 사용하여 SQL Database 탄력적 풀 관리
+## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Transact-SQL을 사용하여 탄력적 풀 내에서 데이터베이스 관리
 
 기존 탄력적 풀 내에서 데이터베이스를 만들고 이동하거나, Transact-SQL을 사용하여 SQL Database 탄력적 풀에 대한 정보를 반환하려면 다음 T-SQL 명령을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . 데이터베이스, 서버 및 방화벽 규칙을 만들고 관리하려면 [Transact-SQL을 사용하여 Azure SQL Database 서버 및 데이터베이스 만들기 및 관리](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql)를 참조하세요.
 
@@ -387,9 +352,30 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|논리 서버에서 모든 Elastic Database 풀에 대한 리소스 사용 통계를 반환합니다. 각 Elastic Database 풀의 경우 매 15초 보고 창에 대해 한 행이 있습니다(분당 4개 행). 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 저장소 계산 및 동시 요청/세션 사용률이 포함됩니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
 
-## <a name="manage-sql-database-elastic-pools-using-the-rest-api"></a>REST API를 사용하여 SQL Database 탄력적 풀 관리
+## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>REST API를 사용하여 탄력적 풀 및 데이터베이스 관리
 
-REST API를 사용하여 SQL Database 탄력적 풀을 만들고 관리하려면 [Azure SQL Database REST API](/rest/api/sql/)를 참조하세요.
+SQL Database 탄력적 풀을 만들고 관리하려면 다음 REST API 요청을 사용합니다.
+
+| 명령 | 설명 |
+| --- | --- |
+|[탄력적 풀 - Create 또는 Update](/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
+|[탄력적 풀 - Delete](/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|
+|[탄력적 풀 - Get](/rest/api/sql/elasticpools/get)|탄력적 풀을 가져옵니다.|
+|[탄력적 풀 - List By Server](/rest/api/sql/elasticpools/listbyserver)|서버에서 탄력적 풀의 목록을 반환합니다.|
+|[탄력적 풀 - Update](/rest/api/sql/elasticpools/update)|기준 탄력적 풀을 업데이트합니다.|
+|[권장되는 탄력적 풀 - Get](/rest/api/sql/recommendedelasticpools/get)|권장되는 탄력적 풀을 가져옵니다.|
+|[권장되는 탄력적 풀 - List By Server](/rest/api/sql/recommendedelasticpools/listbyserver)|권장되는 탄력적 풀을 반환합니다.|
+|[권장되는 탄력적 풀 - List Metrics](/rest/api/sql/recommendedelasticpools/listmetrics)|권장되는 탄력적 풀 메트릭을 반환합니다.|
+|[탄력적 풀 활동](/rest/api/sql/elasticpoolactivities)|탄력적 풀 활동을 반환합니다.|
+|[탄력적 풀 데이터베이스 활동](/rest/api/sql/elasticpooldatabaseactivities)|탄력적 풀 내에서 데이터베이스에 대한 활동을 반환합니다.|
+|[데이터베이스 - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
+|[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

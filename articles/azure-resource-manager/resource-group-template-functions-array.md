@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수 
@@ -34,6 +33,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
+* [json](#json)
 * [last](#last)
 * [length](#length)
 * [min](#min)
@@ -613,6 +613,53 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | 배열 | ["two", "three"] |
+
+
+## <a name="json"></a>json :
+`json(arg1)`
+
+JSON 개체를 반환합니다.
+
+### <a name="parameters"></a>매개 변수
+
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| arg1 |예 |string |JSON으로 변환할 값입니다. |
+
+
+### <a name="return-value"></a>반환 값
+
+지정된 문자열의 JSON 개체이거나, **null**을 지정한 경우 빈 개체입니다.
+
+### <a name="example"></a>예제
+
+다음 예제에서는 배열 및 개체에 intersection을 사용하는 방법을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "jsonOutput": {
+            "type": "object",
+            "value": "[json('{\"a\": \"b\"}')]"
+        },
+        "nullOutput": {
+            "type": "bool",
+            "value": "[empty(json('null'))]"
+        }
+    }
+}
+```
+
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Boolean | True |
 
 <a id="last" />
 

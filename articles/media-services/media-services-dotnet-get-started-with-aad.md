@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure AD(Azure Active Directory) 인증을 사
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 78ca7eceb31396c748c4c20763d5c74575bbc8f4
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/01/2017
-
 
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스

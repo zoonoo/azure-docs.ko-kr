@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services를 사용하여 미디어
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
 ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요

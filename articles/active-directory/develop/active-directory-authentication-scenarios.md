@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 49ac46d8a04e31df1e5c31a60e387c8cd0b93037
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD의 인증 시나리오
@@ -48,12 +47,12 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 * Azure AD는 조직의 디렉터리에 존재하는 사용자 및 응용 프로그램의 ID를 확인하고 궁극적으로 해당 사용자와 응용 프로그램을 성공적으로 인증하면 보안 토큰을 발급하는 ID 공급자입니다.
 * Azure AD에 인증을 아웃소싱하려는 응용 프로그램은 Azure AD에서 등록되어 있어야 합니다. 이렇게 등록하면 디렉터리의 응용 프로그램을 등록하고 고유하게 식별하게 됩니다.
-* 개발자는 오픈 소스 Azure AD 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 간편하게 만들 수 있습니다. 자세한 내용은 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md) 를 참조하세요.
+* 개발자는 오픈 소스 Azure AD 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 간편하게 만들 수 있습니다. 자세한 내용은 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 
 • 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065.aspx) 설명서를 참조하세요.
 
 > [!IMPORTANT]
-> Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md) 를 참조하세요.
+> Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 참조하세요.
 > 
 > 
 
@@ -239,7 +238,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>OAuth 2.0 인증 코드 권한을 사용한 위임된 사용자 ID
 1. 인증 메커니즘이 Azure AD와 독립적인 웹 응용 프로그램에 사용자가 이미 로그인되어 있습니다.
 2. 웹 응용 프로그램이 액세스 토큰을 획득하려면 인증 코드가 필요하므로, 웹 응용 프로그램이 브라우저를 통해 Azure AD의 권한 부여 끝점에 대한 요청을 발급하고 성공적인 인증 후에 응용 프로그램 ID 및 웹 응용 프로그램의 리디렉션 URI를 제공합니다. 사용자가 Azure AD에 로그인합니다.
-3. 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 응용 프로그램이 아니라 다중 테넌트 응용 프로그램에만 적용됩니다(응용 프로그램에 필수 권한이 이미 있으므로).
+3. 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이 동의는 단일 및 다중 테넌트 응용 프로그램 모두에 적용됩니다.  단일 테넌트의 경우 관리자가 사용자 대신 관리자 동의를 수행할 수 있습니다.  이 작업은 [Azure Portal](https://portal.azure.com)에서 `Grant Permissions` 단추를 사용하여 수행할 수 있습니다. 
 4. 사용자가 동의한 후에는 웹 응용 프로그램이 액세스 토큰을 획득하는 데 필요한 인증 코드를 수신합니다.
 5. Azure AD에서 발급된 인증 코드를 사용하여 웹 응용 프로그램은 인증 코드, 클라이언트 응용 프로그램에 대한 정보(응용 프로그램 ID 및 리디렉션 URI), 원하는 리소스(웹 API에 대한 응용 프로그램 ID URI) 등이 포함된 요청을 Azure AD의 토큰 끝점에 보냅니다.
 6. 웹 응용 프로그램 및 웹 API에 대한 정보와 인증 코드는 Azure AD에서 유효성이 검사됩니다. 유효성 검사가 성공하면 Azure AD는 JWT 액세스 토큰과 JWT 새로 고침 토큰 등 두 가지 토큰을 반환합니다.

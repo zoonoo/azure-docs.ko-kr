@@ -231,7 +231,7 @@ IaaS VM(Windows 또는 Linux)이 있는 서비스는 [Azure Disk Encryption](htt
 
 PaaS v2
 
-Service Fabric을 사용하여 PaaS v2에서 실행되는 서비스는 VMSS[가상 컴퓨터 크기 집합]에 대해 Azure Disk Encryption을 사용하여 PaaS v2 VM을 암호화할 수 있습니다.
+Service Fabric을 사용하여 PaaS v2에서 실행되는 서비스는 VMSS[가상 컴퓨터 확장 집합]에 대해 Azure Disk Encryption을 사용하여 PaaS v2 VM을 암호화할 수 있습니다.
 
 PaaS v1
 

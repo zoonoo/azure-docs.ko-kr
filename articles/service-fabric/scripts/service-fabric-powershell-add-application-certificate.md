@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 06/20/2017
 ms.author: ryanwi
 ms.custom: mvc
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/21/2017
 
 | 명령 | 참고 사항 |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 컴퓨터 크기 집합에 새 응용 프로그램 인증서를 추가합니다.  |
+| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 클러스터를 구성하는 가상 컴퓨터 확장 집합에 새 응용 프로그램 인증서를 추가합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

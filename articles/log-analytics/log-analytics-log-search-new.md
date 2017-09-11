@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 07f8189d1380f5956db8614e82b8b704b152fb26
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Log Analytics의 로그 검색 이해
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/28/2017
 
 Log Analytics에서 로그 검색을 사용하게 되는 다양한 방법은 다음과 같습니다.
 
-- **포털.** [로그 검색 포털](log-analytics-log-search-log-search-portal.md) 또는 [고급 분석 포털](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html)을 통해 리포지토리에서 대화형 데이터 분석을 수행할 수 있습니다.  그러면 다양한 형식 및 시각화로 쿼리를 편집하고 결과를 분석할 수 있습니다.  사용자가 만든 대부분의 쿼리는 포털 중 하나에서 시작된 다음, 예상대로 작동하는지 확인한 후 복사됩니다.
+- **포털.** [로그 검색 포털](log-analytics-log-search-log-search-portal.md) 또는 [고급 분석 포털](https://go.microsoft.com/fwlink/?linkid=856587)을 통해 리포지토리에서 대화형 데이터 분석을 수행할 수 있습니다.  그러면 다양한 형식 및 시각화로 쿼리를 편집하고 결과를 분석할 수 있습니다.  사용자가 만든 대부분의 쿼리는 포털 중 하나에서 시작된 다음, 예상대로 작동하는지 확인한 후 복사됩니다.
 - **경고 규칙.** [경고 규칙](log-analytics-alerts.md)은 작업 영역에서 데이터의 문제를 사전에 식별합니다.  각 경고 규칙은 일정한 간격으로 자동으로 실행되는 로그 검색을 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
 - **뷰.**  [뷰 디자이너](log-analytics-view-designer.md)를 통해 사용자 대시보드에 포함될 데이터의 시각화를 만들 수 있습니다.  로그 검색은 각 보기에 [타일](log-analytics-view-designer-tiles.md) 및 [시각화 부분](log-analytics-view-designer-parts.md)에서 사용하는 데이터를 제공합니다.  시각화 부분에서 로그 검색 포털로 드릴 다운하여 데이터에 대한 추가 분석을 수행할 수 있습니다.
 - **내보내기.**  데이터를 Log Analytics 작업 영역에서 Excel 또는 [Power BI](log-analytics-powerbi.md)로 내보내는 경우 내보낼 데이터를 정의하는 로그 검색을 만듭니다.
@@ -83,5 +83,5 @@ Log Analytics의 로그 분석에서 핵심은 여러 방법으로 리포지토�
 ## <a name="next-steps"></a>다음 단계
 
 - [로그 검색을 만들고 편집하는 데 사용하는 포털](log-analytics-log-search-portals.md)에 대해 알아보세요.
-- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)를 확인해 보세요.
+- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://go.microsoft.com/fwlink/?linkid=856078)를 확인해 보세요.
 

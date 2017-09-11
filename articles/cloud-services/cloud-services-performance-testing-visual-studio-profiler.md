@@ -3,8 +3,8 @@ title: "계산 에뮬레이터에서 로컬로 클라우드 서비스 프로파�
 services: cloud-services
 description: "Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능 문제를 조사합니다."
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 tags: 
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
 ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
@@ -174,9 +175,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

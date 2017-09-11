@@ -4,7 +4,7 @@ description: "이 토픽에서는 클라이언트 쪽에 광고를 삽입하는 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
@@ -155,7 +155,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </Creative>
 
 
-<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResouce**>, <**IFrameResource**> 또는 <**HTMLResouce**>일 수 있습니다. <**StaticResource**> 는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
+<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResouce**>, <**IFrameResource**> 또는 <**HTMLResouce**>일 수 있습니다. <**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML <**img**> 태그에 표시됩니다.
 

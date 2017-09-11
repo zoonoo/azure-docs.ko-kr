@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 개념 증명 플레이 북: 문서 블록 | Microsoft Docs"
 description: "ID 및 액세스 관리 시나리오를 탐색하고 신속하게 구현"
 services: active-directory
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
@@ -77,7 +75,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 1. [여기](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)에서 암호 해시 동기화의 보안 고려 사항을 살펴보세요.  파일럿 프로덕션 사용자에 대한 암호 해시 동기화가 옵션이 아닌 경우 다음 대안을 고려합니다.
    * 프로덕션 도메인에서 테스트 사용자를 만듭니다. 다른 계정을 동기화하지 않는지 확인합니다.
    * UAT 환경으로 이동합니다.
-2.    페더레이션을 적용하려면 POC를 넘어서 페더레이션된 솔루션을 온-프레미스 ID 공급자와 연결할 때 비용이 발생한다는 것을 이해하고 이 비용을 찾고 있는 혜택과 비교하는 것이 좋습니다.
+2.  페더레이션을 적용하려면 POC를 넘어서 페더레이션된 솔루션을 온-프레미스 ID 공급자와 연결할 때 비용이 발생한다는 것을 이해하고 이 비용을 찾고 있는 혜택과 비교하는 것이 좋습니다.
     * 중요한 경로에 있으므로 고가용성에 맞게 설계해야 합니다.
     * 용량 계획에 필요한 온-프레미스 서비스입니다.
     * 모니터링/유지 관리/패치에 필요한 온-프레미스 서비스입니다.
@@ -102,7 +100,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털로 이동합니다. | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding)(Azure AD 관리 포털 - 회사 브랜딩) |
-| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](active-directory-add-company-branding.md#customizable-elements) |
+| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](active-directory-add-company-branding.md) |
 | 변경 내용이 완전히 적용될 때까지 몇 분 정도 기다립니다. |  |
 | POC 사용자 자격 증명으로 https://myapps.microsoft.com에 로그인합니다. |  |
 | 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md) |
@@ -212,7 +210,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 사전에 대상 응용 프로그램 및 정확한 로그인 URL 목록 제공. 예를 들어 Twitter를 사용할 수 있습니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입) |
-| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그](영문) (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) (영문) |
 | 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
 | Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 
@@ -487,7 +485,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | GA2가 MFA에 등록한 적이 없는 경우에는 Azure MFA에 대한 등록이 필요합니다. |  |
 | 3단계의 원래 탭으로 돌아가서 브라우저에서 [새로 고침] 단추를 클릭합니다. 이제 “사용자 설정”을 변경할 수 있습니다. | |
 | 필요한 경우 전역 관리자에 대한 메일을 사용하도록 설정하면 GA1 및 GA2의 받은 편지함을 확인하고 활성화되는 역할에 대한 알림을 확인할 수 있습니다. |  |
-| 8    감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>고려 사항
 

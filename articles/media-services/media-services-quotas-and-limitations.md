@@ -4,7 +4,7 @@ description: "이 토픽은 Microsoft Azure Media Services와 관련된 할당�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
 ms.service: media-services

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB의 지역별 장애 조치(Failover) | Microsoft Docs"
-description: "Azure Cosmos DB에서 수동 및 자동 장애 조치(Failover)가 작동하는 방식에 대해 알아봅니다."
+title: "Azure Cosmos DB의 지역별 장애 조치(failover) | Microsoft Docs"
+description: "Azure Cosmos DB에서 수동 및 자동 장애 조치(failover)가 작동하는 방식에 대해 알아봅니다."
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,21 +15,20 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ff6900cf4516a173e212728a069587d908f9fe11
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>비즈니스 연속성을 위한 Azure Cosmos DB의 자동 지역별 장애 조치(Failover)
+# <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>비즈니스 연속성을 위한 Azure Cosmos DB의 자동 지역별 장애 조치(failover)
 Azure Cosmos DB는 일관성, 가용성, 성능을 적절히 보증하면서 서로 간에 명확히 절충하는 완전 관리형 [다중 지역 데이터베이스 계정](distribute-data-globally.md)을 제공하여 글로벌 데이터 배포를 단순화합니다. Cosmos DB 계정은 고가용성, 짧은 대기 시간(한 자릿수 ms), [잘 정의된 일관성 수준](consistency-levels.md), multi-homing API를 사용한 투명한 지역별 장애 조치(failover) 및 전 세계적으로 처리량과 저장소를 탄력적으로 확장할 수 있는 기능을 제공합니다. 
 
-Cosmos DB는 명시적 장애 조치(Failover)와 정책 기반 장애 조치를 둘 다 지원하므로 장애 발생 시 종단 간 시스템 동작을 제어할 수 있습니다. 이 문서에서 다음을 살펴봅니다.
+Cosmos DB는 명시적 장애 조치(failover)와 정책 기반 장애 조치를 둘 다 지원하므로 장애 발생 시 종단 간 시스템 동작을 제어할 수 있습니다. 이 문서에서 다음을 살펴봅니다.
 
-* 수동 장애 조치(Failover)가 Cosmos DB에서 작동하는 방식
-* Cosmos DB에서 자동 장애 조치(Failover)가 작동하는 방식 및 데이터 센터가 다운될 때 발생하는 결과
+* 수동 장애 조치(failover)가 Cosmos DB에서 작동하는 방식
+* Cosmos DB에서 자동 장애 조치(failover)가 작동하는 방식 및 데이터 센터가 다운될 때 발생하는 결과
 * 응용 프로그램 아키텍처에서 수동 장애 조치를 사용하는 방법
 
 Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하는 이 Azure Friday 비디오를 통해 지역 장애 조치에 대해서도 자세히 알아 볼 수 있습니다.
@@ -72,7 +71,7 @@ DocumentClient usClient = new DocumentClient(
 
 ![Azure Cosmos DB를 통해 전역으로 분산된 응용 프로그램 배포](./media/regional-failover/app-deployment.png)
 
-이제 Cosmos DB 서비스에서 자동 장애 조치(Failover)를 통해 지역 장애를 처리하는 방법을 살펴보겠습니다. 
+이제 Cosmos DB 서비스에서 자동 장애 조치(failover)를 통해 지역 장애를 처리하는 방법을 살펴보겠습니다. 
 
 ## <a id="AutomaticFailovers"></a>자동 장애 조치
 드물게 발생하는 Azure 지역 가동 중단 또는 데이터 센터 가동 중단의 경우 Cosmos DB는 영향을 받은 지역에 있는 모든 Cosmos DB 계정의 장애 조치를 자동으로 트리거합니다. 
@@ -89,9 +88,9 @@ DocumentClient usClient = new DocumentClient(
 
 영향을 받은 지역이 지정된 Cosmos DB 계정의 현재 쓰기 지역이면 해당 지역이 자동으로 오프라인으로 표시됩니다. 그런 다음 대체 지역이 영향을 받은 각 Cosmos DB 계정의 쓰기 지역으로 승격됩니다. Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)으로 Cosmos DB 계정의 지역 선택 순서를 완전히 제어할 수 있습니다. 
 
-![Azure Cosmos DB의 장애 조치(Failover) 우선 순위](./media/regional-failover/failover-priorities.png)
+![Azure Cosmos DB의 장애 조치(failover) 우선 순위](./media/regional-failover/failover-priorities.png)
 
-자동 장애 조치(Failover) 중에는 Cosmos DB가 지정된 우선 순위에 따라 지정된 Cosmos DB 계정의 다음 쓰기 지역을 자동으로 선택합니다. 
+자동 장애 조치(failover) 중에는 Cosmos DB가 지정된 우선 순위에 따라 지정된 Cosmos DB 계정의 다음 쓰기 지역을 자동으로 선택합니다. 
 
 ![Azure Cosmos DB의 쓰기 지역 장애](./media/regional-failover/write-region-failures.png)
 
@@ -103,11 +102,11 @@ DocumentClient usClient = new DocumentClient(
 
 ## <a id="ManualFailovers"></a>수동 장애 조치
 
-자동 장애(Failover) 조치 외에도 지정된 Cosmos DB 계정의 현재 쓰기 지역을 기존 읽기 지역 중 하나로 직접 동적으로 변경할 수 있습니다. 수동 장애 조치는 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 시작할 수 있습니다. 
+자동 장애(failover) 조치 외에도 지정된 Cosmos DB 계정의 현재 쓰기 지역을 기존 읽기 지역 중 하나로 직접 동적으로 변경할 수 있습니다. 수동 장애 조치는 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 시작할 수 있습니다. 
 
-수동 장애 조치(Failover)는 **데이터 무손실** 및 **가용성 무손실**을 보장하고 이전 쓰기 지역의 쓰기 상태를 지정된 Cosmos DB 계정의 새 쓰기 지역으로 정상적으로 전송합니다. 자동 장애 조치(Failover)와 마찬가지로 Cosmos DB SDK는 수동 장애 조치 중에 쓰기 지역 변경을 자동으로 처리하고 호출이 자동으로 새 쓰기 지역으로 리디렉션되도록 합니다. 장애 조치를 관리하기 위해 응용 프로그램 코드 또는 구성을 변경할 필요가 없습니다. 
+수동 장애 조치(failover)는 **데이터 무손실** 및 **가용성 무손실**을 보장하고 이전 쓰기 지역의 쓰기 상태를 지정된 Cosmos DB 계정의 새 쓰기 지역으로 정상적으로 전송합니다. 자동 장애 조치(failover)와 마찬가지로 Cosmos DB SDK는 수동 장애 조치 중에 쓰기 지역 변경을 자동으로 처리하고 호출이 자동으로 새 쓰기 지역으로 리디렉션되도록 합니다. 장애 조치를 관리하기 위해 응용 프로그램 코드 또는 구성을 변경할 필요가 없습니다. 
 
-![Azure Cosmos DB에서의 수동 장애 조치(Failover)](./media/regional-failover/manual-failovers.png)
+![Azure Cosmos DB에서의 수동 장애 조치(failover)](./media/regional-failover/manual-failovers.png)
 
 수동 장애 조치가 유용할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -115,14 +114,14 @@ DocumentClient usClient = new DocumentClient(
 
 **서비스 업데이트** - 전 세계에 분산된 응용 프로그램 배포에는 예정된 서비스 업데이트 중에 트래픽 관리자를 통해 다른 지역으로 트래픽을 다시 라우팅하는 작업이 포함될 수 있습니다. 이러한 응용 프로그램 배포는 이제 수동 장애 조치를 사용하여 서비스 업데이트 기간 동안 활성 트래픽이 될 지역에 대한 쓰기 상태를 유지할 수 있습니다.
 
-**BCDR(비즈니스 연속성 및 재해 복구) 및 HADR(고가용성 및 재해 복구) 절차** - 대부분의 엔터프라이즈 응용 프로그램에는 개발 및 릴리스 프로세스의 일부로 비즈니스 연속성 테스트가 포함됩니다. BCDR 및 HADR 테스트는 종종 지역 가동 중단 위반의 경우 규정 준수 인증 및 서비스 가용성 보장의 중요한 단계입니다. Cosmos DB 계정의 수동 장애 조치(Failover)를 트리거하거나 지역을 동적으로 추가 및 제거하여 저장소에 Cosmos DB를 사용하는 응용 프로그램의 BCDR 준비 상태를 테스트할 수 있습니다.
+**BCDR(비즈니스 연속성 및 재해 복구) 및 HADR(고가용성 및 재해 복구) 절차** - 대부분의 엔터프라이즈 응용 프로그램에는 개발 및 릴리스 프로세스의 일부로 비즈니스 연속성 테스트가 포함됩니다. BCDR 및 HADR 테스트는 종종 지역 가동 중단 위반의 경우 규정 준수 인증 및 서비스 가용성 보장의 중요한 단계입니다. Cosmos DB 계정의 수동 장애 조치(failover)를 트리거하거나 지역을 동적으로 추가 및 제거하여 저장소에 Cosmos DB를 사용하는 응용 프로그램의 BCDR 준비 상태를 테스트할 수 있습니다.
 
-이 문서에서는 Cosmos DB에서 수동 및 자동 장애 조치(Failover)가 작동하는 방식 및 전역으로 사용할 수 있도록 Cosmos DB 계정과 응용 프로그램을 구성하는 방법을 살펴보았습니다. Cosmos DB의 글로벌 복제 지원을 사용하면 종단 간 대기 시간을 향상시키고 지역 장애 발생 시에도 가용성을 높일 수 있습니다. 
+이 문서에서는 Cosmos DB에서 수동 및 자동 장애 조치(failover)가 작동하는 방식 및 전역으로 사용할 수 있도록 Cosmos DB 계정과 응용 프로그램을 구성하는 방법을 살펴보았습니다. Cosmos DB의 글로벌 복제 지원을 사용하면 종단 간 대기 시간을 향상시키고 지역 장애 발생 시에도 가용성을 높일 수 있습니다. 
 
 ## <a id="NextSteps"></a>다음 단계
 * Cosmos DB에서 [글로벌 배포](distribute-data-globally.md)를 지원하는 방법에 대한 자세한 정보
 * [Azure Cosmos DB를 통한 전역 일관성](consistency-levels.md)에 대한 자세한 정보
-* Azure Cosmos DB의 [DocumentDB SDK](../cosmos-db/tutorial-global-distribution-documentdb.md)를 사용하여 여러 지역으로 개발
+* Azure Cosmos DB의 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)를 사용하여 여러 지역으로 개발
 * Azure DocumentDB로 [다중 지역 기록기 아키텍처](multi-region-writers.md)를 작성하는 방법에 대해 알아봅니다.
 
 

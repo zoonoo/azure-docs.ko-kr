@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 코어<sup>1</sup> |20 |10000 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |200 |200 |
-| 구독당 [저장소 계정](../articles/storage/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
+| 구독당 [저장소 계정](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [로컬 네트워크](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
 | 구독당 SQL 데이터베이스 서버 |6 |150 |

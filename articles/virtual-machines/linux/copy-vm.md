@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 006123a4ab7d1c0208a7e5f33b6f05f9374511fc
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---                    
                
@@ -53,7 +53,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 VM을 복사하려면 기본 가상 하드 디스크의 복사본을 만듭니다. 이 프로세스를 통해 원본 VM과 동일한 구성 및 설정을 포함하는 특수한 VHD 및 관리 디스크를 만들 수 있습니다.
 
-Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요. 
+Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요. 
 
 1.  [az vm list](/cli/azure/vm#list)를 사용하여 각 VM 및 해당 OS 디스크의 이름을 나열합니다. 다음 예제에서는 리소스 그룹 **myResourceGroup**의 모든 VM을 나열합니다.
     

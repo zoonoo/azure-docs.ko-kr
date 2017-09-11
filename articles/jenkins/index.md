@@ -2,25 +2,25 @@
 title: "Jenkins 및 Azure"
 description: "Jenkins 배포 및 Azure와 통합"
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
-ms.author: mlearned
+ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Azure의 Jenkins</h1>
+    <h1>Azure에서 Jenkins®</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">널리 사용되는 오픈 소스 자동화 서버인 
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> Jenkins는 Azure와 원활하게 통합되어 지속적인 통합(CI) 및 지속적인 업데이트(CD)를 지원합니다.  빠른 시작, 자습서 및 샘플을 통해 Azure 도구 및 서비스에서 Jenkins를 설치, 구성 및 사용하는 방법을 알아보세요.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM 에이전트 플러그인</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage 플러그인</a><br/>
 <a href="https://jenkins.io">Jenkins에 대해 알아보기</a><br/>
+<h4>      
+Jenkins®는 Public Interest, Inc.에서 소프트웨어의 등록된 상표입니다. [Jenkins® 로고](https://wiki.jenkins.io/display/JENKINS/Logo)는 [Jenkins 프로젝트](https://jenkins.io)의 [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)에서 라이선스를 체결했습니다.</h4>
 </div>
 

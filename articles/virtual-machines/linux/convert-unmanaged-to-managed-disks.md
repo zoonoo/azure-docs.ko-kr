@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94f8e3330fb2d6547811315fcfdb8ced338e0247
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 컴퓨터를 비관리 디스크에서 Managed Disks로 변환
 
-비관리 디스크를 사용하는 기존 Linux VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) 서비스를 통해 Managed Disks를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
+비관리 디스크를 사용하는 기존 Linux VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](../windows/managed-disks-overview.md) 서비스를 통해 Managed Disks를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
 이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
@@ -98,5 +98,5 @@ ms.lasthandoff: 08/10/2017
     ```
 
 ## <a name="next-steps"></a>다음 단계
-저장소 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요.
+저장소 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.
 

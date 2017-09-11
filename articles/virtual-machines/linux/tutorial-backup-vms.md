@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Azure에서 Linux 가상 컴퓨터 백업
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/01/2017
 
 Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
 
-Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
+기본적으로 Azure Backup에서는 Linux VM용으로 파일 시스템 일치 백업을 가져옵니다. 그러나 [사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 응용 프로그램 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 가져오도록 Azure Backup을 구성할 수 있습니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
 데이터 전송이 완료되면 스냅숏이 제거되고 복구 지점이 생성됩니다.
 
@@ -46,7 +46,7 @@ Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 �
 ## <a name="create-a-backup"></a>백업 만들기
 간단한 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다. 
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **가상 컴퓨터**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
 4. VM 블레이드의 **설정** 섹션에서 **백업**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
@@ -95,7 +95,7 @@ Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 �
 6. 왼쪽 메뉴에서 **가상 컴퓨터**를 선택합니다. 
 7. 목록에서 VM을 선택합니다.
 8. VM 블레이드의 **설정** 섹션에서 **백업**을 클릭합니다. **백업** 블레이드가 열립니다. 
-9. 블레이드 위쪽의 메뉴에서 **파일 복구(미리 보기)**를 선택합니다. **파일 복구(미리 보기)** 블레이드가 열립니다.
+9. 블레이드 위쪽의 메뉴에서 **파일 복구**를 선택합니다. **파일 복구** 블레이드가 열립니다.
 10. **1단계: 복구 지점 선택**의 드롭다운에서 복구 지점을 선택합니다.
 11. **2단계: 스크립트를 다운로드하여 파일 찾아보기 및 복구**에서 **실행 파일 다운로드** 단추를 클릭합니다. 다운로드한 파일을 로컬 컴퓨터에 저장합니다.
 7. **스크립트 다운로드**를 클릭하여 스크립트 파일을 로컬로 다운로드합니다.

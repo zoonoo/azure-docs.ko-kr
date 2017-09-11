@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 프로비전
@@ -62,7 +62,7 @@ Linux 데이터 과학 가상 컴퓨터를 사용하면 이러한 부담을 상�
 Linux 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**: 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
-* **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
+* **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 만들기
 Linux 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 다음과 같습니다.

@@ -2,7 +2,7 @@
 title: "Azure Key Vault 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

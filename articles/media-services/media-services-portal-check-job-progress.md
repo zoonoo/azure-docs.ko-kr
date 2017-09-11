@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 사용하여 작업 진행 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
 ms.service: media-services

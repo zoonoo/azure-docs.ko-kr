@@ -3,8 +3,8 @@ title: "서버 탐색기로 저장소 리소스 찾아보기 및 관리 | Micros
 description: "서버 탐색기로 저장소 리소스 찾아보기 및 관리"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d35c9903fd68199f9decdf099a7e162fe664e4d5
-
+ms.date: 8/24/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
@@ -42,11 +43,12 @@ Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소�
 * 테이블
 
 ## <a name="work-with-blob-resources"></a>Blob 리소스로 작업
-Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니다. Blob 컨테이너는 Blob 파일을 포함하고 있으며 이러한 Blob을 폴더와 하위 폴더로 구성할 수 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage/storage-dotnet-how-to-use-blobs.md) (영문)을 참조하세요.
+Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니다. Blob 컨테이너는 Blob 파일을 포함하고 있으며 이러한 Blob을 폴더와 하위 폴더로 구성할 수 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage/blobs/storage-dotnet-how-to-use-blobs.md) (영문)을 참조하세요.
 
 ### <a name="to-create-a-blob-container"></a>Blob 컨테이너를 생성하려면
 1. **Blob** 노드에 대한 바로 가기 메뉴를 열고 **Blob 컨테이너 만들기**를 선택합니다.
-2. **Blob 컨테이너 만들기** 대화 상자에서 새 컨테이너 이름을 입력하고 **확인**을 선택합니다.
+2. **Blob 컨테이너 만들기** 대화 상자에서 새 컨테이너 이름을 입력합니다.  
+3. 키보드에서 **Enter** 키를 누르거나 이름 필드 외부를 클릭하거나 탭하여 Blob 컨테이너를 저장합니다.
    
    > [!NOTE]
    > Blob 컨테이너 이름은 숫자 (0-9) 또는 소문자 (a-z)로 시작해야 합니다.
@@ -57,7 +59,7 @@ Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니
 * 제거하려는 Blob 컨테이너에 대한 바로 가기 메뉴를 열고 **삭제**를 선택합니다.
 
 ### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Blob 컨테이너에 포함된 항목의 목록을 표시하려면
-* 목록에서 Blob 컨테이너 이름의 바로 가기 메뉴를 연 다음 **Blob 컨테이너 보기**를 선택합니다.
+* 목록에서 Blob 컨테이너 이름의 바로 가기 메뉴를 연 다음 **열기**를 선택합니다.
   
     Blob 컨테이너의 내용은 Blob 컨테이너 보기라는 탭에 표시됩니다.
   
@@ -78,12 +80,12 @@ Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니
   * 로컬 컴퓨터에 Blob 저장
 
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Blob 컨테이너에 폴더 또는 하위 폴더를 만들려면
-1. 서버 탐색기에서 Blob 컨테이너를 선택합니다. 컨테이너 창에서 **Blob 업로드** 단추를 선택합니다.
+1. 클라우드 탐색기에서 Blob 컨테이너를 선택합니다. 컨테이너 창에서 **Blob 업로드** 단추를 선택합니다.
    
     ![Blob 폴더에 파일 업로드하기](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. **새 파일 업로드** 대화 상자에서 **찾아보기** 단추를 선택하여 업로드하려는 파일을 지정한 후 **폴더(선택 사항)** 상자에 폴더 이름을 입력합니다.
    
-    동일한 절차를 수행하여 컨테이너 폴더에 하위 폴더를 추가할 수 있습니다. 폴더 이름을 지정하지 않으면 파일은 Blob 컨테이너의 최상위 수준으로 업로드됩니다. 파일은 컨테이너에 지정된 폴더에 나타납니다.
+    동일한 절차를 수행하여 컨테이너 폴더에 하위 폴더를 추가할 수 있습니다. 폴더 이름을 지정하지 않으면 파일은 Blob 컨테이너의 최상위 수준으로 업로드됩니다. 파일은 컨테이너의 지정된 폴더에 나타납니다.
    
     ![Blob 컨테이너에 폴더 추가하기](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 3. 폴더를 두 번 클릭하거나 Enter 키를 눌러 폴더의 내용을 확인합니다. 컨테이너 폴더에 있는 경우 **부모 디렉터리 열기** (위쪽 화살표) 단추를 선택하여 컨테이너의 루트로 다시 이동할 수 있습니다.
@@ -109,7 +111,7 @@ Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니
 > 
 
 ### <a name="to-download-blob-data"></a>Blob 데이터를 다운로드하려면
-* **서버 탐색기**에서 하나 이상의 Blob에 대한 바로 가기 메뉴를 열고 **열기**를 선택하거나, Blob 이름을 선택한 후 **열기** 단추를 선택하거나, Blob 이름을 두 번 클릭합니다.
+* **클라우드 탐색기**에서 하나 이상의 Blob에 대한 바로 가기 메뉴를 열고 **열기**를 선택하거나, Blob 이름을 선택한 후 **열기** 단추를 선택하거나, Blob 이름을 두 번 클릭합니다.
   
     Blob 다운로드 진행률이 **Azure 활동 로그** 창에 표시됩니다.
   
@@ -160,11 +162,11 @@ Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니
 Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저장합니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
 ### <a name="to-create-a-table"></a>테이블 만들기
-1. 서버 탐색기에서 저장소 계정의 **테이블** 노드를 선택한 다음 **테이블 만들기**를 선택합니다.
+1. 클라우드 탐색기에서 저장소 계정의 **테이블** 노드를 선택한 다음 **테이블 만들기**를 선택합니다.
 2. **테이블 만들기** 대화 상자에서 테이블의 이름을 입력합니다.
 
 ### <a name="to-view-table-data"></a>테이블 데이터를 보려면
-1. 서버 탐색기에서 **Azure** 노드를 연 다음 **저장소** 노드를 엽니다.
+1. 클라우드 탐색기에서 **Azure** 노드를 연 다음 **저장소** 노드를 엽니다.
 2. 관심 있는 저장소 계정 노드를 연 다음 **테이블** 노드를 열어 저장소 계정에 대한 테이블 목록을 확인합니다.
 3. 테이블의 바로 가기 메뉴를 열고 **테이블 보기**를 선택합니다.
    
@@ -185,7 +187,7 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
    * DateTime 값을 입력하는 경우 컴퓨터의 지역 및 언어 설정에 부합하는 형식을 따라야 합니다 (예: 미국 영어에 경우MM/DD/YYYY HH:MM:SS  [AM|PM]).
 
 ### <a name="to-add-entities"></a>엔터티를 추가하려면
-1. **테이블 디자이너**에서 테이블 보기의 오른쪽 위에 있는 **엔터티 추가** 단추를 선택합니다.
+1. **테이블 디자이너**에서 **엔터티 추가** 단추를 선택합니다.
    
     ![엔터티 추가](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. **엔터티 추가** 대화 상자에서 **PartitionKey** 및 **RowKey** 속성 값을 입력합니다.
@@ -198,7 +200,7 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 쿼리 작성기를 사용하는 경우 테이블에 표시되는 엔터티 집합을 사용자 지정할 수 있습니다.
 
 1. 쿼리 작성기를 열려면 테이블을 열어 확인합니다.
-2. 테이블 보기의 도구 모음에서 맨 오른쪽 단추를 선택합니다.
+2. 테이블 보기의 도구 모음에서 쿼리 작성기 단추를 선택합니다.
    
     **쿼리 작성기** 대화 상자가 나타납니다. 다음 그림에서는 쿼리 작성기에서 작성되고 있는 쿼리를 보여줍니다.
    
@@ -271,10 +273,5 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 ## <a name="next-steps"></a>다음 단계
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

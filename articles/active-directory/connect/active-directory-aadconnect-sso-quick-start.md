@@ -73,7 +73,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 "�
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
-이 기능을 사용자에게 배포하려면 Active Directory의 그룹 정책을 통해 사용자의 인트라넷 영역 설정에 두 개의 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)을 추가해야 합니다.
+이 기능을 사용자에게 배포하려면 Active Directory의 그룹 정책을 통해 사용자의 인트라넷 영역 설정에 두 개의 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )을 추가해야 합니다.
 
 >[!NOTE]
 > 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mac에서 Mozilla Firefox 및 Chrome을 설정하는 지침은 다음 섹션을 참조하세요.
@@ -109,7 +109,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 수행하지 않습니다. �
 1. Firefox를 실행하고 주소 표시줄에 `about:config`를 입력합니다. 표시되는 모든 알림을 해제합니다.
 2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 "수정"을 선택합니다.
-4. 필드에서 "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net"을 입력합니다.
+4. 필드에서 "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net "을 입력합니다.
 5. "확인"을 클릭하고 브라우저를 다시 엽니다.
 
 #### <a name="safari-on-mac-os"></a>Mac OS의 Safari

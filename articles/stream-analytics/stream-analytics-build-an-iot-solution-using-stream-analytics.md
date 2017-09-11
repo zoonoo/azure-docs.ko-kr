@@ -4,7 +4,7 @@ description: "요금 창구 시나리오의 Stream Analytics IoT 솔루션 시�
 keywords: "iot 솔루션, 창 함수"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 43acd0e8e6b106013fc4491e3785f6efefc51493
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 07/04/2017
 * Azure Stream Analytics 포털 숙지
 * 스트리밍 작업 구성 및 배포
 * Stream Analytics 쿼리 언어를 사용하여 실제 문제 명시 및 해결
-* 안심하고 스트리밍 분석을 사용하여 고객에 대한 스트리밍 솔루션 개발
+* 안심하고 Stream Analytics를 사용하여 고객에 대한 스트리밍 솔루션 개발
 * 모니터링 및 로깅 경험을 사용하여 문제 해결
 
 ## <a name="prerequisites"></a>필수 조건
@@ -122,16 +121,16 @@ ms.lasthandoff: 07/04/2017
 | 만료됨 |차량의 등록 상태: 차량 등록이 활성화된 경우는 0, 등록이 만료된 경우는 1 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Azure Stream Analytics를 위한 환경 설정
-이 자습서를 완료하려면 Microsoft Azure 구독이 필요합니다. Microsoft는 Microsoft Azure 서비스에 대한 무료 평가판을 제공합니다.
+이 자습서를 완료하려면 Microsoft Azure 구독이 필요합니다. Microsoft는 Microsoft Azure 서비스에 대한 평가판을 제공합니다.
 
-Azure 계정이 없는 경우 [무료 평가판 버전을 요청](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
+Azure 계정이 없는 경우 [평가판 버전을 요청](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 
 > [!NOTE]
-> 무료 평가판에 등록하려면 문자 메시지 및 유효한 신용 카드를 받을 수 있는 모바일 장치가 필요합니다.
+> 평가판에 등록하려면 문자 메시지 및 유효한 신용 카드를 받을 수 있는 모바일 장치가 필요합니다.
 > 
 > 
 
-이 연습 끝에 나오는 "Azure 계정 정리" 섹션의 단계를 수행해야 $200의 무료 Azure 크레딧을 최대한 활용할 수 있습니다.
+이 문서 끝에 나오는 "Azure 계정 정리" 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>자습서에 필요한 Azure 리소스 프로비전
 이 자습서는 *진입* 및 *진출* 데이터 스트림을 받기 위해 2개의 이벤트 허브가 필요합니다. Azure SQL Database는 Stream Analytics 작업의 결과를 출력합니다. Azure 저장소는 차량 등록에 대한 참조 데이터를 저장합니다.
@@ -171,23 +170,23 @@ Windows는 .ps1, .dll 및 .exe 파일을 자동으로 차단하기 때문에 스
 
 ![Azure PowerShell 창의 스크립트 출력 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
 
-아래 스크린샷과 비슷한 다른 창도 표시됩니다. 이 응용 프로그램은 자습서를 실행하는 데 필요한 Azure 이벤트 허브에 이벤트를 전송합니다. 따라서 자습서를 완료할 때까지 응용 프로그램을 중지하거나 이 창을 닫으면 안 됩니다.
+아래 스크린샷과 비슷한 다른 창도 표시됩니다. 이 응용 프로그램은 자습서를 실행하는 데 필요한 Azure Event Hubs에 이벤트를 전송합니다. 따라서 자습서를 완료할 때까지 응용 프로그램을 중지하거나 이 창을 닫으면 안 됩니다.
 
 !["이벤트 허브 데이터 전송 중" 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
 이제 리소스를 Azure Portal에서 볼 수 있습니다. <https://portal.azure.com>으로 이동하고 계정 자격 증명으로 로그인합니다. 현재 일부 기능은 클래식 포털을 활용합니다. 다음 단계가 명확하게 표시됩니다.
 
-### <a name="azure-event-hubs"></a>Azure 이벤트 허브
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 Azure Portal에서 왼쪽 관리 창 아래에 있는 **추가 서비스**를 클릭합니다. 제공되는 필드에서 **Event hubs**를 입력하고 **Event hubs**를 클릭합니다. **클래식 포털**에서 **Service Bus** 영역을 표시하는 새 브라우저 창을 시작합니다. 여기에서 Setup.ps1 스크립트에서 만든 Event Hub를 볼 수 있습니다.
 
-![서비스 버스](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
+![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
-*tolldata*로 시작하는 항목을 클릭합니다. **이벤트 허브** 탭을 클릭합니다. 이 네임스페이스에서 만든 *진입*과 *진출*이라는 두 개의 이벤트 허브가 표시됩니다.
+*tolldata*로 시작하는 항목을 클릭합니다. **EVENT HUBS** 탭을 클릭합니다. 이 네임스페이스에서 만든 *진입*과 *진출*이라는 두 개의 이벤트 허브가 표시됩니다.
 
 ![클래식 포털의 Event Hubs 탭](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
 
 ### <a name="azure-storage-container"></a>Azure 저장소 컨테이너
-1. Azure Portal로 브라우저 열기에서 탭으로 돌아갑니다. 자습서에 사용되는 Azure 저장소 컨테이너를 보려면 Azure 관리 포털 왼쪽의 **저장소** 를 클릭합니다.
+1. Azure Portal로 브라우저 열기에서 탭으로 돌아갑니다. 자습서에 사용되는 Azure 저장소 컨테이너를 보려면 Azure Portal 왼쪽의 **저장소**를 클릭합니다.
    
     ![저장소 메뉴 항목](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
 2. *tolldata*로 시작하는 항목을 클릭합니다. 만들어진 컨테이너를 보려면 **컨테이너** 탭을 클릭합니다.
@@ -197,7 +196,7 @@ Azure Portal에서 왼쪽 관리 창 아래에 있는 **추가 서비스**를 �
    
     ![컨테이너에 있는 registration.json 파일 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
 
-### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+### <a name="azure-sql-database"></a>Azure SQL Database
 1. 브라우저에서 열려 있는 첫 번째 탭에서 Azure Portal로 다시 이동합니다. 자습서에서 사용되는 SQL Database를 보려면 Azure Portal 왼쪽에 있는 **SQL Database**를 클릭하고 **tolldatadb**를 클릭합니다.
    
     ![만든 SQL Database의 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
@@ -234,7 +233,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
 
 ![Visual Studio에 표시된 샘플 코드의 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
-## <a name="create-a-stream-analytics-job"></a>스트림 분석 작업 만들기
+## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 1. Azure Portal에서 페이지의 왼쪽 위 모퉁이에 있는 녹색 더하기 기호를 클릭하여 새 Stream Analytics 작업을 만듭니다. **인텔리전스+분석**을 선택한 다음 **Stream Analytics 작업**을 클릭합니다.
    
     ![새 단추](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
@@ -296,7 +295,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
     ![SQL Database 설정](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
 5. **만들기**를 클릭합니다.
 
-## <a name="azure-stream-analytics-query"></a>Azure 스트림 분석 쿼리
+## <a name="azure-stream-analytics-query"></a>Azure Stream Analytics 쿼리
 **쿼리** 탭에는 들어오는 데이터에 대해 변환을 수행하는 SQL 쿼리가 있습니다.
 
 ![쿼리 탭에 추가된 쿼리](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.png)
@@ -319,7 +318,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
 
 자세한 내용을 보려면 MSDN의 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [창 작업](https://msdn.microsoft.com/library/azure/dn835019.aspx) 구문을 참조하세요.
 
-## <a name="testing-azure-stream-analytics-queries"></a>Azure 스트림 분석 쿼리 테스트
+## <a name="testing-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 테스트
 이제 첫 번째 Azure Stream Analytics 쿼리를 작성했으므로 다음 경로의 TollApp 폴더에 있는 샘플 데이터 파일을 사용하여 테스트해보겠습니다.
 
 **..\\TollApp\\TollApp\\Data**
@@ -363,7 +362,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
     ![테스트의 출력](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
 ## <a name="question-3-report-all-commercial-vehicles-with-expired-registration"></a>질문 3: 등록 기간이 만료된 모든 화물 차량 보고
-Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다.
+Azure Stream Analytics는 데이터의 정적 스냅숏을 사용하여 임시 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다.
 
 화물 차량이 요금 회사에 등록된 경우 검사받기 위해 정차하지 않고 요금 창구를 통과할 수 있습니다. 화물 차량 등록 조회 테이블을 사용하여 등록 기간이 만료된 모든 화물 차량을 식별할 수 있습니다.
 
@@ -381,7 +380,7 @@ WHERE Registration.Expired = '1'
    
 ![테스트의 출력](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
-## <a name="start-the-stream-analytics-job"></a>스트림 분석 작업 시작
+## <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 이제 구성을 완료하고 작업을 시작해보겠습니다. 질문 3의 쿼리를 저장하면 출력 테이블 **TollDataRefJoin** 의 스키마와 일치하는 출력이 생성됩니다.
 
 작업 **대시보드**로 가서 **시작**을 클릭합니다.
@@ -403,7 +402,7 @@ WHERE Registration.Expired = '1'
     ![서버 탐색기의 "테이블 데이터 표시" 선택 항목](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
 ## <a name="scale-out-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 규모 지정
-Azure Stream Analytics는 탄력적으로 크기를 조정하여 많은 양의 데이터를 처리할 수 있도록 디자인되었습니다. Azure 스트림 분석 쿼리에서 **PARTITION BY** 절을 사용하면 이 단계에서 확장하는 시스템을 알 수 있습니다. **PartitionId** 는 입력(이벤트 허브)의 파티션 ID와 일치하도록 시스템이 추가하는 특수한 열입니다.
+Azure Stream Analytics는 탄력적으로 크기를 조정하여 많은 양의 데이터를 처리할 수 있도록 디자인되었습니다. Azure Stream Analytics 쿼리에서 **PARTITION BY** 절을 사용하면 이 단계에서 확장하는 시스템을 알 수 있습니다. **PartitionId**는 입력(이벤트 허브)의 파티션 ID와 일치하도록 시스템이 추가하는 특수한 열입니다.
 
     SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
     FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
@@ -411,7 +410,7 @@ Azure Stream Analytics는 탄력적으로 크기를 조정하여 많은 양의 �
 
 1. 현재 작업을 중지하고 **쿼리** 탭에서 쿼리를 업데이트하고 작업 대시보드에서 **설정** 기어를 엽니다. **크기 조정**을 클릭합니다.
    
-    **스트리밍 단위** 는 작업이 검색할 수 있는 계산 능력의 크기를 정의합니다.
+    **스트리밍 단위**는 작업이 검색할 수 있는 계산 능력의 크기를 정의합니다.
 2. 드롭다운을 1에서 6으로 변경합니다.
    
     ![6개의 스트리밍 단위를 선택하는 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)

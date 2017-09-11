@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합 만들기 및 배포
-가상 컴퓨터 크기 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 확장 집합에 대한 자세한 내용은 [가상 컴퓨터 확장 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
+가상 컴퓨터 확장 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 확장 집합에 대한 자세한 내용은 [가상 컴퓨터 확장 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
 
-이 자습서에서는 Azure Portal을 사용하지 **않고** 가상 컴퓨터 크기 집합을 만드는 방법을 보여 줍니다. Azure Portal을 사용하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 컴퓨터 확장 집합을 만드는 방법](virtual-machine-scale-sets-portal-create.md)을 참조하세요.
+이 자습서에서는 Azure Portal을 사용하지 **않고** 가상 컴퓨터 확장 집합을 만드는 방법을 보여 줍니다. Azure Portal을 사용하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 컴퓨터 확장 집합을 만드는 방법](virtual-machine-scale-sets-portal-create.md)을 참조하세요.
 
 >[!NOTE]
 >Azure Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
@@ -47,7 +47,7 @@ Login-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-먼저 가상 컴퓨터 크기 집합이 연결된 리소스 그룹을 만들어야 합니다.
+먼저 가상 컴퓨터 확장 집합이 연결된 리소스 그룹을 만들어야 합니다.
 
 ```azurecli
 az group create --location westus2 --name MyResourceGroup1
@@ -59,7 +59,7 @@ New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>Azure CLI에서 만들기
 
-Azure CLI를 사용하여 적은 노력으로 가상 컴퓨터 크기 집합을 만들 수 있습니다. 기본값을 생략한 경우 기본값이 제공됩니다. 예를 들어 가상 네트워크 정보를 지정하지 않는 경우 가상 네트워크가 만들어집니다. 다음 부분을 생략한 경우 자동으로 만들어집니다. 
+Azure CLI를 사용하여 적은 노력으로 가상 컴퓨터 확장 집합을 만들 수 있습니다. 기본값을 생략한 경우 기본값이 제공됩니다. 예를 들어 가상 네트워크 정보를 지정하지 않는 경우 가상 네트워크가 만들어집니다. 다음 부분을 생략한 경우 자동으로 만들어집니다. 
 - 부하 분산 장치
 - 가상 네트워크
 - 공용 IP 주소
@@ -133,11 +133,11 @@ MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
 
 가상 컴퓨터 확장 집합을 만드는 워크플로는 다음과 같습니다.
 
-1. 크기 집합에 대한 정보를 보유하는 구성 개체를 만듭니다.
+1. 확장 집합에 대한 정보를 보유하는 구성 개체를 만듭니다.
 2. 기본 OS 이미지를 참조합니다.
 3. 운영 체제 설정 구성: 인증, VM 이름 접두사, 사용자/전달
 4. 네트워킹을 구성합니다.
-5. 크기 집합을 만듭니다.
+5. 확장 집합을 만듭니다.
 
 이 예제에서는 Windows Server 2016이 설치된 컴퓨터에 2개의 인스턴스로 된 기본 확장 집합을 만듭니다.
 
@@ -181,6 +181,12 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
+### <a name="using-a-custom-virtual-machine-image"></a>사용자 지정 가상 컴퓨터 이미지 사용
+사용자 지정 이미지에서 확장 집합을 만드는 경우 _Set-AzureRmVmssStorageProfile_ 명령은 갤러리의 가상 컴퓨터 이미지를 참조하지 않으며 다음과 같이 표시됩니다.
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
+```
+
 ## <a name="create-from-a-template"></a>템플릿에서 만들기
 
 Azure Resource Manager 템플릿을 사용하여 가상 컴퓨터 확장 집합을 배포할 수 있습니다. 고유한 템플릿을 만들거나 [템플릿 리포지토리](https://azure.microsoft.com/resources/templates/?term=vmss)에서 하나를 사용할 수 있습니다. 이러한 템플릿을 Azure 구독에 직접 배포할 수 있습니다.
@@ -196,7 +202,7 @@ Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 �
 
 ## <a name="create-from-the-azure-portal"></a>Azure Portal에서 만들기
 
-Azure Portal은 크기 집합을 신속하게 만드는 편리한 방법을 제공합니다. 자세한 내용은 [Azure Portal에서 가상 컴퓨터 확장 집합을 만드는 방법](virtual-machine-scale-sets-portal-create.md)을 참조하세요.
+Azure Portal은 확장 집합을 신속하게 만드는 편리한 방법을 제공합니다. 자세한 내용은 [Azure Portal에서 가상 컴퓨터 확장 집합을 만드는 방법](virtual-machine-scale-sets-portal-create.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

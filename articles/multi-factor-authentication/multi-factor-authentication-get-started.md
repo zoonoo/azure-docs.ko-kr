@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
@@ -39,7 +39,7 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 | 앱 갤러리의 SaaS 앱 |● |  |
 | Azure AD 앱 프록시를 통해 웹 응용프로그램 게시됨 |● |  |
 | Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시되지 않음 | |● |
-| VPN, RDG와 같은 원격 액세스 | |● |
+| VPN, RDG와 같은 원격 액세스 | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>사용자는 어디에 있습니까
 다음으로 사용자의 위치를 확인하여 사용할 올바른 솔루션이 클라우드에 있는지 MFA 서버를 사용한 온-프레미스인지를 확인하는 데 도움을 줍니다.
@@ -76,13 +76,11 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 | 조건부 액세스 | ● | ● |
 | 캐시 |  | ● |
 
-클라우드 다단계 인증 또는 MFA 서버 온-프레미스 사용 여부를 결정했으므로 Azure Multi-Factor Authentication을 설정하고 사용을 시작할 수 있습니다. **시나리오를 나타내는 아이콘을 선택하십시오!**
+## <a name="next-steps"></a>다음 단계
+
+이제 클라우드에서 Azure Multi-Factor Authentication과 MFA 서버 온-프레미스 간의 차이점을 이해했으므로 Azure Multi-Factor Authentication을 설정하고 사용해보겠습니다. **시나리오를 나타내는 아이콘 선택**
 
 <center>
 
-
-
-
-[![클라우드](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![검사](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![클라우드의 MFA](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![MFA 서버](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/24/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a7c32f07516ca83bc2fb5ad5a9a526631932ad4a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -78,10 +77,27 @@ apt-get -y upgrade
 선택적 명령:
 
 `apt-get -y dist-upgrade`
+#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Preview 커널
+> [!WARNING]
+> 이 Azure Linux Preview 커널은 일반 공급 릴리스 상태의 커널 및 Marketplace 이미지와 가용성 및 안정성 수준이 다를 수도 있습니다. 기능이 지원되지 않거나 제한될 수도 있으며, 기본 커널에 비해 안정성이 떨어질 수도 있습니다. 따라서 프로덕션 작업에는 이 커널을 사용하지 마세요.
+
+여기서 제안하는 Azure Linux 커널을 설치하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널을 사용해 보려면 /etc/apt/sources.list에 아래 줄을 추가합니다.
+
+```bash
+#add this to the end of /etc/apt/sources.list (requires elevation)
+deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+```
+
+그런 다음 아래 명령을 루트로 실행합니다.
+```bash
+apt-get update
+apt-get install "linux-azure"
+reboot
+```
 
 ### <a name="centos"></a>CentOS
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 5월이면 다음과 같습니다.
+처리량을 최적화하려면 먼저 지원되는 최신 버전으로 업데이트합니다. 2017년 7월 현재 최신 버전은 다음과 같습니다.
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -89,7 +105,7 @@ apt-get -y upgrade
 "Version": "latest"
 ```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
-처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 설치합니다.
+처리량 최적화 기능은 LIS 4.2.2-2부터 포함됩니다. 다음 명령을 입력하여 LIS를 설치합니다.
 
 ```bash
 sudo yum update
@@ -99,21 +115,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 1월이면 다음과 같습니다.
+처리량을 최적화하려면 먼저 지원되는 최신 버전으로 업데이트합니다. 2017년 7월 현재 최신 버전은 다음과 같습니다.
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
-"Version": "7.3.2017062722"
+"Version": "7.3.2017071923"
 ```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
 처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
 
 ```bash
-mkdir lis4.2.1
-cd lis4.2.1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-tar xvzf lis-rpms-4.2.1-1.tar.gz
+mkdir lis4.2.2-2
+cd lis4.2.2-2
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+tar xvzf lis-rpms-4.2.2-2.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

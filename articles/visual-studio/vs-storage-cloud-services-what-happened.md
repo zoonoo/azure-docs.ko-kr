@@ -3,8 +3,8 @@ title: "클라우드 서비스 프로젝트에 대해 변경된 내용 | Microso
 description: "Visual Studio 연결 서비스를 사용하여 Azure 저장소 계정에 연결한 후 클라우드 서비스 프로젝트의 변경 내용에 대해 설명합니다."
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4fce79c9b4ec245bc4353e08daf309ea97bdb4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4c9de56f6daf07097c0f593db37d14dce3bce05f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>내 클라우드 서비스 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
@@ -40,10 +41,5 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**
 * **ServiceConfiguration.Local.cscfg**
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

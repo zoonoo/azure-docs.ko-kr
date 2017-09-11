@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9fb1d12f5895e27929b2698edbf8c207aa2ee377
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
@@ -65,7 +64,7 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="method-2-use-transactional-replication"></a>방법 2: 트랜잭션 복제 사용
 
-마이그레이션하는 동안 SQL Server 데이터베이스의 운영을 중지할 수 없는 경우 마이그레이션 솔루션으로 SQL Server 트랜잭션 복제를 사용할 수 있습니다. 이 방법을 사용하려면 원본 데이터베이스가 [트랜잭션 복제의 요구 사항](https://msdn.microsoft.com/library/mt589530.aspx)을 충족해야 하고 Azure SQL Database와 호환되어야 합니다. 
+마이그레이션하는 동안 SQL Server 데이터베이스의 운영을 중지할 수 없는 경우 마이그레이션 솔루션으로 SQL Server 트랜잭션 복제를 사용할 수 있습니다. 이 방법을 사용하려면 원본 데이터베이스가 [트랜잭션 복제의 요구 사항](https://msdn.microsoft.com/library/mt589530.aspx)을 충족해야 하고 Azure SQL Database와 호환되어야 합니다. AlwaysOn을 사용한 SQL 복제에 대한 자세한 내용은 [Always On 가용성 그룹에 대한 복제 구성(SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)을 참조하세요.
 
 이 솔루션을 사용하려면 마이그레이션할 SQL Server 인스턴스에서 Azure SQL Database를 구독자로 구성합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자). 
 

@@ -1,7 +1,7 @@
 ---
 title: "Azure SQL Database를 사용하는 다중 테넌트 Wingtip SaaS 응용 프로그램 배포 및 탐색 | Microsoft Docs"
 description: "Azure SQL Database를 사용하는 SaaS 패턴을 보여 주는 Wingtip SaaS 다중 테넌트 응용 프로그램을 배포하고 탐색합니다."
-keywords: "sql 데이터베이스 자습서"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램 배포 및 탐색 - Wingtip SaaS
@@ -54,7 +53,9 @@ ms.lasthandoff: 06/28/2017
 
 Wingtip SaaS 앱을 배포합니다.
 
-1. **Azure에 배포** 단추를 클릭하면 Azure Portal이 Wingtip SaaS 배포 템플릿으로 열립니다. 템플릿에는 새 리소스 그룹의 이름 및 Wingtip SaaS 앱의 다른 배포와 이 배포를 구분하는 사용자 이름이 매개 변수 값으로 필요합니다. 다음 단계에서는 이러한 값을 설정하는 방법을 자세히 설명합니다. 나중에 구성 파일에 입력해야 하므로 사용할 정확한 값을 기록해 두어야 합니다.
+1. **Azure에 배포** 단추를 클릭하면 Azure Portal이 Wingtip SaaS 배포 템플릿으로 열립니다. 템플릿에는 새 리소스 그룹의 이름 및 Wingtip SaaS 앱의 다른 배포와 이 배포를 구분하는 사용자 이름이 매개 변수 값으로 필요합니다. 다음 단계에서는 이러한 값을 설정하는 방법을 자세히 설명합니다.
+
+   나중에 구성 파일에 입력해야 하므로 사용할 정확한 값을 기록해 두어야 합니다.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,7 +64,7 @@ Wingtip SaaS 앱을 배포합니다.
     > [!IMPORTANT]
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. **새 리소스 그룹을 만들고**, 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 응용 프로그램이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 이 리소스 그룹을 삭제합니다.
 
-    * **리소스 그룹** - **새로 만들기**를 선택하고 **이름** 및 **위치**를 제공합니다.
+    * **리소스 그룹** - **새로 만들기**를 선택하고 리소스 그룹의 **이름**을 입력합니다. 드롭다운 목록에서 **위치**를 선택합니다.
     * **사용자** - 일부 리소스에는 전역적으로 고유한 이름이 필요합니다. 고유성을 보장하기 위해 응용 프로그램을 배포할 때마다 직접 만든 리소스와 다른 Wingtip 응용 프로그램 배포 시 생성된 리소스를 구별할 수 있는 값을 제공합니다. 이니셜 및 숫자(예: *bg1*)와 같은 짧은 **User** 이름을 사용한 다음, 리소스 그룹 이름(예: *wingtip-bg1*)에서 그 이름을 사용하는 것이 좋습니다. **User** 매개 변수에는 문자, 숫자 및 하이픈만 포함할 수 있습니다(공백 없음). 첫 번째와 마지막 문자는 문자 또는 숫자여야 합니다(모두 소문자 권장).
 
 
@@ -109,7 +110,7 @@ Wingtip SaaS 앱을 배포합니다.
 
 중앙 **이벤트 허브**는 배포에 특정한 테넌트 URL 목록을 제공합니다.
 
-1. _이벤트 허브_ 열기: http://events.wtp.&lt;USER&gt;.trafficmanager.net(배포의 사용자 이름으로 대체):
+1. 웹 브라우저에서 _이벤트 허브_ http://events.wtp.&lt;USER&gt;.trafficmanager.net을 엽니다. 여기서 USER는 배포의 사용자 이름으로 바꿉니다.
 
     ![Events Hub](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -130,7 +131,7 @@ Wingtip SaaS 앱을 배포합니다.
 1. **F5**를 눌러 스크립트를 실행하고 부하 생성기를 시작합니다(지금은 기본 매개 변수 값을 그대로 사용).
 
 > [!IMPORTANT]
-> 부하 생성기는 로컬 PowerShell 세션에서 일련의 작업으로 실행 중입니다. *Demo-LoadGenerator.ps1* 스크립트는 실제 부하 생성기 스크립트를 포그라운드 작업 및 일련의 백그라운드 부하 생성 작업으로 시작합니다. 카탈로그에 등록된 각 데이터베이스에 대해 부하 생성기 작업이 호출됩니다. 작업은 로컬 PowerShell 세션에서 실행되므로 PowerShell 세션을 닫으면 모든 작업이 중지합니다. 컴퓨터를 일시 중단하면 부하 생성이 일시 중지되고 컴퓨터의 절전 모드를 해제하면 다시 시작됩니다.
+> 다른 스크립트를 실행하려면 새 PowerShell ISE 창을 엽니다. 부하 생성기는 로컬 PowerShell 세션에서 일련의 작업으로 실행 중입니다. *Demo-LoadGenerator.ps1* 스크립트는 실제 부하 생성기 스크립트를 포그라운드 작업 및 일련의 백그라운드 부하 생성 작업으로 시작합니다. 카탈로그에 등록된 각 데이터베이스에 대해 부하 생성기 작업이 호출됩니다. 작업은 로컬 PowerShell 세션에서 실행되므로 PowerShell 세션을 닫으면 모든 작업이 중지합니다. 컴퓨터를 일시 중단하면 부하 생성이 일시 중지되고 컴퓨터의 절전 모드를 해제하면 다시 시작됩니다.
 
 부하 생성기가 각 테넌트에 대한 부하 생성 작업을 호출한 후 포그라운드 작업은 작업 호출 상태로 유지됩니다. 이 상태에서는 부하 생성기가 이후에 프로비전되는 새 테넌트에 대한 추가 백그라운드 작업을 시작합니다. *Ctrl-C*를 사용하거나 *중지* 단추를 눌러 포그라운드 작업을 중지할 수 있지만, 기존 백그라운드 작업은 각 데이터베이스에 대한 부하를 계속 생성합니다. 백그라운드 작업을 모니터링 및 제어해야 하는 경우 *Get-Job*, *Receive-Job* 및 *Stop-Job*을 사용합니다. 포그라운드 작업이 실행되는 동안 다른 스크립트를 실행하는 데는 동일한 PowerShell 세션을 사용할 수 없습니다. 다른 스크립트를 실행하려면 새 PowerShell ISE 창을 엽니다.
 
@@ -160,11 +161,11 @@ Wingtip SaaS 앱을 배포합니다.
 
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 **catalog-&lt;USER&gt;** 서버를 엽니다. 카탈로그 서버에는 두 개의 데이터베이스가 포함되어 있습니다. **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 빈 *golden* 또는 템플릿 데이터베이스)입니다.
+1. [Azure Portal](http://portal.azure.com)에서 SQL 서버 목록으로 이동하여 **catalog-&lt;USER&gt;** 서버를 엽니다. 카탈로그 서버에는 두 개의 데이터베이스가 포함되어 있습니다. **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 빈 *golden* 또는 템플릿 데이터베이스)입니다.
 
    ![데이터베이스](./media/sql-database-saas-tutorial/databases.png)
 
-1. 테넌트 데이터베이스가 있는 **tenants1-&lt;USER&gt;** 서버를 엽니다. 각 테넌트 데이터베이스는 50eDTU 표준 풀의 _탄력적 표준_ 데이터베이스입니다. 또한 이전에 프로비전한 테넌트 데이터베이스인 _Red Maple Racing_ 데이터베이스가 있습니다.
+1. SQL 서버 목록으로 돌아와서 테넌트 데이터베이스가 있는 **tenants1-&lt;USER&gt;** 서버를 엽니다. 각 테넌트 데이터베이스는 50eDTU 표준 풀의 _탄력적 표준_ 데이터베이스입니다. 또한 이전에 프로비전한 테넌트 데이터베이스인 _Red Maple Racing_ 데이터베이스가 있습니다.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 

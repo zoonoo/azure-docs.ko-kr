@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링
@@ -152,7 +152,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 ## <a name="review-your-data"></a>데이터 검토
 
-성능 및 진단 데이터는 Azure 저장소 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure 테이블 저장소를 사용하는 방법](../../../storage/storage-ruby-how-to-use-table-storage.md) 을 검토하세요.
+성능 및 진단 데이터는 Azure 저장소 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure 테이블 저장소를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
 
 또한 다음 UI 도구를 사용하여 데이터에 액세스할 수 있습니다.
 

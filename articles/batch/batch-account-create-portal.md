@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 520d1d42d35b25db1a35d4317e9eb616cf5de565
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
@@ -139,7 +139,7 @@ ms.lasthandoff: 07/24/2017
 
 * **액세스 키**(배치 서비스 모드): 응용 프로그램에서 배치 계정에 대한 액세스를 인증하려면 계정 액세스 키가 필요합니다. (Azure Active Directory 인증을 사용하는 사용자 구독 모드에서는 이 설정을 사용할 수 없습니다.)
 
-    배치 계정의 액세스 키를 보거나 다시 생성하려면 배치 계정 블레이드에 있는 왼쪽 메뉴 **검색** 상자에 `keys`를 입력한 다음 **키**를 선택합니다.
+    배치 계정의 액세스 키를 보거나 다시 생성하려면 배치 계정 블레이드에 있는 왼쪽 메뉴 **Search** 상자에 `keys`를 입력한 다음 **키**를 선택합니다.
 
     ![Azure 포털에서 배치 계정 키][account_keys]
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 07/24/2017
 ![범용 저장소 계정 만들기][storage_account]
 
 > [!NOTE]
-> Azure 배치는 현재 범용 저장소 계정 유형만 지원합니다. 이 계정 유형은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명하고 있습니다.
+> Azure 배치는 현재 범용 저장소 계정 유형만 지원합니다. 이 계정 유형은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명하고 있습니다.
 >
 >
 
@@ -168,14 +168,14 @@ ms.lasthandoff: 07/24/2017
 ## <a name="batch-service-quotas-and-limits"></a>배치 서비스 할당량 및 제한
 Azure 구독 및 다른 Azure 서비스처럼 특정 [할당량 및 제한](batch-quota-limit.md) 이 배치 계정에 적용되도록 주의하세요. 배치 계정의 현재 할당량이 계정 **속성**의 포털에 표시됩니다.
 
-![Azure 포털에서 배치 계정 할당량][quotas]
+![(Azure Portal에서 배치 계정 할당량][quotas]
 
 
 
 또한 이러한 할당량 대부분은 Azure Portal에 제출된 무료 제품 지원 요청으로 간단히 늘릴 수 있습니다. 할당량 증가를 요청하는 방법에 대한 자세한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md) 을 참조하세요.
 
 ## <a name="other-batch-account-management-options"></a>다른 배치 계정 관리 옵션
-Azure 포털을 사용하는 것 외에도 다음 항목으로 배치 계정을 만들고 관리할 수 있습니다.
+(Azure Portal을 사용하는 것 외에도 다음 항목으로 배치 계정을 만들고 관리할 수 있습니다.
 
 * [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](batch-cli-get-started.md)

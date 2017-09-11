@@ -2,7 +2,7 @@
 title: "Widevine 라이선스 템플릿 개요 | Microsoft Docs"
 description: "이 토픽에서는 Widevine 라이선스를 구성하는 데 사용되는 Widevine 라이선스 템플릿의 개요를 제공합니다."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요

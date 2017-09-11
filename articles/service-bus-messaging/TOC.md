@@ -52,7 +52,13 @@
 
 ## 관리
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
-### [Azure Resource Manager 템플릿 사용](service-bus-resource-manager-overview.md)
+### [Azure 리소스 관리자 템플릿 사용](service-bus-resource-manager-overview.md)
+#### [네임스페이스 만들기](service-bus-resource-manager-namespace.md)
+#### [네임스페이스 및 큐 만들기](service-bus-resource-manager-namespace-queue.md)
+#### [토픽 및 구독이 있는 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
+#### [네임스페이스 및 큐에 대한 권한 부여 규칙 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+#### [토픽, 구독 및 규칙이 있는 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
 # 참조
@@ -77,7 +83,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/servicebus)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e1b33b17270122a38228484a56c8324c5b4505a0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Pandas를 사용하여 Azure Blob 저장소의 데이터 탐색
@@ -31,8 +31,8 @@ ms.lasthandoff: 11/17/2016
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
-* Azure Blob 저장소 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../storage/storage-moving-data.md)
+* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+* Azure Blob 저장소 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Pandas DataFrame에 데이터 로드
 데이터 집합을 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음 Pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/17/2016
 ## <a name="blob-dataexploration"></a>Pandas를 사용 하 여 데이터 탐색의 예
 다음은 Pandas를 사용하여 데이터를 탐색하는 방법의 예입니다.
 
-1.  **행 및 열 수** 
+1. **행 및 열 수** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. 다음 데이터 집합에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.

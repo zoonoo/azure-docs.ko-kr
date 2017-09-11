@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -76,13 +76,13 @@ ms.lasthandoff: 08/07/2017
 
 ### <a name="applications-installed-on-iaas"></a>IaaS에 설치된 응용 프로그램 
 
-클라우드 액세스를 위해 IaaS에 설치된 응용 프로그램의 경우 커넥터 그룹은 모든 앱에 대한 액세스를 보호하는 일반적인 서비스를 제공합니다. 커넥터 그룹은 회사 네트워크에 추가 종속성을 만들거나 앱 경험을 조각화하지 않습니다. 커넥터는 각 클라우드 데이터 센터에 설치될 수 있으며 이 네트워크에 있는 응용 프로그램만 처리할 수 있습니다. 고가용성을 얻기 위해 커넥터를 여러 개 설치할 수 있습니다.
+클라우드 액세스를 위해 IaaS에 설치된 응용 프로그램의 경우 커넥터 그룹은 모든 앱에 대한 액세스를 보호하는 일반적인 서비스를 제공합니다. 커넥터 그룹은 회사 네트워크에 추가 종속성을 만들거나 앱 경험을 조각화하지 않습니다. 커넥터는 각 클라우드 데이터 센터에 설치될 수 있으며 해당 네트워크에 있는 응용 프로그램만 처리할 수 있습니다. 고가용성을 얻기 위해 커넥터를 여러 개 설치할 수 있습니다.
 
-이 경우 조직에는 자체 IaaS 호스팅된 가상 네트워크에 연결된 가상 컴퓨터가 여러 개 있습니다. 직원들이 해당 응용 프로그램을 사용할 수 있도록 하기 위해 이러한 사설망은 사이트 간 VPN을 사용하여 회사 네트워크에 연결됩니다. 이는 온-프레미스에 있는 직원들에게 좋은 경험을 제공합니다. 그러나 원격 직원에게는 아래 다이어그램과 같이 추가 온-프레미스 인프라가 필요하기 때문에 이상적이지 않을 수 있습니다.
+예를 들어 IaaS 호스팅된 고유한 가상 네트워크에 연결된 가상 컴퓨터가 여러 개 있는 조직을 사용합니다. 직원들이 해당 응용 프로그램을 사용할 수 있도록 하기 위해 이러한 사설망은 사이트 간 VPN을 사용하여 회사 네트워크에 연결됩니다. 이는 온-프레미스에 있는 직원들에게 좋은 경험을 제공합니다. 그러나 원격 직원에게는 아래 다이어그램과 같이 추가 온-프레미스 인프라가 액세스를 라우팅해야 하기 때문에 이상적이지 않을 수 있습니다.
 
 ![Azure Ad Iaas 네트워크](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-많은 조직에서 여러 클라우드 공급 업체를 사용하는 만큼 응용 프로그램도 수많은 데이터 센터에 상주하므로 문제가 될 수 있습니다. Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 서비스를 통해 회사 네트워크에 대한 추가 종속성을 만들지 않고도 모든 응용 프로그램에 대한 액세스를 보호할 수 있습니다.
+Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 서비스를 통해 회사 네트워크에 대한 추가 종속성을 만들지 않고도 모든 응용 프로그램에 대한 액세스를 보호할 수 있습니다.
 
 ![Azure AD Iaas - 여러 클라우드 공급 업체](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

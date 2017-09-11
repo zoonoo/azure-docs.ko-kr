@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: caac079989f5f1616fdbed880ec51ae6e0946b8e
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="securing-your-sql-database"></a>SQL 데이터베이스 보안 설정
@@ -30,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요에 대해서는 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스를 위한 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 추가 정보는 에서도 사용할 수는 [보안 및 Azure SQL 데이터베이스 기술 백서](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>데이터 보호
-SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242) 및 사용 중인 데이터의 경우 [상시 암호화](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다. 
+SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 사용 중인 데이터의 경우 [상시 암호화](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다. 
 
 > [!IMPORTANT]
 >Azure SQL 데이터베이스에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 *않도록* 매개 변수를 지정해야 합니다(Azure 클래식 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 **Encrypt=True** 및 **TrustServerCertificate=False**입니다. 

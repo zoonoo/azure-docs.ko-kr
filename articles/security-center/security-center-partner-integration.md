@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Azure Security Center에서 파트너 통합
@@ -61,9 +61,9 @@ Security Center는 현재 다음과 같은 솔루션과 통합합니다.
 
 ## <a name="manage-partner-solutions"></a>파트너 솔루션 관리
 
-배포 후에 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행하려면 **Security Center** 블레이드에서 **파트너 솔루션** 타일을 선택합니다. Security Center에서 파트너 솔루션을 관리하는 방법에 대한 자세한 내용은 [Azure Security Center로 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
+배포 후에 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행하려면 **Security Center** 블레이드에서 **파트너 솔루션** 옵션을 선택합니다. Security Center에서 파트너 솔루션을 관리하는 방법에 대한 자세한 내용은 [Azure Security Center로 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 
-![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Symantec Endpoint Protection 지원은 검색으로 제한됩니다. 상태 경고는 사용할 수 없습니다.

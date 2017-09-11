@@ -13,13 +13,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/13/2017
+ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
@@ -342,32 +342,37 @@ scaleR 함수를 사용하여 작업을 제출할 수 있습니다. 다음은 �
 
 2. 다음과 비슷한 결과가 나타나야 합니다.
     
-    R 버전 3.2.2(2015-08-14) -- "실행 안전" Copyright (C) 2015 The R Foundation for Statistical Computing  Platform: x86_64-pc-linux-gnu(64비트)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R은 평가판 소프트웨어이며 절대로 어떠한 보증도 제공되지 않습니다.
-    특정 조건에서 재배포는 허용합니다.
-    배포에 대한 자세한 내용을 보려면 'license()' 또는 'licence()'를 입력하세요.
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     자연어가 지원되지만 영어 로캘로 실행됩니다.
 
-    R은 많은 참가자가 함께한 공동 프로젝트입니다.
-    자세한 내용을 보려면 'contributors()'를 입력하고 게시물에 R 또는 R 패키지를 명시하는 방법을 보려면 'citation()'을 입력하세요.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    몇 가지 데모를 보려면 'demo()'를, 온라인 도움말은 'help()'를, HTML 브라우저 인터페이스를 보려면 'help.start()'를 입력하세요.
-    R을 끝내려면 'q()'를 입력하세요.
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Microsoft R Server 버전 8.0: R Microsoft 패키지의 향상된 배포 Copyright (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     릴리스 정보를 보려면 'readme()'를 입력하세요.
     >
 
 3. `>` 프롬프트에서 R 코드를 입력할 수 있습니다. R 서버에는 Hadoop과 쉽게 상호 작용하고 분산된 계산을 실행할 수 있는 패키지가 포함되어 있습니다. 예를 들어, 다음 명령을 사용하여 HDInsight 클러스터에 대한 기본 파일 시스템의 루트를 볼 수입니다.
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. WASB 스타일 주소 지정을 사용할 수도 있습니다.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
@@ -670,6 +675,26 @@ One-box 구성으로 Microsoft R Server 조작화를 구성하려면 다음을 �
 6. SSH를 종료합니다.
 
 ![조작화에 대한 진단](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+
+>[!NOTE]
+>**Spark에 웹 서비스를 이용할 때 긴 지연**
+>
+>Spark 계산 컨텍스트에서 mrsdeploy 함수로 만든 웹 서비스를 이용하려고 할 때 긴 지연이 발생하는 경우 일부 누락된 폴더를 추가해야 할 수 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
+
+    # Create these required folders for user 'rserve2' in local and hdfs:
+
+    hadoop fs -mkdir /user/RevoShare/rserve2
+    hadoop fs -chmod 777 /user/RevoShare/rserve2
+
+    mkdir /var/RevoShare/rserve2
+    chmod 777 /var/RevoShare/rserve2
+
+
+    # Next, create a new Spark compute context:
+ 
+    rxSparkConnect(reset = TRUE)
+
 
 이 단계에서 조작화 구성이 완료되었습니다. 이제 RClient의 'mrsdeploy' 패키지를 사용하여 에지 노드의 조작화에 연결하고 [원격 실행](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) 및 [웹 서비스](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette)와 같은 기능을 사용할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 SSH 로그인을 통해 포트 전달 터널링을 설정할 필요가 있습니다. 다음 섹션에서는 이 터널을 설정하는 방법에 대해 설명합니다.
 

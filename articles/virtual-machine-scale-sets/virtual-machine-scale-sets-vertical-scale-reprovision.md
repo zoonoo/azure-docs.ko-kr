@@ -1,5 +1,5 @@
 ---
-title: "Azure 가상 컴퓨터 크기 집합을 수직으로 규모 조정 | Microsoft Docs"
+title: "Azure 가상 컴퓨터 확장 집합을 수직으로 규모 조정 | Microsoft Docs"
 description: "Azure 자동화를 사용하여 모니터링 경고에 대한 응답으로 가상 컴퓨터를 수직으로 확장하는 방법"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 

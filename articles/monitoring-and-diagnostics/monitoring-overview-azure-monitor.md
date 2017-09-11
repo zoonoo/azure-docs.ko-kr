@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -42,7 +41,7 @@ Microsoft는 온-프레미스 설치도 사용하는 개발자, DevOps 또는 IT
 Compute 서비스에는 다음이 포함됩니다. 
 - 클라우드 서비스 
 - 가상 컴퓨터 
-- 가상 컴퓨터 크기 집합 
+- 가상 컴퓨터 확장 집합 
 - 서비스 패브릭
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>응용 프로그램 - 진단 로그, 응용 프로그램 로그 및 메트릭
@@ -147,6 +146,6 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 - [Azure Monitor 시작](monitoring-get-started.md)에서 Azure Monitor 인터페이스를 통해 실행합니다.
 - 클라우드 서비스, 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우 [Azure 진단 확장](../azure-diagnostics.md)을 설정합니다.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우
-- [Azure Storage 문제 해결](../storage/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
+- [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)
 

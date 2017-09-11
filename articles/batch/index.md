@@ -2,7 +2,7 @@
 title: "Azure Batch 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Batch를 사용하여 대규모 병렬 및 고성능 컴퓨팅 응용 프로그램을 효율적으로 실행하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

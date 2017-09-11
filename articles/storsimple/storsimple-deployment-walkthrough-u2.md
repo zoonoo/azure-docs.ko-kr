@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
@@ -177,7 +178,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 저장소 계정 구성
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure 저장소 계정이 필요합니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
 
 **StorSimple 관리자 서비스** 페이지의 관리 포털에서 다음 단계를 수행합니다.
 
@@ -220,10 +221,5 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](storsimple-manager-service-administration.md) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

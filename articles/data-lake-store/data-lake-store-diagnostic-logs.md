@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
@@ -32,7 +31,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Data Lake Store 계정에 대한 진단 로깅 사용
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **설정**, **진단 로그**를 차례로 클릭합니다.
 3. **진단 로그** 블레이드에서 **진단 켜기**를 클릭합니다.
 
@@ -42,7 +41,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
    
     ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 사용")
    
-   * 진단 로깅을 사용하려면 **상태**를 **켜기**로 설정합니다.
+   * **이름**으로 진단 로그 구성에 대한 값을 입력합니다.
    * 다양한 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
      
         * Azure Storage 계정에 로그를 저장하려면 **저장소 계정에 보관** 옵션을 선택합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure 저장소 계정을 제공하여 로그를 저장해야 합니다.
@@ -71,7 +70,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
    
    * 요청 로그는 Data Lake Store 계정에 대한 모든 API 요청을 캡처합니다.
    * 감사 로그는 요청 로그와 비슷하지만 Data Lake Store 계정에 수행된 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
-3. 각 로그 항목에 대한 **다운로드** 링크를 클릭하여 로그를 다운로드합니다.
+3. 로그를 다운로드하려면 각 로그 항목에 대한 **다운로드** 링크를 클릭합니다.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure 저장소 계정에서
 1. 로깅을 위한 Data Lake Store와 연결된 Azure 저장소 계정 블레이드를 열고 Blob을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
@@ -86,7 +85,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
    
     예를 들어, 감사 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    마찬가지로 요청 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    마찬가지로 요청 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`과 같을 수 있습니다.
 
 ## <a name="understand-the-structure-of-the-log-data"></a>로그 데이터의 구조 이해
 감사 로그 및 요청 로그는 JSON 형식입니다. 이 섹션에서는 요청 로그 및 감사 로그에 대한 JSON의 구조를 살펴봅니다.

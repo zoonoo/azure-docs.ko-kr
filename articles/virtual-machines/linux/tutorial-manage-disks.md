@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -203,7 +203,7 @@ exit
 
 VM을 배포한 후 운영 체제 디스크 또는 모든 연결된 데이터 디스크의 크기를 늘릴 수 있습니다. 디스크의 크기를 늘리면 더 많은 저장소 공간이나 더 높은 수준의 성능(P10, P20, P30)이 필요한 경우에 유용합니다. 디스크 크기를 줄일 수는 없습니다.
 
-디스크 크기를 늘리려면 디스크의 ID 또는 이름이 필요합니다. [az disk list](/cli/azure/vm/disk#list) 명령을 사용하여 리소스 그룹의 모든 디스크를 반환합니다. 크기를 조정할 디스크 이름을 기록해 둡니다.
+디스크 크기를 늘리려면 디스크의 ID 또는 이름이 필요합니다. [az disk list](/cli/azure/disk#az_disk_list) 명령을 사용하여 리소스 그룹의 모든 디스크를 반환합니다. 크기를 조정할 디스크 이름을 기록해 둡니다.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table

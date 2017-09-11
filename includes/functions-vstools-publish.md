@@ -14,7 +14,7 @@
     | **구독** | 구독 선택 | 사용할 Azure 구독입니다. |
     | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  함수 앱을 만들 리소스 그룹의 이름입니다. |
     | **[App Service 계획](../articles/azure-functions/functions-scale.md)** | 소비 계획 | 새 계획을 만들 때 **크기** 아래에서 **소비**를 선택해야 합니다.  |
-    | **[Storage 계정](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | 전역적으로 고유한 이름 | 기존 저장소 계정을 사용하거나 새 저장소 계정을 만듭니다.   |
+    | **[Storage 계정](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | 전역적으로 고유한 이름 | 기존 저장소 계정을 사용하거나 새 저장소 계정을 만듭니다.   |
 
 4. **만들기**를 클릭하여 Azure에서 이러한 설정이 포함된 함수 앱을 만듭니다. 프로비전이 완료된 후에 Azure에서 함수 앱의 주소인 **사이트 URL** 값을 기록해 둡니다. 
 

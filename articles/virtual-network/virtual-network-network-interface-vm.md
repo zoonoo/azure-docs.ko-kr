@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 9f040a87367219a937d4f5a83fd23ce1ba328c8c
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -64,14 +64,14 @@ Azure PowerShell 또는 CLI를 사용하여 포털을 사용할 수 없는 이�
 포털을 통해 VM을 만들면 포털에서 기본 설정이 포함된 네트워크 인터페이스를 만들고 이 네트워크 인터페이스를 사용자에 대한 VM에 연결합니다. Azure Portal에서는 기존 네트워크 인터페이스를 새 VM에 추가하거나 여러 네트워크 인터페이스가 있는 VM을 만들 수 없습니다. 둘 다 CLI 또는 PowerShell을 사용하여 수행할 수 있습니다. 만드는 VM 크기에서 지원하는 만큼 많은 네트워크 인터페이스를 VM에 추가할 수 있습니다. 각 VM 크기에서 지원하는 네트워크 인터페이스의 수에 대한 자세한 내용은 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. VM에 추가한 네트워크 인터페이스는 현재 다른 VM에 연결할 수 없습니다. 네트워크 인터페이스 만들기에 대한 자세한 내용은 [네트워크 인터페이스 관리](virtual-network-network-interface.md#create-a-network-interface) 문서를 참조하세요.
 
 > [!WARNING]
-> 네트워크 인터페이스에 할당된 개인 IPv6 주소가 있는 경우 가상 컴퓨터를 만들 때에만 해당 네트워크 인터페이스는 가상 컴퓨터에 추가할 수 있습니다. IPv6 주소가 네트워크 인터페이스에 할당되어 있고 네트워크 인터페이스가 가상 컴퓨터에 연결되어 있으면 가상 컴퓨터를 만들 때 또는 가상 컴퓨터를 만든 후에 가상 컴퓨터에 추가 네트워크 인터페이스를 추가할 수 없습니다. 네트워크 인터페이스에 IP 주소를 할당하는 방법에 대한 자세한 내용을 보려면 [네트워크 인터페이스 IP 주소](virtual-network-network-interface-addresses.md)를 참조하세요.
+> 네트워크 인터페이스에 할당된 개인 IPv6 주소가 있는 경우 가상 컴퓨터를 만들 때에만 해당 네트워크 인터페이스는 가상 컴퓨터에 추가할 수 있습니다. IPv6 주소가 가상 컴퓨터에 연결된 네트워크 인터페이스에 할당되어 있으면 가상 컴퓨터를 만들 때 또는 가상 컴퓨터를 만든 후에 가상 컴퓨터에 둘 이상의 네트워크 인터페이스를 연결할 수 없습니다. 네트워크 인터페이스에 IP 주소를 할당하는 방법에 대한 자세한 내용을 보려면 [네트워크 인터페이스 IP 주소](virtual-network-network-interface-addresses.md)를 참조하세요.
 
 **명령**
 
 |도구|명령|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>기존 VM에 기존 네트워크 인터페이스 추가
 
@@ -83,7 +83,7 @@ Azure PowerShell 또는 CLI를 사용하여 포털을 사용할 수 없는 이�
 |도구|명령|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)(참조) 또는 [세부 단계](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> VM에 대한 네트워크 인터페이스 보기
 
@@ -99,18 +99,25 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 |도구|명령|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a>VM에서 네트워크 인터페이스 제거
 
-네트워크 인터페이스를 제거하려는 VM은 중지됨(할당 취소됨) 상태여야 하며, 현재 두 개 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스는 모두 제거할 수 있지만, VM에는 항상 네트워크 인터페이스가 하나 이상 연결되어 있어야 합니다. 기본 네트워크 인터페이스를 제거하면 Azure에서는 가장 오랫동안 VM에 연결어 있는 네트워크 인터페이스에 기본 특성을 할당합니다. 네트워크 인터페이스를 기본 네트워크 인터페이스로 직접 지정할 수 있습니다. Azure Portal을 사용하여 VM에서 네트워크 인터페이스를 제거하거나 네트워크 인터페이스의 기본 특성을 설정할 수는 없지만, CLI 또는 PowerShell을 사용하여 두 작업을 모두 수행할 수 있습니다. 
+네트워크 인터페이스를 제거(또는 분리)하려는 VM은 중지됨(할당 취소됨) 상태여야 하며, 현재 두 개 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스는 모두 제거할 수 있지만, VM에는 항상 네트워크 인터페이스가 하나 이상 연결되어 있어야 합니다. 기본 네트워크 인터페이스를 제거하면 Azure에서는 가장 오랫동안 VM에 연결어 있는 네트워크 인터페이스에 기본 특성을 할당합니다. 
+
+1. 구독에 대한 소유자, 참가자 또는 네트워크 참가자 역할이 할당된 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 역할을 할당하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)을 참조하세요.
+2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *가상 컴퓨터*를 입력합니다. 검색 결과에 표시된 **가상 컴퓨터**를 클릭합니다.
+3. 표시되는 **가상 컴퓨터** 블레이드에서 네트워크 인터페이스를 제거하려는 VM의 이름을 클릭합니다.
+4. 선택한 VM에 대해 표시되는 가상 컴퓨터 블레이드의 **설정** 섹션에서 **네트워크 인터페이스**를 클릭합니다. 네트워크 인터페이스 설정 및 변경 방법에 대한 자세한 내용은 [네트워크 인터페이스 관리](virtual-network-network-interface.md) 문서를 참조하세요. 네트워크 인터페이스에 할당된 IP 주소를 추가, 변경 또는 제거하는 방법을 알아보려면 [IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요.
+5. 표시되는 네트워크 인터페이스 블레이드에서 분리하려는 네트워크 인터페이스의 오른쪽에 있는 **...**을 클릭합니다.
+6. **분리**를 클릭합니다. 가상 컴퓨터에 연결된 하나의 네트워크 인터페이스만 있는 경우 **분리** 옵션을 사용할 수 없습니다. 표시되는 확인 상자에서 **예**를 클릭합니다.
 
 **명령**
 
 |도구|명령|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)(참조) 또는 [세부 단계](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>다음 단계
 여러 네트워크 인터페이스 또는 IP 주소가 있는 VM을 만들려면 다음 문서를 참조하세요.

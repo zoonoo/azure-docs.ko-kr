@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Storage 트리거 및 바인딩을 사
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"

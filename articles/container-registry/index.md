@@ -2,7 +2,7 @@
 title: "Azure Container Registry 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "관리되는 Docker 레지스트리 서비스를 사용하여 배포 이미지를 저장할 컨테이너 레지스트리를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ Container Registry를 사용하여 모든 유형의 컨테이너 배포에 대�
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

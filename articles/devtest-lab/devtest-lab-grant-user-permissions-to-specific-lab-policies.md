@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
@@ -73,7 +74,7 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 사용자에 대한 **ObjectId**와 사용자 지정 역할 이름이 있으면 **New-AzureRmRoleAssignment** cmdlet을 사용하여 사용자에게 해당 역할을 할당할 수 있습니다.
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
+    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 앞의 예제에서는 **AllowedVmSizesInLab** 정책이 사용되었습니다. 다음 정책 중 하나를 사용할 수 있습니다.
 
@@ -92,10 +93,5 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 * [랩 템플릿 만들기](devtest-lab-create-template.md).
 * [VM에 대한 사용자 지정 아티팩트  만들기](devtest-lab-artifact-author.md).
 * [아티팩트가 지정된 VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

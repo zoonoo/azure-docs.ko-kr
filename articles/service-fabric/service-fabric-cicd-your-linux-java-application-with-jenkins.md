@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Jenkins를 사용하여 Linux Java 응용 프로그램 빌드 및 배포
@@ -49,7 +48,7 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 
 3. Jenkins 컨테이너 인스턴스의 상태를 유지하려는 Azure Storage 파일 공유의 연결 옵션 세부 정보가 필요합니다. 동일한 용도로 Microsoft Azure Portal을 사용하는 경우 ``sfjenkinsstorage1``이라는 Azure Storage 계정을 만드는 단계를 따르세요. ``sfjenkins``라는 저장소 계정 아래 **파일 공유**를 만듭니다. 파일 공유에 대해 **연결**을 클릭하고 다음과 유사하게 **Linux에서 연결** 아래 표시되는 값을 메모해 둡니다.
 ```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 4. ```setupentrypoint.sh``` 스크립트에서 자리 표시자 값을 해당 azure 저장소 세부 정보로 업데이트합니다.
@@ -60,8 +59,8 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``을 위의 포인트 3에서 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 값으로 바꿉니다.
 
 5. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
-```sh
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```azurecli
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 그러면 클러스터에 Jenkins 컨테이너를 설치하고 Service Fabric Explorer를 사용하여 모니터링할 수 있습니다.

@@ -4,7 +4,7 @@ description: "이 항목에서는 미디어 인코더 표준 태스크 사전 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services

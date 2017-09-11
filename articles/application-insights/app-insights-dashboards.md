@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9d45f5cb1a7d15a69516faf2ffaa5f1ec25c3a43
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/17/2017
 * 시간 범위 24시간 초과: (시간 범위)/60
 
 ### <a name="pin-any-query-in-analytics"></a>분석에서 모든 쿼리를 고정
-[공유](#share-dashboards-with-your-team) 대시보드에 [분석 차트를 고정](app-insights-analytics-using.md#pin-to-dashboard)할 수도 있습니다. 그러면 임의 쿼리의 차트를 표준 메트릭과 함께 추가할 수 있습니다. (이 기능에 대한 요금이 청구됩니다.)
+[공유](#share-dashboards-with-your-team) 대시보드에 [분석 차트를 고정](app-insights-analytics-using.md#pin-to-dashboard)할 수도 있습니다. 그러면 임의 쿼리의 차트를 표준 메트릭과 함께 추가할 수 있습니다. 
 
 결과는 1시간마다 자동으로 다시 계산됩니다. 즉시 다시 계산하려면 새로 고침 아이콘을 클릭합니다. 브라우저 새로 고침은 다시 계산하지 않습니다.
 

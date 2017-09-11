@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2a718be9789aa4befdf2d3e1ac437fa69d6f33b8
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 05/04/2017
 
 ## <a name="runtime-apis"></a>런타임 API
 
-다음은 현재 사용 가능한 모든 Azure Event Hubs 클라이언트의 목록입니다. 이러한 라이브러리 중 일부에는 제한된 관리 기능이 포함되어 있지만 관리 작업에만 사용되는 [특정 라이브러리](#management-apis)도 있습니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 메시지를 주고 받는 것입니다.
+다음은 현재 사용 가능한 모든 Azure Event Hubs 런타임 클라이언트에 대한 설명입니다. 이러한 라이브러리 중 일부에는 제한된 관리 기능이 포함되어 있지만 관리 작업에만 사용되는 [특정 라이브러리](#management-apis)도 있습니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 메시지를 주고 받는 것입니다.
 
 각 런타임 라이브러리의 현재 상태에 대한 자세한 내용은 [추가 정보](#additional-information)를 참조하세요.
 
@@ -59,6 +58,6 @@ Node.js 라이브러리는 현재 미리 보기로 제공되며 Microsoft 직원
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

@@ -3,7 +3,7 @@ title: "RBAC를 통한 액세스 및 사용 권한 관리 - Azure RBAC | Microso
 description: "Azure 포털에서 Azure 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 디렉터리에서 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22

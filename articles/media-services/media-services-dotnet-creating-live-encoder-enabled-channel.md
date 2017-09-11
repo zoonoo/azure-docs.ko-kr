@@ -4,7 +4,7 @@ description: "이 자습서에서는 .NET SDK를 사용하여 단일 비트 전�
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services

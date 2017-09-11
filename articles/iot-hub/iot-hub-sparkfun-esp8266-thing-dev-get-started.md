@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9b3d968379d38ac4e4080de7eae6ffea89f73a49
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Sparkfun ESP8266 Thing Dev를 클라우드의 Azure IoT Hub에 연결
@@ -191,6 +191,14 @@ Arduino IDE에 Sparkfun ESP8266 Thing Dev 패키지를 설치합니다.
 
 1. Arduino IDE에서 **도구** > **포트**를 차례로 클릭한 다음 Sparkfun ESP8266 Thing Dev에 대한 직렬 포트를 클릭합니다.
 1. **스케치** > **업로드**를 차례로 클릭하여 샘플 응용 프로그램을 빌드하고 Sparkfun ESP8266 Thing Dev에 배포합니다.
+
+> [!Note]
+> macOS를 사용하는 경우 업로드하는 동안 다음 메시지가 표시될 수 있습니다. `warning: espcomm_sync failed`,`error: espcomm_open failed`. 터미널 창을 열고 아래 작업을 완료하여 이 문제를 해결합니다.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>자격 증명 입력
 

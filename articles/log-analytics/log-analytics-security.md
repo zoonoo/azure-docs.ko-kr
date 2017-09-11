@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
@@ -157,7 +156,7 @@ Azure 가상 컴퓨터에서 실행되는 Windows 에이전트의 경우 Azure �
 위에서 설명한 바와 같이 에이전트의 데이터는 SSL을 통해 Microsoft Azure 데이터 센터로 전송됩니다. 또는 ExpressRoute를 사용하여 데이터에 대한 추가 보안을 제공할 수 있습니다. ExpressRoute는 네트워크 서비스 공급자가 제공하는 MPLS(multi-protocol label switching) VPN과 같은 기존 WAN 네트워크에서 Azure에 직접 연결하는 방법입니다. 자세한 내용은 [ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 참조하세요.
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics 서비스에서 데이터를 받아서 처리
-Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 그런 다음 처리되지 않은 원시 데이터는 [Microsoft Azure Storage](../storage/storage-introduction.md)에 Blob에 저장되며 암호화되지 않습니다. 하지만 각 Azure Storage Blob에는 해당 사용자만 액세스할 수 있는 고유한 키 집합이 있습니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다. 그런 다음 Log Analytics 서비스가 Azure Storage Blob에 대해 원시 데이터를 처리합니다.
+Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 그런 다음 처리되지 않은 원시 데이터는 [Microsoft Azure Storage](../storage/common/storage-introduction.md)에 Blob에 저장되며 암호화되지 않습니다. 하지만 각 Azure Storage Blob에는 해당 사용자만 액세스할 수 있는 고유한 키 집합이 있습니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다. 그런 다음 Log Analytics 서비스가 Azure Storage Blob에 대해 원시 데이터를 처리합니다.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용하여 데이터 액세스
 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 OMS 포털의 Log Analytics에 로그인할 수 있습니다. OMS 포털과 OMS의 Log Analytics 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. OMS 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 OMS 포털 세션이 종료됩니다.

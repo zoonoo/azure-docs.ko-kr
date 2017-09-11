@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API 관리를 사용하는 방법
@@ -108,7 +108,7 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 | * / 11000 - 11999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / 14000 - 14999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / 5671 |아웃바운드 |AMQP |이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| 6381 - 6383 / 6381 - 6383 |인바운드 및 아웃바운드 |UDP |Redis 캐시에 대한 종속성 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |외부 및 내부 |-
+| 6381 - 6383 / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |Redis 캐시에 대한 종속성 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |외부 및 내부 |-
 | * / 445 |아웃바운드 |TCP |GIT의 Azure 파일 공유에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / * | 인바운드 |TCP |Azure 인프라 부하 분산 장치 | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |외부 및 내부 |
 

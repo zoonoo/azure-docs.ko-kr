@@ -3,7 +3,7 @@ title: "Azure Network Watcher를 사용하여 네트워크 보안 그룹 흐름 
 description: "이 페이지에서는 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/02/2017
-
 
 ---
 

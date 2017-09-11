@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Batch 솔루션의 진단 평가 및 모니터링에 대한 로그 이벤트
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/07/2017
 
 ## <a name="prerequisites"></a>필수 조건
 * [Azure Batch 계정](batch-account-create-portal.md)
-* [Azure Storage 계정](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Azure Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   배치 진단 로그를 유지하려면 Azure가 로드를 저장하는 Azure Storage 계정을 만들어야 합니다. 배치 계정에 [진단 로깅을 사용](#enable-diagnostic-logging)할 때 이 저장소 계정을 지정합니다. 로그 수집을 사용할 때 지정하는 저장소 계정은 [응용 프로그램 패키지](batch-application-packages.md) 및 [작업 출력 지속성](batch-task-output.md) 문서에서 설명한 연결된 저장소 계정과는 다릅니다.
   

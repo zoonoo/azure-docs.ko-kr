@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>연결된 공장 미리 구성된 솔루션 시작
@@ -53,7 +53,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 4. 타일을 클릭하여 오른쪽 창에 솔루션의 세부 정보를 표시합니다.
 
 > [!NOTE]
-> 미리 구성된 솔루션을 배포하는 데 문제가 발생하면 [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions] 및 [FAQ][lnk-faq]를 검토하세요. 문제가 지속되면 [포털][lnk-portal]에서 서비스 티켓을 만듭니다.
+> 미리 구성된 솔루션을 배포하는 데 문제가 발생하면 [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions] 및 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 검토하세요. 문제가 지속되면 [포털][lnk-portal]에서 서비스 티켓을 만듭니다.
 
 목록에는 없지만 솔루션에 대해 참조하고 싶은 세부 정보가 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 보내주세요.
 
@@ -81,7 +81,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 대시보드에서는 다음 정보를 표시합니다.
 
-* 솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여 주는 **팩터리 목록** 패널. 솔루션을 처음으로 실행하면 여러 개의 시뮬레이션된 장치가 있습니다. 생산 라인 시뮬레이션은 시뮬레이션된 작업을 수행하고 데이터를 공유하는 생산 라인당 실제 OPC UA 서버 세 개로 구성됩니다. OPC UA에 대한 자세한 내용은 [FAQ][lnk-faq]를 참조하세요.
+* 솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여 주는 **팩터리 목록** 패널. 솔루션을 처음으로 실행하면 여러 개의 시뮬레이션된 장치가 있습니다. 생산 라인 시뮬레이션은 시뮬레이션된 작업을 수행하고 데이터를 공유하는 생산 라인당 실제 OPC UA 서버 세 개로 구성됩니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 * **지도**는 솔루션에 연결된 각 장치의 위치를 보여줍니다. 솔루션은 Bing Maps API를 사용하여 지도에 정보를 표시할 수 있습니다. 구독이 Bing Maps Enterprise API에 대해 설정된 경우 이 기능이 자동으로 사용됩니다. 설정되지 않은 경우 지도를 동적으로 만드는 방법을 알아보려면 [FAQ][lnk-faq]를 참조하세요.
 * 원격 분석 또는 OEE/KPI 값이 특정 임계값을 초과할 때 생성되는 경고를 표시하는 **경고** 패널.
 * 기업 전체 또는 현재 보고 있는 공장/생산 라인/스테이션의 OEE 값을 표시하는 **설비 종합 효율** 패널. 이 값은 스테이션 보기에서 엔터프라이즈 수준까지 집계됩니다. OEE 수치 및 구성 요소를 구체적으로 분석할 수 있습니다.

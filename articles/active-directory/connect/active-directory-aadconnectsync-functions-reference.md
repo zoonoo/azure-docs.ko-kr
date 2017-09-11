@@ -1183,7 +1183,7 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 * condition: 특성의 한 항목을 처리할 수 있는 모든 함수입니다.
 
 **예제:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 하이픈(-)을 제거한 후에 otherPhone 다중값 특성의 모든 값을 반환합니다.
 
 - - -

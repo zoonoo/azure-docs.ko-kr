@@ -4,7 +4,7 @@ description: "셀프 서비스 암호 재설정을 사용하여 회사 또는 �
 services: active-directory
 keywords: 
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.reviewer: gahug
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: joflore
+ms.date: 08/28/2017
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
@@ -48,9 +48,9 @@ ms.lasthandoff: 07/06/2017
 
    > [!NOTE]
    > IT 담당자가 이 기능을 활성화하지 않은 경우 IT 담당자가 자체 전자 메일 또는 웹 포털을 통해 도움을 줄 수 있도록 "관리자에게 문의" 링크가 나타납니다.
-   > 
+   >
    > 계정 잠금을 해제해야 하는 경우 지금은 “암호를 알고 있지만, 여전히 로그인할 수 없습니다.” 옵션을 선택합니다.
-   > 
+   >
 
 3. IT 담당자가 SSPR을 구성한 방법에 따라 다음 항목 중 하나 이상이 표시됩니다. 사용자 또는 IT 담당자가 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 문서를 사용하기 전에 이 정보 중 일부를 입력했습니다.
 

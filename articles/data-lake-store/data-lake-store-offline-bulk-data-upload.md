@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c852374b6f6ca58d807631fdfcc8e42abf99b673
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Azure Import/Export 서비스를 사용하여 Data Lake Store에 오프라인 데이터 복사
-이 문서에서는 [Azure Import/Export 서비스](../storage/storage-import-export-service.md)와 같은 오프라인 복사 방법을 사용하여 대량 데이터 집합(200GB 초과)을 Azure Data Lake Store에 복사하는 방법을 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
+이 문서에서는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 같은 오프라인 복사 방법을 사용하여 대량 데이터 집합(200GB 초과)을 Azure Data Lake Store에 복사하는 방법을 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
 
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 제공하여 대량 데이터를 Azure Blob 저장소로 더 안전하게 전송할 수 있습니다.
 
@@ -50,7 +49,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
     319GB.tsv-part-ad
 
 ## <a name="get-disks-ready-with-data"></a>데이터와 함께 디스크 준비
-**드라이브 준비** 섹션의 [Azure Import/Export 서비스 사용](../storage/storage-import-export-service.md) 지침에 따라 하드 드라이브를 준비합니다. 전체 시퀀스는 다음과 같습니다.
+**드라이브 준비** 섹션의 [Azure Import/Export 서비스 사용](../storage/common/storage-import-export-service.md) 지침에 따라 하드 드라이브를 준비합니다. 전체 시퀀스는 다음과 같습니다.
 
 1. Auzre Import/Export 서비스에 사용할 요구 사항을 충족하는 하드 디스크를 확보합니다.
 2. 하드 디스크가 Azure 데이터 센터에 제공된 후에 데이터를 복사할 Azure Storage 계정을 확인합니다.
@@ -59,11 +58,11 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
-    자세한 코드 조각에 대해서는 [Azure Import/Export 서비스 사용](../storage/storage-import-export-service.md)을 참조하세요.
+    자세한 코드 조각에 대해서는 [Azure Import/Export 서비스 사용](../storage/common/storage-import-export-service.md)을 참조하세요.
 4. 위 명령은 지정된 위치에 저널 파일을 만듭니다. 이 저널 파일을 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com)에서 가져오기 작업을 만듭니다.
 
 ## <a name="create-an-import-job"></a>가져오기 작업 만들기
-이제 **가져오기 작업 만들기** 섹션의 [Azure Import/Export 서비스 사용](../storage/storage-import-export-service.md)의 지침에 따라 가져오기 작업을 만들 수 있습니다. 이 가져오기 작업에 대해 다른 세부 정보를 사용하여 디스크 드라이브를 준비하는 동안 생성된 저널 파일을 제공합니다.
+이제 **가져오기 작업 만들기** 섹션의 [Azure Import/Export 서비스 사용](../storage/common/storage-import-export-service.md)의 지침에 따라 가져오기 작업을 만들 수 있습니다. 이 가져오기 작업에 대해 다른 세부 정보를 사용하여 디스크 드라이브를 준비하는 동안 생성된 저널 파일을 제공합니다.
 
 ## <a name="physically-ship-the-disks"></a>물리적 디스크 배송
 이제 디스크를 Azure 데이터 센터에 물리적으로 제공할 수 있습니다. 여기서 데이터는 가져 오기 작업을 만드는 동안 사용자가 제공한 Azure Storage Blob으로 복사됩니다. 또한 작업을 만드는 동안 나중에 추적 정보를 제공하도록 선택한 경우 가져오기 작업으로 돌아가서 추적 번호를 업데이트할 수 있습니다.

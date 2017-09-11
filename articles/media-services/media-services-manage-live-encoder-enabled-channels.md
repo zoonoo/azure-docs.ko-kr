@@ -4,7 +4,7 @@ description: "이 항목에서는 온-프레미스 인코더에서 단일 비트
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services

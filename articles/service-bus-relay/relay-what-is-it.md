@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
@@ -52,15 +51,22 @@ Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 
 [Azure 릴레이의 하이브리드 연결](relay-hybrid-connections-protocol.md) 기능은 기존 릴레이 기능의 안전한 오픈 프로토콜의 진화된 형태로, 구현 모든 플랫폼에서 그리고 일반적인 웹 브라우저에 WebSocket API를 명시적으로 포함하는 기본 WebSocket 기능을 가진 모든 언어로 구현할 수 있습니다. 하이브리드 연결은 HTTP 및 WebSockets를 기반으로 합니다.
 
+### <a name="service-history"></a>서비스 변경 사항
+
+하이브리드 연결은 Azure Service Bus WCF 릴레이에서 빌드된 이전과 비슷한 이름의 "BizTalk Services" 기능을 대체합니다. 새로운 하이브리드 연결 기능은 기존 WCF 릴레이 기능을 보완하고 Azure Relay 서비스에는 이러한 두 서비스 기능이 공존하고 있습니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
+
 ## <a name="wcf-relays"></a>WCF 릴레이
 
 WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF를 위해 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 서비스 버스와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다.
 
-## <a name="service-history"></a>서비스 변경 사항
+## <a name="architecture-processing-of-incoming-relay-requests"></a>아키텍처: 들어오는 릴레이 요청 처리
+클라이언트가 [Azure Relay](/azure/service-bus-relay/) 서비스에 요청을 보내면 Azure Load Balancer가 게이트웨이 노드 중 하나로 해당 요청을 라우팅합니다. 요청이 수신 대기 중인 요청인 경우 게이트웨이 노드는 새 릴레이를 만듭니다. 요청이 특정 릴레이에 대한 연결 요청인 경우 게이트웨이 노드는 해당 릴레이를 소유한 게이트웨이 노드로 연결 요청을 전달합니다. 릴레이를 소유한 게이트웨이 노드는 수신 대기 중인 클라이언트로 랑데부 요청을 보내 수신기가 연결 요청을 수신한 게이트웨이 노드에 대한 임시 채널을 만들도록 요청합니다.
 
-하이브리드 연결은 Azure Service Bus WCF 릴레이에서 빌드된 이전과 비슷한 이름의 "BizTalk Services" 기능을 대체합니다. 새로운 하이브리드 연결 기능은 기존 WCF 릴레이 기능을 보완하고 이러한 두 서비스 기능은 당분간 Azure 릴레이 서비스에 공존하게 됩니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
+릴레이 연결이 설정되면 클라이언트가 랑데부에 사용되는 게이트웨이 노드를 통해 메시지를 교환할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계:
+![들어오는 WCF 릴레이 요청 처리](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>다음 단계
 
 * [릴레이 FAQ](relay-faq.md)
 * [네임스페이스 만들기](relay-create-namespace-portal.md)

@@ -4,7 +4,7 @@ description: "컴퓨터로 자산을 다운로드하는 방법에 대해 알아�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services

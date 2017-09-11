@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
@@ -46,7 +46,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 다음 섹션에서는 이러한 내용 및 분산된 전산 시나리오를 사용할 수 있는 Batch의 다른 리소스를 설명합니다.
 
 > [!NOTE]
-> Batch 서비스를 사용하려면 [Batch 계정](#account)이 필요합니다. 대부분의 Batch 솔루션에서는 파일 저장 및 검색을 위해 [Azure Storage][azure_storage] 계정을 사용합니다. Batch는 현재 [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만 지원합니다.
+> Batch 서비스를 사용하려면 [Batch 계정](#account)이 필요합니다. 대부분의 Batch 솔루션에서는 파일 저장 및 검색을 위해 [Azure Storage][azure_storage] 계정을 사용합니다. Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만 지원합니다.
 >
 >
 
@@ -114,7 +114,7 @@ Batch 계정을 만들 때 계산 노드의 [풀](#pool)이 할당되는 방식�
 
 대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다.  
 
-Batch는 현재 [Azure Storage 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 범용 저장소 계정 유형만 지원합니다. Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)은 범용 저장소 계정에서 상주하는 리소스 파일을 지정해야 합니다.
+Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 범용 저장소 계정 유형만 지원합니다. Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)은 범용 저장소 계정에서 상주하는 리소스 파일을 지정해야 합니다.
 
 
 ## <a name="compute-node"></a>Compute 노드

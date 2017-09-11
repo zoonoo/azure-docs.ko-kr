@@ -3,7 +3,7 @@ title: "Windows 보안을 사용하여 Windows에서 실행되는 클러스터 �
 description: "Windows 보안을 사용하여 Windows에서 실행되는 독립 실행형 클러스터에서 노드 간 및 클라이언트-노드 보안을 구성하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
-ms.author: ryanwi
+ms.date: 08/24/2017
+ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
 ms.openlocfilehash: b8842047351da6fdb547e0b09492b89fad962bee
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호

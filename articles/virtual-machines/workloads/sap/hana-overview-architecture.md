@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a45c65f9842cae433ae44ba4c42643e5691a20bf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
@@ -129,19 +129,22 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 
 | SAP 솔루션 | CPU | 메모리 | 저장소 | Availability |
 | --- | --- | --- | --- | --- |
-| OLAP에 대해 최적화됨: SAP BW, BW/4HANA<br /> 또는 SAP HANA(일반 OLAP 워크로드용) | Azure S72에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3 |  768 GB |  3 TB | 사용 가능 |
-| --- | Azure S144에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
-| --- | Azure S192에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4 |  2.0 TB |  8 TB | 사용 가능 |
-| --- | Azure S384에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4 |  4.0 TB |  16 TB | 주문 준비됨 |
-| OLTP에 대해 최적화됨: SAP Business Suite<br /> SAP HANA 또는 S/4HANA(OLTP)에서,<br /> 일반 OLTP | Azure S72m에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3 |  1.5 TB |  6 TB | 사용 가능 |
-|---| Azure S144m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3 |  3.0 TB |  12 TB | 더 이상 제공되지 않음 |
-|---| Azure S192m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4 |  4.0 TB |  16 TB | 사용 가능 |
-|---| Azure S384m에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4 |  6.0 TB |  18 TB | 주문 준비됨 |
-|---| Azure S384xm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4 |  8.0 TB |  22 TB |  주문 준비됨 |
-|---| Azure S576에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4 |  12.0 TB |  28 TB | 주문 준비됨 |
-|---| Azure S768에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4 |  16.0 TB |  36 TB | 주문 준비됨 |
-|---| Azure S960에서 SAP HANA<br /> – 20 x Intel® Xeon® 프로세서 E7-8890 v4 |  20.0 TB |  46 TB | 주문 준비됨 |
-| --- | --- | --- | --- | --- |
+| OLAP에 대해 최적화됨: SAP BW, BW/4HANA<br /> 또는 SAP HANA(일반 OLAP 워크로드용) | Azure S72에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 36 CPU 코어 및 72 CPU 스레드 |  768 GB |  3 TB | 사용 가능 |
+| --- | Azure S144에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 72 CPU 코어 및 144 CPU 스레드 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
+| --- | Azure S192에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드 |  2.0 TB |  8 TB | 사용 가능 |
+| --- | Azure S384에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  4.0 TB |  16 TB | 주문 준비됨 |
+| OLTP에 대해 최적화됨: SAP Business Suite<br /> SAP HANA 또는 S/4HANA(OLTP)에서,<br /> 일반 OLTP | Azure S72m에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 36 CPU 코어 및 72 CPU 스레드 |  1.5 TB |  6 TB | 사용 가능 |
+|---| Azure S144m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 72 CPU 코어 및 144 CPU 스레드 |  3.0 TB |  12 TB | 더 이상 제공되지 않음 |
+|---| Azure S192m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드  |  4.0 TB |  16 TB | 사용 가능 |
+|---| Azure S384m에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  6.0 TB |  18 TB | 주문 준비됨 |
+|---| Azure S384xm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  8.0 TB |  22 TB |  주문 준비됨 |
+|---| Azure S576에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB |  28 TB | 주문 준비됨 |
+|---| Azure S768에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  16.0 TB |  36 TB | 주문 준비됨 |
+|---| Azure S960에서 SAP HANA<br /> – 20 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 480 CPU 코어 및 960 CPU 스레드 |  20.0 TB |  46 TB | 주문 준비됨 |
+
+- CPU 코어 = 서버 단위 프로세서 합계의 비하이퍼 스레드 CPU 코어 합계
+- CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 계산 스레드 합계 모든 단위는 기본적으로 하이퍼 스레드를 사용하도록 구성됩니다.
+
 
 사용할 수 있거나 '더 이상 제공되지 않는’ 위의 다양한 구성은 [SAP Support Note #2316233 – Microsoft Azure(큰 인스턴스)에서 SAP HANA](https://launchpad.support.sap.com/#/notes/2316233/E)에 나와 있습니다. '주문 준비됨'으로 표시된 구성은 항목이 곧바로 SAP Note에 나타납니다. 하지만 이러한 인스턴스 SKU는 HANA 큰 인스턴스 서비스를 사용할 수 있는 Azure 지역 여섯 곳에서 이미 주문할 수 있습니다.
 

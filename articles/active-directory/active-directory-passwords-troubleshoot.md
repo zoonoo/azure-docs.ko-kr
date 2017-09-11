@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 4bbfbbe41eb3f70c27f0721a6b35a8f7f1831af4
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 08/09/2017
 
 | 오류 | 세부 정보 | 기술 세부 정보 |
 | --- | --- | --- |
-| TenantSSPRFlagDisabled = 9 | 죄송합니다. <br> 관리자가 조직에 대해 암호 재설정을 비활성화했기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 이 기능을 활성화하도록 요청하세요. 자세한 내용은 [Azure AD 암호를 잊어버렸어요. 도와주세요!](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions)를 참조하세요. | SSPR_0009: 관리자에 의해 암호 재설정이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 조직에 대한 암호 재설정을 활성화하도록 요청하세요. |
-| WritebackNotEnabled = 10 |죄송합니다. <br> 관리자가 조직에 필요한 서비스를 활성화하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조직의 구성을 확인하도록 요청하세요. 이 필요한 서비스에 대한 자세한 내용은 [비밀번호 쓰기 저장 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback)을 참조하세요. | SSPR_0010: 비밀번호 쓰기 저장이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 비밀번호 쓰기 저장을 활성화하도록 요청하세요. |
-| SsprNotEnabledInUserPolicy = 11 | 죄송합니다.  <br> 관리자가 조직에 대해 암호 재설정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정을 구성하도록 요청하세요. 암호 재설정 구성에 대한 자세한 내용은 [빠른 시작: Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-getting-started) 문서를 참조하세요. | SSPR_0011: 조직에서 암호 재설정 정책을 정의하지 않았습니다. 관리자에게 문의하고 암호 재설정 정책을 정의하도록 요청하세요. |
-| UserNotLicensed = 12 | 죄송합니다. <br> 조직에서 필요한 라이선스가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 라이선스 할당을 확인하도록 요청하세요. 라이선스에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-licensing) 문서를 참조하세요. | SSPR_0012: 조직에 암호 재설정을 수행하는 데 필요한 필수 라이선스가 없습니다. 관리자에게 문의하고 라이선스 할당을 검토하도록 요청하세요. |
-| UserNotMemberOfScopedAccessGroup = 13 | 죄송합니다. <br> 관리자가 암호 재설정을 사용하도록 계정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정에 대한 계정을 구성하도록 요청하세요. 암호 재설정에 대한 계정 구성에 대한 자세한 내용은 [사용자 암호 재설정 롤아웃](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-best-practices) 문서를 참조하세요. | SSPR_0012: 암호를 재설정할 수 있는 그룹의 구성원이 아닙니다. 관리자에게 문의하고 그룹에 추가되도록 요청하세요. |
-| UserNotProperlyConfigured = 14 | 죄송합니다. <br> 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 다시 얻은 후 [셀프 서비스 암호 재설정 등록](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-reset-register) 문서의 단계를 따라 필요한 정보를 등록하는 방법을 알아볼 수 있습니다. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
-| OnPremisesAdminActionRequired = 29 | 죄송합니다. <br> 조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. 잠재적 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 문제 해결](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback) 문서를 참조하세요. | SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. |
-| OnPremisesConnectivityError = 30 | 죄송합니다. <br> 조직에 대한 연결 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 지금 바로 수행할 작업이 없지만 나중에 다시 시도하면 문제를 해결할 수 있습니다. 문제가 계속되면 관리자에게 문의하고 조사하도록 요청하세요. 연결 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 연결 문제 해결](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)을 참조하세요. | SSPR_0030: 온-프레미스 환경과의 불안정한 연결로 인해 암호를 재설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.|
+| TenantSSPRFlagDisabled = 9 | 죄송합니다. <br> 관리자가 조직에 대해 암호 재설정을 비활성화했기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 이 기능을 활성화하도록 요청하세요. 자세한 내용은 [Azure AD 암호를 잊어버렸어요. 도와주세요!](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions)를 참조하세요. | SSPR_0009: 관리자에 의해 암호 재설정이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 조직에 대한 암호 재설정을 활성화하도록 요청하세요. |
+| WritebackNotEnabled = 10 |죄송합니다. <br> 관리자가 조직에 필요한 서비스를 활성화하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조직의 구성을 확인하도록 요청하세요. 이 필요한 서비스에 대한 자세한 내용은 [비밀번호 쓰기 저장 구성](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback)을 참조하세요. | SSPR_0010: 비밀번호 쓰기 저장이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 비밀번호 쓰기 저장을 활성화하도록 요청하세요. |
+| SsprNotEnabledInUserPolicy = 11 | 죄송합니다.  <br> 관리자가 조직에 대해 암호 재설정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정을 구성하도록 요청하세요. 암호 재설정 구성에 대한 자세한 내용은 [빠른 시작: Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started) 문서를 참조하세요. | SSPR_0011: 조직에서 암호 재설정 정책을 정의하지 않았습니다. 관리자에게 문의하고 암호 재설정 정책을 정의하도록 요청하세요. |
+| UserNotLicensed = 12 | 죄송합니다. <br> 조직에서 필요한 라이선스가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 라이선스 할당을 확인하도록 요청하세요. 라이선스에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing) 문서를 참조하세요. | SSPR_0012: 조직에 암호 재설정을 수행하는 데 필요한 필수 라이선스가 없습니다. 관리자에게 문의하고 라이선스 할당을 검토하도록 요청하세요. |
+| UserNotMemberOfScopedAccessGroup = 13 | 죄송합니다. <br> 관리자가 암호 재설정을 사용하도록 계정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정에 대한 계정을 구성하도록 요청하세요. 암호 재설정에 대한 계정 구성에 대한 자세한 내용은 [사용자 암호 재설정 롤아웃](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices) 문서를 참조하세요. | SSPR_0012: 암호를 재설정할 수 있는 그룹의 구성원이 아닙니다. 관리자에게 문의하고 그룹에 추가되도록 요청하세요. |
+| UserNotProperlyConfigured = 14 | 죄송합니다. <br> 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 다시 얻은 후 [셀프 서비스 암호 재설정 등록](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) 문서의 단계를 따라 필요한 정보를 등록하는 방법을 알아볼 수 있습니다. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
+| OnPremisesAdminActionRequired = 29 | 죄송합니다. <br> 조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. 잠재적 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback) 문서를 참조하세요. | SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. |
+| OnPremisesConnectivityError = 30 | 죄송합니다. <br> 조직에 대한 연결 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 지금 바로 수행할 작업이 없지만 나중에 다시 시도하면 문제를 해결할 수 있습니다. 문제가 계속되면 관리자에게 문의하고 조사하도록 요청하세요. 연결 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 연결 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)을 참조하세요. | SSPR_0030: 온-프레미스 환경과의 불안정한 연결로 인해 암호를 재설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.|
 
 
 ## <a name="troubleshoot-password-reset-configuration-in-the-azure-portal"></a>Azure Portal에서 암호 재설정 구성 문제 해결
@@ -213,24 +213,24 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 AD 환�
 
 최신 버전의 Azure AD Connect 서버를 설치해도 문제가 해결되지 않으면 최신 릴리스를 설치한 후에 마지막 단계로서 비밀번호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
 
-## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Azure AD Connect에 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Azure AD Connect에 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인
 비밀번호 쓰기 저장을 수행하려면 Azure AD Connect에 AD **암호 재설정** 권한이 있어야 합니다. Azure AD Connect에 지정된 온-프레미스 AD 사용자 계정에 대한 권한이 있는지 확인하려면 Windows Effective Permission 기능을 사용합니다.
 
 1. Azure AD Connect 서버에 로그인하고 **Synchronization Service Manager**(시작 → 동기화 서비스)를 시작합니다.
 2. **커넥터** 탭 아래에서 온-프레미스 **AD 커넥터**를 선택하고 **속성**을 클릭합니다.  
 ![유효 권한 - 2단계](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
 3. 팝업 대화 상자에서 **Active Directory 포리스트에 연결** 탭을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이것은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다. Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다.  
-![유효 권한 - 3단계](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+![유효 권한 - 3단계](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
 4. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 응용 프로그램을 시작합니다.
 5. **보기**를 클릭하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
-![유효 권한 - 5단계](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+![유효 권한 - 5단계](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
 6. 확인할 AD 사용자 계정을 검색합니다. 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
-![유효 권한 - 6단계](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+![유효 권한 - 6단계](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 7. 팝업 대화 상자에서 **보안** 탭으로 이동하고 **고급**을 클릭합니다.  
-![유효 권한 - 7단계](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+![유효 권한 - 7단계](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
 8. [고급 보안 설정] 팝업 대화 상자에서 **유효한 액세스** 탭으로 이동합니다.
 9. **사용자 선택**을 클릭하고 Azure AD Connect에서 사용되는 AD DS 계정을 선택합니다(3단계 참조). 그다음에 **유효한 액세스 보기**를 클릭합니다.  
-![유효 권한 - 9단계](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+![유효 권한 - 9단계](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
 10. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목이 선택된 경우에는 AD DS 계정에 선택한 AD 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
 ![유효 권한 - 10단계](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -246,7 +246,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 
 * **오류의 일반적인 설명** - 어떤 오류입니까? 어떤 동작이 발견되었습니까? 오류를 재현하려면 어떻게 해야 합니까? 최대한 많은 세부 정보를 제공해주세요.
 * **페이지** – 어떤 페이지에서 오류가 나타났습니까? 가능하면 URL 및 스크린샷을 포함해주세요.
-* **지원 코드** – 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었습니까? 
+* **지원 코드** – 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었습니까?
     * 오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보내세요.
     ![화면 아래쪽에서 지원 코드 찾기][Support Code]
     * 아래에서 지원 코드 없이 페이지에서 F12 키를 누르고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
@@ -258,7 +258,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 * **라이선스** - 사용자에게 Azure AD Premium 또는 Azure AD Basic 라이선스가 할당되어 있습니까?
 * **응용 프로그램 이벤트 로그** – 비밀번호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 지원 팀에 문의할 때 Azure AD Connect 서버에서 응용 프로그램 이벤트 로그의 복사본을 압축하여 보내주세요.
 
-    
+
 
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Azure AD Sync 서비스 다시 시작"
 [Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "지원 코드는 창의 오른쪽 아래에 있습니다."
@@ -267,7 +267,7 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 
 다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
 
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작 
+* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작
 * [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
 * [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
 * [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포

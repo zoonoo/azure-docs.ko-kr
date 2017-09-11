@@ -12,21 +12,21 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/07/2017
+ms.topic: quickstart
+ms.date: 08/24/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 그래프 데이터베이스를 만듭니다. 또한 이 빠른 시작은 OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) 드라이버를 사용하는 그래프 데이터베이스를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 그래프 리소스를 만들고 수정하는 작업을 익히게 될 것입니다. 
+이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 그래프 데이터베이스를 만듭니다. 또한 이 빠른 시작은 OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) 드라이버를 사용하는 그래프 데이터베이스를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 통해 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 그래프 리소스를 만들고 수정하는 작업을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,6 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     그래프 ID|sample-graph|새 그래프에 대한 ID입니다. 그래프 이름은 데이터베이스 ID와 동일한 문자 요구 사항을 갖습니다.
     저장소 용량| 10 GB|기본값을 그대로 둡니다. 데이터베이스의 저장소 용량입니다.
     처리량|400RU|기본값을 그대로 둡니다. 대기 시간을 단축하려면 나중에 처리량을 증가시킬 수 있습니다.
-    RU/m|꺼짐|기본값을 그대로 둡니다.
     파티션 키|비워 둠|이 빠른 시작의 목적으로 파티션 키를 비워 둡니다.
 
 3. 양식을 작성한 후 **확인**을 클릭합니다.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e089a7d772b51194d8300beb99797bf40a8611b1
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 서비스 버스 사용
@@ -51,7 +51,7 @@ AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 �
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-여기서 `[namespace]` 및 `SharedAccessKey`는 Service Bus 네임스페이스를 만들 때 [Azure 포털][Azure portal]에서 가져옵니다. 자세한 내용은 [Azure 포털을 사용하여 Service Bus 네임스페이스 만들기][Create a Service Bus namespace using the Azure portal]를 참조하세요.
+여기서 `namespace` 및 `SAS key`는 Service Bus 네임스페이스를 만들 때 [Azure 포털][Azure portal]에서 가져옵니다. 자세한 내용은 [Azure 포털을 사용하여 Service Bus 네임스페이스 만들기][Create a Service Bus namespace using the Azure portal]를 참조하세요.
 
 AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 문자열을 추가합니다. 이 표기는 클라이언트 라이브러리가 AMQP 1.0을 사용하여 Service Bus에 연결하도록 지시합니다.
 
@@ -124,7 +124,7 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
 * [Service Bus AMQP 개요]
-* [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
+* [AMQP 1.0 프로토콜 가이드]
 * [Windows Server용 Service Bus의 AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -135,6 +135,6 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
-[Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 프로토콜 가이드]: service-bus-amqp-protocol-guide.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 

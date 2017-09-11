@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b415141f152e88e13678c464eddc4f73df2da54e
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 29dfa31d38f85574f84ed351bc5c26224b1a7e16
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털 | Microsoft Docs
@@ -50,6 +50,6 @@ Log Analytics를 통해 다양한 장소에서 로그 검색을 사용하여 작
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그 검색 포털](log-analytics-log-search-log-search-portal.md) 또는 [고급 분석 포털](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html)을 사용하여 쿼리 만들기에 관한 자습서를 살펴보세요.
-- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)를 확인해 보세요.
+- [로그 검색 포털](log-analytics-log-search-log-search-portal.md) 또는 [고급 분석 포털](https://go.microsoft.com/fwlink/?linkid=856587)을 사용하여 쿼리 만들기에 관한 자습서를 살펴보세요.
+- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://go.microsoft.com/fwlink/?linkid=856078)를 확인해 보세요.
 

@@ -2,7 +2,7 @@
 title: "Azure Billing 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Azure 결제를 이해할 뿐만 아니라 사용 및 비용을 관리하고 모니터링하는 방법에 대해 알아봅니다. 자습서, FAQ, API, 참조 및 기타 설명서입니다."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

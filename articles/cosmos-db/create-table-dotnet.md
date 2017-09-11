@@ -12,7 +12,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
@@ -21,34 +21,28 @@ ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/23/2017
 
-
 ---
-# Azure Cosmos DB: 테이블 API를 사용하여 .NET 응용 프로그램 빌드
-<a id="azure-cosmos-db-build-a-net-application-using-the-table-api" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: 테이블 API를 사용하여 .NET 응용 프로그램 빌드
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정 및 해당 계정 내에서 테이블을 만드는 방법을 보여 줍니다. 그런 다음 엔터티를 삽입, 업데이트 및 삭제하는 코드를 작성하고, NuGet의 새로운 [Microsoft Azure Storage Premium Table](https://aka.ms/premiumtablenuget)(미리 보기) 패키지를 사용하여 일부 쿼리를 실행합니다. 이 라이브러리는 공용 [Microsoft Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스 및 메서드 시그니처를 갖추고 있지만 [Table API](table-introduction.md)(미리 보기)를 사용하여 Azure Cosmos DB 계정에 연결할 수 있습니다. 
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## 데이터베이스 계정 만들기
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-## 테이블 추가
-<a id="add-a-table" class="xliff"></a>
+## <a name="add-a-table"></a>테이블 추가
 
 [!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
-## 샘플 데이터 추가
-<a id="add-sample-data" class="xliff"></a>
+## <a name="add-sample-data"></a>샘플 데이터 추가
 
 이제 데이터 탐색기(미리 보기)를 사용하여 새 테이블에 데이터를 추가할 수 있습니다.
 
@@ -61,8 +55,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
   
     이제 테이블에 더 많은 엔터티를 추가하고 엔터티를 편집하거나 데이터 탐색기에서 데이터를 쿼리할 수 있습니다. 데이터 탐색기에서는 처리량을 확장하고 테이블에 저장된 프로시저, 사용자 정의 함수 및 트리거를 추가할 수 있습니다.
 
-## 샘플 응용 프로그램 복제
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
 이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -76,8 +69,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 3. 그런 다음 Visual Studio에서 솔루션을 엽니다. 
 
-## 코드 검토
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>코드 검토
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. Program.cs 파일을 열어 보면 이러한 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
@@ -108,8 +100,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
                 };
     ```
 
-## 연결 문자열 업데이트
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
 이제 연결 문자열 정보를 업데이트하면 앱이 Azure Cosmos DB과 통신할 수 있습니다. 
 
@@ -128,8 +119,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
-## 웹앱 실행
-<a id="run-the-web-app" class="xliff"></a>
+## <a name="run-the-web-app"></a>웹앱 실행
 
 1. Visual Studio의 **솔루션 탐색기**에서 **PremiumTableGetStarted** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. 
 
@@ -151,21 +141,18 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
     ![데이터 탐색기의 새 엔터티](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
-## Azure Portal에서 SLA 검토
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## 리소스 정리
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>리소스 정리
 
 이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다. 
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 테이블을 만들고, 앱을 실행하는 방법을 알아보았습니다.  이제 테이블 API를 사용하여 데이터를 쿼리할 수 있습니다.  
 

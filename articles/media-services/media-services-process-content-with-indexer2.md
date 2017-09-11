@@ -4,7 +4,7 @@ description: "Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: adsolank;juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e7a756d6648f8ac3c76c6d206d783b23e96e2d36
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: dfcf3d972ef34a550e111bd30ede3b986daf2505
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱
@@ -97,7 +97,7 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
-2. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 인덱싱 작업이 포함된 작업을 만듭니다.
+2. 다음 json 사전 설정을 포함하는 구성 파일을 기반으로 인덱싱 태스크가 포함된 작업을 만듭니다.
    
         {
           "version":"1.0",

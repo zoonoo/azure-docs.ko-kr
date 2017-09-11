@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -93,7 +92,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 #### <a name="url-patterns-for-azure-portal"></a>Azure 포털의 URL 패턴
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.com` |장치 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
@@ -104,7 +103,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 #### <a name="url-patterns-for-azure-government-portal"></a>Azure Government 포털의 URL 패턴
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |StorSimple 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.us` |장치 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |

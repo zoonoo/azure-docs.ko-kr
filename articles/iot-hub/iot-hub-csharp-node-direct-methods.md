@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9bf02ff15d973ea2c9f00815558507c66c049159
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/14/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-direct-methods-netnode"></a>직접 메서드 사용(.NET/Node)
@@ -157,7 +156,7 @@ ms.lasthandoff: 03/14/2017
     ```
     node SimulatedDevice.js
     ```
-   열려는 시뮬레이션된 장치를 기다립니다.  ![][7]
+   열려는 시뮬레이션된 장치를 기다립니다. ![][7]
 3. 이제 장치가 연결되어 메서드 호출을 기다리고 있으므로 **CallMethodOnDevice** .NET 앱을 실행하여 시뮬레이션된 장치 응용 프로그램에서 메서드를 호출합니다. 콘솔에 작성된 장치 응답을 볼 수 있습니다.
    
     ![][8]

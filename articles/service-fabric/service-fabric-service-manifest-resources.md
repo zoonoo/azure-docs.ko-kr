@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
@@ -138,4 +138,64 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
   </Certificates>
 </ApplicationManifest>
 ```
+
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 끝점 재정의
+
+ApplicationManifest에서 ConfigOverrides 섹션의 형제로 지정될 ResourceOverrides 섹션을 추가합니다. 이 섹션에서는 ServiceManiifest에 지정된 resources 섹션의 Endpoints 섹션에 대한 재정의를 지정할 수 있습니다.
+
+ApplicationParameters를 사용하여 ServiceManifest에서 EndPoint를 재정의하려면 ApplicationManifest를 다음과 같이 변경합니다.
+
+ServiceManifestImport 섹션에서 새 섹션 "ResourceOverrides"를 추가합니다.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+Parameters에서 아래 내용을 추가합니다.
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+예를 들어 응용 프로그램을 배포하는 동안 다음 값을 ApplicationParameters로 제공할 수 있습니다.
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
+
+예:
+
+ServiceManifest에서 다음을 지정했습니다.
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+또한 Applications 매개 변수에 대한 Port1 및 Protocol1 값은 null이거나 비어 있습니다. 포트는 여전히 ServiceFabric에 의해 결정됩니다. 또한 Protocol은 tcp가 됩니다.
+
+잘못된 값을 지정한다고 가정해 보겠습니다. Port의 경우처럼 int 대신 문자열 값 "Foo"를 지정했습니다.  New-ServiceFabricApplication 명령은 다음 오류와 함께 실패합니다. 'ResourceOverrides' 섹션에서 이름이 'ServiceEndpoint1'이고 특성이 'Port1'인 재정의 매개 변수가 잘못되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.
 

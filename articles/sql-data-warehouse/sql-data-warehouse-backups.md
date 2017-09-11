@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL Data Warehouse 백업
@@ -35,15 +35,15 @@ SQL Data Warehouse는 데이터를 로컬 중복(LRS) Azure Premium Storage에 �
 
 다음에 대한 자세한 정보:
 
-* Azure Premium Storage에 대한 자세한 내용은 [Azure Premium Storage 소개](../storage/storage-premium-storage.md)를 참조하세요.
-* 로컬 중복 저장소에 대한 자세한 내용은 [Azure Storage 복제](../storage/storage-redundancy.md#locally-redundant-storage)를 참조하세요.
+* Azure Premium Storage에 대한 자세한 내용은 [Azure Premium Storage 소개](../storage/common/storage-premium-storage.md)를 참조하세요.
+* 로컬 중복 저장소에 대한 자세한 내용은 [Azure Storage 복제](../storage/common/storage-redundancy.md#locally-redundant-storage)를 참조하세요.
 
 ## <a name="azure-storage-blob-snapshots"></a>Azure Storage Blob 스냅숏
 Azure Premium Storage의 장점으로, SQL Data Warehouse는 Azure Storage Blob 스냅숏을 사용하여 데이터 웨어하우스를 로컬에 백업합니다. 데이터 웨어하우스를 스냅숏 복원 지점으로 복원할 수 있습니다. 스냅숏은 최소 8시간마다 시작되며 7일 동안 사용할 수 있습니다.  
 
 다음에 대한 자세한 정보:
 
-* Azure blob 스냅숏에 대한 자세한 내용은 [blob 스냅숏 만들기](../storage/storage-blob-snapshots.md)를 참조하세요.
+* Azure blob 스냅숏에 대한 자세한 내용은 [blob 스냅숏 만들기](../storage/blobs/storage-blob-snapshots.md)를 참조하세요.
 
 ## <a name="geo-redundant-backups"></a>지역 중복 저장소
 SQL Data Warehouse는 24시간마다 전체 데이터 웨어하우스를 표준 저장소에 저장합니다. 전체 데이터 웨어하우스는 마지막 스냅숏 시간과 일치하도록 생성됩니다. 표준 저장소는 읽기 액세스(RA-GRS) 권한이 있는 지역 중복 저장소 계정에 소속됩니다. Azure Storage RA-GRS 기능은 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)에 백업을 복제합니다. 이러한 지역에서 복제는 주 지역의 스냅숏에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있도록 해 줍니다. 
@@ -62,8 +62,8 @@ SQL Data Warehouse는 24시간마다 전체 데이터 웨어하우스를 표준 
 
 다음에 대한 자세한 정보:
 
-* 지역 중복 저장소는 [Azure Storage 복제](../storage/storage-redundancy.md)를 참조하세요.
-* RA-GRS 저장소는 [읽기 액세스 지역 중복 저장소](../storage/storage-redundancy.md#read-access-geo-redundant-storage)를 참조하세요.
+* 지역 중복 저장소는 [Azure Storage 복제](../storage/common/storage-redundancy.md)를 참조하세요.
+* RA-GRS 저장소는 [읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)를 참조하세요.
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>데이터 웨어하우스 백업 일정 및 보존 기간
 SQL Data Warehouse는 4~8시간마다 온라인 데이터 웨어하우스에 스냅숏을 만들고 각 스냅숏을 7일 동안 유지합니다. 온라인 데이터베이스를 지난 7일의 복원 지점 중 하나로 복원할 수 있습니다. 

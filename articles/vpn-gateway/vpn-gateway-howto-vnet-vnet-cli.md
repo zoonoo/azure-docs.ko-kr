@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
@@ -44,7 +44,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ![연결 정보](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>가상 네트워크에 연결하는 이유
+### <a name="why"></a>가상 네트워크에 연결하는 이유
 
 다음과 같은 이유로 가상 네트워크에 연결할 수 있습니다.
 
@@ -185,11 +185,11 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>4단계 - 연결 만들기
+### <a name="createconnect"></a>4단계 - 연결 만들기
 
 이제 VPN 게이트웨이가 있는 VNet이 두 개 있습니다. 다음 단계는 가상 네트워크 게이트웨이간에 VPN 게이트웨이 연결을 만드는 것입니다. 위의 예제를 사용했다면 VNet 게이트웨이는 다른 리소스 그룹에 있습니다. 게이트웨이가 다른 리소스 그룹에 있는 경우, 연결할 때 각 게이트웨이의 리소스 ID를 식별하고 지정해야 합니다. VNet이 동일한 리소스 그룹에 있는 경우 리소스 ID를 지정할 필요가 없으므로 [두 번째 지침](#samerg)을 사용할 수 있습니다.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>다른 리소스 그룹에 상주하는 VNet을 연결하려면
+### <a name="diffrg"></a>다른 리소스 그룹에 상주하는 VNet을 연결하려면
 
 1. 다음 명령의 출력에서 VNet1GW의 리소스 ID를 가져옵니다.
 
@@ -322,7 +322,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>8단계 - 연결 만들기
+### <a name="connections5"></a>8단계 - 연결 만들기
 
 게이트웨이가 다른 구독에 있으므로 이 단계를 **[구독 1]** 및 **[구독 5]**로 표시된 두 개의 CLI 세션으로 분할합니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
 
@@ -366,7 +366,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet 간 FAQ
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

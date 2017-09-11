@@ -5,7 +5,7 @@ metadata:
   title: Azure Container Instances 설명서 - 자습서 | Microsoft Docs
   description: Azure Container Instances는 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na
@@ -24,7 +24,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/container-instances/media/container-instances.png
+              src: /azure/container-instances/media/container-instances.svg
             text: 컨테이너 인스턴스 만들기
             href: /azure/container-instances/container-instances-quickstart
   - title: 단계별 자습서

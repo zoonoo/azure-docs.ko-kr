@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: df22c7315cc55df0e7963bc03a215ab09589b25b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업 실행
@@ -97,7 +97,7 @@ HDInsight 클러스터의 Hadoop에서 WebHCat REST API를 사용하여 MapReduc
 
 4. 작업 상태가 `SUCCEEDED`로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달되는 `statusdir` 매개 변수에는 출력 파일의 위치가 포함됩니다. 이 예제에서 위치는 `/example/curl`입니다. 이 주소는 작업의 출력을 클러스터 기본 저장소인 `/example/curl`에 저장합니다.
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](../storage/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure CLI에서 Blob을 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](../storage/common/storage-azure-cli.md#create-and-manage-blobs) 문서를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 

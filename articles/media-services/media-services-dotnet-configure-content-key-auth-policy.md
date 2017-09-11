@@ -4,7 +4,7 @@ description: "미디어 서비스 .NET SDK를 사용하여 콘텐츠 키에 대�
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services

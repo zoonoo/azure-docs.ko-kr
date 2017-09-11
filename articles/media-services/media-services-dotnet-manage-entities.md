@@ -2,7 +2,7 @@
 title: "미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리"
 description: "Media Services SDK for .NET을 사용하여 자산 및 관련 엔터티를 관리하는 방법을 알아봅니다."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리
@@ -38,8 +38,7 @@ ms.lasthandoff: 07/21/2017
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
 ## <a name="get-an-asset-reference"></a>자산 참조 가져오기
-자주 수행하는 작업은 미디어 서비스에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기준으로 서버 컨텍스트 개체에 대한 Assets 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다.
-다음 코드 예제에서는 Linq 쿼리를 사용하여 기존 IAsset 개체에 대한 참조를 가져옵니다.
+자주 수행하는 작업은 미디어 서비스에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기준으로 서버 컨텍스트 개체에 대한 Assets 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다. 다음 코드 예제에서는 Linq 쿼리를 사용하여 기존 IAsset 개체에 대한 참조를 가져옵니다.
 
     static IAsset GetAsset(string assetId)
     {

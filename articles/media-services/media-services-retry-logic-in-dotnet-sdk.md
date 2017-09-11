@@ -2,7 +2,7 @@
 title: ".NET용 Media Services SDK의 재시도 논리 | Microsoft Docs"
 description: "이 항목에서는 NET용 Media Services SDK의 재시도 논리에 대한 개요를 제공합니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

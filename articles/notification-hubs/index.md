@@ -2,7 +2,7 @@
 title: "Azure Notification Hubs 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Notification Hubs를 통해 백 엔드에서 모바일 장치에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

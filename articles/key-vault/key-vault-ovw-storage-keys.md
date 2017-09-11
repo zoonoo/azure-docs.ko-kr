@@ -10,10 +10,10 @@ ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/25/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c7b20c83b356dd698e66919483c9ff6f0e8a36ef
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
@@ -28,13 +28,14 @@ Azure Storage 계정에 대한 일반적인 내용은 [Azure storage 계정 정�
 
 Azure Storage 계정 키 기능은 처음에 REST, .NET/C# 및 PowerShell 인터페이스를 통해 제공됩니다. 자세한 내용은 [Key Vault 참조](https://docs.microsoft.com/azure/key-vault/)를 참조하세요.
 
+
 ## <a name="storage-account-keys-behavior"></a>저장소 계정 키 동작
 
 ### <a name="what-key-vault-manages"></a>Key Vault에서 관리하는 사항
 
-저장소 계정 키를 사용할 경우 Key Vault에서 사용자 대신 여러 가지 내부 관리 기능을 수행합니다.
+Storage 계정 키를 사용할 경우 Key Vault에서 사용자 대신 여러 가지 내부 관리 기능을 수행합니다.
 
-1. Azure Key Vault는 SAS(Azure Storage 계정)의 키를 관리합니다. 
+1. Azure Key Vault는 ASA(Azure Storage Account)의 키를 관리합니다. 
     - 내부적으로 Azure Key Vault는 키와 Azure Storage 계정을 나열(동기화)할 수 있습니다.  
     - Azure Key Vault는 정기적으로 키를 다시 생성(회전)합니다. 
     - 키 값은 호출자에게 응답으로 반환되지 않습니다. 
@@ -65,6 +66,9 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### <a name="after-azure-key-vault-storage-keys"></a>Azure Key Vault Storage 키 이후 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
@@ -106,7 +110,7 @@ Key Vault에 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 �
 
     `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
-- Azure Key Vault ID에 저장소 키 운영자 역할을 할당합니다. 
+- Azure Key Vault ID에 Storage 키 운영자 역할을 할당합니다. 
 
     `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
@@ -117,7 +121,7 @@ Key Vault에 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 �
 
 예제: Key Vault 개체 소유자인 사용자는 Azure Key Vault에 저장소 계정 개체를 추가하여 저장소 계정을 등록합니다.
 
-등록하는 동안 Key Vault는 계정을 등록하는 ID에 저장소 키를 *나열* 및 *다시 생성*할 수 있는 사용 권한이 있는지 확인해야 합니다. 이러한 사용 권한을 확인하기 위해 Key Vault는 인증 서비스에서 OBO(On Behalf Of) 토큰을 가져오고, 대상을 Azure Resource Manager로 설정하고, Azure Storage 서비스에 대한 *나열* 키 호출을 만듭니다. *list* 호출이 실패할 경우 Key Vault 개체 생성은 *사용할 수 없음*이라는 HTTP 상태 코드로 실패합니다. 이러한 방식으로 나열된 키는 Key Vault 엔터티 저장소로 캐시됩니다. 
+등록하는 동안 Key Vault는 계정을 등록하는 ID에 저장소 키를 *나열* 및 *다시 생성*할 수 있는 사용 권한이 있는지 확인해야 합니다. 이러한 사용 권한을 확인하기 위해 Key Vault는 인증 서비스에서 OBO(On Behalf Of) 토큰을 가져오고, 대상을 Azure 리소스 관리자로 설정하고, Azure Storage 서비스에 대한 *나열* 키 호출을 만듭니다. *list* 호출이 실패할 경우 Key Vault 개체 생성은 *사용할 수 없음*이라는 HTTP 상태 코드로 실패합니다. 이러한 방식으로 나열된 키는 Key Vault 엔터티 저장소로 캐시됩니다. 
 
 Key Vault에서 ID에 *다시 생성* 권한이 있는지 확인해야 키 다시 생성에 대한 소유권을 가질 수 있습니다. OBO 토큰을 통한 ID 및 Key Vault의 첫 번째 파티 ID에 이러한 사용 권한이 있는지 확인하기 위해
 

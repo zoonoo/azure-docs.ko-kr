@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: c2d1eed17415c85b03326c9f0077d9fc5fd0104d
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: ada1c3d1482c68834dbbf5eabbd045a7e0c01f9f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 대화형 쿼리 실행
@@ -80,20 +80,21 @@ ms.lasthandoff: 07/22/2017
 
 6. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다. 이 자습서에서는 원시 CSV 데이터의 열과 비교하여 모든 열을 임시 테이블에 만들지 않습니다. 
 
-        # Load the data
+        # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-        # Create the schema
-        hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+        # Create a schema for our data
+        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
 
-        # Parse the data in hvacText
-        hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-        # Create a data frame
-        hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-        # Register the data frame as a table to run queries against
-        hvacdf.registerTempTable("hvac")
+        # Parse the data and create a schema
+        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+        
+        # Infer the schema and create a table       
+        hvacTable = sqlContext.createDataFrame(hvac)
+        hvacTable.registerTempTable('hvactemptable')
+        dfw = DataFrameWriter(hvacTable)
+        dfw.saveAsTable('hvac')
 
 7. 테이블을 만들었으면 다음 코드를 사용하여 데이터에 대한 대화형 쿼리를 실행합니다.
 
@@ -114,7 +115,10 @@ ms.lasthandoff: 07/22/2017
 
 ## <a name="next-step"></a>다음 단계
 
-이 문서에서는 Jupyter 노트북을 사용하여 Spark에서 대화형 쿼리를 실행하는 방법을 알아보았습니다. 이제 Spark에 등록된 데이터를 Power BI 및 Tableau와 같은 BI 분석 도구로 끌어올 수 있습니다. [Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Spark BI](hdinsight-apache-spark-use-bi-tools.md)를 참조하세요.
+이 문서에서는 Jupyter 노트북을 사용하여 Spark에서 대화형 쿼리를 실행하는 방법을 알아보았습니다. 다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI 및 Tableau와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
+
+> [!div class="nextstepaction"]
+>[Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Spark BI](hdinsight-apache-spark-use-bi-tools.md)
 
 
 

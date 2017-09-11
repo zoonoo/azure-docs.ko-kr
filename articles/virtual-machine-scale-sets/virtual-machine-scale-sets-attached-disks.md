@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM Scale Sets 및 연결된 데이터 디스크
@@ -38,7 +38,7 @@ _vmss create_ 명령을 지정하지 않으면 특정 구성 값을 기본값으
 ```bash
 az vmss create --help
 ```
-연결된 데이터 디스크를 포함한 크기 집합을 만드는 또 다른 방법은 Azure Resource Manager 템플릿에서 크기 집합을 정의하고 _storageProfile_에서 _dataDisks_ 섹션을 포함하며 템플릿을 배포하는 것입니다. 위에 있는 50GB 및 100GB 디스크 예제는 템플릿에서 다음과 같이 정의됩니다.
+연결된 데이터 디스크를 포함한 크기 집합을 만드는 또 다른 방법은 Azure 리소스 관리자 템플릿에서 크기 집합을 정의하고 _storageProfile_에서 _dataDisks_ 섹션을 포함하며 템플릿을 배포하는 것입니다. 위에 있는 50GB 및 100GB 디스크 예제는 템플릿에서 다음과 같이 정의됩니다.
 ```json
 "dataDisks": [
     {
@@ -99,10 +99,21 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
     }          
 ]
 ```
+
 _배치_를 선택하여 크기 집합에 변경 내용을 적용합니다. 두 개 이상의 연결된 데이터 디스크를 지원하는 VM 크기를 사용하는 경우 이 예제가 정상적으로 작동합니다.
 
 > [!NOTE]
 > 데이터 디스크를 추가하거나 제거하는 등 크기 집합 정의를 변경하는 경우 새로 만든 VM에 적용되지만 _upgradePolicy_ 속성이 "자동"으로 설정된 경우 기존 VM에만 적용됩니다. "수동"으로 설정하면 수동으로 기존 VM에 새 모델을 적용해야 합니다. 포털에서 _Update-AzureRmVmssInstance_ PowerShell 명령 또는 _az vmss update-instances_ CLI 명령을 사용하여 수행할 수 있습니다.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>기존 확장 집합에 미리 지정된 데이터 디스크 추가 
+> 확장 집합에 디스크를 추가하는 경우 설계 상 디스크는 항상 비어 있게 만들어집니다. 이 시나리오는 확장 집합에서 만든 새 인스턴스도 포함합니다. 확장 집합 정의에 빈 데이터 디스크가 있기 때문에 이 동작이 발생합니다. 기존 확장 집합 모델에 미리 지정된 데이터 드라이브를 만들기 위해 다음 두 가지 옵션 중 하나를 선택할 수 있습니다.
+
+* 사용자 지정 스크립트를 실행하여 인스턴스 0 VM에서 다른 VM의 데이터 디스크에 데이터를 복사합니다.
+* OS 디스크 및 데이터 디스크(필요한 데이터 포함)에서 관리되는 이미지를 만들고 이미지를 포함한 새 확장 집합을 만듭니다. 이러한 방식으로 만든 모든 새 VM에는 확장 집합의 정의에 제공되는 데이터 디스크가 있습니다. 이 정의가 사용자 지정된 데이터를 포함한 데이터 디스크를 사용하여 이미지를 참조하기 때문에 확장 집합의 모든 가상 컴퓨터는 이러한 변경 내용을 자동으로 적용합니다.
+
+> 사용자 지정 이미지를 만들 수 있는 방법은 [Azure에서 일반화된 VM의 관리되는 이미지 만들기](/azure/virtual-machines/windows/capture-image-resource/)에서 확인할 수 있습니다 
+
+> 사용자는 필수 데이터를 포함한 인스턴스 0 VM을 캡처해야 하고 이미지 정의에 VHD를 사용해야 합니다.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>크기 집합에서 데이터 디스크 제거
 Azure CLI _az vmss disk detach_ 명령을 사용하여 VM 크기 집합에서 데이터 디스크를 제거할 수 있습니다. 예를 들어, 다음 명령은 lun 2에 정의된 디스크를 제거합니다.

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 071c9c55d412514172106109eacc048722ab173e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -165,7 +165,7 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 `nslookup`을 실행하여 DNS 확인 유효성 검사
 
-사용자 지정 도메인을 Blob Storage 끝점에 매핑하는 방법에 대해 자세히 알아보려면 [Blob Storage 끝점에 대한 사용자 지정 도메인 이름 구성](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json)을 참조하세요.
+사용자 지정 도메인을 Blob Storage 끝점에 매핑하는 방법에 대해 자세히 알아보려면 [Blob Storage 끝점에 대한 사용자 지정 도메인 이름 구성](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)을 참조하세요.
 
 ## <a name="azure-cdn"></a>Azure CDN
 

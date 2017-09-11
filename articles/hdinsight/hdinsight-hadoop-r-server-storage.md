@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>HDInsight의 R Server에 대한 Azure Storage 솔루션
@@ -37,9 +37,9 @@ HDInsight에서 Hadoop 클러스터를 만들 때 **Azure Storage** 계정 또�
 - [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight 클러스터에 Data Lake Store 사용](hdinsight-hadoop-use-data-lake-store.md) 
 
-Azure Storage 솔루션에 대한 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요. 
+Azure Storage 솔루션에 대한 자세한 내용은 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요. 
 
-시나리오에 사용할 가장 적합한 저장소 옵션을 선택하는 방법에 대한 지침은 [Azure Blob, Azure File 또는 Azure Data Disk 사용 시기 결정](../storage/storage-decide-blobs-files-disks.md)을 참조하세요. 
+시나리오에 사용할 가장 적합한 저장소 옵션을 선택하는 방법에 대한 지침은 [Azure Blob, Azure File 또는 Azure Data Disk 사용 시기 결정](../storage/common/storage-decide-blobs-files-disks.md)을 참조하세요. 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>R Server에 Azure Blob Storage 계정 사용
@@ -188,8 +188,8 @@ Data Lake 저장소에 액세스 권한을 부여하면 보조 Azure 저장소 �
 
 Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등 지원되는 OS가 있는 모든 시스템에서 사용할 수 있다는 점입니다. 예를 들어, 사용자 또는 팀의 다른 사용자가 보유한 HDInsight 클러스터, Azure VM 또는 온-프레미스 시스템에서도 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [Linux에서 Azure File Storage 사용 방법](../storage/storage-how-to-use-files-linux.md)
-- [Windows에서 Azure File Storage 사용 방법](../storage/storage-dotnet-how-to-use-files.md)
+- [Linux에서 Azure File Storage 사용 방법](../storage/files/storage-how-to-use-files-linux.md)
+- [Windows에서 Azure File Storage 사용 방법](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>다음 단계

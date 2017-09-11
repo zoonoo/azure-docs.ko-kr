@@ -3,8 +3,8 @@ title: "연속 배달을 통해 원격 디버깅 사용 | Microsoft Docs"
 description: "연속 배달을 사용하여 Azure에 배포할 경우 원격 디버깅을 사용하도록 설정하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: .net
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7a9ef4098fec7b464e654a429c8c854ed4bb73fd
-ms.lasthandoff: 04/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a10b142283cf19295330238ac7289329b2d1f70e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용

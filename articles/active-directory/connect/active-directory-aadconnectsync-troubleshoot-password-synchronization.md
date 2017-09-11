@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결
@@ -269,6 +269,10 @@ Azure AD와 연결되어 있나요?
 | SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
 | TargetNotExportedToDirectory |Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
 | MigratedCheckDetailsForMoreInfo |로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
+| 오류 |서비스에 알 수 없는 오류가 반환되었습니다. |
+| 알 수 없음 |암호 해시의 배치를 처리하는 동안 오류가 발생했습니다.  |
+| MissingAttribute |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 사용할 수 없습니다. |
+| RetryRequestedByTarget |Azure AD Domain Services에 필요한 특정 특성(예: Kerberos 해시)을 이전에 사용할 수 없었습니다. 사용자의 암호 해시를 다시 동기화하려고 합니다. |
 
 ## <a name="scripts-to-help-troubleshooting"></a>문제 해결에 도움이 되는 스크립트
 

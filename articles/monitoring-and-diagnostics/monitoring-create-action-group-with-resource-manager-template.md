@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 작업 그룹 만들기 | Microsoft Docs"
-description: "작업 그룹을 사용하여 특정 이벤트가 발생할 때 전자 메일, SMS 또는 웹후크 호출로 알릴 수 있습니다."
+title: "리소스 관리자 템플릿을 사용하여 작업 그룹 만들기 | Microsoft Docs"
+description: "Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 만드는 방법을 알아봅니다."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -15,26 +15,27 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
-# <a name="create-an-action-group-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 작업 그룹 만들기
-이 문서에서는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하여 작업 그룹이 만들어질 때 리소스에서 작업 그룹이 자동으로 설정되도록 함으로써 알림이 트리거될 때 올바른 모든 당사자에게 알림이 제공되도록 할 수 있습니다.
+# <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
+이 문서에서는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하면 특정 유형의 경고에서 다시 사용할 수 있는 작업 그룹을 자동으로 설정할 수 있습니다. 이러한 작업 그룹은 경고가 트리거될 때 올바른 당사자가 모두 알림을 받을 수 있도록 합니다.
 
-기본적인 단계는 다음과 같습니다.
+기본 단계는 다음과 같습니다.
 
-1.  작업 그룹을 만드는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
-2.  [배포 방법을 사용하여 템플릿을 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)합니다.
+1. 작업 그룹을 만드는 방법을 설명하는 JSON 파일로 템플릿을 만듭니다.
 
-아래에서는 작업 정의가 템플릿에 하드 코딩되는 작업 그룹에 대해 우선 Resource Manager 템플릿을 만든 다음, 템플릿을 배포할 때 웹후크 구성 정보를 입력 매개 변수로 사용하는 템플릿에 대해 Resource Manager 템플릿을 만드는 방법을 설명합니다.
+2. [배포 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)을 사용하여 템플릿을 배포합니다.
 
-## <a name="resource-manager-template-for-an-action-group"></a>작업 그룹에 대한 Resource Manager 템플릿
+첫째, 작업 정의가 템플릿에 하드 코드된 작업 그룹에 대한 리소스 관리자 템플릿을 만드는 방법을 설명합니다. 둘째, 템플릿을 배포할 때 입력된 매개 변수로 웹후크 구성 정보를 사용하는 템플릿을 만드는 방법을 설명합니다.
 
-Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Microsoft.Insights/actionGroups` 형식의 리소스를 만들어 관련 속성을 기입합니다. 다음은 작업 그룹을 만드는 몇 가지 예제 템플릿입니다.
+## <a name="resource-manager-templates-for-an-action-group"></a>작업 그룹에 대한 리소스 관리자 템플릿
+
+리소스 관리자 템플릿을 사용하여 작업 그룹을 만들려면 `Microsoft.Insights/actionGroups` 종류의 리소스를 만듭니다. 그런 다음 모든 관련된 속성을 입력합니다. 다음은 작업 그룹을 만드는 두 가지 예제 템플릿입니다.
 
 ```json
 {
@@ -170,7 +171,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
 
 
 ## <a name="next-steps"></a>다음 단계
-[작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보기  
-[경고](monitoring-overview-alerts.md)에 대해 자세히 알아보기  
-[Resource Manager 템플릿을 사용하여 경고](monitoring-create-activity-log-alerts-with-resource-manager-template.md)를 추가하는 방법
+* [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보세요.
+* [경고](monitoring-overview-alerts.md)에 대해 자세히 알아보세요.
+* [리소스 관리자 템플릿을 사용하여 경고](monitoring-create-activity-log-alerts-with-resource-manager-template.md)를 추가하는 방법을 알아보세요.
 

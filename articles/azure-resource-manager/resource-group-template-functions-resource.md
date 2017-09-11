@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
@@ -76,7 +76,9 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 
 ### <a name="remarks"></a>설명
 
-**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
+**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. 그러나 요청 본문에 있는 값을 필요로 하는 **나열** 작업을 사용할 수 없습니다. 예를 들어 [나열 계정 SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 작업은 *signedExpiry* 등의 요청 본문 매개 변수가 필요하므로 템플릿 내에서 사용할 수 없습니다.
+
+list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
 
 * 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 보고 list 작업을 찾습니다. 예를 들어 저장소 계정에는 [listKeys 작업](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys)이 있습니다.
 * [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet을 사용합니다. 다음 예제에서는 저장소 계정에 대한 모든 list 작업을 가져옵니다.
@@ -280,7 +282,7 @@ reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션�
 }
 ```
 
-다음 예제는 이 템플릿에 배포되지 않지만 동일한 리소스 그룹 내에 존재하는 저장소 계정을 참조합니다.
+다음 예제는 이 템플릿에 배포되지 않는 저장소 계정을 참조합니다. 저장소 계정은 동일한 리소스 그룹 내에 있어야 합니다.
 
 ```json
 {
@@ -425,7 +427,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-대체 리소스 그룹의 저장소 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 저장소 계정 또는 가상 네트워크를 여러 리소스 그룹에서 사용할 수 있으므로, 단일 리소스 그룹을 삭제할 때 해당 저장소 계정 또는 가상 네트워크를 삭제하지 않습니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
+대체 리소스 그룹의 저장소 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
 
 ```json
 {

@@ -2,7 +2,7 @@
 title: "Azure Load Balancer 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "앱의 네트워크 성능에 부하 분산 장치를 사용하는 방법에 대해 알아봅니다. 크로스-프레미스 가상 네트워크에서 가상 컴퓨터 및 클라우드 리소스의 트래픽을 관리합니다."
 services: load-balancer
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 96da506c8545a1b863e62133706a2687c2498bbd
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
 
 ---

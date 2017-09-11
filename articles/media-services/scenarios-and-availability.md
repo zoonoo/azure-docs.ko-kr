@@ -4,7 +4,7 @@ description: "이 항목은 Microsoft Azure Media Services 시나리오 및 데�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

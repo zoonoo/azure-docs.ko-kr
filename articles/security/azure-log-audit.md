@@ -381,7 +381,7 @@ Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리�
 |저장소|||              스크립트|    [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |가상 컴퓨터|    Microsoft.Compute/<br>virtualMachines|    내선 번호|    내선 번호||
 ||||진단||
-|가상 컴퓨터 크기 집합|    Microsoft.Compute/<br>virtualMachines      ||진단||
+|가상 컴퓨터 확장 집합|    Microsoft.Compute/<br>virtualMachines      ||진단||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |웹 서버 팜|Microsoft.Web/<br>serverfarms||     진단
 |웹 사이트|    Microsoft.Web/<br>sites ||         진단|    [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|

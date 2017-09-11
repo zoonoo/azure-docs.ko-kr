@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 추가 단원: 불규칙한 계층 구
 description: "Azure Analysis Services 자습서에서 불규칙한 계층 구조를 수정하는 방법을 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

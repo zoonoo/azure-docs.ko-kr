@@ -2,7 +2,7 @@
 title: "Azure Data Factory 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "분석을 위해 데이터를 이동하고 처리하기 위해 Data Factory를 사용하여 온-프레미스 및 클라우드 원본 간에 자동화된 데이터 파이프라인을 설정하는 방법에 대해 알아봅니다."
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

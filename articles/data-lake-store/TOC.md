@@ -39,12 +39,14 @@
 ### [HDInsight의 Storm 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
 
 ## Azure 서비스와의 통합
+### HDInsight 사용
+#### [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [PowerShell 사용(기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [PowerShell 사용(추가 저장소)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Azure 템플릿 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Data Lake Store와 함께 HDInsight 사용 - 포털](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Data Lake Store와 함께 HDInsight를 기본 저장소로 사용 - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [Data Lake Store와 함께 HDInsight를 추가 저장소로 사용 - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Data Lake Store와 함께 HDInsight 사용 - Azure 템플릿](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Azure Event Hubs와 함께 사용](data-lake-store-archive-eventhub-capture.md)
 ### [데이터 팩터리와 함께 사용](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
@@ -55,7 +57,7 @@
 
 ## 관리
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
-### [고가용성을 위한 설계](data-lake-store-troubleshooting-guidance.md)
+### [고가용성을 위한 설계](data-lake-store-disaster-recovery-guidance.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

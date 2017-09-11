@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Azure Logic Apps 예제 및 일반적인 시나리오
@@ -31,7 +31,7 @@ Azure Logic Apps는 다양한 서비스에 대한 복원력 있는 오케스트�
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>트리거에 응답 및 작업 확장
 
-모든 논리 앱은 트리거로 시작됩니다. 예를 들어 워크플로는 일정 이벤트, 수동 호출 또는 "파일이 FTP 서버에 추가된 경우" 트리거와 같은 외부 시스템의 이벤트로 시작할 수 있습니다. 현재 Azure Logic Apps는 온-프레미스 SAP에서 Azure Cognitive Services에 이르기까지 100개 이상의 즉시 사용 가능한 커넥터를 지원합니다. 게시된 커넥터를 포함하지 않을 수 있는 시스템 및 서비스에 대해 논리 앱을 확장할 수도 있습니다.
+모든 논리 앱은 트리거로 시작됩니다. 예를 들어 워크플로는 일정 이벤트, 수동 호출 또는 "파일이 FTP 서버에 추가된 경우" 트리거와 같은 외부 시스템의 이벤트로 시작할 수 있습니다. 현재 Azure Logic Apps는 온-프레미스 SAP에서 Microsoft Cognitive Services에 이르는 100개 이상의 즉시 사용 가능한 커넥터를 지원합니다. 게시된 커넥터를 포함하지 않을 수 있는 시스템 및 서비스에 대해 논리 앱을 확장할 수도 있습니다.
 
 * [사용자 지정 트리거 또는 작업 만들기](../logic-apps/logic-apps-create-api-app.md)
 * [워크플로 실행에 대해 장기 실행 작업 설정](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 �
 * [논리 앱에서 Azure Functions 호출](../logic-apps/logic-apps-azure-functions.md)
 * [시나리오: Azure Functions로 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [블로그: 논리 앱에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## <a name="end-to-end-scenarios"></a>종단 간 시나리오
+
+* [백서: Logic Apps와 같은 Azure 서비스를 사용한 엔터프라이즈 통합 종단 간 사례 관리](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="next-steps"></a>다음 단계
 

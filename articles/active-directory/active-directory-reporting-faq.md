@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9a9ca74b959d1940bf30a903a8eab65cad87b74a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
@@ -88,20 +88,26 @@ ms.lasthandoff: 07/21/2017
 ---
 
 **Q: ID 보호에 위험 이벤트가 있지만 모든 로그인에서 해당 로그인이 표시되는 것은 아닙니다. 이것은 예상된 동작인가요?**
-**A:**: 예. ID 보호는 대화형인지 여부에 관계없이 모든 인증 흐름의 위험을 평가합니다. 그러나 모든 로그인은 대화형 로그인만 표시합니다.
+
+**A:** 예. ID 보호는 대화형인지 여부에 관계없이 모든 인증 흐름의 위험을 평가합니다. 그러나 모든 로그인은 대화형 로그인만 표시합니다.
 
 ---
 
 **Q: Azure Portal에서 "위험 플래그가 지정된 사용자" 보고서를 다운로드하려면 어떻게 해야 하나요?**
 
-**A:**: "위험 플래그가 지정된 사용자" 보고서를 다운로드하는 옵션이 곧 추가될 예정입니다.
+**A:** *위험 플래그가 지정된 사용자* 보고서를 다운로드하는 옵션이 곧 추가될 예정입니다.
 
 ---
 
 **Q: Azure Portal에서 로그인 또는 사용자에게 위험 플래그가 지정된 이유를 어떻게 알 수 있나요?**
 
-**A:**: Premium Edition 고객은 "위험 플래그가 지정된 사용자"에서 사용자를 클릭하거나 "위험한 로그인"을 클릭하여 기본 위험 이벤트에 대해 자세히 알아볼 수 있습니다. Free 및 Basic Edition 고객은 기본 위험 이벤트 정보 없이도 위험에 처한 사용자 및 로그인을 볼 수 있습니다.
+**A:** Premium Edition 고객은 "위험 플래그가 지정된 사용자"에서 사용자를 클릭하거나 "위험한 로그인"을 클릭하여 기본 위험 이벤트에 대해 자세히 알아볼 수 있습니다. Free 및 Basic Edition 고객은 기본 위험 이벤트 정보 없이도 위험에 처한 사용자 및 로그인을 볼 수 있습니다.
 
 ---
 
+**Q: IP 주소는 로그인 및 위험한 로그인 보고서에서 어떻게 계산됩니까?**
+
+**A:** IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. 모바일 공급자 및 클라이언트 장치가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 IP 주소를 발급하는 VPN과 같은 요인에 의해 복잡합니다. 위의 설명을 고려하면 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보에 기반한 최상의 노력입니다. 
+
+---
 

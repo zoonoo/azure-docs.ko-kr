@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/26/2017
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -387,7 +386,8 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>다음 단계 
+
+## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [활성 지역 복제 및 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)을 참조하세요.
 

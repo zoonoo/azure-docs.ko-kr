@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 52c095c9d3c92e32961927ac34770bb34fc768d5
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 성능 팁
@@ -49,7 +48,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
      Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
-     게이트웨이 모드에서 TCP를 사용할 때 TCP 포트 443은 Cosmos DB 포트이고 10250은 MongoDB API 포트입니다. 직접 모드에서 TCP를 사용할 때는 Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다.
+     게이트웨이 모드에서 TCP를 사용할 때 TCP 포트 443은 Cosmos DB 포트이고 10255는 MongoDB API 포트입니다. 직접 모드에서 TCP를 사용할 때는 Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다.
 
      연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 직접 모드를 사용하는 경우 ConnectionPolicy 매개 변수 내에서 프로토콜을 설정할 수도 있습니다.
 
@@ -98,15 +97,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     게이트웨이 모드를 사용하는 경우 Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections를 더 높은 값(100-1000)으로 설정해야 할 수도 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
-     DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-documentdb-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
+     DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
 
-    (a) ***MaxDegreeOfParallelism 튜닝\:***
-    여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 수집의 데이터는 쿼리와 관련하여 순차적으로 가져옵니다. 따라서 MaxDegreeOfParallelism을 파티션 수로 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 MaxDegreeOfParallelism을 높게 설정할 수 있습니다. 그러면 시스템은 MaxDegreeOfParallelism의 최소값(사용자가 제공한 입력인 파티션 수)을 선택합니다.
+    (a) ***MaxDegreeOfParallelism 튜닝\:*** 여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 수집의 데이터는 쿼리와 관련하여 순차적으로 가져옵니다. 따라서 MaxDegreeOfParallelism을 파티션 수로 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 MaxDegreeOfParallelism을 높게 설정할 수 있습니다. 그러면 시스템은 MaxDegreeOfParallelism의 최소값(사용자가 제공한 입력인 파티션 수)을 선택합니다.
 
     데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
-    (b) ***MaxBufferedItemCount 튜닝\:***
-    결과의 현재 배치가 클라이언트에서 처리되는 반면 병렬 쿼리는 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount는 프리페치된 결과의 수를 제한하는 매개 변수입니다. MaxBufferedItemCount를 반환된 결과의 예상 수(또는 더 높은 숫자)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
+    (b) ***MaxBufferedItemCount 튜닝\:*** 결과의 현재 배치가 클라이언트에서 처리되는 반면 병렬 쿼리는 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount는 프리페치된 결과의 수를 제한하는 매개 변수입니다. MaxBufferedItemCount를 반환된 결과의 예상 수(또는 더 높은 숫자)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
 
     프리페치는 MaxDegreeOfParallelism에 관계없이 동일한 방식으로 작동하고 여기에는 모든 파티션의 데이터에 대한 단일 버퍼가 있습니다.  
 5. **서버 쪽 GC 켜기**

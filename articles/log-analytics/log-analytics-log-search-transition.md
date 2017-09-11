@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 281b6afc6aeaf65e87e1bd2820c35a14f7714aa1
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 10b7f3ad23d9c5451bc7ff82b8927c260230f6da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -37,15 +37,16 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="cheat-sheet"></a>참고 자료
 
-다음 테이블에서는 Azure Log Analytics의 신규 및 레거시 쿼리 언어 간 동등한 명령에 관해 다양한 일반 쿼리 간 비교를 제공합니다. 
+다음 테이블에서는 Azure Log Analytics의 신규 및 레거시 쿼리 언어 간 동등한 명령에 관해 다양한 일반 쿼리 간 비교를 제공합니다.
 
 | 설명 | 레거시 | 신규 |
 |:--|:--|:--|
+| 모든 테이블 검색      | error | “오류” 검색(대소문자 구분 안 함) |
 | 테이블에서 데이터 선택 | Type=Event |  이벤트 |
 |                        | Type=Event &#124; select Source, EventLog, EventID | Event &#124; project Source, EventLog, EventID |
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | 문자열 비교      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
-|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" |
+|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (not case sensitive)<br>Event &#124; where Computer contains_cs "Contoso" (case sensitive) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | 날짜 비교        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
@@ -62,6 +63,6 @@ ms.lasthandoff: 07/28/2017
 
 
 ## <a name="next-steps"></a>다음 단계
-- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)를 확인해 보세요.
-- [쿼리 언어 참조](https://docs.loganalytics.io/queryLanguage/query_language.html)에서 새 쿼리 언어에 대한 모든 명령, 연산자 및 함수를 자세히 알아보세요.  
+- 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](https://go.microsoft.com/fwlink/?linkid=856078)를 확인해 보세요.
+- [쿼리 언어 참조](https://go.microsoft.com/fwlink/?linkid=856079)에서 새 쿼리 언어에 대한 모든 명령, 연산자 및 함수를 자세히 알아보세요.  
 

@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8f34fd29fe6c93eb4cd1a05c79bf9b47072451f2
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -234,14 +234,14 @@ ms.lasthandoff: 08/04/2017
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -349,7 +349,7 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 요약: 이 가이드에서는 Azure 환경에서 SAP HANA의 모니터링 설정 시 유용한 정보와 추가적인 문제 해결 정보를 제공합니다. 
 
-업데이트한 날짜: 2016년 12월
+업데이트 날짜: 2017년 8월
 
 [이 문서는 여기에서 찾을 수 있습니다.](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -477,12 +477,12 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 [이 가이드는 여기서 확인할 수 있습니다.][dbms-guide]
 
-### <a name="using-azure-as-dr-site-for-an-sap-on-premise-landscape"></a>SAP 온-프레미스 지형에서 Azure를 DR 사이트로 사용
-제목: SAP NetWeaver: Hyper-V 및 Microsoft Azure 기반 재해 복구 솔루션 빌드 
+### <a name="using-azure-site-recovery-for-sap-workload"></a>SAP 워크로드를 위한 Azure Site Recovery 사용
+제목: SAP NetWeaver - Azure Site Recovery를 사용하여 재해 복구 솔루션 빌드 
 
-요약: 이 문서에서는 Azure Site Recovery Services를 사용하여 온-프레미스 SAP 지형의 재해 복구 위치로 Azure를 사용할 수 있는 방법을 설명합니다. Azure Site Recovery Services는 첫 번째 단계에서 설명했습니다. 두 번째 단계는 재해 복구 목적으로 SAP NetWeaver 시스템을 Azure로 복제하기 위해 Azure Site Recovery Services를 사용하는 설계를 설명합니다. 
+요약: 이 문서에서는 재해 복구 시나리오를 처리하는 데 Azure Site Recovery 서비스를 사용할 수 있는 방법을 설명합니다. Azure Site Recovery Services를 사용하여 온-프레미스 SAP 지형의 재해 복구 위치로 Azure를 사용하는 사례입니다. 문서에 설명된 다른 시나리오는 A2A(Azure 간) 재해 복구 사례이며, Azure Site Recovery를 사용하여 어떻게 관리하는지를 설명합니다.  
 
-업데이트: 2016년 2월
+업데이트 날짜: 2017년 8월
 
 [이 가이드는 여기서 확인할 수 있습니다.](http://aka.ms/asr-sap)
 

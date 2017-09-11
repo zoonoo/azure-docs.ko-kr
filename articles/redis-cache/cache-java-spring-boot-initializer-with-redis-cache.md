@@ -1,6 +1,6 @@
 ---
 title: "Redis Cache를 사용하도록 Spring Boot Initializer 앱을 구성하는 방법"
-description: "Azure Redis Cache를 사용하도록 Spring Boot Initializer를 사용하여 만든 응용 프로그램을 구성하는 방법에 대해 알아봅니다."
+description: "Azure Redis Cache를 사용하도록 Spring Initializer를 사용하여 만든 Spring Boot 응용 프로그램을 구성하는 방법에 대해 알아봅니다."
 services: redis-cache
 documentationcenter: java
 author: rmcmurray
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/21/2017
 ms.author: robmcm;zhijzhao;yidon
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ea85a9cfe7079ade33a437987798a165a056dc02
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: fb3fc96a2136b7c326bb0eb291b7204e7acf0190
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -45,23 +45,23 @@ ms.lasthandoff: 07/28/2017
 
 1. <https://portal.azure.com/>의 Azure Portal로 이동하고 **+새로 만들기**의 항목을 클릭합니다.
 
-   ![Azure 포털][AZ01]
+   ![Azure Portal][AZ01]
 
 1. **데이터베이스**를 클릭하고 **Redis Cache**를 클릭합니다.
 
-   ![Azure 포털][AZ02]
+   ![Azure Portal][AZ02]
 
-1. **새 Redis Cache** 블레이드에서 캐시에 **DNS 이름**을 입력하고 **구독**, **리소스 그룹**, **위치** 및 **가격 책정 계층**을 지정합니다. 이러한 옵션을 지정한 경우 **만들기**를 클릭하여 캐시를 만듭니다.
+1. **새 Redis Cache** 페이지에서 캐시에 **DNS 이름**을 입력하고 **구독**, **리소스 그룹**, **위치** 및 **가격 책정 계층**을 지정합니다. 이러한 옵션을 지정한 경우 **만들기**를 클릭하여 캐시를 만듭니다.
 
-   ![Azure 포털][AZ03]
+   ![Azure Portal][AZ03]
 
-1. 캐시가 완료되면 Azure **대시보드**뿐만 아니라 **모든 리소스** 및 **Redis Caches** 블레이드에서도 나열된 것을 확인할 수 있습니다. 해당 위치 중 하나에서 캐시를 클릭하여 캐시의 속성 블레이드를 열 수 있습니다.
+1. 캐시가 완료되면 Azure **대시보드**뿐만 아니라 **모든 리소스** 및 **Redis Caches** 페이지에서도 나열된 것을 확인할 수 있습니다. 해당 위치 중 하나에서 캐시를 클릭하여 캐시의 속성 페이지를 열 수 있습니다.
 
-   ![Azure 포털][AZ04]
+   ![Azure portal][AZ04]
 
-1. 캐시의 속성 목록이 포함된 블레이드가 표시되는 경우 **선택키**를 클릭하고 캐시의 선택키를 복사합니다.
+1. 캐시의 속성 목록이 포함된 페이지가 표시되면 **액세스 키**를 클릭하고 캐시의 액세스 키를 복사합니다.
 
-   ![Azure 포털][AZ05]
+   ![Azure Portal][AZ05]
 
 ## <a name="create-a-custom-application-using-the-spring-initializr"></a>Spring Initializr를 사용하여 사용자 지정 응용 프로그램 만들기
 
@@ -98,10 +98,13 @@ ms.lasthandoff: 07/28/2017
 
    ```yaml
    # Specify the DNS URI of your Redis cache.
-   spring.redisHost=myspringbootcache.redis.cache.windows.net
+   spring.redis.host=myspringbootcache.redis.cache.windows.net
+
+   # Specify the port for your Redis cache.
+   spring.redis.port=6380
 
    # Specify the access key for your Redis cache.
-   spring.redisPassword=447564652c20426f6220526f636b7321
+   spring.redis.password=57686f6120447564652c2049495320526f636b73=
    ```
 
    ![application.properties 파일 편집][RE02]
@@ -116,7 +119,7 @@ ms.lasthandoff: 07/28/2017
 
    `/users/example/home/myazuredemo/src/main/java/com/contoso/myazuredemo/controller`
 
-1. 방금 만든 *controller* 폴더에서 *HelloController.java*라는 파일을 만들어 다음 코드를 추가합니다.
+1. *컨트롤러* 폴더에 *HelloController.java*라는 새 파일을 만듭니다. 텍스트 편집기에서 파일을 열고 다음 코드를 추가합니다.
 
    ```java
    package com.contoso.myazuredemo;
@@ -131,11 +134,15 @@ ms.lasthandoff: 07/28/2017
    public class HelloController {
    
       // Retrieve the DNS name for your cache.
-      @Value("${spring.redisHost}")
+      @Value("${spring.redis.host}")
       private String redisHost;
 
+      // Retrieve the port for your cache.
+      @Value("${spring.redis.port}")
+      private int redisPort;
+
       // Retrieve the access key for your cache.
-      @Value("${spring.redisPassword}")
+      @Value("${spring.redis.password}")
       private String redisPassword;
 
       @RequestMapping("/")
@@ -143,7 +150,7 @@ ms.lasthandoff: 07/28/2017
       public String hello() {
       
          // Create a JedisShardInfo object to connect to your Redis cache.
-         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, 6380, true);
+         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, redisPort, true);
          // Specify your access key.
          jedisShardInfo.setPassword(redisPassword);
          // Create a Jedis object to store/retrieve information from your cache.
@@ -165,11 +172,11 @@ ms.lasthandoff: 07/28/2017
 1. Maven을 사용하여 Spring Boot 응용 프로그램을 빌드하고 실행합니다. 예:
 
    ```shell
-   mvn package
-   java -jar target/myazuredemo-0.0.1-SNAPSHOT.jar
+   mvn clean package
+   mvn spring-boot:run
    ```
 
-1. 웹 브라우저를 통해 http://localhost:8080 으로 이동하여 웹앱을 테스트하거나 사용 가능한 curl이 있는 경우 다음 예제와 같이 구문을 사용합니다.
+1. 웹 브라우저를 통해 http://localhost:8080으로 이동하여 웹앱을 테스트하거나 사용 가능한 curl이 있는 경우 다음 예제와 같이 구문을 사용합니다.
 
    ```shell
    curl http://localhost:8080

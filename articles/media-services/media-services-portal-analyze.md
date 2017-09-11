@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Portal을 사용하여 미디어 분석 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

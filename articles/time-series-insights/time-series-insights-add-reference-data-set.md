@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,13 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-# Ibiza 포털을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza 포털을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
 참조 데이터 집합은 이벤트 원본의 이벤트로 보강된 항목의 컬렉션입니다. Time Series Insights 수신 엔진은 이벤트 원본의 이벤트와 참조 데이터 집합의 항목을 조인합니다. 이렇게 보강된 이벤트는 쿼리에 사용할 수 있습니다. 이 조인은 참조 데이터 집합에서 정의된 키를 기반으로 합니다.
 
-## 환경에 참조 데이터 집합을 추가하는 단계
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>환경에 참조 데이터 집합을 추가하는 단계
 
 1. [Ibiza portal](https://portal.azure.com)에 로그인합니다.
 2. Ibiza 포털의 왼쪽에 있는 메뉴에서 “All resources(모든 리소스)”를 클릭합니다.
@@ -48,8 +46,7 @@ ms.lasthandoff: 07/04/2017
 
 7. “만들기”를 클릭합니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
 * 전체 API 참조는 [참조 데이터 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) 문서를 참조하세요.

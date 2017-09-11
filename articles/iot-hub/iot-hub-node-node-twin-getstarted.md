@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 08/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-device-twins-node"></a>장치 쌍 시작(노드)
@@ -45,7 +44,7 @@ ms.lasthandoff: 12/07/2016
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
-이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 미국에 위치한 장치를 선택한 후 셀룰러 연결을 보고하는 장치를 선택하는 IoT Hub에 저장된 장치 쌍을 쿼리합니다.
+이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하여 미국에 있는 장치를 선택한 다음 셀룰러 연결을 보고하는 장치를 선택합니다.
 
 1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    

@@ -3,8 +3,8 @@ title: "Visual Studio에서 Azure 클라우드 서비스로 웹 응용 프로그
 description: "Visual Studio를 사용하여 Azure 클라우드 서비스로 웹 응용 프로그램을 마이그레이션 및 게시하는 방법에 대해 알아보세요."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: a30859610aed55c1ffa22e821de3702d265a7fa7
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>방법: Visual Studio에서 Azure 클라우드 서비스로 웹 응용 프로그램 마이그레이션 및 게시
@@ -201,9 +202,4 @@ Azure에 웹 응용 프로그램을 게시하려면 응용 프로그램이 아�
 
 ## <a name="next-steps"></a>다음 단계
 게시에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요. 또한 [명명된 인증 자격 증명 설정](vs-azure-tools-setting-up-named-authentication-credentials.md)도 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

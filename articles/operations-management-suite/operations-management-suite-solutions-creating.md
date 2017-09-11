@@ -21,7 +21,6 @@ ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)에서 관리 솔루션 설계 및 만들기(미리 보기)
 > [!NOTE]
@@ -86,4 +85,3 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 * 관리 솔루션의 [솔루션 파일을 만드는 방법](operations-management-suite-solutions-solution-file.md)에 대해 알아봅니다.
 * [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
-

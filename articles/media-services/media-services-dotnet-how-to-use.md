@@ -4,7 +4,7 @@ description: "미디어 서비스 .NET SDK를 사용하는 미디어 서비스�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/16/2017
+ms.date: 08/23/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 미디어 서비스 개발
@@ -37,13 +37,13 @@ ms.lasthandoff: 07/21/2017
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 미디어 서비스 개발에 대해 설정하는 방법을 설명합니다.  이 경우에 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 여기에 설명된 설정 방법은 Media Services 응용 프로그램에 생성할 수 있는 다른 프로젝트 유형에도 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
 
-이 섹션에서는 Media Services .NET SDK 확장 추가를 위한 **NuGet** 을 사용하는 방법과 기타 종속된 라이브러리를 보여 줍니다.
+이 섹션에서는 Media Services .NET SDK 확장 추가를 위한 **NuGet**을 사용하는 방법과 기타 종속된 라이브러리를 보여 줍니다.
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 또는 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)) 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 필요한 종속성은 모두 자동으로 다운로드되고 추출됩니다.
 
 1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
 2. 솔루션을 빌드하십시오.
-3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
+3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK**도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
     최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](http://nuget.codeplex.com/)을 참조하세요.
 4. 솔루션 Explorer에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 [NuGet 패키지 관리]를 선택합니다.
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/21/2017
     [사용자 인증](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)을 사용 중인 경우 구성 파일에 Azure AD 테넌트 도메인과 AMS REST API 끝점에 대한 값이 포함되어 있을 것입니다.
     
     >[!Important]
-    >Azure Media Services 설명서 모음의 샘플은 사용자(대화형) 유형의 인증을 사용하여 AMS API에 연결합니다. 이 인증 방법은 네이티브 앱(모바일 앱, Windows 앱 및 콘솔 응용 프로그램)의 관리 또는 모니터링에 적합합니다. 이 인증 방법은 서버, 웹 서비스, API 유형의 응용 프로그램에는 적합하지 않습니다.  자세한 내용은 [Azure AD 인증을 사용하여 AMS API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
+    >Azure Media Services 설명서 모음의 코드 샘플은 대부분 사용자(대화형) 유형의 인증을 사용하여 AMS API에 연결합니다. 이 인증 방법은 네이티브 앱(모바일 앱, Windows 앱 및 콘솔 응용 프로그램)의 관리 또는 모니터링에 적합합니다. 이 인증 방법은 서버, 웹 서비스, API 유형의 응용 프로그램에는 적합하지 않습니다.  자세한 내용은 [Azure AD 인증을 사용하여 AMS API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 
         <configuration>
         ...

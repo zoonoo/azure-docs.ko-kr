@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
@@ -174,7 +173,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     $content-encoding | utf-8 |
     deviceId | 장치의 ID |
     hubName | IoT Hub의 이름 |
-    operationTimestamp | 작업의 ISO8601 타임스탬프 |
+    operationTimestamp | [ISO8601] 작업의 타임스탬프 |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" 또는 "updateTwin" |
 

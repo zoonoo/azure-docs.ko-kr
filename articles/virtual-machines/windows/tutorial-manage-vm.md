@@ -70,7 +70,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
   -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 ` 
+  -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
 ```
 ### <a name="create-public-ip-address"></a>공용 IP 주소 만들기
@@ -78,9 +78,9 @@ $vnet = New-AzureRmVirtualNetwork `
 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다.
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress ` 
+$pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
-  -Location EastUS ` 
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -251,18 +251,22 @@ Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
 ```powershell
-Skus                            Offer         PublisherName          Location
-----                            -----         -------------          --------
-2008-R2-SP1                     WindowsServer MicrosoftWindowsServer EastUS  
-2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer EastUS  
-2012-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
-2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer EastUS  
-2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer EastUS  
-2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer EastUS  
-2016-Nano-Server                WindowsServer MicrosoftWindowsServer EastUS
+Skus                                      Offer         PublisherName          Location
+----                                      -----         -------------          --------
+2008-R2-SP1                               WindowsServer MicrosoftWindowsServer EastUS  
+2008-R2-SP1-smalldisk                     WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter                           WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter                        WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter-smalldisk              WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter                           WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-Server-Core               WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-Server-Core-smalldisk     WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-Containers           WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-Containers-smalldisk WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-RDSH                 WindowsServer MicrosoftWindowsServer EastUS
+2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
 이 정보를 사용하여 특정 이미지가 있는 VM을 배포할 수 있습니다. 이 예제에서는 VM 개체에서 이미지 이름을 설정합니다. 배포 단계를 완료하려면 이 자습서의 이전 예제를 참조하세요.
@@ -352,7 +356,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 ```powershell
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroup `
+    -ResourceGroupName myResourceGroupVM `
     -Name myVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```

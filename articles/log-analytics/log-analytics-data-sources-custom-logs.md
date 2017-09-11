@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
@@ -35,6 +35,10 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 - 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 업데이트를 허용하지 말아야 합니다.
 - 로그 파일은 ASCII 또는 UTF-8 인코딩을 사용해야 합니다.  UTF-16 등의 다른 형식은 지원되지 않습니다.
 
+>[!NOTE]
+>로그 파일에 중복된 항목이 있는 경우 Log Analytics에서 수집합니다.  그러나 검색 결과는 필터 결과가 결과 개수보다 더 많은 이벤트를 표시하는 위치에서 일치하지 않습니다.  이를 만드는 응용 프로그램에서 이 문제를 일으키는지 확인하도록 로그의 유효성을 검사하고 가능한 경우 사용자 지정 로그 컬렉션 정의를 만들기 전에 해결하는 것이 중요합니다.  
+>
+  
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 

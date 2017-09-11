@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
@@ -50,6 +50,15 @@ ms.lasthandoff: 07/24/2017
 - **OS 디스크 크기**: 100GB 이상(CentOS6.6 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 코어 4개 이상
+
+다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
+
+
+|커널 시리즈  |최대 지원  |
+|---------|---------|
+|4.4.      |4.4.0-81-제네릭         |
+|4.8      |4.8.0-56-제네릭         |
+|4.10     |4.10.0-24-제네릭        |
 
 
 ## <a name="deploy-the-master-target-server"></a>마스터 대상 서버 배포
@@ -198,9 +207,9 @@ Linux 가상 컴퓨터에 있는 각 SCSI 하드 디스크의 SCSI ID를 가져�
 
 #### <a name="disable-kernel-upgrades"></a>커널 업그레이드 비활성화
 
-Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하기 때문에 가상 컴퓨터에 커널 업그레이드를 비활성화합니다.
+Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요합니다. 가상 컴퓨터에 커널 업그레이드를 비활성화합니다.
 
- 커널 업그레이드를 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다.
+커널 업그레이드를 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다.
 
 #### <a name="download-and-install-additional-packages"></a>추가 패키지를 다운로드하여 설치
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a881336bcb2384aaa57a75483c0e6fcd97096905
-ms.lasthandoff: 04/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger 동작 시작
@@ -56,7 +56,7 @@ HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)�
 
 Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음과 같습니다.
 
-1. [Azure Blob 저장소를 사용하여 Azure Storage 계정을 만듭니다](../storage/storage-create-storage-account.md). 이 단계를 수행하려면 **공용 액세스**에 대한 사용 권한을 설정합니다.
+1. [Azure Blob 저장소를 사용하여 Azure Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md). 이 단계를 수행하려면 **공용 액세스**에 대한 사용 권한을 설정합니다.
 
 2. Blob에 대해 CORS를 사용하도록 설정합니다. 
 

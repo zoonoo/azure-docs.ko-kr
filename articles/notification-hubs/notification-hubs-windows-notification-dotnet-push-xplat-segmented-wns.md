@@ -1,6 +1,6 @@
 ---
-title: "알림 허브를 사용하여 속보 보내기(Windows Universal)"
-description: "등록된 태그와 함께 Azure 알림 허브를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다."
+title: "Notification Hubs를 사용하여 속보 보내기(Windows Universal)"
+description: "등록된 태그와 함께 Azure Notification Hubs를 사용하여 범용 Windows 앱에 최신 뉴스를 보낼 수 있습니다."
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0e945b5626a08fcb428131f2abb465c2c141011a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>개요
-이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다. 
+이 항목에서는 Azure Notification Hubs를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다. 
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+
+> [!NOTE]
+> Windows 스토어 및 Windows Phone 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 항목은 [Notification Hubs 시작][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [Notification Hubs 시작][get-started]을 완료해야 합니다.
@@ -165,7 +169,7 @@ ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
    
         var result = await notifications.SubscribeToCategories();
    
-    이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. [Notification Hubs 시작][get-started] 자습서에서 **InitNotificationsAsync** 메서드를 만들었습니다.
+    이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. **InitNotificationsAsync** 메서드는 [Notification Hubs 시작][get-started] 자습서의 일부로 만들어졌습니다.
 2. MainPage.xaml.cs 프로젝트 파일의 *OnNavigatedTo* 메서드에 다음 코드를 추가합니다.
    
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -208,18 +212,18 @@ ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
      ![][14]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
+이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 Notification Hubs 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
 
-* [알림 허브를 사용하여 지역화된 속보 브로드캐스트]
+* [Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]
   
     지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보세요.
 
 <!-- Anchors. -->
-[앱에 범주 선택 추가]: #adding-categories
-[알림 등록]: #register
-[백 엔드에서 알림 보내기]: #send
-[앱 실행 및 알림 생성]: #test-app
-[다음 단계]: #next-steps
+[Add category selection to the app]: #adding-categories
+[Register for notifications]: #register
+[Send notifications from your back-end]: #send
+[Run the app and generate notifications]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
@@ -230,20 +234,15 @@ ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
-[알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users
+[get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
+[Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs Windows 스토어용 방법]: http://msdn.microsoft.com/library/jj927172.aspx
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 

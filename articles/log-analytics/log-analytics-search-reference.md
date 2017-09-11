@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 90706434eb78009bc56fc390cfa5a30e53827c19
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Log Analytics 검색 참조
+
+>[!NOTE]
+> 이 문서에서는 Log Analytics에서 최신 쿼리 언어를 사용하는 로그 검색에 대해 설명합니다.  작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 [새 언어용 언어 참조](https://go.microsoft.com/fwlink/?linkid=856079)를 참조해야 합니다.
+
 검색 언어에 대한 다음의 참조 섹션은 데이터 및 필터링 식을 검색할 때 사용할 수 있는 일반 쿼리 구문 옵션을 설명하여 검색 범위를 좁힐 수 있도록 합니다. 검색된 데이터에 조치로 사용할 수 있는 명령을 설명합니다.
 
 [필드 및 패싯 참조 검색 섹션](#search-field-and-facet-reference)에서 유사한 데이터 범주에 관하여 더 자세한 정보를 검색할 수 있는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.

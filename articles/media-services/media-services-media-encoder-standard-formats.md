@@ -4,7 +4,7 @@ description: "이 항목에서는 미디어 인코더 표준 형식 및 코덱�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services

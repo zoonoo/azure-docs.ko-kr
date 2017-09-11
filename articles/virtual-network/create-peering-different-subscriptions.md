@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 84bbf90257f038fb5f3e964b7b35419acd77fc6d
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 0f49c875ff5592b3f21e9caf343554172b209935
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/26/2017
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 가상 네트워크 피어링은 같은 Azure 지역에 있는 두 가상 네트워크 간에만 만들 수 있습니다. 서로 다른 구독에 존재하는 가상 네트워크 간의 가상 네트워크 피어링을 만들 때는 구독이 모두 동일한 Azure Active Directory 테넌트에 연결되어 있어야 합니다. 아직 Azure Active Directory 테넌트가 없는 경우 신속히 하나 [만들](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) 수 있습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크 또는 서로 다른 Azure 지역에 있는 가상 네트워크를 연결해야 하거나 서로 다른 Azure Active Directory 테넌트에 연결된 구독에 존재하는 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
 
-[Azure Portal](#portal), Azure [CLI(Command Line Interface)](#cli) 또는 Azure [PowerShell](#powershell)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
+[Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
 
 ## <a name="portal"></a>피어링 만들기 - Azure Portal
 
@@ -239,6 +239,47 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 13. **선택 사항**: 이 자습서에서 가상 컴퓨터를 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 컴퓨터를 만들고 한 가상 컴퓨터에서 다른 가상 컴퓨터로 연결하여 연결의 유효성을 검사할 수 있습니다.
 14. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
+
+## <a name="template"></a>피어링 만들기 - Resource Manager 템플릿
+
+1. 이 문서의 [포털](#portal), [Azure CLI](#cli) 또는 [PowerShell](#powershell) 섹션에 나오는 단계를 완료하여 가상 네트워크를 만들고 해당 [사용 권한](#permissions)을 각 구독의 계정에 할당합니다.
+2. 다음에 나오는 텍스트를 로컬 컴퓨터의 파일에 저장합니다. `<subscription ID>`를 사용자 A의 구독 ID로 바꿉니다. 예를 들어 파일을 vnetpeeringA.json으로 저장할 수 있습니다.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+    "resources": [
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "myVnetA/myVnetAToMyVnetB",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "/subscriptions/<subscription ID>/resourceGroups/PeeringTest/providers/Microsoft.Network/virtualNetworks/myVnetB"
+                }
+            }
+            }
+        ]
+    }
+    ```
+
+3. 사용자 A로 Azure에 로그인하고 [포털](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine) 또는 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)를 사용하여 템플릿을 배포합니다. 2단계에서 예제 json 텍스트를 저장했던 파일 이름을 지정합니다.
+4. 2단계의 예제 json 파일을 컴퓨터에 복사하고 다음으로 시작하는 줄을 변경합니다.
+    - **name**: *myVnetA/myVnetAToMyVnetB*를 *myVnetB/myVnetBToMyVnetA*로 변경합니다.
+    - **id**: `<subscription ID>`를 사용자 B의 구독 ID로 바꾸고 *myVnetB*를 *myVnetA*로 변경합니다.
+5. 3단계를 다시 완료하고 이번에는 사용자 B로 Azure에 로그인합니다.
+6. **선택 사항**: 이 자습서에서 가상 컴퓨터를 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 컴퓨터를 만들고 한 가상 컴퓨터에서 다른 가상 컴퓨터로 연결하여 연결의 유효성을 검사할 수 있습니다.
+7. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 이 문서의 [리소스 삭제](#delete) 섹션에서 설명하는 단계를 완료합니다.
 
 ## <a name="permissions"></a>권한
 

@@ -3,7 +3,7 @@ title: "Microsoft Authenticator 앱 도움말 및 지원 | Microsoft Docs"
 description: "Microsoft Authentication 앱 및 Azure Multi-Factor Authentication과 관련된 질문과 대답 목록을 제공합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,9 +48,9 @@ Microsoft Authenticator 앱을 열면 각각 6자리 또는 8자리 숫자를 �
 
 - 휴대폰이 방해 금지 또는 자동 모드인가요? 해당 모드에서는 앱이 알림을 보낼 수 없습니다.
 - 다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결이나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 휴대폰 설정에서 첫 번째 옵션은 해결할 수 있지만 두 번째 옵션의 경우는 서비스 공급자에게 도움을 요청해야 할 수도 있습니다.
-- 앱에서 일부 계정에 대해서만 알림을 받을 수 있고 다른 계정의 알림은 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거하고 다시 추가하여 푸시 알림을 사용하도록 설정합니다. 
+- 앱에서 일부 계정에 대해서만 알림을 받을 수 있고 다른 계정의 알림은 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거하고 다시 추가하여 푸시 알림을 사용하도록 설정합니다.
 
-이러한 문제 해결 제안을 시도해도 문제가 계속 되는 경우 진단을 위해 로그를 보내주세요. 앱 설정으로 이동한 다음 **도움말 및 피드백** 및 **로그 보내기**를 선택합니다. 그런 다음 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 어떤 문제가 표시되고 있는지, 지금까지 시도한 단계에 대해 알려주세요. 
+이러한 문제 해결 제안을 시도해도 문제가 계속 되는 경우 진단을 위해 로그를 보내주세요. 앱 설정으로 이동한 다음 **도움말 및 피드백** 및 **로그 보내기**를 선택합니다. 그런 다음 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 어떤 문제가 표시되고 있는지, 지금까지 시도한 단계에 대해 알려주세요.
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>인증 코드에 Microsoft Authenticator 응용 프로그램을 이미 사용하고 있습니다. 원 클릭 푸시 알림으로 전환하려면 어떻게 해야 하나요?
 푸시 알림을 통한 로그인 승인은 Google 또는 Facebook 같은 타사 계정이 아닌 개인 Microsoft 계정이나 회사 및 학교 Microsoft 계정에만 사용할 수 있습니다. 회사 또는 학교 Microsoft 계정을 갖고 있는 경우 조직에서 이 옵션을 사용하지 않도록 설정할 수 있습니다.
@@ -95,7 +95,7 @@ Microsoft Authenticator 앱을 열면 각각 6자리 또는 8자리 숫자를 �
 
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Microsoft Authenticator 앱에서 사용자가 장치를 잠금 해제하지 않아도 요청을 승인할 수 있도록 허용하는 이유는 무엇인가요?
 
-사용자가 휴대폰을 갖고 있는지만 증명하면 되므로 확인 요청을 승인하도록 장치의 잠금을 해제할 필요가 없습니다. 2단계 인증은 두 가지를 요구합니다. 하나는 사용자가 알고 있는 것이고, 다른 하나는 사용자가 갖고 있는 것입니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 갖고 있는 것은 휴대폰(Microsoft Authenticator 앱을 통해 설정하고 MFA 증명으로 등록된)입니다. 따라서 휴대폰을 갖고 있고 요청을 승인하면 인증의 두 번째 요소에 대한 조건을 충족합니다. 
+사용자가 휴대폰을 갖고 있는지만 증명하면 되므로 확인 요청을 승인하도록 장치의 잠금을 해제할 필요가 없습니다. 2단계 인증은 두 가지를 요구합니다. 하나는 사용자가 알고 있는 것이고, 다른 하나는 사용자가 갖고 있는 것입니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 갖고 있는 것은 휴대폰(Microsoft Authenticator 앱을 통해 설정하고 MFA 증명으로 등록된)입니다. 따라서 휴대폰을 갖고 있고 요청을 승인하면 인증의 두 번째 요소에 대한 조건을 충족합니다.
 
 ### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>계정 목록에서 잠금 아이콘은 무엇을 의미하나요?
 
@@ -111,5 +111,4 @@ Microsoft Authenticator 앱을 열면 각각 6자리 또는 8자리 숫자를 �
 * Microsoft 계정에 대한 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
 * 회사 또는 학교 계정에 [2단계 인증 문제](multi-factor-authentication-end-user-troubleshoot.md)가 있나요?
 * [Microsoft Authenticator를 사용하여 휴대폰에서 로그인합니다.](microsoft-authenticator-app-phone-signin-faq.md)
-
 

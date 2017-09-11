@@ -6,6 +6,14 @@
 ### [개요](data-science-process-overview.md)
 ### [수명 주기](data-science-process-lifecycle.md)
 ### [연습](data-science-process-walkthroughs.md)
+####[PySpark 및 Scala를 사용하는 Spark](data-science-process-walkthroughs-spark.md)
+##### [데이터 탐색](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [점수 매기기 모델](machine-learning-data-science-spark-model-consumption.md)
+##### [데이터 탐색](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[HDInsight Hadoop을 사용하는 Hive](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[Azure Data Lake를 사용하는 U-SQL](data-science-process-walkthroughs-azure-data-lake.md)
+####[SQL Server를 사용하는 R, Python 및 T-SQL](data-science-process-walkthroughs-sql-server.md)
+####[SQL DW를 사용하는 T-SQL 및 Python](data-science-process-walkthroughs-sql-data-warehouse.md)
 ### [Azure ML 사용](http://aka.ms/datascienceprocess)
 
 ## Machine Learning 스튜디오
@@ -100,12 +108,6 @@
 ##### [Azure Data Lake 사용](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [SQL VM 사용](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Data 파이프라인 사용](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Spark로 데이터 처리
-##### [개요](machine-learning-data-science-spark-overview.md)
-##### [데이터 탐색](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [점수 매기기 모델](machine-learning-data-science-spark-model-consumption.md)
-##### [데이터 탐색](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Scala 및 Spark 사용](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## 모델 개발
 ### 기능 엔지니어링 및 선택
@@ -166,11 +168,7 @@
 ### [샘플 실험](machine-learning-sample-experiments.md)
 ### [샘플 데이터 집합](machine-learning-use-sample-datasets.md)
 ### [고객 이탈 예](machine-learning-azure-ml-customer-churn-scenario.md)
-### 종단 간 시나리오
-#### [Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
-#### [1TB로 Hadoop 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-#### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # 참조
 

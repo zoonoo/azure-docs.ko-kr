@@ -32,6 +32,7 @@
 ### [등록 문제](billing-troubleshoot-azure-sign-up-issues.md)
 ### [거부된 카드](billing-credit-card-fails-during-azure-sign-up.md)
 ### [로그인 문제](billing-cannot-login-subscription.md)
+### [구독을 찾을 수 없음](billing-no-subscriptions-found.md)
 
 # 참조
 ## [API 개요](billing-usage-rate-card-overview.md)

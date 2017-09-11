@@ -8,17 +8,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -255,7 +255,7 @@ Azure 리소스 그룹 배포 작업의 기본 설정을 사용하는 경우 리
 > * Azure 가상 컴퓨터용 배포 그룹 만들기
 > * VM을 구성하고 앱을 배포하는 릴리스 정의 만들기
 
-미리 빌드된 가상 컴퓨터 스크립트 샘플을 보려면 이 링크를 따릅니다.
+LAMP(Linux, Apache, MySQL 및 PHP) 스택을 배포하는 방법에 대한 자세한 내용을 보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [Linux 가상 컴퓨터 스크립트 샘플](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [LAMP 스택 배포](tutorial-lamp-stack.md)

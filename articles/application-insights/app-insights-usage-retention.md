@@ -11,22 +11,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 응용 프로그램의 사용자 재방문 주기 분석
 
-[Azure Application Insights](app-insights-overview.md)의 재방문 주기 블레이드는 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
+[Azure Application Insights](app-insights-overview.md)의 재방문 주기 기능은 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
 
 ## <a name="get-started"></a>시작
 
-Application Insights 포털의 재방문 주기 블레이드에서 아직 데이터가 표시되지 않으면 [사용 도구 시작 방법을 알아봅니다](app-insights-usage-overview.md).
+Application Insights 포털의 재방문 주기 도구에서 아직 데이터가 표시되지 않으면 [사용 도구 시작 방법을 알아봅니다](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>재방문 주기 도구
 
@@ -37,8 +37,11 @@ Application Insights 포털의 재방문 주기 블레이드에서 아직 데이
 3. 속성에 대해 하나 이상의 필터를 추가합니다. 예를 들어 특정 국가 또는 하위 지역에 있는 사용자에 집중할 수 있습니다. 필터를 설정한 후에 **업데이트**를 클릭합니다. 
 4. 전체 재방문 주기 차트는 선택한 기간에 걸친 사용자 재방문 주기의 요약을 보여 줍니다. 
 5. 표는 #2의 쿼리 작성기에 따라 재방문한 사용자 수를 보여 줍니다. 각 행은 표시된 기간에 이벤트를 실행한 사용자의 코호트를 표시합니다. 행의 각 셀은 이후 기간에 1번 이상 돌아온 해당 코호트 수를 표시합니다. 일부 사용자는 둘 이상의 기간에 돌아올 수 있습니다. 
-6. insights 카드는 상위 5 시작 이벤트 및 상위 5 반환되는 이벤트를 표시하여 사용자가 자신의 재방문 주기 보고서를 더 잘 이해할 수 있도록 합니다. 
+6. insights 카드는 상위 5개 시작 이벤트 및 상위 5개 반환되는 이벤트를 표시하여 사용자가 자신의 재방문 주기 보고서를 더 잘 이해할 수 있도록 합니다. 
 
+![재방문 주기 마우스 가리키기](./media/app-insights-usage-retention/hover.png)
+
+사용자가 셀의 의미를 설명하는 분석 단추 및 도구 팁에 액세스하려면 재방문 주기 도구에서 셀을 마우스로 가리키면 됩니다. 분석 단추를 통해 셀에서 사용자를 생성하는 미리 입력된 쿼리를 사용하여 분석 도구로 이동합니다. 
 
 ## <a name="use-business-events-to-track-retention"></a>비즈니스 이벤트를 사용하여 재방문 주기 추적
 
@@ -66,6 +69,9 @@ Application Insights 포털의 재방문 주기 블레이드에서 아직 데이
 - 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
     - [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
     - [깔때기](usage-funnels.md)
+    - [사용자 흐름](app-insights-usage-flows.md)
     - [통합 문서](app-insights-usage-workbooks.md)
     - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
+
+
 

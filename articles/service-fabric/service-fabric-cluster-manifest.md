@@ -3,7 +3,7 @@ title: "Azure Service Fabric 독립 실행형 클러스터 구성 | Microsoft Do
 description: "독립 실행형 또는 개인 Service Fabric 클러스터를 구성하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 ***ClusterConfig.JSON*** 파일을 사용하여 독립 실행형 Service Fabric 클러스터를 구성하는 방법을 설명합니다. 이 파일을 사용하여 독립 실행형 클러스터에 대한 Service Fabric 노드 및 해당 IP 주소, 클러스터의 다른 노드 형식, 보안 구성에 대한 정보와 장애/업그레이드 도메인과 관련된 네트워크 토폴로지에 대한 정보를 지정할 수 있습니다.
 
-[독립 실행형 Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)하면 ClusterConfig.JSON 파일의 몇 가지 샘플이 작업 컴퓨터에 다운로드됩니다. 이름에 *DevCluster*가 있는 샘플은 논리 노드처럼 세 노드가 모두 동일한 컴퓨터에 있는 클러스터를 만드는 데 도움이 됩니다. 세 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터는 개발 또는 테스트 환경에 유용하며, 프로덕션 클러스터로 지원되지 않습니다. 이름에 *MultiMachine*이 있는 샘플은 각 노드가 별도의 컴퓨터에 있는 프로덕션 품질 클러스터를 만드는 데 도움이 됩니다. 이러한 클러스터의 주 노드 수는 [안정성 수준](#reliability)에 따라 결정됩니다.
+[독립 실행형 Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)하면 ClusterConfig.JSON 파일의 몇 가지 샘플이 작업 컴퓨터에 다운로드됩니다. 이름에 *DevCluster*가 있는 샘플은 논리 노드처럼 세 노드가 모두 동일한 컴퓨터에 있는 클러스터를 만드는 데 도움이 됩니다. 세 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터는 개발 또는 테스트 환경에 유용하며, 프로덕션 클러스터로 지원되지 않습니다. 이름에 *MultiMachine*이 있는 샘플은 각 노드가 별도의 컴퓨터에 있는 프로덕션 품질 클러스터를 만드는 데 도움이 됩니다.
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* 및 *ClusterConfig.Unsecure.MultiMachine.JSON*은 각각 보안되지 않은 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다. 
 2. *ClusterConfig.Windows.DevCluster.JSON* 및 *ClusterConfig.Windows.MultiMachine.JSON*은 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
@@ -83,15 +82,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>안정성
-**reliabilityLevel** 섹션은 클러스터의 주 노드에서 실행될 수 있는 시스템 서비스의 복사본 수를 정의합니다. 이를 통해 이러한 서비스의 안정성 및 클러스터의 안정성이 향상됩니다. 이 변수를 이러한 서비스 복사본 3개, 5개, 7개 또는 9개에 각각 해당하는 *Bronze*, *Silver*, *Gold* 또는 *Platinum*으로 설정할 수 있습니다. 아래 예제를 참조하세요.
-
-    "reliabilityLevel": "Bronze",
-
-주 노드에서 시스템 서비스의 단일 복사본이 실행되므로 각 안정성 수준에 대한 주 노드 수가 *Bronze*의 경우 최소 3개, *Silver*의 경우 최소 5개, *Gold*의 경우 최소 7개, *Platinum*의 경우 최소 9개가 필요합니다.
-
-clusterConfig.json에 reliabilityLevel 속성을 지정하지 않는 경우 시스템은 사용자가 보유한 "기본 NodeType" 노드 수에 따라 가장 최적화된 reliabilityLevel을 계산합니다. 예를 들어 4개의 주 노드가 있는 경우 reliabilityLevel은 Bronze로 설정되고 이러한 5개의 노드가 있는 경우 reliabilityLevel은 Silver로 설정됩니다. 클러스터에서 자동으로 최적의 안정성 수준을 검색하고 사용하므로 가까운 시일 안에 안정성 수준을 구성하는 옵션을 제거할 예정입니다.
-
-ReliabilityLevel을 업그레이드할 수 있습니다. clusterConfig.json v2를 만들고 [독립 실행형 클러스터 구성 업그레이드](service-fabric-cluster-upgrade-windows-server.md)로 확장 및 축소할 수 있습니다. 또한 reliabilityLevel이 자동으로 계산되도록 reliabilityLevel을 지정하지 않는 clusterConfig.json v2로 업그레이드할 수 있습니다. 
+**reliabilityLevel**이라는 개념은 클러스터의 주 노드에서 실행될 수 있는 Service Fabric 시스템 서비스의 복사본 또는 인스턴스 수를 정의합니다. 이는 이러한 서비스의 안정성 및 클러스터의 안정성을 결정합니다. 값은 클러스터 생성 및 업그레이드 시 시스템에 의해 계산됩니다.
 
 ### <a name="diagnostics"></a>진단
 다음 코드 조각과 같이 **diagnosticsStore** 섹션을 사용하여 진단 및 문제 해결 노드와 클러스터 오류를 사용하도록 매개 변수를 구성할 수 있습니다. 
@@ -150,7 +141,7 @@ ReliabilityLevel을 업그레이드할 수 있습니다. clusterConfig.json v2�
         "isPrimary": true
     }]
 
-**name** 은 이 특정 노드 형식의 이름입니다. 이 노드 형식의 노드를 만들려면 [위](#clusternodes)에 설명된 대로 해당 이름을 해당 노드의 **nodeTypeRef**에 할당합니다. 각 노드 형식에 대해 사용되는 연결 끝점을 정의합니다. 이 클러스터의 다른 끝점과 충돌하지 않는 한, 이러한 연결 끝점에 대해 어떤 포트 번호도 선택할 수 있습니다. 다중 노드 클러스터에는 [**reliabilityLevel**](#reliability)에 따라 하나 이상의 주 노드가 있습니다(즉, **isPrimary**가 *true*로 설정됨). **nodeTypes** 및 **reliabilityLevel** 값에 대한 자세한 내용과 주 노드 형식 및 주 노드가 아닌 다른 노드 형식에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 참조하세요. 
+**name** 은 이 특정 노드 형식의 이름입니다. 이 노드 형식의 노드를 만들려면 [위](#clusternodes)에 설명된 대로 해당 이름을 해당 노드의 **nodeTypeRef**에 할당합니다. 각 노드 형식에 대해 사용되는 연결 끝점을 정의합니다. 이 클러스터의 다른 끝점과 충돌하지 않는 한, 이러한 연결 끝점에 대해 어떤 포트 번호도 선택할 수 있습니다. 다중 노드 클러스터에는 [**reliabilityLevel**](#reliability)에 따라 하나 이상의 주 노드가 있습니다(즉, **isPrimary**가 *true*로 설정됨). **nodeTypes** 및 **reliabilityLevel**에 대한 자세한 내용과 주 노드 형식 및 주 노드가 아닌 다른 노드 형식에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 참조하세요. 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>노드 형식을 구성하는 데 사용되는 끝점
 * *clientConnectionEndpointPort*는 클라이언트 API를 사용할 때 클라이언트에서 클러스터에 연결하는 데 사용되는 포트입니다. 

@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Media Services를 사용하여 인코딩
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: c4bfe2a1f1d22a3b23f381a7afe600d1cfc962b2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/14/2017
-
 
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>인코딩 속도 및 동시성 관리
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/14/2017
 
 Media Services에서 **예약 단위 유형**은 미디어 처리 태스크를 처리하는 속도를 결정합니다. **S1**, **S2**, **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. [인코딩 단위 크기 조정](media-services-scale-media-processing-overview.md) 항목에서는 여러 인코딩 속도를 선택할 때 적절한 속도를 결정할 수 있도록 하는 테이블을 보여 줍니다.
 
-예약 단위 유형을 지정하는 것 외에도 계정에 **예약 단위**를 프로비전하도록 지정할 수 있습니다. 프로비전되는 예약 단위의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다. 예를 들어 계정에&5;개의 예약 단위가 있는 경우 처리할 작업이 있다면&5;개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되면 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
+예약 단위 유형을 지정하는 것 외에도 계정에 **예약 단위**를 프로비전하도록 지정할 수 있습니다. 프로비전되는 예약 단위의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다. 예를 들어 계정에 5개의 예약 단위가 있는 경우 처리할 작업이 있다면 5개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되면 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
 
 인코딩 단위의 크기를 조정하는 방법을 보여 주는 자세한 정보 및 예제는 [이](media-services-scale-media-processing-overview.md) 항목을 참조하세요.
 

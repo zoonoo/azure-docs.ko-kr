@@ -294,7 +294,7 @@ Azure Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일�
 * 누락된 속성을 요구하는 속성을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure DSC 확장에 가상 컴퓨터 크기 집합 사용](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)에서 DSC 및 가상 컴퓨터 크기 집합에 대한 자세한 정보
+[Azure DSC 확장에 가상 컴퓨터 확장 집합 사용](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)에서 DSC 및 가상 컴퓨터 확장 집합에 대한 자세한 정보
 
 [DSC의 보안 자격 증명 관리](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 자세한 내용을 참조하세요. 
 

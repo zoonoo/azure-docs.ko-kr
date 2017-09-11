@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
-ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
+ms.translationtype: HT
+ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
+ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
+ms.contentlocale: ko-kr
 
 ---
-## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 응용 프로그램 등록
+## AD 테넌트에 응용 프로그램 등록
 먼저, 응용 프로그램을 Azure AD(Azure Active Directory) 테넌트에 등록해야 합니다. 그러면 응용 프로그램에 대한 응용 프로그램 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
 
 * [Azure 포털](https://portal.azure.com)에 로그인합니다.

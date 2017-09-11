@@ -345,8 +345,8 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ### <a name="add-certificates"></a>인증서 추가
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 파일에 Key Vault 값을 두는 것이 좋습니다. 이렇게 하면 Resource Manager 템플릿을 계속 재사용할 수 있고 배포에 특정한 값이 없게 됩니다.
 
-#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 크기 집합 osProfile에 모든 인증서 추가
-클러스터에 설치된 모든 인증서는 크기 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
+#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 확장 집합 osProfile에 모든 인증서 추가
+클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
 
 ```json
 {
@@ -381,9 +381,9 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ```
 
 #### <a name="configure-the-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서 구성
-또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 크기 집합 리소스의 가상 컴퓨터 크기 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
+또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 확장 집합 리소스의 가상 컴퓨터 확장 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
 
-##### <a name="virtual-machine-scale-set-resource"></a>가상 컴퓨터 크기 집합 리소스:
+##### <a name="virtual-machine-scale-set-resource"></a>가상 컴퓨터 확장 집합 리소스:
 ```json
 {
   "apiVersion": "2016-03-30",

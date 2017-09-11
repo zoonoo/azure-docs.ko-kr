@@ -4,7 +4,7 @@ description: "이 항목에서는 MES(Media Encoder Standard)를 사용하여 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/20/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 286ba47b801d4f21add1a8429035729be6ff7e00
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard를 사용하여 비트 전송률 사다리 자동 생성
@@ -27,10 +27,13 @@ ms.lasthandoff: 07/21/2017
 
 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다. 자동 생성된 사전 설정은 입력 해상도 및 비트 전송률을 초과하지 않습니다. 예를 들어, 입력이 3Mbps에서 720p이고 출력이 최적 시 720p로 유지되는 경우 3Mbps보다 낮은 전송률로 시작됩니다.
 
-이 기능을 사용하려면 인코딩 작업을 만들 때 **적응 스트리밍** 사전 설정을 지정해야 합니다. **적응 스트리밍** 사전 설정을 사용할 때 MES 인코더는 비트 전송률 사다리를 지능적으로 제한합니다. 하지만 서비스에서 사용할 레이어 수와 해상도를 결정하므로 인코딩 비용은 제어할 수 없습니다. 이 항목의 [끝](#output)에서, **적응 스트리밍** 사전 설정으로 인코딩한 결과로 MES에 의해 생성된 출력 계층의 예를 볼 수 있습니다.
+### <a name="encoding-for-streaming-only"></a>스트리밍 전용 인코딩
 
->[!NOTE]
-> 이 사전 설정은 스트리밍 가능 출력 자산을 생성하려는 경우에만 사용할 수 있습니다. 특히, 출력 자산에는 오디오 및 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다. 출력에 비디오 및 오디오가 인터리빙된 MP4 파일을 포함시켜야 하는 경우(예: 점진적 다운로드 파일로 사용하는 경우) [이 섹션에서](media-services-mes-presets-overview.md) 나열된 사전 설정 중 하나를 사용합니다.
+원본 비디오를 스트리밍 전용으로 인코딩하려는 경우에는 인코딩 작업을 만들 때 "적응 스트리밍" 사전 설정을 사용해야 합니다. **적응 스트리밍** 사전 설정을 사용할 때 MES 인코더는 비트 전송률 사다리를 지능적으로 제한합니다. 하지만 서비스에서 사용할 레이어 수와 해상도를 결정하므로 인코딩 비용은 제어할 수 없습니다. **적응 스트리밍** 사전 설정을 사용하여 인코딩한 결과로 MES에 의해 생성된 출력 계층의 예제는 이 항목의 끝부분에서 확인할 수 있습니다. 출력 자산에는 오디오 및 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다.
+
+### <a name="encoding-for-streaming-and-progressive-download"></a>스트리밍 및 점진적 다운로드용 인코딩
+
+스트리밍을 수행하고 점진적 다운로드를 위한 MP4 파일을 생성하기 위해 원본 비디오를 인코딩하려는 경우에는 인코딩 작업을 만들 때 "콘텐츠 적응 다중 비트 전송률 MP4" 사전 설정을 사용해야 합니다. **콘텐츠 적응 다중 비트 전송률 MP4** 사전 설정을 사용할 때도 MES 인코더는 위에서 설명한 것과 동일한 인코딩 논리를 적용합니다. 그러나 이 경우 출력 자산에는 오디오와 비디오가 인터리빙되는 MP4 파일이 포함됩니다. 이러한 MP4 파일 중 하나(예: 비트 전송률이 가장 높은 버전)를 점진적 다운로드 파일로 사용할 수 있습니다.
 
 ## <a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 

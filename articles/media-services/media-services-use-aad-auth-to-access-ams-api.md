@@ -4,7 +4,7 @@ description: "Azure Media Services API에 대한 액세스를 인증하는 데 A
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스

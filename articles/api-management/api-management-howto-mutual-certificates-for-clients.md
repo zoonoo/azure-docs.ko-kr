@@ -3,7 +3,7 @@ title: "API Management에서 클라이언트 인증서 인증을 사용하여 AP
 description: "클라이언트 인증서를 사용하여 API에 대한 액세스의 보안을 유지하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

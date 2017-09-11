@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
-ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
+
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
+
 이 문서는 FTP 또는 FTPS를 사용하여 웹앱, 모바일 앱 백 엔드 또는 API 앱을 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다.
 
-앱에 대한 FTP/S 끝점은 이미 활성화되어 있습니다. FTP/S 배포를 사용하도록 설정하는 데 필요한 구성은 없습니다. 
+앱에 대한 FTP/S 끝점은 이미 활성화되어 있습니다. FTP/S 배포를 사용하도록 설정하는 데 필요한 구성은 없습니다.
+
+> [!IMPORTANT]
+> Microsoft Azure 플랫폼 보안을 개선하기 위해 계속해서 작업하고 있습니다. 이러한 지속적인 노력의 일환으로 독일 중부 및 독일 북동부 하위 지역에 대해 웹 응용 프로그램 업그레이드가 예정되어 있습니다. 이 프로세스 동안 웹앱은 배포에 일반 텍스트 FTP 프로토콜이 사용되지 않도록 설정하게 됩니다. 고객은 배포를 위해 FTPS로 전환하는 것이 좋습니다. 9월 5일로 계획된 이 업그레이드 동안 서비스를 중단하지 않을 예정입니다. 여러분의 지원에 감사 드립니다.
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>1단계: 배포 자격 증명 설정

@@ -1,12 +1,12 @@
 ---
 title: "Azure ID 관리의 기초 | Microsoft Docs"
-description: 
+description: "클라우드 기반 ID는 현재, 사용자가 회사 응용 프로그램 및 데이터에 액세스하는 방법과 시기를 제어하고 가시성을 유지하는 가장 좋은 방법입니다."
 keywords: 
 author: jeffgilb
 manager: femila
 ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4b2e8d17811df58fdc628de7140cdb0a4800476d
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure ID 관리의 기초

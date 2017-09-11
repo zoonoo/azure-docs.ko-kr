@@ -95,7 +95,7 @@ GPU가 많이 사용되는 워크로드의 경우 [NC 및 NV 크기](https://azu
 * [기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)
 * [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [가상 컴퓨터 크기 집합](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+* [가상 컴퓨터 확장 집합](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
 * [클라우드 서비스](https://azure.microsoft.com/documentation/services/cloud-services/)
 * [앱 서비스](https://azure.microsoft.com/documentation/services/app-service/)
 * [미디어 서비스](https://azure.microsoft.com/documentation/services/media-services/)

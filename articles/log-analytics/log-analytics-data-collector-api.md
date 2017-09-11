@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 07/13/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 2b5899ba43f651ae6f5fdf84d7aa5ee35d81b738
-ms.openlocfilehash: be27695cd1d998eedff0ca76f6ae9d4ff69bb97b
-ms.lasthandoff: 01/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: b0c45ff8c1d4c9d35fbb3c8839b38a20df277055
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송
@@ -162,8 +162,8 @@ Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에
 ## <a name="data-limits"></a>데이터 제한
 Log Analytics 데이터 수집 API에 게시된 데이터에 대한 몇 가지 제약 조건이 있습니다.
 
-* Log Analytics 데이터 수집기 API의 게시물당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다. 
-* 최대 32KB의 필드 값 제한. 필드 값이 32KB보다 크면 데이터가 잘립니다. 
+* Log Analytics 데이터 수집기 API의 게시물당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다.
+* 최대 32KB의 필드 값 제한. 필드 값이 32KB보다 크면 데이터가 잘립니다.
 * 지정된 형식의 권장되는 최대 필드 수는 50개입니다. 이는 사용 편의성 및 검색 환경 관점에서의 실용적인 제한입니다.  
 
 ## <a name="return-codes"></a>반환 코드
@@ -191,6 +191,11 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 
 ## <a name="query-data"></a>쿼리 데이터
 Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 첨부한 것과 같은 **형식**의 레코드를 검색하십시오. 예를 들어, **MyCustomLog**를 사용한 경우**Type=MyCustomLog_CL**을 갖는 모든 레코드를 반환합니다.
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+
+> `MyCustomLog_CL`
 
 ## <a name="sample-requests"></a>샘플 요청
 다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Log Analytics HTTP 데이터 수집기에 데이터를 제출하는 방법의 샘플을 제공합니다.
@@ -323,7 +328,7 @@ namespace OIAPIExample
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;
-    
+
             PostData(signature, datestring, json);
         }
 
@@ -344,20 +349,20 @@ namespace OIAPIExample
         public static void PostData(string signature, string date, string json)
         {
             try
-            { 
+            {
                 string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-    
+
                 System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.DefaultRequestHeaders.Add("Log-Type", LogName);
                 client.DefaultRequestHeaders.Add("Authorization", signature);
                 client.DefaultRequestHeaders.Add("x-ms-date", date);
                 client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
-    
+
                 System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
                 httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
-    
+
                 System.Net.Http.HttpContent responseContent = response.Result.Content;
                 string result = responseContent.ReadAsStringAsync().Result;
                 Console.WriteLine("Return Result: " + result);

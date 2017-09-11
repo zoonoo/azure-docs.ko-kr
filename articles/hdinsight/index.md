@@ -2,7 +2,7 @@
 title: "Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, HBase, R-Server를 사용하여 빅 데이터를 처리하고 분석하며 정보를 얻는 방법을 보여 줍니다."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

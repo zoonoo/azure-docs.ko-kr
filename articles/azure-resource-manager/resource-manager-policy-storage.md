@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>저장소 계정에 리소스 정책 적용
@@ -27,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="define-permitted-storage-account-types"></a>허용되는 저장소 계정 유형 정의
 
-다음 정책은 배포될 수 있는 [저장소 계정 유형](../storage/storage-redundancy.md)을 제한합니다.
+다음 정책은 배포될 수 있는 [저장소 계정 유형](../storage/common/storage-redundancy.md)을 제한합니다.
 
 ```json
 {
@@ -58,7 +57,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="define-permitted-access-tier"></a>허용되는 액세스 계층 정의
 
-다음 정책은 저장소 계정에 대해 지정될 수 있는 [액세스 계층](../storage/storage-blob-storage-tiers.md)의 유형을 지정합니다.
+다음 정책은 저장소 계정에 대해 지정될 수 있는 [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)의 유형을 지정합니다.
 
 ```json
 {
@@ -88,7 +87,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="ensure-encryption-is-enabled"></a>암호화를 사용하도록 설정해야 함
 
-다음 정책에서는 모든 저장소 계정이 [저장소 계정 암호화](../storage/storage-service-encryption.md)를 사용하도록 설정해야 합니다.
+다음 정책에서는 모든 저장소 계정이 [저장소 계정 암호화](../storage/common/storage-service-encryption.md)를 사용하도록 설정해야 합니다.
 
 ```json
 {

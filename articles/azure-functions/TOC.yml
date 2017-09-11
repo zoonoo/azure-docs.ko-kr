@@ -39,6 +39,8 @@
       href: functions-twitter-email.md
     - name: 2 - 서버를 사용하지 않는 API 만들기
       href: functions-create-serverless-api.md
+    - name: 3 - OpenAPI 정의 만들기
+      href: functions-openapi-definition.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -47,7 +49,7 @@
       href: functions-cli-samples.md
 - name: 개념
   items:
-    - name: 소비 및 App Service 계획
+    - name: 호스팅 계획 비교
       href: functions-scale.md
     - name: 트리거 및 바인딩
       href: functions-triggers-bindings.md
@@ -99,6 +101,8 @@
           href: functions-api-definition-getting-started.md
         - name: PowerApps 및 Microsoft Flow로 내보내기
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: PowerApps에서 함수 호출
+          href: functions-powerapps-scenario.md
 - name: 참조
   items:
     - name: 바인딩

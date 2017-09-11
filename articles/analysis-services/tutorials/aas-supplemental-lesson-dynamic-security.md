@@ -3,7 +3,7 @@ title: "Azure Analysis Services 자습서 추가 단원: 동적 보안 | Microso
 description: "Azure Analysis Services 자습서의 행 필터를 사용하여 동적 보안을 사용하는 방법에 대해 설명합니다."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f7697b1069186b9ab6b6594fa5efb069252475
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
@@ -33,13 +33,13 @@ ms.lasthandoff: 07/26/2017
 
 이 Node.js 자습서에서는 Azure Cosmos DB 및 DocumentDB API를 사용하여 Azure Websites에 호스팅된 Node.js Express 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 작업을 만들고 검색하고 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램인 ToDo 응용 프로그램을 빌드합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다. 이 자습서는 앱을 만들고 배포하는 과정을 안내하고 각 코드 조각에서 발생하는 상황에 대해 설명합니다.
 
-![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
+![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 자습서를 완료할 시간이 없고 전체 솔루션을 가져오려는 경우 [GitHub][GitHub]에서 전체 샘플 솔루션을 구할 수 있습니다. 앱을 실행하는 방법에 대한 지침은 [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) 파일을 참조하세요.
 
 ## <a name="_Toc395783176"></a>필수 조건
 > [!TIP]
-> 이 Node.js 자습서에서는 Node.js 및 Azure 웹 사이트를 이전에 사용해본 경험이 있다고 가정합니다.
+> 이 Node.js 자습서에서는 Node.js 및 Azure Websites를 이전에 사용해본 경험이 있다고 가정합니다.
 > 
 > 
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 ## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램 만들기
 이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
-1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
+1. Node.js 명령 프롬프트와 같이 즐겨찾는 터미널을 엽니다.
 2. 새 응용 프로그램을 저장하려는 디렉터리로 이동합니다.
 3. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
    
@@ -78,12 +78,12 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
         npm start
 6. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
    
-    ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image12.png)
+    ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     그런 다음 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **y**를 클릭하여 배치 작업을 종료합니다.
 
 ## <a name="_Toc395783179"></a>3단계: 추가 모듈 설치
-**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure 웹 사이트에 배포하는 경우 이 파일을 사용하여 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
+**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure Websites에 배포할 때, 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정하는 데 이 파일을 사용합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
 
 1. 다시 터미널에서 npm을 통해 **async** 모듈을 설치합니다.
    
@@ -190,12 +190,6 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection은 컬렉션의 제공 유형을 지정하는 데 사용할 수 있는 선택적 requestOptions 매개 변수를 사용합니다. requestOptions.offerType 값을 제공하지 않으면 기본 제공 유형을 사용하여 컬렉션이 생성됩니다.
-   > 
-   > Azure Cosmos DB 제공 유형에 대한 자세한 내용은 [Azure Cosmos DB의 성능 수준](performance-levels.md)을 참조하세요. 
-   > 
-   > 
 5. **docdbUtils.js** 파일을 저장하고 닫습니다.
 6. **taskDao.js** 파일의 시작 부분에서 위에서 만든 **DocumentDBClient** 및 **docdbUtils.js**를 참조하도록 다음 코드를 추가합니다.
    
@@ -430,7 +424,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 6. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
 
 ## <a name="_Toc395783181"></a>5단계: 사용자 인터페이스 작성
-이제 사용자가 실제로 응용 프로그램을 조작할 수 있도록 사용자 인터페이스를 작성하겠습니다. 만든 Express 응용 프로그램은 **Jade** 를 뷰 엔진으로 사용합니다. Jade에 대한 자세한 내용은 [http://jade-lang.com/](http://jade-lang.com/)을 참조하세요.
+이제 사용자가 실제로 응용 프로그램을 조작할 수 있도록 사용자 인터페이스를 작성하겠습니다. 만든 Express 응용 프로그램은 **Jade**를 뷰 엔진으로 사용합니다. Jade에 대한 자세한 내용은 [http://jade-lang.com/](http://jade-lang.com/)을 참조하세요.
 
 1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다. 
 2. **views** 폴더에 있는 **layout.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
@@ -497,20 +491,20 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
              button.btn(type="submit") Add item
    
 
-    이렇게 하면 레이아웃이 확장되고 앞에서 **layout.jade** 파일에 있던 **content** 자리 표시자의 콘텐츠가 제공됩니다.
+이렇게 하면 레이아웃이 확장되고 앞에서 **layout.jade** 파일에 있던 **content** 자리 표시자의 콘텐츠가 제공됩니다.
    
-    이 레이아웃에서 HTML 폼 두 개를 만들었습니다.
+이 레이아웃에서 HTML 폼 두 개를 만들었습니다.
 
-    첫 번째 폼에는 데이터에 대한 테이블 및 컨트롤러의 **/completetask** 메서드에 게시하여 항목을 업데이트할 수 있게 해주는 단추 및 데이터 테이블이 포함됩니다.
+첫 번째 폼에는 데이터에 대한 테이블 및 컨트롤러의 **/completetask** 메서드에 게시하여 항목을 업데이트할 수 있게 해주는 단추 및 데이터 테이블이 포함됩니다.
     
-    두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다.
+두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다.
 
-    응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
+응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 
 ## <a name="_Toc395783181"></a>6단계: 로컬에서 응용 프로그램 실행
 1. 로컬 컴퓨터에서 응용 프로그램을 테스트하려면 터미널에서 `npm start`를 실행하여 응용 프로그램을 시작한 다음 [http://localhost:3000](http://localhost:3000) 브라우저 페이지를 새로 고칩니다. 이제 페이지가 아래 이미지처럼 표시됩니다.
    
-    ![브라우저 창에 표시된 MyTodo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image18.png)
+    ![브라우저 창에 표시된 MyTodo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > layout.jade 파일이나 index.jade 파일에서 들여쓰기에 대한 오류가 발생하면 두 파일의 처음 두 줄을 공백 없이 왼쪽에 맞춥니다. 처음 두 줄 앞에 공백이 있으면 제거하고 두 파일을 모두 저장한 다음 브라우저 창을 새로 고칩니다. 
@@ -518,12 +512,12 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 2. [항목], [항목 이름] 및 [범주] 필드를 사용하여 새 작업을 입력한 다음 **항목 추가**를 클릭합니다. 그러면 이러한 속성을 포함한 문서를 Azure Cosmos DB에 만듭니다. 
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
-    ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image19.png)
+    ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다. 그러면 이미 만든 문서를 업데이트합니다.
 
 5. 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **Y**를 클릭하여 배치 작업을 종료합니다.
 
-## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
+## <a name="_Toc395783182"></a>7단계: Azure Websites에 응용 프로그램 개발 프로젝트 배포
 1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure App Service에 로컬 Git 배포](../app-service-web/app-service-deploy-local-git.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 찾을 수 있습니다.
 2. Azure 웹 사이트를 git 원격으로 추가합니다.
    
@@ -531,7 +525,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 3. 원격 푸시로 배포합니다.
    
         git push azure master
-4. 몇 초 후에 웹 응용 프로그램 게시가 완료되고 git가 웹 응용 프로그램 게시를 완료하고, Azure에서 실행 중인 작업을 볼 수 있는 브라우저가 실행됩니다.
+4. 몇 초 후에 git이 웹 응용 프로그램 게시를 완료하고 Azure에서 실행 중인 작업을 볼 수 있는 브라우저가 실행됩니다.
 
     축하합니다. 지금까지 Azure Cosmos DB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure Websites에 게시했습니다.
 

@@ -4,7 +4,7 @@ description: "이 문서는 .NET SDK를 사용하여 Azure Media Services 원격
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services

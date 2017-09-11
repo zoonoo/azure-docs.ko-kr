@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>자습서: Merchlogix와 Azure Active Directory 통합
@@ -109,9 +109,12 @@ Merchlogix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Merchlogix 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<domain>/login.php?saml=true`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<DOMAIN>/login.php?saml=true`
 
-    b. **식별자** 텍스트 상자에서 `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>` 패턴을 사용하여 URL을 입력합니다.
+    
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Merchlogix 지원 팀](http://www.merchlogix.com/contact/)에 문의하세요.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -121,7 +124,7 @@ Merchlogix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. **Merchlogix 구성** 섹션에서 **Merchlogix 구성**을 클릭하여 **로그인 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+6. **Merchlogix 구성** 섹션에서 **Merchlogix 구성**을 클릭하여 **로그인 구성** 창을 엽니다. **빠른 참조** 섹션에서 **로그아웃 URL, SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Merchlogix 구성](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

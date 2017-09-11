@@ -1,5 +1,5 @@
 ---
-title: "2016년&6;월&1;일 스키마 업데이트 - Azure Logic Apps | Microsoft Docs"
+title: "2016년 6월 1일 스키마 업데이트 - Azure Logic Apps | Microsoft Docs"
 description: "스키마 버전 2016-06-01로 Azure Logic Apps에 대한 JSON 정의 만들기"
 author: jeffhollan
 manager: anneta
@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
@@ -31,7 +30,7 @@ Azure Logic Apps에 대한 새 스키마 및 API 버전에 논리 앱의 안정�
 * [조건과 루프](#conditions-loops)는 최고 수준의 작업입니다.
 * `dependsOn`를 대체하는 `runAfter` 속성이 있는 작업을 실행하기 위한 보다 정확한 정렬
 
-2015년 8월 1일 미리 보기 스키마에서 2016년 6월 1일 스키마로 논리 앱을 업그레이드하려면 [업그레이드 섹션을 확인합니다.](#upgrading-to-2016-06-01-schema)
+2015년 8월 1일 미리 보기 스키마에서 2016년 6월 1일 스키마로 논리 앱을 업그레이드하려면 [업그레이드 섹션을 확인합니다.](##upgrade-your-schema)
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>범위
@@ -115,8 +114,7 @@ Azure Logic Apps에 대한 새 스키마 및 API 버전에 논리 앱의 안정�
     ![스키마 업데이트 선택][1]
    
     업그레이드된 정의가 반환되며 필요할 경우 리소스 정의에 복사 및 붙여넣을 수 있습니다. 
-    하지만 업그레이드된 논리 앱에서 모든 연결 참조가 유효하도록 **다른 이름으로 저장** 
-   을 사용하는 것이 **좋습니다.**
+    하지만 업그레이드된 논리 앱에서 모든 연결 참조가 유효하도록 **다른 이름으로 저장**을 사용하는 것이 **좋습니다**.
 
 3. 업그레이드 블레이드 도구 모음에서 **다른 이름으로 저장**을 선택합니다.
 

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics의 네트워크 성능 모니터 솔루션
@@ -216,9 +215,9 @@ PowerShell 스크립트를 사용하여 Windows를 실행하는 컴퓨터에서 
 
 다음 표에는 데이터 수집 방법 및 네트워크 성능 모니터에 대한 데이터가 수집되는 방식에 대한 기타 세부 정보가 나와 있습니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP는 5초마다 핸드셰이크/ICMP ECHO 메시지를 전송하며 3분마다 데이터가 전송됩니다. |
+| Windows | &#8226; | &#8226; |  |  |  |TCP는 5초마다 핸드셰이크/ICMP ECHO 메시지를 전송하며 3분마다 데이터가 전송됩니다. |
 
 이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크 교환 TCP 패킷 또는 ICMP Echo(모니터링을 위해 선택한 프로토콜에 따라 다름)의 다양한 지점에 설치된 OMS 에이전트는 다른 에이전트와 통신합니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복되며 에이전트는 이 데이터를 3분 기간마다 집계하여 Log Analytics 서비스에 업로드합니다.
 

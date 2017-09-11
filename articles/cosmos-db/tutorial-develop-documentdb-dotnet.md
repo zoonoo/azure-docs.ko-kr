@@ -10,7 +10,7 @@ tags:
 ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
@@ -115,7 +115,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동하고 **키**를 클릭�
 이제 **DocumentClient**의 새 인스턴스를 만듭니다.
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>데이터베이스 만들기

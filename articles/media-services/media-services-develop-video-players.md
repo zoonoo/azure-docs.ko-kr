@@ -2,7 +2,7 @@
 title: "비디오 플레이어 응용 프로그램 개발"
 description: "이 토픽에서는 Media Services의 스트리밍 미디어를 사용할 수 있는 고유한 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 플레이어 프레임워크 및 플러그 인에 대한 링크를 제공합니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

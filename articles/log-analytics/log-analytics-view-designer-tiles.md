@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics 뷰 디자이너 타일 참조
@@ -30,7 +30,7 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 * [시각화 요소 참조](log-analytics-view-designer-parts.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조
 
 >[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 모든 뷰의 쿼리를 [새 쿼리 언어](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)로 써야 합니다.  작업 영역을 업그레이드하기 전에 생성된 모든 뷰는 자동으로 변환됩니다.
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 모든 뷰의 쿼리를 [새 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856078)로 써야 합니다.  작업 영역을 업그레이드하기 전에 생성된 모든 뷰는 자동으로 변환됩니다.
 
 다음 표에서는 뷰 디자이너에서 사용할 수 있는 다양한 유형의 타일을 나열합니다.  그 아래에 나오는 섹션에서는 각 타일 형식 및 해당 속성에 대해 자세히 설명합니다.
 

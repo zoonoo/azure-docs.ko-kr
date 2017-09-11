@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
-translationtype: Human Translation
-ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
-ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
-ms.lasthandoff: 02/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34fbe99572b4a6cee73de6ae5412a0ec09dd1ccc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습
@@ -85,7 +85,7 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
-[Azure 포털](http://portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
 
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 

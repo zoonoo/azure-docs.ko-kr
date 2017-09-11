@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: f41132d69dbbc9e5871851220e5f7de933c50efe
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리
@@ -93,7 +93,7 @@ ms.lasthandoff: 08/03/2017
 
 ![구성](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-[저장소 중복](../storage/storage-redundancy.md)에 대한 자세한 내용은 이 문서를 참조하세요.
+[저장소 중복](../storage/common/storage-redundancy.md)에 대한 자세한 내용은 이 문서를 참조하세요.
 
 ## <a name="microsoft-azure-backup-agent-tasks"></a>Microsoft Azure 백업 에이전트 작업
 ### <a name="console"></a>콘솔

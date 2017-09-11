@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 11/18/2016
+ms.date: 6/2/2017
 ms.author: shigu;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8d189256ed4c876859203406cda95ce0be36c96c
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="memory-optimizations-for-columnstore-compression"></a>Columnstore 압축을 위한 메모리 최적화
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
-메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
+행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
 
 ## <a name="why-the-rowgroup-size-matters"></a>행 그룹 크기가 중요한 이유
 columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 테이블을 검색하므로 각 행 그룹에서 행 수를 최대화하면 쿼리 성능이 향상됩니다. 행 그룹에 행 수가 많은 경우 데이터 압축이 향상되며 따라서 디스크에서 읽어올 데이터가 줄어듭니다.
@@ -37,11 +37,45 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>압축 중에 행 그룹을 잘라낼 수 있음
 
-대량 로드 또는 columnstore 인덱스 다시 작성 중에는 각 행 그룹에 대해 지정된 모든 행을 압축하기에 메모리가 부족할 수 있습니다. 메모리가 부족할 때 columnstore 인덱스는 columnstore로 압축이 성공할 수 있도록 행 그룹 크기를 자릅니다.
+대량 로드 또는 columnstore 인덱스 다시 작성 중에는 각 행 그룹에 대해 지정된 모든 행을 압축하기에 메모리가 부족할 수 있습니다. 메모리가 부족할 때 columnstore 인덱스는 columnstore로 압축이 성공할 수 있도록 행 그룹 크기를 자릅니다. 
 
 10,000개 이상의 행을 각 행 그룹으로 압축하기에 메모리가 부족한 경우 SQL Data Warehouse에서 오류를 생성합니다.
 
 대량 로드에 대한 자세한 내용은 [클러스터형 columnstore 인덱스로 대량 로드](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index)를 참조하세요.
+
+## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
+
+행 그룹의 행 수, 행 그룹이 잘린 경우 해당 이유 등의 유용한 정보를 표시하는 DMV(sys.dm_pdw_nodes_db_column_store_row_group_physical_stats)를 사용할 수 있습니다. 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
+
+```sql
+create view dbo.vCS_rg_physical_stats
+as 
+with cte
+as
+(
+select   tb.[name]                    AS [logical_table_name]
+,        rg.[row_group_id]            AS [row_group_id]
+,        rg.[state]                   AS [state]
+,        rg.[state_desc]              AS [state_desc]
+,        rg.[total_rows]              AS [total_rows]
+,        rg.[trim_reason_desc]        AS trim_reason_desc
+,        mp.[physical_name]           AS physical_name
+FROM    sys.[schemas] sm
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
+JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
+JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
+                                                                            AND rg.[pdw_node_id]   = nt.[pdw_node_id]
+                                        AND rg.[distribution_id]    = nt.[distribution_id]                                          
+)
+select *
+from cte;
+```
+
+trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_reason_desc = NO_TRIM은 행 그룹이 잘리지 않았으며 최적의 품질임을 나타냅니다. 아래의 잘림 이유는 행 그룹이 중간에 잘렸음을 나타냅니다.
+- BULKLOAD: 로드에 대해 들어오는 행 배치의 행 수가 1백만 개 미만이면 이 자르기 이유가 사용됩니다. 삽입되는 행 수가 10만 개보다 많으면 엔진은 델타 저장소에 행을 삽입하지 않고 압축된 행 그룹을 만들지만 자르기 이유를 BULKLOAD로 설정합니다. 이 시나리오에서는 행이 더 많이 누적되도록 배치 로드 기간을 늘리는 것이 좋습니다. 또한 행 그룹은 파티션 경계를 벗어나도록 배치될 수 없으므로, 파티션 구성표를 다시 평가하여 파티션이 너무 세밀하지 않은지 확인합니다.
+- MEMORY_LIMITATION: 행이 1백만 개인 행 그룹을 만들려는 경우 엔진에는 일정량의 작업 메모리가 필요합니다. 로딩 세션의 사용 가능한 메모리가 필요한 작업 메모리보다 적으면 행 그룹이 중간에 잘립니다. 필요한 메모리를 예측하고 메모리를 추가로 할당하는 방법은 다음 섹션에서 설명합니다.
+- DICTIONARY_SIZE: 이 자르기 이유는 너비 및/또는 높이 값이 큰 카디널리티 문자열이 포함된 문자열 열이 하나 이상 있어서 행 그룹이 잘렸음을 나타냅니다. 메모리에서 사전 크기는 16MB로 제한되며, 이 제한에 도달하면 행 그룹은 압축됩니다. 이러한 상황이 발생하는 경우 문제가 되는 열을 별도의 테이블에 포함해 보세요.
 
 ## <a name="how-to-estimate-memory-requirements"></a>메모리 요구 사항을 예측하는 방법
 
@@ -108,7 +142,7 @@ OPTION (MAXDOP 1);
 DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼리에 사용 가능한 메모리 양을 결정합니다. 로드 쿼리에 대한 메모리 부여를 늘리려면 DWU 수를 늘리거나 리소스 클래스 수를 늘리면 됩니다.
 
 - DWU 수를 늘리려면 [성능을 조정하려면 어떻게 해야 합니까?](sql-data-warehouse-manage-compute-overview.md#scale-compute)를 참조하세요.
-- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)를 참조하세요.
+- 쿼리에 대한 리소스 클래스를 변경하려면 [사용자 리소스 클래스 변경 예제](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)를 참조하세요.
 
 예를 들어 DWU 100에서는 smallrc 리소스 클래스의 사용자는 배포당 100MB의 메모리를 사용할 수 있습니다. 자세한 내용은 [SQL Data Warehouse의 동시성](sql-data-warehouse-develop-concurrency.md)을 참조하세요.
 

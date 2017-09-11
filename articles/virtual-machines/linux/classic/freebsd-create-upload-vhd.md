@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>FreeBSD VHD를 만들어서 Azure에 업로드
@@ -128,7 +127,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
    * **URL** 필드에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 3-24자의 숫자와 소문자를 사용할 수 있습니다. 이 이름은 구독에 대한 Azure Blob 저장소, Azure 큐 저장소 또는 Azure 테이블 저장소 리소스의 주소를 지정하는 데 사용되는 URL 내의 호스트 이름이 됩니다.
    * **위치/선호도 그룹** 드롭다운 메뉴에서 저장소 계정의 **위치 또는 선호도 그룹**을 선택합니다. 선호도 그룹을 사용하면 클라우드 서비스와 저장소를 동일한 데이터 센터에 배치할 수 있습니다.
-   * **복제** 필드에서, 저장소 계정에 **지역 중복** 복제를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 내용은 [Azure Storage 복제](../../../storage/storage-redundancy.md)에서 확인할 수 있습니다.
+   * **복제** 필드에서, 저장소 계정에 **지역 중복** 복제를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 내용은 [Azure Storage 복제](../../../storage/common/storage-redundancy.md)에서 확인할 수 있습니다.
 
      ![저장소 계정 세부 정보 입력](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. **저장소 계정 만들기**를 선택합니다. 이제 계정이 **저장소**아래에 나타납니다.
@@ -164,12 +163,12 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>인증서 방법을 사용하여 .vhd 파일 업로드
 1. Azure PowerShell 콘솔을 엽니다.
-2. 다음을 입력합니다.  `Get-AzurePublishSettingsFile`
+2. 입력: `Get-AzurePublishSettingsFile`
 3. 브라우저 창이 열리고 .publishsettings 파일을 다운로드하라는 메시지가 표시됩니다. 이 파일에는 Azure 구독에 대한 정보와 인증서가 포함되어 있습니다.
 
     ![브라우저 다운로드 페이지](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. .publishsettings 파일을 저장합니다.
-5. 입력:  `Import-AzurePublishSettingsFile <PathToFile>`, 여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
+5. 입력: `Import-AzurePublishSettingsFile <PathToFile>`, 여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
 
    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요.
 

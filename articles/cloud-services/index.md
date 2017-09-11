@@ -2,7 +2,7 @@
 title: "Azure Cloud Services 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "자습서, API 참조 및 기타 설명서에서는 Cloud Services를 사용하여 가용성 및 확장이 뛰어난 클라우드 응용 프로그램 및 API를 호스트하고 실행하는 방법을 보여 줍니다."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
 ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services 설명서
@@ -127,10 +129,5 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

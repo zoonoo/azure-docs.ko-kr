@@ -4,7 +4,7 @@ description: "이 자습서에서는 Azure 포털을 통해 콘텐츠를 게시�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services

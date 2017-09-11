@@ -1,5 +1,4 @@
 ---
-
 title: "Azure에서 거버넌스 | Microsoft Docs"
 description: "응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 91fb3c70d95cca46dd68e3f15ad67c914cfbfa5b
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -171,7 +169,7 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 
 예를 들어 리소스 그룹에 액세스할 수 있는 사용자는 웹 사이트, 가상 컴퓨터 및 서브넷을 포함하여 그 안에 포함된 모든 리소스를 관리할 수 있습니다.
 
-Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 저장소 계정 관리 권한을 부여할 수 있지만 저장소 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
+Azure RBAC는 Azure Portal 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 저장소 계정 관리 권한을 부여할 수 있지만 저장소 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
 
 RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 액세스 제어란](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)을 참조하세요.
 
@@ -329,13 +327,13 @@ Azure 리소스 RateCard API를 사용하여 각 예상 가격 정보 및 사용
 
 ### <a name="network-connectivity"></a>네트워크 연결
 
-[가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 서브넷에 대한 컨테이너 개체입니다. 반드시 필요한 것은 아니지만 응용 프로그램을 내부 기업 리소스에 연결할 때 주로 사용됩니다. Azure Virtual Network 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다.
+[Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 서브넷에 대한 컨테이너 개체입니다. 반드시 필요한 것은 아니지만 응용 프로그램을 내부 기업 리소스에 연결할 때 주로 사용됩니다. Azure Virtual Network 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다.
 
 VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수도 있습니다.
 
 다음은 Azure Virtual Networks의 기능입니다.
 
-- **격리**: VNet은 서로 완전히 격리됩니다. 동일한 CIDR 주소 블록을 사용하는 개발, 테스트 및 프로덕션 환경에 대해 개별 VNet을 만들 수 있습니다. 반대로, 다른 CIDR 주소 블록을 사용하고 네트워크를 함께 연결하는 여러 VNet을 만들 수도 있습니다. VNet을 여러 서브넷으로 분할할 수 있습니다. Azure는 VNet에 연결되는 VM 및 클라우드 서비스 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 필요에 따라 Azure 내부 이름 확인을 사용하는 대신, 고유한 DNS 서버를 사용하도록 VNet을 구성할 수 있습니다.
+- **격리**: VNet은 서로 완전히 격리됩니다. 동일한 CIDR 주소 블록을 사용하는 개발, 테스트 및 프로덕션 환경에 대해 개별 VNet을 만들 수 있습니다. 반대로, 다른 CIDR 주소 블록을 사용하고 네트워크를 함께 연결하는 여러 VNet을 만들 수도 있습니다. VNet을 여러 서브넷으로 분할할 수 있습니다. Azure는 VNet에 연결되는 VM 및 Cloud Services 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 필요에 따라 Azure 내부 이름 확인을 사용하는 대신, 고유한 DNS 서버를 사용하도록 VNet을 구성할 수 있습니다.
 
 - **인터넷 연결**: VNet에 연결되는 모든 Azure VM(Virtual Machines) 및 Cloud Services 역할 인스턴스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
 
@@ -387,7 +385,7 @@ AD DS GPO에서 Azure 보안 거버넌스를 사용하여 파일 공유와 같�
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 구독에서 리소스 보안 상태를 중앙에서 볼 수 있으며 리소스 손상을 방지하기 위한 권장 사항을 확인할 수 있습니다. 보다 세부적인 정책이 가능합니다. 예를 들어 기업이 직면한 위험에 따라 대비할 수 있도록 특정 리소스 그룹에 정책을 적용할 수 있습니다.
 
-![Azure 보안 센터](./media/governance-in-azure/security-governance-in-azure-fig7.png)
+![Azure Security Center](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다. 구독의 리소스에 대해 [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies)을 사용하도록 설정하면 Security Center에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만,
 
@@ -424,7 +422,7 @@ Microsoft에는 Microsoft의 모든 서비스를 감독 및 평가하는 보안 
 
 OMS(Operations Management Suite)는 처음부터 클라우드에서 설계된 관리 서비스 컬렉션입니다. OMS 구성 요소는 온-프레미스 리소스를 배포하고 관리하는 대신 Azure에서 전적으로 호스트됩니다. 구성 작업이 최소화되어 문자 그대로 몇 분 안에 실행할 수 있습니다.
 
-![Operation Manager 제품군](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 클라우드에서 OMS 서비스를 실행한다고 해서 온-프레미스 환경을 효과적으로 관리할 수 없다는 것은 아닙니다.
 
@@ -434,7 +432,7 @@ OMS(Operations Management Suite)는 처음부터 클라우드에서 설계된 �
 
 OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-![Operation Manager 제품군](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확장합니다. [관리 솔루션](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)은 하나 이상의 OMS 서비스를 활용하여 관리 시나리오를 구현하는 미리 패키지된 논리 집합입니다.
 
@@ -467,7 +465,7 @@ Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확�
 - Azure Monitor: 메트릭 값과 활동 로그 이벤트 모두를 기반으로 한 경고가 가능합니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하여 경고를 관리할 수 있습니다.
 
 >[!Note]
-> 자세한 내용은 [Azure 포털, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)를 참조하세요.
+> 자세한 내용은 [Azure Portal, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)를 참조하세요.
 
 ### <a name="monitoring"></a>모니터링
 
