@@ -13,12 +13,6 @@
 ### [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
 ### [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
 ### [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
-## Azure 클래식 포털(사용되지 않음)
-### [작업 1: 관리자 그룹 만들기](active-directory-ds-getting-started-create-group.md)
-### [작업 2: 가상 네트워크 만들기 또는 선택](active-directory-ds-getting-started-vnet.md)
-### [작업 3: Azure AD Domain Services 활성화](active-directory-ds-getting-started-enableaadds.md)
-### [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-update-dns.md)
-### [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
 ## 관리되는 도메인 가입

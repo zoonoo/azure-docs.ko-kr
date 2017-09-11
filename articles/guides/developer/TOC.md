@@ -5,10 +5,10 @@
 ## [SDK 및 도구](../../index.md#pivot=sdkstools)
 
 # 빠른 시작
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## 가상 컴퓨터
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [서버를 사용하지 않음](../../azure-functions/functions-create-first-azure-function.md)
 ## 마이크로 서비스
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # 자습서
 ## 웹앱 만들기 및 배포
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.JS](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.JS](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## 복잡한 VM 템플릿 배포
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure 연결 함수 만들기](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Linux에서 Docker 배포 웹앱](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Linux에서 Docker 배포 웹앱](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # 샘플
 ## Azure CLI
@@ -48,12 +48,11 @@
 
 # 방법 가이드
 ## 계획
-### [웹 응용 프로그램 아키텍처](../../guidance/guidance-ra-app-service.md)
-### [VM 아키텍처](../../guidance/guidance-ra-compute.md)
-### [온-프레미스 네트워크에 연결](../../guidance/guidance-ra-hybrid-networking.md)
+### [웹 응용 프로그램 아키텍처](/azure/architecture/reference-architectures/managed-web-app/)
+### [VM 아키텍처](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [온-프레미스 네트워크에 연결](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [마이크로 서비스 패턴/시나리오](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## 개발
-### [WordPress 앱](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Linux VM](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [서버를 사용하지 않는 앱](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [파일 공유](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [키-값 쌍](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [JSON 문서](../../documentdb/documentdb-get-started.md)
-### [관계형 테이블](../../sql-database/sql-database-get-started.md)
+### [JSON 문서](../../cosmos-db/documentdb-get-started.md)
+### [관계형 테이블](../../sql-database/sql-database-get-started-portal.md)
 ### [메시지 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## 확장
@@ -77,7 +76,7 @@
 ### [마이크로 서비스 앱](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## 보안
-### [웹 및 모바일 앱](../../app-service-web/web-sites-security.md)
+### [웹 및 모바일 앱](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## 백업
 ### [웹 및 모바일 앱](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## 모니터
 ### [웹 및 모바일 앱](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Linux VM](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Linux VM](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [마이크로 서비스](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [청구 경고](../../billing/billing-set-up-alerts.md)
