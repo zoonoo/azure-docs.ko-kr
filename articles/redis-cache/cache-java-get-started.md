@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
+ms.date: 08/31/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>Azure Redis Cache를 Java와 함께 사용하는 방법
@@ -82,4 +82,4 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
 ## <a name="next-steps"></a>다음 단계
 * [캐시 진단을 사용](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)하도록 설정하면 캐시의 상태를 [모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)할 수 있습니다.
 * 공식 [Redis 설명서](http://redis.io/documentation)를 읽어보세요.
-
+* [Redis Cache를 사용하도록 Spring Initializer 앱을 구성하는 방법](cache-java-spring-boot-initializer-with-redis-cache.md)을 알아보세요.

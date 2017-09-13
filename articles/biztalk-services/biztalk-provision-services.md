@@ -152,7 +152,7 @@ Access Control 값은 모든 응용 프로그램에서 사용할 수 있습니�
 Access Control 서비스 ID는 응용 프로그램이나 클라이언트가 Access Control를 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
 
 > [!IMPORTANT]
-> BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*지정한 자격 증명으로 Access Control 관리 서비스 계정에 연결할 수 없습니다*
+> BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 

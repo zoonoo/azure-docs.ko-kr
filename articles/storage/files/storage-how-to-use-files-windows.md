@@ -15,28 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure File Storage](../storage-dotnet-how-to-use-files.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
 
-온-프레미스 또는 다른 Azure 지역에서 호스팅되는 Azure 지역의 외부에 Azure File 공유를 탑재하려면 OS에서 SMB 3.0을 지원해야 합니다. 
+온-프레미스 또는 다른 Azure 지역에서 호스팅되는 Azure 지역의 외부에 Azure 파일 공유를 탑재하려면 OS에서 SMB 3.0을 지원해야 합니다. 
 
-Azure 파일 공유는 OS 버전에 따라 온-프레미스 또는 Azure VM의 Windows 컴퓨터에 탑재할 수 있습니다. 다음 표에서 자세히 보여 줍니다. 
+Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure File 공유를 탑재할 수 있습니다. 다음 표에서는 각 환경에서 탑재 파일 공유를 지원하는 OS 버전을 보여줍니다.
 
-| Windows 버전        | SMB 버전 |Azure VM에 탑재 가능|온-프레미스에 탑재 가능|
-|------------------------|-------------|---------------------|---------------------|
-| 윈도우 7              | SMB 2.1     | 예                 | 아니요                  |
-| Windows Server 2008 R2 | SMB 2.1     | 예                 | 아니요                  |
-| Windows 8              | SMB 3.0     | 예                 | 예                 |
-| Windows Server 2012    | SMB 3.0     | 예                 | 예                 |
-| Windows Server 2012 R2 | SMB 3.0     | 예                 | 예                 |
-| Windows 10             | SMB 3.0     | 예                 | 예                 |
+| Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | 예 | 예 |
+| Windows Server 2016    | SMB 3.0     | 예                   | 예                  |
+| Windows 8.1            | SMB 3.0     | 예                   | 예                  |
+| Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
+| Windows Server 2012    | SMB 3.0     | 예                   | 예                  |
+| 윈도우 7              | SMB 2.1     | 예                   | 아니요                   |
+| Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니요                   |
+
+<sup>1</sup>Windows 10 버전 1507, 1511, 1607 및 1703
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
@@ -66,7 +69,7 @@ Azure 파일 공유는 OS 버전에 따라 온-프레미스 또는 Azure VM의 W
     
     !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **사용자 이름으로 `Azure\`가 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.**
+5. **사용자 이름으로 `Azure\`가 앞에 붙은 저장소 계정 이름을 사용하고, 암호로 저장소 계정 키를 사용합니다.**
     
     ![네트워크 자격 증명 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
@@ -128,8 +131,8 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Linux에서 Azure File Storage 사용 방법](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Azure File Storage용 도구 지원
-* [Microsoft Azure Storage와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure Storage에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Azure 저장소에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Azure File Storage 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Azure File Storage 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 

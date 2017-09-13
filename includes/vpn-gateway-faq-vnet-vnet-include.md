@@ -22,7 +22,11 @@ VPN 게이트웨이 연결을 사용하는 경우 동일한 지역 내의 VNet �
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>VNet이 동일한 구독에 없으면 구독이 동일한 AD 테넌트와 연결되어야 하나요?
 
-번호
+안 됩니다.
+
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>별도 가상 네트워크에 있는 Azure 인스턴스를 연결하는 데 VNet 간 연결을 사용할 수 있나요? 
+
+안 됩니다. VNet 간 연결은 동일한 Azure 인스턴스 내에서 가상 네트워크 연결을 지원합니다. 예를 들어 공용 Azure와 중국/독일/US Gov Azure 인스턴스 사이에 연결을 만들 수 없습니다. 이러한 시나리오의 경우 사이트 간 VPN 연결을 사용하는 것이 좋습니다.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>VNet간 연결을 멀티 사이트 연결과 함께 사용할 수 있나요?
 

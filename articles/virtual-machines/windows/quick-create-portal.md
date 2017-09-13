@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
+5. **설정** 아래에서 기본값을 유지하고 **확인**을 클릭합니다. 
 
 6. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
 
-7. Azure Portal 대시보드에 VM을 고정합니다. 배포가 완료되면 VM 요약 블레이드가 자동으로 열립니다.
+7. Azure Portal 대시보드에 VM을 고정합니다. 배포가 완료되면 VM 요약이 자동으로 열립니다.
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
@@ -94,13 +94,13 @@ NSG(네트워크 보안 그룹)는 인바운드 및 아웃바운드 트래픽의
 
 ## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-IIS를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버에 액세스할 수 있습니다. 웹 브라우저를 열고 VM의 공용 IP 주소를 입력합니다. 공용 IP 주소는 Azure Portal에서 VM 블레이드에서 찾을 수 있습니다.
+IIS를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버에 액세스할 수 있습니다. 웹 브라우저를 열고 VM의 공용 IP 주소를 입력합니다. 공용 IP 주소는 Azure Portal의 *Virtual Machines* 아래에서 찾을 수 있습니다.
 
 ![IIS 기본 사이트](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 블레이드에서 해당 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 VM에 대한 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

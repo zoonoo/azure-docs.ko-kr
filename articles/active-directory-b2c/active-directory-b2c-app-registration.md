@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: 응용 프로그램 등록
@@ -31,6 +31,8 @@ ms.lasthandoff: 08/08/2017
 
 Azure Portal의 Azure AD B2C 블레이드에서 만든 응용 프로그램은 동일한 위치에서 관리되어야 합니다. PowerShell 또는 다른 포털을 사용하여 B2C 응용 프로그램을 편집할 경우 지원을 받을 수 없게 되며 Azure AD B2C에 작동하지 않습니다. [오류가 발생한 앱](#faulted-apps) 섹션에서 자세한 내용을 참조하세요. 
 
+이 문서에서는 샘플을 시작하는 데 도움이 되는 예제를 사용합니다. 후속 문서에서는 이러한 샘플에 대해 자세히 알아볼 수 있습니다.
+
 ## <a name="navigate-to-b2c-settings"></a>B2C 설정으로 이동
 
 B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
@@ -39,13 +41,13 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-등록하려는 응용 프로그램 형식에 따라 다음 단계를 선택합니다.
+## <a name="choose-next-steps-based-on-your-application-type"></a>응용 프로그램 유형에 따라 다음 단계 선택
 
 * [웹 응용 프로그램 등록](#register-a-web-app)
 * [웹 API 등록](#register-a-web-api)
 * [모바일 또는 네이티브 앱 등록](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>웹앱 등록
+### <a name="register-a-web-app"></a>웹앱 등록
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 
 [**다음 단계**로 이동](#next-steps)
 
-## <a name="register-a-web-api"></a>웹 API 등록
+### <a name="register-a-web-api"></a>웹 API 등록
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 
 [**다음 단계**로 이동](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>모바일 또는 네이티브 응용 프로그램 등록
+### <a name="register-a-mobile-or-native-app"></a>모바일 또는 네이티브 응용 프로그램 등록
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

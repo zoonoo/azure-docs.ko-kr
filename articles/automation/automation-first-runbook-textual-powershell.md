@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4b32011b72acc647d4af44bb5ccbcaab408fb4d6
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: cd8ea6e5a85d00f8ee5a011330d5b93863fd735e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/27/2017
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
-* [자동화 계정](automation-sec-configure-azure-runas-account.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
+* [자동화 계정](automation-offering-get-started.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 컴퓨터. 프로덕션 VM이 되지 않도록 이 가상 컴퓨터를 중지하고 시작합니다.
 
 ## <a name="step-1---create-new-runbook"></a>1 단계-새 runbook 만들기
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/27/2017
 ## <a name="step-2---add-code-to-the-runbook"></a>2단계 - Runbook에 코드 추가
 runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdlet, Runbook 및 자산을 선택한 후 관련 매개 변수와 함께 Runbook에 추가되도록 할 수 있습니다. 이 연습에서는 Runbook에 직접 입력합니다.
 
-1. 이 Runbook은 현재 비어 있습니다. *Write-Output "Hello World."*를 입력합니다.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+1. 이 Runbook은 현재 비어 있습니다. 스크립트의 본문에 *Write-Output "Hello World"*를 입력합니다.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
 2. **저장**을 클릭하여 Runbook을 저장합니다.<br><br> ![저장 단추](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-save.png)  
 
 ## <a name="step-3---test-the-runbook"></a>3 단계 - runbook 테스트
