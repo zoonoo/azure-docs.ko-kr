@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure 트래픽 관리자의 성능 저하 상태 문제해결"
 description: "성능 저하 상태로 표시할 때 Traffic Manager 문제를 해결하는 방법입니다."
 services: traffic-manager
@@ -50,7 +50,7 @@ Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝
 
 또한 Internet Explorer에서 F12 디버깅 도구의 네트워크 탭을 사용하여 HTTP 응답을 확인할 수 있습니다.
 
-이 예에서는 검색 URL인 [http://watestsdp2008r2.cloudapp.net:80/Probe](http://watestsdp2008r2.cloudapp.net:80/Probe)에서 응답을 확인하려고 합니다 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
+이 예에서는 검색 URL인 [http://watestsdp2008r2.cloudapp.net:80/Probe](http://watestsdp2008r2.cloudapp.net:80/Probe)에서 응답을 확인하려고 합니다. 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
