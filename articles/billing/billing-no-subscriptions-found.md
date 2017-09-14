@@ -13,17 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: a4ce9b219c05f8469379c2aac5241fcfffd16033
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 7d6f16f9aad41cc2867ce86361fcea2f93aca7c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 로그인을 시도할 때 구독을 찾을 수 없음 오류 발생
+
 [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 “구독을 찾을 수 없음” 오류 메시지가 표시될 수 있습니다. 본 문서는 이 문제에 대한 해결 방법을 제공합니다.
 
 ## <a name="symptom"></a>증상
@@ -32,11 +33,9 @@ ms.lasthandoff: 08/24/2017
 
 ## <a name="cause"></a>원인
 
-사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다. 
+잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다. 
 
 ## <a name="solution"></a>해결 방법
-
-올바른 관리자 권한으로 로그인해야 합니다. 계정 관리자는 계정 센터에만 액세스할 수 있습니다. SA(서비스 관리자) 및 CA(공동 관리자)는 Azure Portal 또는 Azure 클래식 포털에 대한 액세스 권한만 있습니다.
 
 ### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>시나리오 1: [Azure Portal](https://portal.azure.com)에서 오류 메시지가 표시됨
 
@@ -45,18 +44,17 @@ ms.lasthandoff: 08/24/2017
 * 오른쪽 위에 있는 계정을 클릭하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
 
   ![Azure Portal 오른쪽 위에 있는 디렉터리를 선택합니다.](./media/billing-no-subscriptions-found/directory-switch.png)
-
 * 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 [계정을 소유자로 추가](billing-add-change-azure-subscription-administrator.md)합니다.
 
 ### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>시나리오 2: [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지가 표시됨
 
 사용한 계정이 계정 관리자인지 확인합니다. 계정 관리자가 누구인지 확인하려면 다음 단계를 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **구독**을 선택합니다.
-3. 확인하려는 구독을 선택한 다음 **설정**을 선택합니다.
-4. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
+1. [Azure Portal의 구독 보기](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
+1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.
+1. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.  
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+
 다른 도움이 필요한 경우 [지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하여 문제를 신속하게 해결하세요. 
 

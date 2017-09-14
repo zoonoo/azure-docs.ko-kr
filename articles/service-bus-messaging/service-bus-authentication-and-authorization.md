@@ -15,18 +15,20 @@ ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 
-응용 프로그램은 SAS(공유 액세스 서명) 인증을 사용하여 Azure Service Bus에 인증할 수 있습니다. 공유 액세스 서명 인증을 사용하면 응용 프로그램을 네임 스페이스 또는 특정 권한이 연관된 엔터티에서 구성된 선택키를 사용하여 Service Bus에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 Service Bus를 인증하는 데 사용할 수 있는 공유 액세스 서명 토큰을 생성할 수 있습니다.
+응용 프로그램은 SAS(공유 액세스 서명) 토큰 인증을 사용하여 Azure Service Bus 함수에 액세스할 수 있습니다. SAS를 사용하면 응용 프로그램은 토큰 발급자 및 Service Bus("공유") 모두에 알려진 대칭 키를 사용하여 서명된 Service Bus에 대한 토큰 및 메시지를 수신/수신 대기하거나 보내는 사용 권한 등 특정 액세스 권한을 부여하는 규칙과 직접 연결된 키를 나타냅니다. SAS 규칙은 네임스페이스 또는 큐나 항목과 같은 엔터티에 직접 구성되어 세분화된 액세스 제어를 허용합니다.
+
+SAS 토큰은 Service Bus 클라이언트에 의해 직접 생성되거나 또는 클라이언트에서 상호 작용하는 끝점을 발급하는 일부 중간 토큰에 의해 생성될 수 있습니다. 예를 들어 시스템은 해당 ID 및 시스템 액세스 권한을 증명하기 위해 클라이언트에서 Active Directory 권한 부여 보호 웹 서비스 끝점을 호출해야 할 수 있습니다. 웹 서비스는 적절한 Service Bus 토큰을 반환합니다. 이 SAS 토큰은 SDK에 포함된 Service Bus 토큰 공급자를 사용하여 쉽게 생성할 수 있습니다. 
 
 > [!IMPORTANT]
-> ACS는 이제 사용되지 않으므로 Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함) 대신 SAS를 사용해야 합니다. SAS는 Service Bus에 대한 단순하고 유연하며 사용이 쉬운 인증 체계를 제공합니다. 응용 프로그램은 권한 있는 "사용자"의 개념을 관리할 필요가 없는 시나리오에서 SAS를 사용할 수 있습니다. 자세한 내용은 [이 블로그 게시물](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)에 게시해 주세요.
+> Azure Active Directory 액세스 제어(액세스 제어 서비스 또는 ACS라고도 함)를 Service Bus와 함께 사용하는 경우 이제 이 메서드에 대한 지원이 제한되고 SAS를 사용하여 응용 프로그램을 마이그레이션해야 합니다. 자세한 내용은 [이 블로그 게시물](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)에 게시해 주세요.
 
 ## <a name="shared-access-signature-authentication"></a>공유 액세스 서명 인증
 

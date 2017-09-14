@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: fe78e2ef31695d443123664a83e9f753ccfc0be8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
@@ -101,7 +101,7 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
         ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Azure VM에서 게이트웨이를 프로비전하는 경우 [GitHub에서 이 Azure Resource Manager 템플릿](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
+        > Azure VM에서 게이트웨이를 프로비전하는 경우 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
 6. Azure Portal에서 **게이트웨이** 페이지를 시작합니다. 
     1. 포털의 데이터 팩터리 홈페이지에서 **연결된 서비스**를 클릭합니다.
     

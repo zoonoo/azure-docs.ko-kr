@@ -1,4 +1,4 @@
-Cu--- 제목: 암호화로 미사용 개인 데이터 보호 | Microsoft Docs 설명: 이 문서는 Azure를 사용하여 개인 데이터 서비스를 보호하는 데 도움이 되는 시리즈의 일부입니다. 보안 설명서 센터: 해당 없음 작성자: Barclayn 관리자: MBaldwin 편집장: TomSh
+제목: 암호화로 미사용 개인 데이터 보호 | Microsoft Docs 설명: 이 문서는 Azure를 사용하여 개인 데이터 서비스를 보호하는 데 도움이 되는 시리즈의 일부입니다. 보안 설명서 센터: 해당 없음 작성자: Barclayn 관리자: MBaldwin 편집자: TomSh
 
 ms.assetid: ms.service: security ms.devlang: 해당 없음 ms.topic: article ms.tgt_pltfrm: 해당 없음 ms.workload: 해당 없음 ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 

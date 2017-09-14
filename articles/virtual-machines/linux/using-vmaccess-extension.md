@@ -1,6 +1,6 @@
 ---
 title: "Azure Linux VM에 대한 액세스 다시 설정 | Microsoft Docs"
-description: "VMAccess 확장 및 Azure CLI 2.0을 사용하여 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법"
+description: "VMAccess 확장 및 Azure CLI 2.0을 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 587c73278a9a92776276a811c5c4c8d3db773de3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 사용자, SSH 관리 및 Linux VM의 디스크 검사 또는 복구
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 데이터 센터를 사용할 때는 이러한 경우 데이터 센터로 직접 가서 KVM을 열어 서버 콘솔에 액세스해야 했습니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
 
-이 문서는 VMAccess VM 확장을 사용하여 디스크를 검사 또는 복구하거나, 사용자 액세스를 다시 설정하거나, 사용자 계정을 관리하거나, Linux의 SSH 구성을 다시 설정하는 방법을 설명합니다. [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
+이 문서는 Azure VMAccess VM 확장을 사용하여 디스크를 검사 또는 복구하거나, 사용자 액세스를 다시 설정하거나, 관리 사용자 계정을 관리하거나, Linux의 SSH 구성을 다시 설정하는 방법을 설명합니다. [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess 확장을 사용하는 방법
@@ -67,8 +67,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-a-user"></a>사용자 만들기
-다음 예제에서는 VM `myVM`에서 인증을 위해 SSH 키를 사용하여 사용자 `myNewUser`을 만듭니다.
+## <a name="create-an-administrativesudo-user"></a>관리/sudo 사용자 만들기
+다음 예제에서는 **sudo** 권한을 가진 `myNewUser`라는 사용자를 만듭니다. 계정은 `myVM`이라는 VM에서 인증을 위해 SSH 키를 사용합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
 
 ```azurecli
 az vm user update \
@@ -77,6 +77,8 @@ az vm user update \
   --username myNewUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+
 
 ## <a name="delete-a-user"></a>사용자 삭제
 다음 예제에서는 VM `myVM`에서 사용자 `myNewUser`을 삭제합니다.
@@ -158,9 +160,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-### <a name="manage-users"></a>사용자 관리
+### <a name="manage-administrative-users"></a>관리 사용자 관리
 
-인증을 위해 SSH 키를 사용하는 사용자를 만들려면 파일 `create_new_user.json`을 만들고 다음 형식으로 설정을 추가합니다. `username` 및 `ssh_key` 매개 변수에 대해 고유한 값으로 대체합니다.
+인증을 위해 SSH 키를 사용하고 **sudo** 권한이 있는 사용자를 만들려면 `create_new_user.json`이라는 파일을 만들고 다음 형식으로 설정을 추가합니다. `username` 및 `ssh_key` 매개 변수에 대해 고유한 값으로 대체합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
 
 ```json
 {

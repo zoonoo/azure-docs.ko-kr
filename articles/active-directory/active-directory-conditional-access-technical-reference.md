@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
@@ -28,7 +28,11 @@ ms.lasthandoff: 08/29/2017
 
 - 클라우드 앱 할당
 
+- 장치 플랫폼 조건 
+
 - 클라이언트 앱 조건
+
+- 승인된 클라이언트 앱 요구 사항 
 
 
 
@@ -75,7 +79,27 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 - Azure AD 응용 프로그램 프록시를 사용하는 응용 프로그램 
 
 
-## <a name="client-apps-conditions"></a>클라이언트 앱 조건 
+## <a name="device-platforms-condition"></a>장치 플랫폼 조건
+
+조건부 액세스 정책에서 정책을 클라이언트에서 실행 중인 운영 체제에 연결하는 장치 플랫폼 조건을 구성할 수 있습니다.
+
+![제어](./media/active-directory-conditional-access-technical-reference/41.png)
+
+Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지원합니다.
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS(미리 보기)
+
+
+
+## <a name="client-apps-condition"></a>클라이언트 앱 조건 
 
 조건부 액세스 정책을 구성할 경우 [클라이언트 앱 조건](active-directory-conditional-access-azure-portal.md#client-apps)을 설정할 수 있습니다. 클라이언트 앱 조건을 사용하면 이러한 형식의 클라이언트 앱에서 액세스하려는 경우 권한을 부여하거나 액세스를 차단할 수 있습니다.
 
@@ -83,7 +107,6 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 - 모바일 앱 및 데스크톱 앱
 
 ![제어](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>지원되는 브라우저 
 
@@ -124,11 +147,11 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 
 
 | 클라이언트 앱| 대상 서비스| 플랫폼 |
-| :-- | --- | --- |
+| --- | --- | --- |
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
 | Azure 원격 앱| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
 | Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, MAC OS X, iOS, Android, WP, 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS/Android 및 MAC OSX|
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 | 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| 윈도우 10|
 | Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook 모바일 앱| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 
 
 
+## <a name="approved-client-app-requirement"></a>승인된 클라이언트 앱 요구 사항 
+
+조건부 액세스 정책을 구성할 때 승인된 클라이언트 앱이 연결을 시도한 경우 액세스 권한을 부여하는 요구 사항을 선택할 수 있습니다. 
+
+![제어](./media/active-directory-conditional-access-technical-reference/21.png)
+
+이 설정에 대한 승인된 클라이언트 앱은 다음과 같습니다.
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- 비즈니스용 Microsoft Skype
+
+- Microsoft 팀
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**설명**
 
+- 이러한 앱은 Microsoft Intune MAM(모바일 응용 프로그램 관리)을 지원합니다.
 
+- 이 요구 사항:
 
+    - 선택된 [장치 플랫폼 조건](#device-platforms-condition)으로 IOS 및 Android만 지원 
 
-
-
-
+    - 선택된 [클라이언트 앱 조건](#supported-browsers)으로 **브라우저**를 지원하지 않음 
+    
+    - **모바일 앱 및 데스크톱 클라이언트** [클라이언트 앱 조건](#supported-mobile-apps-and-desktop-clients)이 선택되어 있는 경우 대체  
 
 
 ## <a name="next-steps"></a>다음 단계

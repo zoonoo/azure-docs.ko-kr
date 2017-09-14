@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -58,18 +58,18 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
+5. **설정** 아래에서 기본값을 유지하고 **확인**을 클릭합니다.
 
 6. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
 
-7. Azure Portal 대시보드에 VM을 고정합니다. 배포가 완료되면 VM 요약 블레이드가 자동으로 열립니다.
+7. Azure Portal 대시보드에 VM을 고정합니다. 배포가 완료되면 VM 요약이 자동으로 열립니다.
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
 
 가상 컴퓨터와 SSH 연결 만들기
 
-1. 가상 컴퓨터 블레이드에서 **연결** 단추를 클릭합니다. 연결 단추를 클릭하면 가상 컴퓨터에 연결하는 데 사용할 수 있는 SSH 연결 문자열이 표시됩니다.
+1. 가상 컴퓨터 속성에서 **연결** 단추를 클릭합니다. 연결 단추를 클릭하면 가상 컴퓨터에 연결하는 데 사용할 수 있는 SSH 연결 문자열이 표시됩니다.
 
     ![포털 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +110,13 @@ NSG(네트워크 보안 그룹)는 인바운드 및 아웃바운드 트래픽의
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
 
-NGINX를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버에 액세스할 수 있습니다. 웹 브라우저를 열고 VM의 공용 IP 주소를 입력합니다. 공용 IP 주소는 Azure Portal의 VM 블레이드에서 찾을 수 있습니다.
+NGINX를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버에 액세스할 수 있습니다. 웹 브라우저를 열고 VM의 공용 IP 주소를 입력합니다. 공용 IP 주소는 Azure Portal의 VM 속성에서 찾을 수 있습니다.
 
 ![NGINX 기본 사이트](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 블레이드에서 해당 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터의 해당 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

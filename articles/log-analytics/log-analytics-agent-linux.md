@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Linux 컴퓨터 연결 
 
-Microsoft OMS(Operations Management Suite)를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경을 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
+Microsoft OMS(Operations Management Suite)를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경으 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
 
 Linux용 OMS 에이전트는 TCP 포트 443을 통해 OMS 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [HTTP 프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요.  System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 OMS 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 Operations Manager에서 계속 모니터링될 수도 있습니다.  OMS와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다.  OMS 에이전트는 둘 이상의 작업 영역에 보고하도록 구성할 수 없습니다.  
 
@@ -198,7 +198,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 OMS Agent for Linux에서 System Center Operations Manager 관리 그룹에 보고하도록 구성하려면 다음 단계를 수행합니다.  
 
 1. 파일 `/etc/opt/omi/conf/omiserver.conf`
-2. **httpsport=**로 시작되는 줄이 1270 포트를 지정하도록 합니다. 예: `httpsport=1270`
+2. **httpsport=** 로 시작되는 줄이 1270 포트를 지정하도록 합니다. 예: `httpsport=1270`
 3. OMI 서버를 다시 시작합니다. `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="agent-logs"></a>에이전트 로그
@@ -265,7 +265,7 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
 이 문제는 알려진 문제이며 Linux 데이터를 OMS 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>문제: OMS 포털에서 데이터가 보이지 않음
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>문제: OMS 포털에서 데이터가 보이지 않음
 
 #### <a name="probable-causes"></a>가능한 원인
 
@@ -281,4 +281,5 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 
     >[!NOTE]
     >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
-> 
+
+

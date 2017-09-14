@@ -23,7 +23,7 @@ ms.lasthandoff: 08/19/2017
 ## <a name="test-your-code"></a>코드 테스트
 
 > ### <a name="testing-with-visual-studio"></a>Visual Studio로 테스트
-> Visual Studio를 사용하는 경우 `F5` 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 *http://localhost: {port}*로 이동됩니다. 여기서 *Microsoft Graph API 호출* 단추가 표시됩니다.
+> Visual Studio를 사용하는 경우 `F5` 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 *http://localhost:{port}* 로 이동됩니다. 여기서 *Microsoft Graph API 호출* 단추가 표시됩니다.
 
 <p/><!-- -->
 

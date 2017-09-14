@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
@@ -49,12 +49,20 @@ ms.lasthandoff: 08/30/2017
 **리소스 그룹 간에 계산, 저장소 및 네트워크 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 컴퓨터(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 컴퓨터에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 
 
+
 ## <a name="support-for-deployment-models"></a>배포 모델 지원
 
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
 **클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
-**리소스 관리자** | 지원됨 |
+**Resource Manager** | 지원됨 |
+
+>[!NOTE]
+>
+> 1. 재해 복구 시나리오의 다른 구독 간에 Azure 가상 컴퓨터를 복제하는 것은 지원되지 않습니다.
+> 2. Azure 구독에서 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
+> 3. 동일한 지역 내에서 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
+> 4. 클래식 배포 모델에서 Resource Manager 배포 모델로 Azure 가상 컴퓨터를 마이그레이션하도록 지원되지 않습니다.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 

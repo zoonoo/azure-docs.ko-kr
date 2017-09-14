@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 9667cc728d9700e9ca985969f3566cd8ea47e80e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
@@ -46,7 +46,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 
 ## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
-Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 트래픽이 SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음은 예제 연결 문자열입니다.
+Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 트래픽이 SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -68,16 +68,23 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 1. HDInsight 클러스터에서 Hive JDBC 드라이버를 복사합니다.
 
-    * **Linux 기반 HDInsight**의 경우 다음 단계에 따라 필요한 jar 파일을 다운로드합니다.
+    * **Linux 기반 HDInsight** 클러스터 버전 3.5 또는 3.6의 경우 다음 단계에 따라 필요한 jar 파일을 다운로드합니다.
 
         1. 파일을 포함하는 디렉터리를 만듭니다. 예: `mkdir hivedriver`.
 
         2. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에서 파일을 복사합니다.
 
             ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
             ```
 
             `USERNAME`은 클러스터의 SSH 사용자 계정 이름으로 바꿉니다. `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.
@@ -88,11 +95,11 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
             ![원격 데스크톱 아이콘](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. [원격 데스크톱] 블레이드에서 **연결** 단추를 사용하여 클러스터에 연결합니다. 원격 데스크톱을 사용하지 않는 경우 사용자 이름 및 암호를 입력하는 양식을 사용한 다음 **사용**을 선택하여 클러스터에서 원격 데스크톱을 사용하도록 설정합니다.
+        2. 원격 데스크톱 섹션에서 **연결** 단추를 사용하여 클러스터에 연결합니다. 원격 데스크톱을 사용하지 않는 경우 사용자 이름 및 암호를 입력하는 양식을 사용한 다음 **사용**을 선택하여 클러스터에서 원격 데스크톱을 사용하도록 설정합니다.
 
-            ![원격 데스크톱 블레이드](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![원격 데스크톱 섹션](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            **연결**을 선택하면 .rdp 파일이 다운로드됩니다. 이 파일을 사용하여 원격 데스크톱 클라이언트를 시작합니다. 메시지가 표시되면 원격 데스크톱 액세스에 입력한 사용자 이름 및 암호를 사용합니다.
+            **연결**을 선택한 후에 RDP 파일이 다운로드됩니다. 이 파일을 사용하여 원격 데스크톱 클라이언트를 시작합니다. 메시지가 표시되면 원격 데스크톱 액세스에 입력한 사용자 이름 및 암호를 사용합니다.
 
         3. 연결되면 원격 데스크톱 세션에서 다음 파일을 로컬 컴퓨터에 복사합니다. `hivedriver`라는 이름의 로컬 디렉터리에 넣습니다.
 
@@ -134,7 +141,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **드라이버**: 드롭다운에서 **Hive** 드라이버를 선택합니다.
 
-    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+    * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
 
@@ -144,7 +151,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
  ![별칭 추가 대화 상자](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다.
+    **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다. 오류가 발생하는 경우 [문제 해결](#troubleshooting)을 참조하세요.
 
     연결 별칭을 저장하려면 **별칭 추가** 대화 상자의 아래쪽에 있는 **확인** 단추를 사용합니다.
 
@@ -166,7 +173,7 @@ HDInsight에서 Hive를 쿼리하는 데 Java 클라이언트를 사용하는 �
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>SQL 연결을 열 때 예기치 않은 오류가 발생했습니다
 
-**증상**: 버전 3.3 또는 3.4인 HDInsight 클러스터에 연결할 때 예기치 않은 오류가 발생할 수 있습니다. 이 오류에 대한 스택 추적은 다음 줄로 시작합니다.
+**증상**: 버전 3.3 이상인 HDInsight 클러스터에 연결할 때 예기치 않은 오류가 발생할 수 있습니다. 이 오류에 대한 스택 추적은 다음 줄로 시작합니다.
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -174,7 +181,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**원인**: 이 오류는 SQuirreL에서 사용하는 common-codec.jar 파일 버전과 Hive JDBC 구성 요소에 필요한 파일의 버전과 일치하지 않아 발생합니다.
+**원인**: SQuirreL에 포함된 이전 버전 commons-codec.jar 파일에서 이 오류가 발생됩니다.
 
 **해결**: 이 오류를 해결하려면 다음 단계를 수행합니다.
 

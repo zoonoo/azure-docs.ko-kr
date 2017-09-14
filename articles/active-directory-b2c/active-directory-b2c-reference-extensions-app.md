@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 9/06/2017
 ms.author: parja
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 17500b572a0e92c1c233c6967840a5b6d96e21cb
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: a2b883ad010b93ec83c273988493412c06597641
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: 확장 앱
@@ -41,8 +41,8 @@ b2c-extensions-app이 있는지 확인하려면
 b2c-extensions-app을 실수로 삭제한 경우 30일 이내에는 복구할 수 있습니다. Graph API를 사용하여 앱을 복원할 수 있습니다.
 
 1. [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)으로 이동합니다.
-1. 삭제된 앱을 복원하려는 Azure AD B2C 디렉터리에 대한 전역 관리자로 사이트에 로그인합니다.
-1. api-version=1.6인 URL `https://graph.windows.net/{tenantName}.onmicrosoft.com/deletedApplications`에 대해 HTTP GET을 실행합니다. `{tenantName}`을 테넌트 이름으로 바꿔야 합니다. 이 작업은 지난 30일 내에서 삭제된 모든 응용 프로그램을 나열합니다.
+1. 삭제된 앱을 복원하려는 Azure AD B2C 디렉터리에 대한 전역 관리자로 사이트에 로그인합니다. 이 전역 관리자는 다음과 비슷한 이메일 주소가 있어야 합니다. `username@{yourTenant}.onmicrosoft.com`
+1. api-version=1.6인 URL `https://graph.windows.net/myorganization/deletedApplications`에 대해 HTTP GET을 실행합니다. 이 작업은 지난 30일 내에서 삭제된 모든 응용 프로그램을 나열합니다.
 1. 목록에서 이름이 ‘b2c-extension-app’으로 시작하는 응용 프로그램을 찾고 해당 `objectid` 속성 값을 복사합니다.
 1. URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`에 대해 HTTP POST를 실행합니다. URL의 `{OBJECTID}` 부분을 이전 단계의 `objectid`로 바꿉니다. 
 

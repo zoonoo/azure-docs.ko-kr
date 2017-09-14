@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>PowerShell을 사용하여 Hive 쿼리 실행
@@ -50,10 +50,10 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
 * **Add-AzureRmAccount**: Azure 구독에 대해 Azure PowerShell을 인증합니다.
 * **New-AzureRmHDInsightHiveJobDefinition**: 지정한 HiveQL 문을 사용하여 *작업 정의*를 만듭니다.
-* **Start-AzureRmHDInsightJob**: HDInsight로 작업 정의를 보내고, 작업을 시작하고, 작업 상태를 확인하는 데 사용할 수 있는 *작업* 개체를 반환합니다.
+* **Start-AzureRmHDInsightJob**: HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.
 * **Wait-AzureRmHDInsightJob**: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.
 * **Get-AzureRmHDInsightJobOutput**: 작업 출력을 검색하는 데 사용됩니다.
-* **Invoke-AzureRmHDInsightHiveJob**: HiveQL 문을 실행하는 데 사용됩니다. 이 cmdlet은 쿼리 완료를 차단한 다음 결과를 반환합니다.
+* **Invoke-AzureRmHDInsightHiveJob**: HiveQL 문을 실행하는 데 사용됩니다. 이 cmdlet은 쿼리 완료를 차단한 후 결과를 반환합니다.
 * **Use-AzureRmHDInsightCluster**: **Invoke-AzureRmHDInsightHiveJob** 명령에 사용할 현재 클러스터를 설정합니다.
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
@@ -68,7 +68,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
     스크립트를 실행할 때 클러스터에 대한 클러스터 이름 및 HTTPS/관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
 
-3. 작업이 완료되면 다음 텍스트과 유사한 정보가 반환됩니다.
+3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 
         Display the standard output...
         2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
@@ -94,7 +94,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **hivejob.ps1** 파일의 끝에 다음 내용을 추가하고 파일을 저장한 다음 다시 실행합니다.
+작업이 완료될 때 정보가 반환되지 않으면 오류 로그를 봅니다. 이 작업에 대한 오류 정보를 보려면 **hivejob.ps1** 파일의 끝에 다음 내용을 추가하고 파일을 저장한 다음 다시 실행합니다.
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-이 cmdlet은 작업을 실행할 때 서버의 STDERR에 기록된 정보를 반환합니다.
+이 cmdlet은 작업 프로세스 중 STDERR에 작성된 정보를 반환합니다.
 
 ## <a name="summary"></a>요약
 

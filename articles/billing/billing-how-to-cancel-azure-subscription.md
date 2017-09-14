@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c415fada30aa0b0bd9b9d1e416bc37ef30653f68
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure 구독 취소
@@ -37,31 +36,11 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Azure Portal을 사용하여 구독 취소
 
-1. [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
-
+1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
 1. 취소하려는 구독을 선택하고 **구독 취소**를 클릭합니다.
 
     ![취소 단추를 보여 주는 스크린샷](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-
 1. 메시지에 따라 취소를 완료합니다.
-
-## <a name="cancel-subscription-using-the-azure-account-center"></a>Azure 계정 센터를 사용하여 구독 취소
-
-1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
-
-1. **구독을 클릭하여 세부 정보 및 사용법**에서 취소하고자 하는 구독을 선택합니다.
-
-    ![선택한 예제 구독을 보여 주는 스크린샷](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
-
-1. 페이지의 오른쪽에서 **구독 취소**를 선택합니다.
-
-    ![구독 취소 단추를 보여 주는 스크린샷](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
-
-1. **예, 구독을 취소합니다**를 선택합니다.
-
-    ![취소 대화 상자를 보여 주는 스크린샷](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-
-1. 그런 다음 ![확인 기호 단추](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) 을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>구독을 취소한 후에는 어떻게 되나요?
 
@@ -69,9 +48,9 @@ ms.lasthandoff: 07/06/2017
 
 그 후에는 서비스를 사용할 수 없습니다. 즉, 가상 컴퓨터의 할당이 취소되고 임시 IP 주소가 해제되며 저장소는 읽기 전용이 됩니다.
 
-평가판을 사용 중이거나 크레딧을 사용할 수 있는 경우가 아니라면 마지막 청구 주기와 취소 날짜 사이 생성된 미불 사용 요금이 청구됩니다. 청구 주기가 끝난 경우 마지막 청구서를 받게 됩니다.
+청구 기간 중에 취소하는 경우 기간이 만료된 후 일반적인 청구서 날짜에 최종 청구서를 보냅니다. 
 
-사용자가 구독을 취소하더라도 다시 액세스해야 하거나 마음이 바뀐 경우를 대비해서 90일 동안 기다렸다가 데이터를 영구 삭제합니다. 데이터 보존 요금은 부과되지 않습니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
+다시 액세스해야 하거나 마음이 바뀐 경우를 대비해서 90일 동안 기다렸다가 데이터를 영구 삭제합니다. 데이터 보존 요금은 부과되지 않습니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
 
 ## <a name="reactivate-subscription"></a>구독 다시 활성화
 

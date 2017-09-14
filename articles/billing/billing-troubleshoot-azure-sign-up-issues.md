@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Azure의 등록 문제 해결
 Azure에 등록할 수 없는 경우 이 문서에 있는 팁을 사용하여 일반적인 문제를 해결하세요. 등록 시 신용 카드 관련 문제가 발생하면 [Azure 등록 시 사용자의 직불 카드 또는 신용 카드가 거부되었습니다.](billing-credit-card-fails-during-azure-sign-up.md)를 참조하세요. Azure 계정이 있지만 로그인할 수 없는 경우 [내 Azure 구독 관리를 위해 로그인할 수 없습니다.](billing-cannot-login-subscription.md)를 참조하세요.
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>오류 "계정에서 발생한 문제로 인해 계속 로그인할 수 없습니다. 청구 지원 담당자에게 문의하세요." Please contact billing support." 
+
+이 문제를 해결하려면 다음 단계를 수행합니다.
+
+1. 계정 관리자 자격 증명을 사용하여 [Azure 계정 센터](https://account.azure.com)에 로그인합니다. 
+2. **프로필**을 클릭하고 **세부 정보 편집**을 클릭합니다.
+3. 모든 주소 필드가 완료되었고 유효한지 확인합니다. 
+4. Azure 구독을 등록할 때 신용 카드 등록 중에 입력한 요금 청구서 주소가 은행의 레코드와 일치하는지 확인합니다.
+
+오류가 계속 나타나면 다른 브라우저를 사용하여 등록을 시도하세요.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>진행 표시줄이 "카드로 ID 확인" 섹션에서 중지됩니다.
 
