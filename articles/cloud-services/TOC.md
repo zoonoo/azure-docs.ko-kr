@@ -60,6 +60,7 @@
 ### 자동 크기 조정 구성
 #### [포털](cloud-services-how-to-scale-portal.md)
 #### [클래식 포털](cloud-services-how-to-scale.md)
+#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
 
 ### [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)

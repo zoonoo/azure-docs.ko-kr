@@ -253,7 +253,7 @@
 #### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
-##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
 #### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)
@@ -280,7 +280,7 @@
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-### [Service Fabric CLI를 사용하여 클러스터 관리](service-fabric-cli.md)
+### [Service Fabric CLI 시작](service-fabric-cli.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션

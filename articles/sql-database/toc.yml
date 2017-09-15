@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: 지역에서 복제 - 포털
           href: sql-database-geo-replication-portal.md
-        - name: 지역에서 복제 - T-SQL - 구성
-          href: sql-database-geo-replication-transact-sql.md
-        - name: 지역에서 복제 - T-SQL - 장애 조치(failover)
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: 단일 테이블 복구
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: 데이터 로드 및 이동
@@ -297,10 +293,8 @@
           href: sql-database-metrics-diag-logging.md
         - name: 연결 문제 해결
           href: sql-database-troubleshoot-common-connection-issues.md
-        - name: Azure 자동화
+        - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: 확장
       items:
         - name: 분할된 앱 만들기
