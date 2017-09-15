@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b21edb70eca3ec9552dc157ee3bb658d243b8fcd
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>먼저 보기: Resource Manager 배포에서 파일 및 폴더 백업
@@ -171,7 +171,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 ## <a name="back-up-your-files-and-folders"></a>파일 및 폴더 백업
 초기 백업에는 두 가지 주요 작업이 포함됩니다.

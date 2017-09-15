@@ -3,7 +3,7 @@ title: "IIS 인증 및 Azure MFA 서버 | Microsoft Docs"
 description: "IIS 인증 및 Azure Multi-Factor Authentication 서버 배포에 도움이 되는 Azure Multi-Factor 인증 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b1841aea07140a855a1978e7c3141f76aa2d8862
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성

@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
@@ -67,8 +67,8 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 
 Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI 2.0으로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
-1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
-2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
+1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
+2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
 이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/#login)을 입력합니다.
 
@@ -85,7 +85,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>배치 계정에 로그인
 
-Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) 명령을 사용합니다. 
+Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 명령을 사용합니다. 
 
 배치 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
@@ -99,7 +99,7 @@ Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를
 
     풀 할당 모드가 '사용자 구독'으로 설정된 Azure Batch 계정을 만든 경우 Azure AD로 인증해야 합니다. 
 
-    Azure AD를 사용하여 배치 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) 명령을 호출합니다. 
+    Azure AD를 사용하여 배치 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 명령을 호출합니다. 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

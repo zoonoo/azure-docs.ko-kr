@@ -12,9 +12,6 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 * 클라우드에서 호출할 수 있는 직접 메서드가 포함된 시뮬레이션된 장치 앱을 만듭니다.
 * IoT Hub를 통해 시뮬레이션된 장치 앱에 직접 메서드를 호출하는 콘솔 앱을 만듭니다.
 
-> [!NOTE]
-> 현재 직접 메서드는 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 지원됩니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
-
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
