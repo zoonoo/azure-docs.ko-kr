@@ -3,7 +3,7 @@ title: "Azure MFA 및 타사 VPN 고급 시나리오"
 description: "Azure MFA가 Cisco, Citrix 및 Juniper와 통합하기 위한 단계별 구성 가이드입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
 ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042

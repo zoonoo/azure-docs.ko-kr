@@ -4,7 +4,7 @@ description: "이 문서에서는 Microsoft Azure용 NPS(네트워크 정책 서
 services: active-directory
 keywords: "Azure MFA, 원격 데스크톱 게이트웨이 통합, Azure Active Directory, 네트워크 정책 서버 확장"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT

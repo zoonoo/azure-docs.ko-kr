@@ -3,7 +3,7 @@ title: "관리자가 사용자 및 장치 관리 - Azure MFA | Microsoft Docs"
 description: "사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다."
 documentationcenter: 
 services: multi-factor-authentication
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: Human Translation

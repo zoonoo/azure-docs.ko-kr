@@ -3,7 +3,7 @@ title: "Azure MFA 구성 | Microsoft Docs"
 description: "MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다.  보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: a470a8bc70365a1891fc57efc6d2d4391162fd17

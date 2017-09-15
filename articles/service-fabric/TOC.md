@@ -4,6 +4,8 @@
 
 # 빠른 시작
 ## [.NET 응용 프로그램 만들기](service-fabric-quickstart-dotnet.md)
+## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
+## [Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)
 
 # 자습서
 ## .NET 앱 배포
@@ -251,7 +253,7 @@
 #### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
-##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)

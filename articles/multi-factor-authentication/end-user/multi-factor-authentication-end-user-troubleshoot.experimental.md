@@ -4,7 +4,7 @@ description: "이 문서는 Azure 다단계 인증에 문제가 있는 경우 �
 services: multi-factor-authentication
 keywords: "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: HT

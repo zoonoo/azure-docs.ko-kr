@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
@@ -187,6 +188,11 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.c
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>그래픽 작성
 그래픽 Runbook의 경우 추가 로깅은 작업 수준 추적의 형식으로 사용할 수 있습니다.  추적에는 기본 추적과 자세히 추적이 있습니다.  기본 추적에서는 작업의 시도 횟수 및 시작 시간과 같이 Runbook의 각 작업의 시작 및 종료 시간과 작업 다시 시도와 관련된 정보를 볼 수 있습니다.  자세히 추적에서는 기본 추적 외에도 각 작업에 대한 입력 및 출력 데이터를 얻습니다.  현재 추적 레코드는 자세한 정보 표시 스트림을 사용하여 기록되므로 추적을 사용하도록 설정할 경우 자세한 정보 로깅을 사용하도록 설정해야 합니다.  추적을 사용하는 그래픽 Runbook의 경우 기본 추적이 같은 용도로 사용되고 자세한 정보를 제공하기 때문에 진행률 레코드를 기록할 필요가 없습니다.
@@ -220,10 +226,5 @@ Log Analytics와의 통합을 구성하여 작업 데이터를 수집하고, 상
 ## <a name="next-steps"></a>다음 단계
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)
 * 자식 Runbook을 디자인하고 사용하는 방법을 이해하려면 [Azure Automation의 자식 Runbook](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

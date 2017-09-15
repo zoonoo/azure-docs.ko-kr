@@ -3,7 +3,7 @@ title: Azure Multi-Factor Authentication FAQ| Microsoft Docs
 description: "Azure Multi-Factor Authentication과 관련된 질문과 대답입니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374

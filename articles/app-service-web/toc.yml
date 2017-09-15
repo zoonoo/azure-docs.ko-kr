@@ -4,6 +4,8 @@
   items:
     - name: Web Apps 정보
       href: app-service-web-overview.md
+    - name: 컨테이너용 Web Apps 정보
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: 호스팅 옵션 비교
       href: choose-web-site-cloud-service-vm.md
 - name: 빠른 시작
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1 - MySQL을 사용하는 PHP
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1 - MySQL을 사용하는 WordPress
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1 - PostgreSQL을 사용하는 Python
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1 - MySQL을 사용하는 Java
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2 - 사용자 지정 도메인 매핑
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 - SSL 인증서 바인딩
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: PHP 프로젝트 설정
               href: web-sites-php-configure.md
-            - name: WordPress 멀티 사이트 설정
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: NOSQL DB를 사용하는 Sails.js 앱
-              href: app-service-web-nodejs-sails.md
-            - name: io.js 사용
-              href: web-sites-nodejs-iojs.md
             - name: Node.js 앱 디버깅
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: IntelliJ를 사용하는 Java 앱
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: Java용 Azure SDK 사용
-              href: java-create-azure-website-using-java-sdk.md
             - name: 기존 앱 업로드
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: MySQL을 사용하는 Django 앱
-              href: web-sites-python-ptvs-django-mysql.md
         - name: SendGrid를 사용하여 메일 보내기
           href: sendgrid-dotnet-how-to-send-email.md
         - name: 런타임 구성
@@ -111,28 +99,6 @@
           items:
             - name: 앱 설정 사용
               href: web-sites-configure.md
-        - name: Linux에서 Web App
-          items:
-            - name: 개요
-              href: app-service-linux-intro.md
-            - name: CLI를 사용하여 관리
-              href: app-service-linux-cli.md
-            - name: Linux에서 Ruby Web App
-              href: app-service-linux-ruby-get-started.md
-            - name: Linux에서 Node.js Web App
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: Linux에서 .NET Core Web App
-              href: app-service-linux-using-dotnetcore.md
-            - name: Linux에서 사용자 지정 Docker Web App
-              href: app-service-linux-using-custom-docker-image.md
-            - name: SSH를 통해 연결
-              href: app-service-linux-ssh-support.md
-            - name: 연속 배포
-              href: app-service-linux-ci-cd.md
-            - name: 배포 형식 - 사용자 지정 이미지 또는 기본 제공?
-              href: app-service-linux-choose-deployment-type.md
-            - name: Linux FAQ에서 Web App
-              href: app-service-linux-faq.md
     - name: Deploy to Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: 활성 도메인 마이그레이션
               href: app-service-custom-domain-name-migrate.md
-        - name: IIS에서 마이그레이션
-          href: web-sites-migration-from-iis-server.md
-        - name: 프로덕션에서 테스트
-          href: app-service-web-test-in-production-get-start.md
-        - name: 웹앱에 기능 추가
-          href: app-service-web-get-started-2.md
         - name: Maven 플러그 인을 사용하여 Azure Web Apps에 Spring Boot 앱 배포
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: Maven 플러그 인을 사용하여 컨테이너화된 Spring Boot 앱 배포
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: DB/리소스에 연결
       items:
-        - name: 온-프레미스 데이터 연결
-          href: web-sites-hybrid-connection-get-started.md
         - name: Azure VNet에 연결
           href: web-sites-integrate-with-vnet.md
         - name: PowerShell을 사용하여 Azure VNet에 연결
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: 확장
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Traffic Manager로 부하 분산
-          href: web-sites-traffic-manager.md
         - name: 대규모 App Service 환경
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: 글로벌 접근을 위한 Azure CDN 사용
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Redis Cache 만들기
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Azure Redis Cache를 사용하는 세션 상태
-          href: web-sites-dotnet-session-state-caching.md
     - name: 모니터
       items:
         - name: 앱 모니터링
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: 백업에서 앱 복원
           href: web-sites-restore.md
-        - name: REST API를 사용하여 백업
-          href: websites-csm-backup.md
     - name: 앱 리소스 관리
       items:
         - name: PowerShell을 사용하여 앱 복제
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: 리소스 이동
           href: app-service-move-resources.md
-        - name: PowerShell과 함께 Azure Resource Manager 사용
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: Azure Automation을 사용하여 앱 관리
-          href: automation-manage-web-app.md
     - name: 통합
       items:
         - name: PowerApps 및 Microsoft Flow로 내보내기

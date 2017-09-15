@@ -3,7 +3,7 @@ title: "기존 NPS 서버를 사용하여 Azure MFA 기능 제공 | Microsoft Do
 description: "Azure Multi-Factor Authentication용 NPS(네트워크 정책 서버) 확장은 기존 인증 인프라에 클라우드 기반 2단계 인증 기능을 추가하는 간단한 솔루션입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT

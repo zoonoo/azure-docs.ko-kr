@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: d9ccc9778b9612d7da7336984db6d0d84641ce72
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 <div id="main" class="v2">
@@ -156,7 +156,7 @@ ms.lasthandoff: 08/25/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI 및 Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -248,7 +248,7 @@ ms.lasthandoff: 08/25/2017
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>가상 컴퓨터 크기 집합</p>
+                                                <p>가상 컴퓨터 확장 집합</p>
                                             </a>
                                         </li>
                                         <li>
@@ -311,7 +311,7 @@ ms.lasthandoff: 08/25/2017
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -725,7 +725,7 @@ ms.lasthandoff: 08/25/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>데이터 레이크 저장소</p>
                                             </a>
                                         </li>
                                         <li>
@@ -855,6 +855,12 @@ ms.lasthandoff: 08/25/2017
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-dps/">
+                                                <img src="media/index/dps.svg" alt="" />
+                                                <p>IoT Hub Device Provisioning 서비스</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1063,7 +1069,7 @@ ms.lasthandoff: 08/25/2017
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure 리소스 관리자</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1129,7 +1135,7 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>가상 컴퓨터 크기 집합</h3>
+                                                    <h3>가상 컴퓨터 확장 집합</h3>
                                                     <p>수십 개에서 수천 개에 이르는 Linux 및 Windows 가상 컴퓨터 관리 및 규모 조정</p>
                                                 </div>
                                             </div>
@@ -1556,7 +1562,7 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>데이터 레이크 저장소</h3>
                                                     <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
                                                 </div>
                                             </div>
@@ -1989,8 +1995,8 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>관리되는 NoSQL 문서 DaaS(Database-as-a-Service)</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>모든 규모를 위한 전역 배포 다중 모델 데이터베이스</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2462,6 +2468,25 @@ ms.lasthandoff: 08/25/2017
                                                 <div class="cardText">
                                                     <h3>Azure IoT Hub</h3>
                                                     <p>수십억 개의 IoT 자산 연결, 모니터링 및 제어</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-dps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dps.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Hub Device Provisioning 서비스</h3>
+                                                    <p>Azure IoT Hub에 대한 Just-In-Time 무인 프로비전</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3164,7 +3189,7 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 리소스 관리자</h3>
+                                                    <h3>Azure Resource Manager</h3>
                                                     <p>Azure 리소스 배포 및 관리</p>
                                                 </div>
                                             </div>
