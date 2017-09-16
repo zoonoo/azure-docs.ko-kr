@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -123,7 +123,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우
 
-    >**시작하기**: 저장소 유형([Blob](../../storage/storage-dotnet-how-to-use-blobs.md), [테이블](../../storage/storage-dotnet-how-to-use-tables.md), [큐](../../storage/storage-dotnet-how-to-use-queues.md) 또는 [파일](../../storage/storage-dotnet-how-to-use-files.md)) 중 하나를 선택합니다.
+    >**시작하기**: 저장소 유형([Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)) 중 하나를 선택합니다.
 
 -   **Azure DocumentDB**: 완벽하게 관리되고 확장 가능한 NoSQL 데이터베이스 서비스로, 개체 데이터에 대해 SQL 쿼리 기능을 수행합니다. 기존 MongoDB 드라이버를 사용하여 DocumentDB에 액세스할 수 있습니다.
     >**사용 시기:** 응용 프로그램에서 JSON 문서에 대해 SQL 쿼리를 실행할 수 있어야 하거나 MongoDB를 사용할 경우

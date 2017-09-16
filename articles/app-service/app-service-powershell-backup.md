@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>PowerShell을 사용하여 앱 서비스 앱 백업 및 복원
@@ -33,7 +33,7 @@ Azure PowerShell을 사용하여 [앱 서비스 앱](https://azure.microsoft.com
 ## <a name="prerequisites"></a>필수 조건
 PowerShell을 사용하여 앱 백업을 관리하려면 다음이 필요합니다.
 
-* **SAS URL** 을 통해 Azure 저장소 컨테이너에 대한 액세스를 읽고 쓸 수 있습니다. SAS URL에 대한 설명은 [SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md) 를 참조하세요. PowerShell을 사용하여 Azure Storage를 관리하는 예제는 [Azure Storage에서 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) 을 참조하세요.
+* **SAS URL** 을 통해 Azure 저장소 컨테이너에 대한 액세스를 읽고 쓸 수 있습니다. SAS URL에 대한 설명은 [SAS 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 를 참조하세요. PowerShell을 사용하여 Azure Storage를 관리하는 예제는 [Azure Storage에서 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) 을 참조하세요.
 * **데이터베이스 연결 문자열** .
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>웹앱 백업 cmdlet에서 사용할 SAS URL을 생성하는 방법

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +38,7 @@ HTTP 요청([요청](../connectors/connectors-native-reqres.md) 또는 [WebHook]
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 
-논리 앱에 대한 모든 요청 끝점은 URL의 일부로서 [SAS(공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
+논리 앱에 대한 모든 요청 끝점은 URL의 일부로서 [SAS(공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
 
 #### <a name="regenerate-access-keys"></a>액세스 키 다시 생성
 

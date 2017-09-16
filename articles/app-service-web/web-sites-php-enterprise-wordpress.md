@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 21281955458a2632d96a91d884cab13803f4d296
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>Azure의 엔터프라이즈급 WordPress
@@ -164,7 +163,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 | **앱 서비스 계획 모드, 크기 및 사용 크기 조정 설정** |[Azure App Service에서 웹앱 크기 조정][websitescale] |
 | **영구 데이터베이스 연결 사용** |기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에는 데이터베이스에 대한 연결이 제한될 수 있습니다. 영구 연결을 사용하려면 [영구 연결 어댑터 플러그 인](https://wordpress.org/plugins/persistent-database-connection-updater/installation/)을 설치합니다. |
 | **성능 향상** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">ARR 쿠키 사용 안 함</a>은 여러 Web Apps 인스턴스에서 WordPress를 실행할 때 성능을 향상시킬 수 있습니다.</p></li><li><p>캐싱을 사용하도록 설정합니다. <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 개체 캐시 WordPress 플러그 인</a>과 함께 <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis Cache</a>(미리 보기)를 사용하거나 <a href="/gallery/store/">Azure Store</a>의 기타 캐싱 제품 중 하나를 사용할 수 있습니다.</p></li><li><p>[Wincache로 WordPress 더 빠르게 만들기](https://wordpress.org/plugins/w3-total-cache/) Wincache는 기본적으로 웹앱에 대해 사용되도록 설정되어 있습니다. WinCache 및 동적 캐시를 함께 사용하는 경우 WinCache의 파일 캐시는 해제하고 사용자 및 세션 캐시는 설정한 상태를 유지합니다. 파일 캐시를 해제하려면 시스템 수준 .ini 파일에서 다음 값을 설정합니다.<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Azure App Service에서 웹앱 크기를 조정][websitescale]하고 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 고가용성 라우팅</a> 또는 <a href="http://www.mysql.com/products/cluster/">MySQL 클러스터 CGE</a>를 사용합니다.</p></li></ul> |
-| **저장소에 Blob 사용** |<ol><li><p>[Azure Storage 계정 만들기](../storage/storage-create-storage-account.md)</p></li><li><p>[콘텐츠 배포 네트워크를 사용](../cdn/cdn-create-new-endpoint.md)하여 Blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li><li><p><a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress용 Azure Storage 플러그 인</a>을 설치하고 구성합니다.</p><p>이 플러그 인의 자세한 설치 및 구성 정보는 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">사용자 가이드</a>(영문)를 참조하세요.</p> </li></ol> |
+| **저장소에 Blob 사용** |<ol><li><p>[Azure Storage 계정 만들기](../storage/common/storage-create-storage-account.md)</p></li><li><p>[콘텐츠 배포 네트워크를 사용](../cdn/cdn-create-new-endpoint.md)하여 Blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li><li><p><a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress용 Azure Storage 플러그 인</a>을 설치하고 구성합니다.</p><p>이 플러그 인의 자세한 설치 및 구성 정보는 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">사용자 가이드</a>(영문)를 참조하세요.</p> </li></ol> |
 | **전자 메일 사용** |Azure Store를 사용하여 <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a>를 사용합니다. WordPress용 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid 플러그 인</a> 설치 |
 | **사용자 지정 도메인 이름 구성** |[Azure App Service에서 사용자 지정 도메인 이름 구성][customdomain] |
 | **사용자 지정 도메인 이름에 HTTPS 사용** |[Azure App Service에서 웹앱에 대한 HTTPS를 사용하도록 설정][httpscustomdomain]. |
