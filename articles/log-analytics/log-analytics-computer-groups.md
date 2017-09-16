@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ Log Analytics에서 다음 표의 방법 중 하나를 통해 컴퓨터 그룹�
 >[!NOTE]
 > 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 새 컴퓨터 그룹을 만드는 절차가 다음과 같이 변경됩니다.
 >  
-> - 컴퓨터 그룹을 만드는 쿼리에 `distinct Computer`를 포함해야 합니다.  컴퓨터 그룹을 만드는 쿼리의 예제는 다음과 같습니다.<br>`Heartbeat | where Computer contains "srv" `
+> - 컴퓨터 그룹을 만드는 쿼리에 `distinct Computer`를 포함해야 합니다.  컴퓨터 그룹을 만드는 쿼리의 예제는 다음과 같습니다.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - 새 컴퓨터 그룹을 만들 때는 이름 외에 별칭을 지정해야 합니다.  쿼리에서 컴퓨터 그룹을 사용할 때는 아래 설명에 따라 별칭을 사용합니다.  
 
 ### <a name="log-search-api"></a>로그 검색 API
@@ -104,7 +104,7 @@ Log Analytics **설정**의 **컴퓨터 그룹** 메뉴에서 로그 검색 또�
 >[!NOTE]
 > 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 다음 예제에서와 같이 컴퓨터 그룹의 별칭을 함수로 처리하는 방식으로 쿼리에서 컴퓨터 그룹을 사용합니다.
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS로 만든 각각의 컴퓨터 그룹 멤버 자격에 대해 OMS 저장소에 레코드가 만들어집니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 검색 기반의 컴퓨터 그룹에 대해서는 레코드가 만들어지지 않습니다.
