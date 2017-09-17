@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
@@ -40,9 +40,9 @@ IntelliJ용 HDInsight Tools를 사용하여 워크스테이션에서 실행되�
 
 - [JDK(Java Developer Kit) 버전 1.8 이상](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) JDK는 IntelliJ용 Azure 도구 키트에 필요합니다.
 
-- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download)과 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 플러그 인 및 [IntelliJ용 Azure 도구 키트](../azure-toolkit-for-intellij.md) 플러그 인. IntelliJ용 HDInsight Tools는 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. 
+- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download)과 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 플러그 인 및 [IntelliJ용 Azure 도구 키트](../azure-toolkit-for-intellij.md) 플러그 인. IntelliJ용 HDInsight Tools는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. 
 
-  플러그 인을 설치하려면 다음을 수행합니다.
+  플러그 인을 설치하려면 다음 항목을 수행합니다.
 
   1. IntelliJ IDEA를 엽니다.
   2. **시작** 화면에서 **구성**을 선택한 다음 **플러그 인**을 선택합니다.
@@ -55,7 +55,7 @@ IntelliJ용 HDInsight Tools를 사용하여 워크스테이션에서 실행되�
 
 이 섹션에서는 IntelliJ IDEA를 사용하여 샘플 Scala 프로젝트를 만듭니다. 다음 섹션에서는 프로젝트를 제출하기 전에 Hortonworks 샌드박스(에뮬레이터)에 IntelliJ IDEA를 연결합니다.
 
-1. 워크스테이션에서 IntelliJ IDEA를 엽니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다.
+1. 워크스테이션에서 IntelliJ IDEA를 엽니다. **새 프로젝트** 대화 상자에서 다음 단계를 수행합니다.
 
    a. **HDInsight** > **HDInsight의 Spark(Scala)**를 선택합니다.
 
@@ -68,7 +68,7 @@ IntelliJ용 HDInsight Tools를 사용하여 워크스테이션에서 실행되�
 
 2. **다음**을 선택합니다.
 
-3. 다음 **새 프로젝트** 대화 상자에서 다음을 수행합니다.
+3. 다음 **새 프로젝트** 대화 상자에서 다음 단계를 수행합니다.
 
     ![IntelliJ Scala 프로젝트 속성 만들기](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -135,7 +135,7 @@ IntelliJ용 HDInsight Tools를 사용하여 워크스테이션에서 실행되�
 
 Hortonworks 샌드박스(에뮬레이터)에 연결하려면 기존 IntelliJ 응용 프로그램이 있어야 합니다.
 
-에뮬레이터에 연결하려면 다음을 수행합니다.
+에뮬레이터에 연결하려면 다음 단계를 수행합니다.
 
 1. IntelliJ에서 프로젝트를 엽니다.
 

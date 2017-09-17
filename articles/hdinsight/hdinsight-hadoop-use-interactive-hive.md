@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8b4126865788549217d89f19627f20739f8540
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>HDInsight에서 대화형 Hive 사용(미리 보기)
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/10/2017
 대화형 Hive 클러스터는 Hadoop 클러스터와는 다릅니다. Hive 서비스만 포함합니다. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie 및 기타 서비스는 이 클러스터 유형에서 곧 제거될 예정입니다.
+> MapReduce, Pig, Sqoop, Oozie 및 기타 서비스는 이 클러스터 유형에서 곧 제거됩니다.
 > 대화형 Hive 클러스터의 Hive 서비스는 Ambari Hive View, Beeline 및 Hive ODBC를 통해서만 액세스할 수 있습니다. Hive 콘솔, Templeton, Azure CLI 및 Azure PowerShell을 통해서는 액세스할 수 없습니다. 
 > 
 > 

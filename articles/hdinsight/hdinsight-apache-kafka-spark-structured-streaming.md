@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -61,7 +61,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     > [!IMPORTANT]
     > 이 예에서 사용된 구조적 스트림 Notebook은 HDInsight 3.6의 Spark가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
 
-2. 다음 정보를 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
+2. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
    
     ![HDInsight 사용자 지정 배포](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -83,16 +83,16 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
-리소스를 만들면 리소스 그룹 블레이드로 리디렉션됩니다.
+리소스를 만든 후에 요약 페이지가 표시됩니다.
 
-![vnet 및 클러스터에 대한 리소스 그룹 블레이드](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![VNet 및 클러스터에 대한 리소스 그룹 정보](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > HDInsight 클러스터의 이름은 **spark-BASENAME** 및 **kafka-BASENAME**이며, 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
 
 ## <a name="get-the-kafka-brokers"></a>Kafka broker를 가져옵니다.
 
-이 예제의 코드는 Kafka 클러스터에 있는 Kafka broker 호스트에 연결합니다. Kafka broker 호스트를 찾으려면 다음 PowerShell 또는 Bash 예제를 사용합니다.
+이 예제의 코드는 Kafka 클러스터에 있는 Kafka broker 호스트에 연결합니다. 두 개의 Kafka broker 호스트 주소를 찾으려면 다음 PowerShell 또는 Bash 예제를 사용합니다.
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -100,22 +100,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
+
 > [!NOTE]
-> 이 예에서 `$PASSWORD`는 클러스터 로그인 암호를 포함하고 `$CLUSTERNAME`은 Kafka 클러스터의 이름을 포함합니다.
+> 이 예에서는 `$CLUSTERNAME`에 Kafka 클러스터의 이름을 포함하도록 합니다.
 >
 > 이 예제에서는 [jq](https://stedolan.github.io/jq/) 유틸리티를 사용하여 JSON 문서에서 데이터를 구문 분석합니다.
 
 다음 텍스트와 유사하게 출력됩니다.
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 이 문서의 다음 단계에서 사용되기 때문에 이 정보를 저장합니다.
 
@@ -141,7 +143,7 @@ curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clust
 
 3. Notebook 목록에서 __Stream-Tweets-To_Kafka.ipynb__ 항목을 찾아 그 옆에 있는 __업로드__ 단추를 선택합니다.
 
-    ![KafkaStreaming.ipynb 항목 옆의 업로드 단추를 사용하여 Notebook 서버에 업로드](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![Notebook을 업로드하려면 KafkaStreaming.ipynb 항목의 업로드 단추를 사용합니다.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. 1~3 단계를 반복하여 __Spark-Structured-Streaming-From-Kafka.ipynb__ Notebook을 로드합니다.
 

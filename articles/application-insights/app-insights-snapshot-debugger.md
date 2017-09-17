@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
@@ -175,7 +175,7 @@ Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사
 
 ## <a name="how-snapshots-work"></a>스냅숏 작동 방식
 
-응용 프로그램이 시작되면 응용 프로그램에서 스냅숏 요청을 모니터링하는 별도 스냅숏 업로더 프로세스가 생성됩니다. 스냅숏이 요청되면 약 10~20분 안에 실행 중인 프로세스의 섀도 복사본이 만들어집니다. 기본 프로세스가 계속 실행되고 사용자에게 트래픽이 공급되면서 섀도 프로세스가 분석되고 스냅숏이 생성됩니다. 스냅숏은 스냅숏을 보는 데 필요한 관련 기호(.pdb) 파일과 함께 Application Insights에 업로드됩니다.
+응용 프로그램이 시작되면 응용 프로그램에서 스냅숏 요청을 모니터링하는 별도 스냅숏 업로더 프로세스가 생성됩니다. 스냅숏이 요청되면 약 10~20밀리초 안에 실행 중인 프로세스의 섀도 복사본이 만들어집니다. 기본 프로세스가 계속 실행되고 사용자에게 트래픽이 공급되면서 섀도 프로세스가 분석되고 스냅숏이 생성됩니다. 스냅숏은 스냅숏을 보는 데 필요한 관련 기호(.pdb) 파일과 함께 Application Insights에 업로드됩니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -256,7 +256,7 @@ App Service에서 호스팅되지 _않는_ 응용 프로그램의 경우 업로�
 
 1. Azure Portal에서 Application Insights 리소스로 이동합니다.
 2. **검색**을 클릭합니다.
-3. Search 텍스트 상자에 `ai.snapshot.id`를 입력하고 Enter 키를 누릅니다.
+3. 검색 텍스트 상자에 `ai.snapshot.id`를 입력하고 Enter 키를 누릅니다.
 
 ![포털에서 스냅숏 ID로 원격 분석 검색](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)
 

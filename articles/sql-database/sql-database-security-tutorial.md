@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
@@ -240,7 +240,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
 
 ## <a name="next-steps"></a>다음 단계
-몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다. 
+이 자습서에서는 간단한 단계를 거쳐 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시키는 방법을 알아봅니다.  다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 서버 및 데이터베이스에 대한 방화벽 규칙 설정
@@ -250,7 +250,9 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 > * SQL Database 감사 사용
 > * SQL Database 위협 감지 사용
 
+지역 분산 데이터베이스를 구현하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
 > [!div class="nextstepaction"]
->[SQL Database 성능 향상](sql-database-performance-tutorial.md)
+>[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
 
 

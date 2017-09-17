@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 [Azure Application Insights](app-insights-overview.md)의 프로파일링 도구를 사용하여 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. 앱에서 제공한 라이브 요청의 자세한 프로필을 보여 주고 가장 많은 시간을 사용하는 '실행 부하 과다 경로'를 강조 표시합니다. 서로 다른 응답 시간을 갖는 예제를 자동으로 선택합니다. 프로파일러는 오버헤드를 최소화하기 위해 다양한 기법을 사용합니다.
 
-프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다. 
+프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>프로파일러 활성화

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -148,13 +148,13 @@ HTTP 트리거는 지정된 끝점을 폴링하고 응답을 확인하여 워크
 |retryPolicy|아니요|4xx 또는 5xx 오류에 대한 재시도 동작을 사용자 지정할 수 있는 개체입니다.|Object|  
 |authentication|아니요|요청을 인증해야 하는 메서드를 나타냅니다. 이 개체에 대한 자세한 내용은 [스케줄러 아웃바운드 인증](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)을 참조하세요. 스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 이 값은 지정되지 않은 경우 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 같이 다른 대상 그룹을 사용할 수 있습니다.|Object|  
   
-HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 따르는 HTTP API가 필요합니다. 다음 필드가 필요합니다.  
+HTTP 트리거가 논리 앱과 잘 작동하도록 하려면 특정 패턴을 따르는 HTTP API가 필요합니다. 다음 속성을 알아봅니다.  
   
-|응답|설명|  
-|------------|---------------|  
-|상태 코드|상태 코드 200 \(OK\)이면 실행이 진행됩니다. 다른 상태 코드이면 실행이 진행되지 않습니다.|  
-|Retry\-after 헤더|논리 앱이 끝점을 다시 폴링할 때까지 시간(초) 수입니다.|  
-|위치 헤더|다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다.|  
+|응답|필수|설명|  
+|------------|------------|---------------|  
+|상태 코드|예|상태 코드 200 \(OK\)이면 실행이 진행됩니다. 다른 상태 코드이면 실행이 진행되지 않습니다.|  
+|Retry\-after 헤더|아니요|논리 앱이 끝점을 다시 폴링할 때까지 시간(초) 수입니다.|  
+|위치 헤더|아니요|다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다.|  
   
 다양한 요청 유형의 다양한 동작에 대한 예는 다음과 같습니다.  
   

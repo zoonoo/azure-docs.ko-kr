@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 0ccaee16a19b4338099a93f994553caaa6aa57e3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Azure 마켓플레이스에 HDInsight 응용 프로그램 게시
 HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법을 알아봅니다.  Azure 마켓플레이스에 게시하는 방법에 대한 일반 정보는 [Azure 마켓플레이스에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
 
-HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)* 을 사용하며 여기서 응용 프로그램 공급자는 최종 사용자에게 응용 프로그램을 라이선싱하는 작업을 담당하고 Azure에서 최종 사용자에게 HDInsight 클러스터와 해당 VM/노드 등 만들 리소스에 대한 요금을 청구합니다. 지금은 응용 프로그램 자체에 대한 청구가 Azure를 통해 수행되지 않습니다.
+HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)*을 사용하며 여기서 응용 프로그램 공급자는 최종 사용자에게 응용 프로그램을 라이선싱하는 작업을 담당하고 Azure에서 최종 사용자에게 HDInsight 클러스터와 해당 VM/노드 등 만들 리소스에 대한 요금을 청구합니다. 지금은 응용 프로그램 자체에 대한 청구가 Azure를 통해 수행되지 않습니다.
 
 다른 HDInsight 응용 프로그램 관련 문서:
 
@@ -64,7 +63,7 @@ Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가�
 ## <a name="application-install-script"></a>응용 프로그램 설치 스크립트
 응용 프로그램이 클러스터(기존 클러스터 또는 새 클러스터)에서 설치될 때마다 Edge 노드가 생성되고 응용 프로그램 설치 스크립트가 실행됩니다.
   > [!IMPORTANT]
-  > 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다.
+  > 다음 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -74,7 +73,7 @@ Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가�
   > 2. 가독성을 위한 "-".
   > 3. 매개 변수로 응용 프로그램 이름이 사용된 고유 문자열 함수.
   > 
-  > 한 가지 예로서, 위 스크립트는 지속형 스크립트 작업 목록의 hue-install-v0-4wkahss55hlas가 됩니다. 샘플 JSON 페이로드는 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)를 참조하세요.
+  > 위의 예제는 지속형 스크립트 작업 목록의 hue-install-v0-4wkahss55hlas가 되어야 합니다. 샘플 JSON 페이로드는 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)를 참조하세요.
   > 
 설치 스크립트는 다음 특성을 가져야 합니다.
 1. 스크립트가 idempotent여야 합니다. 스크립트를 여러 번 호출하면 같은 결과가 생성되어야 합니다.

@@ -16,10 +16,10 @@ ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 0b9b201a90b8db59d22db6a48104c86b06469205
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
@@ -28,7 +28,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 빠른 시작은 Node.js로 작성된 기존의 [MongoDB](mongodb-introduction.md) 앱을 사용하는 방법을 보여주고 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결합니다. 즉, Node.js 응용 프로그램은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 응용 프로그램에 대해 투명합니다.
 
-완료하고 나면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에서 실행됩니다. 
+완료하고 나면 MEAN 응용 프로그램(MongoDB, Express, Angular 및 Node.js)이 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에서 실행됩니다. 
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 

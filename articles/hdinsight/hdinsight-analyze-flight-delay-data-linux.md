@@ -1,6 +1,6 @@
 ---
 title: "HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석 - Azure | Microsoft Docs"
-description: "Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 "
+description: "Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL Database에 데이터를 내보내는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,27 +16,27 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 88031b3698ec575eb48531b118c45f11ef7f19c0
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
 
-Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분석한 다음 Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다.
+Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분석하는 방법 및 Sqoop을 사용하여 Azure SQL Database에 데이터를 내보내는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 Azure HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 단계는 [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Hadoop 사용하기 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* **Azure SQL 데이터베이스**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL 데이터베이스**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
-* **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
+* **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 1.0 설치](../cli-install-nodejs.md)를 참조하세요.
 
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -48,30 +48,31 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
-   | 필드 |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. 기타 모든 필드 지우기 |
+   | 필드 |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   기타 모든 필드를 지웁니다. 
 
-3. **다운로드**를 클릭합니다.
+3. **다운로드**를 선택합니다.
 
 ## <a name="upload-the-data"></a>데이터 업로드
 
-1. 다음 명령을 사용하여 HDInsight 클러스터 헤드 노드에 zip 파일을 업로드합니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터 헤드 노드에 .zip 파일을 업로드합니다.
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    **FILENAME**을 zip 파일의 이름으로 바꿉니다. **USERNAME**을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
+    *FILENAME*을 .zip 파일의 이름으로 바꿉니다. *USERNAME*을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
 
    > [!NOTE]
-   > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
-2. 업로드가 완료되면 SSH를 사용하여 클러스터에 연결합니다.
+2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다.
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
 
-    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-3. 연결되면 다음을 사용하여.zip 파일의 압축을 풉니다.
+3. 다음 명령을 사용하여 .zip 파일의 압축을 풉니다.
 
     ```
     unzip FILENAME.zip
@@ -88,7 +89,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 ## <a name="create-and-run-the-hiveql"></a>HiveQL 만들기 및 실행
 
-다음 단계를 사용하여 CSV 파일에서 **지연**라는 Hive 테이블로 데이터를 가져옵니다.
+다음 단계를 사용하여 .csv 파일에서 **지연**이라는 Hive 테이블로 데이터를 가져옵니다.
 
 1. 다음 명령을 사용하여 **flightdelays.hql**이라는 새 파일을 만들고 편집합니다.
 
@@ -158,7 +159,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     FROM delays_raw;
     ```
 
-2. 파일을 저장하려면 **Ctrl + X**, **Y**를 차례로 사용합니다.
+2. 파일을 저장하려면 Ctrl+X 및 Y를 차례로 사용합니다.
 
 3. Hive를 시작하고 **flightdelays.hql** 파일을 실행하려면 다음 명령을 사용합니다.
 
@@ -169,7 +170,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
    > [!NOTE]
    > 이 예제에서 HDInsight 클러스터의 헤드 노드에 연결되어 있기 때문에 `localhost`을 사용합니다. 여기서 HiveServer2가 실행 중입니다.
 
-4. __flightdelays.hql__ 스크립트 실행이 완료되면 다음 명령을 사용하여 대화형 Beeline 세션을 엽니다.
+4. __flightdelays.hql__ 스크립트 실행이 완료된 후에 다음 명령을 사용하여 대화형 Beeline 세션을 엽니다.
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -193,11 +194,11 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
-SQL 데이터베이스가 이미 있는 경우 서버 이름을 가져와야 합니다. [SQL Databases](https://portal.azure.com)를 선택하여 **Azure Portal**에서 서버 이름을 찾은 다음 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버** 열에 나열됩니다.
+이미 SQL Database가 있는 경우 서버 이름을 가져와야 합니다. [Azure Portal](https://portal.azure.com)에서 서버 이름을 찾으려면 **SQL Databases**를 선택하고 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버** 열에 나열됩니다.
 
-SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md) 의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장합니다.
+아직 SQL Databases가 없는 경우 [Azure Portal에서 Azure SQL Databases 만들기](../sql-database/sql-database-get-started.md)의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장합니다.
 
-## <a name="create-a-sql-database-table"></a>SQL 데이터베이스 테이블 만들기
+## <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
 > [!NOTE]
 > 여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
@@ -211,7 +212,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. 설치가 끝나면 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
+3. 설치가 완료된 후에 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
@@ -258,7 +259,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
 ## <a name="export-data-with-sqoop"></a>Sqoop으로 데이터 내보내기
 
-1. 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
+1. 다음 명령을 사용하여 Sqoop이 SQL Database를 볼 수 있는지 확인합니다.
 
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
@@ -274,13 +275,13 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
     Sqoop은 지연 테이블을 포함하는 데이터베이스에 연결되고 `/tutorials/flightdelays/output` 디렉터리에서 지연 테이블로 데이터를 내보냅니다.
 
-3. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
+3. 명령이 완료되면 TSQL 유틸리티를 사용하여 데이터베이스에 연결하기 위해 다음을 사용합니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    연결되면 다음 명령문을 사용하여 데이터가 mobiledata 테이블로 내보내기되었는지 확인합니다.
+    다음 문을 사용하여 데이터가 mobiledata 테이블로 내보내졌는지 확인합니다.
 
     ```
     SELECT * FROM delays
@@ -297,8 +298,8 @@ HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 
 * [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
 * [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
-* [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
-* [HDInsight용 Python Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
+* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
+* [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발][hdinsight-develop-streaming]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e83ad647f6b7c70f34ef0c69b5bf322da5b6d60d
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Node.js에서 Blob Storage를 사용하는 방법
@@ -415,15 +415,19 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Node용 Azure Storage SDK API 참조][Node용 Azure Storage SDK API 참조]
-* [Azure Storage 팀 블로그][Azure Storage 팀 블로그]
-* GitHub의 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리
-* [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)
-* [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Node용 Azure Storage SDK API 참조][Node용 Azure Storage SDK API 참조]  
+* [Azure Storage 팀 블로그][Azure Storage 팀 블로그]  
+* GitHub의 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리  
+* [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)  
+* [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
 [Azure Table Service를 사용하는 Node.js 웹앱](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: https://www.microsoft.com/web/webmatrix/  
-[REST API 사용]: http://msdn.microsoft.com/library/azure/hh264518.aspx [Azure Portal]: https://portal.azure.com [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/ [Node용 Azure Storage SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[REST API 사용]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure portal]: https://portal.azure.com  
+[Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/  
+[노드 API 참조를 위한 Azure Storage SDK]: http://dl.windowsazure.com/nodestoragedocs/index.html  
 
