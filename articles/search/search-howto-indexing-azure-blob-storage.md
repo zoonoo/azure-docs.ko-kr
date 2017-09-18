@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -28,21 +28,7 @@ ms.lasthandoff: 08/21/2017
 ## <a name="supported-document-formats"></a>지원되는 문서 형식
 BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
 
-* PDF
-* Microsoft Office 형식: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG(Outlook 전자 메일)  
-* HTML
-* XML
-* ZIP
-* EML
-* RTF
-* 일반 텍스트 파일([일반 텍스트 인덱싱](#IndexingPlainText)도 참조)
-* JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
-* CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
-
-> [!IMPORTANT]
-> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2016-09-01-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="setting-up-blob-indexing"></a>BLOB 인덱싱 설정
 다음을 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.

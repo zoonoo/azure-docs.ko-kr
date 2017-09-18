@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 17ad81945deef8d4803898cfe4fc9ddbd88a2a54
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
@@ -136,12 +136,12 @@ Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미�
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>사용자 지정 이미지를 만들도록 VHD 파일 업로드 과정을 어떻게 자동화합니까?
 사용자 지정 이미지를 만들도록 VHD 파일 업로드를 자동화하기 위해 두 가지 옵션이 있습니다.
 
-* [AzCopy](../storage/common/storage-use-azcopy.md#blob-upload)를 사용하여 랩과 연결된 저장소 계정에 VHD 파일을 복사 또는 업로드할 수 있습니다.
+* [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage)를 사용하여 랩과 연결된 저장소 계정에 VHD 파일을 복사 또는 업로드할 수 있습니다.
 * [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용합니다. 저장소 탐색기는 Windows, OS X 및 Linux에서 실행되는 독립 실행형 앱입니다.   
 
 랩과 연결된 대상 저장소 계정을 찾으려면:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 3. 랩과 연결된 리소스 그룹을 찾고 선택합니다.
 4. **개요** 아래에서 저장소 계정 중 하나를 선택합니다.

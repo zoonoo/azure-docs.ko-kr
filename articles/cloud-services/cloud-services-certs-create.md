@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: f760bfd93b19c43d12889b5dd38015c5eba0a8ac
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 클라우드 서비스 인증서 개요
@@ -89,9 +89,6 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 
 ### <a name="internet-information-services-iis"></a>IIS(인터넷 정보 서비스)
 인터넷에는 IIS를 사용하여 이 작업을 수행하는 방법을 다룬 내용이 많이 있습니다. [여기](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 에서 볼 수 있습니다. 
-
-### <a name="java"></a>Java
-Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate)수 있습니다.
 
 ### <a name="linux"></a>Linux
 [이](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.

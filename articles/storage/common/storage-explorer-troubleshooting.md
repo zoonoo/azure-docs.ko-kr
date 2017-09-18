@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
-
-## <a name="introduction"></a>소개
 
 Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 앱은 Azure, Sovereign Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
 
@@ -32,7 +30,7 @@ Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에�
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
-AAD(Azure Active Directory) 계정만 지원됩니다. ADFS 계정을 사용하는 경우 Storage 탐색기에 대한 로그인은 작동하지 않습니다. 계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
+계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>오류: 인증서 체인의 자체 서명된 인증서
 

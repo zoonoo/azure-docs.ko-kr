@@ -17,8 +17,8 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: a8037dfbd799209e453b84374f28b881864d3799
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
 ms.contentlocale: ko-kr
 ms.lasthandoff: 09/07/2017
 
@@ -97,7 +97,7 @@ Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>시스템 생성</p></td>
+            <td valign="top"><p>여기서는</p></td>
             <td valign="top"><p>리소스의 고유한 사용자 정의 이름(동일한 파티션 키 값 포함) 사용자가 ID를 지정하지 않는 경우 시스템에서 ID가 생성됩니다.</p></td>
         </tr>
     </tbody>

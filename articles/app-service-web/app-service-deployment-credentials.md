@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
@@ -47,7 +46,7 @@ ms.lasthandoff: 06/23/2017
 1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **배포 자격 증명**을 차례로 클릭합니다.
 
     > [!NOTE]
-    > 포털에서 배포 자격 증명 블레이드에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
+    > 포털에서 배포 자격 증명 블레이드에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user#set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
 
 2. 사용자 이름과 암호를 구성한 다음 **저장**을 클릭합니다.
 

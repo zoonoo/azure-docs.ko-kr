@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6866a16e40ea7b6953b13ae72e207f3f69a3030c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>PowerShell을 사용하여 앱 서비스 앱 백업 및 복원
-> [!div class="op_single_selector"]
-> * [PowerShell](app-service-powershell-backup.md)
-> * [REST API](../app-service-web/websites-csm-backup.md)
-> 
-> 
 
 Azure PowerShell을 사용하여 [앱 서비스 앱](https://azure.microsoft.com/services/app-service/web/)을 백업 및 복원하는 방법에 대해 알아봅니다. 요구 사항 및 제한 사항을 포함한 웹앱 백업에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 백업](../app-service-web/web-sites-backup.md)을 참조하세요.
 

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 08/08/2017
 세 부분으로 이루어진 자습서의 마지막 부분입니다. 이전 섹션에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md) [Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 섹션에서는 Azure Container Instances에 컨테이너를 배포하여 이 자습서를 완료합니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Azure Resource Manager 템플릿을 사용하여 컨테이너 그룹 정의
-> * Azure CLI를 사용하여 컨테이너 그룹 배포
+> * Azure CLI를 사용하여 Azure Container Registry의 컨테이너 배포
+> * 브라우저에서 응용 프로그램 보기
 > * 컨테이너 로그 보기
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포

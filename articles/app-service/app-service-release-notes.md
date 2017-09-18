@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
@@ -28,7 +29,7 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
 
 * **웹 도구 확장**과 관련된 새로운 기능\시나리오 
   
-  * Azure 웹 사이트의 이름이 Azure 앱 서비스로 바뀌었습니다. 자세한 내용은 [Azure 앱 서비스 및 기존 Azure 서비스](../app-service-web/app-service-changes-existing-services.md)를 참조하세요.
+  * Azure 웹 사이트의 이름이 Azure 앱 서비스로 바뀌었습니다. 
   * Azure API 앱(미리 보기) 지원은 고객이 ASP.NET 프로젝트를 API 앱으로 게시한 다음 C# 프로젝트에서 추가 > Azure API 앱 클라이언트 제스처를 사용하여 배포된 API 앱의 구조에 따라 코드를 생성할 수 있도록 추가되었습니다. 
   * 서버 탐색기의 웹 사이트 노드는 더 이상 사용되지 않으며, 대신 리소스 그룹 기반의 Azure API 앱, 모바일 앱 및 웹앱 그룹화 지원을 포함하는 Azure 앱 서비스 노드가 사용됩니다.
   * Azure 모바일 앱(미리 보기) 지원은 고객이 새 모바일 앱 프로젝트를 만들고, 모바일 앱 컨트롤러를 추가하고, 프로젝트를 게시하고, 원격으로 응용 프로그램을 디버그할 수 있도록 추가되었습니다.
@@ -46,7 +47,7 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
     
     자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Azure SDK for .NET 2.5.1 알려진 문제 및 제한
+## <a id="known_issues_2_5_1"></a>Azure SDK for .NET 2.5.1 알려진 문제 및 제한
 * Azure API 앱은 모바일 앱의 배포 대상으로 표시됩니다. 후속 릴리스가 출시될 때까지 모바일 앱의 유일한 대상은 웹앱이어야 합니다. 
 * Azure API 앱 프로비저닝이 성공해도 Azure 앱 서비스 작업 창에서 진행률이 업데이트되지 않는 경우가 가끔 발생합니다. 해결 방법은 Azure 포털에서 새로운 Azure API 앱의 상태를 확인하는 것입니다. 
 * default/index.html이 없으므로 파일 > 새 프로젝트 > API 앱 > F5 키를 클릭하면 HTTP 오류가 발생합니다. 해결 방법은 수동으로 /api/values URL을 찾는 것입니다. 
@@ -62,10 +63,5 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
 * API 앱 프로젝트를 클라우드 서비스 프로젝트와 함께 사용할 수 없습니다.
 * API 앱 프로젝트 템플릿은 C#에서만 사용할 수 있습니다.
 * "Azure API 앱 클라이언트 추가" 상황에 맞는 메뉴를 통한 API 앱 사용은 C#에서만 지원됩니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

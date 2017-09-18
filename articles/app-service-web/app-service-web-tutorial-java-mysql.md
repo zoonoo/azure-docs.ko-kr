@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 96f7bda79fd83bffa4ca1d64275a784004547c6d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -322,7 +322,7 @@ az webapp config appsettings set \
 ### <a name="get-ftp-deployment-credentials"></a>FTP 배포 자격 증명 가져오기 
 FTP, 로컬 Git, GitHub, Visual Studio Team Services 및 BitBucket과 같은 다양한 방법으로 응용 프로그램을 Azure App Service에 배포할 수 있습니다. 이 예에서는 로컬 컴퓨터에 이전에 빌드된 .WAR 파일을 Azure App Service에 배포하는 FTP입니다.
 
-ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) 명령을 사용합니다. 
+ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) 명령을 사용합니다. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles \ 

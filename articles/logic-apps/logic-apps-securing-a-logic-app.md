@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -269,10 +269,6 @@ HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경�
 #### <a name="azure-api-management"></a>Azure API 관리
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/)에는 보안 프록시를 위한 사이트 간 VPN 및 ExpressRoute 통합과 온-프레미스 시스템에 대한 통신 등 온-프레미스 연결 옵션이 있습니다. Logic App Designer에서 워크플로 내의 Azure API Management에서 노출되는 API를 빠르게 선택하여 온-프레미스 시스템에 빠르게 액세스할 수 있습니다.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Azure App Services의 하이브리드 연결
-
-온-프레미스 통신을 위해 Azure API와 Web Apps용 온-프레미스 하이브리드 연결 기능을 사용할 수 있습니다.  하이브리드 연결 및 구성 방법에 대한 자세한 내용은 [이 문서에서](../app-service-web/web-sites-hybrid-connection-get-started.md) 찾아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [배포 템플릿 만들기](logic-apps-create-deploy-template.md)  

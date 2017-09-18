@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5d057eaf32867aedc95d58c5185e2be1f9385ec0
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,9 +51,9 @@ az batch application delete -g myresourcegroup -n mybatchaccount --application-i
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#create) | 응용 프로그램을 만듭니다.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#set) | 응용 프로그램의 속성을 업데이트합니다.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#create) | 지정된 응용 프로그램에 응용 프로그램 패키지를 추가합니다.  |
+| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | 응용 프로그램을 만듭니다.  |
+| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | 응용 프로그램의 속성을 업데이트합니다.  |
+| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | 지정된 응용 프로그램에 응용 프로그램 패키지를 추가합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

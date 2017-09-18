@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service를 사용하여 Agile 소프트웨어 개발"
-description: "agile 소프트웨어 개발을 지원하는 Azure App Service를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다."
+title: "Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발"
+description: "agile 소프트웨어 개발을 지원하는 Azure 앱 서비스를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="agile-software-development-with-azure-app-service"></a>Azure App Service를 사용하여 Agile 소프트웨어 개발
+# <a name="agile-software-development-with-azure-app-service"></a>Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발
 이 자습서에서는 [agile 소프트웨어 개발](https://en.wikipedia.org/wiki/Agile_software_development)을 지원하는 [Azure App Service](/azure/app-service/)를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다. 여기서는 사용자가 [Azure에서 복잡한 응용 프로그램 배포](app-service-deploy-complex-application-predictably.md)방법을 이미 알고 있다고 가정합니다.
 
 Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure App Service를 [지속적인 게시](app-service-continuous-deployment.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
@@ -30,10 +30,10 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 | 요구 사항 | Azure 사용할 수 있는 방법 |
 | --- | --- |
-| -모든 커밋을 사용하여 구축<br>- 빠르게 자동적으로 구축합니다. |지속적인 배포를 구성할 때, Azure App Service는 개발 분기점에 따라 실시간 구축 기능을 수행합니다. 모든 시간 코드는 분기점에 푸시되고, 자동적으로 Azure에서 구축하고 실시간으로 실행됩니다. |
+| -모든 커밋을 사용하여 구축<br>- 빠르게 자동적으로 구축합니다. |지속적인 배포를 구성할 때, Azure 앱 서비스는 개발 분기점에 따라 실시간 구축 기능을 수행합니다. 모든 시간 코드는 분기점에 푸시되고, 자동적으로 Azure에서 구축하고 실시간으로 실행됩니다. |
 | - 자체-테스트 빌드 구축하기 |Azure 리소스 관리자 템플릿으로 배포 된 테스트, 웹 테스트 등을 불러옵니다. |
 | - 프로덕션 환경의 클론에 테스트를 수행합니다. |Azure 리소스 관리자 템플릿은 신속하고 예측 가능한 테스트를 위해 Azure 프로덕션 환경 (앱 설정, 연결 문자열 템플릿, 크기 조정 등 포함)의 클론을 만들 데 사용할 수 있습니다. |
-| -최근 구축 결과를 쉽게 볼 수 있습니다. |리포지토리에서 Azure로의 지속적인 배포는 변경 사항을 커밋한 즉시 실시간 응용 프로그램에서 테스트 할 수 있다는 것을 의미합니다. |
+| -최근 구축 결과를 쉽게 볼 수 있습니다. |리포지토리에서 Azure로의 지속적인 배포는 변경 사항 을 커밋한 즉시 실시간 응용 프로그램에서 테스트 할 수 있다는 것을 의미합니다. |
 | -매일 주 분기점에 커밋하기<br>-배포를 자동화하기 |프로덕션 응용 프로그램과 저장소의 주 분기점의 지속적인 통합은 모든 커밋/병합은 프로덕션의 주 분기점으로 자동적으로 배포 됩니다. |
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -47,7 +47,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 * 배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../azure-resource-manager/resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [크기 조정](web-sites-scale.md) 설정, SQL Database가 있습니다. 
 * 각 환경을 별도로 관리할 수 있습니다. 서로 다른 구독에도 존재할 수 있습니다.
-* 스테이징과 프로덕션은 같은 App Service 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
+* 스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 * 마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md)프로덕션 슬롯으로 교체됩니다.
 
 프로덕션 및 스테이징 환경은 [*&lt;repository_root>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json)의 템플릿에서 정의됩니다.
@@ -71,7 +71,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 > 
-> * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 Web Apps와 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
 > * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 > 
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -137,7 +137,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
    * 모든 Azure 구독에서 만들 수 있습니다. 즉, 테스트 환경에서 프로덕션 환경을 별도로 관리할 수 있습니다.
    * 테스트 환경을 라이브 Azure에서 실행 중입니다.
    * 테스트 환경은 스테이징 슬롯 및 크기 조정 설정을 제외하고 프로덕션 환경과 동일합니다. ProdandStage.json과 Dev.json 간의 유일한 차이점이므로 알 수 있습니다.
-   * 다른 가격 계층(예: **무료**)으로 자체 App Service 계획에서 테스트 환경을 관리할 수 있습니다.
+   * 다른 가격 계층(예: **무료**)으로 자체 앱 서비스 계획에서 테스트 환경을 관리할 수 있습니다.
    * 테스트 환경을 삭제하는 것은 리소스 그룹을 삭제하는 것 만큼 간단합니다. 이 작업을 수행하는 방법은 [나중에](#delete)살펴보겠습니다.
 3. 다음 명령을 실행하여 개발 분기점 생성으로 넘어갑니다.
    
@@ -264,12 +264,14 @@ ProdandStage.json에서 스테이징 및 프로덕션 환경이 설정된 방식
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>요약
-Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채택하려는 대부분의 회사에게 필수품입니다. 이 자습서에서는, 프로덕션 환경, 심지어 복잡한 응용 프로그램의 정확하거나 비슷한 복제본을 쉽게 만들고 분리하는 방법에 대해 배웠습니다. 또한, Azure에서 모든 단일 커밋을 구축하고 테스트하는 개발 프로세스를 생성하는 기능을 활용하는 방법을 배웠습니다. 이 자습서는 사용자가 Azure App Service와 Azure 리소스 관리자를 함께 사용하여 agile 방법론에 부합하는 DevOps 솔루션을 제공하는 최상의 방법을 보여줍니다. 다음으로 [프로덕션에서 테스트](app-service-web-test-in-production-get-start.md)와 고급 DevOps 기술을 수행하여 시나리오를 계속 빌드할 수 있습니다. 일반적인 프로덕션 시나리오 테스트의 경우 [Azure App Service에서 Flighting 배포(베타 테스트)](app-service-web-test-in-production-controlled-test-flight.md)를 참조하세요.
+Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채택하려는 대부분의 회사에게 필수품입니다. 이 자습서에서는, 프로덕션 환경, 심지어 복잡한 응용 프로그램의 정확하거나 비슷한 복제본을 쉽게 만들고 분리하는 방법에 대해 배웠습니다. 또한, Azure에서 모든 단일 커밋을 구축하고 테스트하는 개발 프로세스를 생성하는 기능을 활용하는 방법을 배웠습니다. 이 자습서는 사용자가 Azure 앱 서비스와 Azure 리소스 관리자를 함께 사용하여 agile 방법론에 부합하는 DevOps 솔루션을 제공하는 최상의 방법을 보여줍니다. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>추가 리소스
 * [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)
 * [Agile 개발 연습에서: 현대화 개발 주기의 팁과 트릭](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
-* [리소스 관리자 템플릿을 사용하여 Azure Web Apps의 고급 배포 전략](http://channel9.msdn.com/Events/Build/2015/2-620)
+* [리소스 관리자 템플릿을 사용하여 Azure 웹앱의 고급 배포 전략](http://channel9.msdn.com/Events/Build/2015/2-620)
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint-JSON 유효성 검사기](http://jsonlint.com/)
 * [ARMClient – 사이트로 GitHub 게시를 설정](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)

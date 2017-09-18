@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -55,17 +55,17 @@ az group delete -n az-cli-vhd
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | 저장소 계정을 나열합니다. |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | 저장소 계정 이름이 유효하고 이미 존재하는 계정인지 확인합니다. |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | 저장소 계정의 키를 나열합니다. |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Blob이 있는지 확인합니다. |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | 저장소 계정으로 컨테이너를 만듭니다. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | VHD를 업로드하여 컨테이너에서 Blob을 만듭니다. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | `--query`와 함께 사용하여 VM 이름이 사용 중인지 확인합니다. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | 가상 컴퓨터를 만듭니다. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | 현재 사용자에게 VM에 대한 액세스 권한을 부여하도록 SSH 키를 다시 설정합니다. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | 만들어진 VM의 IP 주소를 가져옵니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | 저장소 계정을 나열합니다. |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | 저장소 계정 이름이 유효하고 이미 존재하는 계정인지 확인합니다. |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | 저장소 계정의 키를 나열합니다. |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Blob이 있는지 확인합니다. |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | 저장소 계정으로 컨테이너를 만듭니다. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | VHD를 업로드하여 컨테이너에서 Blob을 만듭니다. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | `--query`와 함께 사용하여 VM 이름이 사용 중인지 확인합니다. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | 가상 컴퓨터를 만듭니다. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | 현재 사용자에게 VM에 대한 액세스 권한을 부여하도록 SSH 키를 다시 설정합니다. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | 만들어진 VM의 IP 주소를 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

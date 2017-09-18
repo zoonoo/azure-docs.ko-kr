@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -87,11 +87,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>비어 있는 SQL Server(논리 서버) 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL Server(논리 서버) 양식으로 이동합니다. 다음 스크린샷에서는 비어 있는 논리 SQL Server를 만드는 양식을 여는 한 가지 방법을 보여줍니다. 
-
-   ![논리 서버 만들기 양식 완료](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-다른 방법을 사용하여 이 양식을 가져오는 경우 양식에 대한 정보는 동일합니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL Server(논리 서버) 양식으로 이동합니다.  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>비어 있거나 샘플인 SQL Database 만들기
 
@@ -105,9 +101,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 
-기존 서버를 관리하려면 특정 SQL Database 페이지, **SQL server** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다. 다음 스크린샷에서는 서버의 **개요** 페이지에서 서버 수준 방화벽을 설정하기 시작하는 방법을 보여줍니다. 
-
-   ![논리 서버 개요](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+기존 서버를 관리하려면 특정 SQL Database 페이지, **SQL server** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다. 
 
 기존 데이터베이스를 관리하려면 **SQL Database** 페이지로 이동하고 관리하려는 데이터베이스를 클릭합니다. 다음 스크린샷에서는 데이터베이스의 **개요** 페이지에서 데이터베이스의 서버 수준 방화벽을 설정하기 시작하는 방법을 보여줍니다. 
 
@@ -219,13 +213,13 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 |[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
 |[Servers - Sql](/rest/api/sql/servers%20-%20sql)|지정된 이름의 리소스를 만들 수 있는지 여부를 결정합니다.|
 |[Databases - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[Databases - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
-|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
-|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
-|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[Databases - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
+|[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 |[Firewall Rules - Create 또는 Update](/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
 |[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
 |[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|

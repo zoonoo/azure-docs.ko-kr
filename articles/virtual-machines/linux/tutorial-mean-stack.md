@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -43,7 +43,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만들고 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 명령을 사용하여 Linux VM을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만들고 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 Linux VM을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 Azure CLI를 사용하여 *eastus* 위치에 *myResourceGroupMEAN*이라는 리소스 그룹을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 SSH 키가 있는 *myVM*이라는 VM이 만들어집니다. 특정 키 집합을 사용하려면 --ssh-key-value 옵션을 사용합니다.
 

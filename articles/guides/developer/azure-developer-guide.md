@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -158,7 +158,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**사용 시기**: Linux의 웹앱을 Docker 이미지로 배포할 경우
 
-    >**시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service/containers/quickstart-custom-docker-image.md).
 
 ### <a name="authentication"></a>인증
 
@@ -168,7 +168,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**사용 시기**: SSO 환경 제공, 그래프 기반 데이터 작업 또는 도메인 기반 사용자를 인증하려는 경우
 
-    >**시작하기**: 자세한 내용은 [Azure Active Directory 개발자 가이드](../../active-directory/active-directory-developers-guide.md)를 참조하세요.
+    >**시작하기**: 자세한 내용은 [Azure Active Directory 개발자 가이드](../../active-directory/develop/active-directory-developers-guide.md)를 참조하세요.
 
 -   **App Service 인증**: App Service를 선택하여 앱을 호스트하는 경우 소셜 ID 공급자(Facebook, Google, Microsoft 및 Twitter 포함)와 함께 Azure AD에 대한 기본 제공 인증도 지원됩니다.
 

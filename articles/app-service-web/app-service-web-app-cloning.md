@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure 앱 서비스 앱 복제
@@ -27,8 +27,6 @@ ms.lasthandoff: 11/17/2016
 앱 복제는 현재 프리미엄 계층의 앱 서비스 계획에만 지원됩니다. 새로운 기능은 웹앱 백업 기능과 동일한 제한 사항을 사용합니다. [Azure App Service에서 웹앱 백업](web-sites-backup.md)을 참조하세요.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Azure Resource Manager 기반 Azure PowerShell cmdlet을 사용하여 [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="cloning-an-existing-app"></a>기존 앱 복제
 시나리오: 사용자가 미국 중남부 지역의 기존 웹앱의 콘텐츠를 미국 중북부 지역의 새 웹앱으로 복제하려고 합니다. 이 작업은 SourceWebApp 옵션으로 새 웹앱을 만들기 위해 PowerShell cmdlet의 Azure Resource Manager 버전을 사용하여 수행할 수 있습니다.
@@ -107,11 +105,10 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 * 데이터베이스 내용이 복제되지 않습니다.
 
 ### <a name="references"></a>참조
-* [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)
 * [Azure 포털을 사용하여 웹앱 복제](app-service-web-app-cloning-portal.md)
 * [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md)
 * [Azure Traffic Manager에 대한 Azure Resource Manager 지원 미리 보기](../traffic-manager/traffic-manager-powershell-arm.md)
 * [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
-* [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
+* [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
@@ -65,9 +65,6 @@ Azure Cosmos DB를 사용하여 언제든지 데이터베이스 계정에 지역
 **Azure Cosmos DB의 테넌트는 데이터베이스 계정에 연결된 영역의 장애 조치(Failover) 우선 순위(오른쪽 창)를 구성할 수 있습니다.**
 
 ![Azure Cosmos DB를 사용하여 장애 조치(Failover) 우선 순위 구성](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>지역을 동적으로 "오프라인"으로 전환
-Azure Cosmos DB는 특정 지역의 데이터베이스 계정을 오프라인으로 전환하고 나중에 다시 온라인으로 전환할 수 있습니다. 오프라인으로 표시된 지역은 복제에 능동적으로 참여하지 않으며 장애 조치(Failover) 시퀀스에 포함되지 않습니다. 따라서 잠재적 위험이 있는 업그레이드를 응용 프로그램에 배포하기 전에 마지막으로 알려진 좋은 데이터베이스 이미지를 읽기 지역 중 하나에 고정할 수 있습니다.
 
 ### <a id="ConsistencyLevels"></a>전역적으로 복제된 데이터베이스에 대해 잘 정의된 여러 일관성 모델
 Azure Cosmos DB는 SLA를 통해 지원되는 [잘 정의된 여러 일관성 수준](consistency-levels.md)을 노출합니다. 워크로드/시나리오에 따라 제공되는 옵션 목록에서 특정 일관성 모델을 선택할 수 있습니다. 

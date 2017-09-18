@@ -15,19 +15,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 66f4b7a5f8eb3f6f125c9420b40caffca3d43dd6
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 017e08b7e1e37c0bcb95ae0d9d702471bb8bc6bc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Azure에서 MySQL 데이터베이스 만들기 및 연결
 이 자습서에서는 [Azure Portal](https://portal.azure.com)(공급자가 [ClearDB](http://www.cleardb.com/))에서 MySQL 데이터베이스를 만들고 [Azure App Service](app-service/app-service-value-prop-what-is.md)에서 실행 중인 PHP 웹앱에서 연결하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> [마켓플레이스 앱 템플릿](app-service-web/app-service-web-create-web-app-from-marketplace.md)의 일부로 MySQL 데이터베이스를 만들 수도 있습니다.
+> <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">마켓플레이스 앱 템플릿</a>의 일부로 MySQL 데이터베이스를 만들 수도 있습니다.
 >
 >
 

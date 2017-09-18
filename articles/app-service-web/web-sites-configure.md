@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 443f49c720b47734f330db9bd6790e6a55ac5f9b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹 앱 구성
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 <a name="platform"></a>
 **플랫폼**. 응용 프로그램이 32비트 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 모드가 필요합니다. 무료 및 공유 모드는 항상 32비트 환경에서 실행됩니다.
 
-**웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 [ASP.NET SignalR] 또는 [socket.io]를 사용하는 경우가 여기에 해당합니다.
+**웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)를 사용하는 경우가 여기에 해당합니다.
 
 <a name="alwayson"></a>
 **Always On**. 기본적으로 웹 앱은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 **Always On**을 사용하도록 설정하여 앱을 항상 로드된 상태로 유지할 수 있습니다. 앱에서 연속 WebJobs를 실행하거나 CRON 식을 사용하여 트리거되는 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그러지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
@@ -171,7 +170,6 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure 앱 서비스에서 웹 앱 크기 조정]: ./web-sites-scale.md
-[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [App Service 체험]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

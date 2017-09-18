@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: dfb1abd4eefdb2baea8cdbd497bc8fcc95d200e6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -142,7 +142,7 @@ Linux의 웹앱은 Git 및 FTP와 같은 일반적인 방법도 지원하지만 
 
 Jenkins에서 작업을 설정하기 전에 Linux에 Azure App Service가 필요합니다. 개인 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용할 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
 
-* [여기](/azure/app-service-web/app-service-linux-how-to-create-web-app)에 나온 단계에 따라 Linux에서 웹앱을 만들 수 있습니다. 
+* [여기](../app-service/containers/quickstart-nodejs.md)에 나온 단계에 따라 Linux에서 웹앱을 만들 수 있습니다. 
 * Azure Container Registry는 오픈 소스 Docker Registry 2.0에 기반한 관리되는 [Docker 레지스트리](https://docs.docker.com/registry/) 서비스입니다. 방법에 대한 추가 지침이 필요한 경우 [여기](/azure/container-registry/container-registry-get-started-azure-cli)에 나온 단계에 따릅니다. DockerHub를 사용할 수도 있습니다.
 
 ### <a name="to-deploy-using-docker"></a>Docker를 사용하여 배포하려면 다음을 수행합니다.

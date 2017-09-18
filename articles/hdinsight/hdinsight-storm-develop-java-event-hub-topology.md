@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/13/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e8ebbdab2be7bed224a67facec798820615bb22
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: db278f2ecd025257a969e3a9f05f5269a659999d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -68,7 +68,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 #### <a name="event-hub-components"></a>Event Hub 구성 요소
 
-Azure Event Hubs를 읽고 Azure Event Hubs에 쓰는 구성 요소는 [HDInsight 리포지토리](https://github.com/hdinsight/mvn-rep)에 있습니다. `POM.xml` 파일의 다음 섹션은 이 리포지토리에서 구성 요소를 로드합니다.
+Azure Event Hubs를 읽고 Azure Event Hubs에 쓰는 구성 요소는 [HDInsight 리포지토리](https://github.com/hdinsight/mvn-repo)에 있습니다. `POM.xml` 파일의 다음 섹션은 이 리포지토리에서 구성 요소를 로드합니다.
 
 ```xml
 <repositories>

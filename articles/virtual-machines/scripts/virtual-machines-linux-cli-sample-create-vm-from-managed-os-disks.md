@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ az group delete --name myResourceGroup
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | 디스크 이름 및 리소스 그룹 이름을 사용하여 관리 디스크 속성을 가져옵니다. Id 속성은 새 VM에 관리 디스크를 연결하는 데 사용됩니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | 디스크 이름 및 리소스 그룹 이름을 사용하여 관리 디스크 속성을 가져옵니다. Id 속성은 새 VM에 관리 디스크를 연결하는 데 사용됩니다. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.

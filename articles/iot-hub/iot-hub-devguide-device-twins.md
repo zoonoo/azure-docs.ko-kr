@@ -16,10 +16,10 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
@@ -29,10 +29,6 @@ ms.lasthandoff: 08/28/2017
 * 장치 쌍의 구조 즉, *태그*, *desired* 및 *reported 속성*
 * 장치 앱과 백 엔드가 장치 쌍에 수행할 수 있는 작업
 
-> [!NOTE]
-> 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
-> 
-> 
 
 ### <a name="when-to-use"></a>사용하는 경우
 장치 쌍의 용도:
@@ -219,10 +215,6 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 [Azure IoT 장치 SDK][lnk-sdks]를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다. desired 속성 동기화를 위한 IoT Hub 기본 형식에 대한 자세한 내용은 [장치 다시 연결 흐름][lnk-reconnection]에서 참조하세요.
 
-> [!NOTE]
-> 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다.
-> 
-> 
 
 ## <a name="reference-topics"></a>참조 항목:
 다음 참조 항목에서는 IoT Hub 액세스 제어에 대한 자세한 정보를 제공합니다.

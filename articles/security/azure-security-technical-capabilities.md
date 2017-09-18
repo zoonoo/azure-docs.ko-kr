@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -231,7 +231,7 @@ IaaS VM(Windows 또는 Linux)이 있는 서비스는 [Azure Disk Encryption](htt
 
 PaaS v2
 
-Service Fabric을 사용하여 PaaS v2에서 실행되는 서비스는 VMSS[가상 컴퓨터 확장 집합]에 대해 Azure Disk Encryption을 사용하여 PaaS v2 VM을 암호화할 수 있습니다.
+Service Fabric을 사용하여 PaaS v2에서 실행되는 서비스는 VMSS[가상 컴퓨터 크기 집합]에 대해 Azure Disk Encryption을 사용하여 PaaS v2 VM을 암호화할 수 있습니다.
 
 PaaS v1
 
@@ -344,7 +344,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 - [지점 및 사이트 간 VPN을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [하이브리드 연결을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [하이브리드 연결을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 Azure 앱 서비스는 Azure 클라우드 서비스 및 가상 컴퓨터에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 

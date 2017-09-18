@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4aaa4d2b739ef39754d7286bef3721a1b814d2a3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>하이브리드 연결을 사용하여 Azure 앱 서비스의 웹 앱에서 온-프레미스 SQL Server에 연결
@@ -94,7 +94,7 @@ TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 �
 ### <a name="create-a-sql-server-database-on-premises"></a>SQL Server 데이터베이스 온-프레미스
 Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스할 수 있는 멤버 자격 데이터베이스가 필요합니다. 여기에는 SQL Server 또는 SQL Server Express 데이터베이스(기본적으로 MVC 템플릿에서 사용하는 LocalDB 데이터베이스 아님)가 필요하므로, 이제 멤버 자격 데이터베이스를 만듭니다.
 
-1. SQL Server Management Studio에서 방금 설치한 SQL Server에 연결합니다. (**서버에 연결** 대화 상자가 자동으로 나타나지 않으면 왼쪽 창의 **개체 탐색기**로 이동하여 **연결**을 클릭한 후 **데이터베이스 엔진**을 클릭합니다.)  ![서버에 연결][SSMSConnectToServer]
+1. SQL Server Management Studio에서 방금 설치한 SQL Server에 연결합니다. (**서버에 연결** 대화 상자가 자동으로 나타나지 않으면 왼쪽 창의 **개체 탐색기**로 이동하여 **연결**을 클릭한 후 **데이터베이스 엔진**을 클릭합니다.) ![서버에 연결][SSMSConnectToServer]
    
     **서버 유형**으로 **데이터베이스 엔진**을 선택합니다. **서버 이름**으로 **localhost** 또는 사용 중인 컴퓨터의 이름을 사용할 수 있습니다. **SQL Server 인증**을 선택한 다음 앞서 만든 사용자 이름 및 암호로 로그인합니다.
 2. SQL Server Management Studio를 사용하여 새 데이터베이스를 만들려면 개체 탐색기에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스**를 클릭합니다.
@@ -196,7 +196,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
     연결 문자열을 작성할 때 다음 사항을 기억하세요.
    
    * 기본 인스턴스(예: YourServer\SQLEXPRESS)가 아닌 명명된 인스턴스에 연결하는 경우 정적 포트를 사용하도록 SQL Server를 구성해야 합니다. 정적 포트를 구성하는 방법에 대한 자세한 내용은 [특정 포트에서 수신하도록 SQL Server를 구성하는 방법](http://support.microsoft.com/kb/823938)을 참조하세요. 기본적으로, 명명된 인스턴는 하이브리드 연결에서 지원되지 않는 UDP 및 동적 포트를 사용합니다.
-   * 로컬 SQL Server가 TCP를 사용하도록 설정하고 올바른 포트를 사용하고 있는지 확인할 수 있도록 연결 문자열에서 포트(예와 같이 기본적으로는&1433;)를 지정하는 것이 좋습니다.
+   * 로컬 SQL Server가 TCP를 사용하도록 설정하고 올바른 포트를 사용하고 있는지 확인할 수 있도록 연결 문자열에서 포트(예와 같이 기본적으로는 1433)를 지정하는 것이 좋습니다.
    * 연결 문자열에 사용자 ID 및 암호를 지정하면서 SQL Server 인증을 사용하세요.
 3. Visual Studio에서 **저장** 을 클릭하여 Web.config 파일을 저장합니다.
 
@@ -276,7 +276,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Azure App Service에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [ASP.NET ID 개요(영문)](http://www.asp.net/identity)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -60,19 +60,19 @@ az batch pool delete --pool-id mypool-linux
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 배치 계정에 대해 인증합니다.  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | 배치 계정에 사용 가능한 응용 프로그램을 나열합니다.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | VM의 풀을 만듭니다.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | 풀의 속성을 업데이트합니다.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | 사용 가능한 노드 에이전트 SKU 및 이미지 정보를 나열합니다.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | 지정된 풀에서 실행 중인 VM 수의 크기를 조정합니다.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | 풀의 속성을 표시합니다.  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | 지정된 풀을 삭제합니다.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | 풀에서 자동 확장을 사용하지 않습니다.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | 지정된 풀에서 계산 노드를 모두 나열합니다.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | 지정된 계산 노드를 다시 부팅합니다.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | 지정된 풀에서 나열된 노드를 삭제합니다.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 배치 계정에 대해 인증합니다.  |
+| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#az_batch_application_summary_list) | 배치 계정에 사용 가능한 응용 프로그램을 나열합니다.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | VM의 풀을 만듭니다.  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | 풀의 속성을 업데이트합니다.  |
+| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az_batch_pool_node_agent_skus_list) | 사용 가능한 노드 에이전트 SKU 및 이미지 정보를 나열합니다.  |
+| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_resize) | 지정된 풀에서 실행 중인 VM 수의 크기를 조정합니다.  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | 풀의 속성을 표시합니다.  |
+| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_delete) | 지정된 풀을 삭제합니다.  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | 풀에서 자동 확장을 사용하지 않습니다.  |
+| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_list) | 지정된 풀에서 계산 노드를 모두 나열합니다.  |
+| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_reboot) | 지정된 계산 노드를 다시 부팅합니다.  |
+| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | 지정된 풀에서 나열된 노드를 삭제합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

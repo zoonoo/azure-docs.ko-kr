@@ -4,7 +4,7 @@ description: "Multi-Factor Authentication 클라이언트 및 사용 가능한 �
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c47ca818bd77291338de6e90e5dd27465475e868
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 525ca7733d509b6831e6c5ab7a6f3a5ce5250156
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
@@ -66,7 +66,6 @@ ms.lasthandoff: 08/29/2017
 | 신뢰할 수 있는 장치에 대한 MFA 기억 |● |● |● |
 | MFA SDK | | |● (Multi-factor Auth 공급자 및 전체 Azure 구독 필요) |
 | 온-프레미스 응용 프로그램에 대한 MFA | | |● |
-| 조건부 액세스 정책 | | | ● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하려는 경우 몇 가지 옵션이 있습니다.

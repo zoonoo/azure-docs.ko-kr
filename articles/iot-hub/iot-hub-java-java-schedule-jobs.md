@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
@@ -349,7 +349,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 현재, 장치 쌍 기능을 사용하려면 MQTT 프로토콜을 사용해야 합니다.
+    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다.
 
 1. 콘솔에 장치 쌍 알림을 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 

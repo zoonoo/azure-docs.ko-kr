@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 3b89ff2c47e0a06587f92e23e6b32bf7bb750a1d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 66fa69b746ce2404e3083a9c3872300a9efee874
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 데이터베이스 리소스 제한
@@ -146,5 +146,6 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 - 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 - 단일 데이터베이스에 대한 자세한 내용은 [단일 데이터베이스 리소스](sql-database-resource-limits.md)를 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
-- 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](/azure/azure-subscription-service-limits.md)을 참조하세요.
+- 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-what-is-a-dtu.md)를 참조하세요.
+
