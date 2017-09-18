@@ -4,15 +4,14 @@ hide_bc: true
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: d9ccc9778b9612d7da7336984db6d0d84641ce72
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 81def90a2a17c91db16b2c114e5ead3c59ed2f96
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure 설명서</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/azure/guides/developer/azure-developer-guide">
@@ -71,6 +70,7 @@ ms.lasthandoff: 09/07/2017
         </ul>
     </div>
     <div class="container">
+        <h1 class="screenReader">Microsoft Azure 설명서</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">시작</a>
@@ -105,38 +105,36 @@ ms.lasthandoff: 09/07/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>앱 개발</h3>
-                                                <div class="cols cols2">
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/python/azure/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/java/azure/">
                                                             <img src="media/index/logo_java.svg" alt=""> Java</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>앱 모델</h4>
-                                                    <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                        <li><a class="barLink" href="/azure/azure-functions/">서버를 사용하지 않는 함수</a></li>
-                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Kubernetes를 사용하는 컨테이너</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 Microservices</a></li>
-                                                    </ul>
-                                                </div>
+                                                    </li>
+                                                </ul>
+                                                <h4>앱 모델</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/app-service-web/">웹앱</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">서버를 사용하지 않는 함수</a></li>
+                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Kubernetes를 사용하는 컨테이너</a></li>
+                                                    <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 Microservices</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -174,16 +172,16 @@ ms.lasthandoff: 09/07/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>명령줄 도구</h3>
-                                                <div class="cols">
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="/cli/azure/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
                                                             <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
-                                                    </div>
-                                                </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -195,16 +193,16 @@ ms.lasthandoff: 09/07/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <div class="cols">
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Azure VM의 Jenkins</a>
-                                                    </div>
-                                                </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -252,7 +250,7 @@ ms.lasthandoff: 09/07/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/">
+                                            <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
@@ -1069,7 +1067,7 @@ ms.lasthandoff: 09/07/2017
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure Resource Manager</p>
+                                                <p>Azure 리소스 관리자</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3189,7 +3187,7 @@ ms.lasthandoff: 09/07/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
+                                                    <h3>Azure 리소스 관리자</h3>
                                                     <p>Azure 리소스 배포 및 관리</p>
                                                 </div>
                                             </div>

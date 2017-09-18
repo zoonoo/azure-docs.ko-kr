@@ -130,6 +130,7 @@
 ## 통합
 ### [Azure에서 SendGrid를 사용하여 전자 메일 보내기](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [PowerApps 및 Microsoft Flow로 내보내기](app-service-export-api-to-powerapps-and-flow.md)
+### [관리되는 서비스 ID 사용](app-service-managed-service-identity.md)
 
 ## 문제 해결
 ### [진단 로깅 사용](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

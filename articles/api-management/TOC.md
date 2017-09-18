@@ -11,6 +11,8 @@
 ### [작업 추가](api-management-howto-add-operations.md)
 ### [API 만들기](api-management-howto-create-apis.md)
 ### [API 정의 가져오기](api-management-howto-import-api.md)
+### [수정 시작](api-management-get-started-revise-api.md)
+### [버전 시작](api-management-get-started-publish-versions.md)
 ## 백 엔드 보호
 ### [AAD로 웹 API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
 ### [가상 네트워크에 연결](api-management-using-with-vnet.md)

@@ -64,11 +64,10 @@
 # 관련 항목
 ## [배치 Shipyard](https://github.com/Azure/batch-shipyard)
 ## [배치 및 데이터 팩터리를 사용하여 데이터 처리](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
+## [Azure의 일괄 처리, HPC 및 큰 계산 솔루션](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
-## [큰 계산 리소스](big-compute-resources.md)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
