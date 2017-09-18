@@ -15,10 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 209766e4ebc902d78cf0c83fa8fe0f57c4da73e4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Azure Active Directory 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기
@@ -336,7 +336,8 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 ## <a name="next-step"></a>다음 단계
 Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어)가 필요한 경우 Azure Active Directory 팀의 샘플에 대한 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 을 참조하세요. Azure Active Directory 응용 프로그램에 대한 역할을 사용하도록 설정하고 `[Authorize]` 장식을 사용하여 사용자에게 권한을 부여하는 방법을 보여 줍니다.
 
-LOB(기간 업무)가 온-프레미스 데이터에 대한 액세스 권한이 필요한 경우 [Azure App Service에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스](web-sites-hybrid-connection-get-started.md)를 참조하세요.
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 
