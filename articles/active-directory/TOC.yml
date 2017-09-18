@@ -44,6 +44,14 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Azure Resource Manager 템플릿 사용
           href: msi-qs-configure-template-windows-vm.md
+    - name: MSI 액세스 권한을 Azure 리소스에 할당
+      items:
+        - name: Azure Portal 사용
+          href: msi-howto-assign-access-portal.md
+        - name: PowerShell 사용
+          href: msi-howto-assign-access-powershell.md
+        - name: Azure CLI 사용
+          href: msi-howto-assign-access-cli.md
     - name: MSI를 사용하여 Azure Resource Manager에 액세스
       items:
         - name: Windows VM 사용
@@ -62,13 +70,5 @@
           href: msi-tutorial-windows-vm-access-nonaad.md
         - name: Linux VM 사용
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: MSI 액세스 권한을 Azure 리소스에 할당
-      items:
-        - name: Azure Portal 사용
-          href: msi-howto-assign-access-portal.md
-        - name: PowerShell 사용
-          href: msi-howto-assign-access-powershell.md
-        - name: Azure CLI 사용
-          href: msi-howto-assign-access-cli.md
     - name: 알려진 문제
       href: msi-known-issues.md

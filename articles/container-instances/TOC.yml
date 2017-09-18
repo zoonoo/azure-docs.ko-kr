@@ -41,6 +41,8 @@
   items:
     - name: Azure CLI 2.0
       href: /cli/azure/container
+    - name: REST (영문)
+      href: /rest/api/container-instances
 - name: 리소스
   items:
     - name: Azure 로드맵
