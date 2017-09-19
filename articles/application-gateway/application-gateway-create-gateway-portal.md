@@ -3,7 +3,7 @@ title: "Application Gateway 만들기 - Azure Portal | Microsoft Docs"
 description: "포털을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다."
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: d3c39cfe3159cd4059a81f966fb551175188278b

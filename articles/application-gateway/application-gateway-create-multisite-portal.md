@@ -3,7 +3,7 @@ title: "Azure Application Gateway에서 여러 사이트 호스트 | Microsoft D
 description: "이 문서에서는 Azure 포털을 통해 동일한 게이트웨이에서 여러 웹 응용 프로그램을 호스트하는 기존 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 84bd62ae17b7f7ba4cd815ef1f9880679607ebce
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/20/2017
-
 
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>여러 웹 응용 프로그램을 호스트하는 기존 응용 프로그램 게이트웨이 구성
