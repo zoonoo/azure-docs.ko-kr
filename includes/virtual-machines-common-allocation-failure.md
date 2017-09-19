@@ -6,15 +6,15 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택
 이 단계는 가상 컴퓨터의 다양한 할당 문제를 해결하는 데 도움이 됩니다.
 
 * VM을 다른 VM 크기로 조정합니다.<br>
-    **모두 찾아보기** > **Virtual Machines(클래식)** > 사용자의 가상 컴퓨터 > **설정** > **클기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
+    **모두 찾아보기** > **Virtual Machines(클래식)** > 사용자의 가상 컴퓨터 > **설정** > **크기**를 차례로 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
 * 클라우드 서비스의 모든 VM을 삭제하고 다시 만듭니다.<br>
-    **모두 찾아보기** > **Virtual Machines(클래식)** > 사용자의 가상 컴퓨터 > **삭제**를 클릭합니다. 그런 다음 **새로 만들기** > **계산** > [가상 컴퓨터 이미지]를 클릭합니다.
+    **모두 찾아보기** > **Virtual Machines(클래식)** > 사용자의 가상 컴퓨터 > **삭제**를 차례로 클릭합니다. 그런 다음 **새로 만들기** > **계산** > [가상 컴퓨터 이미지]를 클릭합니다.
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Azure 리소스 관리자 배포 모델의 일반적인 할당 실패 문제 해결
 이 단계는 가상 컴퓨터의 다양한 할당 문제를 해결하는 데 도움이 됩니다.
 
 * 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.<br>
-    중지하려면: **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **Virtual Machines** > 사용자의 가상 컴퓨터 > **중지**를 클릭합니다.
+    중지하려면 **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **Virtual Machines** > 사용자의 가상 컴퓨터 > **중지**를 차례로 클릭합니다.
   
     모든 VM이 중지된 후 첫 번째 VM을 선택하고 **시작**을 클릭합니다.
 
@@ -99,7 +99,7 @@ GeneralError*
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>할당 시나리오: 스테이징/프로덕션 배포(Platform as a Service 전용)
 **오류**
 
-New_General *또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -112,7 +112,7 @@ New_General *또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>할당 시나리오: 선호도 그룹(VM/서비스 근접성)
 **오류**
 
-New_General *또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -125,7 +125,7 @@ New_General *또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>할당 시나리오: 선호도-그룹-기반 가상 네트워크
 **오류**
 
-New_General *또는 New_VMSizeNotSupported*
+New_General* 또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -151,7 +151,7 @@ New_General *또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>할당 시나리오: VM 크기 조정 또는 기존 가용성 집합에 VM 추가 
 **오류**
 
-Upgrade_VMSizeNotSupported *또는 GeneralError*
+Upgrade_VMSizeNotSupported* 또는 GeneralError*
 
 **클러스터 고정의 원인**
 
@@ -188,6 +188,8 @@ GeneralError*
 **해결 방법**
 
 할당할 새 VM 크기를 선택합니다. 작동하지 않는 경우 나중에 다시 시도하세요.
+
+<a name="Error string lookup"></a>
 
 ## <a name="error-string-lookup"></a>오류 문자열 조회
 **New_VMSizeNotSupported***

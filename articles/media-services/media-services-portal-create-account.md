@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Media Services 계정 만들기
@@ -36,6 +36,9 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 
 이 문서에서는 몇 가지 일반적인 개념을 설명하고 Azure 포털을 사용하여 미디어 서비스 계정을 만드는 방법을 보여 줍니다.
 
+> [!NOTE]
+> 다른 지역에서 Azure Media Services 기능의 사용 가용성에 대한 정보는 [데이터 센터에서 AMS 기능의 사용 가용성](scenarios-and-availability.md#availability)을 참조하세요.
+
 ## <a name="concepts"></a>개념
 미디어 서비스에 액세스하려면 다음 두 개의 관련 계정이 필요합니다.
 
@@ -43,8 +46,8 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
   
 * Azure 저장소 계정. 저장소 계정은 Media Services 계정과 동일한 지역에 있어야 합니다. 미디어 서비스 계정을 만들 때 동일한 지역의 기존 저장소 계정을 선택하거나 동일한 지역에 새 저장소 계정을 만들 수 있습니다. 미디어 서비스 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
 
-> [!NOTE]
-> 다른 지역에서 Azure Media Services 기능의 사용 가용성에 대한 정보는 [데이터 센터에서 AMS 기능의 사용 가용성](scenarios-and-availability.md#availability)을 참조하세요.
+  > [!NOTE]
+  > Media Services는 기본 저장소 계정을 테이블, 큐가 있는 **일반 용도 저장소** 계정이 되도록 제한합니다. 저장소 유형에 대한 자세한 내용은 [Azure 저장소 계정 정보](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)를 참조하세요.
 
 ## <a name="create-an-ams-account"></a>AMS 계정 만들기
 이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.

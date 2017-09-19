@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Azure API Management를 사용하여 속도 제한으로 API 보호
@@ -148,7 +148,7 @@ API Management의 제품은 보호되거나 개방될 수 있습니다. 사용�
 </quota>
 ```
 
-**구독당 사용 할당량 설정** 정책도 마찬가지로 **구독당 사용 할당량 설정** 정책을 통해 제품의 API 및 작업에 대한 제한을 설정할 수 있습니다. 이 자습서에서는 해당 기능을 사용하지 않을 것이므로 다음 예제처럼 **quota** 요소에서 **api** 및 **operation** 요소를 삭제합니다.
+**구독당 호출 속도 제한** 정책과 마찬가지로 **구독당 사용 할당량 설정** 정책을 통해 제품의 API 및 작업에 대한 제한을 설정할 수 있습니다. 이 자습서에서는 해당 기능을 사용하지 않을 것이므로 다음 예제처럼 **quota** 요소에서 **api** 및 **operation** 요소를 삭제합니다.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

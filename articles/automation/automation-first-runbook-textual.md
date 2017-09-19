@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 7381bacb09d9b530c14b65030db0fc8ab79b0b9a
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: db525c81e379a014517687bb30bc2040d9d23152
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
@@ -28,6 +28,7 @@ ms.lasthandoff: 09/02/2017
 > * [그래픽](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 워크플로](automation-first-runbook-textual.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 > 
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 09/02/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+* 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [자동화 계정](automation-offering-get-started.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 컴퓨터. 프로덕션 VM이 되지 않도록 이 가상 컴퓨터를 중지하고 시작합니다.
 

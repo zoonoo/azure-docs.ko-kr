@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>HDInsight의 Spark 소개
@@ -30,8 +30,17 @@ ms.lasthandoff: 08/29/2017
 
 HDInsight의 Spark 클러스터를 만들면 Spark가 설치되고 구성된 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 약 10분만에 만들 수 있습니다. 처리되는 데이터는 Azure Storage 또는 Azure Data Lake Store에 저장됩니다. [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-**HDInsight의 Spark 클러스터를 만들려면** [빠른 시작: HDInsight에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요.
+![Spark: 통합된 프레임워크](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## <a name="spark-vs-traditional-mapreduce"></a>Spark와 기존 MapReduce 비교
+
+Spark를 신속하게 만드는 것은 무엇인가요? 데이터 공유를 위해 더 나은 성능을 제공할 수 있도록 하는 측면에서 기존 MapReduce와 Apache Spark의 아키텍처는 어떻게 다릅니까?
+
+![기존 MapReduce와 Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+Spark는 메모리 내 클러스터 컴퓨팅을 위한 기본 형식을 제공합니다. Spark 작업은 메모리로 데이터를 로드하고 캐시하고 디스크 기반 시스템보다 훨씬 더 빠르게 반복적으로 쿼리할 수 있습니다. 또한 Spark는 지역 컬렉션과 같이 분산 데이터 집합을 조작할 수 있도록 Scala 프로그래밍 언어로 통합합니다. 매핑 및 reduce 작업으로 모든 것을 구조화하지 않아도 됩니다.
+
+Spark에서 작업 간의 데이터 공유는 데이터가 메모리 내에 있으므로 더 빠릅니다. 반면, Hadoop은 처리하는 데 시간이 더 오래 걸리는 HDFS를 통해 데이터를 공유합니다.
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>Azure HDInsight의 Apache Spark란?
 HDInsight의 Spark 클러스터는 완벽하게 관리되는 Spark 서비스를 제공합니다. HDInsight의 Spark 클러스터를 만드는 이점은 다음과 같습니다.
@@ -52,6 +61,20 @@ HDInsight의 Spark 클러스터는 완벽하게 관리되는 Spark 서비스를 
 | 확장성 |만드는 동안 클러스터의 노드 수를 지정할 수 있지만 작업과 일치하도록 클러스터를 확장하거나 축소할 수도 있습니다. 모든 HDInsight 클러스터를 통해 클러스터의 노드 수를 변경할 수 있습니다. 또한 모든 데이터가 Azure Storage 또는 Data Lake Store에 저장되므로 데이터 손실 없이 Spark 클러스터를 삭제할 수 있습니다. |
 | 24/7 지원 |HDInsight의 Spark 클러스터는 24/7 엔터프라이즈 수준 지원 및 99.9% 가동 시간 SLA와 함께 제공됩니다. |
 
+## <a name="spark-cluster-architecture"></a>Spark 클러스터 아키텍처
+
+Spark 클러스터 아키텍처 및 작동 방식은 다음과 같습니다.
+
+![Spark 클러스터 아키텍처](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+헤드 노드에는 응용 프로그램의 수를 관리하는 Spark 마스터가 있으며 앱은 Spark 드라이버로 매핑됩니다. 모든 앱은 다양한 방법으로 Spark 마스터에서 관리됩니다. Spark는 작업자 노드 리소스를 응용 프로그램에 할당하는 Mesos, YARN 또는 Spark 클러스터 관리자를 기반으로 배포될 수 있습니다. HDInsight에서 Spark는 YARN 클러스터 관리자를 사용하여 실행합니다. 클러스터의 리소스는 HDInsight의 Spark 마스터에서 관리됩니다. 즉, Spark 마스터에는 메모리와 같은 리소스가 작업자 노드에서 이미 사용 중이거나 사용할 수 있는 기술이 있습니다.
+
+드라이버는 사용자의 주 함수를 실행하고 작업자 노드에서 다양한 병렬 작업을 실행합니다. 그런 다음 드라이버는 작업의 결과를 수집합니다. 작업자 노드는 HDFS(Hadoop 분산 파일 시스템) 간에 데이터를 읽고 씁니다. 또한 작업자 노드는 RDD(Resilient Distributed Datasets)로 메모리 내 변환된 데이터를 캐시합니다.
+
+앱이 Spark 마스터에서 만들어진 후 리소스는 Spark 드라이버라는 실행을 만드는 Spark 마스터에서 앱에 할당됩니다. 또한 Spark 드라이버는 SparkContext를 만들고 RDD 만들기를 시작합니다. RDD의 메타데이터는 Spark 드라이버에 저장됩니다.
+
+Spark 드라이버는 Spark 마스터에 연결하고 응용 프로그램을 작업자 노드의 실행기 프로세스 내에서 실행하는 개별 작업의 DAG(방향성 비순환 그래프)로 변환할 책임이 있습니다. 각 응용 프로그램은 전체 응용 프로그램의 기간에 대해 유지하고 여러 스레드에서 작업을 실행하는 자체 실행기 프로세스를 가져옵니다.
+
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>HDInsight에서 Spark에 대한 사용 사례
 HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사용합니다.
 
@@ -70,7 +93,7 @@ Apache Spark는 [MLlib](http://spark.apache.org/mllib/), 즉 Spark를 기반으�
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Spark 스트리밍 및 실시간 데이터 분석
 [자습서 살펴보기](hdinsight-apache-spark-eventhub-streaming.md)
 
-HDInsight의 Spark 클러스터는 실시간 분석 솔루션을 빌드하기 위한 풍부한 지원을 제공합니다. Spark가 이미 커넥터를 가지고 Kafka, Flume, Twitter, ZeroMQ 또는 TCP 소켓 같은 여러 소스에서 데이터를 수집하는 동안 HDInsight에서 Spark는 Azure 이벤트 허브에서 데이터 수집을 위한 최상의 지원을 추가합니다. 이벤트 허브는 Azure에서 가장 널리 사용되는 큐 서비스입니다. Event Hubs에 대한 즉각적인 지원을 통해 HDInsight의 Spark 클러스터는 실시간 분석 파이프라인을 빌드하기 위한 이상적인 플랫폼이 됩니다.
+HDInsight의 Spark 클러스터는 실시간 분석 솔루션을 빌드하기 위한 풍부한 지원을 제공합니다. Spark가 이미 커넥터를 가지고 Kafka, Flume, Twitter, ZeroMQ 또는 TCP 소켓 같은 여러 소스에서 데이터를 수집하는 동안 HDInsight에서 Spark는 Azure 이벤트 허브에서 데이터 수집을 위한 최상의 지원을 추가합니다. Event Hubs는 Azure에서 가장 널리 사용되는 큐 서비스입니다. Event Hubs에 대한 즉각적인 지원을 통해 HDInsight의 Spark 클러스터는 실시간 분석 파이프라인을 빌드하기 위한 이상적인 플랫폼이 됩니다.
 
 ## <a name="next-steps"></a>Spark 클러스터의 일부로 포함된 구성 요소
 HDInsight의 Spark 클러스터에는 기본적으로 클러스터에서 사용할 수 있는 다음 구성 요소가 포함되어 있습니다.

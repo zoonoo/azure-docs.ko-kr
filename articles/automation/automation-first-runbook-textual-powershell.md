@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: cd8ea6e5a85d00f8ee5a011330d5b93863fd735e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a0e802d931f017c986eba0b64eebfb27c288c8c2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/02/2017
 > * [그래픽](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 워크플로](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 이 자습서는 Azure Automation에서 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 설명하는 동안 테스트하고 게시할 단순한 Runbook부터 시작하겠습니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure 가상 컴퓨터를 시작합니다. 최근에 Runbook 매개 변수를 추가하여 Runbook을 더욱 강력히 만들었습니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/02/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+* 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [자동화 계정](automation-offering-get-started.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 컴퓨터. 프로덕션 VM이 되지 않도록 이 가상 컴퓨터를 중지하고 시작합니다.
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/02/2017
 먼저 *Hello World*라는 텍스트를 출력하는 단순한 Runbook을 생성할 것입니다.
 
 1. Azure 포털에서 자동화 계정을 엽니다.  
-   자동화 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 대부분의 자산들은 새 자동화 계정에 자동적으로 포함되 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
+   자동화 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 대부분의 자산들은 새 자동화 계정에 자동적으로 포함되어 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.<br><br> ![RunbooksControl](media/automation-first-runbook-textual-powershell/runbooks-control-tiles.png)  
 3. **Runbook 추가**버튼을 클릭하고 **새 Runbook 만들기**를 클릭하여 새 Runbook을 만듭니다.
 4. Runbook 이름을 *MyFirstRunbook-PowerShell*로 지정합니다.

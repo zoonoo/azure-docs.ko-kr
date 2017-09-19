@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 >
 >  
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core용 선택적 SDK를 설치할 수 있습니다.
+Linux 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core용 선택적 SDK를 설치할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -116,11 +116,9 @@ sudo apt-get install servicefabricsdkcommon
 
 ## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI 설정
 
-[Service Fabric CLI](service-fabric-cli.md)는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. 해당 항목은 Python에 기반하므로 다음 명령을 사용하여 계속 진행하기 전에 Python 및 PIP를 설치해야 합니다.
+[Service Fabric CLI](service-fabric-cli.md)는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다.
+[Service Fabric CLI](service-fabric-cli.md)의 지침에 따라 CLI를 설치합니다.
 
-```bash
-pip install sfctl
-```
 
 ## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>컨테이너 및 게스트 실행 파일에 생성기 설치 및 설정
 Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 따르세요.

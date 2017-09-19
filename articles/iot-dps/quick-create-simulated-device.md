@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: d4eeb7a77d6336e241c196e4ad48af52d57af1d4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/07/2017
 5. CMake 빌드 프로세스에 대한 이 GitHub 리포지토리의 로컬 복사본에 폴더를 만듭니다. 
 
     ```cmd/sh
-    cd azure-iot-device-auth
+    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/07/2017
 7. 별도의 명령 프롬프트에서 GitHub 루트 폴더로 이동하고 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 시뮬레이터를 실행합니다. 포트 2321 및 2322에서 소켓을 수신 대기합니다. 이 명령 창을 닫지 마세요. 이 빠른 시작 가이드가 끝날 때까지 이 시뮬레이터가 실행되는 상태를 유지해야 합니다. 
 
     ```cmd/sh
-    .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Device Provisioning Service에서 장치 등록 항목 만들기
@@ -69,11 +69,20 @@ ms.lasthandoff: 09/07/2017
 
 3. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
 
-4. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. **TPM**을 ID 증명 *메커니즘*으로 선택하고, 블레이드에 필요한 대로 *등록 ID* 및 *인증 키*를 입력합니다. 완료되면 **저장** 단추를 클릭합니다. 
+4. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. 
+
+5. **등록 목록 항목 추가** 아래에 다음 정보를 입력합니다.
+    - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
+    - TPM 장치에 대한 *등록 ID* 및 *인증 키*를 입력합니다. 
+    - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
+    - 고유한 장치 ID를 입력합니다. 장치 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다.
+    - 장치에 대해 원하는 초기 구성으로 **초기 장치 쌍 상태**를 업데이트합니다.
+    - 완료되면 **저장** 단추를 클릭합니다. 
 
     ![포털 블레이드에 장치 등록 정보 입력](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    등록에 성공하면 장치의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
+
 
 <a id="firstbootsequence"></a>
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>장치에 대한 첫 번째 부팅 시퀀스 시뮬레이션
@@ -94,6 +103,8 @@ ms.lasthandoff: 09/07/2017
 4. **dps_client_sample** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다. 샘플을 실행합니다. 장치를 부팅하고 IoT Hub 정보를 얻기 위해 Device Provisioning Service에 연결하는 과정을 시뮬레이션하는 메시지를 확인합니다. 시뮬레이션된 장치를 프로비전 서비스와 연결된 IoT Hub로 성공적으로 프로비전하면 장치 ID가 허브의 **Device Explorer** 블레이드에 나타납니다. 
 
     ![장치가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
+
+    장치에 대한 등록 항목의 기본값으로부터 *초기 장치 쌍 상태*를 변경한 경우, 허브에서 원하는 쌍 상태를 가져와서 그에 맞게 작동할 수 있습니다. 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
