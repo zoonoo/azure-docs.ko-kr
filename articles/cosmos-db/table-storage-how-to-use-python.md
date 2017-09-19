@@ -56,7 +56,7 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 후 [TableService][py_TableService].[insert_entity][ py_insert_entity] 메서드에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
+엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 후 [TableService][py_TableService].[insert_entity][py_insert_entity] 메서드에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
 
 이 예제에서는 엔터티를 나타내는 사전 개체를 만든 후 [insert_entity][py_insert_entity] 메서드에 전달하여 테이블에 추가합니다.
 
@@ -135,7 +135,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>엔터티 쿼리
 
-테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[ get_entity][ py_get_entity] 메서드에 전달합니다.
+테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[ get_entity][py_get_entity] 메서드에 전달합니다.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -171,7 +171,7 @@ for task in tasks:
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
 
-PartitionKey 및 RowKey를 [delete_entity][ py_delete_entity] 메서드에 제공하여 엔터티를 삭제합니다.
+PartitionKey 및 RowKey를 [delete_entity][py_delete_entity] 메서드에 제공하여 엔터티를 삭제합니다.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
