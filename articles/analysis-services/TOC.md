@@ -16,6 +16,7 @@
 ## [서버 관리](analysis-services-manage.md)
 ## [데이터베이스 사용자 관리](analysis-services-database-users.md)
 ## [서버 관리자 관리](analysis-services-server-admins.md)
+## [서버 메트릭 모니터링](analysis-services-monitor.md)
 ## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [백업 및 복원](analysis-services-backup.md)
