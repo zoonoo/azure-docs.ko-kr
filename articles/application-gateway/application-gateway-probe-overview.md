@@ -3,7 +3,7 @@ title: "Azure Application Gateway에 대한 상태 모니터링 개요 | Microso
 description: "Azure 응용 프로그램 게이트웨이의 모니터링 기능에 대해 알아봅니다."
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/27/2017
-
 
 ---
 

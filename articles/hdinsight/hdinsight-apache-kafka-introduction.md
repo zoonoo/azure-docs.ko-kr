@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight의 Apache Kafka 소개(미리 보기)
@@ -42,7 +42,7 @@ Kafka에서 제공하는 기능은 다음과 같습니다.
 
 * Azure Managed Disks와 통합: 관리 디스크는 HDInsight 클러스터에서 가상 컴퓨터에 사용된 디스크에 대해 더 높은 규모와 처리량을 제공합니다.
 
-    기본적으로 관리 디스크는 HDInsight에서 Kafka에 대해 사용하도록 설정되며 HDInsight 생성 중에 노드당 사용된 디스크 수를 구성할 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
+    관리되는 디스크는 HDInsight의 Kafka에 대해 기본적으로 활성화됩니다. HDInsight를 만드는 동안 노드당 사용되는 디스크의 수를 구성할 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
     HDInsight에서 Kafka로 관리 디스크 구성에 대한 자세한 내용은 [HDInsight에서 Kafka의 확장성 높이기](hdinsight-apache-kafka-scalability.md)를 참조하세요.
 
@@ -55,6 +55,15 @@ Kafka에서 제공하는 기능은 다음과 같습니다.
 * **집계**: 스트림 처리를 사용하여 결합할 서로 다른 스트림의 정보를 한데 모으고 중앙에서 이 정보를 운영 데이터로 집중적으로 처리할 수 있습니다.
 
 * **변환**: 스트림 처리를 사용하여 여러 입력 토픽의 데이터를 하나 이상의 출력 토픽으로 결합하고 보강할 수 있습니다.
+
+## <a name="architecture"></a>아키텍처
+
+![Kafka 클러스터 구성](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+이 다이어그램은 소비자 그룹, 분할 및 복제를 사용하여 내결함성으로 이벤트의 병렬 읽기를 제공하는 일반적인 Kafka 구성을 보여 줍니다. Apache ZooKeeper는 Kafka 클러스터의 상태를 관리하는 것처럼 동시, 복원 가능한 낮은 대기 시간 트랜잭션에 대해 빌드됩니다. Kafka는 *토픽*에 레코드를 저장합니다. *생산자*에서 레코드를 생성하고, *소비자*에서 이 레코드를 소비합니다. 생산자는 Kafka *broker*로부터 레코드를 검색합니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker입니다. 스트리밍 데이터의 병렬 처리를 허용하여 하나의 파티션이 각 소비자에 대해 생성됩니다. 복제는 노드(브로커) 가동 중단으로부터 보호하여 노드 간에 파티션을 확산하기 위해 사용됩니다. *(L)*로 표시되는 파티션은 특정 파티션에 대한 선행부입니다. 생산자 트래픽은 ZooKeeper에서 관리하는 상태를 사용하여 각 노드의 선행부로 라우팅됩니다.
+
+> [!IMPORTANT]
+> Kafka는 Azure 데이터 센터에서 기본 하드웨어(랙)를 인식하지 않습니다. 파티션이 기본 하드웨어에서 올바르게 균형이 조정되었는지 확인하려면 [데이터(Kafka)의 고가용성 구성](hdinsight-apache-kafka-high-availability.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

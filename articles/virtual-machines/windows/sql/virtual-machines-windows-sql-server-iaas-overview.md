@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server 개요
@@ -27,34 +26,8 @@ ms.lasthandoff: 06/28/2017
 
 > [!NOTE]
 > SQL Server에 이미 익숙하고 SQL Server VM을 배포하는 방법을 확인하려는 경우 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
-> 
-> 
 
-## <a name="overview"></a>개요
-데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다. 다음 비디오는 SQL Server Azure VM에 대한 기술적 개요를 제공합니다.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-이 비디오에서는 다음과 같은 영역을 다룹니다.
-
-| Time | 영역 |
-| --- | --- |
-| 00:21 |Azure VM이란? |
-| 01:45 |보안 |
-| 02:50 |연결 |
-| 03:30 |Storage 안정성 및 성능 |
-| 05:20 |VM 크기 |
-| 05:54 |고가용성 및 SLA |
-| 07:30 |구성 지원 |
-| 08:00 |모니터링 |
-| 08:32 |데모: SQL Server 2016 VM 만들기 |
-
-> [!NOTE]
-> 비디오에서는 SQL Server 2016을 중점적으로 다루지만 2012, 2014 및 2016을 비롯한 여러 버전의 Azure SQL Server에 대한 VM 이미지를 제공합니다. 
-> 
-> 
+데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다.
 
 ## <a name="scenarios"></a>시나리오
 Azure에서 데이터를 호스트하도록 선택할 수 있는 여러 가지 이유가 있습니다. 응용 프로그램이 Azure로 이동하는 경우 데이터를 이동하는 것이 성능을 향상시킵니다. 하지만 다른 이점도 있습니다. 글로벌 서비스 및 재해 복구를 위해 여러 데이터 센터에 대한 액세스를 자동으로 가집니다. 데이터를 잘 보호하고 지속합니다.
@@ -126,7 +99,7 @@ Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automated-patchin
 ### <a name="customer-experience-improvement-program-ceip"></a>CEIP(사용자 환경 개선 프로그램)
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 
 
-자세한 내용은 [사용 조건 동의](https://msdn.microsoft.com/library/ms143343.aspx) 항목의 CEIP 섹션을 참조하세요. 
+데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

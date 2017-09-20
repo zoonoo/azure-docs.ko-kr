@@ -168,7 +168,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="deploy-the-app-from-github"></a>GitHub에서 앱 배포
 
 1. Jenkins 프로젝트에서 **지금 빌드**를 선택하여 샘플 앱을 Azure에 배포합니다.
-2. 빌드가 완료되면 앱이 Azure에서 게시 URL(예: http://myjavaapp.azurewebsites.net)에 나타납니다.   
+2. 빌드가 완료되면 앱이 Azure에서 게시 URL(예: http://myjavaapp.azurewebsites.net )에 나타납니다.   
    ![Azure에서 배포된 앱 보기](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>변경 내용 푸시 및 재배포

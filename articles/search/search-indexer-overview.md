@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -59,7 +59,7 @@ Azure SQL 또는 Azure Cosmos DB와 같은 일반적으로 사용 가능한 인�
 
 * [Azure SQL 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* PDF, Office 문서, HTML 또는 XML에서 텍스트를 추출하는 데 사용된 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* 선택한 콘텐츠 유형에 대한 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
 
 데이터 소스는 데이터 소스를 사용하는 인덱서와는 별도로 구성 및 관리됩니다. 즉 데이터 소스를 여러 인덱서에서 사용하여 한 번에 둘 이상의 인덱스를 로드할 수 있습니다.
@@ -72,7 +72,7 @@ Azure SQL 또는 Azure Cosmos DB와 같은 일반적으로 사용 가능한 인�
 
 * [Azure SQL 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* PDF, Office 문서, HTML 또는 XML에서 텍스트를 추출하는 데 사용된 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
 * [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
 * [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)

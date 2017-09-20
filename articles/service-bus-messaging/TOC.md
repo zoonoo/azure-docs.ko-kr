@@ -37,6 +37,7 @@
 ### [큐를 사용하는 앱](service-bus-create-queues.md)
 ### [토픽/구독을 사용하는 앱](service-bus-create-topics-subscriptions.md)
 ### [인증 및 권한 부여](service-bus-authentication-and-authorization.md)
+#### [ACS에서 SAS로 마이그레이션](service-bus-migrate-acs-sas.md)
 #### [공유 액세스 서명을 사용한 인증](service-bus-sas.md)
 ### [분할 큐 및 항목](service-bus-partitioning.md)
 ### [배달하지 못한 편지 큐](service-bus-dead-letter-queues.md)
@@ -52,7 +53,7 @@
 
 ## 관리
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
-### [Azure 리소스 관리자 템플릿 사용](service-bus-resource-manager-overview.md)
+### [Azure Resource Manager 템플릿 사용](service-bus-resource-manager-overview.md)
 #### [네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 #### [네임스페이스 및 큐 만들기](service-bus-resource-manager-namespace-queue.md)
 #### [토픽 및 구독이 있는 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)

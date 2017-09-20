@@ -4,20 +4,20 @@ description: "Azure Functions Tools for Visual Studio 2017을 사용하여 Azure
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.date: 09/06/2017
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -36,24 +36,18 @@ Azure Functions 도구는 다음과 같은 이점을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Functions 도구를 설치하기 전에 다음 워크로드 중 하나를 포함한 [Visual Studio 2017 미리 보기 버전 15.3](https://www.visualstudio.com/vs/preview/)을 설치해야 합니다.
+Azure Functions 도구는 [Visual Studio 2017 버전 15.3](https://www.visualstudio.com/vs/) 이상에서 Azure 개발 워크로드의 일부로 제공됩니다. Visual Studio 2017 버전 15.3 설치에 **Azure 개발** 워크로드가 포함되어 있는지 확인합니다.
 
-* Azure 개발
-* ASP.NET 및 웹 개발
+![Azure 개발 워크로드를 통한 Visual Studio 2017 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+>[!NOTE]  
+>Visual Studio 2017 버전 15.3을 설치하거나 업그레이드한 후 Visual Studio 2017 tools for Azure Functions를 수동으로 업데이트해야 합니다. **확장 및 업데이트...** > **업데이트** > **Visual Studio Marketplace** > **Azure Functions 및 Web Jobs Tools** > **업데이트** 아래의 **도구** 메뉴에서 도구를 업데이트할 수 있습니다. 
 
 함수를 만들고 배포하려면 다음이 필요합니다.
 
 * 활성 Azure 구독. Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 사용할 수 있습니다.
 
-* Azure 저장소 계정. 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.  
-
-## <a name="install-the-azure-functions-tools"></a>Azure Functions 도구 설치
-
-[확장 패키지를 다운로드하여 설치](https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)하거나 다음 단계를 수행하여 Visual Studio에서 설치할 수 있습니다.  
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)] 
-
-
+* Azure 저장소 계정. 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.  
 ## <a name="create-an-azure-functions-project"></a>Azure Functions 프로젝트 만들기 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
@@ -74,7 +74,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 예에서는 base64 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64 함수를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -120,6 +120,18 @@ Base64 표현을 포함하는 문자열입니다.
 | base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tojson" />
 
@@ -140,7 +152,7 @@ JSON 개체입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
 
 ```json
 {
@@ -186,6 +198,18 @@ JSON 개체입니다.
 | base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tostring" />
 
@@ -206,7 +230,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
 
 ```json
 {
@@ -253,7 +277,17 @@ base64 표현을 문자열로 변환합니다.
 | toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="concat" />
 
@@ -274,7 +308,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
 
 ```json
 {
@@ -296,13 +330,25 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
-다음 예제에서는 두 개의 배열을 결합하는 방법을 보여 줍니다.
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
 ```json
 {
@@ -337,11 +383,23 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
 
 <a id="contains" />
 
@@ -363,7 +421,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 여러 다른 형식의 contains를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -414,7 +472,7 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
@@ -424,6 +482,18 @@ base64 표현을 문자열로 변환합니다.
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
 
 <a id="datauri" />
 
@@ -444,7 +514,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
 ```json
 {
@@ -480,6 +550,18 @@ base64 표현을 문자열로 변환합니다.
 | ---- | ---- | ----- |
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
 
 <a id="datauritostring" />
 
@@ -500,7 +582,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
 ```json
 {
@@ -537,6 +619,18 @@ base64 표현을 문자열로 변환합니다.
 | dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 문자열 | Hello, World! |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
 <a id="empty" /> 
 
 ## <a name="empty"></a>empty
@@ -556,7 +650,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
 ```json
 {
@@ -595,13 +689,25 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
 
 <a id="endswith" />
 
@@ -623,7 +729,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -670,6 +776,18 @@ base64 표현을 문자열로 변환합니다.
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="first" />
 
 ## <a name="first"></a>first
@@ -689,7 +807,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -716,12 +834,24 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 문자열 | one |
 | stringOutput | 문자열 | O |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
 
 <a id="indexof" />
 
@@ -743,7 +873,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -785,6 +915,18 @@ base64 표현을 문자열로 변환합니다.
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -804,7 +946,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열 및 문자열에 마지막 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -831,12 +973,24 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 문자열 | three |
 | stringOutput | 문자열 | e |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
 
 <a id="lastindexof" />
 
@@ -858,7 +1012,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -900,6 +1054,18 @@ base64 표현을 문자열로 변환합니다.
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="length" />
 
 ## <a name="length"></a>length
@@ -919,7 +1085,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열 및 문자열에 length를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -953,12 +1119,24 @@ int입니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
 
 <a id="padleft" />
 
@@ -983,7 +1161,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 
 
 ```json
 {
@@ -1011,9 +1189,21 @@ int입니다.
 | ---- | ---- | ----- |
 | stringOutput | 문자열 | 0000000123 |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
 <a id="replace" />
 
-## <a name="replace"></a>바꾸기
+## <a name="replace"></a>replace
 `replace(originalString, oldString, newString)`
 
 다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
@@ -1032,7 +1222,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
 ```json
 {
@@ -1065,6 +1255,18 @@ int입니다.
 | firstOutput | 문자열 | 1231231234 |
 | secodeOutput | 문자열 | 123-123-xxxx |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
 <a id="skip" />
 
 ## <a name="skip"></a>skip
@@ -1085,7 +1287,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
 ```json
 {
@@ -1127,12 +1329,24 @@ int입니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
 | stringOutput | 문자열 | two three |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
 
 <a id="split" />
 
@@ -1154,7 +1368,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
 
 ```json
 {
@@ -1194,6 +1408,18 @@ int입니다.
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
 <a id="startswith" />
 
 ## <a name="startswith"></a>startswith
@@ -1214,7 +1440,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -1261,6 +1487,18 @@ int입니다.
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="string" />
 
 ## <a name="string"></a>string
@@ -1280,7 +1518,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -1333,6 +1571,18 @@ int입니다.
 | arrayOutput | 문자열 | [“a”,“b”,“c”] |
 | intOutput | 문자열 | 5 |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
 <a id="substring" />
 
 ## <a name="substring"></a>substring
@@ -1367,7 +1617,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 매개 변수에서 하위 문자열을 추출합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)에서는 매개 변수에서 하위 문자열을 추출합니다.
 
 ```json
 {
@@ -1395,6 +1645,17 @@ int입니다.
 | ---- | ---- | ----- |
 | substringOutput | 문자열 | two |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
 
 <a id="take" />
 
@@ -1416,7 +1677,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
 ```json
 {
@@ -1458,12 +1719,24 @@ int입니다.
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
 | stringOutput | 문자열 | on |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
 
 <a id="tolower" />
 
@@ -1484,7 +1757,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
 ```json
 {
@@ -1516,6 +1789,18 @@ int입니다.
 | ---- | ---- | ----- |
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
 
 <a id="toupper" />
 
@@ -1536,7 +1821,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
 ```json
 {
@@ -1569,6 +1854,18 @@ int입니다.
 | toLowerOutput | 문자열 | one two three |
 | toUpperOutput | 문자열 | ONE TWO THREE |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
 <a id="trim" />
 
 ## <a name="trim"></a>trim
@@ -1588,7 +1885,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음은 매개 변수에서 공백 문자를 자르는 예입니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)에서는 매개 변수에서 공백 문자를 자릅니다.
 
 ```json
 {
@@ -1615,6 +1912,18 @@ int입니다.
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | return | 문자열 | one two three |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
 
 <a id="uniquestring" />
 
@@ -1673,7 +1982,7 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 uniquestring에서 결과 반환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)에서는 uniquestring에서 결과를 반환합니다.
 
 ```json
 {
@@ -1691,6 +2000,18 @@ int입니다.
         }
     }
 }
+```
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -1721,7 +2042,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-다음 예제에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -1757,6 +2078,18 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponent" />
 
@@ -1777,7 +2110,7 @@ URI로 인코딩된 값의 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -1814,6 +2147,17 @@ URI로 인코딩된 값의 문자열입니다.
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponenttostring" />
 
@@ -1834,7 +2178,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여 줍니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
 ```json
 {
@@ -1871,11 +2215,22 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
 

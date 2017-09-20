@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e5ca582714a80da8c0f63e1b06f6c3019efe849
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -38,15 +38,15 @@ ms.lasthandoff: 04/27/2017
 
 VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-## <a name="before-beginning"></a>시작하기 전에
+## <a name="before"></a>시작하기 전에
 
 다음 단계에서는 각 VNet에 대한 동적 또는 경로 기반 게이트웨이를 구성하고 게이트웨이 간에 VPN 연결을 만드는 데 필요한 설정을 안내합니다. 이 구성은 고정 또는 정책 기반 게이트웨이를 지원하지 않습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="pre"></a>필수 조건
 
 * 두 VNet이 이미 생성되었습니다.
 * VNet에 대한 주소 범위는 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않습니다.
-* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
+* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
 
 ### <a name="exampleref"></a>예제 설정
 
@@ -76,7 +76,7 @@ Virtual Network Gateway name = RMGateway <br>
 게이트웨이 IP 주소 구성 = gwipconfig
 
 ## <a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
-### <a name="part-1---download-your-network-configuration-file"></a>1부 - 네트워크 구성 파일 다운로드
+### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드
 1. 관리자 권한으로 PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 구성의 이 부분을 완료하려면 SM PowerShell cmdlet을 사용합니다.
 
   ```powershell
@@ -89,8 +89,8 @@ Virtual Network Gateway name = RMGateway <br>
   ```
 3. 다운로드한 .xml 파일을 열고 편집합니다. 네트워크 구성 파일의 예는 [네트워크 구성 스키마](https://msdn.microsoft.com/library/jj157100.aspx)를 참조하세요.
 
-### <a name="part-2--verify-the-gateway-subnet"></a>2부 - 게이트웨이 서브넷 확인
-**VirtualNetworkSites**요소에 게이트웨이 서브넷을 아직 만들지 않은 경우 VNet에 추가합니다. 네트워크 구성 파일로 작업할 때 게이트웨이 서브넷의 이름은 "GatewaySubnet"이어야 합니다. 또는 Azure에서 게이트웨이 서브넷으로 인식하고 사용할 수 없습니다.
+### <a name="2-verify-the-gateway-subnet"></a>2. 게이트웨이 서브넷 확인
+**VirtualNetworkSites** 요소에 게이트웨이 서브넷을 아직 만들지 않은 경우 VNet에 추가합니다. 네트워크 구성 파일로 작업할 때 게이트웨이 서브넷의 이름은 "GatewaySubnet"이어야 합니다. 또는 Azure에서 게이트웨이 서브넷으로 인식하고 사용할 수 없습니다.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -112,7 +112,7 @@ Virtual Network Gateway name = RMGateway <br>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="part-3---add-the-local-network-site"></a>3단계 - 로컬 네트워크 사이트 추가
+### <a name="3-add-the-local-network-site"></a>3. 로컬 네트워크 사이트 추가
 추가한 로컬 네트워크 사이트는 연결하려는 RM VNet을 나타냅니다. 존재하지 않는 경우 파일에 **LocalNetworkSites** 요소를 추가합니다. 구성의 이 시점에서 Resource Manager VNet에 대한 게이트웨이 아직 만들지 않았기 때문에 VPNGatewayAddress는 유효한 공용 IP 주소일 수 있습니다. 게이트웨이를 만들고 나면 이 자리 표시자 IP 주소를 RM 게이트웨이에 할당된 올바른 공용 IP 주소로 바꿉니다.
 
     <LocalNetworkSites>
@@ -124,7 +124,7 @@ Virtual Network Gateway name = RMGateway <br>
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="part-4---associate-the-vnet-with-the-local-network-site"></a>4부 - 로컬 네트워크 사이트와 VNet 연결
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. 로컬 네트워크 사이트와 VNet 연결
 이 섹션에서는 VNet을 연결하려는 로컬 네트워크 사이트를 지정합니다. 이 경우에 앞서 참조한 Resource Manager VNet입니다. 이름이 일치해야 합니다. 이 단계에서는 게이트웨이를 만들지 않습니다. 게이트웨이를 연결할 로컬 네트워크를 지정합니다.
 
         <Gateway>
@@ -135,7 +135,7 @@ Virtual Network Gateway name = RMGateway <br>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="part-5---save-the-file-and-upload"></a>5부 - 파일 저장 및 업로드
+### <a name="5-save-the-file-and-upload"></a>5. 파일 저장 및 업로드
 파일을 저장하고 다음 명령을 실행하여 Azure에 가져옵니다. 사용자 환경에 필요한 대로 파일 경로를 변경해야 합니다.
 
 ```powershell
@@ -148,7 +148,7 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="part-6---create-the-gateway"></a>6부 - 게이트웨이 만들기
+### <a name="6-create-the-gateway"></a>6. 게이트웨이 만들기
 
 이 예제를 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 네트워크 구성 파일에는 클래식 가상 네트워크에 대한 값이 포함되어 있습니다. 배포 모델의 차이 때문에 Azure Portal에서 클래식 Vnet 설정을 만들 때 네트워크 구성 파일에서 클래식 Vnet의 이름이 변경되는 경우가 있습니다. 예를 들어 Azure Portal을 사용하여 'Classic VNet'이라는 클래식 VNet을 만들고 'ClassicRG'라는 리소스 그룹에 만들면 네트워크 구성 파일에 포함된 이름은 'Group ClassicRG Classic VNet'으로 변환됩니다. 공백이 포함된 VNet의 이름을 지정할 때는 값을 따옴표로 묶습니다.
 
@@ -161,7 +161,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 **Get-AzureVNetGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인할 수 있습니다.
 
-## <a name="creatermgw"></a>섹션 2: RM VNet 게이트웨이 구성
+## <a name="creatermgw"></a>섹션 2 - RM VNet 게이트웨이 구성
 RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세요. 클래식 VNet의 게이트웨이에 대한 공용 IP 주소를 검색할 때까지 단계를 시작하지 않습니다. 
 
 1. PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다.
@@ -184,7 +184,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 2. 로컬 네트워크 게이트웨이를 만듭니다. 가상 네트워크에서 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. 이 경우에 로컬 네트워크 게이트웨이는 클래식 VNet을 가리킵니다. Azure에서 참조할 수 있는 이름을 지정하고 주소 공간 접두사를 지정합니다. Azure는 지정된 IP 주소 접두사를 사용하여 온-프레미스 위치로 보낼 트래픽을 식별합니다. 나중에 게이트웨이를 만들기 전에 여기서 정보를 조정하는 경우 값을 수정하고 샘플을 다시 실행할 수 있습니다.
    
    **-Name**은 로컬 네트워크 게이트웨이에 참조하기 위해 할당하려는 이름입니다.<br>
-   **-AddressPrefix**은 클래식 VNet에 대한 주소 공간입니다.<br>
+   **-AddressPrefix**는 클래식 VNet에 대한 주소 공간입니다.<br>
    **-GatewayIpAddress**은 클래식 VNet 게이트웨이의 공용 IP 주소입니다. 다음 샘플이 올바른 IP 주소를 반영하도록 변경해야 합니다.<br>
 
   ```powershell
@@ -192,7 +192,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
-3. 리소스 관리자 VNet에 대한 가상 네트워크 게이트웨이에 할당할 공용 IP 주소를 요청합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 가상 네트워크 게이트웨이에 동적으로 할당됩니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 가상 네트워크 게이트웨이 IP 주소가 변경됩니다. 크기 조정, 다시 설정 또는 게이트웨이의 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
+3. Resource Manager VNet에 대한 가상 네트워크 게이트웨이에 할당할 공용 IP 주소를 요청합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 가상 네트워크 게이트웨이에 동적으로 할당됩니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 가상 네트워크 게이트웨이 IP 주소가 변경됩니다. 크기 조정, 다시 설정 또는 게이트웨이의 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
 
   이 단계에서는 이후 단계에 사용되는 변수도 설정합니다.
 
@@ -205,8 +205,8 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 4. 가상 네트워크에 게이트웨이 서브넷이 있는지 확인합니다. 게이트웨이 서브넷이 없다면 추가합니다. 게이트웨이 서브넷의 이름을 *GatewaySubnet*으로 지정해야 합니다.
 5. 다음 명령을 실행하여 게이트웨이에 사용된 서브넷을 검색 합니다. 이 단계에서는 다음 단계에서 사용할 변수도 설정합니다.
    
-   **-Name**은 리소스 관리자 VNet의 이름입니다.<br>
-   **-ResourceGroupName**은 VNet과 연결된 리소스 그룹입니다. 제대로 작동하려면 게이트웨이 서브넷이 이 VNet에 이미 존재하고 이름을 *GatewaySubnet* 으로 지정해야 합니다.<br>
+   **-Name**은 Resource Manager VNet의 이름입니다.<br>
+   **-ResourceGroupName**은 VNet과 연결된 리소스 그룹입니다. 제대로 작동하려면 게이트웨이 서브넷이 이 VNet에 이미 존재하고 이름을 *GatewaySubnet*으로 지정해야 합니다.<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
@@ -222,7 +222,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
-7. 리소스 관리자 가상 네트워크 게이트웨이를 만듭니다. `-VpnType` 는 *RouteBased*여야 합니다. 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다.
+7. Resource Manager 가상 네트워크 게이트웨이를 만듭니다. `-VpnType` 는 *RouteBased*여야 합니다. 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -236,9 +236,9 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## <a name="section-3-modify-the-classic-vnet-local-site-settings"></a>섹션 3: 클래식 VNet 로컬 사이트 설정 수정
+## <a name="localsite"></a>섹션 3 - 클래식 VNet 로컬 사이트 설정 수정
 
-이 섹션에서는 클래식 VNet을 사용합니다. 리소스 관리자 VNet 게이트웨이에 연결하는 데 사용될 로컬 사이트 설정을 지정할 때 사용한 자리 표시자 IP 주소를 바꿉니다. 
+이 섹션에서는 클래식 VNet을 사용합니다. Resource Manager VNet 게이트웨이에 연결하는 데 사용될 로컬 사이트 설정을 지정할 때 사용한 자리 표시자 IP 주소를 바꿉니다. 
 
 1. 네트워크 구성 파일을 내보냅니다.
 
@@ -256,7 +256,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
   ```
 
-## <a name="connect"></a>섹션 4: 게이트웨이 간의 연결 만들기
+## <a name="connect"></a>섹션 4 - 게이트웨이 간의 연결 만들기
 게이트웨이 간의 연결을 만들려면 PowerShell이 필요합니다. Azure 계정을 추가하여 클래식 버전의 PowerShell cmdlet을 사용해야 합니다. 이 작업에는 **Add-AzureAccount**를 사용합니다.
 
 1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName**은 클래식 VNet의 이름이고 **-LocalNetworkSiteName**은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey**는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태:성공**이 표시됩니다.
@@ -283,7 +283,7 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
-## <a name="section-5-verify-your-connections"></a>섹션 5: 연결 확인
+## <a name="verify"></a>섹션 5 - 연결 확인
 
 ### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>클래식 VNet에서 Resource Manager VNet으로의 연결을 확인하려면
 
@@ -308,6 +308,6 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 
 ## <a name="faq"></a>VNet 간 FAQ
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 

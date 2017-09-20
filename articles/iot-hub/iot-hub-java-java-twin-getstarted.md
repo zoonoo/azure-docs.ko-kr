@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3269cb65cfb59258d761f4c60278c598bc251325
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-java"></a>장치 쌍 시작(Java)
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/21/2017
 
 * 최신 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
-* 활성 Azure 계정. (계정이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.)
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/21/2017
 
 1. 명령 프롬프트에서 `add-tags-query` 폴더로 이동합니다.
 
-1. 텍스트 편집기를 사용하여 `add-tags-query` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT 허브와 통신하도록 앱에서 **iot-service-client** 패키지를 사용할 수 있습니다.
+1. 텍스트 편집기를 사용하여 `add-tags-query` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 **iot-service-client** 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -267,7 +267,7 @@ ms.lasthandoff: 07/21/2017
     private static String deviceId = "myDeviceId";
     ```
 
-    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 현재, 장치 쌍 기능을 사용하려면 MQTT 프로토콜을 사용해야 합니다.
+    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 
 
 1. **main** 메서드에 다음 코드를 추가합니다.
     * IoT Hub와 통신하는 장치 클라이언트를 만듭니다.

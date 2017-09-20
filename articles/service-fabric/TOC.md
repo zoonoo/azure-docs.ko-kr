@@ -4,6 +4,8 @@
 
 # 빠른 시작
 ## [.NET 응용 프로그램 만들기](service-fabric-quickstart-dotnet.md)
+## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
+## [Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)
 
 # 자습서
 ## .NET 앱 배포
@@ -278,7 +280,7 @@
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-### [Service Fabric CLI를 사용하여 클러스터 관리](service-fabric-cli.md)
+### [Service Fabric CLI 시작](service-fabric-cli.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션

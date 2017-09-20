@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
@@ -210,7 +210,7 @@ Azure Portal을 사용하여 데이터를 찾을 수 있습니다. 또한 Table 
 ### <a name="which-tools-work-with-the-table-api-preview"></a>Table API(미리 보기)에는 어떤 도구를 사용할 수 있나요? 
 이전 버전의 Azure Explorer(0.8.9)를 사용할 수 있습니다.
 
-이전에 지정된 형식으로 연결 문자열을 가져오는 유연성이 있는 도구에서 새 Table API(미리 보기)를 지원할 수 있습니다. 테이블 도구 목록은 [Azure Storage Client 도구](../storage/storage-explorers.md) 페이지에 나와 있습니다. 
+이전에 지정된 형식으로 연결 문자열을 가져오는 유연성이 있는 도구에서 새 Table API(미리 보기)를 지원할 수 있습니다. 테이블 도구 목록은 [Azure Storage Client 도구](../storage/common/storage-explorers.md) 페이지에 나와 있습니다. 
 
 ### <a name="do-powershell-or-azure-cli-work-with-the-new-table-api-preview"></a>PowerShell 또는 Azure CLI를 새 Table API(미리 보기)에서 사용할 수 있나요?
 Table API(미리 보기)에 대한 PowerShell 및 Azure CLI 지원을 추가할 예정입니다. 

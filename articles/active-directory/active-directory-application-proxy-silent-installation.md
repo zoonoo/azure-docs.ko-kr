@@ -11,35 +11,38 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cf3058832ba656a1a18aea194bf4e5ce4e800e76
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
-# <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치
-사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 문서는 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있게 하는 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 스크립트 만들기
+
+이 토픽은 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있도록 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
 
 이 기능은 다음을 수행하는 데 유용 합니다.
 
-* UI 계층이 없는 경우 또는 컴퓨터에 RDP를 수행할 수 없는 경우 컴퓨터에 커넥터를 설치합니다.
+* 사용자 인터페이스를 사용하도록 설정하지 않은 Windows 서버에 커넥터를 설치하거나 원격 데스크톱을 사용하여 액세스할 수 없습니다.
 * 한 번에 여러 커넥터를 설치하고 등록합니다.
 * 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
 * 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
 
-응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 그러나 등록 정보를 입력하기 위해 자격 증명 개체를 만드는 데 Windows PowerShell을 사용할 수 있습니다. 또는 고유한 토큰을 만들고 등록 정보를 입력하는 데 사용할 수 있습니다.
+[응용 프로그램 프록시 커넥터](application-proxy-understand-connectors.md)가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
+
+무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다. 
 
 ## <a name="install-the-connector"></a>커넥터 설치
-다음과 같이 커넥터를 등록하지 않고 커넥터 MSI를 설치합니다.
+등록 없이 커넥터를 설치하려면 다음 단계를 사용합니다.
 
 1. 명령 프롬프트를 엽니다.
-2. 다음 명령을 실행합니다. 여기서 /q는 무인 설치를 의미하며 설치 시 최종 사용자 사용권 계약에 동의할지 묻는 메시지가 표시되지 않습니다.
+2. 다음 명령을 실행합니다. /q는 자동 설치를 의미합니다. 자동 설치는 최종 사용자 사용권 계약에 동의할지 묻는 메시지가 표시되지 않습니다.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -50,18 +53,18 @@ ms.lasthandoff: 08/24/2017
 * 오프라인에서 만든 토큰을 사용하여 커넥터 등록
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
-1. 이 명령을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. *\<사용자 이름\>* 및 *\<암호\>*를 디렉터리에 대한 사용자 이름과 암호로 바꿉니다.
+1. 디렉터리에 대한 관리 사용자 이름 및 암호를 포함하는 Windows PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령에서 *\<username\>* 및 *\<암호\>*를 바꿔서 실행합니다.
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. **C:\Program Files\Microsoft AAD App Proxy Connector**로 이동하여 만든 PowerShell 자격 증명 개체를 사용하여 해당 스크립트를 실행합니다. *$cred*를 만든 PowerShell 자격 증명 개체의 이름으로 바꿉니다.
+2. **C:\Program Files\Microsoft AAD App Proxy Connector**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>오프라인에서 만든 토큰을 사용하여 커넥터 등록
-1. 코드 조각의 값을 사용하여 AuthenticationContext 클래스를 사용하는 오프라인 토큰을 만듭니다.
+1. 이 코드 조각의 값을 사용하여 AuthenticationContext 클래스를 사용하는 오프라인 토큰을 만듭니다.
 
         using System;
         using System.Diagnostics;

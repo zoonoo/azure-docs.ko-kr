@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -184,7 +184,7 @@ WAR 파일이 웹앱에 성공적으로 배포되었는지 확인하려면 웹 �
 
 Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 방법을 지원합니다. 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화 하는 Dockerfile을 제공해야 합니다. 그러면 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
-* Linux에서 실행되는 Azure Web App을 만들려면 [이 단계](/azure/app-service-web/app-service-linux-how-to-create-web-app)를 따르세요.
+* Linux에서 실행되는 Azure Web App을 만들려면 [이 단계](../app-service/containers/quickstart-nodejs.md)를 따르세요.
 * 이 [문서](https://docs.docker.com/engine/installation/linux/ubuntu/)의 지침에 따라 Jenkins 인스턴스에 Docker를 설치합니다.
 * [이 단계](/azure/container-registry/container-registry-get-started-azure-cli)에 따라 Azure Portal에 컨테이너 레지스트리를 만듭니다.
 * 분기한 동일한 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample) 리포지토리에서 **Jenkinsfile2** 파일을 편집합니다.

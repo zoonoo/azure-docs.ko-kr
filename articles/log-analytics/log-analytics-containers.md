@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/30/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b2e03531ee401f4552198e5dd50fbfe1d970f0e5
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/24/2017
 
 ![컨테이너 다이어그램](./media/log-analytics-containers/containers-diagram.png)
 
-## <a name="system-requirements"></a>시스템 요구 사항
+## <a name="system-requirements-and-supported-platforms"></a>시스템 요구 사항 및 지원되는 플랫폼
 
 시작하기 전에 다음 세부 정보를 검토하여 필수 구성 요소를 충족하는지 확인합니다.
 
@@ -76,6 +76,7 @@ ms.lasthandoff: 08/24/2017
 - Red Hat OCP(OpenShift Container Platform) 3.4 및 3.5
 - ACS Mesosphere DC/OS 1.7.3 - 1.8.8
 - ACS Kubernetes 1.4.5 - 1.6
+    - Kubernetes 이벤트, Kubernetes 인벤토리 및 컨테이너 프로세스는 버전 1.4.1-45 및 최근의 Linux용 OMS 에이전트에서만 지원됩니다.
 - ACS Docker Swarm
 
 ### <a name="supported-windows-operating-system"></a>지원되는 Windows 운영 체제
@@ -93,34 +94,33 @@ ms.lasthandoff: 08/24/2017
 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
-2. OMS 에이전트를 사용하여 Docker를 설치 및 사용합니다.  운영 체제에 따라 다음 방법 중에서 선택할 수 있습니다.
+2. OMS 에이전트를 사용하여 Docker를 설치 및 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
+  - 독립 실행형 호스트의 경우:
+    - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음 [Linux용 OMS 에이전트](log-analytics-agent-linux.md)를 설치 및 구성합니다.  
+    - CoreOS에서는 Linux 용 OMS 에이전트를 실행할 수 없습니다. 대신 컨테이너화된 Linux 용 OMS 에이전트 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
+    - Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
+  - Docker 다중 호스트 오케스트레이션의 경우:
+    - Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 OMS 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
+    - Azure Container Service를 사용하여 Kubernetes 클러스터를 설정한 경우 [Kubernetes용 OMS 에이전트 구성](#configure-an-oms-agent-for-kubernetes)을 검토하세요.
+    - Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
+    - Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 OMS 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
+    - Service Fabric과 함께 컨테이너를 사용하는 경우 [Azure Service Fabric의 개요](../service-fabric/service-fabric-overview.md)에서 자세히 알아보세요.
 
-  * 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음 [Linux용 OMS 에이전트](log-analytics-agent-linux.md)를 설치 및 구성합니다.  
-  * CoreOS에서는 Linux 용 OMS 에이전트를 실행할 수 없습니다. 대신 컨테이너화된 Linux 용 OMS 에이전트 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
-  * Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다.  
-
-### <a name="container-services"></a>Container Service
-
-- Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 OMS 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
-- Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우 [Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링](../container-service/kubernetes/container-service-kubernetes-oms.md)을 검토하세요.
-- Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
-- Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 OMS 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
-- Service Fabric과 함께 컨테이너를 사용하는 경우 [Azure Service Fabric의 개요](../service-fabric/service-fabric-overview.md)에서 자세히 알아보세요.
-- [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
+[Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
 > Docker는 컨테이너 호스트에 [OMS Agent for Linux](log-analytics-agent-linux.md)를 설치하기 **전에** 실행해야 합니다.  Docker 설치에 앞서 에이전트를 설치한 경우 Linux용 OMS 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
 
 
-## <a name="linux-container-hosts"></a>Linux 컨테이너 호스트
+### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
 
 Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. Azure Portal에서 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다. 작업 영역에서 **빠른 시작** > **컴퓨터**를 클릭하여 **작업 영역 ID** 및 **기본 키**를 확인합니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
-### <a name="for-all-linux-container-hosts-except-coreos"></a>CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우
+**CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
 - Linux용 OMS 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [OMS(Operations Management Suite)에 Linux 컴퓨터 연결](log-analytics-agent-linux.md)을 참조하세요.
 
-### <a name="for-all-linux-container-hosts-including-coreos"></a>CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우
+**CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 
 모니터링하려는 OMS 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
@@ -128,7 +128,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-### <a name="for-all-azure-government-linux-container-hosts-including-coreos"></a>CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우
+**CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우:**
 
 모니터링하려는 OMS 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
@@ -136,10 +136,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
-### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환
+**설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
+
 이전에 직접 설치한 에이전트를 사용하였고 이제 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 OMS 에이전트를 제거해야 합니다. [Linux용 OMS 에이전트 제거](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux)를 참조하여 성공적으로 에이전트를 제거하는 방법을 알아보세요.  
 
-### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm용 OMS 에이전트 구성
+#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm용 OMS 에이전트 구성
 
 Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 OMS 에이전트 서비스를 만듭니다. OMS 작업 영역 ID 및 기본 키를 삽입해야 합니다.
 
@@ -149,7 +150,36 @@ Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습�
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
-### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 OMS 에이전트 구성
+##### <a name="secure-secrets-for-docker-swarm"></a>Docker Swarm에 대한 비밀 보호
+
+Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들면 비밀 정보를 만드는 데 다음 정보를 사용합니다.
+
+1. 마스터 노드에서 다음을 실행합니다.
+
+    ```
+    echo "WSID" | docker secret create WSID -
+    echo "KEY" | docker secret create KEY -
+    ```
+
+2. 비밀이 제대로 생성되었는지 확인합니다.
+
+    ```
+    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
+    ```
+
+    ```
+    ID                          NAME                CREATED             UPDATED
+    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
+    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
+    ```
+
+3. 다음 명령을 실행하여 비밀을 컨테이너화된 OMS 에이전트에 탑재합니다.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    ```
+
+#### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 OMS 에이전트 구성
 컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 OMS 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 
 * 각 OpenShift 노드에서 직접 [Linux용 OMS 에이전트를 설치](log-analytics-agent-linux.md)  
@@ -259,40 +289,7 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
      WSID:   37 bytes  
     ```
 
-### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Docker Swarm 및 Kubernetes에 대한 비밀 정보를 보호합니다.
-
-Docker Swarm 및 Kubernetes 컨테이너 서비스에 대한 비밀 OMS 작업 영역 ID 및 기본 키를 보호할 수 있습니다.
-
-#### <a name="secure-secrets-for-docker-swarm"></a>Docker Swarm에 대한 비밀 보호
-
-Docker Swarm의 경우 작업 영역 ID 및 기본 키에 대한 비밀이 생성되면 OMSagent에 대한 Docker 서비스 만들기를 실행할 수 있습니다. 다음 정보를 사용하여 비밀 정보를 만듭니다.
-
-1. 마스터 노드에서 다음을 실행합니다.
-
-    ```
-    echo "WSID" | docker secret create WSID -
-    echo "KEY" | docker secret create KEY -
-    ```
-
-2. 비밀이 제대로 생성되었는지 확인합니다.
-
-    ```
-    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
-    ```
-
-    ```
-    ID                          NAME                CREATED             UPDATED
-    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
-    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
-    ```
-
-3. 다음 명령을 실행하여 비밀을 컨테이너화된 OMS 에이전트에 탑재합니다.
-
-    ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
-    ```
-
-#### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>yaml 파일로 Kubernetes에 대한 비밀 보호
+#### <a name="configure-an-oms-agent-for-kubernetes"></a>Kubernetes용 OMS 에이전트 구성
 
 Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
 
@@ -301,7 +298,7 @@ Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 �
 
 비밀을 포함 또는 포함하지 않고 omsagent DaemonSet를 만들도록 선택할 수 있습니다.
 
-##### <a name="default-omsagent-daemonset-yaml-file-without-secrets"></a>비밀이 없는 기본 OMSagent DaemonSet yaml 파일
+**비밀이 없는 기본 OMSagent DaemonSet yaml 파일**
 
 - 기본 OMS Agent DaemonSet yaml 파일에서 `<WSID>` 및 `<KEY>`를 사용자의 WSID 및 KEY로 바꿉니다. 파일을 마스터 노드에 복사하고 다음을 실행합니다.
 
@@ -309,7 +306,7 @@ Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 �
     sudo kubectl create -f omsagent.yaml
     ```
 
-##### <a name="default-omsagent-daemonset-yaml-file-with-secrets"></a>비밀이 있는 기본 OMSagent DaemonSet yaml 파일
+**비밀이 있는 기본 OMSagent DaemonSet yaml 파일**
 
 1. 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 비밀을 만듭니다.
     1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
@@ -391,13 +388,15 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-## <a name="windows-container-hosts"></a>Windows 컨테이너 호스트
+### <a name="install-and-configure-windows-container-hosts"></a>Windows 컨테이너 호스트 설치 및 구성
 
-### <a name="preparation-before-installing-windows-agents"></a>Windows 에이전트 설치 전 준비
+Windows 컨테이너 호스트를 설치하고 구성하는 섹션의 정보를 사용합니다.
+
+#### <a name="preparation-before-installing-windows-agents"></a>Windows 에이전트 설치 전 준비
 
 Windows를 실행하는 컴퓨터에 에이전트를 설치하기 전에 Docker 서비스를 구성해야 합니다. 구성을 통해 Windows 에이전트 또는 Log Analytics 가상 컴퓨터 확장에서 Docker TCP 소켓을 사용하도록 하여 에이전트가 Docker 데몬에 원격으로 액세스하고 모니터링할 데이터를 캡처하도록 할 수 있습니다.
 
-#### <a name="to-start-docker-and-verify-its-configuration"></a>Docker를 시작하고 구성을 확인하려면
+##### <a name="to-start-docker-and-verify-its-configuration"></a>Docker를 시작하고 구성을 확인하려면
 
 Windows 서버에 대한 TCP 명명된 파이프를 설정하는 데 필요한 단계입니다.
 
@@ -423,7 +422,7 @@ Windows 서버에 대한 TCP 명명된 파이프를 설정하는 데 필요한 �
 Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한 내용은 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)을 참조하세요.
 
 
-### <a name="install-windows-agents"></a>Windows 에이전트 설치
+#### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
 Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)을 참조하세요. Azure에서 실행되는 가상 컴퓨터의 경우 [가상 컴퓨터 확장](log-analytics-azure-vm-extension.md)을 사용하여 Log Analytics에 연결합니다.
 

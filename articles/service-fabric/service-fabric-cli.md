@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric CLI(sfctl) 시작"
-description: "Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법 및 응용 프로그램 암호를 관리하는 방법을 알아봅니다."
+title: "Azure Service Fabric CLI 시작"
+description: "Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 응용 프로그램을 관리하는 방법을 알아봅니다."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -9,44 +9,46 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Azure Service Fabric 명령줄
+# <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
-Azure Service Fabric CLI(sfctl)는 Azure Service Fabric 엔터티와 상호 작용하고 관리하기 위한 명령줄 유틸리티입니다. Sfctl은 Windows 또는 Linux 클러스터에서 사용할 수 있습니다. Sfctl은 Python이 지원되는 모든 플랫폼에서 실행됩니다.
+Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔터티와 상호 작용하고 이를 관리하기 위한 명령줄 유틸리티입니다. Service Fabric CLI는 Windows 또는 Linux 클러스터에서 사용할 수 있으며, Python을 지원하는 모든 플랫폼에서 실행됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-설치 이전에 사용자 환경이 Python 및 PIP를 모두 설치했는지를 확인합니다. 자세한 내용은 [PIP 빠른 시작 설명서](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서](https://wiki.python.org/moin/BeginnersGuide/Download)를 살펴보세요.
+설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-Python 2.7 및 3.6이 모두 지원되지만 Python 3.6을 사용하는 것이 좋습니다. 다음 섹션에서는 모든 필수 구성 요소 및 CLI를 설치하는 방법에 대해 설명합니다.
+Python 2.7 및 3.6을 모두 지원하지만, Python 3.6을 사용하는 것이 좋습니다. 다음 섹션에서는 모든 필수 구성 요소 및 CLI를 설치하는 방법에 대해 설명합니다.
 
-## <a name="install-pip-python-and-sfctl"></a>pip, python 및 sfctl 설치
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python 및 Service Fabric CLI 설치
 
-플랫폼에 pip와 python을 모두 설치하는 방법은 다양하지만, 다음은 주요 OS용 python 3.6 및 pip로 빠르게 설정하는 몇 가지 단계입니다.
+ 플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3.6 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Server 2016 및 Server 2012 R2의 경우 표준 공식 설치 지침을 사용할 수 있습니다. 또한 python 설치 관리자는 기본적으로 pip를 설치합니다.
+Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공식 설치 지침을 사용합니다. 또한 Python 설치 관리자는 기본적으로 pip를 설치합니다.
 
-- 공식 [python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 python 3.6의 최신 릴리스를 다운로드합니다.
-- 설치 관리자를 시작합니다.
-- 프롬프트 아래쪽의 옵션을 `Add Python 3.6 to PATH`로 선택합니다.
-- `Install Now`을(를) 선택합니다.
-- 설치를 완료합니다.
+1. 공식 [Python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 Python 3.6의 최신 릴리스를 다운로드합니다.
 
-이제 새로운 명령 창을 열고 python과 pip의 버전 모두를 가져올 수 있습니다.
+2. 설치 관리자를 시작합니다.
+
+3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.6 추가**를 선택합니다.
+
+4. **지금 설치**를 선택하고 설치를 완료합니다.
+
+이제 새 명령 창을 열고 Python과 pip의 버전을 모두 가져올 수 있습니다.
 
 ```bat
 python --version
 pip --version
 ```
 
-그런 후에 다음을 실행하여 Service Fabric CLI를 설치합니다
+그러면 다음 명령을 실행하여 Service Fabric CLI를 설치합니다.
 
 ```
 pip install sfctl
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Ubuntu 16.04 Desktop의 경우 타사 PPA를 사용하여 python 3.6을 설치할 수 있습니다.
+Ubuntu 16.04 Desktop의 경우 타사 PPA(Personal Package Archive)를 사용하여 Python 3.6을 설치할 수 있습니다.
 
 터미널에서 다음 명령을 실행합니다.
 
@@ -66,14 +68,14 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-그런 다음 python 3.6을 설치하기 위해 sfctl을 설치하려면 다음 명령을 실행합니다.
+그런 다음 Python 3.6을 설치하기 위해 Service Fabric CLI를 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-이러한 단계는 python 3.5 및 2.7을 설치한 시스템에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
+이러한 단계는 Python 3.5 및 2.7 시스템 설치에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
 
 ### <a name="macos"></a>MacOS
 
@@ -83,7 +85,7 @@ MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-그런 다음 터미널에서 python 3.6, pip 및 sfctl을 설치합니다.
+그런 다음 터미널에서 다음 명령을 실행하여 Python 3.6, pip 및 Service Fabric CLI를 설치합니다.
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-이러한 단계는 python 2.7의 시스템 설치를 수정하지 않습니다.
+이러한 단계는 Python 2.7 시스템 설치를 수정하지 않습니다.
 
 ## <a name="cli-syntax"></a>CLI 구문
 
-명령은 항상 `sfctl`이라는 접두사가 지정됩니다. 사용할 수 있는 모든 명령에 대한 일반적인 정보는 `sfctl -h`를 사용합니다. 단일 명령의 도움말은 `sfctl <command> -h`를 사용합니다.
+명령에는 항상 `sfctl`이라는 접두사가 지정됩니다. 사용할 수 있는 모든 명령에 대한 일반적인 정보를 얻으려면 `sfctl -h`를 사용합니다. 단일 명령의 도움말은 `sfctl <command> -h`를 사용합니다.
 
-명령은 동사 또는 동작 앞에 오는 명령의 대상을 포함한 반복 구조를 따릅니다.
+명령은 동사 또는 작업 앞에 명령의 대상이 포함된 반복 구조를 따릅니다.
 
 ```azurecli
 sfctl <object> <action>
@@ -107,7 +109,7 @@ sfctl <object> <action>
 
 ## <a name="select-a-cluster"></a>클러스터 선택
 
-모든 작업을 수행하기 전에 연결할 클러스터를 선택해야 합니다. 예를 들어, 다음을 실행하여 `testcluster.com`이라는 클러스터를 선택하고 클러스터에 연결합니다.
+모든 작업을 수행하기 전에 연결할 클러스터를 선택해야 합니다. 예를 들어 다음 명령을 실행하여 `testcluster.com`이라는 클러스터를 선택하고 연결합니다.
 
 > [!WARNING]
 > 프로덕션 환경에는 보안되지 않은 Service Fabric 클러스터를 사용하지 않습니다.
@@ -118,7 +120,7 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 클러스터 끝점은 접두사로 `http` 또는 `https`를 사용해야 합니다. HTTP 게이트웨이에 대한 포트를 포함해야 합니다. 포트 및 주소는 Service Fabric Explorer URL와 동일합니다.
 
-인증서로 보호된 클러스터에 PEM 인코딩 인증서를 지정할 수 있습니다. 단일 파일이나 인증서 및 키 쌍으로 인증서를 지정할 수 있습니다.
+인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -128,7 +130,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 ## <a name="basic-operations"></a>기본 작업
 
-클러스터 연결 정보는 여러 sfctl 세션에서 유지됩니다. Service Fabric 클러스터를 선택한 후에 클러스터에서 모든 Service Fabric 명령을 실행할 수 있습니다.
+클러스터 연결 정보는 여러 Service Fabric CLI 세션에서 유지됩니다. Service Fabric 클러스터를 선택한 후에 클러스터에서 모든 Service Fabric 명령을 실행할 수 있습니다.
 
 예를 들어, Service Fabric 클러스터 상태를 가져오려면 다음 명령을 실행합니다.
 
@@ -163,7 +165,7 @@ sfctl cluster health
 
 ## <a name="tips-and-troubleshooting"></a>팁 및 문제 해결
 
-일반적인 문제를 해결하기 위한 몇 가지 제안 및 팁입니다.
+일반적인 문제를 해결하기 위한 몇 가지 제안 및 팁은 다음과 같습니다.
 
 ### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>인증서를 PFX에서 PEM 형식으로 변환
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 자세한 내용은 [OpenSSL 설명서](https://www.openssl.org/docs/)를 참조하세요.
 
-### <a name="connection-issues"></a>연결 문제
+### <a name="connection-problems"></a>연결 문제
 
 일부 작업은 다음과 같은 메시지를 생성할 수 있습니다.
 
@@ -185,17 +187,17 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 ### <a name="detailed-logs"></a>자세한 로그
 
-자세한 로그는 종종 문제를 디버그하거나 보고하는 경우에 유용합니다. 로그 파일의 자세한 정보를 증가시키는 전역 `--debug` 플래그가 있습니다.
+자세한 로그는 종종 문제를 디버그하거나 보고할 때 유용합니다. `--debug` 전역 플래그는 로그 파일의 자세한 표시 수준을 늘립니다.
 
 ### <a name="command-help-and-syntax"></a>명령 도움말 및 구문
 
-특정 명령 또는 명령 그룹의 도움말은 `-h` 플래그를 사용합니다.
+특정 명령 또는 명령 그룹에 대한 도움말은 얻으려면 `-h` 플래그를 사용합니다.
 
 ```azurecli
 sfctl application -h
 ```
 
-다른 예제:
+다른 예제입니다.
 
 ```azurecli
 sfctl application create -h

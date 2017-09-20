@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 156c5d0b007e33a9181d2847fc7b517c6f816494
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 끝점 크기 조정
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 > 
 > 
 
-**프리미엄** 스트리밍 끝점은 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. **프리미엄** 스트리밍 끝점이 있는 고객은 기본적으로 하나의 SU(스트리밍 단위)를 가져옵니다. SU를 추가하여 스트리밍 끝점의 크기를 조정할 수 있습니다. 각 SU는 응용 프로그램에 추가 대역폭 수용작업량을 제공합니다. 스트리밍 끝점 유형 및 CDN 구성에 대한 자세한 내용은 [스트리밍 끝점 개요](media-services-portal-manage-streaming-endpoints.md) 항목을 참조하세요.
+**프리미엄** 스트리밍 끝점은 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. **프리미엄** 스트리밍 끝점이 있는 고객은 기본적으로 하나의 SU(스트리밍 단위)를 가져옵니다. SU를 추가하여 스트리밍 끝점의 크기를 조정할 수 있습니다. 각 SU는 응용 프로그램에 추가 대역폭 수용작업량을 제공합니다. 스트리밍 끝점 유형 및 CDN 구성에 대한 자세한 내용은 [스트리밍 끝점 개요](media-services-streaming-endpoints-overview.md) 항목을 참조하세요.
  
 이 항목에서는 스트리밍 끝점의 크기를 조정하는 방법을 보여 줍니다.
 
@@ -43,14 +43,15 @@ ms.lasthandoff: 07/06/2017
 2. **설정** 창에서 **스트리밍 끝점**을 선택합니다.
 3. 크기를 조정할 스트리밍 끝점을 클릭합니다. 
 
-    [!NOTE] **프리미엄** 스트리밍 끝점의 크기만 조정할 수 있습니다.
+    > [!NOTE] 
+    > **프리미엄** 스트리밍 끝점의 크기만 조정할 수 있습니다.
 
 4. 슬라이더를 이동하여 스트리밍 단위 수를 지정합니다.
 
     ![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

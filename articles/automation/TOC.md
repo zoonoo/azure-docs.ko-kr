@@ -5,6 +5,7 @@
 ## Runbook 자습서
 ### [그래픽 Runbook 만들기](automation-first-runbook-graphical.md)
 ### [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
+### [내 첫 번째 Python Runbook](automation-first-runbook-textual-python2.md)
 ### [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
 # 방법
 ## 인증 및 보안
@@ -37,7 +38,10 @@
 ### [Azure Automation Runbook에 JSON 개체 전달](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Hybrid Runbook Worker 배포](automation-hybrid-runbook-worker.md)
+### [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-install.md)
+### [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)
 ### [Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)
+### [Azure Automation Hybrid Runbook Worker 제거](automation-remove-hrw.md)
 ## 배포 구성 관리(DSC)
 ### [DSC(필요한 상태 구성) 개요](automation-dsc-overview.md)
 ### [시작](automation-dsc-getting-started.md)

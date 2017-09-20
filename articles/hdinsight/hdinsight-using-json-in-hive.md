@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: ee7d40d2ff0ae1ac10b54f4c1f1dd704a70eb70c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용한 JSON 문서 처리 및 분석
@@ -141,105 +141,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 JSON\_TUPLE은 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple이 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다.  LATERAL VIEW를 반복 사용하면 복잡한 JSON이 다루기 어렵게 됩니다. 또한 JSON_TUPLE은 중첩된 JSON을 처리할 수 없습니다.
 
 ### <a name="use-custom-serde"></a>사용자 지정 SerDe 사용
-SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스키마를 정의하고 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 이 자습서에서는 [Roberto Congiu](https://github.com/rcongiu)가 개발한 가장 일반적인 SerDe 중 하나를 사용하게 됩니다.
-
-**사용자 지정 SerDe를 사용하려면**
-
-1. [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR)를 설치합니다. HDInsight의 Windows 배포를 사용하려면 Windows X64 버전 JDK를 선택합니다.
-   
-   > [!WARNING]
-   > JDK 1.8은 이 SerDe에서 작동하지 않습니다.
-   > 
-   > 
-   
-    설치 완료 후 새 사용자 환경 변수를 추가합니다.
-   
-   1. Windows 화면에서 **고급 시스템 설정 보기** 를 엽니다.
-   2. **환경 변수**를 클릭합니다.  
-   3. 새 **JAVA_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\Program Files\Java\jdk1.7.0_55** 또는 JDK 설치 위치를 가리킵니다.
-      
-      ![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
-2. [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
-   
-    제어판-->사용자 계정의 환경 변수에 대한 시스템 변수 편집으로 이동하여 bin 폴더를 경로에 추가합니다. 다음 스크린샷은 이 작업을 수행하는 방법을 보여 줍니다.
-   
-    ![Maven 설치][image-hdi-hivejson-maven]
-3. [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github 사이트에서 프로젝트를 복제합니다. 다음 스크린샷에 표시된 것처럼 "Zip 다운로드" 단추를 클릭하면 됩니다.
-   
-    ![프로젝트 복제][image-hdi-hivejson-serde]
-
-4: 이 패키지를 다운로드한 폴더로 이동하여 "mvn package"를 입력합니다. 클러스터에 복사할 수 있는 필수 jar 파일이 만들어집니다.
-
-5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
-
-6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\apps\dist\hive-0.13.x\bin 폴더에 있으므로 표시된 이름으로 jar을 직접 추가할 수 있습니다.
-
-    add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
-
-   ![프로젝트에 JAR 추가][image-hdi-hivejson-addjar]
-
-이제 SerDe를 사용하여 JSON 문서를 쿼리할 준비가 완료되었습니다.
-
-다음 문은 정의된 스키마가 있는 테이블을 만듭니다.
-
-    DROP TABLE json_table;
-    CREATE EXTERNAL TABLE json_table (
-      StudentId string,
-      Grade int,
-      StudentDetails array<struct<
-          FirstName:string,
-          LastName:string,
-          YearJoined:int
-          >
-      >,
-      StudentClassCollection array<struct<
-          ClassId:string,
-          ClassParticipation:string,
-          ClassParticipationRank:string,
-          Score:int,
-          PerformedActivity:boolean
-          >
-      >
-    ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-    LOCATION '/json/students';
-
-학생의 이름 및 성을 나열하려면
-
-    SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
-
-하이브 콘솔의 결과는 다음과 같습니다.
-
-![SerDe 쿼리 1][image-hdi-hivejson-serde_query1]
-
-JSON 문서의 성적 합계를 계산하려면
-
-    SELECT SUM(scores)
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as scores;
-
-이전 쿼리에서는 성적의 합계를 구할 수 있도록 [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF를 사용하여 성적 배열을 확장합니다.
-
-하이브 콘솔의 출력은 다음과 같습니다.
-
-![SerDe 쿼리 2][image-hdi-hivejson-serde_query2]
-
-지정된 학생이 80점 넘게 받은 과목을 찾으려면
-
-    SELECT  
-      jt.StudentClassCollection.ClassId
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
-
-이전 쿼리는 문자열을 반환하는 get\_json\_object와 달리 하이브 배열을 반환합니다.
-
-![SerDe 쿼리 3][image-hdi-hivejson-serde_query3]
-
-잘못된 형식의 JSON을 중지하려면 이 SerDe의 [Wiki 페이지](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) 에 설명된 대로 다음 코드를 입력하면 됩니다.  
-
-    ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
-
-
-
+SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스키마를 정의하고 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 자세한 내용은 [Microsoft Azure HDInsight에서 사용자 지정 JSON Serde를 사용하는 방법](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)을 참조하세요.
 
 ## <a name="summary"></a>요약
 결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. JSON 문서가 간단하고 조회할 필드가 하나뿐인 경우에는 하이브 UDF get\_json\_object를 사용할 수 있습니다. 조회가 키가 두 개 이상인 경우에는 json_tuple을 사용할 수 있습니다. 중첩된 문서가 있는 경우에는 JSON SerDe를 사용해야 합니다.

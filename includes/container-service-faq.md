@@ -24,6 +24,8 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 [ACS Engine](http://github.com/Azure/acs-engine)은 power user가 모든 수준의 클러스터 구성을 사용자 지정하는 데 사용할 있는 오픈 소스 프로젝트입니다. 인프라 및 소프트웨어 양쪽의 구성을 변경하는 기능이 있기 때문에 ACS Engine용 SLA는 제공되지 않습니다. 지원은 공식적인 Microsoft 채널이 아닌 GitHub의 오픈 소스 프로젝트를 통해 처리됩니다. 
 
+자세한 내용은 [컨테이너에 대한 지원 정책](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers)을 참조하세요.
+
 ## <a name="cluster-management"></a>클러스터 관리
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>클러스터의 SSH 키는 어떻게 만드나요?

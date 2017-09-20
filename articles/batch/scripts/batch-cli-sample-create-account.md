@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -57,16 +57,16 @@ az group delete --name myResourceGroup
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | 배치 계정을 만듭니다.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | 배치 계정의 속성을 업데이트합니다.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | 지정된 배치 계정의 세부 정보를 검색합니다.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | 지정된 배치 계정의 액세스 키를 검색합니다.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 추가 CLI 상호 작용을 위해 지정된 배치 계정에 대해 인증합니다.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | 저장소 계정을 만듭니다. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | 키 자격 증명 모음을 만듭니다. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | 지정된 주요 자격 증명 모음의 보안 정책을 업데이트합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | 배치 계정을 만듭니다.  |
+| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | 배치 계정의 속성을 업데이트합니다.  |
+| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | 지정된 배치 계정의 세부 정보를 검색합니다.  |
+| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | 지정된 배치 계정의 액세스 키를 검색합니다.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 배치 계정에 대해 인증합니다.  |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | 저장소 계정을 만듭니다. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | 키 자격 증명 모음을 만듭니다. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | 지정된 주요 자격 증명 모음의 보안 정책을 업데이트합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

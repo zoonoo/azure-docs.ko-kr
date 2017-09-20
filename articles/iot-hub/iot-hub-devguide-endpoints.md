@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
@@ -50,8 +50,6 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
   * *직접 메서드 요청 수신*. 장치에서 이 끝점을 사용하여 [직접 메서드][lnk-methods] 요청을 수신합니다.
 
     이러한 끝점은 [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 및 [AMQP 1.0][lnk-amqp] 프로토콜을 사용하여 공개됩니다. AMQP는 포트 443의 [WebSockets][lnk-websockets]를 통해서도 사용할 수 있습니다.
-
-    장치 쌍 및 메서드 끝점은 [MQTT v3.1.1][lnk-mqtt] 프로토콜을 사용하는 경우에만 제공됩니다.
 
 * **서비스 끝점**. 각 IoT Hub는 솔루션 백 엔드에서 장치와 통신하기 위한 끝점 집합을 노출합니다. 한 가지를 제외하고 이러한 끝점은 [AMQP][lnk-amqp] 프로토콜을 사용해서만 노출됩니다. 메서드 호출 끝점은 HTTP 프로토콜을 통해 노출됩니다.
   

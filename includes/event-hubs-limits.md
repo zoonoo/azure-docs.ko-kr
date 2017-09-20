@@ -11,4 +11,4 @@
 | 소비자 그룹당 비 Epoch 수신자 수 |엔터티 |정적 |- |5 |
 | 이벤트 데이터의 최대 보존 기간 |엔터티 |정적 |- |1-7일 |
 | 최대 처리량 단위 |네임스페이스 |공용 |처리량 단위 제한을 초과하면 데이터가 정체되고 **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**이 생성됩니다. 표준 계층의 경우 [지원 요청](/azure/azure-supportability/how-to-create-azure-support-request)을 작성하여 더 많은 수의 처리량 단위를 요청할 수 있습니다. [추가 처리량 단위](../articles/event-hubs/event-hubs-auto-inflate.md)는 약정된 구매를 기준으로 20개 단위로 사용할 수 있습니다. |20 |
-
+| 네임스페이스당 권한 부여 규칙의 수 |네임스페이스|정적 |권한 부여 규칙 만들기를 위한 후속 요청이 거부됩니다.|12 |

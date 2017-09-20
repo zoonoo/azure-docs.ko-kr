@@ -17,10 +17,10 @@ ms.date: 08/03/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
@@ -31,11 +31,11 @@ ms.lasthandoff: 08/04/2017
 * [Azure 기능](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
 
-이러한 모든 서비스는 서로 다른 시스템을 함께 "부착"할 때 유용합니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 그러나 각 서비스는 고유한 값 집합을 추가하며, 서비스를 비교하여 "가장 좋은 서비스"가 아니라 "이 상황에 가장 적합한 서비스"를 알아낼 수 있습니다. 종종 이러한 서비스의 조합이 확장 가능하고 전체 기능을 갖춘 통합 솔루션을 신속하게 구축하는 가장 좋은 방법입니다.
+이러한 모든 서비스는 서로 다른 시스템을 함께 "부착"할 때 유용합니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 그러나 각 서비스는 고유한 장점을 가지며, 서비스를 비교하여 "가장 좋은 서비스"가 아니라 "이 상황에 가장 적합한 서비스"를 알아낼 수 있습니다. 종종 이러한 서비스의 조합이 확장 가능하고 전체 기능을 갖춘 통합 솔루션을 신속하게 구축하는 가장 좋은 방법입니다.
 
 <a name="flow"></a>
 
-## <a name="flow-vs-logic-apps"></a>Flow 및 논리 앱
+## <a name="flow-vs-logic-apps"></a>Flow 및 Logic Apps
 Microsoft Flow 및 Azure Logic Apps는 둘 다 *구성 중심* 통합 서비스이므로 함께 설명할 수 있습니다. 이는 프로세스 및 워크플로를 쉽게 빌드하고 다양한 SaaS 및 엔터프라이즈 응용 프로그램을 쉽게 통합하도록 합니다. 
 
 * Flow는 Logic Apps를 기반으로 빌드됩니다.
@@ -79,7 +79,7 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 |  | 함수 | 웹 작업 |
 | --- | --- | --- |
 | 확장 |구성이 없는 크기 조정 |App Service 계획 크기 조정 |
-| 가격 |사용량 과금 또는  App Service 계획의 일부 |App Service 계획의 일부 |
+| 가격 |사용량 과금 또는 App Service 계획의 일부 |App Service 계획의 일부 |
 | 실행 형식 |트리거됨, 예약됨(타이머 트리거 사용) |트리거됨, 연속, 예약됨 |
 | 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | 브라우저 내부 개발 |지원됨 | 지원되지 않음 |
@@ -92,7 +92,11 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 | 파이썬 |실험적 |지원됨 |
 | JavaScript |지원됨 |지원됨 |
 
-Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이미 수행하고 있는 서비스에 따라 다릅니다. 코드 조각을 실행할 App Service 앱이 있고 동일한 DevOps 환경에서 코드 조각을 함께 관리하려는 경우 WebJobs를 사용해야 합니다. 다른 Azure 서비스나 심지어 타사 앱에 대한 코드 조각을 실행하려는 경우, App Service 앱에서 통합 코드 조각을 별도로 관리하려는 경우 또는 논리 앱에서 코드 조각을 호출하려는 경우 Functions의 모든 향상된 기능을 활용합니다.  
+Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이미 수행하고 있는 서비스에 따라 다릅니다. 코드 조각을 실행할 App Service 앱이 있고 동일한 DevOps 환경에서 코드 조각을 함께 관리하려는 경우 WebJobs를 사용합니다. 다음 시나리오에서 함수를 사용합니다.
+
+* 다른 Azure 서비스 또는 타사 앱에 대해 코드 조각을 실행하려고 합니다.
+* App Service 앱에서 별도로 통합 코드를 관리하려고 합니다.
+* 논리 앱에서 코드 조각을 호출하려고 합니다. 
 
 <a name="together"></a>
 
@@ -101,7 +105,7 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 
 * 간단한 비즈니스 최적화에는 Flow를 사용합니다.
 * Flow에는 지나치게 복잡한 통합 시나리오이거나 DevOps 기능 및 보안 정책을 준수해야 하는 경우에는 Logic Apps를 사용합니다.
-* 통합 시나리오의 단계에서 고도의 사용자 지정 변환 또는 특수한 코드가 필요한 경우에는 함수 앱을 작성한 다음 논리 앱에서 동작으로 함수를 트리거합니다.
+* 통합 시나리오의 단계에서 고도의 사용자 지정 변환 또는 특수한 코드가 필요한 경우에는 함수를 작성하고 논리 앱에서 동작으로 함수를 트리거합니다.
 
 흐름에서 논리 앱을 호출할 수 있습니다. 논리 앱에서 함수를, 함수에서 논리 앱을 호출할 수도 있습니다. Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 개선됩니다. 하나의 서비스에서 어떤 기능을 빌드하여 다른 서비스에서 사용할 수 있습니다. 따라서 이러한 세 가지 기술로 만드는 노력은 가치가 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Window Server 및 Windows 클라이언트에 대한 Azure 하이브리드 사용 혜택 | Microsoft Docs"
+title: "Window Server에 대한 Azure 하이브리드 사용 혜택 | Microsoft Docs"
 description: "Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,26 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/26/2017
 ms.author: xujing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: a986ddf22f059dc55bb9bff5c6eaf27324b716cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
-# <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>Window Server 및 Windows 클라이언트에 대한 Azure 하이브리드 사용 혜택
-Software Assurance 고객은 Azure 하이브리드 사용 혜택을 통해 온-프레미스 Windows Server 및 Windows 클라이언트 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server에 대한 Azure 하이브리드 사용 혜택에는 Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2 및 Windows Server 2016이 포함됩니다. Windows 클라이언트에 대한 Azure 하이브리드 사용 혜택에는 Windows 10이 포함됩니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
+# <a name="azure-hybrid-use-benefit-for-windows-server"></a>Windows Server에 대한 Azure 하이브리드 사용 혜택
+Software Assurance 고객은 Azure 하이브리드 사용 혜택을 통해 온-프레미스 Windows Server 및 Windows 클라이언트 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server에 대한 Azure 하이브리드 사용 혜택에는 Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2 및 Windows Server 2016이 포함됩니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
->[!IMPORTANT]
->Windows 클라이언트에 대한 Azure 하이브리드 사용 혜택은 현재 Azure Marketplace의 Windows 10 이미지를 사용하여 미리 보기로 제공됩니다. 사용자별 Windows 10 Enterprise E3/E5 또는 사용자별 Windows VDA(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 보유한 엔터프라이즈 고객("적격 라이선스")만 혜택을 누릴 수 있습니다.
->
+> [!NOTE]
+> 이 문서에서는 Windows Server 이미지에 대한 라이선스 혜택을 구현하는 방법을 보여줍니다. [Windows 10 Desktop 이미지](#windows-desktop-multitenant-hosting-deployment)에 이러한 단계를 수행할 수도 있습니다.
 >
 
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Azure 하이브리드 사용 혜택을 사용하는 방법
 Azure 하이브리드 사용 혜택을 사용하여 Windows VM을 배포하는 몇 가지 다른 방법이 있습니다.
 
-1. Azure 하이브리드 사용 혜택을 이용하여 미리 구성된 [특정 Marketplace 이미지](#deploy-a-vm-using-the-azure-marketplace)(Windows Server 2016, Windows Server 2012R2, Windows Server 2012 및 Windows Server 2008SP1)에서 VM을 배포할 수 있습니다.
+1. [특정 Marketplace 이미지]에서 VM을 배포할 수 있습니다.
 2. [사용자 지정 VM을 업로드](#upload-a-windows-vhd)하거나 [Resource Manager 템플릿](#deploy-a-vm-via-resource-manager) 또는 [Azure PowerShell을 사용하여 배포](#detailed-powershell-deployment-walkthrough)할 수 있습니다.
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Azure Marketplace를 사용하여 VM 배포
@@ -213,8 +211,8 @@ Windows Server:
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 가상 컴퓨터 확장 집합 배포
-VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 확장 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 아래 예제를 참조하세요.
+## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 가상 컴퓨터 크기 집합 배포
+VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 크기 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 아래 예제를 참조하세요.
 
 
 ```json
@@ -239,7 +237,7 @@ VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개
 ```
 
 > [!NOTE]
-> PowerShell 및 다른 SDK 도구를 통해 AHUB 기능을 활용하여 가상 컴퓨터 확장 집합을 배포하는 방식은 곧 지원될 예정입니다.
+> PowerShell 및 다른 SDK 도구를 통해 AHUB 기능을 활용하여 가상 컴퓨터 크기 집합을 배포하는 방식은 곧 지원될 예정입니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

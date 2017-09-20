@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4fb759ecd7767c126bc22165494652039ba1caa4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-direct-methods-java"></a>직접 메서드 사용(Java)
@@ -111,7 +111,7 @@ ms.lasthandoff: 08/09/2017
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 현재, 직접 메서드를 사용하려면 MQTT 프로토콜을 사용해야 합니다.
+    이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 
 
 1. 상태 코드를 IoT Hub로 반환하려면 중첩된 다음 클래스를 **App** 클래스에 추가합니다.
 

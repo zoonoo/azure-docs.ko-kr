@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/28/2017
 ## <a name="log-search-api"></a>로그 검색 API
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>질문: 제가 업그레이드를 수행한 후에 로그 검색 API가 업데이트되었습니까?
-[로그 검색 API](log-analytics-log-search-api.md)는 아직 새 검색 언어로 업그레이드되지 않았습니다.  작업 영역을 업그레이드한 후에도 이 API로 레거시 쿼리 언어를 계속 사용합니다.  로그 검색 API가 업데이트되면 업데이트된 해당 설명서를 사용할 수 있게 됩니다.
+작업 영역을 업그레이드했을 때 레거시 [로그 검색 API](log-analytics-log-search-api.md)이 더 이상 작동하지 않습니다.  새로운 API에 대한 자세한 내용은 [Azure Log Analytics REST API](https://dev.loganalytics.io/)를 참조하세요.
 
 
 ## <a name="portals"></a>포털
@@ -92,7 +92,7 @@ ms.lasthandoff: 08/28/2017
 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults)는 새 검색 언어로 아직 업그레이드되지 않았습니다.  작업 영역을 업그레이드한 후에도 이 cmdlet으로 레거시 쿼리 언어를 계속 사용합니다.  cmdlet이 업데이트되면 업데이트된 해당 설명서를 사용할 수 있게 됩니다.
 
 
-## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
+## <a name="resource-manager-templates"></a>Resource Manager 템플릿
 
 ### <a name="question-can-i-create-an-upgraded-workspace-with-a-resource-manager-template"></a>질문: Resource Manager 템플릿을 사용하여 업그레이드된 작업 영역을 작성할 수 있나요?
 예.  2017년 3월 15일 미리 보기의 API 버전을 사용하고 다음 예제와 같이 템플릿의 **기능** 섹션을 포함해야 합니다.

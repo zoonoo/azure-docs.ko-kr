@@ -358,6 +358,8 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: 무료로 Azure Cosmos DB 사용해 보기
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: FAQ

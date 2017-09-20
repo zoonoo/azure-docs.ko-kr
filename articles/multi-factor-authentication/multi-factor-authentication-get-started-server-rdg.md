@@ -16,28 +16,25 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
-<a id="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius" class="xliff"></a>
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 종종 RD(Remote Desktop) 게이트웨이는 로컬 NPS(Network Policy Services)를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다. Azure MFA와 RD 게이트웨이를 함께 사용하면 사용자가 강력한 인증을 수행하면서 어디서든 자신의 작업 환경에 액세스할 수 있습니다. 
 
 터미널 서비스에 대한 Windows 인증이 Server 2012 R2에 대해 지원되지 않으므로 MFA 서버와 통합하려면 RD 게이트웨이 및 RADIUS를 사용합니다. 
 
 별도의 서버에 Multi-Factor Authentication 서버를 설치합니다. 이 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시합니다. NPS에서 사용자 이름과 암호의 유효성을 검사한 후 Multi-Factor Authentication 서버로 응답을 반환합니다. 그런 다음 MFA 서버에서 두 번째 인증 단계를 수행하고 결과를 게이트웨이로 반환합니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 - 도메인에 가입된 Azure MFA 서버. 설치되어 있지 않은 경우 [Azure Multi-factor Authentication 서버 시작](multi-factor-authentication-get-started-server.md)의 단계를 따릅니다.
 - 네트워크 정책 서비스를 인증하는 원격 데스크톱 게이트웨이.
 
-## 원격 데스크톱 게이트웨이 구성
-<a id="configure-the-remote-desktop-gateway" class="xliff"></a>
+## <a name="configure-the-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이 구성
 Azure Multi-Factor Authentication 서버에 RADIUS 인증을 보내도록 RD 게이트웨이를 구성합니다. 
 
 1. RD 게이트웨이 관리자에서 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
@@ -45,12 +42,10 @@ Azure Multi-Factor Authentication 서버에 RADIUS 인증을 보내도록 RD 게
 3. 각 서버의 이름 또는 IP 주소를 입력하여 하나 이상의 Azure Multi-Factor Authentication 서버를 RADIUS 서버로 추가합니다. 
 4. 각 서버에 대한 공유 암호를 만듭니다.
 
-## NPS 구성
-<a id="configure-nps" class="xliff"></a>
+## <a name="configure-nps"></a>NPS 구성
 RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 RADIUS 요청을 보냅니다. NPS를 구성하려면 먼저 RD 게이트웨이가 2단계 확인이 완료되기 전에 시간 초과되는 것을 방지하도록 시간 제한 설정을 변경합니다. 그런 다음 MFA 서버에서 RADIUS 인증을 받도록 NPS를 업데이트합니다. NPS를 구성하려면 다음 절차를 따르십시오.
 
-### 시간 제한 정책 수정
-<a id="modify-the-timeout-policy" class="xliff"></a>
+### <a name="modify-the-timeout-policy"></a>시간 제한 정책 수정
 
 1. NPS의 왼쪽 열에서 **RADIUS 클라이언트 및 서버** 메뉴를 열고 **원격 RADIUS 서버 그룹**을 선택합니다. 
 2. **TS 게이트웨이 서버 그룹**을 선택합니다. 
@@ -58,8 +53,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 4. **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 및 **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)**을 모두 30-60초 사이로 변경합니다. (인증하는 동안 여전히 서버가 시간 초과되는 경우 여기로 돌아와서 초 수를 늘립니다.)
 5. **인증/계정** 탭으로 이동하고 지정된 RADIUS 포트가 Multi-Factor Authentication 서버에서 수신 대기하는 포트와 일치하는지 확인합니다.
 
-### MFA 서버에서 인증을 받도록 NPS 준비
-<a id="prepare-nps-to-receive-authentications-from-the-mfa-server" class="xliff"></a>
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>MFA 서버에서 인증을 받도록 NPS 준비
 
 1. 왼쪽 열의 RADIUS 클라이언트 및 서버 아래에서 **RADIUS 클라이언트**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 선택합니다.
 2. Azure Multi-Factor Authentication 서버를 RADIUS 클라이언트로 추가합니다. 친숙한 이름을 선택하고 공유 암호를 지정합니다.
@@ -71,8 +65,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 8. 인증 공급자를 **이 서버에서 요청 인증**으로 변경합니다. 이 정책은 NPS가 Azure MFA 서버에서 RADIUS 요청을 수신할 때 루프 조건이 될 수 있는 Azure Multi-Factor Authentication 서버에 RADIUS 요청을 전송하는 대신 로컬로 인증이 발생하도록 합니다. 
 9. 루프 조건을 방지하려면 새 정책이 **연결 요청 정책** 창의 원래 정책 위에 정렬되어 있는지 확인합니다.
 
-## Azure Multi-Factor Authentication 구성
-<a id="configure-azure-multi-factor-authentication" class="xliff"></a>
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구성
 
 Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의 RADIUS 프록시로 구성됩니다.  RD 게이트웨이 서버와 별개의 도메인에 가입된 서버에 설치해야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 
@@ -85,8 +78,7 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 
 ![RADIUS 인증](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 - Azure MFA 및 [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md) 통합
 

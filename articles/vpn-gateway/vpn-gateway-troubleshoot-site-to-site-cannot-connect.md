@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.date: 09/13/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 2411b2ccd30f2155164d65272f999fdd1f6ba760
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure VPN 게이트웨이 유형을 확인합니다.
 
 1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. 확인된 VPN 장치가 아닌 경우 장치 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
 
-2. VPN 장치가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [장치 구성 예제 편집](/vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+2. VPN 장치가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [장치 구성 예제 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 
 ### <a name="step-2-verify-the-shared-key"></a>2단계. 공유 키 확인
 

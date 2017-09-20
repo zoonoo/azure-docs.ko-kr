@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 89d9fa8f11a4c6ae3860b91e246716aad071870f
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -74,32 +74,7 @@ ms.lasthandoff: 08/29/2017
 
 1. Excel 통합 문서를 저장합니다.
 
-## <a name="export-an-api-definition"></a>API 정의 내보내기
-[함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md)를 통해 함수에 대한 OpenAPI 정의를 만들었습니다. 이 프로세스의 다음 단계는 PowerApps 및 Microsoft Flow가 해당 사용자 지정 API에서 사용할 수 있도록 API 정의를 내보내는 것입니다.
-
-> [!IMPORTANT]
-> PowerApps 및 Microsoft Flow 테넌트에 사용하는 것과 동일한 자격 증명을 사용하여 Azure에 로그인해야 합니다. 이렇게 하면 Azure에서 사용자 지정 API를 만들고 PowerApps 및 Microsoft Flow 둘 다에서 사용하도록 지정할 수 있습니다.
-
-1. 함수 앱 이름(예: **function-demo-energy**) > **플랫폼 기능** > **API 정의**를 차례로 클릭합니다.
-
-    ![API 정의](media/functions-powerapps-scenario/api-definition.png)
-
-1. **PowerApps + Microsoft Flow로 내보내기**를 클릭합니다.
-
-    ![API 정의 원본](media/functions-powerapps-scenario/export-api-1.png)
-
-1. 오른쪽 창에서 표에 지정된 것처럼 설정을 사용합니다.
-
-    |설정|설명|
-    |--------|------------|
-    |**내보내기 모드**|**기본**을 선택하여 사용자 지정 API를 자동으로 생성합니다. **수동**을 선택하면 API 정의가 내보내지지만 PowerApps 및 Microsoft Flow에 수동으로 가져와야 합니다.|
-    |**환경**|사용자 지정 API를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요](https://powerapps.microsoft.com/tutorials/environments-overview/)를 참조하세요.|
-    |**사용자 지정 API 이름**|이름(예: `Turbine Repair`)을 입력합니다.|
-    |**API 키 이름**|앱 및 흐름 작성자가 사용자 지정 API UI에서 보게 되는 이름입니다. 이 예제에서 유용한 정보가 포함되어 있습니다.|
- 
-    ![API 정의 원본](media/functions-powerapps-scenario/export-api-2.png)
-
-1. **확인**을 클릭합니다. 이제 사용자 지정 API가 빌드되고 지정한 환경에 추가됩니다.
+[!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
 ## <a name="add-a-connection-to-the-api"></a>API에 연결 추가
 사용자 지정 API(사용자 지정 커넥터라고도 함)는 PowerApps에서 사용할 수 있지만 앱에서 사용하려면 API에 연결되어 있어야 합니다.

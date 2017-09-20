@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ad5700f1a85567a3e7f4ef80b778183929cb0d68
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/21/2017
 
 VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="before"></a>시작하기 전에
 
 * 이 단계에서는 두 VNet이 이미 만들어졌다고 가정합니다. 이 문서를 사용하여 연습을 하는 경우 VNet이 없으면 단계 내에 VNet 만들기를 도와주는 링크가 있습니다.
 * VNet에 대한 주소 범위가 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않는지 확인합니다.
@@ -82,7 +82,7 @@ Local network gateway = ClassicVNetLocal <br>
 | ClassicVNet |(10.0.0.0/24) |미국 서부 | RMVNetLocal(192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |미국 동부 |ClassicVNetLocal(10.0.0.0/24) |
 
-## <a name="classicvnet"></a>1. 클래식 VNet 설정 구성
+## <a name="classicvnet"></a>섹션 1 - 클래식 VNet 설정 구성
 
 이 섹션에서는 클래식 VNet에 대한 로컬 네트워크(로컬 사이트) 및 가상 네트워크 게이트웨이를 만듭니다. 클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
 
@@ -97,7 +97,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 
 스크린샷은 예제로 제공됩니다. 값을 사용자의 값으로 대체하거나 [예제](#values) 값을 사용합니다.
 
-### <a name="part-1---configure-the-local-site"></a>1부 - 로컬 사이트 구성
+### 1. <a name="local"></a>로컬 사이트 구성
 
 [클래식 포털](https://ms.portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
 
@@ -112,7 +112,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 7. **클라이언트 주소 공간**에 Resource Manager VNet에 대한 가상 네트워크 IP 주소 공간 값을 사용합니다. 이 설정은 Resource Manager 가상 네트워크로 라우팅할 주소 공간을 지정하는 데 사용합니다.
 8. **확인**을 클릭하여 값을 저장하고 **새 VPN 연결** 블레이드로 돌아갑니다.
 
-### <a name="part-2---create-the-virtual-network-gateway"></a>2부 - 가상 네트워크 게이트웨이 만들기
+### <a name="classicgw"></a>2. 가상 네트워크 게이트웨이 만들기
 
 1. **새 VPN 연결** 블레이드에서 **게이트웨이 즉시 만들기** 확인란을 선택하고 **선택적 게이트웨이 구성**을 클릭하여 **게이트웨이 구성** 블레이드를 엽니다. 
 
@@ -123,7 +123,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 5. **라우팅 유형**이 **동적**인지 확인하고 **확인**을 클릭하여 **새 VPN 연결** 블레이드로 돌아갑니다.
 6. **새 VPN 연결** 블레이드에서 **확인**을 클릭하여 VPN 게이트웨이 만들기를 시작합니다. VPN 게이트웨이 만들기를 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
-### <a name="ip"></a>3부 - 가상 네트워크 게이트웨이 공용 IP 주소 복사
+### <a name="ip"></a>3. 가상 네트워크 게이트웨이 공용 IP 주소 복사
 
 가상 네트워크 게이트웨이를 만든 후에 게이트웨이 IP 주소를 볼 수 있습니다. 
 
@@ -132,13 +132,13 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 3. 공용 IP 주소를 적어두거나 복사합니다. 나중 단계에서 Resource Manager 로컬 네트워크 게이트웨이 구성 설정 관련 작업을 수행할 때 사용합니다. 게이트웨이 연결의 상태를 볼 수도 있습니다. 만든 로컬 네트워크 사이트는 '연결 중'으로 표시됩니다. 연결을 만든 후에는 상태가 변경됩니다.
 4. 게이트웨이 IP 주소를 복사한 후 블레이드를 닫습니다.
 
-## <a name="rmvnet"></a>2. Resource Manager VNet 설정 구성
+## <a name="rmvnet"></a>섹션 2 - Resource Manager VNet 설정 구성
 
 이 섹션에서는 Resource Manager VNet에 대한 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 만듭니다. Resource Manager VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
 
 스크린샷은 예제로 제공됩니다. 값을 사용자의 값으로 대체하거나 [예제](#values) 값을 사용합니다.
 
-### <a name="part-1---create-a-gateway-subnet"></a>1부 - 게이트웨이 서브넷 만들기
+### <a name="1-create-a-gateway-subnet"></a>1. 게이트웨이 서브넷 만들기
 
 가상 네트워크 게이트웨이를 구성하려면 먼저 게이트웨이 서브넷을 만들어야 합니다. CIDR 개수가 /28 이상인 게이트웨이 서브넷을 만듭니다. (/27, /26 등)
 
@@ -146,11 +146,11 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="part-2---create-a-virtual-network-gateway"></a>2부 - 가상 네트워크 게이트웨이 만들기
+### <a name="creategw"></a>2. 가상 네트워크 게이트웨이 만들기
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3부 - 로컬 네트워크 게이트웨이 만들기
+### <a name="createlng"></a>3. 로컬 네트워크 게이트웨이 만들기
 
 로컬 네트워크 게이트웨이는 클래식 VNet 및 가상 네트워크 게이트웨이에 연결된 주소 범위 및 공용 IP 주소를 지정합니다.
 
@@ -163,7 +163,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="modifylng"></a>3. 클래식 VNet 로컬 사이트 설정 수정
+## <a name="modifylng"></a>섹션 3 - 클래식 VNet 로컬 사이트 설정 수정
 
 이 섹션에서는 로컬 사이트 설정을 지정할 때 사용한 자리 표시자 IP 주소를 Resource Manager VPN 게이트웨이 IP 주소와 바꿉니다. 이 섹션에서는 클래식(SM) PowerShell cmdlet을 사용합니다.
 
@@ -183,7 +183,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
     ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
 7. **확인**을 클릭하여 IP 주소를 업데이트합니다.
 
-## <a name="RMtoclassic"></a>4. 클래식 연결에 대해 Resource Manager 만들기
+## <a name="RMtoclassic"></a>섹션 4 - 클래식 연결에 대해 Resource Manager 만들기
 
 이번 단계에서는 Azure Portal을 사용하여 Resource Manager VNet에서 클래식 VNet으로 연결을 구성합니다.
 
@@ -198,7 +198,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 9. **공유 키**를 만듭니다. 이 키는 클래식 VNet에서 Resource Manager VNet에 만드는 연결에도 사용됩니다. 키를 생성하거나 만들 수 있습니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 사용할 수 있고 사용해야 합니다.
 10. **확인**을 클릭하여 연결을 만듭니다.
 
-##<a name="classictoRM"></a>5. 클래식에서 Resource Manager 연결 만들기
+##<a name="classictoRM"></a>섹션 5 - 클래식에서 Resource Manager 연결 만들기
 
 이번 단계에서는 클래식 VNet에서 Resource Manager VNet까지 연결을 구성합니다. 이러한 단계에는 PowerShell이 필요합니다. 포털에서는 이 연결을 만들 수 없습니다. 클래식(SM) 및 Resource Manager(RM) PowerShell cmdlet을 모두 다운로드하고 설치해야 합니다.
 
@@ -256,7 +256,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>6. 연결 확인
+##<a name="verify"></a>섹션 6 - 연결 확인
 
 Azure Portal 또는 PowerShell을 사용하여 연결을 확인할 수 있습니다. 확인 시, 연결이 만들어지는 동안 1~2분 정도 기다려야 할 수 있습니다. 연결이 완료되면 연결 상태가 '연결 중'에서 '연결됨'으로 변경됩니다.
 
@@ -270,5 +270,5 @@ Azure Portal 또는 PowerShell을 사용하여 연결을 확인할 수 있습니
 
 ## <a name="faq"></a>VNet 간 FAQ
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

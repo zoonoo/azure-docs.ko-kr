@@ -5,36 +5,35 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 09/06/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: a66081596f2e8234f6169faa58c571420e706c45
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
-이 문서에서는 원격 사용자가 생산성을 높일 수 있도록 응용 프로그램 프록시를 사용하여 RDS(원격 데스크톱 서비스)를 배포하는 방법을 설명합니다.
+원격 데스크톱 서비스와 Azure AD 응용 프로그램 프록시를 함께 작동하여 회사 네트워크에서 멀리 떨어져 있는 작업자의 생산성을 높일 수 있습니다. 
 
 이 문서의 대상은 다음과 같습니다.
-- 원격 데스크톱 서비스를 통해 온-프레미스 응용 프로그램을 게시하여 최종 사용자에게 더 많은 응용 프로그램을 제공하려고 하는 현재 Azure AD 응용 프로그램 프록시 고객.
+- 원격 데스크톱 서비스를 통해 온-프레미스 응용 프로그램을 게시하여 최종 사용자에게 더 많은 응용 프로그램을 제공하려고 하는 현재 응용 프로그램 프록시 고객.
 - Azure AD 응용 프로그램 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오에서는 RDS에 대한 제한된 2단계 확인 및 조건부 액세스 제어 집합을 제공합니다.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>응용 프로그램 프록시를 표준 RDS 배포에 맞추는 방법
 
-표준 RDS 배포에는 Windows Server에서 실행되는 다양한 원격 데스크톱 역할 서비스가 포함됩니다. [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(원격 데스크톱 서비스 아키텍처)에는 다양한 배포 옵션이 있습니다. [RDS deployment with Azure AD Application Proxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(Azure AD 응용 프로그램 프록시를 사용한 RDS 배포)와 기타 배포 옵션 간의 가장 눈에 띄는 차이점은 응용 프로그램 프록시 시나리오에는 커넥터 서비스를 실행하는 서버에서 영구 아웃바운드 연결이 있다는 것입니다. 기타 배포에서는 부하 분산 장치를 통해 열린 인바운드 연결을 유지합니다.
+표준 RDS 배포에는 Windows Server에서 실행되는 다양한 원격 데스크톱 역할 서비스가 포함됩니다. [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(원격 데스크톱 서비스 아키텍처)에는 다양한 배포 옵션이 있습니다. 다른 배포 옵션과 달리, [RDS deployment with Azure AD Application Proxy(Azure AD 응용 프로그램 프록시를 사용한 RDS 배포)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(다음 다이어그램에 표시)는 커넥터 서비스를 실행하는 서버에서 영구 아웃바운드 연결이 있다는 것입니다. 기타 배포에서는 부하 분산 장치를 통해 열린 인바운드 연결을 유지합니다.
 
 ![응용 프로그램 프록시는 RDS VM과 공용 인터넷 간에 놓입니다.](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
@@ -47,7 +46,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 ## <a name="requirements"></a>요구 사항
 
-- RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다.
+- RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 응용 프로그램 프록시와 함께 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다.
 
 - 이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다.
 
@@ -76,7 +75,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>응용 프로그램 프록시에 대한 직접 RDS 트래픽
 
-관리자로 RDS 배포에 연결하고 배포에 대한 RD 게이트웨이 서버 이름을 변경합니다. 이렇게 하면 연결이 Azure AD 응용 프로그램 프록시를 통과합니다.
+관리자로 RDS 배포에 연결하고 배포에 대한 RD 게이트웨이 서버 이름을 변경합니다. 이렇게 구성하면 연결이 Azure AD 응용 프로그램 프록시 서비스를 통과합니다.
 
 1. RD 연결 브로커 역할을 실행하는 RDS 서버에 연결합니다.
 2. **서버 관리자**를 시작합니다.
@@ -88,7 +87,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
   ![RDS의 배포 속성 화면](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. 각 컬렉션에 대해 다음 명령을 실행합니다. *\<yourcollectionname\>* 및 *\<proxyfrontendurl\>*을 사용자 고유의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
+8. 각 컬렉션에 대해 이 명령을 실행합니다. *\<yourcollectionname\>* 및 *\<proxyfrontendurl\>*을 사용자 고유의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -124,7 +123,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 | 사전 인증    | Internet Explorer + RDS ActiveX 추가 기능을 사용하는 Windows 7/10 |
 | 통과 | Microsoft 원격 데스크톱 응용 프로그램을 지원하는 다른 운영 체제 |
 
-사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 Single Sign-On, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 활용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
+사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 Single Sign-On, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
 통과 인증을 사용하려면 이 문서에 나열된 단계를 두 번만 수정하면 됩니다.
 1. [RD 호스트 끝점 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c32ea5e6cade34a9c8dac0eab523ebcaa10ef039
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 05/15/2017
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | 가상 컴퓨터 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | 가상 컴퓨터를 삭제합니다. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | 가상 컴퓨터를 만듭니다.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) | 디스크를 가상 컴퓨터에 연결합니다. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | 가상 컴퓨터의 IP 주소를 반환합니다. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | 가상 컴퓨터 목록을 반환합니다. 이 경우 가상 컴퓨터 운영 체제 디스크를 반환하는 데 쿼리 옵션이 사용됩니다. 그러면 이 값이 변수 이름 'uri'에 추가됩니다. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | 가상 컴퓨터를 삭제합니다. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 가상 컴퓨터를 만듭니다.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | 디스크를 가상 컴퓨터에 연결합니다. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | 가상 컴퓨터의 IP 주소를 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

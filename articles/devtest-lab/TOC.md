@@ -28,6 +28,7 @@
 ### [정책 및 일정 설정](devtest-lab-set-lab-policy.md)
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md)
+### [랩에 태그 추가](devtest-lab-add-tag.md)
 
 ## [사용자 지정 이미지 또는 수식 선택](devtest-lab-comparing-vm-base-image-types.md)
 

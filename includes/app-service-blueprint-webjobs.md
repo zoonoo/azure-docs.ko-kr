@@ -10,7 +10,7 @@
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
 * [Azure 관리 포털을 사용하여 WebJobs를 배포하는 방법](../articles/app-service-web/web-sites-create-web-jobs.md)
 * [Azure WebJob 추가 대화 상자](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Azure 관리 포털에서 예약된 WebJob 만들기](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Azure 관리 포털에서 예약된 WebJob 만들기](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [cron 식을 사용하여 Azure WebJob 예약](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [WebJobs 대시보드 보기](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [WebJobs SDK를 사용하여 로그를 작성하고 대시보드에서 보는 방법](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)

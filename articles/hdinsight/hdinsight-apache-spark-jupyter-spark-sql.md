@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터 만들기
 
-이 문서에서는 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 설명합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에서 Apache Spark 클러스터를 만든 다음 Hive 테이블에서 Spark SQL 쿼리를 실행하는 방법에 대해 설명합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)를 참조하세요.
 
    ![Azure HDInsight에서 Apache Spark 클러스터를 만드는 단계를 설명하는 빠른 시작 다이어그램](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "HDInsight에서 Apache Spark를 사용하여 Spark 빠른 시작. 다음을 보여 주는 단계: 클러스터 만들기, Spark 대화형 쿼리 실행")
 
@@ -65,9 +65,15 @@ HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Spark SQL을 사용하여 Hive 쿼리를 실행합니다.
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Hive 테이블에서 Spark SQL 문 실행
 
-HDInsight Spark 클러스터에 구성된 Jupyter Notebook을 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 `sqlContext`를 미리 설정합니다. 이 섹션에서는 Jupyter Notebook을 시작한 다음 기본 Hive 쿼리를 실행하는 방법을 설명합니다.
+SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적이며 널리 사용되는 언어입니다. Spark 창립자는 HDFS(Hadoop 분산 파일 시스템)에 있는 데이터로 작업하려는 분석가의 광범위한 사용자에게 잘 알려진 데이터 쿼리 언어를 제공하는 이 정보를 이용하려고 노력했습니다. Spark SQL은 해당 제품입니다. 익숙한 SQL 구문을 사용하여 구조화된 데이터를 처리하기 위한 Apache Spark에 대한 확장으로 작동합니다.
+
+Spark SQL에서는 SQL 및 HiveQL을 모두 쿼리 언어로 지원합니다. 해당 기능에는 Python, Scala 및 Java의 바인딩이 포함됩니다. 이를 통해 외부 데이터베이스, 구조화된 데이터 파일(예: JSON) 및 Hive 테이블과 같은 여러 위치에 저장된 데이터를 쿼리할 수 있습니다.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Spark SQL 실행
+
+HDInsight Spark 클러스터에 구성된 Jupyter Notebook을 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 `sqlContext`를 미리 설정합니다. 이 섹션에서는 Jupyter 노트북을 시작한 다음 모든 HDInsight 클러스터에서 사용 가능한 기존 Hive 테이블(**hivesampletable**)에서 기본 Spark SQL 쿼리를 실행하는 방법을 알아봅니다.
 
 1. [Azure 포털](https://portal.azure.com/)을 엽니다.
 
@@ -87,13 +93,13 @@ HDInsight Spark 클러스터에 구성된 Jupyter Notebook을 사용하는 경�
    >
 3. Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
-   ![Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행")
+   ![Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행")
 
    새 노트북이 만들어지고 Untitled(Untitled.pynb) 이름으로 열립니다.
 
 4. 맨 위에서 노트북 이름을 클릭하고 원하는 경우 식별하기 쉬운 이름을 입력합니다.
 
-    ![Jupter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Jupter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행")
+    ![Jupyter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Jupyter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행")
 
 5.  빈 셀에 다음 코드를 붙여 넣은 다음 **SHIFT + ENTER**를 눌러 코드를 실행합니다. 아래 코드에서 `%%sql`(SQL 매직이라고 함)은 Jupyter Notebook에서 `sqlContext` Hive 쿼리를 실행하는 사전 설정을 사용하도록 합니다. Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색하는 쿼리는 모든 HDInsight 클러스터에서 기본적으로 사용할 수 있습니다.
 
@@ -117,7 +123,7 @@ HDInsight Spark 클러스터에 구성된 Jupyter Notebook을 사용하는 경�
 
 8. 나중에 다음 단계를 완료하려는 경우 이 문서에서 만든 HDInsight 클러스터를 삭제해야 합니다. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>다음 단계 
 

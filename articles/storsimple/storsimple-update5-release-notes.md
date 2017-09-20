@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2017
+ms.date: 08/28/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e68dce72d648171faab930bbb4af9fd61816b19b
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 시리즈 업데이트 5 릴리스 정보
@@ -43,7 +43,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
     인증 URL이 방화벽 규칙에 포함되지 않은 경우 StorSimple 장치가 서비스에서 인증을 받을 수 없다는 중요한 알림이 표시됩니다. 이 경고가 표시되면 새 인증 URL을 포함해야 합니다. 자세한 내용은 [StorSimple 네트워킹 경고](storsimple-8000-manage-alerts.md#networking-alerts)로 이동합니다.
 
-* **새 버전의 StorSimple Snapshot Manager** - 새 버전의 StorSimple Snapshot Manager가 업데이트 5와 함께 출시됩니다. 이 버전으로 업데이트하는 것이 좋습니다. 이 버전은 업데이트 3 이상을 실행하는 모든 StorSimple 장치와 호환됩니다. 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
+* **새 버전의 StorSimple Snapshot Manager** - 새 버전의 StorSimple Snapshot Manager는 업데이트 5에서 제공되고 업데이트 4 이상을 실행하는 모든 StorSimple 장치와 호환됩니다. 이 버전으로 업데이트하는 것이 좋습니다. 이전 버전의 StorSimple Snapshot Manager는 업데이트 3 이전을 실행하는 StorSimple 장치에 사용됩니다. [StorSimple Snapshot Manager의 해당 버전을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=44220)하고 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조합니다.
 
 
 ## <a name="issues-fixed-in-update-5"></a>업데이트 5에서 해결된 문제

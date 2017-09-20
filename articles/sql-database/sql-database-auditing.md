@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
@@ -68,8 +67,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 감사할 SQL Database/SQL Server의 **설정** 블레이드로 이동합니다. **설정** 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
-    <a id="auditing-screenshot"></a>
-    ![탐색 창][1]
+    <a id="auditing-screenshot"></a> ![탐색 창][1]
 3. 이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용되는 서버 감사 정책을 설정하려면 데이터베이스 감사 블레이드에서 **서버 설정 보기** 링크를 선택합니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다.
 
     ![탐색 창][2]
@@ -82,8 +80,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    >[!TIP] 
    >감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 동일한 저장소 계정을 사용합니다. 
 
-    <a id="storage-screenshot"></a>
-    ![탐색 창][4]
+    <a id="storage-screenshot"></a> ![탐색 창][4]
 6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 자세한 내용은 [Automation(PowerShell/REST API)](#subheading-7) 섹션을 참조하세요.
 7. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 8. **Save**를 클릭합니다.
@@ -148,17 +145,16 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">지역에서 복제된 데이터베이스 감사</a>
-지역에서 복제된 데이터베이스를 사용하는 경우 감사 유형에 따라 주 데이터베이스, 보조 데이터베이스 또는 둘 모두에 감사를 설정할 수 있습니다.
+지역 복제 데이터베이스를 사용하는 경우 **보조 서버**에서 감사를 사용하도록 설정하거나 주 데이터베이스에서 감사를 사용하도록 설정하여 보조 데이터베이스에 감사를 설정할 수 있습니다.(이 경우에 보조 데이터베이스에는 주 데이터베이스와 동일한 감사 정책이 있습니다.)
 
-다음 지침을 따릅니다(Blob 감사는 주 데이터베이스 감사 설정에서만 켜고 끌 수 있음).
+* 서버 수준(**권장**): **주 서버** 및 **보조 서버** 둘 다에서 감사를 켭니다. 주 데이터베이스 및 보조 데이터베이스가 해당하는 서버 수준 정책에 따라 독립적으로 감사됩니다.
 
-* **주 데이터베이스**. [데이터베이스에 대한 감사 설정](#subheading-2) 섹션에 설명된 대로 서버 또는 데이터베이스 자체에서 Blob 감사를 켭니다.
-* **보조 데이터베이스**. [데이터베이스에 대한 감사 설정](#subheading-2) 섹션에 설명된 대로 주 데이터베이스에서 Blob 감사를 켭니다. 
+* 데이터베이스 수준: 보조 데이터베이스에 대한 데이터베이스 수준 감사는 주 데이터베이스 감사 설정에서만 구성될 수 있습니다.
    * Blob 감사는 서버가 아니라 *주 데이터베이스 자체*에서 활성화해야 합니다.
    * 주 데이터베이스에서 Blob 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
 
      >[!IMPORTANT]
-     >기본적으로는 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 보조 서버에서 Blob 감사를 활성화하고 보조 서버 저장소 설정에서 로컬 저장소를 구성하면 이를 방지할 수 있습니다. 이 구성은 보조 데이터베이스의 저장소 위치를 재정의하며 각 데이터베이스에서 해당 감사 로그를 로컬 저장소에 저장하도록 합니다.  
+     >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 데이터베이스 수준 감사가 필요하지 않으면 주 서버 및 보조 서버에서 서버 수준 서버 수준 감사를 사용하도록 설정하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 유지하는 것이 좋습니다.
 <br>
 
 ### <a id="subheading-6">저장소 키 다시 생성</a>
@@ -184,7 +180,6 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
@@ -218,11 +213,10 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

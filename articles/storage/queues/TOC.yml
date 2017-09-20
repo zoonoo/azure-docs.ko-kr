@@ -22,6 +22,8 @@
           href: storage-python-how-to-use-queue-storage.md
         - name: 루비
           href: storage-ruby-how-to-use-queue-storage.md
+        - name: PowerShell
+          href: storage-powershell-how-to-use-queues.md
 - name: 방법
   items:
     - name: 계획 및 디자인

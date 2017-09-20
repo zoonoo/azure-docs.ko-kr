@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Azure Data Lake Store에 데이터를 캡처하려면 Data Lake Store 계정 및
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Azure Data Lake Store 계정 및 폴더 만들기
 
-1. Data Lake Store 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 
-2. 이 계정에서 폴더를 만들려면 [Azure Data Lake Store 계정에 폴더 만들기](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) 섹션에 있는 지침에 따릅니다.
-3. Data Lake Store 계정 페이지에서 **데이터 탐색기**를 클릭합니다.
-4. **액세스**를 클릭합니다.
-5. **추가**를 클릭합니다.
-6. **이름이나 전자 메일로 검색** 상자에서 **Microsoft.EventHubs**를 입력한 다음 이 옵션을 선택합니다. 
-7. **사용 권한** 탭이 표시됩니다. 다음 그림에 표시된 대로 사용 권한을 설정합니다.
-
-    ![][6]
-
-8. **확인**을 클릭합니다.
-9. 이제, 대상 폴더로 이동하고 폴더 이름을 클릭하여 루트 폴더에 폴더를 만듭니다.
-10. **액세스**를 클릭합니다.
-11. **추가**를 클릭합니다.
-12. **이름이나 전자 메일로 검색** 상자에서 **Microsoft.EventHubs**를 입력한 다음 이 옵션을 선택합니다.
-13. **사용 권한** 탭이 다시 표시됩니다. 다음 그림에 표시된 대로 사용 권한을 설정합니다.
-
-    ![][5]
+1. Data Lake Store 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
+2. [Event Hubs에 사용 권한 할당](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) 섹션의 지침을 따라 Data Lake Store 계정에 데이터를 쓸 수 있도록 Event Hubs에서 데이터를 캡처하고 Event Hubs에 사용 권한을 할당하려는 Data Lake Store 계정 내에 폴더를 만듭니다.  
 
 ### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
@@ -87,12 +71,11 @@ Event Hubs 네임스페이스에 있는 기존 이벤트 허브에 캡처를 구
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Event Hubs 캡처 개요][capture-overview]를 참조하여 Event Hubs 캡처에 대해 자세히 알아봅니다.
 - Azure Resource Manager 템플릿을 사용하여 Event Hubs 캡처를 구성할 수도 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 캡처를 사용하도록 설정](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)을 참조하세요.
+- [Azure Portal을 사용하여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

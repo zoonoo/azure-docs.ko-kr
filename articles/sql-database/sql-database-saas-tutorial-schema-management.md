@@ -5,7 +5,7 @@ keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
 
 [첫 번째 Wingtip SaaS 자습서](sql-database-saas-tutorial.md)는 앱이 테넌트 데이터베이스를 프로비전하고 카탈로그에 등록하는 방법을 보여줍니다. 다른 응용 프로그램과 마찬가지로 Wingtip SaaS 앱도 시간이 지나면서 개선될 것이며 때때로 데이터베이스를 변경해야 할 것입니다. 변경 내용에는 최적의 앱 성능을 보장하기 위해 새로운 스키마나 변경된 스키마, 새로운 참조 데이터나 변경된 참조 데이터, 일상적인 데이터베이스 유지 관리 작업이 포함될 수 있습니다. SaaS 응용 프로그램에서 이러한 변경 내용은 테넌트 데이터베이스의 잠재적인 대규모 fleet에 통합된 방식으로 배포되어야 합니다. 이러한 변경 내용을 이후 테넌트 데이터베이스에 포함하려면 프로비전 프로세스에 해당 변경 내용을 통합해야 합니다.
 

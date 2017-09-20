@@ -3,7 +3,7 @@ title: "내부 부하 분산 장치에서 Azure Application Gateway 사용 | Mic
 description: "이 페이지에서는 내부 부하 분산된 끝점이 있는 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>내부 부하 분산 장치 (ILB)를 사용하여 응용 프로그램 게이트웨이 만들기
@@ -222,10 +223,5 @@ DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
@@ -50,6 +50,8 @@ ms.lasthandoff: 07/28/2017
 
 * Azure Portal에서 확실한 문제가 있는지 가상 컴퓨터의 상태를 확인합니다.
 * [기본적인 문제 해결 가이드의 일반적인 RDP 오류에 대한 빠른 해결 단계](troubleshoot-rdp-connection.md#quick-troubleshooting-steps)를 진행합니다.
+* 사용자 지정 이미지의 경우 VHD가 업로드하기 전에 제대로 준비되었는지 확인합니다. 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md)를 참조하세요.
+
 
 이 단계를 거친 후 원격 데스크톱을 통해 VM에 다시 연결하세요.
 
@@ -97,7 +99,7 @@ ms.lasthandoff: 07/28/2017
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> 리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
+> Resource Manager에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
 
 동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 컴퓨터를 삭제합니다.
 

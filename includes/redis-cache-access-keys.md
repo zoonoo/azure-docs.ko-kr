@@ -6,7 +6,7 @@ Azure Portal을 사용하여 호스트 이름, 포트 및 액세스 키를 검�
 ![Redis Cache 설정](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Azure CLI를 사용하여 호스트 이름, 포트 및 액세스 키를 검색합니다.
-Azure CLI 2.0을 사용하여 호스트 이름 및 포트를 검색하려면 [az redis show](https://docs.microsoft.com/cli/azure/redis#show)를 호출하고 키를 검색하려면 [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys)를 호출하면 됩니다. 다음 스크립트는 이러한 두 개의 명령을 호출하고 호스트 이름, 포트 및 키를 콘솔에 적용합니다.
+Azure CLI 2.0을 사용하여 호스트 이름 및 포트를 검색하려면 [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show)를 호출하고 키를 검색하려면 [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys)를 호출하면 됩니다. 다음 스크립트는 이러한 두 개의 명령을 호출하고 호스트 이름, 포트 및 키를 콘솔에 적용합니다.
 
 ```azurecli
 #/bin/bash

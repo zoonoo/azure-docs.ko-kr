@@ -135,9 +135,9 @@
 ### [Azure AD 조인 계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### 작업
-#### [Azure AD 등록 Windows 10 장치 구성](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD 가입 장치 구성](device-management-azuread-joined-devices-setup.md)
-#### [하이브리드 Azure AD 가입 장치 구성](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Azure AD 등록 Windows 10 장치 설정](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD 가입 장치 설정](device-management-azuread-joined-devices-setup.md)
+#### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
 ### 문제 해결
@@ -196,6 +196,7 @@
 #### [사용자 제거](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [내 앱 모두 보기](active-directory-coreapps-view-azure-portal.md)
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
+#### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
@@ -265,38 +266,27 @@
 
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
+## [Azure에 대한 액세스 관리](toc.yml)
+
 ## 리소스에 대한 액세스 위임
 ### [관리자 역할](active-directory-assign-admin-roles.md)
 #### [관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
-### [Azure의 리소스 액세스](active-directory-understanding-resource-access.md)
-### [역할 기반 액세스 제어](role-based-access-control-what-is.md)
-#### 액세스 할당 관리
-##### [사용자별](role-based-access-control-manage-assignments.md)
-##### [리소스별](role-based-access-control-configure.md)
-#### [기본 제공 역할](role-based-access-built-in-roles.md)
-#### [사용자 지정 역할](role-based-access-control-custom-roles.md)
-#### [내부 및 외부 사용자에 대한 사용자 지정 역할 할당](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [보고](role-based-access-control-access-change-history-report.md)
-#### 역할을 관리하는 다양한 방법
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST (영문)](role-based-access-control-manage-access-rest.md)
-#### [테넌트 관리자 액세스 권한 상승](role-based-access-control-tenant-admin-access.md)
-#### [문제 해결](role-based-access-control-troubleshooting.md)
-#### [리소스 공급자 작업](role-based-access-control-resource-provider-operations.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
+#### [컨트롤](active-directory-conditional-access-controls.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
-#### [VPN 연결](active-directory-conditional-access-vpn-connectivity-windows10.md)
-#### [모바일 앱 관리](active-directory-conditional-access-mam.md)
+#### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
+#### 작업
+##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
+##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
+##### [VPN 연결 설정](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
+##### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
-#### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
-#### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
-#### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [FAQ](active-directory-conditional-faqs.md)
 #### [클래식 포털](active-directory-conditional-access.md)
 ##### [시작](active-directory-conditional-access-azuread-connected-apps.md)

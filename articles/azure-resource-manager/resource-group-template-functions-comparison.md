@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 비교 함수
@@ -68,7 +68,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="example"></a>예제
 
-이 예제 템플릿에서는 다른 형식의 값이 같은지 확인합니다. 모든 기본값은 True를 반환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json)에서는 다른 형식의 값이 같은지 확인합니다. 모든 기본값은 True를 반환합니다.
 
 ```json
 {
@@ -140,8 +140,19 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
-다음 예제에서는 **equals**에 [not](resource-group-template-functions-logical.md#not)을 사용합니다.
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+```
+
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 **equals**에 [not](resource-group-template-functions-logical.md#not)을 사용합니다.
 
 ```json
 {
@@ -155,6 +166,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 위 예제의 출력은 다음과 같습니다.
@@ -163,6 +175,17 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+```
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -182,7 +205,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="example"></a>예제
 
-이 예제 템플릿에서는 한 값이 다른 값보다 큰지 여부를 확인합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json)에서는 한 값이 다른 값보다 큰지 여부를 확인합니다.
 
 ```json
 {
@@ -221,13 +244,24 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -247,7 +281,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="example"></a>예제
 
-이 예제 템플릿에서는 한 값이 다른 값보다 크거나 같은지 여부를 확인합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json)에서는 한 값이 다른 값보다 큰지 아니면 동일한지를 확인합니다.
 
 ```json
 {
@@ -286,14 +320,24 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+```
 
 ## <a name="less"></a>less
 `less(arg1, arg2)`
@@ -313,7 +357,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="example"></a>예제
 
-이 예제 템플릿에서는 한 값이 다른 값보다 작은지 여부를 확인합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json)에서는 한 값이 다른 값보다 작은지 여부를 확인합니다.
 
 ```json
 {
@@ -352,13 +396,24 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+```
 
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
@@ -378,7 +433,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 
 ### <a name="example"></a>예제
 
-이 예제 템플릿에서는 한 값이 다른 값보다 작거나 같은지 여부를 확인합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json)에서는 한 값이 다른 값보다 작은지 아니면 동일한지를 확인합니다.
 
 ```json
 {
@@ -417,19 +472,29 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+```
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
 

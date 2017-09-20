@@ -20,10 +20,8 @@ ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/28/2017
 
-
 ---
-# Logic Apps란 무엇인가요?
-<a id="what-are-logic-apps" class="xliff"></a>
+# <a name="what-are-logic-apps"></a>Logic Apps란 무엇인가요?
 Logic Apps는 클라우드에서 확장 가능한 통합 및 워크플로를 단순화하고 구현하는 방법을 제공합니다. 모델에 비주얼 디자이너를 제공하고 프로세스를 워크플로로 알려진 일련의 단계로 자동화합니다.  서비스 및 프로토콜에 걸쳐 신속하게 통합하기 위해 클라우드 및 온-프레미스에 [많은 커넥터](../connectors/apis-list.md) 가 있습니다.  'Dynamics CRM에 계정을 추가하는 경우'와 같이 논리 앱은 트리거로 시작하고, 실행 후에 작업, 변환 및 조건 논리의 다양한 조합을 시작할 수 있습니다.
 
 Logic Apps를 사용하는 이점은 다음과 같습니다.  
@@ -47,8 +45,7 @@ Logic Apps는 완전히 관리되는 iPaaS(integration Platform as a Service)로
 
 이와 같은 시나리오는 비주얼 디자이너에서 코드를 전혀 작성하지 않고도 구성될 수 있습니다. [이제 논리 앱을 구축][create]을 시작합니다.  작성되면 논리 앱은 여러 환경 및 지역에 걸쳐 [신속하게 배포되고 다시 구성될](../logic-apps/logic-apps-create-deploy-template.md) 수 있습니다.
 
-## Logic Apps 사용 이유
-<a id="why-logic-apps" class="xliff"></a>
+## <a name="why-logic-apps"></a>Logic Apps 사용 이유
 Logic Apps는 엔터프라이즈 통합 공간에 속도 및 확장성을 제공합니다.  디자이너의 사용 편의성, 사용 가능한 다양한 트리거 및 작업 및 가장 단순하게 API를 중앙 집중화시키는 강력한 관리 도구를 제공합니다.  기업이 디지털화되면서 Logic Apps를 사용하면 레거시 및 첨단 시스템을 함께 연결할 수 있습니다.
 
 또한 [엔터프라이즈 통합 계정][biztalk]을 사용하여 [XML 메시징][xml], [거래 파트너 관리][tpm] 등의 권한으로 통합 시나리오를 확장할 수 있습니다.
@@ -59,8 +56,7 @@ Logic Apps는 엔터프라이즈 통합 공간에 속도 및 확장성을 제공
 * **내재된 확장성** - 필요한 커넥터가 보이지 않나요? Logic Apps는 사용자 고유의 API 및 코드로 작업하도록 설계되었습니다. 고유한 API 앱을 만들어서 사용자 지정 커넥터로 사용하거나 [Azure Function](https://functions.azure.com)에 호출하여 주문형 코드 조각을 실행할 수 있습니다. 
 * **진정한 통합 능력** - 쉽게 시작되고 필요에 따라 확장됩니다. Logic Apps는 통합 전문가가 필요한 솔루션을 빌드할 수 있도록 하기 위해 Microsoft의 업계 선도적인 통합 솔루션인 BizTalk 기능을 쉽게 활용할 수 있습니다. [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 자세히 알아봅니다.
 
-## 논리 앱 개념
-<a id="logic-app-concepts" class="xliff"></a>
+## <a name="logic-app-concepts"></a>논리 앱 개념
 Logic Apps 환경을 구성하는 몇 가지 주요 부분은 다음과 같습니다. 
 
 * **워크플로** - Logic Apps는 비즈니스 프로세스를 일련의 단계나 워크플로로 모델링하는 그래픽 방법을 제공합니다.
@@ -69,15 +65,14 @@ Logic Apps 환경을 구성하는 몇 가지 주요 부분은 다음과 같습�
 * **동작** - 워크플로에서 트리거 후의 각 단계를 동작이라고 합니다. 각 동작은 일반적으로 관리 커넥터 또는 사용자 지정 API 앱의 작업에 매핑됩니다.
 * **엔터프라이즈 통합 팩** - 고급 통합 시나리오를 위해 Logic Apps에는 BizTalk의 기능이 포함됩니다. BizTalk는 Microsoft의 업계 선도적인 통합 플랫폼입니다. 엔터프라이즈 통합 팩 커넥터를 사용하면 유효성 검사, 변환 등을 논리 앱 워크플로에 쉽게 포함할 수 있습니다.
 
-## 시작하기
-<a id="getting-started" class="xliff"></a>
+## <a name="getting-started"></a>시작하기
 * Logic Apps를 시작하려면 [Logic App 만들기][create] 자습서를 따르세요.  
 * [일반적인 예제 및 시나리오 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Logic Apps와 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

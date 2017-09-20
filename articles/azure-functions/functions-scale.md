@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 소비 및 App Service 계획 | Microsoft Docs"
-description: "Azure Functions에서 이벤트 기반 워크로드의 수요를 충족하도록 규모를 조정하는 방식을 이해합니다."
+title: "Azure Functions 호스팅 계획 비교 | Microsoft Docs"
+description: "Azure Functions 소비 계획과 App Service 계획 중 하나를 선택하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
 author: lindydonna
 manager: cfowler
 editor: 
 tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+keywords: "Azure Functions, 함수, 소비 계획, App Service 계획, 이벤트 처리, 웹후크, 동적 계산, 서버가 없는 아키텍처"
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -18,13 +18,13 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="azure-functions-consumption-and-app-service-plans"></a>Azure Functions 소비 및 App Service 계획 
+# <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 호스팅 계획 비교
 
 ## <a name="introduction"></a>소개
 

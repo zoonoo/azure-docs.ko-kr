@@ -3,7 +3,7 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-글로벌 데이터베이스 복제가 Cosmos DB에서 작동하는 방법에 대한 자세한 내용은 [Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/documentdb/documentdb-distribute-data-globally.md)를 참조하세요.
+글로벌 데이터베이스 복제가 Azure Cosmos DB에서 작동하는 방법에 대한 자세한 내용은 [Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md)를 참조하세요.
 
 ## <a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
 Azure Cosmos DB는 전세계 모든 [Azure 지역][azureregions]에 제공됩니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
@@ -11,7 +11,7 @@ Azure Cosmos DB는 전세계 모든 [Azure 지역][azureregions]에 제공됩니
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB**를 클릭합니다.
 2. **Azure Cosmos DB** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 3. 계정 블레이드의 메뉴에서 **전역으로 데이터 복제**를 클릭합니다.
-4. **전역으로 데이터 복제** 블레이드에서 맵의 지역을 클릭하여 추가 또는 제거할 지역을 선택하고 **저장**을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/) 또는 [DocumentDB를 사용하여 전역적으로 데이터 배포](../articles/documentdb/documentdb-distribute-data-globally.md) 문서를 참조하세요.
+4. **전역으로 데이터 복제** 블레이드에서 맵의 지역을 클릭하여 추가 또는 제거할 지역을 선택하고 **저장**을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 또는 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md) 문서를 참조하세요.
    
     ![지도에서 지역을 클릭하여 추가/삭제][1]
     

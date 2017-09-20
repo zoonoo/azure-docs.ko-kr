@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN 시작
@@ -32,8 +33,13 @@ ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝점이 하나 이상 있습니다.  여러 프로필을 사용하여 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건에서 CDN 끝점을 구성할 수도 있습니다.
 
 > [!NOTE]
-> 기본적으로 단일 Azure 구독은 CDN 프로필이&8;개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 열 개로 제한됩니다.
-> 
+> Azure 구독에는 다음 리소스에 대한 기본 제한이 있습니다.
+> - 만들 수 있는 CDN 프로필의 수
+> - CDN 프로필에서 만들 수 있는 끝점의 수 
+> - 끝점에 매핑할 수 있는 사용자 지정 도메인의 수
+>
+> CDN 구독 제한에 대한 정보는 [CDN 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits)을 참조하세요.
+>
 > CDN 가격 책정은 CDN 프로필 수준에서 적용됩니다. 다양한 Azure CDN 가격 책정 계층을 사용하려는 경우 여러 CDN 프로필이 필요합니다.
 > 
 > 
@@ -43,7 +49,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 ## <a name="create-a-new-cdn-endpoint"></a>새 CDN 끝점 만들기
 **새 CDN 끝점을 만들려면**
 
-1. [Azure 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다.  이전 단계에서 대시보드에 고정해 놓았을 수 있습니다.  그렇지 않은 경우 **찾아보기**, **CDN 프로필**을 차례로 클릭한 다음 끝점을 추가하려는 프로필을 클릭하면 찾을 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다.  이전 단계에서 대시보드에 고정해 놓았을 수 있습니다.  그렇지 않은 경우 **찾아보기**, **CDN 프로필**을 차례로 클릭한 다음 끝점을 추가하려는 프로필을 클릭하면 찾을 수 있습니다.
    
     CDN 프로필 블레이드가 나타납니다.
    
@@ -55,7 +61,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
     **끝점 추가** 블레이드가 나타납니다.
    
     ![끝점 추가 블레이드][cdn-add-endpoint]
-3. 이 CDN 끝점에 대한 **이름** 을 입력합니다.  이 이름은 `<endpointname>.azureedge.net`도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
+3. 이 CDN 끝점에 대한 **이름** 을 입력합니다.  이 이름은 `<endpointname>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 4. **원본 형식** 드롭다운에서 원본 형식을 선택합니다.  Azure Storage 계정에 대해 **저장소**, Azure 클라우드 서비스에 대해 **클라우드 서비스**, Azure 웹앱에 대해 **웹앱**을 선택하고 기타 공개적으로 액세스할 수 있는 웹 서버 원본(Azure 또는 다른 곳에서 호스팅)에 대해 **사용자 지정 원본**을 선택합니다.
    
     ![CDN 원본 형식](./media/cdn-create-new-endpoint/cdn-origin-type.png)
@@ -77,7 +83,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
    > HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 제약 조건이 있습니다.
    > 
    > * CDN에서 제공된 SSL 인증서를 사용해야 합니다. 타사 인증서는 지원되지 않습니다.
-   > * CDN 제공 도메인(`<endpointname>.azureedge.net`)을 사용하여 HTTPS 콘텐츠에 액세스해야 합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME(사용자 지정 도메인 이름)에는 HTTPS 지원을 사용할 수 없습니다.
+   > * Azure CDN 사용자 지정 도메인에 대한 HTTPS 지원은 **Verizon의 Azure CDN** 제품(표준 및 프리미엄)에만 사용할 수 있습니다. **Akamai의 Azure CDN**에서 지원되지 않습니다. 자세한 내용은 [Azure CDN 사용자 지정 도메인에서 HTTPS를 사용하도록 설정](cdn-custom-ssl.md)을 참조하세요.
+
+CDN 제공 도메인(`<endpointname>.azureedge.net`)을 사용하여 HTTPS 콘텐츠에 액세스합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME(사용자 지정 도메인 이름)에는 HTTPS 지원을 사용할 수 없습니다.
    > 
    > 
 9. **추가** 단추를 클릭하여 새 끝점을 만듭니다.
@@ -86,7 +94,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
     ![CDN 끝점][cdn-endpoint-success]
     
     > [!IMPORTANT]
-    > 등록이 CDN 전체에 전파되는 등록에 시간이 걸리기 때문에, 끝점을 즉시 사용할 수는 없습니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우 일반적으로&1;분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.
+    > 등록이 CDN 전체에 전파되는 등록에 시간이 걸리기 때문에, 끝점을 즉시 사용할 수는 없습니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우 일반적으로 1분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.
     > 
     > 끝점 구성이 POP에 전파되기 전에 CDN 도메인 이름을 사용하려고 하면 HTTP 404 응답 코드가 반환됩니다.  끝점을 만든 후 몇 시간 후에도 404 응답이 수신되는 경우 [404 상태를 반환하는 CDN 끝점 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
     > 
@@ -103,9 +111,4 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

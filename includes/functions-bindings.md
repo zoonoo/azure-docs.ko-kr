@@ -8,7 +8,7 @@
 | [큐 및 토픽](../articles/azure-functions/functions-bindings-service-bus.md) |Azure 서비스 버스 |✔ | |✔ |  
 | [저장소 테이블](../articles/azure-functions/functions-bindings-storage-table.md) |Azure 저장소 | |✔ |✔ |  
 | [SQL 테이블](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure 모바일 앱 | |✔ |✔ |  
-| [No-SQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure DocumentDB | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
 | [푸시 알림](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure 알림 허브 | | |✔ |  
 | [Twilio SMS 문자](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [SendGrid 전자 메일](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |

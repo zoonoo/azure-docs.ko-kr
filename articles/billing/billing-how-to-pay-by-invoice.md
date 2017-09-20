@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
@@ -35,8 +35,11 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **도움말 + 지원** > **새 지원 요청**을 선택합니다.
 
     ![도움말 및 지원 단추](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. 문제 유형으로 **청구**를 선택하고 청구서로 결제할 구독을 선택한 후 지원 계획을 선택하고 **다음**을 선택합니다.
-1. **문제** 블레이드의 **문제 유형** 상자에서 **청구서로 지불**을 선택합니다.
+
+1. **문제 유형** 상자에서 **청구서로 지불**을 선택합니다.
+
 1. **세부 정보** 상자에 다음 정보를 입력하고 **다음**을 선택합니다.
 
     * 회사 이름

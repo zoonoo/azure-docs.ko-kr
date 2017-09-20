@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -93,7 +93,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다. 다음과 같은 추가 단계에서 이러한 자격 증명을 사용하여 VM에 연결합니다.
 
 ```powershell
 $cred = Get-Credential
@@ -153,7 +153,7 @@ Get-AzureRmPublicIPAddress `
 mstsc /v:<publicIpAddress>
 ``` 
 
-이제 *myFrontendVM*에 로그인했으므로 PowerShell 한 줄로 IIS를 설치하고 웹 트래픽을 허용하도록 로컬 방화벽 규칙을 사용할 수 있습니다. PowerShell 프롬프트를 열고 다음 명령을 실행합니다.
+이제 *myFrontendVM*에 로그인했으므로 PowerShell 한 줄로 IIS를 설치하고 웹 트래픽을 허용하도록 로컬 방화벽 규칙을 사용할 수 있습니다. RDP 세션에서 VM에 PowerShell 프롬프트를 열고 다음 명령을 실행합니다.
 
 [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature)를 사용하여 IIS 웹 서버를 설치하는 사용자 지정 스크립트 확장을 실행합니다.
 

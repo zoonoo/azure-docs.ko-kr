@@ -20,7 +20,6 @@ ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
-
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
 Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-security-center-power-bi)를 사용하면 어디서든 모바일 장치를 포함하여 권장 사항 및 보안 경고를 시각화, 분석 및 필터링할 수 있습니다. Power BI 대시보드를 사용하여 추세를 표시하고 패턴을 공격합니다. 리소스 또는 원본 IP 주소에서 보안 경고 및 리소스 또는 시대에서 알려지지 않은 보안 위험을 봅니다.

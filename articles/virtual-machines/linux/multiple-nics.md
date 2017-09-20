@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 컴퓨터를 만드는 방법
@@ -118,6 +117,7 @@ az network nic create \
 
 기존 VM에 NIC를 추가하려면 먼저 [az vm deallocate](/cli/azure/vm#deallocate)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
 
+
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
@@ -180,5 +180,75 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)의 전체 예제를 읽어볼 수 있습니다.
 
+## <a name="configure-guest-os-for-multiple-nics"></a>여러 NIC에 대한 게스트 OS 구성
+
+Linux 게스트 OS 기반 VM에 여러 NIC를 만들 경우 특정 NIC에 속하는 트래픽을 보내고 받을 수 있는 추가 라우팅 규칙을 만들어야 합니다. 그렇지 않으면 정의된 기본 경로로 인해 eth1에 속하는 트래픽을 올바르게 처리할 수 없습니다.  
+
+
+### <a name="solution"></a>해결 방법
+
+먼저 /etc/iproute2/rt_tables 파일에 두 개의 라우팅 테이블을 추가합니다.
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+네트워크 스택이 활성화되어 있는 동안 변경 내용을 영구적으로 적용하려면 */etc/sysconfig/network-scipts/ifcfg-eth0* 및 */etc/sysconfig/network-scipts/ifcfg-eth1* 파일을 바꾸어야 합니다.
+*"NM_CONTROLLED=yes"* 행을 *"NM_CONTROLLED=no"*로 바꿉니다.
+이 단계 없이는 추가할 추가 규칙/라우팅의 효력이 없습니다.
+ 
+다음 단계는 라우팅 테이블을 확장하는 것입니다. 다음 단계가 잘 보이게 하기 위해 다음과 같은 설정을 적용했다고 가정하겠습니다.
+
+*라우팅*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+    
+*인터페이스*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+    
+    
+위의 정보를 사용하여 다음과 같은 추가 파일을 루트로 만들 수 있습니다.
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+각 파일의 콘텐츠는 다음과 같습니다.
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+파일을 만들고 채운 후에 `systemctl restart network` 네트워크 서비스를 다시 시작해야 합니다.
+
+이제 eth0 또는 eth1에 대한 외부에서 연결합니다.
+
 ## <a name="next-steps"></a>다음 단계
 여러 NIC를 사용하여 VM을 만들려고 할 때 [Linux VM 크기](sizes.md)를 검토합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 
+

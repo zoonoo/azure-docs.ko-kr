@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupVM --location eastus
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm#create) 명령을 사용하여 가상 컴퓨터를 만듭니다. 
+[az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 컴퓨터를 만듭니다. 
 
 가상 컴퓨터를 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 컴퓨터를 만듭니다. 
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupVM --location eastus
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 컴퓨터에 액세스하는 데 사용할 수 있습니다. 
+VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 컴퓨터에 액세스하는 데 사용할 수 있습니다. 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `p
 
 ## <a name="connect-to-vm"></a>VM에 연결
 
-이제 SSH를 사용하여 VM에 연결할 수 있습니다. 예제 IP 주소를 이전 단계에서 메모한 `publicIpAddress`로 바꿉니다.
+이제 Azure Cloud Shell에서 또는 로컬 컴퓨터에서 SSH를 사용하여 VM에 연결할 수 있습니다. 예제 IP 주소를 이전 단계에서 메모한 `publicIpAddress`로 바꿉니다.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-VM 작업을 완료했으면 SSH 세션을 닫습니다. 
+VM에 로그인한 후 응용 프로그램을 설치하고 구성할 수 있습니다. 작업을 완료하면 정상적으로 SSH 세션을 닫습니다.
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM 크기 조정
 
-VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다.
+VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다. [az vm show](/cli/azure/vm#show)를 사용하여 VM의 현재 크기를 볼 수 있습니다.
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 VM의 크기를 조정하기 전에 원하는 크기를 현재 Azure 클러스터에서 사용할 수 있는지 확인합니다. [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) 명령은 크기 목록을 반환합니다. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>리소스 그룹 삭제
 
-리소스 그룹을 삭제하면 그 안에 포함된 리소스도 모두 삭제됩니다.
+리소스 그룹을 삭제하면 VM, 가상 네트워크 및 디스크와 같이 그 안에 포함된 리소스도 모두 삭제됩니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

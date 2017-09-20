@@ -17,10 +17,10 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 컴퓨터를 모니터링하는 방법
@@ -49,7 +49,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-이제 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+이제 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli-interactive 
 az vm create \
@@ -82,7 +82,7 @@ az storage account create \
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-이제 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable)을 사용하여 부팅 진단을 사용하도록 설정합니다. `--storage` 값은 이전 단계에서 수집된 Blob URI입니다.
+이제 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable)을 사용하여 부팅 진단을 사용하도록 설정합니다. `--storage` 값은 이전 단계에서 수집된 Blob URI입니다.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -106,7 +106,7 @@ az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-다음과 같이 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) 명령을 사용하여 *myVM*에 대한 부팅 진단 데이터를 얻을 수 있습니다.
+다음과 같이 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) 명령을 사용하여 *myVM*에 대한 부팅 진단 데이터를 얻을 수 있습니다.
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

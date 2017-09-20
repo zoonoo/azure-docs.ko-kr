@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -52,7 +52,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## <a name="acquire-storage-account-access-details"></a>Storage 계정 액세스 세부 정보 가져오기
 
-Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면 Storage 계정 이름, 공유 이름, Storage 액세스 키의 세 가지 값이 필요합니다. 
+Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면 Storage 계정 이름, 공유 이름, Storage 액세스 키의 세 가지 값이 필요합니다.
 
 위의 스크립트를 사용한 경우 끝에 임의 값이 붙은 Storage 계정 이름이 생성되었을 것입니다. 임의 값 부분을 포함한 최종 문자열을 쿼리하려면 다음 명령을 사용합니다.
 
@@ -64,13 +64,13 @@ echo $STORAGE_ACCOUNT
 공유 이름은 이미 확인되었으므로(위 스크립트에서는 *acishare*) Storage 계정 키만 확인하면 됩니다. 다음 명령을 사용하면 키를 확인할 수 있습니다.
 
 ```azurecli-interactive
-$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
 ## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Storage 계정 액세스 세부 정보 저장
 
-Storage 계정 키는 데이터 액세스를 보호하므로 Azure Key Vault에 저장하는 것이 좋습니다. 
+Storage 계정 키는 데이터 액세스를 보호하므로 Azure Key Vault에 저장하는 것이 좋습니다.
 
 Azure CLI를 사용하여 Key Vault를 만듭니다.
 
@@ -129,7 +129,7 @@ Azure 파일 공유를 컨테이너에 볼륨으로 탑재할 때는 두 단계�
             "name": "myvolume",
             "mountPath": "/aci/logs/"
           }]
-        }  
+        }
       }],
       "osType": "Linux",
       "ipAddress": {
@@ -152,7 +152,7 @@ Azure 파일 공유를 컨테이너에 볼륨으로 탑재할 때는 두 단계�
 }
 ```
 
-템플릿에는 Storage 계정 이름과 키가 매개 변수로 포함됩니다. 별도의 매개 변수 파일에서 이러한 매개 변수를 제공할 수 있습니다. 매개 변수 파일에 내용을 입력하려면 Storage 계정 이름, Azure Key Vault의 리소스 ID, 그리고 Storage 키를 저장하는 데 사용한 Key Vault 비밀 이름의 세 가지 값이 필요합니다. 이전 단계를 수행한 경우 다음 스크립트를 사용하여 이러한 값을 가져올 수 있습니다.
+템플릿에는 Storage 계정 이름과 키가 매개 변수로 포함됩니다. 별도의 매개 변수 파일에서 이러한 매개 변수를 제공할 수 있습니다. 매개 변수 파일에 내용을 입력하려면 Storage 계정 이름, Azure Key Vault의 리소스 ID, 그리고 저장소 키를 저장하는 데 사용한 Key Vault 비밀 이름의 세 가지 값이 필요합니다. 이전 단계를 수행한 경우 다음 스크립트를 사용하여 이러한 값을 가져올 수 있습니다.
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -169,7 +169,7 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
   "parameters": {
     "storageaccountname": {
       "value": "<my_storage_account_name>"
-    },    
+    },
    "storageaccountkey": {
       "reference": {
         "keyVault": {

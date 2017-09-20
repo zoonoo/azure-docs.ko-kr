@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/7/2017
+ms.date: 9/1/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 Virtual Machine Scale Sets와 작동
@@ -37,7 +37,7 @@ _대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 �
 
 - 대규모 확장 집합은 Azure Managed Disks가 필요합니다. Managed Disks로 만들어지지 않은 확장 집합은 여러 저장소 계정이 필요합니다(20대의 VM에 대해 하나씩). 대규모 확장 집합은 저장소 관리 오버헤드를 줄이고 저장소 계정에 대해 구독 제한에 실행되지 않도록 오직 Managed Disks와 작동하도록 설계되어 있습니다. Managed Disks를 사용하지 않는 경우 확장 집합은 100대의 VM으로 제한됩니다.
 - Azure Marketplace 이미지에서 만든 확장 집합은 최대 1,000대의 VM까지 확장할 수 있습니다.
-- 사용자 지정 이미지(직접 작성하여 업로드한 VM 이미지)에서 만든 확장 집합은 현재 최대 100대의 VM까지 확장할 수 있습니다.
+- 사용자 지정 이미지(직접 작성하여 업로드한 VM 이미지)에서 만든 확장 집합은 현재 최대 300대의 VM까지 확장할 수 있습니다.
 - Azure Load Balancer의 계층 4 부하 분산은 여러 배치 그룹으로 구성된 확장 집합에 아직 지원되지 않습니다. Azure Load Balancer를 사용해야 하는 경우 확장 집합이 기본 설정인 단일 배치 그룹을 사용하도록 구성되었는지 확인합니다.
 - Azure Application Gateway의 계층 7 부하 분산은 모든 확장 집합에 대해 지원됩니다.
 - 확장 집합은 단일 서브넷으로 정의됩니다. 필요한 모든 VM에 대해 서브넷의 주소 공간이 충분한지 확인합니다. 기본적으로 확장 집합은 오버프로비전하여(배포 또는 확장 시 VM을 추가로 생성하며 요금은 부과되지 않음) 배포 안정성 및 성능을 향상시킵니다. 주소 공간을 확장하려는 VM의 수보다 20% 크게 설정합니다.
@@ -81,7 +81,7 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 대규모 확장 집합 템플릿의 전체 예제는 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)을 참조하세요.
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>여러 배치 그룹을 확장하기 위해 기존 확장 집합을 변환
-기존의 VM 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singplePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 확장 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 확장 집합을 볼 수 있습니다.
+기존의 VM 확장 집합을 100대 이상의 VM으로 확장할 수 있도록 하려면 확장 집합 모델에서 _singplePlacementGroup_ 속성을 _false_로 변경해야 합니다. [Azure 리소스 탐색기](https://resources.azure.com/)로 이 속성 변경을 테스트할 수 있습니다. 기존 크기 집합을 찾아 _편집_을 선택하고 _singlePlacementGroup_ 속성을 변경합니다. 이 속성이 표시되지 않으면 Microsoft.Compute API의 이전 버전으로 크기 집합을 볼 수 있습니다.
 
 >[!NOTE] 
 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다. 특히, Azure Load Balancer를 사용한 계층 4 부하 분산이 필요하지 않는지 확인합니다.

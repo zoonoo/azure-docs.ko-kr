@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/08/2017
 
 Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를 사용하여 응용 프로그램 인식 복제를 클라우드 또는 보조 사이트에 배포할 수 있습니다. 앱이 Windows 또는 Linux 기반이거나, VMware 또는 Hyper-V의 어떤 물리적 서버에서 실행되든지 Site Recovery를 사용하여 복제를 오케스트레이션하고 재해 복구 테스트를 수행하며 장애 조치 및 정애 복구를 실행할 수 있습니다.
 
-사이트 복구는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 포함하여 Microsoft 응용 프로그램을 통합합니다. Oracle, SAP, IBM 및 Red Hat을 비롯한 선두 공급 업체와도 긴밀히 협력 중입니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
+사이트 복구는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 포함하여 Microsoft 응용 프로그램을 통합합니다. Oracle, SAP 및 Red Hat을 비롯한 선두 공급 업체와도 긴밀히 협력 중입니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>응용 프로그램 복제에 Site Recovery를 사용해야 하는 이유
 사이트 복구는 다음과 같이 응용 프로그램 수준 보호 및 복구에 기여합니다.

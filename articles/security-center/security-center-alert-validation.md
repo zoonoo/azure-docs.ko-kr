@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure Security Center에서 경고 유효성 검사
@@ -35,12 +35,15 @@ Security Center 에이전트가 컴퓨터에 설치된 경우 경고의 공격�
 3. 명령 프롬프트를 열고 이 파일을 인수(가짜 인수 이름)와 함께 실행합니다(예: *ASC_AlertTest_662jfi039N.exe -foo*).
 4. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 다음과 유사한 경고를 확인하게 됩니다.
 
-    ![경고 유효성 검사](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![경고 유효성 검사](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 이 경고를 검토할 때는 [Arguments Auditing Enabled(인수 감사 사용됨)] 필드가 true로 나타나는지 확인합니다. False로 표시되는 경우 명령줄 인수 감사를 사용하도록 설정해야 합니다. 다음 명령줄을 사용하여 이 옵션을 설정할 수 있습니다.
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> 이 기능의 데모를 확인하려면 [Azure Security Center에서 경고 유효성 검사](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) 비디오를 보세요. 
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 경고 유효성 검사 프로세스에 대해 소개했습니다. 이제 유효성 검사에 익숙해졌으므로 다음 문서를 시도해 보세요.

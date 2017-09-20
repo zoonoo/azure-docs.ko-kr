@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Premium에 등록"
+title: "Azure Active Directory Premium에 등록 | Microsoft Docs"
 description: "Azure Active Directory Premium Edition에 등록하는 방법을 설명입니다."
 services: active-directory
 documentationcenter: 
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>빠른 시작: Azure Active Directory Premium에 등록
-Azure Active Directory(Azure AD) Premium을 시작하려면 라이선스를 구입하고 Azure 구독에 연결해야 합니다. 새로운 Azure 구독을 만드는 경우 다음 절에 설명된 대로 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다. 
+Azure AD(Azure Active Directory) Premium을 시작하기 위해 라이선스를 구입하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만드는 경우 다음 절에 설명된 대로 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Active Directory Premium에 등록
 Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니다. 
+* Azure 또는 Office 365 구독 사용
+* Enterprise Mobility + Security 라이선싱 계획 사용
+* Microsoft 볼륨 라이선싱 계획 사용
 
 ### <a name="azure-or-office-365"></a>Azure 또는 Office 365 
 Azure 또는 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 
@@ -48,10 +52,8 @@ Azure Active Directory Premium은 [Microsoft Enterprise Agreement](https://www.m
 
 > [!NOTE]
 > Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
-> 
-> 
 
-이전 단계에서 사용한 것과 동일한 Azure 구독에 대해 이전에 Azure AD 라이선스를 구매하고 활성화했다면 라이선스는 동일한 디렉터리에 자동으로 활성화됩니다. 그리고 이 문서의 나머지 부분에 설명된 단계를 계속 진행할 필요가 없습니다.
+이전 단계에서 사용한 것과 동일한 Azure 구독에 대해 이전에 Azure AD 라이선스를 구매하고 활성화했다면 라이선스는 동일한 디렉터리에 자동으로 활성화됩니다. 그렇지 않은 경우 이 문서의 나머지 부분에 설명된 단계를 계속합니다.
 
 ## <a name="activate-your-license-plan"></a>라이선스 계획 활성화
 Microsoft에서 구매한 첫 번째 Azure AD 라이선스 계획입니까? 이 경우 구매가 완료되면 확인 전자 메일이 생성되어 전송됩니다. 첫 번째 라이선스 계획을 활성화하려면 이 전자 메일이 필요합니다.
@@ -62,7 +64,7 @@ Microsoft에서 구매한 첫 번째 Azure AD 라이선스 계획입니까? 이 
    
     ![로그인][1]
 
-    - 기존 테넌트가 있으면 **로그인**을 클릭하여 기존 관리자 계정으로 로그인합니다. 라이선스가 활성화된 디렉터리에서 전역 관리자 자격 증명으로 로그인합니다.
+    - 기존 테넌트가 있으면 **로그인**을 클릭하여 기존 관리자 계정으로 로그인합니다. 라이선스가 활성화되어야 하는 테넌트에 대한 전역 관리자 자격 증명으로 로그인합니다.
 
     - 라이선싱 계획을 사용하기 위해 새 Azure AD 테넌트를 만들려는 경우에는 **등록**을 클릭하고 **계정 프로필 만들기** 대화 상자를 엽니다.
 

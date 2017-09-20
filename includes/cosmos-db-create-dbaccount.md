@@ -16,7 +16,7 @@
     설정|제안 값|설명
     ---|---|---
     ID|*고유 값*|이 Azure Cosmos DB 계정을 식별하는 고유한 이름입니다. URI를 만들기 위해 제공하는 ID에 *documents.azure.com*이 추가되므로 식별할 수 있는 고유한 ID를 사용합니다. ID는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자를 포함해야 합니다.
-    API|SQL(DocumentDB)|이 문서의 뒷부분에서 [DocumentDB API](../articles/documentdb/documentdb-introduction.md)를 프로그래밍합니다.|
+    API|SQL(DocumentDB)|이 문서의 뒷부분에서 [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md)를 프로그래밍합니다.|
     구독|*사용자의 구독*|이 Azure Cosmos DB 계정에 사용할 Azure 구독입니다. 
     리소스 그룹|*ID와 동일한 값*|계정의 새 리소스 그룹 이름입니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다. 
     위치|*사용자와 가장 가까운 지역*|Azure Cosmos DB 계정을 호스트할 지리적 위치입니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 선택합니다.
@@ -27,5 +27,5 @@
 
 6.  알림 창에 배포 성공이 나타날 경우 알림 창을 닫고 대시보드의 **모든 리소스** 타일에서 새 계정을 엽니다. 
 
-    ![모든 리소스 타일의 DocumentDB 계정](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![모든 리소스 타일의 Azure Cosmos DB 계정](./media/cosmos-db-create-dbaccount/all-resources.png)
  

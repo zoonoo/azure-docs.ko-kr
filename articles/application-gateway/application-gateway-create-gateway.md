@@ -3,7 +3,7 @@ title: "Application Gateway 만들기, 시작 또는 삭제 | Microsoft Docs"
 description: "이 페이지에서는 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고 삭제하기 위한 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
 ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4

@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
@@ -148,7 +148,7 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 
 사용할 수 있거나 '더 이상 제공되지 않는’ 위의 다양한 구성은 [SAP Support Note #2316233 – Microsoft Azure(큰 인스턴스)에서 SAP HANA](https://launchpad.support.sap.com/#/notes/2316233/E)에 나와 있습니다. '주문 준비됨'으로 표시된 구성은 항목이 곧바로 SAP Note에 나타납니다. 하지만 이러한 인스턴스 SKU는 HANA 큰 인스턴스 서비스를 사용할 수 있는 Azure 지역 여섯 곳에서 이미 주문할 수 있습니다.
 
-선택한 특정 구성은 워크로드, CPU 리소스 및 원하는 메모리에 따라 달라집니다. OLTP 워크로드에 대해 OLAP 워크로드용으로 최적화된 SKU를 활용할 수 있습니다. 
+선택한 특정 구성은 워크로드, CPU 리소스 및 원하는 메모리에 따라 달라집니다. OLTP 워크로드에 대해 OLAP 워크로드용으로 최적화된 SKU를 사용할 수 있습니다. 
 
 모든 제안의 하드웨어 기반은 SAP HANA TDI 인증입니다. 그러나, 하드웨어는 두 가지 클래스로 구별하며, 그에 따라 SKU는 다음과 같이 구분됩니다.
 
@@ -189,6 +189,18 @@ HANA 대규모 인스턴스에서 SAP HANA를 실행할 때와 Azure에 배포�
 
 
 이해했으리라고 생각합니다. 물론 다른 변형도 있습니다. 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>SAP HANA 데이터 계층화 및 확장 노드 사용
+SAP는 다양한 SAP NetWeaver 버전 및 SAP BW/4HANA의 SAP BW에 대한 데이터 계층화 모델을 지원합니다. 데이터 계층화 모델에 대한 자세한 내용은 이 문서 및 SAP에 의해 이 문서에서 참조된 블로그에서 찾을 수 있습니다. [SAP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#)
+HANA 대규모 인스턴스를 사용하여 이 FAQ 및 SAP 블로그 문서에서 설명된 대로 SAP HANA 확장 노드의 옵션 1 구성을 사용할 수 있습니다. 옵션 2 구성은 다음 HANA 대규모 인스턴스 SKU(S72m, S192, S192m, S384 및 S384m)와 함께 설정될 수 있습니다.  
+설명서를 살펴보면 이점은 즉시 볼 수 없습니다. 하지만 SAP 크기 조정 지침을 확인하면 옵션 1과 옵션 2 SAP HANA 확장 노드를 사용하여 이점을 찾을 수 있습니다. 예를 들면 다음과 같습니다.
+
+- SAP HANA 크기 조정 지침은 일반적으로 메모리로 데이터 볼륨 크기의 두 배를 필요로 합니다. 따라서 핫 데이터와 함께 SAP HANA 인스턴스를 실행하는 경우 데이터로 채워진 50% 이하의 메모리만을 갖습니다. 메모리의 나머지 부분은 해당 작업을 수행하는 SAP HANA에 대해 이상적으로 유지됩니다.
+- 즉, SAP BW 데이터베이스를 실행하는 2TB의 메모리가 있는 HANA 대규모 인스턴스 S192 단위에서 데이터 볼륨으로 1TB만을 갖습니다.
+- 옵션 1의 추가 SAP HANA 확장 노드 및 S192 HANA 대규모 인스턴스 SKU를 사용하는 경우 데이터 볼륨에 대해 추가 2TB 용량을 제공합니다. 옵션 2 구성에서 웜 데이터 볼륨에 대해 추가 4TB를 제공합니다. 핫 노드에 비해 '웜' 확장 노드의 전체 메모리 용량은 옵션 1에 대한 데이터 저장에 사용될 수 있으며 메모리의 두 배는 옵션 2 SAP HANA 확장 노드 구성에서 데이터 볼륨에 대해 사용될 수 있습니다.
+- 따라서 데이터에 대해 3TB의 용량, 옵션 1에 대해 1:2의 핫-웜 비율, 옵션 2 확장 노드 구성에서 5TB의 데이터 및 1:4의 비율을 갖습니다.
+
+그러나 메모리에 비해 데이터 볼륨이 높을수록 요청하는 웜 데이터가 디스크 저장소에 저장되는 기회가 더 높습니다.
 
 
 ## <a name="operations-model-and-responsibilities"></a>작업 모델 및 책임

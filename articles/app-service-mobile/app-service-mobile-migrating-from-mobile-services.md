@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16cf05f62602e494affed49e466209b68413e53a
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>기존 Azure 모바일 서비스를 Azure 앱 서비스로 마이그레이션
@@ -33,7 +33,6 @@ Azure Mobile Services의 마이그레이션은 코드에 영향을 주지 않고
 Microsoft는 다음을 비롯한 Azure 앱 서비스의 기능을 활용하기 위해 Azure 모바일 서비스를 마이그레이션하도록 권장합니다.
 
 * [WebJobs] 및 [사용자 지정 도메인 이름]을 포함하는 새로운 호스트 기능.
-* [하이브리드 연결] 외에 [VNet]을 사용하여 온-프레미스 리소스에 연결.
 * New Relic 또는 [Application Insights]를 통한 모니터링 및 문제 해결.
 * [스테이징 슬롯], 롤백 및 프로덕션 내 테스트를 포함하는 기본 제공 DevOps 도구.
 * [자동 크기 조정], 부하 분산 및 [성능 모니터링].
@@ -389,7 +388,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 앱 서비스의 일반적인 가용성]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [로깅]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile App Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [모바일 서비스 vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md

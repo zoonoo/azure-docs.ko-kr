@@ -1,4 +1,4 @@
-[az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 명령을 사용하여 배포 자격 증명을 만듭니다.
+Cloud Shell에서 [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 명령을 사용하여 배포 자격 증명을 만듭니다.
 
 배포 사용자는 웹앱에 대한 FTP 및 로컬 Git 배포에 필요합니다. 사용자 이름과 암호는 계정 수준이며, _Azure 구독 자격 증명과 다릅니다._
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
@@ -111,6 +111,16 @@ ms.lasthandoff: 08/30/2017
 **Q:** yum 업데이트를 사용하는 Linux Red Hat VM에 업데이트를 적용할 수 있나요?
 
 **A:** 예, 업데이트를 수행하거나 Red Hat Linux VM을 패치할 수 있습니다. 자세한 내용은 [yum 업데이트를 사용하여 암호화된 Azure IaaS Red Hat VM에 업데이트 적용](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/)을 참조하세요.
+
+**Q:** 권장되는 Linux용 Azure 디스크 암호화 워크플로는 무엇인가요?
+
+**A:** Linux에서 최상의 결과를 얻기 위해 다음 워크플로가 권장됩니다.
+* 원하는 OS 배포판 및 버전에 해당하는 수정되지 않은 주식 갤러리 이미지에서 시작
+* 암호화되는 탑재된 드라이브를 백업합니다.  오류가 발생한 경우, 예를 들어 암호화가 완료되기 전에 VM을 다시 부팅하는 경우 복구를 허용합니다.
+* 암호화(VM 특성 및 연결된 데이터 디스크의 크기에 따라 여러 시간 또는 심지어 며칠이 걸릴 수 있음)
+* 필요에 따라 소프트웨어를 사용자 지정하고 이미지에 추가합니다.
+
+이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
 
 **Q:** 질문을 하거나 의견을 제출할 수 있는 곳은 어디인가요?
 

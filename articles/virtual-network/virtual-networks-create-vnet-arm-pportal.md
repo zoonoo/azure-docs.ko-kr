@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>여러 서브넷이 있는 가상 네트워크 만들기
 
-이 자습서에서는 별도의 공용 및 개인 서브넷이 있는 기본 Azure Virtual Network를 만드는 방법에 대해 알아봅니다. 가상 컴퓨터, App Service Environment, Virtual Machine Scale Sets, Azure HDInsight 및 서브넷의 클라우드 서비스와 같은 Azure 리소스를 만들 수 있습니다. 가상 네트워크의 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다.
+이 자습서에서는 별도의 공용 및 개인 서브넷이 있는 기본 Azure Virtual Network를 만드는 방법에 대해 알아봅니다. 가상 네트워크의 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다. 가상 컴퓨터, App Service Environment, Virtual Machine Scale Sets, Azure HDInsight 및 클라우드 서비스와 같은 Azure 리소스를 가상 네트워크 내 동일하거나 다른 서브넷에 만들 수 있습니다. 서로 다른 서브넷에서 리소스를 만들면 선택하는 경우 방화벽과 같은 네트워크 가상 어플라이언스를 통해 네트워크 트래픽을 [네트워크 보안 그룹](virtual-networks-create-nsg-arm-pportal.md)과 독립적으로 필터링하고, [서브넷 간 트래픽을 라우팅](virtual-network-create-udr-arm-ps.md)할 수 있습니다. 
 
 다음 섹션에서는 [Azure Portal](#portal), Azure 명령줄 인터페이스([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell) 및 [Azure Resource Manager 템플릿](#resource-manager-template)을 사용하여 가상 네트워크를 만들 수 있는 단계를 설명합니다. 가상 네트워크를 만드는 데 어떤 도구를 선택하든지 간에 결과는 동일합니다. 도구 링크를 클릭하면 자습서의 해당 섹션으로 이동합니다. 해당 섹션에서 모든 [가상 네트워크](virtual-network-manage-network.md) 및 [서브넷](virtual-network-manage-subnet.md) 설정에 대해 자세히 확인하세요.
 
@@ -52,7 +52,8 @@ ms.lasthandoff: 08/01/2017
 6. **myVnet - 서브넷** 블레이드에서 **+서브넷**을 클릭합니다.
 7. **서브넷 추가** 블레이드에서 **이름**에 **개인**을 입력합니다. **주소 범위**에 **10.0.1.0/24**를 입력합니다.  **확인**을 클릭합니다.
 8. **myVnet - 서브넷** 블레이드에서 서브넷을 검토합니다. 만든 **공용** 및 **개인** 서브넷을 볼 수 있습니다.
-9. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-portal)에서 설명하는 단계를 완료합니다.
+9. **선택 사항:** [다음 단계](#next-steps)에 나열되어 있는 추가 자습서를 완료하여 네트워크 트래픽을 네트워크 보안 그룹으로 각 서브넷 간 필터링하거나, 네트워크 가상 어플라이언스를 통해 서브넷 간 트래픽을 라우팅하거나, 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다.
+10. **선택 사항:** [리소스 삭제](#delete-portal)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -90,7 +91,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-cli)에서 설명하는 단계를 완료합니다.
+5. **선택 사항:** [다음 단계](#next-steps)에 나열되어 있는 추가 자습서를 완료하여 네트워크 트래픽을 네트워크 보안 그룹으로 각 서브넷 간 필터링하거나, 네트워크 가상 어플라이언스를 통해 서브넷 간 트래픽을 라우팅하거나, 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다.
+6. **선택 사항:** [리소스 삭제](#delete-cli)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
+5. **선택 사항:** [다음 단계](#next-steps)에 나열되어 있는 추가 자습서를 완료하여 네트워크 트래픽을 네트워크 보안 그룹으로 각 서브넷 간 필터링하거나, 네트워크 가상 어플라이언스를 통해 서브넷 간 트래픽을 라우팅하거나, 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다.
+6. **선택 사항:** [리소스 삭제](#delete-powershell)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 
 Azure Resource Manager 템플릿을 사용하여 가상 네트워크를 배포할 수 있습니다. 템플릿에 대한 자세한 내용은 [Resource Manager란?](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment)을 참조하세요. 템플릿에 액세스하여 해당 매개 변수에 대해 알아보려면 [두 서브넷이 있는 가상 네트워크 만들기](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) 템플릿을 참조하세요. [포털](#template-portal), [Azure CLI](#template-cli) 또는 [PowerShell](#template-powershell)을 사용하여 템플릿을 배포할 수 있습니다.
 
-**선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete) 하위 섹션에서 설명하는 단계를 완료합니다.
+템플릿을 배포한 후 선택적 단계:
+
+1. [다음 단계](#next-steps)에 나열되어 있는 추가 자습서를 완료하여 네트워크 트래픽을 네트워크 보안 그룹으로 각 서브넷 간 필터링하거나, 네트워크 가상 어플라이언스를 통해 서브넷 간 트래픽을 라우팅하거나, 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다.
+2. [리소스 삭제](#delete)의 하위 섹션 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
 ### <a name="template-portal"></a>Azure Portal
 
@@ -227,8 +233,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>다음 단계
 
 - 모든 가상 네트워크 및 서브넷 설정에 대해 알아보려면 [가상 네트워크 관리](virtual-network-manage-network.md#view-vnet) 및 [가상 네트워크 서브넷 관리](virtual-network-manage-subnet.md#create-subnet)를 참조하세요. 프로덕션 환경에서 가상 네트워크 및 서브넷을 사용할 때 다양한 요구 사항을 충족하기 위한 여러 옵션이 있습니다.
-- 인바운드 및 아웃바운드 서브넷 트래픽을 필터링하려면 [네트워크 보안 그룹](virtual-networks-nsg.md)를 만들고 서브넷에 적용합니다.
-- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터를 만들어 기존 가상 네트워크에 연결합니다.
-- 같은 Azure 위치의 두 가상 네트워크를 연결하려면 가상 네트워크 간에 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 만듭니다.
+- [네트워크 보안 그룹](virtual-networks-nsg.md)을 만들고 서브넷에 적용하여 인바운드 및 아웃바운드 서브넷 트래픽을 필터링합니다.
+- [사용자 정의 경로](virtual-network-create-udr-arm-ps.md)를 만들고 각 서브넷에 경로를 적용하여 네트워크 가상 어플라이언스를 통해 서브넷 간 트래픽을 라우팅합니다.
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터를 기존 가상 네트워크에 만듭니다.
+- 가상 네트워크 간에 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 만들어서 두 가상 네트워크를 연결합니다.
 - [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 회로를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결합니다.
 

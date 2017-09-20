@@ -10,7 +10,7 @@
 ## [초보자를 위한 자습서](sql-data-warehouse-get-started-tutorial.md)
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
-## [지원 받기](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # 방법
@@ -139,18 +139,22 @@
 # 참조
 
 ## [용량 제한](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL 문](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [전체 참조](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [SQL DW 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)
+### [SQL DW 문](sql-data-warehouse-reference-tsql-statements.md)
+## [시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)
-## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+## [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [지원](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## 파트너

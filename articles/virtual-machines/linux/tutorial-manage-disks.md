@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ VM을 만들 때 또는 기존 VM에 데이터 디스크를 만들고 연결할 
 
 ### <a name="attach-disk-at-vm-creation"></a>VM을 만들 때 디스크 연결
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>스냅숏 만들기
 
-가상 컴퓨터 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
+가상 컴퓨터 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 모든 데이터 디스크를 가상 컴퓨터에 다시 연결해야 합니다.
 
-먼저 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 *datadisk*라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
+먼저 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 *datadisk*라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 명령을 사용하여 디스크를 연결합니다.
+[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) 명령을 사용하여 디스크를 연결합니다.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
