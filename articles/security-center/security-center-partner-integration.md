@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ Security Center와 Azure Marketplace에서 사용할 수 있는 파트너의 솔
 
 **연결된 솔루션** 섹션에는 현재 Security Center와 연결되어 있는 모든 보안 솔루션이 표시됩니다. 
 
-![연결된 솔루션](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![연결된 솔루션](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 각각에 표시되는 정보는 솔루션에 따라 달라질 수 있습니다. 각 타일의 일부 정보에는 다음과 같습니다.
 
@@ -106,7 +106,7 @@ Azure AD ID 보호 경고가 Security Center의 검색 파이프를 거치게 �
 
 Security Center와 통합하기 위해 Azure 및 비 Azure 컴퓨터를 추가할 수 있습니다.  비 Azure 컴퓨터 추가 온-프레미스 컴퓨터 또는 CEF를 지원하는 어플라이언스를 추가할 수 있음을 의미합니다. 
 
-![데이터 원본](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![데이터 원본](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>참고 항목

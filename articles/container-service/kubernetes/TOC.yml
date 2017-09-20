@@ -75,8 +75,6 @@
       href: /cli/azure/acs
     - name: REST (영문)
       href: /rest/api/container-services
-    - name: PowerShell
-      href: '/powershell/module/azurerm.compute/#container_service'
 - name: 리소스
   items:
     - name: Azure 로드맵

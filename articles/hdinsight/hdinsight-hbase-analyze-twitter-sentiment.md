@@ -1198,7 +1198,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/app-service-web-get-started-dotnet.md
+[website-get-started]: ../app-service/app-service-web-get-started-dotnet.md
 
 
 

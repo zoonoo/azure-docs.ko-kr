@@ -3,7 +3,7 @@ title: "Azure MFA NPS 확장 구성 | Microsoft Docs"
 description: "NPS 확장을 설치한 후 IP 허용 목록 및 UPN 교체와 같은 고급 구성을 위한 이러한 단계를 사용합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

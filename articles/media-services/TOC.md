@@ -183,7 +183,7 @@
 ### [다운로드로 배달](media-services-deliver-asset-download.md)
 ### [장애 조치(Failover) 스트리밍 시나리오](media-services-implement-failover.md)
 
-## 재생
+## 사용
 ### [기존 플레이어로 미디어 재생](media-services-playback-content-with-existing-players.md)
 ### [Media Player로 미디어 재생](media-services-develop-video-players.md)
 ### 기타 재생 옵션

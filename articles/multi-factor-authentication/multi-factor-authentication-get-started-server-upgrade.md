@@ -3,7 +3,7 @@ title: "Azure MFA 서버로 PhoneFactor 업그레이드 | Microsoft Docs"
 description: "이전 phonefactor agent에서 업그레이드하는 경우 Azure MFA 서버로 시작합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
-ms.author: joflore
+ms.author: kgremban
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: df7815ff16ac66531005f3a29550bdb419f3d052

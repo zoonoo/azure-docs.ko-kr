@@ -30,12 +30,12 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
-   * JDK 1.7+(JDK가 없는 경우 `apt-get install default-jdk` 실행)
-   * Maven(Maven이 없는 경우 `apt-get install maven` 실행)
+이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
+* JDK 1.7+(JDK가 없는 경우 `apt-get install default-jdk` 실행)
+* Maven(Maven이 없는 경우 `apt-get install maven` 실행)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

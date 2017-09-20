@@ -33,8 +33,6 @@
   items:
     - name: 장치 등록 관리
       href: how-to-manage-enrollments.md
-    - name: SDK로 HSM 사용
-      href: use-hsm-with-sdk.md
 - name: 참조
   items:
     - name: REST (영문)
