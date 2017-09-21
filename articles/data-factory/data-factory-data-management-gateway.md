@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d032dd38655ef5c7763602739773f9c589cd65a8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
@@ -139,6 +139,7 @@ ms.lasthandoff: 09/06/2017
 | *.servicebus.windows.net |443, 80 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
 | *.frontend.clouddatahub.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
+| *.servicebus.windows.net |9350-9354, 5671 |복사 마법사에서 사용하는 TCP에 대한 선택적 Service Bus Relay |
 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="submit-a-topology-visual-studio"></a>토폴로지 제출: Visual Studio
 
-HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 1. 최신 버전의 Data Lake Tools for Visual Studio를 아직 설치하지 않은 경우 [Data Lake Tools for Visual Studio 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
@@ -88,7 +87,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
+    이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성한 다음 문장에서 각 단어의 발생 횟수를 계산합니다.
 
    > [!NOTE]
    > 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -97,11 +96,11 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 ## <a name="submit-a-topology-programmatically"></a>토폴로지 제출: 프로그래밍 방식으로
 
-클러스터에서 호스트되는 Nimbus 서비스와 통신하여 HDInsight에서 Storm에 대한 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
+Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
 
 ## <a name="monitor-and-manage-visual-studio"></a>모니터링 및 관리: Visual Studio
 
-Visual Studio를 사용하여 토폴로지를 성공적으로 제출한 경우 클러스터의 **Storm 토폴로지** 보기가 나타납니다. 실행 중인 토폴로지에 대한 정보를 보려면 목록에서 토폴로지를 선택합니다.
+Visual Studio를 사용하여 토폴로지를 제출하는 경우 **Storm 토폴로지** 보기가 나타납니다. 실행 중인 토폴로지에 대한 정보를 보려면 목록에서 토폴로지를 선택합니다.
 
 ![VISUAL STUDIO 모니터](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -171,7 +170,7 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다. Storm UI를 보려면 웹 브라우저를 사용하여 **https://CLUSTERNAME.azurehdinsight.net/stormui**를 엽니다. 여기서 **CLUSTERNAME**은 클러스터의 이름입니다.
 
 > [!NOTE]
-> 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+> 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및 암호를 입력합니다.
 
 ### <a name="main-page"></a>기본 페이지
 
@@ -207,9 +206,9 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 * **구성 요소 요약**: Spout 또는 Bolt에 대한 기본 정보입니다.
 * **Spout/Bolt 통계**: Spout 또는 Bolt에 대한 통계입니다. 페이지에서 나머지 항목에 대한 시간 프레임을 설정하려면 **창** 열에 있는 링크를 사용합니다.
 * **입력 통계** (Bolt에만 해당): Bolt에서 사용하는 입력 스트림에 대한 정보입니다.
-* **출력 통계**: 이 Spout 또는 Bolt가 내보낸 스트림에 대한 정보입니다.
+* **출력 통계**: Spout 또는 Bolt가 내보낸 스트림에 대한 정보입니다.
 * **실행자**: Spout 또는 Bolt의 인스턴스에 대한 정보입니다. 특정 실행자에 대한 **Port** 항목을 선택하면 이 인스턴스에 대해 처리된 진단 정보의 로그를 볼 수 있습니다.
-* **오류**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
+* **오류**: Spout 또는 Bolt에 대한 오류 정보입니다.
 
 ## <a name="monitor-and-manage-rest-api"></a>모니터링 및 관리: REST API
 
@@ -227,7 +226,7 @@ Linux 기반 HDInsight 클러스터에서 REST API의 기본 URI는 **https://HE
 다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
 
 * **SSH 세션에서**: SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다.
-* **Ambari 웹에서**: 페이지 맨 위에서 **서비스**를 선택한 다음 **Storm**을 선택합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 실행 중인 노드의 FQDN은 페이지 맨 위에 있습니다.
+* **Ambari 웹에서**: 페이지 맨 위에서 **서비스**를 선택한 다음 **Storm**을 선택합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다.
 * **Ambari REST API에서**: `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. **PASSWORD**는 클러스터의 관리자 암호로 바꿉니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 응답에서 "host_name" 항목에는 노드의 FQDN이 포함됩니다.
 
 ### <a name="authentication"></a>인증
@@ -239,11 +238,11 @@ REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight �
 
 ### <a name="return-values"></a>반환 값
 
-REST API에서 반환되는 정보는 클러스터와 동일한 Azure 가상 네트워크에 있는 클러스터 또는 가상 컴퓨터 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
+REST API에서 반환되는 정보는 클러스터 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는 방법에 대해 배웠으므로 [Maven을 사용하여 Java 기반 토폴로지를 개발](hdinsight-storm-develop-java-topology.md)하는 방법을 알아봅니다.
+[Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](hdinsight-storm-develop-java-topology.md)에 대해 알아봅니다.
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 

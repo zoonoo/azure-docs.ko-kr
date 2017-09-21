@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -254,7 +254,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **규칙 형식**에서 **아웃바운드**를 클릭합니다.
-4. **Out to AAD – User Join**이라는 규칙을 찾고 **편집**을 클릭합니다.
+4. 사용하는 Connect의 버전에 따라 **Out to AAD – User Join** 또는 **Out to AAD - User Join SOAInAD**라는 규칙을 찾고 **편집**을 클릭합니다.
 5. 팝업에서 **예** 를 선택하여 규칙의 복사본을 만듭니다.
 6. **설명** 페이지에서 50과 같은 사용하지 않는 값으로 **우선 순위**를 변경합니다.
 7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에서 **@contoso.com**를 입력하고 **절 추가**를 클릭합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에서**@contoso.com**을 입력합니다.

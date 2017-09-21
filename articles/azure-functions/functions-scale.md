@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 호스팅 계획 비교
@@ -56,7 +56,7 @@ App Service 계획에서는 계층 간에 규모를 조정할 수 있습니다. 
 
 ## <a name="app-service-plan"></a>앱 서비스 계획
 
-App Service 계획에서 함수 앱은 Web Apps와 유사하게 기본, 표준, 프리미엄 SKU의 전용 VM에서 실행됩니다. 전용 VM은 App Service 앱에 할당됩니다. 즉, 함수 호스트는 항상 실행됩니다.
+App Service 계획에서 함수 앱은 기본, 표준, 프리미엄, 격리된 SKU의 전용 VM에서 Web Apps와 유사하게 실행됩니다. 전용 VM은 App Service 앱에 할당됩니다. 즉, 함수 호스트는 항상 실행됩니다.
 
 다음과 같은 경우에 App Service 계획을 고려합니다.
 - 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있습니다.
@@ -96,7 +96,7 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 
 ### <a name="runtime-scaling"></a>런타임 크기 조정
 
-Azure Functions는 *크기 조정 컨트롤러*라는 구성 요소를 사용하여 이벤트의 비율을 모니터링하고 규모를 확장하거나 축소할 것인지 결정합니다. 크기 조정 컨트롤러는 각 트리거 유형에 대해 추론을 사용합니다. 예를 들어 Azure Queue Storage 트리거를 사용하는 경우 큐 길이 및 가장 오래된 큐 메시지의 기간에 따라 트리거가 조정됩니다.
+Azure Functions는 *크기 조정 컨트롤러*라는 구성 요소를 사용하여 이벤트의 비율을 모니터링하고 규모를 확장하거나 감축할 것인지 결정합니다. 크기 조정 컨트롤러는 각 트리거 유형에 대해 추론을 사용합니다. 예를 들어 Azure Queue Storage 트리거를 사용하는 경우 큐 길이 및 가장 오래된 큐 메시지의 기간에 따라 트리거가 조정됩니다.
 
 크기 조정 단위는 함수 앱입니다. 함수 앱을 확장하는 경우 Azure Functions 호스트의 여러 인스턴스를 실행하기 위해 더 많은 리소스가 할당됩니다. 반대로, 계산 수요가 감소하면 크기 조정 컨트롤러에서 함수 호스트 인스턴스를 제거합니다. 함수 앱 내에서 실행 중인 함수가 없으면 인스턴스 수가 결국 0으로 축소됩니다.
 

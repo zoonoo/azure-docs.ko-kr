@@ -17,10 +17,10 @@ ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
@@ -48,12 +48,11 @@ ms.lasthandoff: 08/19/2017
 ## <a name="database-tutorial-prerequisites"></a>데이터베이스 자습서 필수 조건
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
- 
-    또는 
+* Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
 
-    [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 로컬 설치
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/)  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.  
 * [Visual Studio용 Python 도구](https://github.com/Microsoft/PTVS/)  
 * [Python 2.7용 Microsoft Azure SDK](https://azure.microsoft.com/downloads/) 
 * [Python 2.7.13](https://www.python.org/downloads/windows/) 

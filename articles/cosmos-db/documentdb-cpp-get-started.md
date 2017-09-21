@@ -14,12 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 4de1f394e0930054f73786ebb59b901d1c91a5dd
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 324b5844362c2712d54fd766eb95e1d9102f757a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: DocumentDB API에 대한 C++ 콘솔 응용 프로그램 자습서
@@ -59,11 +58,14 @@ C++ 자습서를 완료한 후에 이 페이지의 아래쪽에 있는 응답 �
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 자습서의 필수 구성 요소
 다음 항목이 있는지 확인합니다.
 
-* 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* C++ 언어 구성 요소가 설치된 [Visual Studio](https://www.visualstudio.com/downloads/)입니다.
+* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* C++ 언어 구성 요소가 설치된 [Visual Studio 2017](https://www.visualstudio.com/downloads/)입니다. Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
-Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [C++ 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다.
+Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [C++ 응용 프로그램 설치](#SetupC++)로 건너뛸 수 있습니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

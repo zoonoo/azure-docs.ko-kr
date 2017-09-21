@@ -12,35 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 9cf8ca88c9df4082590b18acd5c4a87a91bb1afd
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
-Azure ADAL(Active Directory 인증 라이브러리)은 클라이언트 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 쉽게 사용자를 인증하고 API 호출 보안을 위한 액세스 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
- - 비동기 메서드 호출에 대한 지원
+Azure ADAL(Active Directory 인증 라이브러리)은 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 사용자를 인증하고 API 호출 보안을 위한 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
  - 액세스 토큰 및 새로 고침 토큰을 저장하는 구성 가능한 토큰 캐시
  - 액세스 토큰이 만료되고 새로 고침 토큰을 사용할 수 있을 때 자동 토큰 새로 고침
+ - 비동기 메서드 호출에 대한 지원
  - 등
- 
-대부분의 복잡성을 처리함으로써 ADAL은 개발비즈니스 논리에 초점을 맞추고 보안 전문가가 아니더라도 리소스를 쉽게 보호할 수 있게 도와줍니다.
 
-ADAL은 다양한 플랫폼에서 사용할 수 있습니다.
+> [!NOTE]
+> Azure AD v2.0 라이브러리(MSAL)에 대한 내용은 [MSAL 라이브러리 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요. 
+> 
+> 
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
 | --- | --- | --- | --- | --- | --- |
-| .NET 클라이언트, Windows 스토어, UWP, Xamarin iOS 및 Android |.NET용 MSAL(미리 보기) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [데스크톱 앱](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[참조](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |JavaScript용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [단일 페이지 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [참조](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
-| iOS |iOS용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [참조](https://azuread.github.io/docs/objc/) |
-| Android |Android용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [참조](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 | .NET 클라이언트, Windows 스토어, UWP, Xamarin iOS 및 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [데스크톱 앱](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[참조](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) | 
 | .NET 클라이언트, Windows 스토어, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [데스크톱 앱](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
@@ -49,6 +46,7 @@ ADAL은 다양한 플랫폼에서 사용할 수 있습니다.
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java 웹앱](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | 파이썬 |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
+
 ### <a name="server-libraries"></a>서버 라이브러리 
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
@@ -60,7 +58,16 @@ ADAL은 다양한 플랫폼에서 사용할 수 있습니다.
 | .NET |.NET 4.5용 ID 프로토콜 확장 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |.NET 4.5 JWT 핸들러 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 
+### <a name="v20-client-libraries-msal"></a>v2.0 클라이언트 라이브러리(MSAL)
 
+[Azure AD v2.0 끝점](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)은 단일 끝점 뒤에서 Azure AD와 Microsoft 계정을 결합합니다. 이 끝점에 액세스하기 위해 개발자는 ADAL 대신 [프로덕션 지원 미리 보기 MSAL 라이브러리](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)를 사용할 수 있습니다.
+
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
+| --- | --- | --- | --- | --- | --- |
+| .NET 클라이언트, Windows 스토어, UWP, Xamarin iOS 및 Android |.NET용 MSAL(미리 보기) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [데스크톱 앱](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[참조](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
+| JavaScript |JavaScript용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [단일 페이지 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [참조](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
+| iOS |iOS용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [참조](https://azuread.github.io/docs/objc/) |
+| Android |Android용 MSAL(미리 보기) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 앱](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [참조](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 
 ## <a name="scenarios"></a>시나리오
 

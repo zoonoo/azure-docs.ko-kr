@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
@@ -104,7 +104,7 @@ ms.lasthandoff: 08/01/2017
 
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [여기](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)를 클릭하여 직접 질문을 할 수 있습니다.
 
-[Azure AD Connect 고객 지원](https://manage.windowsazure.com/?getsupport=true)
+[Azure AD에 대한 지원을 받는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Azure Portal을 통해 지원을 받으려면 이 링크를 사용합니다.
 

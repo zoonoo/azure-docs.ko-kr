@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 08/30/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 6e2a7c5eafee78d342f735b543624d041b9b3fe5
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
@@ -44,6 +44,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 * [원활한 Single Sign-On](active-directory-aadconnect-sso.md)을 설정한 고객에게 영향을 미치는 Azure AD Connect 업그레이드와 관련한 알려진 문제가 있습니다. Azure AD Connect를 업그레이드한 후 기능은 활성화된 상태로 남아 있는 경우라도 마법사에서는 비활성화된 것으로 표시됩니다. 이 문제의 해결책은 향후 릴리스에서 제공될 예정입니다. 이 디스플레이 문제에 대해 염려하는 고객은 마법사에서 원활한 Single Sign-On을 사용하도록 설정하면 수동으로 해결할 수 있습니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
+* [소스 앵커로 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능을 활성화하는 동안 Azure AD Connect가 온-프레미스 ADFS에서 클레임 규칙을 업데이트하지 못하도록 하는 문제를 해결했습니다. 로그인 방법으로 구성된 ADFS가 있는 기존 Azure AD Connect 배포에 대한 기능을 설정하려고 하는 경우 문제가 발생합니다. ADFS에서 클레임 규칙을 업데이트하려고 하기 전에 마법사가 ADFS 자격 증명에 대해 묻지 않기 때문에 문제가 발생합니다.
 * 온-프레미스 AD 포리스트에 NTLM을 사용하지 않도록 설정된 경우 Azure AD Connect의 설치 실패를 유발하는 문제가 해결되었습니다. 이 문제는 Azure AD Connect 마법사가 Kerberos 인증에 필요한 보안 컨텍스트를 만들 때 정규화된 자격 증명을 제공하지 않기 때문입니다. 이로 인해 Kerberos 인증에 실패하고 Azure AD Connect 마법사는 NTLM을 다시 사용하지 못합니다.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
@@ -581,7 +582,7 @@ AD FS 관리
   * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com에 대한 트래픽을 허용하도록 설정해야 합니다.
   * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
 * 초기 설치 후 사용자의 로그인 방법 변경을 허용합니다.
-* 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
+* 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) 을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
 * 동기화 엔진에 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)가 기본 제공됩니다.
 
 **미리 보기에서 GA로 승격되는 기능:**

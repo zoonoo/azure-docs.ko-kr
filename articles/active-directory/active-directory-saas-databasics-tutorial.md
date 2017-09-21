@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/08/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 26943282701302b61252e17850b71381afb1629b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 3a9776e6d11a54220a3b055d59e89d2eb4161a1a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>자습서: Azure Active Directory와 DATABASICS 통합
@@ -124,11 +124,14 @@ DATABASICS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-databasics-tutorial/tutorial_general_400.png)
 
-6. **DATABASICS** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [DATABASICS 지원팀](https://www.data-basics.com/support/)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+6. DATABASICS 쪽에서 Single Sign-On을 구성하려면 아래 URL을 사용하여 양식을 작성하세요. 양식을 제출하시면 [DATABASICS 클라이언트 지원 팀](https://www.data-basics.com/support/)에서 연락을 드릴 것입니다.
+    
+    [https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
+
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

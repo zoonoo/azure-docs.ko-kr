@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
@@ -38,7 +37,7 @@ ms.lasthandoff: 07/08/2017
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Blob Storage에 저장된 BACPAC 파일로 Azure SQL Database를 만드는 지침을 제공합니다. Azure Portal을 사용하여 가져오기는 Azure Blob Storage에서 BACPAC 파일을 가져오는 것만 지원합니다.
 
-Azure Portal을 사용하여 가져오려면 해당 데이터베이스의 페이지를 열고 도구 모음에서 **가져오기**를 클릭합니다. 저장소 계정 및 컨테이너를 지정하고 가져올 BACPAC 파일을 선택합니다. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 선택하고 대상 SQL Server 자격 증명을 제공합니다.  
+Azure Portal을 사용하여 가져오려면 데이터베이스를 연결하기 위한 서버의 페이지를 연 다음 도구 모음에서 **가져오기**를 클릭합니다. 저장소 계정 및 컨테이너를 지정하고 가져올 BACPAC 파일을 선택합니다. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 선택하고 대상 SQL Server 자격 증명을 제공합니다.  
 
    ![데이터베이스 가져오기](./media/sql-database-import/import.png)
 
@@ -63,8 +62,6 @@ Azure Portal을 사용하여 가져오려면 해당 데이터베이스의 페이
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![sqlpackage 가져오기](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Azure SQL Database 논리 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 내에서 Azure SQL Database 논리 서버로 연결을 시도하면 성공적인 연결을 위해 회사 방화벽에서 이 포트가 열려야 합니다.
@@ -115,7 +112,7 @@ $importStatus
 
 ## <a name="next-steps"></a>다음 단계
 * 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
-* BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
+* BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 * 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 

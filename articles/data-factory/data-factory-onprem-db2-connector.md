@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fed1c8790c5d6d1c688e04a49d5cecd09fbc0dda
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
@@ -93,7 +93,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **tableName** |연결된 서비스에서 참조하는 DB2 데이터베이스 인스턴스의 테이블 이름입니다. 대/소문자를 구분합니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 활동 속성
-복사 활동을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. **name**, **description**, **inputs** 테이블, **outputs** 테이블 및 **policy**와 같은 복사 활동 속성은 모든 유형의 활동에 사용할 수 있습니다. 각 활동 유형에 대한 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성입니다. 복사 활동의 경우 속성은 데이터 원본 및 싱크의 형식에 따라 달라집니다.
+복사 활동을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. **name**, **description**, **inputs** 테이블, **outputs** 테이블 및 **policy**와 같은 복사 활동 속성은 모든 유형의 활동에 사용할 수 있습니다. 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 대해 다릅니다. 복사 활동의 경우 속성은 데이터 원본 및 싱크의 형식에 따라 달라집니다.
 
 복사 활동의 경우 원본이 **RelationalSource** 형식인 경우(DB2 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
@@ -354,3 +354,4 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요.
+

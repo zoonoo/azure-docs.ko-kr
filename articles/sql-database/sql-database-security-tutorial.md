@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
@@ -48,9 +48,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - Microsoft Excel
 - Azure SQL Server 및 Database - [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md), [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md) 및 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-powershell.md)를 참조하세요. 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -179,7 +179,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![감사 설정](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. **저장소 세부 정보** 를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
+4. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
 
    > [!TIP]
    > 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
@@ -188,7 +188,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 5. **Save**를 클릭합니다.
 
 > [!IMPORTANT]
-> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 자세한 내용은 [Automation(PowerShell/REST API)](sql-database-auditing.md#subheading-7) 섹션을 참조하세요.
+> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>SQL Database 위협 감지 사용

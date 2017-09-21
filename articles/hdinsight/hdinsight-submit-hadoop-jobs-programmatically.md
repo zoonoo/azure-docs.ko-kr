@@ -1,6 +1,6 @@
 ---
 title: "HDInsight에서 Hadoop 작업 제출 | Microsoft Docs"
-description: "Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
+description: "Azure HDInsight에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,18 +16,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: acce9907fca6e411d8028e87eff7b50ffa04d575
-ms.openlocfilehash: 4098680a7941ec4732ec0a408c3bf02d6a9906f8
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a824e6af903e006e6bb4899430741f7f2a9edaca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업 제출
 
-.NET SDK, Curl 및 Azure PowerShell을 사용하여 Hadoop 작업을 제출할 수 있습니다.
+HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하여 Azure HDInsight에서 Hadoop 작업을 제출할 수 있습니다.
 
-- .NET SDK 사용
+## <a name="resources"></a>리소스
+
+- **.NET SDK**:
 
   - [비대화형 인증 .NET 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [HDInsight .NET SDK를 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-dotnet-sdk.md)
@@ -35,14 +37,14 @@ ms.lasthandoff: 02/15/2017
   - [HDInsight에서 Hadoop용 .NET SDK를 사용하여 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
   - [HDInsight .NET SDK를 사용하여 MapReduce 작업 실행](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- CURL
+- **curl**:
 
-  - [Curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행](hdinsight-hadoop-use-hive-curl.md)
-  - [Curl을 사용하여 HDInsight에서 Hadoop과 Pig 작업 실행](hdinsight-hadoop-use-pig-curl.md)
-  - [Curl을 사용하여 HDInsight에서 Hadoop으로 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-curl.md)
-  - [Curl을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행](hdinsight-hadoop-use-mapreduce-curl.md)
+  - [curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행](hdinsight-hadoop-use-hive-curl.md)
+  - [curl을 사용하여 HDInsight에서 Hadoop과 Pig 작업 실행](hdinsight-hadoop-use-pig-curl.md)
+  - [curl을 사용하여 HDInsight에서 Hadoop과 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-curl.md)
+  - [curl을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- PowerShell
+- **PowerShell**:
 
   - [PowerShell을 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-powershell.md)
   - [PowerShell을 사용하여 Pig 작업 실행](hdinsight-hadoop-use-pig-powershell.md)

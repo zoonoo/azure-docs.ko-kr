@@ -17,10 +17,10 @@ ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
@@ -267,7 +267,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     이 명령은 지연 테이블을 만든 데이터베이스를 포함한 데이터베이스 목록을 반환합니다.
 
-2. 다음 명령을 사용하여 hivesampletable에서 mobiledata 테이블로 데이터를 내보냅니다.
+2. 다음 명령을 사용하여 hivesampletable에서 delays 테이블로 데이터를 내보냅니다.
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -275,13 +275,13 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     Sqoop은 지연 테이블을 포함하는 데이터베이스에 연결되고 `/tutorials/flightdelays/output` 디렉터리에서 지연 테이블로 데이터를 내보냅니다.
 
-3. 명령이 완료되면 TSQL 유틸리티를 사용하여 데이터베이스에 연결하기 위해 다음을 사용합니다.
+3. sqoop 명령이 완료되면 tsql 유틸리티를 사용하여 데이터베이스에 연결합니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    다음 문을 사용하여 데이터가 mobiledata 테이블로 내보내졌는지 확인합니다.
+    다음 문을 사용하여 데이터가 delays 테이블로 내보내졌는지 확인합니다.
 
     ```
     SELECT * FROM delays
@@ -290,7 +290,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     테이블에 데이터 목록이 표시됩니다. `exit` 를 입력하여 tsql 유틸리티를 종료합니다.
 
-## <a id="nextsteps"></a> 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 

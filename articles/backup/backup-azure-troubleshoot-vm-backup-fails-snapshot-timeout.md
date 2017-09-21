@@ -1,6 +1,6 @@
 ---
 title: "Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음 | Microsoft Docs"
-description: "오류: VM 에이전트와 통신할 수 없음과 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법"
+description: "에이전트, 확장명, 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법"
 services: backup
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -68,13 +68,17 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>원인 4: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>원인 5: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)
 
+## <a name="the-specified-disk-configuration-is-not-supported"></a>지정된 디스크 구성은 지원되지 않습니다.
+
+현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. 디스크를 분할하여 디스크 크기가 제한보다 작도록 합니다. 디스크를 분할하려면 1023GB보다 큰 크기의 디스크에서 1023GB보다 작은 새로 만든 디스크로 데이터를 복사해야 합니다.
+
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
 ### <a name="the-vm-has-no-internet-access"></a>VM이 인터넷에 연결되어 있지 않습니다.
 배포 요구 사항에 따라 VM이 인터넷에 연결되어 있지 않거나 Azure 인프라에 대한 액세스를 차단하는 위치에 제한 사항이 있습니다.
 
-제대로 작동하려면 백업 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 Backup은 결국 실패합니다.
+제대로 작동하려면 백업 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
 ####  <a name="solution"></a>해결 방법
 문제를 해결하려면 다음 방법 중 하나를 사용해 보세요.
@@ -145,14 +149,14 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 
 | 원인 | 해결 방법 |
 | --- | --- |
-| VM에 구성된 SQL Server 백업이 있습니다. | 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다.<br><br>스냅숏 문제로 인해 Backup이 실패한 경우 다음 레지스트리 키를 설정합니다.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| VM에 구성된 SQL Server 백업이 있습니다. | 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다.<br><br>스냅숏 문제로 인해 백업이 실패한 경우 다음 레지스트리 키를 설정합니다.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP(원격 데스크톱 프로토콜)에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
 | 동일한 클라우드 서비스에서 여러 VM이 동시에 백업하도록 구성됩니다. | 동일한 클라우드 서비스에서 VM의 백업 일정을 분산하는 것이 모범 사례입니다. |
 | VM이 사용량이 높은 CPU 또는 메모리에서 실행 중입니다. | VM이 사용량이 높은 CPU(90% 이상) 또는 메모리에서 실행 중인 경우 스냅숏 작업이 큐에 대기 및 지연되어 결국 시간 초과됩니다. 이 상황에서는 주문형 백업을 시도하세요. |
 | VM이 DHCP에서 호스트/패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다.  VM이 DHCP 응답 245에서 호스트/패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. 자세한 내용은 [고정 내부 개인 IP 설정](../virtual-network/virtual-networks-reserved-private-ip.md)을 참조하세요. |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>백업 확장을 업데이트 또는 로드할 수 없습니다.
-확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 Backup이 실패합니다.
+확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 백업이 실패합니다.
 
 #### <a name="solution"></a>해결 방법
 

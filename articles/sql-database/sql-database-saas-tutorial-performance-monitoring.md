@@ -1,6 +1,6 @@
 ---
 title: "다중 테넌트 SaaS 앱에서 다수의 Azure SQL 데이터베이스 성능 모니터링 | Microsoft Docs"
-description: "Azure SQL Database Wingtip SaaS 앱에서 데이터베이스 및 풀의 성능 모니터링 및 관리"
+description: "멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리"
 keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램의 성능 모니터링
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
 이 자습서에서는 SaaS 응용 프로그램에서 사용되는 몇 가지 주요 성능 관리 시나리오를 살펴봅니다. 부하 생성기를 사용하여 모든 테넌트 데이터베이스에서의 활동을 시뮬레이션하여 SQL Database 및 탄력적 풀의 기본 제공 모니터링 및 경고 기능을 보여 줍니다.
 

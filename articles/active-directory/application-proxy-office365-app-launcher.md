@@ -11,29 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
-이 문서에서는 사용자를 사용자 지정 홈 페이지에 연결하도록 앱을 구성하는 방법을 설명합니다. 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시할 때 내부 URL을 설정하지만 사용자가 처음 보게 되는 페이지는 설정하지 않는 경우가 있습니다. Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 사용자가 앱에 액세스할 때 오른쪽 페이지로 이동하도록 사용자 지정 홈 페이지를 설정합니다.
+이 문서에서는 사용자를 사용자 지정 홈 페이지에 연결하도록 앱을 구성하는 방법을 설명합니다. 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시할 때 내부 URL을 설정하지만 사용자가 처음 보게 되는 페이지는 설정하지 않는 경우가 있습니다. 사용자가 앱에 액세스할 때 올바른 페이지로 이동하도록 사용자 지정 홈 페이지를 설정합니다. Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 앱에 액세스할 때 여기서 설정한 사용자 지정 홈 페이지로 이동하게 됩니다.
 
 사용자가 앱을 시작하면 기본적으로 게시된 앱의 루트 도메인 URL로 이동됩니다. 방문 페이지는 일반적으로 홈페이지 URL로 설정됩니다. 앱 사용자가 앱 내의 특정 페이지를 방문하게 하려는 경우 Azure AD PowerShell 모듈을 사용하여 사용자 지정 홈 페이지 URL을 정의합니다. 
 
-예:
+회사가 사용자 지정 홈 페이지를 설정하는 이유의 한 예는 다음과 같습니다.
 - 회사 네트워크 내부에서 사용자는 *https://ExpenseApp/login/login.aspx*로 이동하여 로그인하고 앱에 액세스합니다.
 - 응용 프로그램 프록시가 폴더 구조의 최상위 수준에서 액세스해야 하는 이미지와 같은 기타 자산이 있으므로 앱을 *https://ExpenseApp*을 사용해서 내부 URL로 게시합니다.
 - 기본 외부 URL은 *https://ExpenseApp-contoso.msappproxy.net*입니다. 이 URL은 사용자를 로그인 페이지로 보내지 않습니다.  
-- *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx*를 홈페이지 URL로 설정하면 사용자에게 원활한 환경을 제공할 수 있습니다. 
+- *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx*를 홈페이지 URL로 설정합니다. 
 
 >[!NOTE]
 >사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](active-directory-saas-access-panel-introduction.md) 및 [Office 365 앱 시작 관리자](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)에 앱이 표시됩니다.
@@ -79,7 +79,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 앱의 ObjectID를 받은 다음 해당 홈 페이지에서 앱을 검색합니다.
 
-1. PowerShell을 열고 Azure AD 모듈을 가져옵니다.
+1. 동일한 PowerShell 창에서 Azure AD 모듈을 가져옵니다.
 
     ```
     Import-Module AzureAD
@@ -105,9 +105,9 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 ### <a name="update-the-home-page-url"></a>홈페이지 URL 업데이트
 
-1단계에서 사용한 것과 동일한 PowerShell 모듈에서 다음 단계를 수행합니다.
+홈 페이지 URL을 만들고 해당 값으로 응용 프로그램을 업데이트합니다. 동일한 PowerShell 창에서 해당 명령을 실행합니다. 또는 새 PowerShell 창을 사용할 경우 다시 `Connect-AzureAD`를 사용하여 Azure AD 모듈에 로그인합니다. 
 
-1. 맞는 앱이 있는지 확인하고 *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4*를 앞의 단계에서 복사한 ObjectID로 바꿉니다.
+1. 맞는 앱이 있는지 확인하고 *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4*를 앞의 섹션에서 복사한 ObjectID로 바꿉니다.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -138,7 +138,7 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
     ```
 
 >[!NOTE]
->앱에 대한 변경 내용으로 인해 홈페이지 URL을 다시 설정할 수도 있습니다. 홈페이지 URL이 다시 설정되면 2단계를 반복합니다.
+>앱에 대한 변경 내용으로 인해 홈페이지 URL을 다시 설정할 수도 있습니다. 홈 페이지 URL을 다시 설정하는 경우 이 섹션의 단계를 반복하여 재설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

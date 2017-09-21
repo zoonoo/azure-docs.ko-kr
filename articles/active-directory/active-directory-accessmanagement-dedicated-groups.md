@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Azure Active Directory의 전용 그룹
@@ -36,7 +36,7 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 
 **전용 그룹을 사용하도록 설정하려면**
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
 2. **그룹** 탭을 선택하고 편집할 그룹을 엽니다.
 3. **구성** 탭을 선택한 다음 **전용 그룹 사용**을 **예**로 설정합니다.
 

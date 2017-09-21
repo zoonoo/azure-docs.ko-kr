@@ -3,7 +3,7 @@ title: "Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 �
 description: "Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -12,28 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
-ms.author: robinsh
+ms.date: 9/06/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
-클라우드 기반 인프라의 일반적인 기능은 응용 프로그램 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 응용 프로그램 개발자는 사용자에게 항상 사용 가능한 응용 프로그램을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 Azure Storage RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 응용 프로그램의 사용 가능성을 높이는 방법에 특히 중점을 두고 있습니다.
+Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 응용 프로그램 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 응용 프로그램 개발자는 사용자에게 항상 사용 가능한 응용 프로그램을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 해당 Azure Storage 응용 프로그램의 고가용성을 보장하는 방법에 중점을 둡니다.
 
-중복 옵션에는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)라는 네 가지 옵션이 있습니다. 이 문서에서는 GRS와 RA-GRS를 설명하겠습니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대해 읽기 액세스를 갖는다는 점을 제외하면 GRS와 동일합니다. 다양한 Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 복제](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy)를 참조하세요. 복제 문서는 주 지역과 보조 지역의 페어링도 보여줍니다.
+Azure Storage는 저장소 계정에서 데이터의 중복성을 위해 선택한 4개 항목을 제공합니다.
+
+– LRS(로컬 중복 저장소)
+- ZRS(영역 중복 저장소) 
+- GRS(지역 중복 저장소)
+- RA-GRS(읽기 액세스 지역 중복 저장소) 
+
+이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대해 읽기 액세스를 갖는다는 점을 제외하면 GRS와 동일합니다. 다양한 Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 복제](https://docs.microsoft.com/azure/storage/storage-redundancy)를 참조하세요. 복제 문서는 주 지역과 보조 지역의 페어링도 보여줍니다.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS의 주요 기능
 
-RA-GRS 저장소 사용법에 대해 언급하기 전에 속성과 동작에 대해 살펴보겠습니다.
+RA-GRS에 응용 프로그램을 설계할 경우 다음과 같은 주요 사항을 염두하세요.
 
-* Azure Storage는 보조 지역, 주 지역에 저장된 데이터의 읽기 전용 복사본을 유지하며 위에 언급했듯이 저장소 서비스는 보조 지역의 위치를 결정합니다.
+* Azure Storage는 기본 지역에서 저장한 데이터의 읽기 전용 복사본을 보조 지역에서 유지합니다. 위에서 언급한 대로 저장소 서비스가 보조 지역의 위치를 결정합니다.
 
 * 읽기 전용 복사본은 주 지역의 데이터와 [결과적으로 일치](https://en.wikipedia.org/wiki/Eventual_consistency)합니다.
 
@@ -43,17 +50,19 @@ RA-GRS 저장소 사용법에 대해 언급하기 전에 속성과 동작에 대
 
 * 주 지역의 데이터에 대한 접근성에 영향을 미치는 주요한 문제가 있으면 Azure 팀에서 지역 장애 조치(failover)를 트리거할 수 있고, 그러면 주 지역을 가리키는 DNS 항목이 보조 지역을 가리키도록 변경됩니다.
 
-* 지역 장애 조치(failover)가 발생하면 Azure는 새로운 보조 지역을 선택하고 그 위치에 데이터를 복제한 다음 보조 DNS 항목으로 그 위치를 가리킵니다. 저장소 계정이 복제를 마칠 때까지 보조 끝점을 사용할 수 없습니다. 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance)을 참조하세요.
+* 지역 장애 조치(failover)가 발생하면 Azure는 새로운 보조 지역을 선택하고 그 위치에 데이터를 복제한 다음 보조 DNS 항목으로 그 위치를 가리킵니다. 저장소 계정이 복제를 마칠 때까지 보조 끝점을 사용할 수 없습니다. 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)을 참조하세요.
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>RA-GRS를 사용하는 경우 응용 프로그램 설계 고려 사항
 
-이 문서의 주된 목적은 기본 데이터 센터에 대규모 재난이 발생하더라도 작동을 계속할 수 있는(제한된 용량이라도) 응용 프로그램을 설계하는 방법을 보여주는 것입니다. 이러한 작업은 문제가 있는 동안은 응용 프로그램이 보조 지역에서 읽기로 전환하여 일시적인 또는 장기적인 문제를 처리하고 주 지역을 다시 사용할 수 있게 되면 원래대로 다시 전환하는 방식으로 수행합니다.
+이 문서의 목적은 기본 데이터 센터에 대규모 재난이 발생하더라도 작동을 계속할 수 있는(제한된 용량이라도) 응용 프로그램을 설계하는 방법을 보여주는 것입니다. 기본 지역에서 읽기를 방해하는 문제가 발생할 경우 보조 지역에서 읽기로 인해 일시적 또는 장기 실행 문제를 처리하도록 응용 프로그램을 설계할 수 있습니다. 기본 지역을 다시 사용할 수 있게 되면 응용 프로그램은 기본 지역에서 읽기로 되돌릴 수 있습니다.
 
 ### <a name="using-eventually-consistent-data"></a>결과적으로 일치하는 데이터 사용
 
-이 제안 솔루션에서는 부실할 가능성이 있는 데이터를 호출하는 응용 프로그램에 반환하는 것이 괜찮다고 가정합니다. 보조 데이터는 결과적으로 일치하기 때문에 데이터가 주 지역에 기록되었더라도 주 지역에 액세스할 수 없게 되면 보조 지역에 대한 업데이트가 복제를 마치지 못할 수 있습니다.
+제안된 솔루션에서는 잠재적인 부실 데이터를 호출하는 응용 프로그램에 반환할 수 있다고 가정합니다. 보조 영역에 있는 데이터가 결국 일관적이기 때문에 보조 지역에 대한 업데이트가 복제를 완료하기 전에 기본 지역에 액세스할 수 없게 될 수 있습니다.
 
-예를 들어 고객이 업데이트를 제출하여 완료된 후 보조 데이터에 업데이트가 전파되기 전에 주 데이터가 다운될 수 있습니다. 이런 경우 고객이 데이터를 다시 읽어오도록 요청하면 업데이트된 데이터 대신 부실 데이터를 수신합니다. 이런 경우를 허용할지 결정하고, 허용한다면 고객에게 어떤 메시지를 표시할지 결정해야 합니다. 보조 데이터가 최신인지 확인하기 위해 이 문서의 뒷부분에서 보조 데이터의 마지막 동기화 시간을 확인하는 방법을 볼 수 있습니다.
+예를 들어 고객이 업데이트를 성공적으로 제출하지만 업데이트를 보조 지역으로 전파하기 전에 기본 지역이 실패했다고 가정하겠습니다. 고객이 데이터를 다시 읽어오도록 요청하면 업데이트된 데이터 대신 보조 지역의 부실 데이터를 수신합니다. 응용 프로그램을 설계할 때 이런 경우를 허용할지 결정하고, 허용한다면 고객에게 어떤 메시지를 표시할지 결정해야 합니다. 
+
+이 문서의 뒷부분에서 보조 데이터가 최신인지 확인하기 위해 보조 데이터의 마지막 동기화 시간을 확인하는 방법을 볼 수 있습니다.
 
 ### <a name="handling-services-separately-or-all-together"></a>서비스를 개별적으로 또는 모두 함께 처리
 
@@ -75,11 +84,11 @@ RA-GRS 저장소 사용법에 대해 언급하기 전에 속성과 동작에 대
 
 ## <a name="running-your-application-in-read-only-mode"></a>읽기 전용 모드에서 응용 프로그램 실행
 
-RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데이트 요청(이 경우 업데이트는 삽입, 업데이트 및 삭제를 의미함)을 모두 처리할 수 있어야 합니다. 기본 데이터 센터에 장애가 발생하면 읽기 요청은 보조 데이터 센터로 리디렉션될 수 있지만 업데이트 요청은 보조 데이터 센터가 읽기 전용이기 때문에 리디렉션될 수 없습니다. 이런 이유 때문에 읽기 전용 모드에서 응용 프로그램을 실행할 수 있는 방법이 필요합니다.
+RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데이트 요청(이 경우 업데이트는 삽입, 업데이트 및 삭제를 의미함)을 모두 처리할 수 있어야 합니다. 기본 데이터 센터에 장애가 발생하면 읽기 요청은 보조 데이터 센터로 리디렉션될 수 있습니다. 하지만 보조 저장소가 읽기 전용이기 때문에 업데이트 요청은 보조 저장소로 리디렉션될 수 없습니다. 이런 이유로 읽기 전용 모드에서 응용 프로그램을 설계해야 합니다.
 
-예를 들어 저장소 서비스에 업데이트 요청을 제출하기 전에 확인되는 플래그를 설정할 수 있습니다. 업데이트 요청 중 하나가 도착하면 이것을 건너뛰고 고객에게 적절한 응답을 반환할 수 있습니다. 문제가 해결될 때까지 특정 기능을 모두 비활성화하고 사용자에게 해당 기능을 일시적으로 사용할 수 없다고 알릴 수 있습니다.
+예를 들어 Azure Storage에 업데이트 요청을 제출하기 전에 확인되는 플래그를 설정할 수 있습니다. 업데이트 요청 중 하나가 도착하면 이것을 건너뛰고 고객에게 적절한 응답을 반환할 수 있습니다. 문제가 해결될 때까지 특정 기능을 모두 비활성화하고 사용자에게 해당 기능을 일시적으로 사용할 수 없다고 알릴 수 있습니다.
 
-각 서비스의 오류를 개별적으로 처리하기로 결정하면 읽기 전용 모드에서 응용 프로그램을 실행하는 기능도 서비스별로 처리해야 합니다. 각 서비스에 대해 사용하거나 사용하지 않도록 설정할 수 있는 읽기 전용 플래그를 두고 코드의 적절한 위치에서 적절한 플래그를 처리할 수 있습니다.
+각 서비스의 오류를 개별적으로 처리하기로 결정하면 읽기 전용 모드에서 응용 프로그램을 실행하는 기능도 서비스별로 처리해야 합니다. 예를 들어 각 서비스에 대한 읽기 전용 플래그를 활성화하고 사용하지 않도록 설정할 수 있습니다. 그런 다음 코드의 해당 위치에서 플래그를 처리할 수 있습니다.
 
 읽기 전용 모드에서 응용 프로그램을 실행할 수 있다는 점은 또 다른 이점입니다. 주요 응용 프로그램 업그레이드를 진행하는 동안 제한된 기능만 실행되도록 할 수 있습니다. 응용 프로그램을 트리거하여 읽기 전용 모드에서 실행하고 보조 데이터 센터를 가리켜서, 업그레이드를 진행하는 동안 주 지역의 데이터에 아무도 액세스하지 않도록 할 수 있습니다.
 
@@ -145,7 +154,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 보조 지역으로 전환하고 응용 프로그램을 읽기 전용 모드에서 실행하도록 변경할 때를 결정하기 위해 주 지역에서 재시도 빈도를 모니터링하는 주요 옵션은 세 가지입니다.
 
-*   저장소 요청에 전달하는 [**OperationContext**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) 개체의 [**Retrying**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 끝점에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
+*   저장소 요청에 전달하는 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 개체의 [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 끝점에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +165,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
     };
     ```
 
-*   사용자 지정 다시 시도 정책의 [**Evaluate**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
+*   사용자 지정 다시 시도 정책의 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -164,12 +173,12 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 

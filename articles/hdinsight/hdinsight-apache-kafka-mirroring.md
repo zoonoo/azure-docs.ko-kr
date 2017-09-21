@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: e418cb01e1a9168e3662e8d6242903e052b6047b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7628f0120deb3cc5b179c00ec50d967f7b1c1dbf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제(미리 보기)
@@ -97,12 +97,8 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
-리소스를 만들면 클러스터 및 웹 대시보드를 포함하는 리소스 그룹에 대한 블레이드로 리디렉션됩니다.
-
-![vnet 및 클러스터에 대한 리소스 그룹 블레이드](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
-
 > [!IMPORTANT]
-> HDInsight 클러스터의 이름은 **source-BASENAME** 및 **dest-BASENAME**입니다. 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
+> HDInsight 클러스터의 이름은 **source-BASENAME** 및 **dest-BASENAME**이며, 여기서 BASENAME은 템플릿에 제공한 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
 
 ## <a name="create-topics"></a>토픽 만들기
 
@@ -122,13 +118,12 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     # Install jq if it is not installed
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    
-    Replace `$PASSWORD` with the password for the cluster.
+    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    Replace `$CLUSTERNAME` with the name of the source cluster.
+    `$CLUSTERNAME`을 원본 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
 
-3. To create a topic named `testtopic`, use the following command:
+3. `testtopic`이라는 토픽을 만들려면 다음 명령을 사용합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
@@ -166,7 +161,7 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 다음 명령을 사용하여 **원본** 클러스터와 통신하는 방법을 설명하는 `consumer.properties` 파일을 만듭니다.
+2. `consumer.properties` 파일은 **원본** 클러스터와의 통신을 구성하는 데 사용됩니다. 파일을 만들려면 다음 명령을 사용합니다.
 
     ```bash
     nano consumer.properties
@@ -189,19 +184,17 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
 
-    `$PASSWORD`를 클러스터에 대한 로그인 계정(관리자) 암호로 바꿉니다.
+    `$CLUSTERNAME`을 대상 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
 
-    `$CLUSTERNAME`을 대상 클러스터의 이름으로 바꿉니다.
-
-    이러한 명령은 다음과 비슷한 정보를 반환합니다.
+    `echo` 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. 다음을 사용하여 **대상** 클러스터와 통신하는 방법을 설명하는 `producer.properties` 파일을 만듭니다.
+4. `producer.properties` 파일은 __대상__ 클러스터와 통신하는 데 사용됩니다. 파일을 만들려면 다음 명령을 사용합니다.
 
     ```bash
     nano producer.properties
@@ -247,27 +240,23 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 2. SSH 연결부터 **원본** 클러스터까지, 다음 명령을 사용하여 Producer를 시작하고 토픽에 메시지를 전송합니다.
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    `$PASSWORD`를 원본 클러스터에 대한 로그인(관리자) 암호로 바꿉니다.
+    `$CLUSTERNAME`을 원본 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
 
-    `$CLUSTERNAME`을 원본 클러스터의 이름으로 바꿉니다.
+     커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
 
-     커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 이러한 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
-
-3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 그런 다음, 다음 명령을 사용하여 `testtopic` 항목이 만들어졌으며 항목의 해당 데이터가 이 미러로 복제되었는지 확인합니다.
+3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 토픽과 메시지가 대상에 복제되었는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    `$PASSWORD`를 대상 클러스터에 대한 로그인(관리자) 암호로 바꿉니다.
-
-    `$CLUSTERNAME`을 대상 클러스터의 이름으로 바꿉니다.
+    `$CLUSTERNAME`을 대상 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
 
     이제 항목 목록에 MirrorMaster가 원본 클러스터에서 대상으로 토픽을 미러링할 때 만들어진 `testtopic`이(가) 포함됩니다. 이 항목에서 검색한 메시지는 원본 클러스터에 입력한 것과 동일합니다.
 

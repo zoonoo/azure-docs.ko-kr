@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
@@ -38,6 +38,8 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+###### <a name="september-14-2017"></a>**2017년 9월 14일**
+9월 게스트 OS 롤아웃은 9월 14일에 시작되고 10월 9일에 출시될 예정입니다.
 
 ###### <a name="august-24-2017"></a>**2017년 8월 24일**
 8월 게스트 OS가 릴리스되었습니다.
@@ -65,12 +67,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 ###### <a name="april-18-2017"></a>**2017년 4월 18일**
 게스트 OS 4월 롤아웃은 4월 18일에 시작되며 5월 9일에 출시될 예정입니다.
-
-###### <a name="april-10-2017"></a>**2017년 4월 10일**
-게스트 OS 3월 롤아웃은 2017년 3월 14일에 시작되었으며 2017년 4월 10일에 출시되었습니다.
-
-###### <a name="january-10-2017"></a>**2017년 1월 10일**
-1월 게스트 OS에는 OS 제품군 2(Windows 2008 Server R2)에만 영향을 미치는 패치가 포함되어 있습니다. 따라서 이번 달에는 OS 제품군 2 이미지(WA-GUEST-OS-2.59_201701-01)만 릴리스했습니다. 모든 다른 OS 제품군의 경우 12월 OS(201612-01)는 최신 상태를 유지합니다.
 
 
 ## <a name="releases"></a>릴리스

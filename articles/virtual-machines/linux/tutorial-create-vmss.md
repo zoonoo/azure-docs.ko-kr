@@ -13,23 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/11/2017
+ms.date: 09/08/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>가상 컴퓨터 확장 집합 만들기 및 Linux에 항상 사용 가능한 앱 배포
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU 사용률, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
+가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * cloud-init를 사용하여 크기를 조정하는 앱 만들기
 > * 가상 컴퓨터 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
+> * 자동 크기 조정 규칙 만들기
 > * 확장 집합 인스턴스에 대한 연결 정보 보기
 > * 확장 집합에 데이터 디스크 사용
 
@@ -39,11 +40,11 @@ ms.lasthandoff: 08/12/2017
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="scale-set-overview"></a>확장 집합 개요
-가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합은 이전의 [고가용성 VM 만들기](tutorial-availability-sets.md) 자습서에서 알아본 것과 동일한 구성 요소를 사용합니다. 확장 집합의 VM은 가용성 집합에 만들어지고 논리 장애 도메인 및 업데이트 도메인에 분산됩니다.
+가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹*에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
 
 VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집합에서 VM이 추가되거나 제거되는 방법 및 시기를 제어하는 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 메트릭(예: CPU 부하, 메모리 사용량 또는 네트워크 트래픽)을 기반으로 트리거할 수 있습니다.
 
-확장 집합은 Azure 플랫폼 이미지를 사용하는 경우 최대 1,000개의 VM을 지원합니다. 프로덕션 워크로드의 경우 [사용자 지정 VM 이미지 만들기](tutorial-custom-images.md) 작업이 필요할 수 있습니다. 사용자 지정 이미지를 사용하는 경우 확장 집합에 최대 100개의 VM을 만들 수 있습니다.
+확장 집합은 Azure 플랫폼 이미지를 사용하는 경우 최대 1,000개의 VM을 지원합니다. 중요한 설치 또는 VM 사용자 지정이 필요한 워크로드의 경우 [사용자 지정 VM 이미지를 만들 수 있습니다](tutorial-custom-images.md). 사용자 지정 이미지를 사용하는 경우 확장 집합에 최대 300대의 VM을 만들 수 있습니다.
 
 
 ## <a name="create-an-app-to-scale"></a>크기를 조정하는 앱 만들기
@@ -113,7 +114,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. 앱에 액세스하려면 몇 분이 걸릴 수 있습니다.
@@ -197,7 +198,79 @@ az vmss scale \
     --new-capacity 5
 ```
 
-자동 크기 조정 규칙을 사용하면 네트워크 트래픽 또는 CPU 사용량과 같은 수요에 대응하여 확장 집합의 VM 수를 확대하거나 축소하는 방법을 정의할 수 있습니다. 현재 이 규칙은 Azure CLI 2.0에서 설정할 수 없습니다. 자동 크기 조정을 구성하려면 [Azure Portal](https://portal.azure.com)을 사용하세요.
+
+### <a name="configure-autoscale-rules"></a>자동 크기 조정 규칙 구성
+확장 집합에서 인스턴스 수를 수동으로 확장하는 대신 자동 크기 조정 규칙을 정의할 수 있습니다. 이러한 규칙은 확장 집합의 인스턴스를 모니터링하고 사용자가 정의한 메트릭 및 임계값에 따라 적절하게 대응합니다. 평균 CPU 부하가 5분 넘게 60%를 초과하면 다음 예제에서는 인스턴스 수를 하나 늘립니다. 평균 CPU 부하가 5분 넘게 30% 미만이면 인스턴스 수를 하나 줄입니다. 구독 ID를 사용하여 다양한 확장 집합 구성 요소에 리소스 URI를 빌드합니다. [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create) 명령을 사용하여 이러한 규칙을 만들려면 다음 자동 크기 조정 명령 프로필을 복사하고 붙여넣습니다.
+
+```azurecli-interactive 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "East US",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+자동 크기 조정 프로필을 다시 만들려면 JSON(JavaScript Object Notation) 파일을 만들고 `--parameters @autoscale.json` 매개 변수를 포함한 `az monitor autoscale-settings create` 명령에 전달합니다. 자동 크기 조정을 사용하는 자세한 내용은 [자동 크기 조정 모범 사례](/azure/architecture/best-practices/auto-scaling)를 참조하세요.
+
 
 ### <a name="get-connection-info"></a>연결 정보 가져오기
 확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
@@ -258,6 +331,7 @@ az vmss disk detach \
 > * cloud-init를 사용하여 크기를 조정하는 앱 만들기
 > * 가상 컴퓨터 확장 집합 만들기
 > * 확장 집합의 인스턴스 수 증가 또는 감소
+> * 자동 크기 조정 규칙 만들기
 > * 확장 집합 인스턴스에 대한 연결 정보 보기
 > * 확장 집합에 데이터 디스크 사용
 
@@ -265,3 +339,4 @@ Virtual Machines의 부하 분산 개념에 대해 자세히 알아보려면 다
 
 > [!div class="nextstepaction"]
 > [Virtual Machines 부하 분산](tutorial-load-balancer.md)
+

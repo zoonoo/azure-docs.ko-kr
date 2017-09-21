@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 633e34ec3cdc9cf881978bf513294ea2365145dd
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bea45d6ad01c92cf05821da9da8069dd1f667d31
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
@@ -38,6 +38,8 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **호환성 관리자**: 이 역할의 사용자는 Office 365 보안 및 규정 준수 센터 및 Exchange 관리 센터 내 관리 권한이 있습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”를 참조하세요.
 
+* **조건부 액세스 관리자**: 이 역할의 사용자는 Azure Active Directory 조건부 액세스 설정을 관리할 수 있습니다.
+
 * **CRM 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft CRM Online 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
 * **장치 관리자**: 이 역할의 사용자는 Azure Active Directory에 연결된 모든 Windows 10 장치의 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 장치 개체를 관리하는 기능이 없습니다.
@@ -53,7 +55,7 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 * **전역 관리자 / 회사 관리자**: 이 역할의 사용자는 Azure Active Directory의 모든 관리 기능 및 Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같은 Azure Active Directory에 페더레이션하는 서비스에 대한 액세스를 가집니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
   > [!NOTE]
-  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure 포털](https://portal.azure.com)에서 "전역 관리자"입니다.
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure portal](https://portal.azure.com)에서 "전역 관리자"입니다.
   >
   >
 
@@ -103,11 +105,16 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 | --- | --- |
 |<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p>|
 
+### <a name="conditional-access-administrator"></a>조건부 액세스 관리자
+
+| 가능한 작업 | 불가능한 작업 |
+| --- | --- |
+|<p>회사 및 사용자 정보 보기</p><p>조건부 액세스 설정 관리</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p>|
+
 ### <a name="global-administrator"></a>전역 관리자
 | 가능한 작업 | 불가능한 작업 |
 | --- | --- |
-| <p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 암호 다시 설정</p>
-<p>다른 관리자의 암호를 다시 설정</p> <p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>다단계 인증 사용/사용 안 함</p><p>감사 로그 보기</p> |해당 없음 |
+|<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>사용자 암호 다시 설정</p><p>다른 관리자의 암호를 다시 설정</p> <p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>다단계 인증 사용/사용 안 함</p><p>감사 로그 보기</p> |해당 없음 |
 
 ### <a name="password-administrator"></a>암호 관리자
 | 가능한 작업 | 불가능한 작업 |

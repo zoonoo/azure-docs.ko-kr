@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/15/2017
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: a1becaf8465f68ecac768c5c6b2dbc95e8ff7278
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 

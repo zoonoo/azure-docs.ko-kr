@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경
@@ -44,7 +44,7 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 소유자만 공동 관리자로 추가될 수 있습니다. 참가자 및 독자 같은 역할이 있는 다른 사용자는 공동 관리자로 추가될 수 없습니다.
 
 1. 아직 하지 않는 경우 위의 지침에 따라 소유자로 사용자를 추가합니다.
-1. 방금 추가한 소유자 사용자를 **마우스 오른쪽 단추로 클릭**한 다음 **공동 관리자로 추가**를 선택합니다. 
+2. 방금 추가한 소유자 사용자를 **마우스 오른쪽 단추로 클릭**한 다음 **공동 관리자로 추가**를 선택합니다. **공동 관리자로 추가** 옵션이 표시되지 않는 경우 페이지를 새로 고치거나 다른 인터넷 브라우저를 사용해봅니다. 
 
      ![공동 관리자를 추가하는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
@@ -102,7 +102,7 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 | 관리 역할 | 제한 | 설명 |
 | --- | --- | --- |
 | 계정 관리자(AA) |Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index) 에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다. |
-| 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
+| 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure Portal](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
 | [Azure 클래식 포털](https://manage.windowsazure.com) |구독당 200 |서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
 
 Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.

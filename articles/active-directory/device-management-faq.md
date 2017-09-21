@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
+
+
+
+**Q: macOS 장치를 등록하려면 어떻게 할까요?**
+
+**A:** macOS 장치를 등록하려면:
+
+1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [macOS 장치에 대한 조건부 액세스 정책 정의](active-directory-conditional-access-azure-portal.md) 
+
+**설명**
+
+- 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients)가 필요합니다. 
+
+- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 장치를 등록하라는 메시지가 표시됩니다.
+
+---
 
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
 
@@ -136,20 +153,10 @@ ms.lasthandoff: 09/05/2017
 
 ---
 
-**Q: 자동 장치 등록의 설치에 대한 지침은 어디에서 찾나요?**
+**Q: 하이브리드 Azure AD 조인 장치의 설정에 대한 지침은 어디에서 찾나요?**
 
-**A:** 자세한 지침은 [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+**A:** 자세한 지침은 [하이브리드 Azure Active Directory 조인 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
 
----
-
-**Q: 자동 장치 등록에 대한 문제 해결 정보는 어디에서 찾나요?**
-
-**A:** 문제 해결 정보는 다음을 참조하세요.
-
-- [Windows 10 및 Windows Server 2016에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-current.md)
-
-- [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-legacy.md)
- 
 ---
 
 

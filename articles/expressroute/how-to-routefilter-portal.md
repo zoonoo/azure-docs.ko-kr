@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 09/11/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>Microsoft 피어링에 대한 경로 필터 구성
@@ -113,6 +113,10 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 “회로 추가” 단추를 선택하고 드롭다운 목록에서 ExpressRoute 회로를 선택하여 경로 필터를 회로에 연결할 수 있습니다.
 
 ![경로 필터 만들기](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+
+연결 공급자가 ExpressRoute 회로에 대해 피어링을 구성하는 경우 "회로 추가" 단추를 선택하기 전에 ExpressRoute 회로 블레이드에서 회로를 새로 고칩니다.
+
+![경로 필터 만들기](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
 ## <a name="getproperties"></a>경로 필터의 속성을 가져오려면
 

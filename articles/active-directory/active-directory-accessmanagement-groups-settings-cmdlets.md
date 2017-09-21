@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 28054e91e91933b939f4ba700e317d63a614e1d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
@@ -90,7 +90,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 | **설정** | **설명** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |디렉터리에서 통합 그룹 만들기가 허용되는지 나타내는 플래그입니다. |
+|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 통합 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. |
 |  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 통합 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
 |  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. |
@@ -101,7 +101,6 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 |  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
 |  <ul><li>AllowToAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
 |  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |통합 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True | 관리자가 아닌 사용자가 새 통합 그룹을 만들 수 있는지 여부를 나타내는 부울 값입니다. |
 
 
 ## <a name="read-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 읽기

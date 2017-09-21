@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
 ms.contentlocale: ko-kr
 ms.lasthandoff: 09/07/2017
 
@@ -64,8 +64,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
 Azure 모듈은 및 또는 환경 변수를 읽고 `AZURE_STORAGE_ACCOUNT``AZURE_STORAGE_ACCESS_KEY`Azure 저장소 계정에 연결하는 데 `AZURE_STORAGE_CONNECTION_STRING`필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
-
-Azure 웹앱의 [Azure Portal](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure Table Service를 사용하는 Node.js 웹앱](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)을 참조하세요.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 **BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 다음 코드는 **BlobService** 개체를 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
@@ -423,9 +421,8 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
-[Azure Table Service를 사용하는 Node.js 웹앱](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
-[Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: https://www.microsoft.com/web/webmatrix/  
-[REST API 사용]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/  

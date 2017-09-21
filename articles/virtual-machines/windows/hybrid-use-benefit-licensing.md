@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/26/2017
+ms.date: 9/13/2017
 ms.author: xujing
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: a986ddf22f059dc55bb9bff5c6eaf27324b716cd
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: f34f65eb1d5375caae8831aedaed8a4b6a9cd098
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-hybrid-use-benefit-for-windows-server"></a>Windows Server에 대한 Azure 하이브리드 사용 혜택
 Software Assurance 고객은 Azure 하이브리드 사용 혜택을 통해 온-프레미스 Windows Server 및 Windows 클라이언트 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server에 대한 Azure 하이브리드 사용 혜택에는 Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2 및 Windows Server 2016이 포함됩니다. 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure Marketplace의 기업 계약으로 고객을 위해 게시된 '[허브]' Windows Server 이미지는 2017년 9월 11일을 기준으로 사용 중지되었습니다. Azure 하이브리드 사용 혜택에 대해 "비용 절감" 옵션으로 표준 Windows Server를 사용하세요. 자세한 내용은 이 [문서](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)를 참조하세요.
+>
 
 > [!NOTE]
 > 이 문서에서는 Windows Server 이미지에 대한 라이선스 혜택을 구현하는 방법을 보여줍니다. [Windows 10 Desktop 이미지](#windows-desktop-multitenant-hosting-deployment)에 이러한 단계를 수행할 수도 있습니다.

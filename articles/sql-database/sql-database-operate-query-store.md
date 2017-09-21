@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
-ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 쿼리 저장소 운영
@@ -52,7 +51,7 @@ Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 
 > 
 > 
 
-사용자 지정 설정을 유지하려는 경우에는, [쿼리 저장소 옵션을 사용하여 ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) 를 사용하여 이전 상태로 구성을 되돌립니다. 최적의 구성 매개 변수를 선택하는 방법을 알아보려면, [쿼리 저장소 모범 사례](https://msdn.microsoft.com/library/mt604821.aspx) 를 확인하세요.
+사용자 지정 설정을 유지하려는 경우에는, [쿼리 저장소 옵션을 사용하여 ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)를 사용하여 이전 상태로 구성을 되돌립니다. 최적의 구성 매개 변수를 선택하는 방법을 알아보려면, [쿼리 저장소 모범 사례](https://msdn.microsoft.com/library/mt604821.aspx)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [SQL 데이터베이스 성능 Insight](sql-database-performance.md)

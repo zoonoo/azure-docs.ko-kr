@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 컴퓨터 백업 문제 해결
@@ -31,9 +31,13 @@ ms.lasthandoff: 09/05/2017
 아래 표에 나열된 정보를 참조하여 Azure 백업을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
 
 ## <a name="backup"></a>백업
+
+## <a name="error-the-specified-disk-configuration-is-not-supported"></a>오류: 지정된 디스크 구성은 지원되지 않습니다.
+
+현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. 디스크를 분할하여 디스크 크기가 제한보다 작도록 합니다. 디스크를 분할하려면 1023GB보다 큰 크기의 디스크에서 1023GB보다 작은 새로 만든 디스크로 데이터를 복사해야 합니다.
+
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
-| 지정된 디스크 구성은 지원되지 않습니다. http://go.microsoft.com/fwlink/?LinkId=808978에 따라 경고를 해결하거나 Microsoft 지원에 문의하세요.| 현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. 디스크를 분할하여 디스크 크기가 제한보다 작도록 합니다. 디스크를 분할하려면 1023GB보다 큰 크기의 디스크에서 1023GB보다 작은 새로 만든 디스크로 데이터를 복사해야 합니다. |
 | VM이 더 이상 존재하지 않기 때문에 작업을 수행할 수 없습니다. - 백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. 자세한 내용: http://go.microsoft.com/fwlink/?LinkId=808124 |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다.<br>또는</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
 | 가상 컴퓨터에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다. VM이 네트워크에 액세스할 수 있는지 확인하세요. 스냅숏이 성공하기 위해서는 Azure 데이터 센터 IP 범위를 허용 목록에 추가하거나 네트워크 액세스를 위해 프록시 서버를 설정하세요. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034를 참조하세요. 이미 프록시 서버를 사용 중인 경우 프록시 서버 설정이 제대로 구성되어 있는지 확인합니다. | 이 오류는 가상 컴퓨터에서 아웃바운드 인터넷 연결을 거부하는 경우 throw됩니다. 가상 컴퓨터의 기본 디스크 스냅숏을 만들기 위해서는 VM 스냅숏 확장에 인터넷 연결이 필요합니다. 네트워크 액세스 차단으로 인한 스냅숏 오류를 해결하는 방법에 대해 [자세히 알아보세요](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
 | VM 에이전트가 Azure Backup 서비스와 통신할 수 없습니다. - VM이 네트워크에 연결되어 있고 VM 에이전트가 최신이며 실행 중인지 확인합니다. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034를 참조하세요. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. VM 스냅숏 문제 디버깅에 대해 [자세히 알아봅니다](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup).<br> VM 에이전트가 아무 문제도 유발하지 않으면, VM을 다시 시작합니다. 가끔 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 “잘못된 상태”를 초기화합니다. |
@@ -44,8 +48,8 @@ ms.lasthandoff: 09/05/2017
 | 복구 서비스 확장 작업이 실패했습니다. - 최신 가상 컴퓨터 에이전트가 가상 컴퓨터에 표시되고 에이전트 서비스가 실행되도록 하세요. 백업 작업을 다시 시도하고 실패한 경우 Microsoft 지원에 문의하세요. |VM 에이전트가 만료된 경우에 이 오류가 throw됩니다. 아래의 "VM 에이전트 업데이트" 섹션을 참조하여 VM 에이전트를 업데이트합니다. |
 | 가상 컴퓨터가 존재하지 않습니다. - 해당 가상 컴퓨터가 존재하는지 확인하거나 다른 가상 컴퓨터를 선택하세요. |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다.<br>또는<br></li><li>백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
 | 명령을 실행하지 못했습니다. - 현재 이 항목에 대해 다른 작업이 진행 중입니다. 이전 작업이 완료될 때까지 기다린 후 다시 시도하세요. |VM에 대한 기존 백업이 실행 중이며, 기존 작업이 실행되는 동안에는 새 작업을 시작할 수 없습니다. |
-| 백업 자격 증명 모음에서 VHD를 복사하는 작업이 시간 초과되었습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 저장소 쪽에서 일시적인 오류가 발생하거나 백업 서비스가 제한 시간 내에 VM을 호스트하는 저장소 계정에서 Vault로 데이터를 전송하기 위한 충분한 IOPS를 얻지 못하는 경우에 이러한 문제가 발생합니다. 백업을 설정하는 동안 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 따랐는지 확인하세요. VM을 로드되지 않은 다른 저장소 계정으로 이동한 후 백업을 다시 시도하세요.|
-| 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 다음 두 가지 이유로 발생할 수 있습니다. <ol><li> VM 저장소에 액세스하는 데 일시적인 문제가 있습니다. [Azure 상태](https://azure.microsoft.com/en-us/status/)를 확인하여 하위 지역의 계산, 저장소 또는 네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 해결되면 백업 작업을 다시 시도합니다. <li>원래 VM이 삭제되었으므로 복구 지점을 가져올 수 없습니다. 삭제된 VM의 백업 데이터를 유지하지만 백업 오류를 제거하려면 VM의 보호를 해제하고 데이터 유지 옵션을 선택합니다. 이 작업을 수행하면 예약된 백업 작업 및 되풀이 오류 메시지가 중지됩니다. |
+| 백업 자격 증명 모음에서 VHD를 복사하는 작업이 시간 초과되었습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 저장소 쪽에서 일시적인 오류가 발생하거나 백업 서비스가 제한 시간 내에 VM을 호스팅하는 저장소 계정에서 Vault로 데이터를 전송하기 위한 충분한 IOPS를 얻지 못하는 경우에 이러한 문제가 발생합니다. 백업을 설정하는 동안 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 따랐는지 확인하세요. VM을 로드되지 않은 다른 저장소 계정으로 이동한 후 백업을 다시 시도하세요.|
+| 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 다음 2가지 이유로 발생할 수 있습니다. <ol><li> VM 저장소에 액세스하는 데 일시적인 문제가 있습니다. [Azure 상태](https://azure.microsoft.com/en-us/status/)를 확인하여 하위 지역의 계산, 저장소 또는 네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 해결되면 백업 작업을 다시 시도합니다. <li>원래 VM이 삭제되었으므로 복구 지점을 가져올 수 없습니다. 삭제된 VM의 백업 데이터를 유지하지만 백업 오류를 제거하려면 VM의 보호를 해제하고 데이터 유지 옵션을 선택합니다. 이 작업을 수행하면 예약된 백업 작업 및 되풀이 오류 메시지가 중지됩니다. |
 | 선택한 항목에 Azure Recovery Services 서비스 확장을 설치하지 못했습니다. Azure Recovery Services 확장의 필수 조건인 VM 에이전트가 있어야 합니다. Azure VM 에이전트를 설치하고 등록 작업 다시 시작 |<ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 [자세히 알아보세요](#validating-vm-agent-installation). |
 | “COM+” 오류로 인해 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. |이는 대개 COM+ 서비스가 실행되고 있지 않음을 의미합니다. 이 문제 해결에 대한 도움은 Microsoft 지원에 문의하세요. |
 | “이 드라이브는 BitLocker 드라이브 암호화로 잠겨 있습니다.”라는 VSS 작업 오류와 함께 스냅숏 작업이 실패했습니다. 제어판에서 이 드라이브의 잠금을 해제해야 합니다. |VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결 되었는지 관찰합니다. |
@@ -75,14 +79,14 @@ ms.lasthandoff: 09/05/2017
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 클라우드 내부 오류로 인해 복원 실패 |<ol><li>복원하려는 클라우드 서비스가 DNS 설정을 사용하여 구성되었습니다. 다음을 확인하면 알 수 있습니다. <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>구성된 주소가 있으면 DNS 설정이 구성되었다는 의미입니다.<br> <li>복원하려는 클라우드 서비스가 ReservedIP를 사용하여 구성되고 클라우드 서비스의 기존 VM이 중단된 상태에 있습니다.<br>다음 powershell cmdlet을 사용하여 클라우드 서비스에 예약된 IP가 있는지 확인할 수 있습니다.<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>동일한 클라우드 서비스에 다음과 같이 특수한 네트워크 구성을 사용하여 가상 컴퓨터를 복원하려고 시도하고 있습니다. <br>- 부하 분산 장치 구성의 가상 컴퓨터(내부 및 외부)<br>- 여러 개의 예약된 IP를 사용하는 가상 컴퓨터<br>- 여러 NIC가 있는 가상 컴퓨터<br>특수한 네트워크 구성을 가진 VM의 경우 [복원 고려 사항](backup-azure-arm-restore-vms.md#restoring-vms-with-special-network-configurations)을 참조하거나 UI에서 새 클라우드 서비스를 선택하세요</ol> |
-| 선택한 DNS 이름이 이미 사용 되었습니다. 다른 DNS 이름을 지정하고 다시 시도하세요. |여기에서 DNS 이름은 클라우드 서비스 이름을 가리킵니다(일반적으로 cloudapp.net로 끝남). 이름은 고유한 것이어야 합니다. 이러한 오류가 발생하는 경우, 복원하는 동안 다른 VM 이름을 선택해야 합니다. <br><br> 이 오류는 Azure 포털의 사용자에게만 표시됩니다. PowerShell 통한 복원 작업은 디스크만 복원하고 VM을 만들지 않기 때문에 성공합니다. 디스크 복원 작업 후 사용자가 명시적으로 VM를 만들 경우 오류가 발생합니다. |
+| 선택한 DNS 이름이 이미 사용 되었습니다. 다른 DNS 이름을 지정하고 다시 시도하세요. |여기에서 DNS 이름은 클라우드 서비스 이름을 가리킵니다(일반적으로 cloudapp.net로 끝남). 이름은 고유한 것이어야 합니다. 이러한 오류가 발생하는 경우, 복원하는 동안 다른 VM 이름을 선택해야 합니다. <br><br> 이 오류는 Azure Portal의 사용자에게만 표시됩니다. PowerShell 통한 복원 작업은 디스크만 복원하고 VM을 만들지 않기 때문에 성공합니다. 디스크 복원 작업 후 사용자가 명시적으로 VM를 만들 경우 오류가 발생합니다. |
 | 지정된 가상 네트워크 구성이 올바르지 않습니다. 다른 가상 네트워크 구성에 지정하고 다시 시도하세요. |없음 |
 | 지정된 클라우드 서비스는 복원 중인 가상 컴퓨터의 구성과 일치하지 않는 예약된 IP를 사용하고 있습니다. 예약된 IP를 사용하지 않는 다른 클라우드 서비스를 지정하거나 복원하려면 다른 복구 지점을 선택하세요. |없음 |
 | 클라우드 서비스가 입력된 끝점 제한 수에 도달 했습니다. 다른 클라우드 서비스를 지정하거나 기존 끝점을 사용하여 작업을 다시 시도합니다. |없음 |
 | 서로 다른 두 지역에 백업 저장소와 대상 저장소 계정이 있습니다. 복원 작업에서 지정된 저장소 계정이 백업 저장소와 동일한 Azure 지역에 있는지 확인합니다. |없음 |
 | 복원 작업에 대해 지정된 저장소 계정은 지원되지 않습니다. 로컬 중복 또는 지리적 중복 복제 설정이 있는 기본/표준만 저장소 계정만 지원됩니다. 지원되는 저장소 계정을 선택하세요. |없음 |
 | 복원 작업에 지정된 저장소 계정 유형은 온라인 상태가 아닙니다. 복원 작업에 지정된 저장소 계정이 온라인 상태인지 확인하세요. |이는 Azure 저장소의 일시적인 오류 또는 가동 중지로 인해 발생할 수 있습니다. 다른 저장소 계정을 선택하세요. |
-| 리소스 그룹 할당량에 도달했습니다. Azure 포털의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘리세요. |없음 |
+| 리소스 그룹 할당량에 도달했습니다. Azure Portal의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘리세요. |없음 |
 | 선택한 서브넷이 존재하지 않습니다. 존재하는 서브넷을 선택하세요. |없음 |
 | 백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 문제를 해결하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그 후에는 [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다. |
 
@@ -98,12 +102,12 @@ ms.lasthandoff: 09/05/2017
 Windows VM의 경우
 
 * [에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다.
-* 클래식 가상 컴퓨터의 경우 [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. Resource Manager 가상 컴퓨터의 경우 이 단계가 필요하지 않습니다.
+* 클래식 가상 컴퓨터의 경우 [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. 리소스 관리자 가상 컴퓨터의 경우 이 단계가 필요하지 않습니다.
 
 Linux VM의 경우
 
 * 배포 리포지토리에서 최신 버전을 설치합니다. 배포 리포지토리를 사용할 때만 에이전트를 설치할 것을 **강력히 권장**합니다. 패키지 이름에 대한 자세한 내용은 [Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent)를 참조하세요. 
-* 클래식 VM의 경우 [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. Resource Manager 가상 컴퓨터의 경우 이 단계가 필요하지 않습니다.
+* 클래식 VM의 경우 [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. 리소스 관리자 가상 컴퓨터의 경우 이 단계가 필요하지 않습니다.
 
 ### <a name="updating-the-vm-agent"></a>VM 에이전트 업데이트
 Windows VM의 경우

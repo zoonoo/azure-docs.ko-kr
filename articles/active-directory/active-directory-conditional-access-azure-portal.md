@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
@@ -60,31 +60,22 @@ Azure Active Directory 조건부 액세스의 컨텍스트에서
 
 조건부 액세스 정책에서 제어 문은 조건 문을 충족할 때 발생해야 하는 상황을 정의합니다.  
 제어 문을 사용하면 추가 요구 사항에 따라 액세스를 차단하거나 액세스를 허용할 수 있습니다.
-액세스를 허용하는 정책을 구성할 때는 요구 사항을 하나 이상 선택해야 합니다.   
+액세스를 허용하는 정책을 구성할 때는 요구 사항을 하나 이상 선택해야 합니다.  
 
-### <a name="grant-controls"></a>권한 부여 컨트롤
+두 가지 형식의 컨트롤이 있습니다. 
+
+- **권한 부여 컨트롤** - 권한 부여 컨트롤은 사용자가 인증을 완료하고 로그인을 시도하는 리소스에 도달할 수 있는지 여부를 제어합니다. 여러 컨트롤을 선택한 경우 정책이 처리될 때 모든 컨트롤이 필요한지 여부를 구성할 수 있습니다.
 Azure Active Directory의 현재 구현을 사용하면 다음 권한 부여 컨트롤 요구 사항을 구성할 수 있습니다.
 
-![제어](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![제어](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **다단계 인증**: 다단계 인증을 통해 강력한 인증을 요구할 수 있습니다. AD FS(Active Directory Federation Service)와 결합된 Azure Multi-Factor 또는 온-프레미스 다단계 인증 공급자를 공급자로 사용할 수 있습니다. 다단계 인증을 사용하면 유효한 사용자의 자격 증명에 액세스 할 수 있는 권한이 없는 사용자가 리소스에 액세스하지 못하도록 방지할 수 있습니다.
+- **세션 컨트롤** - 세션 컨트롤을 통해 클라우드 앱 내에서 환경을 제한할 수 있습니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
 
-- **준수 장치** - 장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 신뢰할 수 있는 장치에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 신뢰할 수 있는 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 구성](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
+    ![제어](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **도메인 가입 장치** – 장치 기반 조건부 액세스 정책을 구성해야 하는 또 다른 옵션은 도메인 조인 장치가 필요합니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 구성](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
 
-여러 컨트롤을 선택한 경우 정책이 처리될 때 모든 컨트롤이 필요한지 여부도 구성할 수 있습니다.
+자세한 내용은 [Azure Active Directory 조건부 액세스의 컨트롤](active-directory-conditional-access-controls.md)를 참조하세요.
 
-![제어](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>세션 컨트롤
-세션 컨트롤을 통해 클라우드 앱 내에서 환경을 제한할 수 있습니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
-
-![제어](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>앱에서 적용된 제한 사항 사용
-이 컨트롤을 사용하여 Azure AD가 장치 정보를 클라우드 앱에 전달하도록 할 수 있습니다. 클라우드 앱은 이 컨트롤을 통해 사용자가 규격 장치 또는 도메인 가입 장치에서 들어오는지 확인합니다. 이 컨트롤은 현재 SharePoint를 통해 클라우드 앱으로만 지원됩니다. SharePoint에서는 장치 정보를 사용하여 사용자에게 장치 상태에 따라 제한된 환경이나 전체 환경을 제공합니다.
-SharePoint를 통해 제한된 액세스를 요구하는 방법을 알아보려면 [관리되지 않은 장치에서 액세스 제어](https://aka.ms/spolimitedaccessdocs)를 참조하세요.
 
 ## <a name="condition-statement"></a>조건 문
 

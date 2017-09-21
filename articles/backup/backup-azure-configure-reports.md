@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/24/2017
+ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="configure-storage-account-for-reports"></a>보고서에 대한 저장소 계정 구성
 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에 대한 저장소 계정을 구성하려면 다음 단계를 따르세요. 이는 일회성 구성이며 저장소 계정이 구성되면 Power BI로 직접 이동하여 콘텐츠 팩을 확인하고 보고서를 활용할 수 있습니다.
-1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. 복구 서비스 자격 증명 모음이 열려 있지 않지만 Azure 포털에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
+1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. 복구 서비스 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
 
    * 리소스 목록에서 **복구 서비스**를 입력합니다.
    * 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**이 표시되면 클릭합니다.
@@ -110,7 +110,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
-1. **보고 데이터가 저장소 계정으로 흐름기 시작했는지 확인하려면 어떻게 하나요?**
+1. **보고 데이터가 저장소 계정으로 흐르기 시작했는지 확인하려면 어떻게 하나요?**
     
     구성된 저장소 계정으로 이동한 다음 컨테이너를 선택할 수 있습니다. 컨테이너에 insights-logs-azurebackupreport에 대한 항목이 있으면 보고 데이터가 흐르기 시작한 것입니다.
 
@@ -140,6 +140,12 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 
    예, 다양한 자격 증명 모음에 동일한 저장소 계정을 구성하여 자격 증명 모음 간 보고서를 볼 수 있습니다. 여러 구독의 자격 증명 모음에 대해 동일한 저장소 계정을 구성할 수도 있습니다. 그런 다음 Power BI에서 Azure Backup 콘텐츠 팩에 연결하는 동안 이 저장소 계정을 사용하여 보고서를 볼 수 있습니다. 그러나 선택한 저장소 계정이 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
    
+## <a name="troubleshooting-errors"></a>문제 해결 오류
+| 오류 세부 정보 | 해결 방법 |
+| --- | --- |
+| 백업 보고서의 저장소 계정을 설정한 후에도 **저장소 계정**에 계속 **구성되지 않음**이 표시됩니다. | 저장소 계정을 성공적으로 구성한 경우 이 문제가 있더라고 보고 데이터는 전송됩니다. 이 문제를 해결하려면 Azure Portal > More Services > Diagnostic settings > RS vault > Edit Setting으로 이동합니다. 이전에 구성한 설정을 삭제하고 동일한 블레이드로부터 새 설정을 만듭니다. 이때 **이름** 필드를 **서비스**로 설정합니다. 이렇게 하면 구성된 저장소 계정이 표시됩니다. |
+|Power BI에서 Azure Backup 콘텐츠 팩을 가져오면 **404- container is not found** 오류가 나타납니다. | 이 문서에서 제시된 대로 복구 서비스 자격 증명 모음에서 보고서를 구성한 후 24시간 동안 기다려야 Power BI에서 올바르게 표시됩니다. 24시간 전에 보고서에 액세스하려는 경우 이 유효한 보고서를 표시하기에는 아직 완전한 데이터가 제공되지 않았기 때문에 이 오류가 나타납니다. |
+
 ## <a name="next-steps"></a>다음 단계
 이제 저장소 계정을 구성하고 Azure Backup 콘텐츠 팩을 가져왔으므로 다음 단계는 이러한 보고서를 사용자 지정하고 보고 데이터 모델을 사용하여 보고서를 만드는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 

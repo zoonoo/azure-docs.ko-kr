@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/11/2017
 각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure Search 인덱스를 채울 수 있습니다.
 
 > [!IMPORTANT]
-> JSON 배열 구문 분석 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview**버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> JSON 배열 구문 분석 기능은 현재 미리 보기 상태입니다. **2016-09-01-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 

@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
@@ -980,7 +980,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 * *az login*을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>*를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk#create 참조
+* (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk#az_disk_create 참조
 * *az vm create* 및 매개 변수 *--attach-os-disk*를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
 * *az vm disk attach* 및 매개 변수 *--new*를 사용하여 새 VM에 데이터 디스크 추가
 
@@ -1009,7 +1009,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *az login*을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>*를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image#create
+* (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image#az_image_create
 * *az vm create* 및 매개 변수 *--image*를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**

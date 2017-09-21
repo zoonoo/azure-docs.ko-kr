@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
@@ -124,7 +124,7 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성 저장 단추](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. **Absorb LMS 구성** 섹션에서 **Absorb LMS 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+7. **Absorb LMS 구성** 섹션에서 **Absorb LMS 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL**을 복사합니다.
 
     ![Absorb LMS 구성](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. 적절한 **모드**를 선택합니다.
+    a. **ID 공급자 시작됨**을 선택합니다.
 
-    b. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거하고 나머지 내용을 **Key** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 다운로드한 인증서를 메모장에서 열고, **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거하고, 나머지 내용을 **Key** 텍스트 상자에 붙여넣습니다.
     
     c. **ID 속성**에서, Azure AD에서 사용자 식별자로 구성한 해당 특성을 선택합니다. 예를 들어 Azure AD에서 userprinciplename을 선택한 경우 여기서도 Username을 선택합니다.
 
-    d. **로그인 URL**에서, Azure Portal의 **로그온 구성** 창에서 복사한 **“SAML Single Sign-On 서비스 URL”** 값을 붙여넣습니다.
+    d. Azure Portal 응용 프로그램 **속성** 페이지의 **사용자 액세스 URL**을 **로그인 URL**에 붙여넣습니다.
 
-    e. **로그아웃 URL**에서, Azure Portal의 **로그온 구성** 창에서 복사한 **“로그아웃 URL”** 값을 붙여넣습니다.
+    e. Azure Portal의 **로그온 구성** 창에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL**에 붙여넣습니다.
 
 13. **‘Only Allow SSO Login’**(SSO 로그인만 허용)을 사용하도록 설정합니다.
 
@@ -276,6 +276,7 @@ Absorb LMS의 경우 프로비전은 수동 작업입니다.
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

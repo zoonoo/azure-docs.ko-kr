@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 23a4a82dbdb611f4da90562af936fca28da9b24d
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>DocumentDB API용 Azure Cosmos DB로 어떻게 데이터를 가져오나요?
+# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>DocumentDB API를 사용하여 Azure Cosmos DB로 데이터를 가져오는 방법
 
 이 자습서에서는 JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB DocumentDB API 컬렉션을 비롯한 다양한 원본에서 Azure Cosmos DB 및 DocumentDB API로 데이터를 가져올 수 있는 Azure Cosmos DB: DocumentDB API 데이터 마이그레이션 도구 사용 지침을 제공합니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 DocumentDB API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
 

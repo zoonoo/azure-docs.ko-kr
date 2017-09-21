@@ -1,6 +1,6 @@
 ---
-title: "HDInsight에서 대화형 Hive 사용 - Azure | Microsoft Docs"
-description: "HDInsight에서 대화형 Hive(LLAP에서 Hive)를 사용 하는 방법에 대해 알아봅니다."
+title: "Azure HDInsight에서 Interactive Hive 사용 | Microsoft Docs"
+description: "HDInsight에서 Interactive Hive(Hive LLAP)를 사용하는 방법을 알아봅니다."
 keywords: 
 services: hdinsight
 documentationcenter: 
@@ -18,52 +18,52 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: fa8b4126865788549217d89f19627f20739f8540
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6c4e3d0e97eb9ad4500d684c7da3b19c5669994f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="use-interactive-hive-in-hdinsight-preview"></a>HDInsight에서 대화형 Hive 사용(미리 보기)
-대화형 Hive(즉, [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP))는 새로운 HDInsight [클러스터 유형](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다.  대화형 Hive에서는 메모리 내 캐싱이 가능하여 Hive 쿼리의 대화형 방식을 강화하고 빠르게 만들 수 있습니다. 이 새로운 기능은 HDInsight를 세계에서 가장 효율적이고 유연하며, 메모리 내 캐시(Hive 및 Spark 사용) 및 R 서비스와 긴밀히 통합된 고급 분석을 갖춘 클라우드 기반의 개방된 빅 데이터 솔루션으로 만드는 요소 중 하나입니다. 
+# <a name="use-interactive-hive-with-hdinsight-preview"></a>HDInsight에서 Interactive Hive 사용(미리 보기)
+Interactive Hive(Hive LLAP 또는 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 새로운 Azure HDInsight [클러스터 유형](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Hive에서는 메모리 내 캐싱을 지원하여 Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 
 
-대화형 Hive 클러스터는 Hadoop 클러스터와는 다릅니다. Hive 서비스만 포함합니다. 
+Interactive Hive 클러스터는 Hadoop 클러스터와 다릅니다. Hive 서비스만 포함합니다. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie 및 기타 서비스는 이 클러스터 유형에서 곧 제거됩니다.
-> 대화형 Hive 클러스터의 Hive 서비스는 Ambari Hive View, Beeline 및 Hive ODBC를 통해서만 액세스할 수 있습니다. Hive 콘솔, Templeton, Azure CLI 및 Azure PowerShell을 통해서는 액세스할 수 없습니다. 
+> MapReduce, Pig, Sqoop, Oozie 및 기타 서비스는 이 클러스터 유형에서 곧 제거될 예정입니다.
+> Interactive Hive 클러스터의 Hive 서비스는 Ambari Hive 보기, Beeline 및 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 통해서만 액세스할 수 있습니다. Hive 콘솔, Templeton, Azure CLI(Azure 명령줄 도구) 또는 Azure PowerShell을 통해서는 액세스할 수 없습니다. 
 > 
 > 
 
 ## <a name="create-an-interactive-hive-cluster"></a>대화형 Hive 클러스터 만들기
-대화형 Hive 클러스터는 Linux 기반 클러스터에서만 지원됩니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+Interactive Hive 클러스터는 Linux 기반 클러스터에서만 사용할 수 있습니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-## <a name="execute-hive-from-interactive-hive"></a>대화형 Hive에서 Hive 실행
-Hive 쿼리를 실행하는 방식에 대한 다양한 옵션이 있습니다.
+## <a name="execute-hive-queries-from-interactive-hive"></a>Interactive Hive에서 Hive 쿼리 실행
+Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
 
-* Ambari Hive View를 사용하여 Hive 실행
+* Ambari Hive 보기를 사용하여 Hive 실행
   
-    Hive View 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive View 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
+    Hive 보기 사용에 대한 자세한 내용은 [HDInsight의 Hadoop에서 Hive 보기 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 * Beeline을 사용하여 Hive 실행
   
-    HDInsight에서 Beeline 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
+    HDInsight에서 Beeline 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight의 Hadoop에서 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
   
-    헤드 노드 또는 빈 에지 노드에서 Beeline을 사용합니다.  빈 에지 노드에서 Beeline을 사용하는 것이 좋습니다.  빈 에지 노드로 HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
+    헤드 노드 또는 빈 에지 노드에서 Beeline을 사용할 수 있습니다. 빈 에지 노드에서 Beeline을 사용하는 것이 좋습니다. 빈 에지 노드를 사용하여 HDInsight 클러스터를 만드는 방법에 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
 * Hive ODBC를 사용하여 Hive 실행
   
     Hive ODBC 사용에 대한 자세한 내용은 [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
-**JDBC 연결 문자열을 찾으려면:**
+JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수행합니다.
 
-1. 다음 URL을 사용하여 Ambari에 로그인합니다. https://<ClusterName>.AzureHDInsight.net.
-2. 왼쪽 메뉴에서 **Hive** 를 클릭합니다.
-3. 강조 표시된 아이콘을 클릭하여 URL을 복사합니다.
+1. https://\<cluster name\>.AzureHDInsight.net URL을 사용하여 Ambari에 로그인합니다.
+2. 왼쪽 메뉴에서 **Hive**를 선택합니다.
+3. URL을 복사하려면 클립보드 아이콘을 선택합니다.
    
    ![HDInsight Hadoop 대화형 Hive LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="see-also"></a>참고 항목
-* [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md): HDInsight에서 대화형 Hive 클러스터를 만드는 방법을 알아봅니다.
-* [Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md): Beeline을 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다.
-* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md): Excel을 Hive에 연결하는 방법을 알아봅니다.
+## <a name="next-steps"></a>다음 단계
+* [HDInsight에서 Interactive Hive 클러스터를 만드는 방법](hdinsight-hadoop-provision-linux-clusters.md)을 알아봅니다.
+* [Beeline을 사용하여 HDInsight에서 Hive 쿼리를 제출하는 방법](hdinsight-hadoop-use-hive-beeline.md)을 알아봅니다.
+* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel을 연결하는 방법](hdinsight-connect-excel-hive-odbc-driver.md)을 알아봅니다.
 
 

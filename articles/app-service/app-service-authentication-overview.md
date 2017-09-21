@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 앱 서비스의 인증 및 권한 부여
@@ -30,7 +31,6 @@ ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
 
 * [iOS 앱][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova])에 인증 추가
 * [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
-* [Azure App Service 시작 - 2부][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>앱 서비스에서 인증이 작동하는 방식
 ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 구성하여 응용 프로그램에 대해 알아야 합니다. ID 공급자가 ID 및 암호를 제공하면 사용자는 그 정보를 앱 서비스에 입력해야 합니다. 이로써 앱 서비스가 ID 공급자에서 인증 토큰 같은 사용자 어설션 유효성을 검사할 수 있도록 트러스트 관계를 완료합니다.
@@ -75,7 +75,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 
 앱 서비스 논리 앱에서 API Apps로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스트되는 사용자 지정 API 사용](../logic-apps/logic-apps-custom-hosted-api.md)에 구체적으로 설명된 특수 사례입니다.
 
-## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>앱 서비스에서 권한 부여가 작동하는 방식
+## <a name="authorization"></a>앱 서비스에서 권한 부여가 작동하는 방식
 응용 프로그램에 액세스할 수 있는 요청을 완벽하게 제어할 수 있습니다. 다음 동작 중 하나로 앱 서비스 인증/권한 부여를 구성할 수 있습니다.
 
 * 인증된 요청만 응용 프로그램에 도달하도록 허용합니다.
@@ -90,7 +90,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
   
     이 경우 인증/권한 부여 기능이 꺼집니다. 인증 및 권한 부여 작업이 전적으로 응용 프로그램 코드에 의해 처리됩니다.
 
-이전 동작은 Azure 포털의 **요청이 인증되지 않은 경우에 수행할 동작**을 통해 제어됩니다. *공급자 이름*으로 로그인**을 선택하는 경우 모든 요청은 인증되어야 합니다. **요청 허용(작업 없음)**은 코드에 대한 권한 부여 결정을 연기하지만 여전히 인증 정보를 제공합니다. 코드에서 모든 항목을 처리하게 하려는 경우 인증/권한 부여 기능을 비활성화할 수 있습니다.
+이전 동작은 Azure 포털의 **요청이 인증되지 않은 경우에 수행할 동작**을 통해 제어됩니다. ***공급자 이름*으로 로그인**을 선택하는 경우 모든 요청이 인증되어야 합니다. **요청 허용(작업 없음)**은 코드에 대한 권한 부여 결정을 연기하지만 여전히 인증 정보를 제공합니다. 코드에서 모든 항목을 처리하게 하려는 경우 인증/권한 부여 기능을 비활성화할 수 있습니다.
 
 ## <a name="working-with-user-identities-in-your-application"></a>응용 프로그램에서 사용자 ID 사용
 앱 서비스는 특수 헤더를 사용하여 일부 사용자 정보를 응용 프로그램에 전달합니다. 외부 요청은 이러한 헤더를 금지하며 앱 서비스 인증/권한 부여를 통해 설정된 경우에만 존재합니다. 다음은 이러한 헤더의 예입니다.
@@ -159,8 +159,6 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
-
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
 [Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
@@ -180,9 +178,4 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

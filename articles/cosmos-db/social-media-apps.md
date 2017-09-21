@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a761249e7345991bd570cde6170515fafd692d61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
@@ -240,7 +240,7 @@ Cosmos DB는 지정된 **파티션 키**(문서의 특성 중 하나로 정의�
 
 Cosmos DB를 사용하면 몇 번의 클릭으로 투명하게 [데이터를 전역으로 복제](../cosmos-db/tutorial-global-distribution-documentdb.md)하고 [클라이언트 코드](../cosmos-db/tutorial-global-distribution-documentdb.md)에서 사용 가능한 지역 중 하나를 자동으로 선택할 수 있습니다. 즉, [여러 장애 조치 지역](regional-failover.md)을 사용할 수 있습니다. 
 
-전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 [성능 구성](../app-service-web/web-sites-traffic-manager.md)을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 Cosmos DB 복제본에 연결됩니다.
+전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 성능 구성을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 Cosmos DB 복제본에 연결됩니다.
 
 ![소셜 플랫폼에 전역적 적용 범위 추가](./media/social-media-apps/social-media-apps-global-replicate.png)
 

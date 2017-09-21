@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
-탄력적 데이터베이스 쿼리 기능(미리 보기)을 사용하면 Azure SQL Database에서 여러 데이터베이스에 걸쳐 있는 TRANSACT-SQL 쿼리를 실행할 수 있습니다. 이를 통해 데이터베이스 간 쿼리를 수행하여 원격 테이블에 액세스하고 Microsoft와 타사 도구(Excel, PowerBI, Tableau 등)를 연결하여 여러 데이터베이스의 데이터 계층 전체를 쿼리할 수 있습니다. 이 기능을 사용하여 SQL Database에서 큰 데이터 계층에 대한 쿼리를 확장할 수 있으며 비즈니스 인텔리전스 (BI) 보고서의 결과를 시각화할 수도 있습니다.
+탄력적 데이터베이스 쿼리 기능(미리 보기)을 사용하면 Azure SQL Database에서 여러 데이터베이스에 걸쳐 있는 TRANSACT-SQL 쿼리를 실행할 수 있습니다. 이를 통해 데이터베이스 간 쿼리를 수행하여 원격 테이블에 액세스하고 Microsoft와 타사 도구(Excel, PowerBI, Tableau 등)를 연결하여 여러 데이터베이스의 데이터 계층 전체를 쿼리할 수 있습니다. 이 기능을 사용하여SQL 데이터베이스에서 큰 데이터 계층에 대한 쿼리를 확장할 수 있으며 비즈니스 인텔리전스 (BI) 보고서의 결과를 시각화할 수도 있습니다.
 
 
 ## <a name="why-use-elastic-queries"></a>탄력적 쿼리를 사용하는 이유
 
-**Azure SQL Database**
+**Azure SQL 데이터베이스**
 
 완전히 T-SQL로 Azure SQL 데이터베이스에서 쿼리합니다. 이렇게 하면 원격 데이터베이스의 읽기 전용 쿼리가 가능합니다. 이 기능은 현재 온-프레미스 SQL Server 고객에게 3부분 및 4부분 이름이나 SQL DB 연결 서버를 사용하여 응용 프로그램을 마이그레이션하는 옵션을 제공합니다.
 
@@ -49,20 +49,20 @@ ms.lasthandoff: 08/17/2017
 
 ## <a name="elastic-query-scenarios"></a>탄력적 쿼리 시나리오
 
-목표는 여러 데이터베이스를 통해 하나의 전체적인 결과를 얻을 수 있도록 쿼리 시나리오를 간소화하는 것입니다. 쿼리는 사용자 또는 응용 프로그램에서 직접 작성할 수도 있고 데이터베이스에 연결된 도구를 통해 간접적으로 작성할 수도 있습니다. 이것은 보고서를 만들거나, 유료 BI 또는 데이터 통합 도구나 변경할 수 없는 모든 소프트웨어를 사용할 때 특히 유용합니다. 탄력적 쿼리와 함께 Excel, PowerBI, Tableau, 혹은 Cognos같은 친숙한 SQL 서버 안의 연결 환경 도구를 사용해 여러 데이터베이스를 쿼리할 수 있습니다.
+목표는 여러 데이터베이스를 통해 하나의 전체적인 결과를 얻을 수 있도록 쿼리 시나리오를 간소화하는 것입니다. 쿼리는 사용자 또는 응용 프로그램에서 직접 작성할 수도 있고 데이터베이스에 연결된 도구를 통해 간접적으로 작성할 수도 있습니다. 이것은 보고서를 만들거나, 유료 BI 또는 데이터 통합 도구나 변경할 수 없는 모든 소프트웨어를 사용할 때 특히 유용합니다. 탄력적 쿼리와 함께 Excel, PowerBI, Tableau 또는 Cognos 같은 친숙한 SQL Server 안의 연결 환경 도구를 사용해 여러 데이터베이스를 쿼리할 수 있습니다.
 탄력적 쿼리는 또한 SQL Server Management Studio 또는 Visual Studio에서 발급하는 쿼리를 통해 전체 데이터베이스 컬렉션에 쉽게 액세스할 수 있으며, Entity Framework 또는 기타 ORM 환경에서 데이터 베이스 간 쿼리를 수월하게 해줍니다. 그림 1에서는 기존 클라우드 응용 프로그램( [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)사용)이 수평 확장 데이터 계층에서 구축되고, 탄력적 쿼리가 데이터베이스 간 보고에 사용되는 것을 보여 줍니다.
 
 **그림 1** 수평 확장된 데이터 계층에서 사용하는 탄력적 쿼리
 
 ![수평 확장된 데이터 계층에서 사용하는 탄력적 쿼리][1]
 
-탄력적 쿼리의 고객 시나리오는 다음 포톨로지로 구분됩니다.
+탄력적 쿼리의 고객 시나리오는 다음 토폴로지로 구분됩니다.
 
 * **수직 분할 – 데이터베이스 간 쿼리** (토폴로지 1): 한 데이터 계층의 많은 데이터베이스 간에 데이터를 수직으로 분할합니다. 일반적으로 서로 다른 테이블 집합이 서로 다른 데이터베이스에 상주합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 이 토폴로지의 일반적인 사용 사례에서는 여러 데이터베이스의 테이블에서 쿼리하거나 보고서를 컴파일해야 합니다.
 * **행 분할 – 분할** (토폴로지 2): 데이터가 수평 확장된 데이터 계층에서 수평으로 배포되기 위해 분할됩니다. 이 방법에서는 스키마가 모든 분할 데이터베이스에서 동일합니다. 이 방법을 "분할"이라고도 합니다. 분할은 (1)탄력적 데이터베이스 도구 라이브러리 또는 (2)자체 분할을 사용하여 수행 및 관리됩니다. 탄력적 쿼리는 여러 분할에서 보고서를 쿼리 또는 컴파일하는 데 사용됩니다.
 
 > [!NOTE]
-> 탄력적 쿼리는 대부분의 처리 데이터 계층에서 수행할 수 있는 부차적인 보고 시나리오에 가장 적합합니다. 쿼리가 보다 복잡한 과도한 보고 작업 부하 또는 데이터 웨어하우징 시나리오의 경우, [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)사용을 고려합니다.
+> 탄력적 쿼리는 대부분의 처리 데이터 계층에서 수행할 수 있는 부차적인 보고 시나리오에 가장 적합합니다. 쿼리가 보다 복잡한 과도한 보고 작업 부하 또는 데이터 웨어하우징 시나리오의 경우, [Azure SQL 데이터 웨어하우스](https://azure.microsoft.com/services/sql-data-warehouse/)사용을 고려합니다.
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>수직 분할 – 데이터베이스 간 쿼리
@@ -94,10 +94,10 @@ ms.lasthandoff: 08/17/2017
 * [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **RDBMS**
 * [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
-DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 자동으로 원격 데이터베이스에 대한 연결을 실행하고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
+DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL 데이터베이스는 자동으로 원격 데이터베이스에 대한 연결을 실행하고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
 
 ## <a name="horizontal-partitioning---sharding"></a>행 분할 - 분할
-탄력적 쿼리를 사용하여 분할, 즉 행 분할된 데이터 계층에서 보고 작업을 수행하려면 [탄력적 데이터베이스 분할 맵](sql-database-elastic-scale-shard-map-management.md) 이 데이터 계층의 데이터베이스를 나타내야 합니다. 일반적으로 이 시나리오에서는 하나의 분할 된 데이터베이스 맵은 시나리오에서 사용되고 보고 쿼리에 대한 진입점으로 탄력적 쿼리 기능(헤드 노드)을 사용하여 전용된 데이터베이스 역할을 합니다. 이 전용 데이터베이스만 분할 맵 액세스가 필요합니다. 그림 4에서는 이 토폴로지와 탄력적 쿼리 데이터베이스 및 분할 맵 사용하여 해당 구성을 보여줍니다. 데이터 계층의 데이터베이스는 아무 Azure SQL Database 버전이나 가능합니다. 탄력적 데이터베이스 클라이언트 라이브러리 및 분할 맵 만들기에 대한 자세한 내용은 [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
+탄력적 쿼리를 사용하여 분할, 즉 행 분할된 데이터 계층에서 보고 작업을 수행하려면 [탄력적 데이터베이스 분할 맵](sql-database-elastic-scale-shard-map-management.md) 이 데이터 계층의 데이터베이스를 나타내야 합니다. 일반적으로 이 시나리오에서는 하나의 분할 된 데이터베이스 맵은 시나리오에서 사용되고 보고 쿼리에 대한 진입점으로 탄력적 쿼리 기능(헤드 노드)을 사용하여 전용된 데이터베이스 역할을 합니다. 이 전용 데이터베이스만 분할 맵 액세스가 필요합니다. 그림 4에서는 이 토폴로지와 탄력적 쿼리 데이터베이스 및 분할 맵 사용하여 해당 구성을 보여줍니다. 데이터 계층의 데이터베이스는 아무 Azure SQL 데이터베이스 버전이나 가능합니다. 탄력적 데이터베이스 클라이언트 라이브러리 및 분할 맵 만들기에 대한 자세한 내용은 [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
 
 **그림 4** 행 분할 - 탄력적 쿼리를 사용하여 분할된 데이터 계층에 대해 보고
 
@@ -110,11 +110,11 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 * [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 * [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-* 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 데이터 계층을 나타내는 [분할 맵](sql-database-elastic-scale-shard-map-management.md)을 만듭니다.   
+* 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 데이터 계층을 나타내는 [분할 맵](sql-database-elastic-scale-shard-map-management.md) 을 만듭니다.   
 * [CREATE/DROP EXTERNA DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)**SHARD_MAP_MANAGER** 형식의 mydatasource
 * [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
-이 단계를 수행하고 나면 행 분할 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL Database는 테이블이 물리적으로 저장된 원격 데이터베이스에 대해 여러 병렬 연결을 자동으로 열고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
+이 단계를 수행하고 나면 행 분할 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL 데이터베이스는 테이블이 물리적으로 저장된 원격 데이터베이스에 대해 여러 병렬 연결을 자동으로 열고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다.
 행 분할 시나리오에 필요한 단계에 대한 자세한 내용은 [행 분할에 대한 탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md)에서 제공합니다.
 
 코딩을 시작하려면 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](sql-database-elastic-query-getting-started.md)를 참조하세요.
@@ -131,18 +131,18 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 > 
 
 ## <a name="cost"></a>비용
-탄력적 데이터베이스 쿼리는 Azure SQL Database의 비용 안에 포함됩니다. 원격 데이터베이스가 탄력적 끝점과는 다른 데이터 센터에 있는 토폴로지를 지원하나, 원격 데이터베이스에서의 데이터 송신에는 일반 [Azure 요금](https://azure.microsoft.com/pricing/details/data-transfers/)이 부과됩니다.
+탄력적 데이터베이스 쿼리는 Azure SQL 데이터베이스의 비용 안에 포함됩니다. 원격 데이터베이스가 탄력적 끝점과는 다른 데이터 센터에 있는 토폴로지를 지원하나, 원격 데이터베이스에서의 데이터 송신에는 일반 [Azure 요금](https://azure.microsoft.com/pricing/details/data-transfers/)이 부과됩니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 * 표준 성능 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 때 탄력적 쿼리 기능을 로드해야 하며 성능 계층이 높으면 로드 성능이 향상됩니다.
 * 외부 데이터 원본이나, SSMS 또는 SSDT에서의 외부 테이블 스크립팅은 아직 지원되지 않습니다.
-* SQL DB Import/Export는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. Import/Export를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다.
+* SQL DB 가져오기/내보내기는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. 가져오기/내보내기를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다.
 * 탄력적 쿼리는 현재 외부 테이블에 대한 읽기 전용 액세스만 지원합니다. 그러나 외부 테이블이 정의된 데이터베이스에서 전체 T-SQL 기능을 사용할 수 있습니다. 예를 들어, SELECT <column_list> INTO <local_table>을 사용하여 나온 일시적 결과를 유지하거나 외부 테이블을 참조하는 탄력적 쿼리 데이터베이스의 저장 프로시저를 정의할 때 이 기능이 유용합니다.
 * nvarchar(max)를 제외하고 LOB 형식은 외부 테이블 정의에서 지원되지 않습니다. 차선책으로, LOB 형식을 nvarchar(max)로 캐스팅하고, 기준 테이블 대신 뷰에서 외부 테이블을 정의한 다음 다시 쿼리에서 원래의 LOB 형식으로 캐스팅하는 원격 데이터베이스에서 뷰를 만들 수 있습니다.
 * 외부 테이블에 대한 열 통계는 현재 지원되지 않습니다. 테이블 통계는 지원되지만 수동으로 만들어야 합니다.
 
 ## <a name="feedback"></a>사용자 의견
-아래 Disqus, MSDN 포럼 또는 Stackoverflow에서 탄력적 쿼리에 대한 경험과 의견을 나눌 수 있습니다. 모든 종류의 서비스에 대한 사용자 의견에 관심이 있습니다.(결함, 조잡함, 기능의 격차)
+아래 Livefyre, MSDN 포럼 또는 Stackoverflow에서 탄력적 쿼리에 대한 경험과 의견을 나눌 수 있습니다. 모든 종류의 서비스에 대한 사용자 의견에 관심이 있습니다.(결함, 조잡함, 기능의 격차)
 
 ## <a name="next-steps"></a>다음 단계
 

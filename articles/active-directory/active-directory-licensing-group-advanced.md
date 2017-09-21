@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -213,6 +213,8 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 - 사용자가 그룹에서 제거되고 라이선스를 상실하는 경우 해당 라이선스(예: SharePoint Online)의 서비스 계획이 **일시 중단됨** 상태로 설정됩니다. 서비스 계획은 최종 사용 안 함 상태로 설정되지 않습니다. 이 예방 조치를 통해 관리자가 그룹 멤버 자격 관리에서 실수하는 경우 사용자 데이터를 실수로 제거하지 않도록 방지할 수 있습니다.
 
 - 대규모 그룹(예: 100,000명의 사용자)에 대해 라이선스를 할당하거나 수정하면 성능에 영향을 줄 수 있습니다. 특히 Azure AD 자동화에서 생성된 변경 볼륨은 Azure AD와 온-프레미스 시스템 간의 디렉터리 동기화 성능에 부정적인 영향을 줄 수 있습니다.
+
+- 로드가 높은 특정 경우에서 라이선스 처리는 지연될 수 있으며 그룹 라이선스 추가/제거 또는 그룹에서 사용자 추가/제거와 같은 변경 내용은 처리되는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 처리되는 데 24시간 이상이 걸리는 경우 조사를 허용하도록 [지원 티켓을 열어](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)주세요. *일반 공급*에 도달하기 전에 이 기능의 성능 특징을 향상시킬 예정입니다.
 
 - 라이선스 관리 자동화는 모든 유형의 환경 변경 사항에 자동으로 응답하지 않습니다. 예를 들어 라이선스가 부족하여 일부 사용자가 오류 상태에 있을 수 있습니다. 사용 가능한 사용자 수를 확보하기 위해 직접 할당된 일부 라이선스를 다른 사용자에게서 제거할 수 있습니다. 그러나 시스템은 이러한 변경에 자동으로 대응하지 않고 해당 오류 상태에 있는 사용자를 수정합니다.
 

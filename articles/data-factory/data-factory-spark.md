@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 859035598831c1019304973a435de8f9276c9002
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
@@ -230,7 +230,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 
     ![Jupyter 쿼리 결과](media/data-factory-spark/jupyter-notebook-results.png)
 
-자세한 지침은 [Spark SQL 쿼리 실행](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) 섹션을 참조하세요. 
+자세한 지침은 [Spark SQL 쿼리 실행](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요. 
 
 ### <a name="troubleshooting"></a>문제 해결
 **getDebugInfo**를 **Always**로 설정한 후에는 Azure Blob 컨테이너의 **pyFiles** 폴더에 **log** 하위 폴더가 표시됩니다. 로그 폴더의 로그 파일에서 추가 세부 정보를 제공합니다. 이 로그 파일은 오류가 발생할 때 특히 유용합니다. 프로덕션 환경에서는 이 오류를 **실패**로 설정할 수 있습니다.
