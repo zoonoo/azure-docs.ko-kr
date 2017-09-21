@@ -1,12 +1,17 @@
 # 개요
 ## [개발자 가이드](azure-developer-guide.md) 
+### [Azure란?](azure-developer-guide.md#what-is-azure)
+### [시작 위치](azure-developer-guide.md#where-do-i-start)
+### [Azure 지역](azure-developer-guide.md#azure-regions)
+### [응용 프로그램 및 프로젝트 관리 방법](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [계정, 구독 및 청구 이해](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Azure 서비스 개요](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [포털 개요](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Azure 서비스 개요](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [포털 개요](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 빠른 시작
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [웹앱](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## 가상 컴퓨터
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # 자습서
 ## 웹앱 만들기 및 배포
-### [SQL DB를 사용하는 .NET](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Mongo DB를 사용하는 Node.js](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [MySQL을 사용하는 PHP](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [MySQL을 사용하는 Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [SQL DB를 사용하는 .NET](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Mongo DB를 사용하는 Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [MySQL을 사용하는 PHP](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [MySQL을 사용하는 Java](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## 복잡한 VM 템플릿 배포
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # 샘플
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [웹앱](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [웹앱](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # 개념
 ## [청구 및 구독](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [호스팅 비교](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [App Service란?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [호스팅 비교](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [App Service란?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## 가상 컴퓨터
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Service Fabric 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # 방법 가이드
-## [계획](https://docs.microsoft.com/azure/architecture/guide/)
+## 계획
 ### [웹 응용 프로그램 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [온-프레미스 네트워크에 연결](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [서버를 사용하지 않는 앱](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [마이크로 서비스 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## 배포
-### [소스 제어에서 웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [소스 제어에서 웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [로컬 마이크로 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [메시지 큐](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## 확장
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [가상 컴퓨터](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [마이크로 서비스 앱](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## 보안
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## 백업
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [가상 컴퓨터](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## 모니터
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [마이크로 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [청구 경고](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## 자동화
-### [Agile 웹앱 개발](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Linux VM 크기 조정](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Windows VM 크기 조정](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

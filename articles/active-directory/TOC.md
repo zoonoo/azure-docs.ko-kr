@@ -42,6 +42,7 @@
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
+#### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 ### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [내 앱 모두 보기](active-directory-coreapps-view-azure-portal.md)
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
+#### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
+
+## 액세스 검토
+### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [액세스 검토 완료](active-directory-azure-ad-controls-complete-access-review.md)
+### [액세스 검토 만들](active-directory-azure-ad-controls-create-access-review.md)
+### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-access-review.md)
+### [액세스 검토 방법](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)

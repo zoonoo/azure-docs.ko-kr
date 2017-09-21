@@ -27,7 +27,7 @@
 ### [출력 만들기](stream-analytics-define-outputs.md)
 ### [Azure Functions로 출력](stream-analytics-functions-redis.md)
 ### [Data Lake Store로 출력](stream-analytics-data-lake-output.md)
-### [DocumentDB로 출력](stream-analytics-documentdb-output.md)
+### [Cosmos DB 출력](stream-analytics-documentdb-output.md)
 
 ## 모니터링 및 최적화
 ### [경고 추가](stream-analytics-set-up-alerts.md)

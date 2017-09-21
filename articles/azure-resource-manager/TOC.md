@@ -1,5 +1,5 @@
 # 개요
-## [리소스 관리자란?](resource-group-overview.md)
+## [Resource Manager란?](resource-group-overview.md)
 ## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
 ## [구독 거버넌스](resource-manager-subscription-governance.md)
@@ -95,10 +95,24 @@
 ## 문제 해결
 ### [일반적인 배포 오류](resource-manager-common-deployment-errors.md)
 ### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
-### [RequestDisallowedByPolicy 오류](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### 오류 해결
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 가상 컴퓨터 배포 오류
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [배포 문제](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [프로비저닝 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [일반적인 오류 메시지](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [프로비저닝 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [일반적인 오류 메시지](../virtual-machines/windows/error-messages.md)
 
 # 참조
 ## [템플릿 형식](/azure/templates/)

@@ -12,8 +12,9 @@
 ### [1- .NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)
 
-## 앱 리프트 앤 시프트
+## 기존 .NET 앱 컨테이너화
 ### [1- Azure에서 보안 클러스터 만들기](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Docker Compose를 사용하여 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
 
@@ -253,7 +254,7 @@
 #### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
-##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)

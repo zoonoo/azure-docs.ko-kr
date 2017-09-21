@@ -32,12 +32,13 @@
 ##### [Intel NUC를 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## 확장된 IoT 시나리오
 ### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
 ### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
 ### [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
-### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
+### [웹앱을 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
 ### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
 ### [Logic Apps를 사용하여 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
-### [장치에서 파일 업로드](iot-hub-csharp-csharp-file-upload.md)
+### [장치에서 파일 업로드]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### 쌍 장치 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-device-management-getstarted.md)
 ### 쌍 속성 사용 방법
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-how-to-configure.md)
 ### 장치 작업을 사용하여 장치 펌웨어 업데이트
 #### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
