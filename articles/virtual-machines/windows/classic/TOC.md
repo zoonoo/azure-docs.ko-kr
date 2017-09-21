@@ -3,7 +3,7 @@
 ## [디스크 및 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [가상 네트워크](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
-## [VM, 웹 사이트 및 클라우드 서비스 비교](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [VM, 웹 사이트 및 클라우드 서비스 비교](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [컨테이너](../../virtual-machines-windows-containers.md)
 
 # 시작

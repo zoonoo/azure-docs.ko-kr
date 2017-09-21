@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: 에이전트 업데이트
               href: update-agent.md
+        - name: 계획된 유지 보수
+          href: maintenance-notifications.md
         - name: 예약된 이벤트
           href: scheduled-events.md
         - name: 모니터 메타데이터

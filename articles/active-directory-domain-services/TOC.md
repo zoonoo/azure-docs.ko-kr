@@ -7,16 +7,15 @@
 ## [호환 가능한 타사 소프트웨어](active-directory-ds-compatible-software.md)
 
 # 시작
-## Azure Portal(미리 보기)
-### [작업 1: 기본 설정 구성](active-directory-ds-getting-started.md)
-### [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
-### [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
-### [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
-### [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
+## [작업 1: 기본 설정 구성](active-directory-ds-getting-started.md)
+## [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
+## [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
+## [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
+## [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
 ## 관리되는 도메인 가입
-### [Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Linux VM 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## 관리되는 도메인 관리

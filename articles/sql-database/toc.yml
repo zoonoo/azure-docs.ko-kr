@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: 비즈니스 연속성
       items:
-        - name: 자격 증명 모음 구성 - 백업
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: 지역에서 복제 - 포털
-          href: sql-database-geo-replication-portal.md
-        - name: 단일 테이블 복구
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: 데이터 로드 및 이동
-      items:
         - name: BCP를 사용하여 데이터 로드
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF를 사용하여 데이터 로드
