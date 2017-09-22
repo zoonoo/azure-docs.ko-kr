@@ -1,6 +1,6 @@
 ---
 title: "Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs"
-description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록"
+description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록."
 author: anirudhcavale
 manager: ashwink
 editor: 
@@ -31,7 +31,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|
 |memory_metric|메모리|바이트|평균|메모리. 범위는 S1의 경우 0-25GB, S2의 경우 0-50GB, S4의 경우 0-100GB임|
@@ -79,7 +79,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |TotalRequests|총 게이트웨이 요청|개수|합계|게이트웨이 요청 수|
 |SuccessfulRequests|성공적인 게이트웨이 요청|개수|합계|성공적인 게이트웨이 요청 수|
@@ -91,13 +91,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |TotalJob|총 작업 수|개수|합계|총 작업 수|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CoreCount|전용된 코어 수|개수|합계|배치 계정의 총 전용 코어 수|
 |TotalNodeCount|전용된 노드 수|개수|합계|배치 계정의 총 전용 노드 수|
@@ -126,7 +126,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |connectedclients|연결된 클라이언트|개수|최대||
 |totalcommandsprocessed|총 작업|개수|합계||
@@ -296,7 +296,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율.|
 |네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수.|
@@ -308,7 +308,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |TotalCalls|총 호출|개수|합계|총 호출 수.|
 |SuccessfulCalls|성공한 호출|개수|합계|성공한 호출 수입니다.|
@@ -322,7 +322,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|
 |네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|
@@ -334,7 +334,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|
 |네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|
@@ -346,7 +346,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 가상 컴퓨터에서 사용 중인 할당된 계산 단위의 백분율|
 |네트워크 인|네트워크 인|바이트|합계|가상 컴퓨터가 모든 네트워크 인터페이스에서 수신한(들어오는 트래픽) 바이트 수|
@@ -358,7 +358,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |DCIApiCalls|Customer Insights API 호출 수|개수|합계||
 |DCIMappingImportOperationSuccessfulLines|매핑 가져오기 작업 성공 줄 수|개수|합계||
@@ -387,7 +387,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |JobEndedSuccess|성공한 작업|개수|합계|성공한 작업의 수입니다.|
 |JobEndedFailure|실패한 작업|개수|합계|실패한 작업 수입니다.|
@@ -398,7 +398,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |TotalStorage|총 저장소|바이트|최대|계정에 저장된 총 데이터 양.|
 |DataWritten|기록된 데이터|바이트|합계|계정에 기록된 총 데이터 양.|
@@ -408,7 +408,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|
 |compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|
@@ -423,7 +423,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|
 |compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|
@@ -438,7 +438,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 장치-클라우드 원격 분석 메시지 수|
 |d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 장치-클라우드 원격 분석 메시지 수|
@@ -500,7 +500,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |INREQS|들어오는 보내기 요청|개수|합계|알림 허브에 대해 들어오는 전체 보내기 요청|
 |SUCCREQ|성공한 요청|개수|합계|네임스페이스에 대한 총 성공한 요청|
@@ -518,7 +518,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |RunsStarted|실행 시작됨|개수|합계|실행 시작된 워크플로 수|
 |RunsCompleted|실행 완료됨|개수|합계|실행 완료된 워크플로 수|
@@ -553,20 +553,20 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |처리량|처리량|초당 바이트 수|평균|Application Gateway에서 제공하는 초당 바이트 수|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |BytesIn|BytesIn|개수|합계|Azure 수신 바이트|
 |BytesOut|BytesOut|개수|합계|Azure 송신 바이트|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |registration.all|등록 작업|개수|합계|성공한 모든 등록 작업(만들기 업데이트 쿼리 및 삭제)입니다. |
 |registration.create|등록 만들기 작업|개수|합계|성공한 모든 등록 만들기의 수입니다.|
@@ -633,7 +633,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |SearchLatency|검색 대기 시간|초|평균|검색 서비스에 대한 평균 검색 대기 시간|
 |SearchQueriesPerSecond|초당 검색 쿼리 수|초당 개수|평균|검색 서비스에 대한 초당 검색 쿼리|
@@ -641,14 +641,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CPUXNS|네임스페이스당 CPU 사용량|백분율|최대|서비스 버스 프리미엄 네임스페이스 CPU 사용량 메트릭|
 |WSXNS|네임스페이스당 메모리 크기 사용|백분율|최대|서비스 버스 프리미엄 네임스페이스 메모리 사용량 메트릭|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |cpu_percent|CPU 비율|백분율|평균|CPU 비율|
 |physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|
@@ -671,7 +671,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |cpu_percent|CPU 비율|백분율|평균|CPU 비율|
 |database_cpu_percent|CPU 비율|백분율|평균|CPU 비율|
@@ -695,7 +695,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
 |database_dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
@@ -704,7 +704,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |ResourceUtilization|SU % 사용률|백분율|최대|SU % 사용률|
 |InputEvents|입력 이벤트|개수|합계|입력 이벤트|
@@ -720,7 +720,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CpuPercentage|CPU 비율|백분율|평균|CPU 비율|
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|
@@ -731,7 +731,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites(Functions 제외)
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CpuTime|CPU 시간|초|합계|CPU 시간|
 |요청|요청|개수|합계|요청|
@@ -752,7 +752,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |BytesReceived|데이터 입력|바이트|합계|데이터 입력|
 |BytesSent|데이터 출력|바이트|합계|데이터 출력|
@@ -764,7 +764,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CpuTime|CPU 시간|초|합계|CPU 시간|
 |요청|요청|개수|합계|요청|
@@ -787,7 +787,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |요청|요청|개수|합계|요청|
 |BytesReceived|데이터 입력|바이트|합계|데이터 입력|
@@ -814,7 +814,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |WorkersTotal|총 작업자|개수|평균|총 작업자|
 |WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|
