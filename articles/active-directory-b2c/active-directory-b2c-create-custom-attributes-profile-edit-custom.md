@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 만들고 사용
@@ -62,7 +62,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 1. **만들기를 선택합니다. 성공적인 완료가 **알림**에 표시됩니다.
 1. 새로 만든 **WebApp-GraphAPI-DirectoryExtensions** 웹 응용 프로그램을 선택합니다.
 1. **필요한 권한** 설정을 선택합니다.
-1. **Windows Active Directory** API를 선택합니다.
+1. **Windows Azure Active Directory** API 선택
 1. **디렉터리 데이터 읽기 및 쓰기** 응용 프로그램 권한을 확인 표시하고 **저장**을 선택합니다.
 1. **사용 권한 부여**를 선택하고 **예**를 확인합니다.
 1. 클립보드에 복사하고 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>에서 다음 ID를 저장합니다.
@@ -235,7 +235,7 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 응용 프로그램으로 다시 전송된 ID 토큰에는 extension_loyaltyId가 앞에 오는 사용자 지정 클레임으로 새로운 확장 속성이 포함됩니다. 예제를 참조하세요.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ## <a name="next-steps"></a>다음 단계
 
-나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 두 TechnicalProfiles는 사용자 개체의 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>아래 나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 두 TechnicalProfiles는 사용자 개체의 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

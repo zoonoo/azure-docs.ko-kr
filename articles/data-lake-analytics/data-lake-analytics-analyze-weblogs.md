@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
@@ -36,9 +35,7 @@ ms.lasthandoff: 06/20/2017
 
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md).
 * **데이터 레이크 분석 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md)를 참조하세요.
-* **데이터 레이크 분석 계정에 샘플 데이터를 업로드합니다.** [샘플 데이터 파일 복사하기](data-lake-analytics-get-started-portal.md)를 참조하세요.
-
-    데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
+* **샘플 데이터 설치.** Azure Portal에서 Data Lake Analytics를 열고 왼쪽 메뉴에서 **샘플 스크립트**를 클릭한 후에 **샘플 데이터 복사**를 클릭합니다. 
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 모든 U-SQL 스크립트를 빌드하거나 테스트하기 전에 먼저 Azure에 연결해야 합니다.

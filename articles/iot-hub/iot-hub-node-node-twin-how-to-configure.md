@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>desired 속성을 사용하여 장치 구성(Node)
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/09/2017
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 0.10.x 이상
+* Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [장치 쌍 시작][lnk-twin-tutorial] 자습서를 수행했으면 이미 IoT Hub 및 **myDeviceId**라는 장치 ID가 있으므로 [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
@@ -96,7 +95,7 @@ ms.lasthandoff: 05/09/2017
    
     **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, desired 속성에서 업데이트를 위한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
    
-    이전 코드에서는 간단히 하기 위해 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
+    간단한 설명을 위해 이전 코드에서는 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
    
    > [!IMPORTANT]
    > Desired 속성 변경 이벤트는 항상 장치 연결시 한 번에 내보내지기 때문에, 모든 작업을 수행하기 전에 Desired 속성에 실제 변경이 있는지 확인해야 합니다.
@@ -170,7 +169,7 @@ ms.lasthandoff: 05/09/2017
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **SetDesiredAndQuery.js** 파일을 만듭니다.
+3. 텍스트 편집기를 사용하여 **setdesiredandqueryapp** 폴더에 새 **SetDesiredAndQuery.js** 파일을 만듭니다.
 4. 다음 코드를 **SetDesiredAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 IoT Hub 연결 문자열을 사용해 **{IoT Hub 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';

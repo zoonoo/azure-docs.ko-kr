@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>원격 분석에 사용자 및 세션 ID를 포함합니다.
 시간이 지남에 따라 사용자를 추적하려면 Application Insights는 식별하는 방법이 필요합니다. 이벤트 도구는 사용자 ID 또는 세션 ID가 필요 없는 유일한 사용 도구입니다.
 
-[여기](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)에서 이러한 ID를 보내기 시작합니다.
+[이 프로세스](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)를 통해 사용자 및 세션 ID 보내기를 시작합니다.
 
 ## <a name="explore-usage-demographics-and-statistics"></a>사용 현황 인구 통계 및 통계 탐색
 사람들이 사용자의 앱을 사용하는 경우, 가장 큰 관심을 갖는 페이지, 사용자가 있는 위치 및 사용하는 브라우저 및 운영 체제를 알아봅니다. 

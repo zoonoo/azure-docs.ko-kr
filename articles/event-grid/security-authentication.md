@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 9bc82e628df5e380db84e22e1f5fd25f75929fdc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -28,7 +28,7 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 WebHook은 Azure Event Grid에서 실시간으로 이벤트를 수신하는 여러 가지 방법 중 하나입니다.
 
-새 이벤트가 전송될 준비가 될 때마다 Event Grid는 본문에서 이벤트를 포함한 WebHook에 HTTP 요청을 보냅니다.
+새 이벤트가 전송될 준비가 될 때마다 Event Grid는 본문에 이벤트가 포함된 HTTP 요청을 WebHook으로 보냅니다.
 
 Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사에 통과하지 못한 WebHook 끝점에 이벤트를 전달하지 않습니다.
  

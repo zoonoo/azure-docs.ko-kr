@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fedc72f8fe1ada9a991d417cc77b8ca659589f55
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
@@ -96,6 +96,99 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 **모든 사용자 경우 모든 클라우드 앱, 모든 장치 플랫폼은 다음과 같습니다.**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
+
+
+
+## <a name="policy-migration"></a>정책 마이그레이션
+
+Azure 클래식 포털에서 구성된 정책이 있는 경우 다음 이유로 인해 Azure Portal로 마이그레이션해야 합니다.
+
+
+- Azure 클래식 포털 정책 및 Azure Portal 정책에 있는 사용자는 두 정책의 요구 사항을 충족해야 합니다. 
+
+- 기존 정책을 마이그레이션하지 않는 경우 액세스 권한을 부여하는 정책을 구현할 수 없게 됩니다.
+
+
+### <a name="migration-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 마이그레이션
+
+이 시나리오에서는 
+
+- 사용자 [Azure 클래식 포털](https://manage.windowsazure.com)에서 다음을 구성했습니다.
+
+    - SharePoint Online
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - 장치 기반 조건부 액세스 정책
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 구성하려고 합니다. 
+ 
+
+#### <a name="configuration"></a>구성 
+
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- 모바일 응용 프로그램 관리 조건부 액세스 정책 추가
+
+
+### <a name="migrating-from-intune"></a>Intune에서 마이그레이션 
+
+이 시나리오에서는
+
+- [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade )에서 구성된 Exchange Online 또는 SharePoint Online 중 하나에 대한 모바일 응용 프로그램 관리 조건부 액세스 정책이 있습니다.
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스를 사용하여 마이그레이션하려고 합니다.
+
+
+#### <a name="configuration"></a>구성 
+ 
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
+
+- 장치 기반 컨트롤 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Azure 클래식 포털 및 Intune에서 마이그레이션
+
+이 시나리오에서는
+
+- 다음이 구성되어 있습니다.
+
+    - **Azure 클래식 포털:** 장치 기반 조건부 
+
+    - **Intune:** 모바일 응용 프로그램 관리 조건부 액세스 정책 
+    
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 사용하여 두 정책을 마이그레이션하려고 합니다.
+
+
+#### <a name="configuration"></a>구성
+
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
+
+- 장치 기반 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
+
+
+
+
+
+
+
+
+
+
 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 146a2e16399a3eeed6b178d72234584c76cc8f51
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>장치-클라우드 통신 지침
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/01/2017
 | 저장 및 검색 | IoT Hub에서 일시적으로 최대 7일 동안 저장합니다. 순차 읽기만 | IoT Hub에서 장치 쌍에 저장합니다. [IoT Hub 쿼리 언어][lnk-query]를 사용하여 검색할 수 있습니다. | 사용자 제공 Azure Storage 계정에 저장됩니다. |
 | 크기 | 최대 256KB 메시지입니다. | 최대 reported 속성 크기는 8KB입니다. | Azure Blob Storage에서 지원하는 최대 파일 크기 |
 | Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. |
-| 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 프로토콜을 사용할 때 사용할 수 있지만 장치에 HTTP가 필요합니다. |
+| 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 장치에 HTTP가 필요합니다. |
 
 응용 프로그램이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에서 사용할 수 있게 할 수도 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
 

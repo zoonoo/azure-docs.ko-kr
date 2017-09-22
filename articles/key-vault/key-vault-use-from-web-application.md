@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: f306784adcb807b399fbfbedf08bffdd2998ed02
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용
@@ -38,7 +37,8 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 * 웹 응용 프로그램. Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 살펴보겠습니다.
 
 > [!NOTE]
-> 이 자습서에 대해 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 에 나열된 단계를 완료하여 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호에 대한 URI가 있어야 합니다.
+>* 이 샘플은 수동으로 AAD ID를 프로비저닝하는 이전 방식을 사용합니다. 현재는 AAD ID를 자동으로 프로비저닝할 수 있는 MSI(관리 서비스 ID)라는 새로운 기능이 미리 보기에 포함되어 있습니다. 자세한 내용은 다음 [링크](https://docs.microsoft.com/azure/active-directory/msi-overview)를 참조하세요. 
+>* 이 자습서에 대해 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 에 나열된 단계를 완료하여 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호에 대한 URI가 있어야 합니다.
 > 
 > 
 

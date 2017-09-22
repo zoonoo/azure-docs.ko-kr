@@ -1,6 +1,6 @@
 ---
 title: "Azure Stream Analytics로 이벤트 순서 및 지연 처리 | Microsoft Docs"
-description: "Stream Analytics가 데이터 스트림의 잘못된 순서 또는 지연 이벤트에 어떻게 작동하는지 알아봅니다."
+description: "Azure Stream Analytics가 데이터 스트림의 순서 비지정 이벤트 또는 늦게 도착한 이벤트에 어떻게 작동하는지 알아봅니다."
 keywords: "순서 비지정, 지연, 이벤트"
 documentationcenter: 
 services: stream-analytics
@@ -16,59 +16,75 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: cf9a43fbb82a32c92d66f25809916d3ccde1a20d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Azure Stream Analytics 이벤트 순서 처리
 
-이벤트의 임시 데이터 스트림에서 각 이벤트는 이벤트가 수신되는 시간이 함께 기록됩니다. 일부 조건에서는 이벤트 스트림이 경우에 따라 일부 이벤트를 전송된 것과는 다른 순서로 수신할 수 있습니다. 간단한 TCP 재전송 또는 전송 장치와 수신 이벤트 허브 간 시계 기울이기에서 이 같은 현상이 발생할 수 있습니다. 또한 “문장 부호” 이벤트도 수신된 이벤트 스트림에 추가되어 이벤트가 도착하지 않을 때 시간을 앞당깁니다. 이러한 사항은 “3분 동안 로그인이 발생하지 않을 때 알림”과 같은 시나리오에 필요합니다.
+이벤트의 임시 데이터 스트림에서는 각 이벤트에 타임스탬프가 할당됩니다. Azure Stream Analytics는 도착 시간이나 응용 프로그램 시간 중 하나를 사용하여 각 이벤트에 타임스탬프를 할당합니다. 
 
-순서가 올바르지 않은 입력 스트림은 다음 중 하나입니다.
-* 정렬되었습니다(따라서 **지연됨**).
-* 사용자 지정 정책에 따라 시스템에서 조정되었습니다.
+이벤트에 할당된 타임스탬프는 **System.Timestamp** 열에 있습니다. 도착 시간은 이벤트가 소스에 도달하면 입력 소스에서 할당됩니다. 도착 시간은 이벤트 허브 입력의 경우 **EventEnqueuedTime**이고 BLOB 입력의 경우 [BLOB를 마지막으로 수정한 시간](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3)입니다. 응용 프로그램 시간은 이벤트 생성 시에 할당되며 페이로드의 일부분입니다. 
 
+응용 프로그램 시간을 기준으로 이벤트를 처리하려면 select 쿼리에서 TIMESTAMP BY 절을 사용합니다. TIMESTAMP BY 절이 없으면 이벤트는 도착 시간을 기준으로 처리됩니다. 이벤트 허브의 경우 **EventEnqueuedTime** 속성을, BLOB 입력의 경우 **BlobLastModified** 속성을 사용하여 도착 시간에 액세스할 수 있습니다. 
 
-## <a name="lateness-tolerance"></a>지연 허용 오차
-Stream Analytics는 이러한 시나리오 형식을 허용합니다. Stream Analytics는 “잘못된 순서” 및 “지연” 이벤트를 처리합니다. 다음과 같은 방법으로 이러한 이벤트를 처리합니다.
-
-* 순서가 올바르지 않으나 설정된 허용 오차 내로 도착하는 이벤트는 **타임스탬프 기준으로 다시 정렬**합니다.
-* 허용 오차보다 나중에 도착하는 이벤트는 **삭제 또는 조정**합니다.
-    * **조정**: 최신 허용 가능한 시간에 도착한 것처럼 조정합니다.
-    * **삭제**: 삭제합니다.
+Azure Stream Analytics는 타임스탬프 순서로 출력을 생성하며 순서 비지정 데이터를 처리하기 위한 몇 가지 설정을 제공합니다.
 
 ![Stream Analytics 이벤트 처리](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-## <a name="reduce-the-number-of-out-of-order-events"></a>잘못된 순서 이벤트의 수 줄이기
+순서가 올바르지 않은 입력 스트림은 다음 중 하나입니다.
+* 정렬되었습니다(따라서 *지연됨*).
+* 사용자 지정 정책에 따라 시스템에 의해 조정됩니다.
 
-Stream Analytics는 들어오는 이벤트를 처리할 때 임시 변환을 적용하기 때문에(예: 기간 이동 집계 또는 임시 연결) Stream Analytics는 들어오는 이벤트를 타임스탬프 순서대로 정렬합니다.
+응용 프로그램 시간을 기준으로 처리할 때 Stream Analytics에서는 늦게 도착한 이벤트와 순서 비지정 이벤트를 허용합니다.
 
-“타임스탬프 기준” 키워드가 사용되지 **않을** 경우 Azure Event Hubs 이벤트 큐에 넣기 시간이 기본적으로 사용됩니다. 이벤트 허브는 이벤트 허브의 각 파티션에 있는 타임스탬프의 단조성을 보장합니다. 또한 모든 파티션의 이벤트가 타임스탬프 순서대로 병합되는 것을 보장합니다. 이러한 두 이벤트 허브 보증을 통해 잘못된 순서 이벤트를 없앨 수 있습니다.
+**지연 도착 허용 시간**
 
-경우에 따라 보낸 사람의 타임스탬프를 사용하는 것이 중요합니다. 이 경우 이벤트 페이로드의 타임스탬프가 “타임스탬프 기준”을 사용하여 선택됩니다. 이러한 시나리오에서는 잘못 정렬된 이벤트의 원본이 하나 이상 도입될 수도 있습니다.
+* 지연 도착 허용 시간 설정은 응용 프로그램 시간을 기준으로 처리할 때만 적용할 수 있습니다. 그렇지 않은 경우 이 설정은 무시됩니다.
+* 지연 도착 허용 시간은 도착 시간과 응용 프로그램 시간 사이의 최대 차이입니다. 응용 프로그램 시간은 *(도착 시간 - 지연 도착 시간)*보다 이전인 경우 *(도착 시간 - 지연 도착 시간)*으로 설정됩니다.
+* 같은 입력 스트림이나 여러 입력 스트림의 여러 파티션이 함께 결합될 때의 지연 도착 허용 시간은 모든 파티션이 새 데이터 도착을 대기하는 최대 시간입니다. 
 
-* 이벤트 생산자에 클록 오차가 있습니다. 이는 생산자가 다른 컴퓨터에 있어 다른 클록을 사용할 때 일반적입니다.
-* 이벤트 원본에서 대상 이벤트 허브로 네트워크 지연이 발생합니다.
-* 클록 오차는 이벤트 허브 파티션 간에 존재합니다. Stream Analytics는 먼저 모든 이벤트 허브 파티션의 이벤트를 이벤트 큐에 넣기 시간으로 정렬합니다. 그런 다음 순서가 잘못된 이벤트에 대해 데이터 스트림을 검사합니다.
+요약하자면, 지연 도착 시간은 이벤트 생성 시간과 입력 소스에서 이벤트를 수신하는 시간 사이의 최대 지연입니다.
+먼저 지연 도착 허용 시간을 기준으로 시간을 조정한 후에 순서 비지정을 기준으로 시간을 조정합니다. 이벤트에 할당된 최종 타임스탬프는 **System.Timestamp** 열에 있습니다.
 
-구성 탭에 다음과 같은 기본값이 표시됩니다.
+**잘못된 허용 시간**
 
-![Stream Analytics의 잘못된 순서 처리](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+* 순서가 올바르지 않으나 "잘못된 순서 허용 시간" 이내에 도착하는 이벤트는 *타임스탬프 기준으로 다시 정렬*됩니다. 
+* 이 허용 시간보다 늦게 도착하는 이벤트는 *삭제* 또는 *조정*됩니다.
+    * **조정**: 최신 허용 가능한 시간에 도착한 것처럼 조정합니다. 
+    * **삭제**: 삭제합니다.
 
-잘못된 순서 허용 시간으로 0초를 사용하는 경우 모든 이벤트를 항상 순서대로 되어 있도록 어설션합니다. 순서가 잘못된 세 개의 이벤트 원본을 고려해 볼 때 그렇게 한 것 같지는 않습니다. 
+"잘못된 순서 허용 시간" 이내에 수신된 이벤트를 다시 정렬하기 위해 쿼리의 출력은 *잘못된 순서 허용 시간만큼 지연*됩니다.
 
-Stream Analytics가 이벤트 순서 이상을 수정하도록 하려면 0이 아닌 잘못된 순서 허용 시간을 지정할 수 있습니다. Stream Analytics는 이벤트를 해당 창까지 버퍼링한 다음 사용자가 선택한 타임스탬프를 사용하여 순서를 다시 정렬합니다. 그런 다음 임시 변환을 적용합니다. 3초 창에서 시작할 수 있으며 값을 조정하여 시간이 조정된 이벤트의 수를 줄일 수 있습니다. 
+**예제**
 
-버퍼링의 부작용은 출력이 **동일한 시간만큼 지연**된다는 것입니다. 값을 조정하여 잘못된 순서 이벤트의 수를 줄이고 작업 대기 시간을 낮게 유지할 수 있습니다.
+지연 도착 허용 시간 = 10분<br/>
+잘못된 허용 시간 = 3분<br/>
+응용 프로그램 시간을 기준으로 처리<br/>
+
+이벤트:
+
+이벤트 1 _응용 프로그램 시간_ = 00:00:00, _도착 시간_ = 00:10:01, _System.Timestamp_ = 00:00:01 - (_도착 시간_ - _응용 프로그램 시간_)이 지연 도착 허용 시간보다 크므로 조정됨
+
+이벤트 2 _응용 프로그램 시간_ = 00:00:01, _도착 시간_ = 00:10:01, _System.Timestamp_ = 00:00:01 - 응용 프로그램 시간이 지연 도착 허용 시간 이내이므로 조정되지 않음
+
+이벤트 3 _응용 프로그램 시간_ = 00:10:00 _도착 시간_ = 00:10:02, _System.Timestamp_ = 00:10:00 - 응용 프로그램 시간이 지연 도착 허용 시간 이내이므로 조정되지 않음
+
+이벤트 4 _응용 프로그램 시간_ = 00:09:00, _도착 시간_ = 00:10:03, _System.Timestamp_ = 00:09:00 - 응용 프로그램 시간이 잘못된 허용 시간 이내이므로 원본 타임스탬프로 수락됨
+
+이벤트 5 _응용 프로그램 시간_ = 00:06:00, _도착 시간_ = 00:10:04, _System.Timestamp_ = 00:07:00 - 응용 프로그램 시간이 잘못된 허용 시간보다 이전이므로 조정됨
+
+
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Stream Analytics 소개](stream-analytics-introduction.md)
-* [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
-* [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 소개](stream-analytics-introduction.md)
+* [Azure Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>자습서: Netsuite와 Azure Active Directory 통합
@@ -38,7 +37,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Netsuite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Netsuite Single Sign-On이 설정된 구독
+- Form.com Single Sign-On이 사용하도록 설정된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -115,7 +114,7 @@ Netsuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.  `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 얻으려면 [Netsuite 지원 팀](http://www.netsuite.com/portal/services/support.shtml)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트하세요. 이러한 값을 얻으려면 [Netsuite 지원 팀](http://www.netsuite.com/portal/services/support.shtml)에 문의하세요.
  
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 

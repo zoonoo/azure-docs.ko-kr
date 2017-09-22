@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 688b33710283a82fcd772bf50a171893f3ac124c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/10/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>클라우드-장치 통신 지침
@@ -39,7 +38,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 장치 
 | 대상 | **deviceId**를 사용하는 단일 장치 또는 [jobs][lnk-jobs]를 사용하는 여러 장치 | **deviceId**를 사용하는 단일 장치 또는 [jobs][lnk-jobs]를 사용하는 여러 장치 | **deviceId**를 사용하는 단일 장치 |
 | 크기 | 최대 8KB 요청 및 최대 8KB 응답 | 최대 desired 속성 크기는 8KB입니다. | 최대 64KB 메시지입니다. |
 | Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한][lnk-quotas]을 참조하세요. |
-| 프로토콜 | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTP를 사용할 경우 장치에서 폴링해야 합니다. |
+| 프로토콜 | MQTT 또는 AMQP를 통해 사용 가능합니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTP를 사용할 경우 장치에서 폴링해야 합니다. |
 
 다음 자습서에서 직접 메서드, desired 속성 및 클라우드-장치 메시지를 사용하는 방법에 대해 알아보세요.
 

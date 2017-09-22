@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 액세스
@@ -141,7 +141,7 @@ ms.lasthandoff: 07/21/2017
 
      ![논리 앱으로 이동, "API 연결" 선택](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * 또는 기본 Azure 왼쪽 메뉴에서 Azure 구독과 연결된 게이트웨이 연결을 비롯한 모든 API 연결에 대해 **추가 서비스** > **웹 및 Mobile Services** > **API 연결**로 이동합니다. 
+   * 또는 기본 Azure 왼쪽 메뉴에서 Azure 구독과 연결된 게이트웨이 연결을 비롯한 모든 API 연결에 대해 **추가 서비스** > **웹 + 모바일** > **API 연결**로 이동합니다. 
 
    * 또는 기본 Azure 왼쪽 메뉴에서 Azure 구독과 연관된 게이트웨이 연결을 비롯한 모든 API 연결에 대해 **모든 리소스**로 이동합니다.
 

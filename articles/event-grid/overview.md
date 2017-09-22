@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 20c22bdbefe238781242ee26e648a77da02a21d2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -28,7 +28,7 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 ![Event Grid 기능 모델](./media/overview/event-grid-functional-model.png)
 
-현재, Blob Storage는 게시자로 공개적으로 사용할 수 없습니다.
+현재, Blob Storage는 게시자로 공개적으로 사용할 수 없습니다. Storage Blob 이벤트에 응답하려면 미리 보기 릴리스에 등록해야 합니다. 자세한 내용은 [Blob 저장 이벤트를 사용자 지정 웹 끝점으로 라우팅(미리 보기)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)을 참조하세요.
 
 ## <a name="concepts"></a>개념
 
@@ -119,7 +119,11 @@ Event Grid의 비용은 백만 작업당 $0.60(미리 보기 중 $0.30)이며, �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사용자 지정 이벤트 만들기 및 구독](custom-event-quickstart.md) Azure Event Grid 빠른 시작을 사용하여 사용자 지정 이벤트를 끝점으로 보내려면 바로 이동합니다.
-* [Logic Apps를 이벤트 처리기로 사용](monitor-virtual-machine-changes-event-grid-logic-app.md) Event Grid에서 푸시된 이벤트에 대응하기 위해 Logic Apps를 사용하여 앱을 빌드하는 자습서입니다.
+* [사용자 지정 이벤트 만들기 및 구독](custom-event-quickstart.md)  
+  Azure Event Grid 빠른 시작을 사용하여 사용자 지정 이벤트를 끝점으로 보내는 방법을 확인할 수 있습니다.
+* [Logic Apps를 이벤트 처리기로 사용](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Event Grid에서 푸시된 이벤트에 응답하기 위해 Logic Apps를 사용하여 앱을 빌드하는 방법을 설명하는 자습서입니다.
+* [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)  
+  Azure Functions를 사용하여 Event Hubs의 데이터를 SQL Data Warehouse로 스트리밍하는 방법을 설명하는 자습서입니다.
 * [Event Grid REST API 참조](/rest/api/eventgrid)  
   Azure Event Grid에 대한 자세한 기술 정보 및 이벤트 구독 관리, 라우팅 및 필터링에 대한 참조를 제공합니다.

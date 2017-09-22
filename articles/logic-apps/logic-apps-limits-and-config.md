@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>논리 앱 한도 및 구성
@@ -72,7 +72,7 @@ Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 �
 
 |이름|제한|참고 사항|
 |----|----|----|
-|ForEach 항목|100,000|[쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
+|ForEach 항목|100,000|[쿼리 작업](../connectors/connectors-native-query.md) 을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
 |Until 반복|5, 000||
 |SplitOn 항목|100,000||
 |ForEach 병렬 처리|50| 기본값은 20입니다. `foreach` 작업에 `"operationOptions": "Sequential"`를 추가하여 순차적인 foreach로 설정하거나 `runtimeConfiguration`을 사용하여 특정 병렬 수준으로 설정할 수 있습니다.|
@@ -113,7 +113,7 @@ Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 �
 
 ### <a name="integration-account-limits"></a>통합 계정 제한
 
-통합 계정에 추가되는 아티팩트에 대한 한도는 다음과 같습니다.
+다음은 통합 계정에 추가할 수 있는 아티팩트에 대한 제한입니다.
 
 |이름|제한|참고 사항|
 |----|----|----|
@@ -123,6 +123,21 @@ Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 �
 |런타임 끝점은 5분마다 호출을 수행함 |45,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
 |런타임 끝점 5분마다 호출 추적 |45,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
 |런타임 끝점이 동시 호출을 차단함 |~1,000|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
+
+다음은 통합 계정에 추가할 수 있는 아티팩트의 수에 대한 제한입니다.
+
+무료 가격 책정 계층
+
+|이름|제한|참고 사항|
+|----|----|----|
+|규약|10||
+|기타 아티팩트 형식|25|형식에는 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다.|
+
+표준 가격 책정 계층
+
+|이름|제한|참고 사항|
+|----|----|----|
+|모든 아티팩트 형식|500|형식에는 계약, 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다.|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 프로토콜(AS2, X12, EDIFACT) 메시지 크기
 

@@ -14,20 +14,20 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 72cdbfe2fe65e5152ca748cbb3989e3ef980ee50
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 081f36c975c4a2d137fa20e346d6b6739b6997fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
 # <a name="update-an-application-in-kubernetes"></a>Kubernetes에서 응용 프로그램 업데이트
 
-Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때 배포의 일부분만 동시에 업데이트되도록 업데이트 출시가 스테이징됩니다. 이 스테이징된 업데이트를 사용하면 업데이트 동안 응용 프로그램을 실행 중 상태로 유지할 수 있으며 배포 오류가 발생할 경우 롤백 메커니즘이 제공됩니다. 
+Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다. 
 
 이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 완료하는 작업은 다음과 같습니다.
 
@@ -43,20 +43,18 @@ Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지
 
 이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 
 
+이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 응용 프로그램 소스 코드를 포함하는 응용 프로그램 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며 디렉터리를 복제된 디렉터리로 변경했는지 확인하세요. 이 디렉터리 안에는 `azure-vote` 디렉터리와 `docker-compose.yml` 파일이 있습니다.
+
 이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
 
 ## <a name="update-application"></a>응용 프로그램 업데이트
 
-이 자습서의 단계를 완료하려면 Azure 투표 응용 프로그램의 복사본을 복제한 상태여야 합니다. 필요한 경우 다음 명령을 사용하여 이 복제된 복사본을 만듭니다.
+이 자습서에서는 응용 프로그램을 변경했으며 업데이트된 응용 프로그램을 Kubernetes 클러스터로 배포했습니다. 
+
+`azure-vote` 디렉터리 내에서 응용 프로그램 소스 코드를 찾을 수 있습니다. 아무 코드 또는 텍스트 편집기나 사용하여 `config_file.cfg` 파일을 엽니다. 이 예에서는 `vi` 가 사용됩니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-아무 코드 또는 텍스트 편집기나 사용하여 `config_file.cfg` 파일을 엽니다. 복제된 리포지토리의 다음 디렉터리에서 이 파일을 찾을 수 있습니다.
-
-```bash
- /azure-voting-app-redis/azure-vote/azure-vote/config_file.cfg
+vi azure-vote/azure-vote/config_file.cfg
 ```
 
 `VOTE1VALUE` 및 `VOTE2VALUE`의 값을 변경한 다음 파일을 저장합니다.
@@ -69,35 +67,39 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-[docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다.
+파일을 저장하고 닫습니다.
+
+## <a name="update-container-image"></a>컨테이너 이미지 업데이트
+
+[docker-compose](https://docs.docker.com/compose/)를 사용하여 프런트 엔드 이미지를 다시 만들고 업데이트된 응용 프로그램을 실행합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
+docker-compose up --build -d
 ```
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-`http://localhost:8080`으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
+http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>이미지 태그 지정 및 밀어넣기
 
-*azure-vote-front* 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다.
+`azure-vote-front` 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 
 
-Azure Container Registry를 사용 중인 경우 [az acr list](/cli/azure/acr#list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
+[az acr list](/cli/azure/acr#list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[docker tag](https://docs.docker.com/engine/reference/commandline/tag/)를 사용하여 이미지에 태그를 지정합니다. `<acrLoginServer>`를 해당 Azure Container Registry 로그인 서버 이름 또는 공개 레지스트리 호스트 이름으로 바꿉니다.
+[docker tag](https://docs.docker.com/engine/reference/commandline/tag/)를 사용하여 이미지에 태그를 지정합니다. `<acrLoginServer>`를 해당 Azure Container Registry 로그인 서버 이름 또는 공개 레지스트리 호스트 이름으로 바꿉니다. 이미지 버전도 `redis-v2`로 업데이트합니다.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-[docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 해당 Azure Container Registry 로그인 서버 이름 또는 공개 레지스트리 호스트 이름으로 바꿉니다.
+[docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`는 실제 Azure Container Registry 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -121,7 +123,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-azure-vote-front 이미지를 실행 중인 여러 Pod가 없는 경우 *azure-vote-front* 배포를 확장합니다.
+여러 Pod에서 azure-vote-front 이미지를 실행 중인 경우가 아니면 `azure-vote-front` 배포를 확장합니다.
 
 
 ```azurecli-interactive
@@ -152,7 +154,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 ## <a name="test-updated-application"></a>업데이트된 응용 프로그램 테스트
 
-*azure-vote-front* 서비스의 외부 IP 주소를 가져옵니다.
+`azure-vote-front` 서비스의 외부 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front

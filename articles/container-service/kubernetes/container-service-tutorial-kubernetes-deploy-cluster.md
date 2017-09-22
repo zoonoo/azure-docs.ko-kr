@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -42,27 +42,23 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-[이전 자습서](./container-service-tutorial-kubernetes-prepare-acr.md)에서 *myResourceGroup*이라는 리소스 그룹을 만들었습니다. 만들지 않은 경우 지금 이 리소스 그룹을 만듭니다.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
 [az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
 
-다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *myK8sCluster*라는 클러스터를 만듭니다.
+다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myK8sCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서](./container-service-tutorial-kubernetes-prepare-acr.md)에서 만든 것입니다.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-몇 분 후 명령이 완료되고 ACS 배포에 대해 json으로 형식화된 정보가 반환됩니다.
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
+
+몇 분 후 배포가 완료되고 json 형식의 ACS 배포 관련 정보가 반환됩니다.
 
 ## <a name="install-the-kubectl-cli"></a>kubectl CLI 설치
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)을 사용합니다. 
 
-Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용합니다.
+Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용합니다.
 
 Linux 또는 macOS에서 실행하는 경우 sudo를 사용하여 실행해야 할 수 있습니다. Windows에서는 셸이 관리자 권한으로 실행되었는지 확인합니다.
 
@@ -74,7 +70,7 @@ Windows에서 기본 설치는 *c:\program files (x86)\kubectl.exe*입니다. Wi
 
 ## <a name="connect-with-kubectl"></a>Kubectl로 연결
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다.
+Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
@@ -65,11 +65,17 @@ WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하�
 [Azure Compute 리소스에 대한 미리 보기 버전의 프로파일러](https://go.microsoft.com/fwlink/?linkid=848155)가 있습니다.
 
 
-## <a name="limits"></a>제한
+## <a name="limitations"></a>제한 사항
 
 기본 데이터 보존 기간은 5일입니다. 매일 최대 10GB가 수집됩니다.
 
 프로파일러 서비스에는 요금이 부과되지 않습니다. 웹앱은 적어도 App Services의 기본 계층에 호스트되어야 합니다.
+
+## <a name="overhead-and-sampling-algorithm"></a>오버헤드 및 샘플링 알고리즘
+
+Profiler는 Profiler가 추적을 캡처하도록 설정된 응용 프로그램을 호스트하는 각 가상 컴퓨터에서 시간당 2분씩 임의로 실행됩니다. Profiler는 실행되는 동안 서버에 CPU 오버헤드 5-15%를 추가합니다.
+응용 프로그램을 호스트하는 데 사용할 수 있는 서버가 많을수록 Profiler가 전체 응용 프로그램 성능에 주는 영향은 감소합니다. 샘플링 알고리즘으로 인해 Profiler는 지정된 시간에 서버 중 5%에서만 실행되므로, 웹 요청을 처리하여 Profiler로부터의 오버헤드가 적용되는 서버를 상쇄할 수 있는 서버가 더 많아지기 때문입니다.
+
 
 ## <a name="viewing-profiler-data"></a>프로파일러 데이터 보기
 
@@ -191,6 +197,21 @@ Application Insights Profiler를 활성화하면 Azure Service Profiler 에이�
 ### <a name="error-report-in-the-profiling-viewer"></a>프로파일링 뷰어의 오류 보고서
 
 포털에서 지원 티켓을 제출합니다. 오류 메시지의 상관 관계 ID를 포함하세요.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>배포 오류 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Profiler가 사용하도록 설정된 App Services 리소스에 웹앱을 재배포하는 경우 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'와 같은 오류가 표시될 수 있습니다. VSTS 배포 파이프라인 또는 스크립트에서 웹 배포를 실행하면 이 오류가 발생합니다.
+이 문제를 해결하려면 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+그러면 App Insights Profiler에서 사용하는 폴더가 삭제되며 배포 프로세스 차단이 해제됩니다. 현재 실행 중인 Profiler 인스턴스에는 아무런 영향이 없습니다.
+
 
 ## <a name="manual-installation"></a>수동 설치
 

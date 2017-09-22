@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -56,16 +56,22 @@ Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로�
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-복제된 디렉터리에는 응용 프로그램 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 자산을 만드는 데 사용됩니다. 
+복제된 디렉터리에서 작업할 수 있도록 디렉터리를 변경합니다.
+
+```
+cd azure-voting-app-redis
+```
+
+해당 디렉터리에는 응용 프로그램 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
 [Docker Compose](https://docs.docker.com/compose/)는 컨테이너 이미지 빌드 및 다중 컨테이너 응용 프로그램 배포를 자동화하는 데 사용할 수 있습니다.
 
-docker-compose.yml 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 응용 프로그램을 시작합니다.
+`docker-compose.yml` 파일을 실행하여 컨테이너 이미지를 만들고, Redis 이미지를 다운로드하고, 응용 프로그램을 시작합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 완료되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 만든 이미지를 확인합니다.
@@ -74,7 +80,7 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 docker images
 ```
 
-세 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 응용 프로그램을 포함합니다. *nginx-flask* 이미지에서 파생되었습니다. Redis 이미지는 Docker 허브에서 다운로드되었습니다.
+세 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. `azure-vote-front` 이미지는 응용 프로그램을 포함하며 `nginx-flask` 이미지를 기준으로 사용합니다. `redis` 이미지는 Redis 인스턴스를 시작하는 데 사용됩니다.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +111,18 @@ http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-응용 프로그램 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지를 삭제하지 마세요. *azure-vote-front* 이미지는 다음 자습서에서 Azure Container Registry 인스턴스에 업로드됩니다.
+응용 프로그램 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지를 삭제하지 마세요. 다음 자습서에서 `azure-vote-front` 이미지를 Azure Container Registry 인스턴스에 업로드합니다.
 
 다음을 실행하여 실행 중인 컨테이너를 중지합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-다음 명령을 사용하여 중지된 컨테이너를 삭제합니다.
+다음 명령을 사용하여 중지된 컨테이너와 리소스를 삭제합니다.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 완료되면 Azure Vote 응용 프로그램을 구성하는 컨테이너 이미지가 있는 상태가 됩니다.
@@ -134,3 +140,4 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry에 이미지 밀어넣기](./container-service-tutorial-kubernetes-prepare-acr.md)
+

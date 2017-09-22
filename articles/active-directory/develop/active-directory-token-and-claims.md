@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
@@ -30,7 +30,7 @@ Azure AD는 access_tokens 및 refresh_tokens 둘 다를 활용하는 [OAuth 2.0 
 
 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 전달자 토큰을 수신하기 위해 Azure AD 인증이 필요한 경우에 의도하지 않은 당사자가 가로채기를 방지하기 위해 토큰 보안 설정 단계를 수행해야 합니다. 전달자 토큰에는 권한이 없는 제삼자의 사용을 방지하기 위한 기본 제공 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 일반 텍스트 상태로 전송되는 경우 메시지 가로채기 공격을 사용해서 토큰을 획득하고 보호된 리소스에 무단으로 액세스할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
 
-Azure AD에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다.  JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다.  JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다.  JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다.  Azure AD에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다.  [jwt.calebb.net](http://jwt.calebb.net)등 이러한 작업에 사용할 수 있는 여러 도구가 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
+Azure AD에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다.  JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다.  JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다.  JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다.  Azure AD에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다.  [jwt.ms](https://jwt.ms/) 등 이러한 작업에 사용할 수 있는 여러 도구가 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
 
 ## <a name="idtokens"></a>Id_tokens
 id_token은 [OpenID Connect](active-directory-protocols-openid-connect-code.md)를 사용하여 인증을 수행할 때 앱이 받는 로그인 보안 토큰의 한 형태입니다.  [JWT](#types-of-tokens)로 표시되며 사용자를 앱에 로그인하는 데 사용할 수 있는 클레임을 포함합니다.  id_token의 클레임을 적절하게 사용할 수 있습니다. 일반적으로 계정 정보를 표시하거나 앱에서 액세스 제어 결정을 내리는 데 사용됩니다.
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> 연습을 위해 샘플 id_token에 있는 클레임을 [calebb.net](http://jwt.calebb.net)에 붙여넣어 검사하세요.
+> 연습을 위해 샘플 id_token에 있는 클레임을 [jwt.ms](https://jwt.ms/)에 붙여넣어 검사하세요.
 > 
 > 
 

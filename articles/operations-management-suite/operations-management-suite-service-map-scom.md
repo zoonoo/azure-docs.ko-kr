@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -38,7 +38,7 @@ Operations Management Suite 서비스 맵은 Windows 및 Linux 시스템에서 �
 * Operations Management Suite 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
 
 ## <a name="install-the-service-map-management-pack"></a>서비스 맵 관리 팩 설치
-Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. 이 번들에는 다음 관리 팩이 포함됩니다.
+Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55763)에서 관리 팩 번들을 다운로드할 수 있습니다. 이 번들에는 다음 관리 팩이 포함됩니다.
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
 * Microsoft System Center Service Map Overrides

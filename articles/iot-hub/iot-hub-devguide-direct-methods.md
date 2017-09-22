@@ -16,10 +16,10 @@ ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
@@ -45,7 +45,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 직접 메서드는 동기식이며 제한 시간(기본값: 30초, 최대 3600초 설정 가능)이 지나면 성공하거나 실패합니다. 직접 메서드는 장치가 온라인 상태에서 명령을 수신하는 경우에만 작동하기(예: 휴대폰에서 조명 켜기)를 바라는 대화형 시나리오에서 유용합니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 장치는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
 
-직접 메서드는 클라우드 쪽에서는 HTTP 전용, 장치 쪽에서는 MQTT 전용입니다.
+직접 메서드는 클라우드 쪽에서는 HTTP 전용, 장치 쪽에서는 MQTT 또는 AMQP입니다.
 
 메서드 요청 및 응답에 대한 페이로드는 최대 8KB의 JSON 문서입니다.
 

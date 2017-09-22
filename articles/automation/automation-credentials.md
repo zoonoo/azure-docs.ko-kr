@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 자동화의 자격 증명 자산
@@ -46,8 +46,16 @@ ms.lasthandoff: 04/27/2017
 
 > [!NOTE]
 > Get-AutomationPSCredential의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
-> 
-> 
+
+## <a name="python2-functions"></a>Python2 함수
+다음 표의 함수는 Python2 Runbook의 자격 증명에 액세스하는 데 사용됩니다.
+
+| 함수 | 설명 |
+|:---|:---|
+| automationassets.get_automation_credential | 자격 증명 자산에 대한 정보를 검색합니다. |
+
+> [!NOTE]
+> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 "automationassets" 모듈을 가져와야 합니다.
 
 ## <a name="creating-a-new-credential-asset"></a>새 자격 증명 자산 만들기
 
@@ -96,10 +104,22 @@ ms.lasthandoff: 04/27/2017
 ## <a name="using-a-powershell-credential-in-dsc"></a>DSC에서 PowerShell 자격 증명을 사용
 Azure 자동화에서 DSC 구성은 **Get-AutomationPSCredential**을 사용하여 자격 증명 자산을 참조할 수 있지만 원하는 경우 자격 증명 자산은 매개 변수를 통해 전달될 수 있습니다. 자세한 내용은 [Azure 자동화 DSC에서 구성을 컴파일](automation-dsc-compile.md#credential-assets)을 참조하세요.
 
+## <a name="using-credentials-in-python2"></a>Python2에서 자격 증명 사용
+다음 샘플에서는 Python2 Runbook의 자격 증명에 액세스하는 예제를 보여 줍니다.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## <a name="next-steps"></a>다음 단계
 * 그래픽 작성 링크에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 자동자동화가 포함된 다양한 메서드를 이해하려면 [Azure 자동화 보안](automation-security-overview.md)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md) 
+* Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](automation-first-runbook-textual-python2.md)을 참조하세요. 
 
 

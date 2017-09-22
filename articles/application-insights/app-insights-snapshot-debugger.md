@@ -3,7 +3,7 @@ title: ".NET 앱용 Azure Application Insights 스냅숏 디버거 | Microsoft D
 description: "프로덕션 .NET 앱에서 예외가 throw되면 디버그 스냅숏이 자동으로 수집됨"
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
@@ -68,26 +68,13 @@ ms.lasthandoff: 09/06/2017
 
 1. 이 작업을 아직 수행하지 않은 경우 [ASP.NET Core 웹앱에서 Application Insights를 사용하도록 설정](app-insights-asp-net-core.md)합니다.
 
+> [!NOTE]
+> 응용 프로그램이 Microsoft.ApplicationInsights.AspNetCore 패키지의 버전 2.1.1 이상을 참조하는지 확인하세요.
+
 2. [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
-3. 응용 프로그램의 `Startup` 클래스에서 `ConfigureServices` 메서드를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가합니다. 추가해야 하는 코드는 Microsoft.ApplicationInsights.ASPNETCore NuGet 패키지의 참조된 버전에 따라 달라집니다.
+3. 응용 프로그램의 `Startup` 클래스에서 `ConfigureServices` 메서드를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가합니다.
 
-   Microsoft.ApplicationInsights.AspNetCore 2.1.0의 경우 다음을 추가합니다.
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   Microsoft.ApplicationInsights.AspNetCore 2.1.1의 경우 다음을 추가합니다.
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...

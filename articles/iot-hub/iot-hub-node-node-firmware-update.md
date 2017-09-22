@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>장치 관리를 사용하여 장치 펌웨어 업데이트 시작(노드/노드)
@@ -41,7 +40,7 @@ ms.lasthandoff: 02/06/2017
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 0.12.x 이상, <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
+* Node.js 버전 4.0.x 이상 <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 관리 시작](iot-hub-node-node-device-management-get-started.md) 문서의 내용을 수행하세요.
@@ -58,7 +57,7 @@ IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 
     ```
     npm init
     ```
-2. **triggerfwupdateondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 및 **azure-iot-device-mqtt** 장치 SDK 패키지를 설치합니다.
+2. **triggerfwupdateondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
    
     ```
     npm install azure-iothub --save
