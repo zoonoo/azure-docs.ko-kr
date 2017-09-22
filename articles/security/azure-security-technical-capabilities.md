@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -318,12 +318,10 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 또한 Azure에서는 앱에 대한 안전한 인바운드 및 아웃바운드 트래픽에 도움이 되는 사용하기 쉬운 몇 가지 기능도 제공합니다. 그뿐 아니라 Azure에서는 웹 응용 프로그램에서 취약점을 검색하는 기능을 외부적으로 제공함으로써 응용프로그램 코드의 보안에 도움을 줍니다.
 
-- [다양한 인증 및 권한 부여 방법을 사용하여 웹앱 보안](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [앱에 대한 Azure Active Directory 인증 설정](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [앱에 대한 Azure Active Directory 인증 설정](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [전송 계층 보안(TLS/SSL) - HTTPS를 사용하여 앱에 대한 트래픽 보호](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [전송 계층 보안(TLS/SSL) - HTTPS를 사용하여 앱에 대한 트래픽 보호](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [HTTPS 연결을 통해 들어오는 모든 트래픽 강제 지정](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,13 +334,13 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 - [Tinfoil Security 검사를 사용하여 취약성에 대한 웹앱 코드 검사](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [웹앱에 연결하는 클라이언트 인증서를 요구하도록 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [웹앱에 연결하는 클라이언트 인증서를 요구하도록 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [외부 리소스에 안전하게 연결하도록 앱의 사용에 대한 클라이언트 인증서 구성](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [도구의 앱 지문을 방지하도록 표준 서버 헤더 제거](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [지점 및 사이트 간 VPN을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [지점 및 사이트 간 VPN을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
 - [하이브리드 연결을 사용하여 개인 네트워크의 리소스로 안전하게 앱 연결](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 

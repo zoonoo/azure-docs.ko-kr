@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: be02ad0d7752cb08f092deeb5a86dcd126403237
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -61,7 +62,7 @@ Bash 세션을 완료하면 Azure CLI 도구를 사용하여 미리 로드되기
 
 [Azure Virtual Machines에 대한 CLI 샘플](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure Web Apps에 대한 CLI 샘플](../../app-service-web/app-service-cli-samples.md)
+[Azure Web Apps에 대한 CLI 샘플](../../app-service/app-service-cli-samples.md)
 
 [Azure SQL에 대한 CLI 샘플](../../sql-database/sql-database-cli-samples.md)
 

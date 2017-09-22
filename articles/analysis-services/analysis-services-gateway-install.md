@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
@@ -57,11 +57,7 @@ ms.lasthandoff: 08/24/2017
 
    ![설치 위치 및 사용 조건](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. **온-프레미스 데이터 게이트웨이(권장)**를 선택합니다. Azure Analysis Services는 개인 모드를 지원하지 않습니다.
-
-   ![게이트웨이 유형 선택](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Azure에 로그인할 계정을 입력합니다. 계정은 테넌트의 Azure Active Directory에 있어야 합니다. 게이트웨이 관리자가 이 계정을 사용합니다. 
+3. Azure에 로그인할 계정을 입력합니다. 계정은 테넌트의 Azure Active Directory에 있어야 합니다. 게이트웨이 관리자가 이 계정을 사용합니다. 
 
    ![Azure에 로그인할 계정 입력](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: cfowler
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 007f9232e2c09f128ea39f9a2e3c78ab92ad5f69
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7b3620d3674ea3783af72af37f80db0ea357d325
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Linux에서 Web Apps를 사용하여 Ruby 앱 만들기
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 Ruby on Rails 응용 프로그램을 만든 다음 Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
+[Azure Web Apps](../app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 Ruby on Rails 응용 프로그램을 만든 다음 Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 

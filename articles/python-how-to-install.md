@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 523ee51c79fe09d71fa3cd3e202cf155b511956f
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Python 및 SDK 설치
@@ -98,7 +98,7 @@ PyPI([Python 패키지 인덱스][Python Package Index])에서 다양한 Python 
 
 PTVS는 선택 사항이지만 Python 및 웹 프로젝트/솔루션 지원, 디버깅, 프로파일링, 대화형 창, 템플릿 편집 및 Intellisense를 제공합니다.
 
-또한 PTVS를 사용하면 [Cloud Services](cloud-services/cloud-services-python-ptvs.md) 및 [Websites](app-service-web/app-service-web-overview.md) 배포 지원과 함께 Microsoft Azure에 쉽게 배포할 수 있습니다.
+또한 PTVS를 사용하면 [Cloud Services](cloud-services/cloud-services-python-ptvs.md) 및 [Websites](app-service/app-service-web-overview.md) 배포 지원과 함께 Microsoft Azure에 쉽게 배포할 수 있습니다.
 
 PTVS는 기존 Visual Studio 2013, 2015 또는 2017 설치와 작동합니다.  설명서, 다운로드 및 토론에 대한 자세한 내용은 [Python Tools for Visual Studio]를 참조하세요.  
 
@@ -117,7 +117,7 @@ Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행�
 
 Git 배포를 사용하여 Python 웹 응용 프로그램을 개발하고 모든 운영 체제에서 Azure 웹 사이트에 게시할 수 있습니다.  Azure에 리포지토리를 푸시할 때 가상 환경이 자동으로 만들어지고 PIP가 필요한 패키지를 설치합니다.
 
-WSGI 규격 프레임워크 사용에 대한 자세한 내용은 [Azure Websites를 사용하여 Python 구성](app-service-web/web-sites-python-configure.md)을 참조하세요.
+WSGI 규격 프레임워크 사용에 대한 자세한 내용은 [Azure Websites를 사용하여 Python 구성](app-service/web-sites-python-configure.md)을 참조하세요.
 
 ## <a name="additional-software-and-resources"></a>추가 소프트웨어 및 리소스
 * [Python ReadTheDocs용 Azure SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/)

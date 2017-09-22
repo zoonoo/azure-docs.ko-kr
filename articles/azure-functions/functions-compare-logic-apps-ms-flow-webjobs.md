@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
@@ -60,7 +60,7 @@ Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통
 ## <a name="functions-vs-webjobs"></a>Functions 및 웹 작업
 Azure Functions와 Azure App Service WebJobs는 둘 다 *코드 중심* 통합 서비스이며 개발자용으로 설계되었으므로 함께 설명할 수 있습니다. 이를 통해 [새 저장소 Blob](functions-bindings-storage.md) 또는 [WebHook 요청](functions-bindings-http-webhook.md) 등 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다. 두 서비스의 유사점은 다음과 같습니다. 
 
-* [Azure App Service](../app-service/app-service-value-prop-what-is.md)에서 빌드되고 [소스 제어](../app-service-web/app-service-continuous-deployment.md), [인증](../app-service/app-service-authentication-overview.md) 및 [모니터링](../app-service-web/web-sites-monitor.md) 등의 기능을 활용합니다.
+* [Azure App Service](../app-service/app-service-web-overview.md)에서 빌드되고 [소스 제어](../app-service/app-service-continuous-deployment.md), [인증](../app-service/app-service-authentication-overview.md) 및 [모니터링](../app-service/web-sites-monitor.md) 등의 기능을 활용합니다.
 * 개발자 중심 서비스입니다.
 * 표준 스크립팅 및 프로그래밍 언어를 지원합니다.
 * NuGet 및 NPM을 지원합니다.
@@ -81,7 +81,7 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 | 확장 |구성이 없는 크기 조정 |App Service 계획 크기 조정 |
 | 가격 |사용량 과금 또는  App Service 계획의 일부 |App Service 계획의 일부 |
 | 실행 형식 |트리거됨, 예약됨(타이머 트리거 사용) |트리거됨, 연속, 예약됨 |
-| 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
 | 브라우저 내부 개발 |지원됨 | 지원되지 않음 |
 | Windows 스크립트(.cmd, .bat) |실험적 |지원됨 |
 | PowerShell |실험적 |지원됨 |
@@ -115,7 +115,7 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 * [Microsoft Flow 시작](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)
-* [Visual Studio를 사용하여 WebJob 배포](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Visual Studio를 사용하여 WebJob 배포](../app-service/websites-dotnet-deploy-webjobs.md)
 
 또는 이러한 통합 서비스에 대한 자세한 정보는 다음 링크를 참조하세요.
 
@@ -123,6 +123,5 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Azure WebJobs 설명서 리소스](../app-service-web/websites-webjobs-resources.md)
 
 

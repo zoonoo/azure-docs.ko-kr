@@ -16,17 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
 
-이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었고 [트리거, 바인딩, JobHost 런타임 같은 WebJobs SDK 개념](../app-service-web/websites-dotnet-webjobs-sdk.md)에 익숙하다고 가정합니다. Azure Functions는 WebJobs SDK를 기반으로 합니다. 
+이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었고 [트리거, 바인딩, JobHost 런타임 같은 WebJobs SDK 개념](https://github.com/Azure/azure-webjobs-sdk/wiki)에 익숙하다고 가정합니다. Azure Functions는 WebJobs SDK를 기반으로 합니다. 
 
 ## <a name="function-code"></a>함수 코드
 *함수* 는 Azure Functions의 기본 개념입니다. 원하는 언어로 함수 코드를 작성하고 코드와 구성 파일을 같은 폴더에 저장합니다. 구성의 이름은 `function.json`이며 JSON 구성 데이터가 들어 있습니다. 다양한 언어가 지원되며, 각각의 언어에는 해당 언어에 맞춰 가장 잘 작동하도록 최적화된 약간 다른 환경이 갖춰져 있습니다. 
@@ -79,7 +79,7 @@ Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝�
 ## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
-함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
+함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/app-service-deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
 
 #### <a name="to-use-app-service-editor"></a>앱 서비스 편집기 사용하기
 1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.

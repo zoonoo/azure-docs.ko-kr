@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: dd1c18e32f3d0386e522dba82ce494394abbf8ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
@@ -69,12 +69,13 @@ HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에
    
    * **sc** - Spark 컨텍스트용
    * **sqlContext** - Hive 컨텍스트용
-
-    따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
-
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
-
-    대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
+   
+   따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
+   
+          sc = SparkContext('yarn-client')
+          sqlContext = HiveContext(sc)
+   
+   대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
 - **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    

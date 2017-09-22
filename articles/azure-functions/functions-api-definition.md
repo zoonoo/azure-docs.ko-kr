@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
 
-[OpenAPI 메타데이터](http://swagger.io/)는 다양한 다른 소프트웨어에서 REST API를 호스팅하는 함수를 사용할 수 있게 합니다. 이 소프트웨어에는 Microsoft 제품(예: PowerApps,[Azure App Service의 API Apps 기능](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier)), 타사 개발자 도구(예: [Postman](https://www.getpostman.com/docs/importing_swagger)) 및 [다양한 추가 패키지](http://swagger.io/tools/)가 포함되어 있습니다.
+[OpenAPI 메타데이터](http://swagger.io/)는 다양한 다른 소프트웨어에서 REST API를 호스팅하는 함수를 사용할 수 있게 합니다. 이 소프트웨어에는 Microsoft 제품(예: PowerApps,[Azure App Service의 API Apps 기능](../app-service/app-service-web-overview.md)), 타사 개발자 도구(예: [Postman](https://www.getpostman.com/docs/importing_swagger)) 및 [다양한 추가 패키지](http://swagger.io/tools/)가 포함되어 있습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

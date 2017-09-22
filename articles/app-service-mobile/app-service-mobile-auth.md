@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure 모바일 앱의 인증 및 권한 부여
@@ -102,9 +102,9 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 [Xamarin Android 앱에 인증 추가]: app-service-mobile-xamarin-android-get-started-users.md
 [Windows 앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-google-authentication.md
-[Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook 로그인을 사용하도록 앱을 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Google 로그인을 사용하도록 앱을 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter 로그인을 사용하도록 앱을 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 소개
@@ -102,7 +103,7 @@ Azure 클라우드 서비스가 정답입니다. PaaS(Platform as a Service)의 
 클라우드 서비스는 Azure 웹앱에서 제공하는 것보다 더 높은 수준으로 플랫폼을 제어하지만 기본 운영 체제는 제어할 필요가 없는 경우 광범위한 확장을 지원하는 데 이상적입니다.
 
 #### <a name="choosing-a-compute-model"></a>계산 모델 선택
-[Azure 웹앱, 클라우드 서비스 및 가상 컴퓨터 비교](app-service-web/choose-web-site-cloud-service-vm.md) 페이지에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
+[Azure 웹앱, 클라우드 서비스 및 가상 컴퓨터 비교](app-service/choose-web-site-cloud-service-vm.md) 페이지에서는 계산 모델을 선택하는 방법에 대한 자세한 내용을 제공합니다.
 
 ## <a name="data-management"></a>데이터 관리
 응용 프로그램에는 데이터가 필요하고, 서로 다른 종류의 응용 프로그램에는 서로 다른 종류의 데이터가 필요합니다. Azure는 데이터를 저장하고 관리하는 방법을 다양하게 제공하는 이유가 여기에 있습니다. Azure는 많은 저장소 옵션을 제공하지만 모두 영구 저장소를 위해 설계되었습니다.  이러한 옵션을 사용하면 항상 Azure 데이터 센터에 걸쳐 동기화되는 3개의 복사본이 생성됩니다. Azure에서 지리적 중복성을 사용하여 483km 떨어진 다른 데이터 센터로 백업하도록 설정한 경우에는 6개의 복사본이 생성됩니다.     
@@ -537,9 +538,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 이제 Azure의 전체적인 모습에 대해 배워 보았습니다. 다음 단계에서는 첫 Azure 응용 프로그램을 작성해 보겠습니다. 사용할 언어를 선택한 후 [적절한 SDK로](/downloads/) 시작해 보세요. 클라우드 컴퓨팅은 새로운 표준입니다. 지금 시작하세요.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

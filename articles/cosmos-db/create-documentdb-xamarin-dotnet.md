@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: .NET, Xamarin 및 Facebook 인증으로 웹앱 작성
@@ -108,7 +108,7 @@ Xamarin 폴더의 코드에는 다음이 포함되어 있습니다.
 
 4. Xamarin 프로젝트를 열고 TodoItemManager.cs로 이동합니다. 리소스 토큰 broker 웹 사이트에 대한 기본 https URL로 resourceTokenBrokerURL을 입력하고 accountURL, collectionId, databaseId에 대한 값도 입력합니다.
 
-5. Facebook 인증을 설정하고 ResourceTokenBroker 웹 사이트를 구성하려면 [Facebook 로그인을 사용하도록 App Service 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) 자습서를 수행합니다.
+5. Facebook 인증을 설정하고 ResourceTokenBroker 웹 사이트를 구성하려면 [Facebook 로그인을 사용하도록 App Service 응용 프로그램을 구성하는 방법](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) 자습서를 수행합니다.
 
     Xamarin 앱을 실행합니다.
 

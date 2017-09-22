@@ -3,7 +3,7 @@ title: "기존 NPS 서버를 사용하여 Azure MFA 기능 제공 | Microsoft Do
 description: "Azure Multi-Factor Authentication용 NPS(네트워크 정책 서버) 확장은 기존 인증 인프라에 클라우드 기반 2단계 인증 기능을 추가하는 간단한 솔루션입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
@@ -62,8 +62,11 @@ Windows Server 2008 R2 SP1 이상
 ### <a name="libraries"></a>라이브러리
 
 이러한 라이브러리는 확장으로 자동 설치됩니다.
+
 -   [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+
+Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -158,8 +161,8 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure Portal에서 복사한 디렉터리 ID GUID를 사용합니다.
-5. 관리자 권한으로 Azure AD에 로그인합니다.
+4. 관리자 권한으로 Azure AD에 로그인합니다.
+5. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure Portal에서 복사한 디렉터리 ID GUID를 사용합니다.
 6. PowerShell은 스크립트가 완료되면 성공 메시지를 표시합니다.  
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.

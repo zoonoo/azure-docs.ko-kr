@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 8eb0e7aa1a0fd55ece4adcfe4619c64845b7d271
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
@@ -153,10 +153,20 @@ ms.lasthandoff: 09/14/2017
 
 ---
 
-**Q: 하이브리드 Azure AD 조인 장치의 설정에 대한 지침은 어디에서 찾나요?**
+**Q: 자동 장치 등록의 설치에 대한 지침은 어디에서 찾나요?**
 
-**A:** 자세한 지침은 [하이브리드 Azure Active Directory 조인 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
+**A:** 자세한 지침은 [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
+---
+
+**Q: 자동 장치 등록에 대한 문제 해결 정보는 어디에서 찾나요?**
+
+**A:** 문제 해결 정보는 다음을 참조하세요.
+
+- [Windows 10 및 Windows Server 2016에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 

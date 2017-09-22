@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 92c37c267afa27854f66b870f69b47195e388152
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8c59fa7e9315922af4fab5f8492194b50459ef8b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure 암호화 기술: 암호화를 사용하여 전송 중인 개인 데이터 보호
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/30/2017
 
 ## <a name="scenario"></a>시나리오
 
-미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해 연안의 여정도 제공하도록 사업을 확장하고 있습니다. 이러한 노력을 지원하기 위해 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 몇 개의 소형 크루즈 라인을 인수했습니다. 
+미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해의 여정을 제공하기 위해 운영을 확대하고 있습니다. 이러한 노력을 지원하기 위해 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 몇 개의 소형 크루즈 라인을 인수했습니다. 
 
 회사에서 Microsoft Azure를 사용하여 클라우드에 회사 데이터를 저장합니다. 여기에는 전 세계 고객 기반의 이름, 주소, 전화 번호 및 신용 카드 정보와 같이 식별 가능한 개인 정보가 포함됩니다. 주소, 전화 번호, 납세자 번호 및 모든 위치의 회사 직원에 대한 기타 정보와 같이 기존의 인적 자원 정보도 포함됩니다. 또한 크루즈 라인에서 현재 및 과거 고객과의 관계를 추적하기 위해 개인 정보가 포함된 보상 및 충성도 프로그램 구성원에 대한 대규모 데이터베이스를 유지하고 있습니다.
 
@@ -194,5 +194,5 @@ Microsoft는 암호화를 사용하여 고객과 Azure 클라우드 서비스 �
 
 - [VPN 게이트웨이 FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-- [Azure App Service에 대한 SSL 인증서 구입 및 구성](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site)
+- [Azure App Service에 대한 SSL 인증서 구입 및 구성](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 솔루션 평가 도구
@@ -99,7 +99,7 @@ AAD(Azure Active Directory) 인증을 통해 솔루션의 Azure SQL 또는 Azure
 | SQL Database 및 SQL Data Warehouse에서의 AAD | [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | AAD 구성 및 관리 | [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Azure WebApps 인증 | [Azure 앱 서비스의 인증 및 권한 부여](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| AAD를 사용하여 WebApps 구성 | [Azure Active Directory 로그인을 사용하도록 App Service 응용 프로그램을 구성하는 방법](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| AAD를 사용하여 WebApps 구성 | [Azure Active Directory 로그인을 사용하도록 App Service 응용 프로그램을 구성하는 방법](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>최종 사용자가 액세스할 수 있는 데이터 집합이 역할 기반 액세스 제어를 지원해야 함
 평가 도구를 실행하는 동안 보고 또는 게시 리소스를 지정하라는 메시지가 표시됩니다. 이러한 리소스는 개발자가 아닌 최종 사용자가 액세스하기 위한 것으로 간주됩니다. 최종 사용자가 권한이 있는 데이터만 액세스할 수 있도록 하기 위해 이러한 리소스는 RBAC(역할 기반 액세스 제어)를 제공해야 합니다.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 ## <a name="intro-on-role-based-access-control"></a>역할 기반 액세스 제어 소개
@@ -35,6 +34,7 @@ Azure 환경에서 RBAC를 사용하려면 다음 항목이 필요합니다.
 * Azure 구독의 소유자 역할
 * [Azure Portal](https://portal.azure.com)에 대한 액세스 권한
 * 사용자 구독에 등록된 다음과 같은 리소스 공급자: **Microsoft.Authorization** 리소스 공급자를 등록하는 방법에 대해 자세히 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](/azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > O365 포털에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Azure Active Directory에 액세스)는 RBAC를 사용할 자격이 없습니다.
@@ -78,6 +78,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 ![Azure Portal의 액세스 제어 IAM 기능에서 새 사용자 추가](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 해당 할당 가능한 범위에 대한 자세한 설명은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](/active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
 
 관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **구독 > 액세스 제어(IAM)**를 표시합니다.
 
@@ -124,6 +125,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 * 클래식 포털에서 다른 소싱 지점
 
 그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 구성원은 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](/active-directory/active-directory-b2b-admin-add-users)을 참조하세요.
+<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > 포털에서 자격 증명을 입력한 후에 외부 사용자가 올바른 디렉터리에 로그인하는지 확인합니다. 동일한 사용자는 여러 디렉터리에 대한 액세스 권한이 있을 수 있고 Azure Portal의 오른쪽 위에 있는 사용자 이름을 클릭 그 중 하나를 선택한 다음 드롭다운 목록에서 적절한 디렉터리를 선택할 수 있습니다.

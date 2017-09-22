@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 앱 서비스로 업그레이드
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/08/2016
 4. (선택 사항) 원래 마이그레이션된 인스턴스 삭제
 
 ## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
-업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. 앱 서비스 계획에서 실행 중인지 확인합니다.
+업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure 포털] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. 앱 서비스 계획에서 실행 중인지 확인합니다.
 
 다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 응용 프로그램 인스턴스를 만듭니다. 앱 서비스 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
 
@@ -258,7 +258,7 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 
 <!-- URLs. -->
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [구성]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -266,11 +266,11 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure 스케줄러]: /en-us/documentation/services/scheduler/
-[웹 작업]: ../app-service-web/websites-webjobs-resources.md
+[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[웹 작업]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

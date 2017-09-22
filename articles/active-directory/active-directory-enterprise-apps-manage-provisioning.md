@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/08/2017
 **자동** 옵션을 선택하면 4개의 섹션으로 나뉜 화면이 표시됩니다.
 
 ### <a name="admin-credentials"></a>관리자 자격 증명
-Azure AD가 응용 프로그램의 사용자 관리 API에 연결하는 데 필요한 자격 증명을 여기에 입력합니다. 필요한 입력은 응용 프로그램에 따라 다릅니다. 특정 응용 프로그램에 대한 자격 증명 형식 및 요구 사항에 대해 알아보려면 [특정 응용 프로그램에 대한 구성 자습서](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning)를 참조하세요.
+Azure AD가 응용 프로그램의 사용자 관리 API에 연결하는 데 필요한 자격 증명을 여기에 입력합니다. 필요한 입력은 응용 프로그램에 따라 다릅니다. 특정 응용 프로그램에 대한 자격 증명 형식 및 요구 사항에 대해 알아보려면 [특정 응용 프로그램에 대한 구성 자습서](active-directory-saas-app-provisioning.md)를 참조하세요.
 
 **연결 테스트** 단추를 선택하면 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
 

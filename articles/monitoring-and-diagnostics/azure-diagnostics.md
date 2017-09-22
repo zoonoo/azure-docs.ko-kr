@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-is-azure-diagnostics"></a>Azure 진단이란?
@@ -48,7 +48,7 @@ Azure 진단 확장은 이 데이터를 Azure Storage 계정에 전송하거나 
 진단을 수집할 서비스를 선택하고 다음 문서를 사용하여 시작합니다. 특정 작업에 대한 참조로 일반 Azure 진단 링크를 사용합니다.
 
 ## <a name="web-apps"></a>웹앱
-웹앱에서는 Azure 진단을 사용하지 마세요. [웹앱](../app-service-web/web-sites-enable-diagnostic-log.md)에서 관련 정보 찾기
+웹앱에서는 Azure 진단을 사용하지 마세요. [웹앱](../app-service/web-sites-enable-diagnostic-log.md)에서 관련 정보 찾기
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure 진단을 사용하는 클라우드 서비스
 * Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 클라우드 서비스 응용 프로그램 추적](../vs-azure-tools-debug-cloud-services-virtual-machines.md)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.

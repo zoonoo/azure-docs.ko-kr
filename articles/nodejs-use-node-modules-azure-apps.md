@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 94ddae4473b2d9d212e05d3df089eb6b2b87cbd8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 응용 프로그램에 Node.js 모듈 사용
@@ -84,11 +84,11 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 > 
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정], [Node.js 웹앱 빌드 및 배포](app-service-web/app-service-web-get-started-nodejs.md) 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]을 알아보겠습니다.
+이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정], [Node.js 웹앱 빌드 및 배포](app-service/app-service-web-get-started-nodejs.md) 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]을 알아보겠습니다.
 
 자세한 내용은 [Node.js 개발자 센터](/nodejs/azure/)를 참조하세요.
 
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
-[Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]:cli-install-nodejs.md
+[Mac 및 Linux용 Azure 명령줄 인터페이스를 사용하는 방법]:cli-install-nodejs.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 

@@ -12,10 +12,10 @@ ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 6a4c32d73050795a70a86f745840536bb3fc2a49
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -51,6 +51,6 @@ Jenkins CI/CD 파이프라인의 일부로 Azure에 응용 프로그램을 배�
  플러그 인은 다음과 같은 서비스 및 환경에 배포하는 데 사용할 수 있습니다.
 
 - [Linux에서 Azure Web App](/azure/app-service-web/app-service-linux-intro). 시작하려면 [자습서](java-deploy-webapp-tutorial.md)를 참조하세요.
-- [Azure Web App](/azure/app-service-web/app-service-web-overview). 시작하려면 [방법](deploy-Jenkins-app-service-plugin.md)을 참조하세요.
+- [Azure Web App](/azure/app-service/app-service-web-overview). 시작하려면 [방법](deploy-Jenkins-app-service-plugin.md)을 참조하세요.
 
 

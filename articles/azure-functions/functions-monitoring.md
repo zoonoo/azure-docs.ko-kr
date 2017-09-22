@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 278fd4a811afac240b6ad3c2eb7f0a23cb686382
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -112,7 +112,7 @@ Azure CLI(명령줄 인터페이스) 1.0 또는 PowerShell을 사용하여 로�
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-자세한 내용은 [방법: 웹앱의 로그 스트리밍](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs)을 참조하세요. 
+자세한 내용은 [방법: 웹앱의 로그 스트리밍](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
