@@ -147,4 +147,3 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 �
 * [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-portal.md)
 * [템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-template.md)
 * [Azure 포털을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)
-

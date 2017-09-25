@@ -3,7 +3,7 @@ title: "부하 분산 장치에 대한 작업, 이벤트 및 카운터 모니터
 description: "Azure 부하 분산 장치에 대한 경고 이벤트 및 상태 프로브 상태 로깅을 사용하도록 설정하는 방법에 대해 알아보기"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/29/2017
 
 ---
 
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure 부하 분산 장치에 대한 로그 분석
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있으며, Azure Blob Storage에서 모든 로그를 추출하고 다양한 도구(예: Excel 및 PowerBI)에서 볼 수 있습니다. 아래 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 

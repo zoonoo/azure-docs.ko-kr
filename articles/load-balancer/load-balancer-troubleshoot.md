@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/21/2017
 ---
 
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 이 페이지에서는 일반적인 Azure Load Balancer 질문에 대한 문제 해결 정보를 제공합니다. Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 다음과 같습니다. 
 - Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다. 

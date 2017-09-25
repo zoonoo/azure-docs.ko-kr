@@ -3,7 +3,7 @@ title: "IPv6를 사용하여 인터넷 연결 부하 분산 장치 배포 - Azur
 description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -29,6 +30,8 @@ ms.lasthandoff: 03/15/2017
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [템플릿](load-balancer-ipv6-internet-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 

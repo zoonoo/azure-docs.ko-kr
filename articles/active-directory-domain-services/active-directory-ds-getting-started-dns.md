@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.date: 09/20/2017
 ms.author: maheshu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
@@ -20,13 +20,10 @@ ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
 
-
 ---
-# Azure Active Directory Domain Services 활성화(미리 보기)
-<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-preview"></a>Azure Active Directory Domain Services 활성화(미리 보기)
 
-## 작업 4: Azure 가상 네트워크에 대한 DNS 설정 업데이트
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>작업 4: Azure 가상 네트워크에 대한 DNS 설정 업데이트
 이전 구성 작업에서 디렉터리에 Azure Active Directory Domain Services를 사용하도록 성공적으로 설정했습니다. 다음 작업은 가상 네트워크 내의 컴퓨터가 이러한 서비스에 연결되고 해당 서비스를 사용할 수 있도록 합니다. 이 문서에서는 가상 네트워크에서 Azure Active Directory Domain Services를 사용할 수 있는 두 개의 IP 주소를 가리키도록 가상 네트워크에 대한 DNS 서버 설정을 업데이트합니다.
 
 Azure Active Directory Domain Services를 사용하도록 설정한 가상 네트워크에 대한 DNS 서버 설정을 업데이트하려면 다음 단계를 완료합니다.
@@ -50,7 +47,6 @@ Azure Active Directory Domain Services를 사용하도록 설정한 가상 네�
 >
 >
 
-## 다음 단계
-<a id="next-step" class="xliff"></a>
+## <a name="next-step"></a>다음 단계
 [작업 5: Azure Active Directory Domain Services에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync.md)
 

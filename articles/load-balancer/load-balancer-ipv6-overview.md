@@ -3,7 +3,7 @@ title: "Azure Load Balancer의 IPv6에 대한 개요 | Microsoft Docs"
 description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원 이해하기."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -24,6 +24,9 @@ ms.lasthandoff: 07/21/2017
 ---
 
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용해 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 

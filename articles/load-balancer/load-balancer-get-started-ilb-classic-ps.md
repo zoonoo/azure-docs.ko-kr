@@ -3,7 +3,7 @@ title: "Azure 내부 부하 분산 장치 만들기 - PowerShell 클래식 | Mic
 description: "클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -189,10 +191,5 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [원본 IP 선호도를 사용하여 부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

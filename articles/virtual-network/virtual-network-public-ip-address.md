@@ -98,4 +98,3 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 - [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure VPN Gateway를 사용하여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

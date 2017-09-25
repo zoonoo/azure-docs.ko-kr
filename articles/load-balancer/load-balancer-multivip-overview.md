@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2016
+ms.date: 09/25/2017
 ms.author: chkuhtz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure Load Balancer에 대한 다중 VIP
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 

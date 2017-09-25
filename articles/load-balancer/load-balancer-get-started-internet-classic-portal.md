@@ -3,7 +3,7 @@ title: "인터넷 연결 부하 분산 장치 만들기 - Azure 포털 클래식
 description: "Azure 클래식 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -67,9 +69,4 @@ ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

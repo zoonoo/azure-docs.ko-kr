@@ -3,7 +3,7 @@ title: "클라우드 서비스당 여러 VIP"
 description: "MultiVIP 및 클라우드 서비스에서 여러 VIP를 설정하는 방법에 대한 개요입니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
@@ -22,6 +22,8 @@ ms.lasthandoff: 07/06/2017
 ---
 
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>클라우드 서비스당 여러 VIP 구성
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure에서 제공하는 IP 주소를 사용하여 공용 인터넷을 통해 Azure 클라우드 서비스에 액세스할 수 있습니다. 이 공용 IP 주소는 Azure Load Balancer에 연결되며 클라우드 서비스 내의 VM(가상 컴퓨터) 인스턴스가 아니기 때문에 VIP(가상 IP)라고 합니다. 단일 VIP를 사용하여 클라우드 서비스 내의 모든 VM 인스턴스에 액세스할 수 있습니다.
 

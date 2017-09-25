@@ -3,7 +3,7 @@ title: "내부 부하 분산 장치 만들기 - Azure CLI | Microsoft Docs"
 description: "Resource Manager에서 Azure CLI를 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/21/2017
 
 ---
@@ -28,6 +29,8 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 

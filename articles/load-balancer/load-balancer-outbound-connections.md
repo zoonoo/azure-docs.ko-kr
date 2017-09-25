@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 5/31/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/21/2017
 ---
 
 # <a name="understanding-outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결 이해
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure의 VM(가상 컴퓨터)은 공용 IP 주소 공간에 있는 Azure 외부의 끝점과 통신할 수 있습니다. VM이 공용 IP 주소 공간에서 대상에 대한 아웃바운드 흐름을 시작하는 경우 Azure에서는 VM의 개인 IP 주소를 공용 IP 주소에 매핑하고 반환 트래픽이 VM에 도달할 수 있게 합니다.
 
