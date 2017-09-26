@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/26/2017
 ms.author: larryfr
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
@@ -206,7 +206,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
 1. 다음을 사용하여 SSH 세션에서 Beeline 클라이언트를 시작합니다.
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     이 명령에서는 클러스터에 대한 로그인 계정에 **admin** 의 기본값을 사용했다고 가정합니다.
