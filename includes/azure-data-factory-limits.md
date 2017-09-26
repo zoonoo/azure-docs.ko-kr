@@ -16,7 +16,7 @@
 
 <sup>2</sup> 주문형 HDInsight 코어는 데이터 팩터리를 포함하는 구독 외부에서 할당됩니다. 결과적으로, 위의 제한은 주문형 HDInsight 코어에 대한 데이터 팩터리 실행 코어 제한이며 Azure 구독과 연결된 코어 제한과는 다릅니다.
 
-<sup>3</sup> 클라우드 데이터 이동 단위(DMU)는 클라우드 간 복사 작업에 사용됩니다. Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 리소스 할당의 조합)을 나타내는 척도입니다. 일부 시나리오의 경우 더 많은 DMU를 활용하여 더 높은 복사 처리량을 달성할 수 있습니다. 자세한 내용은 [클라우드 데이터 이동 단위](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) 섹션을 참조하세요.
+<sup>3</sup> 클라우드 데이터 이동 단위(DMU)는 클라우드 간 복사 작업에 사용됩니다. Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 리소스 할당의 조합)을 나타내는 척도입니다. 일부 시나리오의 경우 더 많은 DMU를 활용하여 더 높은 복사 처리량을 달성할 수 있습니다. 자세한 내용은 [클라우드 데이터 이동 단위](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) 섹션을 참조하세요.
 
 | **리소스** | **기본 하한값** | **최소 제한** |
 | --- | --- | --- |

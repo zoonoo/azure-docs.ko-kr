@@ -12,7 +12,7 @@
 
 * Azure 구독에서 코어 할당량(지역당)을 늘리고 NC 또는 NV 코어에 대한 별도의 할당량을 늘려야 할 수 있습니다. 할당량 증가를 요청하려면 무료로 [온라인 고객 지원 요청을 개설](../articles/azure-supportability/how-to-create-azure-support-request.md) 합니다. 기본 제한은 구독 범주에 따라 달라질 수 있습니다.
 
-* N 시리즈 VM에 배포할 수 있는 하나의 VM 이미지는 [Azure 데이터 과학 가상 컴퓨터](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)입니다. 데이터 과학 가상 컴퓨터는 인기 있는 다양한 데이터 과학 및 심층 학습 도구를 사전 설치하고 구성합니다. 또한 NC 인스턴스용 NVIDIA Tesla GPU 드라이버도 사전 설치합니다.
+* N 시리즈 VM에 배포할 수 있는 하나의 VM 이미지는 [Azure 데이터 과학 가상 컴퓨터](../articles/machine-learning/data-science-virtual-machine/overview.md)입니다. 데이터 과학 가상 컴퓨터는 인기 있는 다양한 데이터 과학 및 심층 학습 도구를 사전 설치하고 구성합니다. 또한 NC 인스턴스용 NVIDIA Tesla GPU 드라이버도 사전 설치합니다.
 
 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Azure에서 StorSimple 가상 장치 배포 및 관리
@@ -64,7 +64,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 | **서비스 데이터 암호화 키** |물리적 장치에서 다시 생성된 후 새 키로 가상 장치를 업데이트합니다. |가상 장치에서 다시 생성할 수 없습니다. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>가상 장치에 대한 필수 구성 요소
-다음 섹션에서는 StorSimple 가상 장치에 대한 구성 필수 구성 요소를 설명합니다. 가상 장치를 배포하기 전에 [가상 장치를 사용하기 위한 보안 고려 사항](storsimple-security.md#storsimple-virtual-device-security)을 참조하세요.
+다음 섹션에서는 StorSimple 가상 장치에 대한 구성 필수 구성 요소를 설명합니다. 가상 장치를 배포하기 전에 [가상 장치를 사용하기 위한 보안 고려 사항](storsimple-security.md)을 참조하세요.
 
 #### <a name="azure-requirements"></a>Azure 요구 사항
 가상 장치를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
