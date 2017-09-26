@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 968a7d3611d050d15ee398f9c3c5830d5c8e85fb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
@@ -120,7 +120,6 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [테이블 분할](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | 예 - 기본 파일 그룹만 해당 |
 | [임시 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | 로컬 및 데이터베이스 범위 전역 임시 테이블만 해당 |
 | [임시 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | 예 |
-| [트랜잭션](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | 아니요 |
 | [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 예 | 
 | [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 |
 | [Windows Server 장애 조치(failover) 클러스터링](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 아니요 - [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md) 참조 |

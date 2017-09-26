@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 474550e5b9ebb0a2741c66f92a13cd78ae4a0e5c
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
@@ -148,7 +148,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 | CSP(클라우드 솔루션 공급자) | 공급자에게 알림 |
 | Azure 스폰서쉽 | [스폰서쉽 포털](https://www.microsoftazuresponsorships.com/) |
 
-대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스캐폴드](../azure-resource-manager/resource-manager-subscription-governance.md) 및 [엔터프라이즈 IT 백서](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
+대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](../azure-resource-manager/resource-manager-subscription-governance.md) 및 [엔터프라이즈 IT 백서](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
 
 #### <a name="EA"></a> Azure Portal 내에서 기업 계약 비용 보기 미리 보기 
 
@@ -164,7 +164,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 
-비용을 보려면 [대금 청구 정보에 대한 구독 수준 액세스](billing-manage-access.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+비용을 보려면 [대금 청구 정보에 대한 구독 수준 액세스](billing-manage-access.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.azure.com/Subscriptions)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 계정 관리자인 경우 [Azure Portal의 구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동한 후 액세스 권한이 있는 구독 목록을 찾습니다. **내 역할** 아래에서 확인합니다. *계정 관리자*가 표시되면 문제가 없는 것입니다. *소유자* 등이 표시되면 모든 권한이 있는 것은 아닙니다.
 

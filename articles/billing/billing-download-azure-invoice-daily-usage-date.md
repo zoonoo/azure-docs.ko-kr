@@ -18,14 +18,14 @@ ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 4160b9ef6cda1efd6c76ce1b283c78b4d43a5187
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 청구서를 다운로드하거나 전자 메일로 전송할 수 있습니다. 일간 사용 현황을 다운로드하려면 [Azure Account Center](https://account.windowsazure.com)로 이동합니다. 계정 관리자와 같은 특정 역할만 청구서 및 사용 현황 정보를 확인할 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 청구서를 다운로드하거나 전자 메일로 전송할 수 있습니다. 일간 사용 현황을 다운로드하려면 [Azure Account Center](https://account.azure.com/Subscriptions)로 이동합니다. 계정 관리자와 같은 특정 역할만 청구서 및 사용 현황 정보를 확인할 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
 >[!NOTE]
 >이 문서는 EA(기업 계약) 고객에게는 적용되지 않습니다. EA 고객인 경우 청구서는 등록 관리자에게 직접 전송됩니다.

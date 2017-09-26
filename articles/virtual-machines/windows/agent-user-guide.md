@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
@@ -82,8 +83,3 @@ Microsoft Azure VM에 로그인한 경우 작업 관리자를 사용하여 실�
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드
 
 Windows용 Azure VM 에이전트는 자동으로 업그레이드됩니다. 새 가상 컴퓨터는 Azure에 배포될 때 최신 VM 에이전트는 받습니다. 새 VM 에이전트를 포함하려면 사용자 지정 VM 이미지를 수동으로 업데이트해야 합니다.
-
-
-<!--HONumber=Dec16_HO1-->
-
-
