@@ -208,7 +208,7 @@ NPS를 설치하려면 Azure Active Directory의 GUID를 알고 있어야 합니
 
  ![라우팅 및 원격 액세스](./media/nps-extension-vpn/image14.png)
  
-4. **[서버 이름](로컬) 속성** 대화 상자에서 **보안** 탭을 클릭합니다. 
+4. **[서버 이름} (로컬) 속성** 대화 상자에서 **보안** 탭을 클릭합니다. 
 5. **보안** 탭의 [인증 공급자] 아래에서 **RADIUS 인증**, **구성**을 차례로 클릭합니다.
 
  ![RADIUS 인증](./media/nps-extension-vpn/image15.png)
