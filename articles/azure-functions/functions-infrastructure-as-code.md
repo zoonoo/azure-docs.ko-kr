@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2fee04ee11210b9081fc7edb64da1f0210f1bd06
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -38,7 +38,7 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 
 함수 앱에는 다음 리소스가 필요합니다.
 
-* [Azure Storage](../storage/index.md) 계정
+* [Azure Storage](../storage/index.yml) 계정
 * 호스팅 계획(소비 계획 또는 App Service 계획)
 * 함수 앱 
 

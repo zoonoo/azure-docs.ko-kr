@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b7cc8bc2b39e544a5807a2f6f9ff86ba73c54564
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 표준 저장소와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
@@ -48,7 +48,7 @@ Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문
 
 표준 저장소의 기능 중 일부를 살펴보겠습니다. 자세한 내용은 [Azure Storage 소개](../storage-introduction.md)를 참조하세요.
 
-**표준 저장소**: Azure 표준 저장소는 Azure Disks, Azure Blobs, Azure File Storage, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](storage-create-storage-account.md#create-a-storage-account)에서 시작하세요.
+**표준 저장소**: Azure 표준 저장소는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](storage-create-storage-account.md#create-a-storage-account)에서 시작하세요.
 
 **표준 저장소 디스크:** 표준 저장소 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결될 수 있습니다. 표준 저장소 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다. 
 

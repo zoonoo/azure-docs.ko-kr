@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
@@ -44,7 +44,7 @@ RA-GRS에 응용 프로그램을 설계할 경우 다음과 같은 주요 사항
 
 * 읽기 전용 복사본은 주 지역의 데이터와 [결과적으로 일치](https://en.wikipedia.org/wiki/Eventual_consistency)합니다.
 
-* Blob, 테이블 및 큐에 대해 주 지역에서 보조 지역으로 마지막 복제가 발생한 시간을 알려주는 *Last Sync Time* 값을 보조 지역에 쿼리할 수 있습니다. (현재 RA-GRS 중복 옵션이 없는 Azure File Storage에 대해서는 지원되지 않습니다.)
+* Blob, 테이블 및 큐에 대해 주 지역에서 보조 지역으로 마지막 복제가 발생한 시간을 알려주는 *Last Sync Time* 값을 보조 지역에 쿼리할 수 있습니다. (현재 RA-GRS 중복 옵션이 없는 Azure 파일에 대해서는 지원되지 않습니다.)
 
 * 저장소 클라이언트 라이브러리를 사용하여 주 지역 또는 보조 지역의 데이터와 상호 작용할 수 있습니다. 주 지역에 대한 읽기 요청의 시간이 초과되면 읽기 요청을 보조 지역에 자동으로 리디렉션할 수도 있습니다.
 

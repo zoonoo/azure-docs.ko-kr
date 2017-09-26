@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
@@ -68,7 +68,7 @@ Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure S
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Azure Stack 구독에 연결
 
-Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure Stack 구독에 저장소 탐색기 연결](azure-stack/azure-stack-storage-connect-se.md)을 참조하세요.
+Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure Stack 구독에 저장소 탐색기 연결](azure-stack/user/azure-stack-storage-connect-se.md)을 참조하세요.
 
 ## <a name="work-with-local-development-storage"></a>로컬 개발 저장소로 작업
 저장소 탐색기(미리 보기)를 사용하면 Azure Storage 에뮬레이터를 사용하여 로컬 저장소에서 작업할 수 있습니다. 이 방식은 Azure에 저장소 계정을 배포하지 않고도 저장소에 대한 코드를 작성하고 테스트할 수 있습니다. 저장소 계정이 Azure Storage 에뮬레이터에서 에뮬레이트되기 때문입니다.

@@ -3,7 +3,7 @@ title: "내부 부하 분산 장치 개요 | Microsoft Docs"
 description: "내부 부하 분산 장치 및 해당 기능에 대한 개요입니다. Azure에 대한 부하 분산 장치의 작동 방식 및 내부 끝점을 구성하는 가능한 시나리오입니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
-ms.lasthandoff: 04/13/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>내부 부하 분산 장치 개요
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 인터넷 연결 부하 분산 장치와는 달리, ILB(내부 부하 분산 장치)는 클라우드 서비스 내의 리소스에만 트래픽을 전달하거나 VPN을 사용하여 Azure 인프라에 액세스합니다. 이러한 인프라에서는 가상 네트워크 또는 클라우드 서비스의 부하 분산된 VIP(가상 IP) 주소가 인터넷 끝점에 직접 표시되지 않도록 이러한 주소에 대한 액세스를 제한합니다. 이렇게 하면 내부 기간 업무(LOB) 응용 프로그램을 Azure에서 실행하고 온-프레미스의 리소스나 클라우드 내에서 해당 응용 프로그램에 액세스할 수 있습니다.
 

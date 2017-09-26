@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 R Server 및 오픈 소스 기능 소개
@@ -32,7 +32,7 @@ HDInsight의 R Server는 Azure Blob 또는 Data Lake Store에 로드된 거의 �
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
-분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 특히 [Azure Machine Learning Studio](http://studio.azureml.net) [웹 서비스](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md)를 통해 Azure의 다른 곳에서 작동할 수 있습니다.
+분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 특히 [Azure Machine Learning Studio](http://studio.azureml.net) [웹 서비스](../machine-learning/studio/publish-a-machine-learning-web-service.md)를 통해 Azure의 다른 곳에서 작동할 수 있습니다.
 
 ## <a name="get-started-with-r-on-hdinsight"></a>HDInsight에서 R 시작
 HDInsight 클러스터에 R Server를 포함하려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 R Server 클러스터 유형을 선택해야 합니다. R Server 클러스터 유형으로 클러스터의 데이터 노드에 있는 R Server 및 R Server 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 R Server가 있습니다. 클러스터를 만드는 방법에 대한 연습은 [HDInsight의 R Server 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.

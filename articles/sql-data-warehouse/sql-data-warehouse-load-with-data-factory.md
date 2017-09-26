@@ -16,16 +16,16 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Data Factory와 함께 SQL Data Warehouse로 데이터 로드
 
-Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)에서 Azure SQL Data Warehouse로 데이터를 로드할 수 있습니다. 예를 들어 Data Factory를 사용하여 Azure SQL Database 또는 Oracle 데이터베이스에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 이 문서의 자습서에서는 온-프레미스 SQL Server 데이터베이스에서 SQL Data Warehouse로 데이터를 로드하는 방법을 보여 줍니다.
+Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../data-factory/copy-activity-overview.md)에서 Azure SQL Data Warehouse로 데이터를 로드할 수 있습니다. 예를 들어 Data Factory를 사용하여 Azure SQL Database 또는 Oracle 데이터베이스에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 이 문서의 자습서에서는 온-프레미스 SQL Server 데이터베이스에서 SQL Data Warehouse로 데이터를 로드하는 방법을 보여 줍니다.
 
 **예상 시간**: 이 자습서를 완료하는 데는 필수 조건이 충족된 경우 10-15분이 소요됩니다.
 
@@ -72,7 +72,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
     > [!NOTE]
     > 원본 데이터 저장소가 온-프레미스 또는 Azure IaaS 가상 컴퓨터에 있는 경우 데이터 관리 게이트웨이가 필요합니다. 게이트웨이는 Data Factory와 1-1 관계를 갖습니다. 다른 Data Factory에서는 사용할 수 없지만 동일한 Data Factory에서 여러 데이터 로드 작업으로 사용할 수 있습니다. 게이트웨이는 데이터 로드 작업을 실행할 때 여러 데이터 저장소에 연결하는 데 사용할 수 있습니다.
     >
-    > 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](../data-factory/data-factory-data-management-gateway.md) 문서를 참조하세요.
+    > 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](../data-factory/v1/data-factory-data-management-gateway.md) 문서를 참조하세요.
 
 3. **게이트웨이 만들기** 대화 상자가 나타납니다. 이름에는 **GatewayForDWLoading**을 입력하고 **만들기**를 클릭합니다.
 
@@ -154,9 +154,9 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 
 Azure Data Factory 및 데이터 이동 기능에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
 
-- [Azure Data Factory 소개](../data-factory/data-factory-introduction.md)
-- [복사 작업을 사용하여 데이터 이동](../data-factory/data-factory-data-movement-activities.md)
-- [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Data Factory 소개](../data-factory/introduction.md)
+- [복사 작업을 사용하여 데이터 이동](../data-factory/copy-activity-overview.md)
+- [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](../data-factory/connector-azure-sql-data-warehouse.md)
 
 SQL Data Warehouse의 데이터를 탐색하려면 다음 문서를 참조하세요.
 
@@ -164,5 +164,5 @@ SQL Data Warehouse의 데이터를 탐색하려면 다음 문서를 참조하세
 - [Power BI를 사용하여 시각적 데이터](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 

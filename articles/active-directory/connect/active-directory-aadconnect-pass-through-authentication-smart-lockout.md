@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -79,7 +79,7 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 1. Graph 탐색기에 테넌트의 전역 관리자로 로그인합니다. 메시지가 표시되면 요청된 권한에 대해 액세스를 부여합니다.
 2. "권한 수정"을 클릭하고 "Directory.ReadWrite.All" 권한을 선택합니다.
 3. Graph API 요청을 다음과 같이 구성합니다. 버전을 "BETA"로, 요청 유형을 "POST"로, URL을 `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`로 설정합니다.
-4. 다음 JSON 요청을 복사하여 "요청 본문" 필드에 붙여 넣습니다. 스마트 잠금 값을 적절하게 변경하고 `templateId`에 대해 임의의 GUID를 사용합니다.
+4. 다음 JSON 요청을 복사하여 "요청 본문" 필드에 붙여 넣습니다.
 5. "쿼리 실행"을 클릭하여 테넌트의 스마트 잠금 값을 설정합니다.
 
 ```
