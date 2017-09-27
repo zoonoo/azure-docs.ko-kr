@@ -7,7 +7,7 @@
 ## [컨테이너](../../virtual-machines-windows-containers.md)
 
 # 시작
-## [포털을 사용하여 VM 만들기](tutorial.md)
+## [Azure Portal을 사용하여 VM 만들기](tutorial.md)
 ## [VM에 로그온](connect-logon.md)
 ## [Azure PowerShell 설치](/powershell/azure/overview)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
@@ -22,7 +22,7 @@
 ## 네트워크
 ### [끝점을 설정하는 방법](setup-endpoints.md)
 ### [VM을 VNet 또는 클라우드 서비스와 연결](connect-vms.md)
-### [리소스 관리자 VNet에 클래식 VNet 연결](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+### [Resource Manager VNet에 클래식 VNet 연결](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [부하 분산 장치 만들기](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [Azure PowerShell을 사용하여 NSG 관리](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -85,7 +85,7 @@
 ### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

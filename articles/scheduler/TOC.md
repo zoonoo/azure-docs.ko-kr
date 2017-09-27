@@ -21,7 +21,7 @@
 ### [아웃바운드 인증](scheduler-outbound-authentication.md)
 
 # 참조
-## [PowerShell](/powershell/module/azurerm.scheduler)
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST (영문)](/rest/api/scheduler)
 
 # 리소스

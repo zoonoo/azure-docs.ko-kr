@@ -67,12 +67,17 @@
 ### RESTful API 통합
 #### [사용자 입력 유효성 검사](active-directory-b2c-rest-api-validation-custom.md)
 #### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
-### 로그인 사용자 지정
+### 사용자 흐름
 #### [사용자 입력 구성](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [사용자 지정 특성](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)
 #### [토큰 사용자 지정](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [암호 사용자 지정](active-directory-b2c-reference-password-complexity-custom.md)
+#### [암호 복잡성](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [암호 변경](active-directory-b2c-reference-password-change-custom.md)
+
+#### [로그인 유지 사용](active-directory-b2c-reference-kmsi-custom.md)
+
 ### 문제 해결
 #### [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)
 ## 참조

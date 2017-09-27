@@ -16,7 +16,7 @@
 # 방법
 ## 관리되는 도메인 가입
 ### [Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Azure PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Linux VM 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

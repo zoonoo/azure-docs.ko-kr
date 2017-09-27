@@ -60,13 +60,14 @@
 #### [네임스페이스 및 큐에 대한 권한 부여 규칙 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 #### [토픽, 구독 및 규칙이 있는 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
+### [Azure PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
 # 참조
 ## .NET
 ### [Microsoft.ServiceBus.Messaging(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus(.NET 표준)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST (영문)](/rest/api/servicebus)
 ## [예외](service-bus-messaging-exceptions.md)
 ## [할당량](service-bus-quotas.md)

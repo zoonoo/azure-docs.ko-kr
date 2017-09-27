@@ -4,6 +4,8 @@
   items:
     - name: 텍스트 분석 정보
       href: overview.md
+    - name: 지원되는 언어
+      href: text-analytics-supported-languages.md
 - name: 빠른 시작
   items:
     - name: 'C#'

@@ -74,6 +74,7 @@
 
 ## 클라우드 방어
 ### [JIT(Just-In-Time) 액세스](security-center-just-in-time.md)
+### [적응 응용 프로그램 컨트롤](security-center-adaptive-application.md)
 
 ## 자동화 및 오케스트레이션
 ### [Playbooks](security-center-playbooks.md)

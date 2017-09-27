@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack 설명서
+title: Azure Stack 연산자 설명서
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Azure Stack 설명서 - 자습서, API 참조'
+  title: 'Azure Stack 연산자 설명서 - 자습서, API 참조'
   description: Azure Stack 미리 보기를 사용하여 데이터 센터에서 Azure 서비스를 제공하는 방법에 대해 알아봅니다. 개념 환경 검증의 기능에 대해 알아보고 설명합니다.
   services: azure-stack
   author: czeumault
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/28/2017
+  ms.date: 09/23/2017
   ms.author: carolz
 abstract:
   description: Microsoft Azure Stack은 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 하이브리드 클라우드 플랫폼 제품입니다. Azure Stack을 배포하고 빠른 시작 및 자습서를 통해 서비스를 제공하는 방법에 대해 알아봅니다.
 sections:
-  - title: 빠른 시작
+  - title: 5분 빠른 시작
     items:
       - type: paragraph
         text: 하드웨어를 설정하고 Azure Stack을 배포합니다.
@@ -33,12 +33,22 @@ sections:
       - type: paragraph
         text: Azure Stack 배포에 서비스를 추가 하는 방법에 대해 알아봅니다.
       - type: list
-        style: unordered
+        style: ordered
         items:
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Azure Stack에서 가상 컴퓨터 사용</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Azure Stack에서 SQL Database 사용</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Azure Stack에서 웹앱 사용</a>
-          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Azure &amp; Azure Stack 전반에 응용 프로그램 배포</a>
+  - title: Pluralsight 비디오 교육 체험
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Stack 기본 사항 알아보기
+            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
   - title: 참조
     items:
       - type: list
@@ -46,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: 명령줄
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

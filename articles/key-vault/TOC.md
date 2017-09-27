@@ -25,9 +25,9 @@
 ### [방화벽 뒤에 액세스](key-vault-access-behind-firewall.md)
 ### [가용성 및 중복성](key-vault-disaster-recovery-guidance.md)
 ### [테넌트 ID 변경](key-vault-subscription-move-fix.md)
-### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
+### [Azure CLI를 사용하여 만들기 및 관리](key-vault-manage-with-cli2.md)
 ### [CLI로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)
-### [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md)
+### [Azure PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md)
 ### [그룹을 사용하여 액세스 권한 부여](key-vault-group-permissions-for-apps.md)
 ### [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)
 
@@ -36,8 +36,8 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2](/cli/azure/keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

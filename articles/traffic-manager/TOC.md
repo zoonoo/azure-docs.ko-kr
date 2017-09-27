@@ -5,6 +5,8 @@
 ## [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)
 ## [끝점 유형](traffic-manager-endpoint-types.md)
 ## [끝점 모니터링](traffic-manager-monitoring.md)
+## [실제 사용자 측정](traffic-manager-rum-overview.md)
+## [트래픽 보기](traffic-manager-traffic-view-overview.md)
 ## [FAQ](traffic-manager-FAQs.md)
 
 # 시작
@@ -16,19 +18,22 @@
 ## [우선 순위 라우팅 메서드 구성](traffic-manager-configure-priority-routing-method.md)
 ## [가중 라우팅 메서드 구성](traffic-manager-configure-weighted-routing-method.md)
 ## [성능 라우팅 방법 구성](traffic-manager-configure-performance-routing-method.md)
+## Traffic Manager로 실제 사용자 측정 보내기 
+### [Visual Studio SDK 사용](traffic-manager-create-rum-visual-studio.md)
+### [웹 페이지 사용](traffic-manager-create-rum-web-pages.md)
 ## [끝점 관리](traffic-manager-manage-endpoints.md)
 ## [프로필 관리](traffic-manager-manage-profiles.md)
 ## [Traffic Manager 설정 확인](traffic-manager-testing-settings.md)
 ## [부하 분산 서비스 조합](traffic-manager-load-balancing-azure.md)
 ## [Traffic Manager 성능 테스트](traffic-manager-performance-considerations.md)
-## [PowerShell을 사용하여 Traffic Manager 관리](traffic-manager-powershell-arm.md)
+## [Azure PowerShell을 사용하여 Traffic Manager 관리](traffic-manager-powershell-arm.md)
 ## [인터넷 도메인이 Traffic Manager를 가리키도록 설정](traffic-manager-point-internet-domain.md)
 ## 문제 해결
 ### [Azure Traffic Manager의 성능 저하된 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
-## [PowerShell](/powershell/module/azurerm.trafficmanager)
+## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

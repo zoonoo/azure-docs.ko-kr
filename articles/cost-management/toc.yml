@@ -1,0 +1,29 @@
+- name: Azure 비용 관리 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 비용 관리는 무엇입니까?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 비용 데이터 보기
+      href: quick-register-azure-sub.md
+    - name: 비용 데이터 보기 - EA
+      href: quick-register-ea.md
+    - name: 비용 데이터 보기 - CSP
+      href: quick-register-csp.md
+- name: 자습서
+  items:
+    - name: 1 - 사용량 및 비용 검토
+      href: tutorial-review-usage.md
+    - name: 2 - 데이터에 대한 액세스 제어
+      href: tutorial-user-access.md
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: 국가별 가용성
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

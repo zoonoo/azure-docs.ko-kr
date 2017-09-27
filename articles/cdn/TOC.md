@@ -19,7 +19,7 @@
 ####[동적 사이트 가속](cdn-dynamic-site-acceleration.md)
  
 ## 관리
-### [PowerShell로 관리](cdn-manage-powershell.md)
+### [Azure PowerShell로 관리](cdn-manage-powershell.md)
 ### TTL(Time to Live) 구성
 #### [Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage Blob service 콘텐츠](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST (영문)](/rest/api/cdn/)

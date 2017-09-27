@@ -2,7 +2,7 @@
 ## [가상 컴퓨터 확장 집합이란?](virtual-machine-scale-sets-overview.md)
 
 # 시작
-## [포털에서 확장 집합 배포](virtual-machine-scale-sets-portal-create.md)
+## [Azure Portal에서 확장 집합 배포](virtual-machine-scale-sets-portal-create.md)
 ## [PowerShell 또는 Azure CLI를 사용하여 확장 집합 배포](virtual-machine-scale-sets-create.md)
 ## [템플릿을 사용하여 자동 크기 조정 앱 배포](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Linux 확장 집합 템플릿을 사용하여 게스트 기반 자동 크기 조정 사용](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## 배포
-### [포털을 사용하여 만들기](virtual-machine-scale-sets-portal-create.md)
+### [Azure Portal을 사용하여 만들기](virtual-machine-scale-sets-portal-create.md)
 ### [Visual Studio를 사용하여 만들기](virtual-machine-scale-sets-vs-create.md)
-### [PowerShell 또는 Azure CLI를 사용하여 만들기](virtual-machine-scale-sets-create.md)
+### [Azure PowerShell 또는 Azure CLI를 사용하여 만들기](virtual-machine-scale-sets-create.md)
 ### [관리 디스크가 포함된 확장 집합](virtual-machine-scale-sets-managed-disks.md)
 ### [자동 크기 조정 기능이 포함된 Linux 확장 집합](virtual-machine-scale-sets-linux-autoscale.md)
 ### [자동 크기 조정 기능이 포함된 Windows 확장 집합](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## 관리
-### [PowerShell을 사용한 Windows 확장 집합](virtual-machine-scale-sets-windows-manage.md)
+### [Azure PowerShell을 사용한 Windows 확장 집합](virtual-machine-scale-sets-windows-manage.md)
 ### [자동 크기 조정 및 확장 집합](virtual-machine-scale-sets-autoscale-overview.md)
 ### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [확장 집합에서 수직적 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [확장 집합 FAQ](virtual-machine-scale-sets-faq.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST (영문)](/rest/api/virtualmachinescalesets/)
 

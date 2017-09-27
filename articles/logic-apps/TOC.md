@@ -19,8 +19,19 @@
 ### [메시지 일괄 처리](logic-apps-batch-process-send-receive-messages.md)
 ### [작성자 논리 앱 정의](logic-apps-author-definitions.md)
 ### [논리 앱 호출, 트리거 또는 중첩](logic-apps-http-endpoint.md)
-### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
-### [논리 앱에 대한 사용자 지정 API 호출](logic-apps-custom-hosted-api.md)
+### 사용자 지정 커넥터 개발
+#### [사용자 지정 커넥터 개요](custom-connector-overview.md)
+#### [Web API에서 커넥터 만들기](custom-connector-build-web-api-app-tutorial.md)
+#### [Azure AD를 사용하여 커넥터 보호](custom-connector-azure-active-directory-authentication.md)
+#### [Postman을 사용하여 API 설명](custom-connector-api-postman-collection.md)
+#### [사용자 지정 커넥터에 대한 OpenAPI 확장](custom-connector-openapi-extensions.md)
+#### [커넥터 등록](logic-apps-custom-connector-register.md)
+#### [커넥터 인증](custom-connector-submit-certification.md)
+#### [사용자 지정 커넥터에 대한 FAQ](custom-connector-faq.md)
+### 사용자 지정 API 개발
+#### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
+#### [사용자 지정 API에 대한 호출 보호](logic-apps-custom-api-authentication.md)
+#### [사용자 지정 API 배포 및 호출](logic-apps-custom-api-host-deploy-call.md)
 ### [오류 및 예외 처리](logic-apps-exception-handling.md)
 ### [콘텐츠 형식 처리](logic-apps-content-type.md)
 ### [논리 앱 보안](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## 예제, 시나리오 및 연습
-### [개요](logic-apps-examples-and-scenarios.md)
+## [예제, 시나리오 및 연습](logic-apps-examples-and-scenarios.md)
 ### [서버를 사용하지 않는 소셜 대시보드 만들기](logic-apps-scenario-social-serverless.md)
 ### [Azure Functions를 사용하여 논리 앱 호출](logic-apps-scenario-function-sb-trigger.md)
 ### [오류 및 예외 처리 추가](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [워크플로 정의 언어](logic-apps-workflow-definition-language.md)
 ## [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## 커넥터: 심도 있는 항목
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

@@ -56,8 +56,8 @@
 ## [랩 확장](devtest-lab-scale-lab.md)
 
 # 참조
-## [CLI 2.0](/cli/azure/lab)
-## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [Azure CLI](/cli/azure/lab)
+## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [랩 자동 만들기 또는 수정](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

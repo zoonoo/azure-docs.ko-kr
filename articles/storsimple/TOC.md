@@ -36,6 +36,7 @@
 #### [작업 관리](storsimple-virtual-array-manage-jobs.md)
 #### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
 #### [Windows Server 호스트에 MPIO 구성](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [경고를 사용하여 모니터](storsimple-virtual-array-manage-alerts.md)
 #### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
 #### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [솔루션이란?](storsimple-overview.md)
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
+### [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)
 
 ## 시작
 

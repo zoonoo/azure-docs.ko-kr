@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## 자동화
-### [PowerShell을 사용하여 Notification Hubs 배포 및 관리](notification-hubs-deploy-and-manage-powershell.md)
+### [Azure PowerShell을 사용하여 Notification Hubs 배포 및 관리](notification-hubs-deploy-and-manage-powershell.md)
 ### [예약된 알림 보내기](notification-hubs-send-push-notifications-scheduled.md)
 
 ## 문제 해결
@@ -61,7 +61,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST (영문)](/rest/api/notificationhubs)
 

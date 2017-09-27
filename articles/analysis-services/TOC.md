@@ -8,7 +8,7 @@
 
 # 시작
 ## [Azure portal에서 서버 만들기](analysis-services-create-server.md)
-## [PowerShell로 서버 만들기](analysis-services-create-powershell.md)
+## [Azure PowerShell로 서버 만들기](analysis-services-create-powershell.md)
 ## [Visual Studio에서 모델 배포](analysis-services-deploy.md)
 ## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # 참조
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST (영문)](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)

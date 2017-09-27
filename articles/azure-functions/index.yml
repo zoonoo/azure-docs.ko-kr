@@ -46,6 +46,10 @@ sections:
             text: GitHub 웹후크
             href: /azure/azure-functions/functions-create-github-webhook-triggered-function
           - image:
+              src: media/index/cosmosdb.svg
+            text: Azure Cosmos DB
+            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+          - image:
               src: media/index/blob.svg
             text: Blob
             href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -59,7 +63,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /media/logos/logo_visual-studio.svg
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
             text: Visual Studio
             href: /azure/azure-functions/functions-create-your-first-function-visual-studio
   - title: 단계별 자습서
@@ -71,6 +75,8 @@ sections:
         items:
           - html: <a href="/azure/azure-functions/functions-twitter-email">Azure Logic Apps와 통합되는 함수 만들기</a>
           - html: <a href="/azure/azure-functions/functions-create-serverless-api">Azure Functions를 사용하여 서버 없는 API 만들기</a>
+          - html: <a href="/azure/azure-functions/functions-openapi-definition">함수에 대한 OpenAPI 정의 만들기</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Event Grid를 사용하여 업로드된 이미지 크기 자동 조정</a>
   - title: 샘플
     items:
       - type: list
@@ -89,4 +95,4 @@ sections:
           - title: REST (영문)
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: 바인딩
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">이벤트 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">외부 파일</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 및 webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">모바일 앱</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">알림 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">큐 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">서비스 버스</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">타이머</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 출력 바인딩</a></p>
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">이벤트 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">외부 파일</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 및 webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">모바일 앱</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">알림 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">큐 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">서비스 버스</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">타이머</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 출력 바인딩</a></p>

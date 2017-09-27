@@ -5,18 +5,18 @@
 ## [Azure Data Lake Store에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
 
 # 시작
-## [포털 사용](data-lake-store-get-started-portal.md)
-## [PowerShell 사용](data-lake-store-get-started-powershell.md)
+## [Azure Portal 사용](data-lake-store-get-started-portal.md)
+## [Azure PowerShell 사용](data-lake-store-get-started-powershell.md)
 ## [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
 ## [Java SDK 사용](data-lake-store-get-started-java-sdk.md)
 ## [REST API 사용](data-lake-store-get-started-rest-api.md)
-## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
+## [Azure CLI 사용](data-lake-store-get-started-cli-2.0.md)
 ## [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 ## [Python 사용](data-lake-store-get-started-python.md)
 
 # 방법
 ## 데이터 복사
-### [Azure Data Factory 사용](../data-factory/data-factory-azure-datalake-connector.md)
+### [Azure Data Factory 사용](../data-factory/connector-azure-data-lake-store.md)
 ### [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## Azure 서비스와의 통합
 ### HDInsight 사용
-#### [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [PowerShell 사용(기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [PowerShell 사용(추가 저장소)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Azure PowerShell 사용(기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Azure PowerShell 사용(추가 저장소)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Azure 템플릿 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Azure Event Hubs와 함께 사용](data-lake-store-archive-eventhub-capture.md)
-### [데이터 팩터리와 함께 사용](../data-factory/data-factory-azure-datalake-connector.md)
+### [데이터 팩터리와 함께 사용](../data-factory/connector-azure-data-lake-store.md)
 ### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
 ### [데이터 카탈로그와 함께 사용](data-lake-store-with-data-catalog.md)
@@ -61,14 +61,14 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python(계정 관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST (영문)](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

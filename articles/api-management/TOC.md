@@ -6,6 +6,10 @@
 ## [성능 개선을 위해 캐싱 추가](api-management-howto-cache.md)
 ## [질문과 대답](api-management-faq.md)
 # 방법
+## APIM 서비스 설정
+### [APIM 인스턴스 만들기](get-started-create-service-instance.md)
+### [업그레이드 및 비율 크기 조정](upgrade-and-scale.md)
+### [사용자 지정 도메인 구성](configure-custom-domain.md)
 ## API 개발
 ### [API 제품 추가 및 게시](api-management-howto-add-products.md)
 ### [작업 추가](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [빠른 시작](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST (영문)](/rest/api/apimanagement/)
 ## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [정책](api-management-policies.md)

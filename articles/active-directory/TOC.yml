@@ -1,6 +1,6 @@
 - name: Azure의 리소스 액세스
   href: active-directory-understanding-resource-access.md
-- name: 역할 기반 액세스 제어
+- name: 역할 기반 액세스 제어(RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: 액세스 할당 관리
@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: 리소스 공급자 작업
       href: role-based-access-control-resource-provider-operations.md
+- name: RBAC용 PIM(Privileged Identity Management)
+  href: pim-azure-resource.md
+- name: Azure 관리에 대한 조건부 액세스
+  href: conditional-access-azure-management.md
 - name: 관리되는 서비스 ID
   href: msi-overview.md
   items:
-    - name: Windows VM에 대해 MSI 구성
+    - name: Azure VM에 대한 MSI 구성
       items:
         - name: Azure Portal 사용
           href: msi-qs-configure-portal-windows-vm.md

@@ -12,7 +12,7 @@
 
 # 샘플
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [템플릿 배포](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## 배포
-### PowerShell
+### Azure PowerShell
 #### [템플릿 배포](resource-group-template-deploy.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [템플릿 배포](resource-group-template-deploy-cli.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
-### 포털
+### Azure portal
 #### [리소스 배포](resource-group-template-deploy-portal.md)
 #### [템플릿 내보내기](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 
 ## 관리
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [포털](resource-group-portal.md)
+### [Azure Portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## 액세스 제어
 ### 서비스 주체 만들기
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [포털](resource-group-create-service-principal-portal.md)
+#### [Azure 포털](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### [포털을 사용하여 정책 할당](resource-manager-policy-portal.md)
+### [Azure Portal을 사용하여 정책 할당](resource-manager-policy-portal.md)
 ### [스크립트를 사용하여 정책 할당](resource-manager-policy-create-assign.md)
 ### 예
 #### [태그](resource-manager-policy-tags.md)

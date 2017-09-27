@@ -5,7 +5,7 @@
 ## [FAQ](faq.md)
 
 # 시작
-## [포털을 사용하여 Linux VM 만들기](createportal.md)
+## [Azure Portal을 사용하여 Linux VM 만들기](createportal.md)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
 ## [SSH 키 만들기](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Linux 암호 또는 키 다시 설정, SSH 수정, 디스크 확인](reset-access.md)
 ### [유지 관리](planned-maintenance-schedule.md)
 ### [CLI를 사용하여 Docker 호스트 만들기](cli-use-docker.md)
-### [포털을 사용하여 Docker 호스트 만들기](portal-use-docker.md)
+### [Azure Portal을 사용하여 Docker 호스트 만들기](portal-use-docker.md)
 ### [Docker 및 Swarm을 사용하는 방법](../../virtual-machines-linux-docker-swarm.md)
 
 ## 저장소 사용
@@ -67,7 +67,7 @@
 ### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager 템플릿 작성](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

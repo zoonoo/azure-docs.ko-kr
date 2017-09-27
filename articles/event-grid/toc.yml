@@ -12,6 +12,8 @@
   items:
     - name: 논리 앱을 사용하여 VM 변경 내용 모니터링
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: 업로드된 이미지의 크기 조정
+      href: resize-images-on-storage-blob-upload-event.md
 - name: 개념
   items:
     - name: Event Grid 개념

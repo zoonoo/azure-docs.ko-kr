@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Cost Management 설명서
+metadata:
+  title: 'Azure Cost Management 설명서 - 자습서, API 참조 | Microsoft Docs'
+  description: 'Cloudyn에서 개발한 Azure Cost Management는 Azure 및 다른 클라우드 리소스를 사용하는 데 도움이 되는 다중 클라우드 비용 관리 솔루션입니다. 빠른 시작 및 자습서를 통해 사용량과 비용을 검토하고, 적극적으로 비용을 관리하고, 지출을 예측하고, 비용을 최적화하는 방법을 알아봅니다.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Cloudyn에서 개발한 Azure Cost Management는 Azure 및 다른 클라우드 리소스를 가장 효율적으로 활용하고 관리하는 데 도움이 되는 다중 클라우드 비용 관리 솔루션입니다. 빠른 시작 및 자습서를 통해 사용량과 비용을 검토하고, 적극적으로 비용을 관리하고, 지출을 예측하고, 비용을 최적화하는 방법을 알아봅니다.'
+sections:
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: Azure 계약 또는 구독 정보를 Cost Management에 등록하고 비용 데이터를 보는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: 비용 데이터 보기
+            href: quick-register-azure-sub
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: 'Cost Management를 사용하여 사용량과 비용을 검토하고, 적극적으로 비용을 관리하고, 지출을 예측하고, 비용을 최적화하는 방법을 알아봅니다.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">사용량과 비용을 검토하여 비정상 및 효율성 검색</a>
+          - html: <a href="tutorial-user-access">Cost Management 데이터에 대한 액세스 할당</a>

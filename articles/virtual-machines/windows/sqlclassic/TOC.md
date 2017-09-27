@@ -30,12 +30,12 @@
 ## 비즈니스 인텔리전스
 ### [Azure VM의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [PowerShell을 사용하여 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)
+### [Azure PowerShell을 사용하여 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)
 ## [성능 모범 사례](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [응용 프로그램 패턴](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 참조
-## [PowerShell 클래식](/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 드라이버](https://docs.microsoft.com/sql/connect/sql-server-drivers)

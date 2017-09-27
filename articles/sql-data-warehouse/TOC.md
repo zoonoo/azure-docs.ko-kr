@@ -8,6 +8,7 @@
 # 시작
 
 ## [초보자를 위한 자습서](sql-data-warehouse-get-started-tutorial.md)
+## [탄력적 쿼리 자습서](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
 
@@ -19,9 +20,9 @@
 
 ### [Backup 개요](sql-data-warehouse-backups.md)
 ### [복원 개요](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
+#### [Azure 포털](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [REST (영문)](sql-data-warehouse-restore-database-rest-api.md)
 
 ## 연결
 
@@ -33,8 +34,8 @@
 ### [연결 문자열](sql-data-warehouse-connection-strings.md)
 
 ## 생성
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure 포털](sql-data-warehouse-get-started-provision.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## 개발
@@ -78,7 +79,9 @@
 ### [Machine Learning 자습서](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [스트림 분석](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [SQL Database 및 SQL Data Warehouse에서의 탄력적 쿼리](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## 로드
 

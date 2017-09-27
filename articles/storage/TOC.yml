@@ -1,3 +1,5 @@
+- name: Azure Storage 설명서
+  href: index.yml
 - name: 개요
   items:
     - name: 소개

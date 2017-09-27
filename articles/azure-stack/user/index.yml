@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack 사용자 설명서
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Azure Stack 설명서 - 자습서, API 참조'
+  description: Azure Stack 미리 보기를 사용하여 데이터 센터에서 Azure 서비스를 제공하는 방법에 대해 알아봅니다. 개념 환경 검증의 기능에 대해 알아보고 설명합니다.
+  services: azure-stack
+  author: carolz
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Stack은 회사 또는 서비스 공급자의 데이터 센터에서 Azure 서비스를 사용할 수 있게 하는 하이브리드 클라우드 플랫폼입니다. 개발자는 Azure Stack에서 앱을 빌드할 수 있습니다. 그런 다음 Azure Stack 또는 Azure에 배포하거나, Azure Stack 클라우드와 Azure 간의 연결을 활용하는 진정한 하이브리드 앱을 빌드할 수 있습니다.  빠른 시작 및 자습서를 사용하여 리소스를 만들고 앱을 배포하는 방법을 알아봅니다.'
+sections:
+  - title: 빠른 시작
+    items:
+      - type: paragraph
+        text: Azure Stack에 Windows 가상 컴퓨터를 배포하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: 포털
+            href: azure-stack-quick-windows-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-windows-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-windows-cli.md
+      - type: paragraph
+        text: Azure Stack에 Linux 가상 컴퓨터를 배포하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: 포털
+            href: azure-stack-quick-linux-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-linux-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-linux-cli.md
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: Azure 및 Azure Stack 모두에 응용 프로그램을 배포합니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Azure Stack 및 Azure에 앱 배포</a>
+  - title: 참조
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

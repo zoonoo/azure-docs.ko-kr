@@ -42,7 +42,7 @@
 #### [작업 및 태스크 실행](./scripts/batch-cli-sample-run-job.md)
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,8 +63,8 @@
 
 # 관련 항목
 ## [배치 Shipyard](https://github.com/Azure/batch-shipyard)
-## [배치 및 데이터 팩터리를 사용하여 데이터 처리](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure의 일괄 처리, HPC 및 큰 계산 솔루션](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [배치 및 데이터 팩터리를 사용하여 데이터 처리](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

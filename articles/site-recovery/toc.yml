@@ -1,0 +1,248 @@
+- name: Site Recovery 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 사이트 복구란?
+      href: site-recovery-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 보조 지역으로 Azure VM 복제
+      href: azure-to-azure-quickstart.md
+- name: 자습서
+  items:
+    - name: Azure VM
+      items:
+        - name: 재해 복구 설정
+          href: azure-to-azure-tutorial-enable-replication.md
+        - name: 재해 복구 훈련 실행
+          href: azure-to-azure-tutorial-dr-drill.md
+        - name: 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: azure-to-azure-tutorial-failover-failback.md
+    - name: VMware VM
+      items:
+        - name: Azure 준비
+          href: tutorial-prepare-azure.md
+        - name: 온-프레미스 VMware 준비
+          href: tutorial-prepare-on-premises-vmware.md
+        - name: 재해 복구 설정
+          href: tutorial-vmware-to-azure.md
+        - name: 재해 복구 훈련 실행
+          href: tutorial-dr-drill-azure.md
+        - name: 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: tutorial-vmware-to-azure-failover-failback.md
+    - name: Azure로 마이그레이션
+      items:
+        - name: Azure 준비
+          href: tutorial-prepare-azure.md
+        - name: Azure로 온-프레미스 컴퓨터 마이그레이션
+          href: tutorial-migrate-on-premises-to-azure.md
+        - name: Azure로 AWS 인스턴스 마이그레이션
+          href: tutorial-migrate-aws-to-azure.md
+- name: 개념
+  items:
+    - name: Azure에서 Azure로 아키텍처
+      href: concepts-azure-to-azure-architecture.md
+    - name: VMware에서 Azure로 아키텍처
+      href: concepts-vmware-to-azure-architecture.md
+    - name: Hyper-V에서 Azure로 아키텍처
+      href: concepts-hyper-v-to-azure-architecture.md
+    - name: 물리적 서버에서 Azure로 아키텍처
+      href: concepts-physical-to-azure-architecture.md
+    - name: Hyper-V에서 보조 사이트로 아키텍처
+      href: concepts-hyper-v-to-secondary-architecture.md
+    - name: 온-프레미스에서 Azure로 지원 매트릭스
+      href: site-recovery-support-matrix-to-azure.md
+    - name: 온-프레미스에서 보조 사이트로 지원 매트릭스
+      href: site-recovery-support-matrix-to-sec-site.md
+    - name: 작업에 대한 재해 복구
+      href: site-recovery-workload.md
+    - name: Azure에서 Azure로 네트워킹(미리 보기)
+      href: site-recovery-azure-to-azure-networking-guidance.md
+    - name: Azure로 장애 조치(failover) 후 VM 연결
+      href: concepts-on-premises-to-azure-networking.md
+    - name: 보조 사이트로 장애 조치(failover) 후 VM 연결
+      href: concepts-on-premises-to-on-premises-networking.md
+    - name: Azure VM 복제를 위한 네트워크 매핑
+      href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Azure로 Hyper-V VM 복제를 위한 네트워크 매핑
+      href: site-recovery-network-mapping.md
+    - name: 역할 기반 액세스 권한
+      href: site-recovery-role-based-linked-access-control.md
+    - name: FAQ
+      href: site-recovery-faq.md
+    - name: Azure로 VMware 복제를 위한 용량 계획
+      href: site-recovery-plan-capacity-vmware.md
+      items:
+        - name: Azure로 VMware 복제를 위한 Deployment Planner
+          href: site-recovery-deployment-planner.md
+    - name: Hyper-V 복제를 위한 Capacity Planner
+      href: site-recovery-capacity-planner.md
+- name: 방법 가이드
+  items:
+    - name: 재해 복구
+      items:
+        - name: Hyper-V VM에 대한 Azure로
+          href: tutorial-hyper-v-to-azure.md
+        - name: 물리적 서버에 대한 Azure로
+          href: tutorial-physical-to-azure.md
+        - name: Hyper-V VM에 대한 보조 사이트로
+          href: tutorial-vmm-to-vmm.md
+        - name: VMware VM 및 물리적 서버에 대한 보조 사이트로
+          href: tutorial-vmware-to-vmware.md
+        - name: Azure로 재해 복구 훈련 실행
+          href: tutorial-dr-drill-azure.md
+        - name: 보조 사이트로 재해 복구 훈련 실행
+          href: tutorial-dr-drill-secondary.md
+        - name: 물리적 서버에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: tutorial-vmware-to-azure-failover-failback.md
+        - name: Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+        - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: 구성
+      items:
+        - name: 원본 환경 설정
+          items:
+            - name: VMware에서 Azure로 원본 환경
+              href: site-recovery-set-up-vmware-to-azure.md
+            - name: 물리적 서버에서 Azure로 원본 환경
+              href: site-recovery-set-up-physical-to-azure.md
+        - name: 대상 환경 설정
+          items:
+            - name: VMware에서 Azure로 대상 환경
+              href: site-recovery-prepare-target-vmware-to-azure.md
+            - name: 물리적 서버에서 Azure로 대상 환경
+              href: site-recovery-prepare-target-physical-to-azure.md
+        - name: 복제 설정 구성
+          href: site-recovery-setup-replication-settings-vmware.md
+        - name: VMware 복제를 위해 모바일 서비스 배포
+          href: site-recovery-vmware-to-azure-install-mob-svc.md
+          items:
+            - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
+              href: site-recovery-automate-mobility-service-install.md
+        - name: 복제 활성화
+          items:
+            - name: Azure 간 복제 활성화
+              href: site-recovery-replicate-azure-to-azure.md
+            - name: VMware에서 Azure로 복제 활성화
+              href: site-recovery-replicate-vmware-to-azure.md
+    - name: 장애 조치(Failover) 및 장애 복구
+      items:
+        - name: 복구 계획 설정
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Azure Runbook을 복구 계획에 추가
+              href: site-recovery-runbook-automation.md
+        - name: 테스트 장애 조치(Failover) 실행
+          items:
+            - name: Azure로 테스트 장애 조치(Failover) 실행
+              href: site-recovery-test-failover-to-azure.md
+            - name: VMM 클라우드 간 테스트 장애 조치(failover) 실행
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: 보호된 컴퓨터 장애 조치(failover)
+          href: site-recovery-failover.md
+        - name: 장애 조치(failover) 후 컴퓨터 다시 보호
+          items:
+            - name: Azure 보조 지역에서 주 지역으로 다시 보호
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Azure에서 온-프레미스로 다시 보호
+              href: site-recovery-how-to-reprotect.md
+        - name: Azure에서 장애 복구
+          items:
+            - name: Azure에서 VMware로 장애 복구(failback)
+              href: site-recovery-failback-azure-to-vmware.md
+            - name: Azure에서 Hyper-V로 장애 복구(failback)
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+    - name: 자동화
+      items:
+        - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
+          href: site-recovery-deploy-with-powershell-resource-manager.md
+        - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 있음)
+          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+        - name: PowerShell을 사용하여 보조 VMM 사이트로 Hyper-V 복제 설정
+          href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
+    - name: 마이그레이션
+      items:
+        - name: 다른 Azure 지역으로 마이그레이션된 컴퓨터 복제
+          href: site-recovery-azure-to-azure-after-migration.md
+    - name: 워크로드
+      items:
+        - name: Active Directory 및 DNS
+          href: site-recovery-active-directory.md
+        - name: SQL Server 복제
+          href: site-recovery-sql.md
+        - name: SharePoint
+          href: site-recovery-sharepoint.md
+        - name: Dynamics AX
+          href: site-recovery-dynamicsax.md
+        - name: RDS
+          href: 'site-recovery-workload.md#protect-rds'
+        - name: Exchange
+          href: 'site-recovery-workload.md#protect-exchange'
+        - name: SAP
+          href: site-recovery-sap.md
+        - name: IIS 기반 웹 응용 프로그램
+          href: site-recovery-iis.md
+        - name: Citrix XenApp 및 XenDesktop
+          href: site-recovery-citrix-xenapp-and-xendesktop.md
+        - name: 기타 작업
+          href: 'site-recovery-workload.md#workload-summary'
+    - name: 관리
+      items:
+        - name: Site Recovery 자격 증명 모음에서 Recovery Services 자격 증명 모음으로 업그레이드
+          href: upgrade-site-recovery-vaults.md
+        - name: Azure에서 프로세스 서버 관리
+          href: site-recovery-vmware-setup-azure-ps-resource-manager.md
+        - name: 구성 서버 관리
+          href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: 확장 프로세스 서버 관리
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: vCenter 서버 관리
+          href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: 서버 제거 및 보호 사용 안 함
+          href: site-recovery-manage-registration-and-protection.md
+        - name: Recovery Services 자격 증명 모음 삭제
+          href: delete-vault.md
+    - name: 문제 해결
+      items:
+        - name: Azure 간 복제 문제
+          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+        - name: 온-프레미스와 Azure 간 복제 문제
+          href: site-recovery-vmware-to-azure-protection-troubleshoot.md
+        - name: 모바일 서비스 설치 문제
+          href: site-recovery-vmware-to-azure-push-install-error-codes.md
+        - name: Azure 장애 조치(failover) 문제
+          href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: 로그 수집 및 온-프레미스 문제 해결
+          href: site-recovery-monitoring-and-troubleshooting.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell 클래식
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST (영문)
+      href: 'https://msdn.microsoft.com/en-us/library/mt750497'
+- name: 관련 항목
+  items:
+    - name: Azure Automation
+      href: /azure/automation/
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 블로그
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: 학습 경로
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'

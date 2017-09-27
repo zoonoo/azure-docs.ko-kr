@@ -54,11 +54,11 @@
 ## 자동화
 ### [Visual Studio용 도구](stream-analytics-tools-for-visual-studio.md)
 ### [관리 .NET SDK 사용](stream-analytics-dotnet-management-sdk.md)
-### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [원 클릭 Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
-## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST (영문)](/rest/api/streamanalytics)

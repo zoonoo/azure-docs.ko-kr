@@ -70,7 +70,7 @@
     - name: 독일
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: 포털
+    - name: Azure portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Resource Manager
@@ -79,6 +79,9 @@
     - name: Azure 스택
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+    - name: Azure Stack 사용자
+      tocHref: /azure/azure-stack/user/
+      topicHref: /azure/azure-stack/user/
     - name: 지원 가능성
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
@@ -207,6 +210,19 @@
     - name: Machine Learning
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
+      items:
+        - name: 서비스(미리 보기)
+          tocHref: /azure/machine-learning/preview
+          topicHref: /azure/machine-learning/preview/
+        - name: 스튜디오
+          tocHref: /azure/machine-learning/studio
+          topicHref: /azure/machine-learning/studio/
+        - name: Team Data Science Process
+          tocHref: /azure/machine-learning/team-data-science-process
+          topicHref: /azure/machine-learning/team-data-science-process/overview
+        - name: 데이터 과학 가상 컴퓨터
+          tocHref: /azure/machine-learning/data-science-virtual-machine
+          topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: 마켓플레이스 소비자
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/

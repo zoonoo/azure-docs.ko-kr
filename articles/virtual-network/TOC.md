@@ -2,9 +2,13 @@
 ## [가상 네트워크](virtual-networks-overview.md)
 ## [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)
 ## [가상 네트워크 피어링](virtual-network-peering-overview.md)
+## [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)
+## [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md)
+## [보안](security-overview.md)
 ## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
 ## [FAQ](virtual-networks-faq.md)
 ## [IP 주소 지정](virtual-network-ip-addresses-overview-arm.md)
+## [DDoS 보호](ddos-protection-overview.md)
 ## 클래식
 ### [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)
 ### [액세스 제어 목록](virtual-networks-acl.md)
@@ -19,26 +23,27 @@
 
 ## 배포
 ### [가상 네트워크](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
 
 ### 네트워크 보안 그룹
-#### [포털](virtual-networks-create-nsg-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure 포털](virtual-networks-create-nsg-arm-pportal.md)
+#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [템플릿](virtual-networks-create-nsg-arm-template.md)
+#### [응용 프로그램 보안 그룹](create-network-security-group-preview.md)
 #### 클래식
-##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [CLI](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [Azure CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### 사용자 정의 경로
-#### [PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [템플릿](virtual-network-create-udr-arm-template.md)
 #### 클래식
-##### [PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### 가상 네트워크 피어링
 #### [동일한 배포 모델 - 동일한 구독](virtual-network-create-peering.md)
@@ -46,35 +51,42 @@
 #### [다른 배포 모델 - 동일한 구독](create-peering-different-deployment-models.md)
 #### [다른 배포 모델 - 다른 구독](create-peering-different-deployment-models-subscriptions.md)
 
+### [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-configure.md)
+
+### 공용 IP 주소 - 가용성 영역
+#### [Azure 포털](create-public-ip-availability-zone-portal.md)
+#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+#### [PowerShell](create-public-ip-availability-zone-powershell.md)
+
 ### 가상 컴퓨터
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
-##### [포털](virtual-network-deploy-static-pip-arm-portal.md)
-##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
+##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 ##### 클래식
-###### [PowerShell](virtual-networks-reserved-public-ip.md)
+###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### 고정 개인 IP 주소를 사용하는 VM 만들기
-##### [포털](virtual-networks-static-private-ip-arm-pportal.md)
-##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure 포털](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### 클래식
-###### [포털](virtual-networks-static-private-ip-classic-pportal.md)
-###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure 포털](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### 여러 네트워크 인터페이스를 사용하는 VM 만들기
-##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### 클래식
-###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### 여러 IP 주소를 사용하여 VM 만들기
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
-##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
 #### [가속 네트워킹을 사용하여 VM 만들기](virtual-network-create-vm-accelerated-networking.md)
@@ -97,9 +109,9 @@
 
 ### 클래식
 #### [가상 네트워크](create-virtual-network-classic.md)
-##### [포털](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure 포털](virtual-networks-create-vnet-classic-pportal.md)
+##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ## 구성
 ### 가상 컴퓨터
@@ -109,8 +121,8 @@
 #### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
 ### 클래식
 #### 액세스 제어 목록
-##### [포털](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell](virtual-networks-acl-powershell.md)
+##### [Azure 포털](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## 관리
 ### [가상 네트워크](virtual-network-manage-network.md)
@@ -120,9 +132,9 @@
 ##### [네트워크 구성 파일](virtual-networks-using-network-configuration-file.md)
 ##### [선호도 그룹에서 지역으로 마이그레이션](virtual-networks-migrate-to-regional-vnet.md)
 ### 네트워크 보안 그룹
-#### [포털](virtual-network-manage-nsg-arm-portal.md)
-#### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure 포털](virtual-network-manage-nsg-arm-portal.md)
+#### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [로그](virtual-network-nsg-manage-log.md)
 ### NIC(네트워크 인터페이스)
 #### [NIC 만들기, 변경 또는 삭제](virtual-network-network-interface.md)
@@ -130,25 +142,28 @@
 ### 가상 컴퓨터
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
 ### [공용 IP 주소](virtual-network-public-ip-address.md)
+### DDoS 보호
+#### [Azure 포털](ddos-protection-manage-portal.md)
+#### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## 문제 해결
 ### 네트워크 보안 그룹
-#### [포털](virtual-network-nsg-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+#### [Azure 포털](virtual-network-nsg-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### 경로
-#### [포털](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+#### [Azure 포털](virtual-network-routes-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [처리량 테스트](virtual-network-bandwidth-testing.md)
 ### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM 간 연결 문제](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
-## [PowerShell(리소스 관리자)](/powershell/module/azurerm.network)
-## [PowerShell(클래식)](/powershell/module/azure/)
+## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.network)
+## [Azure PowerShell(클래식)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
-## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST(Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
 
 

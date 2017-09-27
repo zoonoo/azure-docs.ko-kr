@@ -7,8 +7,12 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 컨테이너 인스턴스 만들기
+    - name: 컨테이너 만들기 - CLI
       href: container-instances-quickstart.md
+    - name: 컨테이너 만들기 - 포털
+      href: container-instances-quickstart-portal.md
+    - name: 컨테이너 만들기 - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: 자습서
   items:
     - name: 컨테이너 빌드 및 배포
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: 참조
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST (영문)
       href: /rest/api/container-instances

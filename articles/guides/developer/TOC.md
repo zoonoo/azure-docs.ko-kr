@@ -11,7 +11,7 @@
 ## [SDK 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 빠른 시작
-## [웹앱](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## 가상 컴퓨터
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -34,11 +34,11 @@
 
 # 샘플
 ## Azure CLI
-### [웹앱](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## PowerShell
-### [웹앱](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+## Azure PowerShell
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
@@ -108,8 +108,8 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## 명령줄 인터페이스
-### [Azure CLI2.0](https://docs.microsoft.com/cli/azure/)
-### [PowerShell](https://docs.microsoft.com/powershell/)
+### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [결제](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # 리소스
