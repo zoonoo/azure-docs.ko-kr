@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/02/2016
 ms.author: cjiang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c65ede134971c034006781e058c05a82ffb68a19
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>Azure에서 Linux VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결

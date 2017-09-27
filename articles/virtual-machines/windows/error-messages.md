@@ -10,7 +10,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 5/26/2017
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 42025586a437f19e4a752ac502588fd59ad2139a
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 컴퓨터를 관리할 때 발생하는 일반적인 오류 메시지 이해
