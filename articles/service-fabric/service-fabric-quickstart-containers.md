@@ -96,7 +96,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
 **연결 끝점** 필드에 클러스터의 연결 끝점을 입력하고 **게시**를 클릭합니다. 파티 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`
 
-브라우저를 열고 http://winh1x87d1d.westus.cloudapp.azure.com:80으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
+브라우저를 열고 http://winh1x87d1d.westus.cloudapp.azure.com:80 으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
 이 빠른 시작에서 사용되는 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.
