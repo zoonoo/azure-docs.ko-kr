@@ -146,7 +146,8 @@ U-SQL을 사용하려면 U-SQL 파일이나 폴더를 열어야 합니다.
                       D( DepID, DepName );
          
         OUTPUT @departments
-            TO “/Output/departments.csv”
+            TO "/Output/departments.csv"
+        USING Outputters.Csv();
 
     스크립트는 /output 폴더에 일부 데이터가 포함된 departments.csv 파일을 만듭니다.
 
