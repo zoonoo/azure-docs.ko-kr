@@ -76,14 +76,14 @@ Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청�
     #include <unistd.h>
     #include <stdlib.h>
    
-    #define check(messenger)                                                     
-      {                                                                          
-        if(pn_messenger_errno(messenger))                                        
-        {                                                                        
-          printf("check\n");                                                     
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); 
-        }                                                                        
-      }  
+    #define check(messenger)                                                     \
+      {                                                                          \
+        if(pn_messenger_errno(messenger))                                        \
+        {                                                                        \
+          printf("check\n");                                                     \
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
+        }                                                                        \
+      }
    
     pn_timestamp_t time_now(void)
     {
@@ -100,7 +100,7 @@ Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청�
     }
    
     int sendMessage(pn_messenger_t * messenger) {
-        char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
+        char * address = (char *) "amqps://{SAS Key Name}:{SAS key}@{namespace name}.servicebus.windows.net/{event hub name}";
         char * msgtext = (char *) "Hello from C!";
    
         pn_message_t * message;

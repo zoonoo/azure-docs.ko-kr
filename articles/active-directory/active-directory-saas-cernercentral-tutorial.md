@@ -19,7 +19,6 @@ ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>자습서: Cerner Central과 Azure Active Directory 통합
 
@@ -115,19 +114,15 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-    | `https://cernercentral.com/<instasncename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://sandboxcernercentral.com/<instancename>` |
-    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+    
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Cerner Central 지원 팀](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations)에 문의하세요.

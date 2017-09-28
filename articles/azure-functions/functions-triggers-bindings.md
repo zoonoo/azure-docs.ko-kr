@@ -349,7 +349,7 @@ Azure Functions는 `{rand-guid}` 바인딩 식을 통해 바인딩에서 GUID를
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
