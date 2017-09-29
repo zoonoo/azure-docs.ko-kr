@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="service-fabric-application-upgrade"></a>서비스 패브릭 응용 프로그램 업그레이드
@@ -50,7 +50,7 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 
 1. 클러스터에 존재하지 않는 새 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)의 기본 서비스가 만들어집니다.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize)를 true로 설정하여 다음 규칙을 사용해야 합니다. 이 기능은 v5.5에서 지원됩니다.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md)를 true로 설정하여 다음 규칙을 사용해야 합니다. 이 기능은 v5.5에서 지원됩니다.
 
 2. 이전 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application) 및 새 버전 모두에 있는 기존 서비스가 업데이트됩니다. 클러스터에 있는 설명을 새 버전의 서비스 설명으로 덮어씁니다. 기본 서비스 실패를 업데이트하는 경우 응용 프로그램 업그레이드가 자동으로 롤백됩니다.
 3. 이전 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)에 있지만 새 버전에 없는 기본 서비스가 삭제됩니다. **기본 서비스를 삭제하는 작업은 되돌릴 수 없습니다.**

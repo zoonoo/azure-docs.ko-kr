@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/22/2017
 
 이 문서에서는 사용자를 두 Azure Web Apps 끝점으로 라우팅하도록 **우선 순위** 라우팅 형식을 사용하는 프로필을 만드는 방법을 설명합니다. **우선 순위** 라우팅 형식을 사용하면 두 번째 끝점은 백업으로 유지되는 동안 첫 번째 끝점으로 모든 트래픽이 라우팅됩니다. 결과적으로, 첫 번째 끝점이 비정상 상태가 되면 사용자는 두 번째 끝점으로 라우팅될 수 있습니다.
 
-이 문서에서는 이전에 만든 두 개의 Azure Web Apps 끝점이 새로 만든 이 Traffic Manager 프로필에 연결되어 있습니다. Azure Web Apps 끝점을 만드는 방법에 대한 자세한 정보는 [Azure Web Apps 설명서 페이지](https://docs.microsoft.com/azure/app-service-web/)를 참조하세요. 예를 들어 DNS 이름이 있고 공용 인터넷에 연결할 수 있으며 Azure Web Apps 끝점을 사용하는 경우 모든 끝점을 추가할 수 있습니다.
+이 문서에서는 이전에 만든 두 개의 Azure Web Apps 끝점이 새로 만든 이 Traffic Manager 프로필에 연결되어 있습니다. Azure Web Apps 끝점을 만드는 방법에 대한 자세한 정보는 [Azure Web Apps 설명서 페이지](https://docs.microsoft.com/azure/app-service/)를 참조하세요. 예를 들어 DNS 이름이 있고 공용 인터넷에 연결할 수 있으며 Azure Web Apps 끝점을 사용하는 경우 모든 끝점을 추가할 수 있습니다.
 
 ### <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다. 계정이 아직 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
@@ -54,13 +55,13 @@ ms.lasthandoff: 03/22/2017
     5. **우선 순위**의 경우 **1**로 선택합니다. 이제 모든 트래픽이 정상일 경우 이 끝점으로 전송됩니다.
     6. **사용 안 함으로 추가**를 선택 취소 상태로 유지합니다.
     7. **확인**
-5.    다음 Azure Web Apps 끝점에 대해 3, 4단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
-6.    두 끝점 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
+5.  다음 Azure Web Apps 끝점에 대해 3, 4단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
+6.  두 끝점 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
 
     ![Traffic Manager 끝점 추가](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Traffic Manager 프로필 사용
-1.    포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+1.  포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 2. **Traffic Manager 프로필** 블레이드에서 **개요**를 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에 사용자의 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 이는 라우팅 형식에서 결정된 대로 올바른 끝점으로 라우팅되도록 모든 클라이언트가 사용할 수 있습니다(예를 들어 웹 브라우저를 사용하여 이동). 이 경우 모든 요청이 첫 번째 끝점으로 라우팅되고 Traffic Manager에서 이를 비정상으로 감지하면 트래픽은 자동으로 다음 끝점으로 장애 조치됩니다.
 

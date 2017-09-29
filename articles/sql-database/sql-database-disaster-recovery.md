@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
@@ -64,7 +64,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 * [Azure Portal을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-portal.md)
 * [PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>지역 복원을 사용한 복구
 응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생하지 않은 경우 응용 프로그램 데이터베이스를 복구하는 방법으로 [지역 복원](sql-database-recovery-using-backups.md)을 사용할 수 있습니다. 최신 지역 중복 백업에서 데이터베이스의 복사본을 만듭니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9f872fd5119042945356225a80331da18f3a6d99
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: b61f6aad7cf974ce25baf944e342284b02ea0048
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
@@ -42,7 +42,7 @@ CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너
 <p/>
 
 > [!NOTE]
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스의 경우 [이것](../app-service-web/web-sites-custom-domain-name.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스의 경우 [이것](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
 > 
 > 
 

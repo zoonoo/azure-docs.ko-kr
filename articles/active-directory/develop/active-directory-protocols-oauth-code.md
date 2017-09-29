@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
@@ -207,7 +207,7 @@ JSON 웹 토큰에 대한 자세한 내용은 [JWT IETF 초안 사양](http://go
 | 클레임 유형 | 설명 |
 | --- | --- |
 | aud |토큰의 대상입니다. 토큰이 클라이언트 응용 프로그램에 발급된 경우 대상 그룹은 클라이언트의 `client_id` 입니다. |
-| exp |만료 시간입니다. 토큰이 만료되는 시간입니다. 토큰이 유효하려면 현재 날짜/시간이 `exp` 값보다 작거나 같아야 합니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰이 발급된 시간까지 기간(초)으로 표시됩니다. |
+| exp |만료 시간입니다. 토큰이 만료되는 시간입니다. 토큰이 유효하려면 현재 날짜/시간이 `exp` 값보다 작거나 같아야 합니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | family_name |사용자의 성입니다. 응용 프로그램이 이 값을 표시할 수 있습니다. |
 | given_name |사용자의 이름입니다. 응용 프로그램이 이 값을 표시할 수 있습니다. |
 | iat |발급 시간입니다. JWT가 발급된 시간입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰이 발급된 시간까지 기간(초)으로 표시됩니다. |
