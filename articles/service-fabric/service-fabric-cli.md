@@ -9,15 +9,17 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
 Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔터티와 상호 작용하고 이를 관리하기 위한 명령줄 유틸리티입니다. Service Fabric CLI는 Windows 또는 Linux 클러스터에서 사용할 수 있으며, Python을 지원하는 모든 플랫폼에서 실행됩니다.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 Ubuntu 16.04 Desktop의 경우 타사 PPA(Personal Package Archive)를 사용하여 Python 3.6을 설치할 수 있습니다.
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 이러한 단계는 Python 3.5 및 2.7 시스템 설치에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 이러한 단계는 Python 2.7 시스템 설치를 수정하지 않습니다.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 클러스터 끝점은 접두사로 `http` 또는 `https`를 사용해야 합니다. HTTP 게이트웨이에 대한 포트를 포함해야 합니다. 포트 및 주소는 Service Fabric Explorer URL와 동일합니다.
 
-인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다.
+인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다. CA 서명되지 않은 자체 서명된 인증서인 경우 `--no-verify` 옵션을 전달하여 CA 확인을 건너뛸 수 있습니다.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 자세한 내용은 [안전한 Azure Service Fabric 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요.
@@ -175,6 +200,12 @@ Service Fabric CLI는 PEM(확장명 .pem) 파일의 클라이언트 쪽 인증�
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+마찬가지로, PEM 파일에서 PFX 파일로 변환하려면 다음 명령을 사용할 수 있습니다(여기에서 암호가 제공되지 않음).
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 자세한 내용은 [OpenSSL 설명서](https://www.openssl.org/docs/)를 참조하세요.
 
 ### <a name="connection-problems"></a>연결 문제
@@ -202,6 +233,16 @@ sfctl application -h
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>Service Fabric CLI 업데이트 
+
+Service Fabric CLI를 업데이트하려면 다음 명령을 실행합니다(원래 설치 중 선택한 항목에 따라 `pip`를 `pip3`으로 대체).
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

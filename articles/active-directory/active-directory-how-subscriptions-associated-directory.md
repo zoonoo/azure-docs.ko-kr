@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure 구독과 Azure Active Directory의 연관 관계
@@ -48,16 +48,17 @@ Azure AD는 다음을 포함하여 대부분의 Microsoft 클라우드 서비스
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Azure AD 디렉터리에 기존 구독을 추가하려면
 구독이 연결된 현재 디렉터리 및 추가하려는 디렉터리에 존재하는 계정으로 로그인해야 합니다. 
 
-1. 소유권을 이전하려는 구독의 계정 관리자인 계정을 사용하여 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인합니다.
+1. 소유권을 이전하려는 구독의 계정 관리자인 계정을 사용하여 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인합니다.
 2. 구독 소유자로 선택한 사용자가가 대상 디렉터리에 있는지 확인합니다.
 3. **구독 이전**을 클릭합니다.
 4. 받는 사람을 지정합니다. 받는 사람은 수락 링크가 포함된 전자 메일을 자동으로 받게 됩니다.
 5. 받는 사람은 링크를 클릭하고 지불 정보 입력 등의 지침을 따릅니다. 받는 사람이 성공하면 구독이 이전됩니다. 
 6. 구독의 기본 디렉터리는 해당 사용자가 있는 디렉터리로 변경됩니다.
 
+자세한 내용은 [Azure 구독 소유권을 다른 계정에 양도](../billing/billing-subscription-transfer.md)를 참조하세요.
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>구독 및 디렉터리를 모두 관리하기 위한 제안
-Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이 섹션에서는 Azure 구독 관리자와 Azure AD 디렉터리 관리자 간의 차이점을 설명합니다. 관리자 역할 및 구독을 관리하기 위해 해당 역할을사용하는 다른 제안은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
+Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이 섹션에서는 Azure 구독 관리자와 Azure AD 디렉터리 관리자 간의 차이점을 설명합니다. 관리자 역할 및 구독을 관리하기 위해 해당 역할을 사용하는 다른 제안은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
 
 등록할 때 기본적으로 서비스 관리자 역할이 할당됩니다. 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 
 

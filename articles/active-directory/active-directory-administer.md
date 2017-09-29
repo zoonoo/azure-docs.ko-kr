@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
@@ -59,12 +59,14 @@ Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>구독의 기본 디렉터리를 변경하는 방법
 
-1. 구독 소유권을 이전할 구독의 계정 관리자인 계정으로 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인합니다.
+1. 구독 소유권을 이전할 구독의 계정 관리자인 계정으로 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인합니다.
 2. 구독 소유자로 선택한 사용자가가 대상 디렉터리에 있는지 확인합니다.
 3. **구독 이전**을 클릭합니다.
 4. 받는 사람을 지정합니다. 받는 사람은 수락 링크가 포함된 전자 메일을 자동으로 받게 됩니다.
 5. 받는 사람은 링크를 클릭하고 지불 정보 입력 등의 지침을 따릅니다. 받는 사람이 성공하면 구독이 이전됩니다. 
 6. 구독 소유권 양도가 성공하면 구독의 기본 디렉터리는 해당 사용자가 있는 디렉터리로 변경됩니다.
+
+자세한 내용은 [Azure 구독 소유권을 다른 계정에 양도](../billing/billing-subscription-transfer.md)를 참조하세요.
 
 ### <a name="manage-the-default-directory-in-azure"></a>Azure에서 기본 디렉터리 관리
 Azure에 등록하면 기본 Azure AD 디렉터리가 구독과 연결됩니다. Azure AD를 사용하는 비용이 청구되지 않고 디렉터리는 체험용 리소스입니다. 별도로 사용이 허가되고 로그인 시 회사 브랜딩 및 셀프 서비스 암호 재설정과 같은 추가 기능을 제공하는 Azure AD 서비스에는 비용이 청구됩니다. 기본 *.onmicrosoft.com 도메인 대신 소유한 DNS 이름을 사용하여 사용자 지정 도메인을 만들 수도 있습니다.

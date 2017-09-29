@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight의 Apache Kafka(미리 보기) 시작
@@ -47,6 +47,9 @@ Azure HDInsight의 [Apache Kafka](https://kafka.apache.org) 클러스터를 만�
     * **SSH(보안 셸) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
     * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.
+
+        > [!IMPORTANT]
+        > 데이터의 고가용성을 위해 __세 개의 장애 도메인__을 포함하는 위치(영역) 선택을 권장합니다. 자세한 내용은 [데이터 고가용성](#data-high-availability) 섹션을 참조하세요.
    
  ![구독 선택](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ Azure HDInsight의 [Apache Kafka](https://kafka.apache.org) 클러스터를 만�
 7. __클러스터 크기__에서 __다음__을 선택하여 계속합니다.
 
     > [!WARNING]
-    > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다.
+    > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 자세한 내용은 [데이터 고가용성](#data-high-availability) 섹션을 참조하세요.
 
     ![Kafka 클러스터 크기 설정](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Kafka의 확장성이 제어됩니다. 자세한 내용은 [HDInsight에서 저장소 및 Kafka의 확장성 구성](hdinsight-apache-kafka-scalability.md)을 참조하세요.
+    > [!IMPORTANT]
+    > **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Kafka의 확장성이 제어됩니다. HDInsight의 Kafka는 클러스터에서 가상 컴퓨터의 로컬 디스크를 사용합니다. Kafka는 입출력이 많으므로 높은 처리량을 제공하고 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
 8. __고급 설정__에서 __다음__을 선택하여 계속합니다.
 
@@ -340,6 +343,27 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 
 7. __Ctrl+C__를 사용하여 소비자를 종료한 다음 `fg` 명령을 사용하여 스트리밍 백그라운드 작업을 다시 포그라운드 상태로 만듭니다. 마찬가지로 __Ctrl+C__를 사용하여 종료합니다.
 
+## <a name="data-high-availability"></a>데이터 고가용성
+
+각 Azure 지역(위치)은 _장애 도메인_을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 컴퓨터와 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
+
+영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 컴퓨터의 가용성](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
+
+> [!IMPORTANT]
+> 3개의 장애 도메인을 포함하는 Azure 지역을 사용하고 복제 계수로 3을 사용하는 것이 좋습니다.
+
+2개의 장애 도메인만 포함하는 지역을 사용해야 하는 경우 복제 계수로 4를 사용하여 두 장애 도메인에 복제본을 동일하게 분산합니다.
+
+### <a name="kafka-and-fault-domains"></a>Kafka 및 장애 도메인
+
+Kafka는 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다. 고가용성을 보장하려면 [Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 SSH 세션에서 Kafka 클러스터의 헤드 노드로 실행되어야 합니다.
+
+가장 높은 Kafka 데이터 가용성을 보장하려면 다음과 같은 경우에 토픽에 대한 파티션 복제본의 부하를 다시 조정해야 합니다.
+
+* 새 토픽 또는 파티션을 만들 때
+
+* 클러스터를 확장할 때
+
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 이 문서에서 HDInsight에서 Apache Kafka를 사용할 때 필요한 기본 사항을 알아보았습니다. Kafka 작업에 대해 자세히 알아보려면 다음을 사용하세요.
 
-* [HDInsight의 Kafka를 통한 데이터 고가용성 보장](hdinsight-apache-kafka-high-availability.md)
-* [HDInsight에서 Kafka로 관리 디스크를 구성하여 확장성 높이기](hdinsight-apache-kafka-scalability.md)
-* kafka.apache.org의 [Apache Kafka 문서](http://kafka.apache.org/documentation.html)
-* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](hdinsight-apache-kafka-mirroring.md)
+* [Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
+* [Kafka 클러스터 간 데이터 복제](hdinsight-apache-kafka-mirroring.md)
+* [HDInsight의 Kafka에서 Apache Spark 스트리밍(DStream) 사용](hdinsight-apache-spark-with-kafka.md)
+* [HDInsight의 Kafka에서 Apache Spark 구조적 스트리밍 사용](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Spark 사용](hdinsight-apache-spark-with-kafka.md)
 * [Azure Virtual Network를 통해 Kafka에 연결](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
