@@ -3,7 +3,7 @@ title: "Azure Application Gateway에 대한 리디렉션 구성 - PowerShell | M
 description: "이 페이지에서는 PowerShell을 사용하여 Application Gateway에 대한 리디렉션을 구성하는 시나리오를 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 84a25e572a27df2fe46e07c4ab0a4aab5969d68e
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 

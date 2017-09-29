@@ -1,4 +1,4 @@
-[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../articles/app-service-web/app-service-web-overview.md)을 만듭니다. 
+Cloud Shell에서 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../articles/app-service/app-service-web-overview.md)을 만듭니다. 
 
 웹앱은 코드에 대한 호스팅 공간을 제공하고, 배포된 앱을 확인하도록 URL을 제공합니다.
 

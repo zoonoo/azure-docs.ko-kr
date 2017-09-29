@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Security Center에서 적응 응용 프로그램 컨트롤(미리 보기)
@@ -33,6 +33,9 @@ ms.lasthandoff: 09/14/2017
 - 오래되고 지원되지 않는 앱을 실행하지 않습니다.
 - 조직에서 허용되지 않는 특정 소프트웨어 도구를 사용하지 않습니다.
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
+
+> [!NOTE]
+> 적응 응용 프로그램 컨트롤은 제한된 공개 미리 보기로서 Azure Security Center Standard 고객이 사용할 수 있습니다. 구독 ID를 [당사](mailto:ASC_appcontrol@microsoft.com)로 전자 메일을 보내어 미리 보기에 가입하세요.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤을 사용하는 방법은 무엇입니까?
 적응 응용 프로그램 컨트롤은 구성된 리소스 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. Security Center에서 응용 프로그램 허용 목록을 구성하려면 아래 단계를 따릅니다.
@@ -144,10 +147,6 @@ Security Center는 안정적인 응용 프로그램의 집합을 실행하는 �
 목록에는 다음이 포함되어 있습니다.
 - **이름**: 구독 또는 리소스 그룹의 이름.
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수.
-
-## <a name="preview-registration"></a>미리 보기 등록
-
-적응 응용 프로그램 컨트롤은 제한된 공개 미리 보기로서 Azure Security Center Standard 고객이 사용할 수 있습니다. 구독 ID를 [당사](mailto:ASC_appcontrol@microsoft.com)로 전자 메일을 보내어 미리 보기에 가입하세요.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 컨트롤을 사용하여 Azure VM에서 실행되는 응용 프로그램의 허용 목록을 나열하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
