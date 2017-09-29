@@ -15,10 +15,10 @@ ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: b0b043f0e30eec7a9456ef15b28b9c89fccf33df
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -46,13 +46,13 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 [az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
  
-다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.   
+다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
  
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-a-storage-account"></a>저장소 계정 만들기
  
 이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다. 
 
@@ -67,7 +67,7 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>Blob Storage 컨테이너 만들기 
+## <a name="create-blob-storage-containers"></a>Blob Storage 컨테이너 만들기
  
 앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _thumbs_ 컨테이너에 업로드합니다. 
 
@@ -107,7 +107,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>웹앱 만들기 
 
-웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service-web/app-service-web-overview.md)을 만듭니다.  
+웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/app-service-web-overview.md)을 만듭니다.  
  
 다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). `<web_app>`이 고유하지 않으면 _지정된 이름이 `<web_app>`인 웹 사이트가 이미 있습니다."라는 오류 메시지가 표시됩니다._ 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
 
@@ -222,7 +222,7 @@ CDN을 사용하도록 설정하여 Azure Storage 계정의 콘텐츠를 캐시�
 > * Azure에 웹앱 배포
 > * 웹 응용 프로그램과 상호 작용
 
-시리즈 2부를 계속 진행하면서 Event Grid를 사용하여 이미지 크기를 조정하도록 Azure 함수를 트리거하는 방법을 알아봅니다.  
+시리즈 2부를 계속 진행하면서 Event Grid를 사용하여 이미지 크기를 조정하도록 Azure 함수를 트리거하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Event Grid를 사용하여 업로드된 이미지의 크기를 조정하도록 Azure 함수 트리거](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

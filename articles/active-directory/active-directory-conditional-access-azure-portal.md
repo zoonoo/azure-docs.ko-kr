@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
@@ -119,7 +119,7 @@ Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 
 - 장치 플랫폼
 - 위치
 - 클라이언트 앱
-- Time
+
 
 ![조건](./media/active-directory-conditional-access-azure-portal/01.png)
 
