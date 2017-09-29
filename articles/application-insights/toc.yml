@@ -226,6 +226,13 @@
       items:
         - name: 연속 내보내기
           href: app-insights-export-telemetry.md
+          items:
+            - name: 코드 샘플
+              items:
+                - name: Stream Analytics를 사용하여 SQL로 내보내기
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: Stream Analytics로 내보내기
+                  href: app-insights-export-stream-analytics.md
         - name: 데이터 모델 내보내기
           href: app-insights-export-data-model.md
         - name: Power BI에 내보내기

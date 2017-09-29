@@ -43,6 +43,7 @@
 ### [배달하지 못한 편지 큐](service-bus-dead-letter-queues.md)
 ### [트랜잭션 처리](service-bus-transactions.md)
 ### [진단 로그](service-bus-diagnostic-logs.md)
+### [쌍을 이루는 네임스페이스 구현](service-bus-paired-namespaces.md)
 ### AMQP
 #### [AMQP 개요](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

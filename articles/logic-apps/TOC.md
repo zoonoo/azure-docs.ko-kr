@@ -43,6 +43,7 @@
 ### [파트너](logic-apps-enterprise-integration-partners.md)
 ### [규약](logic-apps-enterprise-integration-agreements.md)
 ### [B2B 처리](logic-apps-enterprise-integration-b2b.md)
+### [일괄 처리로 EDI 메시지 보내기](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML 처리](logic-apps-enterprise-integration-xml.md)
 ### [플랫 파일 처리](logic-apps-enterprise-integration-flatfile.md)
 ### [XML 유효성 검사](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [서버를 사용하지 않는 소셜 대시보드 만들기](logic-apps-scenario-social-serverless.md)
 ### [Azure Functions를 사용하여 논리 앱 호출](logic-apps-scenario-function-sb-trigger.md)
 ### [오류 및 예외 처리 추가](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B 처리](logic-apps-enterprise-integration-b2b.md)
+### [B2B 처리](logic-apps-enterprise-integration-b2b.md) 
 
 ## 가격 및 청구
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)

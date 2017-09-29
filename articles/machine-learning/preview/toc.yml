@@ -141,6 +141,8 @@
       items:
         - name: 실행 구성
           href: experiment-execution-configuration-reference.md
+        - name: 로깅 API
+          href: reference-logging-api.md
     - name: 모델 관리
       items:
         - name: 모델 관리 API

@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수
           href: control-flow-system-variables.md
-    - name: 키 자격 증명 모음에 자격 증명 저장
-      href: store-credentials-in-key-vault.md
+    - name: 보안
+      items:
+        - name: 데이터 이동 보안 고려 사항
+          href: data-movement-security-considerations.md
+        - name: Azure Key Vault에 자격 증명 저장
+          href: store-credentials-in-key-vault.md
+        - name: 자체 호스팅되는 통합 런타임에 대한 자격 증명 암호화
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: 모니터링 및 관리
       items:
         - name: .NET 사용
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Azure Monitor 사용
           href: monitor-using-azure-monitor.md
+        - name: Azure SSIS 통합 런타임 관리
+          href: manage-azure-ssis-integration-runtime.md
+        - name: 통합 런타임 모니터링
+          href: monitor-integration-runtime.md
     - name: 통합 런타임 만들기
       items:
         - name: Azure 통합 런타임
           href: create-azure-integration-runtime.md
-        - name: Azure SSIS 통합 런타임
-          href: create-azure-ssis-integration-runtime.md
         - name: 자체 호스팅된 통합 런타임
           href: create-self-hosted-integration-runtime.md
+        - name: Azure SSIS 통합 런타임
+          href: create-azure-ssis-integration-runtime.md
+        - name: VNET에 Azure SSIS 통합 런타임 조인
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: 참조
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 리소스
   items:
+    - name: FAQ
+      href: frequently-asked-questions.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: 가격

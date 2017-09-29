@@ -42,7 +42,6 @@
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
-#### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [설정 단계](cloudappdiscovery-get-started.md)
 #### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### 작업
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 ##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
+##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
 ##### [VPN 연결 설정](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
 ##### [재구성](active-directory-conditional-access-device-remediation.md)

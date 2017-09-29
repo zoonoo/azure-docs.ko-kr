@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: 개념
   items:
-    - name: FAQ
+    - name: Log Analytics FAQ
       href: log-analytics-faq.md
     - name: 데이터 사용량
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: 서비스 공급자에 대한 기능
       href: log-analytics-service-providers.md
+    - name: 로그 검색
+      items:
+        - name: 로그 검색 FAQ
+          href: log-analytics-log-search-faq.md
+        - name: 로그 검색 개요
+          href: log-analytics-log-search-new.md
+        - name: 로그 검색 포털
+          href: log-analytics-log-search-portals.md
 - name: 방법
   items:
     - name: 데이터 수집
@@ -92,15 +100,6 @@
       items:
         - name: 작업 영역 업그레이드
           href: log-analytics-log-search-upgrade.md
-        - name: FAQ
-          href: log-analytics-log-search-faq.md
-        - name: 로그 검색 개요
-          href: log-analytics-log-search-new.md
-        - name: 로그 검색 포털
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: 로그 검색 포털 사용
-              href: log-analytics-log-search-log-search-portal.md
         - name: 레거시 언어에서 전환
           href: log-analytics-log-search-transition.md
         - name: 흐름 커넥터

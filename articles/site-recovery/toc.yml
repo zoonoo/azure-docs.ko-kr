@@ -82,6 +82,8 @@
   items:
     - name: 재해 복구
       items:
+        - name: 다중 테넌트를 지원하는 VMware VM에 대한 Azure로
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Hyper-V VM에 대한 Azure로
           href: tutorial-hyper-v-to-azure.md
         - name: 물리적 서버에 대한 Azure로

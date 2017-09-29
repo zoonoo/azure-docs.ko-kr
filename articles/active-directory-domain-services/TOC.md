@@ -24,8 +24,7 @@
 ### 관리되는 도메인에 대한 LDAP 구성
 #### [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [작업 3: Azure 클래식 포털을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [작업 3: Azure Portal(미리 보기)을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
 ### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
