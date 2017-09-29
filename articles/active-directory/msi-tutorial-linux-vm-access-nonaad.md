@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,10 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-<<<<<<< HEAD [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. =======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 컴퓨터 만들기
 
@@ -50,9 +47,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **계산**을 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하여 VM에 로그인할 수 있습니다.
-<<<<<<< HEAD =======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 드롭다운에서 가상 컴퓨터의 **구독**을 선택합니다.
 5. 가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
@@ -111,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     액세스 토큰에 대한 CURL 요청은 다음과 같습니다.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     응답에는 Resource Manager에 액세스하는 데 필요한 액세스 토큰이 포함되어 있습니다. 
     

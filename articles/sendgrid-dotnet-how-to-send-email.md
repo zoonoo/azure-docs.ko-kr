@@ -1,13 +1,13 @@
 ---
 title: "SendGrid 메일 서비스를 사용하는 방법(.NET) | Microsoft Docs"
 description: "Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다."
-services: app-service-web
+services: 
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
 editor: 
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
-ms.service: app-service-web
+ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

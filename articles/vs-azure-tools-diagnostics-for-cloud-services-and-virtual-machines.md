@@ -15,14 +15,14 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성
-Azure 클라우드 서비스 또는 Azure 가상 컴퓨터는 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 구성할 수 있습니다. Azure 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 데이터를 전송합니다. Azure에서 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
+Azure 클라우드 서비스 또는 Azure 가상 컴퓨터는 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 구성할 수 있습니다. Azure 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 데이터를 전송합니다. Azure에서 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 이 항목에서는 배포 이전과 이후에 Visual Studio에서 뿐만 아니라 Azure 가상 컴퓨터에서 Azure 진단을 사용하고 구성하는 방법을 보여 줍니다. 또한 수집할 진단 정보 유형을 선택하는 방법과 수집된 정보를 확인하는 방법도 보여줍니다.
 
@@ -137,7 +137,7 @@ Visual Studio에서 Azure 가상 컴퓨터에 대한 진단 데이터를 수집�
 
   ![응용 프로그램 로그 전송 사용](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  응용 프로그램 로그에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
+  응용 프로그램 로그에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 ### <a name="windows-event-logs"></a>Windows 이벤트 로그
 Windows 이벤트 로그를 캡처하려는 경우 **Windows 이벤트 로그 전송 사용** 확인란을 선택합니다. 이벤트 로그를 저장소 계정으로 전송할 때 **전송 시간(분)** 값을 변경하여 시간(분)을 늘리거나 줄일 수 있습니다. 추적하려는 이벤트 유형에 대한 확인란을 선택 합니다.
@@ -301,6 +301,6 @@ RoleEntryPoint 메서드는 IIS가 아닌, WAIISHost.exe 컨텍스트에서 호�
 이제 **속성** 창에서 **출력 디렉터리로 복사** 속성을 **항상 복사**로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에서 로깅 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 사용](cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
+Azure에서 로깅 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 사용](cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 

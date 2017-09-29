@@ -3,7 +3,7 @@ title: "Azure Storage 확장성 및 성능 목표 | Microsoft Docs"
 description: "표준 및 프리미엄 저장소 계정에 대한 용량, 요청 속도 및 인바운드 및 아웃 바운드 대역폭을 포함한 Azure 저장소의 확장성 및 성능 목표를 알아보세요. Azure 저장소 서비스 각각의 파티션에 대한 성능 목표를 이해해 보세요."
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24

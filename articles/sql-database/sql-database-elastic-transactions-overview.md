@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
@@ -96,7 +95,7 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 확장된 데이터 층�
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Azure 클라우드 서비스용 .NET 설치
-Azure에서는 .NET 응용 프로그램을 호스트하는 여러 제품을 제공합니다. [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](../app-service-web/choose-web-site-cloud-service-vm.md)에서 다양한 제품을 비교할 수 있습니다. 제품의 게스트 OS가 탄력적인 트랜잭션에 필요한 .NET 4.6.1보다 작은 경우 게스트 OS를 4.6.1로 업그레이드해야 합니다. 
+Azure에서는 .NET 응용 프로그램을 호스트하는 여러 제품을 제공합니다. [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](../app-service/choose-web-site-cloud-service-vm.md)에서 다양한 제품을 비교할 수 있습니다. 제품의 게스트 OS가 탄력적인 트랜잭션에 필요한 .NET 4.6.1보다 작은 경우 게스트 OS를 4.6.1로 업그레이드해야 합니다. 
 
 Azure 앱 서비스의 경우에는 현재 게스트 OS 업그레이드가 지원되지 않습니다. Azure 가상 컴퓨터의 경우 VM에 로그인하여 최신 .NET Framework용 설치 관리자를 실행하기만 하면 됩니다. Azure 클라우드 서비스의 경우 최신 .NET 버전의 설치를 배포의 시작 작업에 포함해야 합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.  
 

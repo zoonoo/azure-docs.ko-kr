@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>명명된 인증 자격 증명 설정
@@ -77,7 +77,7 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
    d. Azure 구독을 선택하고 방금 만든 .cer 파일의 전체 경로를 붙여넣은 후 **업로드**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [웹앱의 일반적인 개요](https://docs.microsoft.com/azure/app-service-web/)
-* [Azure App Service에 앱 배포](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Visual Studio를 사용하여 WebJob 배포](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [웹앱의 일반적인 개요](https://docs.microsoft.com/azure/app-service/)
+* [Azure App Service에 앱 배포](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Visual Studio를 사용하여 WebJob 배포](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [클라우드 서비스 만들기 및 배포](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

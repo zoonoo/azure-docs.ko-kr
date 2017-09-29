@@ -3,7 +3,7 @@ title: "Ruby에서 Blob Storage(개체 저장소)를 사용하는 방법 | Micro
 description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 services: storage
 documentationcenter: ruby
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: d27cf1594d6a31a746ca85b5c3184f8a5dbbaa54

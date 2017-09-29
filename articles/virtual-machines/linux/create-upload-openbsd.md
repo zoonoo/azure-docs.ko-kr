@@ -3,7 +3,7 @@ title: "OpenBSD VM 이미지 만들기 및 Azure로 업로드 | Microsoft Docs"
 description: "OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하여 Azure CLI를 통해 Azure 가상 컴퓨터를 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: kyliel
+ms.author: huishao
 ms.translationtype: HT
 ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
@@ -178,3 +178,4 @@ ssh azureuser@<ip address>
 OpenBSD6.1의 Hyper-V 지원에 대한 자세한 내용은 [OpenBSD 6.1](https://www.openbsd.org/61.html) 및 [hyperv.4](http://man.openbsd.org/hyperv.4)를 참조하세요.
 
 관리 디스크에서 VM을 만들려면 [az disk](/cli/azure/disk)를 참조하세요. 
+
