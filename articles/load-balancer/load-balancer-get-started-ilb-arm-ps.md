@@ -1,9 +1,9 @@
 ---
 title: "내부 부하 분산 장치 만들기 - PowerShell | Microsoft Docs"
-description: "리소스 관리자에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
+description: "Resource Manager에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -12,22 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
-ms.lasthandoff: 02/16/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8feb3b5f9dddc7b54b9c5e733675c2a9aca2f223
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="create-an-internal-load-balancer-using-powershell"></a>PowerShell을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -40,21 +43,21 @@ ms.lasthandoff: 02/16/2017
 
 다음 단계에서는 PowerShell과 함께 Azure Resource Manager를 사용하여 인터넷 부하 분산 장치를 만드는 방법을 설명합니다. Azure Resource Manager를 사용하면 내부 부하 분산 장치를 만드는 항목이 개별적으로 구성된 다음 결합되어 부하 분산 장치를 만듭니다.
 
-부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
+부하 분산 장치를 배포하려면 다음 개체를 만들고 구성합니다.
 
-* 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 개인 IP 주소를 구성합니다
+* 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 개인 IP 주소를 구성합니다.
 * 백 엔드 주소 풀 - 프런트 엔드 IP 풀에서 들어오는 부하 분산된 트래픽을 수신하는 네트워크 인터페이스를 구성합니다.
 * 부하 분산 규칙 - 부하 분산 장치의 원본 및 로컬 포트 구성입니다.
 * 프로브 - 가상 컴퓨터 인스턴스의 상태 프로브를 구성합니다.
 * 인바운드 NAT 규칙 - 가상 컴퓨터 인스턴스 중 하나에 직접 액세스하는 포트 규칙을 구성합니다.
 
-Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
+Azure Resource Manager의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
 다음 단계에서는 두 개의 가상 컴퓨터 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 
-## <a name="setup-powershell-to-use-resource-manager"></a>리소스 관리자를 사용하도록 PowerShell 설치
+## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
 
-PowerShell용 Azure 모듈이 최신 프로덕션 버전이고 Azure 구독에 액세스하도록 PowerShell이 제대로 설치되었는지 확인합니다.
+PowerShell용 Azure 모듈이 최신 프로덕션 버전이고 Azure 구독에 액세스하도록 PowerShell이 제대로 설정되었는지 확인합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -88,11 +91,11 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 부하 분산 장치를 만드는 모든 명령에서 동일한 리소스 그룹을 사용하는지 확인합니다.
+Azure Resource Manager를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 부하 분산 장치를 만드는 모든 명령에서 동일한 리소스 그룹을 사용하는지 확인합니다.
 
-위 예제에서는 "NRP-RG"라는 리소스 그룹과 "West US"라는 위치를 만들었습니다.
+이전 예제에서는 **NRP-RG**라는 리소스 그룹과 **미국 서부**라는 위치를 만들었습니다.
 
-## <a name="create-virtual-network-and-a-private-ip-address-for-front-end-ip-pool"></a>프런트 엔드 IP 풀에 대한 개인 IP 주소 및 가상 네트워크 만들기
+## <a name="create-a-virtual-network-and-a-private-ip-address-for-a-front-end-ip-pool"></a>프런트 엔드 IP 풀에 대한 가상 네트워크 및 개인 IP 주소 만들기
 
 가상 네트워크의 서브넷을 만들고 변수 $backendSubnet에 할당합니다.
 
@@ -108,13 +111,13 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 가상 네트워크를 만들고 NRPVNet 가상 네트워크에 lb-subnet-be 서브넷을 추가한 $vnet 변수에 할당합니다.
 
-## <a name="create-front-end-ip-pool-and-backend-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
+## <a name="create-a-front-end-ip-pool-and-back-end-address-pool"></a>프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
 들어오는 부하 분산 장치 네트워크 트래픽에 대한 프런트 엔드 IP 풀을 설정하고 부하 분산된 트래픽을 수신할 백 엔드 주소 풀을 설정합니다.
 
 ### <a name="step-1"></a>1단계
 
-들어오는 네트워크 트래픽 끝점이 될 서브넷 10.0.2.0/24에 대해 개인 IP 주소 10.0.2.5를 사용하여 프런트 엔드 IP 풀을 만듭니다.
+들어오는 네트워크 트래픽 끝점인 서브넷 10.0.2.0/24에 대해 개인 IP 주소 10.0.2.5를 사용하여 프런트 엔드 IP 풀을 만듭니다.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -128,9 +131,9 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
-## <a name="create-lb-rules-nat-rules-probe-and-load-balancer"></a>LB 규칙, NAT 규칙, 프로브 및 부하 분산 장치 만들기
+## <a name="create-load-balancing-rules-nat-rules-probe-and-load-balancer"></a>부하 분산 규칙, NAT 규칙, 프로브 및 부하 분산 장치 만들기
 
-프런트 엔드 IP 풀과 백 엔드 주소 풀을 만든 후에는 부하 분산 장치 리소스에 속하는 규칙을 만들어야 합니다.
+프런트 엔드 IP 풀과 백 엔드 주소 풀을 만든 후에 부하 분산 장치 리소스에 속하는 규칙을 만듭니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -144,11 +147,11 @@ $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPa
 $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-위 예제에서는 다음 항목을 만듭니다.
+이전 예제에서는 다음 항목을 만들었습니다.
 
 * 포트 3441로 들어오는 모든 트래픽을 포트 3389로 이동하는 NAT 규칙
 * 포트 3442로 들어오는 모든 트래픽을 포트 3389로 이동하는 두 번째 NAT 규칙
-* 공용 포트 80의 들어오는 모든 트래픽을 백엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
+* 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
 * 경로 "HealthProbe.aspx"에 대한 상태를 확인하는 프로브 규칙
 
 ### <a name="step-2"></a>2단계
@@ -161,7 +164,7 @@ $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Loc
 
 ## <a name="create-network-interfaces"></a>네트워크 인터페이스 만들기
 
-내부 부하 분산 장치를 만든 후에는 들어오는 부하 분산된 네트워크 트래픽, NAT 규칙 및 프로브를 수신할 네트워크 인터페이스를 정의해야 합니다. 이 경우 네트워크 인터페이스는 개별적으로 구성되며 나중에 가상 컴퓨터에 할당할 수 있습니다.
+내부 부하 분산 장치를 만든 후에는 들어오는 부하 분산된 네트워크 트래픽, NAT 규칙 및 프로브를 수신할 수 있는 네트워크 인터페이스를 정의해야 합니다. 이 경우 네트워크 인터페이스는 개별적으로 구성되며 나중에 가상 컴퓨터에 할당할 수 있습니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -183,13 +186,13 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 LB-Nic2-BE라는 두 번째 네트워크 인터페이스 만들기:
 
-이 단계에서는 두 번째 네트워크 인터페이스를 만들고 동일한 부하 분산 장치 백 엔드 풀에 할당하고 RDP에 대해 만든 두 번째 NAT 규칙을 연결합니다.
+이 단계에서는 두 번째 네트워크 인터페이스를 만들어서 동일한 부하 분산 장치 백 엔드 풀에 할당하고 RDP에 대해 만든 두 번째 NAT 규칙을 연결합니다.
 
 ```powershell
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-최종 결과는 다음과 같이 표시됩니다.
+최종 결과는 다음과 같은 출력을 보여줍니다.
 
     $backendnic1
 
@@ -251,7 +254,7 @@ Add-AzureRmVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 
 
 ### <a name="step-1"></a>1단계
 
-(아직 수행하지 않은 경우) 부하 분산 장치 리소스를 변수로 로드합니다. 사용되는 변수는 $lb라고 하고 위에서 만든 부하 분산 장치 리소스에서 동일한 이름을 사용합니다.
+(아직 수행하지 않은 경우) 부하 분산 장치 리소스를 변수로 로드합니다. 사용되는 변수는 $lb라고 하고 이전 단계에서 만든 부하 분산 장치 리소스에서 동일한 이름을 사용합니다.
 
 ```powershell
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -262,12 +265,12 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 백 엔드 구성을 변수로 로드합니다.
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### <a name="step-3"></a>3단계
 
-이미 만든 네트워크 인터페이스를 변수로 로드합니다. 사용되는 변수 이름은 $nic입니다. 사용되는 네트워크 인터페이스 이름은 위의 예제와 같습니다.
+이미 만든 네트워크 인터페이스를 변수로 로드합니다. 사용되는 변수 이름은 $nic입니다. 사용되는 네트워크 인터페이스 이름은 앞의 예제와 같습니다.
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
@@ -294,7 +297,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 ## <a name="update-an-existing-load-balancer"></a>기존 부하 분산 장치 업데이트
 
 ### <a name="step-1"></a>1단계
-위의 예제에서 부하 분산 장치를 사용하여 부하 분산 장치 개체를 Get-AzureRmLoadBalancer를 사용하는 변수 $slb에 할당
+이전 예제에서 부하 분산 장치를 사용하여 부하 분산 장치 개체를 Get-AzureRmLoadBalancer를 사용하는 변수 $slb에 할당합니다.
 
 ```powershell
 $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
@@ -302,7 +305,7 @@ $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### <a name="step-2"></a>2단계
 
-다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 새 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가
+다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 새 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가합니다.
 
 ```powershell
 $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp

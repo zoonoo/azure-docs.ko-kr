@@ -3,7 +3,7 @@ title: "인터넷 연결 부하 분산 장치 만들기 - Azure PowerShell 클�
 description: "PowerShell을 사용하여 클래식 모드에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -32,18 +33,18 @@ ms.lasthandoff: 04/27/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure 리소스로 작업하기 전에 Azure에는 현재 Azure Resource Manager와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](../azure-classic-rm.md) 를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
+> Azure 리소스로 작업하기 전에 Azure에는 현재 Azure Resource Manager와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](../azure-classic-rm.md) 를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure Resource Manager를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="set-up-load-balancer-using-powershell"></a>PowerShell을 사용하여 부하 분산 장치 설정
 
-PowerShell을 사용하여 부하 분산 장치를 설정하려면 다음 단계를 수행합니다.
+Powershell을 사용하여 부하 분산 장치를 설정하려면 다음 단계를 완료합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 가상 컴퓨터를 만든 후 PowerShell cmdlet을 사용하여 동일한 클라우드 서비스 내에서 가상 컴퓨터로 부하 분산 장치를 추가할 수 있습니다.
 
-다음 예제에서는 클라우드 서비스 "webfarm"라고 하는 부하 분산 장치 집합을 클라우드 서비스 "mytestcloud"(또는 myctestcloud.cloudapp.net)에 추가하여, 부하 분산 장치의 끝점을 "web1" 및 "web2"라는 가상 컴퓨터에 추가합니다. 부하 분산 장치는 포트 80에서 트래픽을 받고 TCP를 사용하여 로컬 끝점(이 경우 포트 80)에서 정의된 가상 컴퓨터들 간의 부하를 분산합니다.
+다음 예제에서는 "webfarm"이라고 하는 부하 분산 장치 집합을 클라우드 서비스 "mytestcloud"(또는 myctestcloud.cloudapp.net)에 추가하여, 부하 분산 장치의 끝점을 "web1" 및 "web2"라는 가상 컴퓨터에 추가합니다. 부하 분산 장치는 포트 80에서 트래픽을 받고 TCP를 사용하여 로컬 끝점(이 경우 포트 80)에서 정의된 가상 컴퓨터들 간의 부하를 분산합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -73,5 +74,5 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 [내부 부하 분산 장치를 시작](load-balancer-get-started-ilb-classic-ps.md)하고 특정 부하 분산 장치 네트워크 트래픽 동작에 대한 [배포 모드](load-balancer-distribution-mode.md) 유형을 구성할 수도 있습니다.
 
-응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure 부하 분산 장치를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
+응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure Load Balancer를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
 

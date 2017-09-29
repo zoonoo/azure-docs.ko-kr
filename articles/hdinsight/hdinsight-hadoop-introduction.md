@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Azure HDInsight, Hadoop 기술 스택 및 Hadoop 클러스터에 대한 소개
@@ -53,7 +53,7 @@ Hadoop 클러스터는 저장된 데이터의 일괄 처리에 가장 자주 사
 ## <a name="overview"></a>HDInsight의 클러스터 유형
 HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 클러스터 형식 및 클러스터 사용자 지정 기능이 포함됩니다.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, Interactive Hive, HBase, 사용자 지정 및 기타 클러스터 유형
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, 대화형 쿼리, HBase, 사용자 지정 및 기타 클러스터 유형
 HDInsight는 다음 클러스터 형식을 제공합니다.
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: 병렬로 일괄 처리 데이터를 처리하고 분석하기 위해 [HDFS](#hdfs), [YARN](#yarn) 리소스 관리 및 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 사용합니다.
@@ -61,7 +61,7 @@ HDInsight는 다음 클러스터 형식을 제공합니다.
 * **[Apache HBase](http://hbase.apache.org/)**: 구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase란?](hdinsight-hbase-overview.md)을 참조하세요.
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: 병렬 분산된 R 프로세스를 호스팅하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 서버 개요](hdinsight-hadoop-r-server-overview.md)를 참조하세요.
 * **[Apache Storm](https://storm.incubator.apache.org/)**: 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템으로입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
-* **[Apache Interactive Hive 미리 보기 (AKA: Live Long 및 Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: 대화형이며 더 빠른 하이브 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 Hive 사용](hdinsight-hadoop-use-interactive-hive.md)을 참조하세요.
+* **[Apache 대화형 쿼리 미리 보기(일명 Live Long 및 Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: 대화형이며 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 쿼리 사용](hdinsight-hadoop-use-interactive-hive.md)을 참조하세요.
 * **[Apache Kafka](https://kafka.apache.org/)**: 스트리밍 데이터 파이프라인 및 응용 프로그램을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 고 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](hdinsight-apache-kafka-introduction.md)를 참조하세요.
 
 다음 메서드를 사용하여 클러스터를 구성할 수 있습니다.

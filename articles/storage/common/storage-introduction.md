@@ -3,7 +3,7 @@ title: "Azure Storage 소개 | Microsoft Docs"
 description: "클라우드의 Microsoft 데이터 저장소인 Azure Storage 개요입니다."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage 소개
 
 Microsoft Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Microsoft는 유지 관리를 담당하고 사용자에 대한 중요한 문제를 처리합니다. 
 
-Azure Storage는 Blob Storage, File Storage 및 Queue Storage라는 세 개의 데이터 서비스로 구성됩니다. Blob Storage는 가장 빠른 성능을 가진 SSD를 사용하는 프리미엄 저장소에서 표준 및 프리미엄 저장소를 지원합니다. 다른 기능은 쿨 저장소이며 낮은 비용으로 자주 액세스하지 않는 데이터의 대용량 저장소를 허용합니다.
+Azure Storage는 Blob Storage, File Storage 및 Queue Storage라는 세 개의 데이터 서비스로 구성됩니다. Blob Storage는 가장 빠른 성능을 가진 SSD를 사용하는 프리미엄 저장소에서 표준 및 프리미엄 저장소를 지원합니다. 다른 기능은 쿨 저장소이며 낮은 비용으로 자주 액세스하지 않는 대용량 데이터를 저장할 수 있습니다.
 
 이 문서에서는 다음에 대해 알아봅니다.
 * Azure Storage 서비스
@@ -37,13 +37,9 @@ Azure Storage는 Blob Storage, File Storage 및 Queue Storage라는 세 개의 �
 * 저장소 간에 데이터 전송
 * 사용할 수 있는 여러 저장소 클라이언트 라이브러리 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Azure Storage에서 빠르게 설정하고 실행하려면 다음 빠른 시작 중 하나를 확인합니다.
+* [PowerShell을 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-powershell.md)
+* [CLI를 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure Storage 서비스 소개
 
@@ -55,7 +51,7 @@ Blob은 기본적으로 사용자가 컴퓨터(또는 태블릿, 모바일 장�
 
 Blob Storage에 파일을 저장한 후에 URL, REST 인터페이스 또는 Azure SDK 저장소 클라이언트 라이브러리 중 하나를 사용하여 전 세계 어디에서든지 해당 파일에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 Node.js, Java, PHP, Ruby, Python 및 .NET을 비롯한 여러 언어에서 사용할 수 있습니다. 
 
-블록 Blob, 추가 Blob 및 페이지 Blob라는 세 가지 Blob 유형이 있습니다.
+블록 Blob, 페이지 Blob(VHD 파일에 사용됨) 및 추가 Blob라는 세 가지 Blob 유형이 있습니다.
 
 * 블록 Blob은 최대 약 4.7 TB의 일반 파일을 저장하는 데 사용됩니다. 
 * 페이지 Blob은 최대 8TB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 이러한 Blob은 VM을 백업하는 VHD 파일에 사용됩니다.
@@ -63,11 +59,10 @@ Blob Storage에 파일을 저장한 후에 URL, REST 인터페이스 또는 Azur
 
 네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 일련의 하드 드라이브를 Microsoft로 운송하여 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송](../storage-import-export-service.md)을 참조하세요.
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Azure 파일
+[Azure Files](../files/storage-files-introduction.md)를 사용하면 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 액세스할 수 있는 고가용성 네트워크 파일 공유를 설정할 수 있습니다. 즉, 여러 VM이 읽기 및 쓰기 권한을 모두 사용하여 동일한 파일을 공유할 수 있습니다. 또한 REST 인터페이스 또는 저장소 클라이언트 라이브러리를 사용하여 파일을 읽을 수 있습니다. 
 
-Azure Files 서비스를 사용하면 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 액세스할 수 있는 고가용성 네트워크 파일 공유를 설정할 수 있습니다. 즉, 여러 VM이 읽기 및 쓰기 권한을 모두 사용하여 동일한 파일을 공유할 수 있습니다. 또한 REST 인터페이스 또는 저장소 클라이언트 라이브러리를 사용하여 파일을 읽을 수 있습니다. 
-
-Azure File 저장소가 회사 파일 공유의 파일과 다른 점 한 가지는 파일을 가리키고 SAS(공유 액세스 서명) 토큰을 포함하고 있는 URL을 사용하여 전 세계 어디서나 파일에 액세스할 수 있다는 것입니다. SAS 토큰은 생성 가능하며 특정 기간에 개인 자산에 대한 특정 액세스를 허용합니다. 
+Azure Files가 회사 파일 공유의 파일과 다른 점 한 가지는 파일을 가리키고 SAS(공유 액세스 서명) 토큰을 포함하고 있는 URL을 사용하여 전 세계 어디서나 파일에 액세스할 수 있다는 것입니다. SAS 토큰은 생성 가능하며 특정 기간에 개인 자산에 대한 특정 액세스를 허용합니다. 
 
 파일 공유는 다음과 같은 여러 가지 일반적인 시나리오에 사용할 수 있습니다. 
 
@@ -85,14 +80,13 @@ Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니�
 
 예를 들어 고객이 사진을 업로드하여 각 사진에 대한 썸네일을 만들려고 한다고 가정하겠습니다. 고객이 사진을 업로드하는 동안 썸네일을 만들 때까지 기다리게 할 수 있습니다. 대신 큐를 사용할 수 있습니다. 고객이 업로드를 완료하면 큐에 메시지를 작성합니다. 그런 다음 Azure Function에서는 큐의 메시지를 검색하고 썸네일을 만듭니다. 이 프로세스의 일부는 각각 별도로 확장될 수 있으며 사용하기 위해 조정하는 경우 더 세밀하게 조정할 수 있습니다.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>테이블 저장소
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-이제 표준 Azure Table Storage는 Cosmos DB의 일부입니다. 또한 처리량 최적화 테이블, 글로벌 분포 및 자동 보조 인덱스를 제공하는 Azure Table Storage에 대한 프리미엄 테이블이 제공됩니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB: 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
+
+이제 표준 Azure Table Storage는 Cosmos DB의 일부입니다. 해당 설명서를 보려면 [Azure Table Storage 개요](../../cosmos-db/table-storage-overview.md)를 참조하세요. 또한 처리량 최적화 테이블, 글로벌 분포 및 자동 보조 인덱스를 제공하는 Azure Table Storage에 대한 프리미엄 테이블이 제공됩니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB: 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage 팀은 가상 컴퓨터에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 모두 포함하는 디스크를 소유합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 컴퓨터에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형 
 
@@ -129,7 +123,7 @@ Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD를 사용하여 저장소 계정에 대한 액세스 보호
 
-저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 응용 프로그램에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다. 
+저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. Resource Manager RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 응용 프로그램에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다. 
 
 ### <a name="securing-access-using-shared-access-signatures"></a>공유 액세스 서명을 사용하여 액세스 보호 
 
@@ -151,7 +145,7 @@ Azure Storage 계정의 파일 서비스(미리 보기) 또는 Blob service에�
 
 저장소 클라이언트 라이브러리에는 네트워크를 통해 데이터를 클라이언트에서 Azure로 보내기 전에 프로그래밍 방식으로 암호화하도록 호출할 수 있는 메서드가 있습니다. 암호화되어 저장됩니다. 즉, 휴지 시 암호화됩니다. 데이터를 다시 읽을 경우 받은 이후 정보의 암호를 해독합니다. 
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>전송 시 Azure 파일 공유에서 암호화
+### <a name="encryption-in-transit-with-azure-file-shares"></a>전송 시 Azure File 공유에서 암호화
 
 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)을 참조하세요. 안전한 저장소 계정 액세스에 대한 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 액세스 관리](../blobs/storage-manage-access-to-resources.md) 및 [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)을 참조하세요.
 
@@ -227,11 +221,9 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 * [File Storage에 대한 세부 정보](../storage-files-introduction.md)
 * [Queue Storage에 대한 세부 정보](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Azure Storage에서 빠르게 설정하고 실행하려면 다음 빠른 시작 중 하나를 확인합니다.
+* [PowerShell을 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-powershell.md)
+* [CLI를 사용하여 저장소 계정 만들기](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>관리자용
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>.NET 개발자용
 * [.NET을 사용하여 Azure Blob 저장소 시작](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [.NET을 사용하여 Azure Files 개발](../files/storage-dotnet-how-to-use-files.md)
 * [.NET을 사용하여 Azure 테이블 저장소 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [.NET을 사용하여 Azure 큐 저장소 시작](../storage-dotnet-how-to-use-queues.md)
-* [Windows에서 Azure 파일 저장소 시작](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Java/Android 개발자용
 * [Java에서 Blob 저장소를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Java를 사용하여 Azure Files 개발](../files/storage-java-how-to-use-file-storage.md)
 * [Java에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Java에서 큐 저장소를 사용하는 방법](../storage-java-how-to-use-queue-storage.md)
-* [Java에서 파일 저장소를 사용하는 방법](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Node.js 개발자용
 * [Node.js에서 Blob 저장소를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Python 개발자용
 * [Python에서 Blob 저장소를 사용하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Python을 사용하여 Azure Files 개발](../files/storage-python-how-to-use-file-storage.md)
 * [Python에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Python에서 큐 저장소를 사용하는 방법](../storage-python-how-to-use-queue-storage.md)   
-* [Python에서 File Storage를 사용하는 방법](../storage-python-how-to-use-file-storage.md) 
--->
+* [Python에서 큐 저장소를 사용하는 방법](../storage-python-how-to-use-queue-storage.md)

@@ -13,13 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/16/2017
 ms.author: vvasic
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bf41aa530c68ea0e94a09d1dab63237c6f42bce7
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
@@ -47,6 +47,13 @@ Azure SQL Database는 쉬운 모니터링을 위해 메트릭 및 진단 로그�
 새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 저장소 리소스를 선택한 후에는 수집할 데이터를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
 - **[1분 메트릭](sql-database-metrics-diag-logging.md#1-minute-metrics)** - DTU 백분율, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함합니다.
+- **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)** - cpu 사용량, 쿼리 기간 등 쿼리 런타임 통계에 대한 정보를 포함합니다.
+- **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)** - CPU, LOG, LOCKING 등 쿼리가 대기된 항목을 알리는 쿼리 대기 통계에 대한 정보를 포함합니다.
+- **[Errors](sql-database-metrics-diag-logging.md#errors-dataset)** - 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
+- **[DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)** - 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
+- **[Timeouts](sql-database-metrics-diag-logging.md#timeouts-dataset)** - 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
+- **[Blockings](sql-database-metrics-diag-logging.md#blockings-dataset)** - 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
+- **[SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)** - Intelligent Insights를 포함합니다. [Intelligent Insights 알아보기](sql-database-intelligent-insights.md)
 
 이벤트 허브 또는 AzureStorage 계정을 지정하면 보존 정책을 지정하여 선택한 기간보다 오래된 데이터를 삭제할 수 있습니다. Log Analytics를 지정한 경우 선택한 가격 책정 계층에 따라 보존 정책이 달라집니다. 자세한 내용은 [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요. 
 
@@ -57,6 +64,10 @@ Azure SQL Database는 쉬운 모니터링을 위해 메트릭 및 진단 로그�
 Azure Portal에서 메트릭 및 진단 로그 수집을 사용하려면 Azure SQL Database 또는 탄력적 풀 페이지로 이동하여 **진단 설정**을 클릭합니다.
 
    ![Azure Portal에서 사용](./media/sql-database-metrics-diag-logging/enable-portal.png)
+
+대상 및 원격 분석을 선택하여 새 진단 설정을 만들거나 기존 진단 설정을 편집합니다.
+
+   ![진단 설정 구성](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -96,7 +107,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
-### <a name="cli"></a>CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
@@ -143,9 +154,9 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 Log Analytics를 사용하여 Azure SQL Database를 간편하게 모니터링할 수 있습니다. 세 단계를 수행해야 합니다.
 
-1.  Log Analytics 리소스 만들기
-2.  생성된 Log Analytics에 메트릭 및 진단 로그를 기록하도록 데이터베이스 구성
-3.  Log Analytics의 갤러리에서 **Azure SQL 분석** 솔루션 설치
+1. Log Analytics 리소스 만들기
+2. 생성된 Log Analytics에 메트릭 및 진단 로그를 기록하도록 데이터베이스 구성
+3. Log Analytics의 갤러리에서 **Azure SQL 분석** 솔루션 설치
 
 ### <a name="create-log-analytics-resource"></a>Log Analytics 리소스 만들기
 
@@ -170,8 +181,7 @@ Log Analytics를 사용하여 Azure SQL Database를 간편하게 모니터링할
 
 ### <a name="using-azure-sql-analytics-solution"></a>Azure SQL Analytics 솔루션 사용
 
-Azure SQL 분석은 Azure SQL Database 리소스의 계층을 탐색할 수 있는 계층적 대시보드입니다. 이 기능을 사용하면 상위 수준 모니터링을 수행할 뿐 아니라 올바른 리소스 집합으로 모니터링 범위를 설정할 수 있습니다.
-대시보드에는 선택한 리소스 아래의 여러 리소스 목록이 포함됩니다. 예를 들어 선택한 구독에 대해 해당 구독에 속한 모든 서버, 탄력적 풀 및 데이터베이스를 볼 수 있습니다. 또한 탄력적 풀 및 데이터베이스에 대해 해당 리소스의 리소스 사용 메트릭을 볼 수 있습니다. 여기에는 DTU, CPU, IO, 로그, 세션, 작업자, 연결 및 저장소(GB)에 대한 차트가 포함됩니다.
+Azure SQL 분석은 Azure SQL Database 리소스의 계층을 탐색할 수 있는 계층적 대시보드입니다. [Azure SQL 분석 솔루션 사용 방법을 알아보려면 여기를 클릭합니다.](../log-analytics/log-analytics-azure-sql.md)
 
 ## <a name="stream-into-azure-event-hub"></a>Azure 이벤트 허브에 스트림
 
@@ -186,9 +196,9 @@ Azure SQL 분석은 Azure SQL Database 리소스의 계층을 탐색할 수 있�
 
 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
 
--   "실행 부하 과다 경로" 데이터를 PowerBI로 스트리밍하여 서비스 상태 보기 – 이벤트 허브, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 메트릭 및 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. 이벤트 허브를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 개요는 [Stream Analytics 및 Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)를 참조하세요.
--   타사 로깅 및 원격 분석 스트림으로 로그 스트림 – Event Hubs 스트리밍을 사용하여 메트릭 및 진단 로그를 다른 타사 모니터링 및 로그 분석 솔루션으로 가져올 수 있습니다. 
--   사용자 지정 원격 분석 및 로깅 플랫폼 빌드 – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 이벤트 허브의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 이벤트 허브 사용에 대해서는 Dan Rosanova의 가이드](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)를 참조하세요.
+-             "실행 부하 과다 경로" 데이터를 PowerBI로 스트리밍하여 서비스 상태 보기 – 이벤트 허브, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 메트릭 및 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. 이벤트 허브를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 개요는 [Stream Analytics 및 Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)를 참조하세요.
+-             타사 로깅 및 원격 분석 스트림으로 로그 스트림 – Event Hubs 스트리밍을 사용하여 메트릭 및 진단 로그를 다른 타사 모니터링 및 로그 분석 솔루션으로 가져올 수 있습니다. 
+-             사용자 지정 원격 분석 및 로깅 플랫폼 빌드 – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 이벤트 허브의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 이벤트 허브 사용에 대해서는 Dan Rosanova의 가이드](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)를 참조하세요.
 
 ## <a name="stream-into-azure-storage"></a>Azure Storage에 스트림
 
@@ -224,14 +234,212 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
 
-## <a name="1-minute-metrics"></a>1분 메트릭
+## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-| |  |
-|---|---|
+### <a name="1-minute-metrics"></a>1분 메트릭
+
 |**리소스**|**metrics**|
+|---|---|
 |데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율, 교착 상태를 포함합니다. |
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 용량 한도, XTP 저장소 백분율을 포함합니다. |
 |||
+
+### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|query_hash_s|쿼리 해시|
+|query_plan_hash_s|쿼리 계획 해시|
+|statement_sql_handle_s|문 SQL 핸들|
+|interval_start_time_d|1900-1-1부터 틱 수로 간격의 시작 datetimeoffset.|
+|interval_end_time_d|1900-1-1부터 틱 수로 간격의 종료 datetimeoffset.|
+|logical_io_writes_d|총 논리적 IO 쓰기 수.|
+|max_logical_io_writes_d|실행당 최대 논리적 IO 쓰기 수.|
+|physical_io_reads_d|총 물리적 IO 읽기 수.|
+|max_physical_io_reads_d|실행당 최대 논리적 IO 읽기 수.|
+|logical_io_reads_d|총 논리적 IO 읽기 수.|
+|max_logical_io_reads_d|실행당 최대 논리적 IO 읽기 수.|
+|execution_type_d|실행 형식|
+|count_executions_d|쿼리의 실행 수.|
+|cpu_time_d|쿼리에 사용된 총 CPU 시간(밀리초).|
+|max_cpu_time_d|단일 실행에 사용된 최대 CPU 시간(밀리초).|
+|dop_d|병렬 처리 수준 합계.|
+|max_dop_d|단일 실행에 사용된 최대 병렬 처리 수준.|
+|rowcount_d|반환된 총 행 수.|
+|max_rowcount_d|단일 실행으로 반환된 최대 행 수.|
+|query_max_used_memory_d|사용된 총 메모리 양(KB).|
+|max_query_max_used_memory_d|단일 실행에 사용된 최대 메모리 양(KB).|
+|duration_d|총 실행 시간(밀리초).|
+|max_duration_d|단일 실행의 최대 실행 시간.|
+|num_physical_io_reads_d|총 물리적 읽기 수.|
+|max_num_physical_io_reads_d|실행당 최대 물리적 읽기 수.|
+|log_bytes_used_d|사용된 총 로그 바이트 양.|
+|max_log_bytes_used_d|실행당 사용된 최대 로그 바이트 양.|
+|query_id_d|쿼리 저장소의 쿼리 ID|
+|plan_id_d|쿼리 저장소의 계획 ID|
+
+[쿼리 저장소 런타임 통계 데이터에 대해 자세히 알아봅니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
+
+### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|wait_category_s|대기 범주.|
+|is_parameterizable_s|매개 변수화할 수 있는 쿼리.|
+|statement_type_s|문 형식.|
+|statement_key_hash_s|문 키 해시.|
+|exec_type_d|실행 형식|
+|total_query_wait_time_ms_d|특정 대기 범주의 총 쿼리 대기 시간.|
+|max_query_wait_time_ms_d|특정 대기 범주 개별 실행의 최대 쿼리 대기 시간.|
+|query_param_type_d|0|
+|query_hash_s|쿼리 저장소의 쿼리 해시.|
+|query_plan_hash_s|쿼리 저장소의 쿼리 계획 해시|
+|statement_sql_handle_s|쿼리 저장소의 문 핸들|
+|interval_start_time_d|1900-1-1부터 틱 수로 간격의 시작 datetimeoffset.|
+|interval_end_time_d|1900-1-1부터 틱 수로 간격의 종료 datetimeoffset.|
+|count_executions_d|쿼리 실행 수|
+|query_id_d|쿼리 저장소의 쿼리 ID|
+|plan_id_d|쿼리 저장소의 계획 ID|
+
+[쿼리 저장소 대기 통계 데이터를 자세히 알아보려면 여기를 클릭합니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
+
+### <a name="errors-dataset"></a>오류 데이터 집합
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|Message|일반 텍스트의 오류 메시지|
+|user_defined_b|오류 사용자 정의 비트|
+|error_number_d|오류 코드|
+|심각도|오류의 심각도|
+|state_d|오류 상태|
+|query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우)|
+|query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우)|
+
+[SQL Server 오류 메시지](https://msdn.microsoft.com/en-us/library/cc645603.aspx)
+
+### <a name="database-waits-dataset"></a>데이터베이스 대기 데이터 집합
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|wait_type_s|대기 형식 이름|
+|start_utc_date_t [UTC]|측정 기간 시작 시간.|
+|end_utc_date_t [UTC]|측정 기간 종료 시간.|
+|delta_max_wait_time_ms_d|실행당 최대 대기 시간|
+|delta_signal_wait_time_ms_d|총 신호 대기 시간|
+|delta_wait_time_ms_d|기간의 총 대기 시간|
+|delta_waiting_tasks_count_d|대기 작업 수|
+
+[데이터베이스 대기 통계를 자세히 알아보려면 여기를 클릭합니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
+
+### <a name="timeouts-dataset"></a>시간 제한 데이터 집합
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|error_state_d|오류 상태 코드|
+|query_hash_s|쿼리 해시(있는 경우)|
+|query_plan_hash_s|쿼리 계획 해시(있는 경우)|
+
+### <a name="blockings-dataset"></a>차단 데이터 집합
+
+|속성|설명|
+|---|---|
+|TenantId|테넌트 ID.|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프.|
+|형식|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics|
+|OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent|
+|리소스|리소스 이름|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID.|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름.|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름.|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우).|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI|
+|lock_mode_s|쿼리에 사용된 잠금 모드|
+|resource_owner_type_s|잠금 소유자.|
+|blocked_process_filtered_s|차단된 프로세스 보고서 XML.|
+|duration_d|잠금 기간(밀리초).|
+
+### <a name="intelligent-insights-dataset"></a>Intelligent Insights 데이터 집합
+[Intelligent Insights 로그 형식을 자세히 알아보려면 여기를 클릭합니다.](sql-database-intelligent-insights-use-diagnostics-log.md)
 
 ## <a name="next-steps"></a>다음 단계
 

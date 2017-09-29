@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
@@ -77,7 +77,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소가 할당되어야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /27 이상으로 만드는 것이 좋습니다(/27, /26, /25 등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 그러한 요구 사항을 충족하는지 확인하세요.
 
-### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Virtual Machines 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
 아니요.
 
@@ -103,7 +103,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>VPN 게이트웨이를 통해 전송되는 트래픽을 지정하려면 어떻게 해야 합니까?
 
-#### <a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
+#### <a name="resource-manager-deployment-model"></a>Resource Manager 배포 모델
 
 * PowerShell: "AddressPrefix"를 사용하여 로컬 네트워크 게이트웨이에 대한 트래픽을 지정합니다.
 * Azure Portal: [로컬 네트워크 게이트웨이 > 구성> 주소 공간]으로 이동합니다.
@@ -113,7 +113,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 * Azure Portal: 클래식 가상 네트워크 > VPN 연결 > 사이트 간 VPN 연결 > 로컬 사이트 이름 > 로컬 사이트 > 클라이언트 주소 공간으로 이동합니다. 
 * 클래식 포털: 로컬 Networks의 Networks 페이지에서 가상 네트워크의 게이트웨이를 통해 보낼 각 범위를 추가합니다. 
 
-### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있습니까?
+### <a name="can-i-configure-force-tunneling"></a>강제 터널링을 구성할 수 있나요?
 
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
@@ -159,9 +159,13 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="P2S"></a>지점 및 사이트 간 연결
+## <a name="P2S"></a>지점 및 사이트 간 - 네이티브 Azure 인증서 인증
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>지점 및 사이트 간 - RADIUS 인증
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet 간 연결 및 다중 사이트 연결
 
@@ -169,7 +173,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
 
-**리소스 관리자 배포 모델**<br>
+**Resource Manager 배포 모델**<br>
 예. 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
 
 **클래식 배포 모델**<br>
