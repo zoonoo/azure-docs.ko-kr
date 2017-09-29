@@ -45,6 +45,8 @@
       items:
         - name: 실행 대상 구성
           href: experiment-execution-configuration.md
+        - name: DSVM 및 HDI Spark 클러스터 만들기
+          href: how-to-create-dsvm-hdi.md
         - name: GPU를 통한 학습
           href: how-to-use-gpu.md
     - name: 데이터 획득 및 이해

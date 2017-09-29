@@ -148,13 +148,14 @@
 ### [시작](active-directory-integrating-applications-getting-started.md)
 ### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
 ### [클라우드 앱 검색](cloudappdiscovery-overview.md)
-#### [Cloud App Discovery는 무엇입니까?](active-directory-cloudappdiscovery-whatis.md)
-#### [설정 단계](cloudappdiscovery-get-started.md)
+#### [에이전트 없는 검색 설정](cloudappdiscovery-get-started.md)
 #### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### 에이전트 기반 검색
+##### [Cloud App Discovery는 무엇입니까?](active-directory-cloudappdiscovery-whatis.md)
+##### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)

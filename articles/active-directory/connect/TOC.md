@@ -43,6 +43,7 @@
 ##### [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
+##### [보안 심층 분석](active-directory-aadconnect-pta-security-deep-dive.md)
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)

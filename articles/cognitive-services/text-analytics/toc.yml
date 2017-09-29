@@ -24,6 +24,8 @@
   items:
     - name: Power BI로 텍스트 분석
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: PowerApps에서 텍스트 분석
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: 방법 가이드
   items:
     - name: 등록

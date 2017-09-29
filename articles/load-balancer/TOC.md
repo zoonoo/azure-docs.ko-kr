@@ -26,9 +26,8 @@
 ### [인터넷 연결 부하 분산 장치 구성(CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [인터넷 연결 부하 분산 장치 구성(템플릿)](load-balancer-get-started-internet-arm-template.md)
 
-## [인터넷 연결 부하 분산 장치 구성(클래식 포털)](load-balancer-get-started-internet-classic-portal.md)
+## [인터넷 연결 부하 분산 장치 구성 - (클래식 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [인터넷 연결 부하 분산 장치 구성(클래식 클라우드)](load-balancer-get-started-internet-classic-cloud.md)
-### [인터넷 연결 부하 분산 장치 구성(클래식 PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [인터넷 연결 부하 분산 장치 구성(클래식 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [IPv6으로 인터넷 연결 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)

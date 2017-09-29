@@ -33,6 +33,7 @@
 
 ## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [비정상적인 되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 ### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
