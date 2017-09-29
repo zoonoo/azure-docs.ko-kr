@@ -3,7 +3,7 @@ title: "Java에서 첫 번째 행위자 기반 Azure 마이크로 서비스 만�
 description: "이 자습서에서는 서비스 패브릭 Reliable Actors를 사용하여 간단한 행위자 기반 서비스를 생성, 디버깅 및 배포하는 과정을 단계별로 안내합니다."
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: vturecek
+ms.author: ryanwi
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7

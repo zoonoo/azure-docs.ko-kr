@@ -3,7 +3,7 @@ title: "Azure 청구 엔터프라이즈 API - 잔액 및 요약 | Microsoft Docs
 description: "Azure 리소스 소비 및 추세에 대한 통찰력을 제공하는 데 사용되는 Azure 청구 사용량 및 RateCard API에 대한 자세한 정보를 제공합니다."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

@@ -3,7 +3,7 @@ title: "Azure 청구 엔터프라이즈 API - 가격표 | Microsoft Docs"
 description: "Azure 기업 고객이 사용량 데이터를 프로그래밍 방식으로 끌어올 수 있게 하는 보고 API에 대해 알아봅니다."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
