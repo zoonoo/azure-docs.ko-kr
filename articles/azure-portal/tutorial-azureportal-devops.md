@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>자습서: Azure 포털을 사용한 DevOps
@@ -264,7 +264,7 @@ Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해�
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager는 Azure 플랫폼에서 DevOps를 사용하는 데 중요합니다.  자세한 내용을 알아보려면 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 방문하세요.
-* Azure 앱 서비스 배포에 대한 자세한 내용을 알아보려면 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)
+* Azure 앱 서비스 배포에 대한 자세한 내용을 알아보려면 [Azure 앱 서비스에 앱 배포](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
