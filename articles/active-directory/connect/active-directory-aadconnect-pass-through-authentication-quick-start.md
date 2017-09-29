@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 온-프레미스 Active Directory와 직접 비교해서 암호의 유효성을 검사하여 사용자를 로그인합니다.
 
 >[!IMPORTANT]
->Azure AD 통과 인증은 현재 미리 보기로 제공됩니다. 미리 보기를 통해 이 기능을 사용한 경우 [여기](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md) 제공된 지침에 따라 인증 에이전트의 미리 보기 버전을 업그레이드했는지 확인해야 합니다.
+>미리 보기를 통해 이 기능을 사용한 경우 [여기](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md) 제공된 지침에 따라 인증 에이전트의 미리 보기 버전을 업그레이드했는지 확인해야 합니다.
 
 통과 인증을 배포하려면 다음 지침을 따라야 합니다.
 
@@ -130,7 +130,7 @@ Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aad
 >[여기](https://aka.ms/getauthagent)에서 인증 에이전트를 다운로드할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [**현재 제한 사항**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
+- [**현재 제한 사항** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [**기술 심층 분석**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
 - [**FAQ(질문과 대답)**](active-directory-aadconnect-pass-through-authentication-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.

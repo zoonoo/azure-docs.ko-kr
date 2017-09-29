@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="how-to-deploy-seamless-sso"></a>Seamless SSO를 배포하는 방법
 
 Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
-
->[!IMPORTANT]
->Seamless SSO 기능은 현재 미리 보기로 제공됩니다.
 
 Seamless SSO를 배포하려면 다음 단계를 수행해야 합니다.
 
@@ -73,7 +70,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 "�
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
-이 기능을 사용자에게 배포하려면 Active Directory의 그룹 정책을 통해 사용자의 인트라넷 영역 설정에 두 개의 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )을 추가해야 합니다.
+이 기능을 사용자에게 출시하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 Azure AD URL 몇 개를 추가해야 합니다.
 
 >[!NOTE]
 > 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mac에서 Mozilla Firefox 및 Chrome을 설정하는 지침은 다음 섹션을 참조하세요.
@@ -109,7 +106,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 수행하지 않습니다. �
 1. Firefox를 실행하고 주소 표시줄에 `about:config`를 입력합니다. 표시되는 모든 알림을 해제합니다.
 2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 "수정"을 선택합니다.
-4. 필드에서 "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net "을 입력합니다.
+4. 필드에서 "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net"을 입력합니다.
 5. "확인"을 클릭하고 브라우저를 다시 엽니다.
 
 #### <a name="safari-on-mac-os"></a>Mac OS의 Safari
@@ -122,7 +119,7 @@ Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google 크롬의 경우 통�
 
 타사 Active Directory 그룹 정책 확장을 사용하여 Mac 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 배포하는 방법은 이 문서의 범위를 벗어납니다.
 
-#### <a name="known-limitations"></a>알려진 제한 사항
+#### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
 Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
 
@@ -146,7 +143,7 @@ Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 �
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 
-2단계에서, Azure AD Connect는 Seamless SSO를 사용하도록 설정한 모든 AD 포리스트에서 컴퓨터 계정(Azure AD를 나타냄)을 만듭니다. [여기](active-directory-aadconnect-sso-how-it-works.md)에서 자세히 알아보세요. 향상된 보안을 위해 이러한 컴퓨터 계정의 Kerberos 암호 해독 키를 자주 롤오버하는 것이 좋습니다.
+2단계에서, Azure AD Connect는 Seamless SSO를 사용하도록 설정한 모든 AD 포리스트에서 컴퓨터 계정(Azure AD를 나타냄)을 만듭니다. [여기](active-directory-aadconnect-sso-how-it-works.md)에서 자세히 알아보세요. 향상된 보안을 위해 이러한 컴퓨터 계정의 Kerberos 암호 해독 키를 주기적으로 롤오버하는 것이 좋습니다. 롤오버 방법에 대한 지침은 [여기](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)를 참조하세요.
 
 >[!IMPORTANT]
 >이 기능을 사용하도록 설정한 후에는 이 단계를 _즉시_ 수행할 필요가 없습니다. 적어도 30일마다 Kerberos 암호 해독 키를 롤오버합니다.

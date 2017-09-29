@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
@@ -67,7 +67,7 @@ Azure Active Directory 조건부 액세스의 컨텍스트에서
 - **권한 부여 컨트롤** - 권한 부여 컨트롤은 사용자가 인증을 완료하고 로그인을 시도하는 리소스에 도달할 수 있는지 여부를 제어합니다. 여러 컨트롤을 선택한 경우 정책이 처리될 때 모든 컨트롤이 필요한지 여부를 구성할 수 있습니다.
 Azure Active Directory의 현재 구현을 사용하면 다음 권한 부여 컨트롤 요구 사항을 구성할 수 있습니다.
 
-    ![제어](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![제어](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **세션 컨트롤** - 세션 컨트롤을 통해 클라우드 앱 내에서 환경을 제한할 수 있습니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
 
@@ -108,7 +108,7 @@ Azure Active Directory의 현재 구현을 사용하면 다음 권한 부여 컨
 
 앱에 대한 액세스를 제어할 수 있는 조건에서 수행하는 한, 사용자가 클라우드 앱에 액세스하는 방법에 대한 추가 제어 문을 부과할 필요는 없습니다. 그러나 신뢰할 수 없는 네트워크 또는 정책을 준수하지 않는 장치에서 클라우드 앱에 대한 액세스를 수행하는 경우에는 상황이 다를 수 있습니다. 조건 문에서 앱에 대한 액세스를 수행하는 방법에 대한 추가 요구 사항이 있는 특정 액세스 조건을 정의할 수 있습니다.
 
-![조건](./media/active-directory-conditional-access-azure-portal/21.png)
+![조건](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>조건
@@ -119,8 +119,9 @@ Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 
 - 장치 플랫폼
 - 위치
 - 클라이언트 앱
+- Time
 
-![조건](./media/active-directory-conditional-access-azure-portal/21.png)
+![조건](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>로그인 위험
 
@@ -147,22 +148,35 @@ Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 
 
 ### <a name="locations"></a>위치
 
-위치는 Azure Active Directory에 연결하는 데 사용한 클라이언트의 IP 주소로 식별됩니다. 이 조건에서는 **명명된 위치** 및 **MFA 신뢰할 수 있는 IP**를 잘 알고 있어야 합니다.  
+위치를 사용하여 연결 시도가 시작된 위치를 기반으로 조건을 정의할 수 있습니다. 위치 목록의 항목은 **명명된 위치** 또는 **MFA 신뢰할 수 있는 IP** 중 하나입니다.  
 
-**명명된 위치**는 조직 내에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있는 Azure Active Directory의 기능입니다. 사용자 환경에서 조건부 액세스와 함께 [위험 이벤트](active-directory-reporting-risk-events.md) 검색의 컨텍스트에서 명명된 위치를 사용할 수 있습니다. Azure Active Directory에서 명명된 위치 구성에 대한 자세한 내용은 [Azure Active Directory의 명명된 위치](active-directory-named-locations.md)를 참조하세요.
+**명명된 위치**는 연결 시도가 만들어진 위치에 대한 레이블을 정의할 수 있는 Azure Active Directory의 기능입니다. 위치를 정의하려면 IP 주소 범위를 구성하거나 국가/지역을 선택하면 됩니다.  
 
-구성할 수 있는 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음을 구성할 수 있습니다.
+![조건](./media/active-directory-conditional-access-azure-portal/42.png)
+
+또한 명명된 위치를 신뢰할 수 있는 위치로 표시할 수 있습니다. 조건부 액세스 정책의 경우 신뢰할 수 있는 위치는 위치 조건에서 *신뢰할 수 있는 모든 위치*를 선택할 수 있는 또 다른 필터 옵션입니다.
+명명된 위치는 비정상적인 위치 간 이동 불가능 위험 이벤트에 대해 거짓 긍정 수를 줄이기 위해 [위험 이벤트](active-directory-reporting-risk-events.md)의 검색과 관련하여 중요합니다. 
+
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음을 구성할 수 있습니다.
  
  - 최대 500개 IP 범위로 명명된 하나의 위치
  - 각각에 한 개의 IP 범위로 할당된 최대 60개의 명명된 위치(미리 보기) 
 
+자세한 내용은 [Azure Active Directory의 명명된 위치](active-directory-named-locations.md)를 참조하세요.
+
 
 **MFA 신뢰할 수 있는 IP**는 조직의 로컬 인트라넷을 나타내는 신뢰할 수 있는 IP 주소 범위를 정의할 수 있는 다단계 인증 기능입니다. 위치 조건을 구성하면 신뢰할 수 있는 IP를 통해 조직의 네트워크와 다른 모든 위치에서 수행되는 연결을 구별할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
 
+조건부 액세스 정책에서 다음을 수행할 수 있습니다.
 
-
-모든 위치 또는 모든 신뢰할 수 있는 IP를 포함하거나, 모든 신뢰할 수 있는 IP를 제외할 수 있습니다.
-
+- 포함
+    - 임의의 위치
+    - 신뢰할 수 있는 모든 위치
+    - 선택한 위치
+- 제외
+    - 신뢰할 수 있는 모든 위치
+    - 선택한 위치
+     
 ![조건](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -175,6 +189,7 @@ Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 
 
 
 조건부 액세스 정책에서 사용할 수 있는 클라이언트 앱의 전체 목록은 [Azure Active Directory 조건부 액세스 기술 참조](active-directory-conditional-access-technical-reference.md#client-apps-condition)를 참조하세요.
+
 
 
 

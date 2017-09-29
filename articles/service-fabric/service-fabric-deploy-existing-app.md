@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>서비스 패브릭에 게스트 실행 파일 배포
@@ -101,7 +100,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 이 문서의 끝으로 이동합니다.
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yoeman을 사용하여 Linux에서 기존 실행 파일을 수동으로 패키징 및 배포
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yeoman을 사용하여 Linux에서 기존 실행 파일 패키징 및 배포
 
 Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp 또는 java 응용 프로그램 배포와 동일합니다.
 

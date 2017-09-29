@@ -1,0 +1,152 @@
+---
+title: "Azure 파일 동기화(미리 보기) 배포에 대한 계획 | Microsoft Docs"
+description: "Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다."
+services: storage
+documentationcenter: 
+author: wmgries
+manager: klaasl
+editor: jgerend
+ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2017
+ms.author: wgries
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3c003d498600a2cfd12ef2adfb7c16f9dfaddb37
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
+
+---
+
+# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
+Azure 파일 동기화(미리 보기)를 사용하면 공유를 Windows Server 온-프레미스 또는 Azure에 복제할 수 있습니다. 그러면 관리자와 사용자는 Windows Server를 통해(예: SMB 또는 NFS 공유를 통해) 파일 공유에 액세스하게 됩니다. 이는 지사와 같이 Azure 데이터 센터에서 멀리 떨어진 곳에서 데이터에 액세스하고 수정하는 시나리오에 특히 유용합니다. 여러 Windows Server 끝점 간(예: 여러 지사 간)에 데이터가 복제될 수 있습니다. 
+
+이 가이드에서는 Azure 파일 동기화를 배포할 때 고려해야 할 사항을 설명합니다. [Azure Files 배포에 대한 계획](storage-files-planning.md) 가이드 테스트를 읽어보는 것이 좋습니다. 
+
+## <a name="understanding-azure-file-sync-terminology"></a>Azure 파일 동기화 용어 이해
+Azure 파일 동기화 세부 정보를 살펴보기 전에 용어를 이해하는 것이 중요합니다.
+
+### <a name="storage-sync-service"></a>저장소 동기화 서비스
+저장소 동기화 서비스는 Azure 파일 동기화를 나타내는 최상위 Azure 리소스입니다. 저장소 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. 저장소 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
+
+### <a name="sync-group"></a>동기화 그룹
+동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내의 끝점은 서로 동기화된 상태를 유지합니다. 예를 들어 AFS를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각각에 다른 끝점을 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
+
+### <a name="registered-server"></a>등록된 서버
+등록된 서버 개체는 서버(또는 클러스터)와 저장소 동기화 서비스 간의 신뢰 관계를 나타냅니다. 원하는 수 만큼의 서버를 저장소 동기화 서비스 인스턴스에 등록할 수 있습니다. 그렇지만 한 번에 하나의 서버(또는 클러스터)만 하나의 저장소 동기화 서비스에 등록될 수 있습니다.
+
+### <a name="azure-file-sync-agent"></a>Azure 파일 동기화 에이전트
+Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. Azure 파일 동기화 에이전트는 다음 세 가지 주요 구성 요소로 이루어집니다. 
+- **FileSyncSvc.exe**: 서버 끝점의 변경 내용을 모니터링하고 Azure와의 동기화 세션을 시작하는 백그라운드 Windows 서비스입니다.
+- **StorageSync.sys**: Azure Files로의 파일 계층화를 담당하는 Azure 파일 동기화 파일 시스템 필터입니다(클라우드 계층화가 사용될 경우).
+- **PowerShell 관리 cmdlet**: Microsoft.StorageSync Azure 리소스 공급자와 상호 작용하기 위한 PowerShell cmdlet입니다. 이러한 cmdlet은 다음 위치에서 찾을 수 있습니다(기본값).
+    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
+    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+
+### <a name="cloud-endpoint"></a>클라우드 끝점
+클라우드 끝점은 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 끝점, 즉 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+
+### <a name="server-endpoint"></a>서버 끝점
+서버 끝점은 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 끝점이 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 끝점에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+
+### <a name="cloud-tiering"></a>클라우드 계층화 
+클라우드 계층화는 Azure 파일 동기화의 선택적 기능으로, 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 Azure Files의 파일에 대한 URL을 나타내는 포인터 또는 재분석 지점으로 로컬로 대체합니다. 계층화된 파일은 NTFS에서 “오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure 파일 동기화는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
+
+## <a name="azure-file-sync-interoperability"></a>Azure 파일 동기화 상호 운용성 
+이 섹션에서는 Windows Server 기능/역할 및 타사 솔루션과의 Azure 파일 동기화 상호 운용성에 대해 설명합니다.
+
+### <a name="supported-versions-of-windows-server"></a>지원되는 Windows Server 버전
+현재 Azure 파일 동기화에서 지원되는 Windows Server 버전은 다음과 같습니다.
+
+| 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
+|---------|----------------|------------------------------|
+| Windows Server 2016 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
+| Windows Server 2012 R2 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
+
+릴리스 시 사용자 의견에 따라 Windows 이전 버전이 추가될 수 있으므로 Windows Server 전체 버전이 추가됩니다.
+
+> [!Important]  
+> Windows 업데이트의 최신 업데이트를 사용하여 Azure 파일 동기화와 함께 사용되는 모든 Windows Server를 최신 상태로 유지하는 것이 좋습니다. 
+
+### <a name="file-system-features"></a>파일 시스템 기능
+| 기능 | 상태 지원 | 참고 사항 |
+|---------|----------------|-------|
+| ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure 파일 동기화에 의해 유지되며 서버 끝점에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
+| 하드 링크 | 생략 | |
+| 바로 가기 링크 | 생략 | |
+| 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 끝점의 루트일 수 있지만, 서버 끝점의 네임스페이스에 포함된 경우 건너뜁니다. |
+| 분기 동기화 | 생략 | |
+| 재분석 지점 | 생략 | |
+| NTFS 압축 | 완전하게 지원 | |
+| 스파스 파일 | 완전하게 지원 | 스파스 파일은 동기화되지만(차단되지 않음) 전체 파일로 클라우드에 동기화됩니다. 클라우드(또는 다른 서버)에서 파일 콘텐츠가 변경될 경우 변경 내용이 다운로드되면 파일은 더 이상 스파스 파일이 아닙니다. |
+| ADS(대체 데이터 스트림) | 보존되지만 동기화되지 않음 | |
+
+> [!Note]  
+> NTFS 볼륨만 지원됩니다.
+
+### <a name="failover-clustering"></a>장애 조치(Failover) 클러스터링
+Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버" 배포 옵션의 Azure 파일 동기화에서 지원됩니다. 장애 조치(Failover) 클러스터링은 "응용 프로그램 데이터용 스케일 아웃 파일 서버" 또는 “CSV(클러스터된 공유 볼륨)”에서는 지원되지 않습니다.
+
+> [!Note]  
+> 동기화가 제대로 작동하려면 장애 조치(Failover) 클러스터의 모든 노드에 Azure 파일 동기화 에이전트를 설치해야 합니다.
+
+### <a name="windows-server-data-deduplication"></a>Windows Server 데이터 중복 제거
+클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 데이터 중복 제거를 사용하도록 지원합니다. 현재 클라우드 계층화가 사용되도록 설정된 Azure 파일 동기화와 데이터 중복 제거 간에는 Interop이 지원되지 않습니다.
+
+### <a name="anti-virus-solutions"></a>바이러스 백신 솔루션
+바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신은 계층화된 파일의 회수를 발생할 수 있습니다. 계층화된 파일에는 "오프라인" 특성이 설정되어 있으므로 오프라인 파일 읽기를 건너뛰도록 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
+
+다음 솔루션은 오프라인 파일 건너뛰기를 지원하는 것으로 알려져 있습니다.
+
+- [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
+- [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf)(90페이지의 "필요한 항목만 검색" 섹션 참조)
+- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
+- [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
+- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+
+### <a name="backup-solutions"></a>백업 솔루션
+바이러스 백신 솔루션과 같은 백업 솔루션은 계층화된 파일이 회수되도록 할 수 있습니다. 온-프레미스 백업 제품을 사용하지 않고 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 백업하는 것이 좋습니다.
+
+### <a name="encryption-solutions"></a>암호화 솔루션
+암호화 솔루션에 대한 지원은 구현되는 방식에 따라 달라집니다. Azure 파일 동기화와 함께 작동하는 기능
+
+- BitLocker 암호화
+- Azure RMS(및 레거시 Active Directory RMS)
+
+Azure 파일 동기화와 함께 작동하지 않는 기능
+
+- NTFS EFS(암호화 파일 시스템)
+
+일반적으로 Azure 파일 동기화는 BitLocker와 같이 파일 시스템 아래에 있는 암호화 솔루션 및 BitLocker와 같은 파일 형식으로 구현되는 솔루션과 interop할 수 있어야 하지만, 파일 시스템 위에 있는 솔루션(예: NTFS 암호화 파일 시스템)과 interop하기 위해 특수한 interop이 설정되어 있지 않습니다.
+
+### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 저장소 관리) 솔루션
+Azure 파일 동기화와 함께 다른 계층적 저장소 관리 솔루션을 사용하지 않아야 합니다.
+
+## <a name="region-availability"></a>지역 가용성
+Azure 파일 동기화는 다음 지역에서는 미리 보기로만 사용할 수 있습니다.
+
+| 지역 | 데이터 센터 위치 |
+|--------|---------------------|
+| 미국 서부 | 미국, 캘리포니아 |
+| 서유럽 | 네덜란드 |
+| 동남아시아 | 싱가포르 |
+| 오스트레일리아 동부 | 호주, 뉴사우스웨일스 |
+
+미리 보기에서는 저장소 동기화 서비스와 동일한 지역에서만 Azure 파일 공유와의 동기화를 지원합니다.
+
+## <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
+Azure 파일 동기화 에이전트에 대한 업데이트는 새 기능을 추가하고 발견된 문제를 해결하기 위해 주기적으로 릴리스됩니다. 릴리스 시, Microsoft 업데이트에서 Azure 파일 동기화 에이전트에 대한 모든 업데이트를 가져오도록 설정하는 것이 좋습니다. 즉, 일부 조직에서는 업데이트를 엄격하게 제어하려고 할 것입니다. 이전 버전의 Azure 파일 동기화 에이전트를 사용하는 배포:
+
+- 저장소 동기화 서비스는 새로운 주 버전의 초기 릴리스가 있고 3개월 동안 이전 주 버전을 유지합니다. 예를 들어 버전 1.\*는 버전 2.\*가 릴리스되고 3개월까지 저장소 동기화 서비스에서 지원됩니다.
+- 3개월이 경과된 후 저장소 동기화 서비스는 만료된 버전을 사용하는 등록된 서버가 해당 동기화 그룹과 동기화할 수 없도록 차단하기 시작합니다.
+- 이전 주 버전의 3개월 내에는 모든 버그 픽스가 현재 주 버전에만 적용됩니다.
+
+## <a name="next-steps"></a>다음 단계
+* [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+* [Azure Files 배포](storage-files-deployment-guide.md)
+* [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
+

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
@@ -139,9 +139,9 @@ Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 �
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 
-Linux의 서비스 패브릭 미리 보기를 사용하면 Windows에서와 마찬가지로 Linux에서도 서비스 패브릭을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-deploy-existing-app.md) 를 빌드할 수 있습니다. 또한, 미리 보기는 Docker 컨테이너 오케스트레이션도 지원합니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-linux-overview.md)을 참조하세요.
+Linux의 Service Fabric을 사용하면 Windows와 마찬가지로 Linux에서도 Service Fabric을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. Service Fabric 프레임워크(Reliable Services 및 Reliable Actors)는 C#(.NET Core)뿐만 아니라 Linux의 Java에서 사용할 수 있습니다. 어떤 언어 또는 프레임워크에서도 [게스트 실행 서비스](service-fabric-deploy-existing-app.md) 를 빌드할 수 있습니다. Docker 컨테이너 오케스트레이션도 지원됩니다. Docker 컨테이너는 게스트 실행 파일 또는 Service Fabric 프레임워크를 사용하는 네이티브 Service Fabric 서비스를 실행할 수 있습니다. 자세한 내용은 [Linux의 Service Fabric](service-fabric-deploy-anywhere.md)을 참조하세요.
 
-Linux의 Service Fabric이 미리 보기 상태이므로 Linux가 아닌 Windows에서만 지원되는 몇 가지 기능도 있습니다. 자세한 내용은 [Linux와 Windows의 Service Fabric 간의 차이점](service-fabric-linux-windows-differences.md)을 참조하세요.
+Windows에서는 지원되지만 Linux에서 지원되지 않는 일부 기능이 있습니다. 자세한 내용은 [Linux와 Windows의 Service Fabric 간의 차이점](service-fabric-linux-windows-differences.md)을 참조하세요.
 
 ### <a name="standalone-clusters"></a>독립 실행형 클러스터
 Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 실행형 Service Fabric 클러스터를 만들 수 있는 설치 패키지를 제공합니다. 독립 실행형 클러스터를 사용하면 원하는 위치에서 클러스터를 호스트할 수 있습니다. 데이터가 규정 준수 또는 규제 제약을 받는 경우 또는 데이터를 로컬로 유지하려는 경우 고유한 클러스터 및 응용 프로그램을 호스트할 수 있습니다. Service Fabric 응용 프로그램은 변경 없이 여러 호스팅 환경에서 실행할 수 있으므로 하나의 호스팅 환경에서 습득한 응용 프로그램 빌드에 대한 정보를 다른 환경에서도 사용할 수 있습니다. 

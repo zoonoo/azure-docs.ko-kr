@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
@@ -77,7 +76,7 @@ Windows 에이전트를 OMS 서비스에 연결하고 등록한 경우 포트 �
 
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>OMS에서 에이전트 설치 파일 다운로드
-1. OMS 포털의 **개요** 페이지에서 **설정** 타일을 클릭합니다.  위쪽에서 **연결된 원본** 탭을 클릭합니다.  
+1. [OMS 포털](https://www.mms.microsoft.com)의 **개요** 페이지에서 **설정** 타일을 클릭합니다.  위쪽에서 **연결된 원본** 탭을 클릭합니다.  
     ![연결된 원본 탭](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. **Windows Servers**를 클릭한 다음 사용하는 컴퓨터 프로세서 유형에 해당하는 **Windows 에이전트 다운로드**를 클릭하여 설치 파일을 다운로드합니다.
 3. **작업 영역 ID**오른쪽에서 복사 아이콘을 클릭하고 ID를 메모장에 붙여넣습니다.

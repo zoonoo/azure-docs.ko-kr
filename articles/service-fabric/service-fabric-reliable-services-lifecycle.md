@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 3ff04f031b2d170ac63fc1c6f4e2b6ba6a6c46bd
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -131,4 +131,4 @@ Service Fabric에서는 다양한 이유로 상태 저장 서비스에 대한 �
 - [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 - [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 - [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
-
+- [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)

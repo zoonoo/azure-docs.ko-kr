@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 2d90baf42d067ad8476995fba524a46f0815b6d5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
@@ -48,6 +48,10 @@ ms.lasthandoff: 09/01/2017
 
 * **상태 비저장:** Azure 저장소, Azure SQL Database 또는 Azure Cosmos DB와 같은 외부 저장소 서비스에 서비스의 영구 상태를 저장할 때 상태 비저장 서비스를 사용합니다. 서비스에 영구 저장소가 없는 경우 상태 비저장 서비스를 사용합니다. 예를 들어, 값을 서비스에 전달하는 계산기 서비스는 이러한 값을 사용하여 계산을 수행하고 결과를 반환합니다.
 * **상태 저장:** 서비스 패브릭으로 신뢰할 수 있는 컬렉션 또는 Reliable Actors 프로그래밍 모델을 통해 서비스의 상태를 관리하려는 경우 상태 저장 서비스를 사용합니다. 명명된 서비스를 만들 때 상태를 확산하려는 파티션 수를 지정합니다(확장성을 위해). 또한 노드 간에 상태를 복제할 횟수를 지정합니다(안정성을 위해). 명명된 서비스 각각에는 하나의 기본 복제본과 여러 보조 복제본이 있습니다. 기본 복제본에 써서 명명된 서비스의 상태를 수정합니다. 그러면 서비스 패브릭은 이 상태를 모든 보조 복제본에 복제하여 상태를 동기화합니다. 기본 복제본이 실패하는 경우 서비스 패브릭은 자동으로 이를 감지하고 기존 보조 복제본을 기본 복제본으로 승격합니다. 그러면 서비스 패브릭은 새로운 보조 복제본을 만듭니다.  
+
+**복제본 또는 인스턴스**는 배포되어 실행 중인 서비스의 코드(및 상태 저장 서비스의 상태)를 가리킵니다. [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)를 참조하세요.
+
+**재구성**은 서비스의 복제본 세트에 있는 변경 프로세스를 가리킵니다. [재구성](service-fabric-concepts-reconfiguration.md)을 참조하세요.
 
 **서비스 패키지**: 서비스 형식인 `ServiceManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 이 파일은 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 응용 프로그램 형식의 `ApplicationManifest.xml` 파일에서 서비스 패키지 디렉터리에 파일을 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
@@ -80,6 +84,8 @@ ms.lasthandoff: 09/01/2017
 이미지 저장소 서비스에 대한 자세한 내용은 [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
 
 이미지 저장소 서비스에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md) 문서를 참조하세요.
+
+**장애 조치(Failover) 관리자 서비스(FM)**: 각 Service Fabric 클러스터에는 서비스의 고가용성 및 일관성과 관련된 함수를 수행하고 응용 프로그램 및 클러스터 업그레이드 오케스트레이션과 다른 시스템 구성 요소와 상호 작용하는 장애 조치(Failover) 관리자 서비스가 있습니다.
 
 ## <a name="built-in-programming-models"></a>기본 제공 프로그래밍 모델
 서비스 패브릭 서비스를 작성하는 데 사용할 수 있는 .NET Framework 프로그래밍 모델이 있습니다.

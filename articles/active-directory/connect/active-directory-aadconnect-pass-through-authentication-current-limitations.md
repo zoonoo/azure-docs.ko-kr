@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e193efe391c614a17d2861d4ba7d7776a7d441c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
 >[!IMPORTANT]
->Azure AD 통과 인증은 현재 미리 보기로 제공됩니다. 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있고, [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서는 사용할 수 없습니다.
+>Azure AD 통과 인증은 무료 기능이며, 이 기능을 사용하기 위해 Azure AD 유료 버전이 필요하지 않습니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있고, [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서는 사용할 수 없습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-다음 시나리오는 미리 보기 중에 완전히 지원됩니다.
+다음 시나리오는 완전히 지원됩니다.
 
 - 사용자가 모든 웹 브라우저 기반 응용 프로그램에 로그인합니다.
 - 사용자가 [최신 인증](https://aka.ms/modernauthga)을 지원하는 Office 365 클라이언트 응용 프로그램에 로그인합니다.
@@ -38,14 +38,16 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
-다음 시나리오는 미리 보기 중에 지원되지 _않습니다_.
+다음 시나리오는 지원되지 _않습니다_.
 
 - 사용자는 레거시 Office 클라이언트 응용 프로그램(Office 2013 이전 버전)에 로그인합니다. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증을 사용하면 통과 인증 지원이 허용될 뿐 아니라 MFA(Multi-Factor Authentication) 등의 [조건부 액세스](../active-directory-conditional-access.md) 기능을 사용하여 사용자 계정을 보호할 수도 있습니다.
 - 사용자가 비즈니스용 Skype 2016을 포함한 비즈니스용 Skype 클라이언트 응용 프로그램에 로그인합니다.
 - 사용자가 PowerShell v1.0에 로그인합니다. PowerShell v2.0을 대신 사용하는 것이 좋습니다.
+- MFA에 대한 앱 암호
+- [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
 
 >[!IMPORTANT]
->지원되지 않는 시나리오에 대한 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다. 암호 해시 동기화는 _단지_ 앞의 시나리오에 대한 대체 방법일 뿐이며 통과 인증에 대한 일반적인 대체 방법은 _아닙니다_. 이러한 시나리오가 필요하지 않으면 암호 해시 동기화를 해제합니다.
+>지원되지 않는 시나리오에 대한 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다. 암호 해시 동기화는 _단지_ 앞의 시나리오에 대한 대체 방법일 뿐이며 통과 인증에 대한 일반적인 대체 방법은 _아닙니다_. 암호 해시 동기화를 사용하면 온-프레미스 인프라가 손상된 경우 Microsoft 지원을 통해 인증을 장애 조치(failover)할 수 있는 옵션도 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [**빠른 시작**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Azure AD 통과 인증을 작동하고 실행합니다.

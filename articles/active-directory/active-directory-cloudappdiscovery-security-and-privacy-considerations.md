@@ -11,33 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
-ms.openlocfilehash: 5c4ab6e08c8f1af89ea80ac7f4d58d82ee931ec9
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
-Microsoft는 조직의 보안 관리에 유용한 소프트웨어 및 서비스를 제공하는 동시에 개인 정보와 데이터를 보호하기 위해 노력하고 있습니다.  
-데이터를 타인에게 맡길 때 해당 신뢰에는 엄격한 보안, 엔지니어링 투자 및 전문 지원 기술이 필요함을 알고 있습니다.
-Microsoft는 보안 소프트웨어 개발 수명 주기 방법에서부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.  
-데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
+이 항목에서는 Azure Active Directory Cloud App Discovery 내에서 데이터 수집, 처리 및 보안 방법에 대해 설명합니다. Microsoft는 사용자의 개인 정보를 보호하고 데이터를 보호하기 위해 최선을 다하고 있습니다. Microsoft는 서비스 운영을 위한 안전한 소프트웨어 개발 주기 사례를 준수하고 있습니다. 데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
 
-이 항목에서는 Azure Active Directory 클라우드 앱 검색 내에서 데이터 수집, 처리 및 보안 방법에 대해 설명합니다.
+> [!TIP] 
+> [Microsoft Cloud App Security와의 통합](https://portal.cloudappsecurity.com)으로 향상된 Azure AD(Azure Active Directory)의 현재 에이전트 없는 Cloud App Discovery를 확인해 보세요. 
 
 ## <a name="overview"></a>개요
 클라우드 앱 검색은 Azure AD의 기능이며 Microsoft Azure에서 호스트됩니다.  
-클라우드 앱 검색 끝점 에이전트는 IT 관리 컴퓨터로부터 응용 프로그램 검색 데이터를 수집하는 데 사용됩니다.  
-수집된 데이터는 Azure AD 클라우드 앱 검색 서비스에 암호화된 채널을 통해 안전하게 전송됩니다.  
-그 다음 조직에 대한 클라우드 앱 검색 데이터가 Azure Portal에 표시됩니다. 
+클라우드 앱 검색 끝점 에이전트는 IT 관리 컴퓨터로부터 응용 프로그램 검색 데이터를 수집하는 데 사용됩니다. 수집된 데이터는 Azure AD 클라우드 앱 검색 서비스에 암호화된 채널을 통해 안전하게 전송됩니다. 그 다음 조직에 대한 클라우드 앱 검색 데이터가 Azure Portal에 표시됩니다. 
 
 ![클라우드 앱 검색 작동 방법](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) 
 
-다음 섹션은 정보 흐름을 따르며 조직에서 클라우드 앱 검색 서비스를 거쳐, 궁극적으로 클라우드 앱 검색 포털로 이동할 때 어떻게 보호되는지를 설명합니다.
+다음 섹션은 조직에서 Cloud App Discovery 서비스를 거쳐, 궁극적으로 Cloud App Discovery 포털로의 보안 정보 흐름을 따릅니다.
 
 ## <a name="collecting-data-from-your-organization"></a>조직에서 데이터 수집
 Azure Active Directory 클라우드 앱 검색 기능을 사용하여 조직의 직원들이 사용하는 응용 프로그램에 대한 정보를 얻으려면 먼저 Azure AD 클라우드 앱 검색 끝점 에이전트를 조직 내 컴퓨터에 배포해야 합니다.
@@ -48,26 +44,19 @@ Azure Active Directory 테넌트(또는 대리자)의 관리자가 Azure 포털�
 
 
 ### <a name="data-collected-by-the-agent"></a>에이전트에 의해 수집된 데이터
-아래 목록에 요약된 정보는 웹 응용 프로그램에 연결되는 경우 에이전트에 의해 수집됩니다. 이 정보는 관리자가 검색에 대해 구성한 응용 프로그램에 대해서만 수집됩니다.  
-Microsoft [Azure Portal](https://portal.azure.com/)의 **설정**->**데이터 컬렉션**->**앱 컬렉션 목록**에 있는 클라우드 앱 검색 블레이드를 통해 에이전트가 모니터링하는 클라우드 앱 목록을 편집할 수 있습니다. 자세한 내용은 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
-
+다음 목록에 요약된 정보는 웹 응용 프로그램에 연결되는 경우 에이전트에 의해 수집됩니다. 이 정보는 관리자가 검색에 대해 구성한 응용 프로그램에 대해서만 수집됩니다. Microsoft [Azure Portal](https://portal.azure.com/)의 **설정**->**데이터 컬렉션**->**앱 컬렉션 목록**에 있는 Azure AD의 Cloud App Discovery 블레이드를 통해 에이전트가 모니터링하는 클라우드 앱 목록을 편집할 수 있습니다. 
 
 **정보 범주**: 사용자 정보  
-**설명**:  
-대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 Windows 사용자 이름(예: 도메인\사용자 이름) 및 사용자의 WID(Windows 보안 식별자)
+**설명**: 대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 Windows 사용자 이름(예: 도메인\사용자 이름) 및 사용자의 WID(Windows 보안 식별자)
 
 **정보 범주**: 프로세스 정보  
-**설명**:  
-대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 이름(예: "iexplore.exe")
+**설명**: 대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 이름(예: iexplore.exe)
 
 **정보 범주**: 컴퓨터 정보  
-**설명**:  
-에이전트가 설치된 컴퓨터 NetBIOS 이름
+**설명**: 에이전트가 설치된 컴퓨터 NetBIOS 이름
 
 **정보 범주**: 앱 트래픽 정보  
-**설명**: 
-
-다음 연결 정보:
+**설명**: 다음 연결 정보:
 
 * 원본(로컬 컴퓨터) 및 대상 IP 주소와 포트 번호
 * 요청이 사라지는 조직의 공용 IP 주소
@@ -93,7 +82,10 @@ Microsoft [Azure Portal](https://portal.azure.com/)의 **설정**->**데이터 �
 > 
 > 
 
-에이전트는 네트워크 작업에 대한 데이터뿐만 아니라 소프트웨어 및 하드웨어 구성에 대한 익명 정보, 오류 보고서 및 에이전트 사용 방법에 대한 정보도 수집합니다.
+에이전트가 네트워크 활동에 대해 수집하는 데이터 이외에 익명 데이터도 수집합니다.
+* 소프트웨어 및 하드웨어 구성
+* 오류 보고서
+* 에이전트 사용 방법에 대한 데이터입니다.
 
 
 ### <a name="how-the-agent-works"></a>에이전트의 작동 원리
@@ -102,9 +94,7 @@ Microsoft [Azure Portal](https://portal.azure.com/)의 **설정**->**데이터 �
 * 사용자 모드 구성 요소
 * 커널 모드 드라이버 구성 요소(Windows 필터링 플랫폼 드라이버)
 
-에이전트를 처음 설치하는 경우 컴퓨터에 시스템별 신뢰할 수 있는 인증서를 저장한 다음 클라우드 앱 검색 서비스와 보안 연결을 설정합니다.  
-에이전트는 클라우드 앱 검색 서비스로부터 이 보안 연결을 통해 정기적으로 정책 구성을 검색합니다.  
-이 정책에는 다른 정보와 함께 모니터링할 클라우드 응용 프로그램과 자동 업데이트 사용 여부에 대한 정보가 포함됩니다.
+에이전트를 처음 설치하는 경우 컴퓨터에 시스템별 신뢰할 수 있는 인증서를 저장한 다음 클라우드 앱 검색 서비스와 보안 연결을 설정합니다. 에이전트는 클라우드 앱 검색 서비스로부터 이 보안 연결을 통해 정기적으로 정책 구성을 검색합니다. 이 정책에는 다른 정보와 함께 모니터링할 클라우드 응용 프로그램과 자동 업데이트 사용 여부에 대한 정보가 포함됩니다.
 
 Internet Explorer 또는 Chrome에서 컴퓨터로 웹 트래픽을 송수신하면 클라우드 앱 검색 에이전트가 트래픽을 분석하고 관련 메타데이터를 추출합니다(위의 **에이전트에 의해 수집된 데이터** 참조).  
 매분마다 에이전트가 암호화된 채널을 통해 수집한 메타데이터를 클라우드 앱 검색 서비스로 업로드합니다.

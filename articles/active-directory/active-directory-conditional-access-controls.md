@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0f7d847c98e790c542f3a3e666b9a887099a6cbc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/13/2017
 [Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 특정 조건("when this happens")에 대한 응답("do this")을 정의합니다. 조건부 액세스의 컨텍스트에서, 
 
 - "**When this happens**"는 **조건 문**이라고 합니다.
+
 - "**Then do this**"는 **제어 문**이라고 합니다.
 
 ![제어](./media/active-directory-conditional-access-controls/11.png)
@@ -54,7 +55,7 @@ ms.lasthandoff: 09/13/2017
 - 충족되도록 선택한 모든 컨트롤(*AND*) 
 - 충족되도록 선택한 하나의 컨트롤(*OR*)
 
-![제어](./media/active-directory-conditional-access-controls/51.png)
+![제어](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -89,6 +90,63 @@ ms.lasthandoff: 09/13/2017
 
 
 승인된 클라이언트 앱을 사용하여 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 지원하도록 클라우드 앱에 액세스를 시도하는 클라이언트 앱을 요구할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다. 승인된 클라이언트 앱을 요구하는 조건부 액세스 정책을 [앱 기반 조건부 액세스 정책](active-directory-conditional-access-mam.md)이라고도 합니다. 지원되는 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)을 참조하세요.
+
+
+### <a name="terms-of-use"></a>사용 약관
+
+테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 응용 프로그램에 대한 액세스가 부여됩니다. 
+
+
+### <a name="custom-controls"></a>사용자 지정 컨트롤 
+
+Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션하는 조건부 액세스의 사용자 지정 컨트롤을 만들 수 있습니다. 이를 통해 특정 외부 다단계 인증 및 검증 공급자를 사용하여 조건부 액세스 규칙을 적용하거나 직접 사용자 지정 서비스를 빌드할 수 있습니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다. 
+
+## <a name="custom-controls"></a>사용자 지정 컨트롤
+
+조건부 액세스의 사용자 지정 컨트롤은 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory가 응답을 확인하고 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다.
+
+이러한 컨트롤을 사용하면 특정 외부 또는 사용자 지정 서비스를 조건부 액세스 컨트롤로 사용할 수 있으며 조건부 액세스 기능을 일반적으로 확장할 수 있습니다.
+
+현재 호환 서비스를 제공하는 공급자는 다음과 같습니다.
+
+- Duo Security
+
+- RSA
+
+- Trusona
+
+이러한 서비스에 대한 자세한 내용은 공급자에게 직접 문의하세요.
+
+### <a name="creating-custom-controls"></a>사용자 지정 컨트롤 만들기
+
+사용자 지정 컨트롤을 만들려면 먼저 사용할 공급자에게 문의해야 합니다. Microsoft가 아닌 각 공급자는 등록, 구독 또는 기타 서비스의 일부가 되는 데 필요한 자체 프로세스 및 요구 사항을 가지고 있습니다. 또한 이들은 조건부 액세스와 통합하고자 함을 나타냅니다. 이 시점에서 공급자는 JSON 형식의 데이터 블록을 제공합니다. 이 데이터는 테넌트가 공급자 및 조건부 액세스와 함께 작동할 수 있게 하고, 새 컨트롤을 만들고, 사용자가 공급자와의 검증을 성공적으로 수행했는지를 조건부 액세스가 확인할 수 있는 방법을 정의합니다.
+
+JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다. 변경 사항을 명시적으로 이해하지 못한 경우 JSON을 변경하지 마세요. 변경하면 공급자와 Microsoft 간의 연결이 끊어져 잠재적으로 사용자가 사용자 계정 밖에서 잠길 수 있습니다.
+
+사용자 지정 컨트롤을 만드는 옵션은 **조건부 액세스** 페이지의 **관리** 섹션에 있습니다.
+
+![제어](./media/active-directory-conditional-access-controls/82.png)
+
+**새 사용자 지정 컨트롤**을 클릭하면 컨트롤의 JSON 데이터에 대한 텍스트 상자가 있는 블레이드가 열립니다.  
+
+
+![제어](./media/active-directory-conditional-access-controls/81.png)
+
+
+### <a name="deleting-custom-controls"></a>사용자 지정 컨트롤 삭제
+
+사용자 지정 컨트롤을 삭제하려면 먼저 조건부 액세스 정책에서 사용되지 않는지 확인해야 합니다. 작업이 완료되면 다음을 수행합니다.
+
+1. 사용자 지정 컨트롤 목록으로 이동합니다.
+
+2. …를 클릭합니다.  
+
+3. **삭제**를 선택합니다.
+
+### <a name="editing-custom-controls"></a>사용자 지정 컨트롤 편집
+
+사용자 지정 컨트롤을 편집하려면 현재 컨트롤을 삭제하고 업데이트된 정보로 새 컨트롤을 만들어야 합니다.
+
 
 
 

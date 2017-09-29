@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fb3b2ecd73acb0ea65af477bc6a5b887c117574c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
@@ -189,7 +189,15 @@ System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다
 
 * **SourceId**: System.FM
 * **Property**: State
-* **다음 단계**: 상태가 정상이 아니라면 일부 복제본이 주 또는 보조에 올바르게 생성되거나 열리고 승격되지 않았을 수 있습니다. 대부분의 경우 근본 원인은 열기 또는 변경 역할 구현에서 서비스 버그입니다.
+* **다음 단계**: 상태가 정상이 아니라면 일부 복제본이 주 또는 보조에 올바르게 생성되거나 열리고 승격되지 않았을 수 있습니다. 
+
+설명에 쿼럼 손실이 표시될 경우 다운된 복제본에 대한 자세한 상태 보고서를 검토하고 복제본을 다시 시작하면 파티션을 다시 온라인으로 전환할 수 있습니다.
+
+설명에 [재구성](service-fabric-concepts-reconfiguration.md)에서 멈춘 파티션이 표시되면 주 복제본에 대한 상태 보고서에 추가 정보가 제공됩니다.
+
+다른 System.FM 상태 보고서의 경우 복제본 또는 다른 시스템 구성 요소에 대한 파티션이나 서비스에 대한 보고서가 있을 수 있습니다. 
+
+아래 예제에서는 이러한 일부 보고서를 설명합니다. 
 
 다음 예제는 정상 파티션을 보여줍니다.
 
@@ -235,12 +243,12 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
                         fabric:/WordCount/WordCountService 7 2 af2e3e44-a8f8-45ac-9f31-4093eb897600
-                          N/S RD _Node_2 Up 131444422260002646
-                          N/S RD _Node_4 Up 131444422293113678
-                          N/S RD _Node_3 Up 131444422293113679
-                          N/S RD _Node_1 Up 131444422293118720
-                          N/P RD _Node_0 Up 131444422293118721
-                          (Showing 5 out of 5 replicas. Total available replicas: 5.)
+                          N/S Ready _Node_2 131444422260002646
+                          N/S Ready _Node_4 131444422293113678
+                          N/S Ready _Node_3 131444422293113679
+                          N/S Ready _Node_1 131444422293118720
+                          N/P Ready _Node_0 131444422293118721
+                          (Showing 5 out of 5 replicas. Total available replicas: 5)
                         
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -291,6 +299,55 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
+다음 예제는 사용자가 RunAsync 메서드에서 취소 토큰을 허용하지 않아 재구성에서 멈춘 파티션의 상태를 보여 줍니다. P(주)로 표시된 복제본의 상태 보고서를 조사하면 문제를 더 자세히 살펴볼 수 있습니다.
+
+```powershell
+PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
+
+
+PartitionId           : 0e40fd81-284d-4be4-a665-13bc5a6607ec
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                                               
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Warning
+                        SequenceNumber        : 7
+                        SentAt                : 8/27/2017 3:43:09 AM
+                        ReceivedAt            : 8/27/2017 3:43:32 AM
+                        TTL                   : Infinite
+                        Description           : Partition reconfiguration is taking longer than expected.
+                        fabric:/app/test1 3 1 0e40fd81-284d-4be4-a665-13bc5a6607ec
+                          P/S Ready Node1 131482789658160654
+                          S/P Ready Node2 131482789688598467
+                          S/S Ready Node3 131482789688598468
+                          (Showing 3 out of 3 replicas. Total available replicas: 3)                        
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
+```
+이 상태 보고서는 재구성이 진행 중인 파티션 복제본의 상태를 보여 줍니다. 
+
+```
+  P/S Ready Node1 131482789658160654
+  S/P Ready Node2 131482789688598467
+  S/S Ready Node3 131482789688598468
+```
+
+각 복제본에 대한 상태 보고서에는 다음 내용이 포함됩니다.
+- 이전 구성 역할
+- 현재 구성 역할
+- [복제본 상태](service-fabric-concepts-replica-lifecycle.md)
+- 복제본이 실행 중인 노드
+- 복제본 ID
+
+이 경우, 예를 들어 위 예제에서 주(131482789658160654 및 131482789688598467)로 표시된 복제본부터 각 개별 복제본의 상태를 조사하여 추가 조사를 진행해야 합니다.
+
 ### <a name="replica-constraint-violation"></a>복제본 제약 조건 위반
 **System.PLB**는 복제본 제약 조건 위반을 감지하고 일부 파티션 복제본을 배치할 수 없는 경우 경고를 보고합니다. 보고서 상세 정보에는 복제본 배치에 방해가 되는 제약과 속성을 표시합니다.
 
@@ -328,14 +385,189 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replica-open-status"></a>복제본 열린 상태
-이 상태 보고서에 대한 설명에는 API 호출이 호출된 경우 시작 시간(협정 세계시)이 포함됩니다.
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
+이 속성은 복제본을 열거나 닫고 역할 간에 전환하려고 할 때 경고 또는 실패를 나타내는 데 사용됩니다([복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md) 참조). 실패는 이 기간에 서비스 호스트 프로세스의 API 호출이나 작동 중지로 인해 발생한 예외일 수 있습니다. C# 코드의 API 호출로 인한 실패가 발생하면 Service Fabric이 예외와 스택 추적을 상태 보고서에 추가합니다.
 
-복제본 열기가 구성된 기간(기본: 30분)보다 오래 걸릴 경우 **System.RA**는 경고를 보고합니다. API가 서비스 가용성에 영향을 주는 경우 보고서가 훨씬 더 빠르게 발행됩니다.(구성 가능한 간격, 기본 30초) 측정된 시간에는 복제기 열기 및 서비스 열기에 소요된 시간이 포함됩니다. 열기가 완료되면 속성이 확인으로 변경됩니다.
+이런 상태 경고는 로컬에서 몇 번(정책에 따라) 작업을 다시 시도한 후 발생합니다. Service Fabric은 최대 임계값까지 작업을 계속 다시 시도합니다. 최대 임계값을 초과하면 이 노드에서 작업을 포기할 때 지워지도록 이러한 경고를 초래할 수 있는 상황을 수정하는 작업을 수행할 수 있습니다. 예를 들어 복제본이 노드에서 열리지 않으면 Service Fabric이 상태 경고를 발생시킵니다. 복제본이 계속 열리지 않으면 Service Fabric은 다른 노드에서 같은 작업을 시도해야 할 수 있는 자체 복구 작업을 수행합니다. 이로 인해 이 복제본을 지우기 위한 경고가 발생합니다. 
 
 * **SourceId**: System.RA
-* **Property**에 상태 이벤트를 보여 줍니다. **ReplicaOpenStatus**
-* **다음 단계**: 성능 상태가 정상이 아닌 경우 복제본의 열기가 예상보다 오래 걸린 이유를 확인합니다.
+* **속성**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, **ReplicaChangeRoleStatus**
+* **다음 단계**: 서비스 코드 또는 크래시 덤프를 조사하여 작업에 실패한 이유를 확인합니다.
+
+다음 예제에서는 열기 메서드에서 `TargetInvocationException` 설명에는 실패 지점(**IStatefulServiceReplica.Open**), 예외 형식(**TargetInvocationException**) 및 스택 추적이 포함됩니다.
+
+```powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
+
+
+PartitionId           : 337cf1df-6cab-4825-99a9-7595090c0b1b
+ReplicaId             : 131483509874784794
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaOpenStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaOpenStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483510001453159
+                        SentAt                : 8/27/2017 11:43:20 PM
+                        ReceivedAt            : 8/27/2017 11:43:21 PM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during open on _Node_0 API call: IStatefulServiceReplica.Open(); Error = System.Reflection.TargetInvocationException (-2146232828)
+Exception has been thrown by the target of an invocation.
+   at Microsoft.ServiceFabric.Replicator.RecoveryManager.d__31.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.LoggingReplicator.d__137.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.DynamicStateManager.d__109.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.TransactionalReplicator.d__79.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.StatefulServiceReplica.d__21.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
+
+    For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
+```
+
+다음 예제에서는 다는 동안 지속적으로 작동 중지되는 복제본을 보여 줍니다.
+
+```Powershell
+C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
+
+
+PartitionId           : dcafb6b7-9446-425c-8b90-b3fdf3859e64
+ReplicaId             : 131483565548493142
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaCloseStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaCloseStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483565611258984
+                        SentAt                : 8/28/2017 1:16:01 AM
+                        ReceivedAt            : 8/28/2017 1:16:03 AM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during close on _Node_1. The application 
+                        host has crashed.
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+### <a name="reconfiguration"></a>Reconfiguration
+이 속성은 [재구성](service-fabric-concepts-reconfiguration.md)을 수행하는 복제본이 재구성 중단 또는 멈춤을 감지할 경우를 나타내는 데 사용됩니다. 이 상태 보고서는 현재 역할이 주인 복제본에 관련됩니다(주 복제본에서 활성 보조 복제본으로 수준이 내려지는 복제본에서 수행될 수 있는 스왑 주 재구성의 경우 제외).
+
+다음과 같은 이유로 재구성이 멈출 수 있습니다.
+
+- 로컬 복제본(재구성을 수행하는 것과 동일한 복제본)에 대한 작업이 완료되지 않습니다. 이 경우 다른 구성 요소(System.RAP 또는 System.RE)에서 이 복제본에 대한 상태 보고서를 조사하면 추가 정보가 제공될 수 있습니다.
+
+- 원격 복제본에서 작업이 완료되지 않습니다. 작업이 보류 중인 복제본이 상태 보고서에 나열됩니다. 해당 원격 복제본에 대한 상태 보고서에서 추가 조사를 수행해야 합니다. 이 노드와 원격 노드 간에 통신 문제가 있을 수도 있습니다.
+
+드문 경우지만 이 노드와 장애 조치(failover) 관리자 서비스 간 통신 또는 기타 문제로 인해 재구성이 멈출 수 있습니다.
+
+* **SourceId**: System.RA
+* **속성**: **Reconfiguration**
+* **다음 단계**: 상태 보고서의 설명에 따라 로컬 또는 원격 복제본을 조사합니다.
+
+다음 예제에서는 로컬 복제본에서 재구성이 멈춘 경우(서비스가 취소 토큰을 허용하지 않기 때문) 상태 보고서를 보여 줍니다.
+
+```Powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
+
+
+PartitionId           : 9a0cedee-464c-4603-abbc-1cf57c4454f3
+ReplicaId             : 131483600074836703
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : Reconfiguration
+                        HealthState           : Warning
+                        SequenceNumber        : 131483600309264482
+                        SentAt                : 8/28/2017 2:13:50 AM
+                        ReceivedAt            : 8/28/2017 2:13:57 AM
+                        TTL                   : Infinite
+                        Description           : Reconfiguration is stuck. Waiting for response from the local replica
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+다음 예제에서는 두 개의 원격 복제본에서 응답을 기다리는 동안 재구성이 멈춘 경우 상태 보고서를 보여 줍니다(현재 주 복제본을 포함하여 파티션에 세 개의 복제본이 있음). 
+
+```Powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
+
+
+PartitionId           : 579d50c6-d670-4d25-af70-d706e4bc19a2
+ReplicaId             : 131483956274977415
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : Reconfiguration
+                        HealthState           : Warning
+                        SequenceNumber        : 131483960376212469
+                        SentAt                : 8/28/2017 12:13:57 PM
+                        ReceivedAt            : 8/28/2017 12:14:07 PM
+                        TTL                   : Infinite
+                        Description           : Reconfiguration is stuck. Waiting for response from 2 replicas
+                        
+                        Pending Replicas: 
+                        P/I Down 40 131483956244554282
+                        S/S Down 20 131483956274972403
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+상태 보고서는 두 개의 복제본에서 응답을 기다리는 동안 재구성이 멈춰 있음을 보여 줍니다. 
+
+```
+    P/I Down 40 131483956244554282
+    S/S Down 20 131483956274972403
+```
+
+각 복제본에 대해 다음 정보가 제공됩니다.
+- 이전 구성 역할
+- 현재 구성 역할
+- [복제본 상태](service-fabric-concepts-replica-lifecycle.md)
+- 노드 ID
+- 복제본 ID
+
+재구성 차단을 해제하려면:
+- **down** 복제본을 시작해야 함 
+- **inbuild** 복제본이 빌드를 완료하고 준비 상태로 전환되어야 함
 
 ### <a name="slow-service-api-call"></a>느린 서비스 API 호출
 **System.RAP** 및 **System.Replicator**는 사용자 서비스 코드에 대한 호출이 구성된 시간보다 오래 걸리는 경우 경고를 보고합니다. 이 경고는 호출이 완료되면 지워집니다.
@@ -344,108 +576,48 @@ HealthEvents          :
 * **Property**: 느린 API의 이름입니다. 이 설명은 API가 보류된 시간에 대한 자세한 정보를 제공합니다.
 * **다음 단계**: 호출이 예상보다 오래 걸리는 이유를 조사합니다.
 
-다음 예제에서는 쿼럼 손실 내 파티션을 보여주고 이유를 파악하기 위해 실행된 조사 단계를 보여줍니다. 복제본 하나는 경고 성능 상태를 가지고 있으므로 상태를 얻을 수 있습니다. 이것은 서비스 작업이 예상보다 오래 걸림을 보여줍니다. System.RAP에서 보고된 이벤트입니다. 이 정보를 받은 후에 다음 단계는 서비스 코드를 살펴보고 조사하는 것입니다. 이 경우, 상태 저장 서비스의 **RunAsync** 구현이 처리되지 않은 예외를 throw합니다. 복제본은 재활용되므로 경고 상태에서 어떤 복제본도 표시되지 않을 수도 있습니다. 상태 가져오기를 다시 시도하고 복제본 ID에서 차이를 찾을 수 있습니다. 경우에 따라 재시도가 단서를 줄 수 있습니다.
+다음 예제는 RunAsync에서 취소 토큰을 허용하지 않은 신뢰할 수 있는 서비스에 대한 System.RAP의 상태 이벤트를 보여 줍니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
-PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-AggregatedHealthState : Error
-UnhealthyEvaluations  :
-                        Error event: SourceId='System.FM', Property='State'.
 
-ReplicaHealthStates   :
-                        ReplicaId             : 130743748372546446
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 130743746168084332
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 130743746195428808
-                        AggregatedHealthState : Warning
-
-                        ReplicaId             : 130743746195428807
-                        AggregatedHealthState : Ok
-
-HealthEvents          :
-                        SourceId              : System.FM
-                        Property              : State
-                        HealthState           : Error
-                        SequenceNumber        : 182
-                        SentAt                : 4/24/2015 7:00:17 PM
-                        ReceivedAt            : 4/24/2015 7:00:31 PM
-                        TTL                   : Infinite
-                        Description           : Partition is in quorum loss.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
-
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
-
-PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-PartitionKind          : Int64Range
-PartitionLowKey        : -9223372036854775808
-PartitionHighKey       : 9223372036854775807
-PartitionStatus        : InQuorumLoss
-LastQuorumLossDuration : 00:00:13
-MinReplicaSetSize      : 3
-TargetReplicaSetSize   : 3
-HealthState            : Error
-DataLossNumber         : 130743746152927699
-ConfigurationNumber    : 227633266688
-
-PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
-
-ReplicaId           : 130743746195428808
-ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
-ReplicaRole         : Primary
-NodeName            : Node.3
-ReplicaStatus       : Ready
-LastInBuildDuration : 00:00:01
-HealthState         : Warning
-
-PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
-
-PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-ReplicaId             : 130743746195428808
+PartitionId           : 5f6060fb-096f-45e4-8c3d-c26444d8dd10
+ReplicaId             : 131483966141404693
 AggregatedHealthState : Warning
-UnhealthyEvaluations  :
-                        Unhealthy event: SourceId='System.RAP', Property='ServiceOpenOperationDuration', HealthState='Warning', ConsiderWarningAsError=false.
-
-HealthEvents          :
-                        SourceId              : System.RA
-                        Property              : State
-                        HealthState           : Ok
-                        SequenceNumber        : 130743756170185892
-                        SentAt                : 4/24/2015 7:00:17 PM
-                        ReceivedAt            : 4/24/2015 7:00:33 PM
-                        TTL                   : Infinite
-                        Description           : Replica has been created.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 7:00:33 PM
-
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          :                         
                         SourceId              : System.RAP
-                        Property              : ServiceOpenOperationDuration
+                        Property              : IStatefulServiceReplica.ChangeRole(S)Duration
                         HealthState           : Warning
-                        SequenceNumber        : 130743756399407044
-                        SentAt                : 4/24/2015 7:00:39 PM
-                        ReceivedAt            : 4/24/2015 7:00:59 PM
+                        SequenceNumber        : 131483966663476570
+                        SentAt                : 8/28/2017 12:24:26 PM
+                        ReceivedAt            : 8/28/2017 12:24:56 PM
                         TTL                   : Infinite
-                        Description           : Start Time (UTC): 2015-04-24 19:00:17.019
+                        Description           : The api IStatefulServiceReplica.ChangeRole(S) on _Node_1 is stuck. Start Time (UTC): 2017-08-28 12:23:56.347.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Warning = 4/24/2015 7:00:59 PM
+                        Transitions           : Error->Warning = 8/28/2017 12:24:56 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
 ```
 
-디버거 하에서 결함이 있는 응용 프로그램을 시작하는 경우 진단 이벤트 창에서 RunAsync로부터 thow된 예외를 표시합니다.
+속성과 텍스트가 멈출 수 있는 API를 나타냅니다. 멈춘 API에 따라 다음 단계가 다릅니다. *IStatefulServiceReplica* 또는 *IStatelessServiceInstance*의 API는 보통 서비스 코드의 버그입니다. 다음 섹션에서는 이런 API를 [신뢰할 수 있는 서비스 모델](service-fabric-reliable-services-lifecycle.md)로 전환하는 방법을 설명합니다.
 
-![Visual Studio 2015 진단 이벤트: fabric:/HelloWorldStatefulApplication에서 RunAsync 실패][1]
+- **IStatefulServiceReplica.Open**: `CreateServiceInstanceListeners` 또는 `ICommunicationListener.OpenAsync`에 대한 호출을 나타내거나 재정의된 `OnOpenAsync`가 멈춘 경우를 나타냅니다.
 
-Visual Studio 2015 진단 이벤트: **fabric:/HelloWorldStatefulApplication**에서 RunAsync 실패
+- **IStatefulServiceReplica.Close** 및 **IStatefulServiceReplica.Abort**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다. `ICommunicationListener.CloseAsync`를 나타내거나 재정의된 `OnCloseAsync`가 멈춘 경우를 나타낼 수도 있습니다.
 
-[1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
+- **IStatefulServiceReplica.ChangeRole(S)** 및 **IStatefulServiceReplica.ChangeRole(N)**: 가장 일반적인 경우는 `RunAsync`에 전달된 취소 토큰을 허용하지 않는 서비스입니다.
 
+- **IStatefulServiceReplica.ChangeRole(P)**: 가장 일반적인 경우는 서비스가 `RunAsync`에서 작업을 반환하지 않은 경우입니다.
+
+멈출 수 있는 다른 API 호출은 **IReplicator** 인터페이스에 있습니다. 예:
+
+- **IReplicator.CatchupReplicaSet**: 시작된 복제본이 부족하거나(파티션 복제본의 복제본 상태를 보거나 멈춘 재구성에 대한 System.FM 상태 보고서를 보면 확인할 수 있음) 복제본이 작업을 승인하지 않음을 나타냅니다. PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail`은 모든 복제본의 진행 상황을 확인하는 데 사용될 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber`가 주 복제본의 `CommittedSequenceNumber` 뒤에 있는 복제본에 있습니다.
+
+- **IReplicator.BuildReplica(<Remote ReplicaId>)**: 이는 빌드 프로세스의 문제를 나타냅니다([복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md) 참조). 복제기 주소의 잘못된 구성 때문에 발생할 수 있습니다([this](service-fabric-reliable-services-configuration.md) 및 [this](service-fabric-service-manifest-resources.md) 참조). 원격 노드의 문제일 수도 있습니다.
 
 ### <a name="replication-queue-full"></a>복제 큐 전체
 **System.Replicator**는 복제본 큐가 가득 차면 경고를 보고합니다. 보통은 기본 데이터베이스에서는 하나 이상의 보조 복제본이 작업을 승인하는 속도가 느리기 때문에 복제본 큐가 가득차게 됩니다. 보조 데이터베이스에서는 서비스가 작업에 적용하는 속도가 느릴 때 일반적으로 발생합니다. 큐가 더 이상 가득 차지 않으면 경고가 지워집니다.
@@ -465,7 +637,7 @@ Visual Studio 2015 진단 이벤트: **fabric:/HelloWorldStatefulApplication**�
 
 * **SourceId**: System.NamingService
 * **Property**: 접두사 **Duration_**으로 시작하고 느린 작업 및 작업이 적용되는 Service Fabric 이름을 식별합니다. 예를 들어 이름 fabric:/MyApp/MyService에서 서비스 만들기가 너무 오래 걸리는 경우 속성은 Duration_AOCreateService.fabric:/MyApp/MyService입니다. AO는 이 이름 및 작업에 대한 이름 지정 파티션의 역할을 가리킵니다.
-* **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 응용 프로그램 호스트가 서비스 코드의 사용자 버그로 인해 노드에 충돌이 발생하기 때문에 서비스 삭제는 노드에서 중지될 수 있습니다.
+* **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 응용 프로그램 호스트가 서비스 코드의 사용자 버그로 인해 노드에 충돌이 발생하기 때문에 서비스 삭제는 중지될 수 있습니다.
 
 다음 예제는 서비스 만들기 작업을 보여 줍니다. 작업이 구성된 기간보다 오래 걸렸습니다. AO는 다시 시도하고 NO로 작업을 보냅니다. NO에서 시간 제한이 있는 마지막 작업을 완료했습니다. 이 경우 동일한 복제본은 AO 및 NO 역할에 대해 주 복제본입니다.
 

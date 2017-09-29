@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -189,6 +189,13 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 > 포털을 사용하여 IPv6 주소로 네트워크 인터페이스를 만들 수 있더라도 포털을 사용하여 새로운 또는 기존 가상 컴퓨터에 기존 네트워크 인터페이스를 추가할 수 없습니다. PowerShell 또는 Azure CLI 2.0을 사용하여 개인 IPv6 주소가 포함된 네트워크 인터페이스를 만든 다음 가상 컴퓨터를 만들 때 해당 네트워크 인터페이스를 연결합니다. 개인 IPv6 주소가 할당된 네트워크 인터페이스를 기존 가상 컴퓨터에 연결할 수는 없습니다. Portal, CLI, PowerShell 등 어떤 도구로도 가상 컴퓨터에 연결된 네트워크 인터페이스의 IP 구성에 개인 IPv6 주소를 추가할 수는 없습니다.
 
 공용 IPv6 주소를 기본 또는 보조 IP 구성에 할당할 수는 없습니다.
+
+## <a name="skus"></a>SKU
+
+공용 IP 주소는 기본 또는 표준 SKU로 생성됩니다.  SKU 차이점에 대한 자세한 내용은 [공용 IP 주소 관리](virtual-network-public-ip-address.md)를 참조하세요.
+
+> [!NOTE]
+> 가상 컴퓨터의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다양한 IP 구성으로 가상 컴퓨터를 만들려면 다음 문서를 확인하세요.
