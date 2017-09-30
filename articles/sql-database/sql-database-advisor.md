@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="performance-recommendations"></a>성능 권장 사항
 
 Azure SQL Database에서 응용 프로그램을 학습하여 여기에 맞게 변경하고 사용자 지정된 권장 사항을 제공하여 SQL Database의 성능을 최대화할 수 있습니다. SQL Database 사용 기록을 분석하여 지속적으로 성능을 평가합니다. 제공된 권장 사항은 고유한 데이터베이스 워크로드 패턴에 기반하며 성능을 개선하도록 도와줍니다.
 
-> [!NOTE]
-> 권장 사항을 사용하는 권장된 방법은 데이터베이스에서 '자동 튜닝'을 사용하는 것입니다. 자세한 내용은 [자동 튜닝](sql-database-automatic-tuning.md)을 참조하세요.
+> [!TIP]
+> [자동 조정](sql-database-automatic-tuning.md)은 권장되는 성능 조정 방법입니다. [인텔리전스 Insights](sql-database-intelligent-insights.md)는 권장되는 성능 모니터링 방법입니다. 
 >
 
 ## <a name="create-index-recommendations"></a>인덱스 만들기 권장 사항
@@ -78,12 +77,10 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 ## <a name="next-steps"></a>다음 단계
 권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL Database 관리자는 데이터베이스 성능을 잠재적으로 향상시킬 권장 사항을 계속 제공하고 모니터링할 것입니다. 
 
+* 데이터베이스 인덱스 및 쿼리 실행 계획의 자동 튜닝에 대 한 자세한 내용은 [Azure SQL Database 자동 튜닝](sql-database-automatic-tuning.md)을 참조하세요.
+* 자동화된 진단을 사용하여 데이터베이스 성능을 자동으로 모니터링 및 성능 문제의 근본 원인 분석에 대한 자세한 내용은 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요.
 * Azure Portal에서 성능 권장 사항을 사용하는 방법에 대한 단계는 [Azure Portal의 성능 권장 사항](sql-database-advisor-portal.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insight](sql-database-query-performance.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
-* [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)
 
 

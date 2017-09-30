@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 837cf0f2b8db011b38de795339560574027030f8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage에서 Azure CLI 1.0 사용
 
 ## <a name="overview"></a>개요
 
-Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](https://portal.azure.com) 에 있는 동일한 기능을 대부분 제공합니다.
+Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure Portal](https://portal.azure.com)에 있는 동일한 기능을 대부분 제공합니다.
 
 이 가이드에서는 Azure Storage에서 [Azure CLI(명령줄 인터페이스 Azure)](../../cli-install-nodejs.md)를 사용하여 다양한 개발 및 관리 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
-이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
+이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure Storage에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
 > [!NOTE]
 > 이 가이드에서는 클래식 저장소 계정에 대한 Azure CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 저장소 계정에 대한 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) 을 참조하세요.
@@ -38,7 +38,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>5분 안에 Azure 저장소 및 Azure CLI 시작하기
+## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>5분 안에 Azure Storage 및 Azure CLI 시작하기
 이 가이드에서는 예제를 보려면 Ubuntu를 사용하며 다른 OS 플랫폼에서도 유사하게 수행되어야 합니다.
 
 **Azure에 새로 만들기:** Microsoft Azure 구독 및 해당 구독과 연결된 Microsoft 계정을 가져옵니다. Azure 구입 옵션에 대한 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
@@ -99,7 +99,7 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure CLI에서 Azure 구독에 연결](../../xplat-cli-connect.md)의 단계를 따릅니다.
 
 ### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
-Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구독에 연결하도록 컴퓨터를 구성한 후 새 Azure 저장소 계정을 만들 수 있습니다.
+Azure Storage를 사용하려면 저장소 계정이 있어야 합니다. 구독에 연결하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
 azure storage account create <account_name>
@@ -107,7 +107,7 @@ azure storage account create <account_name>
 
 사용자의 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
-### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>환경 변수에서 기본 Azure 저장소 계정 설정
+### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>환경 변수에서 기본 Azure Storage 계정 설정
 구독에서 여러 저장소 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 저장소 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 저장소 계정 및 키를 명시적으로 지정하지 않고 Azure CLI 저장소 명령을 실행할 수 있습니다.
 
 ```azurecli
@@ -131,7 +131,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
-Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure storage container create` 명령을 사용하여 개인 컨테이너를 만들 수 있습니다.
+Azure Storage의 모든 Blob은 컨테이너에 있어야 합니다. `azure storage container create` 명령을 사용하여 개인 컨테이너를 만들 수 있습니다.
 
 ```azurecli
 azure storage container create mycontainer
@@ -183,7 +183,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](../storage-dotnet-how-to-use-files.md) 또는 [Linux에서 Azure File Storage 사용 방법](../storage-how-to-use-files-linux.md)을 참조하세요.
+Azure Files는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.

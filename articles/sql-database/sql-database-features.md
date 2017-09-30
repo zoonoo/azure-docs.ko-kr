@@ -16,12 +16,13 @@ ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
 Azure SQL Database는 SQL Server와 공용 코드 베이스를 공유하며 데이터베이스 수준에서 대부분의 동일한 기능을 지원합니다. Azure SQL Database와 SQL Server 간의 주요 기능 차이점은 인스턴스 수준에 있습니다. 
@@ -93,7 +94,7 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 아니요 |
 | [정책 기반 관리](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 아니요 |
 | [조건자](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 대부분 - 개별 조건자 참조 |
-| [R 서비스](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 아니요 |
+| [R 서비스](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 미리 보기 릴리스, [기계 학습의 새로운 기능](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)을 참조하세요.  |
 | [리소스 관리자](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 아니요 |
 | [RESTORE 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 아니요 | 
 | [백업에서 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 기본 제공 백업에서만 - [SQL Database 복구](sql-database-recovery-using-backups.md) 참조 |

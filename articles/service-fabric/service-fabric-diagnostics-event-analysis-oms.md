@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -92,7 +92,7 @@ Service Fabric 클러스터에 컨테이너를 배포할 때는 클러스터에 
 
 작업 영역에서 컨테이너 솔루션을 설정하려면 위에서 설명한 단계를 수행하여 클러스터 노드에 OMS 에이전트를 배포해야 합니다. 클러스터가 준비되면 컨테이너를 배치합니다. 클러스터에 컨테이너 이미지를 처음 배포할 때는 해당 크기에 따라 이미지를 다운로드하는 데 몇 분 정도 걸립니다.
 
-Azure Marketplace에서 *컨테이너*를 검색하고 컨테이너 리소스를 만듭니다(모니터링 + 관리 범주 아래).
+Azure Marketplace에서 *컨테이너 모니터링 솔루션*을 검색하고 모니터링 + 관리 범주 아래에 나타나야 하는 **컨테이너 모니터링 솔루션** 결과를 만듭니다.
 
 ![컨테이너 솔루션 추가](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
