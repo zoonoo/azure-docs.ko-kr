@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 7aaf611a562d373a8cc1dad33963050d246b2882
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6e1fa23bffc03a8a77c0c9e3342609c042fc4a5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -103,12 +103,13 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 .NET 응용 프로그램 및 함수의 경우 관리되는 서비스 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 이 라이브러리 역시 개발 컴퓨터에서 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 섹션에서는 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
-1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지의 참조를 추가합니다.
+1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 
 2.  응용 프로그램에 다음 코드를 추가합니다.
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
 string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");

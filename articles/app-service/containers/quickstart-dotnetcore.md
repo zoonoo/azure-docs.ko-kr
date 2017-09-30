@@ -1,6 +1,6 @@
 ---
 title: "Azure의 Linux 컨테이너에서.NET Core 웹앱 만들기 | Microsoft Docs"
-description: "몇 분 안에 첫 번째 .NET Core Hello World 앱을 Web Apps for Containers에 배포합니다."
+description: "몇 분 만에 첫 번째 .NET Core Hello World 앱을 컨테이너용 Web App에 배포합니다."
 keywords: "azure app service, 웹앱, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서.NET Core 웹앱 만들기 
 
-[Web Apps for Containers](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 요약에서는 Azure Web Apps for Containers에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 컨테이너용 Azure Web App에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-웹 브라우저를 열고 http://localhost:5000의 앱으로 이동합니다.
+웹 브라우저를 열고 `http://localhost:5000`의 앱으로 이동합니다.
 
 이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지가 표시됩니다.
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service-web/app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
+[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
 다음 명령에서 런타임은 `DOTNETCORE|1.1`로 설정됩니다. 지원되는 모든 런타임을 보려면 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)를 실행합니다.
 
@@ -184,5 +185,5 @@ git push azure master
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [컨테이너용 Azure Web Apps에서 .NET Core 및 SQL Database 웹앱 작성](tutorial-dotnetcore-sqldb-app.md)
+> [컨테이너용 Azure Web App에서 .NET Core 및 SQL Database 웹앱 빌드](tutorial-dotnetcore-sqldb-app.md)
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Azure SQL 데이터 동기화 시작(미리 보기)
@@ -63,7 +63,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
     2.  **동기화 메타데이터 데이터베이스** 섹션에서 새 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.
 
         > [!NOTE]
-        > Microsoft에서는 동기화 메타데이터 데이터베이스로 사용할 비어 있는 새 데이터베이스를 만들도록 권장합니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역에서 모든 동기화 그룹의 동기화 메타데이터 데이터베이스로 자동으로 공유됩니다. 동기화 메타데이터 데이터베이스, 해당 이름 또는 서비스 수준을 삭제하지 않고 변경할 수 없습니다.
+        > Microsoft에서는 동기화 메타데이터 데이터베이스로 사용할 비어 있는 새 데이터베이스를 만들도록 권장합니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역에서 모든 동기화 그룹의 동기화 메타데이터 데이터베이스로 자동으로 공유됩니다. 동기화 메타데이터 데이터베이스 또는 해당 이름을 삭제하지 않고 변경할 수 없습니다.
 
         **새 데이터베이스**를 선택한 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL Database** 블레이드를 엽니다. **SQL Database** 블레이드에서 새 데이터베이스의 이름을 지정하고 구성합니다. 그런 다음 **확인**을 선택합니다.
 

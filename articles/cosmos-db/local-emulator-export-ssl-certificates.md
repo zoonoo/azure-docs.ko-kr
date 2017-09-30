@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/09/2017
 
 [**에뮬레이터 다운로드**](https://aka.ms/cosmosdb-emulator)
 
-Azure Cosmos DB 에뮬레이터는 SSL 연결 사용을 포함하여 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 게시물에서는 사용자 고유의 [인증서 저장소](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)를 사용하는 Java, [소켓 래퍼](https://docs.python.org/2/library/ssl.html)을 사용하는 Python, [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)을 사용하는 Node.js처럼 Windows 인증서 저장소와 통합되지 않는 언어와 런타임에 사용할 SSL 인증서를 내보내는 방법을 보여 줍니다. 에뮬레이터에 대한 자세한 내용은 [Azure Cosmos DB 에뮬레이터를 사용하여 개발 및 테스트](./local-emulator.md)를 참조하세요.
+Azure Cosmos DB 에뮬레이터는 SSL 연결 사용을 포함하여 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 이 게시물에서는 사용자 고유의 [인증서 저장소](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)를 사용하는 Java, [소켓 래퍼](https://docs.python.org/2/library/ssl.html)를 사용하는 Python, [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)을 사용하는 Node.js처럼 Windows 인증서 저장소와 통합되지 않는 언어와 런타임에 사용할 SSL 인증서를 내보내는 방법을 보여 줍니다. 에뮬레이터에 대한 자세한 내용은 [Azure Cosmos DB 에뮬레이터를 사용하여 개발 및 테스트](./local-emulator.md)를 참조하세요.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -105,8 +104,8 @@ X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 
 > * SSL 인증서를 내보냈습니다.
 > * Java, Python 및 Node.js에서 인증서를 사용하는 방법을 알아보았습니다.
 
-이제 개념 섹션으로 진행하여 Cosmos DB에 대한 자세한 정보를 확인할 수 있습니다.
+이제 Azure Cosmos DB 입력 바인딩 자습서를 통해 Azure Functions HTTP 트리거를 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [글로벌 분포](distribute-data-globally.md) 
+> [Azure Cosmos DB 입력으로 Azure Function 만들기](tutorial-functions-http-trigger.md) 
 

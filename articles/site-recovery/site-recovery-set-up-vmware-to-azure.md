@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -37,7 +37,11 @@ ms.lasthandoff: 07/21/2017
 - 구성 서버를 설치할 가상 컴퓨터
 
 ## <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
-항상 사용 가능한 VMware 가상 컴퓨터에 구성 서버 소프트웨어를 배포해야 합니다. 다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
+다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
+
+> [!IMPORTANT]
+> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 컴퓨터로 배포하는 것이 좋습니다.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

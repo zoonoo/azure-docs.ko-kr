@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
@@ -41,16 +41,17 @@ Marketplace에 사용자 지정 응용 프로그램을 제출하려면 먼저 [�
 ## <a name="define-the-application"></a>응용 프로그램 정의
 Marketplace에 응용 프로그램을 게시하는 데에는 두 단계가 있습니다. 먼저 *createUiDef.json* 파일을 정의합니다. createUiDef.json 파일은 응용 프로그램과 호환되는 클러스터를 나타냅니다. 그런 다음 Azure Portal에서 템플릿을 게시합니다. 다음은 createUiDef.json 샘플 파일입니다.
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | 필드 | 설명 | 가능한 값 |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ Marketplace에 응용 프로그램을 게시하는 데에는 두 단계가 있�
   > [!IMPORTANT]
   > 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다. 스크립트 이름의 형식은 다음과 같아야 합니다.
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > 스크립트 이름은 다음 세 부분으로 구성됩니다.
   > 

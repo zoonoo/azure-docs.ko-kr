@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccc2b53e0824042c0f07b9fe63e8777aa68c6dc1
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -56,22 +56,27 @@ VMware VM 또는 Windows나 Linux 물리적 서버의 재해 복구를 위해 �
 
 ### <a name="configuration-server-or-additional-process-server"></a>구성 서버 또는 추가 프로세스 서버
 
-온-프레미스 컴퓨터를 구성 서버로 설정하여 온-프레미스 사이트와 Azure 간의 통신을 오케스트레이션합니다. 또한 온-프레미스 컴퓨터가 데이터 복제도 관리합니다. <br/></br>
+온-프레미스 컴퓨터를 구성 서버로 설정하여 온-프레미스 사이트와 Azure 간의 통신을 오케스트레이션합니다. 아래 표에서는 구성 서버로 구성할 수 있는 가상 컴퓨터의 시스템 및 소프트웨어 요구 사항에 대해 설명합니다.
 
-*   **VMware vCenter 또는 vSphere 호스트 필수 조건**
+> [!IMPORTANT]
+> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 컴퓨터로 배포하는 것이 좋습니다.
 
-    | **구성 요소** | **요구 사항** |
-    | --- | --- |
-    | **vSphere** | 하나 이상의 VMware vSphere 하이퍼바이저가 있어야 합니다.<br/><br/>하이퍼바이저는 최신 업데이트를 설치한 vSphere 버전 6.0, 5.5 또는 5.1을 실행해야 합니다.<br/><br/>vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 전용 프로세스 서버를 설정한 경우가 아니라면 구성 서버가 위치한 네트워크입니다. |
-    | **vCenter** | vSphere 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트를 설치한 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>**제한**: Site Recovery는 vCenter vMotion 인스턴스 간의 복제를 지원하지 않습니다. 저장소 DRS 및 저장소 vMotion 역시 재보호 작업 후 마스터 대상 VM에서 지원되지 않습니다.||
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-* **복제된 컴퓨터 필수 조건**
+### <a name="vmware-vcenter-or-vsphere-host-prerequisites"></a>VMware vCenter 또는 vSphere 호스트 필수 조건
 
-    | **구성 요소** | **요구 사항** |
-    | --- | --- |
-    | **온-프레미스 컴퓨터(VMware VM)** | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.<br/><br/>각 보호된 컴퓨터에 디스크 용량이 1,023GB를 초과할 수 없습니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에는 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 포트 20004가 열려 있어야 합니다.<br/><br/>컴퓨터 이름은 1-63자 길이(문자, 숫자 및 하이픈 사용 가능)여야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. <br/><br/>컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/> |
-    | **Windows 컴퓨터**(물리적 또는 VMware) | 컴퓨터는 다음 지원되는 64비트 운영 체제 중 하나를 실행해야 합니다. <br/>- Windows Server 2012 R2<br/>- Windows Server 2012<br/>- Windows Server 2008 R2 SP1 이상 버전<br/><br/> C 드라이브에 운영 체제를 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>|
-    | **Linux 컴퓨터**(물리적 또는 VMware) | 컴퓨터는 다음 지원되는 64비트 운영 체제 중 하나를 실행해야 합니다. <br/>- Red Hat Enterprise Linux 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3<br/>- CentOS 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3<br/>- Ubuntu 14.04 LTS 서버(Ubuntu용으로 지원되는 커널 버전 목록은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 참조)<br/>- Ubuntu 16.04 LTS 서버(Ubuntu용으로 지원되는 커널 버전 목록은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 참조)<br/>-  Debian 7 또는 Debian 8<br/>- Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.5 또는 6.4<br/>- SUSE Linux Enterprise Server 11 SP4 또는 SUSE Linux Enterprise Server 11 SP3<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치 후, SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행 중인 Azure VM에 연결하려는 경우 보호된 컴퓨터의 SSH 서비스가 시스템 시작 시 자동으로 시작되도록 설정되었는지 확인합니다. 또한 방화벽 규칙에서 보호된 컴퓨터로 SSH 연결을 허용하는지도 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/ 및 /usr)에는 영어만 사용해야 합니다.<br/><br/>다음 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/>- / (root)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>현재, 메타데이터 체크섬과 같은 XFS v5 기능은 XFS 파일 시스템의 Site Recovery에 의해 지원되지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. **ftype**이 **1**로 설정되면 XFS v5 기능이 사용됩니다.<br/><br/>Red Hat Enterprise Linux 7 및 CentOS 7 서버에서는 lsof 유틸리티를 설치하여 사용할 수 있어야 합니다.<br/><br/>
+| **구성 요소** | **요구 사항** |
+| --- | --- |
+| **vSphere** | 하나 이상의 VMware vSphere 하이퍼바이저가 있어야 합니다.<br/><br/>하이퍼바이저는 최신 업데이트를 설치한 vSphere 버전 6.0, 5.5 또는 5.1을 실행해야 합니다.<br/><br/>vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 전용 프로세스 서버를 설정한 경우가 아니라면 구성 서버가 위치한 네트워크입니다. |
+| **vCenter** | vSphere 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트를 설치한 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>**제한**: Site Recovery는 vCenter vMotion 인스턴스 간의 복제를 지원하지 않습니다. 저장소 DRS 및 저장소 vMotion 역시 재보호 작업 후 마스터 대상 VM에서 지원되지 않습니다.|
+
+### <a name="replicated-machine-prerequisites"></a>복제된 컴퓨터 필수 조건
+
+| **구성 요소** | **요구 사항** |
+| --- | --- |
+| **온-프레미스 컴퓨터(VMware VM)** | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.<br/><br/>각 보호된 컴퓨터에 디스크 용량이 1,023GB를 초과할 수 없습니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에는 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 포트 20004가 열려 있어야 합니다.<br/><br/>컴퓨터 이름은 1-63자 길이(문자, 숫자 및 하이픈 사용 가능)여야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. <br/><br/>컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/> |
+| **Windows 컴퓨터**(물리적 또는 VMware) | 컴퓨터는 다음 지원되는 64비트 운영 체제 중 하나를 실행해야 합니다. <br/>- Windows Server 2012 R2<br/>- Windows Server 2012<br/>- Windows Server 2008 R2 SP1 이상 버전<br/><br/> C 드라이브에 운영 체제를 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>|
+| **Linux 컴퓨터**(물리적 또는 VMware) | 컴퓨터는 다음 지원되는 64비트 운영 체제 중 하나를 실행해야 합니다. <br/>- Red Hat Enterprise Linux 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3<br/>- CentOS 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3<br/>- Ubuntu 14.04 LTS 서버(Ubuntu용으로 지원되는 커널 버전 목록은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 참조)<br/>- Ubuntu 16.04 LTS 서버(Ubuntu용으로 지원되는 커널 버전 목록은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 참조)<br/>-  Debian 7 또는 Debian 8<br/>- Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.5 또는 6.4<br/>- SUSE Linux Enterprise Server 11 SP4 또는 SUSE Linux Enterprise Server 11 SP3<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치 후, SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행 중인 Azure VM에 연결하려는 경우 보호된 컴퓨터의 SSH 서비스가 시스템 시작 시 자동으로 시작되도록 설정되었는지 확인합니다. 또한 방화벽 규칙에서 보호된 컴퓨터로 SSH 연결을 허용하는지도 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/ 및 /usr)에는 영어만 사용해야 합니다.<br/><br/>다음 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/>- / (root)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>현재, 메타데이터 체크섬과 같은 XFS v5 기능은 XFS 파일 시스템의 Site Recovery에 의해 지원되지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. **ftype**이 **1**로 설정되면 XFS v5 기능이 사용됩니다.<br/><br/>Red Hat Enterprise Linux 7 및 CentOS 7 서버에서는 lsof 유틸리티를 설치하여 사용할 수 있어야 합니다.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-vms-to-azure-no-vmm"></a>Azure에 대한 Hyper-V VM의 재해 복구(VMM 없음)

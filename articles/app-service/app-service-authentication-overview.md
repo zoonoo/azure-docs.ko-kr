@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b67f95847ac3228aa1d04d89af7e9fe4eeff3220
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 앱 서비스의 인증 및 권한 부여
@@ -69,9 +69,9 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 > 
 > 
 
-서비스 간 시나리오의 경우 앱 서비스가 Azure Active Directory를 사용하여 응용 프로그램을 보호할 수 있습니다. 호출 응용 프로그램은 Azure Active Directory의 클라이언트 ID 및 클라이언트 암호를 제공하여 얻은 Azure Active Directory 서비스 주체 권한 부여 토큰을 제공해야 합니다. ASP.NET API Apps를 사용하는 이 시나리오의 예는 [API Apps에 대한 서비스 주체 인증][apia-service] 자습서에서 설명합니다.
+서비스 간 시나리오의 경우 앱 서비스가 Azure Active Directory를 사용하여 응용 프로그램을 보호할 수 있습니다. 호출 응용 프로그램은 Azure Active Directory의 클라이언트 ID 및 클라이언트 암호를 제공하여 얻은 Azure Active Directory 서비스 주체 권한 부여 토큰을 제공해야 합니다. ASP.NET API 앱을 사용하는 이 시나리오의 예는 [API Apps에 대한 서비스 주체 인증][apia-service] 자습서에서 설명합니다.
 
-앱 서비스 인증을 사용하여 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요. ASP.NET에서 기본 인증에 대한 자세한 내용은 [ASP.NET Web API 2에서의 인증 필터](http://www.asp.net/web-api/overview/security/authentication-filters)를 참조하세요.
+앱 서비스 인증을 사용하여 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](app-service-web-configure-tls-mutual-auth.md)을 참조하세요. ASP.NET에서 기본 인증에 대한 자세한 내용은 [ASP.NET Web API 2에서의 인증 필터](http://www.asp.net/web-api/overview/security/authentication-filters)를 참조하세요.
 
 앱 서비스 논리 앱에서 API Apps로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스트되는 사용자 지정 API 사용](../logic-apps/logic-apps-custom-hosted-api.md)에 구체적으로 설명된 특수 사례입니다.
 
@@ -156,9 +156,6 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 * [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
 * [Azure App Service의 API Apps에 대한 서비스 주체 인증][apia-service]
 
-[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
-[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
-
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
 [Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
@@ -167,11 +164,11 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b8fac1b258535fd668b45acbe2c1c8580fb8a340
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,14 +58,14 @@ Azure AD(Active Directory)는 앱과 서비스를 보호하기 위한 여러 가
 일부 시나리오에서는 조건부 액세스를 처리하기 위해 코드 변경이 필요하지만 그렇지 않고 그대로 작동하는 시나리오도 있습니다.  다음에서 다단계 인증을 수행하기 위해 조건부 액세스를 사용하는 몇 가지 시나리오를 살펴보고 차이를 파악할 수 있습니다.
 
 * 단일 테넌트 iOS 앱을 빌드 중이고 조건부 액세스 정책을 적용합니다.  사용자는 앱에 로그인하고 앱은 API에 대한 액세스를 요청하지 않습니다.  사용자가 로그인하면 정책이 자동으로 호출되고 사용자는 MFA(Multi-Factor Authentication)를 수행해야 합니다. 
-* Microsoft Graph를 사용하여 기타 서비스 중에 Exchange에 액세스하는 다중 테넌트 웹앱을 빌드 중입니다.  이 앱을 채택하는 기업 고객은 SharePoint Online에서 정책을 설정합니다.  웹앱이 MS Graph에 대한 토큰을 요청하면 Microsoft Service에 대한 정책이 적용됩니다(특히 그래프를 통해 액세스할 수 있는 서비스).  이 최종 사용자에게 MFA에 대한 메시지가 표시됩니다. 이 경우 최종 사용자가 유효한 토큰으로 로그인하고 클레임 “챌린지”가 웹앱에 반환됩니다.  
-* 중간 계층 서비스를 사용하여 Microsoft Graph에 액세스하는 원시 앱을 빌드 중입니다.  이 앱을 사용하는 회사의 기업 고객은 Exchange Online에 정책을 적용합니다.  최종 사용자가 로그인하면 원시 앱은 중간 계층에 대한 액세스를 요청하고 토큰을 보냅니다.  중간 계층은 On-Behalf-Of 흐름을 수행하여 MS Graph에 대한 액세스를 요청합니다.  이때 클레임 “챌린지”가 중간 계층에 표시됩니다. 중간 계층은 챌린지를 원시 앱으로 다시 보내는 데, 앱은 조건부 액세스 정책을 준수해야 합니다.
+* Microsoft Graph를 사용하여 다른 서비스 중에서 Exchange에 액세스하는 다중 테넌트 웹앱을 빌드하고 있습니다.  이 앱을 채택하는 기업 고객은 SharePoint Online에서 정책을 설정합니다.  웹앱이 MS Graph에 대한 토큰을 요청하면 Microsoft Service에 대한 정책이 적용됩니다(특히 그래프를 통해 액세스할 수 있는 서비스).  이 최종 사용자에게 MFA에 대한 메시지가 표시됩니다. 이 경우 최종 사용자가 유효한 토큰으로 로그인하고 클레임 “챌린지”가 웹앱에 반환됩니다.  
+* 중간 계층 서비스를 사용하여 Microsoft Graph에 액세스하는 원시 앱을 빌드하고 있습니다.  이 앱을 사용하는 회사의 기업 고객은 Exchange Online에 정책을 적용합니다.  최종 사용자가 로그인하면 원시 앱은 중간 계층에 대한 액세스를 요청하고 토큰을 보냅니다.  중간 계층은 On-Behalf-Of 흐름을 수행하여 MS Graph에 대한 액세스를 요청합니다.  이때 클레임 “챌린지”가 중간 계층에 표시됩니다. 중간 계층은 챌린지를 원시 앱으로 다시 보내는 데, 앱은 조건부 액세스 정책을 준수해야 합니다.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>조건부 액세스 정책 준수
 
 여러 가지 서로 다른 앱 토폴로지에 대해, 세션이 설정될 때 조건부 액세스 정책이 평가됩니다.  조건부 액세스 정책은 앱 및 서비스 단위로 작동하므로 호출되는 시점은 수행하려는 시나리오에 따라 크게 달라집니다.
 
-앱이 조건부 액세스 정책으로 서비스에 대한 액세스를 시도하면 조건부 액세스 챌린지가 발생할 수 있습니다.  이러한 챌린지는 Azure AD 또는 Microsoft Graph의 응답에 제공되는 `claims` 매개 변수에 인코딩됩니다.  이 챌린지 매개 변수의 예는 다음과 같습니다. 
+앱이 조건부 액세스 정책으로 서비스에 대한 액세스를 시도하면 조건부 액세스 챌린지가 발생할 수 있습니다.  이러한 챌린지는 Azure AD 또는 Microsoft Graph의 응답에서 제공되는 `claims` 매개 변수에 인코딩됩니다.  이 챌린지 매개 변수의 예는 다음과 같습니다. 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -88,17 +88,17 @@ Azure AD 조건부 액세스는 [Azure AD Premium](../active-directory-whatis.md
 * 여러 서비스/리소스에 액세스하는 앱
 * ADAL.js를 사용하는 단일 페이지 앱
 
-다음 섹션에서는 보다 복잡한 일반적인 시나리오에 대해 알아봅니다.  핵심 작동 원리는 Microsoft Graph를 통해 액세스되지 않는 한, 조건부 액세스 정책이 적용된 서비스에 대해 토큰이 요청될 때 조건부 액세스 정책이 평가된다는 것입니다.
+다음 섹션에서는 보다 복잡한 일반적인 시나리오에 대해 알아봅니다.  핵심 작동 원리는 Microsoft Graph를 통해 액세스하지 않는 한, 조건부 액세스 정책이 적용된 서비스에 대해 토큰을 요청할 때 조건부 액세스 정책이 평가된다는 것입니다.
 
-### <a name="scenario-app-accessing-the-microsoft-graph"></a>시나리오: Microsoft Graph에 액세스하는 앱
+### <a name="scenario-app-accessing-microsoft-graph"></a>시나리오: Microsoft Graph에 액세스하는 앱
 
-이 시나리오에서는 웹앱이 Microsoft Graph에 대한 액세스를 요청하는 경우를 살펴봅니다. 이 경우 조건부 액세스 정책은 SharePoint, Exchange 또는 Microsoft Graph를 통해 워크로드로 액세스되는 기타 서비스에 할당할 수 있습니다.  이 예제에서는 Sharepoint Online에 조건부 액세스 정책이 있다고 가정해 보겠습니다.
+이 시나리오에서는 웹앱에서 Microsoft Graph에 대한 액세스를 요청하는 경우를 안내합니다. 이 경우 조건부 액세스 정책은 SharePoint, Exchange 또는 Microsoft Graph를 통해 작업으로 액세스되는 다른 일부 서비스에 할당할 수 있습니다.  이 예제에서는 Sharepoint Online에 조건부 액세스 정책이 있다고 가정해 보겠습니다.
 
 ![Microsoft Graph 흐름 다이어그램에 액세스하는 앱](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
 
-앱은 먼저 조건부 액세스가 없는 다운스트림 워크로드에 액세스해야 하는 Microsoft Graph에 대한 권한 부여를 요청합니다.  어떠한 정책도 호출하지 않고 요청이 성공하며 앱은 Microsoft Graph에 대한 토큰을 받습니다.  이 시점에서 앱은 요청된 끝점에 대한 전달자 요청에 액세스 토큰을 사용할 수 있습니다. 이제 앱은 Microsoft Graph의 Sharepoint Online 끝점에 액세스해야 합니다(예: `https://graph.microsoft.com/v1.0/me/mySite`).
+앱에서 먼저 조건부 액세스 없이 다운스트림 작업에 액세스해야 하는 Microsoft Graph에 대한 권한 부여를 요청합니다.  어떠한 정책도 호출하지 않고 요청이 성공하며 앱은 Microsoft Graph에 대한 토큰을 받습니다.  이 시점에서 앱은 요청된 끝점에 대한 전달자 요청에 액세스 토큰을 사용할 수 있습니다. 이제 앱은 Microsoft Graph의 Sharepoint Online 끝점에 액세스해야 합니다(예: `https://graph.microsoft.com/v1.0/me/mySite`).
 
-앱은 Microsoft Graph에 대한 유효한 토큰을 이미 소유하고 있으므로 새 토큰을 발급하지 않고도 새 요청을 수행할 수 있습니다. 이 요청은 실패하고 Microsoft Graph에서 ```WWW-Authenticate``` 챌린지와 함께 HTTP 403 사용할 수 없음 형태로 클레임 챌린지가 발급됩니다.
+앱에 Microsoft Graph에 유효한 토큰이 이미 있으므로 새 토큰을 발급하지 않고 새 요청을 수행할 수 있습니다. 이 요청은 실패하고 Microsoft Graph에서 ```WWW-Authenticate``` 챌린지와 함께 HTTP 403 사용할 수 없음 형태로 클레임 챌린지가 발급됩니다.
 응답의 예는 다음과 같습니다. 
 
 ```

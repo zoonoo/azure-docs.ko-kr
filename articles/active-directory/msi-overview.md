@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/15/2017
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-클라우드 응용 프로그램을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 관리하는 방법입니다. 즉, 이러한 자격 증명의 보안을 유지하는 것이 중요합니다. 이러한 자격 증명은 개발자 워크스테이션에 표시되거나 소스 컨트롤에 체크 인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+클라우드 응용 프로그램을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 관리하는 방법입니다. 즉, 이러한 자격 증명의 보안을 유지하는 것이 중요합니다. 이러한 자격 증명은 개발자 워크스테이션에 표시되거나 소스 컨트롤에 체크인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -57,7 +57,6 @@ Azure 가상 컴퓨터에서 관리 서비스 ID가 작동하는 방식의 예�
 | 부여 | 가동 상태 | Date |
 | --- | --- | --- |
 | Azure 가상 컴퓨터 | 미리 보기 | 2017년 9월 |
-| Azure Virtual Machine Scale Sets | 미리 보기 | 2017년 9월 |
 | Azure 앱 서비스 | 미리 보기 | 2017년 9월 |
 | Azure 기능 | 미리 보기 | 2017년 9월 |
 
@@ -69,7 +68,6 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 | --- | --- | --- | --- |
 | Azure 리소스 관리자 | https://management.azure.com/ | 사용 가능 | 2017년 9월 |
 | Azure 키 자격 증명 모음 | https://vault.azure.net/ | 사용 가능 | 2017년 9월 |
-| Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 9월 |
 | Azure 데이터 레이크 | https://datalake.azure.net/ | 사용 가능 | 2017년 9월 |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>관리 서비스 ID의 비용은 어느 정도인가요?
@@ -85,28 +83,35 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 
 ## <a name="try-managed-service-identity"></a>관리 서비스 ID 사용해 보기
 
-이제 기본 사항을 이해했으므로 관리 서비스 ID 자습서를 참조하여 다양한 Azure 리소스에 액세스하는 방법을 파악할 수 있습니다.
+다른 Azure 리소스에 액세스하기 위한 종단 간 시나리오에 대해 알아보려면 관리되는 서비스 ID 자습서를 시도해 보세요.
 
-- [Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-windows-vm-access-arm.md)
-- [Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-linux-vm-access-arm.md)
-- [Windows VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage.md)
-- [Linux VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage.md)
-- [Windows VM 관리 서비스 ID를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-windows-vm-access-nonaad.md)
-- [Linux VM 관리 서비스 ID를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-linux-vm-access-nonaad.md)
-- [Azure App Service 또는 Azure Functions를 사용하는 사용자 관리 서비스 ID](/azure/app-service/app-service-managed-service-identity)
+| MSI 사용 리소스에서 | 학습할 방법 |
+| ------- | -------- |
+| Azure VM(Windows) | [Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Windows VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-windows-vm-access-nonaad.md) |
+| Azure VM(Linux)   | [Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Linux VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Linux VM 관리 서비스 ID를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure 앱 서비스  | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 
+Azure 리소스에서 MSI 사용에 대한 기본 사항을 학습하려는 경우:
 
+| Azure 리소스의 경우 | 다음을 사용하여 MSI 사용/제거 |
+| ------------------ | ------------------------------------ |
+| Azure VM(Windows) | [Azure 포털](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [Azure CLI](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Azure Resource Manager 템플릿](msi-qs-configure-template-windows-vm.md) |
 
+다른 Azure 리소스에 액세스하는 MSI 권한을 부여하기 위해 RBAC(역할 기반 액세스 제어)를 사용하는 방법을 알아봅니다.
 
-
-
-
-
-
-
-
-
-
+| MSI 사용 리소스에서 | 다음을 사용하여 다른 Azure 리소스에 액세스 권한 할당 |
+| ------------------------ | ---------------------------------------------------------- |
+| Azure VM(Windows) | [Azure 포털](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [Azure CLI](msi-howto-assign-access-CLI.md) |
 
 
 

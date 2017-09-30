@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: edf3b0a80712e8287a66978e0e9574949805a27a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
@@ -119,15 +119,13 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
-다음 표에서는 잠재적인 오류와 오류가 발생할 경우 이를 수정하는 방법을 나열합니다.
+다음 표에서는 일반적인 오류와 이를 수정하는 방법을 나열하고 있습니다.
 
 | 쿼리 구문 분석 오류 | 잘못된 사용법 | 수정된 사용법 |
 | --- | --- | --- |
-| 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>속성은 [지원되는 속성 목록](#supported-properties)를 선택합니다. |
-| 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>속성은 부울 형식입니다. 위의 목록에서 부울 형식에 지원되는 연산자(-eq 또는 -ne)를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
-| 오류: 이진 식 형식이 올바르지 않습니다. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
-| 오류: 동적 멤버 자격을 설정하는 동안 알 수 없는 오류가 발생했습니다. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
+| 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>[지원되는 속성 목록](#supported-properties)에 있는 특성인지 확인합니다. |
+| 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>사용된 연산자는 속성 형식에 지원되지 않습니다(이 예제에서 -contains는 부울 형식에 사용할 수 없습니다). 속성 형식에 올바른 연산자를 사용합니다. |
+| 오류: 쿼리 컴파일 오류입니다. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. 연산자가 없습니다. 두 개의 조인 조건자(-and 또는 -or)를 사용합니다.<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. -match와 함께 사용되는 정규식 오류입니다.<br/><br/>(user.userPrincipalName -match ".*@domain.ext") 또는 (user.userPrincipalName -match "@domain.ext$")|
 
 ## <a name="supported-properties"></a>지원되는 속성
 다음은 고급 규칙에 사용할 수 있는 모든 사용자 속성입니다.

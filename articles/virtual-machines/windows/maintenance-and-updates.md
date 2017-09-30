@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/15/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 46efcfc9dfc0f56378c6ae6e9e04e0a4672f6d4a
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 97660436d29dd8d9b7547a2bf71e9fc06b09624f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 컴퓨터에 대한 계획된 유지 관리
@@ -28,8 +28,7 @@ ms.lasthandoff: 09/15/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Metadata Service](instance-metadata-service.md)를 사용하면 Azure에서 호스팅되는 Virtual Machine에 대한 정보를 검색할 수 있습니다. 
-
+계획된 유지 보수의 관리에 대한 자세한 내용은 [계획된 유지 관리 알림 처리](maintenance-notifications.md)를 참조하세요.
 
 
 

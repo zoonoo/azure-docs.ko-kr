@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -74,10 +74,10 @@ ms.lasthandoff: 08/24/2017
 클러스터를 설정할 때 Azure Portal에서 복구 관리자를 설정할 수 있습니다. 클러스터 구성 시 `Add on features`에서 `Include Repair Manager` 옵션을 선택합니다.
 ![Azure Portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿
-또는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 리소스 관리자 템플릿을 만들 수 있습니다. 
+##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
+또는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Resource Manager 템플릿을 만들 수 있습니다. 
 
-[Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 복구 관리자 서비스를 사용하도록 설정하려면:
+[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 복구 관리자 서비스를 사용하도록 설정하려면:
 
 1. 먼저 다음 코드 조각과 같이 `Microsoft.ServiceFabric/clusters` 리소스에 대해 `apiversion`이 `2017-07-01-preview`로 설정되었는지 확인합니다. 값이 다르면 `apiVersion`을 `2017-07-01-preview` 값으로 업데이트해야 합니다.
 
@@ -155,7 +155,7 @@ Azure 진단을 사용하도록 설정하는 방법에 대한 자세한 내용�
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-리소스 관리자 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
+Resource Manager 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
 
 ```json
   {
@@ -274,6 +274,17 @@ PowerShell을 사용하여 기존 패치 오케스트레이션 앱을 업그레�
   ...
 ]
 ```
+
+JSON의 필드가 아래에 설명되어 있습니다.
+
+필드 | 값 | 세부 정보
+-- | -- | --
+OperationResult | 0 - 성공<br> 1 - 성공하였으나 오류 발생<br> 2 - 실패<br> 3 - 중단<br> 4 - 시간 제한으로 중단 | 전체 작업의 결과를 나타냅니다(일반적으로 하나 이상의 업데이트 설치 포함).
+ResultCode | OperationResult와 동일 | 이 필드는 개별 업데이트에 대한 설치 작업의 결과를 나타냅니다.
+OperationType | 1 - 설치<br> 0 - 검색 및 다운로드.| 설치는 기본적으로 결과에 표시되는 유일한 OperationType입니다.
+WindowsUpdateQuery | 기본값은 “IsInstalled = 0”입니다. |업데이트 검색에 사용된 Windows 업데이트 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
+RebootRequired | true - 다시 부팅 필요<br> false - 다시 부팅 필요 없음 | 업데이트 설치를 완료하는 데 다시 부팅이 필요한지 여부를 표시합니다.
+
 업데이트가 아직 예약되어 있지 않으면 결과 JSON은 비어 있습니다.
 
 Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니다. 그런 다음 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults).
@@ -363,7 +374,7 @@ A. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 
 Q. **REST API를 통해 가져온 Windows Update 결과에 표시된 일부 업데이트가 컴퓨터에서 Windows Update 기록에서 표시되지 않는 이유는 무엇인가요?**
 
-A. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서 확인해야 합니다. 예: Windows Defender 업데이트는 Windows Server 2016의 Windows 업데이트에서 표시되지 않습니다.
+A. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서 확인해야 합니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되지 않습니다.
 
 ## <a name="disclaimers"></a>고지 사항
 
@@ -403,7 +414,7 @@ A. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서 �
 
 관리자가 개입하여 Windows 업데이트로 인해 응용 프로그램 또는 클러스터가 비정상 상태가 된 이유를 확인해야 합니다.
 
-## <a name="release-notes-"></a>릴리스 정보:
+## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="version-110"></a>버전 1.1.0
 - 공개 릴리스

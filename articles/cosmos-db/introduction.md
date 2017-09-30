@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5b6f016ce634fd244f1ea3b54361b9a5da9d5483
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: fe4c79f4e71d885e22bbcf31869b809f5d7fe1a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -29,7 +29,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 
 ![Azure Cosmos DB는 탄력적 확장, 낮은 대기 시간 보증, 일관성 모델 5개, 포괄적 보장 SLA를 갖춘 전세계에 배포된 데이터베이스 서비스입니다.](./media/introduction/azure-cosmos-db.png)
 
-Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
+Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/).
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 

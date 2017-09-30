@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
@@ -69,7 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 >[!NOTE]
 > 리소스 그룹 이름에는 제약이 있습니다. 지침을 준수해야 합니다. 그렇지 않으면 자격 증명 모음 업그레이드에 실패할 수 있습니다.
 >
->
+>**Azure US Government** 고객은 스크립트를 실행하는 동안 환경을 "AzureUSGovernment"로 설정해야 합니다.
 
 다음 코드 조각은 PowerShell 명령이 표시되는 예제입니다.
 
@@ -138,7 +138,7 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 이 업그레이드를 수행하려면 Azure 클래식 포털에서 구독의 공동 관리자로 추가되어야 합니다. Azure Portal에서 소유자로 이미 나열된 경우에도 이 작업이 필요합니다. 구독에 대한 공동 관리자인지 확인하려면 Azure 클래식 포털에서 구독에 대한 공동 관리자를 추가해 보세요. 공동 관리자를 추가할 수 없으면 사용자를 공동 관리자로 추가할 수 있는 구독의 서비스 관리자 또는 공동 관리자에게 문의하세요.
 
 **CSP 기반 백업 자격 증명 모음을 업그레이드할 수 있나요?**</br>
-아니요. CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 백업 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
+번호 CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 백업 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 
 **클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?**</br>
 아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.

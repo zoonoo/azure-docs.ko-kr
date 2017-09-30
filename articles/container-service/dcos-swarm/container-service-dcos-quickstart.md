@@ -18,10 +18,10 @@ ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fdc85e69403cec392328aad255352b2bee5afc20
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,12 +58,10 @@ az group create --name myResourceGroup --location eastus
 다음 예제에서는 *myDCOSCluster*라는 DC/OS 클러스터를 만들고 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
 ```azurecli
-az acs create \
-  --orchestrator-type dcos \
-  --resource-group myResourceGroup \
-  --name myDCOSCluster \
-  --generate-ssh-keys
+az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
+
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 명령이 완료되고 배포에 대한 정보가 반환됩니다.
 

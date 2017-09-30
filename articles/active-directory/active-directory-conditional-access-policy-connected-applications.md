@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory 장치 기반 조건부 액세스 정책 구성
@@ -57,7 +57,9 @@ ms.lasthandoff: 08/23/2017
 장치는 다음을 통해 디렉터리에 규격으로 표시할 수 있습니다.
 
 - Intune 
-- Azure AD와 통합되는 타사 모바일 장치 관리 시스템  
+- Azure AD 통합을 통해 Windows 10 장치를 관리하는 타사 모바일 장치 관리 시스템 
+ 
+  
 
 Azure AD에 연결된 장치만 규격으로 표시할 수 있습니다. 장치를 Azure Active Directory에 연결하려는 경우 다음 옵션 중에서 선택할 수 있습니다. 
 

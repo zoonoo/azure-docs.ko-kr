@@ -261,7 +261,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는 서버 목록은 [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) cmdlet을 사용하여 얻을 수 있습니다. 이 예제에서는 백업에 대해 이름이 *productionserver01* 인 PS만 필터링하여 구성합니다.
 
 ```
-PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
+PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”}
 ```
 
 이제 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 이 예제에서는 백업을 위해 구성하려는 *D:\* 볼륨을 필터링합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한* ```$MPG``` 보호 그룹 개체를 사용해야 합니다.

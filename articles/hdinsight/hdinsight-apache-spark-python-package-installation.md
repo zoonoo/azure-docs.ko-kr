@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 20cf384c96d4ff4eaf064c8880ad128d521fb9bf
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: d39fc7d75f6709391617e2e7c35d8cc7c7ac66fa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 스크립트 작업을 사용하여 Jupyter Notebook용 외부 python 패키지 설치
@@ -40,7 +39,7 @@ ms.lasthandoff: 07/01/2017
 
 사용할 수 있는 패키지의 전체 목록은 [패키지 인덱스](https://pypi.python.org/pypi)를 검색할 수 있습니다. 다른 소스에서 사용 가능한 패키지 목록을 가져올 수도 있습니다. 예를 들어 [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) 또는 [conda-forge](https://conda-forge.github.io/feedstocks.html)를 통해 제공되는 패키지를 설치할 수 있습니다.
 
-이 문서에서는 클러스터에서 스크립트 작업을 사용하여 [TensorFlow](https://www.tensorflow.org/) 패키지를 설치하고 Jupyter 노트북을 통해 사용하는 방법을 알아봅니다.
+이 문서에서는 스크립트 동작을 사용하여 클러스터에 [TensorFlow](https://www.tensorflow.org/) 패키지를 설치하고, Jupyter 노트북을 통해 이 패키지를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.

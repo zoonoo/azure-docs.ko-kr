@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서 Node.js 웹앱 만들기 
 
-[Web Apps for Containers](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Node.js 앱을 Azure Web Apps for Containers에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 Node.js 코드를 배포합니다.
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Node.js 앱을 컨테이너용 Azure Web App에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 Node.js 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -62,7 +63,7 @@ Node.js HTTP 서버에서 기본 제공을 시작하려면 터미널 창을 열�
 npm start
 ```
 
-웹 브라우저를 열고 http://localhost:1337 에서 샘플 앱으로 이동합니다.
+웹 브라우저를 열고 `http://localhost:1337`의 샘플 앱으로 이동합니다.
 
 이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지가 표시됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Web Apps for Containers 소개 | Microsoft Docs"
-description: "Azure Web Apps for Containers에 대해 알아봅니다."
+title: "Azure Web App for Containers 소개 | Microsoft Docs"
+description: "Azure Web App for Containers에 대해 알아봅니다."
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
@@ -12,19 +12,20 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/16/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: f46f59a69d13a4e702eccded810cf3c7a8b30904
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bc1658fa49677386c8e4697221f7269ceec3533d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="introduction-to-azure-web-apps-for-containers"></a>Azure Web Apps for Containers 소개
+# <a name="introduction-to-azure-web-app-for-containers"></a>Azure Web App for Containers 소개
 
-[Web App](../../app-service-web/app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Web Apps for Containers를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
+[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Web App for Containers를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
 
 ## <a name="languages"></a>언어
 
@@ -63,14 +64,14 @@ ms.lasthandoff: 09/07/2017
 
 ## <a name="limitations"></a>제한 사항
 
-Azure Portal에는 현재 Web Apps for Containers에 대해 작동하는 기능만 표시됩니다. 더 많은 기능이 사용 가능해지면 포털에 표시됩니다.
+Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능만 표시됩니다. 더 많은 기능이 사용 가능해지면 포털에 표시됩니다.
 
 가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 아직 사용할 수 없습니다. 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-Web Apps for Containers는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Web Apps for Containers에 대한 중요한 제한 사항입니다.
+Web App for Containers는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Web App for Containers에 대한 중요한 제한 사항입니다.
 
-* 이미 비 Linux Web Apps을 호스트 중인 App Service 계획에서는 Web Apps for Containers를 만들 수 없습니다.
-* 비 Linux Web Apps을 포함하는 리소스 그룹에 Web Apps for Containers를 만드는 경우 기존 App Service 계획과 다른 지역에 App Service 계획을 만들어야 합니다.
+* 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
+* 비 Linux Web Apps을 포함하는 리소스 그룹에 Web App for Containers를 만드는 경우 기존 App Service 계획과 다른 지역에 App Service 계획을 만들어야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -87,13 +88,13 @@ Web Apps for Containers는 [기본 및 표준](https://azure.microsoft.com/prici
 
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Azure Web Apps for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
-* [Azure App Service Web Apps for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
-* [Azure App Service Web Apps for Containers에서 Ruby 사용](quickstart-ruby.md)
-* [Azure App Service Web Apps for Containers 관련 FAQ](app-service-linux-faq.md)
-* [Azure Web Apps for Containers에 대한 SSH 지원](app-service-linux-ssh-support.md)
-* [Azure App Service에서 스테이징 환경 설정](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Azure Web Apps for Containers를 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
+* [Containers용 Azure Web App에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Azure App Service Web App for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
+* [Azure App Service Web App for Containers에서 Ruby 사용](quickstart-ruby.md)
+* [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
+* [Azure App Service Web App for Containers에 대한 SSH 지원](app-service-linux-ssh-support.md)
+* [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Azure Web App for Containers를 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

@@ -6,16 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 9bc82e628df5e380db84e22e1f5fd25f75929fdc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
 Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
@@ -26,34 +25,33 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 ## <a name="webhook-event-delivery"></a>WebHook 이벤트 전달
 
-WebHook은 Azure Event Grid에서 실시간으로 이벤트를 수신하는 여러 가지 방법 중 하나입니다.
+WebHook은 Azure Event Grid에서 실시간으로 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 전송될 준비가 될 때마다 Event Grid 웹후크는 본문에 이벤트가 포함되어 구성된 HTTP 끝점으로 HTTP 요청을 시드합니다.
 
-새 이벤트가 전송될 준비가 될 때마다 Event Grid는 본문에 이벤트가 포함된 HTTP 요청을 WebHook으로 보냅니다.
+Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사를 통과하지 못한 웹후크 끝점에 이벤트를 전달하지 않습니다.
 
-Event Grid에서 고유한 WebHook 끝점을 등록하는 경우 끝점의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사에 통과하지 못한 WebHook 끝점에 이벤트를 전달하지 않습니다.
- 
-### <a name="validation-details"></a>유효성 검사 세부 정보:
+### <a name="validation-details"></a>유효성 검사 세부 정보
 
-* 이벤트 구독 생성/업데이트 시 Event Grid는 대상 끝점에 "SubscriptionValidationEvent" 이벤트를 게시합니다.
-* 이벤트에는 "이벤트-형식: 유효성 검사" 헤더 값을 포함합니다.
+* 이벤트 구독 생성/업데이트 시 Event Grid는 대상 끝점에 “SubscriptionValidationEvent” 이벤트를 게시합니다.
+* 이벤트에는 “Aeg-Event-Type: SubscriptionValidation” 헤더 값이 포함됩니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
-* 이벤트 데이터는 다음과 같이 임의로 생성된 문자열을 포함한 “ValidationCode” 속성을 포함합니다. “ValidationCode: acb13…”.
+* 이벤트 데이터에는 임의로 생성된 문자열을 포함한 “validationCode” 속성이 포함됩니다. 예를 들어 “validationCode: acb13...”과 같습니다.
 
-SubscriptionValidationEvent 예는 아래에 표시됩니다.
+SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
+
 ```json
 [{
-  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
-  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "Subject": "",
-  "Data": {
+  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "",
+  "data": {
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
-  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
-  "EventTime": "2017-08-06T22:09:30.740323Z"
+  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+  "eventTime": "2017-08-06T22:09:30.740323Z"
 }]
 ```
 
-끝점 소유권을 증명하기 위해 “validation_response: acb13…”과 같이 유효성 검사 코드를 반환합니다.
+끝점 소유권을 증명하기 위해 다음과 같이 validationResponse 속성의 유효성 검사 코드를 반환합니다.
 
 ```json
 {
@@ -61,9 +59,8 @@ SubscriptionValidationEvent 예는 아래에 표시됩니다.
 }
 ```
 
-끝점 소유권을 증명하기 위해 “ValidationResponse: acb13…”과 같이 유효성 검사 코드를 반환합니다.
-
 마지막으로 Azure Event Grid가 HTTPS Webhook 끝점을 지원한다는 점에 유의합니다.
+
 ## <a name="event-subscription"></a>이벤트 구독
 
 이벤트를 구독하려면 필요한 리소스에 대한 **Microsoft.EventGrid/EventSubscriptions/Write** 권한이 있어야 합니다. 리소스의 범위에서 새 구독을 작성하기 때문에 이 권한이 있어야 합니다. 필요한 리소스는 시스템 항목 또는 사용자 지정 항목을 구독하는지 여부에 따라 다릅니다. 두 형식은 모두 이 섹션에 설명되어 있습니다.
@@ -90,7 +87,7 @@ HTTP 헤더에서 인증 값을 포함합니다. SAS의 경우 헤더 값에 **a
 
 키 인증은 인증의 가장 간단한 양식입니다. 사용할 양식은 다음과 같습니다. `aeg-sas-key: <your key>`
 
-예를 들어 다음을 사용하여 키를 전달합니다. 
+예를 들어 다음을 사용하여 키를 전달합니다.
 
 ```
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
@@ -108,7 +105,7 @@ Event Grid의 SAS 토큰에는 리소스, 만료 시간 및 서명이 포함됩�
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-``` 
+```
 
 다음 예제에서는 Event Grid를 사용하기 위한 SAS 토큰을 만듭니다.
 
@@ -120,7 +117,8 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
     const char Signature = 's';
 
     string encodedResource = HttpUtility.UrlEncode(resource);
-    string encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString());
+    var culture = CultureInfo.CreateSpecificCulture("en-US");
+    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
 
     string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
     using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
@@ -136,17 +134,17 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>관리 액세스 제어
 
-Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 이에 대해 Azure의 RBAC(역할 기반 액세스 확인)를 활용합니다.
+Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 확인)를 활용합니다.
 
 ### <a name="operation-types"></a>작업 형식
 
 Azure Event Grid는 다음 작업을 지원합니다.
 
-* Microsoft.EventGrid/*/read 
-* Microsoft.EventGrid/*/write 
-* Microsoft.EventGrid/*/delete 
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action 
-* Microsoft.EventGrid/topics/listKeys/action 
+* Microsoft.EventGrid/*/read
+* Microsoft.EventGrid/*/write
+* Microsoft.EventGrid/*/delete
+* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
+* Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
 마지막 세 가지 작업에서는 일반 읽기 작업에서 필터링을 가져오는 비밀 정보를 잠재적으로 반환합니다. 이러한 작업에 대한 액세스를 제한하는 것이 좋습니다. [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Azure CLI(명령줄 인터페이스)](../active-directory/role-based-access-control-manage-access-azure-cli.md) 및 [REST API](../active-directory/role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
@@ -160,82 +158,82 @@ Azure Event Grid는 다음 작업을 지원합니다.
 사용자가 다른 일련의 동작을 수행할 수 있는 샘플 Event Grid 역할 정의는 다음과 같습니다.
 
 **EventGridReadOnlyRole.json**: 읽기 전용 작업만을 허용합니다.
+
 ```json
-{ 
-  "Name": "Event grid read only role", 
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856", 
-  "IsCustom": true, 
-  "Description": "Event grid read only role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/read" 
-  ], 
-  "NotActions": [ 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription Id>" 
-  ] 
+{
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
 **EventGridNoDeleteListKeysRole.json**: 제한된 게시 작업을 허용하지만 삭제 동작을 허용하지 않습니다.
+
 ```json
-{ 
-  "Name": "Event grid No Delete Listkeys role", 
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174", 
-  "IsCustom": true, 
-  "Description": "Event grid No Delete Listkeys role", 
-  "Actions": [     
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action" 
-  ], 
-  "NotActions": [ 
-    "Microsoft.EventGrid/*/delete" 
-  ], 
-  "AssignableScopes": [ 
-    "/subscriptions/<Subscription id>" 
-  ] 
+{
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-**EventGridContributorRole.json**: 모든 Event Grid 작업을 허용합니다.  
+**EventGridContributorRole.json**: 모든 Event Grid 작업을 허용합니다.
+
 ```json
-{ 
-  "Name": "Event grid contributor role", 
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514", 
-  "IsCustom": true, 
-  "Description": "Event grid contributor role", 
-  "Actions": [ 
-    "Microsoft.EventGrid/*/write", 
-    "Microsoft.EventGrid/*/delete", 
-    "Microsoft.EventGrid/topics/listkeys/action", 
-    "Microsoft.EventGrid/topics/regenerateKey/action", 
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
-  ], 
-  "NotActions": [], 
-  "AssignableScopes": [ 
-    "/subscriptions/d48566a8-2428-4a6c-8347-9675d09fb851" 
-  ] 
-} 
+{
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
+}
 ```
 
-#### <a name="install-and-login-to-azure-cli"></a>Azure CLI에 설치 및 로그인
-
-* Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../cli-install-nodejs.md)을 참조하세요.
-* Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 으로 이동합니다.
-
-#### <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
+#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Azure CLI로 사용자 지정 역할 만들기 및 할당
 
 사용자 지정 역할을 만들려면 다음을 사용합니다.
 
-    azure role create --inputfile <file path>
+```azurecli
+az role definition create --role-definition @<file path>
+```
 
-#### <a name="assign-the-role-to-a-user"></a>사용자에게 역할 할당
+사용자에게 역할을 할당하려면 다음을 사용합니다.
 
-
-    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
-
+```azurecli
+az role assignment create --assignee <user name> --role "<name of role>"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

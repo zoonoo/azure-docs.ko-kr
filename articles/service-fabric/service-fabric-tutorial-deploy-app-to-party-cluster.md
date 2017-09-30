@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 08/17/2017
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * 응용 프로그램을 원격 클러스터에 배포
 > * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
@@ -54,6 +55,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 평가판으로 제공됩니다.
 
 Party 클러스터에 대한 액세스 권한을 얻으려면 http://aka.ms/tryservicefabric 사이트로 이동하고 지침에 따라 클러스터에 대한 액세스 권한을 얻을 수 있습니다. Party 클러스터에 대한 액세스 권한을 얻으려면 Facebook 또는 GitHub 계정이 필요합니다.
+
+원하는 경우 Party 클러스터 대신 자체 클러스터를 사용할 수 있습니다.  ASP.NET Core 웹 프런트 엔드는 역방향 프록시를 사용하여 상태 저장 서비스 백 엔드와 통신합니다.  Party 클러스터 및 로컬 개발 클러스터에는 기본적으로 설정된 역방향 프록시가 있습니다.  투표 응용 프로그램 예제를 사용자 고유의 클러스터에 배포하는 경우 [클러스터에서 역방향 프록시를 사용하도록 설정](service-fabric-reverseproxy.md#setup-and-configuration)해야 합니다.
 
 > [!NOTE]
 > Party 클러스터는 보호되지 않으므로 응용 프로그램과 그 안에 있는 데이터는 다른 사람에게 표시될 수 있습니다. 다른 사람이 보기를 원하지 않는 항목은 배포하지 마세요. 모든 세부 사항은 사용 약관을 읽어 보아야 합니다.

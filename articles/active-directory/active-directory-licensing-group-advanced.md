@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 
 >[!TIP]
 > *사용자 라이선스 변경* 관련 항목을 클릭하면 개별 사용자에게 적용된 라이선스 변경에 대한 세부 정보가 표시됩니다.
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>할당된 라이선스가 있는 그룹 삭제
+
+활성 라이선스가 할당된 그룹은 삭제할 수 없습니다. 관리자는 사용자로부터 라이선스가 제거된다는 것을 인식하지 못하는 그룹을 삭제할 수도 있습니다. 이러한 이유로 그룹을 삭제하려면 먼저 그룹에서 라이선스를 제거해야 합니다.
+
+Azure Portal에서 그룹을 삭제하려고 하면 다음과 같은 오류 알림이 표시될 수 있습니다. ![그룹 삭제 실패 스크린샷](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+그룹의 **라이선스** 탭으로 이동하여 할당된 라이선스가 있는지 확인합니다. 그러한 경우 해당 라이선스를 제거하고 그룹을 다시 삭제합니다.
+
+PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷한 오류가 표시될 수 있습니다. 온-프레미스에서 동기화된 그룹을 사용하는 경우 Azure AD에서 그룹을 삭제하지 못하면 Azure AD Connect에서 오류를 보고할 수도 있습니다. 이러한 모든 경우에는 그룹에 할당된 라이선스가 있는지 확인한 다음 먼저 이러한 라이선스를 제거합니다.
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 

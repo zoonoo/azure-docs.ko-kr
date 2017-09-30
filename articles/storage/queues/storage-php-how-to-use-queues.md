@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12ebb905184e74da534cd44e8314335145f7042d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3900a023f03eb9ce22fdf71030291c7ab5f6f30b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 큐 저장소를 사용하는 방법
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP용 Windows SDK의 클래스를 통해 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 삽입, 보기, 가져오기 및 삭제와 큐 만들기 및 삭제가 포함됩니다.
+이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 [PHP용 Azure Storage Client Library][download]의 클래스를 통해 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 삽입, 보기, 가져오기 및 삭제와 큐 만들기 및 삭제가 포함됩니다.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
-Azure 큐 저장소에 액세스하는 PHP 응용 프로그램을 만들 때 충족해야 하는 유일한 요구 사항은 코드 내에서 PHP용 Azure SDK의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Azure Queue Storage에 액세스하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 큐 저장소 기능을 사용합니다.
+이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 큐 저장소 서비스 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -49,18 +49,13 @@ Azure 큐 저장소에 대한 API를 사용하려면 다음을 수행해야 합�
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [!NOTE]
-> 이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
-> 
-> 
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-아래 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
+다음 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
 Azure 큐 저장소 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. 큐 저장소 연결 문자열 형식은 다음과 같습니다.
@@ -80,17 +75,15 @@ UseDevelopmentStorage=true
 Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를 사용해야 합니다. 다음 기술 중 하나를 사용할 수 있습니다.
 
 * 연결 문자열을 직접 전달합니다.
-* **CCM(CloudConfigurationManager)** 을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
-  * 기본적으로 하나의 외부 소스, 환경 변수에 대한 지원이 제공됩니다.
-  * **ConnectionStringSource** 클래스를 확장하여 새 소스를 추가할 수 있습니다.
-
+* 웹앱의 환경 변수를 사용하여 연결 문자열을 저장합니다. 연결 문자열 구성에 관한 [Azure 웹앱 구성 설정](../../app-service-web/web-sites-configure.md) 문서를 참조하세요.
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 ```
 
@@ -100,9 +93,11 @@ $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connection
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -137,9 +132,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -165,9 +162,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -206,13 +205,15 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>큐에서 다음 메시지 제거
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages**를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로 이 메시지는 30초간 표시되지 않습니다. 이 기간 동안 메시지를 삭제하지 않으면 큐에서 해당 메시지가 다시 표시됩니다. 큐에서 메시지 제거를 완료하려면 **QueueRestProxy->deleteMessage**를 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **deleteMessage** 를 호출합니다.
+다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. 먼저 **QueueRestProxy->listMessages**를 호출하여 큐에서 읽어들이는 메시지가 다른 코드에 표시되지 않도록 합니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. (이 기간 동안 메시지를 삭제하지 않으면 큐에서 해당 메시지가 다시 표시됩니다.) 큐에서 메시지 제거를 완료하려면 **QueueRestProxy->deleteMessage**를 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **deleteMessage** 를 호출합니다.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -250,11 +251,13 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
 $listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -293,9 +296,11 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -341,8 +346,10 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -370,8 +377,10 @@ echo $approx_msg_count;
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -393,11 +402,12 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>다음 단계
 이제 Azure 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
-* [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
+* [Azure Storage PHP Client Library에 대한 API 참조](http://azure.github.io/azure-storage-php/)를 방문해 보세요.
+* [고급 큐 예제](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)를 참조하세요.
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

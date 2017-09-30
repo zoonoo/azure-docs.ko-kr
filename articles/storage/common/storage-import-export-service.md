@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 09/14/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5696c99b719fb1c5ca9c3da7dbf23d365cc64a2e
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: d96c2f565e6462716ccf702188bdac03dcde9dce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/16/2017
 
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송
-Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB(테라바이트)의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
+Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Storage로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Storage에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB(테라바이트)의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
 
 이 서비스를 사용하려면 데이터 보안을 위해 하드 디스크 드라이브를 BitLocker 암호화해야 합니다. 이 서비스는 공용 Azure의 모든 지역에 있는 클래식 및 Azure Resource Manager 저장소 계정(표준 및 쿨 계층)을 모두 지원합니다. 이 문서의 뒷부분에 지정된 지원되는 위치 중 한 곳에 하드 디스크 드라이브를 발송해야 합니다.
 
@@ -36,7 +36,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 * 클라우드로 데이터 마이그레이션: 많은 양의 데이터를 Azure로 신속하고 비용 효과적으로 이동합니다.
 * 콘텐츠 배포: 고객 사이트로 데이터를 신속하게 전송합니다.
 * 백업: 온-프레미스 데이터의 백업을 가져와 Azure Blob 저장소에 저장합니다.
-* 데이터 복구: Blob 저장소에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 배달합니다.
+* 데이터 복구: 저장소에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 배달합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 섹션에서는 이 서비스를 사용하는 데 필요한 필수 조건에 대해 설명합니다. 드라이브를 발송하기 전에 주의 깊게 검토하세요.
@@ -44,11 +44,11 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 ### <a name="storage-account"></a>저장소 계정
 Import/Export 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 저장소 계정이 있어야 합니다. 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
 
-### <a name="blob-types"></a>Blob 형식
-Azure Import/Export 서비스를 사용하여 데이터를 **블록** Blob 또는 **페이지** Blob으로 복사할 수 있습니다. 반대로 이 서비스를 사용하여 Azure 저장소에서 **블록** Blob, **페이지** Blob 또는 **추가** Blob을 내보내기만 할 수도 있습니다.
+### <a name="data-types"></a>데이터 형식
+Azure Import/Export 서비스를 사용하여 데이터를 **블록** Blob, **페이지** Blob 또는 **파일**로 복사할 수 있습니다. 반대로 이 서비스를 사용하여 Azure 저장소에서 **블록** Blob, **페이지** Blob 또는 **추가** Blob을 내보내기만 할 수도 있습니다. 서비스는 Azure 파일 내보내기를 지원하지 않으며 Azure Storage로 파일을 가져올 수만 있습니다.
 
 ### <a name="job"></a>작업
-Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 작업을 만듭니다. 작업은 가져오기 작업 또는 내보내기 작업이 될 수 있습니다.
+저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 작업을 만듭니다. 작업은 가져오기 작업 또는 내보내기 작업이 될 수 있습니다.
 
 * 온-프레미스에 있는 데이터를 Azure 저장소 계정의 Blob으로 전송하려면 가져오기 작업을 만듭니다.
 * 저장소 계정에 Blob으로 현재 저장되어 있는 데이터를 배송 받을 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다. 작업을 만들 때 하나 이상의 하드 드라이브를 Azure 데이터 센터로 배송할 것임을 Import/Export 서비스에 알립니다.
@@ -69,7 +69,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 최신 버전의 [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)를 다운로드합니다. WAImportExport 도구 사용에 대한 자세한 내용은 [WAImportExport 도구 사용](storage-import-export-tool-how-to.md)(영문)을 참조하세요.
 
 >[!NOTE]
->**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)을 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 또한 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
+>**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)를 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 또한 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
 
 >
 
@@ -154,7 +154,7 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같은 운송업체를 사용하�
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure Import/Export 서비스는 어떻게 작동하나요?
-Azure Import/Export 서비스를 통해 작업을 만들고 하드 디스크 드라이브를 Azure 데이터 센터에 발송함으로써 온-프레미스 사이트와 Azure Blob 저장소 간에 데이터를 전송할 수 있습니다. 발송하는 각 하드 디스크 드라이브는 단일 작업과 연결됩니다. 각 작업은 단일 저장소 계정과 연결됩니다. [필수 조건 섹션](#pre-requisites) 을 주의 깊게 검토하여 지원되는 Blob 형식, 디스크 형식, 위치 및 발송과 같은 이 서비스의 세부 사항에 대해 알아봅니다.
+Azure Import/Export 서비스를 통해 작업을 만들고 하드 디스크 드라이브를 Azure 데이터 센터에 발송함으로써 온-프레미스 사이트와 Azure Storage 간에 데이터를 전송할 수 있습니다. 발송하는 각 하드 디스크 드라이브는 단일 작업과 연결됩니다. 각 작업은 단일 저장소 계정과 연결됩니다. [필수 조건 섹션](#pre-requisites)을 주의 깊게 검토하여 지원되는 데이터 형식, 디스크 형식, 위치 및 발송과 같은 이 서비스의 세부 사항에 대해 알아봅니다.
 
 이 섹션에서는 가져오기 및 내보내기 작업에 관련된 단계를 개략적으로 설명합니다. [빠른 시작 섹션](#quick-start)의 뒷부분에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다.
 
@@ -162,7 +162,7 @@ Azure Import/Export 서비스를 통해 작업을 만들고 하드 디스크 드
 가져오기 작업은 개략적으로 다음 단계를 포함합니다.
 
 * 가져올 데이터와 필요한 드라이브 수를 결정합니다.
-* Blob 저장소에서 데이터의 대상 Blob 위치를 식별합니다.
+* Azure Storage에서 데이터의 대상 Blob 또는 파일 위치를 식별합니다.
 * WAImportExport 도구를 사용하여 데이터를 하나 이상의 하드 디스크 드라이브에 복사하고 BitLocker로 암호화합니다.
 * Azure Portal 또는 Import/Export REST API를 사용하여 대상 저장소 계정에 가져오기 작업을 만듭니다. Azure Portal을 사용하는 경우 드라이브 저널 파일을 업로드합니다.
 * 드라이브를 다시 배송하는 데 사용될 반송 주소 및 운송업체 계정 번호를 제공합니다.
@@ -174,6 +174,12 @@ Azure Import/Export 서비스를 통해 작업을 만들고 하드 디스크 드
     ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>내보내기 작업 내부
+> [!IMPORTANT]
+79 서비스는 Azure Blob 내보내기만 지원하며 Azure 파일 내보내기는 지원하지 않습니다.
+> 80
+> 
+81
+> 
 내보내기 작업은 개략적으로 다음 단계를 포함합니다.
 
 * 내보낼 데이터와 필요한 드라이브 수를 결정합니다.
@@ -247,7 +253,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 Blob 저장소로 데이터를 가져올 때는 트랜잭션 비용이 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="quick-start"></a>빠른 시작
-이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites) 를 충족하는지 확인하세요.
+이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites)를 충족하는지 확인하세요.
 
 > [!IMPORTANT]
 > 이 서비스는 가져오기 또는 내보내기 작업당 한 개의 표준 저장소 계정만 지원하며 프리미엄 저장소 계정을 지원하지 않습니다. 
@@ -267,15 +273,22 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
     
     **데이터 집합 CSV 파일**
     
-    다음은 샘플 데이터 집합 CSV 파일의 예제입니다.
+  다음은 Azure Blob으로 데이터를 가져오기 위한 샘플 데이터 집합 CSV 파일 예제입니다.
     
     ```
-    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
-   
-    위의 예제에서 100M_1.csv.txt는 "containername"이라는 컨테이너의 루트에 복사됩니다. "containername" 컨테이너 이름이 없으면 이름 하나를 만듭니다. 50M_original 아래의 모든 파일과 폴더가 containername에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
+  
+  다음은 Azure 파일로 데이터를 가져오기 위한 샘플 데이터 집합 CSV 파일 예제입니다.
+  
+    ```
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
+    ```
+   위의 예제에서 100M_1.csv.txt는 “containername” 또는 “fileshare”라는 컨테이너의 루트에 복사됩니다. “containername” 또는 “fileshare” 컨테이너 이름이 없으면 이름을 하나 만듭니다. 50M_original 아래의 모든 파일과 폴더가 containername 또는 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
 
     [데이터 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)에 대해 자세히 알아보세요.
     
@@ -375,7 +388,7 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
 ### <a name="prepare-your-drives"></a>드라이브 준비
 내보내기 작업을 위한 드라이브 준비를 위해 다음 사전 검사를 수행하는 것이 좋습니다.
 
-1. WAImportExport 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리볼 수 있습니다.
+1. WAImportExport 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리 볼 수 있습니다.
 2. 내보내기 작업에 대해 제공될 하드 드라이브에 읽거나/쓸 수 있는지 확인합니다.
 
 ### <a name="create-the-export-job"></a>내보내기 작업 만들기
@@ -431,7 +444,7 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
 
 **Azure Import/Export 서비스를 사용하여 Azure File Storage를 복사할 수 있나요?**
 
-아니요. Azure Import/Export 서비스는 블록 Blob 및 페이지 Blob만 지원합니다. Azure File Storage, Table Storage 및 Queue Storage를 포함한 다른 모든 저장소 유형은 지원되지 않습니다.
+예, Azure 가져오기/내보내기 서비스는 Azure File Storage로 가져오기를 지원합니다. 지금은 Azure 파일의 내보내기는 지원하지 않습니다.
 
 **Azure Import/Export 서비스를 CSP 구독에 사용할 수 있나요?**
 
@@ -443,7 +456,7 @@ Azure Import/Export 서비스는 CSP 구독을 지원합니다.
 
 **내보내기 작업을 만들 때 디스크를 준비해야 하나요?**
 
-아니요, 하지만 일부 사전 검사를 수행하는 것이 좋습니다. WAImportExport 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽거나/쓸 수 있는지 확인합니다.
+아니요, 하지만 일부 사전 검사를 수행하는 것이 좋습니다. WAImportExport 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리 볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에서 읽거나/쓸 수 있는지 확인합니다.
 
 **지원 요구 사항에 맞지 않는 HDD를 실수로 보내면 어떻게 됩니까?**
 

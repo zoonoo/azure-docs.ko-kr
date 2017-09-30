@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/15/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 7b1a5f7ea3b2bda438727dc75a85557ea7930280
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: eb83a681df1a1836dbf970c4de14937aaea6b2f5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
@@ -30,13 +30,15 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 
 > [!NOTE]
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
-> 
-> 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](./hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+
+    > [!WARNING]
+    > 2017년 9월 15일부터 HDInsight .NET SDK는 Azure Storage 계정의 Hive 쿼리 결과만 반환할 수 있습니다. Azure Data Lake Store를 주 저장소로 사용하는 HDInsight 클러스터에서 이 예제를 사용하면 .NET SDK를 사용하여 검색 결과를 검색할 수 없습니다.
+
 * **Visual Studio 2013/2015/2017**
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
@@ -69,7 +71,8 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
                 private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
-   
+                
+                // Only Azure Storage accounts are supported by the SDK
                 private const string DefaultStorageAccountName = "<Default Storage Account Name>";
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";

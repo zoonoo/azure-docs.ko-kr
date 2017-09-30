@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 83b9b2c7bb4134e1d9bdf857449bfb85884333d0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -22,7 +22,7 @@ Azure Event Grid의 주요 개념은 다음과 같습니다.
 
 ## <a name="events"></a>이벤트
 
-이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다.  모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다.  또한 모든 이벤트에는 특정 이벤트에만 관련된 특정 정보가 있습니다. 예를 들어 Azure Storage에서 만들어지는 새 파일에 대한 이벤트에는 lastTimeModified 값과 같이 파일에 대한 세부 정보가 포함되어 있습니다. 또는 가상 컴퓨터 다시 부팅에 대한 이벤트에는 가상 컴퓨터의 이름 및 다시 부팅에 대한 이유가 포함됩니다.
+이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다.  모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다.  또한 모든 이벤트에는 특정 이벤트에만 관련된 특정 정보가 있습니다. 예를 들어 Azure Storage에서 만들어지는 새 파일에 대한 이벤트에는 lastTimeModified 값과 같이 파일에 대한 세부 정보가 포함되어 있습니다. 또는 가상 컴퓨터 다시 부팅에 대한 이벤트에는 가상 컴퓨터의 이름 및 다시 부팅에 대한 이유가 포함됩니다. 각 이벤트는 64KB의 데이터로 제한됩니다.
 
 ## <a name="event-sourcespublishers"></a>이벤트 원본/게시자
 

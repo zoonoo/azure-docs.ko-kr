@@ -3,7 +3,7 @@ title: "Azure의 FreeBSD 소개 | Microsoft Docs"
 description: "Azure에서 FreeBSD 가상 컴퓨터를 사용하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-ms.author: kyliel
+ms.date: 09/13/2017
+ms.author: huishao
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ada9fddd7ffccc3dcbfe3eac05d99b710b67cbc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 79724bced613619406b693b4b352037e2c5ec9f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
@@ -32,6 +32,7 @@ Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이
 
 - FreeBSD 10.3 릴리스
 - FreeBSD 11.0 릴리스
+- FreeBSD 11.1 릴리스
 
 이 에이전트는 처음 사용 시 VM을 프로비전(사용자 이름, 암호 또는 SSH 키, 호스트 이름 등)하고 선택적 VM 확장 기능을 사용하도록 설정하는 것과 같은 작업을 위해 FreeBSD VM과 Azure 패브릭 간의 통신을 담당합니다.
 
@@ -42,6 +43,7 @@ FreeBSD 가상 컴퓨터 배포 작업은 Azure Portal에서 Azure Marketplace�
 
 - [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [Azure Marketplace의 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [Azure Marketplace의 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>FreeBSD에서 Azure CLI 2.0을 통해 FreeBSD VM 만들기
 먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 설치해야 합니다.

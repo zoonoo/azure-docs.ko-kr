@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e05d24655149dc03cfd435fbc07539d91f2e1502
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -71,8 +71,10 @@ az group create --name myResourceGroup --location westeurope
 [az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *myK8sCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
+
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다. 
 

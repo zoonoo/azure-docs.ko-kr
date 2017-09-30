@@ -1,6 +1,6 @@
 ---
-title: "컨테이너용 Azure Web Apps에서 .NET Core 및 SQL Database 웹앱 작성 | Microsoft Docs"
-description: "SQL Database에 연결하여 컨테이너용 Azure Web Apps에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다."
+title: "컨테이너용 Azure Web App에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs"
+description: "SQL Database에 연결하여 컨테이너용 Azure Web App에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,17 +16,17 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7683856e5ad7bf19b38d51f019e4eef106f1800c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>컨테이너용 Azure Web Apps에서 .NET Core 및 SQL Database 웹앱 작성
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 .NET Core 및 SQL Database 웹앱 빌드
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 웹앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 작업이 완료되면 .NET Core MVC 앱이 컨테이너용 Web Apps에서 실행됩니다. 
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 웹앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 작업이 완료되면 .NET Core MVC 앱이 컨테이너용 Web App에서 실행됩니다. 
 
-![컨테이너용 Web Apps에서 실행되는 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![컨테이너용 Web App에서 실행되는 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 다음 방법에 대해 알아봅니다.
 
@@ -74,7 +74,7 @@ dotnet ef database update
 dotnet run
 ```
 
-브라우저에서 http://localhost:5000으로 이동합니다. **새로 만들기** 링크를 선택하고 두 개의 _할 일_ 항목을 만듭니다.
+브라우저에서 `http://localhost:5000`으로 이동합니다. **새로 만들기** 링크를 선택하고 두 개의 _할 일_ 항목을 만듭니다.
 
 ![SQL Database 연결에 성공](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -151,7 +151,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 컨테이너용 Web Apps에 배포할 수 있습니다.
+이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 컨테이너용 Web App에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성 
 
@@ -205,7 +205,7 @@ else
 services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
 ```
 
-이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다. 
+이 코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다. 
 
 Azure에서 실행되는 경우 `Database.Migration()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다. 
 
@@ -251,9 +251,9 @@ http://<app_name>.azurewebsites.net
 
 몇 가지 할 일 항목을 추가합니다.
 
-![컨테이너용 Web Apps에서 실행되는 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![컨테이너용 Web App에서 실행되는 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**축하합니다.** 컨테이너용 Web Apps에서 데이터 기반 .NET Core 앱을 실행하고 있습니다.
+**축하합니다.** 컨테이너용 Web App에서 데이터 기반 .NET Core 앱을 실행 중입니다.
 
 ## <a name="update-locally-and-redeploy"></a>로컬로 업데이트 및 다시 배포
 
@@ -335,7 +335,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 dotnet run
 ```
 
-브라우저에서 http://local:5000/으로 이동합니다. 이제 할 일 항목을 추가하고 **완료**를 확인할 수 있습니다. 그러면 홈페이지에 완료된 항목으로 표시됩니다. `Edit` 보기를 변경하지 않았으므로 `Edit` 보기에서 `Done` 필드가 표시되지 않습니다.
+브라우저에서 `http://localhost:5000/`로 이동합니다. 이제 할 일 항목을 추가하고 **완료**를 확인할 수 있습니다. 그러면 홈페이지에 완료된 항목으로 표시됩니다. `Edit` 보기를 변경하지 않았으므로 `Edit` 보기에서 `Done` 필드가 표시되지 않습니다.
 
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
@@ -381,5 +381,5 @@ git push azure master
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"] 
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
 

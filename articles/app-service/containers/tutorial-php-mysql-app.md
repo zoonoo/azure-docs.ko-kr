@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: c6981b8059f11afbce0492aac5acdf06b3ca4858
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure에서 PHP 및 MySQL 웹앱 빌드
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 [Laravel](https://laravel.com/) 앱이 컨테이너용 Web Apps에서 실행됩니다.
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 [Laravel](https://laravel.com/) 앱이 컨테이너용 Web App에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 PHP 앱](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -612,5 +612,5 @@ git push azure master
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
 

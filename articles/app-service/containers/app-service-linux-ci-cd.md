@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 69eb021014c2ae04fc71a03cd27c0e113a2b062b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Azure Web App for Containers를 사용한 연속 배포
@@ -86,11 +86,11 @@ Docker 허브 페이지에서 **웹후크**를 클릭한 후 **웹후크 만들�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Web Apps for Containers란?](./app-service-linux-intro.md)
+* [Azure Web App for Containers란?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Azure Web Apps for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
-* [Azure Web Apps for Containers에서 Ruby 사용](quickstart-ruby.md)
-* [Azure Web Apps for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
-* [Azure App Service Web Apps for Containers 관련 FAQ](./app-service-linux-faq.md) 
-* [Azure CLI 2.0을 사용하여 Web Apps for Containers 관리](./app-service-linux-cli.md)
+* [Azure Web App for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
+* [Azure Web App for Containers에서 Ruby 사용](quickstart-ruby.md)
+* [Containers용 Azure Web App에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Containers용 Azure App Service Web App 관련 FAQ](./app-service-linux-faq.md) 
+* [Azure CLI 2.0을 사용하여 Web App for Containers 관리](./app-service-linux-cli.md)
 

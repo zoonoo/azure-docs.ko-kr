@@ -1,6 +1,6 @@
 ---
-title: "Azure Web Apps for Containers에 대한 사용자 지정 Docker Hub 실행 | Microsoft Docs"
-description: "Azure Web Apps for Containers에 사용자 지정 Docker 이미지를 사용하는 방법"
+title: "컨테이너용 Azure Web App에 대한 사용자 지정 Docker Hub 이미지 실행 | Microsoft Docs"
+description: "Containers용 Azure Web Apps에 사용자 지정 Docker 이미지를 사용하는 방법"
 keywords: "azure app service, 웹앱, linux, docker, 컨테이너"
 services: app-service
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/05/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 47eec572272eb22cd6cd881874d7ecb87d7e08ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="run-a-custom-docker-hub-image-in-azure-web-apps-for-containers"></a>Azure Web Apps for Containers에 대한 사용자 지정 Docker Hub 실행  #
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 사용자 지정 Docker Hub 이미지 실행 #
 
 App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 배포할 수도 있습니다. 이 요약에서는 웹앱을 만들어 Python 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
 
@@ -37,7 +38,7 @@ App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원�
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service-web/app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
+[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
@@ -72,7 +73,7 @@ http://<app_name>.azurewebsites.net
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**축하합니다.** Azure Web Apps for Containers에 사용자 지정 Docker 이미지를 배포합니다.
+**축하합니다.** 컨테이너용 Azure Web App에 사용자 지정 Docker 이미지를 배포하였습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

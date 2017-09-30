@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 조인 장치 설정 | Microsoft Docs"
-description: "Azure Active Directory 조인 장치를 설정하는 방법에 대해 알아봅니다."
+title: "Azure Active Directory 연결 장치 설정 | Microsoft Docs"
+description: "Azure Active Directory 연결 장치를 설정하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -16,49 +16,37 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 조인 장치 설정
+# <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 연결 장치 설정
 
-Azure AD(Active Directory)의 장치 관리를 통해 사용자가 보안 및 규정 준수 표준을 충족하는 장치의 리소스에 액세스할 수 있도록 합니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
+Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
-[Azure AD 조인 장치](device-management-introduction.md#azure-ad-joined-devices)를 사용하여 Azure AD의 제어를 받는 조직에서 소유하는 Windows 10 장치를 가져올 수 있습니다. 이러한 장치는 이미 [온-프레미스 AD에 조인](device-management-introduction.md#hybrid-azure-ad-joined-devices)되지 않아야 합니다.
+회사 소유 Windows 10 장치가 Azure AD에서 제어되도록 하려면 Azure AD 조인 장치를 구성합니다. 이 항목에서는 관련 단계를 제공합니다. 
 
-이 항목에서는 Azure AD에 Windows 10 장치를 등록하는 방법에 대한 지침을 제공합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
-
-- Azure AD에 장치를 조인할 권한이 있습니다.
-
-    ![연결됨](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- 아직 사용자당 장치의 최대 수를 초과하지 않았습니다. 
-
-    ![연결됨](./media/device-management-azuread-joined-devices-setup/22.png)
-
-
-자세한 내용은 [장치 설정 구성](device-management-azure-portal.md#configure-device-settings)을 참조하세요.
+Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 장치를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 장치 최대 수보다 적은 수의 장치를 등록해야 합니다. 자세한 내용은 [장치 설정 구성](device-management-azure-portal.md#configure-device-settings)을 참조하세요.
 
 
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
 
-- Windows에서는 Azure AD에 있는 조직의 디렉터리에 장치를 등록합니다.
+- Windows에서는 Azure AD에서 조직의 디렉터리에 장치를 조인합니다.
 
-- Multi-Factor Authentication 챌린지를 통과해야 할 수 있습니다. IT 관리자는 이러한 챌린지를 설정할 수 있습니다.
+- Multi-Factor Authentication 챌린지를 통과해야 할 수 있습니다. 이 챌린지는 IT 관리자가 구성할 수 있습니다.
 
-- Azure AD는 장치에 모바일 장치 관리 등록이 필요한지 여부를 확인합니다. 해당하는 경우 장치를 등록합니다.
+- Azure AD에서 장치를 모바일 장치 관리에 등록해야 하는지 여부를 확인하고 해당되는 경우 등록합니다.
 
-- Windows에서는 자동 로그인 프로세스를 통해 관리되는 사용자를 데스크톱으로 리디렉션합니다.
+- 관리되는 사용자인 경우 Windows에 자동 로그인되어 바탕 화면이 표시됩니다.
 
-- 페더레이션된 사용자는 Windows 로그인 페이지로 리디렉션되어 자격 증명을 입력해야 합니다.
+- 페더레이션 사용자인 경우 자격 증명을 사용하여 로그인해야 합니다.
 
 
 ## <a name="joining-a-device"></a>장치 조인
@@ -135,9 +123,8 @@ Azure AD 포털에서 장치 설정을 검토할 수도 있습니다.
 자세한 내용은 다음을 참조하세요. 
 
 - [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)
-
 - [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)
-
+- 
 
 
 

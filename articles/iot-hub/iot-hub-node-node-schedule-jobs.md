@@ -206,12 +206,15 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
+   
    
     var twinJobId = uuid.v4();
    

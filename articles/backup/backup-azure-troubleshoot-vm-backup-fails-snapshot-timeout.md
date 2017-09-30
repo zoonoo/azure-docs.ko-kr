@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -70,8 +70,11 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>지정된 디스크 구성은 지원되지 않습니다.
 
-현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. 디스크를 분할하여 디스크 크기가 제한보다 작도록 합니다. 디스크를 분할하려면 1023GB보다 큰 크기의 디스크에서 1023GB보다 작은 새로 만든 디스크로 데이터를 복사해야 합니다.
-
+현재 Azure Backup은 [1,023GB보다 큰](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 디스크 크기를 지원하지 않습니다. 
+- 1TB보다 큰 디스크가 있는 경우 [1TB 미만의 새 디스크를 연결합니다](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal). <br>
+- 그런 다음 1TB보다 큰 디스크의 데이터를 새로 만든 1TB 미만의 디스크에 복사합니다. <br>
+- 모든 데이터가 복사되었는지 확인하고 1TB보다 큰 디스크를 제거합니다.
+- 백업을 시작합니다.
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
@@ -169,7 +172,7 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 
 확장을 제거하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 2. 백업 문제가 있는 VM을 찾습니다.
 3. **설정**을 클릭합니다.
 4. **확장**을 클릭합니다.

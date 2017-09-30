@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서 PHP 웹앱 만들기 
 
-[Web Apps for Containers](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps for Containers에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 PHP 코드를 배포합니다.
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 PHP 앱을 컨테이너용 Azure Web App에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 PHP 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ PHP 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `p
 php -S localhost:8080
 ```
 
-웹 브라우저를 열고 http://localhost:8080에서 샘플 앱으로 이동합니다.
+웹 브라우저를 열고 `http://localhost:8080`의 샘플 앱으로 이동합니다.
 
 이 페이지에 표시된 샘플 앱의 **Hello World!** 메시지가 표시됩니다.
 

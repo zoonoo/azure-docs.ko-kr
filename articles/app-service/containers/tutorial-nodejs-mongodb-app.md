@@ -1,6 +1,6 @@
 ---
-title: "컨테이너용 Azure Web Apps에서 Node.js 및 MongoDB 웹앱 작성 | Microsoft Docs"
-description: "컨테이너용 Azure Web Apps에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다."
+title: "컨테이너용 Azure Web App에서 Node.js 및 MongoDB 웹앱 빌드 | Microsoft Docs"
+description: "컨테이너용 Azure Web App에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 앱을 만드는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1203a77ebc117c646f587f0d64466364f0e47751
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>컨테이너용 Azure Web Apps에서 Node.js 및 MongoDB 웹앱 작성
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 Node.js 및 MongoDB 웹앱 빌드
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 높은 자동 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 웹앱을 만들고 MongoDB 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 컨테이너용 Web Apps에서 실행됩니다. 간편하게 하기 위해 샘플 응용 프로그램은 [MEAN.js 웹 프레임워크](http://meanjs.org/)를 사용합니다.
+[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 웹앱을 만들고 MongoDB 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 컨테이너용 Web App에서 실행됩니다. 간편하게 하기 위해 샘플 응용 프로그램은 [MEAN.js 웹 프레임워크](http://meanjs.org/)를 사용합니다.
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-브라우저에서 http://localhost:3000 으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 
+브라우저에서 `http://localhost:3000`으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 
 
 MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를 저장합니다. 사용자 만들기와 로그인에 성공하면 앱에서 로컬 MongoDB 데이터베이스에 데이터를 쓰고 있습니다.
 
@@ -228,7 +228,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-브라우저에서 http://localhost:8443 으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 사용자 만들기와 로그인에 성공하면 앱에서 Azure의 Cosmos DB 데이터베이스에 데이터를 쓰고 있습니다. 
+브라우저에서 `http://localhost:8443`으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 사용자 만들기와 로그인에 성공하면 앱에서 Azure의 Cosmos DB 데이터베이스에 데이터를 쓰고 있습니다. 
 
 터미널에서 `Ctrl+C`를 입력하여 Node.js를 중지합니다. 
 
@@ -479,5 +479,5 @@ git push azure master
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"] 
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
 

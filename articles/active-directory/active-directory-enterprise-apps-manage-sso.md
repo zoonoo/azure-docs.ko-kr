@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
@@ -40,7 +40,7 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 ## <a name="single-sign-on-modes"></a>Single Sign-On 모드
 **Single Sign-On**은 Single Sign-On 모드를 구성할 수 있는 **모드** 메뉴로 시작합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-* **SAML 기반 로그온** - 이 옵션은 응용 프로그램이 SAML 2.0 프로토콜을 사용하여 Azure Active Directory로 전체 페더레이션된 Single Sign-On을 지원하는 경우 사용할 수 있습니다.
+* **SAML 기반 로그온** - 응용 프로그램에서 SAML 2.0 프로토콜, WS-Federation 또는 OpenID 연결 프로토콜을 사용하여 Azure Active Directory로 전체 페더레이션된 Single Sign-On을 지원하는 경우에 사용할 수 있습니다.
 * **암호 기반 로그온** - 이 옵션은 Azure AD가 이 응용 프로그램에 대해 입력하는 암호 양식을 지원하는 경우 사용할 수 있습니다.
 * **연결된 로그온** - 이전에 “기존 Single Sign-On”이었던 이 옵션을 사용하면 관리자가 해당 사용자의 Azure AD 액세스 패널 또는 Office 365 응용 프로그램 시작 관리자에서 이 응용 프로그램에 대한 링크를 배치할 수 있습니다.
 
