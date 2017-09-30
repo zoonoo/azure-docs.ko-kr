@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2017
+ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 80c5a2a43302e1cc8ec3b4298eb393a1861252d3
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 보안 클러스터 만들기
-이 자습서에서는 Azure에서 실행되는 Service Fabric 클러스터(Windows 또는 Linux)를 만드는 방법을 보여 줍니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.
+# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 Windows 클러스터 만들기
+이 자습서에서는 Azure에서 실행되는 Windows Service Fabric 클러스터를 만드는 방법을 보여 줍니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
-- Azure 구독이 없는 경우 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 - [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치합니다.
 
@@ -46,7 +46,7 @@ Azure에서 Service Fabric 클러스터를 실행할 때 발생하는 비용을 
 Service Fabric 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 
 ## <a name="create-the-cluster-using-azure-powershell"></a>Azure PowerShell을 사용하여 클러스터 만들기
-1. [Service Fabric용 Azure Resource Manager 템플릿](https://aka.ms/securepreviewonelineclustertemplate) GitHub 리포지토리에서 Azure Resource Manager 템플릿 및 매개 변수 파일의 로컬 복사본을 다운로드합니다.  *azuredeploy.json*은 Service Fabric 클러스터를 정의하는 Azure Resource Manager 템플릿입니다. *azuredeploy.parameters.json*은 클러스터 배포를 사용자 지정하는 데 사용할 매개 변수 파일입니다.
+1. [Service Fabric용 Azure Resource Manager 템플릿](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) GitHub 리포지토리에서 Azure Resource Manager 템플릿 및 매개 변수 파일의 로컬 복사본을 다운로드합니다.  *azuredeploy.json*은 Service Fabric 클러스터를 정의하는 Azure Resource Manager 템플릿입니다. *azuredeploy.parameters.json*은 클러스터 배포를 사용자 지정하는 데 사용할 매개 변수 파일입니다.
 
 2. *azuredeploy.parameters.json* 매개 변수 파일에서 다음 매개 변수를 사용자 지정합니다.
 
@@ -56,7 +56,7 @@ Service Fabric 클러스터를 만드는 방법에 대한 자세한 내용은 [A
    | clusterName     | 만들려는 클러스터의 이름입니다. | *예: bobs-sfpreviewcluster* |
    | adminUserName   | 클러스터 가상 컴퓨터의 로컬 관리자 계정입니다. | *모든 유효한 Windows Server 사용자 이름* |
    | adminPassword   | 클러스터 가상 컴퓨터의 로컬 관리자 계정 암호입니다. | *모든 유효한 Windows Server 암호* |
-   | clusterCodeVersion | 실행할 Service Fabric 버전입니다. (미리 보기 버전은 255.255.X.255) | **255.255.5718.255** |
+   | clusterCodeVersion | 실행할 Service Fabric 버전입니다. (미리 보기 버전은 255.255.X.255) | **5.7.198.9494** |
    | vmInstanceCount | 클러스터의 가상 컴퓨터 수(1 또는 3-99일 수 있음)입니다. | **1** | *미리 보기 클러스터에 하나의 가상 컴퓨터를 지정합니다.* |
 
 3. PowerShell 콘솔을 열고 Azure에 로그인한 다음 클러스터를 배포할 구독을 선택합니다.
