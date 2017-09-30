@@ -5,7 +5,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-이 단추는 이 항목의 모든 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
+이 단추는 이 항목의 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
 
 [![포털에서 Cloud Shell 창을 보여 주는 스크린샷](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
