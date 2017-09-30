@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 266458323ca54d9805aea12108faed79e69d30b0
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 8b599c3e0e7d4fa3ae5bdb156191bff0553249ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 관리 서비스 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure Windows VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
+이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,15 +44,17 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
 
 어떤 경로를 사용하든 초기 배포와 재배포 중에 템플릿 구문이 동일하므로 새 VM이나 기존 VM에서 동일한 방식으로 MSI를 사용하도록 설정할 수 있습니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 수행합니다.
 
-1. 템플릿을 편집기에 로드한 후 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 이 스크린샷과 약간 다를 수 있습니다.
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
+
+2. 템플릿을 편집기에 로드한 후 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 이 스크린샷과 약간 다를 수 있습니다.
 
    >[!NOTE] 
-   > 또한 2단계에서는 템플릿에 `vmName`, `storageAccountName`, `nicName` 변수가 정의되어 있다고 가정합니다.
+   > 이 예제에서는 `vmName`, `storageAccountName`, `nicName` 등을 템플릿에 정의한 것으로 가정합니다.
    >
 
    ![템플릿 편집 이전 스크린샷 - VM 찾기](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-2. 다음 구문을 사용하여 `"type": "Microsoft.Compute/virtualMachines"` 속성과 같은 수준에 `"identity"` 속성을 추가합니다.
+3. 다음 구문을 사용하여 `"type": "Microsoft.Compute/virtualMachines"` 속성과 같은 수준에 `"identity"` 속성을 추가합니다.
 
    ```JSON
    "identity": { 
@@ -60,10 +62,10 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
    },
    ```
 
-3. 그런 후에 다음 구문을 사용하여 VM MSI 확장을 `resources` 요소로 추가합니다.
+4. 그런 후에 다음 구문을 사용하여 VM MSI 확장을 `resources` 요소로 추가합니다.
 
    >[!NOTE] 
-   > 다음 예제에서는 Windows VM 확장(`ManagedIdentityExtensionForWindows`)을 배포한다고 가정합니다. 대신 `ManagedIdentityExtensionForLinux`를 사용하여 Linux용 구문을 구성할 수도 있습니다.
+   > 다음 예제에서는 Windows VM 확장(`ManagedIdentityExtensionForWindows`)을 배포한다고 가정합니다. 또한 `"name"` 및 `"type"` 요소에 `ManagedIdentityExtensionForLinux`를 대신 사용하여 Linux에 대해 구성할 수도 있습니다.
    >
 
    ```JSON
@@ -88,13 +90,17 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
    }
    ```
 
-4. 작업을 완료하면 템플릿은 다음 예제와 같이 표시됩니다.
+5. 작업을 완료하면 템플릿은 다음 예제와 같이 표시됩니다.
 
    ![템플릿 편집 이후 스크린샷](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Azure VM에서 MSI 제거
 
-MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 이전 예제에서 추가한 두 요소, 즉 VM의 `"identity"` 속성과 `"Microsoft.Compute/virtualMachines/extensions"` 리소스를 제거합니다.
+MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
+
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
+
+2. 앞 섹션에서 추가한 두 요소 VM의 `"identity"` 속성 및 `"Microsoft.Compute/virtualMachines/extensions"` 리소스를 제거합니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
 

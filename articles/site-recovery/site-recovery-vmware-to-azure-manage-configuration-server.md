@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 구성 서버는 Site Recovery 서비스와 온-프레미스 인프라 간의 코디네이터로 작동합니다. 이 문서에서는 구성 서버를 설정, 구성 및 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
-다음은 구성 서버를 설정하는 데 필요한 최소 하드웨어, 소프트웨어 및 네트워크 구성입니다.
-
 > [!NOTE]
 > [용량 계획](site-recovery-capacity-planner.md)은 로드 요구 사항에 맞는 구성으로 구성 서버를 배포하는지 확인하는 중요한 단계입니다. [구성 서버에 대한 크기 조정 요구 사항](#sizing-requirements-for-a-configuration-server)에 대해 자세히 읽어보세요.
+
+
+## <a name="prerequisites"></a>필수 조건
+다음은 구성 서버를 설정하는 데 필요한 최소 하드웨어, 소프트웨어 및 네트워크 구성입니다.
+> [!IMPORTANT]
+> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **항상 사용 가능한(HA)** 가상 컴퓨터로 배포하는 것이 좋습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>구성 서버 소프트웨어 다운로드
+
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
 2. **Site Recovery 인프라** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래)로 이동합니다.
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. 구성 서버에 로그인합니다.
 2. 관리자 명령 프롬프트에서 명령을 실행합니다.
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
 4. **자격 증명 모음 등록** 탭을 클릭합니다.
 5. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>구성 서버 업데이트
+
+> [!WARNING]
+> 업데이트는 N-4 대 버전까지만 지원됩니다. 예를 들어 시장의 최신 버전이 9.11인 경우 버전 9.10, 9.9, 9.8 또는 9.7을 9.11로 직접 업데이트할 수 있습니다. 그러나 9.6 이하 버전의 경우 최소 9.7로 먼저 업데이트해야 구성 서버에 최신 버전을 적용할 수 있습니다. 이전 버전의 다운로드 링크는 [Azure Site Recovery 서비스 업데이트](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) 아래에서 찾을 수 있습니다.
+
+1. 업데이트 설치 관리자를 구성 서버에 다운로드합니다.
+2. 설치 관리자를 두 번 클릭하여 설치 관리자를 시작합니다.
+3. 설치 관리자가 컴퓨터에 존재하는 Site Recovery 구성 요소의 버전을 검색하고 확인 메시지를 표시합니다. 
+4. 확인 단추를 클릭하여 확인하 업그레이드를 계속합니다.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>구성 서버 서비스 해제
 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.

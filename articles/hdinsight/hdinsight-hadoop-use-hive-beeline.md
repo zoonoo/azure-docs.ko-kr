@@ -15,32 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: db5dff01c0459db746eace0c9a4535aeccd4dcfa
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: eb67f33eb29bdfdbc5589561be481460510b07ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive와 함께 Beeline 클라이언트 사용
 
 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell)을 사용하여 HDInsight에서 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
-Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 표에서는 Beeline과 함께 사용할 연결 문자열을 제공합니다.
+Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
-| Beeline을 실행하는 위치 | 매개 변수 |
-| --- | --- | --- |
-| 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
-| 클러스터 외부 | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
+* __헤드 노드 또는 에지 노드에 대한 SSH 연결에서 Beeline 사용__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Azure Virtual Network를 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __공용 인터넷을 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다.
 >
 > `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 >
-> `clustername`을 HDInsight 클러스터 이름으로 바꿉니다.
+> `clustername` 을 HDInsight 클러스터 이름으로 바꿉니다.
+>
+> 가상 네트워크를 통해 클러스터에 연결할 때 `<headnode-FQDN>`을 클러스터 헤드 노드의 정규화된 도메인 이름으로 바꿉니다.
 
 ## <a id="prereq"></a>필수 조건
 
@@ -55,20 +56,25 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 ## <a id="beeline"></a>Beeline 사용
 
-1. Beeline을 시작할 때 HDInsight 클러스터에서 HiveServer2에 대한 연결 문자열을 제공해야 합니다. 클러스터 외부에서 명령을 실행하려면 클러스터 로그인 계정 이름 (기본값: `admin`)과 암호도 제공해야 합니다. 다음 테이블을 사용하여 연결 문자열 형식 및 사용할 매개 변수를 찾습니다.
+1. Beeline을 시작할 때 HDInsight 클러스터에서 HiveServer2에 대한 연결 문자열을 제공해야 합니다.
 
-    | Beeline을 실행하는 위치 | 매개 변수 |
-    | --- | --- | --- |
-    | 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
-    | 클러스터 외부 | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
+    * 공용 인터넷을 통해 연결할 때 클러스터 로그인 계정 이름(기본 `admin`) 및 암호를 제공해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
 
-    예를 들어 다음 명령은 SSH 세션에서 클러스터까지 Beeline을 시작하는 데 사용할 수 있습니다.
+        ```bash
+        beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+        ```
 
-    ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-    ```
+    * SSH 세션에서 클러스터 헤드 노드에 연결할 때 포트 `10001`에서 `headnodehost` 주소에 연결할 수 있습니다.
 
-    이 명령은 Beeline 클라이언트를 시작하고 클러스터 헤드 노드의 HiveServer2에 연결합니다. 명령이 완료되면 `jdbc:hive2://headnodehost:10001/>` 프롬프트가 표시됩니다.
+        ```bash
+        beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+        ```
+
+    * Azure Virtual Network를 통해 연결할 때 클러스터 헤드 노드의 FQDN(정규화된 도메인 이름)을 제공해야 합니다. 이 연결은 클러스터 노드로 직접 설정되므로 연결은 포트 `10001`을 사용합니다.
+
+        ```bash
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
 
 2. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
 
@@ -218,7 +224,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 ## <a id="remote"></a>Beeline을 원격으로 사용
 
-Beeline을 로컬로 설치했거나 [sutoiku/beeline](https://hub.docker.com/r/sutoiku/beeline/)과 같은 Docker 이미지를 통해 Beeline을 사용하는 경우 다음 매개 변수를 사용해야 합니다.
+Beeline을 로컬로 설치했고 공용 인터넷을 통해 연결하는 경우 다음 매개 변수를 사용합니다.
 
 * __연결 문자열__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
@@ -229,6 +235,12 @@ Beeline을 로컬로 설치했거나 [sutoiku/beeline](https://hub.docker.com/r/
 연결 문자열의 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다.
 
 `admin`을 클러스터 로그인 이름으로 바꾸고, `password`를 클러스터 로그인 암호로 바꿉니다.
+
+Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 경우 다음 매개 변수를 사용합니다.
+
+* __연결 문자열__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+
+헤드 노드의 정규화된 도메인 이름을 찾으려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
 
 ## <a id="sparksql"></a>Spark와 함께 Beeline 사용
 

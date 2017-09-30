@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -34,9 +34,6 @@ Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미
 * 가상 네트워크의 HDInsight에서 제공하는 포트.
 
 ## <a name="create-the-virtual-network-configuration"></a>가상 네트워크 구성 만들기
-
-> [!IMPORTANT]
-> Azure Virtual Network를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 단계별 지침을 찾으려면 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
 
 다음 문서를 사용하여 온-프레미스 네트워크에 연결된 Azure Virtual Network를 만드는 방법을 알아봅니다.
     
@@ -74,7 +71,10 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 [Bind](https://www.isc.org/downloads/bind/) DNS 소프트웨어를 사용하는 Linux VM을 만들려면 다음 단계를 사용합니다.
 
 > [!NOTE]
-> 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Virtual Machine을 만듭니다. 가상 컴퓨터를 만드는 다른 방법은 [VM 만들기 - Azure CLI](../virtual-machines/linux/quick-create-cli.md) 및 [VM 만들기 - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) 문서를 참조하세요.
+> 다음 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Virtual Machine을 만듭니다. 가상 컴퓨터를 만드는 다른 방법은 다음 문서를 참조하세요.
+>
+> * [VM 만들기 - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [VM 만들기 - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. [Azure Portal](https://portal.azure.com)에서 __+__, __계산__ 및 __Ubuntu Server 16.04 LTS__를 선택합니다.
 
@@ -283,7 +283,7 @@ NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)를 사용하
 >    * __NSG__: __인터넷__에서 __443__ 포트에 대한 __인바운드__ 트래픽을 허용합니다.
 >    * __UDR__: 경로의 __다음 홉__ 유형을 __인터넷__으로 설정합니다.
 
-Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Networks에서 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
+Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Network에서 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
 
 ## <a name="create-the-hdinsight-cluster"></a>HDInsight 클러스터 만들기
 
@@ -300,6 +300,8 @@ Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Az
 ## <a name="connecting-to-hdinsight"></a>HDInsight에 연결
 
 HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 https://CLUSTERNAME.azurehdinsight.net에서 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서 액세스를 제한하는 데 NSG 또는 UDR을 사용한 경우에는 사용할 수 없는 공용 게이트웨이를 사용합니다.
+
+일부 설명서는 SSH 세션에서 클러스터에 연결하는 경우 `headnodehost`도 참조합니다. 이 주소는 클러스터 내의 노드에서만 제공되며 가상 네트워크를 통해 연결된 클라이언트에서 사용할 수 없습니다.
 
 가상 네트워크를 통해 HDInsight에 직접 연결하려면 다음 단계를 사용합니다.
 
@@ -334,7 +336,7 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Networks를 사용하여 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+* 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](./hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 

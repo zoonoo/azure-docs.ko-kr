@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 관리 서비스 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 Azure Portal을 사용하여 Azure Windows VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
+이 문서에서는 Azure Portal을 사용하여 Azure VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,13 +35,18 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Azure VM 생성 중에 MSI를 사용하도록 설정
 
-이 문서 작성 당시에는 Azure Portal에서 VM을 생성하는 중에 MSI를 사용하도록 설정할 수 없었습니다. 대신 [Azure Portal을 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 빠른 시작에서 VM 생성에 대한 세부 정보를 참조하세요. 그런 후에 다음 섹션으로 진행하여 MSI를 사용하도록 설정하는 방법을 자세히 확인하세요.
+이 문서 작성 당시에는 Azure Portal에서 VM을 생성하는 중에 MSI를 사용하도록 설정할 수 없었습니다. 대신에 VM을 처음 만들려면 다음 VM 만들기 퀵 스타트 문서 중 하나를 참조하세요.
+
+- [Azure Portal을 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Azure Portal을 사용하여 Linux 가상 컴퓨터 만들기](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+그런 후에 다음 섹션으로 진행하여 VM에서 MSI를 사용하도록 설정하는 방법을 자세히 확인하세요.
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>기존 Azure VM에서 MSI를 사용하도록 설정
 
 원래 MSI 없이 프로비전된 VM이 있는 경우 다음을 수행합니다.
 
-1. VM을 배포할 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
 
 2. 원하는 가상 컴퓨터로 이동합니다.
 
@@ -53,7 +58,7 @@ ms.lasthandoff: 09/14/2017
 
 MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
 
-1. VM을 배포할 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
 
 2. 원하는 가상 컴퓨터로 이동합니다.
 
@@ -64,7 +69,6 @@ MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음�
 ## <a name="related-content"></a>관련 콘텐츠
 
 - MSI의 개요는 [관리 서비스 ID 개요](msi-overview.md)를 참조하세요.
-- 이 문서는 [Azure Portal을 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-portal.md) 빠른 시작에서 조정되어 MSI 관련 지침을 포함하도록 수정된 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

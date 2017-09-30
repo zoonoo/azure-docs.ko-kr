@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
@@ -138,6 +138,9 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
   </Certificates>
 </ApplicationManifest>
 ```
+
+Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
+
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 끝점 재정의
 

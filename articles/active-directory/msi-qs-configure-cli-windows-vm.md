@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 관리 서비스 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 Azure CLI를 사용하여 Azure Windows VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
+이 문서에서는 Azure CLI를 사용하여 Azure VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,7 +43,7 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Azure VM 생성 중에 MSI를 사용하도록 설정
 
-MSI가 사용하도록 설정된 새 Windows 가상 컴퓨터 리소스가 지정된 구성 매개 변수를 사용하여 새 리소스 그룹에 생성됩니다. 이러한 함수 중 대부분은 결과를 반환할 때까지 몇 초/몇 분 동안 실행될 수도 있습니다.
+MSI 기반 VM을 만들려면:
 
 1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
@@ -67,7 +67,7 @@ MSI가 사용하도록 설정된 새 Windows 가상 컴퓨터 리소스가 지�
 
 기존 가상 컴퓨터에서 MSI를 사용하도록 설정해야 하는 경우 다음을 수행합니다.
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ MSI가 사용하도록 설정된 새 Windows 가상 컴퓨터 리소스가 지�
 
 MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
 
    ```azurecli-interactive
    az login
    ```
 
-2. `-n ManagedIdentityExtensionForWindows` 스위치와 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity)를 사용하여 MSI를 제거합니다.
+2. `-n ManagedIdentityExtensionForWindows` 또는 `-n ManagedIdentityExtensionForLinux` 스위치(VM 형식에 따라)를 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity)와 함께 사용하여 MSI 제거:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음�
 ## <a name="related-content"></a>관련 콘텐츠
 
 - [관리 서비스 ID 개요](msi-overview.md)
-- 이 문서는 [CLI를 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-cli.md) 빠른 시작에서 조정되어 MSI 관련 지침을 포함하도록 수정된 것입니다. 
+- 전체 Azure VM 만들기 퀵 스타트는 다음 참조: 
+
+  - [CLI를 사용하여 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-cli.md)  
+  - [CLI를 사용하여 Linux 가상 컴퓨터 만들기](../virtual-machines/linux/quick-create-cli.md) 
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

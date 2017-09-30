@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: df8ac578a56de72df667b1fa7f90f981c79d9999
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 625bbf802888b70ccac57b7da3d7060a9706ddec
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
@@ -40,17 +39,17 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 
 ## <a id="whatis"></a>MapReduce란
 
-Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력된 데이터는 사용자 클러스터의 노드에 걸쳐 동시에 처리되는 독립적인 청크로 분할됩니다. MapReduce 작업은 두 함수로 구성됩니다.
+Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
 * **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
 
-* **리듀서**: 매퍼에서 나온 튜플을 소배하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
+* **리듀서**: 매퍼에서 나온 튜플을 소비하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
 
 다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-이 작업의 출력은 분석된 텍스트에서 각 단어가 발생한 횟수입니다.
+이 작업의 출력은 텍스트에서 각 단어가 발생한 횟수입니다.
 
 * 매퍼는 입력 텍스트의 각 줄을 입력으로 가져오고 해당 줄을 단어로 구분합니다. 단어 뒤에 1이 표시되는 단어가 발생할 때마다 키/값 쌍을 내보냅니다. 리듀서로 보내기 전에 출력이 정렬됩니다.
 * 리듀서가 각 단어의 개별 발생 수를 합산하고 단어 뒤에 발생 합계가 포함된 단일 키/값 쌍을 내보냅니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
@@ -87,6 +87,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeAbortedSyncExeInUse |[Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md) 가 서버에 열려 있습니다. |
 | UpgradeAbortedSyncOrConfigurationInProgress |설치 마법사가 실행 중이거나 동기화가 스케줄러 외부에서 예약되었습니다. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. | 
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
 | UpgradeNotSupportedDeviceWritebackEnabled |[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md) 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedGroupWritebackEnabled |[그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback) 기능을 사용하도록 설정했습니다. |
@@ -95,6 +96,8 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
 | UpgradeNotSupportedNonMsolAccount |[AD Connector 계정](active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | 로그인 방법으로 *구성 안 함*을 선택했습니다. | 
+| UpgradeNotSupportedPtaSignInMethod | 로그인 방법으로 통과 인증을 선택했습니다. |
 | UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)로 설정되어 있습니다. |
 | UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](active-directory-aadconnect-feature-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |
 

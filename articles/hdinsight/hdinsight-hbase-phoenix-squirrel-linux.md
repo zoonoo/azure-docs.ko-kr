@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용
@@ -36,8 +36,7 @@ Azure HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하�
 ### <a name="prerequisites"></a>필수 조건
 SQLLine을 시작하려면 다음 항목이 있어야 합니다.
 
-* **HDInsight의 HBase 클러스터**. HBase 클러스터 프로비전에 대한 자세한 내용은 [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]을 참조하세요.
-* **원격 데스크톱 프로토콜을 통해 HBase 클러스터에 연결**. 자세한 내용은 [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요.
+* **HDInsight의 HBase 클러스터**. 만들려면 [HDInsight에서 Apache HBase 시작](./hdinsight-hbase-tutorial-get-started.md)을 참조하세요.
 
 HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합니다. 각 HDInsight 클러스터마다 세 개의 ZooKeeper VM이 있습니다.
 
@@ -55,7 +54,7 @@ HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합�
 2. SSH에서 다음 명령을 실행하여 SQLLine을 실행합니다.
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. HBase 테이블을 만들고 일부 데이터를 삽입하려면 다음 명령을 실행합니다.
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
@@ -84,7 +83,6 @@ HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합�
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
