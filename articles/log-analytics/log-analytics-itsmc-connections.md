@@ -1,6 +1,6 @@
 ---
-title: "OMS IT Service Management Connector의 ITSM 연결 | Microsoft Docs"
-description: "ITSM 제품/서비스를 OMS의 IT Service Management Connector로 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리합니다."
+title: "Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs"
+description: "ITSM 제품/서비스를 Azure Log Analytics의 IT Service Management Connector와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리합니다."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/16/2017
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
 - IT Service Management Connector가 설치되어 있습니다.
-추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
+자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
 - Service Manager 웹 응용 프로그램(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection)
 - 지원되는 Service Manager 버전: 2012 R2 또는 2016
@@ -176,7 +176,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
-- IT Service Management Connector가 설치되어 있습니다. 추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
+- IT Service Management Connector가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
 - ServiceNow 지원 버전 – Fuji, Geneva, Helsinki
 
 ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.
@@ -269,8 +269,10 @@ ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합
 
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
-- IT Service Management Connector가 설치되어 있습니다. 추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
+
+- IT Service Management Connector가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
 - Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
+
 - 사용자 역할: 관리자
 
 ### <a name="connection-procedure"></a>연결 절차
@@ -293,7 +295,7 @@ ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합
 | **사용자 이름**   | IT Service Management Connector에 연결할 수 있는 사용자 이름을 입력합니다.    |
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 OMS 서비스에는 저장되지 않습니다.|
 | **서버 URL**   | IT Service Management Connector에 연결하려는 Provance 인스턴스의 URL을 입력합니다. |
-| **클라이언트 ID**   | Provance 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.  클라이언트 ID에 대한 자세한 내용은 [Active Directory 인증을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. |
+| **클라이언트 ID**   | Provance 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.  클라이언트 ID에 대한 자세한 내용은 [Active Directory 인증을 구성하는 방법](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. |
 | **데이터 동기화 범위**   | IT Service Management Connector를 통해 OMS와 동기화할 Provance 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다.   **옵션:** 인시던트, 변경 요청|
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 OMS는 지원되는 ITSM 시스템에서 영향을 받는 CI(존재하지 않는 CI)를 구성 항목으로 만듭니다. **기본**: 사용하지 않도록 설정됩니다.|
@@ -313,7 +315,7 @@ ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합
 
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
-- IT Service Management Connector가 설치되어 있습니다. 추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
+- IT Service Management Connector가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
 - 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell)
 - 사용자 역할: 관리자
 

@@ -12,29 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/23/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Microsoft Azure의 Azure Monitor 서비스에 대해 간략히 설명합니다. Azure Monitor 기능에 대해 설명하고 Azure Monitor를 사용하는 방법에 대한 추가 정보를 제공합니다.  소개하는 비디오를 사용하려면 이 문서의 아래쪽에 있는 다음 단계 링크를 참조하세요. 
 
-## <a name="why-monitor-your-application-or-system"></a>응용 프로그램 또는 시스템을 모니터링해야 하는 이유
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
-
-
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor 및 다른 Microsoft 모니터링 제품
 Azure Monitor는 대부분의 Microsoft Azure 서비스에 대한 기본 수준의 인프라 메트릭과 로그를 제공합니다. 아직도 Azure Monitor에 데이터를 삽입하지 않는 Azure 서비스는 나중에 삽입할 것입니다.
 
 Microsoft는 온-프레미스 설치도 사용하는 개발자, DevOps 또는 IT 작업에 추가 모니터링 기능을 제공하는 추가 제품과 서비스를 제공합니다. 이와 같이 다양한 제품과 서비스가 작동하는 방법에 대한 개요와 이해는 [Microsoft Azure 모니터링](monitoring-overview.md)을 참조하세요.
 
-## <a name="monitoring-sources---compute"></a>모니터링 소스 - Compute
+## <a name="portal-overview-page"></a>포털 개요 페이지
+
+Azure Monitor의 기본 페이지를 통해 도움을 받을 수 있습니다. 
+- Azure에서 제공하는 모니터링 기능을 이해합니다.
+- Azure 플랫폼 및 프리미엄 모니터링 기능을 검색, 구성 및 등록합니다.
+
+Azure Monitor 서비스가 릴리스되는 동안 시작 개요 페이지는 미리 보기로 제공됩니다. 
+
+해당 페이지는 등록을 포함한 탐색을 위한 시작점이며 다른 서비스에서 큐레이트된 주목할 만한 문제를 표시하고 사용자가 상황에 맞게 이동할 수 있도록 합니다.
+ 
+![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+페이지를 열 때 읽기 액세스 권한이 있는 구독 중에 선택할 수 있습니다. 선택한 구독에서 다음을 확인할 수 있습니다.
+
+- **트리거된 경고 및 경고 원본** - 이 표에서는 요약 수, 경고 원본 및 선택한 기간 동안 발생한 경고 횟수를 보여줍니다. 메트릭과 활동 로그 경고에 모두 적용됩니다.
+- **활동 로그 오류** - Azure 리소스 중에 오류 수준의 심각도를 가진 이벤트가 기록된 경우 대략적인 수를 보고 활동 로그 페이지를 클릭하여 각 이벤트를 조사할 수 있습니다.
+- **Azure Service Health** - Service Health 서비스 문제, 계획된 유지 관리 이벤트 및 상태 권고의 수를 확인할 수 있습니다. Azure Service Health는 Azure 인프라의 문제가 서비스에 영향을 줄 때 개인 설정된 정보를 제공합니다.  자세한 내용은 [Azure Service Health](../service-health/service-health-overview.md)를 참조하세요.  
+- **Application Insights** - 현재 구독에서 각 AppInsights 리소스는 KPI를 참조하세요. KPI는 ASP.NET 웹앱, Java, Node 및 일반 응용 프로그램 유형인 서버 쪽 응용 프로그램 모니터링에 대해 최적화됩니다. KPI는 요청 속도, 응답 기간, 실패 속도 및 가용성 %에 대한 메트릭을 포함합니다. 
+
+Log Analytics 또는 Application Insights에 등록하지 않았거나 현재 구독에서 Azure 경고를 구성하지 않은 경우 페이지에서는 온보딩 프로세스를 시작하는 링크를 제공합니다.
+
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Azure Monitor 원본 - Compute 하위 집합
 
 ![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
@@ -64,7 +83,7 @@ Compute 서비스에는 다음이 포함됩니다.
 ### <a name="activity-log"></a>활동 로그
 Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 활동 로그(이전에 작업 또는 감사 로그라고도 함)를 검색할 수 있습니다. 이러한 로그는 리소스가 생성되거나 소멸된 시간과 같은 정보를 포함합니다.  자세한 내용은 [활동 로그 개요](monitoring-overview-activity-logs.md)를 참조하세요. 
 
-## <a name="monitoring-sources---everything-else"></a>모니터링 소스 - 기타 등등
+## <a name="azure-monitor-sources---everything-else"></a>Azure Monitor 소스 - 기타 등등
 
 ![계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -82,7 +101,7 @@ Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 �
 데이터를 수집하고 나면 Azure Monitor에서 다음 작업을 수행할 수 있습니다.
 
 ### <a name="route"></a>라우팅
-모니터링 데이터를 다른 위치에 실시간으로 스트리밍할 수 있습니다.
+모니터링 데이터를 다른 위치에 스트리밍할 수 있습니다. 
 
 예를 들면 다음과 같습니다.
 
@@ -142,7 +161,8 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 ## <a name="next-steps"></a>다음 단계
 자세한 정보
 - Azure Monitor 비디오 연습은  
-[Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)에서 제공됩니다. Azure Monitor를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)(영문) 및 [Azure Monitor(Ignite 2016 비디오)](https://myignite.microsoft.com/videos/4977)(영문)에서 제공됩니다.
+[Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)에서 제공됩니다. 
+- Azure Monitor를 사용할 수 있는 시나리오를 설명하는 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234) 및 [Azure Monitor(Ignite 2016 비디오)](https://myignite.microsoft.com/videos/4977)에서 제공됩니다.
 - [Azure Monitor 시작](monitoring-get-started.md)에서 Azure Monitor 인터페이스를 통해 실행합니다.
 - 클라우드 서비스, 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우 [Azure 진단 확장](../azure-diagnostics.md)을 설정합니다.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우

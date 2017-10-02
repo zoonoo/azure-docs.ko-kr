@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -43,6 +43,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 * 모든 메트릭은 **1분 빈도**입니다. 리소스로부터 1분마다 메트릭 값을 받으므로 거의 실시간으로 리소스의 상태를 확인할 수 있습니다.
 * 메트릭은 **즉시 사용할 수 있습니다**. 옵트인하거나 추가 진단을 설정하지 않아도 됩니다.
 * 각 메트릭에 대해 **30일 동안의 기록** 에 액세스할 수 있습니다. 리소스의 성능이나 상태에서 최근 및 월별 추세를 신속하게 살펴볼 수 있습니다.
+* 일부 메트릭은 **차원**이라는 이름-값 쌍 특성을 가질 수합니다. 그러면 메트릭을 더 분할하고 보다 의미 있는 방식으로 탐색할 수 있습니다.
 
 또한 다음을 수행할 수 있습니다.
 
@@ -85,14 +86,16 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 >
 >
 
+Azure Monitor에서는 미리 보기 상태로 사용할 수 있는 새 메트릭 차트 환경도 제공합니다. 이 환경을 사용하면 사용자가 하나의 차트에서 여러 리소스의 메트릭을 오버레이할 수 있습니다. 사용자는 새 메트릭 차트 환경을 사용하여 다차원 메트릭을 그리고, 분할하고, 필터링할 수 있습니다. 자세히 알아보려면 [여기를 클릭](https://aka.ms/azuremonitor/new-metrics-charts)하세요.
+
 ## <a name="access-metrics-via-the-rest-api"></a>REST API를 통해 메트릭 액세스
 Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는 2가지 API가 있습니다.
 
-* [Azure Monitor 메트릭 정의 REST API](https://msdn.microsoft.com/library/mt743621.aspx)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
-* [Azure Monitor 메트릭 REST API](https://msdn.microsoft.com/library/mt743622.aspx)를 사용하여 실제 메트릭 데이터에 액세스합니다.
+* [Azure Monitor 메트릭 정의 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록 및 차원에 액세스합니다.
+* [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics)를 사용하여 실제 메트릭 데이터를 분할하고, 필터링하고, 액세스합니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://msdn.microsoft.com/library/dn931930.aspx) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전은 2016-03-01이며 메트릭 API에 대한 버전은 2016-09-01입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
+> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://docs.microsoft.com/en-us/rest/api/monitor/) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전 및 메트릭 API는 2017-05-01-preview입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
 >
 >
 
@@ -109,9 +112,14 @@ Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure
 메트릭 데이터에 대해 알림을 받거나 자동 작업을 수행하려면 자동 크기 조정 설정에서 알림 규칙을 구성하면 됩니다.
 
 ### <a name="configure-alert-rules"></a>경고 규칙 구성
-메트릭에 대해 경고 규칙을 구성할 수 있습니다. 이러한 경고 규칙으로 메트릭이 특정 임계값을 초과했는지를 확인할 수 있습니다. 그런 다음 전자 메일을 통해 알리거나 사용자 지정 스크립트를 실행하는 데 사용할 수 있는 webhook를 실행할 수 있습니다. webhook를 사용하여 타사 제품 통합을 구성할 수도 있습니다.
+메트릭에 대해 경고 규칙을 구성할 수 있습니다. 이러한 경고 규칙으로 메트릭이 특정 임계값을 초과했는지를 확인할 수 있습니다. Azure Monitor에서 제공되는 두 가지 메트릭 경고 기능이 있습니다.
+
+메트릭 경고: 그런 다음 전자 메일을 통해 알리거나 사용자 지정 스크립트를 실행하는 데 사용할 수 있는 webhook를 실행할 수 있습니다. webhook를 사용하여 타사 제품 통합을 구성할 수도 있습니다.
 
  ![Azure Monitor의 메트릭 및 경고 규칙](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+근 실시간 경고(미리 보기): 리소스에 대한 여러 메트릭 및 임계값을 모니터링하고 [작업 그룹](/monitoring-action-groups.md)을 통해 알려주는 기능이 있습니다. [여기에서 근 실시간 메트릭 경고](https://aka.ms/azuremonitor/near-real-time-alerts)에 대해 자세히 알아봅니다.
+
 
 ### <a name="autoscale-your-azure-resources"></a>Azure 리소스에서 자동 크기 조정
 일부 Azure 리소스에서는 워크로드 처리를 위해 여러 인스턴스의 확대 또는 축소를 지원합니다. 자동 크기 조정은 App Service(Web Apps), 가상 컴퓨터 확장 집합 및 기존 Azure Cloud Services에 적용됩니다. 특정 메트릭이 지정한 임계값을 초과할 때 규모를 확대하거나 축소하도록 자동 크기 조정 규칙을 구성할 수 있습니다. 자세한 내용은 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 참조하세요.

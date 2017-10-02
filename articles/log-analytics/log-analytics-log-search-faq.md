@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -130,6 +130,9 @@ ms.lasthandoff: 09/07/2017
 
 ### <a name="known-issue-application-insights-connector"></a>알려진 문제: Application Insights 커넥터
 [Application Insights 커넥터 솔루션](log-analytics-app-insights-connector.md)의 관점은 현재 업그레이드된 작업 영역에서 지원되지 않습니다.  이 문제에 대한 수정은 현재 분석 중입니다.
+
+### <a name="known-issue-backup-solution"></a>알려진 문제: Backup 솔루션
+Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하지 않습니다. 업그레이드된 작업 영역에서 작동하는 새 Backup 솔루션이 곧 발표될 것입니다.
 
 ## <a name="upgrade-process"></a>업그레이드 프로세스
 

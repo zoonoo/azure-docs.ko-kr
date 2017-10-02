@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: d3e373adeaa2ae01c8e3cbaffccf0ddb5310126d
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>지점 및 사이트 간 Azure 인증서 인증 연결용 클라이언트 인증서 설치
@@ -36,8 +36,10 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="installmac"></a>Mac 클라이언트에 인증서 설치
 
+Mac VPN 클라이언트는 Resource Manager 배포 모델에서만 지원됩니다. 클래식 배포 모델에서는 지원되지 않습니다.
+
 > [!NOTE]
-> Mac VPN 클라이언트는 Resource Manager 배포 모델에서만 지원됩니다. 클래식 배포 모델에서는 지원되지 않습니다.
+>  IKEv2는 현재 미리 보기로 제공되고 있습니다.
 >
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]

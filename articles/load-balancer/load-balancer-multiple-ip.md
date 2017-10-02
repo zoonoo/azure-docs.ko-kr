@@ -3,7 +3,7 @@ title: "Azure에서 여러 IP 구성의 부하 분산 | Microsoft Docs"
 description: "기본 및 보조 IP 구성에서 부하 분산."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +29,9 @@ ms.lasthandoff: 03/22/2017
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-이 문서에서는 보조 NIC(네트워크 인터페이스)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. 이 시나리오에는 Windows를 실행하는 VM이 둘 있고 각각 기본 및 보조 NIC가 있습니다. 보조 NIC에는 각각 두 가지 IP 구성이 있습니다. 각 VM은 contoso.com 및 fabrikam.com 웹 사이트를 둘 다 호스트합니다. 각 웹 사이트는 보조 NIC의 IP 구성 중 하나에 바인딩됩니다. Azure Load Balancer를 사용하여 웹 사이트의 각 IP 구성에 트래픽을 분산하기 위해 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출합니다. 이 시나리오는 양 쪽 프런트 엔드는 물론 양쪽 백 엔드 풀 IP 주소에 동일한 포트 번호를 사용합니다.
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+이 문서에서는 보조 NIC(네트워크 인터페이스)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. 이 시나리오에는 Windows를 실행하는 VM이 둘 있고 각각 기본 및 보조 NIC가 있습니다. 각 보조 NIC에는 두 가지 IP 구성이 있습니다. 각 VM은 contoso.com 및 fabrikam.com 웹 사이트를 둘 다 호스트합니다. 각 웹 사이트는 보조 NIC의 IP 구성 중 하나에 바인딩됩니다. Azure Load Balancer를 사용하여 웹 사이트의 각 IP 구성에 트래픽을 분산하기 위해 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출합니다. 이 시나리오는 양 쪽 프런트 엔드는 물론 양쪽 백 엔드 풀 IP 주소에 동일한 포트 번호를 사용합니다.
 
 ![LB 시나리오 이미지](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -39,7 +42,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>여러 IP 구성의 부하를 분산하는 단계
 
-아래 단계에 따라 이 문서에 설명된 시나리오를 수행합니다.
+이 문서에서 설명하는 시나리오를 수행하려면 다음 단계를 완료합니다.
 
 ### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>1단계: 각 VM에 보조 NIC 구성
 
@@ -64,7 +67,7 @@ ms.lasthandoff: 03/22/2017
 2. 화면 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다. 다음으로 **만들기**를 클릭합니다.
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 이름을 입력합니다. 여기서는 *mylb*라고 지칭합니다.
 4. 공용 IP 주소 아래에서 **PublicIP1**이라는 새 공용 IP를 만듭니다.
-5. 리소스 그룹 아래에서 VM의 기존 리소스 그룹을 선택합니다(예를 들어, *contosofabrikam*). 그런 다음 적절한 위치를 선택하고 **확인**을 클릭합니다. 부하 분산 장치는 배포를 시작하며 배포를 성공적으로 완료하는 데 몇 분 정도 걸립니다.
+5. 리소스 그룹 아래에서 VM의 기존 리소스 그룹을 선택합니다(예를 들어, *contosofabrikam*). 그런 다음 적절한 위치를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치에서 배포를 시작하고, 배포를 성공적으로 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 6. 배포된 후에는 리소스 그룹에 부하 분산 장치가 리소스로 표시됩니다.
 
 ### <a name="step-3-configure-the-frontend-ip-pool"></a>3단계: 프런트 엔드 IP 풀 구성
@@ -81,9 +84,9 @@ ms.lasthandoff: 03/22/2017
 3. 포털에서 **더 많은 서비스**를 클릭하고 필터 상자에 **부하 분산 장치**를 입력하고 **부하 분산 장치**를 클릭합니다.  
 4. 프런트 엔드 IP 풀을 추가할 부하 분산 장치(*mylb*)를 선택합니다.
 5. **설정**에서 **프런트 엔드 풀**을 선택합니다. 그런 다음 표시되는 블레이드 위쪽의 **추가** 단추를 클릭합니다.
-6. 프런트 엔드 IP 주소의 이름을 입력합니다(*farbikamfe* 또는 **contosofe*).
+6. 프런트 엔드 IP 주소의 이름을 입력합니다(*farbikamfe* 또는 *contosofe*).
 7. **IP 주소**를 클릭하고 **공용 IP 주소 선택** 블레이드에서 프런트 엔드에 대한 IP 주소를 선택합니다(*PublicIP1* 또는 *PublicIP2*).
-8. 이 섹션 내의 3~7단계를 반복하여 보조 프런트 엔드 IP 주소를 만듭니다.
+8. 두 번째 프런트 엔드 IP 주소를 만들려면 이 섹션의 3-7단계를 반복합니다.
 9. 프런트 엔드 IP 풀 구성이 완료되면 두 프런트 엔드 IP 주소가 부하 분산 장치의 **프런트 엔드 IP 풀** 블레이드에 표시됩니다. 
     
 ### <a name="step-4-configure-the-backend-pool"></a>4단계: 백 엔드 풀 구성   
@@ -119,7 +122,7 @@ ms.lasthandoff: 03/22/2017
 4. **포트** 및 **백 엔드 포트**에서 기본값인 **80**을 그대로 유지합니다.
 5. **부동 IP(Direct Server Return)**에서**사용**을 클릭합니다.
 6. **확인**을 클릭합니다.
-7. 이 섹션 내의 1~6단계를 반복하여 보조 부하 분산 규칙을 만듭니다.
+7. 두 번째 Load Balancer 규칙을 만들려면 이 섹션의 1-6단계를 반복합니다.
 8. 부하 분산 규칙 구성을 완료하면 두 규칙(*HTTPc* 및 *HTTPf*)이 부하 분산 장치의 **부하 분산 규칙** 블레이드에 표시됩니다.
 
 ### <a name="step-7-configure-dns-records"></a>7단계: DNS 레코드 구성
@@ -127,5 +130,5 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 - Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
-- [Azure Load Balancer에 대한 로그 분석](../load-balancer/load-balancer-monitor-log.md)을 통해 Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용하는 방법에 대해 알아보세요.
+- [Azure Load Balancer에 대한 Log Analytics](../load-balancer/load-balancer-monitor-log.md)에서 여러 유형의 로그를 사용하여 부하 분산 장치를 관리하고 문제를 해결하는 방법을 알아봅니다.
 

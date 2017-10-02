@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Azure 부하 분산 장치 개요
 
 Azure 부하 분산 장치는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다.
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
@@ -33,38 +35,6 @@ Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 * 외부 트래픽을 특정 가상 컴퓨터에 전달합니다.
 
 클라우드의 모든 리소스에는 인터넷에서 연결할 수 있는 공용 IP 주소가 필요합니다. Azure의 클라우드 인프라는 리소스에 대해 라우팅할 수 없는 IP 주소를 사용합니다. 공용 IP 주소를 통한 NAT(Network Address Translation)를 사용하여 인터넷과 통신합니다.
-
-## <a name="azure-deployment-models"></a>Azure 배포 모델
-
-Azure 클래식 및 Resource Manager [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md)간의 차이점을 이해해야 합니다. Azure Load Balancer는 각 모델에서 서로 다르게 구성됩니다.
-
-### <a name="azure-classic-deployment-model"></a>Azure 클래식 배포 모델
-
-클라우드 서비스 경계 내에 배포된 가상 컴퓨터를 그룹화하여 부하 분산 장치를 사용할 수 있습니다. 이 모델에서 공용 IP 주소 및 FQDN(정규화된 도메인 이름)은 클라우드 서비스에 할당됩니다. 부하 분산 장치는 포트 변환을 수행하며 클라우드 서비스에 공용 IP 주소를 사용하여 네트워크 트래픽의 부하를 분산합니다.
-
-부하 분산되는 트래픽은 끝점에 의해 정의됩니다. 포트 변환 끝점에서 특정 가상 컴퓨터의 서비스에 할당된 로컬 포트와 공용 IP 주소의 공용 할당 포트 간에는 일대일 관계가 설정됩니다. 그리고 부하 분산 끝점에서 클라우드 서비스의 가상 컴퓨터 서비스에 할당된 로컬 포트와 공용 IP 주소 간에는 일대다 관계가 설정됩니다.
-
-![클래식 배포 모델에서 Azure Load Balancer](./media/load-balancer-overview/asm-lb.png)
-
-그림 1 - 클래식 배포 모델의 Azure Load Balancer
-
-부하 분산 장치가 이 배포 모델에 대해 사용하는 공용 IP 주소의 도메인 레이블은 \<클라우드 서비스 이름\>.cloudapp.net입니다. 아래 그림에는 이 모델의 Azure Load Balancer가 나와 있습니다.
-
-### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델
-
-Resource Manager 배포 모델에서는 클라우드 서비스를 만들 필요가 없습니다. 여러 가상 컴퓨터 간에 트래픽을 명시적으로 라우팅하도록 부하 분산 장치가 만들어집니다.
-
-공용 IP 주소는 도메인 레이블(DNS 이름)이 있는 개별 리소스입니다. 이 공용 IP 주소는 부하 분산 장치 리소스와 연결됩니다. 부하 분산 장치 규칙 및 인바운드 NAT 규칙은 부하 분산된 네트워크 트래픽을 수신하는 리소스의 인터넷 끝점으로 공용 IP 주소를 사용합니다.
-
-개인 또는 공용 IP 주소는 가상 컴퓨터에 연결된 네트워크 인터페이스 리소스에 할당됩니다. 네트워크 인터페이스가 부하 분산 장치 백 엔드 IP 주소 풀에 추가되면 부하 분산 장치는 작성되는 부하 분산된 규칙에 따라 부하 분산된 네트워크 트래픽을 보낼 수 있습니다.
-
-아래 그림에는 이 모델의 Azure Load Balancer가 나와 있습니다.
-
-![Resource Manager에서 Azure Load Balancer](./media/load-balancer-overview/arm-lb.png)
-
-그림 2 - Resource Manager의 Azure Load Balancer
-
-Resource Manager 기반 템플릿, API 및 도구를 통해 부하 분산 장치를 관리할 수 있습니다. Resource Manager에 대한 자세한 내용은 [Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="load-balancer-features"></a>부하 분산 장치 기능
 
@@ -76,7 +46,7 @@ Resource Manager 기반 템플릿, API 및 도구를 통해 부하 분산 장치
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    그림 3 - 해시 기반 배포
+    그림 - 해시 기반 배포
 
 * 포트 전달
 

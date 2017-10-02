@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75e66f0832ae82a35387b471d591f9ef14155fac
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 9ca423e8d752271fadbb5b51f38e691a0316576c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell(미리 보기)
 
 이 문서에서는 RADIUS 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet을 만드는 방법에 대해 설명합니다. 이 구성은 Resource Manager 배포 모델에서만 사용할 수 있습니다.
+
+>[!NOTE]
+>P2S RADIUS 인증은 현재 미리 보기로 제공되고 있습니다.
+>
 
 지점 및 사이트 간(P2S) VPN Gateway를 통해 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우에 사이트 간 VPN 대신 P2S VPN을 사용하는 것도 유용한 솔루션입니다.
 
@@ -41,7 +45,7 @@ P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요�
 
 * SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 SSL 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
 
-* IKEv2 P2S 터널은 Mac 플랫폼에서 지원되며, IKEv2 VPN 기본 클라이언트를 사용합니다.
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 장치(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 P2S 연결에는 다음이 필요합니다.
 

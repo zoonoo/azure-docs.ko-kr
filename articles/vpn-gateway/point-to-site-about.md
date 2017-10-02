@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: adb998754615150f1e74cba01ffc2fc9e53827ed
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
@@ -32,9 +32,13 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 * SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 장치에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
-* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 장치(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다. Azure는 Windows에서 IKEv2 VPN을 지원하지 않습니다. 
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 장치(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 Windows 및 Mac 장치로 구성된 혼합 클라이언트 환경인 경우 SSTP 및 IKEv2를 모두 구성합니다.
+
+>[!NOTE]
+>P2S의 IKEv2는 현재 미리 보기로 제공되고 있습니다.
+>
 
 ## <a name="authentication"></a>P2S VPN 클라이언트는 어떻게 인증됩니까?
 
@@ -53,6 +57,10 @@ AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자�
   RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇게 하면 Azure 인증서 인증 대신 P2S 인증서 인증용 RADIUS 서버 및 엔터프라이즈 인증서 배포를 사용할 수 있습니다. 장점은 루트 인증서와 해지된 인증서를 Azure에 업로드할 필요가 없다는 것입니다.
 
 또한 RADIUS 서버는 다른 외부 ID 시스템과 통합할 수도 있습니다. 이렇게 하면 다단계 옵션을 포함하여 P2S VPN에 대한 많은 인증 옵션이 제공됩니다.
+
+>[!NOTE]
+>P2S의 RADIUS 인증은 현재 미리 보기로 제공되고 있습니다.
+>
 
 ![지점 및 사이트 간 연결](./media/지점 및 사이트 간-about/p2s.png "지점 및 사이트 간")
 
@@ -73,11 +81,11 @@ AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자�
 * 가격 정보는 [가격 책정] 페이지에 있습니다. 
 * Service Level Agreement(서비스 수준 계약) 정보는 SLA 페이지에 있습니다.
 
-## <a name="faqcert"></a>Azure 인증서 인증용 P2S FAQ
+## <a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>RADIUS 인증용 P2S FAQ
+## <a name="faqradius"></a>RADIUS 인증에 대한 FAQ
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -129,8 +129,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>HTTP 프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성
-OMS Agent for Linux는 HTTP 또는 HTTPS 프록시 서버 또는 OMS 게이트웨이를 통해 OMS 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호) 둘 다 지원됩니다.  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성
+Linux용 OMS 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 OMS 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호) 둘 다 지원됩니다.  
 
 ### <a name="proxy-configuration"></a>프록시 구성
 프록시 구성 값은 다음 구문을 갖습니다.
@@ -139,13 +139,13 @@ OMS Agent for Linux는 HTTP 또는 HTTPS 프록시 서버 또는 OMS 게이트�
 
 속성|설명
 -|-
-프로토콜|HTTP 또는 HTTPS
+프로토콜|https
 사용자|프록시 인증을 위한 선택적 사용자 이름
 password|프록시 인증을 위한 선택적 암호
 proxyhost|프록시 서버/OMS 게이트웨이의 주소 또는 FQDN
 포트|프록시 서버/OMS 게이트웨이 대한 선택적 포트 번호
 
-예: `http://user01:password@proxy01.contoso.com:8080`
+예: `https://user01:password@proxy01.contoso.com:30443`
 
 설치 중에 또는 설치 후에 proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.   
 
@@ -153,13 +153,13 @@ proxyhost|프록시 서버/OMS 게이트웨이의 주소 또는 FQDN
 omsagent 설치 번들에 대한 `-p` 또는 `--proxy` 인수는 사용할 프록시 구성을 지정합니다. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>파일에 프록시 구성 정의
 프록시 구성은 파일 `/etc/opt/microsoft/omsagent/proxy.conf` 및 `/etc/opt/microsoft/omsagent/conf/proxy.conf `에서 설정할 수 있습니다. 이 파일을 직접 만들거나 편집할 수 있지만 파일에 omiuser 그룹 읽기 권한을 부여하도록 사용 권한을 업데이트해야 합니다. 예:
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -240,7 +240,7 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. [HTTP 프록시 서버에서 사용하기 위해 에이전트 구성(#configuring the-agent-for-use-with-a-http-proxy-server)] 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 적절히 구성했는지 확인합니다.    
+2. [프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
 * 다음 OMS 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
 
     |에이전트 리소스| 포트 |  

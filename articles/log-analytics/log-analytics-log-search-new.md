@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Log Analytics의 로그 검색 이해
@@ -77,6 +77,13 @@ Log Analytics의 로그 분석에서 핵심은 여러 방법으로 리포지토�
     | render timechart    
 
 이러한 간단한 샘플 쿼리에서, 작업하는 데이터의 종류에 관계 없이 구조는 비슷하다는 점을 알 수 있습니다.  한 명령의 결과 데이터가 파이프라인을 통해 다음 명령에 전송되는 별개의 단계로 구분할 수 있습니다.
+
+또한 구독 내에서 Log Analytics 작업 영역 전반에 걸쳐 데이터를 쿼리할 수도 있습니다.
+
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
+
 
 자습서 및 언어 참조를 포함한 Azure Log Analytics 쿼리 언어에 관한 전체 설명서는 [Azure Log Analytics 쿼리 언어 설명서](https://docs.loganalytics.io/)를 참조하세요.
 
