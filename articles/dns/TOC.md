@@ -64,7 +64,7 @@
 ## [가상 컴퓨터](/azure/virtual-machines/)
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [웹앱](/azure/app-service-web/)
+## [웹앱](/azure/app-service/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
