@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
-[Azure File Storage](../storage-dotnet-how-to-use-files.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
 
 온-프레미스 또는 다른 Azure 지역에서 호스팅되는 Azure 지역의 외부에 Azure 파일 공유를 탑재하려면 OS에서 SMB 3.0을 지원해야 합니다. 
 
@@ -39,7 +39,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 | 윈도우 7              | SMB 2.1     | 예                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니요                   |
 
-<sup>1</sup>Windows 10 버전 1507, 1511, 1607 및 1703
+<sup>1</sup>Windows 10 버전 1507, 1511, 1607, 1703 및 1709
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
@@ -49,7 +49,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 
 * **저장소 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
-* **445 포트가 열려 있는지 확인**: Azure File Storage는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
+* **445 포트가 열려 있는지 확인**: Azure Files는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>파일 탐색기를 통해 Azure 파일 공유 탑재
 > [!Note]  
@@ -63,7 +63,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 
 3. **Azure Portal의 "연결" 창에서 UNC 경로 복사합니다**. 이 정보를 찾는 방법에 대한 자세한 설명은 [여기서](storage-how-to-use-files-portal.md#connect-to-file-share) 찾을 수 있습니다.
 
-    ![Azure File Storage 연결 창의 UNC 경로](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Azure Files 연결 창의 UNC 경로](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **드라이브 문자를 선택하고 UNC 경로를 입력합니다.** 
     
@@ -121,24 +121,24 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 >   ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 * [FAQ](../storage-files-faq.md)
 * [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>개념 문서 및 비디오
-* [Azure File Storage: 원활한 Windows 및 Linux용 클라우드 SMB 파일 시스템(영문)](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Linux에서 Azure File Storage 사용 방법](../storage-how-to-use-files-linux.md)
+* [Azure Files: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Linux에서 Azure Files 사용 방법](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Azure File Storage용 도구 지원
+### <a name="tooling-support-for-azure-files"></a>Azure Files의 도구 지원
 * [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Azure 저장소에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure File Storage 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Azure File Storage 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Azure Files 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>블로그 게시물
-* [Azure 파일 저장소 일반적으로 사용 가능(영문)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure File Storage 내부 구조(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files는 현재 일반 공급됩니다.](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure Files 내부 구조](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Azure 파일로 데이터 마이그레이션(영문)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

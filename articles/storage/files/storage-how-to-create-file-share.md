@@ -1,6 +1,6 @@
 ---
-title: "Azure 파일 공유를 만드는 방법 | Microsoft Docs"
-description: "Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure File Storage에 Azure 파일 공유를 만드는 방법입니다."
+title: "Azure File 공유를 만드는 방법 | Microsoft Docs"
+description: "Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure Files에 Azure File 공유를 만드는 방법입니다."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,32 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b81701e2544ace092f007e5d98b3141e1f7da724
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-a-file-share-in-azure-file-storage"></a>Azure File Storage에 파일 공유 만들기
-[Azure Portal](https://portal.azure.com/), Azure Storage PowerShell cmdlet, Azure Storage 클라이언트 라이브러리 또는 Azure Storage REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 이 자습서에서는 다음 항목에 대해 알아봅니다.
+# <a name="create-a-file-share-in-azure-files"></a>Azure Files에 파일 공유 만들기
+[Azure Portal](https://portal.azure.com/), Azure Storage PowerShell cmdlet, Azure Storage 클라이언트 라이브러리 또는 Azure Storage REST API를 사용하여 Azure File 공유를 만들 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
 * [Azure Portal을 사용하여 Azure 파일 공유를 만드는 방법](#Create file share through the Portal)
 * [Powershell을 사용하여 Azure 파일 공유를 만드는 방법](#Create file share using PowerShell)
 * [CLI를 사용하여 Azure 파일 공유를 만드는 방법](#create-file-share-using-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 파일 공유를 만들려면 이미 존재하는 저장소 계정을 사용하거나 [새 Azure 저장소 계정을 만들 수 있습니다](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). PowerShell을 사용하여 Azure 파일 공유를 만들려면 저장소 계정의 계정 키와 이름이 필요합니다. Powershell 또는 CLI를 사용하려면 Storage 계정 키가 필요합니다.
+Azure File 공유를 만들려면 이미 존재하는 저장소 계정을 사용하거나 [새 Azure Storage 계정을 만들](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 수 있습니다. PowerShell을 사용하여 Azure File 공유를 만들려면 저장소 계정의 계정 키와 이름이 필요합니다. Powershell 또는 CLI를 사용하려면 저장소 계정 키가 필요합니다.
 
-## <a name="create-file-share-through-the-portal"></a>포털을 통해 파일 공유 만들기
+## <a name="create-file-share-through-the-azure-portal"></a>Azure Portal을 통해 파일 공유 만들기
 1. **Azure Portal에서 저장소 계정 블레이드로 이동합니다**.    
     ![저장소 계정 블레이드](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **파일 공유 추가 단추를 클릭합니다**.    
     ![파일 공유 추가 단추 클릭](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **이름과 할당량을 제공합니다. 할당량은 현재 최대 5TB일 수 있습니다**.    
+3. **이름과 할당량을 제공합니다. 할당량은 현재 최대 5TiB일 수 있습니다**.    
     ![새 파일 공유에 대한 이름과 원하는 할당량 제공](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **새 파일 공유를 확인합니다**. ![새 파일 공유 보기](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -48,7 +48,7 @@ Azure 파일 공유를 만들려면 이미 존재하는 저장소 계정을 사�
 
 
 ## <a name="create-file-share-through-powershell"></a>PowerShell 통해 파일 공유 만들기
-PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)을 참조하세요.
+PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 을 참조하세요.
 
 > [!Note]  
 > 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
@@ -93,7 +93,7 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 * [파일 공유 연결 및 탑재 - Linux](../storage-how-to-use-files-linux.md)
 * [파일 공유 연결 및 탑재 - macOS](storage-how-to-use-files-mac.md)
 
-Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 * [FAQ](../storage-files-faq.md)
 * [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      

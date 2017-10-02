@@ -1,6 +1,6 @@
 ---
-title: ".NET을 사용하여 Azure File Storage 개발 | Microsoft Docs"
-description: "Azure File Storage를 사용하여 파일 데이터를 저장하는 .NET 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
+title: ".NET을 사용하여 Azure Files 개발 | Microsoft Docs"
+description: "Azure Files를 사용하여 파일 데이터를 저장하는 .NET 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>.NET을 사용하여 Azure File Storage 개발 
+# <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발 
 > [!NOTE]
-> 이 문서에서는 .NET 코드를 사용하여 Azure File Storage를 관리하는 방법을 보여 줍니다. Azure File Storage에 대한 자세한 내용은 [Azure File Storage 소개](storage-files-introduction.md)를 참조하세요.
+> 이 문서에서는 .NET 코드를 사용하여 Azure Files를 관리하는 방법을 보여줍니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-introduction.md)를 참조하세요.
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서에서는 .NET을 사용하여 Azure File Storage를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 개발하는 데 필요한 기본 사항을 보여 줍니다. 즉 간단한 콘솔 응용 프로그램을 만들고, .NET 및 Azure File Storage를 통해 기본 동작을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 .NET을 사용하여 Azure Files를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 개발하는 데 필요한 기본 사항을 보여줍니다. 즉 간단한 콘솔 응용 프로그램을 만들고, .NET 및 Azure Files를 통해 기본 동작을 수행하는 방법을 보여줍니다.
 
 * 파일 내용 가져오기
 * 파일 공유에 대한 할당량(최대 크기) 설정
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/21/2017
 * 문제 해결을 위해 Azure 저장소 메트릭 사용
 
 > [!Note]  
-> Azure File Storage는 SMB를 통해 액세스할 수 있기 때문에 파일 I/O에 대한 표준 System.IO 클래스를 사용하여 Azure 파일 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure File Storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api)를 사용하여 Azure File Storage와 통신하는 Azure Storage .NET SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다. 
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 파일 I/O에 대한 표준 System.IO 클래스를 사용하여 Azure File 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage .NET SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
@@ -86,7 +86,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 ```
 
 > [!NOTE]
-> 최신 버전의 Azure 저장소 에뮬레이터는 Azure File Storage를 지원하지 않습니다. Azure File Storage를 사용하려면 연결 문자열이 클라우드의 Azure Storage 계정을 대상으로 해야 합니다.
+> 최신 버전의 Azure 저장소 에뮬레이터는 Azure Files를 지원하지 않습니다. Azure Files를 사용하려면 연결 문자열이 클라우드에 있는 Azure Storage 계정을 대상으로 해야 합니다.
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 솔루션 탐색기에서 `Program.cs` 파일을 열고 지시문을 사용하여 파일 맨 위에 다음을 추가합니다.
@@ -95,7 +95,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 다음에는 위에 표시된 코드 뒤에 나오는 `Main()` 메서드에 다음 코드를 추가하여 연결 문자열을 검색합니다. 이 코드는 이전에 만든 파일에 대한 참조를 가져오고 해당 내용을 콘솔 창에 출력합니다.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유�
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 blob인 경우 복사 작업 동안 해당 blob에 대한 액세스를 인증하는 SAS를 만듭니다.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>메트릭을 사용하여 Azure File Storage 문제 해결
-이제 Azure Storage 분석은 Azure File Storage에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
+## <a name="troubleshooting-azure-files-using-metrics"></a>메트릭을 사용하여 Azure Files 문제 해결
+이제 Azure 저장소 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
+[Azure Portal](https://portal.azure.com)에서 Azure Files에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
-[Azure Portal](https://portal.azure.com)에서 Azure File Storage에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
-
-
-다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure File Storage에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
+다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 
 먼저 위에서 추가한 항목 외에도 다음 `using` 지시문을 `Program.cs` 파일에 추가합니다.
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Azure Blob, Azure 테이블 및 Azure 큐는 `Microsoft.WindowsAzure.Storage.Shared.Protocol`네임스페이스에서 `ServiceProperties` 공유 형식을 사용하지만, Azure File Storage는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 `FileServiceProperties` 고유 형식을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
+Azure Blob, Azure Table 및 Azure Queue는 `Microsoft.WindowsAzure.Storage.Shared.Protocol`네임스페이스에서 `ServiceProperties` 공유 형식을 사용하지만, Azure Files는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유 형식인 `FileServiceProperties`을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-또한 종단 간 문제 해결 지침에 대해서는 [Azure File Storage 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
+또한 종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 ### <a name="conceptual-articles-and-videos"></a>개념 문서 및 비디오
-* [Azure File Storage: 원활한 Windows 및 Linux용 클라우드 SMB 파일 시스템(영문)](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Linux에서 Azure File Storage 사용 방법](storage-how-to-use-files-linux.md)
+* [Azure Files: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Linux에서 Azure Files 사용 방법](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>파일 저장소용 도구 지원
 * [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Azure 저장소에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure File Storage 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>블로그 게시물
-* [Azure 파일 저장소 일반적으로 사용 가능(영문)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure File Storage 내부 구조(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files는 현재 일반 공급됩니다.](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure Files 내부 구조](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Microsoft Azure File Storage에 대한 연결 유지(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

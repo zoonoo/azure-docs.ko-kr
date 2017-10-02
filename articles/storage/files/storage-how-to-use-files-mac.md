@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
-[Azure File Storage](../storage-dotnet-how-to-use-files.md)는 업계 표준을 사용하여 Azure에서 네트워크 파일 공유를 만들고 사용할 수 있게 해주는 Microsoft 서비스입니다. Azure 파일 공유는 macOS Sierra(10.12) 및 El Capitan(10.11)에서 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
+[Azure Files](storage-files-introduction.md)는 업계 표준을 사용하여 Azure에서 네트워크 파일 공유를 만들고 사용할 수 있게 해주는 Microsoft 서비스입니다. Azure 파일 공유는 macOS Sierra(10.12) 및 El Capitan(10.11)에서 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
 
 > [!Note]  
 > SMB를 통해 Azure 파일 공유를 탑재하기 전에 SMB 패킷 서명을 사용하지 않도록 설정하는 것이 좋습니다. 이렇게 하지 않으면 macOS에서 Azure 파일 공유에 액세스할 때 성능이 저하될 수 있습니다. SMB 연결이 암호화되므로 연결 보안에는 영향을 주지 않습니다. [SMB 패킷 서명 비활성화 대한 Apple 지원 문서](https://support.apple.com/HT205926)에서 설명한 대로 다음 명령은 터미널에서 SMB 패킷 서명을 사용하지 않도록 설정합니다.  
@@ -35,9 +35,9 @@ ms.lasthandoff: 08/21/2017
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>macOS에 Azure 파일 공유를 탑재하기 위한 필수 구성 요소
-* **저장소 계정 이름**: Azure File 공유를 탑재하려면 저장소 계정의 이름이 필요합니다.
+* **저장소 계정 이름**: Azure 파일 공유를 탑재하려면 저장소 계정의 이름이 필요합니다.
 
-* **Storage 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
+* **저장소 계정 키**: Azure File 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
 * **445 포트가 열려 있는지 확인**: SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터(Mac)에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![탑재된 Azure 파일 공유의 스냅숏](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 * [Apple 지원 문서 - Mac에서 파일 공유를 사용하여 연결하는 방법](https://support.apple.com/HT204445)
 * [FAQ](../storage-files-faq.md)

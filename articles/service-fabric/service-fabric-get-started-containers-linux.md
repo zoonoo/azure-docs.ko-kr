@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을
 
 응용 프로그램 이름을 지정합니다(예: "mycontainer"). 
 
-컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: ""). 
+컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: "myregistry.azurecr.io/samples/helloworldapp"). 
 
 이 이미지는 워크로드 진입점이 정의되지 않으므로 입력 명령을 명시적으로 지정해야 합니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함). 
 
@@ -175,23 +175,35 @@ Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>포트 매핑 및 컨테이너 리포지토리 인증 구성
-컨테이너화된 서비스에는 통신을 위한 끝점이 필요합니다.  이제 ServiceManifest.xml 파일에서 프로토콜, 포트 및 형식을 `Endpoint`에 추가합니다. 이 문서의 경우 컨테이너화된 서비스는 포트 4000에서 수신 대기합니다. 
+컨테이너화된 서비스에는 통신을 위한 끝점이 필요합니다.  이제 'Resources' 태그 아래의 ServiceManifest.xml 파일에서 프로토콜, 포트 및 형식을 `Endpoint`에 추가할 수 있습니다. 이 문서의 경우 컨테이너화된 서비스는 포트 4000에서 수신 대기합니다. 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 `UriScheme`을 입력하면 이 컨테이너 끝점이 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 이 문서의 끝에서 전체 ServiceManifest.xml 예제 파일을 제공합니다. 
 
-ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` 정책을 지정하여 컨테이너 포트 및 호스트 간 포트 매핑을 구성합니다.  이 문서에서 `ContainerPort`은 80(컨테이너가 Dockerfile에서 지정된 대로 포트 80을 노출함)이고 `EndpointRef`는 "myserviceTypeEndpoint"(서비스 매니페스트에서 정의된 끝점임)입니다.  포트 4000에서 서비스에 들어오는 요청은 컨테이너에 있는 포트 80에 매핑됩니다.  컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다.  이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 
+ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` 정책을 지정하여 컨테이너 포트 및 호스트 간 포트 매핑을 구성합니다.  이 문서에서 `ContainerPort`은 80(컨테이너가 Dockerfile에서 지정된 대로 포트 80을 노출함)이고 `EndpointRef`는 "myServiceTypeEndpoint"(서비스 매니페스트에서 정의된 끝점임)입니다.  포트 4000에서 서비스에 들어오는 요청은 컨테이너에 있는 포트 80에 매핑됩니다.  컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다.  이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric 응용 프로그램 빌드 및 패키징
 Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
@@ -278,7 +290,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
