@@ -3,7 +3,7 @@ title: "Flow, Logic Apps, Functions 및 WebJobs 중에서 선택 | Microsoft Doc
 description: "Microsoft의 클라우드 통합 서비스를 비교 및 대조하고 사용해야 할 서비스를 결정합니다."
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: "Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 계산, 서버가 없는 아키텍처"
