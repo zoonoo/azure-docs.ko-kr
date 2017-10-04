@@ -101,7 +101,7 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: suhuruli.azurecr.io/azure-vote-back:v1
+? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml

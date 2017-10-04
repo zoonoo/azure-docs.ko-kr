@@ -1,11 +1,5 @@
 # 개요
 ## [개발자 가이드](azure-developer-guide.md) 
-### [Azure란?](azure-developer-guide.md#what-is-azure)
-### [시작 위치](azure-developer-guide.md#where-do-i-start)
-### [Azure 지역](azure-developer-guide.md#azure-regions)
-### [응용 프로그램 및 프로젝트 관리 방법](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [계정, 구독 및 청구 이해](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Azure 서비스 개요](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [포털 개요](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools)
