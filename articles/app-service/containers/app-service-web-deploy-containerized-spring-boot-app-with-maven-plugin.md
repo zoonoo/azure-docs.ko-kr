@@ -315,23 +315,23 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 * [Maven 설정 참조](https://maven.apache.org/settings.html)
 
-* [Maven의 Docker 플러그 인]
+* [Maven용 Docker 플러그 인]
 
 <!-- URL List -->
 
 [Azure CLI(명령줄 인터페이스)]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Docker]: https://www.docker.com/
-[Maven의 Docker 플러그 인]: https://github.com/spotify/docker-maven-plugin
-[체험판 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
+[Maven용 Docker 플러그 인]: https://github.com/spotify/docker-maven-plugin
+[무료 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
 [MSDN 구독자 혜택]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Boot on Docker 시작]: https://github.com/spring-guides/gs-spring-boot-docker
+[Spring Boot on Docker 시작하기]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
 [Azure Web Apps의 Maven 플러그 인]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
