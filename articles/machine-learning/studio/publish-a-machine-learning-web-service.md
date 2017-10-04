@@ -185,7 +185,7 @@ For more information on how to manage Azure Machine Learning web service endpoin
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment
 [예측 실험으로 변환]: #convert-the-training-experiment-to-a-predictive-experiment
-[웹 서비스로 배포]: #deploy-it-as-a-web-service
+[앱 서비스로 배포]: #deploy-it-as-a-web-service
 [신규]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [기존]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
