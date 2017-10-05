@@ -25,7 +25,6 @@
 ### [JavaScript UDF 통합](stream-analytics-javascript-user-defined-functions.md)
 ### [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [출력 만들기](stream-analytics-define-outputs.md)
-### [Azure Functions로 출력](stream-analytics-functions-redis.md)
 ### [Data Lake Store로 출력](stream-analytics-data-lake-output.md)
 ### [Cosmos DB 출력](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [작업 모니터링](stream-analytics-monitoring.md)
 ### [프로그래밍 방식으로 작업 모니터링](stream-analytics-monitor-jobs.md)
 ### [PowerShell을 사용하여 작업 모니터링](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [스트리밍 단위 최적화](stream-analytics-streaming-unit-consumption.md)
+### [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)
+### [쿼리 병렬화 활용](stream-analytics-parallelization.md)
 ### [크기를 조정하여 처리량 늘리기](stream-analytics-scale-jobs.md)
 ### [Machine Learning 함수에 대한 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)
 

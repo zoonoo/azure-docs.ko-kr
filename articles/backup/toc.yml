@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Azure Backup 에이전트를 사용하여 파일-폴더 백업에 대한 FAQ
           href: backup-azure-file-folder-backup-faq.md
+        - name: 백업 자격 증명 모음의 자동 업그레이드에 대한 FAQ
+          href: backup-upgrade-backup-vault.md
     - name: 역할 기반 액세스 제어
       href: backup-rbac-rs-vault.md
     - name: 하이브리드 백업 보안

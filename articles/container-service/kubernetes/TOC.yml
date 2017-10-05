@@ -1,13 +1,13 @@
-- name: Kubernetes가 있는 ACS
+- name: Azure의 Kubernetes
   href: ./index.yml
 - name: 개요
   items:
-    - name: 컨테이너 서비스 정보
+    - name: Azure의 Kubernetes
       href: container-service-intro-kubernetes.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Azure의 Kubernetes
       href: container-service-kubernetes-walkthrough.md
 - name: 자습서
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 - OMS로 모니터링
       href: container-service-tutorial-kubernetes-monitor.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: 개념
   items:
-    - name: 컨테이너 보안
-      href: container-service-security.md
     - name: 서비스 사용자 - Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: 방법 가이드
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Kubernetes 웹 인터페이스
       href: container-service-kubernetes-ui.md
-    - name: Helm 차트 배포
+    - name: Helm 차트 사용
       href: container-service-kubernetes-helm.md
-    - name: Jenkins 및 ACS Kubernetes
+    - name: ACS에서 Jenkins 사용
       href: container-service-kubernetes-jenkins.md
-    - name: ACR 및 ACS에서 초안 사용
+    - name: ACS에서 초안 사용
       href: container-service-draft-up.md
-    - name: ACS 클러스터와 연결
-      href: container-service-connect.md
-    - name: ACS 클러스터 확장
+    - name: 클러스터 크기 조정
       href: container-service-scale.md
-    - name: Kubernetes ACS 클러스터 부하 분산
-      href: container-service-kubernetes-load-balancing.md
     - name: 모니터
       items:
         - name: OMS로 모니터링
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: 참조
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST (영문)
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: 리소스
   items:
     - name: Azure 로드맵

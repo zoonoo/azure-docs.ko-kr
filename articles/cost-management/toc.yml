@@ -1,4 +1,4 @@
-- name: Azure 비용 관리 설명서
+- name: Azure Cost Management 설명서
   href: index.yml
 - name: 개요
   items:
@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 - 데이터에 대한 액세스 제어
       href: tutorial-user-access.md
+    - name: 3 - 소비 예측
+      href: tutorial-forecast-spending.md
 - name: 리소스
   items:
     - name: Azure 로드맵

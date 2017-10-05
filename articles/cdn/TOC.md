@@ -37,11 +37,13 @@
 ### [HTTP/2 지원](cdn-http2.md)
 
 ## 분석
-### [사용 패턴 분석](cdn-analyze-usage-patterns.md)
-### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
-### [실시간 통계 보기](cdn-real-time-stats.md)
-### [에지 노드 성능 분석](cdn-edge-performance.md)
-### [진단 로그로 메트릭 내보내기](cdn-log-analysis.md)
+### [Azure CDN 사용 패턴 분석](cdn-log-analysis.md)
+#### [Verizon의 핵심 보고서](cdn-analyze-usage-patterns.md)
+#### [Azure 진단 로그](cdn-azure-diagnostic-logs.md)
+### Verizon의 Azure CDN에 대한 분석 도구
+#### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
+#### [실시간 통계 보기](cdn-real-time-stats.md)
+#### [에지 노드 성능 분석](cdn-edge-performance.md)
 
 ## 개발
 ### [.NET](cdn-app-dev-net.md)

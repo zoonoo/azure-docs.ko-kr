@@ -40,6 +40,8 @@
 - name: 관리되는 서비스 ID
   href: msi-overview.md
   items:
+    - name: 로그인하거나 토큰을 획득하는 방법
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM에 대한 MSI 구성
       items:
         - name: Azure Portal 사용
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Azure Resource Manager 템플릿 사용
           href: msi-qs-configure-template-windows-vm.md
+        - name: Azure SDK 사용
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: MSI 액세스 권한을 Azure 리소스에 할당
       items:
         - name: Azure Portal 사용

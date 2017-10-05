@@ -36,3 +36,4 @@ sections:
         items:
           - html: <a href="tutorial-review-usage">사용량과 비용을 검토하여 비정상 및 효율성 검색</a>
           - html: <a href="tutorial-user-access">Cost Management 데이터에 대한 액세스 할당</a>
+          - html: <a href="tutorial-forecast-spending">향후 소비 예측</a>

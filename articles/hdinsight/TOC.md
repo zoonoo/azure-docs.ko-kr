@@ -12,6 +12,7 @@
 ### [보관](hdinsight-release-notes-archive.md)
 
 # 시작
+## [HDInsight 클러스터 용량 계획](hdinsight-capacity-planning.md)
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Spark로 시작
 ### [Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [데이터에 액세스 제한](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Ambari 뷰에 대한 사용자 권한 부여](hdinsight-authorize-users-to-ambari.md)
+### [파일 및 폴더 수준에서 사용자 권한 관리](hdinsight-add-acls-at-file-folder-levels.md)
 ## 관리
 ### [Linux 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Azure PowerShell 사용](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [Azure Log Analytics 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [클러스터 지정 대시보드](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Log Analytics로 쿼리 사용](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [클러스터 성능 모니터링](hdinsight-key-scenarios-to-monitor.md)
 ## [문제 해결](hdinsight-troubleshoot-guide.md)
 ### [HBASE 문제 해결](hdinsight-troubleshoot-hbase.md)
 ### [HDFS 문제 해결](hdinsight-troubleshoot-hdfs.md)

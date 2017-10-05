@@ -66,6 +66,8 @@
   items:
     - name: Facebook 게시물 조정
       href: facebook-post-moderation.md
+    - name: 전자 상거래 카탈로그 조정
+      href: ecommerce-retail-catalog-moderation.md
 - name: API 참조
   items:
     - name: 모든 API

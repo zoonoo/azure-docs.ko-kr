@@ -26,8 +26,8 @@
 
 ## 클러스터 만들기 및 관리
 ### 1 - Azure에서 클러스터 만들기
-#### [1a - Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b - Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 - Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
 
 # 샘플
@@ -198,7 +198,6 @@
 ### Reliable Actors 서비스 빌드
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
-##### [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
 ##### [Linux에서 Java 행위자](service-fabric-create-your-first-linux-application-with-java.md)
 #### [알림 보내기](service-fabric-reliable-actors-events.md)
 #### [타이머 및 미리 알림 설정](service-fabric-reliable-actors-timers-reminders.md)
@@ -270,7 +269,7 @@
 #### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
-##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)

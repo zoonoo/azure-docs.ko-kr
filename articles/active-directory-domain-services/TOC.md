@@ -16,8 +16,9 @@
 # 방법
 ## 관리되는 도메인 가입
 ### [Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Azure PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Linux VM 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 ### [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## 문제 해결
 ### [FAQ](active-directory-ds-faqs.md)
 ### [문제 해결 가이드](active-directory-ds-troubleshooting.md)
-### [Azure Portal 환경 미리 보기 사용](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
 
 # 참조

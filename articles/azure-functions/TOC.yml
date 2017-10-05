@@ -145,6 +145,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
+    - name: host.json 참조
+      href: functions-host-json.md
+    - name: 앱 설정 참조
+      href: functions-app-settings.md
     - name: OpenAPI 참조
       href: functions-api-definition.md
 - name: 리소스
