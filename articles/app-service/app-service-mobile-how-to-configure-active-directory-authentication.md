@@ -46,7 +46,7 @@ ms.lasthandoff: 09/20/2017
 
 ### <a name="register"> </a>Azure Active Directory에 응용 프로그램 등록
 1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Azure Active Directory 앱을 구성하는 데 이 정보를 사용합니다.
-2. [Azure 클래식 포털] 에 로그인한 다음 **Active Directory**로 이동합니다.
+2. [Active Directory] 에 로그인한 다음 **Active Directory**로 이동합니다.
    
     ![][2]
 3. 디렉터리를 선택한 다음 맨 위에서 **응용 프로그램** 탭을 선택합니다. 맨 아래에서 **추가** 를 클릭하여 새로운 앱 등록을 만듭니다.
@@ -101,6 +101,6 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 <!-- URLs. -->
 
 [Azure 포털]: https://portal.azure.com/
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Active Directory]: https://manage.windowsazure.com/
 [alternative method]:#advanced
 
