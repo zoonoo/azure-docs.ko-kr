@@ -379,7 +379,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
     > 메시지가 표시되면 HDInsight 관리자 로그인의 암호를 입력합니다.
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content

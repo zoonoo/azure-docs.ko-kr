@@ -309,7 +309,7 @@ private async Task<Dictionary<string, string>> GetChanges(
 
         while (query.HasMoreResults)
         {
-            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+            FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>();
 
             foreach (DeviceReading changedDocument in readChangesResponse)
             {
@@ -339,7 +339,7 @@ checkpoints = await GetChanges(client, collection, checkpoints);
 선택적으로 이벤트를 처리하기 위해 클라이언트 쪽 논리를 사용하여 변경 피드를 필터링할 수도 있습니다. 예를 들어, 장치 센서에서 온도 변경 이벤트만을 처리하는 클라이언트 쪽 LINQ를 사용하는 코드 조각은 다음과 같습니다.
 
 ```csharp
-FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
 
 foreach (DeviceReading changedDocument in 
     readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))

@@ -35,7 +35,7 @@ ms.lasthandoff: 08/21/2017
 |H:\Video\ |비디오 컬렉션|12TB|
 |H:\Photo\ |사진 컬렉션|30GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 디스크 이미지|25GB|
-|\\\bigshare\john\music\|네트워크 공유에서 음악 파일 컬렉션|10 GB|
+|\\\bigshare\john\music\ |네트워크 공유에서 음악 파일 컬렉션|10 GB|
 
 ## <a name="storage-account-destinations"></a>저장소 계정 대상
 

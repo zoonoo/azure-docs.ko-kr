@@ -3,7 +3,7 @@ title: "Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리 | M
 description: "Azure Portal을 사용하여 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
-author: mumian
+author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: jgao
+ms.author: ashishtha
 ms.translationtype: HT
 ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
@@ -24,6 +24,7 @@ ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
