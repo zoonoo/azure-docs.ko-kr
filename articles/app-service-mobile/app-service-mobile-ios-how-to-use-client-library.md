@@ -846,7 +846,7 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps 빠른 시작]: app-service-mobile-ios-get-started.md
+[Azure 모바일 앱 빠른 시작]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios

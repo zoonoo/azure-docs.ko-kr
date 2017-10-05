@@ -160,7 +160,7 @@ Azure 모바일 앱을 사용하면 서비스 내에서 Azure Active Directory, 
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [인증 개념]: ../app-service/app-service-authentication-overview.md
 [인증 빠른 시작]: app-service-mobile-auth.md

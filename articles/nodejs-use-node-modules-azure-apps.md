@@ -89,6 +89,6 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 자세한 내용은 [Node.js 개발자 센터](/nodejs/azure/)를 참조하세요.
 
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
-[Mac 및 Linux용 Azure 명령줄 인터페이스를 사용하는 방법]:cli-install-nodejs.md
+[Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]:cli-install-nodejs.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 
