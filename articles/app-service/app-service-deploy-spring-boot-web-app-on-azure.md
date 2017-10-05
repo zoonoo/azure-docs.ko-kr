@@ -215,9 +215,9 @@ Spring Boot 샘플 프로젝트에 대한 자세한 내용은 [Spring Boot 시�
 [Azure App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
-[Azure 포털]: https://portal.azure.com/
-[Azure 앱 서비스에서 웹앱 구성]: /azure/app-service/web-sites-configure
-[FTP/S를 사용하여 앱에 Azure App Service에 배포]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
+[Azure Portal]: https://portal.azure.com/
+[Azure App Service에서 웹앱 구성]: /azure/app-service/web-sites-configure
+[FTP/S를 사용하여 Azure App Service에 앱 배포]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [무료 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [JDK(Java Developer Kit)]: http://www.oracle.com/technetwork/java/javase/downloads/
