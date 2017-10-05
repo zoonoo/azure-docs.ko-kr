@@ -191,12 +191,12 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 <!-- Links -->
 
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure IoT 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[ReadFileUploadNotification]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
