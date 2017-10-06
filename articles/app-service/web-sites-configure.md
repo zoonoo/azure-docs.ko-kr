@@ -170,7 +170,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure 앱 서비스에서 웹 앱 크기 조정]: ./web-sites-scale.md
-[앱 서비스 평가]: https://azure.microsoft.com/try/app-service/
+[App Service 체험]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

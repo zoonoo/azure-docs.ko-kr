@@ -202,7 +202,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
-[클라우드 기반 메일 서비스]: https://sendgrid.com/solutions
-[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/use-cases/transactional-email
+[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/solutions
+[트랜잭션 전자 메일 배달]: https://sendgrid.com/use-cases/transactional-email
 
 
