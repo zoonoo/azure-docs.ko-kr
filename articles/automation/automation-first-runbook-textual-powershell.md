@@ -3,7 +3,7 @@ title: "Azure Automation의 내 첫 번째 PowerShell Runbook | Microsoft Docs"
 description: "자습서는 간단한 PowerShell Runbook의 생성, 테스트, 게시를 단계별로 안내합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "azure powershell, powershell 스크립트 자습서, powershell 자동화"

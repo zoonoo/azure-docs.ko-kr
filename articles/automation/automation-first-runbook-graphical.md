@@ -3,7 +3,7 @@ title: "Azure Automation의 내 첫 번째 그래픽 Runbook | Microsoft Docs"
 description: "자습서는 간단한 그래픽 runbook의 생성, 테스트, 게시를 단계별로 안내합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "runbook, runbook 템플릿, runbook 자동화, azure runbook"

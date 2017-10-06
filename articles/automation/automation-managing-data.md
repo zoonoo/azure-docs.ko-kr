@@ -3,7 +3,7 @@ title: "Azure 자동화 데이터 관리 | Microsoft Docs"
 description: "이 문서는 Azure 자동화 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure 자동화에 데이터 보존 및 Azure 자동화 재해 복구 백업이 포함되어 있습니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/03/2017
-
 
 ---
 # <a name="managing-azure-automation-data"></a>Azure 자동화 데이터 관리

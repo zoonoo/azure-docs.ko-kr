@@ -3,7 +3,7 @@ title: "Runbook 설정 | Microsoft Docs"
 description: "Azure 자동화의 Runbook에 대한 구성 설정 및 Azure 관리 포털과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
 ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-settings"></a>Runbook 설정
@@ -58,10 +59,5 @@ Azure Portal의 Runbook에 대한 **설정** 블레이드에서 해당 Runbook�
 ## <a name="next-steps"></a>다음 단계
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법은 [Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요. 
 * 커뮤니티 또는 다른 출처에서 이미 개발된 runbook을 추가하거나 사용자 고유의 runbook을 만드는 방법은 [Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

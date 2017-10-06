@@ -3,7 +3,7 @@ title: "Azure 자동화의 인증서 자산 | Microsoft Docs"
 description: "인증서를 Azure Automation에 안전하게 저장하게 저장할 수 있으며, 그러면 Runbook 또는 DSC 구성이 인증서에 액세스하여 Azure 및 타사 리소스에 인증할 수 있습니다.  이 문서에서는 인증서에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 인증서를 사용하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: ac9c22ae-501f-42b9-9543-ac841cf2cc36

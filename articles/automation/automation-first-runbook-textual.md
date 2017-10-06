@@ -3,7 +3,7 @@ title: "Azure Automation의 내 첫 번째 PowerShell 워크플로 Runbook | Mic
 description: "PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell"

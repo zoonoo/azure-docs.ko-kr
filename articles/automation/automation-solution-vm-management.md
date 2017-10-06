@@ -3,7 +3,7 @@ title: "업무 시간 외 VM 시작/중지 [미리 보기] 솔루션 | Microsoft
 description: "VM 관리 솔루션은 Azure Resource Manager Virtual Machines을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

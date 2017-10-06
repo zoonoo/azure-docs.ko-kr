@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 Azure Automation 실행 계정 만들기 | Mi
 description: "이 문서에서는 포털에서 초기 작성하는 동안 이 단계를 수행하지 않은 경우 계정 실행 계정을 만들기 위해 PowerShell을 사용하여 Automation을 업그레이드하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 ---

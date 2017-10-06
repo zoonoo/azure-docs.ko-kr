@@ -3,7 +3,7 @@ title: "Azure Automation 정의 | Microsoft Docs"
 description: "Azure 자동화가 제공하는 가치 및 일반적인 질문에 대한 답을 얻으므로 사용자가 Runbook 및 Azure 자동화 DSC를 사용하여 시작할 수 있습니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "자동화란, azure 자동화, azure 자동화 예"

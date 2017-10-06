@@ -3,7 +3,7 @@ title: "Azure Automation에서 Azure 모듈 업데이트 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation에 기본적으로 제공되는 일반 Azure PowerShell 모듈을 즉시 업데이트하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/14/2017
-
 
 ---
 

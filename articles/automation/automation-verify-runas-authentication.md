@@ -3,7 +3,7 @@ title: "Azure Automation 계정 구성 유효성 검사 | Microsoft Docs"
 description: "이 문서에서는 Automation 계정 구성이 제대로 설정되었는지 확인하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

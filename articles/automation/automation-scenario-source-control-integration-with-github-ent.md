@@ -3,7 +3,7 @@ title: "GitHub Enterprise와 Azure Automation 소스 제어 통합 | Microsoft D
 description: "Automation runbook의 소스 제어를 위해 GitHub Enterprise와의 통합을 구성하는 방법을 자세히 설명합니다."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

@@ -3,7 +3,7 @@ title: "Azure Automation Hybrid Runbook Worker 문제 해결 | Microsoft Docs"
 description: "Azure Automation에서 나타나는 일반적인 Hybrid Runbook Worker 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9

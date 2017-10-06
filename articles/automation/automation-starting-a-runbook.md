@@ -3,7 +3,7 @@ title: "Azure Automation에서 Runbook 시작 | Microsoft Docs"
 description: "Azure Portal과 Windows PowerShell을 사용하여 Azure Automation에서 Runbook을 시작하고 세부 정보를 제공하는 데 사용할 수 있는 여러 방법을 요약합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b

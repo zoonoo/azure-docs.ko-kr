@@ -3,7 +3,7 @@ title: "Azure 자동화에서 Runbook 실행 | Microsoft Docs"
 description: "Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca

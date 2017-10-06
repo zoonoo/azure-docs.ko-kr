@@ -3,7 +3,7 @@ title: "JSON 형식 태그를 사용하여 Azure VM 상태 예약 | Microsoft Do
 description: "이 문서에서는 태그에 JSON 문자열을 사용하여 VM 시작 및 종료 예약을 자동화하는 방법을 보여 줍니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure 자동화 시나리오: JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기

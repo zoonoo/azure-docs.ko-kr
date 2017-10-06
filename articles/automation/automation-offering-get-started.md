@@ -3,7 +3,7 @@ title: "Azure Automation 시작 | Microsoft Docs"
 description: "이 문서에서는 Azure Marketplace에서 제공하는 제품을 등록하기 위한 준비 과정에서 설계 및 구현 세부 정보를 검토함으로써 Azure Automation 서비스에 대해 간략히 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

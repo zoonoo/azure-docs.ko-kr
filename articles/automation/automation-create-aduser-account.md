@@ -3,7 +3,7 @@ title: "Azure AD 사용자 계정 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation에서 Runbook에 대해 Azure AD 사용자 계정 자격 증명을 만들어서 Azure 및 클래식 Azure에서 인증하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory 사용자, azure 서비스 관리, azure ad 사용자 계정"

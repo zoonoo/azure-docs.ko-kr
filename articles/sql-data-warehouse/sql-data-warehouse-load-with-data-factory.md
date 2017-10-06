@@ -38,7 +38,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 - **Azure Storage 계정**이 필요합니다. 저장소 계정이 아직 없을 경우 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 알아보세요. 최적의 성능을 위해 저장소 계정 및 데이터 웨어하우스를 동일한 Azure 지역에 배치합니다.
 
 ## <a name="configure-a-data-factory"></a>Data Factory 구성
-1. [Azure 포털][]에 로그인합니다.
+1. [Azure 포털][] 에 로그인합니다.
 2. 데이터 웨어하우스를 찾고 클릭하여 엽니다.
 3. 주 블레이드에서 **데이터 로드** > **Azure Data Factory**를 클릭합니다.
 
@@ -164,5 +164,5 @@ SQL Data Warehouse의 데이터를 탐색하려면 다음 문서를 참조하세
 - [Power BI를 사용하여 시각적 데이터](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 
 <!-- Azure references -->
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 
