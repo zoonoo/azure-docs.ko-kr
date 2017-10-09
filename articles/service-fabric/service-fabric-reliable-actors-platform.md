@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 이러한 구성 요소는 Reliable Actor 프레임워크를 함께 구성합니다.
 
 ## <a name="service-layering"></a>서비스 계층
-행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [응용 프로그램 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-package-apps.md), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다. 
+행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [응용 프로그램 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-package-apps.md), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다.
 
 ![행위자 서비스 계층][1]
 
@@ -372,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
 GUID/UUID 및 문자열을 사용하는 경우 값은 Int64로 해시됩니다. 그러나 명시적으로 `ActorId`에 대한 Int64를 제공하는 경우 Int64는 해시를 추가하지 않고 파티션에 직접 매핑됩니다. 이 기술을 사용하여 행위자가 배치되는 파티션을 제어할 수 있습니다.
+
+## <a name="actor-using-remoting-v2-stack"></a>원격 V2 스택을 사용하는 작업자
+이제 사용자는 2.8 nuget 패키지와 함께 Remoting V2 스택을 사용할 수 있습니다. 이 스택은 성능이 우수하며 사용자 지정 직렬화와 같은 기능을 제공합니다. Remoting V2는 기존 Remoting 스택(이제부터 V1 Remoting 스택이라 함)과 호환되지 않습니다.
+
+Remoting V2 스택을 사용하려면 다음과 같은 변경 내용이 필요합니다.
+ 1. 다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. 시작하려면 V2 스택을 사용하여 ActorService 및 Actor Client 프로젝트를 빌드하고 업그레이드합니다.
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2 Stack으로 Actor Service 업그레이드.
+이 변경은 2단계 업그레이드입니다. 열거된 순서에 따라 단계를 따릅니다.
+
+1.  다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다. 이 특성은 ActorService인 V1(기존)과 V2 Listener에 대한 두 가지 수신기를 시작합니다. 이 변경을 통해 ActorService를 업그레이드합니다.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. 위의 업그레이드를 마친 후 ActorClients를 업그레이드합니다.
+이 단계를 수행하려면 Actor Proxy가 Remoting V2 스택을 사용 중인지 확인합니다.
+
+3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)

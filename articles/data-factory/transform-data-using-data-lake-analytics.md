@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
@@ -123,7 +123,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | name                | 파이프라인의 작업 이름입니다.     | 예      |
 | 설명         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
 | type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
-| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |          |
+| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 예      |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |

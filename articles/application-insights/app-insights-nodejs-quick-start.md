@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f7351f310752803b910eef69e71d081ddc923c5e
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -30,13 +30,13 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 
 - Azure 구독과 기존 Node.js 웹 응용 프로그램이 필요합니다.
 
-Node.js 웹 응용 프로그램이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs)에 따라 Node.js 웹 응용 프로그램을 만들 수 있습니다.
+Node.js 웹 응용 프로그램이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)에 따라 Node.js 웹 응용 프로그램을 만들 수 있습니다.
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -53,7 +53,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
    | **응용 프로그램 유형** | Node.js 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
-   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
 
@@ -69,7 +69,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    npm install applicationinsights --save
    ```
 
-3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. 
+3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b33bf672012356d98e248e2be719aaa2ef024df5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 5c7e4f876165752824dab2ab8d0c7ecd44864710
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 09/25/2017
 
 Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성, 성능 및 사용량을 손쉽게 모니터링할 수 있습니다.  또한 사용자 보고를 기다리지 않고 응용 프로그램에서 오류를 신속하게 식별하고 진단할 수 있습니다.  앱의 성능 및 효율성에 대한 Application Insights에서 수집하는 정보를 사용하면 응용 프로그램을 유지 관리하고 개선하는 데 더 많은 정보를 갖고 선택할 수 있습니다.
 
-이 빠른 시작에서는 응용 프로그램을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 응용 프로그램에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여 줍니다. ASP.NET 웹 응용 프로그램이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../app-service-web/app-service-web-get-started-dotnet.md)에 따라 하나 만들 수 있습니다.
+이 빠른 시작에서는 응용 프로그램을 분석하는 데 사용할 수 있는 다양한 방법 중 하나인 기존 ASP.NET 웹 응용 프로그램에 Application Insights를 추가하고 실시간 통계 분석을 시작하는 방법을 보여 줍니다. ASP.NET 웹 응용 프로그램이 없는 경우 [ASP.NET 웹앱 빠른 시작 만들기](../app-service/app-service-web-get-started-dotnet.md)에 따라 하나 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.
@@ -60,11 +60,11 @@ Application Insights는 실행 중인 위치에 관계 없이 응용 프로그�
 
     ![응용 프로그램 맵](media/quick-monitor-portal/001.png)
 
-2. **앱 맵**을 클릭하여 응용 프로그램 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소는 부하, 성능, 오류 및 경고와 같은 KPI를 보여 줍니다.
+2. **앱 맵**을 클릭하여 응용 프로그램 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
     ![응용 프로그램 맵](media/quick-monitor-portal/application-map.png)
 
-3. 응용 프로그램 구성 요소 중 하나에서 **앱 분석** 아이콘 ![Application Map](media/quick-monitor-portal/app-analytics-icon.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 렌더링하는 쿼리가 차트로 생성됩니다.  사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. 응용 프로그램 구성 요소 중 하나에서 **앱 분석** 아이콘 ![Application Map](media/quick-monitor-portal/app-analytics-icon.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다.  사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
     ![분석](media/quick-monitor-portal/analytics.png)
 

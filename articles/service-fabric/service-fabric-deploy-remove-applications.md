@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c7e8d7a53623219864dc2d5c9ace86f36f3db889
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: e0e7bcee2697555b49455a414eabd02e3f573c40
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 응용 프로그램 배포 및 제거
@@ -27,8 +26,7 @@ ms.lasthandoff: 07/08/2017
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
-> 
-> 
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 
 <br/>
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 07/08/2017
 응용 프로그램을 배포하고 인스턴스가 클러스터에서 실행되면 응용 프로그램 인스턴스와 해당 응용 프로그램 형식을 삭제할 수 있습니다. 클러스터에서 응용 프로그램을 완전히 제거하려면 다음 단계를 수행합니다.
 
 1. 실행 중인 응용 프로그램 인스턴스 제거(또는 삭제)
-2. 더 이상 필요하지 않은 경우 응용 프로그램 유형 등록 취소
+2. 더 이상 필요하지 않은 경우 응용 프로그램 형식 등록 취소
 3. 이미지 저장소에서 응용 프로그램 패키지 제거
 
 로컬 개발 클러스터에서 [Visual Studio를 사용하여 응용 프로그램을 개발 및 배포](service-fabric-publish-app-remote-cluster.md)하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
@@ -66,7 +64,7 @@ Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Visual Studio 2015에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
+Visual Studio 2015에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 형식 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다. 
 
 다음 명령은 응용 프로그램 패키지의 내용을 나열합니다.
 
@@ -99,12 +97,12 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 응용 프로그램 패키지가 크거나 파일이 많은 경우 [압축할 수 있습니다](service-fabric-package-apps.md#compress-a-package). 압축은 파일의 크기와 수를 줄입니다.
-부작용은 응용 프로그램 유형 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
+부작용은 응용 프로그램 형식 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
 
 패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
 압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다.
 
-다음 cmdlet은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. 이제 패키지에 `Code` 및 `Config` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
+다음 cmdlet은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. 이제 패키지에 `Code` 및 `Config` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 형식 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
 ```
 PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
@@ -156,19 +154,19 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 ## <a name="register-the-application-package"></a>응용 프로그램 패키지 등록
 응용 프로그램 매니페스트에 선언된 응용 프로그램 형식과 버전은 응용 프로그램 패키지를 등록할 때 사용할 수 있게 됩니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며, 처리된 패키지를 내부 시스템 위치에 복사합니다.  
 
-[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 실행하여 클러스터에서 응용 프로그램 유형을 등록하고 배포할 수 있도록 합니다.
+[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 실행하여 클러스터에서 응용 프로그램 형식을 등록하고 배포할 수 있도록 합니다.
 
 ```powershell
 PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
 Register application type succeeded
 ```
 
-“MyApplicationV1”은 응용 프로그램 패키지가 있는 이미지 저장소의 폴더입니다. 이름이 "MyApplicationType"이고 버전이 "1.0.0"인(둘 다 응용 프로그램 매니페스트에 있음) 응용 프로그램 유형이 이제 클러스터에 등록됩니다.
+“MyApplicationV1”은 응용 프로그램 패키지가 있는 이미지 저장소의 폴더입니다. 이름이 "MyApplicationType"이고 버전이 "1.0.0"인(둘 다 응용 프로그램 매니페스트에 있음) 응용 프로그램 형식이 이제 클러스터에 등록됩니다.
 
 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 명령은 시스템에서 응용 프로그램 패키지를 성공적으로 등록한 후에만 반환합니다. 등록에 걸리는 시간은 응용 프로그램 패키지의 크기 및 콘텐츠에 따라 다릅니다. **-TimeoutSec** 매개 변수는 필요한 경우 더 긴 제한 시간을 제공합니다(기본 제한 시간은 60초).
 
 대형 응용 프로그램 패키지가 있거나 시간 제한이 발생하는 경우 **-Async** 매개 변수를 사용합니다. 클러스터에서 register 명령을 승인할 때 명령이 반환되고 필요에 따라 처리가 계속됩니다.
-[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 형식 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -180,7 +178,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 성공적으로 등록된 모든 응용 프로그램 유형 버전에서 응용 프로그램을 인스턴스화할 수 있습니다. 각 응용 프로그램의 이름은 반드시 *“fabric:”* 체계로 시작하고 각 응용 프로그램 인스턴스에 대해 고유해야 합니다. 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
+[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 성공적으로 등록된 모든 응용 프로그램 형식 버전에서 응용 프로그램을 인스턴스화할 수 있습니다. 각 응용 프로그램의 이름은 반드시 *“fabric:”* 체계로 시작하고 각 응용 프로그램 인스턴스에 대해 고유해야 합니다. 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
 
 ```powershell
 PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
@@ -232,10 +230,10 @@ Remove application instance succeeded
 PS C:\> Get-ServiceFabricApplication
 ```
 
-## <a name="unregister-an-application-type"></a>응용 프로그램 유형 등록 취소
-특정 버전의 응용 프로그램 유형이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 사용하여 해당 응용 프로그램 유형을 등록 취소해야 합니다. 사용하지 않는 응용 프로그램 유형을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
+## <a name="unregister-an-application-type"></a>응용 프로그램 형식 등록 취소
+특정 버전의 응용 프로그램 형식이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet을 사용하여 해당 응용 프로그램 형식을 등록 취소해야 합니다. 사용하지 않는 응용 프로그램 형식을 등록 취소하면 응용 프로그램 이진 파일을 제거하여 이미지 저장소에서 사용하는 저장 공간을 해제합니다. 응용 프로그램 형식을 등록 취소해도 응용 프로그램 패키지는 제거되지 않습니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
 
-[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps)을 실행하여 현재 클러스터에 등록된 응용 프로그램 유형을 확인합니다.
+[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps)을 실행하여 현재 클러스터에 등록된 응용 프로그램 형식을 확인합니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -246,7 +244,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-[Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps)을 실행하여 특정 응용 프로그램 유형의 등록을 취소합니다.
+[Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps)을 실행하여 특정 응용 프로그램 형식의 등록을 취소합니다.
 
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
@@ -297,12 +295,11 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
 - 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure 저장소를 사용하도록 이미지 저장소를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 패키지 업로드가 성공적으로 완료되었지만 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과되었습니다.
-다음을 시도해 보세요.
+문제: 패키지 업로드가 성공적으로 완료되었지만 [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과되었습니다. 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
-압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 응용 프로그램 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
+압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 응용 프로그램 형식을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
-- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 응용 프로그램 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 응용 프로그램 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 형식 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -319,7 +316,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 응용 프로그램 형식의 등록을 비동기적으로 계속하는 경우 반환합니다.
-이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 응용 프로그램 형식 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 519bab9d226f9d00ae0fa21348823d2d6b6cd2c9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 응용 프로그램 지원(미리 보기)
@@ -34,26 +34,26 @@ Docker는 다중 컨테이너 응용 프로그램을 정의하기 위해 [docker
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Service Fabric에서 Docker Compose 파일 배포
 
-다음 명령은 다른 Service Fabric 응용 프로그램과 유사하게 모니터링하고 관리할 수 있는 Service Fabric 응용 프로그램(이전 예제의 `fabric:/TestContainerApp`)을 만듭니다. 상태 쿼리에 대해서는 지정된 응용 프로그램 이름을 사용할 수 있습니다.
+다음 명령은 다른 모든 Service Fabric 응용 프로그램과 같이 모니터링하고 관리할 수 있는 Service Fabric 응용 프로그램(`TestContainerApp`이라 함)을 만듭니다. 상태 쿼리에 대해서는 지정된 응용 프로그램 이름을 사용할 수 있습니다.
 
 ### <a name="use-powershell"></a>PowerShell 사용
 
-PowerShell에서 다음 명령을 실행하여 docker-compose.yml 파일에서 Service Fabric Compose 응용 프로그램을 만듭니다.
+PowerShell에서 다음 명령을 실행하여 docker-compose.yml 파일에서 Service Fabric Compose 배포를 만듭니다.
 
 ```powershell
-New-ServiceFabricComposeDeployment -DeploymentName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` 및 `RegistryPassword`는 컨테이너 레지스트리 사용자 이름 및 암호를 가리킵니다. 응용 프로그램을 완료한 후에는 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
+`RegistryUserName` 및 `RegistryPassword`는 컨테이너 레지스트리 사용자 이름 및 암호를 가리킵니다. 배포를 완료한 후 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
 
 ```powershell
-Get-ServiceFabricComposeDeploymentStatus -DeploymentName fabric:/TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp -GetAllPages
 ```
 
-PowerShell을 통해 Compose 응용 프로그램을 삭제하려면 다음 명령을 사용합니다.
+PowerShell을 통해 Compose 배포를 삭제하려면 다음 명령을 사용합니다.
 
 ```powershell
-Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
+Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl) 사용
@@ -61,7 +61,7 @@ Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
 또는 다음 Service Fabric CLI 명령을 사용할 수 있습니다.
 
 ```azurecli
-sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 응용 프로그램을 만든 후에는 다음 명령을 사용하여 그 상태를 확인할 수 있습니다.
@@ -108,9 +108,9 @@ Compose 파일에 지정하는 서비스 이름이 정규화된 도메인 이름
 docker-compose.yml 파일은 해당 속성 및 구성을 포함하는 컨테이너의 배포 가능 집합을 설명합니다.
 예를 들어 파일에는 환경 변수 및 포트가 포함될 수 있습니다. 배치 제약 조건, 리소스 제한, DNS 이름과 같은 배포 매개 변수는 docker-compose.yml 파일에도 지정할 수 있습니다.
 
-[Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)은 서비스 형식 및 응용 프로그램 형식을 사용합니다. 여기서 동일한 형식의 여러 응용 프로그램 인스턴스를 유지할 수 있습니다. 예를 들어 고객이 각자 하나의 응용 프로그램 인스턴스를 사용할 수 있습니다. 이 형식 기반 모델은 런타임에 등록된 동일한 응용 프로그램 유형의 여러 버전을 지원합니다.
+[Service Fabric 응용 프로그램 모델](service-fabric-application-model.md)은 서비스 형식 및 응용 프로그램 형식을 사용합니다. 여기서 동일한 형식의 여러 응용 프로그램 인스턴스를 유지할 수 있습니다. 예를 들어 고객이 각자 하나의 응용 프로그램 인스턴스를 사용할 수 있습니다. 이 형식 기반 모델은 런타임에 등록된 동일한 응용 프로그램 형식의 여러 버전을 지원합니다.
 
-예를 들어 고객 A에는 1.0 형식의 AppTypeA로 인스턴스화된 응용 프로그램이 있고, 고객 B에는 동일한 형식 및 버전으로 인스턴스화된 다른 응용 프로그램을 유지할 수 있습니다. 응용 프로그램 유형은 응용 프로그램 매니페스트에서 정의하고, 응용 프로그램 이름 및 배포 매개 변수는 응용 프로그램을 만들 때 지정합니다.
+예를 들어 고객 A에는 1.0 형식의 AppTypeA로 인스턴스화된 응용 프로그램이 있고, 고객 B에는 동일한 형식 및 버전으로 인스턴스화된 다른 응용 프로그램을 유지할 수 있습니다. 응용 프로그램 형식은 응용 프로그램 매니페스트에서 정의하고, 응용 프로그램 이름 및 배포 매개 변수는 응용 프로그램을 만들 때 지정합니다.
 
 이 모델을 사용하면 유연하게 작업할 수 있지만 매니페스트 파일에서 형식이 암시되는 좀 더 간단한 인스턴스 기반 모델을 지원하려고 합니다. 이 모델에서 각 응용 프로그램은 자체의 독립적인 매니페스트를 갖게 됩니다. 인스턴스 기반 배포 형식인 docker-compose.yml에 대한 지원을 추가하여 이러한 방식을 미리 검토하고 있습니다.
 
