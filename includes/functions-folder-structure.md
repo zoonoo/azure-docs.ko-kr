@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*host.json* 파일은 일부 런타임별 구성을 포함하며 함수 앱의 루트 폴더에 있습니다. 사용 가능한 설정에 대한 자세한 내용은 WebJobs.Script 리포지토리 wiki에서 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) 을 참조하세요.
+*host.json* 파일은 일부 런타임별 구성을 포함하며 함수 앱의 루트 폴더에 있습니다. 사용할 수 있는 설정에 대한 자세한 내용은 [host.json 참조](../articles/azure-functions/functions-host-json.md)를 참조하세요.
 
 각 함수에는 하나 이상의 코드 파일, function.json 구성 및 기타 종속성을 포함하는 폴더가 있습니다.
 
