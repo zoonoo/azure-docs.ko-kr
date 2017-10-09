@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -45,7 +45,7 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 
 MSI 기반 VM을 만들려면:
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ MSI 기반 VM을 만들려면:
 
 기존 가상 컴퓨터에서 MSI를 사용하도록 설정해야 하는 경우 다음을 수행합니다.
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
 
    ```azurecli-interactive
    az login
@@ -83,7 +83,7 @@ MSI 기반 VM을 만들려면:
 
 MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”:
 
    ```azurecli-interactive
    az login

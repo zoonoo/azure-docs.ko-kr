@@ -16,16 +16,16 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Azure AD에서 Cloud App Discovery 사용 시작
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD에서 Cloud App Discovery 설정
 
-Azure AD의 Cloud App Discovery 향상에 대한 공개 미리 보기 버전이 이제 Azure Active Directory Premium P1 라이선스를 통해 제공됩니다. 이러 향상은 Microsoft Cloud App Security와의 통합을 기반으로 합니다. Cloud App Discovery는 트래픽 로그를 15,000여 클라우드 앱의 Cloud App Security 카탈로그와 비교하여 클라우드 사용 및 섀도 IT에 대한 최신 정보를 제공합니다. 
+Azure AD의 새 Cloud App Discovery 향상이 이제 Azure Active Directory Premium P1 라이선스를 통해 제공됩니다. 이러 향상은 Microsoft Cloud App Security와의 통합을 기반으로 합니다. Cloud App Discovery는 트래픽 로그를 15,000여 클라우드 앱의 Cloud App Security 카탈로그와 비교하여 클라우드 사용 및 섀도 IT에 대한 최신 정보를 제공합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,14 +33,14 @@ Azure AD의 Cloud App Discovery 향상에 대한 공개 미리 보기 버전이 
 
 Cloud App Discovery를 설정하려면 Azure Active Directory의 전역 관리자이거나 보안 읽기 권한자이어야 합니다. 관리자 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 앱에서 동일한 권한을 갖습니다.
 
-## <a name="snapshot-and-continuous-reports"></a>스냅숏 및 연속 보고서
+## <a name="setup-steps"></a>설정 단계
 
-두 가지 유형의 보고서를 생성할 수 있습니다.
+1. [스냅숏 보고서](cloudappdiscovery-set-up-snapshots.md)를 로그 형식에서 로그가 Cloud App Discovery에 사용 가능한 정보를 제공하는지 확인하도록 설정합니다. 또한 이들은 방화벽과 프록시 서버에서 수동으로 업로드한 트래픽 로그에 대한 임시 정보를 제공합니다.
 
-* **보고서 스냅숏**은 방화벽과 프록시 서버에서 수동으로 업로드한 트래픽 로그에 대한 임시 정보를 제공합니다. 이를 통해 Cloud App Discovery에 유용한 정보를 제공하는 로그를 만들 수 있습니다.
+2. [연속 보고](https://docs.microsoft.com/cloud-app-security/discovery-docker)를 Cloud App Security 로그 수집기를 통해 네트워크에서 전달된 모든 로그를 분석하도록 설정합니다. 이를 통해 새 앱과 사용량 추세를 파악할 수 있습니다.
 
-* **연속 보고서**는 [Cloud App Security 로그 수집기](https://docs.microsoft.com/cloud-app-security/discovery-docker)를 통해 네트워크에서 전달된 모든 로그를 분석합니다. 이를 통해 새 앱과 사용량 추세를 파악할 수 있습니다.
-
+3. 로그가 현재 지원되지 않는 경우 Cloud App Discovery가 로그를 분석하도록 [사용자 지정 로그 파서를 설정](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser)합니다.
+  
 ## <a name="log-processing-flow"></a>로그 처리 흐름
 
 보고서 생성은 데이터 규모에 따라 몇 분에서 몇 시간까지 걸릴 수 있습니다. 분석 대상은 다음과 같습니다.
@@ -134,8 +134,8 @@ Cloud App Discovery 보고서를 생성하려면 트래픽 로그가 다음 조�
 
 
 ## <a name="next-steps"></a>다음 단계
-다음 링크를 사용하여 Azure AD에서 향상된 Cloud App Discovery 설정을 계속합니다.
+다음 링크를 사용하여 Azure AD에서 Cloud App Discovery 설정을 계속합니다.
 
-* [Cloud App Discovery 보고서 스냅숏 만들기](cloudappdiscovery-set-up-snapshots.md)
-* [연속 보고를 위한 자동 로그 업로드 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
+* [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

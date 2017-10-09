@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ Azure AD Connect 마법사 _외부_에서 AD FS가 로그인 방법으로 구성
 
 예. AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>통과 인증 에이전트는 부하 분산 기능을 제공하나요?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>설치해야 하는 통과 인증 에이전트 수는 몇 개인가요?
 
-아니요, 여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)이 보장되지만 부하 분산 기능은 제공되지 않습니다. 인증 에이전트 중 한두 개가 로그인 요청을 대량 처리할 수 있습니다.
+여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)이 보장됩니다. 하지만 부하 분산 기능은 제공되지 않습니다. 인증 에이전트 중 한두 개가 로그인 요청을 대량 처리할 수 있습니다.
 
-인증 에이전트가 처리해야 하는 암호 유효성 검사 요청은 간단합니다. 따라서 대부분의 고객에서 최고 및 평균 부하는 총 두세 개의 인증 에이전트를 통해 쉽게 처리됩니다.
+테넌트에 나타날 것으로 예상되는 로그인 요청의 최대 및 평균 로드를 고려하세요. 벤치마크에 의하면, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 30만에서 40만 건의 인증을 처리할 수 있습니다. 대부분의 고객의 경우 고가용성 및 용량을 위해 총 2~3개의 인증 에이전트로도 충분합니다.
 
 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치하는 것이 좋습니다.
 

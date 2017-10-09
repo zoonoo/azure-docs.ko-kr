@@ -3,7 +3,7 @@ title: "Azure Blob 저장소 소개 | Microsoft Docs"
 description: "Azure Blob 저장소 소개"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: robinsh
+ms.date: 09/28/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 7fe3db3d31dc7212c47a0f8dd48c86c98fb498c1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 저장소 소개
@@ -47,7 +47,7 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
   
     *블록 Blob* 은 문서 및 미디어 파일과 같은 텍스트 또는 이진 파일을 저장하기에 적합합니다. *추가 Blob* 은 블록으로 구성된다는 점에서 블록 Blob과 유사하지만 추가 작업에 최적화되었으므로 로깅 시나리오에 유용합니다. 단일 블록 Blob은 각각 100MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 4.75TB(100MBx50,000)보다 약간 큽니다. 단일 추가 BLOB는 각각 4MB까지 최대 50,000개 블록을 포함할 수 있으며, 총 크기는 195GB(4MBx50,000)를 약간 큽니다.
   
-    *페이지 Blob* 은 최대 1TB 크기까지 가능하며 빈번한 읽기/쓰기 작업에 대해 더 효율적입니다. Azure Virtual Machines는 OS 및 데이터 디스크로 페이지 Blob을 사용합니다.
+    *페이지 Blob*은 최대 8TB 크기까지 가능하며 빈번한 읽기/쓰기 작업에 대해 더 효율적입니다. Azure 가상 컴퓨터는 OS 및 데이터 디스크로 페이지 Blob을 사용합니다.
   
     컨테이너 및 Blob를 명명하는 세부 정보는 [컨테이너, Blob 및 메타데이터 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)를 참조하세요.
 
@@ -55,3 +55,4 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 * [저장소 계정을 만드는](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [.NET을 사용하여 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
+

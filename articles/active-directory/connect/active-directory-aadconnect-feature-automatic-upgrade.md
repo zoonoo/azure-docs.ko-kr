@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
@@ -26,7 +26,6 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="overview"></a>개요
 **자동 업그레이드** 기능을 통해 아주 쉽게 Azure AD Connect 설치를 항상 최신 상태로 유지할 수 있습니다. 이 기능은 Express 설치 및 DirSync 업그레이드에 대해 기본적으로 사용되도록 설정되어 있습니다. 새 버전이 출시되면 설치가 자동으로 업그레이드됩니다.
-
 다음과 같은 경우에 기본적으로 자동 업그레이드가 사용됩니다.
 
 * Express 설정 설치 및 DirSync 업그레이드
@@ -45,6 +44,7 @@ ms.lasthandoff: 09/23/2017
 `Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.
 
 자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 **Office 365 URL 및 IP 주소 범위** 에서 설명하는 대로 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)용 프록시 서버에서 URL을 열었는지 확인합니다.
+
 
 **Synchronization Service Manager** UI가 서버에서 실행되고 있는 경우에는 UI를 닫을 때까지 업그레이드가 일시 중단됩니다.
 
@@ -96,7 +96,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
 | UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
 | UpgradeNotSupportedNonMsolAccount |[AD Connector 계정](active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | 로그인 방법으로 *구성 안 함*을 선택했습니다. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. | 
 | UpgradeNotSupportedPtaSignInMethod | 로그인 방법으로 통과 인증을 선택했습니다. |
 | UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)로 설정되어 있습니다. |
 | UpgradeNotSupportedUserWritebackEnabled |[사용자 쓰기 저장](active-directory-aadconnect-feature-preview.md#user-writeback) 기능을 사용하도록 설정했습니다. |

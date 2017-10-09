@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8badb3455fa508e4eef56ec7fc1901fbbc8b23d0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: a1a3688d4ff215d05d2f78cdfa7d402e3fc20be2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="manage-azure-ddos-protection-standard-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DDoS 보호 표준 관리
 
 >[!IMPORTANT]
->Azure DDoS 보호 표준(DDoS 보호)은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스가 선택한 수의 지역에서 DDoS 보호를 지원합니다. 제한된 미리 보기 동안 구독에 대해 DDoS 보호를 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 시 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다. DDoS 보호는 미국 동부, 미국 서부 및 미국 중부 지역에서 사용할 수 있습니다. 미리 보기 중에는 이 서비스 사용 요금이 청구되지 않습니다.
+>Azure DDoS 보호 표준(DDoS 보호)은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스가 선택한 수의 지역에서 DDoS 보호를 지원합니다. 제한된 미리 보기 동안 구독에 대해 DDoS 보호를 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 시 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다. DDoS 보호는 미국 동부, 미국 서부 및 미국 중서부 지역에서 사용할 수 있습니다. 미리 보기 중에는 이 서비스 사용 요금이 청구되지 않습니다.
 
 이 문서에서는 Azure PowerShell을 사용하여 DDoS 보호를 사용하거나 사용하지 않도록 설정하는 방법 및 원격 분석을 사용하는 방법을 보여 줍니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -38,6 +38,9 @@ ms.lasthandoff: 06/15/2017
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>장애 조치에 계획된 장애 조치 제스처만 있는 이유는 무엇입니까?
 Azure는 항상 사용 가능한 환경이며 가상 컴퓨터를 항상 사용할 수 있습니다. 장애 복구는 온-프레미스에서 워크로드를 다시 실행할 수 있도록 짧은 가동 중지를 수행하도록 결정한 계획된 작업입니다. 이 경우 데이터 손실이 없어야 합니다. 따라서 Azure에서 VM을 해제하고, 최신 변경 내용을 다운로드하고, 데이터 손실이 없는지 확인하는 계획된 장애 조치 제스처만 사용할 수 있습니다.
 
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Hyper-v에 장애 복구하기 위해 Azure에서 프로세스 서버가 필요한가요?
+아니요, VMware 가상 컴퓨터를 보호하는 경우에만 프로세스 서버가 필요합니다. Hyper-V 가상 컴퓨터를 보호/장애 복구할 때 배포되어야 하는 추가 구성 요소가 없습니다.
+
 ## <a name="initiate-failback"></a>장애 복구 시작
 기본 위치에서 보조 위치로 장애 조치한 후에는 Site Recovery에서 복제된 가상 컴퓨터를 보호하지 않으며 보조 위치가 현재 활성 위치로 작동합니다. 이들 절차를 따라 원래 기본 사이트로 장애 복구합니다. 이 절차는 복구 계획에 대해 계획된 장애 조치를 실행하는 방법을 설명합니다. 또는 **가상 컴퓨터** 탭에서 단일 가상 컴퓨터에 대한 장애 조치를 실행할 수 있습니다.
 
@@ -53,10 +56,6 @@ Azure는 항상 사용 가능한 환경이며 가상 컴퓨터를 항상 사용�
 
     >[!NOTE]
     >Azure를 한 달 이상 실행했거나 온-프레미스 가상 컴퓨터를 삭제한 경우 이 옵션을 사용하는 것이 좋습니다. 이 옵션은 체크섬 계산을 수행하지 않습니다.
-    >
-    >
-
-
 
 
 4. 클라우드에 대해 데이터 암호화를 사용하는 경우 VMM 서버에 공급자를 설치하는 중에 데이터 암호화를 사용하도록 설정할 때 발행된 인증서를 **암호화 키**에서 선택합니다.
@@ -85,9 +84,13 @@ Azure는 항상 사용 가능한 환경이며 가상 컴퓨터를 항상 사용�
 
     > [!NOTE]
     > 데이터 동기화 단계 중에 장애 복구 작업을 취소하면 온-프레미스 VM이 손상됩니다. 이는 데이터 동기화가 Azure VM 디스크에서 온-프레미스 데이터 디스크로 최신 데이터를 복사하고, 동기화를 완료할 때까지 디스크 데이터가 일관되지 않을 수 있기 때문입니다. 데이터 동기화를 취소한 후 온-프레미스 VM이 부팅되면 부팅되지 않을 수 있습니다. 장애 조치를 다시 트리거하여 데이터 동기화를 완료합니다.
-    >
-    >
 
+## <a name="time-taken-to-failback"></a>장애 복구 소요 시간
+데이터 동기화를 완료하고 가상 컴퓨터를 부팅하는 데 걸린 시간은 다양한 요인에 따라 달라집니다. 소요 시간에 대한 정보를 알아보기 위해 데이터 동기화 중 진행 상황을 설명하겠습니다.
+
+데이터 동기화는 가상 컴퓨터 디스크의 스냅숏을 만들고 블록 단위로 검사를 시작하여 해당 체크섬을 계산합니다. 이 계산된 체크섬은 온-프레미스로 전송되어 동일한 블록의 온-프레미스 체크섬과 비교합니다. 체크섬이 일치하는 경우에 데이터 블록이 전송되지 않습니다. 일치하지 않는 경우 데이터 블록이 온-프레미스로 전송됩니다. 이 전송 시간은 사용 가능한 대역폭에 따라 달라집니다. 체크섬의 속도는 분당 GB로 측정됩니다. 
+
+데이터의 다운로드 속도를 높이려면 다운로드를 직렬화하기 위해 더 많은 스레드를 사용하도록 MARS 에이전트를 구성할 수 있습니다. 에이전트에서 다운로드 스레드를 변경하는 방법은 [여기 문서](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)를 참조합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

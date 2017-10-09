@@ -3,7 +3,7 @@ title: "Azure Portal에서 저장소 메트릭 사용 | Microsoft Docs"
 description: "Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭을 활성화하는 방법에 대해 알아봅니다."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1525a2258dd6ab8e72e8607826523eca8121483c
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure 저장소 메트릭 사용 및 메트릭 데이터 보기
@@ -27,13 +27,13 @@ ms.lasthandoff: 08/21/2017
 ## <a name="overview"></a>개요
 새 저장소 계정을 만들 때 기본적으로 저장소 메트릭을 사용하도록 설정되어 있습니다. [Azure Portal](https://portal.azure.com)이나 Windows PowerShell을 통해 또는 저장소 클라이언트 라이브러리 중 하나를 통해 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다.
 
-메트릭 데이터 보존 기간을 구성해야 합니다. 이 기간에 따라 저장소 서비스에서 메트릭을 보관하는 기간이 결정되며, 해당 메트릭을 저장하는 데 필요한 저장소에 대해 요금이 청구됩니다. 일반적으로는 시간 메트릭보다 분 메트릭에 더 짧은 보존 기간을 사용해야 합니다. 분 메트릭의 경우 추가 공간이 상당히 많이 필요하기 때문입니다. 데이터를 분석하고 오프라인 분석용 또는 보고용으로 보관할 메트릭을 다운로드할 시간이 충분하도록 보존 기간을 선택해야 합니다. 저장소 계정에서 메트릭 데이터를 다운로드할 때도 요금이 청구됩니다.
+메트릭 데이터 보존 기간을 구성해야 합니다. 이 기간에 따라 저장소 서비스에서 메트릭을 보관하는 기간이 결정되며, 해당 메트릭을 저장하는 데 필요한 저장소에 대해 요금이 청구됩니다. 일반적으로는 시간 메트릭보다 분 메트릭에 더 짧은 보존 기간을 사용해야 합니다. 분 메트릭의 경우 추가 공간이 상당히 많이 필요하기 때문입니다. 데이터를 분석하고 오프라인 분석용 또는 보고용으로 보관할 메트릭을 다운로드할 시간이 충분하도록 보존 기간을 선택합니다. 저장소 계정에서 메트릭 데이터를 다운로드할 때도 요금이 청구됩니다.
 
 ## <a name="how-to-enable-metrics-using-the-azure-portal"></a>Azure Portal을 사용하여 메트릭을 사용하도록 설정하는 방법
 [Azure Portal](https://portal.azure.com)에서 메트릭을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
 1. 저장소 계정으로 이동합니다.
-1. **메뉴** 블레이드에서 **진단**을 선택합니다.
+1. **메뉴** 창에서 **진단**을 선택합니다.
 1. **상태**가 **켜기**로 설정되어 있는지 확인합니다.
 1. 모니터링하려는 서비스에 대한 메트릭을 선택합니다.
 1. 보존 정책을 지정하여 메트릭 및 로그 데이터를 보존하는 기간을 나타냅니다.
@@ -101,9 +101,9 @@ blobClient.SetServiceProperties(properties);
 저장소 계정을 모니터링하도록 저장소 분석 메트릭을 구성하면 저장소 분석에서 저장소 계정의 알려진 테이블 집합에 메트릭을 기록합니다. [Azure Portal](https://portal.azure.com)에서 시간별 메트릭을 보도록 차트를 구성할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동합니다.
-1. 메트릭을 보려는 서비스에 대한 **메뉴** 블레이드에서 **메트릭**을 선택합니다.
+1. 메트릭을 보려는 서비스에 대한 **메뉴** 창에서 **메트릭**을 선택합니다.
 1. 구성하려는 차트에 대해 **편집**을 선택합니다.
-1. **차트 편집** 블레이드에서 **시간 범위**, **차트 종류** 및 차트에 표시할 메트릭을 선택합니다.
+1. **차트 편집** 창에서 **시간 범위**, **차트 종류** 및 차트에 표시할 메트릭을 선택합니다.
 1. **확인**을 선택합니다.
 
 장기 저장용 메트릭을 다운로드하거나 메트릭을 로컬에서 분석하려는 경우에는 다음을 수행해야 합니다.
@@ -112,7 +112,7 @@ blobClient.SetServiceProperties(properties);
 * 사용자 지정 응용 프로그램 또는 스크립트를 작성하여 테이블을 읽고 저장합니다.
 
 대부분의 타사 저장소 찾아보기 도구는 이러한 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다.
-사용 가능한 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요.
+사용 가능한 도구의 목록은 [Azure Storage 클라이언트 도구](storage-explorers.md)를 참조하세요.
 
 > [!NOTE]
 > [Microsoft Azure Storage Explorer](http://storageexplorer.com/) 버전 0.8.0부터 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
@@ -143,7 +143,7 @@ blobClient.SetServiceProperties(properties);
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
 | 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-이 예제 분 메트릭 데이터에서 파티션 키는 분 확인 시의 시간을 사용합니다. 행 키는 행에 저장되는 정보의 유형을 식별합니다. 이 정보는 액세스 형식과 요청 형식의 두 가지 정보로 구성됩니다.
+이 예제 분 메트릭 데이터에서 파티션 키는 분 확인 시의 시간을 사용합니다. 행 키는 행에 저장되는 정보의 유형을 식별합니다. 행 키는 두 가지 정보, 액세스 형식 및 요청 형식으로 구성됩니다.
 
 * 액세스 형식은 user 또는 system입니다. 여기서 user는 저장소 서비스에 대한 모든 사용자 요청을 지칭하며 system은 저장소 분석에서 수행한 요청을 지칭합니다.
 * 요청 형식은 all(이 경우 요약 줄)이거나 QueryEntity 또는 UpdateEntity 등의 특정 API를 식별합니다.
@@ -151,10 +151,10 @@ blobClient.SetServiceProperties(properties);
 위의 샘플 데이터는 오전 11시부터 1분 동안의 모든 레코드를 표시하므로 QueryEntities 요청의 수 + QueryEntity 요청의 수 + UpdateEntity 요청의 수 = 7입니다. 이 합계가 user:All 행에 표시됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 user:All 행에 평균 종단 간 대기 시간인 104.4286을 표시할 수 있습니다.
 
 ## <a name="metrics-alerts"></a>메트릭 알림
-저장소 메트릭이 저장소 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 블레이드에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 블레이드에서 알림을 구성할 수 있습니다.
+저장소 메트릭이 저장소 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 창에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 창에서 알림을 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 저장소 이벤트와 해당 시간 또는 분 메트릭 데이터가 기록되는 시간 사이에 지연이 있을 수 있습니다. 분 메트릭의 경우 데이터의 몇 분을 한 번에 작성할 수 있습니다. 이로 인해 현재 분의 트랜잭션에 집계되는 이전 분의 트랜잭션이 발생할 수 있습니다. 이 경우 알림 서비스에는 구성된 알림 간격에 대한 사용 가능한 모든 메트릭 데이터가 없을 수 있어서 예기치 않게 알림이 발생할 수 있습니다.
+> 저장소 이벤트와 해당 시간 또는 분 메트릭 데이터가 기록되는 시간 사이에 지연이 있을 수 있습니다. 분 메트릭을 로깅하는 경우 데이터의 몇 분을 한 번에 작성할 수 있습니다. 그러면 이전 분의 트랜잭션이 현재 분의 트랜잭션으로 집계될 수 있습니다. 이 경우 알림 서비스에는 구성된 알림 간격에 대한 사용 가능한 모든 메트릭 데이터가 없을 수 있어서 예기치 않게 알림이 발생할 수 있습니다.
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>프로그래밍 방식으로 메트릭 데이터 액세스

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ad47c3b6d7f44815208741e686f11675c81eca8b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
@@ -82,7 +82,7 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 * [Azure HDInsight에서 Power BI를 사용하여 빅 데이터를 시각화](./hdinsight-connect-hive-power-bi.md)하는 방법에 대해 알아봅니다.
 * [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리를 실행](./hdinsight-connect-hive-zeppelin.md)하는 방법에 대해 알아봅니다.
 * [Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리를 실행하는 방법](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)에 대해 알아봅니다.
-* [Hive, LLAP 또는 pySpark용 Visual Studio Code 사용](hdinsight-for-vscode.md) 방법에 대해 알아봅니다.
+* [HDInsight Tools for Visual Studio Code를 사용](hdinsight-for-vscode.md)하는 방법에 대해 알아봅니다.
 * [HDInsight에서 Hadoop과 Hive 보기 사용](hdinsight-hadoop-use-hive-ambari-view.md) 방법에 대해 알아봅니다.
 * [Beeline을 사용하여 HDInsight에서 Hive 쿼리를 제출하는 방법](hdinsight-hadoop-use-hive-beeline.md)을 알아봅니다.
 * [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel을 연결하는 방법](hdinsight-connect-excel-hive-odbc-driver.md)을 알아봅니다.

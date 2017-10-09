@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
@@ -146,7 +146,7 @@ Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsi
 
       ![Apache Spark BI 대시보드에 테이블 나열](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Apache Spark BI 대시보드에 테이블 나열")
 
-8. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 보여주는 시각화를 빌드합니다. 데이터를 시각화하려면 **영역형 차트**(빨간색 상자)를 선택합니다. 축을 정의하려면 **BuildingID** 필드를 **축** 아래에, **ActualTemp**/**TargetTemp** 필드를 **값** 아래에 끌어 놓습니다.
+8. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 보여주는 시각화를 빌드합니다. 데이터를 시각화하려면 **영역 차트**(빨간색 상자)를 선택합니다. 축을 정의하려면 **BuildingID** 필드를 **축** 아래에, **ActualTemp**/**TargetTemp** 필드를 **값** 아래에 끌어 놓습니다.
 
     ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 

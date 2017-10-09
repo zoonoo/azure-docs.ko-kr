@@ -4,7 +4,7 @@ description: "Azure CLI와 함께 Linux 가상 컴퓨터에서 Docker 및 Compos
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 541722cb02dd991228726e62a2304b49cdd806f2
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
@@ -35,10 +35,10 @@ Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정�
 ### <a name="create-docker-host-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Docker 호스트 만들기
 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
 
-먼저 [az group create](/cli/azure/group#create)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에*myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group#create)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
 다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. *newStorageAccountName*, *adminUsername*, *adminPassword* 및 *dnsNameForPublicIP*에 대한 고유한 값을 제공합니다.
@@ -68,10 +68,21 @@ az vm show \
 
 
 ## <a name="verify-that-compose-is-installed"></a>Compose 설치 여부 확인
-배포가 완료되면 배포 중 입력한 DNS 이름을 사용하여 새 Docker 호스트에 SSH를 연결합니다. `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`을 사용하여 DNS 이름을 비롯한 VM의 세부 정보를 볼 수 있습니다.
+DNS 이름을 비롯한 VM의 세부 정보를 보려면 [az vm show](/cli/azure/vm#show)를 사용합니다.
+
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
+```
+
+새 Docker 호스트로 SSH를 수행합니다. 다음과 같이 사용자 고유의 DNS 이름을 제공합니다.
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
 Compose가 VM에 설치되어 있는지 확인하려면 다음 명령을 실행합니다.
@@ -89,19 +100,13 @@ docker-compose --version
 ## <a name="create-a-docker-composeyml-configuration-file"></a>docker-compose.yml 구성 파일 만들기
 그 다음, `docker-compose.yml` 파일을 만드는데, 이 파일은 VM에서 실행할 Docker 컨테이너를 정의하기 위한 텍스트 구성 파일입니다. 파일은 각 컨테이너에서 실행되는 이미지(또는 Dockerfile에서 빌드일 수 있음), 필요한 환경 변수 및 종속성, 포트, 컨테이너 간 링크를 지정합니다. yml 파일 구문에 대한 세부 정보는 [Compose 파일 참조](https://docs.docker.com/compose/compose-file/)를 참조하세요.
 
-다음과 같이 *docker-compose.yml* 파일을 만듭니다.
+*docker-compose.yml* 파일을 만듭니다. 원하는 텍스트 편집기를 사용하여 파일에 데이터를 추가합니다. 다음 예제에서는 `sensible-editor`에 대한 프롬프트를 통해 사용하려는 편집기를 선택하는 파일을 만듭니다.
 
 ```bash
-touch docker-compose.yml
+sensible-editor docker-compose.yml
 ```
 
-원하는 텍스트 편집기를 사용하여 파일에 데이터를 추가합니다. 다음 예제에서는 *vi* 편집기를 사용합니다.
-
-```bash
-vi docker-compose.yml
-```
-
-다음 예제를 텍스트 파일로 붙여 넣습니다. 이 구성은 [DockerHub 레지스트리](https://registry.hub.docker.com/_/wordpress/) 의 이미지를 사용하여 WordPress(오픈 소스 블로깅 및 콘텐츠 관리 시스템) 및 연결된 백 엔드 MariaDB SQL 데이터베이스를 설치합니다. 다음과 같이 고유한 *MYSQL_ROOT_PASSWORD*를 입력합니다.
+다음 예제를 Docker Compose 파일로 붙여넣습니다. 이 구성은 [DockerHub 레지스트리](https://registry.hub.docker.com/_/wordpress/) 의 이미지를 사용하여 WordPress(오픈 소스 블로깅 및 콘텐츠 관리 시스템) 및 연결된 백 엔드 MariaDB SQL 데이터베이스를 설치합니다. 다음과 같이 고유한 *MYSQL_ROOT_PASSWORD*를 입력합니다.
 
 ```sh
 wordpress:
@@ -145,14 +150,14 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-이제는 포트 80에서 VM에서 직접 WordPress에 연결할 수 있습니다. 웹 브라우저를 열고 VM의 DNS 이름을 입력합니다(예: `http://mypublicdns.westus.cloudapp.azure.com`). 이제 WordPress 시작 화면이 표시되면 이 화면에서 설치를 완료하고 응용 프로그램을 시작할 수 있습니다.
+이제는 포트 80에서 VM에서 직접 WordPress에 연결할 수 있습니다. 웹 브라우저를 열고 VM의 DNS 이름을 입력합니다(예: `http://mypublicdns.eastus.cloudapp.azure.com`). 이제 WordPress 시작 화면이 표시되면 이 화면에서 설치를 완료하고 응용 프로그램을 시작할 수 있습니다.
 
 ![WordPress 시작 화면][wordpress_start]
 
 ## <a name="next-steps"></a>다음 단계
 * Docker VM에서 Docker 및 Compose를 구성하는 더 많은 옵션을 보려면 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md) 로 이동하세요. 예를 들어, 하나의 옵션은 Compose yml 파일(JSON으로 변환)을 직접 Docker VM 확장에 구성에 배치합니다.
 * 다중 컨테이너 앱 빌드 및 배포의 추가 예제는 [Compose 명령줄 참조](http://docs.docker.com/compose/reference/) 및 [사용자 가이드](http://docs.docker.com/compose/)를 확인합니다.
-* Azure 리소스 관리자 템플릿, 사용자 자신의 템플릿 또는 [커뮤니티](https://azure.microsoft.com/documentation/templates/)에서 배포된 템플릿을 사용하여, Azure VM을 Docker로 배포하고 Compose로 응용 프로그램을 설정합니다. 예를 들어 [Docker를 사용한 WordPress 블로그 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) 템플릿은 Docker 및 Compose를 사용하여 Ubuntu VM에 MySQL 백 엔드와 함께 WordPress를 신속하게 배포합니다.
+* Azure Resource Manager 템플릿, 사용자 자신의 템플릿 또는 [커뮤니티](https://azure.microsoft.com/documentation/templates/)에서 배포된 템플릿을 사용하여, Azure VM을 Docker로 배포하고 Compose로 응용 프로그램을 설정합니다. 예를 들어 [Docker를 사용한 WordPress 블로그 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) 템플릿은 Docker 및 Compose를 사용하여 Ubuntu VM에 MySQL 백 엔드와 함께 WordPress를 신속하게 배포합니다.
 * Docker Swarm 클러스터와 Docker Compose 통합을 시도합니다. 시나리오의 경우 [Swarm으로 Compose 사용](https://docs.docker.com/compose/swarm/) 을 참조하세요.
 
 <!--Image references-->

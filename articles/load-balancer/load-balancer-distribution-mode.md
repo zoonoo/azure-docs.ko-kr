@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>배포 모드를 변경하는 클라우드 서비스 구성
 
-Azure SDK for .NET 2.5(11월 출시)를 사용하여 클라우드 서비스를 업데이트할 수 있습니다. .csdef에서 클라우드 서비스용 끝점 설정을 지정합니다. 클라우드 서비스 배포의 부하 분산 장치 배포 모드를 업데이트하려면 배포를 업그레이드해야 합니다.
+Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할 수 있습니다. .csdef에서 클라우드 서비스용 끝점 설정을 지정합니다. 클라우드 서비스 배포의 부하 분산 장치 배포 모드를 업데이트하려면 배포를 업그레이드해야 합니다.
 아래에 .csdef에서 끝점 설정을 변경하는 예제가 나와 있습니다.
 
 ```xml

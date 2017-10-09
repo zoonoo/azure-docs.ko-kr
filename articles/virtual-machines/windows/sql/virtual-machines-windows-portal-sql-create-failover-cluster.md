@@ -14,19 +14,19 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
-이 문서에서는 리소스 관리자 모델에서 Azure 가상 컴퓨터에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 저장소(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
+이 문서에서는 Resource Manager 모델에서 Azure 가상 컴퓨터에 SQL Server FCI(장애 조치(Failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다. 이 솔루션에서는 Windows 클러스터에서 노드(Azure VM) 간 저장소(데이터 디스크)를 동기화하는 소프트웨어 기반 가상 SAN으로 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 사용합니다. S2D는 Windows Server 2016의 새로운 기능입니다.
 
 다음 다이어그램에서는 Azure 가상 컴퓨터에 완전한 솔루션을 보여 줍니다.
 
@@ -427,19 +427,37 @@ Azure 가상 컴퓨터에서 클러스터는 한 번에 하나의 클러스터 �
 
 PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
-클러스터 프로브 포트 매개 변수를 설정하려면 사용자 환경에서 다음 스크립트의 변수를 업데이트합니다.
+클러스터 프로브 포트 매개 변수를 설정하려면 다음 스크립트의 변수를 사용자 환경의 값으로 업데이트합니다. 스크립트에서 꺾쇠 괄호 `<>`를 제거합니다. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+이전 스크립트에서 사용자 환경에 대한 값을 설정합니다. 다음 목록에서는 값을 설명합니다.
+
+   - `<Cluster Network Name>`: 네트워크에 대한 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **역할**의 SQL Server FCI 역할 아래에 있는 **서버 이름**에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
+
+   - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 `<SQL Server FCI IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자**에서 확인할 수 있습니다.  
+
+   - `<nnnnn>`: 부하 분산 장치 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다. 
+
+>[!IMPORTANT]
+>클러스터 매개 변수에 대한 서브넷 마스크는 TCP IP 브로드캐스트 주소여야 합니다(`255.255.255.255`).
+
+클러스터 프로브를 설정한 후에는 PowerShell에서 모든 클러스터 매개 변수를 볼 수 있습니다. 다음 스크립트를 실행합니다.
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>7단계: FCI 장애 조치(failover) 테스트
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -51,9 +51,9 @@ ms.lasthandoff: 08/07/2017
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 살펴보고 사용자 로그인 문제 해결을 시작합니다.
+테넌트에 연결된 Azure AD Premium 라이선스가 있는 경우 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 볼 수도 있습니다.
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
@@ -119,7 +119,7 @@ Azure AD Connect가 설치된 서버가 [여기](active-directory-aadconnect-pas
 
 ### <a name="exchange-powershell-issue"></a>Exchange PowerShell 문제
 
-`Set-OrganizationConfig` Exchange PowerShell 명령을 실행할 때 "**'PerTenantSwitchToESTSEnabled' 매개 변수 이름과 일치하는 매개 변수를 찾을 수 없습니다\.**"  오류가 표시되는 경우 Microsoft 지원에 문의합니다.
+“**'PerTenantSwitchToESTSEnabled' 매개 변수 이름과 일치하는 매개 변수를 찾을 수 없습니다\.**” 오류(`Set-OrganizationConfig` Exchange PowerShell 명령을 실행할 때)가 표시되는 경우 Microsoft 지원에 문의하세요.
 
 ### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync가 작동하지 않음
 

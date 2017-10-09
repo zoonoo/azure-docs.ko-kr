@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 992249949c6bd80e698a0bc21710039c6aa1f67e
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -71,19 +71,93 @@ ms.lasthandoff: 09/15/2017
 
 ## <a name="tip-6-migrate-your-mean-app"></a>팁 6: MEAN 앱 마이그레이션
 
-팁 6: MEAN은 사용자의 앱입니까? Azure #cosmosDB로 앱을 쉽게 마이그레이션하는 방법을 알아봅니다! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) 전체 비디오: [https://aka.ms/aoojih](https://aka.ms/aoojih)
-
-> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
-
-[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
-
-## <a name="tip-7-build-a-nodejs-app-by-using-graph-api"></a>팁 7: Graph API를 사용하여 Node.js 앱 빌드
-
-팁 7: Graph API 및 Azure #CosmosDB를 사용하여 Node.js 앱을 빌드합니다. 문서 페이지 [https://aka.ms/X79feg](https://aka.ms/X79feg)에서 자세히 알아보기
+팁 6: MEAN은 사용자의 앱입니까? Azure #cosmosDB로 앱을 쉽게 마이그레이션하는 방법을 알아봅니다! https://aka.ms/gfh6i5 전체 비디오: https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>팁 8: SQL API를 사용하여 Node.js 앱 빌드
+
+팁 8: SQL API 및 Azure #CosmosDB를 사용하여 @nodejs 앱을 빌드합니다. 자세한 정보: 문서 페이지 [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+
+> [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+
+## <a name="tip-9-query-using-mongodb-in-nodejs"></a>팁 9: Node.js에서 MongoDB를 사용하여 쿼리
+
+팁 9: Node.js에서 MongoDB API를 사용하여 Azure #CosmosDB를 쿼리합니다. 자세한 정보: 문서 페이지 [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+
+![MongoDB를 사용하여 쿼리](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
+
+## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>팁 10: Studio 3T를 사용하여 MongoDB 데이터 복사
+
+팁 10: Studio 3T(MongoChef)를 사용하여 MongoDB 데이터를 Azure Cosmos DB에 복사하는 방법을 알아봅니다. 문서: [https://aka.ms/apzhww](https://aka.ms/apzhww)
+
+> [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
+
+## <a name="tip-11-use-react-nodejs-and-azure-cosmosdb"></a>팁 11: React, Node.js 및 Azure #CosmosDB 사용
+
+팁 11: React, Node.js 및 Azure Cosmos DB를 사용하여 hero 추적 앱을 빌드합니다.
+
+문서: [React 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
+
+## <a name="tip-12-go-serverless"></a>팁 12: 서버를 사용하지 않음
+
+팁 12: Azure #CosmosDB와 @AzureFunctions를 통해 서버를 사용하지 않는 환경으로 전환합니다. 전체 문서: [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+
+> [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## <a name="tip-13-mean-app-from-scratch"></a>팁 13: MEAN 앱을 처음부터 빌드하기
+
+팁 13: @John_Papa 및 Azure Cosmos DB를 사용하여 hero를 처음부터 빌드합니다. MEAN 앱을 처음부터 빌드하는 방법을 알아봅니다.
+
+문서: [Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## <a name="tip-14-use-cases"></a>팁 14: 사용 사례
+
+팁 14: 일반적인 Azure #CosmosDB 사용 사례가 궁금하세요? [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00)에서 IoT, 게임 및 소셜 앱에 대해 자세히 알아봅니다.
+
+문서: [일반적인 Azure Cosmos DB 사용 사례](https://aka.ms/Ihpf00)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+
+## <a name="tip-15-vs-code-integration"></a>팁 15: VS 코드 통합
+
+팁 15: @code를 나가지 않고 새 Azure #CosmosDB 계정을 만듭니다. [https://aka.ms/Wy547u](https://aka.ms/Wy547u)에서 확장 설치 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## <a name="tip-16-functions-and-twilio-demo"></a>팁 16: 함수 및 Twilio 데모
+
+팁 16: 유용한 데모! Azure #cosmosDB, 함수 및 @twilio를 통합하여 DB 변경 시 SMS를 보냅니다. [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d)에서 문서를 참조하세요. 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>팁 17: Mongoose 판별자 사용
+
+팁 17: Mongoose 판별자를 사용하여 단일 #CosmosDB 컬렉션에 여러 엔터티를 저장하여 비용 최적화 [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+블로그: [Anthony Chu의 Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection(Mongoose 판별자를 사용하여 단일 Cosmos DB 컬렉션에 여러 엔터티 저장)](https://aka.ms/M488jm)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>고가용성 포트 개요
+# <a name="high-availability-ports-overview-preview"></a>고가용성 포트 개요(미리 보기)
 
 Azure Load Balancer의 표준 SKU에는 모든 포트에서와 지원되는 모든 프로토콜에 대해 트래픽을 분산하는 기능인 HA(고가용성) 포트가 도입되었습니다. 내부 부하 분산 장치를 구성하는 동안 사용자는 프런트 엔드 및 백 엔드 포트를 **0**으로 설정하고 프로토콜을 **all**로 설정할 수 있는 HA 포트 규칙을 구성할 수 있으므로 모든 트래픽이 내부 부하 분산 장치를 통과할 수 있습니다.
+
+>[!NOTE]
+> 고가용성 포트 기능은 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 부하 분산 알고리즘은 여전히 동일하게 유지되며 대상은 <원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트, 프로토콜>의 다섯 가지 입력 사항에 따라 선택됩니다. 그러나 이 구성을 사용하면 단일 LB 규칙에서 사용 가능한 모든 트래픽을 처리할 수 있으며 구성이 복잡해지지 않고 추가할 수 있는 부하 분산 규칙의 최대 수에 따른 제한도 줄어듭니다.
 
@@ -43,6 +46,32 @@ HA 포트는 Zookeeper와 같은 보다 복잡한 솔루션의 필요성을 없�
 
 그림 1 - HA 모드로 배포된 NVA가 있는 허브 및 스포크 가상 네트워크
 
+
+## <a name="region-availability"></a>지역 가용성
+
+HA 포트는 현재 다음 지역에서 제공됩니다.
+- 미국 동부 2
+- 미국 중부
+- 북유럽
+- 미국 중서부
+- 서유럽
+- 동남아시아 
+
+## <a name="preview-sign-up"></a>미리 보기 등록
+
+Load Balancer 표준 SKU에서 HA 포트 기능의 미리 보기에 참여하려면 PowerShell 또는 Azure CLI 2.0을 사용하여 액세스 권한을 얻도록 구독을 등록합니다.
+
+- PowerShell을 사용하여 등록
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Azure CLI 2.0을 사용하여 등록
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>주의 사항
 
 다음은 HA 포트에 대해 지원되는 구성 또는 예외 사항입니다.

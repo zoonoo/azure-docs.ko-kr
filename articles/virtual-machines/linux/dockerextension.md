@@ -4,7 +4,7 @@ description: "Docker VM 확장을 사용하여 Azure에서 Resource Manager 템�
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 63d0d80999fd57d014c74d5c6aef3733ec2afe85
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0cef78edaeec9d45aa733b1912d82d5a058ba289
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM 확장을 사용하여 Azure에서 Docker 환경 만들기
@@ -35,10 +35,10 @@ Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM 확장을 사용하여 템플릿 배포
 기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
-먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에*myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
 다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. 다음과 같이 *newStorageAccountName*, *adminUsername*, *adminPassword* 및 *dnsNameForPublicIP*에 대한 고유한 값을 제공합니다.
@@ -68,20 +68,31 @@ az vm show \
 
 이 명령이 *Succeeded*를 반환하는 경우 배포가 완료되었으며 다음 단계에서 VM에 SSH를 사용할 수 있습니다.
 
-## <a name="deploy-your-first-nginx-container"></a>첫 번째 nginx 컨테이너 배포
-DNS 이름을 비롯한 VM의 세부 정보를 보려면 `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`을 사용합니다. 다음과 같이 로컬 컴퓨터에서 새 Docker 호스트에 SSH합니다.
+## <a name="deploy-your-first-nginx-container"></a>첫 번째 NGINX 컨테이너 배포
+DNS 이름을 비롯한 VM의 세부 정보를 보려면 [az vm show](/cli/azure/vm#show)를 사용합니다.
 
-```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
 ```
 
-Docker 호스트에 로그인되면 nginx 컨테이너를 실행하겠습니다.
+새 Docker 호스트로 SSH를 수행합니다. 다음과 같이 사용자 고유의 DNS 이름을 제공합니다.
+
+```bash
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+```
+
+Docker 호스트에 로그인되면 NGINX 컨테이너를 실행하겠습니다.
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-출력 내용은 nginx 이미지가 다운로드되고 컨테이너가 시작되는 다음 예제와 유사합니다.
+출력 내용은 NGINX 이미지가 다운로드되고 컨테이너가 시작되는 다음 예제와 유사합니다.
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -101,7 +112,7 @@ b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 sudo docker ps
 ```
 
-출력 내용은 nginx 컨테이너를 실행 중이고 TCP 포트 80 및 443이 전달되는 것을 보여주는 다음 예제와 유사합니다.
+출력 내용은 NGINX 컨테이너를 실행 중이고 TCP 포트 80 및 443이 전달되는 것을 보여주는 다음 예제와 유사합니다.
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES

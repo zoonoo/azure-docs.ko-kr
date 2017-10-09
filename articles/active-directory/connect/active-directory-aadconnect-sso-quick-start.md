@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 "�
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
-이 기능을 사용자에게 출시하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 Azure AD URL 몇 개를 추가해야 합니다.
+이 기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가해야 합니다.
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mac에서 Mozilla Firefox 및 Chrome을 설정하는 지침은 다음 섹션을 참조하세요.

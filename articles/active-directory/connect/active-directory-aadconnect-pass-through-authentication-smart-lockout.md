@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -56,7 +56,7 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 
 ![AD 계정 잠금 정책](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>Graph API를 사용하여 테넌트의 스마트 잠금 값 관리
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Graph API를 사용하여 테넌트의 스마트 잠금 값 관리(프리미엄 라이선스 필요)
 
 >[!IMPORTANT]
 >그래픽 API를 사용하여 Azure AD의 잠금 임계값 및 잠금 기간을 수정하는 것은 Azure AD Premium P2 기능입니다.  또한 사용자가 테넌트에서 전역 관리자여야 합니다.

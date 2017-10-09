@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 81f353e61cd696a00f79a6b31f5750d34899bbd1
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행 
@@ -81,6 +81,6 @@ HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./hdinsight-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용하여 Hadoop에 Excel 연결](./hdinsight-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](./hdinsight-hadoop-visual-studio-tools-get-started.md)
-* [Hive, LLAP 또는 pySpark용 Visual Studio Code 사용](hdinsight-for-vscode.md)
+* [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./hdinsight-upload-data.md)
 

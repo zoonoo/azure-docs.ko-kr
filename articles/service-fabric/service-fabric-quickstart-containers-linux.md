@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
@@ -64,7 +64,7 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 >
 
 ### <a name="deploy-the-application-manifests"></a>응용 프로그램 매니페스트 배포 
-CLI 환경에서 Service Fabric 명령줄(sfctl) 설치
+CLI 환경에서 [Service Fabric CLI(sfctl)](service-fabric-cli.md) 설치
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 ./install.sh
 ```
 
-브라우저를 열고 http://\<my-azure-service-fabric-cluster-url>:80에서 Service Fabric Explorer로 이동합니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:80` 응용 프로그램 노드를 확장하여 만든 선택 응용 프로그램 유형 및 인스턴스에 대한 항목이 표시되는지 확인합니다.
+브라우저를 열고 http://\<my-azure-service-fabric-cluster-url>:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer` 응용 프로그램 노드를 확장하여 만든 선택 응용 프로그램 유형 및 인스턴스에 대한 항목이 표시되는지 확인합니다.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Service Fabric은 컨테이너 인스턴스가 오류가 발생해야 하는 클
 
 프런트 엔드 컨테이너를 장애 조치(failover)하려면 다음 단계를 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`
+1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`
 2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다. 트리 뷰에서 노드 이름을 확인합니다. 컨테이너에서 현재 실행 중인 노드를 보여 줍니다. 예: `_nodetype_4`
 3. 트리 뷰에서 **노드** 노드를 확장합니다. 컨테이너를 실행 중인 노드 옆에 있는 줄임표(...)를 클릭합니다.
 4. **다시 시작**을 선택하여 해당 노드를 다시 시작하고 다시 시작 작업을 확인합니다. 다시 시작하면 컨테이너를 클러스터의 다른 노드로 장애 조치(failover)합니다.

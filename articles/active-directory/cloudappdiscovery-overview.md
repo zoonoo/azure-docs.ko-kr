@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 46d21ac6fe0992ebe6dca93e8ebd381931e49962
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Azure Active Directory의 Cloud App Discovery 개선 사항 
@@ -34,7 +34,12 @@ ms.lasthandoff: 09/25/2017
 
 Active Directory Premium이 없는 경우 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-
 이 링크를 사용하여 [Azure AD의 새로운 Cloud App Discovery 환경](https://portal.cloudappsecurity.com)을 탐색합니다.
 
+## <a name="next-steps"></a>다음 단계
+다음 링크를 사용하여 Azure AD에서 Cloud App Discovery를 설정합니다.
+
+* [Cloud App Discovery 사용 시작](cloudappdiscovery-get-started.md)
+* [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
+* [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -239,7 +239,8 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 현재 온-프레미스 Active Directory에서 동기화되는 다중 값 특성을 지원하지 않습니다. 
+사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
+현재 온-프레미스 Active Directory에서 동기화되는 다중 값 특성을 지원하지 않습니다.
 
 ## <a name="direct-reports-rule"></a>"직접 보고" 규칙
 관리자의 직접 보고서를 모두 포함하는 그룹을 만들 수 있습니다. 관리자의 직접 보고서가 나중에 변경될 경우 그룹의 멤버 자격은 자동으로 조정됩니다.
@@ -287,6 +288,19 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 > Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.
 >
 >
+
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>동적 멤버 자격을 정적으로 또는 그 반대로 변경
+그룹에서 멤버 자격을 관리하는 방식을 변경할 수 있습니다. 이것은 시스템에 동일한 그룹 이름과 ID를 유지하려는 경우에 유용하므로 그룹에 대한 기존 참조는 여전히 유효합니다. 새 그룹을 만들면 해당 참조를 업데이트해야 합니다.
+
+> [!WARNING]
+> 기존 정적 그룹을 동적 그룹으로 변경할 경우 기존의 모든 멤버가 그룹에서 제거된 후 멤버 자격 규칙이 처리되어 새 멤버가 추가됩니다. 그룹이 앱 또는 리소스에 대한 액세스를 제어하는 데 사용되는 경우 멤버 자격 규칙이 완전히 처리될 때까지는 원래 멤버가 액세스하지 못할 수 있습니다.
+>
+> 그룹의 새 멤버 자격이 예상대로 유지되는지 확인하기 위해 새 멤버 자격 규칙을 미리 테스트하는 것이 좋습니다.
+
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 그룹을 엽니다.
+2. 동적 멤버 자격의 현재 상태를 보려면 **구성** 탭을 선택합니다.
+3. 그룹을 정적으로 만들려면 **동적 멤버 자격 사용** 설정을 **아니요**로 간단히 토글합니다. 아래 도구 모음에서 **저장** 단추를 클릭하여 확인합니다. 기존 멤버는 그룹에 보관되고 지금부터는 멤버 자격 규칙이 처리되지 않습니다.
+4. 그룹을 동적으로 만들려면 설정을 **예**로 토글하고 원하는 멤버 자격 규칙을 지정하고 **저장**을 클릭합니다. 기존 멤버가 제거되고 새 규칙 처리가 시작되어 새 멤버를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.

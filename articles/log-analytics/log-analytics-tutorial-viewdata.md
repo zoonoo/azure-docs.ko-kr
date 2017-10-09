@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac702c356f0adc172674b2a3669de2a8d5dfd6ed
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
@@ -30,6 +30,10 @@ Log Analytics에서 수집된 데이터를 분석하는 쿼리를 생성하여 �
 > * 성능 데이터를 사용하는 방법 알아보기
 
 이 자습서의 예제를 완료하려면 [Log Analytics 작업 영역에 연결된](log-analytics-quick-collect-azurevm.md) 기존 가상 컴퓨터가 있어야 합니다.  
+
+반환된 데이터와 대화형으로 작업하는 것 외에도 쿼리 만들기 및 편집을 두 가지 방법 중 하나로 수행할 수 있습니다.  기본 쿼리의 경우 Azure Portal의 로그 검색 페이지를 사용하고 고급 쿼리의 경우 고급 분석 포털을 사용할 수 있습니다. 두 포털 간의 기능상 차이점에 대해 자세히 알아보려면 [Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털](log-analytics-log-search-portals.md)을 참조하세요.
+
+이 자습서에서는 Azure Portal의 로그 검색을 사용합니다. 
 
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
@@ -44,7 +48,7 @@ Log Analytics에서 수집된 데이터를 분석하는 쿼리를 생성하여 �
 
 Log Analytics에서는 쿼리를 보다 쉽게 생성하고, 다양한 원본의 데이터 간 상관 관계를 파악하고, 분석을 통해 추세 또는 문제를 빠르게 식별할 수 있는 새로운 쿼리 언어를 도입했습니다.
 
-업그레이드는 간단합니다.  **자세히 알아보고 업그레이드**라는 보라색 배너를 클릭하여 이 프로세스를 시작합니다.  업그레이드 정보 페이지에서 업그레이드에 관한 추가 정보를 자세히 읽어보고 **지금 업그레이드**를 클릭합니다.
+업그레이드는 간단합니다.  **자세히 알아보고 업그레이드**라는 배너를 클릭하여 이 프로세스를 시작합니다.  업그레이드 정보 페이지에서 업그레이드에 관한 추가 정보를 자세히 읽어보고 **지금 업그레이드**를 클릭합니다.
 
 이 프로세스를 완료하려면 몇 분 정도 소요되며 이 기간 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. [새 쿼리 언어의 장점](log-analytics-log-search-upgrade.md#why-the-new-language)에 대해 좀 더 자세히 알아볼 수 있습니다.
 

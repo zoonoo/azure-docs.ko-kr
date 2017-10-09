@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 09/27/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
-Microsoft Azure *가상 네트워크 규칙*은 Azure SQL Database 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙*은 Azure SQL Database 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+
+가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]이 있어야 합니다.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>가상 네트워크 규칙을 만드는 방법
 
@@ -44,7 +46,7 @@ Microsoft Azure *가상 네트워크 규칙*은 Azure SQL Database 서버가 가
 
 **서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 컴퓨터)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 계산 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 계산 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 끝점:** Virtual Network 서비스 끝점은 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
+**Virtual Network 서비스 끝점:** [Virtual Network 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]은 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
 
 **가상 네트워크 규칙:** SQL Database 서버에 대한 가상 네트워크 규칙은 SQL Database 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. SQL Database에 대한 ACL에 나열되려면 서브넷에 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -118,15 +120,21 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 #### <a name="limitations"></a>제한 사항
 
-가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
+Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
 
-- 각 Azure SQL Database 서버에는 특정 가상 네트워크에 대해 최대 128개 IP-ACL 항목이 포함될 수 있습니다.
+- 각 Azure SQL Database 서버에는 특정 가상 네트워크에 대해 최대 128개 ACL 항목이 포함될 수 있습니다.
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][arm-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
-- 가상 네트워크 규칙은 다음 네트워킹 항목으로 확장됩니다.
-    - [Expressroute][expressroute-indexmd-744v]를 통한 온-프레미스
+- 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
+    - [ExpressRoute][expressroute-indexmd-744v]를 통한 온-프레미스
+
+#### <a name="expressroute"></a>ExpressRoute
+
+네트워크가 [ExpressRoute][expressroute-indexmd-744v]의 사용을 통해 Azure 네트워크에 연결된 경우 각 회로는 Microsoft Edge에서 두 개의 공용 IP 주소로 구성됩니다. 두 개의 IP 주소는 Azure 공용 피어링을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결하는 데 사용됩니다.
+
+회로에서 Azure Database로의 통신을 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만들어야 합니다. ExpressRoute 회로의 공용 IP 주소를 찾기 위해 Azure Portal을 사용하여 ExpressRoute에서 지원 티켓을 엽니다.
 
 
 <!--
@@ -195,6 +203,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 끝점 *형식 
 ## <a name="related-articles"></a>관련 문서
 
 - [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 가상 네트워크 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Azure 가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]
 
 Microsoft Azure Virtual Network 서비스 끝점 기능과 Azure SQL Database에 대한 가상 네트워크 규칙 기능은 둘 다 2017년 말에 제공될 예정입니다.
@@ -228,6 +237,8 @@ Microsoft Azure Virtual Network 서비스 끝점 기능과 Azure SQL Database에
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 

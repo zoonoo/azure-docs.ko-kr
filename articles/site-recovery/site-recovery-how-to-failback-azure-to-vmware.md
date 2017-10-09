@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
@@ -27,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 이 문서에서는 가상 컴퓨터를 Azure Virtual Machines에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md) 자습서를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 이 문서의 지침에 따라 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구하세요.
 
 > [!WARNING]
-> 가상 컴퓨터를 또 다른 리소스 그룹으로 이동했거나 Azure 가상 컴퓨터를 삭제하여 [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)한 후에는 장애 복구(failback)를 수행할 수 없습니다.
+> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)했거나, 가상 컴퓨터를 다른 리소스 그룹으로 이동했거나, Azure 가상 컴퓨터를 삭제한 후에 장애 복구(failback)를 수행할 수 없습니다. 가상 컴퓨터의 보호를 사용하지 않으면 장애 복구를 수행할 수 없습니다.
 
 > [!NOTE]
 > VMware 가상 컴퓨터에서 장애가 발생하면 Hyper-V 호스트로 장애 복구(failback)를 수행할 수 없습니다.
@@ -65,9 +64,9 @@ VMware 가상 컴퓨터를 장애 조치했는데 원본 온-프레미스 가상
 가상 컴퓨터를 다시 보호하기 전에 온-프레미스 가상 컴퓨터가 없는 경우를 대체 위치 복구 시나리오라고 합니다. 다시 보호 워크플로에서 온-프레미스 가상 컴퓨터를 다시 만듭니다. 또한 전체 데이터 다운로드가 발생합니다.
 
 * 대체 위치로 장애 복구하는 경우 가상 컴퓨터는 온-프레미스 마스터 대상 서버가 배포되는 것과 동일한 ESX 호스트로 복구됩니다. 디스크를 만드는 데 사용된 데이터 저장소는 가상 컴퓨터를 다시 보호할 때 선택된 데이터 저장소와 동일합니다.
-* VMFS(가상 컴퓨터 파일 시스템) 데이터 저장소에만 장애 복구할 수 있습니다. vSAN 또는 RDM이 있는 경우 다시 보호 및 장애 복구가 작동하지 않습니다.
+* VMFS(가상 컴퓨터 파일 시스템) 또는 vSAN 데이터 저장소에만 장애 복구할 수 있습니다. RDM이 있는 경우 다시 보호 및 장애 복구가 작동하지 않습니다.
 * 다시 보호에는 대량의 초기 데이터 전송과 변경이 수행됩니다. 이 프로세스가 있는 이유는 가상 컴퓨터가 온-프레미스에 없기 때문입니다. 전체 데이터를 다시 복제해야 합니다. 이러한 다시 보호는 원래 위치 복구보다 더 많은 시간이 걸립니다.
-* vSAN 또는 RDM 기반 디스크로 장애 복구할 수 없습니다. VMFS 데이터 저장소에는 새로운 VMDK(가상 컴퓨터 디스크)만 만들 수 있습니다.
+* RDM 기반 디스크로 장애 복구할 수 없습니다. 새로운 VMDK(가상 컴퓨터 디스크)는 VMFS/vSAN 데이터 저장소에서만 만들 수 있습니다.
 
 Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V라고도 함)로만 장애 복구할 수 있습니다. 이 흐름은 대체 위치 복구 아래에 있습니다.
 
@@ -79,8 +78,11 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 컴퓨터가 있어야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 따라서 서버의 예정된 정기 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동할 수 있도록 동일한 IP 주소를 사용하여 서버를 복원해야 합니다.
-* 장애 조치를 트리거하려면 마스터 대상 서버에 스냅숏이 없어야 합니다.
+> [!IMPORTANT]
+> Azure로 장애 조치 중에는 온-프레미스 사이트에 액세스할 수 없습니다. 따라서 구성 서버는 사용할 수 없거나 종료된 상태일 수 있습니다. 다시 보호 및 장애 복구 중에 온-프레미스 구성 서버는 실행 중이며 연결 양호 상태여야 합니다.
+
+* 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 서버는 실행 중이며 상태가 양호한 서비스에 연결되어야 합니다. 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 컴퓨터가 있어야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 따라서 서버의 예정된 정기 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동할 수 있도록 동일한 IP 주소를 사용하여 서버를 복원해야 합니다.
+* 다시 보호/장애 조치를 트리거하려면 마스터 대상 서버에 스냅숏이 없어야 합니다.
 
 ## <a name="steps-to-fail-back"></a>장애 복구 단계
 

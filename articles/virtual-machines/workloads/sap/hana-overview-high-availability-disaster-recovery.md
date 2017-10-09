@@ -3,7 +3,7 @@ title: "Azure(큰 인스턴스)의 SAP HANA에 대한 고가용성 및 재해 �
 description: "Azure(큰 인스턴스)에서 SAP HANA의 재해 복구 계획 및 고가용성 계획 수립"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/27/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
@@ -41,9 +41,9 @@ Azure(큰 인스턴스)의 SAP HANA는 세 개의 다른 지역(미국 , 오스�
 | 호스트 자동 장애 조치(failover): N+m<br /> 1+1 포함 | 활성 역할의 대기에서 가능.<br /> HANA에서 역할 전환 제어. | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화. | HANA 볼륨 세트가 모든 노드에 연결됨(n+m).<br /> DR 사이트에는 동일한 수의 노드가 있어야 함. |
 | HANA 시스템 복제 | 주 또는 보조 설치에서 가능.<br /> 장애 조치(failover)의 경우 보조가 주 역할로 전환.<br /> HANA 시스템 복제 및 OS 제어 장애 조치(Failover). | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화.<br /> HANA 시스템 복제를 사용하는 DR은 아직 타사 구성 요소 없이 가능하지 않음. | 별도의 디스크 볼륨 세트가 각 노드에 연결됩니다.<br /> 프로덕션 사이트에 있는 보조 복제본의 디스크 볼륨만 DR 위치로 복제됩니다.<br /> DR 사이트에는 한 세트의 볼륨이 필요합니다. | 
 
-전용 DR 설치는 DR 사이트의 HANA 큰 인스턴스 단위가 다른 워크로드 또는 비프로덕션 시스템을 실행하는 데 사용되지 않는 위치입니다. 이 단위는 수동이며 재해 장애 조치(failover)가 실행되는 경우에만 배포됩니다. 지금까지 이러한 구성을 사용하는 고객은 한 번도 없었습니다.
+전용 DR 설치는 DR 사이트의 HANA 큰 인스턴스 단위가 다른 워크로드 또는 비프로덕션 시스템을 실행하는 데 사용되지 않는 위치입니다. 이 단위는 수동이며 재해 장애 조치(failover)가 실행되는 경우에만 배포됩니다. 하지만 많은 고객이 선호하는 기본 선택 사항은 아닙니다.
 
-다목적 DR 설치는 DR 사이트의 HANA 큰 인스턴스 단위가 비프로덕션 워크로드를 실행하는 곳입니다. 재해가 발생하면 비프로덕션 시스템을 종료하고 저장소 복제(추가) 볼륨 세트를 탑재한 다음 프로덕션 HANA 인스턴스를 시작합니다. 지금까지 HANA 큰 인스턴스 재해 복구 기능을 사용하는 모든 고객은 이 구성 대안을 사용하고 있습니다. 
+다목적 DR 설치는 DR 사이트의 HANA 큰 인스턴스 단위가 비프로덕션 워크로드를 실행하는 곳입니다. 재해가 발생하면 비프로덕션 시스템을 종료하고 저장소 복제(추가) 볼륨 세트를 탑재한 다음 프로덕션 HANA 인스턴스를 시작합니다. HANA 큰 인스턴스 재해 복구 기능을 사용하는 대부분의 고객은 이 구성을 사용합니다. 
 
 
 다음 SAP 문서에서 SAP HANA 고가용성에 대한 자세한 내용을 참조하세요. 
@@ -155,7 +155,7 @@ HANA 큰 인스턴스를 사용하여 저장소 스냅숏을 설정하는 단계
 
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>1단계: SAP HANA HDB 클라이언트 설치
 
-Azure 큰 인스턴스의 SAP HANA에 설치된 Linux 운영 체제는 백업 및 재해 복구를 위해 SAP HANA 저장소 스냅숏을 실행하는 데 필요한 폴더와 스크립트를 포함합니다. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts)에서 최신 릴리스를 확인하세요. 스크립트의 가장 최신 릴리스 버전은 2.0입니다.
+Azure 큰 인스턴스의 SAP HANA에 설치된 Linux 운영 체제는 백업 및 재해 복구를 위해 SAP HANA 저장소 스냅숏을 실행하는 데 필요한 폴더와 스크립트를 포함합니다. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts)에서 최신 릴리스를 확인하세요. 스크립트의 가장 최신 릴리스 버전은 2.1입니다.
 그러나 SAP HANA를 설치하는 동안 HANA 큰 인스턴스 단위에 SAP HANA HDB 클라이언트를 설치하는 것은 사용자의 책임입니다. (Microsoft에서는 HDB 클라이언트나 SAP HANA를 설치하지 않습니다.)
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>2단계: /etc/ssh/ssh\_config 변경
@@ -221,7 +221,15 @@ SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트
 
 `hdbuserstore` 명령을 다음과 같이 입력합니다.
 
-![hdbuserstore 명령을 입력합니다.](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**비 MDC HANA 설치**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**MDC HANA 설치**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 다음 예제에서 사용자는 **SCADMIN01**이고 호스트 이름은 **lhanad01**이고 인스턴스는 **01**입니다.
 ```
@@ -231,8 +239,8 @@ SAP HANA 확장 구성이 있는 경우 단일 서버에서 모든 스크립팅�
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>6단계: 스냅숏 스크립트 가져오기, 스냅숏 구성, 구성 및 연결 테스트
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Snapshot created successfully.
 모든 준비 단계가 완료되면 실제 저장소 스냅숏 구성을 시작할 수 있습니다. 예약할 스크립트는 SAP HANA 강화 및 규모 확장 구성에 작동합니다. cron을 통해 스크립트 실행을 예약해야 합니다. 
 
 세 가지 유형의 스냅숏 백업을 만들 수 있습니다.
-- **HANA**: hana/data, /hana/log, /hana/shared(/usr/sap도 포함)가 포함된 볼륨이 조합된 스냅숏으로 보호되는 결합된 스냅숏 백업. 이 스냅숏에서 단일 파일을 복원할 수 있습니다.
+- **HANA**: hana/data 및 /hana/shared(/usr/sap도 포함)가 포함된 볼륨이 조합된 스냅숏으로 보호되는 결합된 스냅숏 백업. 이 스냅숏에서 단일 파일을 복원할 수 있습니다.
 - **Logs**: /hana/logbackups 볼륨의 스냅숏 백업. 이 저장소 스냅숏을 실행하기 위해 트리거되는 HANA 스냅숏은 없습니다. 이 저장소 볼륨은 SAP HANA 트랜잭션 로그 백업을 포함하기 위한 볼륨입니다. SAP HANA 트랜잭션 로그 백업은 로그 증가를 제한하고 잠재적 인 데이터 손실을 방지하기 위해 더 자주 수행됩니다. 이 스냅숏에서 단일 파일을 복원할 수 있습니다. 빈도를 5분 미만으로 낮추면 안됩니다.
 - **Boot**: HANA 큰 인스턴스의 부팅 LUN(논리 단위 번호)을 포함하는 볼륨의 스냅숏. 이 스냅숏 백업은 HANA 큰 인스턴스의 유형 I SKU에서만 가능합니다. 부팅 LUN을 포함하는 볼륨의 스냅숏에서 단일 파일 복원을 수행할 수 없습니다.  
 
 
 이러한 세 가지 유형의 스냅숏에 대한 호출 구문은 다음과 같습니다.
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 다음 매개 변수를 지정해야 합니다.
 
 - 첫 번째 매개 변수는 스냅숏 백업의 유형을 지정합니다. 허용되는 값은 **hana**, **logs**, **boot**입니다. 
-- 두 번째 값은 HANA SID(예: HM3)입니다. 부팅 볼륨의 백업을 수행하는 데는 이 매개 변수가 필요하지 않습니다.
+- 두 번째 매개 변수는 **HANA SID**(예: HM3) 또는 **none**입니다. 제공된 첫 번째 매개 변수 값이 **hana** 또는 **logs**이면 이 매개 변수 값은 **HANA SID**(예: HM3)이고, 그렇지 않으면 부팅 볼륨 백업의 경우 값은 **none**입니다. 
 - 세 번째 매개 변수는 스냅숏 유형에 대한 백업 레이블 또는 스냅숏입니다. 여기에는 두 가지 목적이 있습니다. 한 가지 목적은 이름을 지정하여 스냅숏의 의미를 파악하는 것입니다. 두 번째 목적은 azure\_hana\_backup.pl 스크립트가 특정 레이블 하에 보존되는 저장소 스냅숏의 수를 확인하는 것입니다. 두 개의 다른 레이블로 동일한 유형(예: **hana**)의 저장소 스냅숏 백업을 두 개 예약하고 각각에 대해 30개의 스냅숏을 보관하도록 정의하면 영향을 받는 볼륨의 스토리지 스냅숏은 60 개가 됩니다. 
 - 네 번째 매개 변수는 유지할 동일한 스냅숏 접두사(레이블)가 포함된 스냅숏 수를 정의하여 간접적으로 스냅숏의 보존을 정의합니다. 이 매개 변수는 cron을 통해 예약된 실행에 중요합니다. 
 
@@ -428,7 +436,7 @@ For snapshot of the volume storing the boot LUN
 - 볼륨당 스냅숏 수는 255개로 제한됩니다.
 
 
-HANA 큰 인스턴스의 재해 복구 기능을 사용하지 않는 고객의 경우 스냅숏 기간이 덜 빈번합니다. 이러한 경우 고객이 12시간 또는 24시간 기간으로 /hana/data, /hana/log, /hana/shared(/usr/sap 포함)에 대해 결합된 스냅숏을 수행하고, 1달 동안 해당 스냅숏을 유지하는 것을 알 수 있습니다. 로그 백업 볼륨의 스냅숏도 마찬가지입니다. 반면 로그 백업 볼륨에 대한 SAP HANA 트랜잭션 로그 백업은 5분~15분 기간으로 실행됩니다.
+HANA 큰 인스턴스의 재해 복구 기능을 사용하지 않는 고객의 경우 스냅숏 기간이 덜 빈번합니다. 이러한 경우 고객이 12시간 또는 24시간 기간으로 /hana/data, /hana/shared(/usr/sap 포함)에 대해 결합된 스냅숏을 수행하고, 1달 동안 해당 스냅숏을 유지하는 것을 알 수 있습니다. 로그 백업 볼륨의 스냅숏도 마찬가지입니다. 반면 로그 백업 볼륨에 대한 SAP HANA 트랜잭션 로그 백업은 5분~15분 기간으로 실행됩니다.
 
 cron을 사용하여 예약된 저장소 스냅숏을 수행하는 것이 좋습니다. 또한 모든 백업 및 재해 복구 요구에 동일한 스크립트를 사용하는 것이 좋습니다. 요청된 다양한 백업 시간에 맞게 스크립트 입력을 수정해야 합니다. 이러한 스냅숏은 해당 실행 시간(매시간, 12시간, 매일 또는 매주)에 따라 cron에서 모두 다르게 예약됩니다. 
 
@@ -440,9 +448,9 @@ cron을 사용하여 예약된 저장소 스냅숏을 수행하는 것이 좋습
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-이전 예제에는 /hana/data, /hana/log, /hana/shared(/usr/sap 포함) 위치가 포함된 볼륨을 처리하는 시간별로 결합 스냅숏이 있습니다. 이 유형의 스냅숏은 지난 2일 이내에서 더 빠른 지정 시간 복구에 사용됩니다. 또한 해당 볼륨에 대한 일별 스냅숏이 있습니다. 따라서 2일 간의 시간별 스냅숏과 4주 간의 일별 스냅숏을 갖습니다. 그뿐 아니라 트랜잭션 로그 백업 볼륨은 매일 한 번 백업됩니다. 또한 이러한 백업은 4주 동안 유지됩니다. crontab의 세 번째 줄에 표시된 대로 HANA 트랜잭션 로그의 백업은 5분마다 실행되도록 예약됩니다. 저장소 스냅숏을 실행하는 여러 다른 cron 작업의 시간(분)이 차이를 두기 때문에 해당 스냅숏이 특정 시점에 한꺼번에 실행되지 않습니다. 
+이전 예제에는 /hana/data, /hana/shared(/usr/sap 포함) 위치가 포함된 볼륨을 처리하는 시간별로 결합 스냅숏이 있습니다. 이 유형의 스냅숏은 지난 2일 이내에서 더 빠른 지정 시간 복구에 사용됩니다. 또한 해당 볼륨에 대한 일별 스냅숏이 있습니다. 따라서 2일 간의 시간별 스냅숏과 4주 간의 일별 스냅숏을 갖습니다. 그뿐 아니라 트랜잭션 로그 백업 볼륨은 매일 한 번 백업됩니다. 또한 이러한 백업은 4주 동안 유지됩니다. crontab의 세 번째 줄에 표시된 대로 HANA 트랜잭션 로그의 백업은 5분마다 실행되도록 예약됩니다. 저장소 스냅숏을 실행하는 여러 다른 cron 작업의 시간(분)이 차이를 두기 때문에 해당 스냅숏이 특정 시점에 한꺼번에 실행되지 않습니다. 
 
-다음 예제에서는 /hana/data, /hana/log, /hana/shared(/usr/sap 포함) 위치가 포함된 볼륨을 처리하는 결합된 스냅숏을 매 시간 수행합니다. 이 스냅숏은 이틀 동안 보관합니다. 트랜잭션 로그 백업 볼륨의 스냅숏은 5분 단위로 실행되고 4시간 동안 유지됩니다. 이전과 마찬가지로, HANA 트랜잭션 로그 파일의 백업은 5분 간격으로 실행되도록 예약됩니다. 트랜잭션 로그 백업 볼륨의 스냅숏은 트랜잭션 로그 백업이 시작된 후 2분 지연되어 수행됩니다. 이 2분 이내에 정상적인 상황에서 SAP HANA 트랜잭션 로그 백업이 완료되어야 합니다. 이전과 마찬가지로, 부팅 LUN이 포함된 볼륨은 저장소 스냅숏에 의해 하루 1번 백업되고 4주 동안 보관됩니다.
+다음 예제에서는 /hana/data, /hana/shared(/usr/sap 포함) 위치가 포함된 볼륨을 처리하는 결합된 스냅숏을 매시간 수행합니다. 이 스냅숏은 이틀 동안 보관합니다. 트랜잭션 로그 백업 볼륨의 스냅숏은 5분 단위로 실행되고 4시간 동안 유지됩니다. 이전과 마찬가지로, HANA 트랜잭션 로그 파일의 백업은 5분 간격으로 실행되도록 예약됩니다. 트랜잭션 로그 백업 볼륨의 스냅숏은 트랜잭션 로그 백업이 시작된 후 2분 지연되어 수행됩니다. 이 2분 이내에 정상적인 상황에서 SAP HANA 트랜잭션 로그 백업이 완료되어야 합니다. 이전과 마찬가지로, 부팅 LUN이 포함된 볼륨은 저장소 스냅숏에 의해 하루 1번 백업되고 4주 동안 보관됩니다.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ cron을 사용하여 예약된 저장소 스냅숏을 수행하는 것이 좋습
 
 다음 그래픽은 부팅 LUN을 제외하고 이전 예제의 순서를 보여줍니다.
 
-![백업과 스냅숏 간의 관계](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![백업과 스냅숏 간의 관계](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA는 /hana/log 볼륨에 대해 정기적인 쓰기를 수행하여 데이터베이스에 대한 커밋된 변경 내용을 문서화합니다. 정기적으로 SAP HANA는 /hana/data 볼륨에 저장점을 씁니다. crontab에 지정된 대로, SAP HANA 트랜잭션 로그 백업은 5분마다 실행됩니다. /hana/data, /hana/log 및 /hana/shared 볼륨에 대해 결합된 저장소 스냅숏을 트리거한 결과로, SAP HANA 스냅숏이 매시간 실행된다는 것을 알 수 있습니다. HANA 스냅숏이 성공한 후 결합된 저장소 스냅숏이 실행됩니다. crontab에 설명된 대로 /hana/logbackup 볼륨의 저장소 스냅숏은 HANA 트랜잭션 로그 백업이 있고 약 2분 후에 5분마다 실행됩니다.
+SAP HANA는 /hana/log 볼륨에 대해 정기적인 쓰기를 수행하여 데이터베이스에 대한 커밋된 변경 내용을 문서화합니다. 정기적으로 SAP HANA는 /hana/data 볼륨에 저장점을 씁니다. crontab에 지정된 대로, SAP HANA 트랜잭션 로그 백업은 5분마다 실행됩니다. /hana/data 및 /hana/shared 볼륨에 대해 결합된 저장소 스냅숏을 트리거한 결과로, SAP HANA 스냅숏이 매시간 실행된다는 것을 알 수 있습니다. HANA 스냅숏이 성공한 후 결합된 저장소 스냅숏이 실행됩니다. crontab에 설명된 대로 /hana/logbackup 볼륨의 저장소 스냅숏은 HANA 트랜잭션 로그 백업이 있고 약 2분 후에 5분마다 실행됩니다.
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ SAP HANA는 /hana/log 볼륨에 대해 정기적인 쓰기를 수행하여 데�
 
 30일간 지정 시간 복구라는 사용자에 대한 약속을 설정한 경우 다음 항목을 수행합니다.
 
-- 극단적인 경우 30일이 지난 /hana/data, /hana/log 및 /hana/shared의 결합된 저장소 스냅숏에 액세스할 수 있어야 합니다.
+- 극단적인 경우 30일이 지난 /hana/data 및 /hana/shared의 결합된 저장소 스냅숏에 액세스할 수 있어야 합니다.
 - 결합된 저장소 스냅숏 사이의 시간에 해당하는 인접한 트랜잭션 로그 백업이 있어야 합니다. 따라서 트랜잭션 로그 백업 볼륨의 가장 오래된 스냅숏은 30일이 되어야 합니다. 트랜잭션 로그 백업을 Azure Storage에 있는 다른 NFS 공유에 복사하는 경우에는 그렇지 않습니다. 이런 경우 해당 NFS 공유에서 오래된 트랜잭션 로그 백업을 끌어올 수 있습니다.
 
 저장소 스냅숏 및 트랜잭션 로그 백업의 최종 저장소 복제를 활용하려면 SAP HANA가 트랜잭션 로그 백업을 쓰는 위치를 변경해야 합니다. 이것은 HANA Studio에서 변경할 수 있습니다. SAP HANA가 전체 로그 세그먼트를 자동으로 백업하지만 확정된 로그 백업 간격을 지정해야 합니다. 재해 복구 옵션을 사용하는 경우 일반적으로 확정된 기간으로 로그 백업을 실행하기 때문에 특히 그렇습니다. 다음과 같은 경우 로그 백업 간격으로 15분을 적용했습니다.

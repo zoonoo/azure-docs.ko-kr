@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 28/9/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: b080e323c4195f640a256c4726916dbf40ef2698
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
@@ -31,16 +31,17 @@ Linux에서 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Mi
 
 문서에는 다양한 버전의 Ubuntu에 대한 명령이 포함됩니다.  `lsb_release -a` 명령을 사용하여 배포 릴리스 및 코드명을 확인합니다. 
 
-Linux에서 AzCopy를 사용하려면 플랫폼에 .NET Core framework가 있어야 합니다. [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 페이지에서 설치 지침을 참조하세요.
+Linux에서 AzCopy를 사용하려면 플랫폼에 .NET Core framework(버전 1.1.x)가 있어야 합니다. [.NET Core](https://www.microsoft.com/net/download/linux) 페이지에서 설치 지침을 참조하세요.
 
-예를 들어, Ubuntu 16.10에 .NET Core를 설치해 보겠습니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 설치 페이지를 확인하세요.
+예를 들어, Ubuntu 16.04에 .NET Core를 설치해 보겠습니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/download/linux) 설치 페이지를 확인하세요.
 
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 .NET Core를 설치했으면 AzCopy를 다운로드 및 설치합니다.
@@ -53,76 +54,6 @@ sudo ./install.sh
 
 Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니다. 또는 superuser 권한이 없는 경우 추출된 폴더에서 셸 스크립트 'azcopy'를 사용하여 AzCopy를 실행할 수도 있습니다. 
 
-### <a name="alternative-installation-on-ubuntu"></a>Ubuntu에 대체 설치
-
-**Ubuntu 14.04**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.04**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.10**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## <a name="writing-your-first-azcopy-command"></a>첫 번째 AzCopy 명령 작성
 AzCopy 명령의 기본 구문은 다음과 같습니다.

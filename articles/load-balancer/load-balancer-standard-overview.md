@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 77d157800d71d1afc3411553b31c1182a1d0bc28
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -369,6 +369,9 @@ Load Balancer 표준 SKU 및 해당 도우미 공용 IP 표준 SKU에 대한 미
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>Load Balancer 표준 기능을 등록하는 데는 한 시간까지 소요될 수 있습니다.
 
 >[!NOTE]
 >Load Balancer 및 공용 IP와 함께 가용성 영역을 사용하려는 경우 가용성 영역 미리 보기에 대한 구독도 등록해야 합니다.

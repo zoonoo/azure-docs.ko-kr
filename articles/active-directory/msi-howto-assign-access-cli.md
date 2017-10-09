@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 
 [Azure VM](msi-qs-configure-cli-windows-vm.md)과 같은 Azure 리소스에서 MSI를 사용하도록 설정한 후에 다음을 수행합니다. 
 
-1. Azure Portal에서 Azure Cloud Shell을 사용하고 있지 않다면 먼저 [az login](/cli/azure/#login)을 사용하여 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/#login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
 2. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공합니다. 먼저 [az resource list](/cli/azure/resource/#list)를 사용하여 VM에서 MSI를 사용하도록 설정할 때 만든 VM "myVM"의 서비스 주체를 가져옵니다.
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. 서비스 주체 ID를 가져온 후에는 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 사용하여 저장소 계정 "myStorageAcct"에 대한 "Reader" 액세스 권한을 VM에 제공합니다.

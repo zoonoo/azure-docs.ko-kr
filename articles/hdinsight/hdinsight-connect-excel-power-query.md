@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Hadoop에 Excel 연결
@@ -79,7 +79,7 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 * [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./hdinsight-connect-hive-zeppelin.md)
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./hdinsight-connect-excel-hive-odbc-driver.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](./hdinsight-hadoop-visual-studio-tools-get-started.md)
-* [Hive, LLAP 또는 pySpark용 Visual Studio Code 사용](hdinsight-for-vscode.md)
+* [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./hdinsight-upload-data.md)
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png

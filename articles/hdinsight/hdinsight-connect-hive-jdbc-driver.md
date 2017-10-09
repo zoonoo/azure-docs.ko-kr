@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a62aef7b4bb7ebc085adbdbf0b58f2bb34730dcc
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c57684133ac7e5dfd2cc273db0e1ceca78679178
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
@@ -202,7 +202,7 @@ JDBC를 사용하여 Hive와 함께 작업하는 방법을 살펴보았으므로
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./hdinsight-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용하여 Hadoop에 Excel 연결](./hdinsight-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](./hdinsight-hadoop-visual-studio-tools-get-started.md)
-* [Hive, LLAP 또는 pySpark용 Visual Studio Code 사용](hdinsight-for-vscode.md)
+* [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](hdinsight-upload-data.md)
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)

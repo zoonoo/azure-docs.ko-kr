@@ -17,10 +17,10 @@ ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 21729bc6af282abc47c9b226f343bf2d44153d55
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링
@@ -39,10 +39,22 @@ ms.lasthandoff: 09/25/2017
 Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 상관없이 동일합니다. 그러나 운영 체제 셸 간에 스크립팅 차이는 있습니다. 다음 단계의 스크립트는 Bash 셸에서 실행됩니다. 
 
 1. [Azure CLI를 설치 및 구성합니다](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. `az --version` 명령을 입력하여 2.0.17보다 높은 CLI 2.0 버전을 사용하고 있는지 확인합니다. 그렇지 않을 경우 최신 버전을 설치합니다.
+2. `az --version` 명령을 입력하여 Azure CLI 버전 2.0.18 이상을 사용하고 있는지 확인합니다. 그렇지 않을 경우 최신 버전을 설치합니다.
 3. `az login` 명령을 사용하여 Azure에 로그인합니다.
-4. [PowerShell](#powershell)에서 1-5단계를 완료하여 이 자습서에 사용된 미리 보기 기능에 등록합니다. PowerShell을 사용해서만 미리 보기에 등록할 수 있습니다. 등록에 성공하거나 단계가 실패하기 전까지 나머지 단계를 진행하지 마세요.
-5. 다음 스크립트를 실행하여 리소스 그룹을 만듭니다.
+4. 다음 명령을 입력하여 미리 보기에 등록합니다.
+    
+    ```azurecli-interactive
+    az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ``` 
+
+5. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
+
+    ```azurecli-interactive
+    az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ```
+
+    이전 명령에서 반환되는 출력의 **state**에 *Registered*가 표시되면 나머지 단계를 진행합니다. 등록되기 전에 진행하면 나머지 단계가 실패합니다.
+6. 다음 bash스크립트를 실행하여 리소스 그룹을 만듭니다.
 
     ```azurecli-interactive
     #!/bin/bash
@@ -52,7 +64,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --location westcentralus
     ```
 
-6. 각 서버 유형에 대해 하나씩 세 개의 응용 프로그램 보안 그룹을 만듭니다.
+7. 각 서버 유형에 대해 하나씩 세 개의 응용 프로그램 보안 그룹을 만듭니다.
 
     ```azurecli-interactive
     az network asg create \
@@ -71,7 +83,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --location westcentralus
     ```
 
-7. 네트워크 보안 그룹 만들기:
+8. 네트워크 보안 그룹 만들기:
 
     ```azurecli-interactive
     az network nsg create \
@@ -80,7 +92,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --location westcentralus
     ```
 
-8. NSG 내에 보안 규칙을 만듭니다.
+9. NSG 내에 응용 프로그램 보안 그룹을 대상으로 설정하는 보안 규칙을 만듭니다.
     
     ```azurecli-interactive    
     az network nsg rule create \
@@ -120,7 +132,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --protocol "TCP" 
     ``` 
 
-9. 가상 네트워크 만들기: 
+10. 가상 네트워크 만들기: 
     
     ```azurecli-interactive
     az network vnet create \
@@ -129,8 +141,9 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
-10. Associate the network security group to the subnet in the virtual network:
+11. 네트워크 보안 그룹을 가상 네트워크의 서브넷에 연결합니다.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -138,8 +151,9 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
-11. Create three network interfaces, one for each server type. 
+    ```
+    
+12. 각 서버 유형에 대해 하나씩 세 개의 네트워크 인터페이스를 만듭니다. 
 
     ```azurecli-interactive
     az network nic create \
@@ -170,9 +184,9 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --application-security-groups "DatabaseServers"
     ```
 
-    8단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myWebNic*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myWebNic*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
+    9단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myWebNic*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myWebNic*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
 
-12. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 *win2016datacenter*를 *UbuntuLTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
+13. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 *win2016datacenter*를 *UbuntuLTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
 
     ```azurecli-interactive
     # Update for your admin password
@@ -206,7 +220,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --admin-password $AdminPassword    
     ```
 
-13. **선택 사항:** [리소스 삭제](#delete-cli)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
+14. **선택 사항:** [리소스 삭제](#delete-cli)의 단계를 완료하여 이 자습서에서 만든 리소스를 삭제합니다.
 
 ## <a name="powershell"></a>PowerShell
 

@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/23/2017
 ## <a name="prerequisites"></a>필수 조건
 다음은 구성 서버를 설정하는 데 필요한 최소 하드웨어, 소프트웨어 및 네트워크 구성입니다.
 > [!IMPORTANT]
-> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **항상 사용 가능한(HA)** 가상 컴퓨터로 배포하는 것이 좋습니다.
+> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 컴퓨터로 배포하는 것이 좋습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -92,7 +92,7 @@ ProxyUserName="UserName"
 ProxyPassword="Password"
 ```
 ## <a name="modifying-proxy-settings-for-configuration-server"></a>구성 서버의 프록시 설정 수정
-1. 구성 서버에 로그인합니다.
+1. 구성 서버에 로그인 합니다.
 2. 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
 3. **자격 증명 모음 등록** 탭을 클릭합니다.
 4. 포털에서 새 자격 증명 모음 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
@@ -111,8 +111,19 @@ ProxyPassword="Password"
   >[!WARNING]
   이 구성 서버에 확장 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)해야 합니다.
 
+## <a name="modify-user-accounts-and-passwords"></a>사용자 계정 및 암호를 수정합니다.
+
+CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**에 사용되는 사용자 계정을 관리하고 **보호된 컴퓨터에 모바일 서비스 강제 설치**를 수행합니다. 
+
+1. 구성 서버에 로그인합니다.
+2. 바탕 화면에서 사용할 수 있는 바로 가기를 클릭하여 CSPSConfigtool.exe를 시작합니다.
+3. **계정 관리** 탭을 클릭합니다.
+4. 암호를 수정해야 하는 계정을 선택하고 **편집** 단추를 클릭합니다.
+5. 새 암호를 입력하고 **확인**을 클릭합니다.
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>동일한 Recovery Services 자격 증명 모음을 사용하여 구성 서버 등록
-  1. 구성 서버에 로그인합니다.
+  1. 구성 서버에 로그인 합니다.
   2. 데스크톱에서 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
   3. **자격 증명 모음 등록** 탭을 클릭합니다.
   4. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
@@ -132,7 +143,11 @@ ProxyPassword="Password"
   확장 프로세스 서버가 이 구성 서버에 연결되어 있는 경우 배포에서 [모든 확장 프로세스 서버를 다시 등록](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)해야 합니다.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>다른 Recovery Services 자격 증명 모음에 구성 서버 등록
-1. 구성 서버에 로그인합니다.
+
+> [!WARNING]
+> 아래와 같은 일련의 단계에서는 현재 자격 증명 모음으로부터 구성을 분리하고 구성 서버에서 보호된 모든 가상 컴퓨터의 복제를 중지합니다.
+
+1. 구성 서버에 로그인 합니다.
 2. 관리자 명령 프롬프트에서 명령을 실행합니다.
 
     ```
@@ -227,6 +242,17 @@ ProxyPassword="Password"
 
   >[!TIP]
   **지금 갱신** 단추 대신 **지금 업그레이드** 단추가 표시됩니다. 이것은 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다.
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>SSL(Secure Socket Layer) 인증서가 만료된 경우 구성 서버를 갱신합니다.
+
+1. 구성 서버를 [최신 버전](http://aka.ms/unifiedinstaller)으로 업데이트합니다.
+2. 확장 프로세스 서버, 장애 복구 마스터 대상 서버, 장애 복구 프로세스 서버가 있는 경우 최신 버전으로 업데이트합니다.
+3. 보호된 모든 가상 컴퓨터에서 모바일 서비스를 최신 버전으로 업데이트합니다.
+4. 구성 서버에 로그인하고 관리자 권한으로 명령 프롬프트를 엽니다.
+5. %ProgramData%\ASR\home\svsystems\bin 폴더로 이동합니다.
+6. RenewCerts.exe를 실행하여 구성 서버에서 SSL 인증서를 갱신합니다.
+7. 프로세스에 성공하면 "인증서 갱신에 성공했습니다."라는 메시지가 표시됩니다.
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>구성 서버에 대한 크기 조정 요구 사항
 

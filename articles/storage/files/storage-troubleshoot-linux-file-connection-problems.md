@@ -1,6 +1,6 @@
 ---
-title: "Linux에서 Azure File Storage 문제 해결 | Microsoft Docs"
-description: "Linux에서 Azure File Storage 문제 해결"
+title: "Linux에서 Azure Files 문제 해결 | Microsoft Docs"
+description: "Linux에서 Azure Files 문제 해결"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Linux에서 Azure File Storage 문제 해결
+# <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
-이 문서에는 Linux 클라이언트에서 연결할 때 Microsoft Azure File Storage에 관련된 일반적인 문제 목록을 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다.
+이 문서에서는 Linux 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>파일을 열려고 할 때 “[사용 권한 거부됨] 디스크 할당량이 초과됨”
@@ -41,7 +41,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 일부 핸들을 닫아 동시 열린 핸들 수를 줄인 후 작업을 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-linux"></a>Linux에서 Azure File Storage 간에 느린 파일 복사
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Linux에서 Azure Files와 서로 파일을 복사하는 속도 느림
 
 -   최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MB를 사용하는 것이 좋습니다.
 -   쓰기를 사용하여 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
@@ -79,15 +79,15 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 최신 커널 버전으로 업그레이드할 수 없는 경우 30초보다 짧은 간격으로 쓰는 Azure 파일 공유에 파일을 보관하여 이 문제를 해결할 수 있습니다. 이 작업은 만든 또는 수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 재연결을 트리거하지 않을 수 있습니다.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-file-storage-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure File Storage를 탑재할 때 "탑재 오류(115): 현재 작업 진행 중"
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure Files를 탑재할 때 “Mount 오류(115): 작업이 진행되고 있습니다”
 
 ### <a name="cause"></a>원인
 
-일부 Linux 배포에서는 SMB 3.0의 암호화 기능이 아직 지원되지 않으므로 사용자가 SMB 3.0을 사용하여 Azure File Storage를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다.
+일부 Linux 배포에서는 SMB 3.0의 암호화 기능이 아직 지원되지 않으므로 사용자가 SMB 3.0을 사용하여 Azure Files를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지가 표시될 수 있습니다.
 
 ### <a name="solution"></a>해결 방법
 
-Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 게시 당시, 이 기능은 Ubuntu 17.04 및 Ubuntu 16.10으로 백포팅되었습니다. Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storage 계정과 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure File Storage를 탑재합니다.
+Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 게시 시점에서 이 기능은 Ubuntu 17.04 및 Ubuntu 16.10으로 백포팅되었습니다. Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storage 계정과 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM에 탑재된 Azure 파일 공유의 성능 저하
@@ -110,7 +110,7 @@ Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](../storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 은 Azure File Storage를 분리했다가 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
+**cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](../storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 Azure Files를 분리했다가 다시 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Windows에서 Linux로 파일을 복사할 때 타임 스탬프 손실됨
@@ -129,6 +129,32 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Azure 파일 공유에 연결하거나 탑재할 수 없음
+
+### <a name="cause"></a>원인
+
+이 문제에 대한 일반적인 원인은 다음과 같습니다.
+
+
+- 호환되지 않는 Linux 배포 클라이언트를 사용하고 있습니다. 다음 Linux 배포를 사용하여 Azure 파일 공유에 연결하는 것이 좋습니다.
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+- CIFS 유틸리티는 클라이언트에 설치되지 않았습니다.
+- 최소 SMB/CIFS 버전 2.1은 클라이언트에 설치되지 않았습니다.
+- SMB 3.0 암호화는 클라이언트에서 지원되지 않습니다. SMB 3.0 암호화는 Ubuntu 16.4 이상 버전, SUSE 12.3 이상 버전에서 사용할 수 있습니다. 다른 배포에는 커널 4.11 이상 버전이 필요합니다.
+- 지원되지 않는 TCP 포트 445를 통해 저장소 계정에 연결하려고 합니다.
+- Azure VM에서 Azure 파일 공유에 연결하려고 하며 VM은 저장소 계정과 동일한 지역에 있지 않습니다.
+
+### <a name="solution"></a>해결 방법
+
+이 문제를 해결하려면 [Linux에서 Azure 파일 탑재 오류에 대한 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)를 사용합니다. 이 도구를 사용하여 클라이언트 실행 환경의 유효성을 검사하고, Azure 파일에 대한 액세스 오류를 발생시키는 호환되지 않는 클라이언트 구성을 검색할 수 있으며, 자체 수정에 대한 규범적인 지침을 제공하고, 진단 추적을 수집합니다.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

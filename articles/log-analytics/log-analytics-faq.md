@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 8ddea06b1a90e9b1599466ad4d1c3af7a6dc8ba9
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
-Microsoft FAQ는 Microsoft Operations Management Suite(OMS)의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## <a name="general"></a>일반
 
@@ -40,21 +40,17 @@ A. 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여
 
 추가 검토를 위해 결과를 Excel로 내보낼 수 있습니다.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-system-center-operations-manager-console"></a>Q: System Center Operations Manager 콘솔에서 *OMS*와 다르게 표시되는 이유는 무엇입니까?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q: System Center Operations Manager 콘솔에서 OMS와 다르게 표시되는 이유는 무엇입니까?
 
 A: 사용 중인 Operations Manager의 업데이트 롤업에 따라 *System Center Advisor*, *Operational Insights* 또는 *Log Analytics*에 대한 노드가 표시될 수 있습니다.
 
-*OMS*에 대한 텍스트 문자열 업데이트가 수동으로 가져와야 하는 관리 팩에 포함됩니다. 현재 텍스트 및 기능을 보려면 최신 System Center Operations Manager 업데이트 롤업 기술 자료 문서의 지침을 따르고 콘솔을 새로 고칩니다.
+*OMS* 에 대한 텍스트 문자열 업데이트가 수동으로 가져와야 하는 관리 팩에 포함됩니다. 현재 텍스트 및 기능을 보려면 최신 System Center Operations Manager 업데이트 롤업 기술 자료 문서의 지침을 따르고 콘솔을 새로 고칩니다.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q: Log Analytics의 *온-프레미스* 버전이 있나요?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q: Log Analytics의 온-프레미스 버전이 있나요?
 
-A: 아니요. Log Analytics에서 대량의 데이터를 처리하고 저장합니다. 클라우드 서비스로 Log Analytics는 필요한 경우 강화하여 환경에 대한 성능 영향을 방지할 수 있습니다.
+A: 아니요. Log Analytics는 대량의 데이터를 처리 및 저장하는 확장성 있는 클라우드 서비스입니다. 
 
-추가 이점은 다음과 같습니다.
-- Microsoft는 Log Analytics 인프라를 실행하여 비용을 절감합니다.
-- 정규 기능 배포는 업데이트되고 수정됩니다.
-
-### <a name="q-how-do-i-troubleshoot-that-log-analytics-is-no-longer-collecting-data"></a>Q. Log Analytics에서 더 이상 데이터를 수집하지 않는 문제를 어떻게 해결하나요?
+### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Log Analytics에서 더 이상 데이터를 수집하지 않는 경우 어떻게 해결하나요?
 
 A: 무료 가격 책정 계층에 있고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.
 
@@ -102,17 +98,17 @@ A. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analyti
 
 서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용할 DNS 이름이 [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md)에 설명되어 있습니다.
 
-### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
+### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. Express 경로를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
 
-A. 여러 유형의 ExpressRoute 트래픽이 [ExpressRoute 설명서](../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
+A. 여러 유형의 Express 경로 트래픽이 [Express 경로 설명서](../expressroute/expressroute-faqs.md#supported-services)에 나와 있습니다.
 
-Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사용합니다.
+Log Analytics에 대한 트래픽은 공용 피어링 Express 경로 회로를 사용합니다.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
-A. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
+A. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
 
-이러한 변경은 Azure Portal에서 이루어집니다.
+이러한 변경은 Azure 포털에서 이루어집니다.
 
 데이터를 한 Log Analytics 작업 영역에서 다른 작업 영역으로 이동하거나 Log Analytics 데이터가 저장된 지역을 변경할 수 없습니다.
 
@@ -127,13 +123,13 @@ A: 최신 업데이트 롤업으로 업데이트 및 관리 팩 가져오기를 
 
 A: 에이전트가 OMS와 통신할 수 있는지 확인하려면 제어판, 보안 및 설정, **Microsoft Monitoring Agent**로 이동합니다.
 
-**Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시를 찾습니다. 녹색 확인 표시 아이콘은 에이전트가 OMS 서비스와 통신할 수 있음을 확인합니다.
+**Azure Log Analytics(OMS)** 탭 아래에서 녹색 확인 표시를 찾습니다. 녹색 확인 표시 아이콘은 에이전트가 Azure 서비스와 통신할 수 있음을 확인합니다.
 
-노란색 경고 아이콘은 에이전트가 OMS와 통신하는 데 문제가 있음을 의미합니다. 한 가지 일반적인 이유는 Microsoft Monitoring Agent 서비스가 중지되었기 때문입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
+노란색 경고 아이콘은 에이전트가 Log Analytics와 통신하는 데 문제가 있음을 의미합니다. 한 가지 일반적인 이유는 Microsoft Monitoring Agent 서비스가 중지되었기 때문입니다. 서비스 제어 관리자를 사용하여 서비스를 다시 시작합니다.
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q: 에이전트가 Log Analytics와의 통신을 중지하도록 하려면 어떻게 하나요?
 
-A: System Center Operations Manager의 Advisor 관리 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. Log Analytics에 직접 연결된 에이전트인 경우 제어판, 보안 및 설정, **Microsoft Monitoring Agent**를 통해 통신을 중지할 수 있습니다.
+A: System Center Operations Manager의 OMS 관리 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. Log Analytics에 직접 연결된 에이전트인 경우 제어판, 보안 및 설정, **Microsoft Monitoring Agent**를 통해 통신을 중지할 수 있습니다.
 **Azure Log Analytics(OMS)**아래에서 나열된 모든 작업 영역을 제거합니다.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q: 내 작업 영역을 특정 Azure 구독에서 다른 구독으로 이동하려고 하는 경우 오류가 발생하는 이유는 무엇인가요?
@@ -148,7 +144,7 @@ A. 무료 요금제에서는 작업 영역당 일일 용량을 500MB로 설정�
 
 Log Analytics 에이전트는 작은 공간을 갖도록 설계되었습니다. 고객 중 한 명이 에이전트에 대해 수행한 테스트와 그에 대한 의견을 다룬 블로그를 작성했습니다. 데이터 볼륨은 사용하도록 설정한 솔루션에 따라 다릅니다. [사용량](log-analytics-usage.md) 페이지에서 데이터 볼륨에 대한 자세한 정보를 확인하고 솔루션별로 정리된 내용을 볼 수 있습니다.
 
-자세한 내용은 OMS 에이전트의 적은 사용 공간에 대한 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)를 참조할 수 있습니다.
+자세한 내용은 OMS 에이전트의 적은 사용 공간에 대한 [고객 블로그](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) 를 참조할 수 있습니다.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. 데이터를 Log Analytics로 전송할 때 Microsoft Management Agent(MMA)에 사용된 네트워크 대역폭은 얼마나 되나요?
 
@@ -170,8 +166,6 @@ WireData 에이전트를 실행할 수 있는 컴퓨터의 경우 다음 쿼리�
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
 
-
-
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics 시작](log-analytics-get-started.md)에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
+* [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
 

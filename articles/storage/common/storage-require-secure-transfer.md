@@ -15,17 +15,17 @@ ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 96c641672ce6515fad3abc3fc0b8a6af037de346
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
-# <a name="require-secure-transfer"></a>보안 전송 필요
+# <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
-"보안 전송 필요" 옵션으로 안전한 연결에서 저장소 계정으로만 요청을 허용하여 저장소 계정의 보안을 강화합니다. 예를 들어 저장소 계정에 액세스하는 데 REST API를 호출하는 경우 HTTPS를 사용하여 연결해야 합니다. "보안 전송 필요"가 설정된 경우 HTTP를 사용한 모든 요청이 거부됩니다.
+"보안 전송 필요" 옵션으로 안전한 연결에서 계정으로만 요청을 허용하여 저장소 계정의 보안을 강화합니다. 예를 들어 저장소 계정에 액세스하는 데 REST API를 호출하는 경우 HTTPS를 사용하여 연결해야 합니다. "보안 전송 필요"는 HTTP를 사용하는 요청을 거부합니다.
 
-Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정된 경우 암호화되지 않은 모든 연결이 실패합니다. 여기에는 암호화되지 않은 SMB 2.1, SMB 3.0을 사용하는 시나리오와 Linux SMB 클라이언트의 일부 유형이 포함됩니다. 
+Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정된 경우 암호화되지 않은 모든 연결이 실패합니다. 여기에는 암호화되지 않은 SMB 2.1, SMB 3.0을 사용하는 시나리오와 Linux SMB 클라이언트의 일부 버전이 포함됩니다. 
 
 기본적으로 "보안 전송 필요" 옵션은 사용되지 않습니다.
 
@@ -34,26 +34,26 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Azure Portal에서 "보안 전송 필요"를 사용하도록 설정
 
-[Azure Portal](https://portal.azure.com)에서 저장소 계정을 만들 경우 및 기존 저장소 계정 모두에 "보안 전송 필요" 설정을 사용하도록 설정할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 저장소 계정을 만들 경우 "보안 전송 필요" 설정을 설정할 수 있습니다. 기존 저장소 계정을 활성화할 수도 있습니다.
 
-### <a name="require-secure-transfer-when-you-create-a-storage-account"></a>저장소 계정을 만들 때 보안 전송 필요
+### <a name="require-secure-transfer-for-a-new-storage-account"></a>새 저장소 계정에 대해 보안 전송 필요
 
-1. Azure Portal에서 **저장소 계정 만들기** 블레이드를 엽니다.
+1. Azure Portal에서 **저장소 계정 만들기** 창을 엽니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-  ![스크린샷](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+  ![저장소 계정 만들기 블레이드](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>기존 저장소 계정에 대해 보안 전송 필요
 
 1. Azure Portal에서 기존 저장소 계정을 선택합니다.
-1. 저장소 계정 메뉴 블레이드의 **설정** 아래에서 **구성**을 선택합니다.
+1. 저장소 계정 메뉴 창의 **설정** 아래에서 **구성**을 선택합니다.
 1. **보안 전송 필요** 아래에서 **사용**을 선택합니다.
 
-  ![스크린샷](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+  ![저장소 계정 메뉴 창](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>프로그래밍 방식으로 "보안 전송 필요" 사용
 
-설정 이름은 저장소 계정 속성에서 _supportsHttpsTrafficOnly_입니다. REST API, 도구 또는 라이브러리에서 사용할 수 있습니다.
+보안 전송을 프로그래밍 방식으로 요구하려면 REST API, 도구 또는 라이브러리를 사용하여 저장소 계정 속성에서 설정 _supportsHttpsTrafficOnly_를 사용합니다.
 
 * [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)(버전: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)(버전: 4.1.0)
@@ -65,9 +65,9 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 
 ### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>REST API를 사용하여 "보안 전송 필요" 설정 사용
 
-REST API를 사용하여 테스트를 단순화하기 위해 [ArmClient](https://github.com/projectkudu/ARMClient)를 사용하여 명령줄에서 호출할 수 있습니다.
+REST API를 사용하여 테스트를 단순화하려면 [ArmClient](https://github.com/projectkudu/ARMClient)를 사용하여 명령줄에서 호출합니다.
 
- 아래 명령줄을 사용하여 REST API로 설정을 확인할 수 있습니다.
+ 다음 명령줄을 사용하여 REST API로 설정을 확인합니다.
 
 ```
 # Login Azure and proceed with your credentials
@@ -76,7 +76,7 @@ REST API를 사용하여 테스트를 단순화하기 위해 [ArmClient](https:/
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-응답에서 _supportsHttpsTrafficOnly_ 설정을 찾을 수 있습니다. 샘플:
+응답에서 _supportsHttpsTrafficOnly_ 설정을 찾습니다. 예:
 
 ```Json
 
@@ -93,7 +93,7 @@ REST API를 사용하여 테스트를 단순화하기 위해 [ArmClient](https:/
 
 ```
 
-아래 명령줄을 사용하여 REST API로 설정을 사용할 수 있습니다.
+다음 명령줄을 사용하여 REST API로 설정을 활성화합니다.
 
 ```
 
@@ -104,7 +104,7 @@ REST API를 사용하여 테스트를 단순화하기 위해 [ArmClient](https:/
 
 ```
 
-Input.json의 샘플:
+다음은 Input.json의 예입니다.
 ```Json
 
 {

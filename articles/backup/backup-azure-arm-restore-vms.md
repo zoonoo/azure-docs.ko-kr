@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Azure 포털을 사용하여 가상 컴퓨터 복원
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/20/2017
 ![3-ways-restore-from-vm-backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 Resource Manager 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
 >
 >
 
@@ -95,7 +95,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 ## <a name="choosing-a-vm-restore-configuration"></a>VM 복원 구성 선택
 복원 지점을 선택했으니, 복원 VM에 대한 구성을 선택합니다. 복원 VM을 구성하기 위해 Azure 포털 또는 PowerShell을 사용하도록 선택합니다.
 
-1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점](#select-restore-point-for-restore)을 선택하고 **복원 구성**을 클릭하여 **복구 구성** 블레이드를 엽니다.
+1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점](#select-restore-point-for-restore)을 선택하고 **복원 구성**을 클릭하여 **복원 구성** 블레이드를 엽니다.
 
     ![복구 구성 마법사가 설정됩니다](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. **복원 구성** 블레이드에는 다음 두 가지 옵션이 있습니다.

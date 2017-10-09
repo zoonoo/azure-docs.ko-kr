@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0fa58c8bf0e50314c61272eb221878eca2c3def
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS 보호 표준 개요
 
 >[!IMPORTANT]
->Azure DDoS 보호 표준은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스가 선택한 수의 지역에서 DDoS 보호 표준을 지원합니다. 제한된 미리 보기 동안 구독에 대해 DDoS 보호 표준을 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 시 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다. DDoS 보호 표준은 미국 동부, 미국 서부 및 미국 중부 지역에서 사용할 수 있습니다. 미리 보기 중에는 이 서비스 사용 요금이 청구되지 않습니다.
+>Azure DDoS 보호 표준은 현재 미리 보기로 제공됩니다. 제한된 수의 Azure 리소스가 선택한 수의 지역에서 DDoS 보호 표준을 지원합니다. 제한된 미리 보기 동안 구독에 대해 DDoS 보호 표준을 사용하도록 설정하려면 [서비스에 등록](http://aka.ms/ddosprotection)해야 합니다. 등록 시 Azure DDoS 팀에서 사용 설정 프로세스를 안내하기 위해 연락합니다. DDoS 보호 표준은 미국 동부, 미국 서부 및 미국 중서부 지역에서 사용할 수 있습니다. 미리 보기 중에는 이 서비스 사용 요금이 청구되지 않습니다.
 
 DDoS(분산 서비스 거부) 공격은 고객이 응용 프로그램을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 하나입니다. DDoS 공격은 응용 프로그램의 리소스를 소진시켜서 정상적인 사용자가 응용 프로그램을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 끝점은 DDoS 공격의 대상이 될 수 있습니다.
 

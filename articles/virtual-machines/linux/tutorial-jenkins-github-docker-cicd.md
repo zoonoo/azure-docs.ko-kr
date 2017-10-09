@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
+ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -120,22 +120,22 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 이제 웹 브라우저를 열고 `http://<publicIps>:8080`으로 이동합니다. 다음과 같이 초기 Jenkins 설치를 완료합니다.
 
 - 이전 단계에서 VM에서 가져온 *initialAdminPassword*를 입력합니다.
-- **설치할 플러그 인 선택**을 클릭합니다.
-- 맨 위에 있는 텍스트 상자에서 *GitHub*를 검색하고 *GitHub 플러그 인*을 선택한 다음, **설치**를 클릭합니다.
+- **설치할 플러그 인 선택**을 선택합니다.
+- 맨 위에 있는 텍스트 상자에서 *GitHub*를 검색하고 *GitHub 플러그 인*을 선택한 다음, **설치**를 선택합니다.
 - Jenkins 사용자 계정을 만들려면 원하는 대로 양식을 작성합니다. 보안 관점에서 기본 관리자 계정으로 계속 진행하지 않고 이 첫 번째 Jenkins 사용자를 만들어야 합니다.
-- 완료되면 **Jenkins를 사용하여 시작**을 클릭합니다.
+- 완료되면 **Jenkins를 사용하여 시작**을 선택합니다.
 
 
 ## <a name="create-github-webhook"></a>GitHub 웹후크 만들기
-GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [Node.js 헬로 월드 샘플 앱](https://github.com/Azure-Samples/nodejs-docs-hello-world)을 엽니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 클릭합니다.
+GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [Node.js 헬로 월드 샘플 앱](https://github.com/Azure-Samples/nodejs-docs-hello-world)을 엽니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
 
 만든 분기 내부에 웹후크를 만듭니다.
 
-- **설정**을 클릭한 다음 왼쪽에 있는 **통합 및 서비스**를 선택합니다.
-- **서비스 추가**를 클릭한 다음, 필터 상자에 *Jenkins*를 입력합니다.
+- **설정**을 선택한 다음 왼쪽에 있는 **통합 및 서비스**를 선택합니다.
+- **서비스 추가**를 선택한 다음, 필터 상자에 *Jenkins*를 입력합니다.
 - *Jenkins(GitHub 플러그 인)*를 선택합니다.
 - **Jenkins 후크 URL**의 경우 `http://<publicIps>:8080/github-webhook/`를 입력합니다. 후행 슬래시(/)를 포함해야 합니다.
-- **서비스 추가**를 클릭합니다.
+- **서비스 추가**를 선택합니다.
 
 ![분기된 리포지토리에 GitHub 웹후크 추가](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -143,28 +143,28 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 ## <a name="create-jenkins-job"></a>Jenkins 작업 만들기
 코드 커밋과 같은 GitHub의 이벤트에 대해 Jenkins가 응답하도록 하려면 Jenkins 작업을 만듭니다. 
 
-Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 클릭합니다.
+Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 선택합니다.
 
 - *HelloWorld*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 다음 **확인**을 선택합니다.
 - **일반** 섹션에서 **GitHub** 프로젝트를 선택하고 *https://github.com/iainfoulds/nodejs-docs-hello-world*와 같은 분기된 리포지토리 URL을 입력합니다.
 - **원본 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*과 같은 분기된 리포지토리 *.git* URL을 입력합니다.
 - **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 - **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음, `echo "Testing"`을 명령 창에 입력합니다.
-- 작업 창 맨 아래에서 **저장**을 클릭합니다.
+- 작업 창 맨 아래에서 **저장**을 선택합니다.
 
 
 ## <a name="test-github-integration"></a>GitHub 통합 테스트
 Jenkins와 GitHub의 통합을 테스트하려면 사용자 분기의 변경 내용을 커밋합니다. 
 
-GitHub 웹 UI로 돌아가서 분기된 리포지토리를 선택한 다음, **index.js** 파일을 클릭합니다. 연필 아이콘을 클릭하여 이 파일을 편집하면 6번 줄은 다음과 같습니다.
+GitHub 웹 UI로 돌아가서 분기된 리포지토리를 선택한 다음, **index.js** 파일을 선택합니다. 연필 아이콘을 선택하여 이 파일을 편집하면 6번 줄은 다음과 같습니다.
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-변경 사항을 커밋하려면 맨 아래쪽에 **변경 내용 커밋** 단추를 클릭합니다.
+변경 사항을 커밋하려면 맨 아래쪽에 **변경 내용 커밋** 단추를 선택합니다.
 
-Jenkins에서 작업 페이지의 왼쪽 아래 모서리에 있는 **기록 빌드** 섹션에서 새 빌드가 시작됩니다. 빌드 번호 링크를 클릭하고 왼쪽 크기에 있는 **콘솔 출력**을 선택합니다. 코드가 GitHub에서 로드되면 Jenkins가 수행하는 단계와 콘솔에 메시지 `Testing`을 출력하는 빌드 작업을 확인할 수 있습니다. GitHub에서 커밋이 수행될 때마다 웹후크는 Jenkins에 도달하며, 이 방법으로 새 빌드를 트리거합니다.
+Jenkins에서 작업 페이지의 왼쪽 아래 모서리에 있는 **기록 빌드** 섹션에서 새 빌드가 시작됩니다. 빌드 번호 링크를 선택하고 왼쪽 크기에 있는 **콘솔 출력**을 선택합니다. 코드가 GitHub에서 로드되면 Jenkins가 수행하는 단계와 콘솔에 메시지 `Testing`을 출력하는 빌드 작업을 확인할 수 있습니다. GitHub에서 커밋이 수행될 때마다 웹후크는 Jenkins에 도달하며, 이 방법으로 새 빌드를 트리거합니다.
 
 
 ## <a name="define-docker-build-image"></a>Docker 빌드 이미지 정의
@@ -195,10 +195,10 @@ COPY index.js /var/www/
 ## <a name="create-jenkins-build-rules"></a>Jenkins 빌드 규칙 만들기
 이전 단계에서 콘솔에 메시지를 출력하는 기본 Jenkins 빌드 규칙을 만들었습니다. Dockerfile을 사용하고 앱을 실행하는 빌드 단계를 만들겠습니다.
 
-Jenkins 인스턴스로 돌아가서 이전 단계에서 만든 작업을 선택합니다. 왼쪽에 있는 **구성**을 클릭하고 **빌드** 섹션까지 아래로 스크롤합니다.
+Jenkins 인스턴스로 돌아가서 이전 단계에서 만든 작업을 선택합니다. 왼쪽에 있는 **구성**을 선택하고 **빌드** 섹션까지 아래로 스크롤합니다.
 
-- 기존 `echo "Test"` 빌드 단계를 제거합니다. 기존 빌드 단계 상자의 오른쪽 위 모서리에 있는 빨간색 십자가를 클릭합니다.
-- **빌드 단계 추가**를 클릭한 다음, **셸 실행**을 선택합니다.
+- 기존 `echo "Test"` 빌드 단계를 제거합니다. 기존 빌드 단계 상자의 오른쪽 위 모서리에 있는 빨간색 십자가를 선택합니다.
+- **빌드 단계 추가**를 선택한 다음, **셸 실행**을 선택합니다.
 - **명령** 상자에서 다음 Docker 명령을 입력한 다음 **저장**을 선택합니다.
 
   ```bash
@@ -211,7 +211,7 @@ Docker 빌드 단계는 이미지를 만들고, 이미지에 대한 기록을 �
 
 
 ## <a name="test-your-pipeline"></a>파이프라인 테스트
-전체 파이프라인의 실제 동작을 확인하려면 분기된 GitHub 리포지토리에서 다시 *index.js* 파일을 편집하고 **변경 내용 커밋**을 클릭합니다. GitHub에 대한 웹후크에 기반하는 Jenkins에서 새 작업이 시작됩니다. Docker 이미지를 만들고 새 컨테이너에서 앱을 시작하는 데는 몇 초가 걸립니다.
+전체 파이프라인의 실제 동작을 확인하려면 분기된 GitHub 리포지토리에서 다시 *index.js* 파일을 편집하고 **변경 내용 커밋**을 선택합니다. GitHub에 대한 웹후크에 기반하는 Jenkins에서 새 작업이 시작됩니다. Docker 이미지를 만들고 새 컨테이너에서 앱을 시작하는 데는 몇 초가 걸립니다.
 
 필요한 경우 다시 VM의 공용 IP 주소를 가져옵니다.
 

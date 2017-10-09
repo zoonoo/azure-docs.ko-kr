@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
-ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/16/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -111,7 +111,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 5. 클러스터 컴퓨터를 인터넷에서 액세스할 수 없는 경우 클러스터 구성에서 다음을 설정합니다.
 * 원격 분석 사용 안 함: *속성*에서 *“enableTelemetry”: false* 설정
 * 자동 패브릭 버전 다운로드 및 현재 클러스터 버전이 곧 지원 종료된다는 알림 사용 안 함: *속성*에서 *“fabricClusterAutoupgradeEnabled”: false* 설정
-* 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 도메인 go.microsoft.com   download.microsoft.com이 필요합니다.
+* 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
 
 6. 적절한 Service Fabric 바이러스 백신 예외 설정:
 
