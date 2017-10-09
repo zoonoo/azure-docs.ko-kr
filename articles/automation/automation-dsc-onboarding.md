@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드
@@ -36,6 +35,10 @@ Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니�
 * 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
 또한 클라우드에서 컴퓨터 구성을 관리할 수 없는 경우 Azure 자동화 DSC는 보고서 전용 끝점으로 사용될 수 있습니다. 이 옵션을 사용하면 DSC 온-프레미스를 통해 원하는 구성을 설정(푸시)하고 Azure 자동화에서 원하는 상태로 노드 준수에서 다양하게 보고하는 세부 정보를 볼 수 있습니다.
+
+> [!NOTE]
+> DSC를 사용한 Azure VM 관리는 설치된 가상 컴퓨터 DSC 확장이 2.7보다 큰 경우 추가 비용 없이 포함됩니다.  자세한 내용은 [**Automation 가격 책정 페이지**](https://azure.microsoft.com/en-us/pricing/details/automation/)를 참조하세요.
+
 
 다음 섹션에서는 Azure 자동화 DSC에 대해 각 컴퓨터 형식을 온보드하는 방법을 간략히 설명합니다.
 
@@ -123,17 +126,17 @@ Azure 자동화 DSC를 사용하면 Azure 포털, Azure 리소스 관리자 템�
 
 [Azure 포털](https://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
 
-**온보드할 가상 컴퓨터 선택**에서 온보드할 하나 이상의 Azure 가상 컴퓨터를 선택합니다.
+등록하려면 Azure 가상 컴퓨터를 선택합니다.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+컴퓨터에 필요한 상태 확장이 설치된 PowerShell이 없고 전원 상태가 실행 중인 경우 **연결**을 클릭합니다.
 
-**등록 데이터 구성**에서 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4) 과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure 자동화 DSC에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure 자동화 DSC에 온보드하는 템플릿 예는 [DSC 확장 및 Azure 자동화 DSC를 통한 VM 구성](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) 을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 아래의 [**등록 보호**](#secure-registration) 섹션에서 제공합니다.
+Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure 자동화 DSC에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure 자동화 DSC에 온보드하는 템플릿 예는 [DSC 확장 및 Azure 자동화 DSC를 통한 VM 구성](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 아래의 [**등록 보호**](#secure-registration) 섹션에서 제공합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -155,7 +158,7 @@ AWS DSC 도구 키트를 사용하여 Azure 자동화 DSC에 의한 구성 관�
     Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
     ```
 
-4. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 2단계의 메타 구성 폴더를 등록할 각 컴퓨터에 복사합니다. 그런 다음 등록할 각 컴퓨터에서 **Set-DscLocalConfigurationManager** 를 로컬로 호출합니다.
+4. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 2단계의 메타 구성 폴더를 등록할 각 컴퓨터에 복사합니다. 그런 다음 등록할 각 컴퓨터에서 **Set-DscLocalConfigurationManager**를 로컬로 호출합니다.
 5. Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
 
 ## <a name="physicalvirtual-linux-machines-on-premises-in-azure-or-in-a-cloud-other-than-azure"></a>온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
@@ -190,7 +193,7 @@ AWS DSC 도구 키트를 사용하여 Azure 자동화 DSC에 의한 구성 관�
 
 이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
 
-1. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음 Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 로컬로 `SetDscLocalConfigurationManager.py` 를 호출합니다.
+1. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음 Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 로컬로 `SetDscLocalConfigurationManager.py`를 호출합니다.
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
@@ -364,7 +367,7 @@ Azure Preview 포털의 **키 관리** 블레이드에서 DSC 등록 프로토�
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
 * 등록 URL은 키 관리 블레이드의 URL 필드입니다.
-* 등록 키는 키 관리 블레이드에서 주기본 액세스 키 또는 보조 액세스 키입니다. 둘 중 하나를 사용할 수 있습니다.
+* 등록 키는 키 관리 블레이드에서 기본 액세스 키 또는 보조 액세스 키입니다. 둘 중 하나를 사용할 수 있습니다.
 
 이전 키를 사용한 추가적인 노드 등록 차단을 위해 자동화 계정의 기본 액세스 키와 보조 액세스 키는 언제든 다시 생성하여 보안을 강화할 수 있습니다( **키 관리** 블레이드에서).
 

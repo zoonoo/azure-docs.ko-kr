@@ -1,5 +1,5 @@
 ---
-title: "Cloud Services 리소스에서 Azure Application Insights Profiler를 사용하도록 설정 | Microsoft Docs"
+title: "Azure 계산 리소스에 Azure Application Insights Profiler를 사용하도록 설정 | Microsoft Docs"
 description: "Azure Cloud Services 리소스에서 호스트되는 ASP.NET 응용 프로그램에 프로파일러를 설정하는 방법을 알아봅니다."
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ ASP.NET MVC 응용 프로그램을 배포하는 경우 서버 관리자로 이�
 
 
 ## <a name="enable-the-profiler"></a>프로파일러 활성화
-1. Application Insights **성능** 블레이드로 이동하여 **구성**을 선택합니다.
-   
-   ![구성 아이콘](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Application Insights **성능** 블레이드로 이동하고 오른쪽 위 모서리에 있는 **프로파일러**를 클릭하여 구성합니다.
+
+   ![프로파일러 구성 단추](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. **프로파일러 사용**을 선택합니다.
-   
-   ![프로파일러 사용 아이콘](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![프로파일러 사용 단추](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>응용 프로그램에 성능 테스트 추가
 이러한 단계를 수행하여 Application Insights Profiler에 표시될 샘플 데이터를 수집할 수 있습니다.
@@ -134,9 +136,15 @@ ASP.NET MVC 응용 프로그램을 배포하는 경우 서버 관리자로 이�
 
 1. 프로파일러가 데이터를 수집 및 분석하도록 10-15분 동안 대기합니다. 
 
-2. Application Insights 리소스의 **성능** 블레이드로 이동하여 응용 프로그램이 부하 상태에서 어떻게 수행되는지 확인합니다.
+2. Application Insights 리소스의 **성능** 블레이드로 이동하여 응용 프로그램이 부하 상태에서 어떻게 수행되는지 확인합니다. 개수 열 기준으로 작업 그리드를 정렬하여 사용량이 충분한, 속도가 느린 관심 작업에 집중합니다. 기간 분포보다 높은 프로파일러 레인을 살펴봄으로써 프로파일러 추적이 어떤 기간 범위에 있는지 관찰합니다. 응용 프로그램을 오래 모니터링할수록 더 많은 추적 프로파일러가 수집되므로 더 많은 분포는 프로파일러 추적에서 지원하는 풍부한 코드 수준 예제에서 다루게 됩니다. 
 
-   ![성능 보기](./media/enable-profiler-compute/aiperformance.png)
+   ![성능 심사 보기에서 프로파일러 추적](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    95 백분위수에 세 번째 스파이크와 같이 관심 있는 기간 범위로 확대할 수 있습니다. 이는 작업 수행 단추에서 샘플 및 프로파일러 추적 수를 제한합니다. 
+
+    ![기간 범위 확대](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    이제 **프로파일러 추적** 버튼 클릭하여 적절한 추적이 포함된 프로파일러를 엽니다.
 
 3. **예제** 아래에서 아이콘을 선택하여 **추적 보기** 블레이드를 엽니다.
 

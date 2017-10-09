@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -113,7 +113,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
 ## <a name="generate-the-openapi-definition"></a>OpenAPI 정의 생성
 
-이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 [API 앱](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술 뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](http://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다
+이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 API Apps, [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](http://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다.
 
 1. API(이 경우 POST)에서 지원하는 *동사*만 선택합니다. 이를 통해 생성된 API 정의가 더 분명해집니다.
 
@@ -175,20 +175,9 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
     이 정의는 전체 OpenAPI 정의가 되기 위해서는 더 많은 메타데이터가 필요하므로 _템플릿_으로 설명됩니다. 다음 단계에서 해당 정의를 수정합니다.
 
 ## <a name="modify-the-openapi-definition"></a>OpenAPI 정의 수정
-이제 템플릿 정의가 있으므로 API의 작업 및 데이터 구조에 대한 추가 메타데이터를 제공하도록 수정합니다. 이 자습서에서는 아래의 수정된 정의를 **API 정의** 창에 붙여 넣고 **저장**을 클릭하기만 하면 됩니다.
+이제 템플릿 정의가 있으므로 API의 작업 및 데이터 구조에 대한 추가 메타데이터를 제공하도록 수정합니다. **API 정의**에서 생성된 정의를 `post`부터 정의 가장 아래쪽까지 삭제하여 아래 콘텐츠에 붙여넣고 **저장**을 클릭합니다.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-즉, 기본 템플릿에서 어떤 유형의 수정을 수행했는지 이해하는 것이 중요합니다.
+이 경우 그냥 업데이트된 메타데이터에 붙여넣을 수도 있지만 기본 템플릿에서 어떤 유형의 수정을 수행했는지 이해하는 것이 중요합니다.
 
 + API가 JSON 형식으로 데이터를 생성하고 소비한다고 지정했습니다.
 

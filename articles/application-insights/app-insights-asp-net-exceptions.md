@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
 ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
@@ -58,15 +58,19 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 ![CodeLens 예외 알림.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure 포털을 사용하여 오류 진단
-앱의 Application Insights 개요에서 실패 타일은 가장 많은 실패를 유발하는 요청 URL 목록과 함께 예외 및 실패한 HTTP 요청에 대한 차트를 보여 줍니다.
+Application Insights는 APM 환경과 함께 제공되어 모니터링된 응용 프로그램에서 실패를 진단하는 데 도움이 됩니다. 시작하려면 조사 섹션에 있는 Application Insights 리소스 메뉴에서 오류 옵션을 클릭합니다. 사용자의 요청, 실패하는 횟수 및 사용자가 영향을 받는 횟수에 대한 오류 속도 추세를 표시하는 전체 화면 보기에 표시됩니다. 상위 3개 응답 코드, 상위 3개 예외 형식 및 상위 3개 실패 종속성 형식을 비롯한 선택한 실패 작업에 관한 몇 가지 가장 유용한 분포가 오른쪽에 표시됩니다. 
 
-![설정 선택, 오류](./media/app-insights-asp-net-exceptions/012-start.png)
+![오류 심사 보기(작업 탭)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-목록에서 실패한 예외 형식 중 하나를 클릭하여 개별 예외 항목으로 이동합니다. 여기서 세부 정보 및 스택 추적을 볼 수 있습니다.
+한 번 클릭하면 작업의 이러한 각 하위 집합에 대한 대표 샘플을 검토할 수 있습니다. 특히, 예외를 진단하려면 다음과 같이 예외 세부 정보 블레이드에 표시되는 특정 예외 수를 클릭할 수 있습니다.
 
-![실패한 요청 인스턴트를 선택하고, 예외 세부 정보 아래에서 예외 인스턴스로 이동합니다.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![예외 세부 정보 블레이드](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**또는** 요청 목록에서 시작하여 관련 예외를 찾을 수 있습니다.
+**또는** 특정 실패 작업의 예외를 살펴보는 대신 예외 탭으로 전환하여 전체적인 예외 보기로 시작할 수 있습니다.
+
+![오류 심사 보기(예외 탭)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+여기서 모니터링한 앱에 대해 수집된 모든 예외를 확인할 수 있습니다.
 
 *예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
 
@@ -76,9 +80,9 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 
 여러 옵션이 있습니다.
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](app-insights-diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다. 
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
-* [TrackException()](#exceptions) 은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](app-insights-diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수 있습니다.
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace)를 사용하여 POST 정보와 같은 긴 데이터를 보낼 수 있습니다.
+* [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처](app-insights-asp-net-trace-logs.md)하고 볼 수 있습니다.
 
 이러한 이벤트를 보려면, [검색](app-insights-diagnostic-search.md)과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택합니다.
@@ -226,7 +230,7 @@ HandleError 특성을 컨트롤러의 새 특성으로 바꿉니다.
 [샘플](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합니다.
+Global.asax.cs에서 `AiHandleErrorAttribute`를 글로벌 필터로 등록합니다.
 
     public class MyMvcApplication : System.Web.HttpApplication
     {
@@ -431,7 +435,7 @@ WebApiConfig에서 서비스에 추가합니다.
 
 .NET Framework는 간격의 예외 수를 계산하고 간격의 길이로 나누어 속도를 계산합니다.
 
-TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 '예외' 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
+TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 ‘예외’ 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
 ## <a name="video"></a>비디오
 

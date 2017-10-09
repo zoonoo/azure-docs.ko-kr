@@ -1,9 +1,25 @@
-title: Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 ID 보내기 | Microsoft Docs 설명: Application Insights에서 각 사용자에게 고유한 영구 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방법을 추적합니다.
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
+---
+title: "Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 ID 보내기 | Microsoft Docs"
+description: "Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다."
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
+
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
 ## <a name="tracking-users"></a>사용자 추적
@@ -81,3 +97,4 @@ ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 
     * [깔때기](usage-funnels.md)
     * [보존](app-insights-usage-retention.md)
     * [통합 문서](app-insights-usage-workbooks.md)
+

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e6f5798b260c4923452dcc96c18d4839f5c34bfc
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3229fe0b5aacbbc716039a4a6abfd235dbc4c4f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
@@ -33,7 +33,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-**설정** 탭에서는 함수 앱에서 사용되는 함수 런타임 버전을 업데이트할 수 있습니다. 또한 이 탭에서 함수 앱에서 호스트하는 모든 함수에 대한 HTTP 액세스를 제한하는 데 사용되는 호스트 키를 관리합니다.
+**설정** 탭에서는 함수 앱에서 사용되는 Functions 런타임 버전을 업데이트할 수 있습니다. 이 탭에서는 또한 함수 앱에서 호스트하는 모든 함수에 대한 HTTP 액세스를 제한하는 데 사용되는 호스트 키를 관리합니다.
 
 Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원합니다. 자세한 내용은 [Azure Functions에 대한 올바른 서비스 계획 선택](functions-scale.md)을 참조하세요. 소비 계획에서 더 나은 예측 가능성을 얻기 위해 Functions는 일일 사용 할당량(기가바이트 초)을 설정하여 플랫폼 사용을 제한할 수 있도록 합니다. 일일 사용 할당량에 도달하면 함수 앱이 중지됩니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 대금 청구에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](http://azure.microsoft.com/pricing/details/functions/)를 참조하세요.   
 
@@ -46,7 +46,7 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 > [!NOTE]
 > 함수 앱이 소비 호스팅 계획에서 실행될 때 모든 App Service 기능을 사용할 수 있는 것은 아닙니다.
 
-이 항목의 나머지 부분에서는 함수에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
+이 항목의 나머지 부분에서는 Functions에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
 
 + [App Service 편집기](#editor)
 + [응용 프로그램 설정](#settings) 
@@ -57,7 +57,7 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 + [인증](#auth)
 + [API 정의](#swagger)
 
-App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service-web/web-sites-configure.md)을 참조하세요.
+App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service/web-sites-configure.md)을 참조하세요.
 
 ### <a name="editor"></a>App Service 편집기
 
@@ -120,7 +120,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하는 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure에서 API 앱, ASP.NET 및 Swagger 시작](../app-service-api/app-service-api-dotnet-get-started.md)을 방문하세요. 또한 함수 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure 함수 프록시 사용](functions-proxies.md)을 참조하세요. |
+| ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하는 API 정의 만들기에 대한 자세한 내용은 [Azure에서 API Apps 및 Swagger 시작](../app-service/app-service-web-tutorial-rest-api.md)을 방문하세요. 또한 Functions 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조하세요. |
 
 ![함수 앱 API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
@@ -128,7 +128,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure App Service 설정 구성](../app-service-web/web-sites-configure.md)
++ [Azure App Service 설정 구성](../app-service/web-sites-configure.md)
 + [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 
 

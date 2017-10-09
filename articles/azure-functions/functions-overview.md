@@ -18,10 +18,10 @@ ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개  
@@ -37,7 +37,7 @@ Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
 * **고유한 종속성 가져오기** - Functions는 NuGet 및 NPM을 지원하므로 즐겨찾는 라이브러리를 사용할 수 있습니다.  
 * **통합 보안** - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용하여 HTTP 트리거 함수를 보호합니다.  
 * **통합 간소화** - Azure 서비스 및 SaaS(software-as-a-service) 제품을 손쉽게 활용합니다. 몇 가지 예제는 [통합 섹션](#integrations)을 참조하세요.  
-* **유연한 개발** - GitHub, Visual Studio Team Services, 기타 [지원되는 개발 도구](../app-service-web/web-sites-deploy.md#deploy-using-an-ide)를 통해 포털에 바로 함수를 코딩하거나 연속 통합을 설정하고 코드를 배포합니다.  
+* **유연한 개발** - [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) 및 기타 [지원되는 개발 도구](../app-service/app-service-deploy-local-git.md)를 통해 포털에 바로 함수를 코딩하거나 지속적인 통합을 설정하고 코드를 배포합니다.  
 * **오픈 소스** - Functions 런타임은 오픈 소스이며 [GitHub에서 사용](https://github.com/azure/azure-webjobs-sdk-script)할 수 있습니다.  
 
 ## <a name="what-can-i-do-with-functions"></a>함수로 할 수 있는 작업은 무엇인가요?
@@ -47,7 +47,7 @@ Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템
 
 * **HTTPTrigger** - HTTP 요청을 사용하여 코드 실행을 트리거합니다. 예제를 보려면 [첫 번째 함수 만들기](functions-create-first-azure-function.md)를 참조하세요.
 * **TimerTrigger** - 사전 정의된 일정에 따라 정리 또는 다른 배치 작업을 실행합니다. 예제를 보려면 [타이머를 통해 트리거되는 함수 만들기](functions-create-scheduled-function.md)를 참조하세요.
-* **GitHub 웹후크** - GitHub 리포지토리에서 발생하는 이벤트에 대응합니다. 예제를 보려면 [GitHub 웹후크를 통해 트리거되는 함수 만들기](functions-create-a-web-hook-or-api-function.md)를 참조하세요.
+* **GitHub 웹후크** - GitHub 리포지토리에서 발생하는 이벤트에 대응합니다. 예제를 보려면 [GitHub 웹후크를 통해 트리거되는 함수 만들기](functions-create-github-webhook-triggered-function.md)를 참조하세요.
 * **일반 웹후크** - 웹후크를 지원하는 모든 서비스의 웹후크 HTTP 요청을 처리합니다. 예제를 보려면 [일반 웹후크를 통해 트리거되는 함수 만들기](functions-create-generic-webhook-triggered-function.md)를 참조하세요.
 * **BlobTrigger** - 컨테이너에 Azure 저장소 Blob을 추가할 때 해당 Blob을 처리합니다. 이 함수를 이미지 크기 조정에 사용할 수 있습니다. 자세한 내용은 [Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
 * **QueueTrigger** - Azure 저장소 큐에 도착하는 메시지에 대응합니다. 예제를 보려면 [다른 Azure 서비스에 연결하는 함수 만들기](functions-create-an-azure-connected-function.md)를 참조하세요.
@@ -87,7 +87,7 @@ Azure Functions에는 두 종류의 가격 책정 계획이 있습니다. 사용
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
-* [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-value-prop-what-is.md)  
+* [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-web-overview.md)  
   Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure App Service를 활용합니다. 
 
 

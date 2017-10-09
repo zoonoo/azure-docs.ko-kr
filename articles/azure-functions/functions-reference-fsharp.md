@@ -7,7 +7,7 @@ author: sylvanc
 manager: jbronsk
 editor: 
 tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, F#"
+keywords: "Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버가 없는 아키텍처, F#"
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: functions
 ms.devlang: fsharp
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 1691d378263f6b4ce5072f5c621d8db02f774b5f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
@@ -37,7 +38,7 @@ Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽
 ## <a name="how-fsx-works"></a>.fsx의 작동 방식
 `.fsx` 파일은 F# 스크립트입니다. 단일 파일에 포함된 F# 프로젝트로 생각할 수 있습니다. 파일은 프로그램(이 경우 Azure Function)에 대한 코드 및 종속성 관리를 위한 지시문을 모두 포함합니다.
 
-Azure Function에 `.fsx` 를 사용하는 경우 "상용구" 코드 대신 함수에 집중할 수 있도록 자주 필요한 어셈블리가 자동으로 포함됩니다.
+Azure Function에 `.fsx`를 사용하는 경우 "상용구" 코드 대신 함수에 집중할 수 있도록 자주 필요한 어셈블리가 자동으로 포함됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 예:
@@ -54,7 +55,7 @@ let Run(blob: string, output: byref<Item>) =
 
 위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `output`에 `byref<>`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
 
-F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]` 은 레코드 속성에 대한 setter를 생성합니다. 예:
+F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]`은 레코드 속성에 대한 setter를 생성합니다. 예:
 
 ```fsharp
 [<CLIMutable>]
@@ -79,7 +80,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>로깅
-출력을 F#의 [스트리밍 로그](../app-service-web/web-sites-streaming-logs-and-console.md)에 로그하려면 함수에 `TraceWriter` 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예:
+출력을 F#의 [스트리밍 로그](../app-service/web-sites-enable-diagnostic-log.md)에 로그하려면 함수에 `TraceWriter` 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -280,10 +281,5 @@ let mylog(log: TraceWriter, text: string) =
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions 테스트](functions-test-a-function.md)
 * [Azure Functions 크기 조정](functions-scale.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
