@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 09/13/2017
 이 항목의 앱은 풍차에 대한 유지 관리 시나리오를 토대로 빌드합니다. 이 항목에서는 [함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md)에 정의된 함수를 호출하는 방법을 보여 줍니다. 이 함수는 풍차에 대한 응급 복구가 비용 효율적인지 여부를 확인합니다.
 
 ![PowerApps의 완성된 앱](media/functions-powerapps-scenario/finished-app.png)
+
+Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow에서 함수 호출](functions-flow-scenario.md)을 참조하세요.
 
 이 항목에서는 다음 내용을 배웁니다.
 
@@ -251,4 +253,4 @@ ms.lasthandoff: 09/13/2017
 
 PowerApps에 대한 자세한 내용은 [PowerApps 소개](https://powerapps.microsoft.com/tutorials/getting-started/)를 참조하세요.
 
-Azure Functions를 사용하는 또 다른 흥미로운 시나리오에 대해 알아보려면 [Azure Logic Apps와 통합하는 함수 만들기](functions-twitter-email.md)를 참조하세요.
+Azure Functions를 사용하는 다른 흥미로운 시나리오에 대해 알아보려면 [Microsoft Flow에서 함수 호출](functions-flow-scenario.md) 및 [Azure Logic Apps와 통합하는 함수 만들기](functions-twitter-email.md)를 참조하세요.

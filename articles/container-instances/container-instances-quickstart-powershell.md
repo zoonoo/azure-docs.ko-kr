@@ -1,0 +1,109 @@
+---
+title: "퀵 스타트 - PowerShell로 첫 번째 Azure Container Instances 컨테이너 만들기"
+description: "PowerShell로 Windows 컨테이너 인스턴스를 만들어 Azure Container Instances를 시작합니다."
+services: container-instances
+documentationcenter: 
+author: mmacy
+manager: timlt
+editor: 
+tags: 
+keywords: 
+ms.assetid: 
+ms.service: container-instances
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/25/2017
+ms.author: marsma
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0cc6612a91532774a2645676e36f617ddc5de12c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
+
+---
+
+# <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
+
+Azure Container Instances를 사용하면 가상 컴퓨터를 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다.
+
+이 퀵 스타트에서는 Azure에서 Windows 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 곧 브라우저에 다음과 같은 화면이 표시됩니다.
+
+![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][qs-powershell-01]
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+
+## <a name="log-in-to-azure"></a>Azure에 로그인
+
+`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+
+```powershell
+Login-AzureRmAccount
+```
+
+## <a name="create-resource-group"></a>리소스 그룹 만들기
+
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+```
+
+## <a name="create-a-container"></a>컨테이너 만들기
+
+이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 경우 IIS(인터넷 정보 서비스)를 실행하는 Windows Nano Server 컨테이너를 사용합니다.
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+```
+
+몇 초 안에 요청에 대한 응답을 얻게 됩니다. 처음에는 컨테이너가 **만드는 중** 상태가 되지만 1~2분 안에 시작됩니다. `Get-AzureRmContainerGroup` cmdlet을 사용하여 상태를 확인할 수 있습니다.
+
+```powershell
+Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+```
+
+컨테이너의 프로비전 상태 및 IP 주소가 cmdlet의 출력에 표시됩니다.
+
+```
+ResourceGroupName        : myResourceGroup
+Id                       : /subscriptions/12345678-1234-1234-1234-12345678abcd/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Name                     : mycontainer
+Type                     : Microsoft.ContainerInstance/containerGroups
+Location                 : eastus
+Tags                     :
+ProvisioningState        : Creating
+Containers               : {mycontainer}
+ImageRegistryCredentials :
+RestartPolicy            :
+IpAddress                : 40.71.248.73
+Ports                    : {80}
+OsType                   : Windows
+Volumes                  :
+```
+
+**ProvisioningState** 컨테이너가 `Succeeded` 상태로 전환되면 제공된 IP 주소를 사용하여 브라우저에서 해당 컨테이너에 연결할 수 있습니다.
+
+![Azure Container Instances를 사용하여 배포된 IIS가 브라우저에 표시됨][qs-powershell-01]
+
+## <a name="delete-the-container"></a>컨테이너 삭제
+
+컨테이너 작업을 완료했으면 `Remove-AzureRmContainerGroup` cmdlet을 사용하여 제거할 수 있습니다.
+
+```powershell
+Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+```
+
+## <a name="next-steps"></a>다음 단계
+
+이 퀵 스타트에서는 Azure Container Instances에서 미리 구축된 Windows 컨테이너를 시작했습니다. 컨테이너를 직접 빌드하고 Azure Container Registry를 사용하여 Azure Container Instances에 배포하려면 Azure Container Instances 자습서를 계속합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)
+
+<!-- IMAGES -->
+[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
