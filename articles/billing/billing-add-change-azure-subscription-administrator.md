@@ -12,19 +12,19 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 38742fd84dafc3fb68829a55ab7be0827ad0b451
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경
 
-구독에서 사용되는 Azure 구독을 관리하거나 Azure 서비스를 관리하는 Azure 관리자를 변경할 수 있습니다. Azure 청구 정보를 보고 구독을 관리하려면 [계정 센터](https://account.windowsazure.com/Home/Index)에 계정 관리자로 로그인해야 합니다. 
+구독에서 사용되는 Azure 구독을 관리하거나 Azure 서비스를 관리하는 Azure 관리자를 변경할 수 있습니다. Azure 청구 정보를 보고 구독을 관리하려면 계정 센터에 계정 관리자로 로그인해야 합니다. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -101,8 +101,8 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 
 | 관리 역할 | 제한 | 설명 |
 | --- | --- | --- |
-| 계정 관리자(AA) |Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index) 에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다. |
-| 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure Portal](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
+| 계정 관리자(AA) |Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.azure.com/Subscriptions) 에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다. |
+| 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
 | [Azure 클래식 포털](https://manage.windowsazure.com) |구독당 200 |서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
 
 Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
