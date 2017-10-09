@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: a20f6db8bbbc9b7936cf102e8cd2ff1b2a995fb2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
@@ -202,7 +202,7 @@ Functions를 통해 콘솔에 쓸 임계값 추적 수준을 정의할 수 있�
 }  
 ```
 
-**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. host.json 파일에 대한 자세한 내용은 [host.json 참조 항목](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)(영문)을 참조하세요.
+**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 

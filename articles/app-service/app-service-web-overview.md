@@ -16,10 +16,10 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ebafcb2463bc92f15c1299963e054fcddd47b0b3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="web-apps-overview"></a>웹앱 개요
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/20/2017
 
 계산 리소스는 선택한 가격 책정 계층에 따라 공유 또는 전용 가상 컴퓨터(VM)일 수 있습니다. 응용 프로그램 코드는 다른 고객과 격리되는 관리되는 VM에서 실행됩니다.
 
-사용자 코드는 [Azure 앱 서비스](../app-service/app-service-web-overview.md)(ASP.NET, Node.js, Java, PHP, Python)에서 지원되는 모든 언어 또는 프레임워크일 수 있습니다. 웹앱에서 [PowerShell 및 기타 스크립트 언어](web-sites-create-web-jobs.md#acceptablefiles) 를 사용하는 스크립트를 실행할 수도 있습니다.
+사용자 코드는 Azure App Service(ASP.NET, Node.js, Java, PHP, Python)에서 지원되는 모든 언어 또는 프레임워크일 수 있습니다. 웹앱에서 [PowerShell 및 기타 스크립트 언어](web-sites-create-web-jobs.md#acceptablefiles) 를 사용하는 스크립트를 실행할 수도 있습니다.
 
 Web Apps을 사용할 수 있는 일반적인 응용 프로그램 시나리오의 예는 [Azure App Service, Virtual Machines, Service Fabric 및 클라우드 서비스 비교](choose-web-site-cloud-service-vm.md#scenarios)의 [웹앱 시나리오](https://azure.microsoft.com/documentation/scenarios/web-app/) 및 **시나리오 및 권장 사항** 섹션을 참조하세요.
 

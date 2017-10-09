@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 그룹에 대한 라이선스 문제 해결 | Microsoft Docs"
 description: "Azure Active Directory 그룹 기반 라이선스를 사용할 때 라이선스 할당 문제를 식별하고 해결하는 방법"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 955efc9e6b209195935d1f7c13f96c6a42536b2a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -108,6 +106,35 @@ Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이�
 Azure AD는 그룹에 지정된 모든 라이선스를 각 사용자에게 할당하려고 시도합니다. Azure AD는 비즈니스 논리 문제(예를 들어 라이선스가 부족하거나 사용자에 대해 사용하도록 설정된 다른 서비스와 충돌이 있는 경우)로 인해 제품 중 하나를 할당할 수 없는 경우 그룹의 다른 라이선스를 할당하지 않습니다.
 
 할당이 실패한 사용자를 확인하고 이로 인해 영향을 받는 제품을 확인할 수 있습니다.
+
+## <a name="how-to-manage-licenses-for-products-with-prerequisites"></a>필수 구성 요소와 제품에 대한 라이선스 를 관리하는 방법
+
+사용자가 보유한 일부 Microsoft Online 제품은 "추가 기능"일 수 있습니다. 즉 할당에 앞서 사용자나 그룹에 대해 필수 구성 요소 서비스 계획을 활성화해야 합니다. 그룹 기반 라이선스에서는 시스템에서 필수 구성 요소와 추가 기능 서비스 계획이 동일한 그룹에 있어야 합니다. 이것은 그룹에 추가된 모든 사용자가 완전히 작동하는 제품을 받을 수 있게 하기 위한 것입니다. 다음 예제를 살펴보겠습니다.
+
+*Microsoft Workplace Analytics*는 추가 기능 제품입니다. 여기에는 이름이 같은 단일 서비스 계획이 포함됩니다. 이 서비스 계획은 다음 필수 구성 요소 중 하나가 함께 할당되었을 때만 사용자 또는 그룹에 할당할 수 있습니다.
+- *Exchange Online(계획 1)*
+- 또는 *Exchange Online(계획 2)*
+
+이 제품을 임의로 그룹에 할당하면 포털에서 오류를 반환합니다. 이 오류를 클릭하면 다음을 상세히 알려주는 알림이 표시됩니다.
+
+![그룹, 필수 구성 요소 누락](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+
+세부 정보를 클릭하면 다음 오류 메시지가 표시됩니다.
+
+*라이선스 작업이 실패했습니다. 종속 서비스를 추가하거나 제거하기 전에 그룹에 필요한 서비스가 있는지 확인하십시오. **Microsoft Workplace Analytics 서비스에는 Exchange Online(계획 2)도 함께 활성화해야 합니다.***
+
+이 추가 기능 라이선스를 그룹에 할당하려면 그룹에 필수 구성 요소 서비스 계획도 포함되게 해야 합니다. 예를 들어 전체 *Office 365 E3* 제품이 포함된 기존 그룹을 업데이트하고 추가 기능 제품을 여기에 추가할 수 있습니다.
+
+추가 기능이 작동할 수 있게 최소 필요 제품만을 포함하도록 독립 실행형 그룹을 만들 수도 있습니다. 이를 사용하여 추가 기능 제품에 대해 선택한 사용자에게만 라이선스를 부여할 수 있습니다. 이 예에서는 동일한 그룹에 다음 제품을 할당했습니다.
+- *Office 365 Enterprise E3*, *Exchange Online(계획 2)* 서비스 계획만 활성화
+- *Microsoft Workplace Analytics*
+
+![그룹, 필수 구성 요소 포함](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+
+이제부터 이 그룹에 추가되는 모든 사용자는 E3 제품의 라이선스 1개와 Workplace Analytics 제품의 라이선스 1개를 사용합니다. 동시에 이 사용자는 전체 E3 제품을 부여하는 다른 그룹의 구성원이 될 수 있고 해당 제품에 대해서는 여전히 1개의 라이선스만 사용합니다.
+
+> [!TIP]
+> 각 필수 구성 요소 서비스 계획에 대해 여러 그룹을 만들 수 있습니다. 예를 들어 *Office 365 Enterprise **E1*** 및 *Office 365 Enterprise **E3***를 사용자에 대해 모두 사용할 경우 *Microsoft Workplace Analytics* 라이선스부여를 위해 두 그룹을 만들 수 있습니다. 하나는 필수 구성 요소인 E1을 사용하고 다른 하나는 E3를 사용합니다. 이렇게 하면 추가 라이선스를 사용하지 않고 E1과 E3 사용자에게 추가 기능을 배포할 수 있습니다.
 
 ## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Exchange Online의 중복된 프록시 주소 때문에 라이선스 할당이 자동으로 실패함
 

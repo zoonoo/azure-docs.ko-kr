@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: faa592af285569c7423a1597fcd9086311486abc
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -125,7 +125,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-배포 소스가 설정되었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
+배포 원본이 설정되면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
 
 ```json
 {

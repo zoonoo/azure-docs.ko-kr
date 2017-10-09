@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>질문: 내 쿼리 결과가 정렬되지 않는 이유는 무엇입니까?
 새 쿼리 언어에서는 결과가 기본적으로 정렬되지 않습니다.  [정렬 연산자](https://go.microsoft.com/fwlink/?linkid=856079)를 사용하여 하나 이상의 속성으로 결과를 정렬합니다.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>질문: 업그레이드한 후 축소는 어디로 이동합니까?
+축소는 검색 결과를 요약하여 보여주는 기능입니다.  업그레이드한 후 축소 옵션은 로그 검색 포털에 더 이상 나타나지 않습니다.  [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) 또는 [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster)를 사용하여 새로운 검색 언어로 유사한 기능을 얻을 수 있습니다. 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>알려진 문제: 목록의 검색 결과에 데이터가 없는 속성이 포함될 수 있습니다
 목록의 로그 검색 결과에 데이터가 없는 속성이 포함될 수 있습니다.  업그레이드하기 전에 이러한 속성을 포함할 수 없습니다.  이 문제는 빈 속성은 표시되지 않도록 수정될 예정입니다.
@@ -124,9 +136,6 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>알려진 문제: 용량 및 성능 솔루션
 [용량 및 성능](log-analytics-capacity.md) 보기의 일부는 비어 있을 수 있습니다.  이 문제에 대한 수정은 곧 사용할 수 있습니다.
-
-### <a name="known-issue-device-health-solution"></a>알려진 문제: 장치 상태 솔루션
-[장치 상태 솔루션](https://docs.microsoft.com/windows/deployment/update/device-health-monitor)은 업그레이드된 작업 영역의 데이터를 수집하지 않습니다.  이 문제에 대한 수정은 곧 사용할 수 있습니다.
 
 ### <a name="known-issue-application-insights-connector"></a>알려진 문제: Application Insights 커넥터
 [Application Insights 커넥터 솔루션](log-analytics-app-insights-connector.md)의 관점은 현재 업그레이드된 작업 영역에서 지원되지 않습니다.  이 문제에 대한 수정은 현재 분석 중입니다.

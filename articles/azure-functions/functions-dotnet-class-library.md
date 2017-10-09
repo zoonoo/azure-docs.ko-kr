@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
@@ -36,7 +36,7 @@ Azure Functions는 스크립트 파일 외에도 하나 이상의 함수 구현�
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
-Visual Studio에서 새 Azure Functions 프로젝트를 만듭니다. 새 프로젝트 템플릿은 *host.json* 및 *local.settings.json* 파일을 만듭니다. [host.json에서 Azure Functions 런타임 설정을 사용자 지정](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)할 수 있습니다. 
+Visual Studio에서 새 Azure Functions 프로젝트를 만듭니다. 새 프로젝트 템플릿은 *host.json* 및 *local.settings.json* 파일을 만듭니다. [host.json에서 Azure Functions 런타임 설정을 사용자 지정](functions-host-json.md)할 수 있습니다. 
 
 *local.settings.json* 파일은 Azure Functions Core Tools에 대한 앱 설정, 연결 문자열 및 설정을 저장합니다. 구조에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md#local-settings)를 참조하세요.
 
@@ -46,7 +46,7 @@ Visual Studio에서 새 Azure Functions 프로젝트를 만듭니다. 새 프로
 
 ### <a name="conversion-to-functionjson"></a>Function.json으로 변환
 
-Azure Functions 프로젝트를 빌드하면 `[FunctionName]`에 정의된 함수 이름과 일치하는 디렉터리에 `function.json` 파일이 생성됩니다. 트리거 및 바인딩을 지정하고 프로젝트 어셈블리 파일을 가리킵니다.
+Azure Functions 프로젝트를 빌드하면 *function.json* 파일이 함수의 디렉터리에 만들어집니다. 디렉터리 이름은 `[FunctionName]` 특성이 지정하는 함수 이름과 같습니다. *function.json* 파일은 트리거와 바인딩을 포함하며 프로젝트 어셈블리 파일을 가리킵니다.
 
 이 변환은 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 원본은 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
 
