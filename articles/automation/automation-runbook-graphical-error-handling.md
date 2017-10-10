@@ -51,7 +51,7 @@ runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다�
 1. 이 문제에 대한 알림을 보냅니다.
 2. 대신 새 VM을 자동으로 프로비전하는 다른 runbook을 시작합니다.
 
-한 가지 해결 방법은&1;단계를 처리하는 활동을 가리키는 오류 링크를 갖는 것입니다. 예를 들어 **Start-AzureRmAutomationRunbook** cmdlet과 같은&2;단계에 대한 활동에 **Write-Warning** cmdlet을 연결할 수 있습니다.
+한 가지 해결 방법은 1단계를 처리하는 활동을 가리키는 오류 링크를 갖는 것입니다. 예를 들어 **Start-AzureRmAutomationRunbook** cmdlet과 같은 2단계에 대한 활동에 **Write-Warning** cmdlet을 연결할 수 있습니다.
 
 또한 이 두 가지 활동을 별도의 오류 처리 runbook에 배치하고 앞에서 제안한 지침에 따라 많은 runbook에서 사용하기 위해 이 동작을 일반화할 수 있습니다. 이 오류 처리 runbook을 호출하기 전에 원래 runbook의 데이터에서 사용자 지정 메시지를 생성한 다음 이 메시지를 오류 처리 runbook에 매개 변수로 전달할 수 있습니다.
 
