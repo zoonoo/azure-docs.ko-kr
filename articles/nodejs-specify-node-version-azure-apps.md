@@ -94,7 +94,7 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
 자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
-[Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법]:cli-install-nodejs.md
+[Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]:cli-install-nodejs.md
 [Azure 명령줄 도구]:cli-install-nodejs.md
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
