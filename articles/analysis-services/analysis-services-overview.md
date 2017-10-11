@@ -74,8 +74,8 @@ Azure Analysis Services는 조직의 온-프레미스 및 클라우드의 [데�
 
 ![BI 개발자 도구](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SSDT(SQL Server Data Tools) for Visual Studio
-[SSDT(SQL Server Data Tools) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다.
+#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Visual Studio용 SSDT(SQL Server Data Tools)
+[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다.
 
 #### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. 클라우드에서 서버에 연결합니다. XMLA 쿼리 창에서 TMSL 스크립트를 직접 실행하고 TMSL 스크립트를 사용하여 작업을 자동화합니다. SSMS가 매월 업데이트되므로 새 특징과 기능이 빠르게 출시됩니다.
