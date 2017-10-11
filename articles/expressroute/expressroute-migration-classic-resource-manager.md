@@ -75,8 +75,9 @@ ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 Ex
 4. 유효성을 검사하고 준비한 후, 마이그레이션합니다. 가상 네트워크를 이동하려면 다음 PowerShell 코드 조작을 사용합니다.
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   또한 다음 PowerShell cmdlet을 실행하여 마이그레이션을 중단할 수 있습니다.
