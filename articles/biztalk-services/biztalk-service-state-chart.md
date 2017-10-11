@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
-ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>BizTalk 서비스 상태를 사용하여 수행할 수 있는 작업과 수행할 수 없는 작업
 
@@ -61,5 +59,4 @@ BizTalk 서비스의 현재 상태에 따라 BizTalk 서비스에서 수행할 �
 * [BizTalk Services에 설명된 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [BizTalk Services에 대한 Service Bus 및 액세스 제어 발급자 이름 및 발급자 키 값 검색](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
 

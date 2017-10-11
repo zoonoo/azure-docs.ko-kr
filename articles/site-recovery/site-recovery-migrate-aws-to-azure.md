@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b3c0727a279649f4f7dae30d41027129ce5b04ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-virtual-machines-in-amazon-web-services-aws-to-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 가상 컴퓨터를 Azure로 마이그레이션
 
@@ -81,4 +80,3 @@ Site Recovery는 다음 운영 체제 중 하나를 실행하는 EC2 인스턴�
 
 - 재해 복구 수요에 맞게 다른 지역으로 [복제할 수 있도록 마이그레이션된 컴퓨터를 준비](site-recovery-azure-to-azure-after-migration.md)합니다.
 - [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
-

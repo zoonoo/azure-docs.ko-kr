@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 2e97c3f951f46c32802aea543b93d5ab1bb76228
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
@@ -71,4 +70,3 @@ ms.lasthandoff: 04/27/2017
 - [사용자 지정 종속성 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md#trackdependency).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 00a6749d00c6e66a957b0a89c6658511a1bafe4d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>v2.0 끝점을 사용해야 하나요?
 Azure Active Directory와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족하는지 결정해야 합니다. Azure Active Directory의 원래 끝점은 계속해서 완전히 지원되며 v2.0보다 더 많은 기능이 제공되는 측면이 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다.

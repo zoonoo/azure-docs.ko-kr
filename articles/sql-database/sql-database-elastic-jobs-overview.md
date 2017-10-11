@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 0d95f9f0e0c5b69aed6ba74a2488e46540589c00
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/23/2016
-
-
+ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **탄력적 데이터베이스 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.
@@ -144,6 +142,5 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
-
 
 

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-tools-faq"></a>탄력적 데이터베이스 도구 FAQ
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>분할 및 분할 안 함 키당 단일 테넌트가 있는 경우 스키마 정보에 대한 분할 키를 채우려면 어떻게 해야 하나요?
@@ -34,7 +32,7 @@ ms.lasthandoff: 11/17/2016
 탄력적 데이터베이스 클라이언트 라이브러리 사용에는 비용이 발생하지 않습니다. 분할된 데이터베이스 및 분할된 데이터베이스 맵 관리자에 사용하는 Azure SQL 데이터베이스와 분할 병합 도구에 대해 프로비전된 웹/작업자 역할과 관련된 비용만 발생합니다.
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>다른 서버에서 분할을 추가할 경우 내 자격 증명이 작동하지 않는 것은 무엇 때문인가요?
-"사용자 ID=username@servername”, 형식의 자격 증명을 사용하지 말고 단순히 "사용자 ID=사용자 이름"을 사용하세요.  또한 "사용자 이름" 로그인에 분할에 대한 권한이 있는지 확인하세요.
+형식의 자격 증명을 사용 하지 않는 "사용자 ID =username@servername", 대신 사용 하 여 "사용자 ID 사용자 이름 =".  또한 "사용자 이름" 로그인에 분할에 대한 권한이 있는지 확인하세요.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>내 응용 프로그램을 시작할 때마다 분할된 데이터베이스 맵 관리자를 만들고 분할을 채워야 하나요?
 아니요, 분할된 데이터베이스 맵 관리자(예: **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**)는 한 번만 만들면 됩니다.  응용 프로그램 시작 시 응용 프로그램에서 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 호출을 사용해야 합니다.  이러한 호출은 응용 프로그램 도메인당 하나만 있어야 합니다.
@@ -52,5 +50,4 @@ ms.lasthandoff: 11/17/2016
 아니요. **분할** 작업의 경우 적절한 스키마를 가진 대상 데이터베이스가 있고 분할된 데이터베이스 맵 관리자에 등록되어 있어야 합니다.  **병합** 작업의 경우 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스를 삭제한 후 데이터베이스를 삭제해야 합니다.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

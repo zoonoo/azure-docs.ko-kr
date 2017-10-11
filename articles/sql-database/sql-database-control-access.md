@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 액세스 제어
 SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. 
@@ -30,7 +29,7 @@ SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하�
 > SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요. 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
 
 ## <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
-Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.
+Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.
 
 Azure SQL 데이터베이스 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL 데이터베이스에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 응용 프로그램에 필요하지 않은 경우 TCP 포트 1433의 인바운드 연결을 차단합니다. 
 
@@ -68,4 +67,3 @@ SQL 데이터베이스는 두 가지 인증 유형을 지원합니다.
 - 사용자와 로그인에 대해 알아보려면 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
 - 사전 모니터링에 대한 설명은 [데이터베이스 감사](sql-database-auditing.md) 및 [SQL Database 위협 검색](sql-database-threat-detection.md)을 참조하세요.
 - 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
-

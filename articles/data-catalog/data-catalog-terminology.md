@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 557b529f45c7fbc286b7e1893d4b4688e088ed91
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure 데이터 카탈로그 용어
 ## <a name="catalog"></a>카탈로그
@@ -81,6 +80,5 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 등록은 데이터 원본에서 데이터 자산 메타데이터를 추출하고 Azure 데이터 카탈로그 서비스에 이를 복사하는 작업입니다. 등록된 데이터 자산은 주석을 첨부하고 검색할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 데이터 카탈로그란?](data-catalog-what-is-data-catalog.md)  - 이 문서에서는 Azure 데이터 카탈로그 서비스, 제공하는 값, 지원하는 시나리오에 대한 개요를 제공합니다.
+* [Azure 데이터 카탈로그란?](data-catalog-what-is-data-catalog.md) - 이 문서에서는 Azure 데이터 카탈로그 서비스, 제공하는 값, 지원하는 시나리오에 대한 개요를 제공합니다.
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색을 위해 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 포괄적인 자습서를 제공합니다.  
-

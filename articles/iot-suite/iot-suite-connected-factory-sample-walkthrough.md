@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
@@ -141,4 +140,3 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-

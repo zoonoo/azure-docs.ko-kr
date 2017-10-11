@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 449425189a3b42dcb2c31316c1c8e38fac69d761
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 가상 컴퓨터 만들기
 
@@ -450,4 +449,3 @@ Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요�
     ```
 
 VM은 bond0이 구성되고 가속화된 네트워킹 경로가 사용하도록 설정된 상태로 시작되어야 합니다.  `ifconfig`를 실행하여 확인합니다.
-

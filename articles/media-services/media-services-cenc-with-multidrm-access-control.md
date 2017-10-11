@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
  
@@ -457,4 +456,3 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 2f0bff394c1e11a270cb324be5a1a45e9e531d7f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 탄력적 데이터베이스 클라이언트 라이브러리
 이 문서에서는 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여줍니다. 여기서는 Entity Framework **Code First** 접근 방식으로 [공유된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
@@ -265,4 +263,3 @@ EF 마이그레이션을 통한 스키마 배포는 **열려 있지 않은 연�
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-

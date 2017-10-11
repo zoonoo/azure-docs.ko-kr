@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처 이해
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)을 참조하세요.
@@ -118,5 +117,4 @@ Azure AD 서비스가 예상대로 작동하지 않는 경우 최대한 빨리 �
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

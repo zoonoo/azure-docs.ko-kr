@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -205,5 +204,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
-
 

@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
 [논리 앱을 만들고 실행](../logic-apps/logic-apps-create-a-logic-app.md)한 후 해당 실행 기록, 트리거 기록, 상태 및 성능을 확인할 수 있습니다. 실시간 이벤트 모니터링 및 보다 풍부한 디버깅은 논리 앱에 대한 [진단 로깅](#azure-diagnostics)을 설정합니다. 이런 방식으로 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 [이벤트를 찾고 볼](#find-events) 수 있습니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다. 

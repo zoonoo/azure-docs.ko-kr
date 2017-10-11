@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 66ab12f2590196ff14ee96a9b88c3d87e376230b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)
 > [!div class="op_single_selector"]
@@ -93,5 +91,4 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

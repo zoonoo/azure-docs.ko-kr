@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
 
 Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 IEF(ID 경험 프레임워크)를 사용하면 ID 개발자가 사용자 경험에서 RESTful API와의 상호 작용을 통합할 수 있습니다.  
@@ -134,4 +132,3 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
 [프로필 편집 및 사용자 등록을 수정하여 사용자로부터 추가 정보 수집](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](active-directory-b2c-rest-api-step-custom.md)
-

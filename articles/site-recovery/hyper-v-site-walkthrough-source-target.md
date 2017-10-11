@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>8단계: Azure에 Hyper-V 복제를 위한 원본 및 대상
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 Hyper-V 가상 컴퓨터(System Center VMM 없음)를 복제할 때 원본 및 대상 설정을 구성하는 방법을 설명합니다.
@@ -94,4 +92,3 @@ Hyper-V 사이트를 설정하고, Hyper-V 호스트에 Azure Site Recovery 공�
 ## <a name="next-steps"></a>다음 단계
 
 [9단계: 복제 정책 설정](hyper-v-site-walkthrough-replication.md)으로 이동합니다.
-

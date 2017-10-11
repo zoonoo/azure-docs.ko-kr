@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 컴퓨터에 여러 IP 주소 할당
 
@@ -101,4 +100,3 @@ Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 2. VM이 배포된 후에 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 단계를 완료하여 VM에 연결하고 배포된 운영 체제에 개인 IP 주소를 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

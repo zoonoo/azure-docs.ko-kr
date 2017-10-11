@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple 장치의 백업 배터리 모듈 교체
 ## <a name="overview"></a>개요
@@ -110,10 +110,4 @@ Azure 클래식 포털에서 **유지 관리** 페이지의 **하드웨어 상�
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

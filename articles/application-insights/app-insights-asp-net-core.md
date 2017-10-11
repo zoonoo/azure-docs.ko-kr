@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 43e9e864a11cd6601ca9599f5a193793d344e0e5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: d86495eea467977f6c079de72e2b49a2a1da2b60
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 [Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/17/2017
 * [종속성을 모니터링](app-insights-asp-net-dependencies.md) 합니다.
 * [API를 사용](app-insights-api-custom-events-metrics.md) 합니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) 는 사용자의 앱을 전 세계에서 지속적으로 확인합니다. 
-
 

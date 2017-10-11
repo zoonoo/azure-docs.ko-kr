@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 503cb1c10b60ed6f50b7153b7f0772d46eac8646
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: d752dd13b138cdae80dac5c0b2f84a19fe0aa670
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="secure-your-iot-deployment"></a>IoT 배포 보안 유지
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
 
@@ -144,4 +142,3 @@ IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

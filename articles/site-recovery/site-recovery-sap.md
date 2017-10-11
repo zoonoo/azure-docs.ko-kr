@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: manayar
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 951980eeba61e53c983d5b23c301c81eee9528bd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 SAP NetWeaver 응용 프로그램 배포 보호 
 
@@ -119,4 +118,3 @@ DNS가 동적 DNS 업데이트를 위해 구성된 경우 일반적으로 가상
 [이 백서](http://aka.ms/asr-sap)에서는 Azure Site Recovery를 사용한 SAP NetWeaver 배포에서의 재해 복구 솔루션 구축에 대해 자세히 알아봅니다. 또한 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 응용 프로그램 및 VM 유형을 나열하며, 재해 복구 솔루션에서 가능한 테스트 계획에 대해 설명합니다.
 
 Site Recovery를 사용하여 [다른 워크로드를 복제](site-recovery-workload.md)하는 것에 대해 알아봅니다.
-

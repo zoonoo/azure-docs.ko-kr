@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-a-model-from-ssdt"></a>SSDT에서 모델 배포
 Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. SSDT(SQL Server 데이터 도구)를 사용하여 작업하는 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
@@ -63,5 +62,4 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 ## <a name="next-steps"></a>다음 단계
 테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. [SSMS과 연결](analysis-services-manage.md)하여 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.
-
 

@@ -14,21 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 62f89087af9a82eddeec4dd745a26c3559bb0c04
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 수신
 
 
 ## <a name="introduction"></a>소개
-Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. Event Hubs로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
+Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. 이벤트 허브로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
 
-자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
+자세한 내용은 [이벤트 허브 개요][Event Hubs overview]를 참조하세요.
 
 이 자습서에서는 Java로 작성된 콘솔 응용 프로그램을 사용하여 이벤트 허브로 이벤트를 수신하는 방법을 보여 줍니다.
 
@@ -95,7 +93,7 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
         }
     }
     ```
-2. 다음 코드를 사용하여 `EventProcessor`라는 클래스를 새로 만듭니다.
+2. 다음 코드를 사용하여 `EventProcessor`(이)라는 클래스를 새로 만듭니다.
    
     ```java
     import com.microsoft.azure.eventhubs.EventData;
@@ -234,7 +232,7 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Event Hubs 개요](event-hubs-what-is-event-hubs.md)
+* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
@@ -247,4 +245,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
-

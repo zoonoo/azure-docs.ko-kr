@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>도메인에 가입된 HDInsight 클러스터 관리(미리 보기)
 도메인에 가입된 HDInsight의 사용자 및 역할에 대해 알아보고 도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
@@ -112,4 +110,3 @@ ms.lasthandoff: 06/13/2017
 * 도메인에 가입된 HDInsight 클러스터 구성에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요.
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
 * 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
-

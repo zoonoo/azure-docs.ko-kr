@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
 이 항목에서는 Azure의 **SQL 데이터 웨어하우스** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
@@ -166,5 +164,4 @@ ms.lasthandoff: 04/03/2017
 | 85 |[위협 감지 시작](sql-data-warehouse-security-threat-detection.md) |위협 감지를 시작하는 시기 |
 | 86 |[SQL 데이터 웨어하우스 용량 제한](sql-data-warehouse-service-capacity-limits.md) |SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다. |
 | 87 |[Azure SQL 데이터 웨어하우스 문제 해결](sql-data-warehouse-troubleshoot.md) |Azure SQL 데이터 웨어하우스 문제 해결 |
-
 

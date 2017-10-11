@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
@@ -145,4 +144,3 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Azure IoT Hub에 Intel Edison 연결(Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -233,4 +231,3 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

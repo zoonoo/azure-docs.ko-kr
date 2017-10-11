@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b10fc7c51d9fee306b0e71d405f0fd7ec7a6816
-ms.openlocfilehash: 9270df5e880cc9a512ae673c1c25449376d8a7b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>비즈니스용 Windows Hello를 통해 암호 없이 ID 인증
 암호만을 사용하는 현재 인증 방법은 사용자의 안전을 유지하는 데 충분하지 않습니다. 사용자는 암호를 다시 사용하고 잊기도 합니다. 암호는 깨질 수도 있고, 피싱될 수도 있고, 공격에 취약하고, 추측될 수도 있습니다. 기억하기 어려울 수도 있고 “[Pass the Hash](https://technet.microsoft.com/dn785092.aspx)”와 같은 공격에 취약하기도 합니다.
@@ -72,5 +70,4 @@ ms.lasthandoff: 02/23/2017
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: cc6ef8f3ef5371ac3092686afddc9198516916fd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/09/2016
-
-
+ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>서비스 패브릭 응용 프로그램의 비밀 관리
 이 가이드에서는 서비스 패브릭 응용 프로그램에서 비밀을 관리하는 단계를 안내합니다. 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -187,4 +185,3 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 
 <!-- Images -->
 [overview]:./media/service-fabric-application-secret-management/overview.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 위임을 통해 개발자 로그인/등록 및 제품 구독을 처리하는 데 개발자 포털의 기본 제공된 기능이 아닌 기존 웹 사이트를 사용할 수 있습니다. 따라서 웹 사이트에서 사용자 데이터를 소유하고 이러한 단계에 대한 유효성 검사를 편리한 방식으로 수행할 수 있습니다.
@@ -180,4 +179,3 @@ var signature = digest.toString('base64');
 [아래 제공된 예제 코드]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-

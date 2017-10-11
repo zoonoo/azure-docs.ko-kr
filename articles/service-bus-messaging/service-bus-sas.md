@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 인증
 
 *공유 액세스 서명*(SAS)은 Service Bus 메시징의 기본 보안 메커니즘입니다. 이 문서에서는 SAS, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.

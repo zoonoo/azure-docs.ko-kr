@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cc5ec6022cede019541d697905aa068b88d25ee4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/22/2017
-
-
-
+ms.openlocfilehash: 1e0df958a2f18fe1e988168918e5cfd293f84e64
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-sample-data-into-sql-data-warehouse"></a>SQL 데이터 웨어하우스로 샘플 데이터를 로드
 다음의 간단한 단계에 따라 Adventure Works 샘플 데이터베이스를 로드하고 쿼리합니다. 이러한 스크립트는 먼저 sqlcmd를 사용하여 테이블 및 뷰를 만드는 SQL을 실행합니다. 테이블을 만든 후 스크립트는 bcp를 사용하여 데이터를 로드합니다.  sqlcmd 및 bcp가 아직 설치되어 있지 않다면 다음 링크를 따라 [bcp를 설치][install bcp]하고 [sqlcmd를 설치][install sqlcmd]합니다.
@@ -93,4 +90,3 @@ SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
-

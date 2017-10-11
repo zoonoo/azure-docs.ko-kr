@@ -17,12 +17,11 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 042e2f4117a35e80694a1643dd95fa54d508f1f7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 > [!div class="op_single_selector"]
@@ -187,4 +186,3 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * [사용자 관리](active-directory-create-users.md)
 * [암호 관리](active-directory-manage-passwords.md)
 * [그룹 관리](active-directory-manage-groups.md)
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 83deadce3cbdd30aa50d22d99378bd86133677c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 동적 데이터 마스킹
 
@@ -60,5 +58,4 @@ DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 �
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
-
 

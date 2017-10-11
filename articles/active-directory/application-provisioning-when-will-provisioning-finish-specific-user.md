@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b1f16079ad13c4e45f93a7e5e3d29568738e03cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: fcefb31904cfb77022db0358e9feee6a0479db81
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>특정 사용자가 응용 프로그램에 액세스할 수 있는 시점 파악
 응용 프로그램에서 자동 사용자 프로비저닝을 사용하는 경우 Azure AD는 정기적으로 예약된 시간 간격(일반적으로 10분 간격)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)과 같은 항목을 기반으로 앱에서 사용자 계정을 자동으로 프로비저닝하고 업데이트합니다.
 
@@ -49,4 +47,3 @@ Azure AD와 앱 간의 첫 번째 동기화는 Azure AD 디렉터리의 크기�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
-

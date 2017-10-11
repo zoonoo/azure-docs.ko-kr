@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91b3f016497b268d9f7e9d305ec4f69f0a1cd856
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 데이터 웨어하우스 비즈니스 인텔리전스 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL 데이터 웨어하우스를 지원하는 BI(비즈니스 인텔리전스) 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
@@ -153,4 +151,3 @@ ms.lasthandoff: 12/08/2016
 [tableau_twitter]:https://twitter.com/tableau
 [targit_twitter]:https://twitter.com/TARGIT
 [yellowfin_twitter]:https://twitter.com/YellowfinBI
-

@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 7d2b498d3f84c4fd6cccf97c6d7781f293f5b395
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
 
 워크로드를 호스팅하기 위해 Azure 가상 컴퓨터를 평가하는 경우 기존 AWS(Amazon Web Services) EC2 Windows VM 인스턴스를 내보낸 다음 VHD(가상 하드 디스크)를 Azure로 업로드할 수 있습니다. VHD를 업로드하면 VHD에서 Azure로 새 VM을 만들 수 있습니다. 
@@ -71,4 +68,3 @@ VHD를 내보냈으면 [S3 버킷에서 개체를 다운로드하려면 어떻�
 - 내보내기 전에 Sysprep을 실행하지 않은 경우 VHD는 **특수한 디스크**로 간주됩니다. [Azure에 특수한 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)를 참조하세요.
 
  
-

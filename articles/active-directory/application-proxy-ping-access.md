@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
 Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Active Directory 고객에게 더 많은 응용 프로그램에 대한 액세스를 제공하도록 파트너 관계를 맺고 있습니다. PingAccess는 [기존 응용 프로그램 프록시 제품](active-directory-application-proxy-get-started.md)을 확장하여 인증에 헤더를 사용하는 응용 프로그램에 대한 Single Sign-On 액세스를 포함하고 있습니다.
@@ -163,4 +161,3 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 - [Azure AD에 대한 PingAccess 구성(영문)](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법](application-proxy-sso-overview.md)
 - [응용 프로그램 프록시 문제 해결](active-directory-application-proxy-troubleshoot.md)
-

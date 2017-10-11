@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-resource-provider"></a>네트워크 리소스 공급자
 현대 비즈니스의 성공에 있어서 가장 필요한 것은 대규모 네트워크 인식 응용 프로그램을 신속하고 유연하고 안전하고 반복 가능한 방법으로 작성하여 관리할 수 있는 기능입니다. Azure Resource Manager를 사용하면 이러한 응용 프로그램을 리소스 그룹에서 단일 리소스 컬렉션으로 만들 수 있습니다. 이러한 리소스는 Resource Manager의 다양한 리소스 공급자를 통해 관리됩니다.
@@ -265,10 +265,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

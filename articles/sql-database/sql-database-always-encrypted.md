@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>상시 암호화 - SQL 데이터베이스의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
@@ -109,7 +107,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. **SSN** 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. **BirthDate** 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
+**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
 
 ![열 암호화](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -519,5 +517,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 * [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

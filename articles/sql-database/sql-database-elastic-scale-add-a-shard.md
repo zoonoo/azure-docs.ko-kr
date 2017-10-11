@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 6a91ea2251ea3b748faba5c97765bfded9c00234
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>새 범위 또는 키에 대해 분할된 데이터베이스를 추가하기
@@ -79,5 +77,4 @@ ms.lasthandoff: 11/17/2016
 **중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요.  위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](sql-database-elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

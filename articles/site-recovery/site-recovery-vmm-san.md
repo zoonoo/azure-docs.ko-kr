@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>SAN을 사용하여 Azure Site Recovery로 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제
 
@@ -350,4 +348,3 @@ VM은 복제에 사용되도록 설정된 후 Site Recovery 콘솔에 표시됩�
 ## <a name="next-steps"></a>다음 단계
 
 테스트 장애 조치(failover)를 실행하여 환경이 예상대로 작동하는지 확인한 후 [Site Recovery 장애 조치(failover)](site-recovery-failover.md)를 참조하여 여러 종류의 장애 조치(failover)에 대해 알아보세요.
-

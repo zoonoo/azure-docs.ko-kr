@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fa7b48225698a2e210d61656ffff0225227e2ab5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e30482427b88eb3e58d39075c7f0734664b79aa2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 응용 프로그램 모델링
 이 문서에서는 Azure Service Fabric 응용 프로그램 모델의 개요 및 매니페스트 파일을 통해 응용 프로그램과 서비스를 정의하는 방법에 대해 설명합니다.
@@ -197,4 +196,3 @@ For more information about other features supported by application manifests, re
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 [13]: service-fabric-hosting-model.md
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Azure API 관리에서 첫 번째 API 관리
 ## <a name="overview"> </a>개요
@@ -71,7 +71,7 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 서비스 인스턴스에 대해 원하는 **구독**, **리소스 그룹** 및 **지역**을 선택합니다.
 
-**조직 이름**으로  **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에서 메일 주소를 입력합니다.
+입력 **Contoso ltd.** 에 대 한는 **조직 이름**에 전자 메일 주소를 입력 하 고는 **관리자 전자 메일** 필드입니다.
 
 > [!NOTE]
 > 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법][How to configure notifications and email templates in Azure API Management]을 참조하세요.
@@ -254,9 +254,3 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

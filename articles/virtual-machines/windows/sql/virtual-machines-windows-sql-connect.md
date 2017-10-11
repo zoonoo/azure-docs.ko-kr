@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/14/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Azure에서 SQL Server 가상 컴퓨터 연결(리소스 관리자)
 > [!div class="op_single_selector"]
@@ -138,4 +137,4 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

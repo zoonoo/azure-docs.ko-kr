@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -295,18 +295,12 @@ ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
 [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users
-[모바일 서비스]: /develop/mobile/tutorials/get-started/
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs Windows 스토어용 방법]: http://msdn.microsoft.com/library/jj927172.aspx
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Mobile Service]: /develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Azure 클래식 포털]: https://manage.windowsazure.com
-[wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

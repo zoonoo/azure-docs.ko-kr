@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제
 
 이 문서는 Azure AD 갤러리 응용 프로그램에 대해 **암호 Single Sign-On**을 구성할 때 발생하는 일반적인 문제를 이해하는 데 도움이 됩니다.
@@ -109,5 +107,4 @@ Microsoft에는 이렇게 통합이 깨졌을 때 자동으로 감지할 기술�
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-
 

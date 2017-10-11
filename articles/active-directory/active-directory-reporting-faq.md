@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
@@ -110,4 +109,3 @@ ms.lasthandoff: 08/23/2017
 **A:** IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. 모바일 공급자 및 클라이언트 장치가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 IP 주소를 발급하는 VPN과 같은 요인에 의해 복잡합니다. 위의 설명을 고려하면 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보에 기반한 최상의 노력입니다. 
 
 ---
-

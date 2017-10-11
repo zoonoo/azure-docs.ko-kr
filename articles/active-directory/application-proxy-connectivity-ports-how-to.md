@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4cbffd6627bccc96400ec6de103d4d7fc5d77950
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 필요한 방화벽 포트를 여는 방법
 
 각 포트의 기능 및 필요한 포트의 전체 목록을 보려면 [응용 프로그램 프록시 설명서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)의 필수 조건 섹션을 참조하세요. 응용 프로그램 프록시는 아웃바운드 포트만 사용합니다.
@@ -39,4 +37,3 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
-

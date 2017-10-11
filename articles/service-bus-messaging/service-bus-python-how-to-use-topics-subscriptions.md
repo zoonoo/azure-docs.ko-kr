@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 15269f9728e9dc45e6436e53b1859f76d4a7a0c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -32,8 +31,8 @@ ms.lasthandoff: 08/11/2017
 > [!NOTE] 
 > Python 또는 [Azure Python 패키지][Azure Python package]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
 
-## <a name="create-a-topic"></a>토픽 만들기
-**ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 프로그래밍 방식으로 Service Bus에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
+## <a name="create-a-topic"></a>주제 만들기
+**ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 프로그래밍 방식으로 서비스 버스에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
@@ -142,9 +141,9 @@ print(msg.body)
 
 `peek_lock` 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. `peek_lock` 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
+받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
-`peek_lock` 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 `delete` 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. `delete` 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
+`peek_lock` 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 `delete` 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. `delete` 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -154,7 +153,7 @@ msg.delete()
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **Message** 개체의 `unlock` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
+서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **Message** 개체의 `unlock` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하므로 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
@@ -174,7 +173,7 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
+이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
 * [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
 * [SqlFilter.SqlExpression][SqlFilter.SqlExpression]에 대한 참조입니다.
@@ -184,4 +183,3 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 
-

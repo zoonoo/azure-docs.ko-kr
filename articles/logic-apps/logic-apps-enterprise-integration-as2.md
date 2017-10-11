@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>논리 앱과 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -181,4 +179,3 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 ## <a name="next-steps"></a>다음 단계
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-

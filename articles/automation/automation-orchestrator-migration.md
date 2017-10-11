@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
 ms.openlocfilehash: 457888b4d38875b912ad87d44e96ab727e3ee3ee
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
 [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
@@ -135,9 +135,3 @@ Orchestrator에서 Runbook은 **Runbook 호출** 을 사용하여 다른 runbook
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
 * [System Center Orchestrator Migration Toolkit 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

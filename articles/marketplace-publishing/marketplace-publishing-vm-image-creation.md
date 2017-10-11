@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure 마켓플레이스에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -568,4 +567,3 @@ SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이�
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
-

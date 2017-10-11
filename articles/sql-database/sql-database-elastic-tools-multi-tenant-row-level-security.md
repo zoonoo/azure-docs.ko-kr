@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 09e3828172d06a8c7ef39c89e69653c48a7e729e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램
 [탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)](https://msdn.microsoft.com/library/dn765131)는 Azure SQL Database로 다중 테넌트 응용 프로그램의 데이터를 유연하고 효율적으로 확장할 수 있는 강력한 기능 집합을 제공합니다. 자세한 내용은 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md) 을 참조하세요. 
@@ -318,6 +316,5 @@ GO
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
 
 

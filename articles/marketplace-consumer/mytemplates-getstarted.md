@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure 포털에서 개인 템플릿을 사용하여 시작
 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 템플릿은 배포를 정의하는 데 사용된 선언적 템플릿입니다. 솔루션에 대해 배포할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
@@ -132,10 +132,4 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 * Resource Manager 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
 * 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

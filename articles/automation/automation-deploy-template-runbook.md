@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
 [Azure Resource Management 템플릿](../azure-resource-manager/resource-manager-create-first-template.md)을 사용하여 Azure 리소스를 배포하는 [Azure Automation PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 작성할 수 있습니다.
@@ -245,5 +243,4 @@ Get-AzureRmStorageAccount
 * Azure Storage를 시작하려면 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 * 다른 유용한 Azure Automation Runbook을 찾으려면 [Azure Automation용 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)를 참조하세요.
 * 다른 유용한 Resource Manager 템플릿을 찾으려면 [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하세요.
-
 

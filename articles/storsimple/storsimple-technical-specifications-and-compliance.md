@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 장치에 대한 기술 사양 및 규정 준수
 ## <a name="overview"></a>개요
@@ -175,5 +173,4 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 데이터 센터에 StorSimple 장치를 배포할 준비가 되었습니다. 자세한 내용은 [온-프레미스 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.  
-
 

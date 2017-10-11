@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: bfb41f254d74bef843461a058ee5b2ced7fc45ec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: f23443d438c95a784f655fb9a5f20dfcf37be189
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 항목에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 항목은 특정 영역을 심층 분석하고 이 개념을 다른 항목에서처럼 간단히 설명합니다.
@@ -192,4 +191,3 @@ Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

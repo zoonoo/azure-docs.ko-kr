@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 루프
 SQL Data Warehouse는 문 블록을 반복 실행하기 위한 [WHILE][WHILE] 루프를 지원합니다. 이 루프는 지정한 조건이 true이거나 코드가 `BREAK` 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 루프는 SQL 코드에 정의된 커서를 대체하는 데 특히 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 무언가를 대체해야 하는 경우 좋은 대안입니다.
@@ -86,4 +85,3 @@ DROP TABLE #tbl;
 
 
 <!--Other Web references-->
-

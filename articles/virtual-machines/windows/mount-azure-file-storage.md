@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Windows VM과 Azure 파일 공유 사용 
 
 VM에서 파일을 저장하고 액세스하는 방법으로 Azure 파일 공유를 사용할 수 있습니다. 예를 들어 모든 VM을 공유하려는 스크립트 또는 응용 프로그램 구성 파일을 저장할 수 있습니다. 이 토픽에서는 Azure 파일 공유를 만들고 탑재하는 방법과 파일을 업로드 및 다운로드하는 방법을 설명합니다.
@@ -76,4 +74,3 @@ VM에서 파일을 저장하고 액세스하는 방법으로 Azure 파일 공유
 ## <a name="next-steps"></a>다음 단계
 
 또한 PowerShell을 사용하여 파일 공유를 만들고 관리할 수 있습니다. 자세한 내용은 [Windows에서 Azure File storage 시작](../../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
-

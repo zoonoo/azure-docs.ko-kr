@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -529,4 +528,3 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SSDT(SQL Server Data Tools)](http://msdn.microsoft.com/library/mt204009.aspx)
-

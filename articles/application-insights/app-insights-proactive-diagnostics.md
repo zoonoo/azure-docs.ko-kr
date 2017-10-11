@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 66c4a82153dccd82977cf42c5bb9de2a8a8d6255
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: f203b2a532ea721d9797c67a4750896e3ab2b9f7
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 응용 프로그램에서 잠재적인 성능 문제를 자동으로 경고해 줍니다. 앱에서 [Application Insights](app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 응용 프로그램에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/17/2017
 
 * [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md) 
-
 

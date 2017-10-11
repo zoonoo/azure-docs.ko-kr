@@ -14,14 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(미리 보기)의 관리 솔루션 만들기 모범 사례
 > [!NOTE]
@@ -57,5 +54,4 @@ ms.lasthandoff: 04/27/2017
 * 관리 솔루션에 [저장된 검색 및 경고를 추가](operations-management-suite-solutions-resources-searches-alerts.md)합니다.
 * 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
 * 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
-
 

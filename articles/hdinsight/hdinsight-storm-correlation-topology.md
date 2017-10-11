@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
 
@@ -219,4 +218,3 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 ## <a name="next-steps"></a>다음 단계
 
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
-

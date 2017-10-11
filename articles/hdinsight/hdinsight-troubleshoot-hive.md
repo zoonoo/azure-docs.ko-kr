@@ -15,20 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: dharmeshkakadia
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Hive 문제 해결
 
 Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 사항 및 해결 방법을 알아봅니다.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터에서 가져오는 방법
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터로 가져오는 방법
 
 
 ### <a name="resolution-steps"></a>해결 단계:
@@ -177,7 +175,6 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
 ### <a name="additional-reading-end"></a>추가 참조 자료
 
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 
 

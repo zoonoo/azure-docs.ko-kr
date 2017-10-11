@@ -15,14 +15,12 @@ ums.workload: na
 ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5c1cf7ee6f9e7ad43bb47f798520384606969c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 
 Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. [Azure Active Directory 감사 보고서 이벤트](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)를 검토하여 추적할 수 있는 이벤트 유형을 확인할 수 있습니다.
@@ -76,4 +74,3 @@ Azure 로그 통합에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure 로그 통합 FAQ](security-azure-log-integration-faq.md): 이 문서는 Azure 로그 통합에 대한 질문에 답변합니다.
 * [Security Center 경고를 Azure 로그 통합과 통합](../security-center/security-center-integrating-alerts-with-log-integration.md): 이 문서에서는 Azure 진단 및 Azure 감사 로그에 수집된 가상 컴퓨터 보안 이벤트와 함께 Security Center 경고를 로그 분석 또는 SIEM 솔루션과 동기화하는 방법을 보여줍니다.
 * [Azure 진단 및 Azure 감사 로그를 위한 새 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.
-

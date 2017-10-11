@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 0e88baed8188890e80d4c2e7ee9d510fdabf6e43
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="develop-video-player-applications"></a>비디오 플레이어 응용 프로그램 개발
 ## <a name="overview"></a>개요
@@ -75,5 +74,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
-
 

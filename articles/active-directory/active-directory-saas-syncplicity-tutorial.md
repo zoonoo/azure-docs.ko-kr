@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 1321fa71bcd625d6ea754432bfb402d3919e38f3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>자습서: Syncplicity와 Azure Active Directory 통합
 
@@ -283,5 +281,4 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 응용 프로그램에 �
 [201]: ./media/active-directory-saas-syncplicity-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-syncplicity-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-syncplicity-tutorial/tutorial_general_203.png
-
 

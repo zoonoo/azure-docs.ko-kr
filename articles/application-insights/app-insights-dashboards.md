@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
 [프로젝트에서 Application Insights를 설정](app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
@@ -165,4 +164,3 @@ ms.lasthandoff: 08/25/2017
 | [메트릭 탐색기](app-insights-metrics-explorer.md)<br/>필터 및 세그먼트 메트릭 |![검색 예제](./media/app-insights-dashboards/64.png) |
 | [진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png) |
 | [분석](app-insights-analytics.md)<br/>강력한 쿼리 언어 |![검색 예제](./media/app-insights-dashboards/63.png) |
-

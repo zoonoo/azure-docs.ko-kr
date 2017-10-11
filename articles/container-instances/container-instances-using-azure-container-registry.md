@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 Azure Container Registry는 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 이 문서에서는 Azure Container Registry에 저장된 컨테이너 이미지를 Azure Container Instances에 배포하는 방법에 대해 설명합니다.
@@ -91,4 +89,3 @@ Azure Container Registry에서 컨테이너 이미지를 유지할 경우 Azure 
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
 
 [aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정
 Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
@@ -192,4 +191,3 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
 [iaas]:media/hpcpack-rdma-cluster/iaas.png
 [pingpong1]:media/hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]:media/hpcpack-rdma-cluster/pingpong2.png
-

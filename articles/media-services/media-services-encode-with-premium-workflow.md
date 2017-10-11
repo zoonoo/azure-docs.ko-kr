@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 06b60925af778b3647d0accad51f65da67234cf5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 2b03853bf07e05c07fd730d5e8a8563963887921
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 > [!NOTE]
@@ -228,4 +227,3 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

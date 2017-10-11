@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
-ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-shard-querying"></a>다중 분할된 데이터베이스 쿼리
 ## <a name="overview"></a>개요
@@ -77,5 +75,4 @@ ms.lasthandoff: 01/24/2017
 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)** 클래스 및 메서드.
 
 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 분할된 데이터베이스를 관리합니다. [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx)라고 하는 네임스페이스가 포함되며, 이 네임스페이스는 단일 쿼리 및 결과를 사용하여 여러 분할된 데이터베이스를 쿼리하는 기능을 제공합니다. 분할된 데이터베이스의 컬렉션에 대해 쿼리 추상화를 제공합니다. 또한 대체 실행 정책, 특히 부분 결과를 제공하여 많은 분할된 데이터베이스를 쿼리할 때 오류를 처리합니다.  
-
 

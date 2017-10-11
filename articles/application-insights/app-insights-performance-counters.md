@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 038d6e051be8112b9264e7efa6485965d11e32c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 또한 직접 정의할 수도 있습니다. [Application Insights](app-insights-overview.md)는 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 컴퓨터의 IIS에서 응용 프로그램이 실행되는 경우 이러한 성능 카운터를 표시할 수 있습니다. 차트에서는 라이브 응용 프로그램에 사용할 수 있는 리소스를 나타내고 서버 인스턴스 간의 불균형 부하를 확인할 수 있습니다.
@@ -123,5 +122,4 @@ Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8
 ## <a name="next"></a>다음 단계
 * [종속성 추적](app-insights-asp-net-dependencies.md)
 * [예외 추적](app-insights-asp-net-exceptions.md)
-
 

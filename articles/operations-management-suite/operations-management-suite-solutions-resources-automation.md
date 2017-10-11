@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>OMS 관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -653,4 +651,3 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 ## <a name="next-steps"></a>다음 단계
 * [솔루션에 보기를 추가](operations-management-suite-solutions-resources-views.md)하여 수집된 데이터를 시각화합니다.
-

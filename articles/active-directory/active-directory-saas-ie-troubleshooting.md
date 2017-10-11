@@ -16,12 +16,11 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
-ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 938d0b4046afa8c80eabe542f4541d0554948f5d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Internet Explorer용 액세스 패널 확장 문제 해결
 이 문서는 다음과 같은 문제를 해결하는 데 도움이 됩니다.
@@ -95,5 +94,4 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 * [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
-
 

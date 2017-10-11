@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 2009cfc956a2703e268c9364996aa2d0fbd8f279
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 공동 작업 문제 해결
 
 Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
@@ -99,4 +96,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-

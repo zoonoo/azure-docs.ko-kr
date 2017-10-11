@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Microsoft Azure Certified 프로그램을 통해 사전 승인 받기
 이 문서에서는 Azure Marketplace에 솔루션을 게시하고 마케팅 혜택을 받을 수 있도록 Microsoft Azure Certified가 되는 방법에 대한 지침을 제공합니다. Microsoft Azure Certified 프로그램 및 그 혜택에 대한 자세한 개요는 [http://azure.com/certified](http://azure.com/certified)를 참조하세요.
@@ -41,9 +41,3 @@ Microsoft Azure Certified 프로그램에서 사전 승인을 받고 나면 [Mic
 
 ## <a name="see-also"></a>참고 항목
 * [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

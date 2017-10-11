@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
@@ -137,7 +136,7 @@ Get-AzureRmAlertRule -ResourceGroup montest
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule` 명령은 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx)을 참조하세요.
+`Get-AzureRmAlertRule` 명령은 다른 매개 변수를 지원합니다. 자세한 내용은 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) 을 참조하세요.
 
 ## <a name="create-metric-alerts"></a>메트릭 경고 만들기
 `Add-AlertRule` cmdlet을 사용하여 경고 규칙을 만들고, 업데이트하고, 비활성화할 수 있습니다.
@@ -152,7 +151,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 | 이 경고 규칙의 위치 |미국 동부 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 생성된 경고의 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 `Get-MetricDefinitions` cmdlet를 참조하세요. |
+| 생성된 경고의 MetricName |\PhysicalDisk (_Total) \Disk writes/sec입니다. 참조는 `Get-MetricDefinitions` 메트릭 이름은 정확 하 게 검색 하는 방법에 대 한 cmdlet |
 | operator |GreaterThan |
 | 임계값(이 메트릭의 경우 수/초) |1 |
 | WindowSize(h:mm:ss 형식) |00:05:00 |
@@ -320,7 +319,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## <a name="configure-diagnostics-logs"></a>진단 로그 구성
-여러 Azure 서비스는 Azure Storage 계정에 데이터를 저장하고, Event Hubs에 보내거나 OMS 로그 분석 작업 영역에 보낼 수 있도록 구성된 추가 로그와 원격 분석을 제공합니다. 이 작업은 리소스 수준에서만 수행할 수 있으며 저장소 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
+여러 Azure 서비스는 Azure Storage 계정에 데이터를 저장하고, 이벤트 허브에 보내거나 OMS 로그 분석 작업 영역에 보낼 수 있도록 구성된 추가 로그와 원격 분석을 제공합니다. 이 작업은 리소스 수준에서만 수행할 수 있으며 저장소 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
 
 ### <a name="get-diagnostic-setting"></a>진단 설정 가져오기
 ```PowerShell
@@ -351,7 +350,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Event Hubs에 대한 진단 설정 활성화
+이벤트 허브에 대한 진단 설정 활성화
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
@@ -363,4 +362,3 @@ OMS에 대한 진단 설정 활성화
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
 
 ```
-

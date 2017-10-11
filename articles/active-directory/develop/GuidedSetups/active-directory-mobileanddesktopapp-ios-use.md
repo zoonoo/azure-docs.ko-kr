@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 81d5ae3775cca7cea5abf1922a25be0663a8a949
-ms.contentlocale: ko-kr
-
+ms.openlocfilehash: 2ac1117a31a101705539a1f75520ce8de43809a2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL(Microsoft 인증 라이브러리)를 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 `acquireToken` 메서드를 호출하면 사용자에게 로그인하라는 브라우저 창이 표시됩니다. 사용자가 처음으로 보호되는 리소스에 액세스해야 하거나 토큰 획득을 위한 자동 작업에 실패한 경우(예: 사용자의 암호 만료) 일반적으로 사용자는 응용 프로그램에서 대화식으로 로그인해야 합니다.
 
 #### <a name="getting-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
-`acquireTokenSilent` 메서드는 토큰 획득 및 갱신을 자동으로 처리합니다. `acquireToken`이 처음으로 실행된 후 일반적으로 `acquireTokenSilent` 메서드를 사용하여 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져옵니다. 즉, 토큰을 요청하거나 갱신하기 위한 호출이 자동으로 수행됩니다.
+`acquireTokenSilent` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `acquireToken`이 처음으로 실행된 후 일반적으로 `acquireTokenSilent` 메서드를 사용하여 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져옵니다. 즉, 토큰을 요청하거나 갱신하기 위한 호출이 자동으로 수행됩니다.
 
 결국 `acquireTokenSilent`에 실패합니다(예: 사용자 로그아웃 또는 다른 장치에서 사용자가 암호 변경). MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MSALErrorCode.interactionRequired` 예외를 발생합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
@@ -238,5 +238,4 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
     return true
 }
 ```
-
 

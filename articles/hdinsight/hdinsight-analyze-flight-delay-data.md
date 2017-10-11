@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e457b722ec403d56ca551bb1fd01c3dd619bf9b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]*을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
@@ -746,4 +745,3 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
-

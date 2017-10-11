@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
-
-
+ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
 ## <a name="overview"></a>개요
@@ -32,8 +32,8 @@ ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
 2. **태그**: 지정된 태그를 포함하는 모든 등록이 알림을 수신합니다.
 3. **태그 식**: 등록의 태그 집합이 지정된 식과 일치하는 모든 등록이 알림을 수신합니다.
 
-## <a name="tags"></a>태그
-태그에는 영숫자 및 영숫자가 아닌 문자(‘_’, ‘@’,, ‘#’, ‘.’, ‘:’, ‘-’)를 포함하는 모든 문자열을 최대 120자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 응용 프로그램을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 등록에 대해 아래 그림처럼 다양한 밴드를 나타내는 태그로 레이블을 붙이는 것입니다.
+## <a name="tags"></a>태그들
+태그는 모든 문자열을 120 개까지 포함 된 영숫자 문자와 영숫자가 아닌 문자를 지정할 수: '_', ' @', '#', '. ',':', '-'. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 응용 프로그램을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 등록에 대해 아래 그림처럼 다양한 밴드를 나타내는 태그로 레이블을 붙이는 것입니다.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -102,9 +102,3 @@ ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
     toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
     "You want info on the Red Socks</text></binding></visual></toast>";
     outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

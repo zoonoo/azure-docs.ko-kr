@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 2ee76dfcb579e53975b1f61a6590f8d78dc0961b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>클라우드 서비스를 관리하는 방법
 > [!div class="op_single_selector"]
@@ -155,4 +153,3 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)구성
-

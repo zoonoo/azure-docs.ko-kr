@@ -16,13 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -493,4 +491,3 @@ DocumentDB의 모든 문서에는 고유한 ID가 있어야 합니다. `PatientI
 * [논리 앱 예제 및 시나리오 더 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps 모니터링에 대해 알아보기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Logic Apps용 자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
-

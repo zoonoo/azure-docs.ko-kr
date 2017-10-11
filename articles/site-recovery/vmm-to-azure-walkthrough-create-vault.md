@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: af453ec27ba15ad8c59cf9f544584ad18dc0f74a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>7단계: Hyper-V 복제를 위한 자격 증명 모음 설정
 
 이 문서는 자격 증명 모음을 설정하고 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 위치에서 Azure로 복제하려는 항목을 지정하는 방법을 설명합니다.
@@ -50,4 +48,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>다음 단계
 
 [8단계: 소스 및 대상 설정](vmm-to-azure-walkthrough-source-target.md)으로 이동합니다.
-

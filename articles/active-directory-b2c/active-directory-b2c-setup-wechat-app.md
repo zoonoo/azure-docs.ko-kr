@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: 고객에게 WeChat 계정으로 등록 및 로그인 제공
 
@@ -49,5 +48,4 @@ Azure AD(Azure Active Directory) B2C에서 WeChat을 ID 공급자로 사용하�
 7. **클라이언트 ID**로 앞에서 복사한 **앱 키**를 입력합니다.
 8. **클라이언트 암호**로 앞에서 복사한 **앱 암호**를 입력합니다.
 9. **확인**을 클릭한 다음 **만들기**를 클릭하여 WeChat 구성을 저장합니다.
-
 

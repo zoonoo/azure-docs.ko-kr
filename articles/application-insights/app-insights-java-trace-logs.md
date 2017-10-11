@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
-ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/13/2016
-
+ms.openlocfilehash: 5baba3deaf58a1a24995c60381592a9c2ffefd81
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
@@ -168,6 +167,5 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
-
 
 

@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure 진단 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure 진단 확장 스키마 버전을 인덱스합니다.  
@@ -28,7 +26,7 @@ ms.lasthandoff: 05/18/2017
 > [!NOTE]
 > Azure 진단 확장은 성능 카운터 및 기타 통계를 수집하는 데 사용하는 구성 요소입니다.
 > - Azure 가상 컴퓨터 
-> - 가상 컴퓨터 확장 집합
+> - 가상 컴퓨터 크기 집합
 > - 서비스 패브릭 
 > - 클라우드 서비스 
 > - 네트워크 보안 그룹
@@ -167,5 +165,4 @@ Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다�
 * **클라우드 서비스 응용 프로그램에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 코드가 아닌 진단 구성 파일에 크래시 덤프가 구성됨** – 코드에 크래시 덤프가 구성된 경우, Azure SDK 2.6으로 마이그레이션하는 동안 크래시 덤프가 전송되지 않으므로 해당 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
-
 

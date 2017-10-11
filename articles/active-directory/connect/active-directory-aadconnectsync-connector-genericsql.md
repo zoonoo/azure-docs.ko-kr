@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>일반 SQL 커넥터 기술 참조
 이 문서에서는 일반 SQL 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -307,4 +306,3 @@ SQL 쿼리 옵션을 선택한 경우 내보내기에는 삽입/업데이트/삭
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-

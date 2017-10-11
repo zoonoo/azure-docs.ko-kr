@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Azure Mobile Engagement 웹 SDK 릴리스 정보
 ## <a name="202-10182016"></a>2.0.2 (10/18/2016)
@@ -38,10 +38,4 @@ ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
 * 장치 간에 메시지를 보내고 받는 API가 제거되었습니다.
 * 사용이 중단된 XMPP 연결과 관련된 콜백이 제거되었습니다.
 * 도달률 기능에 대한 지원이 제거되었습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

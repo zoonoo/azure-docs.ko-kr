@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure 검색에서 검색 결과를 페이징하는 방법
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure 검색 서비스의 사용 방법에 대한 지침을 제공합니다.
@@ -115,9 +115,3 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

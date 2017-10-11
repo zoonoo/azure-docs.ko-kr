@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: mikerou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
 Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법에 대한 기본적인 내용은 [클러스터 크기 조정](./service-fabric-cluster-scale-up-down.md)의 문서에 설명되어 있습니다. 이 문서에서는 가상 컴퓨터 확장 집합 위에 Service Fabric 클러스터를 구축하고 수동으로 또는 자동 크기 조정 규칙을 사용하여 규모를 조정하는 방법을 다룹니다. 이 문서에서는 고급 시나리오를 위해 Azure 크기 조정 작업을 프로그래밍 방식으로 조정하는 방법을 살펴봅니다. 
@@ -154,4 +151,3 @@ Service Fabric 크기 조정에 접근하는 방식은 시나리오에 달렸습
 - [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-up-down.md)
 - [.NET용 Fluent Azure Management 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)(Service Fabric 클러스터의 기본 가상 가상 컴퓨터 확장 집합과 상호 작용하는 데 유용함)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)
-

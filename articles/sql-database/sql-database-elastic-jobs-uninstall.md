@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ae7f0bce452a0a86f6f1e4d9b0c93a0fa1727f21
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>탄력적 데이터베이스 작업 구성 요소 제거
 **탄력적 데이터베이스 작업** 구성 요소를 제거할 수 있습니다.
@@ -63,6 +61,5 @@ ms.lasthandoff: 11/17/2016
 탄력적 데이터베이스 작업의 개요는 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
 <!--Image references-->
-
 
 

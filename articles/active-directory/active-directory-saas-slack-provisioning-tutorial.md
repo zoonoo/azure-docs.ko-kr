@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
-ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Slack 구성
 
 
@@ -116,4 +114,3 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-

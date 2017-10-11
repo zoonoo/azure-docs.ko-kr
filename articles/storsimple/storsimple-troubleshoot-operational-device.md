@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>작동 StorSimple 장치 문제 해결
 ## <a name="overview"></a>개요
@@ -27,7 +27,7 @@ ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
 이 문서의 끝에서 Microsoft Azure StorSimple 작업 중 발생할 수 있는 오류 코드 목록 및 오류를 해결하기 위해 취할 수 있는 단계를 찾을 수 있습니다. 
 
 ## <a name="setup-wizard-process-for-operational-devices"></a>운영 장치에 대한 설치 마법사 프로세스
-장치 구성을 확인하고 필요한 경우 수정 작업을 수행하려면 설치 마법사([Invoke-HcsSetupWizard][1])를 사용합니다.
+설치 마법사를 사용 하 여 ([Invoke-hcssetupwizard][1])를 장치 구성을 확인 하 고 필요에 따라 수정 조치를 수행 합니다.
 
 이전에 구성된 작동 장치에서 설치 마법사를 실행하면 프로세스 흐름은 다릅니다. 다음 항목만 변경할 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
 |:--- |:--- |:--- |:--- |
 | 1 |오류 350032: 이 장치는 이미 비활성화되었습니다. |비활성화된 장치에서 설치 마법사를 실행하는 경우 이 오류가 나타납니다. |[Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요. 비활성화된 장치를 제공할 수 없습니다. 장치를 다시 활성화하기 전에 공장 재설정이 필요할 수 있습니다. |
 | 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(HRESULT: 0x80070001에서 예외 발생) |DNS 서버 업데이트에 실패했습니다. DNS 설정은 전역 설정이며 사용할 수 있는 모든 네트워크 인터페이스를 통해 적용됩니다. |인터페이스를 사용하고 DNS 설정을 다시 적용합니다. 전역 설정 때문에 사용되는 다른 인터페이스에 대한 네트워크에 방해가 될 수 있습니다. |
-| 3 |장치가 StorSimple Manager 서비스 포털에서 온라인 상태인 것으로 나타나지만 최소 설치를 완료하고 구성을 저장하려고 할 때 작업이 실패합니다. |초기 설치 중, 실제 프록시 서버가 제 자리에 있더라도 웹 프록시는 구성되지 않았습니다. | [Test-HcsmConnection][2] cmdlet을 사용하여 오류를 찾습니다. [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요. |
+| 3 |장치가 StorSimple Manager 서비스 포털에서 온라인 상태인 것으로 나타나지만 최소 설치를 완료하고 구성을 저장하려고 할 때 작업이 실패합니다. |초기 설치 중, 실제 프록시 서버가 제 자리에 있더라도 웹 프록시는 구성되지 않았습니다. |사용 하 여는 [Test-hcsmconnection cmdlet] [ 2] 를 오류를 찾습니다. [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요. |
 | 4 |Invoke-HcsSetupWizard: 예상 범위 내에 값이 없습니다. |잘못된 서브넷 마스크 때문에 이 오류가 발생합니다. 가능한 원인:  <ul><li> 서브넷 마스크가 없거나 비어 있습니다.</li><li>Ipv6 접두사 형식이 잘못되었습니다.</li><li>인터페이스가 클라우드를 사용하도록 설정되었지만 게이트웨이가 없거나 잘못되었습니다.</li></ul>설치 마법사를 통해 구성된 경우 데이터 0은 자동으로 클라우드 설정됩니다. |문제를 확인하려면 0.0.0.0 또는 256.256.256.256, 서브넷을 사용한 다음 출력을 확인합니다. 필요에 따라 서브넷 마스크, 게이트웨이 및 Ipv6 접두사에 대한 올바른 값을 입력합니다. |
 
 ## <a name="error-codes"></a>오류 코드
@@ -64,9 +64,3 @@ ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
 
 [1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

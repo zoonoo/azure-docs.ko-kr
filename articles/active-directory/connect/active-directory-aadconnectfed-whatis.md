@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 589c37d4bb59ceeb37742163fad21d465b3d3827
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active Directory Federation Services) 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그인에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그인 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그인하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 AD FS의 새 설치를 배포하거나 Windows Server 2012 R2 팜에 기존 설치를 지정할 수 있습니다.
@@ -52,4 +51,3 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 * [단일 AD FS를 사용하여 2개의 Azure AD 페더레이션](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 * [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 * [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

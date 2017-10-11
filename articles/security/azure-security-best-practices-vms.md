@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -128,4 +127,3 @@ VM에 대해 강력한 보안 태세를 적용하지 않는 조직은 설정된 
 또한 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 사용하여 리소스 상태에 대한 가시성도 얻을 수 있습니다.
 
 VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인하지 못합니다. VM이 정상보다 더 많은 리소스를 소비하는 경우 이러한 비정상은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
-

@@ -15,15 +15,12 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
 Azure Cosmos DB ODBC 드라이버를 사용하면 SQL Server Integration Services, Power BI Desktop 및 Tableau와 같은 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결할 수 있으므로 해당 솔루션에서 Azure Cosmos DB 데이터 시각화를 분석하고 만들 수 있습니다.
@@ -152,4 +149,3 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 ## <a name="next-steps"></a>다음 단계
 
 Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB란?](introduction.md)을 참조하세요.
-

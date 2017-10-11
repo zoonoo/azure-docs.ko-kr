@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5452a42cff5204fce780af41368b9515f9652d91
-
-
+ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Azure 스케줄러의 버전 및 요금 청구
 ## <a name="job-collection-plans"></a>작업 컬렉션 버전
@@ -26,7 +26,7 @@ ms.openlocfilehash: 5452a42cff5204fce780af41368b9515f9652d91
 
 | **작업 컬렉션 버전** | **작업 컬렉션당 최대 작업 수** | **최대 되풀이** | **구독당 최대 작업 컬렉션** | **제한** |
 |:--- |:--- |:--- |:--- |:--- |
-| **Free** |작업 컬렉션당 5개 작업 |시간당 1회. 한 시간에 한 번 이상 작업을 실행할 수 없습니다. |구독에는 최대 1개의 Free 작업 컬렉션이 허용됩니다. | [HTTP 아웃바운드 권한 부여 개체](scheduler-outbound-authentication.md) |
+| **Free** |작업 컬렉션당 5개 작업 |시간당 1회. 한 시간에 한 번 이상 작업을 실행할 수 없습니다. |구독에는 최대 1개의 Free 작업 컬렉션이 허용됩니다. |[HTTP 아웃바운드 권한 부여 개체](scheduler-outbound-authentication.md) |
 | **Standard** |작업 컬렉션당 50개 작업 |1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다. |구독에는 최대 100개의 Standard 작업 컬렉션이 허용됩니다. |스케줄러의 모든 기능 액세스 |
 | **P10 Premium** |작업 컬렉션당 50개 작업 |1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다. |구독에는 최대 10,000개의 P10 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요. |스케줄러의 모든 기능 액세스 |
 | **P20 Premium** |작업 컬렉션당 1,000개 작업 |1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다. |구독에는 최대 10,000개의 P20 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요. |스케줄러의 모든 기능 액세스 |
@@ -85,10 +85,4 @@ P20 Premium 작업 컬렉션은 P10 Premium 작업 컬렉션과 동일한 기능
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

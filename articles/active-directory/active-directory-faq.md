@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
 ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.contentlocale: ko-kr
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
 ms.lasthandoff: 08/18/2017
-
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -213,4 +212,3 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
 **A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
-

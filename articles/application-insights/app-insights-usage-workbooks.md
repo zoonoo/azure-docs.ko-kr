@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 75028b4fbda43d90f56690a33c7eb624fce049c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Application Insights에서 대화형 통합 문서를 사용하여 사용 현황 데이터 조사 및 공유
 
 통합 문서는 [Azure Application Insights](app-insights-overview.md) 데이터 시각화, [분석 쿼리](app-insights-analytics.md) 및 텍스트를 대화형 문서로 결합합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스로 다른 팀 멤버가 편집할 수 있습니다. 즉 통합 문서를 만드는 데 사용되는 쿼리 및 컨트롤을 통합 문서를 읽고 오류를 탐색, 확장 및 확인하기 쉽게 만드는 다른 사용자가 사용할 수 있음을 의미합니다.
@@ -127,4 +125,3 @@ Azure 대시보드에 통합 문서에 대한 링크를 고정하려면:
     - [사용자 흐름](app-insights-usage-flows.md)
     - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
     
-

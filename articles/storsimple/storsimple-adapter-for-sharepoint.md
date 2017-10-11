@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요
@@ -264,4 +262,3 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
-

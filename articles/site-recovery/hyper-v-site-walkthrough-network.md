@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-to-azure-replication"></a>4단계: Azure로 Hyper-V 복제를 위한 네트워킹 계획
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V VM(System Center VMM 없음)을 Azure로 복제할 때 네트워킹 계획 고려 사항을 설명합니다.
@@ -91,4 +89,3 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 ## <a name="next-steps"></a>다음 단계
 
 [5단계: Azure 준비](hyper-v-site-walkthrough-prepare-azure.md)로 이동합니다.
-

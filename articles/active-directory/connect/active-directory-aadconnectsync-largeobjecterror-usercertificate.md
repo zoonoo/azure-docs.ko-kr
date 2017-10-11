@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d15855bb05666961da56ff2dd5e0e473e7f7b123
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
 Azure AD는 **userCertificate** 특성에서 인증서 값에 대해 최대 **15**의 제한을 적용합니다. Azure AD Connect에서 15개 이상의 값을 포함하는 개체를 Azure AD로 내보내면 Azure AD는 다음 메시지와 함께 **LargeObject** 오류를 반환합니다.
@@ -181,5 +179,4 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
 

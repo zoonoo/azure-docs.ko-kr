@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8de3bdd45261c84a0e1bb90f1c58863ad740dd5a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
 ## <a name="overview"></a>개요
@@ -1044,4 +1042,3 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 
 ## <a name="see-also"></a>참고 항목
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
-

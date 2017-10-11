@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 065841d6b4fe50e953f01bba4d3f23de82b82726
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>자습서: Google Apps와 Azure Active Directory 통합
 
@@ -30,7 +29,7 @@ Google Apps를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 - 사용자가 Azure AD 계정으로 Google Apps에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -255,7 +254,7 @@ Google Apps에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-* [사용자 프로비전 구성](active-directory-saas-google-apps-provisioning-tutorial.md)
+* [사용자 프로비저닝 구성](active-directory-saas-google-apps-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 커넥터 시작
 Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.
@@ -98,5 +96,4 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-
 

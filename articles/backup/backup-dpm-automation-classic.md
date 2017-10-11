@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: nkolli;trinadhk;anuragm;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 943a12dcba49a114d206b9dab968da332ea99926
-ms.contentlocale: ko-kr
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 > [!div class="op_single_selector"]
@@ -322,8 +321,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>백업 시점 보기
 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet을 사용하여 데이터 원본에 대한 모든 복구 지점 목록을 가져올 수 있습니다. 이 예제에서는 다음을 수행합니다.
 
-* ```$PG```
-* ```$PG[0]```
+*  ```$PG```
+*  ```$PG[0]```
 * 데이터 원본에 대한 모든 복구 지점을 가져옵니다.
 
 ```
@@ -355,4 +354,3 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 ## <a name="next-steps"></a>다음 단계
 * DPM에 대한 Azure 백업에 대한 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)
-

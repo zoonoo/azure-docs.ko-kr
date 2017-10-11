@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 이 문서에서는 Azure Powershell을 사용하여 Resource Manager 배포 모델에서 만든 Windows VM의 크기를 조정하는 방법을 보여 줍니다.
@@ -105,5 +103,4 @@ VM(가상 컴퓨터)을 만든 후 VM 크기를 변경하여 VM의 크기를 확
 
 ## <a name="next-steps"></a>다음 단계
 * 확장성을 높이기 위해서는 여러 VM 인스턴스를 실행하고 규모를 확장합니다. 자세한 내용은 [가상 컴퓨터 확장 집합에서 Windows 컴퓨터 자동 확장](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 참조하세요.
-
 

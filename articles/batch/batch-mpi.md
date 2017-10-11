@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
 
 다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure 배치 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 배치로 수행할 수 있습니다. 이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
@@ -376,4 +374,3 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "다중 인스턴스 개요"
-

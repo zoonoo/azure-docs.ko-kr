@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>VMAccess 확장을 사용하여 Linux VM 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하는 방법
 암호를 잊었거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨서 Azure에서 Linux 가상 컴퓨터에 연결할 수 없는 경우 VMAccessForLinux 확장과 Azure CLI를 사용하여 암호 또는 SSH 키를 재설정하고 SSH 구성을 수정하며 디스크 일관성을 검사합니다. 
@@ -194,5 +193,4 @@ Linux 가상 컴퓨터의 모든 디스크에 fsck를 실행하려면, 다음을
 * Azure PowerShell cmdlet 또는 Azure Resource Manager 템플릿을 사용하여 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하려면 [GitHub의 VMAccess 확장 문서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)를 참조하세요. 
 * 또한 [Azure 포털](https://portal.azure.com) 을 사용하여 클래식 배포 모델에서 배포된 Linux VM의 암호 또는 SSH 키를 재설정할 수 있습니다. 현재는 이 포털을 사용하여 Resource Manager 배포 모델에 배포된 Linux VM에 대해 이 작업을 수행할 수 없습니다.
 * Azure 가상 컴퓨터에 VM 확장을 사용하는 방법에 대한 자세한 내용은 [가상 컴퓨터 확장 및 기능 정보](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
 

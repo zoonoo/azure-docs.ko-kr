@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
 > [!NOTE]
 > 이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 문서화된 `2016-09-01` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간에 차이는 없지만 이 문서에서는 전체 API를 다룹니다.
@@ -275,8 +274,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 * `Quadratic`: 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Quadratic 보간에서는 처음에 값이 조금씩 감소했다가 끝 범위가 가까워지면 값이 훨씬 큰 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.
 * `Logarithmic`: 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Logarithmic 보간에서는 처음에 값이 크게 감소했다가 끝 범위가 가까워질수록 값이 훨씬 작은 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -303,4 +301,3 @@ MSDN의 [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.micr
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

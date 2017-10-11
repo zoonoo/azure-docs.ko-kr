@@ -1,4 +1,4 @@
-다음 표는 다양한 서비스 계층(S1, S2, S3, F1)과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위*에 대한 비용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
+다음 표는 다양한 서비스 계층(S1, S2, S3, F1)과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위* 에 대한 비용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 | 리소스 | S1 표준 | S2 표준 | S3 표준 | F1 무료 |
 | --- | --- | --- | --- | --- |

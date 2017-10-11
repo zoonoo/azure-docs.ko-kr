@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>3단계: Azure VM 복제를 위한 네트워킹 계획
 
@@ -153,5 +152,4 @@ IP 기반 방화벽 프록시 또는 NSG 규칙을 사용하여 아웃바운드 
 ## <a name="next-steps"></a>다음 단계
 
 [4단계: 자격 증명 모음 만들기](azure-to-azure-walkthrough-vault.md)로 이동합니다.
-
 

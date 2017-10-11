@@ -13,14 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>저장소 스냅숏에 기반한 SAP HANA 백업
 
 ## <a name="introduction"></a>소개
@@ -170,4 +168,3 @@ Blob 스냅숏 이전에 SAP HANA를 종료할 수 있다면 절차가 덜 복�
 * [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
 * [파일 수준 기반 SAP HANA 백업](sap-hana-backup-file-level.md)에서는 파일 기반 백업 옵션에 대해 다룹니다.
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
-

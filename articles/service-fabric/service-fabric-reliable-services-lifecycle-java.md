@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
 > * [Windows에서 C#](service-fabric-reliable-services-lifecycle.md)
@@ -80,4 +78,3 @@ Reliable Services의 수명 주기를 고려할 경우 수명 주기에 대한 �
 * [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
-

@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0661f26e62a465ccd096773cbabd47268491f22d
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
 Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 실행할 때 슬레이브 노드를 프로비전할 수 있습니다.
@@ -197,5 +196,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [add vm template]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addnewvmtemplate.png
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
-
 

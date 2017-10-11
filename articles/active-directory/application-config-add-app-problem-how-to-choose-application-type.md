@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 1acd4119ebf9c9fd364d0eddd970c362756309ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>응용 프로그램을 추가할 때 사용할 응용 프로그램 형식을 선택하는 방법
 
 이 문서는 Azure AD와 통합할 수 있는 네 가지 기본 응용 프로그램 형식을 이해하는 데 도움이 됩니다.
@@ -118,9 +116,9 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -158,9 +156,9 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -174,4 +172,3 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
-

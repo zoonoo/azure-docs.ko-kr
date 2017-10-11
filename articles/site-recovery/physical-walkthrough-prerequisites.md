@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5f5cb4b9b6fcee6b56ccdcb6223afddd9de90fec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>2단계: Azure에 복제하기 위한 물리적 서버의 필수 조건 검토
 
 표에서 필수 구성 요소를 검토합니다.
@@ -53,4 +51,3 @@ ms.lasthandoff: 06/29/2017
 
 - 전체 배포를 수행하는 경우 [3단계: 용량 계획](physical-walkthrough-capacity.md)으로 이동합니다.
 - 간단한 테스트 배포를 수행하는 경우 [4단계: 네트워킹 계획](physical-walkthrough-network.md)으로 이동합니다.
-

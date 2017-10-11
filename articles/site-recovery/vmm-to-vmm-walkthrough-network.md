@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: a1f3f6e6cba074647195e2b0cbcdc7b4f3dec475
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-3-plan-networking-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>3단계: 보조 VMM 사이트로의 Hyper-V VM 복제를 위한 네트워킹 계획
 
@@ -217,6 +216,5 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
 ## <a name="next-steps"></a>다음 단계
 
 [4단계: VMM 및 Hyper-V 준비](vmm-to-vmm-walkthrough-vmm-hyper-v.md)로 이동합니다.
-
 
 

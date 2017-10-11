@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 61536612e0dd5102b8f5e911c350826846f5ed77
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>응용 프로그램에 사용자 및 그룹을 할당하는 방법
 
 사용자가 특정 응용 프로그램에 대해 아래의 작업을 수행할 수 있으려면 먼저 액세스 권한을 부여하도록 **응용 프로그램에 할당**해야 합니다.
@@ -49,9 +47,9 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -87,9 +85,9 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -105,11 +103,11 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 9.  **할당 추가** 블레이드에서 **사용자 및 그룹** 선택기를 클릭합니다.
 
-10. **이름 또는 전자 메일 주소로 검색** 검색 상자에 할당하려는 그룹의 **전체 그룹 이름**을 입력합니다.
+10. **이름 또는 메일 주소로 검색** 검색 상자에 할당하려는 그룹의 **전체 그룹 이름**을 입력합니다.
 
 11. 목록의 **그룹** 위로 마우스를 이동하여 **확인란**을 표시합니다. 그룹의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **둘 이상의 그룹을 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 그룹 이름**을 입력하고 확인란을 클릭하여 이 그룹을 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **둘 이상의 그룹을 추가**하려는 경우 **이름 또는 메일 주소로 검색** 검색 상자에 다른 **전체 그룹 이름**을 입력하고 확인란을 클릭하여 이 그룹을 **선택됨** 목록에 추가합니다.
 
 13. 그룹 선택이 완료되면 **선택** 단추를 클릭하여 응용 프로그램에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
@@ -127,9 +125,9 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -166,4 +164,3 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-

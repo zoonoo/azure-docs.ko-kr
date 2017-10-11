@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 지역 간 Azure VM 복제
 
 >이 문서에서는 하나의 Azure 지역에 있는 Azure VM(가상 컴퓨터)을 다른 지역의 Azure VM으로 복제하는 데 필요한 단계에 대해 간략히 설명합니다. 
@@ -74,6 +72,5 @@ ms.lasthandoff: 08/02/2017
 초기 복제가 완료되고 델타 복제가 실행된 후에 테스트 장애 조치(failover)를 실행하여 예상대로 작동되는지 확인할 수 있습니다.
 
 [6단계: 테스트 장애 조치 실행](azure-to-azure-walkthrough-test-failover.md)으로 이동합니다.
-
 
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 38c9da0a6599bb66c452fdb8a8911338601155f9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>자습서: Azure Active Directory와 Zscaler Two 통합
 
@@ -319,5 +318,4 @@ Azure AD 사용자가 ZScaler Two에 로그인할 수 있도록 하려면 ZScale
 [201]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-two-tutorial/tutorial_general_203.png
-
 

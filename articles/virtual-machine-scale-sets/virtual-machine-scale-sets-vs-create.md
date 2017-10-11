@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 가상 컴퓨터 확장 집합을 만드는 방법
 이 문서는 Visual Studio 리소스 그룹 배포를 사용하여 Azure 가상 컴퓨터 규모 집합을 배포하는 방법을 보여줍니다.
@@ -107,4 +106,3 @@ Visual Studio를 통해 가상 컴퓨터 확장 집합을 성공적으로 배포
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-

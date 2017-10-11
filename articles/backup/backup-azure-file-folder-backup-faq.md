@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Backup 에이전트 FAQ | Microsoft Docs"
 description: "Azure Backup 에이전트 작동 방식, 백업 및 보존 제한과 관련된 일반적인 질문에 대한 대답입니다."
@@ -16,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b9d022c780b618825bb2416f3834e4ada280092f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
 
@@ -128,4 +125,3 @@ Azure Backup 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>백업 정책을 구성했는데도 "Azure Backup이 이 서버에 대해 구성되지 않았습니다"라는 경고가 표시됩니다. <br/>
 이 경고는 로컬 서버에 저장된 백업 일정 설정과 백업 자격 증명 모음에 저장된 설정이 동일하지 않은 경우에 발생합니다. 서버 혹은 설정이 좋은 상태로 복구된 경우, 백업 일정은 동기화를 잃을 수 있습니다. 이 경고가 발생하면 [백업 정책을 다시 구성](backup-azure-manage-windows-server.md) 한 다음 **지금 백업 실행** 을 수행하여 로컬 서버를 Azure와 다시 동기화합니다.
-

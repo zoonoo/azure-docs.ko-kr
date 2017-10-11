@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: ce043e53d64a79c0ba37b500f8af9231e5372044
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 클래스는 분할된 데이터베이스 환경에서 ADO.Net 응용 프로그램이 GSM(전역 분할된 데이터베이스 맵)과 LSM(로컬 분할된 데이터베이스 맵) 간의 모든 불일치를 쉽게 감지하고 수정하는 기능을 제공합니다. 
@@ -170,5 +168,4 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
-
 

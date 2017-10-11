@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Eclipse에서 Java를 사용하여 Application Insights 시작하기
 Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 전송하므로 사용량 및 성능을 분석할 수 있습니다. Application Insights용 Eclipse 플러그인이 프로젝트에 SDK를 자동으로 설치하므로 기본 원격 분석을 이용할 수 있을 뿐 아니라 사용자 지정 원격 분석 작성에 사용할 수 있습니다.   
@@ -236,4 +235,3 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-javascript.md
-

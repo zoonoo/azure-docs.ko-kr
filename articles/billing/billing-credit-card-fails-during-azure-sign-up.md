@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
-ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: bad37f2447ac8de727326914b611f81effc9cf3f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>Azure 등록 시 사용자의 직불 카드 또는 신용 카드가 거부되었습니다.
 Azure에 등록할 때 직불 카드 또는 신용 카드가 거부되거나 승인되지 않은 경우 다음 중 한 가지 문제가 발생할 수 있습니다.
@@ -43,4 +41,3 @@ Azure에 등록할 때 직불 카드 또는 신용 카드가 거부되거나 승
 
 ## <a name="need-more-help-contact-support"></a>도움이 더 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

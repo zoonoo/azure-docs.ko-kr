@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 > [!IMPORTANT] 
@@ -90,7 +89,7 @@ ms.lasthandoff: 04/03/2017
     sudo fdisk /dev/sdc
     ```
 
-4. 프롬프트가 표시되면 **n**을 입력하여 파티션을 만듭니다.
+4. 메시지가 나타나면 입력  **n**  파티션을 만듭니다.
 
     ![장치 만들기](./media/attach-disk/fdisknewpartition.png)
 
@@ -235,4 +234,3 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 <!--Link references-->
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 900f0b4c38f08d1e3017954db01cf32362765578
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: d58c27234ea05a82aaa3e8d72f70c1449980df09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션에서 사용자 지정 규칙 만들기
 
@@ -217,7 +216,7 @@ ms.lasthandoff: 03/10/2017
  
 ## <a name="additional-information"></a>추가 정보
 
-연산자 **>**을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
+연산자  **>** 을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 규칙을 만드는 방법을 살펴보았으므로 이제 미리 구성된 솔루션에 대해 자세히 알아볼 수 있습니다.

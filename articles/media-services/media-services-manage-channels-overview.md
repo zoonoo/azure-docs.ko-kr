@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 2b727a56f43a727807d4452eefa4229d4d90406e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/19/2017
-
+ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure 미디어 서비스를 사용하는 라이브 스트리밍 개요
 ## <a name="overview"></a>개요
@@ -155,4 +154,3 @@ Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝�
 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)  
 
 [미디어 서비스 개념](media-services-concepts.md)
-

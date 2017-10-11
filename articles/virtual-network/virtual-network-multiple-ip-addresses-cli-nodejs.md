@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>Azure CLI 1.0을 사용하여 가상 컴퓨터에 여러 IP 주소 할당
 
@@ -122,7 +121,7 @@ Azure CLI 1.0(이 문서) 또는 [Azure CLI 2.0](virtual-network-multiple-ip-add
 8. NIC와 연결된 IP 구성을 보려면 다음 명령을 입력합니다.
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다.
 
@@ -161,7 +160,7 @@ Azure CLI 1.0(이 문서) 또는 [Azure CLI 2.0](virtual-network-multiple-ip-add
         --domain-name-label mypublicdns3
         ```
 
-         고정 개인 IP 주소 및 여기에 연결된 *myPublicP3* 공용 IP 주소 리소스가 있는 새 IP 구성을 만들려면 다음 명령을 입력합니다.
+        고정 개인 IP 주소 및 여기에 연결된 *myPublicP3* 공용 IP 주소 리소스가 있는 새 IP 구성을 만들려면 다음 명령을 입력합니다.
 
         ```azurecli
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
@@ -178,7 +177,7 @@ Azure CLI 1.0(이 문서) 또는 [Azure CLI 2.0](virtual-network-multiple-ip-add
 
         반환된 출력에서 IPConfig-3에 대한 것과 유사한 줄을 찾습니다.
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
@@ -215,4 +214,3 @@ Azure CLI 1.0(이 문서) 또는 [Azure CLI 2.0](virtual-network-multiple-ip-add
 4. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 지침에 따라 NIC에 추가한 개인 IP 주소를 VM 운영 체제에 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마십시오.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

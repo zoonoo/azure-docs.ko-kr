@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>Office 365 그룹 만료 구성(미리 보기)
 
 이제 선택하는 모든 Office 365 그룹에 대한 만료를 설정하여 Office 365 그룹의 수명 주기를 관리할 수 있습니다. 이 만료가 설정되면 해당 그룹의 소유자는 그룹이 여전히 필요한 경우 해당 그룹을 갱신할지 묻는 메시지를 받습니다. 갱신되지 않은 Office 365 그룹은 삭제됩니다. 삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.  
@@ -81,4 +79,3 @@ PowerShell 통해 Office 365 그룹에 대한 만료를 구성하는 Microsoft P
 * [그룹의 멤버 관리](active-directory-groups-members-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-

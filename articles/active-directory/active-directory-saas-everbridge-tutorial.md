@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: f5a97fc8df978dd55a73ae53516a82f884c14bec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -248,5 +246,4 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [201]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_203.png
-
 

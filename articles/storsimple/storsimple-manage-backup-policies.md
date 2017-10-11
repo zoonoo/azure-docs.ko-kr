@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b43d5d867d6245a807f6eff5ed3a0c3df10c0dd7
-
-
+ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>StorSimple 관리자 서비스를 사용하여 백업 정책 관리
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -79,10 +79,4 @@ StorSimple 장치에서 백업 정책을 삭제하려면 Azure 클래식 포털�
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

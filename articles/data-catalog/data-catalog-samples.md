@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-catalog-developer-samples"></a>데이터 카탈로그 개발자 샘플
 데이터 카탈로그 REST API를 사용하여 데이터 카탈로그 앱 개발을 시작합니다. 데이터 카탈로그 REST API는 데이터 카탈로그 리소스에 대한 등록, 주석 달기 및 데이터 자산을 프로그래밍 방식으로 검색하기 위해 프로그래밍 방식으로 액세스를 제공하는 REST 기반 API입니다.
@@ -40,5 +39,4 @@ ms.lasthandoff: 05/09/2017
 * [대량 가져오기 용어](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
     이 샘플에서는 CSV 파일에서 ADC 용어집으로 용어를 가져오는 방법을 보여 줍니다.
-
 

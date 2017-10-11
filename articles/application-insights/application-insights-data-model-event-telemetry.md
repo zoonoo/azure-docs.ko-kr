@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1cad3594be32e59ea6bd3d3ba2289d391bd92c0b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 422e193ae10938954602a6ef8c49fd47f473bc01
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>이벤트 원격 분석: Application Insights 데이터 모델
 
@@ -44,4 +43,3 @@ ms.lasthandoff: 04/27/2017
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - [사용자 지정 이벤트 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md#trackevent).
 - Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
-

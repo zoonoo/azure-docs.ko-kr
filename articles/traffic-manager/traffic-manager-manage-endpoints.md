@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>끝점 추가, 사용 안 함, 사용 또는 삭제
 
 Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 센터 내의 웹 사이트에 대해 이미 장애 조치(Failover) 및 라운드 로빈 트래픽 라우팅 기능을 제공합니다. Azure 트래픽 관리자를 통해 다른 데이터 센터의 웹 사이트와 클라우드 서비스에 대해 장애 조치(Failover) 및 라운드 로빈 트래픽 라우팅을 지정할 수 있습니다. 해당 기능을 제공하는 데 필요한 첫 번째 단계는 트래픽 관리자에 클라우드 서비스 또는 웹 사이트 끝점을 추가하는 것입니다.
@@ -45,8 +43,8 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
     5. **우선 순위**의 경우 **1**로 선택합니다. 이제 모든 트래픽이 정상일 경우 이 끝점으로 전송됩니다.
     6. **사용 안 함으로 추가**를 선택 취소 상태로 유지합니다.
     7. **확인**
-6.    다음 Azure 끝점을 추가하려면 4, 5 단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
-7.    두 끝점 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
+6.  다음 Azure 끝점을 추가하려면 4, 5 단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
+7.  두 끝점 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
 
 > [!NOTE]
 > *장애 조치* 트래픽 라우팅 방법을 사용하여 프로필에서 끝점을 추가하거나 제거한 후에는 장애 조치 우선 순위 목록을 원하는 방식으로 정렬할 수 없습니다. 대신 구성 페이지에서 장애 조치 우선 순위 목록의 순서를 조정할 수 있습니다. 자세한 내용은 [장애 조치(Failover) 트래픽 라우팅 구성](traffic-manager-configure-failover-routing-method.md)을 참조하세요.
@@ -85,5 +83,4 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
 * [트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 * [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
 * [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

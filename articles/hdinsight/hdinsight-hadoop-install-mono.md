@@ -15,14 +15,12 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: fd284542e1de65f323f1e3a092689f847e025be6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="install-or-update-mono-on-hdinsight"></a>HDInsight에서 Mono 설치 또는 업데이트
 
 HDInsight 3.4 이상에서 특정 버전의 [Mono](https://www.mono-project.com)를 설치하는 방법을 알아봅니다.

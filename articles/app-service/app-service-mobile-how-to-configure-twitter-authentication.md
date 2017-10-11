@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1cd6ace16488cd6014db4249d4a209ac36485ed7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: afde020b7817dc58ecea24eb4a09cf93d0986eb2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Twitter 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -67,4 +66,3 @@ ms.lasthandoff: 03/09/2017
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure 포털]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>PowerShell로 Azure Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 > [!div class="op_single_selector"]
@@ -375,7 +374,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 다음 표에서는 데이터 수집 방법 및 Service Fabric에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10분 |
 
@@ -652,4 +651,3 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Service Fabric 이벤트 데이터를 볼 수 있습니다.
-

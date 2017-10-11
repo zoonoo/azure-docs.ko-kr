@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 164d5c644f120fa86e2b690649241892764b64b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -313,7 +312,7 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-* [사용자 프로비전 구성](active-directory-saas-workday-inbound-tutorial.md)
+* [사용자 프로비저닝 구성](active-directory-saas-workday-inbound-tutorial.md)
 
 
 
@@ -330,5 +329,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-
 

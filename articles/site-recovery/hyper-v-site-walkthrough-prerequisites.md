@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-without-vmm-to-azure-replication"></a>2단계: Azure에 Hyper-V(VMM 없음) 복제를 위한 필수 구성 요소 검토
 
 필수 구성 요소는 테이블에 요약되어 있습니다.
@@ -40,4 +38,3 @@ ms.lasthandoff: 07/21/2017
 
 - 전체 배포를 수행하는 경우 [3단계: 용량 계획](hyper-v-site-walkthrough-capacity.md)으로 이동합니다.
 - 간단한 테스트 배포를 수행하는 경우 [4단계: 네트워킹 계획](hyper-v-site-walkthrough-network.md)으로 이동합니다.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 9684a04b9ce12e6ca09e60909167f7557212c8be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -197,4 +196,3 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

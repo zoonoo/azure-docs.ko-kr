@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
@@ -132,4 +131,3 @@ IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니�
 
 ## <a name="additional-resources"></a>추가 리소스
 응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](troubleshoot-app-connection.md)을 참조하세요.
-

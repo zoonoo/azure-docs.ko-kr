@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub 시작 자습서
 
@@ -74,4 +73,3 @@ IoT 장치 또는 게이트웨이를 Azure IoT Hub에 연결합니다. 시작하
 [Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md
-

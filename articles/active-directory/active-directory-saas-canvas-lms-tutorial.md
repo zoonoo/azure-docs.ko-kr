@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2212b7a81b66d1afd1aa78d1487b07b6d7b84129
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>자습서: Canvas LMS와 Azure Active Directory 통합
 
@@ -289,5 +287,4 @@ Canvas의 경우 사용자 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-canvas-lms-tutorial/tutorial_general_203.png
-
 

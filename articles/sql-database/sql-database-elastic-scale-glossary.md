@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebd5224caa41efe61bdea14b4570005880f4411c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0fda4bb948bbed1c14d468519ba67cce9bc4e6c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-tools-glossary"></a>탄력적 데이터베이스 도구 용어집
 Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다. 
@@ -32,7 +30,7 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 
 **데이터베이스**: Azure SQL 데이터베이스 
 
-**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 응용 프로그램에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요.  **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**를 포함합니다.
+**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 응용 프로그램에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**를 포함합니다.
 
 **전역 분할된 데이터베이스 맵**: 분할 키와 **분할된 데이터베이스 집합** 내의 해당 분할된 데이터베이스 간 매핑 집합입니다. 전역 분할된 데이터베이스 맵은 **분할된 데이터베이스 맵 관리자**에 저장됩니다. **로컬 분할된 데이터베이스 맵**과 비교할 수 있습니다.
 
@@ -93,5 +91,4 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
-
 

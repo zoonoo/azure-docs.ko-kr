@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
 플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 응용 프로그램 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
@@ -432,4 +431,3 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
 
@@ -90,4 +88,3 @@ OMS를 통한 Surface Hub 모니터링은 등록된 다른 장치 모니터링�
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 통한 자세한 Surface Hub 데이터 보기
 * Surface Hub 문제 발생 시 알리는 [경고](log-analytics-alerts.md) 만들기
-

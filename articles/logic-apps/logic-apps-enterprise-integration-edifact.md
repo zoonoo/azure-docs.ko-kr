@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e3aeaee3a71ae8b024153996431fba203a1cdfce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합에 대한 EDIFACT 메시지를 Logic Apps과 교환
 
@@ -44,7 +42,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1.    [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다.
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다.
 
     > [!TIP]
     > **추가 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
@@ -87,7 +85,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **수신 설정**을 선택합니다.
+1.  **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
     **수신 설정**은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
@@ -160,7 +158,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 이 규약이 규약을 통해 파트너에게 보내는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **송신 설정**을 선택합니다.
+1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
     **송신 설정**은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
@@ -242,11 +240,11 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.    모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.    또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
+2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
 
     ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
@@ -255,5 +253,4 @@ EDIFACT 커넥터에 대 한 Swagger 세부 정보를 보려면 [EDIFACT](/conne
 
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-
 

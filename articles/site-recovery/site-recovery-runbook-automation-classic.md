@@ -14,14 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c91a1210e84d215449b98aae14bda490aa2cb156
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 0a248e7c3f39a35ac10dc6ac64e5cef7d152e033
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>클래식 포털에서 복구 계획에 Azure 자동화 Runbook 추가
 이 자습서에서는 Azure Site Recovery가 복구 계획에 확장성을 제공하는 Azure 자동화와 통합하는 방법을 설명합니다. 복구 계획은 보조 클라우드에 복제 및 Azure 시나리오에 복제 둘 다에 Azure Site Recovery를 사용하여 보호되는 가상 컴퓨터의 복구를 오케스트레이션할 수 있습니다. 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. Azure에 가상 컴퓨터의 장애를 복구하는 경우, Azure 자동화와의 통합은 복구 계획을 확대하고 runbook을 실행하는 기능을 제공하므로 강력한 자동화 작업이 가능합니다.
 
@@ -280,4 +278,3 @@ Azure로 장애 조치(Failover)를 실행하는 동안 Azure에 대해 보호�
 [Azure 자동화 개요](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure 자동화 개요")
 
 [Azure 자동화 스크립트 샘플](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 자동화 스크립트 샘플")
-

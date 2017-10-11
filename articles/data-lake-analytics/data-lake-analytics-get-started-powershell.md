@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -135,4 +133,3 @@ Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.c
 * 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
-

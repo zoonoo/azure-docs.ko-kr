@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Android에서 Engagement를 통합하는 방법
 > [!div class="op_single_selector"]
@@ -385,4 +384,3 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
-

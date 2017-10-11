@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: d5c735a4adbc59e9526ec4fd40720c5ec136d63d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환
 
@@ -148,4 +147,3 @@ sed -i -e "s/\r$//" build.sh
 IoT 게이트웨이를 사용하여 SensorTag의 메시지를 .json 형식으로 성공적으로 변환했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

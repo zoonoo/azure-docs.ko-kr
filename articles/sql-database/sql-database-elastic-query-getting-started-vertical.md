@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 594760d5c52ac3724a0b8dd882e76ca3302ee8ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보기)를 사용 하면 단일 연결 지점을 사용하여 여러 데이터베이스에 걸쳐 있는 T-SQL 쿼리를 실행할 수 있습니다. 이 항목은 [데이터베이스 수직 분할](sql-database-elastic-query-vertical-partitioning.md)에 적용됩니다.  

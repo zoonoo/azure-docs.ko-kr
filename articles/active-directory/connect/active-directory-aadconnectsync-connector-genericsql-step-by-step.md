@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>일반 SQL 커넥터 단계별 가이드
 이 항목은 단계별 가이드입니다. 이 항목에서는 간단한 샘플 HR 데이터베이스를 만들고 이를 사용하여 일부 사용자와 해당 그룹 멤버 자격을 가져옵니다.
@@ -203,4 +202,3 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
-

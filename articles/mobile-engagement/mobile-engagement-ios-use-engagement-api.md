@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>iOS에서 Engagement API를 사용하는 방법
 이 문서는 iOS에 Engagement를 통합하는 방법 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
@@ -268,4 +267,3 @@ extras 이벤트와 마찬가지로 `NSDictionary` 클래스도 응용 프로그
 위의 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
     {"birthdate":"1983-12-07","gender":"female"}
-

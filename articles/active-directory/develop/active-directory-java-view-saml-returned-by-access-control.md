@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d30b8222cd0590809b2fd5a1241394056c6338
-ms.openlocfilehash: ac91a1c753611f4002a930dadeaeba2fcd53a324
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법
 이 가이드에서는 Azure ACS(액세스 제어 서비스)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
@@ -197,4 +195,3 @@ ACS 기능을 자세히 살펴 보고 보다 정교한 시나리오를 실험하
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-

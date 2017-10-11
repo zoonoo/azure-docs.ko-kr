@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/10/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="monitoring-windows-server-containers-with-oms"></a>OMS를 사용하여 Windows Server 컨테이너 모니터링
 
 ## <a name="oms-containers-solution"></a>OMS 컨테이너 솔루션
@@ -53,7 +50,7 @@ OMS(Operations Management Suite) 팀은 컨테이너의 모니터링 및 진단�
 * 진단이 사용되도록 설정되어 있는지 확인(설정되어 있지 않으면 [가상 컴퓨터 확장 집합을 업데이트](/rest/api/virtualmachinescalesets/create-or-update-a-set)하여 설정)
 * Azure Marketplace를 통해 "Service Fabric 분석" 솔루션을 만들어 OMS 작업 영역 추가
 * 클러스터가 있는 리소스 그룹의 해당 Azure Storage 테이블(WAD에서 설정)에서 데이터를 선택하도록 Service Fabric 솔루션의 데이터 원본 편집
-* PowerShell을 통해 또는 가상 컴퓨터 확장 집합을 업데이트하여 [가상 컴퓨터 확장 집합에 대한 확장](/powershell/module/azurerm.compute/add-azurermvmssextension)으로 에이전트 추가(Resource Manager 템플릿을 수정하려는 경우에도 위와 동일한 링크 사용)
+* PowerShell을 통해 또는 가상 컴퓨터 크기 집합을 업데이트하여 [가상 컴퓨터 크기 집합에 대한 확장](/powershell/module/azurerm.compute/add-azurermvmssextension)으로 에이전트 추가(Resource Manager 템플릿을 수정하려는 경우에도 위와 동일한 링크 사용)
 
 ## <a name="2-deploy-a-container"></a>2. 컨테이너 배포
 

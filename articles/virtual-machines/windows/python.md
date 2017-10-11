@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
 [Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
@@ -576,5 +574,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../../resource-manager-troubleshoot-deployments-portal.md)
 - [Azure Python 라이브러리](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용
-
 

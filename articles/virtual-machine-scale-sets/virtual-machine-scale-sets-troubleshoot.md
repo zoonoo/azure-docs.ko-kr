@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결
 **문제** – VM Scale Sets을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale과 같은 템플릿을 배포했습니다. 크기 조정 규칙을 정의했으며 VM에 적용되는 부하의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고 원활하게 작동합니다.
@@ -84,4 +82,3 @@ ms.lasthandoff: 03/31/2017
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-

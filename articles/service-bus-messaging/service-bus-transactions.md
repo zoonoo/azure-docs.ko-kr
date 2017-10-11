@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2017
 ms.author: clemensv;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>서비스 버스 트랜잭션 처리의 개요
 이 문서에서는 Azure 서비스 버스의 트랜잭션 기능을 설명합니다. 논의의 대부분은 [Service Bus와의 원자적 트랜잭선 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)에서 다루고 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
@@ -82,5 +80,4 @@ using (scope = new TransactionScope())
 * [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
-
 

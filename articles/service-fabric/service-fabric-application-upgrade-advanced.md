@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar;chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
-ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 추가 또는 제거
@@ -100,4 +99,3 @@ app1/
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-

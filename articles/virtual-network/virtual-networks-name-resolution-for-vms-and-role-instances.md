@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
 ms.author: telmos
-translationtype: Human Translation
-ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
 ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>VM 및 역할 인스턴스에 대한 이름 확인
 IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할지에 따라 귀하가 만든 VM 및 역할 인스턴스가 서로 통신하도록 설정해야 할 수도 있습니다. IP 주소를 이용해 통신할 수도 있지만, 기억하기 쉽고 변경되지 않는 이름을 사용하면 보다 간편합니다. 
@@ -178,10 +178,4 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710)
 * [가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
 * [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

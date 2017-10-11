@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -454,5 +453,4 @@ Linux/HANA용 NetWeaver 7.5 다운로드:
 HANA SP12 Platform Edition 다운로드:
 
  ![HANA SP12 Platform Edition을 다운로드하기 위한 SAP 서비스 설치 및 업그레이드 창](./media/hana-get-started/image002.jpg)
-
 

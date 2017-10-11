@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ad4140eb1183094a67822ad92eabcd35101360b6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory 통합
 
@@ -117,7 +115,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     b. **식별자** 텍스트 상자에서 `https://<your company instance of SAP NetWeaver>` 패턴을 사용하여 URL을 입력합니다.
 
-    c. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 이러한 값을 얻으려면 [SAP NetWeaver 클라이언트 지원 팀](https://www.sap.com/support.html)에 문의하세요. 
@@ -229,5 +227,4 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [201]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_203.png
-
 

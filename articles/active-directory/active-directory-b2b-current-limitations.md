@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업의 제한 사항
 Azure AD(Azure Active Directory) B2B 공동 작업에는 이 문서에 설명된 제한 사항이 적용됩니다.
 
@@ -47,4 +44,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자 토큰](active-directory-b2b-user-token.md)
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
-

@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!NOTE]
@@ -511,5 +508,4 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 ## <a name="next-steps"></a>다음 단계
 * 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
 * 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
-
 

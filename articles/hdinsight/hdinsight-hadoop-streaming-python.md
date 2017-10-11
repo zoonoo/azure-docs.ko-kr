@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
@@ -209,4 +208,3 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
-

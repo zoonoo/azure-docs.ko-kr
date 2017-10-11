@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
-ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -73,7 +72,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>여러 테넌트의 Azure AD 계정에 대한 설정이 동기화됩니까?
 여러 Azure AD 테넌트의 여러 Azure 계정이 동일한 장치에 있는 경우 각 Azure AD 테넌트의 Azure RMS(Azure Rights Management)와 통신하도록 장치 레지스트리를 업데이트해야 합니다.  
 
-1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure 클래식 포털을 열고 Azure AD 테넌트를 선택합니다. 테넌트에 대한 GUID는 브라우저 주소 표시줄의 URL에 있습니다. 예:  `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure 클래식 포털을 열고 Azure AD 테넌트를 선택합니다. 테넌트에 대한 GUID는 브라우저 주소 표시줄의 URL에 있습니다. 예: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>**를 추가해야 합니다.
    **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 장치에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
@@ -129,4 +128,3 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-

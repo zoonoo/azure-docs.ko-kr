@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업에 대한 경고 모니터링
 경고는 이벤트 임계값을 만족하거나 초과한 서비스에서 나오는 응답입니다. 문제가 시작되는 시기를 아는 것은 비즈니스 비용을 낮게 유지하는 데 중요할 수 있습니다. 일반적으로 경고는 일정에 따라 발생하지 않으므로 경고가 발생한 후 가능한 빨리 아는 것이 유용합니다. 예를 들어 백업 또는 복원 작업이 실패할 경우 실패의 5분 내에서 경고가 발생합니다. 자격 증명 모음 대시보드의 백업 경고 타일에 중요 및 경고 수준 이벤트를 표시합니다. 백업 경고 설정에서 모든 이벤트를 볼 수 있습니다. 그러나 별개의 문제에 대해 작업하는 경우 경고가 발생하면 어떻게 하나요? 경고가 발생하는 시기를 모르면 조금 불편할 수도 있고 데이터를 손상시킬 수도 있습니다. 정확한 담당자가 경고를 인식하게 하려면 경고가 발생할 때 전자 메일을 통해 경고 알림을 보내도록 서비스를 구성합니다. 전자 메일 알림 설정에 대한 자세한 내용은 [알림 구성](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
@@ -117,11 +116,11 @@ ms.lasthandoff: 08/10/2017
 2. **이벤트** 메뉴에서 **필터**를 클릭하여 해당 블레이드를 엽니다.
 
     ![필터 블레이드 열기](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. **필터** 블레이드에서 **수준**, **시간 범위** 및 **호출자** 필터를 조정합니다. Recovery Services 자격 증명 모음에 대한 현재 정보를 제공하도록 설정되었기 때문에 다른 필터를 사용할 수 없습니다.
+3. **필터** 블레이드에서 **수준**, **시간 범위** 및 **호출자** 필터를 조정합니다. 복구 서비스 자격 증명 모음에 대한 현재 정보를 제공하도록 설정되었기 때문에 다른 필터를 사용할 수 없습니다.
 
     ![감사 로그 쿼리 세부 정보](./media/backup-azure-monitor-vms/filter-blade.png)
 
-    이벤트의 **수준**을 중요, 오류, 경고 또는 정보로 지정할 수 있습니다. 이벤트 수준의 조합을 선택할 수 있지만 하나 이상의 수준을 선택해야 합니다. 수준을 설정하거나 해제합니다. **시간 범위** 필터를 사용하면 이벤트 캡처에 대한 시간의 길이를 지정할 수 있습니다. 사용자 지정 시간 범위를 사용하는 경우 시작 및 종료 시간을 설정할 수 있습니다.
+    이벤트의 **수준** 을 중요, 오류, 경고 또는 정보로 지정할 수 있습니다. 이벤트 수준의 조합을 선택할 수 있지만 하나 이상의 수준을 선택해야 합니다. 수준을 설정하거나 해제합니다. **시간 범위** 필터를 사용하면 이벤트 캡처에 대한 시간의 길이를 지정할 수 있습니다. 사용자 지정 시간 범위를 사용하는 경우 시작 및 종료 시간을 설정할 수 있습니다.
 4. 필터를 사용하여 작업 로그를 쿼리할 준비가 되면 **업데이트**를 클릭합니다. **이벤트** 블레이드에 결과가 표시됩니다.
 
     ![작업 세부 정보](./media/backup-azure-monitor-vms/edited-list-of-events.png)
@@ -137,7 +136,7 @@ ms.lasthandoff: 08/10/2017
 
     ![열 블레이드](./media/backup-azure-monitor-vms/columns-blade.png)
 2. 특성을 선택하려면 확인란을 클릭합니다. 특성 확인란이 설정 및 해제됩니다.
-3. **이벤트** 블레이드의 특성 목록을 다시 설정하려면 **다시 설정**을 클릭합니다. 목록에서 특성을 추가 또는 제거한 후 **재설정**을 사용하여 이벤트 특성의 새 목록을 봅니다.
+3. **이벤트** 블레이드의 특성 목록을 다시 설정하려면 **다시 설정**을 클릭합니다. 목록에서 특성을 추가 또는 제거한 후 **재설정** 을 사용하여 이벤트 특성의 새 목록을 봅니다.
 4. **업데이트** 를 클릭하여 이벤트 특성의 데이터를 업데이트합니다. 다음 표는 각 특성에 대한 정보를 제공합니다.
 
 | 열 이름 | 설명 |
@@ -193,7 +192,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 ### <a name="limitations-on-alerts"></a>경고에 대한 제한
 이벤트 기반 경고에 다음과 같은 제한 사항이 적용됨:
 
-1. Recovery Services 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. Recovery Services 자격 증명 모음에서 가상 컴퓨터의 하위 집합에 대한 경고를 사용자 지정할 수 없습니다.
+1. 복구 서비스 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. 복구 서비스 자격 증명 모음에서 가상 컴퓨터의 하위 집합에 대한 경고를 사용자 지정할 수 없습니다.
 2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. "alerts-noreply@mail.windowsazure.com"에서 경고를 보냅니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다.
 
@@ -214,5 +213,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 Azure 서비스 전반에 걸쳐 이벤트, 작업 및 감사 로그에 대한 자세한 설명은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md)문서를 참조하세요.
 
-복구 지점에서 가상 컴퓨터를 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-restore-vms.md)을 확인합니다. 가상 컴퓨터를 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: Recovery Services 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. [Azure 가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)문서에서 VM 백업에 대한 관리 작업에 관하여 알아봅니다.
-
+복구 지점에서 가상 컴퓨터를 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-restore-vms.md)을 확인합니다. 가상 컴퓨터를 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: 복구 서비스 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. [Azure 가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)문서에서 VM 백업에 대한 관리 작업에 관하여 알아봅니다.

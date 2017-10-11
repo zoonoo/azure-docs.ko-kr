@@ -12,13 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 068adc72976ec8429312f1909d0fd65460b73e98
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 사용자 지정 정책을 사용하면 토큰, 세션 및 SSO(Single Sign-On) 구성에 대해 기본 정책을 통할 때와 동일한 제어가 제공됩니다.  각 설정에 대해 알아보려면 [여기](#active-directory-b2c-token-session-sso) 설명서를 참조하세요.
@@ -93,4 +91,3 @@ ACR의 경우 Key="AuthenticationContextReferenceClaimPattern"인 `<Item>`을 �
 **웹앱 세션 수명(분)** 웹앱 세션 수명을 변경하려면 `<SessionExpiryInSeconds>` 요소의 값을 수정해야 합니다.  기본 제공 정책의 기본값은 86400초(1440분)입니다.
 
 **웹앱 세션 시간 제한** 웹앱 세션 시간 제한을 변경하려면 `<SessionExpiryType>` 값을 수정해야 합니다.  적용 가능한 값은 `Absolute` 및 `Rolling`입니다.
-

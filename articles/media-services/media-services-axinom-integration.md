@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
 > [!div class="op_single_selector"]
@@ -201,5 +200,4 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 Axinom의 Kristjan Jõgi, Mingfei Yan 그리고 Amit Rajput에게 감사를 드립니다.
-
 

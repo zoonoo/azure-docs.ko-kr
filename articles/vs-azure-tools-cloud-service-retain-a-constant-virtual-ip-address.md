@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: c54c4c044bb4a6afd880fe101d7bb0cffdacb579
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Azure 클라우드 서비스의 가상 IP 주소를 일정하게 유지
 Azure에서 호스팅되는 클라우드 서비스를 업데이트하는 경우 서비스의 가상 IP 주소(VIP)가 변경되지 않는지 확인해야 할 수 있습니다. 많은 도메인 관리 서비스에서 도메인 이름을 등록하는 데 도메인 이름 시스템(DNS)을 사용합니다. DNS는 VIP가 동일하게 유지되는 경우에만 작동합니다. Azure 도구에서 **게시 마법사** 를 사용하여 클라우드 서비스를 업데이트할 때 VIP가 변경되지 않는지 확인할 수 있습니다. 클라우드 서비스에 대한 DNS 도메인 관리를 사용하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](cloud-services/cloud-services-custom-domain-name.md)을 참조하세요.
@@ -58,5 +57,4 @@ Azure에서 호스팅되는 클라우드 서비스를 업데이트하는 경우 
 
 ## <a name="next-steps"></a>다음 단계
 - [Visual Studio Azure 응용 프로그램 게시 마법사 사용](vs-azure-tools-publish-azure-application-wizard.md)
-
 

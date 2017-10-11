@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Site Recovery를 사용하여 Azure에 물리적 서버 복제
 
@@ -34,9 +32,9 @@ ms.lasthandoff: 06/29/2017
 [1단계: 아키텍처 검토](physical-walkthrough-architecture.md)로 이동합니다.
 
 
-## <a name="step-2-review-prerequisites"></a>2단계: 필수 조건 검토
+## <a name="step-2-review-prerequisites"></a>2단계: 필수 구성 요소 검토
 
-각 배포 구성 요소에 대한 필수 조건이 있는지 확인합니다.
+각 배포 구성 요소에 대한 필수 조건이 준비되어 있는지 확인합니다.
 
 - **Azure 필수 조건**: Microsoft Azure 계정, Azure 네트워크 및 저장소 계정이 필요합니다.
 - **온-프레미스 Site Recovery 구성 요소**: 컴퓨터가 온-프레미스 Site Recovery 구성 요소를 실행해야 합니다.
@@ -52,7 +50,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="step-4-plan-networking"></a>4단계: 네트워킹 계획
 
-장애 조치가 발생한 후에 Azure VM이 네트워크에 연결되어 있는지 및 IP 주소가 올바른지를 확인하기 위해 일부 네트워크 계획을 수행해야 합니다.
+장애 조치(failover)가 발생한 후에 Azure VM이 네트워크에 연결되어 있는지 및 IP 주소가 올바른지를 확인하기 위해 일부 네트워크 계획을 수행해야 합니다.
 
 [4단계: 네트워킹 계획](physical-walkthrough-network.md)으로 이동합니다.
 
@@ -98,5 +96,4 @@ ms.lasthandoff: 06/29/2017
 초기 복제가 완료되고 델타 복제가 실행된 후에 테스트 장애 조치를 실행하여 모든 항목이 예상대로 작동되는지 확인할 수 있습니다.
 
 [11단계: 테스트 장애 조치(Failover) 실행](physical-walkthrough-test-failover.md)으로 이동합니다.
-
 

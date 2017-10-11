@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b307051f2490e73e254c9904762b5187f6d1ae1a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 38476119c88aa7d4f6578fc1e3756e11951e804a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-iis-vm-with-powershell"></a>PowerShell을 사용하여 IIS VM 만들기
 
 이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만들고 Azure Virtual Machine DSC 확장을 사용하여 IIS를 설치합니다. 스크립트를 실행하면 가상 컴퓨터의 공용 IP 주소에서 기본 IIS 웹 사이트에 액세스할 수 있습니다.
@@ -67,4 +65,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 가상 컴퓨터 PowerShell 스크립트 샘플은 [Azure Windows VM 설명서](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-storage-security-overview"></a>Azure 저장소 보안 개요
 Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. Azure 저장소는 포괄적인 보안 기능 집합을 제공합니다.
@@ -99,4 +98,3 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/
 
 * [Azure 주요 자격 증명 모음이란?](../key-vault/key-vault-whatis.md)
 * [Azure 주요 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)
-

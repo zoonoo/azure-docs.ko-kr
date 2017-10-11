@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Azure Import/Export 도구 사용(클래식 배포 모델)
 
 Azure Import/Export 도구(WAImportExport.exe)는 Azure Import/Export 서비스의 작업을 만들고 관리하는 데 사용되어 Azure Blob Storage 내부 또는 외부로 대량의 데이터를 전송할 수 있게 해줍니다.

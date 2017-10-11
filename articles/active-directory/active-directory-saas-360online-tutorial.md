@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 629c7db04b0f9c880da6dfa8eac7fe14ecd8a215
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>자습서: 360 Online과 Azure Active Directory 통합
 
@@ -220,5 +218,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [201]: ./media/active-directory-saas-360online-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-360online-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-360online-tutorial/tutorial_general_203.png
-
 

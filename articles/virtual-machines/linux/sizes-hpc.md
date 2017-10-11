@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4962c26e6bf2ed36ce670cc78f4ecfcab871a8bf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: b7a3844ce86b4efac8a4fc3c2540e7b6460873a2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="high-performance-compute-linux-vm-sizes"></a>고성능 계산 Linux VM 크기
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
@@ -85,7 +83,6 @@ Microsoft의 무료 HPC 클러스터 및 작업 관리 솔루션인 [HPC Pack](h
 - Linux에서 RDMA를 사용하여 계산 집약적 크기를 배포하고 사용하려면 [MPI 응용 프로그램을 실행하기 위해 Linux RDMA 클러스터 설정](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
 - [ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
-
 
 
 

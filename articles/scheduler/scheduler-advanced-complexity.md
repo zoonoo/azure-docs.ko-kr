@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/19/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법
 ## <a name="overview"></a>개요
@@ -110,9 +108,9 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 
 *startTime*이 이전이고 *recurrence*가 있으나 *schedule*이 없는 경우에 어떻게 되는지 예를 보겠습니다.  현재 시간이 2015-04-08 13:00, *startTime*은 2015-04-07 14:00, *recurrence*는 2일마다, *frequency*는 일, *interval*은 2로 정의되어 있다고 가정합니다. *startTime*이 현재 시간보다 이전임에 유의하십시오.
 
-이러한 상황에서 *첫 번째 실행*은 2015-04-09 오후 2시가 됩니다.\. 스케줄러 엔진은 시작 시간에서 되풀이 실행 시간을 계산 합니다.  현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다.  따라서 이 경우, *startTime* 이 2015-04-07 오후 2:00이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2:00입니다.
+이러한 상황의 *첫 번째 실행* 14:00 2015-04-09 됩니다\. 스케줄러 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다.  현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다.  따라서 이 경우, *startTime* 이 2015-04-07 오후 2:00이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2:00입니다.
 
-startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에도 첫 번째 실행은 같습니다.\. 첫 번째 실행 후 후속 실행은 예약된 일정에 따라 계산됩니다. 따라서 2015-04-11 오후 2시, 2015-04-13 오후 2시, 2015-04-15 오후 2시가 됩니다.
+첫 번째 실행에서 것을 참고 startTime 2015-04-05 동일한 경우에도 해당 될 14시 또는 2015-04-01 14:00\ 합니다. 첫 번째 실행 후 후속 예외를 사용 하 여 예약 된 – 길 바랍니다. 2015-04-11 다음 2015-04-13 오후 2시 오후 2 시에 다음 2015-04-15 오후 2 시에 계산 됩니다 등입니다.
 
 마지막으로, 작업에 일정이 있을 경우 일정에 시간 및/또는 분이 설정되어 있지 않으면 첫 실행의 시간 및/또는 분이 기본값이 됩니다.
 
@@ -136,7 +134,7 @@ startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에�
 ## <a name="examples-recurrence-schedules"></a>예: 되풀이 일정
 다음은 일정 개체와 하위 요소에 초점을 맞춘 되풀이 일정의 다양한 예입니다.
 
-아래의 모든 일정은 *interval*이 1로 설정되어 있다고 가정합니다.\. 또한 *schedule*에 지정된 값에 따라 올바른 빈도를 가정해야 합니다. 즉, 빈도 "day"를 사용하고 일정에서 "monthDays"를 수정할 수 없습니다. 이러한 제한 사항은 위에 설명되어 있습니다.
+아래 모든 일정을 가정 하는 *간격* 1로 설정\. 또한 하나에 포함 된 내용에 따라 적합 한 주기를 가정해 야는 *일정* -예: 하나 및 사용할 수 없습니다 "day" 주파수 일정에 "되풀이할" 수정 했습니다. 이러한 제한 사항은 위에 설명되어 있습니다.
 
 | **예제** | **설명** |
 |:--- |:--- |
@@ -190,5 +188,4 @@ startTime이 2015-04-05 오후 2시 또는 2015-04-01 오후 2시인 경우에�
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
-
 

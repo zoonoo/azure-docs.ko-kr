@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="run-tasks-under-user-accounts-in-batch"></a>배치에서 사용자 계정으로 태스크 실행
 
 Azure 배치의 태스크는 항상 사용자 계정으로 실행됩니다. 기본적으로 태스크는 관리자 권한 없이 표준 사용자 계정으로 실행됩니다. 일반적으로는 이러한 기본 사용자 계정 설정만으로 충분합니다. 그러나 특정 시나리오에서는 태스크를 실행하려는 사용자 계정을 구성하는 것이 유용할 수 있습니다. 이 문서에서는 사용자 계정의 유형 및 시나리오에 맞게 구성하는 방법을 설명합니다.

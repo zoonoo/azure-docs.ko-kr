@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1590a66f215f0c093d24ff602c0ad951ba1e1eea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory 통합
 
@@ -173,7 +171,7 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하고 테스트하
 > [!NOTE] 
 >모바일 응용 프로그램에서 SAML 확인에 대한 최소값은 일주일로 설정되어 있습니다.
 
-모든 사용자에게 SAML 인증 요구 단추를 사용하여 모든 사용자에 대해 SAML 재설정을 강제 적용할 수도 있습니다.
+Require SAML authentication for all users now(모든 사용자에게 SAML 인증 요구) 단추를 사용하여 모든 사용자에 대해 SAML 다시 설정을 강제 적용할 수도 있습니다.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -273,5 +271,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-
 

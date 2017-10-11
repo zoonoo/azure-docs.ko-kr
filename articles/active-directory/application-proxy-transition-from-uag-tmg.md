@@ -15,12 +15,11 @@ ms.date: 07/27/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 6c9f70493155de6989b26fd4e8bcf1dff01c835c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
 
@@ -65,4 +64,3 @@ Azure AD 응용 프로그램 프록시는 유사한 제품과 비교할 때 다�
 
 - [Azure AD 응용 프로그램을 사용하여 온-프레미스 응용 프로그램에 대한 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
 - [Forefront TMG 및 UAG에서 응용 프로그램 프록시로 전환(영문)](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)
-

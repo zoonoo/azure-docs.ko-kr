@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 데이터베이스 Query Performance Insight
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
@@ -226,5 +224,4 @@ SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 [Query
 [7]: ./media/sql-database-query-performance/annotation-details.png
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
-
 

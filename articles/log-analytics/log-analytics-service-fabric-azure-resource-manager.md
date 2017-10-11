@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -54,7 +53,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 ![서비스 패브릭](./media/log-analytics-service-fabric/2.png)
 
-![Service Fabric](./media/log-analytics-service-fabric/3.png)
+![서비스 패브릭](./media/log-analytics-service-fabric/3.png)
 
 약관에 동의하고 **만들기**를 클릭하여 배포를 시작합니다. 배포가 완료되면 새 작업 영역 및 클러스터가 생성되고 WADServiceFabric*Event, WADWindowsEventLogs 및 WADETWEvent 테이블이 추가되는 것이 보입니다.
 
@@ -82,7 +81,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-- Azure Portal에서 Log Analytics 작업 영역을 시작합니다.
+- Azure 포털에서 Log Analytics 작업 영역을 시작합니다.
   ![서비스 패브릭](./media/log-analytics-service-fabric/6.png)
 - 왼쪽 창의 설정으로 이동하고 데이터 >> Windows 성능 카운터 >> "Add the selected performance counters(선택한 성능 카운터 추가)": ![Service Fabric](./media/log-analytics-service-fabric/7.png)을 선택합니다.
 - 로그 검색에서 다음 쿼리를 사용하여 노드에 대한 주요 메트릭을 살펴봅니다.
@@ -115,7 +114,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
     Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR
     ```
 
-    ![Service Fabric](./media/log-analytics-service-fabric/12.png)
+    ![서비스 패브릭](./media/log-analytics-service-fabric/12.png)
 
 [Operations Management Suite 블로그](https://blogs.technet.microsoft.com/msoms/tag/metrics/)의 Log Analytics에서 성능 메트릭에 대한 자세한 정보를 참조하세요.
 
@@ -153,7 +152,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 다음 표에서는 데이터 수집 방법 및 Service Fabric에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10분 |
 
@@ -165,4 +164,3 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 ## <a name="next-steps"></a>다음 단계
 
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Service Fabric 이벤트 데이터를 볼 수 있습니다.
-

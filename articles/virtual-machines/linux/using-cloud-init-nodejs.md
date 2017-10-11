@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Azure CLI 1.0에서 cloud-init를 사용하여 생성 중인 Linux VM 사용자 지정
 이 문서에서는 cloud-init 스크립트를 사용하여 호스트 이름 설정, 설치된 패키지 업데이트, 사용자 계정 관리를 수행하는 방법을 설명합니다.  VM을 만드는 중에 Azure CLI에서 cloud-init 스크립트를 호출합니다.  이 문서의 내용을 실행하기 위해 필요한 사항:
@@ -272,5 +271,4 @@ cloud-init은 부팅 시 Linux VM을 수정하는 표준 방식의 하나로 자
 [가상 컴퓨터 확장 및 기능 정보](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [VMAccess 확장을 사용하여 사용자, SSH 관리 및 Azure Linux VM의 디스크 검사 또는 복구](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

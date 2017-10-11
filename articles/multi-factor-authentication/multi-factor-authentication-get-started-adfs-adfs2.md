@@ -15,12 +15,11 @@ ms.date: 06/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 이 문서는 Azure Active Directory와 페더레이션되는 조직에 대해 온-프레미스 또는 클라우드에서 리소스의 보안을 유지하려고 작성되었습니다. 중요한 끝점에 대해 2단계 확인을 트리거할 수 있도록 Azure Multi-factor Authentication 서버를 사용하고 AD FS를 사용하도록 구성하여 리소스를 보호합니다.
@@ -117,4 +116,3 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
 
 <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

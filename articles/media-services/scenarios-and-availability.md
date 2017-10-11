@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5cdfd4dd90f5073d03071ef77c062d450210f5ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: d9994dd7bfb6b6bf949a7708c07651d667929ae4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -254,11 +253,10 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 ## <a name="next-steps"></a>다음 단계
 
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

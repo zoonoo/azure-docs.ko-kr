@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
 
@@ -73,7 +72,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     
     * Azure 리소스 그룹
     * Azure 가상 네트워크
-    * Azure Storage 계정
+    * Azure 저장소 계정
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 

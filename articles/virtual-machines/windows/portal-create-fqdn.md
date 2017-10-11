@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 2d5a555cd873222efcdb29e8eb3aaf128a24414b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Windows VM용 Azure Portal에서 정규화된 도메인 이름 만들기
 
@@ -39,5 +37,4 @@ ms.lasthandoff: 07/08/2017
 VM에 공용 IP 및 DNS 이름을 지정했으므로 IIS, SQL, SharePoint 등의 공용 응용 프로그램 프레임워크 또는 서비스를 배포할 수 있습니다.
 
 또한 Azure 배포 구축에 대한 팁을 보려면 [Resource Manager 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 읽어볼 수도 있습니다.
-
 

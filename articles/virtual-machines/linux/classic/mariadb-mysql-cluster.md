@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB(MySQL) 클러스터: Azure 자습서
 > [!IMPORTANT]
@@ -365,4 +364,3 @@ CLI에서 부하 분산 장치 프로브 간격을 15초로 설정합니다. 이
 [MariaDBs]:https://mariadb.org/en/about/
 [인증에 사용할 SSH 키를 만들고]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-

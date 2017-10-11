@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -139,6 +138,5 @@ Node.js에서 자격 증명 모음 관리 API와 자격 증명 모음 개체 API
 
 - [Microsoft Azure Key Vault 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 **IKey** 및 **IKeyResolver** 인터페이스를 제공합니다.
 - [Microsoft Azure Key Vault 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure Key Vault에 확장된 기능을 제공합니다.
-
 
 

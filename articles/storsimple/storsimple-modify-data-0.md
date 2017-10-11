@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
 ## <a name="overview"></a>개요
@@ -68,10 +68,4 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 ## <a name="next-steps"></a>다음 단계
 * DATA 0 이외의 네트워크 인터페이스를 구성하려면 [Azure 클래식 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 
 * 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

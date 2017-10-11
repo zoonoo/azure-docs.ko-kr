@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fe31dcb78c6713d93bf87e92ac12341d8692f679
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: d7d87045569fdc473333deae05f95d1df343b68c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Emulator Express를 사용하여 로컬 컴퓨터에서 Azure 클라우드 서비스 실행 및 디버그
 Emulator Express를 사용하여 관리자로 Visual Studio를 실행하지 않고 클라우드 서비스를 테스트 및 디버그할 수 있습니다. 클라우드 서비스의 요구 사항에 따라 Emulator Express 또는 전체 에뮬레이터를 사용하도록 프로젝트를 설정할 수 있습니다. 전체 에뮬레이터에 대한 자세한 내용은 [계산 에뮬레이터에서 Azure 응용 프로그램 실행](storage/common/storage-use-emulator.md)을 참조하세요.
@@ -55,4 +54,3 @@ Azure SDK 2.3 이상에서 Azure 프로젝트를 만들 때 Emulator Express가 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Services 디버그](https://msdn.microsoft.com/library/azure/ee405479.aspx)
-

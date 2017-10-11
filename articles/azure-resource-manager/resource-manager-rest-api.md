@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>리소스 관리자 REST API
 > [!div class="op_single_selector"]
@@ -254,4 +252,3 @@ Content-Type: application/json
 ## <a name="next-steps"></a>다음 단계
 
 - 비동기 REST 작업 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.
-

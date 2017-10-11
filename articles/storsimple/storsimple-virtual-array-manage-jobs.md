@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 ## <a name="overview"></a>개요
@@ -63,10 +64,4 @@ StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼�
 
 ## <a name="next-steps"></a>다음 단계
 [로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다.](storsimple-ova-web-ui-admin.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

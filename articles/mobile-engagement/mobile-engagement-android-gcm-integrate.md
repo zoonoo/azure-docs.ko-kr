@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>GCM과 Mobile Engagement를 통합하는 방법
 > [!IMPORTANT]
@@ -82,9 +82,3 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 Mobile Engagement에 GCM API 키에 대한 액세스 권한을 부여하려면 [이 가이드](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) 를 따르세요.
 
 [Google Play SDK]:https://developers.google.com/cloud-messaging/android/start
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

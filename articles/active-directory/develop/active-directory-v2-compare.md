@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 끝점의 달라진 점
 Azure Active Directory에 익숙하거나 이전에 Azure AD와 앱을 통합했다면 v2.0 끝점에서 예상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다.  이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.
@@ -127,4 +125,3 @@ V2.0 끝점에 의해 발급된 토큰의 클레임은 일반 공급 Azure AD �
 
 ## <a name="limitations"></a>제한 사항
 v2.0 끝점을 사용할 때 고려해야 할 몇 가지 제한 사항이 있습니다.  이 제한 사항 중 하나라도 특정 시나리오에 적용하는 경우 [v2.0 제한 사항 문서](active-directory-v2-limitations.md) 를 참조하세요.
-

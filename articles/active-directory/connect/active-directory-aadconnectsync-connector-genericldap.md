@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>일반 LDAP 커넥터 기술 참조
 이 문서에서는 일반 LDAP 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -270,4 +269,3 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 탐지하지
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>자습서: Menlo Security와 Azure Active Directory 통합
 
@@ -102,7 +100,7 @@ Menlo Security에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 1. Azure Portal의 **Menlo Security** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-On 구성][4]
+    ![Single Sign-on 구성][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -246,5 +244,4 @@ Menlo Security에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [201]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_203.png
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: aeb27a02ed624106afec5dbd98faacf5f400f89e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
@@ -184,4 +183,3 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](app-insights-asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](app-insights-monitor-web-app-availability.md)
 * [문제 해결](app-insights-troubleshoot-faq.md)
-

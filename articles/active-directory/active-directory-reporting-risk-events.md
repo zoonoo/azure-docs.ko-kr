@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -184,4 +183,3 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory ID 보호](active-directory-identityprotection.md)를 참조하세요.
  
-

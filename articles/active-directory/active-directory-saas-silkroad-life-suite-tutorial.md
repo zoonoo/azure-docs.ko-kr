@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>자습서: SilkRoad Life Suite와 Azure Active Directory 통합
 이 자습서에서는 SilkRoad Life Suite와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. 
@@ -136,13 +135,13 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     ![Azure AD Single Sign-On][21] 
  4. **Reply URL** 텍스트 상자에 값을 붙여 넣습니다.  
- 5. **다음**을 클릭합니다.
+ 5. **다음**을 누릅니다.
 
 6. **SilkRoad Life Suite의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD Single Sign-On][9]  
  1. 인증서 다운로드를 클릭하고 파일을 컴퓨터에 저장합니다.  
- 2. **다음**을 클릭합니다.
+ 2. **다음**을 누릅니다.
 
 7. **SilkRoad** 응용 프로그램에서 **인증 원본**을 클릭합니다.
    
@@ -208,7 +207,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
  1. 사용자 유형에서 조직의 새 사용자를 선택합니다.  
  2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다. 
- 3. **다음**을 클릭합니다.
+ 3. **다음**을 누릅니다.
 
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
@@ -217,7 +216,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
  2. **성** 텍스트 상자에 **Simon**을 입력합니다. 
  3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다. 
  4. **역할** 목록에서 **사용자**를 선택합니다.
- 5. **다음**을 클릭합니다.
+ 5. **다음**을 누릅니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
@@ -305,7 +304,6 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
-
 
 
 

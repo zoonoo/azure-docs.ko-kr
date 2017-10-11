@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지 보내기 및 받기
 
@@ -88,4 +87,3 @@ IoT Hub에서 장치로 메시지를 보내려면 다음 단계를 수행합니�
 IoT 장치와 Azure IoT Hub 간에 장치-클라우드 메시지를 모니터링하고 클라우드-장치 메시지를 보내는 방법을 알아보았습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

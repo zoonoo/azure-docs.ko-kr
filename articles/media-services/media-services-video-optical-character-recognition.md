@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: feb4d85270d3c2bee90280459ca2b8383aeca107
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환
 ## <a name="overview"></a>개요
@@ -354,5 +353,4 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 
 ## <a name="related-links"></a>관련 링크
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
-
 

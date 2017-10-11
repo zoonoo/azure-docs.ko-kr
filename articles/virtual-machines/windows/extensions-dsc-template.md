@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e85d5563a314964ad1ed43c693cdebe7a30297de
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 4292f9d8cd181073fdf0adff99fcb9624e0e9f55
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Windows VMSS 및 원하는 상태 구성
 이 문서에서는 [필요한 상태 구성 확장 처리기](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 위한 Resource Manager 템플릿에 대해 설명합니다. 
@@ -301,5 +300,4 @@ Azure Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일�
 Azure DSC 확장 처리기에 대한 자세한 내용은 [Azure 필요한 상태 구성 확장 처리기 소개](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview). 
-
 

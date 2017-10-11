@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
 Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  Azure Storage는 개발자가 새로운 시나리오를 지원할 대규모 응용 프로그램을 빌드할 수 있게 할 뿐만 아니라 Azure 가상 컴퓨터의 저장소 기반을 제공합니다.
@@ -212,4 +211,3 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="storage-limits"></a>저장소 제한
 * [저장소 서비스 제한](../../azure-subscription-service-limits.md#storage-limits)
-

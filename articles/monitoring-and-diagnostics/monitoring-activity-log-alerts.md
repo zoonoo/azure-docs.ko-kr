@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts"></a>활동 로그 경고 만들기
 
@@ -130,4 +129,3 @@ ms.lasthandoff: 08/24/2017
 - [서비스 상태 알림](monitoring-service-notifications.md)에 대해 자세히 알아보세요.
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)를 만듭니다.
 - [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)를 만듭니다.
-

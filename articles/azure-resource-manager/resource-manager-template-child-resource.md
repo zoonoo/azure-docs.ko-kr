@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Resource Manager 템플릿에서 자식 리소스의 이름 및 유형 설정
 템플릿을 만들 때는 부모 리소스와 관련된 자식 리소스를 포함해야 하는 경우가 자주 있습니다. 예를 들어 템플릿에 SQL Server 및 데이터베이스가 포함될 수 있습니다. SQL Server는 부모 리소스이며 데이터베이스는 자식 리소스입니다. 
@@ -88,4 +86,3 @@ ms.lasthandoff: 06/02/2017
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 작성 방법에 대한 권장 사항은 [Azure Resource Manager 템플릿 생성 모범 사례](resource-manager-template-best-practices.md)를 참조하세요.
 * 여러 자식 리소스를 만드는 예제는 [Azure Resource Manager 템플릿에서 리소스의 여러 인스턴스 배포](resource-group-create-multiple.md)를 참조하세요.
-

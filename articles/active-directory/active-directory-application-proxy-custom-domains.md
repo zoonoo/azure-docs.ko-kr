@@ -15,14 +15,12 @@ ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
 
 Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그램을 게시할 때 사용자가 원격으로 작업 중일 때 이동하도록 외부 URL을 만듭니다. 이 URL은 기본 도메인 *yourtenant.msappproxy.net*을 가져옵니다. 예를 들어 Expenses라는 앱을 게시한 경우 테넌트는 Contoso로 이름이 지정된 다음 외부 URL은 https://expenses-contoso.msappproxy.net이 됩니다. 자신의 도메인 이름을 사용하려는 경우 응용 프로그램에 대한 사용자 지정 도메인을 구성합니다. 
@@ -88,6 +86,5 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 * 게시된 앱에 대해 [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
 * [Azure AD에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)
-
 
 

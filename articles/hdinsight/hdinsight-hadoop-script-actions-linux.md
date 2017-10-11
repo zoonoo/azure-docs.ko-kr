@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -379,4 +378,3 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
-

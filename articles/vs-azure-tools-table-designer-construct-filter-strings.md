@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98b06b14ca7897cce884f6d80f998661cacb7ea4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>테이블 디자이너에 대한 필터 문자열 생성하기
 ## <a name="overview"></a>개요
@@ -95,4 +94,3 @@ DateTime 값을 필터링하려면 **datetime** 키워드를 지정하고 그 �
 다음 예제는 CustomerSince 속성이 2008년 7월 10일과 같은 경우 엔터티를 반환합니다.
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
-

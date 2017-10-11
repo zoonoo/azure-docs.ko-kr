@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 41d427862150d17e1ad726afc51114d6f62f5a8e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>클래식 배포 모델에서 Linux 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법
 > [!IMPORTANT] 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bdb30bc28c36ab9e969efc8be3b87b97e4027b39
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>복사 로그 파일로 Azure Import/Export 작업 상태 검토 | Microsoft Docs
 Microsoft Azure 가져오기/내보내기 서비스가 가져오기 또는 내보내기 작업과 연결된 드라이브를 처리하는 경우 blob을 가져오는 곳에서 또는 내보내는 곳으로 저장소 계정에 복사 로그 파일을 씁니다. 로그 파일에는 가져오거나 내보낸 각 파일에 대한 자세한 상태가 포함되어 있습니다. 완료된 작업의 상태를 쿼리할 때 각 복사 로그 파일에 대한 URL이 반환됩니다. 자세한 내용은 [작업 가져오기](/rest/api/storageservices/Get-Job3)를 참조하세요.  
 
@@ -42,4 +40,3 @@ Microsoft Azure 가져오기/내보내기 서비스가 가져오기 또는 내�
  * [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)   
  * [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-

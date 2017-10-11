@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -105,5 +104,4 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
-
 

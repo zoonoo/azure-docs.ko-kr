@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: fa6242cf7f9559ca394ffde2e5e734cb935b03dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>자습서: SensoScientific Wireless Temperature Monitoring System과 Azure Active Directory 통합
 
@@ -106,7 +104,7 @@ SensoScientific Wireless Temperature Monitoring System에서 Azure AD Single Sig
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-On 구성](./media/active-directory-saas-sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
 
 3. **SensoScientific Wireless Temperature Monitoring System 도메인 및 URL** 섹션에서 어떤 단계도 수행할 필요가 없습니다. 앱이 Azure와 이미 사전 통합되어 있기 때문입니다.
 
@@ -236,5 +234,4 @@ Azure AD 사용자가 SensoScientific Wireless Temperature Monitoring System에 
 [201]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_203.png
-
 

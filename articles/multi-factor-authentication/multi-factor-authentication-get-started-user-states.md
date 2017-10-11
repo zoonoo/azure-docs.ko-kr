@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법
 
 2단계 인증을 요구하는 두 가지 방법이 있습니다. 첫 번째 옵션은 각 개별 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 기억된 장치 기능이 설정되어 경우와 같이 몇 가지 예외를 제외하고는 항상 2단계 인증을 수행합니다. 두 번째 옵션은 특정 조건에서 2단계 인증을 요구하는 조건부 액세스 정책을 설정하는 것입니다.

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 2d77e95a4e99679686839959bf6330f1e29f870b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 64dec0bb789fe6e07975b1d403b6a37b5c2c2ed8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure를 통한 GEP의 글로벌 고객 접근 및 효율성 개선
 ![GEP 로고](./media/sql-database-implementation-gep/geplogo.png)
@@ -105,5 +103,4 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 * GEP의 부소장, 설계자 Huzaifa Matawala
 * GEP의 엔지니어링 관리자 Sathyan Narasingh
 * GEP의 데이터베이스 설계자 Deepa Velukutty
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="information-for-non-endorsed-distributions"></a>보증되지 않는 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -187,5 +186,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
   > 
 
 * 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
-
 

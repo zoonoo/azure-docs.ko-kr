@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 32c8a8dff533f726784fb52b9496c2cb50ecfde7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>자습서: itslearning과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 itslearning을 통합하는 방법에 대해 알아봅니다.
@@ -229,5 +227,4 @@ Itslearning에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 [201]: ./media/active-directory-saas-itslearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-itslearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-itslearning-tutorial/tutorial_general_203.png
-
 

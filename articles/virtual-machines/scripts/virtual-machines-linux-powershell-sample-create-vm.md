@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e7ac7c596bcc731761b0263678015ec661c699de
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 2bf1031e5481bbb662873f57904e889a2908e692
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>PowerShell로 완벽히 구성된 가상 컴퓨터 만들기
 
 이 스크립트는 Ubuntu 운영 체제에서 Azure Virtual Machine을 만듭니다. 스크립트를 실행하면 SSH를 통해 가상 컴퓨터에 액세스할 수 있습니다.
@@ -67,4 +65,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 가상 컴퓨터 PowerShell 스크립트 샘플은 [Azure Linux VM 설명서](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
-

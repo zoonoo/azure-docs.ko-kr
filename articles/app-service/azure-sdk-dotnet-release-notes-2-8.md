@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 81772fb5801ec620d1c1996509a275e4bb29fb12
-
-
+ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8, 2.8.1, 2.8.2
 ## <a name="overview"></a>개요
@@ -86,10 +86,4 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 [Azure SDK 2.8 발표 게시물](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

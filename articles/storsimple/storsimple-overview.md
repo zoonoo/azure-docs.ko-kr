@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
 ## <a name="overview"></a>개요
@@ -312,5 +311,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 보안](storsimple-8000-security.md)에 대해 알아봅니다.
-
 

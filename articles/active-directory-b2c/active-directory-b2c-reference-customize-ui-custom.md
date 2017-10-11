@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -98,24 +95,24 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 9. **액세스 유형**으로 **Blob**을 선택합니다. **만들기**를 클릭합니다.
 10. 만든 컨테이너는 **Blob service 블레이드**에서 목록에 표시됩니다.
 11. **Blob** 블레이드를 닫습니다.
-12.    **저장소 계정 블레이드**에서 **키** 아이콘을 클릭합니다. **액세스 키 블레이드**가 열립니다.  
-13.    **key1**의 값을 기록해 둡니다. 이 값은 나중에 *key1*로 참조됩니다.
+12. **저장소 계정 블레이드**에서 **키** 아이콘을 클릭합니다. **액세스 키 블레이드**가 열립니다.  
+13. **key1**의 값을 기록해 둡니다. 이 값은 나중에 *key1*로 참조됩니다.
 
 ## <a name="downloading-the-helper-tool"></a>도우미 도구 다운로드
 
-1.    [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)에서 도우미 도구를 다운로드합니다.
-2.    *B2C-AzureBlobStorage-Client-master.zip* 파일을 로컬 컴퓨터에 저장합니다.
-3.    로컬 디스크에 B2C-AzureBlobStorage-Client-master.zip 파일의 콘텐츠를 추출합니다(예: **UI-Customization-Pack** 폴더 아래). 그러면 그 아래 *B2C-AzureBlobStorage-Client-master* 폴더가 생성됩니다.
-4.    폴더를 열고 그 안에 있는 아카이브 파일 *B2CAzureStorageClient.zip*의 콘텐츠를 추출합니다.
+1.  [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)에서 도우미 도구를 다운로드합니다.
+2.  *B2C-AzureBlobStorage-Client-master.zip* 파일을 로컬 컴퓨터에 저장합니다.
+3.  로컬 디스크에 B2C-AzureBlobStorage-Client-master.zip 파일의 콘텐츠를 추출합니다(예: **UI-Customization-Pack** 폴더 아래). 그러면 그 아래 *B2C-AzureBlobStorage-Client-master* 폴더가 생성됩니다.
+4.  폴더를 열고 그 안에 있는 아카이브 파일 *B2CAzureStorageClient.zip*의 콘텐츠를 추출합니다.
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>UI-Customization-Pack 샘플 파일 업로드
 
-1.    Windows 탐색기를 사용하여 이전 섹션에서 생성한 *UI-Customization-Pack* 폴더 아래에 있는 *B2C-AzureBlobStorage-Client-master* 폴더로 이동합니다.
-2.    *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
-3.    메시지가 표시되면 다음을 지정합니다. a.    저장소 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
-    b.    Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
-    c.    Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
-    d.    *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
+1.  Windows 탐색기를 사용하여 이전 섹션에서 생성한 *UI-Customization-Pack* 폴더 아래에 있는 *B2C-AzureBlobStorage-Client-master* 폴더로 이동합니다.
+2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
+3.  메시지가 표시되면 다음을 지정합니다. a.  저장소 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
+    b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
+    c.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
+    d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
 
 위 단계를 따랐다면 **wingtiptoys**라는 가상의 회사에 대한 *UI-Customization-Pack*의 HTML5 및 CSS 파일은 이제 사용자의 저장소 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 블레이드를 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
 
@@ -162,9 +159,9 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 | 콘텐츠 정의 ID | 설명 |
 |-----------------------|-------------|
-| *api.error* | **오류 페이지**. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
-| *api.idpselections* | **ID 공급자 선택 페이지**. 이 페이지는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
-| *api.idpselections.signup* | **등록을 위한 ID 공급자 선택**. 이 페이지는 등록하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
+| *api.error* | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
+| *api.idpselections* | **ID 공급자 선택 페이지**입니다. 이 페이지는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
+| *api.idpselections.signup* | **등록을 위한 ID 공급자 선택 페이지**입니다. 이 페이지는 등록하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
 | *api.localaccountpasswordreset* | **암호 찾기 페이지**. 이 페이지에는 사용자가 자신의 암호 재설정을 시작하기 위해 입력해야 하는 양식이 들어 있습니다.  |
 | *api.localaccountsignin* | **로컬 계정 로그인 페이지**. 이 페이지는 이메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정에 로그인하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식에는 텍스트 입력 상자 및 암호 입력란이 포함될 수 있습니다. |
 | *api.localaccountsignup* | **로컬 계정 등록 페이지**. 이 페이지는 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정을 등록하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
@@ -175,4 +172,3 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 ## <a name="next-steps"></a>다음 단계
 [참조: B2C에서 사용자 지정 정책과 Identity Experience Framework가 작동하는 방식 이해](active-directory-b2c-reference-custom-policies-understanding-contents.md)
-

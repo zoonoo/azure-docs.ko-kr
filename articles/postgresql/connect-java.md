@@ -11,14 +11,12 @@ ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 93ee612764e8f74943e0a847969fb1220b3bdee1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Java 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
@@ -391,4 +389,3 @@ public class DeleteTable {
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
-

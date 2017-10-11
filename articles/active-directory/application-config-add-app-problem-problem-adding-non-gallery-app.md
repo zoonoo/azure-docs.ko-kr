@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2dd8ed2cc0cd9575dcc56f489afa19a41cc9c10a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bb3fc7877f4e7cafc3904fc67abd87b897874d8a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-adding-a-non-gallery-application"></a>비갤러리 응용 프로그램을 추가할 때 발생하는 문제
 
 이 문서는 **사용자 지정 비갤러리 응용 프로그램**을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업을 이해하는 데 도움이 됩니다. 
@@ -131,7 +129,6 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
-
 
 
 

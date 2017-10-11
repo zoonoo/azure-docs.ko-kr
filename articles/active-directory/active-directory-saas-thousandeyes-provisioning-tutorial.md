@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e6bc2eab3cc1adcf26857ed98d920177a51455ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="tutorial-configuring-thousandeyes-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 ThousandEyes 구성
 
 
@@ -94,7 +92,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 [사용자 및 그룹] 섹션에서 ThousandEyes에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 보고서를 확인할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)를 참조하세요.
+Azure AD 프로비전 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비전에 대한 보고](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스
@@ -105,4 +103,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](active-directory-saas-provisioning-reporting.md).
-

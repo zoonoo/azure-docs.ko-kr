@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 동적 SQL
 SQL 데이터 웨어하우스용 응용 프로그램 코드를 개발할 때 유연하고 일반적인 모듈식 솔루션을 제공하기 위해 동적 SQL을 사용해야 할 수 있습니다. SQL 데이터 웨어하우스는 현재 Blob 데이터 형식을 지원하지 않습니다. 따라서 Blob 유형에 varchar(max) 및 nvarchar(max) 형식이 모두 포함되므로 문자열 크기가 제한될 수 있습니다. 매우 큰 문자열을 작성할 때 이러한 형식을 응용 프로그램 코드에 사용하는 경우 코드를 청크로 나누고 EXEC 문을 대신 사용해야 합니다.
@@ -54,4 +53,3 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 [sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
-

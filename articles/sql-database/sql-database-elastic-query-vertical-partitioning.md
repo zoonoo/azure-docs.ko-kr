@@ -14,14 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
@@ -196,4 +193,3 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 
 <!--anchors-->
-

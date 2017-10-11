@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-translationtype: Human Translation
-ms.sourcegitcommit: f68563587d375dde22fd1ca45591fd49042533d0
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure Automation 시나리오 - Visual Studio Team Services와 Automation 소스 제어 통합
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2017
 
 ## <a name="getting-the-scenario"></a>시나리오 가져오기
 
-이 시나리오는 Azure 포털의 [Runbook 갤러리](automation-runbook-gallery.md)에서 직접 가져오거나 [PowerShell 갤러리](https://www.powershellgallery.com)에서 다운로드할 수 있는&2;개의 PowerShell runbook으로 구성됩니다.
+이 시나리오는 Azure 포털의 [Runbook 갤러리](automation-runbook-gallery.md)에서 직접 가져오거나 [PowerShell 갤러리](https://www.powershellgallery.com)에서 다운로드할 수 있는 2개의 PowerShell runbook으로 구성됩니다.
 
 ### <a name="runbooks"></a>Runbook
 
@@ -100,4 +100,3 @@ VSAccessTokenVariableName | VSTS 개인 액세스 토큰을 보유하는 보안 
 VSTS에 의해 트리거되지 않고 수동으로 이 runbook을 실행하는 경우 webhookdata 매개 변수를 비워 둘 수 있습니다. 그러면 지정된 VSTS 폴더에서 전체 동기화가 수행됩니다.
 
 이 시나리오를 제거하려면 VSTS에서 서비스 후크를 제거하고 runbook 및 VSToken 변수를 삭제합니다.
-

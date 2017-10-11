@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
 ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Azure 가상 컴퓨터에 OpenShift Origin 배포 
 
 [OpenShift Origin](https://www.openshift.org/)은 [Kubernetes](https://kubernetes.io/)를 기반으로 하는 오픈 소스 컨테이너 플랫폼입니다. 다중 테넌트 응용 프로그램의 배포, 크기 조정 및 운영 프로세스를 간소화합니다. 
@@ -164,4 +162,3 @@ az group delete --name myResourceGroup
 > * [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index)를 설치 및 구성하여 클러스터를 관리합니다.
 
 이제 해당 OpenShift Origin 클러스터가 배포되었습니다. OpenShift 자습서를 수행하여 첫 번째 응용 프로그램을 배포하고 OpenShift 도구를 사용하는 방법에 대해 알아볼 수 있습니다. 시작하려면 [OpenShift Origin 시작](https://docs.openshift.org/latest/getting_started/index.html)을 참조하세요. 
-

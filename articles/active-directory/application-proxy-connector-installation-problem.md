@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 3dabb8adb67345c56750bb88373f5f740aa19036
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 91b3f6f3c8339647f568a509e9efd8e1fffb13dd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
 Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결을 사용하여 클라우드 사용 가능 끝점에서 내부 도메인으로의 연결을 설정하는 내부 도메인 구성 요소입니다.
@@ -72,4 +70,3 @@ Microsoft AAD 응용 프로그램 프록시 커넥터는 아웃바운드 연결�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
-

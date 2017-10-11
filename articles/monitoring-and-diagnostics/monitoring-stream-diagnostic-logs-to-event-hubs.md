@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Event Hubs 네임스페이스로 Azure 진단 로그 스트림
 포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 진단 설정에서 Service Bus 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.
@@ -43,13 +42,13 @@ ms.lasthandoff: 08/24/2017
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 Event Hubs 사용에 대해서는 여기 Dan Rosanova의 가이드를 참조하세요.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** – 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 이벤트 허브의 확장성 높은 게시-구독 특성을 통해 진단 로그를 유연하게 수집할 수 있습니다. [글로벌 확장 원격 분석 플랫폼에 이벤트 허브 사용에 대해서는 여기 Dan Rosanova의 가이드를 참조하세요.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>진단 로그의 스트리밍 사용
 프로그래밍 방식으로 포털을 통하거나 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)를 사용하여 진단 로그의 스트리밍을 사용하도록 설정할 수 있습니다. 어느 쪽이든 Event Hubs 네임스페이스를 지정하는 로그 설정과 네임스페이스로 전송하려는 로그 범주 및 메트릭을 만듭니다. 이벤트 허브는 활성화한 각 로그 범주에 대한 네임스페이스에서 생성됩니다. 진단 **로그 범주**는 리소스가 수집할 수 있는 로그 형식입니다.
 
 > [!WARNING]
-> Compute 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> 계산 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
 
@@ -87,7 +86,7 @@ ms.lasthandoff: 08/24/2017
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-Service Bus 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`입니다.
+서비스 버스 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`입니다.
 
 ### <a name="via-azure-cli"></a>Azure CLI를 통해
 [Azure CLI](insights-cli-samples.md)를 통해 스트리밍을 사용하도록 설정하려면 다음과 같이 `insights diagnostic set` 명령을 사용하면 됩니다.
@@ -96,9 +95,9 @@ Service Bus 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-PowerShell Cmdlet에 대해 설명한 것처럼 Service Bus 규칙 ID와 동일한 형식을 사용합니다.
+PowerShell Cmdlet에 대해 설명한 것처럼 서비스 버스 규칙 ID와 동일한 형식을 사용합니다.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Event Hubs에서 로그 데이터를 사용하려면 어떻게 하나요?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>이벤트 허브에서 로그 데이터를 사용하려면 어떻게 하나요?
 다음은 Event Hubs의 샘플 출력 데이터입니다.
 
 ```json
@@ -174,11 +173,10 @@ PowerShell Cmdlet에 대해 설명한 것처럼 Service Bus 규칙 ID와 동일�
 
 Event Hubs로의 스트리밍을 지원하는 모든 리소스 공급자의 목록을 [여기](monitoring-overview-of-diagnostic-logs.md)에서 볼 수 있습니다.
 
-## <a name="stream-data-from-compute-resources"></a>Compute 리소스의 스트림 데이터
+## <a name="stream-data-from-compute-resources"></a>계산 리소스의 스트림 데이터
 Windows Azure 진단 에이전트를 사용하여 Compute 리소스에서 진단 로그를 스트림할 수도 있습니다. 설정하는 방법은 [이 문서를 참조](../event-hubs/event-hubs-streaming-azure-diags-data.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
-* [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
+* [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 

@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할을 만드는 방법
 ## <a name="overview"></a>개요
@@ -214,4 +213,3 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
-

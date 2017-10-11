@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
@@ -239,4 +237,3 @@ new CloudTask("B", "cmd.exe /c echo B")
 [1]: ./media/batch-task-dependency/01_one_to_one.png "다이어그램: 일대일 종속성"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "다이어그램: 일대다 종속성"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "다이어그램: 태스크 ID 범위 종속성"
-

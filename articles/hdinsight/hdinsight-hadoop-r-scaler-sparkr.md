@@ -16,14 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
 이 문서는 **SparkR**과 조인된 항공기 지연 및 날씨에 대한 데이터에서 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공기 도착 지연을 예측하는 방법을 보여줍니다. 이 시나리오에서는 분석을 위해 Microsoft R Server와 함께 사용하는 Spark에서 데이터를 조작하기 위한 ScaleR의 기능을 보여줍니다. 이러한 기술 조합을 통해 분산 처리에서 최신 기능을 적용할 수 있습니다.
@@ -561,4 +559,3 @@ SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 - [Apache SparkR 문서](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - Databricks의 [SparkR 개요](https://docs.databricks.com/spark/latest/sparkr/overview.html)(영문)
-

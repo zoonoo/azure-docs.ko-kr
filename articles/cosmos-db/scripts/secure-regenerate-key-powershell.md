@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 610701a56eb2eea771061577e50758f0103d9a50
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 187d7b0839e1cd94122d4455c11eda05673f5acc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정 키 재생성
 
 이 샘플은 Azure CLI를 사용하여 모든 종류의 Azure Cosmos DB 계정 키를 재생성합니다.  

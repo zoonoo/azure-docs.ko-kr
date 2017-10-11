@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>자습서: Intacct와 Azure Active Directory 통합
 
@@ -108,7 +106,7 @@ Intacct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
     ![Single Sign-on 구성](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_samlbase.png)
 
-3. **도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3.  **도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_url.png)
 
@@ -275,5 +273,4 @@ Azure AD 사용자가 Intacct에 로그인할 수 있도록 설정하려면 Inta
 [201]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_203.png
-
 

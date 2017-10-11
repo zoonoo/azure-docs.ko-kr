@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: a3ecc555e049914d7bffdddce7b0522f09362d24
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-8-set-up-a-replication-policy"></a>8단계: 복제 정책 설정
 
@@ -77,4 +76,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>다음 단계
 
 [9단계: 복제 활성화](vmm-to-vmm-walkthrough-enable-replication.md)로 이동합니다.
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>클래식 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
@@ -168,10 +168,4 @@ ARP 테이블은 계층 2 구성의 유효성을 검사하고 기본적인 계�
   * 라우트 테이블에서 Express 경로에 접두사가 보급되었는지 확인
 * 바이트 입출력을 검토하여 데이터 전송의 유효성 검사
 * 여전히 문제가 해결되지 않을 경우 [Microsoft Azure 도움말+지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 을 사용하여 지원 요청을 엽니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

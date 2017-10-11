@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 79bb96171c00fa62f24113800c3824856febe728
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -68,5 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 [AD Graph REST 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
-
 

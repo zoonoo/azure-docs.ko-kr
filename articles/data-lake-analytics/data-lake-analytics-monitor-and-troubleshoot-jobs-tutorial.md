@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 문제 해결
 Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해결하는 방법에 대해 알아봅니다.
@@ -85,4 +83,3 @@ OUTPUT @searchlog
 * [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 * [Visual Studio를 사용하여 Azure 데이터 레이크 분석 및 U-SQL 시작](data-lake-analytics-u-sql-get-started.md)
 * [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
-

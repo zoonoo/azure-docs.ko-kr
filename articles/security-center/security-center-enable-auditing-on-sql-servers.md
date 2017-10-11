@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 SQL 서버에 대한 감사 및 위협 감지 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 **SQL 서버에 감사 및 위협 감지 사용**을 구현하는 방법을 보여 줍니다."
+description: "이 문서는 Azure 보안 센터 권장 구성을 구현 하는 방법을 보여줍니다. * * SQL 서버 * *에서 감사를 사용 하도록 설정 및 위협 검색 합니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 660b537aef8d175a478ff93d60b8391d55fc92ad
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Azure Security Center에서 SQL 서버에 대한 감사 및 위협 감지 사용
 감사 및 위협 감지를 아직 사용하도록 설정하지 않은 경우 Azure SQL 서버의 모든 데이터베이스에 대한 감사를 켜는 것이 좋습니다. 감사 및 위협 감지는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
@@ -63,4 +62,3 @@ ms.lasthandoff: 03/31/2017
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-

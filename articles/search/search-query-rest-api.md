@@ -13,14 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 쿼리
 > [!div class="op_single_selector"]
 >
@@ -165,4 +163,3 @@ api-key: [query key]
 ```
 
 자세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 "응답" 섹션을 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
-

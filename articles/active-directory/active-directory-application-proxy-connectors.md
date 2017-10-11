@@ -15,16 +15,15 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: fc65c4053c45d9c16c62ee0fe65924133a4bb94a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-application-proxy-connectors.md)
 >
 >
@@ -70,4 +69,3 @@ ms.lasthandoff: 08/01/2017
 * [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ce323880100706accf0c08c9929d20908c6198cb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-content"></a>Windows Phone Silverlight SDK 콘텐츠
 이 문서는 응용 프로그램에서 SDK가 배포한 콘텐츠를 나열하고 설명합니다.
@@ -33,5 +32,4 @@ ms.lasthandoff: 11/17/2016
 * `EngagementIconCloseLight.png` : Windows Phone 밝은 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
 * `EngagementIconCloseDark.png`: Windows Phone 어두운 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
 * `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
-
 

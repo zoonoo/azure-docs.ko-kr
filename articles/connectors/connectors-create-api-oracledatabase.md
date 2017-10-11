@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -136,4 +135,3 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱을 만들고](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 커넥터를 확인하세요.
-

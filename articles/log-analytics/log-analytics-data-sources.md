@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
 Log Analytics는 OMS 작업 영역의 연결된 원본에서 데이터를 수집하여 OMS 리포지토리에 저장합니다.  각 원본에서 수집되는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  OMS 리포지토리의 데이터는 레코드 집합으로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -68,4 +66,3 @@ Log Analytics에서 수집된 모든 데이터는 OMS 리포지토리에 레코�
 * Log Analytics에 기능을 추가하고 OMS 리포지토리로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md) 에 대해 알아봅니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 데이터 원본 및 솔루션에서 수집된 중요한 데이터를 사전에 알리도록 [경고](log-analytics-alerts.md)를 구성합니다.
-

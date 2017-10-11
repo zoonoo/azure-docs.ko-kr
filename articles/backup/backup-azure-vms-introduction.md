@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0c930c7413b24a811707c3a1ff3d7d70585bc528
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
 이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 백업 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-vms.md)을 시작하기 전의 다음 단계입니다. Azure 가상 컴퓨터에 대한 자세한 내용은 [가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
@@ -153,4 +152,3 @@ VM 백업 비용은 가상 컴퓨터에 연결된 각 데이터 디스크의 최
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 * [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 * [VM 백업 문제 해결](backup-azure-vms-troubleshoot.md)
-

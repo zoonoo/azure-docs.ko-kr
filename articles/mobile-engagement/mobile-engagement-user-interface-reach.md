@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>푸시 알림으로 응용 프로그램의 사용자에게 알리는 방법
 이 문서에서는 **Mobile Engagement** 포털의 **도달률** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 자세한 내용은 [Azure Mobile Engagement 계정 만들기](mobile-engagement-create.md)를 참조하세요.
@@ -175,5 +174,4 @@ UI의 도달률 섹션은 푸시 알림 캠페인과 기능을 작성/편집/활
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 가상 컴퓨터를 장애 조치(failover)한 후 가상 컴퓨터를 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -401,4 +400,3 @@ VMware 도구가 데이터 저장소를 찾을 수 있도록 마스터 대상에
 * 일부 고객의 일부 사용자 지정 NIC 구성 때문에 부팅 시에 네트워크 인터페이스가 비활성화되고 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
     * BOOTPROTO=dhcp
     * ONBOOT=yes
-

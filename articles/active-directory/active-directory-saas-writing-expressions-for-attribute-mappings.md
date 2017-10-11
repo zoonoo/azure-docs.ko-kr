@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -238,5 +236,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-
 

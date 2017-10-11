@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4688fc4bc74a9e0e04487cfbe965006070fd9a7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-with-vmm-to-azure"></a>11단계: Azure로의 Hyper-V 복제(VMM 포함)를 위한 테스트 장애 조치(failover) 실행
 
 [Hyper-V VM을 복제하도록 설정](vmm-to-azure-walkthrough-enable-replication.md)한 후 이 문서의 내용을 참조하여 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용해 System Center Virtual Machine Manager(VMM) 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터에서 Azure로의 테스트 장애 조치(failover)를 실행할 수 있습니다.
@@ -100,5 +98,4 @@ ms.lasthandoff: 08/21/2017
 
 - 여러 장애 조치 유형 및 장애 조치 실행 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
 - Azure VM을 장애 복구하고 기본 온-프레미스 VMM 클라우드로 다시 복제하는 [장애 복구(failback)에 대해 알아보세요](site-recovery-failback-from-azure-to-hyper-v.md).
-
 

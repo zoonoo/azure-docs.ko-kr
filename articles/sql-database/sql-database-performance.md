@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.
@@ -78,5 +76,4 @@ Azure SQL Database는 자동으로 [성능 권장 사항](sql-database-advisor.m
 ## <a name="additional-resources"></a>추가 리소스
 * [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md)
 * [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
-
 

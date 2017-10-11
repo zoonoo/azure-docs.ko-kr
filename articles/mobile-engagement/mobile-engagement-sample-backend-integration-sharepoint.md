@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API 통합
 자동화된 마케팅 시스템에서는 마케팅 캠페인을 만들고 활성화하는 작업도 자동으로 수행됩니다. 이를 위해 Azure Mobile Engagement에서는 API를 사용하여 이런 자동화된 마케팅 캠페인을 만들 수 있습니다. 
@@ -201,7 +200,6 @@ ms.lasthandoff: 03/01/2017
 [3]: ./media/mobile-engagement-sample-backend-integration-sharepoint/new-announcement.png
 [4]: ./media/mobile-engagement-sample-backend-integration-sharepoint/activate-announcement.png
 [5]: ./media/mobile-engagement-sample-backend-integration-sharepoint/diagram.png
-
 
 
 

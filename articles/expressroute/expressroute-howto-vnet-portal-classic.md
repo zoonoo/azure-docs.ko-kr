@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>클래식 포털에서 Express 경로에 대한 가상 네트워크 만들기
 이 문서의 단계에서는 클래식 배포 모델 및 클래식 포털을 사용하여 ExpressRoute와 함께 사용할 가상 네트워크 및 가상 네트워크 게이트웨이를 구성하는 과정을 안내합니다.
@@ -76,5 +75,4 @@ Resource Manager 배포 모델에 대한 지침을 보려는 경우 [PowerShell�
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터를 가상 네트워크에 추가하려면 [가상 컴퓨터 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)를 참조하세요.
 * Express 경로에 대한 자세한 내용은 [Express 경로 개요](expressroute-introduction.md)를 참조하세요.
-
 

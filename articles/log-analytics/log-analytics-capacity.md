@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 컴퓨터 용량 계획(미리 보기)
 
@@ -147,4 +146,3 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
-

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>SAP 커넥터를 사용하여 Logic Apps에서 온-프레미스 SAP 시스템에 연결 
 
 온-프레미스 데이터 게이트웨이를 사용하면 온-프레미스에 있는 데이터를 관리하고 리소스에 안전하게 액세스할 수 있습니다. 이 항목에서는 온-프레미스 SAP 시스템에 Logic Apps를 연결하는 방법을 보여 줍니다. 이 예제에서 논리 앱은 HTTP를 통한 IDOC를 요청하고 응답을 다시 보냅니다.    
@@ -92,4 +90,3 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps �
 
 - [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에서 유효성 검사, 변환을 수행하는 방법과 기타 BizTalk 유사 함수에 대해서도 알아봅니다. 
 - Logic Apps에서 [온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)
-

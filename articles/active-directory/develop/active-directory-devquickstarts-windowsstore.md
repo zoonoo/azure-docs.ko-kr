@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Azure AD와 Windows 스토어 앱 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -163,4 +162,3 @@ ADAL은 이 모든 일반적인 ID 기능을 앱에 쉽게 통합할 수 있습�
 이제 추가 ID 시나리오로 이동할 수 있습니다. 예를 들어 [Azure AD를 사용하여 .NET Web API 보안 유지](active-directory-devquickstarts-webapi-dotnet.md)를 시도해 보세요.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

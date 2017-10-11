@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>통합 계정에서 B2B 통신에 대한 진단 로깅 모니터링 및 설정
 
 통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 서비스를 통해 통합 계정에 대한 진단 로깅과 함께 AS2, X12 및 EDIFACT 메시지에 대한 모니터링을 설정할 수 있습니다. [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)의 이 서비스는 해당 가용성 및 성능을 유지할 수 있도록 클라우드 및 온-프레미스 환경을 모니터링하고 런타임 세부 정보 및 보다 풍부한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다.
@@ -137,5 +135,4 @@ Azure는 이러한 추적 스키마 형식을 지원하며 사용자 지정 유�
 
 * [OMS에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS에서 B2B 메시지 추적")
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
-
 

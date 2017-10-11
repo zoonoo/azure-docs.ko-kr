@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ec118ed837dbf140083b3ae1e4ecd41c81562018
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-to-azure"></a>6단계: Azure로의 Hyper-V 복제용으로 VMM 서버 및 Hyper-V 호스트 준비
 
 배포를 위한 [Azure 구성 요소](vmm-to-azure-walkthrough-prepare-azure.md)를 설정한 후 이 문서의 지침을 참조하여 Azure Site Recovery와 상호 작용하도록 온-프레미스 VMM 서버 및 Hyper-V 호스트를 준비할 수 있습니다.
@@ -49,5 +47,4 @@ Site Recovery 배포 중에 Site Recovery Provider를 다운로드하여 각 VMM
 ## <a name="next-steps"></a>다음 단계
 
 [7단계: 자격 증명 모음 만들기](vmm-to-azure-walkthrough-create-vault.md)로 이동합니다.
-
 

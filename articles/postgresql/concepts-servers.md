@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 43123486f21178a5ba657caa9d4b090922435913
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>PostgreSQL용 Azure 데이터베이스 서버
 이 항목에서는 PostgreSQL용 Azure 데이터베이스 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
@@ -54,4 +53,3 @@ Azure Portal 또는 [Azure CLI](/cli/azure/postgres)를 사용하여 PostgreSQL�
 - 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](concepts-service-tiers.md)을 참조하세요.
 - 서비스 연결에 대한 자세한 내용은 [PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
-

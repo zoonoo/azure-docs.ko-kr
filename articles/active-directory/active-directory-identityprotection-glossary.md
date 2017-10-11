@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f31188ed3216034ef8ec056023472844ec4debd6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 2cf64925cff9a78cf83532a1cfd231f7a1d98304
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)
@@ -163,5 +162,4 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
 

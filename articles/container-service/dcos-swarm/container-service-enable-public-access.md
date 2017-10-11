@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 25eb3b5d379f58022e9e516c51f67c52becf9087
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Azure Container Service 응용 프로그램에 공용 액세스를 사용하도록 설정
 ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) 의 모든 DC/OS 컨테이너가 인터넷에 자동으로 노출됩니다. 기본적으로 포트 **80**, **443**, **8080**이 열리며 이러한 포트에서 수신 대기하는 모든 (공용) 컨테이너에 액세스할 수 있습니다. 이 문서에서는 Azure Container Service의 응용 프로그램에 대해 더 많은 포트를 여는 방법을 보여 줍니다.
@@ -88,5 +87,4 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
 [공용 및 개인 DC/OS 에이전트](container-service-dcos-agents.md)의 차이점에 대해 알아보세요.
 
 [DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -165,4 +164,3 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 Azure AD Connect를 사용하여 AD FS 팜/Azure AD 트러스트를 구성했다면 Azure AD Connect을 사용하여 토큰 서명 인증서에 대한 어떤 작업을 할 필요가 있는지 감지할 수 있습니다. 인증서를 갱신해야 하는 경우 Azure AD Connect를 사용하여 이렇게 할 수 있습니다.
 
 자세한 내용은 [트러스트 복구](active-directory-aadconnect-federation-management.md)를 참조합니다.
-

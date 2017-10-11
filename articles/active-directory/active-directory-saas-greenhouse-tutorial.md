@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: d3aba4aab8ded8749db2bf8197f57a6763008c60
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>자습서: Greenhouse와 Azure Active Directory 통합
 
@@ -249,5 +248,4 @@ Azure AD 사용자가 Greenhouse에 로그인할 수 있도록 하려면 Greenho
 [201]: ./media/active-directory-saas-greenhouse-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-greenhouse-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-greenhouse-tutorial/tutorial_general_203.png
-
 

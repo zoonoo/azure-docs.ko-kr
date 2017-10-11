@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b4390fe96d8e4c25ff05c5514e0a08d1392b6641
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: e953c7978705379a28581213e8f1c665473ddd60
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -470,4 +469,3 @@ Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내�
 
   * [Azure 테이블 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
   * [Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
-

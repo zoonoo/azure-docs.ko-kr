@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -198,4 +197,3 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 > System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 >
 >
-

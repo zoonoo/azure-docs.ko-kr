@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9abec188a5677942fd9eb9192c4067d2851a1969
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: c8f98536048a85ebb3f061d840457130579196d9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램을 구성하는 방법
 
 이 문서에서는 온-프레미스 응용 프로그램을 클라우드에 노출하도록 Azure AD 내의 응용 프로그램 프록시 응용 프로그램을 구성하는 방법에 대해 설명합니다.
@@ -75,4 +73,3 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
-

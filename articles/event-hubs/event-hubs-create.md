@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기

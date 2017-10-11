@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
-ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 응용 프로그램 프록시 배포
 Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 응용 프로그램을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 응용 프로그램을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 응용 프로그램 프록시를 사용하는 이러한 응용 프로그램을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
 
@@ -131,4 +129,3 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [관리되는 도메인에서 Kerberos 제한 위임 구성](active-directory-ds-enable-kcd.md)
 * [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)
-

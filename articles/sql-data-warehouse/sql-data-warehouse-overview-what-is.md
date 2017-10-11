@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스란?
 Azure SQL Data Warehouse는 거대한 양의 데이터를 처리할 수 있는 MPP(Massively Parallel Processing) 클라우드 기반 규모 확장 관계형 데이터베이스입니다. 
@@ -155,4 +153,3 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data W
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [서비스 수준 계약]: https://azure.microsoft.com/en-us/support/legal/sla/
-

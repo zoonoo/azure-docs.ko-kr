@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7c4e2f084571a2146e5013f24bd5da55319118af
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 78ff8763a461162cbcfa04c6a86123973271928a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램을 사용하는 경우 발생하는 "이 회사 응용 프로그램에 액세스할 수 없습니다." 오류
 
 이 문서를 통해 Azure AD 응용 프로그램 프록시 응용 프로그램에서 "이 회사 앱에 액세스할 수 없습니다." 오류가 표시될 때 직면하는 일반적인 문제를 해결할 수 있습니다.
@@ -113,4 +111,3 @@ Azure의 응용 프로그램에 사용자가 할당되었는지 확인하려면 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 68db9635e274d76127021ff95d38570b980048f3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 24e7e0d586dab3f77e643197594c3c4462ff997e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 응용 프로그램을 구성하는 방법
 
 다음은 다중 테넌트 응용 프로그램에 대해 알아보면 도움이 되는 권장된 토픽 목록입니다.
@@ -32,4 +30,3 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

@@ -15,14 +15,12 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
 행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
@@ -164,4 +162,3 @@ SQL Data Warehouse의 성능을 향상시키기 위해 여러 가지 방법을 �
 <!--MSDN references-->
 
 <!--Other Web references-->
-

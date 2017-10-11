@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
-ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
-
-
+ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포
 [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md) 는 Azure의 조직에 대한 간단한 AD FS 인프라를 배포할 수 있는 방법으로 단계별 지침을 제공합니다. 이 문서에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 Azure AD FS에서 교차 지리적 배포를 만드는 다음 단계를 제공합니다. Azure Traffic Manager는 인프라에서 서로 다른 요구 사항에 맞게 사용할 수 있는 라우팅 방법의 범위를 사용하여 조직에 대해 지리적으로 분배된 고가용성 및 고성능 AD FS 인프라를 만들 수 있도록 합니다.
@@ -122,10 +122,4 @@ AD FS를 테스트하는 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 트래픽 관리자 프로필 관리](../traffic-manager/traffic-manager-manage-profiles.md)
 * [끝점 추가, 사용 안 함, 사용 또는 삭제](../traffic-manager/traffic-manager-endpoints.md) 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

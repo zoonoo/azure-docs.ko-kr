@@ -14,12 +14,11 @@ ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ebec5d910b8987dcc8155cd4ead00f87d219941c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 응용 프로그램을 사용하여 로그인
 
@@ -39,7 +38,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱 등록은 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 모바일 앱을 만들려면 [이러한 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
 * 응용 프로그램에 **네이티브 클라이언트**를 포함합니다.
-* 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 가이드는 나중에 필요합니다.
+* 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 이 가이드는 나중에 필요합니다.
 * 사용자 지정 스키마를 사용하는 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 URI는 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -137,4 +136,3 @@ appDelegate.currentAuthorizationFlow =
 프로세스의 나머지 단계를 완료하는 방법은 [AppAuth 가이드](https://openid.github.io/AppAuth-iOS/)를 참조하세요. 작업 중인 앱으로 빠르게 시작해야 하는 경우에는 [샘플](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c)을 확인하세요. [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md)에 나온 단계에 따라 사용자 고유의 Azure AD B2C 구성을 입력합니다.
 
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! 이 토픽을 완료하기가 어렵거나 이 콘텐츠를 개선할 사항이 있는 경우 페이지의 맨 아래에 의견을 보내주시면 감사하겠습니다. 기능 요청이 있는 경우 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)에 추가해 주세요.
-

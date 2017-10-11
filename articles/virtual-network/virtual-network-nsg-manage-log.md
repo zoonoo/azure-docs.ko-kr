@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)에 대한 로그 분석
 
@@ -124,4 +123,3 @@ JSON 형식 데이터는 두 로그에 기록됩니다. 각 로그 형식에 대
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
 활동 로그 데이터를 보는 방법을 알아보려면 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. 진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. Log Analytics에 진단 데이터를 보내는 경우 향상된 통찰력을 위해 [Azure 네트워크 보안 그룹 분석](../log-analytics/log-analytics-azure-networking-analytics.md)(미리 보기) 관리 솔루션을 사용할 수 있습니다. 
-

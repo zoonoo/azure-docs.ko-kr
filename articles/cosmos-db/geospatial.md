@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터 작업
 이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
@@ -400,5 +398,4 @@ Azure Cosmos DB에서 지리 공간 지원을 시작하는 방법을 배웠으�
 * [Azure Cosmos DB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)에서 지리 공간 쿼리 실습
 * [Azure Cosmos DB 쿼리](documentdb-sql-query.md)에 대해 알아보기
 * [Azure Cosmos DB 인덱싱 정책에 대해 알아보기](indexing-policies.md)
-
 

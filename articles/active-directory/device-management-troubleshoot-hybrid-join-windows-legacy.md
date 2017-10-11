@@ -14,18 +14,17 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 715fca79e488ae3759926181c244a42026f4a554
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
 이 항목은 다음 장치에만 적용됩니다. 
 
-- 윈도우 7 
+- Windows 7 
 - Windows 8.1 
 - Windows Server 2008 R2 
 - Windows Server 2012 
@@ -111,4 +110,3 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 ## <a name="next-steps"></a>다음 단계
 
 질문은 [장치 관리 FAQ](device-management-faq.md)를 참조하세요.  
-

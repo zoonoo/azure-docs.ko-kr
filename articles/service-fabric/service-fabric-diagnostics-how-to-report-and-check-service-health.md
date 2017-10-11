@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
@@ -152,5 +151,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
 * [서비스 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [응용 프로그램 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
 

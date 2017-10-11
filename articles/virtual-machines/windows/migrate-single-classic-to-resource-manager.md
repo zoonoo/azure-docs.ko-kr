@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>VHD에서 클래식 VM을 새 ARM 관리 디스크 VM으로 수동으로 마이그레이션 
 
 
@@ -175,5 +173,4 @@ VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 �
 ## <a name="next-steps"></a>다음 단계
 
 - 가상 컴퓨터에 연결합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
 

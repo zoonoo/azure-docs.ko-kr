@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
 ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>서비스 공급자에 대한 Log Analytics 기능
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
@@ -82,10 +82,4 @@ CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있
 * [PowerShell](log-analytics-powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화 
 * [경고](log-analytics-alerts.md)를 사용하여 기존 시스템과 통합
 * [PowerBI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

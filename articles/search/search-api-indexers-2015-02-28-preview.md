@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)
 > [!NOTE]
@@ -798,4 +796,3 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 <td>지원되지 않음. Azure 검색에서는 현재 기본 형식과 문자열 컬렉션만 지원합니다.</td>
 </tr>
 </table>
-

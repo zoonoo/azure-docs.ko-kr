@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
 
 MongoDB API와 함께 사용하기 위해 MongoDB에서 Azure Cosmos DB 계정으로 데이터를 마이그레이션하려면 다음을 수행해야 합니다.
@@ -154,4 +152,3 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB API에 사용하려는 경�
 
 > [!div class="nextstepaction"]
 >[MongoDB 데이터를 쿼리하는 방법](../cosmos-db/tutorial-query-mongodb.md)
-

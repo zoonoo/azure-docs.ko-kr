@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: fb7d391e3118a9dccde5501c3f30c6f580932a30
-ms.contentlocale: ko-kr
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Azure 트래픽 관리자를 사용하여 Azure 웹 앱 트래픽 제어
 > [!NOTE]
@@ -55,5 +54,4 @@ Azure에서 Azure 트래픽 관리자를 사용할 경우 다음 사항에 유�
 Azure 트래픽 관리자의 개념 및 기술 개요에 대해서는 [트래픽 관리자 개요](../traffic-manager/traffic-manager-overview.md)를 참조하십시오.
 
 Web Apps에서 Traffic Manager를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure Traffic Manager 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure Traffic Manager를 Azure 웹 사이트와 통합할 수 있음](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
-
 

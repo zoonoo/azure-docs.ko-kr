@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 9c764f176ae75085320882de3fb26d8e7d52daaf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법
 ## <a name="overview"></a>개요
@@ -393,5 +392,4 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 ## <a name="see-also"></a>참고 항목
 [OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
-
 

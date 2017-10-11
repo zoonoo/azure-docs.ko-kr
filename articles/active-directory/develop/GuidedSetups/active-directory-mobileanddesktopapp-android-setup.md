@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a43d7e30a6f4176afba27f0de2c2c116df741080
-ms.contentlocale: ko-kr
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
 > 이 샘플의 Android Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)하면 실행 전 코드 샘플을 구성하는 [구성 단계](#create-an-application-express)로 건너뛸 수 있습니다.
@@ -109,5 +107,4 @@ compile 'com.android.volley:volley:1.0.0'
         android:visibility="invisible" />
 </LinearLayout>
 ```
-
 

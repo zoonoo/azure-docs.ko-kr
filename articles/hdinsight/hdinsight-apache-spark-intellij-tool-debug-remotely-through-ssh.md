@@ -17,12 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: Jenny Jiang
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 19053e31d6eb097bc91a04ef9c6af5772aaa16da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="debug-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 Spark 응용 프로그램 디버그
 
@@ -244,4 +243,3 @@ ms.lasthandoff: 08/28/2017
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-

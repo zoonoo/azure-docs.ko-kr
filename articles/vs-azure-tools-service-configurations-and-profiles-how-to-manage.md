@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/11/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>서비스 구성 및 프로필을 관리하는 방법
 ## <a name="overview"></a>개요
@@ -102,5 +101,4 @@ ms.lasthandoff: 08/12/2017
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure 프로젝트의 다른 부분 구성에 대해 알아보려면 [Azure 프로젝트 구성](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: cbbb0f54b7954c0ec7326fb62bb427155527cc84
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>자습서: MCM과 Azure Active Directory 통합
 
@@ -228,5 +226,4 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 [201]: ./media/active-directory-saas-mcm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mcm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mcm-tutorial/tutorial_general_203.png
-
 

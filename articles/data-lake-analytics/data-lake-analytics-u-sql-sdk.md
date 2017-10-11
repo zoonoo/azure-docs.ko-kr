@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정
 
 U-SQL 스크립트를 개발할 때 클라우드로 제출하기 전에 로컬에서 U-SQL 스크립트를 실행하고 테스트하는 것이 일반적입니다. Azure Data Lake는 이 시나리오에 대해 Azure Data Lake U-SQL SDK라는 Nuget 패키지를 제공합니다. 이를 통해 U-SQL 로컬 실행 및 테스트 규모를 쉽게 조정할 수 있습니다. 이 U-SQL 테스트를 CI(연속 통합) 시스템에 통합하여 컴파일 및 테스트를 자동화할 수도 있습니다.
@@ -398,4 +395,3 @@ E_CSC_SYSTEM_INTERNAL: 내부 오류입니다. 파일 또는 어셈블리 'Scope
 * 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 * 작업 세부 정보를 보려면, [Azure Data lake Analytics 작업에 대한 작업 브라우저 및 작업 보기 사용하기](data-lake-analytics-data-lake-tools-view-jobs.md)를 참조하세요.
 * 꼭짓점 실행 보기를 사용하려면 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
-

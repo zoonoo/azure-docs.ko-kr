@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Azure 웹앱의 "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" HTTP 오류 해결
 "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 호스트되는 웹앱에서 일반적으로 나타나는 오류입니다. 이 문서는 이러한 오류를 해결하는 데 도움이 됩니다.
@@ -45,7 +44,7 @@ ms.lasthandoff: 12/08/2016
 2. [데이터 수집](#collect)
 3. [문제 완화](#mitigate)
 
-[앱 서비스 웹앱](/services/app-service/web/) 은 각 단계별로 다양한 옵션을 제공합니다.
+[App Service Web Apps](/services/app-service/web/)는 각 단계별로 다양한 옵션을 제공합니다.
 
 <a name="observe" />
 
@@ -68,7 +67,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure 앱 서비스에서 웹앱 모니터링](web-sites-monitor.md)
+* [Azure App Service에서 Web Apps 모니터링](web-sites-monitor.md)
 * [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
@@ -111,7 +110,7 @@ Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 �
 
 ### <a name="3-mitigate-the-issue"></a>3. 문제 완화
 #### <a name="scale-the-web-app"></a>웹앱의 크기를 조정합니다.
-Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실행하는 응용 프로그램의 크기를 조정할 수 있습니다. 웹앱의 크기를 키우려면 두 가지 사항이 수반됩니다. 앱 서비스 계획을 더 높은 가격 책정 계층으로 바꿔야 하며, 높은 가격 계층으로 전환한 후에 특정 설정을 구성해야 합니다.
+Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실행하는 응용 프로그램의 크기를 조정할 수 있습니다. 웹앱의 크기를 키우려면 두 가지 사항이 수반됩니다. App Service 계획을 더 높은 가격 책정 계층으로 바꿔야 하며, 높은 가격 계층으로 전환한 후에 특정 설정을 구성해야 합니다.
 
 크기 조정에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 크기 조정](web-sites-scale.md)을 참조하세요.
 
@@ -130,5 +129,4 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
  ![앱을 다시 시작하여 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 HTTP 오류 해결](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-
 

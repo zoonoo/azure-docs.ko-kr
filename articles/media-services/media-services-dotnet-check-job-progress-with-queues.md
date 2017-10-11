@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 269ff9adde706715ad5889170470821a884daf3d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure 큐 저장소를 사용하여 .NET으로 Media Services 작업 알림 모니터링
 인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. 큐 저장소에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
@@ -33,7 +32,7 @@ Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 �
 ## <a name="considerations"></a>고려 사항
 Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
 
-* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure Service Bus 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
+* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
 * Queue Storage는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
 * 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)를 참조하세요.
 * Queue Storage에는 알아야 할 몇 가지 제한 사항 및 주의 사항이 있습니다. 이러한 내용은 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)에 설명되어 있습니다.
@@ -43,7 +42,7 @@ Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 �
 이 섹션의 코드는 다음 작업을 수행합니다.
 
 1. 알림 메시지 형식에 매핑되는 **EncodingJobMessage** 클래스를 정의합니다. 코드는 큐에서 수신한 메시지를 **EncodingJobMessage** 유형의 개체로 deserialize합니다.
-2. app.config 파일에서 Media Services 및 저장소 계정 정보를 로드합니다. 코드 예제에서는 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
+2. app.config 파일에서 미디어 서비스 및 저장소 계정 정보를 로드합니다. 코드 예제에서는 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
 3. 인코딩 작업에 대한 알림 메시지를 받는 큐를 만듭니다.
 4. 큐에 매핑되는 알림 끝점을 만듭니다.
 5. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
@@ -356,10 +355,9 @@ namespace JobNotification
 
 
 ## <a name="next-step"></a>다음 단계
-Media Services 학습 경로를 검토합니다.
+미디어 서비스 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

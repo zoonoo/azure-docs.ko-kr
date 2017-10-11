@@ -11,14 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
 > [!div class="op_single_selector"]
@@ -363,5 +361,4 @@ var container_list = ["con1","con2","con3","con4"]
 
 - 이 서비스를 처음 사용하는 경우 [Azure Batch 기능 개요](batch-api-basics.md) 문서를 검토하는 것이 좋습니다.
 - Batch API에 대한 내용은 [Batch Node.js 참조](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)를 살펴보세요.
-
 

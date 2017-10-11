@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
@@ -36,7 +35,7 @@ Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API�
 [설명서로 이동합니다.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Services(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
+AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Service(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
 
 [설명서로 이동합니다.][appdynamics-doc]
 
@@ -159,4 +158,3 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
-

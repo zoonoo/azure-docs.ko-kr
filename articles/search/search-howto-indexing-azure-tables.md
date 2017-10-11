@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search를 사용하여 Azure Table Storage 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다.
 
@@ -171,4 +169,3 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 제출합니다.
-

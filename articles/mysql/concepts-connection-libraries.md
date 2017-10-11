@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 연결 라이브러리
 이 항목에는 클라이언트 프로그램에서 MySQL용 Azure 데이터베이스에 연결하는 데 사용할 수 있는 각 라이브러리 또는 드라이버가 나열되어 있습니다.
 
@@ -39,4 +37,3 @@ MySQL은 산업 표준 ODBC 및 JDBC와 호환되는 응용 프로그램 및 도
 ## <a name="next-steps"></a>다음 단계
 [MySQL용 Azure 데이터베이스 개요](./overview.md)
 [MySQL용 Azure 데이터베이스의 서버 개념](./concepts-servers.md)
-

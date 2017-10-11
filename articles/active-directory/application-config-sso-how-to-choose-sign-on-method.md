@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 80f4a965920fec9cb578c1bee235c7857f37431e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>사용할 Single Sign-On 방법을 결정하는 방법
 
 이 문서에서는 Azure AD에서 지원되는 Single Sign-On 모드 및 관심 있는 응용 프로그램에 대해 사용할 모드를 선택하는 방법을 이해하는 데 도움을 줍니다.
@@ -83,5 +81,4 @@ Azure AD 응용 프로그램에 대해 지원되는 **Single Sign-On** 모드는
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-
 

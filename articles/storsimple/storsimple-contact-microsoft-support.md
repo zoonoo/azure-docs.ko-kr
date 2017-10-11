@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
 ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>StorSimple의 Microsoft 지원에 문의
 Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 장치에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
@@ -50,7 +49,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
    2. 드롭다운 목록에서 **구독** 을 선택합니다.
    3. **서비스** 드롭다운 목록에서 **StorSimple**을 선택합니다. 
    4. 드롭다운 목록에서 **지원 계획** 을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
-4. **다음**을 클릭합니다. **문제** 대화 상자가 나타납니다.
+4. **다음**을 누릅니다. **문제** 대화 상자가 나타납니다.
    
     ![새 지원 요청 창](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
 5. **문제** 대화 상자에서 다음을 완료합니다.
@@ -62,7 +61,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
    5. **시간 프레임** 상자에서 가장 최근에 문제가 발생한 날짜, 시간 및 표준 시간대를 지정합니다.
    6. **파일 업로드**에서 폴더 아이콘을 클릭하여 지원 패키지를 찾아봅니다.
    7. **진단 정보 공유** 확인란을 선택합니다.
-6. **다음**을 클릭합니다. **연락처 정보** 대화 상자가 나타납니다.
+6. **다음**을 누릅니다. **연락처 정보** 대화 상자가 나타납니다.
    
     ![새 지원 요청 창](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. 연락처 정보를 입력하고 연락 방법(전화 또는 전자 메일)을 선택합니다. 
@@ -93,5 +92,4 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 > `Disable-HcsSupportAccess`를 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 장치는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
 > 
 > 
-
 

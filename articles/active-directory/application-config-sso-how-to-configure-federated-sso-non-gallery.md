@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 54e092e4bb8d83a59d05d8aca2760f9098ecd548
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
 비갤러리 응용 프로그램을 구성하려면 Azure AD 프리미엄이 있어야 하며 응용 프로그램에서 SAML 2.0을 지원해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
@@ -184,4 +182,3 @@ Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니�
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-

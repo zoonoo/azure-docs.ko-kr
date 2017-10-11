@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 응용 프로그램 시나리오
 Azure 서비스 패브릭은 다양한 유형의 비즈니스 응용 프로그램 및 서비스를 쓰고 실행할 수 있도록 하는 안정적이고 유연한 플랫폼을 제공합니다. 이러한 응용 프로그램 및 마이크로 서비스는 상태를 저장하지 않을 수도 있고 상태를 저장할 수도 있으며, 가상 컴퓨터 간에 리소스를 분산하여 효율성을 극대화합니다. 서비스 패브릭의 고유한 아키텍처는 응용 프로그램에서 거의 실시간으로 데이터 분석, 메모리 내 계산, 병렬 트랜잭션 및 이벤트 처리가 가능합니다. 리소스 요구 사항의 변화에 따라 응용 프로그램을 간단하게 확장 또는 축소(실제 내부 또는 외부)할 수 있습니다.
@@ -68,4 +67,3 @@ Azure Cloud Service 작업자 역할이 있는 응용 프로그램을 구축하�
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
-

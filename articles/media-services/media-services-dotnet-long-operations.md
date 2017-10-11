@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 763f97855695a51d8fb6050cf1404c787b72c6f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 7123a2d44d3b7c332afe30fb0fcea88ca29e313a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공
 
@@ -204,5 +203,4 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 알림 허브를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -40,7 +40,7 @@ ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
 
 ## <a name="sdk-usage"></a>SDK 사용
 ### <a name="compile-and-build"></a>컴파일 및 빌드
- [Maven]
+[Maven]
 
 빌드하려면 다음 코드를 사용합니다.
 
@@ -271,7 +271,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 
 이제 Java 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 이 항목에서는 알림 허브에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다. 
@@ -283,17 +283,11 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
   * [인증된 사용자에게 플랫폼 간 알림 보내기]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [알림 허브 시작]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [지역화된 속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [인증된 사용자에게 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [인증된 사용자에게 플랫폼 간 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Azure SQL 데이터베이스 커넥터 시작
 Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다. 
@@ -74,5 +72,4 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-
 

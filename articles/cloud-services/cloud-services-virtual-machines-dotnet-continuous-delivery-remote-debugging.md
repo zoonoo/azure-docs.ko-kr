@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a10b142283cf19295330238ac7289329b2d1f70e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용
 클라우드 서비스 또는 가상 컴퓨터의 경우 다음 단계를 따라 [연속 배달](cloud-services-dotnet-continuous-delivery.md) 을 사용하여 Azure에 게시하면 Azure에서 원격 디버깅을 사용할 수 있습니다.
@@ -95,5 +94,4 @@ ms.lasthandoff: 08/28/2017
     ```
 
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
-
 

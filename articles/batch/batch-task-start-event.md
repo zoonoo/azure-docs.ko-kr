@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-start-event"></a>태스크 시작 이벤트
 
  이 이벤트는 Scheduler가 계산 노드에서 태스크를 시작하도록 예약하면 내보내집니다. 태스크가 다시 시도되거나 대기열에 다시 추가될 경우 동일한 태스크에 이 이벤트가 다시 내보내지지만 재시도 횟수와 시스템 태스크 버전이 적절히 업데이트됩니다.
@@ -83,4 +82,3 @@ ms.lasthandoff: 04/22/2017
 |요소 이름|형식|참고 사항|
 |------------------|----------|-----------|
 |retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|
-

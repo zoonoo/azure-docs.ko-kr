@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 9d3b4abdd395806b1a53d4f23d45ba8b449978a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -199,5 +197,4 @@ cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함
 ## <a name="next-steps"></a>다음 단계
 * 문제 해결을 위한 Azure 진단 기능 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
 * [진단 구성 스키마](https://msdn.microsoft.com/library/azure/mt634524.aspx) 는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
-
 

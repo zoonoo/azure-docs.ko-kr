@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a2a3a4773d33fe6b8589ad8d9d219acda4d1015e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
@@ -238,4 +237,3 @@ C#에서 Microsoft Azure Storage 사용에 대한 자세한 내용은 [.NET용 M
 Blob REST API에 대한 자세한 내용은 [Blob 서비스 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)를 참조하세요.
 
 Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)로 이동하세요.
-

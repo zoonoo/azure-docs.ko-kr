@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 
@@ -190,4 +189,3 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)  
 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)  
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)  
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 07aa6946b9c3994c5afc5c88837f23567b95d8a5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -35,7 +34,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 -GatewayType에 사용 가능한 값은 다음과 같습니다.
 
 * Vpn
-* ExpressRoute
+* Express 경로
 
 VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 
@@ -53,7 +52,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-the-gateway-sku"></a>게이트웨이 SKU 구성
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만드는 경우 드롭다운을 사용하여 게이트웨이 SKU를 선택할 수 있습니다. 표시되는 옵션은 선택한 게이트웨이 형식 및 선택한 VPN 형식에 해당합니다.
 
@@ -84,7 +83,7 @@ Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상
 
 * IPsec
 * Vnet2Vnet
-* ExpressRoute
+* Express 경로
 * VPNClient
 
 다음 PowerShell 예제에서는 *IPsec*연결 유형이 필요한 S2S 연결을 만듭니다.
@@ -99,13 +98,13 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 
 VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 유형을 지정해야 합니다. 선택하는 VPN 유형은 만들려는 연결 토폴로지에 따라 달라집니다. 예를 들어 P2S 연결에는 RouteBased VPN 유형이 필요합니다. 또한 VPN 유형은 사용하는 하드웨어에 따라서도 달라질 수 있습니다. S2S 구성에는 VPN 장치가 필요합니다. 일부 VPN 장치는 특정 VPN 유형을 지원합니다.
 
-선택하는 VPN 유형은 만들려는 솔루션에 대한 연결 요구 사항을 모두 충족해야 합니다. 예를 들어 동일한 가상 네트워크에 대해 S2S VPN Gateway 연결 및 P2S VPN Gateway 연결을 만들려는 경우 P2S에는 RouteBased VPN 유형이 필요하기 때문에 VPN 유형 *RouteBased*를 사용해야 합니다. VPN 장치가 RouteBased VPN 연결을 지원하는지 확인해야 합니다. 
+선택하는 VPN 유형은 만들려는 솔루션에 대한 연결 요구 사항을 모두 충족해야 합니다. 예를 들어 동일한 가상 네트워크에 대해 S2S VPN Gateway 연결 및 P2S VPN Gateway 연결을 만들려는 경우 P2S에는 RouteBased VPN 유형이 필요하기 때문에 VPN 유형 *RouteBased* 를 사용해야 합니다. VPN 장치가 RouteBased VPN 연결을 지원하는지 확인해야 합니다. 
 
 가상 네트워크 게이트웨이를 만든 후에는 VPN 유형을 변경할 수 없습니다. 가상 네트워크 게이트웨이를 삭제하고 새로 만들어야 합니다. 두 가지 VPN 유형이 있습니다.
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-다음 PowerShell 예제에서는 `-VpnType`을 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
+다음 PowerShell 예제에서는 `-VpnType` 를 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -158,4 +157,4 @@ VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용 가능한 연결 구성에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
+사용 가능한 연결 구성에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 를 참조하세요.

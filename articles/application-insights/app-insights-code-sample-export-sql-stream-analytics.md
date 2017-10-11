@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6fc9394cbc60a1ea9bc9989d271f1008acf0379b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: d51e80509ffb63cef0d01133a2295d58757d5b1a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
@@ -274,5 +273,4 @@ SQL 데이터베이스를 지정합니다.
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
-
 

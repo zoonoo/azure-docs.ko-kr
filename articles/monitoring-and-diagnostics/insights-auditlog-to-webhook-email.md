@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 webhook 호출
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 원하는 수의 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 이 문서에서는 Azure 활동 로그 경고가 발생될 때 호출되도록 webhook을 설정하는 방법을 설명합니다. Webhook에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. 한편 Azure 메트릭 경고에 대한 설정과 스키마에 대해서는 [이 페이지를 대신 참조하세요](insights-webhooks-alerts.md). 또한 활성화될 때 전자 메일을 보내도록 활동 로그 경고를 설정할 수도 있습니다.
@@ -124,4 +123,3 @@ POST 작업에는 모든 활동 로그 기반 경고에 대해 다음과 같은 
 * [논리 앱을 사용하여 Azure 경고에서 Twilio 통해 SMS 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-

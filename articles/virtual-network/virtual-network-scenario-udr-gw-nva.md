@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
-
-
+ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 응용 프로그램을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN 게이트웨이 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.
@@ -84,8 +84,8 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="azsn2udr"></a>azsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |10.0.2.11 | **AZF2** |
-| 0.0.0.0/0 |10.0.2.10 | **AZF1** |
+| 10.0.3.0/24 |10.0.2.11 |**AZF2** |
+| 0.0.0.0/0 |10.0.2.10 |**AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
 | 대상 | 다음 홉 | 설명 |
@@ -102,7 +102,7 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="onpremsn2udr"></a>onpremsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |192.168.2.4 | **onpremsn2** |
+| 10.0.3.0/24 |192.168.2.4 |**onpremsn2** |
 | 192.168.1.0/24 |192.168.2.4 |**OPFW**를 통해 **onpremsn1**에 대한 트래픽 허용 |
 
 ## <a name="ip-forwarding"></a>IP 전달
@@ -167,10 +167,4 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 3. **AZURERG**에 포함된 리소스를 프로비전합니다.
 4. **onpremvnet**에서 **azurevnet**으로 터널을 프로비전합니다.
 5. 모든 리소스를 프로비전한 후 **onpremvm2** 로그온하고 10.0.3.101을 ping하여 **onpremsn2**와 **azsn3** 사이의 연결을 테스트합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

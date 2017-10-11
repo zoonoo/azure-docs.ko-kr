@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>OMS(Operations Management Suite) 자가 진행식 데모 - 서비스 맵
 OMS(Operations Management Suite)에서 [서비스 맵 솔루션](operations-management-suite-service-map.md)을 사용하여 웹 응용 프로그램에서 시뮬레이션된 문제를 식별하고 진단하는 방법을 설명하는 자가 진행식 데모입니다.  서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다.  또한 다른 OMS 서비스에서 수집된 데이터를 통합하여 성능을 분석하고 문제를 식별하는 데 도움을 줍니다.  또한 [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md)을 사용하여 근본적인 문제를 식별하기 위해 수집된 데이터를 자세히 알아봅니다.
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 컴퓨터에 대한 WinRM 액세스 설정
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>Azure 서비스 관리 및 Azure Resource Manager의 WinRM
@@ -165,4 +164,3 @@ VM에 연결하려면 먼저 컴퓨터가 WinRM 원격 관리에 맞게 구성�
 설정이 끝나면 아래 명령을 사용하여 VM에 연결할 수 있습니다.
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
-

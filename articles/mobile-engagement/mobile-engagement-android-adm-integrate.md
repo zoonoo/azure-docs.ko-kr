@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>ADM와 Engagement를 통합하는 방법
 > [!IMPORTANT]
@@ -109,4 +108,3 @@ Engagement 포털에서 OAuth 자격 증명(클라이언트 ID 및 클라이언�
 [ADM 클라이언트 라이브러리]:https://developer.amazon.com/sdk/adm/setup.html
 [ADM을 통합]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [이 절차]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
-

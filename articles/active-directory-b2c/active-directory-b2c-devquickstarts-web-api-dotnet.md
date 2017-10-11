@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
 
@@ -187,5 +186,4 @@ public async Task<ActionResult> Index()
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
 마지막으로 두 앱을 빌드 및 실행합니다. 등록하고 로그인하여, 로그인된 사용자에 대한 작업을 만듭니다. 로그아웃했다가 다른 사용자로 로그인합니다. 해당 사용자에 대한 작업을 만듭니다. API 가 받는 토큰에서 사용자의 ID를 추출하므로 API에 사용자별 작업이 저장됩니다. 또한 범위 다루기를 시도해 볼 수도 있습니다. "쓰기"에 대한 권한을 제거한 다음 작업을 추가합니다. 범위를 변경할 때마다 로그아웃해야 합니다.
-
 

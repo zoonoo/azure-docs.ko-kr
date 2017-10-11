@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Windows 유니버설 앱 도달률 SDK 통합
 이 가이드의 작업을 수행하기 전에 [Windows 유니버설 Engagement SDK 통합](mobile-engagement-windows-store-integrate-engagement.md) 에 설명된 통합 절차를 수행해야 합니다.
@@ -280,7 +279,7 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> 푸시 채널 공유
+## <a id="push-channel-sharing"></a> 푸시 채널 공유
 응용 프로그램에서 푸시 알림을 다른 용도로 사용 하는 경우 Engagement SDK의 푸시 채널 공유 기능을 사용해야 합니다. 이는 푸시 누락을 방지하기 위함입니다.
 
 * Engagement 도달률 초기화에 푸시 채널을 제공할 수 있습니다. SDK는 새 항목을 요청하는 대신 이것을 사용합니다.
@@ -338,5 +337,4 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
                 }
               }
               #endregion
-
 

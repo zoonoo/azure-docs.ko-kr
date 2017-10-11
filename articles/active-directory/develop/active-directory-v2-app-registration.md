@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>v2.0 끝점을 사용하여 앱을 등록하는 방법
 MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저 Microsoft에 앱을 등록해야 합니다.  지금은 Azure AD나 MSA를 사용하여 가지고 있는 기존의 앱은 사용할 수 없습니다. - 새 앱을 만들어야 합니다.
@@ -56,5 +54,4 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 이제 Microsoft 앱을 가지고 있으므로 v2.0 빠른 시작 자습서 중 하나를 완료할 수 있습니다.  몇가지 권장 사항입니다.
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
 

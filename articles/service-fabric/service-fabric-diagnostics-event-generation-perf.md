@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="performance-metrics"></a>성능 메트릭
 
 클러스터의 성능 및 클러스터에서 실행 중인 응용 프로그램을 이해하기 위해 메트릭을 수집해야 합니다. Service Fabric 클러스터의 경우 다음과 같은 성능 카운터를 수집하는 것이 좋습니다.
@@ -81,4 +79,3 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 
 * Service Fabric에서 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
 * [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 통해 성능 메트릭 수집
-

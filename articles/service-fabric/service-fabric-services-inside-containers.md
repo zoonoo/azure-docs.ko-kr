@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Service Fabric Reliable Services 및 Reliable Actors(미리 보기)를 컨테이너화하는 방법
 
@@ -114,4 +113,3 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-get-started-containers.md)를 실행하는 방법에 대해 자세히 알아봅니다.
 * Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
-

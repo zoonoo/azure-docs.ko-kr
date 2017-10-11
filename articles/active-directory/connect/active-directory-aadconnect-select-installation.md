@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
-ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/26/2017
-
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect에 사용할 설치 유형 선택
 Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 두 가지 설치 유형을 제공합니다. 이 항목은 설치 중에 사용할 옵션을 결정하는 데 도움이 됩니다.
@@ -74,4 +73,3 @@ Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 �
 
 ## <a name="next-steps"></a>다음 단계
 사용하도록 선택한 옵션에 따라 왼쪽의 목차에서 자세한 단계를 제공하는 문서를 찾아보세요.
-

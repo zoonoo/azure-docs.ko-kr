@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Log Analytics 뷰 디자이너 시각화 요소 참조
 Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에서는 사용자 지정 보기에 사용할 수 있는 시각화 요소 각각의 설정에 대한 참조가 제공됩니다.
@@ -346,4 +345,3 @@ Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있�
 
 ## <a name="next-steps"></a>다음 단계
 * 시각화 요소에서 쿼리를 지원하는 [로그 검색](log-analytics-log-searches.md)에 대한 자세한 정보
-

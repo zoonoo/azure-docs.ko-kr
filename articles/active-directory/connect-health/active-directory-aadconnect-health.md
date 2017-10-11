@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
 Azure AD(Azure Active Directory) Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다. AD FS(Active Directory Federation Services) 서버, Azure AD Connect 서버(즉, 동기화 엔진), Active Directory 도메인 컨트롤러 등과 같은 핵심 ID 구성 요소를 위한 모니터링 기능을 제공하여 Office 365 및 Microsoft Online Services에 대해 신뢰할 수 있는 연결을 유지 관리할 수 있습니다. 또한 사용자가 사용 현황 및 기타 중요한 정보를 보고 올바른 의사 결정을 내릴 수 있도록 이러한 구성 요소의 핵심 데이터 요소에 쉽게 액세스할 수 있게 만들어 줍니다.
@@ -125,4 +124,3 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 * [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
-

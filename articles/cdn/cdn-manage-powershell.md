@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 647e3de08dd8d3b520705f0d52ba2bb674eda0bf
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5bd2eed7b34cafa43e8f38279890405d4ae55568
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>PowerShell을 사용하여 Azure CDN 관리
 PowerShell은 Azure CDN 프로필 및 끝점을 관리하는 매우 유연한 방법 중 하나를 제공합니다.  PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다.  이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 끝점의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.
@@ -245,5 +244,4 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
 CDN 기능에 대해 알아보려면 [CDN 개요](cdn-overview.md)를 참조하세요.
-
 

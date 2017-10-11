@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dde6242211ca3d8d7b47c0ec4a01965e1439adeb
-ms.openlocfilehash: d3b900b40f683cd446b41696c4f9e617299bf0b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
 이 문서의 운영 절차를 사용하여 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory(Azure AD) Connect를 사용자 지정합니다.  
@@ -73,4 +72,3 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

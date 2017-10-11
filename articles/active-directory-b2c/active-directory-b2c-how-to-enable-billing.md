@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Azure 구독을 Azure B2C 테넌트와 연결하여 사용 요금 지불
 
@@ -77,4 +75,3 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 각 B2C 테넌트에 대해 이러한 단계가 완료되면 Azure 직접 또는 기업 계약 세부 정보에 따라 비용이 Azure 구독에 청구됩니다.
 - Azure 구독을 선택한 상태에서 사용 현황 및 청구 검토
 - [사용 현황 보고 API](active-directory-b2c-reference-usage-reporting-api.md)를 사용하여 자세한 일일 사용 현황 보고서 검토
-

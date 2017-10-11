@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA 문제를 해결하고 모니터링하는 방법
 
@@ -189,5 +188,4 @@ SAP HANA 인스턴스에 대한 일반적인 정보는 **HANA\_Configuration\_Ov
 SAP HANA 매개 변수를 확인하려면 **HANA\_Configuration\_Parameters\_Rev70+**.
 
 ![SAP HANA 매개 변수를 확인하려면 [HANA\_Configuration\_Parameters\_Rev70+].](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
-
 

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: a85d4348a13b79b5b7542362de9956aa3398375a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이션을 제공합니다. 이 자습서는 Azure에서 채팅 응용 프로그램을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 <http://socket.io/>(영문)를 참조하세요.
@@ -173,6 +172,5 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
 
 

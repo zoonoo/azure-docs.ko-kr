@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 087d5cda354f6e1780bddd3725859444177abd16
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
 <!--
@@ -114,4 +113,3 @@ fsutil behavior set DisableDeleteNotify 0
 
 ## <a name="additional-resources"></a>추가 리소스
 [가상 컴퓨터용 디스크 및 VHD에 대하여](../../virtual-machines-linux-about-disks-vhds.md)
-

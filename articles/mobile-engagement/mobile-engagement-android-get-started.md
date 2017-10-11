@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -48,7 +48,7 @@ ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
 1. **Android Studio**를 시작하고 팝업에서 **새 Android Studio 프로젝트 시작**을 선택합니다.
 
     ![][1]
-2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 필요하기 때문에 입력한 내용을 적어둡니다. **Next**를 클릭합니다.
+2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 필요하기 때문에 입력한 내용을 적어둡니다. **다음**을 누릅니다.
 
     ![][2]
 3. 대상 폼 팩터 및 API 수준을 선택하고 **다음**을 클릭합니다.
@@ -170,9 +170,3 @@ ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
 워크플로 정의는 논리 앱의 일부로 실행할 실제 논리를 포함합니다. 이 정의는 논리 앱을 실행하는 트리거와 논리 앱에 대해 수행할 작업을 각각 하나 이상 포함합니다.  
@@ -338,4 +336,3 @@ ms.lasthandoff: 08/10/2017
 ## <a name="next-steps"></a>다음 단계
 
 [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)
-

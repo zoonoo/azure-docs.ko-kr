@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
-ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML 변환과 엔터프라이즈 통합
 ## <a name="overview"></a>개요
@@ -73,5 +71,4 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
 * [맵에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")  
-
 

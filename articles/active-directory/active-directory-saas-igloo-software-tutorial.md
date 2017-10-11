@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ab3891e11eb33b4d233e4fc967a40c7df06e4f4e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure Active Directory 통합
 
@@ -282,5 +280,4 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 [201]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_203.png
-
 

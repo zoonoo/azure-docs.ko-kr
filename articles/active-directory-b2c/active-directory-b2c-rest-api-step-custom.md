@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: dc319c97e64e55861b84cc3943667418077a05d8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합
 
 Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 IEF(ID 경험 프레임워크)를 사용하면 ID 개발자가 사용자 경험에서 RESTful API와의 상호 작용을 통합할 수 있습니다.  
@@ -264,4 +262,3 @@ ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile I
 [유효성 검증 단계로 REST API 사용](active-directory-b2c-rest-api-validation-custom.md)
 
 [프로필 편집을 수정하여 사용자로부터 추가 정보 수집](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
-

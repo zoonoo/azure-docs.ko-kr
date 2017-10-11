@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
-ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery용 Hyper-V Capacity Planner 도구 실행
 
@@ -135,4 +133,3 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 * [VMM 클라우드의 Hyper-V VM을 Azure로 복제](site-recovery-vmm-to-azure.md)
 * [Hyper-V VM(VMM 없음)을 Azure로 복제](site-recovery-hyper-v-site-to-azure.md)
 * [VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
-

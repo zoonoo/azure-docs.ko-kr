@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 15412c3853a2b8436c5e96034c9a92a2a1094662
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HBase 문제 해결
 
 Apache Ambari에서 Apache HBase 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
@@ -422,5 +420,4 @@ Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시작하�
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
-
 

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Azure Search의 동의어(미리 보기)
 
@@ -166,4 +165,3 @@ Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. �
 - 개발(비프로덕션) 환경에 기존 인덱스가 있는 경우 작은 사전을 사용하여 동의어 추가를 통해 점수 매기기 프로필, 강조 표시된 적중 항목 및 제안 사항을 비롯한 검색 환경을 변경하는 방법을 확인할 수 있습니다.
 
 - [검색 트래픽 분석을 사용하도록 설정](search-traffic-analytics.md)하고 미리 정의된 Power BI 보고서를 사용하여 가장 많이 사용되는 용어 및 제로 문서를 반환하는 용어를 참조합니다. 이러한 통찰력을 바탕으로 인덱스에 있는 문서로 해석되어야 하는 비생산적인 쿼리에 대한 동의어를 포함하도록 사전을 수정합니다.
-

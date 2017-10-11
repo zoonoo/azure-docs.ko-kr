@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 350a65b1c6432baf258e014c9e63133d2b29e34f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터를 분석하는 데 도움을 주고 통찰력을 공유하는 비즈니스 분석 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -98,8 +97,8 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) 만들기
 2. ARM URL을 AI API로 대체하여 분석에서 내보낸 Power BI M 스크립트를 업데이트합니다(아래 예제 참조).
-   * **https://management.azure.com/subscriptions/...**를
-   * **https://api.applicationinsights.io/beta/apps/...**로 바꿉니다.
+   * 대체 **https://management.azure.com/subscriptions/...**
+   * **https://api.applicationinsights.io/beta/apps/...**
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
   
 
@@ -119,5 +118,4 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](http://www.powerbi.com/learning/)
 * [Analytics 자습서](app-insights-analytics-tour.md)
-
 

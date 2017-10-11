@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
 응용 프로그램에서 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브 문자를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 디스크를 사용하지 마세요.
@@ -66,5 +64,4 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="next-steps"></a>다음 단계
 * [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
-
 

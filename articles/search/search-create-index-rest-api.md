@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -109,4 +108,3 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 
 ## <a name="next-steps"></a>다음 단계
 Azure Search 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
-

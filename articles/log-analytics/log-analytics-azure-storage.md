@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
@@ -153,4 +152,3 @@ Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure
 * [이벤트에 대해 IIS 및 테이블 저장소에 Blob Storage를 사용하여](log-analytics-azure-storage-iis-table.md) Table Storage에 진단을 기록하는 Azure 서비스나 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
 * [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 
 이 문서에서는 가상 NIC 카드(VNic) 및 DNS 레이블 이름을 사용하여 Linux VM에 대해 정적 내부 DNS 이름을 설정하는 방법을 보여 줍니다. 정적 DNS 이름은 이 문서에서 사용되는 Jenkins 빌드 서버 또는 Git 서버와 같은 영구 인프라 서비스에 사용됩니다.
@@ -185,4 +183,3 @@ azure vm create jenkins \
 ## <a name="next-steps"></a>다음 단계
 * [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [템플릿을 사용하여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 1403b30ce46e93f244a10a8472e1dfd9e33e9de7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 6a84d8ff67c420ce712de905ab1172632502a863
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -239,5 +238,4 @@ Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 �
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-
 

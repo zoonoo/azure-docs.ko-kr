@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>알림 허브를 사용하여 iOS 장치로 지역화된 속보 보내기
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 > 
 
 ## <a name="overview"></a>개요
-이 항목에서는 Azure 알림 허브의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [알림 허브를 사용하여 속보 보내기]에서 만든 iOS 앱을 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
+이 항목에서는 Azure 알림 허브의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [Notification Hubs를 사용하여 속보 보내기]에서 만든 iOS 앱을 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
 
 이 시나리오는 다음과 같은 두 부분으로 구성되어 있습니다.
 
@@ -36,12 +36,12 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 * 백 엔드에서 Azure Notification Hubs의 **태그** 및 **템플릿** 기능을 사용하여 알림을 브로드캐스트합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[알림 허브를 사용하여 속보 보내기] 자습서를 이미 완료하고 사용 가능한 코드가 있어야 합니다. 이 자습서는 해당 코드를 기반으로 직접 빌드됩니다.
+[Notification Hubs를 사용하여 속보 보내기] 자습서를 이미 완료하고 사용 가능한 코드가 있어야 합니다. 이 자습서는 해당 코드를 기반으로 직접 빌드됩니다.
 
 Visual Studio 2012 이상은 선택 사항입니다.
 
 ## <a name="template-concepts"></a>템플릿 개념
-[알림 허브를 사용하여 속보 보내기] 에서는 **태그** 를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
+[Notification Hubs를 사용하여 속보 보내기] 에서는 **태그** 를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
 하지만 대부분의 앱은 여러 시장을 대상으로 하므로 지역화해야 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 장치 집합으로 전달해야 합니다.
 이 항목에서는 알림 허브의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여 줍니다.
 
@@ -66,7 +66,7 @@ Visual Studio 2012 이상은 선택 사항입니다.
 템플릿은 매우 강력한 기능입니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 문서를 참조하세요.
 
 ## <a name="the-app-user-interface"></a>앱 사용자 인터페이스
-이제 [알림 허브를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
+이제 [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
 
 MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어, 즉 영어, 프랑스어 및 북경어로 분할된 제어를 추가합니다.
 
@@ -247,29 +247,23 @@ Visual Studio에 액세스할 수 없거나 장치의 앱에서 직접 지역화
 
 
 <!-- URLs. -->
-[방법: Service Bus Notification Hubs(iOS 앱)]: http://msdn.microsoft.com/library/jj927168.aspx
-[알림 허브를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-ios
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [알림 허브를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /manage/services/notification-hubs/notify-users
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows용 Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Mobile Services 시작]: /develop/mobile/tutorials/get-started/#create-new-service
-[데이터 작업 시작]: /develop/mobile/tutorials/get-started-with-data-ios
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-ios
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-ios
-[앱 사용자에 대한 푸시 알림]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[JavaScript 및 HTML]: ../get-started-with-push-js.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[JavaScript and HTML]: ../get-started-with-push-js.md
 
-[Mobile Services에 대한 Windows 개발자 미리 보기 등록 단계]: ../mobile-services-windows-developer-preview-registration.md
-[wns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2f052ea5ff50cf584f9116f2802eca1fd077dcbb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 ## <a name="overview"></a>개요
 AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널** 은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
@@ -417,5 +415,4 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 [Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
 

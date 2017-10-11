@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -351,4 +350,3 @@ TrackMetric()에서 생성합니다.
 * [Application Insights](app-insights-overview.md)
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
-

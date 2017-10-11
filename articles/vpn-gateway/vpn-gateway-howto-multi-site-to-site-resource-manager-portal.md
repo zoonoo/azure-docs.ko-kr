@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -96,4 +94,3 @@ ms.lasthandoff: 06/17/2017
 ## <a name="next-steps"></a>다음 단계
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 가상 컴퓨터 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: masnider;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6b1627ee9c55ecb58bdb1263eb49458caab99322
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.
@@ -118,4 +117,3 @@ Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 * [신뢰할 수 있는 행위자 프로그래밍 모델](service-fabric-reliable-actors-introduction.md)
-

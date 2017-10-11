@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
-
-
+ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>404 상태를 반환하는 CDN 끝점 문제 해결
 이 문서는 404 오류를 반환하는 [CDN 끝점](cdn-create-new-endpoint.md) 관련 문제를 해결하는 데 도움이 됩니다.
@@ -38,7 +38,7 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 > [!IMPORTANT]
-> CDN 끝점을 만든 후 등록이 CDN 네트워크 전체에 전파되는 데 시간이 걸리기 때문에 끝점을 즉시 사용할 수는 없습니다.   <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.  이 문서의 단계를 완료한 후에도 여전히 404 응답이 반환되면 몇 시간 정보 기다렸다가 다시 확인한 후 지원 티켓을 열어 보세요.
+> CDN 끝점을 만든 후 등록이 CDN 네트워크 전체에 전파되는 데 시간이 걸리기 때문에 끝점을 즉시 사용할 수는 없습니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.  이 문서의 단계를 완료한 후에도 여전히 404 응답이 반환되면 몇 시간 정보 기다렸다가 다시 확인한 후 지원 티켓을 열어 보세요.
 > 
 > 
 
@@ -97,10 +97,4 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 예를 들어 제가 예로 든 끝점에서는 저장소 계정의 모든 리소스를 사용 가능하게 만들기 위해 **원본 경로** 를 비워 두었습니다.  다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청은 끝점에서 `/publicblob/lorem.txt`를 요청하는 `cdndocdemo.core.windows.net`으로의 연결이 됩니다.  이와 마찬가지로, `https://cdndocdemo.azureedge.net/donotcache/status.png`에 대한 요청은 원본의 `/donotcache/status.png`를 요청하는 끝점이 됩니다.
 
 그러나 원본의 모든 경로에 CDN을 사용하지 않으려면 어떻게 해야 할까요?  `publicblob` 경로만 노출하려 한다고 가정해 봅시다.  **원본 경로** 필드에 */publicblob*를 입력하면 끝점이 원본에 대해 만들어지는 모든 요청 앞에 */publicblob*를 삽입하게 됩니다.  다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청이 이제 URL의 요청 부분인 `/publicblob/lorem.txt`를 가져와서 앞부분에 `/publicblob`를 추가합니다. 이것은 원본의 `/publicblob/publicblob/lorem.txt`에 대한 요청이 됩니다.  해당 경로가 실제 파일을 확인하지 못하면 원본이 404 상태를 반환합니다.  이 예에서 lorem.txt를 검색하는 올바른 URL은 `https://cdndocdemo.azureedge.net/lorem.txt`입니다.  이 예에서는 */publicblob* 경로를 전혀 포함하지 않았습니다. 왜냐하면 URL의 요청 부분이 `/lorem.txt`인데 끝점이 `/publicblob`를 추가하면 `/publicblob/lorem.txt`가 되어, 원본에 전달되는 요청이 되기 때문입니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

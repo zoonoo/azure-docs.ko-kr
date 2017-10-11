@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -447,4 +446,3 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Baidu 푸시 Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
-

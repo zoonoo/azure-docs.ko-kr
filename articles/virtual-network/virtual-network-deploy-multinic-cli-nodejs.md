@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: b95bcb38664718bf25ec6981c803415790c6da3d
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 다중 NIC가 있는 VM 만들기
 
@@ -358,5 +357,4 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
-
 

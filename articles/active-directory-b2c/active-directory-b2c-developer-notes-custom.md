@@ -14,13 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/05/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 사용자 지정 정책 공개 미리 보기에 대한 릴리스 정보
 사용자 지정 정책 기능 집합은 현재 모든 Azure Active Directory B2C(Azure AD B2C) 고객에 대해 공개 미리 보기에서 평가용으로 제공됩니다. 이 기능 집합은 가장 복잡한 ID 솔루션을 구축하는 고급 ID 개발자를 대상으로 합니다.  
@@ -65,4 +63,3 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="next-steps"></a>다음 단계
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)
-

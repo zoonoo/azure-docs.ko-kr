@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 OMS에 컴퓨터 연결
 
 이 문서에서는 OMS 관리 컴퓨터와 SCOM(System Center Operations Manager) 모니터링 컴퓨터가 인터넷에 액세스 할 수 없는 경우 OMS 서비스로 데이터를 보낼 수 있는 방법에 대해 설명합니다. HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하여 이러한 컴퓨터를 대신하여 OMS 서비스로 보낼 수 있습니다.  
@@ -109,7 +107,7 @@ OMS 게이트웨이 설치 파일을 가져오는 방법에는 세 가지가 있
    1. 게이트웨이에 사용될 TCP 포트 번호를 입력합니다. 설치 프로그램에서 Windows 방화벽의 인바운드 규칙을 이 포트 번호로 구성합니다.  기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
    2. 필요에 따라 게이트웨이가 설치되어 있는 서버에서 프록시를 통해 통신해야 하는 경우 게이트웨이에서 연결해야 하는 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`  비워 두면 게이트웨이에서 인터넷에 직접 연결을 시도합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.<br><br> ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. **다음**을 클릭합니다.
+   3. **다음**을 누릅니다.
 5. Microsoft 업데이트를 사용할 수 없는 경우 이를 사용하도록 설정할 수 있는 [Microsoft 업데이트] 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 6. **대상 폴더** 페이지에서 C:\Program Files\OMS Gateway 기본 폴더를 그대로 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
 7. **설치 준비 완료** 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되어 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
@@ -212,13 +210,13 @@ OMS에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는
 
 컴퓨터에서 업데이트 관리 솔루션을 사용하여 패치를 위해 Hybrid Runbook Worker로 자동으로 등록된 경우 다음 단계를 수행합니다.
 
-1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 OMS 게이트웨이 서비스를 다시 시작합니다.
 
 컴퓨터가 Hybrid Runbook Worker 등록 cmdlet을 사용하여 Azure Automation에 등록된 경우 다음 단계를 수행합니다.
 
 1. 에이전트 서비스 등록 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. OMS 게이트웨이 서비스를 다시 시작합니다.
     `Restart-Service OMSGatewayService`
 
@@ -292,4 +290,3 @@ Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azur
 
 ## <a name="next-steps"></a>다음 단계
 * [데이터 원본을 추가](log-analytics-data-sources.md)하여 OMS 작업 영역의 연결된 원본에서 데이터를 수집하고 OMS 리포지토리에 저장합니다.
-

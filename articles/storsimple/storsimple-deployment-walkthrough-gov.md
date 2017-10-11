@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/17/2016
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f120caf4ea21299e52782db33994b9bd8f63780d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>정부 포털에서 온-프레미스 StorSimple 장치 배포
 [!INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
@@ -261,5 +260,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
 

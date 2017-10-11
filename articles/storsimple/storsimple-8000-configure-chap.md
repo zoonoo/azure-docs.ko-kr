@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 장치에 대한 CHAP 구성
 
@@ -172,5 +170,4 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
 * [StorSimple 보안](storsimple-8000-security.md)에 대해 자세히 알아봅니다.
 * [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법](storsimple-8000-manager-service-administration.md)에 대해 자세히 알아봅니다.
-
 

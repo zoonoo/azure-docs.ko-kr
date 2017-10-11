@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기
 이 문서에서는 Resource Manager 배포 모델을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 이미지에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
@@ -247,5 +246,4 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.
-
 

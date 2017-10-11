@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 63e4719a448a289aaa74ad050b36412969c5452d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 912e1af684c90cd84b6b00bacbc7dd8d4434c5b9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB의 계정 키 가져오기
 
 이 샘플은 모든 종류의 Azure Cosmos DB 계정의 계정 키를 가져옵니다.  

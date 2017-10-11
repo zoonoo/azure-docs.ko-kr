@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4cf3aaa9678c423c71cf542591a5a98547bb5cf5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 2294f3de094389f8aa500c75472e753339b18358
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -30,8 +29,8 @@ ms.lasthandoff: 03/14/2017
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
-* 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+* Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * [Azure Java 개발자 센터][Azure Java Developer Center]에서 설치할 수 있는 Java용 Azure 라이브러리입니다.
 
 ## <a name="how-to-use-media-services-with-java"></a>방법: Java에서 미디어 서비스 사용
@@ -275,4 +274,3 @@ Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Az
 [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
 [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
 [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-

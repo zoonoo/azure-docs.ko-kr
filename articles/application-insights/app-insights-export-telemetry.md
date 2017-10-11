@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a55bec84bebf9d86886fcd255b84a665b6d04638
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6ac3bda5101593b5ca66b4c9035e2fdac9d1e833
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -199,4 +198,3 @@ Where
 
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-

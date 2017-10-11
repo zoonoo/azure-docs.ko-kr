@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
-
-
+ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>사이버 보안에 대한 Microsoft 서비스
 Microsoft 서비스는 보안, ID 및 사이버 보안에 대한 포괄적인 접근 방법을 제공합니다. Microsoft 서비스는 기업 고객이 전략적 목표에 부합하는 전체적인 보안 솔루션을 구현할 수 있도록 돕는 전략, 계획, 구현 및 지속적인 지원 전반에 걸쳐 보안 및 ID 서비스를 제공합니다.
@@ -39,9 +39,3 @@ Microsoft 서비스에서 제공하는 서비스에 대한 자세한 정보를 �
 * [사고 대응 및 복구](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [자세히 알아봅니다](https://aka.ms/cyberserv) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

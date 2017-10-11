@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트로 응용 프로그램 등록
 
 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트로 응용 프로그램을 등록할 수 있습니다. 이렇게 하면 응용 프로그램의 응용 프로그램 ID가 만들어져 토큰을 받을 수 있습니다.
@@ -64,4 +62,3 @@ Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정�
 
 1. Azure AD를 사용하여 인증을 수행하는 응용 프로그램에 대한 자세한 연습에 대해 [빠른 시작](active-directory-developers-guide.md)을 확인합니다.
 2. [GitHub](https://github.com/azure-samples)에서 코드 샘플에 대한 전체 목록을 확인합니다.
-

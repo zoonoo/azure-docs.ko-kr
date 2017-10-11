@@ -17,12 +17,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: e66ba67a36fc48d1762ba302d708e060489fdc71
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
 
@@ -238,4 +237,3 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
-

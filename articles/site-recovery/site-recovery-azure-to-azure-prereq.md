@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 #  <a name="prerequisites-for-replicating-azure-virtual-machines-to-another-region-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure 가상 컴퓨터를 다른 지역에 복제하기 위한 필수 구성 요소
 
 > [!div class="op_single_selector"]
@@ -56,4 +54,3 @@ Azure Site Recovery 서비스는 다음 오케스트레이션을 통해 BCDR(무
 ## <a name="next-steps"></a>다음 단계
 - [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md)(Azure 가상 컴퓨터 복제를 위한 네트워킹 지침)에 대해 자세히 알아봅니다.
 - [Azure 가상 컴퓨터를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
-

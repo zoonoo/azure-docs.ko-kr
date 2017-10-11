@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bcb4a7a7d0b712ebe35a5a5bb063124be5095148
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: bd5c81435c091d25bc14710589b7c043e9f56a25
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링
 
 ## <a name="prerequisites"></a>필수 조건
@@ -75,8 +73,7 @@ Container Solution에 대한 자세한 내용은 [Container Solution Log Analyti
 ## <a name="installing-oms-on-kubernetes"></a>Kubernetes에 OMS 설치
 
 ### <a name="obtain-your-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
-OMS 에이전트가 서비스와 통신하려면 작업 영역 ID 및 작업 영역 키로 구성되어야 합니다. 작업 영역 ID 및 키를 모두 가져오려면 <https://mms.microsoft.com>에서 OMS 계정을 만들어야 합니다.
-다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 ID 및 키를 획득해야 합니다.
+OMS 에이전트가 서비스와 통신하려면 작업 영역 ID 및 작업 영역 키로 구성되어야 합니다. 작업 영역 ID 및 키를 모두 가져오려면 <https://mms.microsoft.com>에서 OMS 계정을 만들어야 합니다. 다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 ID 및 키를 획득해야 합니다.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -131,4 +128,3 @@ OMS 작업 영역 ID 및 키를 보호하려면 Kubernetes 비밀을 DaemonSet Y
 
 ### <a name="conclusion"></a>결론
 이것으로 끝입니다. 몇 분 후 OMS 대시보드로 이동하는 데이터를 볼 수 있습니다.
-

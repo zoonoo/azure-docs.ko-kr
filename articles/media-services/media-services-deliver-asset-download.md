@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>방법: 다운로드를 통해 자산 제공
 이 토픽에서는 Media Services에 업로드된 미디어 자산을 제공하는 옵션에 대해 설명합니다. 다양한 응용 프로그램 시나리오에서 미디어 서비스 콘텐츠를 제공할 수 있습니다. 로케이터를 사용하여 미디어 자산을 다운로드하거나 미디어 자산에 액세스할 수 있습니다. 미디어 콘텐츠를 다른 응용 프로그램 또는 다른 콘텐츠 공급자에게 보낼 수 있습니다. 향상된 성능과 확장성을 위해 콘텐츠 배달 네트워크(CDN)를 사용하여 콘텐츠를 배달할 수도 있습니다.
@@ -88,5 +87,4 @@ ms.lasthandoff: 03/14/2017
 
 ## <a name="see-also"></a>참고 항목
 [스트리밍 콘텐츠 제공](media-services-deliver-streaming-content.md)
-
 

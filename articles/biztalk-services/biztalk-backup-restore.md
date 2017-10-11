@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk 서비스: 백업 및 복원
 
@@ -213,5 +211,4 @@ Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk �
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
 

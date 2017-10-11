@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e172f55d45bccfd126928225eb9f78da61a670d3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: ce462c90746e6af0dc201686557121665b82b93d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>응용 프로그램 프록시 응용 프로그램을 로드하는 데 시간이 너무 오래 걸림
 
 이 문서를 통해 Azure AD 응용 프로그램 프록시 응용 프로그램을 로드하는 데 시간이 오래 걸리고 이 문제를 해결하기 위해 수행할 수 있는 작업을 이해할 수 있습니다.
@@ -39,4 +37,3 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다.  주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
@@ -231,4 +230,3 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다.  허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다.  자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | post_logout_redirect_uri | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 응용 프로그램에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 끝점에서 사용자에게 일반 메시지를 표시합니다. |
-

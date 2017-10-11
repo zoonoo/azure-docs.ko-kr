@@ -14,14 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 > [!div class="op_single_selector"]
 >
@@ -225,4 +223,3 @@ Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-

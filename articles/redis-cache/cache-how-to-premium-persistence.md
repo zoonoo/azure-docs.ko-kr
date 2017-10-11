@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 638f0154d3a4fd091197a2da86374a053b31c4c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.
@@ -196,4 +195,3 @@ AOF 파일에 저장된 데이터는 저장소에 데이터를 저장하는 성�
 [redis-cache-aof-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-aof-persistence.png
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
-

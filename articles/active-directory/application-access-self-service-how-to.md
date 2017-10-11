@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: af0ec17d319f0a2911e1b50a5ed45dd59dafa752
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 7991dc19d41c5eb8e149c3ee08069e1a162929cc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 응용 프로그램 할당을 구성하는 방법
 
 사용자가 액세스 패널에서 응용 프로그램을 셀프 검색할 수 있도록 하려면 먼저 사용자가 셀프 검색을 수행하고 액세스 권한을 요청할 수 있게 하려는 모든 응용 프로그램에 대해 **셀프 서비스 응용 프로그램 액세스**를 사용하도록 설정해야 합니다.
@@ -88,4 +86,3 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 [셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](active-directory-accessmanagement-self-service-group-management.md)
-

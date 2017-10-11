@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0cb1b04bcfab1f1864ae0ce867be02a8bf8c827c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: db9b1578a235be9018fc1985cc75a0a05ee47b3a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -183,4 +182,3 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Connect 동기화: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

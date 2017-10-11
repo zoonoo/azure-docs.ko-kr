@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>9단계: Hyper-V VM을 Azure에 복제하기 위한 복제 정책 설정
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Hyper-V VM(System Center VMM 없음)을 Azure에 복제할 때 복제 정책을 설정하는 방법을 설명합니다.
@@ -58,4 +56,3 @@ Hyper-V는 두 가지 유형의 스냅숏, 즉 전체 가상 컴퓨터의 증분
 ## <a name="next-steps"></a>다음 단계
 
 [10단계: 복제 활성화](hyper-v-site-walkthrough-enable-replication.md)로 이동합니다.
-

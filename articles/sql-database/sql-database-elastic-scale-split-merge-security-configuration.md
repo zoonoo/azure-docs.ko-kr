@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL 데이터베이스의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
@@ -454,5 +452,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

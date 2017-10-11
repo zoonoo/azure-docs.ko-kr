@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
+title: "문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없는 | Microsoft Docs"
 description: "Azure 관리 포털에 Active Directory 메뉴 항목이 표시되지 않을 경우 수행할 작업입니다."
 services: active-directory
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없음
 Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분 "Azure 관리 포털로 이동한 다음 **Active Directory**를 클릭합니다."로 시작합니다. 하지만 Active Directory 확장 또는 메뉴 항목이 표시되지 않거나 **사용할 수 없음**으로 표시되는 경우 어떻게 해야 하나요? 이 항목은 도움을 주기 위해 작성되었습니다. **Active Directory** 가 표시되지 않거나 사용할 수 없는 조건 및 계속 진행하는 방법을 설명합니다.
@@ -52,5 +51,4 @@ Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분
 그러나 페이지가 로드되는 동안에는 항목이 흐리게 표시되며 **사용할 수 없음**으로 표시됩니다. 이는 임시 상태입니다. 몇 초간 기다리면 항목을 사용할 수 있습니다. 지연이 길어질 경우 웹 페이지를 새로 고치면 문제가 해결되는 경우가 많습니다.
 
 ![스크린샷: Active Directory를 사용할 수 없음](./media/active-directory-troubleshooting/not-available.png)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>복잡한 솔루션을 배포할 때 Azure Resource Manager 템플릿에 대한 디자인 패턴
 Azure Resource Manager 템플릿을 기반으로 유연한 접근 방식을 사용하면 복잡한 토폴로지를 신속하고 일관되게 배포할 수 있습니다. 코어 제품이 진화함에 따라 또는 이상값 시나리오나 고객에 대한 변화를 수용할 수 있도록 이러한 배포를 쉽게 조정할 수 있습니다.
@@ -347,5 +346,4 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Office 365 솔루션
 
@@ -305,4 +304,3 @@ Office 365 솔루션이 데이터를 정상적으로 수집하지 않는 경우 
 * [Log Analytics](../log-analytics/log-analytics-log-searches.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
 * 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../log-analytics/log-analytics-alerts.md)를 수행합니다.  
-

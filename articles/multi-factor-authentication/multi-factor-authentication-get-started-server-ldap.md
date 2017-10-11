@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 기본적으로 Azure Multi-Factor Authentication 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다. 그러나 ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러 같은 다른 LDAP 디렉터리에 바인딩하도록 구성할 수 있습니다. LDAP를 통해 디렉터리에 연결된 경우 Azure Multi-Factor Authentication 서버는 LDAP 프록시의 역할인 인증을 수행할 수 있습니다. 또한 RADIUS 대상으로서 LDAP 바인딩 사용, IIS 인증을 사용한 사용자의 사전 인증 또는 Azure MFA 사용자 포털에서 기본 인증이 가능합니다.
@@ -75,5 +74,4 @@ LDAP 클라이언트를 구성하려면 다음 지침을 사용합니다.
 * 어플라이언스, 서버 또는 응용 프로그램이 마치 LDAP 디렉터리인 것처럼 LDAP를 통해 Azure Multi-Factor Authentication 서버를 인증하도록 구성합니다. 일반적으로 LDAP 디렉터리에 직접 연결하기 위해 사용하는 설정과 동일한 설정을 사용합니다. 단 Azure Multi-Factor Authentication 서버에 사용할 서버 이름 또는 IP 주소는 그렇지 않습니다.
 * LDAP 디렉터리를 사용하여 사용자 자격 증명의 유효성을 검사할 시간이 있도록 LDAP 제한 시간을 30~60초로 구성하고 2단계 검증을 수행하고 응답을 받고 LDAP 액세스 요청에 응답합니다.
 * LDAPS를 사용하는 경우 LDAP 쿼리를 만드는 어플라이언스 또는 서버는 Azure Multi-Factor Authentication 서버에 설치된 SSL 인증서를 신뢰해야 합니다.
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD에서 API를 액세스하기 위해 Java 명령줄 앱 사용
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -270,5 +268,4 @@ public class PublicClient {
 참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
 

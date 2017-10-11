@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
 이 항목에서는 Microsoft Azure Service Bus 요청/응답 기반 작업 목록을 정의합니다. 이 정보는 AMQP Management Version 1.0 초안을 기반으로 합니다.  

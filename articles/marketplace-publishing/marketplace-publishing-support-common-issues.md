@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
 이 문서에서는 일반적인 마켓플레이스 시나리오 문제를 해결하고 지원을 받는 방법에 대해 설명합니다.
@@ -73,11 +71,11 @@ ms.lasthandoff: 12/08/2016
 **1. Windows 개발자 센터**에 로그인합니다.
 
 * 새 Chrome Incognito 또는 Internet Explorer InPrivate 검색 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
-*  [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
+* [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![inprivate][4]
 
-**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com).)으로 로그인합니다**.
+**2. 회사의 회사 또는 학교 계정으로 로그인** (즉, AzureStore@yourcompany.com).
 
 ![signin][5]
 
@@ -123,4 +121,3 @@ ms.lasthandoff: 12/08/2016
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-

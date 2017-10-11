@@ -15,12 +15,11 @@ ms.date: 06/23/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: e9b8504d4a59cf0fae69a4e975d6f834028066d5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
 관리자는 다음 사용자 및 장치 설정을 관리할 수 있습니다.
@@ -80,4 +79,3 @@ Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사�
 - [Azure Multi-Factor Authentication 설정 구성](multi-factor-authentication-whats-next.md) 방법에 대해 자세히 알아보기
 
 - 사용자에게 지원이 필요한 경우 [2단계 인증에 대한 사용자 가이드](./end-user/multi-factor-authentication-end-user.md) 안내
-

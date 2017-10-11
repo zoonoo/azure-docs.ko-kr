@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Outlook.com 커넥터 시작
 Outlook.com 커넥터를 사용하면 메일, 일정 및 연락처를 관리할 수 있습니다. 메일 보내기, 모임 예약, 연락처 추가 등 다양한 작업을 수행할 수 있습니다.

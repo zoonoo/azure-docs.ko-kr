@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: clemensv;hillaryc;sethm
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # Azure Service Bus 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0
 
@@ -334,4 +333,3 @@ AMQP에 대한 자세한 내용을 알아보려면 다음 링크를 방문하세
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-

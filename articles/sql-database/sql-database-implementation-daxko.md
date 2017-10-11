@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
 ![Daxko/CSI 로고](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -96,5 +94,4 @@ Azure SQL 데이터베이스는 빠르고 안정적인 서비스를 즐기는 Sp
 * 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure 서비스 버스에 대한 자세한 내용은 [Azure 서비스 버스](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
 * 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
-
 

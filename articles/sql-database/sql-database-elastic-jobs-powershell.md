@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
@@ -645,4 +644,3 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
-

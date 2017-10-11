@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="change-a-blob-path-from-the-default-path-private-preview"></a>기본 경로에서 Blob 경로 변경(비공개 미리 보기)
 
 이 문서에서는 Azure 함수를 설정하여 기본 Blob 파일 경로의 이름을 변경하는 방법을 설명합니다. 
@@ -241,4 +240,3 @@ Azure Function이 만들어졌습니다. 이 함수는 데이터 변환 작업�
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 데이터 관리자 UI를 사용하여 데이터를 변환합니다](storsimple-data-manager-ui.md).
-

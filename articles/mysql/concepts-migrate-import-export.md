@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 2164562af60442375b96a51f820a65d4d4a6f257
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다. 
 
@@ -116,4 +114,3 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 
 ## <a name="next-steps"></a>다음 단계
 다른 마이그레이션 방법으로 [Azure Database for MySQL에서 덤프 및 복원을 사용하여 MySQL 데이터베이스 마이그레이션](concepts-migrate-dump-restore.md)을 참조하세요. 
-

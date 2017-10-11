@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 34072574f83b51280e60e2f8766c6c5d5a33c307
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
@@ -196,4 +195,3 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
-

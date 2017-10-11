@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/01/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 컴퓨터에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -275,4 +273,3 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 ## <a name="next-steps"></a>다음 단계
 
 - [다른 지역의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-dr.md)
-

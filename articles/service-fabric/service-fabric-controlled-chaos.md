@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: motanv
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 제어되는 비정상 상황 유도
 클라우드 인프라와 같은 대규모 분산 시스템은 기본적으로 안정적이지 않습니다. Azure Service Fabric을 사용하면 개발자들은 불안정한 인프라 위에 안정적인 분산 서비스를 작성할 수 있습니다. 불안정한 인프라 위에 강력한 분산 서비스를 작성하려는 경우 기반이 되는 불안정한 인프라가 결함으로 인해 복잡한 상태 전환을 겪을 때 개발자는 서비스의 안정성을 테스트할 수 있어야 합니다.
@@ -203,4 +202,3 @@ while($true)
 
 Stop-ServiceFabricChaos
 ```
-

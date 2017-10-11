@@ -16,12 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7f1aa292e6c15e2702f939b9751fe13a27bc5b7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
@@ -802,7 +801,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Compute/availabilitySets/* |계산 가용성 집합 만들기 및 관리 |
 | Microsoft.Compute/locations/* |계산 위치 만들기 및 관리 |
 | Microsoft.Compute/virtualMachines/* |가상 컴퓨터 만들기 및 관리 |
-| Microsoft.Compute/virtualMachineScaleSets/* |가상 컴퓨터 확장 집합 만들기 및 관리 |
+| Microsoft.Compute/virtualMachineScaleSets/* |가상 컴퓨터 크기 집합 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* |Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action |네트워크 응용 프로그램 게이트웨이 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |부하 분산 장치 백 엔드 주소 풀 연결 |
@@ -873,4 +872,3 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 * [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
-

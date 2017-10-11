@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음
 
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 응용 프로그램에 대해 자동 프로비전이 구성됩니다. 사용자 및/또는 그룹은 앱에 프로비전되고 다음 사항으로 결정됩니다.
@@ -69,5 +65,4 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 응용 프로�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화: 선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-
 

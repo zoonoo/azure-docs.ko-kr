@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: 언어 사용자 지정 사용
 
@@ -202,4 +201,3 @@ JSON 리소스를 '사용자 지정 언어'로 업로드할 수 있도록 이 �
 | 터키어               | tr            |
 | 중국어 - 간체  | zh-hans       |
 | 중국어 - 번체 | zh-hant       |
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
 ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 업데이트
 ## <a name="overview"></a>개요
@@ -118,10 +118,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리](storsimple-windows-powershell-administration.md)하는 방법을 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

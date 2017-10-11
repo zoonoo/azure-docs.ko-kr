@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/05/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: fef47d27bc68e5b11b06dc6b67d7afdb088bad15
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Azure Active Directory 연결 마법사를 사용하여 오류 진단
 이전 인증 코드를 검색하는 동안 마법사에서 호환되지 않는 인증 유형을 검색했습니다.   

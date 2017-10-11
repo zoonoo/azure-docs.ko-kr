@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 749ae20a8f9f7247268bd27714b03f7c0dd5b735
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: a13500284caab79bbe221060ccf3d925ffb1fab5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
 [Application Insights][start]의 메트릭은 응용 프로그램의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 응용 프로그램 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
@@ -209,4 +208,3 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 [alerts]: app-insights-alerts.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-

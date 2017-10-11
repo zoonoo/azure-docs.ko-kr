@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 7f7ca19ab171278bbd82f68e3822bc650b25373d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 응용 프로그램의 사용자 재방문 주기 분석
 
 [Azure Application Insights](app-insights-overview.md)의 재방문 주기 기능은 앱으로 돌아온 사용자 수와 특정 작업을 수행하거나 목표를 달성하는 빈도를 분석하는 데 도움을 줍니다. 예를 들어 게임 사이트를 실행하는 경우 게임에서 진 후에 사이트로 돌아오는 사용자 수와 이긴 후에 돌아온 사용자 수를 비교할 수 있습니다. 이러한 지식이 있으면 사용자 환경 및 비즈니스 전략을 둘 다 향상시킬 수 있습니다.
@@ -72,6 +70,5 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
     - [사용자 흐름](app-insights-usage-flows.md)
     - [통합 문서](app-insights-usage-workbooks.md)
     - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
-
 
 

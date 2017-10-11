@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="views-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 뷰
 뷰는 SQL 데이터 웨어하우스에서 특히 유용합니다. 여러가지 다양한 방법을 사용하여 솔루션의 품질을 개선할 수 있습니다.  이 문서에서는 고려해야 할 제한 사항 뿐만 아니라 뷰를 통해 솔루션을 보완하는 방법의 예도 중점적으로 설명되어 있습니다.
@@ -80,4 +79,3 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.  따라
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
-

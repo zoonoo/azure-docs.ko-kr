@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 14b7808c9534bce3049422d6bce1e8914b2c2fbc
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -307,5 +306,4 @@ SampleID는 MNIST 데이터 집합에서 ID를 나타내며 레이블은 모델�
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
-
 

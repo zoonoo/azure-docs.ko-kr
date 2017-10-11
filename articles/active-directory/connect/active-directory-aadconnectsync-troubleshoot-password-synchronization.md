@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결
 이 항목에서는 암호 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다. 버전 1.1.524.0 이상인 Azure AD(Azure Active Directory) Connect 배포의 경우 이제 암호 동기화 문제를 해결하는 데 사용할 수 있는 진단 cmdlet이 있습니다.
@@ -354,4 +353,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

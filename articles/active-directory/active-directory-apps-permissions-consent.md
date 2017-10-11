@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory에서 앱, 사용 권한 및 동의
 Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  클래식 포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.
 
@@ -220,5 +218,4 @@ FabrikamMail의 경우 다음과 같이 나타납니다.
 (**ClientId**는 FabrikamMail의 서비스 주체 개체 ID(방금 생성)이고, **PrincipalId**는 사용자 개체 ID(동의한 사용자의)이며, **ResourceId**는 Exchange의 서비스 주체 개체 ID입니다. 범위는 동의한 Exchange에서의 권한입니다.)
 
 사용자가 동의할 수 없는 경우 권한이 필요하다는 화면이 표시됩니다.
-
 

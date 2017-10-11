@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원
 
-HTTP/2는 HTTP/1.1의 주요 수정 버전입니다\. 친숙한 HTTP 메서드, 상태 코드 및 의미 체계를 유지하면서 더 빨라진 웹 성능, 응답 시간 단축, 향상된 사용자 경험을 제공합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS를 통한 HTTP/2만 지원합니다.
+HTTP/2는 HTTP/1.1\ 주 버전입니다. 웹 성능, 감소 응답 시간 및 향상 된 사용자 경험을 친숙 한 HTTP 메서드, 상태 코드 및 의미 체계를 유지 하면서 더 빠르게 제공 합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS를 통한 HTTP/2만 지원합니다.
 
 ###<a name="http2-benefits"></a>HTTP/2 이점
 

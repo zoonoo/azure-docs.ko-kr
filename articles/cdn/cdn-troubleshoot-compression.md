@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27561c3c401f93d4024974a19581d79cda9c4eee
-
-
+ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
@@ -117,10 +117,4 @@ ms.openlocfilehash: 27561c3c401f93d4024974a19581d79cda9c4eee
 
 * **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](https://msdn.microsoft.com/library/ms525390.aspx)
 * **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](http://www.iis.net/configreference/system.webserver/httpcompression)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

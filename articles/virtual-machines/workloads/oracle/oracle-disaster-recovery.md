@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 
 ## <a name="assumptions"></a>가정
@@ -109,4 +107,3 @@ TCP 포트를 외부에 공개하므로 직접 연결은 사용하지 않는 것
 
 - [자습서: 고가용성 VM 만들기](../../linux/create-cli-complete.md)
 - [VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
-

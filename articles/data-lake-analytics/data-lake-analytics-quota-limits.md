@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: omidm
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 957f306ea0e80b5830ad64e5ef06c6d122d9eccc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics 할당량 한도
 
@@ -79,4 +78,3 @@ Microsoft에서 요청을 검토하고 최대한 빨리 비즈니스 요구를 �
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
 * [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-

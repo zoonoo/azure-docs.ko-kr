@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Azure 응용 프로그램에서 성능 카운터 만들기 및 사용
 이 문서에서는 성능 카운터의 이점 및 Azure 응용 프로그램에 성능 카운터를 배치하는 방법을 설명합니다. 데이터를 수집하고 병목을 찾고 시스템 및 응용 프로그램 성능 튜닝에 사용할 수 있습니다.
@@ -321,4 +320,3 @@ public class PerformanceCountersEntity : TableEntity
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 진단에 대한 추가 문서 보기](../azure-diagnostics.md)
-

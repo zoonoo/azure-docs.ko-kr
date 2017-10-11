@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5792346788b6635a517af6c9fda1b896039e29e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/15/2017
 > 
 > 
 
-Media Services를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
+미디어 서비스를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
 
 새 자산을 만들 때(예: [파일 업로드](media-services-rest-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
@@ -73,14 +72,14 @@ Media Services를 사용하면 암호화된 자산을 새로 만들어서 제공
 
 >[!NOTE]
 
->Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
-## <a name="connect-to-media-services"></a>Media Services에 연결
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
 
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 >[!NOTE]
->https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId 검색
 다음 예제에서는 콘텐츠 키를 암호화할 때 사용해야 하는 인증서의 ProtectionKeyId(인증서 지문)를 검색하는 방법을 보여 줍니다. 컴퓨터에 적절한 인증서가 이미 있는지 확인하려면 이 단계를 수행합니다.
@@ -253,10 +252,9 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
     HTTP/1.1 204 No Content 
 
 
-## <a name="media-services-learning-paths"></a>Media Services 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

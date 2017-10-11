@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Azure 마켓플레이스의 가상 컴퓨터 제품에 대한 프로덕션 이후 가이드
 이 문서에서는 Azure Marketplace의 라이브 가상 컴퓨터 제품을 업데이트하는 방법을 설명합니다. 기존 제품에 하나 이상의 새로운 SKU를 추가하는 과정을 설명합니다. 또한 Marketplace에서 라이브 가상 컴퓨터 제품 또는 SKU를 제거하는 과정을 설명합니다.
@@ -338,4 +336,3 @@ Marketplace에서 나열된 현재 버전의 SKU를 삭제하려면 다음 단�
 * [게시자로 지원 받기](marketplace-publishing-get-publisher-support.md)
 * [온-프레미스 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

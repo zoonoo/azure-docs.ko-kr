@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>서비스 구성 파일에서 DNS 설정 지정
 ## <a name="dns-elements"></a>DNS 요소
@@ -45,10 +45,4 @@ ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://go.microsoft.com/fwlink/?LinkId=248094)
 
 [관리 포털의 가상 네트워크 설정 정보](http://go.microsoft.com/fwlink/?LinkId=248092)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: e057120e31eeebc3da274536c09d6d9972854338
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 에서 보안 경고를 구성하는 방법
 ## <a name="security-alerts"></a>보안 경고
@@ -68,4 +67,3 @@ PIM은 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
-

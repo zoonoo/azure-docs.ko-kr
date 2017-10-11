@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>4단계: Azure 복제에 대한 VMware의 네트워킹 계획
 
 이 문서에서는[Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware VM을 Azure에 복제하는 경우에 네트워킹 계획 고려 사항을 설명합니다.
@@ -47,7 +44,7 @@ Site Recovery는 Azure에 장애 조치할 경우 서브넷 장애 조치를 사
 
 ### <a name="failover-example"></a>장애 조치 예제
 
-Azure에 장애 조치하기 위한 예제를 살펴보겠습니다.
+Azure로 장애 조치(failover)에 관한 예제를 살펴보겠습니다.
 
 - Woodgrove Bank라는 가상의 회사에는 비즈니스 앱을 호스팅하는 온-프레미스 인프라가 있습니다. 모바일 응용 프로그램은 Azure에서 호스팅됩니다.
 - Azure 및 온-프레미스 서버에서 Woodgrove Bank VM 간의 연결은 온-프레미스 에지 네트워크와 Azure 가상 네트워크 간에 있는 사이트 간(VPN) 연결에서 제공됩니다.
@@ -92,4 +89,3 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 ## <a name="next-steps"></a>다음 단계
 
 [5단계: Azure 준비](vmware-walkthrough-prepare-azure.md)로 이동합니다.
-
