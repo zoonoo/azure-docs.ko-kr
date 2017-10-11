@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
 | **단계** | 필드 게이트웨이는 호출자에게 요청된 작업을 수행하는 데 필요한 권한이 있는지 확인할 수 있도록 호출자에게 권한을 부여해야 합니다. 예를 들어 연결하는 필드 게이트웨이 v/s 장치를 구성하는 데 사용되는 관리자 사용자 인터페이스/API에 대해서는 다른 권한이 있어야 합니다.|
-

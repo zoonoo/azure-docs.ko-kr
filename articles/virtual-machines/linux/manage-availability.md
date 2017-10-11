@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f153a740e4814e2573e53b9c051d24c30ff9088f
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Linux 가상 컴퓨터의 가용성 관리
 
 Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Linux 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다. [Windows 가상 컴퓨터의 가용성을 관리](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
@@ -36,5 +34,4 @@ Resource Manager 배포 모델에서 CLI를 사용하여 가용성 집합을 만
 
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](../virtual-machines-linux-load-balance.md)을 참조하세요.
-
 

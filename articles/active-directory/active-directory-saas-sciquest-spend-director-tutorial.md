@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>자습서: SciQuest Spend Director와 Azure Active Directory 통합
 이 자습서에서는 SciQuest Spend Director와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
@@ -44,7 +44,7 @@ SciQuest Spend Director와의 Azure AD 통합을 구성하려면 다음 항목�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다. 
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -119,7 +119,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
    
      b. **회신 URL** 텍스트 상자의 **로그인 URL** 텍스트 상자에서 입력한 것과 동일한 값을 입력합니다. 
    
-     c. **다음**을 클릭합니다.
+     c. **다음**을 누릅니다.
 
 4. **SciQuest Spend Director에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.
    
@@ -259,10 +259,4 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
 [204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

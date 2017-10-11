@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 토픽에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -792,5 +791,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 ## <a name="see-also"></a>참고 항목
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
-
 

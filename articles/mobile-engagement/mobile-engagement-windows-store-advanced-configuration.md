@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Windows 유니버설 앱 Engagement SDK에 대한 고급 구성
 > [!div class="op_single_selector"]
@@ -76,9 +76,3 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

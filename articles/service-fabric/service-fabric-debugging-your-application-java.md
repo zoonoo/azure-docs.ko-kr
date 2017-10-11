@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2017
 ms.author: vturecek;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 3d122720c834de672d5cb512c7bad2dc5ed3ea58
-ms.openlocfilehash: aa608d6ab76792234e6607160bb17cff520b5665
-
-
+ms.openlocfilehash: f3bcee3794de35005bd387ecfae7e6707f3cb5ee
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 응용 프로그램 디버그
 > [!div class="op_single_selector"]
@@ -51,9 +51,3 @@ ms.openlocfilehash: aa608d6ab76792234e6607160bb17cff520b5665
 
 * [Linux Azure 진단을 사용하여 로그 수집](service-fabric-diagnostics-how-to-setup-lad.md).
 * [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 1877e6ab19d504c8be6130578f17b608f123e20a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-operational-security-checklist"></a>Azure 운영 보안 검사 목록
 Azure에 응용 프로그램을 배포하는 것이 빠르고, 쉽고, 비용 효율적입니다. 프로덕션 환경에 클라우드 응용 프로그램을 배포하기 전에 고려해야 하는 필수 및 권장 운영 보안 작업 목록과 대조하여 응용 프로그램을 평가하는 데 도움이 되는 검사 목록이 있으면 유용합니다.
 
@@ -57,4 +55,3 @@ Azure는 응용 프로그램을 배포하는 데 사용할 수 있는 인프라 
 - [OMS(Operations Management Suite) 개요](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview)
 - [설계 및 운영 보안(영문)](https://www.microsoft.com/trustcenter/security/designopsecurity)
 - [Azure Security Center 계획 및 작업](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-

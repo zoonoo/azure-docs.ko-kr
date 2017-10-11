@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>자습서: AirWatch와 Azure Active Directory 통합
 
@@ -308,5 +307,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 [201]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>예약된 IP 주소(클래식)
 
@@ -48,11 +47,11 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 1. 모든 Azure 서비스에 예약된 IP를 사용할 수 있나요? <br>
     아니요. 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
 2. 예약된 IP를 몇 개까지 사용할 수 있나요? <br>
-    자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
+    자세한 내용은 참조는 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서.
 3. 예약된 IP는 사용 요금이 있나요? <br>
     때때로 그렇습니다. 가격 책정 정보는 [예약된 IP 주소 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
 4. IP 주소를 어떻게 예약하나요? <br>
-    PowerShell, [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 지역에서 IP 주소를 예약할 수 있습니다. 예약된 IP 주소는 구독에 연결됩니다.
+    PowerShell을 사용할 수 있습니다는 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), 또는 [Azure 포털](https://portal.azure.com) Azure 지역에서 IP 주소를 예약 하 고 있습니다. 예약된 IP 주소는 구독에 연결됩니다.
 5. 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요? <br>
     아니요. 예약된 IP는 지역 VNet에서만 지원됩니다. 예약된 IP는 선호도 그룹과 연결된 VNet에 대해 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md) 문서를 참조하세요.
 
@@ -168,5 +167,4 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md) 이 어떻게 작동하는지 이해합니다.
 * [예약된 개인 IP 주소](virtual-networks-reserved-private-ip.md)에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP) 주소](virtual-networks-instance-level-public-ip.md)에 대해 알아봅니다.
-
 

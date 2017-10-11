@@ -15,14 +15,12 @@ ms.date: 06/15/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
 
 인증 프로세스를 향상시키려는 대부분의 조직은 2단계 인증을 기본으로 선택합니다. Azure MFA(Multi-Factor Authentication)를 사용하면 회사에서 자체의 보안 및 준수 요구사항을 충족하면서도 사용자에게 단순한 로그인 경험을 제공할 수 있습니다. 이 문서에서는 Azure MFA를 채택하기 위한 계획을 할 때 고려해야 할 몇 가지 팁을 설명합니다.
@@ -114,5 +112,4 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 * [Azure Multi-Factor Authentication에서 보고서](multi-factor-authentication-manage-reports.md)
 * [2단계 확인 등록 환경](multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
-
 

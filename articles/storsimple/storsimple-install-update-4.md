@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/30/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 4 설치
 
@@ -103,5 +101,4 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 4 릴리스](storsimple-update4-release-notes.md)에 대해 자세히 알아봅니다.
-
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보
 ## <a name="overview"></a>개요
@@ -63,7 +63,7 @@ Azure SDK 2.7에 포함된 향상된 로그인 기능은 Visual Studio 2015에�
 #### <a name="known-issues"></a>알려진 문제
 웹앱 배포 슬롯 노드가 서버 탐색기의 슬롯 노드 아래에 표시되지 않으며, 웹앱 배포 슬롯 자식 노드가 Cloud Explorer 아래에 로드되지 않습니다. 이 문제는 해결되었으며 다음 SDK 릴리스에 포함되도록 준비되었습니다. 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Visual Studio 2015용 Cloud Explorer
+### <a name="cloud_explorer"></a>Visual Studio 2015용 Cloud Explorer
 Azure SDK 2.7에는 Azure 리소스를 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 작업을 수행할 수 있는 Visual Studio 2015용 Cloud Explorer가 포함되어 있습니다. 
 
 Cloud Explorer는 다음을 지원합니다.
@@ -136,10 +136,4 @@ LightSwitch 프로젝트는 이 릴리스와 호환되지 않습니다. 이 문�
 [Azure SDK 2.7 발표 게시물](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

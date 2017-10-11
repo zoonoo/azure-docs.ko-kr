@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>StorSimple 장치의 섀시 교체
 ## <a name="overview"></a>개요
@@ -59,10 +59,4 @@ StorSimple 장치에 섀시를 설치하려면 다음 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

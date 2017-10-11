@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 0c430272225d79737baec2be15ed7c93991cdeac
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Java를 사용하여 Azure IoT Edge 모듈 만들기
 
@@ -299,5 +298,4 @@ public void receive(Message message) {
 
 > [!IMPORTANT]
 > Ctrl + C를 사용하여 IoT Edge 게이트웨이 응용 프로그램을 종료하는 것은 권장되지 않습니다. 이는 프로세스를 비정상적으로 종료할 수 있기 때문입니다.
-
 

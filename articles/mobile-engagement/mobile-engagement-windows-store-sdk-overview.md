@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement의 Windows 유니버설 SDK 통합
 이 문서는 Azure Mobile Engagement Windows 유니버설 SDK에 사용 가능한 모든 통합 및 구성 옵션에 관해 설명합니다.
@@ -73,10 +73,4 @@ ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 ### <a name="upgrade-from-older-versions"></a>이전 버전에서 업그레이드
 [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

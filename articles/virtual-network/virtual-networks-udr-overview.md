@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>사용자 정의 경로 및 IP 전달
 
@@ -112,5 +110,4 @@ Azure PowerShell에서 "NextHopType" 값의 일부에는 다른 이름이 지정
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포 모델에서 경로를 만들어](virtual-network-create-udr-arm-template.md) 서브넷에 연결하는 방법에 대해 알아봅니다. 
 * [클래식 배포 모델에서 경로를 만들어](virtual-network-create-udr-classic-ps.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>1단계: 보조 사이트로의 Hyper-V 복제를 위한 아키텍처 검토
 
@@ -65,4 +64,3 @@ Hyper-V VM을 보조 VMM 사이트에 복제하는 데 필요한 사항은 다�
 ## <a name="next-steps"></a>다음 단계
 
 [2단계: 필수 조건 및 제한 사항 검토](vmm-to-vmm-walkthrough-prerequisites.md)로 이동합니다.
-

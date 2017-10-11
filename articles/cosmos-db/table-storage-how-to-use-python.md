@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0c46f04786ba4b62bd7ca22c5e25643123e6e136
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-table-storage-in-python"></a>Python에서 테이블 저장소를 사용하는 방법
 
@@ -56,7 +55,7 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 후 [TableService][py_TableService].[insert_entity][py_insert_entity] 메서드에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
+엔터티를 추가하려면 먼저 엔터티를 나타내는 개체를 만든 후 [TableService][py_TableService].[insert_entity][ py_insert_entity] 메서드에 전달합니다. 엔터티 개체는 [Entity][py_Entity] 형식의 사전 또는 개체일 수 있으며 엔터티의 속성 이름 및 값을 정의합니다. 모든 엔터티에는 사용자가 엔터티에 정의하는 다른 속성 외에 필수 [PartitionKey 및 RowKey](#partitionkey-and-rowkey) 속성이 있어야 합니다.
 
 이 예제에서는 엔터티를 나타내는 사전 개체를 만든 후 [insert_entity][py_insert_entity] 메서드에 전달하여 테이블에 추가합니다.
 
@@ -135,7 +134,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>엔터티 쿼리
 
-테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[ get_entity][py_get_entity] 메서드에 전달합니다.
+테이블의 엔터티를 쿼리하려면 PartitionKey 및 RowKey를 [TableService][py_TableService].[ get_entity][ py_get_entity] 메서드에 전달합니다.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -171,7 +170,7 @@ for task in tasks:
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
 
-PartitionKey 및 RowKey를 [delete_entity][py_delete_entity] 메서드에 제공하여 엔터티를 삭제합니다.
+PartitionKey 및 RowKey를 [delete_entity][ py_delete_entity] 메서드에 제공하여 엔터티를 삭제합니다.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -204,4 +203,3 @@ table_service.delete_table('tasktable')
 [py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
 [py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
 [py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch
-

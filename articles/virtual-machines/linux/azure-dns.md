@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 컴퓨터에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 컴퓨터에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 컴퓨터에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
@@ -141,4 +139,3 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 > 최상의 성능을 얻을 수 있도록 Azure DNS 서버에서 가상 컴퓨터를 사용할 때 IPv6를 비활성화하고 각 DNS 서버 가상 컴퓨터에 [인스턴스 수준 공용 IP](../../virtual-network/virtual-networks-instance-level-public-ip.md)를 할당합니다.  
 >
 >
-

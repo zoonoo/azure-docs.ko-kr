@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0ee70bda954cf0a193d43b5b47702e7b2c37844d
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
@@ -178,5 +177,4 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 ### <a name="next-step"></a>다음 단계
 [여기](https://www.mysql.com/)에서 MySQL에 대한 사용법 및 정보를 확인합니다.
-
 

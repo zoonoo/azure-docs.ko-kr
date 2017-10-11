@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>미디어 앱에 Mobile Engagement 구현
 ## <a name="overview"></a>개요
@@ -57,7 +56,7 @@ IT 팀의 권고에 따라 다음 질문에 답하기 위해 다음과 같은 �
 그는 각 KPI에 대해 필요한 데이터를 분류하고 플레이 북의 적절한 위치에 기록합니다.
 
 ## <a name="engagement-program-and-integration"></a>Engagement 프로그램 및 통합
-John은 KPI 정의를 완료한 후에 4개의 Engagement 프로그램과 목표를 정의하여 Engagement 전략 단계를 시작합니다.    ![][1]
+John은 KPI 정의를 완료한 후에 4개의 Engagement 프로그램과 목표를 정의하여 Engagement 전략 단계를 시작합니다.![][1]
 
 John은 각 프로그램에 대한 푸시 알림을 자세히 열거하면서 깊이 들어갑니다. 푸시 알림은 다섯 가지 요소로 정의됩니다.
 
@@ -99,4 +98,3 @@ John은 AZME 웹 인터페이스를 사용하지 않고도 도달률 캠페인�
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-

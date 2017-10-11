@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>6단계: Azure VM 복제를 위한 테스트 장애 조치 실행
 
 Azure VM(가상 컴퓨터)에 대한 복제를 활성화한 후에 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 이 문서의 단계에 따라 한 Azure 지역에서 다른 Azure 지역으로 테스트 장애 조치를 실행합니다.
@@ -66,5 +64,4 @@ Azure VM(가상 컴퓨터)에 대한 복제를 활성화한 후에 Azure Portal�
 - [복구 계획을 사용](site-recovery-create-recovery-plans.md)하여 여러 VM을 장애 조치하는 방법을 자세히 알아봅니다.
 - [복구 계획 사용](site-recovery-create-recovery-plans.md)을 자세히 알아봅니다.
 - 장애 조치(failover) 후에 [Azure VM을 다시 보호](site-recovery-how-to-reprotect.md)하는 방법에 대해 자세히 알아보세요.
-
 

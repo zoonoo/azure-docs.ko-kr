@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 DNS 영역 파일 가져오기 및 내보내기 
 
 이 문서는 Azure CLI 1.0을 사용하여 Azure DNS에 대한 DNS 영역 파일 가져오고 내보내는 과정을 안내합니다.
@@ -219,4 +217,3 @@ azure network dns zone export [options] <resource group> <zone name> <zone file 
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt
     ```
-

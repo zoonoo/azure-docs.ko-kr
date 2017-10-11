@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>StorSimple 관리자 서비스를 사용하여 저장소 계정 관리
 ## <a name="overview"></a>개요
@@ -144,5 +143,4 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
 

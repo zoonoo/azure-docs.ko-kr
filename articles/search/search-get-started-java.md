@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure 검색 시작
 > [!div class="op_single_selector"]
@@ -111,7 +110,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 7. **마침**을 클릭합니다.
 8. **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**를 선택합니다.
 9. **Add JRE**에서 **Standard VM**을 선택합니다.
-10. **Next**를 클릭합니다.
+10. **다음**을 누릅니다.
 11. JRE 정의의 JRE 홈에서 **Directory**를 클릭합니다.
 12. **Program Files** > **Java**로 이동하여 이전에 설치한 JDK를 선택합니다. JDK를 JRE로 선택해야 합니다.
 13. Installed JREs에서 **JDK**를 선택합니다. 설정은 다음 스크린샷과 유사해야 합니다.
@@ -181,4 +180,3 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

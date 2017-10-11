@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b422dd2cf23426de2f154a553b38509082536309
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 
@@ -101,4 +100,3 @@ VMM 위치 간에 VM을 복제할 방법을 지정합니다.
 모든 것이 예상대로 작동하는지 확인할 수 있도록 테스트 장애 조치를 실행합니다.
 
 [10단계: 테스트 장애 조치(failover) 실행](vmm-to-vmm-walkthrough-test-failover.md)으로 이동합니다.
-

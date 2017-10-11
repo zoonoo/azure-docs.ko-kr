@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
 > [!IMPORTANT]
@@ -260,7 +258,7 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 | Null |값이 없음을 나타냅니다. |
 | Boolean |이진 값 논리의 수학적 개념을 나타냅니다. |
 | Byte |부호 없는 8비트 정수 값 |
-| DateTime |1753년 1월 1일 자정 12:00:00부터 9999년 12월 오후 11:59:59 사이의 값을 사용하여  날짜 및 시간을 나타냅니다. |
+| DateTime |값 A.D. 1753 년 1 월 1 일 12시: 00 자정에서 날짜 및 시간을 나타냅니다. 서 기 9999 년 12 월 오후 11시 59분: 59를 통해 |
 | 10진수 |고정 전체 자릿수와 소수 자릿수를 사용하여 숫자 값을 나타냅니다. 이 유형은 음수 10^255+1부터 양수 10^255-1 사이의 숫자 값을 설명할 수 있습니다. |
 | Double |약 ±2.23e-308부터 ±1.79e+308 사이의 값을 표시할 수 있는 15자리의 부동 소수점 숫자를 나타냅니다. **Exel 내보내기 문제가 있으니 10진수를 사용하세요.** |
 | Single |약 ±1.18e-38부터 ±3.40e+38 사이의 값을 표시할 수 있는 7자리의 부동 소수점 숫자를 나타냅니다. |
@@ -274,4 +272,3 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 * 전체 OData 매핑 프로세스와 목적을 이해하려는 경우 문서 [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md) 을 읽고 정의, 구조 및 지침을 검토하세요.
 * 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 * Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
-

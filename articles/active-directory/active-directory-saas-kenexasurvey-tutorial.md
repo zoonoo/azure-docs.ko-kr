@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>자습서: IBM Kenexa Survey Enterprise와 Azure Active Directory 통합
 
@@ -165,7 +164,7 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
 
     c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
-    ㄹ. **만들기**를 클릭합니다.
+    d. **만들기**를 클릭합니다.
  
 ### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>IBM Kenexa Survey Enterprise 테스트 사용자 만들기
 
@@ -229,4 +228,3 @@ IBM Kenexa Survey Enterprise에 사용자인 Britta Simon을 할당하려면 다
 [203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
 
  
-

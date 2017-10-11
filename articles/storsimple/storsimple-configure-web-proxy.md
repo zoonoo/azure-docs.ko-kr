@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 장치에 대한 웹 프록시 구성
 ## <a name="overview"></a>개요
@@ -112,7 +112,7 @@ ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
 웹 프록시 설정은 Windows PowerShell 인터페이스를 통해 구성되고 클래식 포털 내에서 변경할 수 없습니다. 그러나 클래식 포털에서 이러한 구성된 설정을 볼 수 있습니다. 다음 단계를 수행하여 웹 프록시를 봅니다.
 
 #### <a name="to-view-web-proxy-settings"></a>웹 프록시 설정을 보려면
-1. **StorSimple Manager 서비스 > 장치**로 이동합니다. 장치를 선택하고 클릭한 다음 **구성**으로 이동합니다.
+1. **StorSimple 관리자 서비스 > 장치**로 이동합니다. 장치를 선택하고 클릭한 다음 **구성**으로 이동합니다.
 2. **구성** 페이지에서 **웹 프록시 설정** 섹션으로 아래로 스크롤합니다. 아래와 같이 StorSimple 장치에서 구성된 웹 프록시 설정을 볼 수 있습니다.
    
     ![관리 포털에서 웹 프록시 보기](./media/storsimple-configure-web-proxy/ViewWebProxyPortal_M.png)
@@ -139,10 +139,4 @@ ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
 ## <a name="next-steps"></a>다음 단계
 * 장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 * StorSimple Manager 서비스를 사용하는 방법을 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

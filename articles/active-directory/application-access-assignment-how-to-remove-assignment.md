@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 8d4f2cec35a8edfec9b8830a077b8aa65ca0c229
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-remove-a-users-access-to-an-application"></a>응용 프로그램에 대한 사용자 액세스를 제거하는 방법
 
 이 문서는 응용 프로그램에 대한 사용자 액세스를 제거하는 방법을 이해하는 데 도움이 됩니다.
@@ -74,4 +72,3 @@ ms.lasthandoff: 04/11/2017
 
 # <a name="next-steps"></a>다음 단계
 [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
-

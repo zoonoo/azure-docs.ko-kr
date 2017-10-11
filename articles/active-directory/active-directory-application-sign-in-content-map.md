@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2e6995d730089e194dcac989151af13df28a173a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 742b4578118bde878385c12cc7c9e4438f89cb33
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-when-signing-in-to-applications"></a>응용 프로그램에 로그인할 때 문제
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/18/2017
   * [페더레이션된 Single Sign-On에 대해 구성된 Azure AD 갤러리 응용 프로그램에 로그인할 수 없음](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [사용자 지정 개발된 응용 프로그램에 로그인할 수 없음](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-custom-dev/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 로그인할 수 없음](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-on-premises-application-proxy/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

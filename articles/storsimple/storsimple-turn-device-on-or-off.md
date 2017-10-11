@@ -15,13 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 켜기 또는 끄기
 ## <a name="overview"></a>개요
@@ -174,5 +172,4 @@ StorSimple용 Windows PowerShell 또는 Azure 클래식 포털에 액세스한 �
 
 ## <a name="next-steps"></a>다음 단계
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) 하십시오.
-
 

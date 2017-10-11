@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
-
-
+ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>StorSimple 장치의 디스크 드라이브 교체
 ## <a name="overview"></a>개요
@@ -55,7 +55,7 @@ ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
 2. 키 위의 입구에 빨간색 표시기가 표시되지 않을 때까지 키를 시계 반대 방향으로 돌립니다.
 3. 키를 꺼냅니다.
    
-    ![ 잠금 해제된 디스크 드라이브](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![잠금 해제된 디스크 드라이브](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **그림 2** 잠금 해제된 디스크 드라이브
 4. 이제 디스크 드라이브를 꺼낼 수 있습니다.
@@ -114,10 +114,4 @@ StorSimple 장치에서 드라이브 오류가 발생하고 드라이브를 꺼�
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

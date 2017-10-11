@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>자습서: Teamphoria와 Azure Active Directory 통합
 
@@ -158,7 +157,7 @@ Teamphoria에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     d. **진입점**: Azure Portal에서 이전에 복사한 **SAML Single Sign-On 서비스 URL**을 붙여 넣습니다.
 
-    e. 옵션을 **ON**으로 전환하고 **저장**을 클릭합니다.    
+    e. 옵션을 **ON**으로 전환하고 **저장**을 클릭합니다.   
 
 <!--### Next steps
 
@@ -218,11 +217,11 @@ Azure AD 사용자가 Teamphoria에 로그인할 수 있도록 하려면 Teampho
 
 3. **수동 초대** 옵션을 클릭합니다.
 
-    ![피플 초대](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![피플 초대](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. 이 페이지에서 다음 작업을 수행합니다. 
     
-    ![피플 초대](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![피플 초대](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. **전자 메일 주소** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
@@ -288,5 +287,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 암호 다시 설정 | Microsoft Docs"
 description: "Azure Active Directory에서 사용자 암호를 재설정하는 방법을 설명합니다."
 services: active-directory
@@ -17,13 +16,11 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b460232b4d47e6a70fb31f6c3917f359b49df338
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자 암호 재설정
 > [!div class="op_single_selector"]
@@ -52,4 +49,3 @@ ms.lasthandoff: 05/08/2017
 * [사용자의 작업 정보 변경](active-directory-users-work-info-azure-portal.md)
 * [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 * [Azure AD에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
-

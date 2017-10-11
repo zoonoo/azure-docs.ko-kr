@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a691aad9e4aa21799640efc9c96ac90d38d7bf31
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
-
+ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>CLI를 사용하여 키 자격 증명 모음 관리
 
@@ -179,7 +177,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 2. 왼쪽에서 **Active Directory**를 클릭한 다음 응용 프로그램을 등록할 디렉터리를 선택합니다. <br> <br> 
 
 >[!NOTE] 
-> 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 이 디렉터리를 모르는 경우, **설정**을 클릭하고, 주요 자격 증명 모음을 만든 구독을 식별하고 마지막 열에 표시되는 디렉터리의 이름을 확인합니다.
+> 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 이 디렉터리를 모르는 경우, **설정**을 클릭하고, 사용자 키 자격 증명 모음을 만든 구독을 식별하고 마지막 열에 표시되는 디렉터리의 이름을 확인합니다.
 
 3. **APPLICATIONS**를 클릭합니다. 디렉터리에 추가한 앱이 없는 경우,이 페이지는 **앱 추가** 링크만을 표시합니다. 링크를 클릭하거나 명령 모음에서 **추가** 를 클릭할 수 있습니다.
 4. **응용 프로그램 추가** 마법사에서 **무엇을 하고 싶나요?** 페이지를 클릭하고, **조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
@@ -265,5 +263,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 ## <a name="next-steps"></a>다음 단계
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
-
 

@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>MySQL용 Azure Database 옵션 및 성능: 각 가격 책정 계층에서 사용할 수 있는 항목 이해
 MySQL 서버용 Azure Database를 만들 때 해당 서버에 할당되는 리소스를 구성하는 세 가지 주요 선택 사항을 결정합니다. 이 선택 사항은 서버의 성능과 규모에 영향을 미칩니다.
@@ -104,4 +103,3 @@ Compute 단위 크기 조정은 선택한 최대 저장소 크기와는 별개�
 ## <a name="next-steps"></a>다음 단계
 - Compute 단위에 대한 자세한 내용은 [Compute 단위 설명](concepts-compute-unit-and-storage.md)을 참조하세요.
 - [Azure CLI를 사용하여 MySQL 서버용 Azure Database 모니터링 및 확장](scripts/sample-scale-server.md) 방법을 알아봅니다.
-

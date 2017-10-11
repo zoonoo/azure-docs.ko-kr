@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>가상 네트워크 – 비즈니스 연속성
 ## <a name="overview"></a>개요
@@ -46,10 +46,4 @@ VNet을 만들기 위한 지침은 [여기](virtual-networks-create-vnet-arm-ppo
 A: 예. 사전에 두 개의 서로 다른 지역에서 동일한 개인 IP 주소 공간 및 리소스를 사용하여 두 개의 Vnet을 만들 수 있습니다. 고객이 VNet에 인터넷 연결 서비스를 호스트하는 경우 활성 지역에 트래픽을 지리적으로 라우팅하도록 Traffic Manager를 설정할 수 있습니다. 그러나 고객은 라우팅 문제를 발생할 수 있으므로 동일한 주소 공간을 가진 두 Vnet을 온-프레미스 네트워크에 연결할 수 없습니다. 한 지역에서 재해 및 VNet 손실이 발생할 경우 고객은 주소 공간이 온-프레미스 네트워크의 주소 공간과 일치하는 사용 가능한 지역의 다른 VNet을 연결할 수 있습니다.
 
 VNet을 만들기 위한 지침은 [여기](virtual-networks-create-vnet-arm-pportal.md)에서 찾을 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

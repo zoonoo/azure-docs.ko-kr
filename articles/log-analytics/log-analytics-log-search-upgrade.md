@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드
 
 > [!NOTE]
@@ -84,4 +82,3 @@ ms.lasthandoff: 08/28/2017
 - [새로운 언어에 관한 자습서](https://go.microsoft.com/fwlink/?linkid=856078)를 확인해 보세요.
 - 새로운 쿼리 언어를 사용하여 [로그 검색 포털을 사용한 자습서](log-analytics-log-search-log-search-portal.md)를 진행해 보세요.
 - 새로운 [고급 분석 포털](https://go.microsoft.com/fwlink/?linkid=856587)에 관해 알아보세요.
-

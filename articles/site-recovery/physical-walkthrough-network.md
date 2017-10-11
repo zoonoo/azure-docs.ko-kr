@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f8a20b45b50f71631122e574b634818c1912f12e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-physical-server-replication-to-azure"></a>4단계: Azure에 물리적 서버 복제를 위한 네트워킹 계획
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 물리적 서버를 Azure에 복제하는 경우에 네트워킹 계획 고려 사항을 설명합니다.
@@ -86,4 +83,3 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 서버를 Azure로 복�
 ## <a name="next-steps"></a>다음 단계
 
 [5단계: Azure 준비](physical-walkthrough-prepare-azure.md)로 이동합니다.
-

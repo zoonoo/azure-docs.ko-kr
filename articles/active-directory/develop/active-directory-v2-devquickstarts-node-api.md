@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: d42b96b0fb02b6c2df364d5e19f3345991ee03b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Node.js를 사용하여 웹 API 보안 유지
 > [!NOTE]
@@ -31,7 +29,7 @@ ms.lasthandoff: 05/04/2017
 
 Azure AD(Azure Active Directory) v2.0 끝점을 사용하는 경우 [OAuth 2.0](active-directory-v2-protocols.md) 액세스 토큰을 사용하여 웹 API를 보호할 수 있습니다. OAuth 2.0 액세스 토큰을 사용하여 개인 Microsoft 계정 및 작업 또는 학교 계정 모두를 가진 사용자는 웹 API에 안전하게 액세스할 수 있습니다.
 
-*Passport* 는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. Passport에서는 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 또는 기타 옵션을 사용하여 인증을 지원합니다. Microsoft는 Azure AD에 대한 전략을 개발했습니다. 이 문서에서는 모듈을 설치한 다음 Azure AD `passport-azure-ad` 플러그 인을 추가하는 방법을 보여 줍니다.
+*Passport* 는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 Passport는 어떤 Express 기반 또는 restify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. Passport에서는 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 또는 기타 옵션을 사용하여 인증을 지원합니다. Microsoft는 Azure AD에 대한 전략을 개발했습니다. 이 문서에서는 모듈을 설치한 다음 Azure AD `passport-azure-ad` 플러그 인을 추가하는 방법을 보여 줍니다.
 
 ## <a name="download"></a>다운로드
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs)에서 유지 관리됩니다. 자습서에 따라 [.zip 파일로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
@@ -846,5 +844,4 @@ OAuth 2.0 호환 클라이언트를 사용하지 않고 이 서버로 수행할 
 
 ### <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 보안 사고가 발생할 때 알림을 받으려면 등록하는 것이 좋습니다. [Microsoft 기술 보안 알림](https://technet.microsoft.com/security/dd252948) 페이지에서 보안 권고 알림을 구독합니다.
-
 

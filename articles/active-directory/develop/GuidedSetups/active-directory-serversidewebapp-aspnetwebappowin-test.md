@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -84,5 +82,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 > 특정 조직 목록의 사용자만 허용하려면 `ValidateIssuer`를 true로 설정하고 `ValidIssuers` 매개 변수를 사용하여 조직 목록을 지정합니다.
 
 > 또 다른 방법으로 IssuerValidator 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현합니다. `TokenValidationParameters`에 대한 자세한 내용은 [이](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 문서") MSDN 문서를 참조하세요.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: faf66f19ab1fe5c38273b22c1ff8aeff4d26f1ea
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Sync Service Manager 메타버스 검색
 
@@ -33,4 +32,3 @@ ms.lasthandoff: 03/04/2017
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

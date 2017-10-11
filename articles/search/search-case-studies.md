@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: "Azure 검색을 사용 하는 사용자: 사례 연구 및 고객 스토리 | Microsoft Docs"
 description: "Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색과 관련한 사례 연구 및 고객 스토리"
 services: search
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
 풍부한 Azure 검색 경험을 다음과 같은 조직의 온라인 응용 프로그램에 통합하여 해당 조직이 비즈니스를 발전시키도록 도운 방법에 대해 알아봅니다.
@@ -53,4 +52,3 @@ Weichert Realtors는 클라우드로 이동하고 있으며 비즈니스를 수�
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-

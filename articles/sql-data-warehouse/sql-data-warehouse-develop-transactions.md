@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 트랜잭션
 예상한 것처럼 SQL 데이터 웨어하우스는 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL 데이터 웨어하우스의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다. 
@@ -36,7 +35,7 @@ SQL 데이터 웨어하우스는 ACID 트랜잭션을 구현합니다. 그러나
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-| [DWU][DWU] | 배포당 용량(GiB) | 배포 수 | 최대 트랜잭션 크기(GiB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| [DWU][DWU] | 배포당 용량(GiB) | 배포 수 | 최대 트랜잭션 크기(GiB) | 배포 당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -191,4 +190,3 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 <!--MSDN references-->
 
 <!--Other Web references-->
-

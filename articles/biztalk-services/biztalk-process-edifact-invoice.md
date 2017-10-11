@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>자습서: Azure BizTalk 서비스를 사용하여 EDIFACT 송장 처리
 
@@ -59,7 +58,7 @@ BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 �
 * BizTalk 서비스 구독이 있어야 합니다. 자세한 내용은 [Azure 클래식 포털을 사용하여 BizTalk 서비스 만들기](http://go.microsoft.com/fwlink/?LinkID=302280)를 참조하세요. 이 자습서의 경우 **contosowabs**라는 BizTalk 서비스 구독을 보유했다고 가정합니다.
 * BizTalk 서비스 포털에서 BizTalk 서비스 구독을 등록합니다. 자세한 내용은 [BizTalk 서비스 포털에서 BizTalk 서비스 배포 등록](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio가 설치되어 있어야 합니다.
-* BizTalk 서비스 SDK가 설치되어 있어야 합니다.  [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* BizTalk 서비스 SDK가 설치되어 있어야 합니다. [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>1단계: 서비스 버스 큐 만들기
 이 솔루션에서는 서비스 버스 큐를 사용하여 거래 업체 간에 메시지를 교환합니다. Contoso와 Northwind는 EAI 및/또는 EDI 브리지를 사용할 위치에서 큐에 메시지를 보냅니다. 이 솔루션에서는 세 개의 서비스 버스 큐가 필요합니다.
@@ -227,7 +226,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
 이 항목에서는 샘플의 일부로 제공되는 **자습서 클라이언트** 응용 프로그램을 사용하여 솔루션을 테스트하는 방법을 살펴봅니다.  
 
 1. Visual Studio에서 F5 키를 눌러 **자습서 클라이언트**를 시작합니다.
-2. 화면은 서비스 버스 큐를 만든 단계의 미리 채워진 값을 가져야 합니다. **다음**을 클릭합니다.
+2. 화면은 서비스 버스 큐를 만든 단계의 미리 채워진 값을 가져야 합니다. **다음**을 누릅니다.
 3. 다음 창에서 BizTalk 서비스 구독에 대한 ACS 자격 증명 및 EAI 및 EDI(수신) 브리지가 배포되는 끝점을 제공합니다.
    
    이전 단계에서 EAI 브리지 끝점을 복사했습니다. EDI 수신 브리지 끝점의 경우 BizTalk 서비스 포털에서 규약 > 수신 설정 > 전송 > 끝점으로 이동합니다.
@@ -253,10 +252,10 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 
 1. BizTalk 서비스 포털에서 이전에 만든 규약을 클릭합니다. 송신 설정 > 일괄 처리 > 일괄 처리 추가를 클릭합니다.
 2. 일괄 처리 이름으로 **InvoiceBatch**를 입력하고 설명을 제공한 다음 **다음**을 클릭합니다.
-3. 일괄 처리해야 하는 메시지를 정의하는 일괄 처리 조건을 지정합니다. 이 솔루션에서는 모든 메시지를 일괄 처리합니다. 따라서 고급 정의 사용 옵션을 선택하고 **1 = 1**을 입력합니다. 이는 항상 true가 되는 조건이므로 모든 메시지가 일괄 처리됩니다. **다음**을 클릭합니다.
+3. 일괄 처리해야 하는 메시지를 정의하는 일괄 처리 조건을 지정합니다. 이 솔루션에서는 모든 메시지를 일괄 처리합니다. 따라서 고급 정의 사용 옵션을 선택하고 **1 = 1**을 입력합니다. 이는 항상 true가 되는 조건이므로 모든 메시지가 일괄 처리됩니다. **다음**을 누릅니다.
    
    ![][17]  
-4. 일괄 처리 릴리스 조건을 지정합니다. 드롭다운 상자에서 **MessageCountBased**를 선택하고 **수**에 대해 **3**을 지정합니다. 세 개의 메시지 일괄 처리가 Northwind로 전송됨을 의미합니다. **다음**을 클릭합니다.
+4. 일괄 처리 릴리스 조건을 지정합니다. 드롭다운 상자에서 **MessageCountBased**를 선택하고 **수**에 대해 **3**을 지정합니다. 세 개의 메시지 일괄 처리가 Northwind로 전송됨을 의미합니다. **다음**을 누릅니다.
    
    ![][18]  
 5. 요약을 검토한 다음 **저장**을 클릭합니다. **배포** 를 클릭하여 규약을 다시 배포합니다.
@@ -281,5 +280,4 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
 

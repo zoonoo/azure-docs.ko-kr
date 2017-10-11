@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-with-vmm-replication-to-azure"></a>8단계: Azure로의 Hyper-V(VMM 포함) 복제를 위한 원본 및 대상 설정
 
 [자격 증명 모음 만들기](vmm-to-azure-walkthrough-create-vault.md)와 복제할 항목 지정을 수행한 후 이 문서의 내용을 참조하여 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용해 System Center Virtual Machine Manager(VMM) 클라우드의 온-프레미스 Hyper-V 가상 컴퓨터를 Azure로 복제할 때 사용할 원본 및 대상 설정을 구성할 수 있습니다.
@@ -133,4 +131,3 @@ VM을 복제하려면 Hyper-V 호스트에서 실행되는 복구 서비스 에�
 ## <a name="next-steps"></a>다음 단계
 
 [9단계: 네트워크 매핑 구성](vmm-to-azure-walkthrough-network-mapping.md)으로 이동합니다.
-

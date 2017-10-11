@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
 > [!div class="op_single_selector"]
@@ -165,7 +164,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 ### <a name="certificates"></a>인증서
 포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다. [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
 
-![Azure Portal의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
+![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
 ### <a name="application-ports"></a>응용 프로그램 포트
 노드 유형에 연결된 부하 분산 장치 리소스 속성을 변경하여 응용 프로그램 포트를 변경할 수 있습니다. 포털을 사용하거나 리소스 관리자 PowerShell을 직접 사용할 수 있습니다.
@@ -203,7 +202,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 ![사용자 지정 상태 정책 관리][HealthPolices]
 
 ### <a name="customize-fabric-settings-for-your-cluster"></a>클러스터에 대한 패브릭 설정 사용자 지정
-설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요.
+설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 을 참조하세요.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 패치
 [패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows 업데이트에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
@@ -224,4 +223,3 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
-

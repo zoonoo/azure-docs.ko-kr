@@ -13,13 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: kapiteir
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>APNS에 대한 토큰 기반(HTTP/2) 인증
 ## <a name="overview"></a>개요
@@ -120,4 +118,3 @@ Apple 개발자 계정의 "키" 페이지에서 키 식별자를 가져올 수 �
 
 ## <a name="reverting-to-using-certificate-based-authentication"></a>인증서 기반 인증 사용으로 되돌리기
 위 방법을 사용하고 토큰 속성 대신 인증서를 전달하여 언제든지 인증서 기반 인증 사용으로 되돌릴 수 있습니다. 이 작업은 이전에 저장된 자격 증명을 덮어씁니다.
-

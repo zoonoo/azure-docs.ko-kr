@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: e8a6db7963203d747b1f506d0cfae8b3e98d58d3
-ms.openlocfilehash: 4b5c9e4c62fbcf548aad1dbe242e2df0f2f5d41f
-ms.lasthandoff: 11/18/2016
-
-
+ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
- 
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API 오류 코드
  
 다음 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
@@ -255,4 +253,3 @@ ms.lasthandoff: 11/18/2016
 | BackendInitializationTimeout | 허용된 시간 내에 웹 서비스 초기화를 완료할 수 없습니다. |
 | BackendScoreTimeout | 허용된 시간 내에 웹 서비스 요청 실행을 완료할 수 없습니다. |
  
-

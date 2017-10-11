@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>사이트 복구란?
 
@@ -79,4 +78,3 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 * [워크로드 지원](site-recovery-workload.md)에 대해 자세히 알아보세요.
 * [지역 간 Azure VM 복제](site-recovery-azure-to-azure.md), [Azure에 VMware 복제](vmware-walkthrough-overview.md) 또는 [Azure에 Hyper-V 복제](hyper-v-site-walkthrough-overview.md)를 시작합니다.
-

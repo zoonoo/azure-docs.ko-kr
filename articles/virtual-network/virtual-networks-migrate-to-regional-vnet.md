@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>선호도 그룹에서 지역으로 가상 네트워크(클래식) 마이그레이션
 
@@ -62,4 +61,3 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>선호도 그룹에 VM(클래식)이 있는 경우 수행할 수 있는 작업
 현재 선호도 그룹에 있는 VM(클래식)을 선호도 그룹에서 제거할 필요는 없습니다. VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 새 VM 배포에 대해 사용 가능한 VM 크기의 집합을 제한할 수 있지만 배포된 모든 기존 VM은 VM이 배포되는 배율 단위에서 사용 가능한 VM 크기의 집합으로 이미 제한되어 있습니다. 배율 단위에 VM을 이미 배포했기 때문에, 선호도 그룹에서 VM을 제거해도 VM에 미치는 영향은 없습니다.
-

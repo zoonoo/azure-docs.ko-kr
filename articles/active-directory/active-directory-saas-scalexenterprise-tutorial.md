@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory 통합
 
@@ -135,7 +133,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     b. **emailaddress** 특성을 클릭하여 특성 편집 창을 엽니다. **user.mail**에서 **user.userprincipalname**으로 값을 변경하고 확인을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)    
+    ![Single Sign-on 구성](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -278,5 +276,4 @@ Azure AD 사용자가 ScaleX Enterprise에 로그인할 수 있도록 하려면 
 [201]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_203.png
-
 

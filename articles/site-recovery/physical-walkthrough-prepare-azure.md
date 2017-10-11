@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>5단계: Azure에 물리적 서버 복제를 위한 Azure 리소스 준비
 
@@ -62,4 +61,3 @@ Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site
 ## <a name="next-steps"></a>다음 단계
 
 [6단계: 자격 증명 모음 설정](physical-walkthrough-create-vault.md)으로 이동합니다.
-

@@ -16,12 +16,11 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6ff9a341b31e5005949dcc0ecb2591060269846e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -115,7 +114,7 @@ NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 
 3. **속성**을 선택합니다.
 4. [속성] 블레이드에서 아래와 같이 디렉터리 ID 옆에 있는 **복사** 아이콘을 클릭하여 클립보드에 해당 ID를 복사합니다.
 
- ![속성](./media/nps-extension-remote-desktop-gateway/image1.png)
+ ![properties](./media/nps-extension-remote-desktop-gateway/image1.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 NPS 확장을 설치합니다. 이 확장은 설계 목적에 맞는 RADIUS 서버로 작동합니다. 
@@ -381,4 +380,3 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)
 
 [Azure Active Directory와 온-프레미스 디렉터리 통합](../active-directory/connect/active-directory-aadconnect.md)
-

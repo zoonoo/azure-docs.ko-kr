@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록
 [Azure가 이름 확인을 제공](virtual-networks-name-resolution-for-vms-and-role-instances.md) 합니다. 그러나 이름 확인을 위해 Azure가 제공하는 기능 이상이 필요한 경우 자체 DNS 서버를 제공할 수 있습니다. 그러면 특정한 자체 요구에 맞게 DNS 솔루션을 맞춤식 구성을 할 수 있게 됩니다. 예를 들어 Active Directory 도메인 컨트롤러를 통해 온-프레미스 리소스에 액세스해야 할 수 있습니다.
@@ -68,5 +67,4 @@ Windows DNS 서버를 사용하는 경우 Kerberos 인증은 *nsupdate*의 *-g* 
 필요한 경우 DNS 검색 접미사를 VM에 추가할 수 있습니다. DNS 접미사는 */etc/resolv.conf* 파일에 지정됩니다. 대부분의 Linux 배포판은 자동으로 이 파일의 콘텐츠를 관리하므로 일반적으로 편집할 수 없습니다. 그러나 DHCP 클라이언트의 *supersede* 명령을 사용하여 접미사를 재정의할 수 있습니다. 이렇게 하려면 */etc/dhcp/dhclient.conf*에서 추가합니다.
 
         supersede domain-name <required-dns-suffix>;
-
 

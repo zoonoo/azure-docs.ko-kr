@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑
 azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 대한 URL에 고유한 도메인 이름을 사용하려면 사용자 지정 도메인을 CDN 끝점에 매핑할 수 있습니다.
@@ -81,5 +80,4 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 ## <a name="see-also"></a>참고 항목
 [Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)  
-
 

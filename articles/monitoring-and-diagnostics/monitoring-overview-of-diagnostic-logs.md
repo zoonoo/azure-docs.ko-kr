@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
 ## <a name="what-are-azure-resource-diagnostic-logs"></a>Azure 리소스 진단 로그란?
 **Azure 리소스 수준 진단 로그**는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보낸 로그입니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 예를 들어 네트워크 보안 그룹 규칙 카운터와 Key Vault 감사는 리소스 로그의 두 범주입니다.
 
-리소스 수준 진단 로그는 [활동 로그](monitoring-overview-activity-logs.md)와 다릅니다. 활동 로그는 가상 컴퓨터 만들기나 논리 앱 삭제 등, 리소스 관리자를 사용하여 구독에서 리소스에 대해 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독 수준 로그입니다. 리소스 수준 진단 로그는 Key Vault에서 암호 가져오기 등과 같이 리소스 자체에서 수행된 작업에 대한 정보를 제공합니다.
+리소스 수준 진단 로그는 [활동 로그](monitoring-overview-activity-logs.md)와 다릅니다. 활동 로그는 가상 컴퓨터 만들기나 논리 앱 삭제 등, Resource Manager를 사용하여 구독에서 리소스에 대해 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독 수준 로그입니다. 리소스 수준 진단 로그는 Key Vault에서 암호 가져오기 등과 같이 리소스 자체에서 수행된 작업에 대한 정보를 제공합니다.
 
 리소스 수준 진단 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 컴퓨터나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않으며 Azure 플랫폼 자체에서 리소스 특정 데이터를 수집하고, 게스트 OS 수준 진단 로그는 가상 컴퓨터에서 실행되는 운영 체제 및 응용 프로그램에서 데이터를 수집합니다.
 
@@ -40,20 +39,20 @@ ms.lasthandoff: 08/24/2017
 ![리소스 진단 로그의 논리적 배치](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 
-* 감사 또는 수동 검사를 위해 [**Storage 계정**](monitoring-archive-diagnostic-logs.md)에 저장합니다. **리소스 진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* 감사 또는 수동 검사를 위해 [**저장소 계정**](monitoring-archive-diagnostic-logs.md)에 저장합니다. **리소스 진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hubs**로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
 * [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 ## <a name="resource-diagnostic-settings"></a>리소스 진단 설정
-리소스 진단 설정을 사용하여 비-Compute 리소스에 대한 리소스 진단 로그를 구성합니다. 리소스 제어를 위한 **리소스 진단 설정**은 다음과 같습니다.
+리소스 진단 설정을 사용하여 비-계산 리소스에 대한 리소스 진단 로그를 구성합니다. 리소스 제어를 위한 **리소스 진단 설정**은 다음과 같습니다.
 
 * 리소스 진단 로그 및 메트릭을 보내는 위치(Storage 계정, Event Hubs 및/또는 OMS Log Analytics).
 * 전송되는 로그 범주 및 메트릭 데이터의 전송 여부.
 * 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
     - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
-    - 보존 정책이 설정되었지만 Storage 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+    - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 이러한 설정은 Azure Portal에서 리소스에 대한 진단 설정을 통해, Azure PowerShell 및 CLI 명령을 통해 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 통해 쉽게 구성됩니다.
@@ -132,7 +131,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-cli"></a>CLI를 통해 리소스 진단 로그 컬렉션 활성화
 Azure CLI를 통해 리소스 진단 로그 컬렉션을 활성화하려면 다음 명령을 사용합니다.
 
-저장소 계정에서 진단 로그의 저장소를 활성화하려면 다음 명령을 사용합니다.
+저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
 azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
@@ -180,4 +179,3 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 * [**Event Hubs**로 리소스 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
-

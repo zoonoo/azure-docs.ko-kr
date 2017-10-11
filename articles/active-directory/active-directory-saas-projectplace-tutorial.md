@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>자습서: Projectplace와 Azure Active Directory 통합
 
@@ -250,5 +248,4 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
 [201]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_203.png
-
 

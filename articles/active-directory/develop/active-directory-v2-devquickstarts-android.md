@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>v2.0 끝점을 사용하는 Graph API와 함께 타사 라이브러리를 사용하여 Android 앱에 로그인 추가
 Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 개발자는 서비스와 통합하려는 모든 라이브러리를 사용할 수 있습니다. 개발자가 플랫폼을 다른 라이브러리와 함께 사용할 수 있도록 돕기 위해, 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습 몇 가지를 작성했습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749) 을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
@@ -95,8 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![기본 앱 모듈](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. 모듈을 복제 리포지토리에서 현재 프로젝트로 가져옵니다.
    
-    ![Gradle 프로젝트 가져오기](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![새 모듈 페이지 만들기](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Gradle 프로젝트 가져오기](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![새 모듈 페이지 만들기](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. `oidlib-sample` 모듈에 대해 이들 단계를 반복합니다.
 7. `oidlib-sample` 모듈에서 Oidclib 종속성을 확인합니다.
    
@@ -191,5 +188,4 @@ OAuth2를 프로토콜로 사용하는 경우 이러한 끝점은 변경되어�
 
 ## <a name="get-security-updates-for-our-product"></a>당사 제품에 대한 보안 업데이트 가져오기
 [Security TechCenter](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
 

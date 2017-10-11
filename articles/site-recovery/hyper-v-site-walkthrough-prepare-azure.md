@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 1a30cadaab7e053184f0be133f1da5bfddc1fd91
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-to-azure"></a>5단계: Azure에 Hyper-V 복제를 위한 Azure 리소스 준비
 
 Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V VM(System Center VMM 없음)을 Azure에 복제할 수 있습니다.
@@ -63,4 +61,3 @@ Azure 리소스를 준비하는 이 문서의 지침을 사용하여 [Azure Site
 ## <a name="next-steps"></a>다음 단계
 
 [6단계: Hyper-V 리소스 준비](hyper-v-site-walkthrough-prepare-hyper-v.md)로 이동합니다.
-

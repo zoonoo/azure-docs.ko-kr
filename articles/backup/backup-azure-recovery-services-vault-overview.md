@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/15/2017
 ms.author: markgal;arunak
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
 ms.openlocfilehash: 19e2aafe3de106be32f3d90c63c0ea03c626f272
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -78,4 +76,3 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델에 기
 [IaaS VM 백업](backup-azure-arm-vms-prepare.md)</br>
 [Azure Backup Server 백업](backup-azure-microsoft-azure-backup.md)</br>
 [Windows Server 백업](backup-configure-vault.md)
-

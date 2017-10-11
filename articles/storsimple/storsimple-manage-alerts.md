@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 ## <a name="overview"></a>개요
@@ -203,5 +202,4 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 오류 및 운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)에 대해 알아봅니다.
-
 

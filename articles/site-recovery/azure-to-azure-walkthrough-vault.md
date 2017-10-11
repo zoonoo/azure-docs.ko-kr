@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>4단계: Azure 간 복제를 위한 자격 증명 모음 설정
 
 [네트워크 계획](azure-to-azure-walkthrough-network.md) 후에 이 문서를 사용하여 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 통해 다른 Azure 지역에 복제하는 Azure VM(가상 컴퓨터)에 대한 자격 증명 모음을 설정합니다.
@@ -50,4 +48,3 @@ ms.lasthandoff: 08/02/2017
 ## <a name="next-steps"></a>다음 단계
 
 [5단계: 복제 사용](azure-to-azure-walkthrough-enable-replication.md)으로 이동합니다.
-

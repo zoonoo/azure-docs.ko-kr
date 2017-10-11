@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 7a82e58d9ff9208130c43fcd11d03dcc3238696a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-vmware-to-azure-replication"></a>2단계: Azure에 복제하기 위한 VMware의 필수 조건 검토
 
 다음 표에 요약된 필수 조건을 참고하세요.
@@ -54,4 +52,3 @@ ms.lasthandoff: 08/25/2017
 
 - 전체 배포를 수행하는 경우 [3단계: 용량 계획](vmware-walkthrough-capacity.md)으로 이동합니다.
 - 간단한 테스트 배포를 수행하는 경우 [4단계: 네트워킹 계획](vmware-walkthrough-network.md)으로 이동합니다.
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>7단계: Azure에 VMware를 복제하기 위한 자격 증명 모음 설정
 
@@ -50,4 +48,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>다음 단계
 
 [8단계: 소스 및 대상 설정](vmware-walkthrough-source-target.md)으로 이동합니다.
-

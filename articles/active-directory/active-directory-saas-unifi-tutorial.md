@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 09074d4628825909f0bb961c8001e53fb06cf7c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>자습서: UNIFI와 Azure Active Directory 통합
 
@@ -118,7 +116,7 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Single Sign-on 구성](./media/active-directory-saas-unifi-tutorial/tutorial_unifi_url2.png)
 
-    **로그인 URL** 텍스트 상자에서 URL `https://app.discoverunifi.com/login`을 입력합니다.
+    **로그온 URL** 텍스트 상자에서 URL `https://app.discoverunifi.com/login`을 입력합니다.
 
 5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -248,5 +246,4 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [201]: ./media/active-directory-saas-unifi-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-unifi-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-unifi-tutorial/tutorial_general_203.png
-
 

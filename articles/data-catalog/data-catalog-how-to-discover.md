@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 1cefc0341789a4751d4e3ee687048ccd291559e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 검색하는 방법
 ## <a name="introduction"></a>소개
@@ -67,4 +66,3 @@ Azure Data Catalog는 기업 데이터 원본의 등록 시스템 및 검색 역
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 원본을 검색하는 방법에 대한 자세한 단계별 내용은 [Azure Data Catalog 시작](data-catalog-get-started.md)을 참조하세요.
-

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 015adf7dbc47c29a78df4e4889b2ee1ddcccdd8e
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="task-complete-event"></a>태스크 완료 이벤트
 
  이 이벤트는 종료 코드에 관계없이 태스크가 완료되면 내보내집니다. 이 이벤트는 태스크의 기간, 태스크가 실행된 위치 및 태스크가 재시도되었는지 여부를 확인하는 데 사용될 수 있습니다.
@@ -91,4 +90,3 @@ ms.lasthandoff: 04/22/2017
 |exitCode|Int32|태스크의 종료 코드입니다.|
 |retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|
 |requeueCount|Int32|사용자 요청으로 인해 Batch 서비스에서 태스크를 대기열에 다시 추가한 횟수입니다.<br /><br /> 사용자가 풀 크기 조정 또는 축소를 통해 풀에서 노드를 제거하거나 작업이 비활성화될 경우 사용자는 노드에서 실행 중인 태스크를 실행 대기열에 다시 추가하도록 지정할 수 있습니다. 이 개수는 태스크가 이러한 이유로 대기열에 다시 추가된 횟수를 추적합니다.|
-

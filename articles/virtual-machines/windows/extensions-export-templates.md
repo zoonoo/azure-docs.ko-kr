@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
 Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다시 배포할 수 있습니다. 내보내기 프로세스 중에 기존 리소스가 해석되고, 배포 시 비슷한 리소스 그룹을 생성하는 Resource Manager 템플릿이 만들어집니다. 가상 컴퓨터 확장을 포함하는 리소스 그룹에 대해 리소스 그룹 내보내기 옵션을 사용할 경우 확장 호환성 및 보호된 설정과 같은 몇 가지 항목을 고려해야 합니다.
@@ -165,4 +164,3 @@ Azure Resource Manager Automation 스크립트는 Resource Manager 템플릿, �
 ```
 
 이제 템플릿 배포 방법을 사용하여 템플릿을 배포할 수 있습니다.
-

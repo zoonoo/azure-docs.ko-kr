@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 스크립트)
 가상 컴퓨터에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
@@ -80,7 +79,7 @@ True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않�
 | Accept Wildcard Characters? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-가상 컴퓨터 계정에 대한 자격 증명입니다. 예: -VMPassword @{Name = "admin"; Password = "password"}
+가상 컴퓨터 계정에 대한 자격 증명입니다. 예: VMPassword @{Name = "admin"; 암호 = "password"}
 
 | Aliases | 없음 |
 | --- | --- |
@@ -91,7 +90,7 @@ True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않�
 | Accept Wildcard Characters? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Azure에서 SQL 데이터베이스에 대한 자격 증명입니다. 예: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+Azure에서 SQL 데이터베이스에 대한 자격 증명입니다. 예: DatabaseServerPassword @{Name = "admin"; 암호 = "password"}
 
 | Aliases | 없음 |
 | --- | --- |
@@ -185,5 +184,4 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프�
 ```
 
 프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
-
 

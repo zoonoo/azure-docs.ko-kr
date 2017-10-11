@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD는 핵심 디렉터리 서비스, 고급 ID 통제 및 응용 프로그램 액세스 관리 기능을 모두 제공합니다. 또한 Azure AD는 개발자가 중앙 집중식 정책 및 규칙에 따라 응용 프로그램에 대한 액세스 제어를 제공하도록 지원하는 다양한 기능의 표준 기반 플랫폼을 제공합니다. 
@@ -78,4 +77,3 @@ Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure ID 및 액세스 관리의 기본 사항에 대해 자세히 알아보기](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)
-

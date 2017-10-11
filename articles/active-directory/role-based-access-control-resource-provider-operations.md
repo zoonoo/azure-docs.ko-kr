@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -600,7 +598,7 @@ ms.lasthandoff: 05/18/2017
 |/virtualMachineScaleSets/virtualMachines/powerOff/action|VM 확장 집합에서 가상 컴퓨터 인스턴스를 끕니다.|
 |/virtualMachineScaleSets/virtualMachines/restart/action|VM 확장 집합에서 가상 컴퓨터 인스턴스를 다시 시작합니다.|
 |/virtualMachineScaleSets/virtualMachines/deallocate/action|VM 확장 집합의 가상 컴퓨터에 대한 Compute 리소스를 끄고 해제합니다.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/read|VM 확장 집합에 있는 가상 컴퓨터의 인스턴스 보기를 검색합니다.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/read|VM 크기 집합에 있는 가상 컴퓨터의 인스턴스 보기를 검색합니다.|
 |/images/read|이미지의 속성을 가져옵니다.|
 |/images/write|새 이미지를 만들거나 기존 이미지를 업데이트합니다.|
 |/images/delete|이미지를 삭제합니다.|
@@ -2225,4 +2223,3 @@ ms.lasthandoff: 05/18/2017
 - [기본 제공 RBAC 역할](role-based-access-built-in-roles.md)을 검토합니다.
 
 - [사용자](role-based-access-control-manage-assignments.md) 또는 [리소스](role-based-access-control-configure.md)를 기준으로 액세스 할당을 관리하는 방법을 알아봅니다. 
-

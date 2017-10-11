@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기
 
 Azure Batch에서 가상 컴퓨터 풀을 만들 경우 풀에서 각 계산 노드에 대해 운영 체제를 제공하는 가상 컴퓨터(VM) 이미지를 지정합니다. Azure Marketplace 이미지를 사용하거나 사용자가 준비한 사용자 지정 VHD 이미지를 제공하여 가상 컴퓨터 풀을 만들 수 있습니다. 사용자 지정 이미지를 제공할 경우 각 계산 노드가 프로비전되는 시점에서 운영 체제가 구성되는 방식을 제어할 수 있습니다. 사용자 지정 이미지에는 프로비전되는 즉시, 계산 노드에서 사용 가능한 응용 프로그램 및 참조 데이터도 포함할 수 있습니다.

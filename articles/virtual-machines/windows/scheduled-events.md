@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 메타데이터 서비스: Windows VM에 예정된 이벤트(미리 보기)
 
@@ -55,8 +54,8 @@ Azure 메타데이터 서비스는 VM 내에서 액세스할 수 있는 REST 끝
 Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가용성 집합의 모든 Virtual Machines에 나타납니다. 따라서 이벤트의 `Resources` 필드를 확인하여 영향을 받을 VM을 식별해야 합니다. 
 
 ### <a name="discovering-the-endpoint"></a>끝점 검색
-가상 컴퓨터가 VNet(Virtual Network) 내에 생성된 경우, 라우팅할 수 없는 고정 IP(`169.254.169.254`)에서 메타데이터 서비스를 사용할 수 있습니다.
-클라우드 서비스 및 클래식 VM의 기본 사례처럼 가상 컴퓨터가 Virtual Network에 생성되지 않은 경우 사용할 끝점을 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법은 이 샘플을 참조하세요.
+가상 컴퓨터가 VNet(가상 네트워크) 내에 생성된 경우, 라우팅할 수 없는 고정 IP(`169.254.169.254`)에서 메타데이터 서비스를 사용할 수 있습니다.
+클라우드 서비스 및 클래식 VM의 기본 사례처럼 가상 컴퓨터가 가상 네트워크에 생성되지 않은 경우 사용할 끝점을 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법은 이 샘플을 참조하세요.
 
 ### <a name="versioning"></a>버전 관리 
 인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 최신 버전은 `2017-03-01`입니다.
@@ -379,5 +378,4 @@ if __name__ == '__main__':
 
 - [인스턴스 메타데이터 서비스](instance-metadata-service.md)에서 사용 가능한 API에 대해 자세히 알아봅니다.
 - [Azure에서 Windows 가상 컴퓨터에 대한 계획된 유지 관리](planned-maintenance.md)에 대해 알아봅니다.
-
 

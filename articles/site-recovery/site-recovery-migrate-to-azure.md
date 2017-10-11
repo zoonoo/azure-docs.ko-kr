@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Site Recovery를 사용하여 Azure에 마이그레이션
 
@@ -83,4 +81,3 @@ Azure VM에 AWS 인스턴스 마이그레이션할 수 있습니다. 이 시나�
 - [Azure에 AWS 인스턴스 마이그레이션](site-recovery-migrate-aws-to-azure.md)
 - 재해 복구 수요에 맞게 다른 지역으로 [복제할 수 있도록 마이그레이션된 컴퓨터를 준비](site-recovery-azure-to-azure-after-migration.md)합니다.
 - [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
-

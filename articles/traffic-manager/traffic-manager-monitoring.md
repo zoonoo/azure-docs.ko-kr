@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 
 Azure Traffic Manager에는 기본 제공된 끝점 모니터링 및 자동 끝점 장애 조치가 포함됩니다. 이 기능을 통해 Azure 지역 장애를 포함하여 끝점 장애에 대해 복원력 있는 고가용성 응용 프로그램을 제공할 수 있습니다.
@@ -161,4 +159,3 @@ Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-rou
 [Traffic Manager 프로필을 만드는](traffic-manager-manage-profiles.md)
 
 [Degraded 상태 문제를 해결](traffic-manager-troubleshooting-degraded.md) 합니다.
-

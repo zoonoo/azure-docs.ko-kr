@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>플랫폼 수준 이벤트 및 로그 생성
 
 ## <a name="monitoring-the-cluster"></a>클러스터 모니터링
@@ -113,4 +111,3 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 ## <a name="next-steps"></a>다음 단계
 
 로그와 이벤트는 분석 플랫폼으로 보내기 전에 집계해야 합니다. 권장 옵션을 더 잘 이해하려면 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [WAD](service-fabric-diagnostics-event-aggregation-wad.md)를 참조하세요.
-

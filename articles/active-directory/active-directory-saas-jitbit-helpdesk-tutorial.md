@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 6523ee3179dafd79528093b856b0ec10fafb4f7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>자습서: Jitbit Helpdesk와 Azure Active Directory 통합
 
@@ -293,5 +291,4 @@ Azure AD 사용자가 Jitbit Helpdesk에 로그인할 수 있도록 하려면 Ji
 [201]: ./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_general_203.png
-
 

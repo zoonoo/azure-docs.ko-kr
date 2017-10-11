@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: afc4790d5714ce7145c8f4291a05acc2e9882a9b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Site Recovery에서 테스트 장애 조치(failover)(VMM에서 VMM으로)
 
@@ -119,4 +117,3 @@ DHCP를 정의하는 경우 대상 VMM 서버가 DHCP 서버 역할을 하며, �
 
 ## <a name="next-steps"></a>다음 단계
 테스트 장애 조치(failover)를 성공적으로 실행한 후에는 [장애 조치](site-recovery-failover.md)(failover)를 수행할 수 있습니다.
-

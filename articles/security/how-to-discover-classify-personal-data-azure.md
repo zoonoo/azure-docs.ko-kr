@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 953df2f0dbbccc153b0a4206c9c0b5f5ea9a51a7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 검색, 식별 및 분류
 
@@ -201,4 +200,3 @@ Azure Cosmos DB 처음 사용하고 데이터베이스 만들기, 컬렉션 추�
 [Azure Rights Management란?](https://docs.microsoft.com/information-protection/understand-explore/what-is-azure-rms)
 
 [Azure Information Protection: 준비, 설정, 보호](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/21/azure-information-protection-ready-set-protect/)
-

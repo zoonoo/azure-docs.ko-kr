@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f2f2b2ab37d84865c049253be7c30da0d98fd992
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 7f45b8b654691063823c13bee61e9bb874a6a13a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure 자동화를 사용하여 Azure SQL 데이터베이스 관리
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure SQL 데이터베이스 관리를 간소화하는 방법을 소개합니다.
@@ -52,5 +50,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 SQL 데이�
 * [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
 * [Azure 자동화 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Azure 자동화: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
 

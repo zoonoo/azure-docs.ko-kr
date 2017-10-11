@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>여러 서비스 구성을 사용하여 Azure 프로젝트 구성
 Azure 클라우드 서비스 프로젝트에는 ServiceDefinition.csdef 및 ServiceConfiguration.cscfg의 두 가지 구성 파일이 포함됩니다. 이러한 파일은 Azure 클라우드 서비스 응용 프로그램과 함께 패키지로 구성되고 Azure에 배포됩니다.
@@ -106,5 +105,4 @@ Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었�
 | 빌드 이벤트 |이 페이지에서 빌드 전 및 빌드 후 이벤트를 설정할 수 있습니다. |
 | 개발 |이 페이지에서 빌드 구성 지침과 빌드 후 이벤트를 실행할 조건을 지정할 수 있습니다. |
 | 웹 |이 페이지에서 웹 서버와 관련된 설정을 구성할 수 있습니다. |
-
 

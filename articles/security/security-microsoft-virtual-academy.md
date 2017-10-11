@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: baf6476c6dfc0db29d51d5b0b1643b1ff099a808
-
-
+ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy의 Azure 보안 교육 과정
 Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.
@@ -64,9 +64,3 @@ Microsoft Azure 인프라 기능을 사용하는 방법에 대해 알아봅니�
 [Azure Rights Management 서비스 핵심 기술](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
 정보 보호가 조직에서 반드시 "갖춰야 할" 요구 사항인 이유와 장치와 클라우드 전반에서 이동하든지 권한 관리가 조직의 지적 재산권을 보호하는 방법을 알아봅니다. Microsoft 전문가로부터 실습 활동과 기술 노하우를 얻습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Android용 Azure Authenticator
 IT 관리자가 Microsoft Azure Authenticator로 로그인하여 회사 리소스에 액세스하도록 권장했을 수도 있습니다. 이 응용 프로그램은 다음 두 가지 로그인 옵션을 제공합니다.
@@ -39,7 +37,7 @@ Google Play 스토어에서 Azure Authenticator 앱을 설치할 수 있습니�
 
 1. 앱의 홈 화면에서 EULA(최종 사용자 사용권 계약)에 동의합니다.
 2. 계정 활성화 화면에서 오른쪽에 있는 상황에 맞는 메뉴를 클릭하고 **회사 계정**을 선택합니다.
-3. 계정 추가 화면에서** 회사 계정**을 선택합니다.
+3. 계정 추가 화면에서 선택 * * 작업 계정 * *입니다.
 4. 장치 관리자 활성화 화면에서 **활성화**를 클릭합니다.
 5. 개인 정보 취급 방침 화면에서 확인란을 선택하고 **확인**을 클릭합니다.
 6. 작업 공간 연결 화면에서 조직이 제공한 사용자 ID를 입력하고 **연결**을 클릭합니다.
@@ -120,5 +118,4 @@ Azure Authenticator 앱을 설치한 후 Android 계정 관리자에서 회사 �
 
 ## <a name="troubleshooting"></a>문제 해결
 **키 저장소 오류**가 표시되는 경우 잠금 화면이 PIN으로 설정되지 않았기 때문일 수 있습니다. 이 문제를 해결하려면 Azure Authenticator 앱을 제거하고 잠금 화면에 대한 PIN을 구성한 다음 앱을 다시 설치합니다.
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>CSDL을 통해 기존 웹 서비스를 Odata에 매핑
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ CSDL(개념 스키마 정의 언어)은 Azure 마켓플레이스에서 통용되
 
 Azure 마켓플레이스 확장 기능이 빌드되는 Atom, Atom Pub 및 OData 프로토콜에 대한 배경 정보는 [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-위 링크에서 발췌한 내용:       *"개방형 데이터 프로토콜(이하 OData)의 목적은 데이터 서비스로 노출되는 리소스에 대해 CRUD 스타일 작업(만들기, 읽기, 업데이트 및 삭제)을 위한 REST 기반 프로토콜을 제공하는 것입니다. "데이터 서비스"는 하나 이상의 "컬렉션"에서 데이터가 노출되고 각 컬렉션의 "항목"이 0개 이상인 끝점이며, 항목은 형식화된 데이터-값 쌍으로 구성됩니다. 누구든지 로열티나 제한 없이 서버, 클라이언트 또는 도구를 구축할 수 있도록 Microsoft에서 OASIS(Organization for the Advancement of Structured Information Standards) 표준에 따라 OData를 게시합니다."*
+위 링크에서 발췌한 내용: *"개방형 데이터 프로토콜(이하 OData)의 목적은 데이터 서비스로 노출되는 리소스에 대해 CRUD 스타일 작업(만들기, 읽기, 업데이트 및 삭제)을 위한 REST 기반 프로토콜을 제공하는 것입니다. "데이터 서비스"는 하나 이상의 "컬렉션"에서 데이터가 노출되고 각 컬렉션의 "항목"이 0개 이상인 끝점이며, 항목은 형식화된 데이터-값 쌍으로 구성됩니다. 누구든지 로열티나 제한 없이 서버, 클라이언트 또는 도구를 구축할 수 있도록 Microsoft에서 OASIS(Organization for the Advancement of Structured Information Standards) 표준에 따라 OData를 게시합니다."*
 
 ### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>CSDL에서 정의해야 하는 세 가지 중요한 것
 * 서비스 공급자의 **끝점** 서비스의 웹 주소(URI)
@@ -140,8 +140,7 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 * PPUI의 MyCompany는 **Microsoft 개발자 센터** UI의 [게시자 표시 이름](http://dev.windows.com/registration?accountprogram=azure) 과 관련이 있습니다.
 * API는 웹 또는 데이터 서비스(PPUI의 계획)와 관련이 있습니다.
 
-**계층:**
- 회사(콘텐츠 공급자)는 API와 일직선상에 있는 플랜, 즉 서비스가 포함된 제품을 소유합니다.
+**계층:** 회사(콘텐츠 공급자)는 API와 일직선상에 있는 플랜, 즉 서비스가 포함된 제품을 소유합니다.
 
 ### <a name="webservice-csdl-example"></a>웹 서비스 CSDL 예
 웹 응용 프로그램 끝점(예: C# 응용 프로그램)을 노출하는 서비스에 연결
@@ -317,10 +316,4 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 * 특정 노드 및 해당 매개 변수를 학습하고 이해하려면 문서 [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) 에서 정의 및 설명, 예제, 사용 사례 컨텍스트를 살펴보세요.
 * 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 * Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

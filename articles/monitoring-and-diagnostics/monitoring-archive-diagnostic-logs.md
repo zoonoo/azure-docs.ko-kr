@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 이 문서에서는 Azure Portal, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
@@ -61,7 +60,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | 속성 | 필수 | 설명 |
 | --- | --- | --- |
 | ResourceId |예 |진단 설정을 설정하려는 리소스의 리소스 ID입니다. |
-| StorageAccountId |아니요 |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| StorageAccountId |아니요 |진단 로그를 저장할 저장소 계정의 리소스 ID입니다. |
 | 범주 |아니요 |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
 | 사용 |예 |이 리소스에 대한 진단 활성화 여부를 나타내는 부울입니다. |
 | RetentionEnabled |아니요 |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
@@ -145,4 +144,3 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 * [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Event Hubs 네임스페이스로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
-

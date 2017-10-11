@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스용 가상 컴퓨터 이미지를 만들기 위한 기술 필수 조건
 시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다. 이 문서를 검토하여 이러한 항목에 대해 명확히 알아야 합니다.  
@@ -53,4 +52,3 @@ Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 
 * 온-프레미스 개발에서는 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 VHD를 개발해야 합니다. 이 방법은 가능하지만 권장되지는 않습니다. Windows 또는 SQL용을 온-프레미스로 개발하려면 관련 온-프레미스 라이선스 키가 필요합니다. VM을 만든 후에는 SQL Server를 포함하거나 설치할 수 없습니다. 또한 제품은 SQL Azure 포털에서 승인된 이미지를 기반으로 해야 합니다. 온-프레미스로 개발하려는 경우에는 클라우드에서 개발할 때와 다른 몇몇 단계를 수행해야 합니다. 관련 정보는 [온-프레미스 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요.
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-

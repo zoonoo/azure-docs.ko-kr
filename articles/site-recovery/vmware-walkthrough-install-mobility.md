@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: bc520bd2ea54208889861a7a3b275e3008a05d53
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-10-install-the-mobility-service"></a>10단계: 모바일 서비스 설치
 
 
@@ -53,4 +51,3 @@ VM에 대해 복제가 설정된 경우 프로세스 서버에서 모바일 서�
 ## <a name="next-steps"></a>다음 단계
 
 [11단계: 복제 활성화](vmware-walkthrough-enable-replication.md)로 이동합니다.
-

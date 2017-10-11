@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>HDInsight의 R Server에 대한 Azure Storage 솔루션
 
@@ -200,5 +199,4 @@ Azure Storage 옵션을 이해했으므로, 이제 다음 링크를 사용하여
 * [Hadoop에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 * [HDInsight에 RStudio Server 추가(클러스터를 만드는 중에 추가되지 않은 경우)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [HDInsight의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
-
 

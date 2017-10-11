@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: f471add4f4dee26482e2820fb06d010d6c0c0e88
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-azure-vm-replication-between-azure-regions"></a>1단계: Azure 지역 간 Azure VM 복제를 위한 아키텍처 검토
 
 
@@ -85,4 +83,3 @@ Azure Portal에서 Azure VM 복제를 사용하는 경우 다음 다이어그램
 ## <a name="next-steps"></a>다음 단계
 
 [2단계: 필수 조건 및 제한 사항 확인](azure-to-azure-walkthrough-prerequisites.md)으로 이동합니다.
-

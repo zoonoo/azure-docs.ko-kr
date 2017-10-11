@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>자습서: Abintegro와 Azure Active Directory 통합
 
@@ -224,5 +222,4 @@ Abintegro를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 [201]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-abintegro-tutorial/tutorial_general_203.png
-
 

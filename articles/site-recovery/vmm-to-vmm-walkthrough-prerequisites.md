@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 7897a30bf1774609ca8e6037dabcd5fbf4151271
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-2-review-the-prerequisites-and-limitations-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>2단계: 보조 VMM 사이트로의 Hyper-V VM 복제를 위한 필수 구성 요소 및 제한 사항 검토
 
@@ -44,4 +43,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>다음 단계
 
 [3단계: 네트워킹 계획](vmm-to-vmm-walkthrough-network.md)으로 이동합니다.
-

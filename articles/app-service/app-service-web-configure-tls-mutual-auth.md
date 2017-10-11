@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>웹앱에 대 한 TLS 상호 인증을 구성하는 방법
 ## <a name="overview"></a>개요
@@ -195,4 +194,3 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
             }
         }
     }
-

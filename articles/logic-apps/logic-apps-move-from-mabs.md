@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>BizTalk Services에서 Logic Apps로 이동
 
 MABS(Microsoft Azure BizTalk Services)가 사용 중지됩니다. 이 항목을 사용하여 MABS 통합 솔루션을 Azure Logic Apps로 이동합니다. 
@@ -31,8 +28,8 @@ MABS(Microsoft Azure BizTalk Services)가 사용 중지됩니다. 이 항목을 
 
 BizTalk Services는 다음 두 하위 서비스로 구성됩니다.
 
-1.    Microsoft BizTalk Services 하이브리드 연결
-2.    EAI 및 EDI 브리지 기반 통합
+1.  Microsoft BizTalk Services 하이브리드 연결
+2.  EAI 및 EDI 브리지 기반 통합
 
 하이브리드 연결을 이동하려는 경우 [Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md)에서 이 서비스의 변경 내용 및 기능을 참조하세요. Azure 하이브리드 연결이 BizTalk Services 하이브리드 연결을 대체합니다. Azure 하이브리드 연결은 Azure App Service와 함께 사용할 수 있으며 Azure Portal에서 제공됩니다. Azure 하이브리드 연결은 기존의 BizTalk Services 하이브리드 연결과 포털에서 만드는 새로운 하이브리드 연결을 관리하는 새로운 하이브리드 연결 관리자를 제공합니다. Azure App Service 하이브리드 연결이 출시(GA)됩니다.
 
@@ -132,4 +129,3 @@ BizTalk Services에서 HA(고가용성)를 실현하려면 지정된 지역에�
 * [Logic Apps란?](logic-apps-what-are-logic-apps.md)
 * [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md) 또는 [미리 빌드된 템플릿](logic-apps-use-logic-app-templates.md)을 사용하여 신속하게 시작  
 * 논리 앱에서 사용할 수 있는 [사용 가능한 모든 커넥터 보기](../connectors/apis-list.md)
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 1305fdc4cf87905eef701ec5471d6329006c2b5f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>템플릿을 사용하여 논리 앱 만들기
 템플릿은 논리 앱 내에서 다양한 커넥터를 사용할 수 있는 빠른 방법을 제공합니다. Logic Apps에는 비즈니스 워크플로를 정의하는 데 사용할 수 있는 논리 앱을 만들 수 있도록 Azure Resource Manager 템플릿이 포함됩니다. 배포할 리소스를 정의하고 논리 앱을 배포할 때 매개 변수를 정의하는 방법을 정의할 수 있습니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
@@ -109,7 +107,6 @@ ms.lasthandoff: 01/31/2017
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
-
 
 
 

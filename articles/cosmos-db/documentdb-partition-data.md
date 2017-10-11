@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>DocumentDB API를 사용하여 Azure Cosmos DB에서 분할
 
@@ -83,9 +82,9 @@ DocumentDB API에서 JSON 경로 형태로 파티션 키 정의를 지정합니�
 Azure Cosmos DB에는 [REST API 버전 2015-12-16](/rest/api/documentdb/)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컨테이너를 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python, MongoDB) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다. 
 
 ### <a name="creating-containers"></a>컨테이너 만들기
-다음 샘플에서는 처리량이 초당 20,000개 요청 단위인 장치 원격 분석 데이터를 저장하는 컨테이너를 만드는 .NET 코드 조각을 보여 줍니다. SDK는 OfferThroughput 값을 설정합니다(이 값은 REST API에서 `x-ms-offer-throughput` 요청 헤더를 설정함). 여기에서는 `/deviceId`를 파티션 키로 설정합니다. 선택한 파티션 키는 이름 및 인덱싱 정책과 같은 나머지 컨테이너 메타데이터와 함께 저장됩니다.
+다음 샘플에서는 처리량이 초당 20,000개 요청 단위인 장치 원격 분석 데이터를 저장하는 컨테이너를 만드는 .NET 코드 조각을 보여 줍니다. SDK는 OfferThroughput 값을 설정합니다(이 값은 REST API에서 `x-ms-offer-throughput` 요청 헤더를 설정함). 여기에서는 `/deviceId` 를 파티션 키로 설정합니다. 선택한 파티션 키는 이름 및 인덱싱 정책과 같은 나머지 컨테이너 메타데이터와 함께 저장됩니다.
 
-이 샘플에서는 (a) 장치 수가 많고, 쓰기가 파티션 간에 균등하게 분산될 수 있으며, 대용량 데이터를 수집하도록 데이터베이스를 확장할 수 있으며, (b) 장치에 대한 최신 읽기 가져오기와 같은 요청이 대부분 단일 deviceId로 범위가 지정되고 단일 파티션에서 검색될 수 있음을 알고 있기 때문에 `deviceId`를 선택했습니다.
+이 샘플에서는 (a) 장치 수가 많고, 쓰기가 파티션 간에 균등하게 분산될 수 있으며, 대용량 데이터를 수집하도록 데이터베이스를 확장할 수 있으며, (b) 장치에 대한 최신 읽기 가져오기와 같은 요청이 대부분 단일 deviceId로 범위가 지정되고 단일 파티션에서 검색될 수 있음을 알고 있기 때문에 `deviceId` 를 선택했습니다.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -229,5 +228,4 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * [SDKs](documentdb-sdk-dotnet.md) 또는 [REST API](/rest/api/documentdb/)를 사용하여 코딩 시작
 * [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
-
 

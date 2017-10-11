@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>자습서: Ceridian Dayforce HCM과 Azure Active Directory 통합
 
@@ -203,7 +202,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
-    ㄹ. **만들기**를 클릭합니다.
+    d. **만들기**를 클릭합니다.
  
 ### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Ceridian Dayforce HCM 테스트 사용자 만들기
 
@@ -257,7 +256,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![“사용자 및 그룹” 링크][202]
+    !["사용자 및 그룹" 링크][202]
 
 4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
@@ -292,5 +291,4 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하고 테스트하
 [201]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_203.png
-
 

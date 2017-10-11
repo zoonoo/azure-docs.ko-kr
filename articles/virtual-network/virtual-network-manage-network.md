@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -199,4 +198,3 @@ ms.lasthandoff: 08/15/2017
 - 가상 네트워크 내의 서브넷 간 네트워크 트래픽을 필터링하려면 [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md)를 참조하세요.
 - 가상 네트워크를 다른 가상 네트워크에 피어링하려면 [가상 네트워크 피어링 만들기](virtual-network-create-peering.md#portal)를 참조하세요.
 - 가상 네트워크를 온-프레미스 네트워크에 연결하는 옵션에 대해 알아보려면 [VPN Gateway 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)를 참조하세요.
-

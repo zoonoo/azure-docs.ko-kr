@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Azure 클래식 포털에서 보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버 복제
 
@@ -231,4 +230,3 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 
 ## <a name="next-steps"></a>다음 단계
 문의 사항이 있으시다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
-

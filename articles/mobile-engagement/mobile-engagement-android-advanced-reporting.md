@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Android에서 Engagement를 사용한 고급 보고
 > [!div class="op_single_selector"]
@@ -105,9 +105,3 @@ ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래�
     -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
     <methods>;
      }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

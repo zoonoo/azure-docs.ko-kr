@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC(고성능 컴퓨팅) 클러스터 만들기
 HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 완전한 Linux 워크로드용 HPC Pack 2012 R2 클러스터를 배포합니다. 이 클러스터는 Windows Server 및 Microsoft HPC Pack을 실행하는 Active Directory 가입 헤드 노드와 HPC Pack에서 지원하는 Linux 배포판 중 하나를 실행하는 계산 노드로 구성됩니다. Azure에서 Windows 워크로드용 HPC 팩 클러스터를 배포하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터 만들기](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요. Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)를 참조하세요.
@@ -89,5 +88,4 @@ HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨
   * [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](hpcpack-cluster-namd.md)
   * [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](hpcpack-cluster-openfoam.md)
   * [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 STAR-CCM+ 실행](hpcpack-cluster-starccm.md)
-
 

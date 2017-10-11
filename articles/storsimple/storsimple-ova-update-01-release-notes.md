@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
 | **1.** |업데이트 |미리 보기 릴리스에서 만든 가상 장치는 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. |이러한 가상 장치는 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
 | **2.** |프로비전된 데이터 디스크 |특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 장치를 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 장치의 로컬 계층에서 모든 데이터가 손실됩니다. | |
 | **3.** |그룹 정책 |장치가 도메인에 가입될 때 그룹 정책을 적용하면 장치 작업에 부정적인 영향이 있을 수 있습니다. |가상 배열이 Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다. |
-| **4.** |로컬 웹 UI |Internet Explorer (IE ESC)에서 향상된 보안 기능이 활성된 경우 문제 해결 또는 유지 관리와 같은 일부 로컬 웹 UI 페이지가 적절하게 작동하지 않을 수 있습니다. 해당 페이지의 단추도 작동하지 않을 수 있습니다. |Internet Explorer의 보안 강화 기능을 해제하십시오. |
+| **4.** |로컬 웹 UI |Internet Explorer (IE ESC)에서 향상된 보안 기능이 활성화된 경우 문제 해결 또는 유지 관리와 같은 일부 로컬 웹 UI 페이지가 적절하게 작동하지 않을 수 있습니다. 해당 페이지의 단추도 작동하지 않을 수 있습니다. |Internet Explorer의 보안 강화 기능을 해제하십시오. |
 | **5.** |로컬 웹 UI |Hyper-V 가상 컴퓨터에서 웹 UI의 네트워크 인터페이스는 10Gbps 인터페이스로 표시됩니다. |이러한 동작은 Hyper-V를 반영합니다. Hyper-V는 가상 네트워크 어댑터에 10Gbps를 항상 표시합니다. |
 | **6.** |계층화된 볼륨 또는 공유 |StorSimple 계층화된 볼륨에서 응용 프로그램에 대한 바이트 범위 잠금은 지원되지 않습니다. 바이트 범위 잠금을 사용하도록 설정하면 StorSimple 계층화가 실행되지 않습니다. |권장된 조치는 다음과 같습니다. <br></br>응용 프로그램 논리에서 바이트 범위 잠금을 해제합니다.<br></br>계층화된 볼륨이 아니라 로컬로 고정된 볼륨에 이 응용 프로그램에 대한 데이터를 배치하도록 선택합니다.<br></br>*주의*: 로컬로 고정된 볼륨을 사용하고 바이트 범위 잠금을 사용할 경우 복원이 완료되기 전에 로컬로 고정된 볼륨이 온라인 상태가 될 수 있음에 주의합니다. 이러한 경우, 복원이 진행 중이면, 복원이 완료될 때까지 반드시 기다려야 합니다. |
 | **7.** |계층화된 공유 |큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. |큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다. |
@@ -83,10 +83,4 @@ ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
 
 ## <a name="next-step"></a>다음 단계
 [업데이트 0.1 설치](storsimple-ova-install-update-01.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

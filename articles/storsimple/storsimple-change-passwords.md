@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 암호 변경
 ## <a name="overview"></a>개요
@@ -56,10 +56,4 @@ StorSimple 스냅숏 관리자에서 장치를 구성하면, 장치 IP 주소 �
 * [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 * [장치 구성을 수정](storsimple-modify-device-config.md)하는 방법을 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1feba4f7c33276996213f50e34784c0f8edff226
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 11231bb5af5374f3c05cfd5038e1ad03cdd01372
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-adding-or-configuring-applications"></a>응용 프로그램을 추가 또는 구성하는 문제
 
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 04/18/2017
   * [Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성할 때 문제가 발생함](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-federated-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [비-갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 문제가 발생함](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 문제가 발생함](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

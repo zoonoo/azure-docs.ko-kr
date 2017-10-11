@@ -15,15 +15,12 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: e00a939f2b20ab8e0a2ddf0ff91e59db440213ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
 > [!div class="op_single_selector"]
@@ -106,4 +103,3 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 - [커넥터 다운로드](active-directory-application-proxy-enable.md) 및 [커넥터 그룹 만들기](active-directory-application-proxy-connectors-azure-portal.md)를 수행하여 별도의 네트워크와 위치에 응용 프로그램을 게시합니다.
 
 - 새로 게시된 앱에 대해 [Single Sign-On을 설정](application-proxy-sso-azure-portal.md)합니다.
-

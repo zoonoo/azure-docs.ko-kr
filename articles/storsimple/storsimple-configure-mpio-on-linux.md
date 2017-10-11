@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 장치에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 장치 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -438,7 +438,7 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 | &nbsp; |`chkconfig multipathd on` </br> 또는 </br> `mpathconf –with_chkconfig y` |부팅 시 시작되도록 다중 경로 디먼 설정 |
 | &nbsp; |`multipathd –k` |문제 해결을 위한 대화형 콘솔 시작 |
 | &nbsp; |`multipath –l` |다중 경로 연결 및 장치 나열 |
-| &nbsp; |`mpathconf --enable` | `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |`/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>다음 단계
@@ -446,10 +446,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 
 * [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

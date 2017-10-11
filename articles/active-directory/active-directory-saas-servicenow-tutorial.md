@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 ServiceNow 및 ServiceNow Express를 통합하는 방법에 대해 알아봅니다.
@@ -433,7 +432,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
-    c. **다음**을 누릅니다.
+    c. **다음**을 클릭합니다.
 
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
@@ -447,7 +446,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 누릅니다.
+   e. **다음**을 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
@@ -518,4 +517,3 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
-

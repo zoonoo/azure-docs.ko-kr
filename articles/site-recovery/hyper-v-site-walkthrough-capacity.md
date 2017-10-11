@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: c7891c188c2cecbbf056fa79672a13bb16fa7fcf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-to-azure-replication"></a>3 단계: Hyper-V에서 Azure로 복제를 위한 용량 및 크기 조정 계획
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM(System Center VMM 없음)에서 Azure로 복제할 때 용량 및 크기 조정 계획에 대해 알아봅니다.
@@ -85,4 +83,3 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>다음 단계
 
 [4단계: 네트워킹 계획](hyper-v-site-walkthrough-network.md)으로 이동합니다.
-

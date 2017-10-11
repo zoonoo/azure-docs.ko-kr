@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 182d7b2bd4d9f663b545684f2bc2a02d06952b61
 ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>StorSimple Manager 서비스에서 장치 대시보드 사용  
 
@@ -33,7 +32,7 @@ StorSimple 관리자 장치 대시보드는 Microsoft Azure StorSimple 솔루션
 
 * **차트 영역** – 대시보드 상단 차트 영역에서 관련 저장소 메트릭을 볼 수 있습니다. 이 차트에서 총 기본 저장소(장치에 대한 호스트가 기록한 데이터의 양)와 일정 기간 동안 장치가 사용한 총 클라우드 저장소에 대한 메트릭을 볼 수 있습니다.
   
-     이 컨텍스트에서 *기본 저장소*는 호스트가 기록한 데이터의 총 크기를 참조하고 볼륨 유형으로 세분화될 수 있습니다. *계층화된 기본 저장소*는 로컬에 저장된 데이터 및 클라우드에 계층화된 데이터를 모두 포함합니다. *로컬로 고정된 기본 저장소*는 로컬로 저장된 데이터만을 포함합니다. 반면에 *클라우드 저장소*는 클라우드에 계층화된 총 데이터를 측정합니다. 여기에는 계층화된 데이터 및 백업이 포함됩니다. 클라우드에 저장된 데이터는 중복 제거되고 압축되는 반면 기본 저장소는 데이터가 중복 제거되고 압축되기 전에 사용된 저장소의 양을 나타냅니다. (압축 비율을 파악하도록 이러한 두 값을 비교할 수 있습니다.) 기본 및 클라우드 저장소의 경우 표시되는 양은 사용자가 구성하는 추적 빈도에 따라 달라집니다. 예를 들어,&1;주일 빈도를 선택하면 이전 주의 각 날짜에 대한 데이터가 차트에 표시됩니다.
+     이 컨텍스트에서 *기본 저장소*는 호스트가 기록한 데이터의 총 크기를 참조하고 볼륨 유형으로 세분화될 수 있습니다. *계층화된 기본 저장소*는 로컬에 저장된 데이터 및 클라우드에 계층화된 데이터를 모두 포함합니다. *로컬로 고정된 기본 저장소*는 로컬로 저장된 데이터만을 포함합니다. 반면에 *클라우드 저장소*는 클라우드에 계층화된 총 데이터를 측정합니다. 여기에는 계층화된 데이터 및 백업이 포함됩니다. 클라우드에 저장된 데이터는 중복 제거되고 압축되는 반면 기본 저장소는 데이터가 중복 제거되고 압축되기 전에 사용된 저장소의 양을 나타냅니다. (압축 비율을 파악하도록 이러한 두 값을 비교할 수 있습니다.) 기본 및 클라우드 저장소의 경우 표시되는 양은 사용자가 구성하는 추적 빈도에 따라 달라집니다. 예를 들어, 1주일 빈도를 선택하면 이전 주의 각 날짜에 대한 데이터가 차트에 표시됩니다.
   
      차트는 다음과 같이 구성할 수 있습니다.
   
@@ -84,5 +83,4 @@ StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성�
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple Manager 서비스 대시보드](storsimple-service-dashboard.md)에 대해 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
 

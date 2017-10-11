@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>JSON을 사용하여 논리 앱용 워크플로 정의 만들기
 
@@ -277,9 +275,9 @@ ms.lasthandoff: 03/01/2017
 
 경우에 따라 다음을 유의합니다. 
 
-*    [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 해당 범주가 알려진 정의된 범주 중 하나와 일치하는지 여부를 확인합니다.
+*   [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 해당 범주가 알려진 정의된 범주 중 하나와 일치하는지 여부를 확인합니다.
 
-*    범주를 가져온 후에는 대괄호를 사용하여 맵에서 항목을 끌어올 수 있습니다. `parameters[...]`
+*   범주를 가져온 후에는 대괄호를 사용하여 맵에서 항목을 끌어올 수 있습니다. `parameters[...]`
 
 ## <a name="process-strings"></a>문자열 처리
 
@@ -452,4 +450,3 @@ ms.lasthandoff: 03/01/2017
 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 
 
 논리 앱 만들기 및 관리에 대해 포함할 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx)를 참조하세요. 
-

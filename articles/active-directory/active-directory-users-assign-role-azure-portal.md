@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 관리자 역할에 사용자 할당 | Microsoft Docs"
 description: "Azure Active Directory에서 사용자 관리 정보를 변경하는 방법을 설명합니다."
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할에 사용자 할당
 이 문서는 Azure AD(Azure Active Directory)에서 사용자에게 관리 역할을 할당하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
@@ -47,4 +44,3 @@ ms.lasthandoff: 05/08/2017
 * [사용자의 작업 정보 변경](active-directory-users-work-info-azure-portal.md)
 * [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 * [Azure AD에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
-

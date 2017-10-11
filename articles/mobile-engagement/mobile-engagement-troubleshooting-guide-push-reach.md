@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>푸시 및 도달률 문제에 대한 문제 해결 가이드
 다음은 Azure Mobile Engagement에서 사용자에게 정보를 보내는 방법과 관련해서 발생할 수 있는 문제입니다.
@@ -100,5 +99,4 @@ ms.lasthandoff: 11/17/2016
 * 둘 이상의 캠페인을 동시에 시작하면 사용자층을 검색하는 데 시간이 더 오래 걸릴 수 있습니다. 캠페인은 한 번에 하나씩 최대 4개까지만 시작하고, 이전 사용자는 검색하지 않아도 되도록 활성 사용자만을 대상으로 지정해 봅니다.
 * 도달률 캠페인의 "캠페인" 섹션에서 "대상을 무시하고 API를 통해 사용자에게 푸시 전송" 옵션을 사용하는 경우에는 캠페인이 자동으로 전송되지 않으며 도달률 API를 통해 수동으로 캠페인을 전송해야 합니다.
 * 도달률에서 사용자 지정 범주를 사용하여 앱 내 알림을 표시하는 경우에는 올바른 알림 수명 주기를 따라야 합니다. 그렇지 않으면 사용자가 알림을 해제해도 알림이 지워지지 않을 수 있습니다.
-
 

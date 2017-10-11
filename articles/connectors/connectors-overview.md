@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>논리 앱에서 커넥터 사용
 커넥터는 서비스, 프로토콜 및 플랫폼에 걸쳐 이벤트, 데이터 및 작업에 빠르게 액세스할 수 있도록 합니다.  논리 앱이 지원하는 커넥터의 전체 목록은 [여기에서 찾을 수 있습니다](apis-list.md).  커넥터는 논리 앱에서 트리거 또는 작업으로 사용할 수 있으며 사용하기 위해 구성된 *연결* 이 필요합니다(예: 사용자 대신 액세스하거나 게시할 수 있는 권한을 Twitter 계정에 부여).
@@ -36,7 +36,7 @@ ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 ## <a name="triggers"></a>트리거
 일부 커넥터에는 트리거가 있습니다. 이것은 해당 커넥터의 이벤트가 논리 앱을 실행하고 트리거의 일부로 데이터를 전달함을 의미합니다.  트리거는 항상 논리 앱의 첫 번째 단계입니다.  인기 있는 트리거에는 다음과 같은 작업이 포함됩니다.
 
-* 되풀이 -&1;시간마다 실행
+* 되풀이 - 1시간마다 실행
 * HTTP 요청을 받은 경우
 * 큐에 항목이 추가될 때
 * 전자 메일이 수신될 때
@@ -63,9 +63,3 @@ Azure에서 **찾아보기**를 클릭하고 **API 연결**을 선택하여 연�
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

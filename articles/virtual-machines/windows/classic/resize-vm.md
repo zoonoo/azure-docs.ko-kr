@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>클래식 배포 모델에서 만든 Windows VM 크기 조정
 이 문서에서는 Azure Powershell을 사용하여 클래식 배포 모델에서 만든 Windows VM의 크기를 조정하는 방법을 보여 줍니다.
@@ -69,5 +68,4 @@ VM을 호스팅하는 하드웨어 클러스터에서 사용할 수 없는 크�
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포 모델에서 만든 VM 크기 조정](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

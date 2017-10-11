@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9a30bcca720ff135d0180d73f46e78403e9bca43
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>자습서: SCC LifeCycle과 Azure Active Directory 통합
 이 자습서는 Azure와 SCC LifeCycle의 통합을 보여주기 위한 것입니다.  
@@ -118,5 +117,4 @@ Azure AD 사용자가 SCC LifeCycle에 로그인할 수 있도록 하려면 SCC 
     ![예](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "예")
 
 SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
 

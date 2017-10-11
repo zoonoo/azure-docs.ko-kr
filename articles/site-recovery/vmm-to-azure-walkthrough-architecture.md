@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>1단계: 아키텍처 검토
 
 
@@ -121,4 +118,3 @@ VMM 클라우드의 Hyper-V VM을 Azure에 복제할 때는 여러 가지 구성
 ## <a name="next-steps"></a>다음 단계
 
 [2단계: 배포 필수 구성 요소 검토](vmm-to-azure-walkthrough-prerequisites.md)로 이동
-

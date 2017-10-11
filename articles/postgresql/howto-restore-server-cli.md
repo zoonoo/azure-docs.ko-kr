@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4cd77c4ae4d9487aad11ea790c5d88a4eaff6077
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Azure CLI를 사용하여 PostgreSQL용 Azure Database에서 서버를 백업 및 복원하는 방법
 
 PostgreSQL용 Azure Database를 사용하여 7~35일 이전 날짜로 서버 데이터베이스를 복원합니다.
@@ -71,4 +69,3 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 
 ## <a name="next-steps"></a>다음 단계
 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)
-

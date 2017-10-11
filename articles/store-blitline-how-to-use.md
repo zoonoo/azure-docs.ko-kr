@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
 ms.author: support@blitline.com
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8b7e8dd557ddeeaa295a9849d471d74259941c2
-
-
+ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Azure 및 Azure 저장소로 Blitline을 사용하는 방법
 이 가이드는 Blitline 서비스를 액세스하는 방법 및 작업을 Blitline에 전송하는 방법을 설명합니다.
@@ -124,10 +124,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
 * Blitline API 함수 <http://www.blitline.com/docs/functions>(영문)
 * Blitline API 예제 <http://www.blitline.com/docs/examples>(영문)
 * 타사 Nuget 라이브러리 <http://nuget.org/packages/Blitline.Net>(영문)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

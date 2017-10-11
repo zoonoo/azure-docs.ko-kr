@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: f4efa56d2c0374a977c1e46dad64b596cc9c3ea8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>자습서: Azure Active Directory와 Workpath 통합
 
@@ -125,7 +123,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Workpath 지원 팀](https://help.workpath.com)에 문의하세요.
 
-5. Workpath 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여 줍니다. 
+5. Workpath 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다. 
 
     ![Single Sign-on 구성](./media/active-directory-saas-workpath-tutorial/tutorial_workpath_attributes.png)
     
@@ -262,5 +260,4 @@ Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사�
 [201]: ./media/active-directory-saas-workpath-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workpath-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workpath-tutorial/tutorial_general_203.png
-
 

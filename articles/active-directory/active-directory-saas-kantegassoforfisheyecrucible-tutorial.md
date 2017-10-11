@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9eaa2ec661a3488b0bef1f6b7cc7a82290720054
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>자습서: Kantega SSO for FishEye/Crucible과 Azure Active Directory 통합
 
@@ -202,7 +201,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하고 �
 
     ![Single Sign-on 구성](./media/active-directory-saas-kantegassoforfisheyecrucible-tutorial/addon10.png)
 
-    a. **Create users in FishEye's internal Directory if needed**(필요한 경우 FishEye의 내부 디렉터리에 사용자 만들기)를 선택하고 사용자에 대한 적절한 그룹 이름을 (그룹이 여러 개인 경우 쉼표로 구분) 입력합니다.
+    a. 선택 **필요한 경우 물고기의 내부 디렉터리에서 사용자를 만들려면** 사용자에 대 한 그룹의 적절 한 이름을 입력 하 고 (수 여러 아니요. 그룹의 쉼표로 구분).
 
     b. **다음**을 누릅니다.
 
@@ -343,5 +342,4 @@ Azure AD 사용자가 FishEye/Crucible에 로그인할 수 있도록 하려면 F
 [201]: ./media/active-directory-saas-kantegassoforfisheyecrucible-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforfisheyecrucible-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforfisheyecrucible-tutorial/tutorial_general_203.png
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: 8727e15448a74b68277c5bdd82c573e817254f80
 ms.openlocfilehash: da567097be38ac649c6bf1de1508de24d21cb877
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성 
 이 문서에서는 가상 컴퓨터와 같은 리소스를 Azure에 프로비전하기 위해 Terraform를 설치 및 구성하는 필수 단계를 설명합니다. Azure 자격 증명을 만들고 사용하여 Terraform에서 클라우드 리소스를 안전하게 프로비전하도록 하는 방법에 대해 알아봅니다.
 
@@ -130,4 +128,3 @@ export ARM_TENANT_ID=your_tenant_id
 
 ## <a name="next-steps"></a>다음 단계
 이제 Terraform을 설치했고 Azure 자격 증명을 구성했으므로 Azure 구독에 인프라를 배포하기 시작할 수 있습니다. 다음으로 [Terraform으로 인프라를 만드는 방법](terraform-create-complete-vm.md)에 대해 알아봅니다.
-

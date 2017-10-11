@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
 Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. 
@@ -134,6 +132,5 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
    ```
 
 4. C:\NPS 폴더의 내용을 Zip으로 압축하고 지원 사례에 Zip 파일을 첨부합니다.
-
 
 

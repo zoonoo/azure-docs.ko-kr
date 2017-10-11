@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 생성 모범 사례
 이 지침은 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 됩니다. 지침은 제안 사항일 뿐입니다. 명시된 경우를 제외하고 필수 사항은 아닙니다. 사용자 시나리오에서는 다음 방법 또는 예제 중 하나를 변형해야 할 수 있습니다.
@@ -396,5 +395,4 @@ JSON 유효성 검사기를 통해 템플릿을 전달하는 것이 좋습니다
 * 가상 컴퓨터를 위한 솔루션 설계에 대한 자세한 내용은 [Azure에서 Windows VM 실행](../guidance/guidance-compute-single-vm.md) 및 [Azure에서 Linux VM 실행](../guidance/guidance-compute-single-vm-linux.md)을 참조하세요.
 * 저장소 계정 설정에 대한 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)을 참조하세요.
 * 엔터프라이즈에서 Resource Manager를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대해 자세히 알아보려면 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bc9d40daf0b9bc8256e88b39039fca7e4cb8a53
-
-
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure 마켓플레이스용 제품을 만들기 위한 일반적인 필수 조건
 제품 만들기 프로세스를 진행하는 데 필요한 일반적인 비즈니스 프로세스 중심 필수 조건을 이해합니다.
@@ -81,10 +81,4 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 ## <a name="see-also"></a>참고 항목
 * [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

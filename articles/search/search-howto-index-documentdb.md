@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -78,7 +77,7 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 * **컨테이너**:
   
   * **이름**: 필수입니다. 인덱싱할 Cosmos DB 컬렉션의 ID를 지정합니다.
-  * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
+  * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 * **dataChangeDetectionPolicy**: 권장 사항입니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.
 * **dataDeletionDetectionPolicy**: 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.
 
@@ -117,7 +116,7 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 
 <a name="CreateIndex"></a>
 ## <a name="step-2-create-an-index"></a>2단계: 인덱스 만들기
-대상 Azure Search 인덱스가 아직 없으면 만듭니다. [Azure Portal UI](search-create-index-portal.md)를 사용하거나 [인덱스 REST API 만들기](/rest/api/searchservice/create-index) 또는 [인덱스 클래스](/dotnet/api/microsoft.azure.search.models.index)를 사용하여 인덱스를 만들 수 있습니다.
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. [Azure Portal UI](search-create-index-portal.md)를 사용하거나 [인덱스 REST API 만들기](/rest/api/searchservice/create-index) 또는 [인덱스 클래스](/dotnet/api/microsoft.azure.search.models.index)를 사용하여 인덱스를 만들 수 있습니다.
 
 다음 예제에서는 id 및 설명 필드를 사용해서 인덱스를 만듭니다.
 
@@ -149,7 +148,7 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 > 
 > 
 
-### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure Search 데이터 형식 사이의 매핑
+### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
 | JSON 데이터 형식 | 호환되는 대상 인덱스 필드 형식 |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -297,5 +296,4 @@ Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에
 축하합니다. Cosmos DB용 인덱서를 사용하여 Azure Search에 Azure Cosmos DB를 통합하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
-* Azure Search에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
-
+* Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.

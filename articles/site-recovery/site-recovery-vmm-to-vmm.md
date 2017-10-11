@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 777bddea6b1cb325a6f8ede00196b18e1746d80c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-the-azure-portal"></a>Azure 포털을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]
@@ -72,7 +71,7 @@ ms.lasthandoff: 07/21/2017
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기** > **관리** > **Recovery Services**를 차례로 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
-4. [리소스 그룹을 만들거나](../azure-resource-manager/resource-group-template-deploy-portal.md)기존 그룹을 선택합니다. Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [리소스 그룹을 만들거나](../azure-resource-manager/resource-group-template-deploy-portal.md) 기존 그룹을 선택합니다. Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **자격 증명 모음 만들기**를 차례로 클릭합니다.
 
     ![새 자격 증명 모음](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
@@ -109,7 +108,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 6. VMM 서버에 Azure Site Recovery 공급자를 설치합니다. Hyper-V 호스트 서버에 명시적으로 설치할 필요는 없습니다.
 
 
-### <a name="install-the-azure-site-recovery-provider"></a>Azure 사이트 복구 공급자 설치
+### <a name="install-the-azure-site-recovery-provider"></a>Azure Site Recovery 공급자 설치
 
 1. 각 VMM 서버에서 공급자 설치 파일을 실행합니다. VMM을 클러스터에 배포하는 경우 처음에 설치할 때 다음을 수행합니다.
     -  활성 노드에 공급자를 설치하고 자격 증명 모음에서 해당 VMM 서버를 등록하는 것으로 설치를 마칩니다.
@@ -139,7 +138,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 12. **다음** 을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 자격 증명 모음의 **서버** 페이지에 있는 **VMM 서버** 탭에 해당 서버가 표시됩니다.
 
     ![서버](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
-13. 사이트 복구 콘솔에서 서버를 사용할 수 있게 되면 **원본** > **소스 준비** 에서 VMM 서버를 선택하고 Hyper-V 호스트가 있는 클라우드를 선택합니다. 그런 후 **OK**를 클릭합니다.
+13. Site Recovery 콘솔에서 서버를 사용할 수 있게 되면 **원본** > **소스 준비** 에서 VMM 서버를 선택하고 Hyper-V 호스트가 있는 클라우드를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 명령줄에서 공급자를 설치할 수도 있습니다.
 
@@ -199,7 +198,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 * 원본 VM 네트워크에 해당하는 기존 복제본 가상 컴퓨터는 모두 대상 VM 네트워크에 연결됩니다.
 * 원본 VM 네트워크에 연결된 새 가상 컴퓨터는 복제 후 매핑된 대상 네트워크에 연결됩니다.
 * 새 네트워크로 기존 매핑을 수정하면 복제본 가상 컴퓨터가 새 설정을 사용하여 연결됩니다.
-* 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
+* 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제 가상 컴퓨터가 장애 조치(failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
 ### <a name="configure-storage-mapping"></a>저장소 매핑을 구성합니다.
 
@@ -331,9 +330,9 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 
 | **시나리오** | **결과** |
 | --- | --- |
-| 장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되지 않음 |VM-1에 원본 네트워크에 연결된 상태로 유지됩니다. |
-| 장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되고 연결이 끊김 |VM-1의 연결이 끊김 |
-| 장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되고 VMNetwork2-시카고에 연결됨 |VMNetwork2-시카고가 매핑되지 않는 경우 VM-1의 연결이 끊김 |
+| 장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되지 않음 |VM-1에 원본 네트워크에 연결된 상태로 유지됩니다. |
+| 장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되고 연결이 끊김 |VM-1의 연결이 끊김 |
+| 장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되고 VMNetwork2-시카고에 연결됨 |VMNetwork2-시카고가 매핑되지 않는 경우 VM-1의 연결이 끊김 |
 | VMNetwork1-시카고의 네트워크 매핑이 변경됨 |VM-1이 현재 VMNetwork1-시카고에 매핑된 네트워크에 연결됨 |
 
 
@@ -350,15 +349,15 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 2. **VMM 서버에 클라우드가 2개 이상 구성되도록 해야 합니다**. 하나의 클라우드는 복사할 VM을 포함하고, 다른 클라우드는 보조 위치로 사용됩니다. 보호하려는 VM이 포함된 클라우드는 [필수 구성 요소](#prerequisites)를 충족해야 합니다.
 3. 이 문서에 설명된 대로 Site Recovery를 설정합니다. 자격 증명 모음에 VMM 서버를 만든 후 등록하고 복제 정책을 설정하고 복제를 사용하도록 설정합니다. 원본 및 대상 VMM 이름이 동일하게 지정됩니다. 초기 복제가 네트워크를 통해 진행되도록 지정합니다.
 4. 네트워크 매핑을 설정하는 경우 기본 클라우드용 VM 네트워크를 보조 클라우드용 VM 네트워크에 매핑합니다.
-5. Hyper-V 관리자 콘솔에서 VMM VM을 포함하는 Hyper-V 호스트의 Hyper-V 복제본을 사용하도록 설정하고 VM의 복제를 활성화합니다. Hyper-V 복제본 설정이 사이트 복구에 의해 무시되지 않도록, 사이트 복구에 의해 보호되는 클라우드에 VMM 가상 컴퓨터를 추가하지 말아야 합니다.
-6. 장애 조치(Failover)에 대한 복구 계획을 생성하려면 원본과 대상에 동일한 VMM 서버를 사용합니다.
+5. Hyper-V 관리자 콘솔에서 VMM VM을 포함하는 Hyper-V 호스트의 Hyper-V 복제본을 사용하도록 설정하고 VM의 복제를 활성화합니다. Hyper-V 복제본 설정이 Site Recovery에 의해 무시되지 않도록, Site Recovery에 의해 보호되는 클라우드에 VMM 가상 컴퓨터를 추가하지 말아야 합니다.
+6. 장애 조치(failover)에 대한 복구 계획을 생성하려면 원본과 대상에 동일한 VMM 서버를 사용합니다.
 7. 전체 가동 중단 시 다음과 같이 장애 조치를 수행하고 복구합니다.
 
    1. 보조 사이트의 Hyper-V 관리자 콘솔에서 계획되지 않은 장애 조치를 실행하여 기본 VMM VM을 보조 사이트로 장애 조치(failover)합니다.
    2. VMM VM이 작동되어 실행되는지 확인하고 자격 증명 모음에서 계획되지 않은 장애 조치를 실행하여 기본 클라우드에서 보조 클라우드로 VM을 장애 조치(failover)합니다. 장애 조치(failover)를 커밋하고 필요한 경우 대체 복구 지점을 선택합니다.
    3. 계획되지 않은 장애 조치(failover)가 완료되면 기본 사이트에서 모든 리소스에 다시 액세스할 수 있습니다.
    4. 기본 사이트를 다시 사용할 수 있게 되면 보조 사이트에서 Hyper-V 관리자 콘솔을 통해 VMM VM에 대한 역방향 복제를 사용하도록 설정합니다. 그러면 보조에서 기본으로 VM에 대한 복제가 시작됩니다.
-   5. 보조 사이트의 Hyper-V 관리자 콘솔에서 계획된 장애 조치를 실행하여 VMM VM을 기본 사이트로 장애 조치(failover)합니다. 장애 조치(Failover)를 커밋합니다. 그런 후 역방향 복제를 사용하도록 설정하여 기본 사이트에서 보조 사이트로 VMM VM 복제를 다시 시작합니다.
+   5. 보조 사이트의 Hyper-V 관리자 콘솔에서 계획된 장애 조치를 실행하여 VMM VM을 기본 사이트로 장애 조치(failover)합니다. 장애 조치(failover)를 커밋합니다. 그런 후 역방향 복제를 사용하도록 설정하여 기본 사이트에서 보조 사이트로 VMM VM 복제를 다시 시작합니다.
    6. 복구 서비스 자격 증명 모음에서 워크로드 VM에 대한 역방향 복제를 사용하도록 설정하여 보조 복제본에서 주 복제본으로 복제를 시작합니다.
    7. 복구 서비스 자격 증명 모음에서 계획된 장애 조치를 실행하여 워크로드 VM을 기본 사이트로 장애 복구(failback)합니다. 장애 조치(failover)를 커밋하여 완료합니다. 그런 후 역방향 복제를 사용하도록 설정하여 기본 사이트에서 보조 사이트로의 워크로드 VM 복제를 시작합니다.
 
@@ -444,4 +443,3 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 ## <a name="next-steps"></a>다음 단계
 
 배포를 테스트한 후 다른 유형의 [장애 조치](site-recovery-failover.md)에 대해 알아봅니다.
-

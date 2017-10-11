@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0fa7a886e1ecb0a90b6aebc1dbf9ef0c6ce1acf1
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -314,23 +314,23 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
     장치 토큰 설정이 어떻게 로그인 단추를 활성화하는지에 주목하세요. 이는 로그인 작업 중에 보기 컨트롤러가 푸시 알림을 앱 백 엔드에 등록하기 때문입니다. 따라서 장치 토큰이 제대로 설정되기 전에는 로그인 작업에 액세스하지 못하게 해야 합니다. 로그인 작업이 토큰 설정 전에 발생하는 경우 푸시 등록에서 로그인을 분리할 수 있습니다.
 2. ViewController.m에서 다음 스니펫을 사용하여 **로그인** 단추에 대한 작업 메소드 및 ASP.NET 백엔드를 사용하여 알림 메시지를 보내는 메서드를 구현합니다.
    
-       - (IBAction)LogInAction:(id)sender {   // create authentication header and set it in register client   NSString* username = self.UsernameField.text;   NSString* password = self.PasswordField.text;
+       - (IBAction) LogInAction: 보낸 사람 (id) {/ 인증 헤더 생성 및 레지스터 클라이언트 NSString * 사용자 이름에 설정 / 자체 = 합니다. UsernameField.text;   NSString 암호 자체 = 합니다. PasswordField.text;
    
            [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
    
-           __weak ViewController* selfie = self;   [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil       andCompletion:^(NSError* error) {       if (!error) {           dispatch_async(dispatch_get_main_queue(),           ^{               selfie.SendNotificationButton.enabled = YES;               [self MessageBox:@"Success" message:@"Registered successfully!"];           });       }   }]; }
+           __weak ViewController * selfie 자체; =   [self.registerClient registerWithDeviceToken:self.deviceToken 태그: nil andCompletion:^(NSError* error) {경우 (! 오류) {dispatch_async(dispatch_get_main_queue(), ^ {selfie 합니다. SendNotificationButton.enabled = YES;               [자체 MessageBox:@"Success" message:@"Registered 했습니다!"];을 (를));}}];을 (를)
 
         - (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag            Message:(NSString*)message {    NSURLSession* session = [NSURLSession        sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil        delegateQueue:nil];
 
-            // PNS 및 사용자 이름 태그를 REST URL을 포함한 매개 변수로 ASP.NET 백 엔드에 전달합니다    NSURL* requestURL = [NSURL URLWithString:[NSString        stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,        usernameTag]];
+            Pns와 사용자 이름이 태그를 ASP.NET 백 엔드 NSURL * requestURL을 REST url 매개 변수로 전달 = [NSURL URLWithString: [NSString stringWithFormat:@"%@/api/notifications? pns = % @& to_tag = % @", BACKEND_ENDPOINT, pns, usernameTag]];
 
-            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];    [request setHTTPMethod:@"POST"];
+            NSMutableURLRequest 요청 [NSMutableURLRequest requestWithURL:requestURL] =;    [요청 setHTTPMethod:@"POST"];
 
-            // 등록 클라이언트에서 모의 authenticationheader를 가져옵니다    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",        self.registerClient.authenticationHeader];    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+            NSString authorizationHeaderValue 레지스터 클라이언트에서 모의 authenticationheader 가져오기 = [NSString stringWithFormat:@"Basic % @", self.registerClient.authenticationHeader];    [요청 setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-            //알림 메시지 본문을 추가합니다    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
+            알림 메시지 본문을 추가 [setValue:@"application/json;charset=utf-8 요청" forHTTPHeaderField:@"Content-Type"];    [setHTTPBody 요청: [dataUsingEncoding:NSUTF8StringEncoding 메시지]];
 
-            // ASP.NET 백 엔드에서 보내기 알림 REST API를 실행합니다     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)    {        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;        if (error || httpResponse.statusCode != 200)        {            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",                                pns, httpResponse.statusCode, error];            dispatch_async(dispatch_get_main_queue(),            ^{                // Append text because all 3 PNS calls may also have information to view                [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];            });            NSLog(status);        }
+            ASP.NET 백 엔드 NSURLSessionDataTask * dataTask에서 실행 하는 REST API에 알림 보내기 = [세션 dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) 응답;        경우 (오류 | | httpResponse.statusCode! = 200) {NSString* 상태 = [%에 대 한 상태 NSString stringWithFormat:@"Error @: %d\nError: %@\n", pns httpResponse.statusCode, 오류];            dispatch_async(dispatch_get_main_queue(), ^ {/ / 모든 3 PNS 호출 수 정보 보기 [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]를 수도 있기 때문에 텍스트 추가];            });            NSLog(status);        }
 
                 if (data != NULL)
                 {
@@ -409,9 +409,3 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

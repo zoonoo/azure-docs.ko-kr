@@ -7,13 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-translationtype: Human Translation
-ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure 역할 기반 액세스 제어(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어
 
 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다.
@@ -91,7 +90,7 @@ Joe는 이 구독에서 일부 리소스 그룹에 대한 리소스 소유자인
 
     ![새 지원 요청](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Joe가 "모든 지원 요청"을 클릭하면 이 구독에 대해 생성된 모든 지원 요청을 확인할 수 있습니다.  ![사례 정보 보기](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. "모든 요청을 지원"을 클릭 하면 Joe 목록을 볼 수는이 구독에 대해 생성 하는 지원 요청 ![경우 세부 정보 보기](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Azure Portal에서 지원 요청 액세스 제거
 
@@ -108,9 +107,3 @@ Joe가 포털에 로그인하고 지원 요청을 만들려고 하면 다음 오
 Joe가 "모든 지원 요청"을 클릭할 때 지원 요청을 볼 수 없습니다.
 
 ![사례 정보 보기-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

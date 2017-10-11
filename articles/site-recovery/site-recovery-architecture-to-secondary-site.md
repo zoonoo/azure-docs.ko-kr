@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Site Recovery에서 보조 사이트에 대한 온-프레미스 컴퓨터 복제가 작동하는 방법
 
@@ -106,4 +104,3 @@ InMage Scout을 사용하고 이러한 아키텍처 구성 요소를 사용하�
 ## <a name="next-steps"></a>다음 단계
 
 [지원 매트릭스](site-recovery-support-matrix-to-sec-site.md)를 검토합니다.
-

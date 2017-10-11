@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 8983594776a1bbe413a6d7cf2cd518f0e327648a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Azure Cosmos DB: MongoDB API 계정으로 Robomongo 사용
 Robomongo를 사용하여 Azure Cosmos DB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
@@ -53,4 +51,3 @@ Azure Cosmos DB: MongoDB API 계정을 Robomongo MongoDB 연결에 추가하려�
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB: MongoDB API [샘플](mongodb-samples.md)을 살펴봅니다.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>6단계: Azure에 온-프레미스 VMware 복제 준비
 
@@ -65,4 +64,3 @@ Site Recovery는 VM 자동 검색 및 VM의 장애 조치와 장애 복구를 �
 ## <a name="next-steps"></a>다음 단계
 
 [7단계: 자격 증명 모음 만들기](vmware-walkthrough-create-vault.md)로 이동합니다.
-

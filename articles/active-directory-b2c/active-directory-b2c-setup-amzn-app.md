@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: 고객에게 Amazon 계정으로 등록 및 로그인 제공
 ## <a name="create-an-amazon-application"></a>Amazon 응용 프로그램 만들기
@@ -48,5 +47,4 @@ Azure Active Directory(Azure AD) B2C에서 Amazon을 ID 공급자로 사용하�
 5. **ID 공급자 형식**을 클릭하고 **Amazon**을 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Amazon 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
 7. **확인**, **만들기**를 차례로 클릭하여 Amazon 구성을 저장합니다.
-
 

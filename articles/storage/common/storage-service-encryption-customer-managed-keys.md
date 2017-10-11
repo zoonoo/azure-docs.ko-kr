@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화
 
@@ -127,4 +126,3 @@ A: 저장소 서비스 암호화에 대한 문제는 [ssediscussions@microsoft.c
 *   개발자가 보안 응용 프로그램을 빌드하는 데 도움이 되는 포괄적인 보안 기능 집합에 대한 자세한 내용은 [Storage 보안 가이드](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide)를 참조하세요.
 *   Azure Key Vault에 대한 개요는 [Azure Key Vault란](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?을 참조하세요.
 *   Azure Key Vault 시작 방법은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md)을 참조하세요.
-

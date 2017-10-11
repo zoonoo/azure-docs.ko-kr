@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: b9e739a07c5863577285fb3a221b372b385c6762
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -298,7 +297,7 @@ input.nextLine();
 > 
 >
 
-Marketplace 이미지 대신 기존 디스크를 사용하려면 다음 코드를 사용합니다. 
+마켓플레이스 이미지 대신 기존 디스크를 사용하려면 다음 코드를 사용합니다. 
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
@@ -473,5 +472,4 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 ## <a name="next-steps"></a>다음 단계
 * [Java용 Azure 라이브러리](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview) 사용에 대해 자세히 알아보세요.
-
 

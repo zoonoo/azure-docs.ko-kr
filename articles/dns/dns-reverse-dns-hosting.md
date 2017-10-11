@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 
 이 문서에서는 Azure DNS에서 할당된 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 설명합니다. 역방향 조회 영역으로 표시되는 IP 범위가 일반적으로 ISP에 의해 조직에 할당되어야 합니다.
@@ -119,7 +117,7 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 
 다음 예제에서는 Azure Portal의 역방향 DNS 영역에 PTR 레코드를 만드는 과정을 안내합니다. 다른 레코드 유형을 알아보고 기존 레코드를 수정하려면 [Azure Portal을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
 
-1.    **DNS 영역** 블레이드의 위쪽에서 **+레코드 집합**을 클릭하여 **레코드 집합 추가** 블레이드를 엽니다.
+1.  **DNS 영역** 블레이드의 위쪽에서 **+레코드 집합**을 클릭하여 **레코드 집합 추가** 블레이드를 엽니다.
 
  ![DNS 영역](./media/dns-reverse-dns-hosting/figure4.png)
 
@@ -269,4 +267,3 @@ Azure DNS에서 ISP 할당 IP 블록에 대해 역방향 DNS 조회 영역을 �
 역방향 DNS에 대한 자세한 내용은 [Wikipedia에서 역방향 DNS 조회](http://en.wikipedia.org/wiki/Reverse_DNS_lookup)를 참조하세요.
 <br>
 [Azure 서비스에 대한 역방향 DNS 레코드를 관리](dns-reverse-dns-for-azure-services.md)하는 방법을 알아봅니다.
-

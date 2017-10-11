@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5e6b136d6bd3b11fb82126d104fd0cb149255118
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Azure 보안 센터에서 Endpoint Protection 상태 경고 해결
 Azure 보안 센터는 검색된 Endpoint Protection 상태 경고를 해결할 것을 권장합니다.  보안 센터에서 Endpoint Protection 오류가 있는 가상 컴퓨터(VM) 및 오류 횟수를 확인할 수 있습니다.
@@ -53,9 +53,3 @@ Azure 보안 센터는 검색된 Endpoint Protection 상태 경고를 해결할 
 [2]: ./media/security-center-resolve-endpoint-protection/endpoint-protection-failure.png
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>10단계: Azure에 물리적 서버 복제 설정
 
@@ -68,5 +66,4 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-[11단계: 테스트 장애 조치(Failover) 실행](physical-walkthrough-test-failover.md)으로 이동합니다.
-
+[11단계: 테스트 장애 조치(failover) 실행](physical-walkthrough-test-failover.md)으로 이동합니다.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Azure 클래식 포털에서 Docker VM 확장 사용
 > [!IMPORTANT] 
@@ -164,4 +163,3 @@ WARNING: No swap limit support
 
 [https를 사용하여 Docker 실행]:http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]:https://docs.docker.com/userguide/
-

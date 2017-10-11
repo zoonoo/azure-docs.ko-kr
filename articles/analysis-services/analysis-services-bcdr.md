@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0a9bdf3afba87ba1e7a1047907ab9eeb0ef8a842
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 84b4c59bac1feeb8611b3a8d783d093ba073e532
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
 이 문서에서는 Azure Analysis Services 서버에 대한 고가용성을 보장하는 방법을 설명합니다. 
 
@@ -40,5 +38,4 @@ ms.lasthandoff: 06/03/2017
 ## <a name="related-information"></a>관련 정보
 [백업 및 복원](analysis-services-backup.md)   
 [Azure Analysis Services 관리](analysis-services-manage.md) 
-
 

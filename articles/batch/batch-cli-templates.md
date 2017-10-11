@@ -11,14 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: markscu
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
 
 Azure CLI를 사용하여 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다.
@@ -265,4 +263,3 @@ Azure CLI에 Batch 확장을 사용해 보고 이 문서의 주석이나 [Azure 
 
 - Batch 템플릿 블로그 게시물인 [Azure CLI를 사용하여 Azure Batch 작업 실행 - 코드가 필요하지 않음](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/)을 참조하세요.
 - 자세한 설치 및 사용 설명서, 샘플 및 소스 코드는 [Azure GitHub 리포지토리](https://github.com/Azure/azure-batch-cli-extensions)에서 사용할 수 있습니다.
-

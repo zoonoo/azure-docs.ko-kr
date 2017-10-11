@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 컴퓨터 규모 집합을 사용하여 수직 자동 규모 조정
 이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [가상 컴퓨터 규모 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 을 수직으로 확장하는 방법을 설명합니다. 규모 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure 자동화를 사용하여 Azure 가상 컴퓨터를 수직으로 확장](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
@@ -128,4 +126,3 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>Azure로 Hyper-V 가상 컴퓨터(VMM 없음) 복제 
 
 > [!div class="op_single_selector"]
@@ -109,4 +107,3 @@ Hyper-V 서버가 Site Recovery 배포 요구 사항을 충족하는지 확인�
 초기 복제가 완료되고 델타 복제가 실행된 후에 테스트 장애 조치(failover)를 실행하여 예상대로 작동되는지 확인할 수 있습니다.
 
 [11단계: 테스트 장애 조치(failover) 실행](hyper-v-site-walkthrough-test-failover.md)으로 이동합니다.
-

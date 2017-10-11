@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/15/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Azure에서 HPC 팩 2016 클러스터 배포
 
@@ -156,5 +155,4 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="next-steps"></a>다음 단계
 * 클러스터에 작업을 제출합니다. [Azure에서 HPC 팩 클러스터에 작업 제출](hpcpack-cluster-submit-jobs.md) 및 [Azure에서 Azure Active Directory를 사용하여 HPC 팩 2016 클러스터 관리](hpcpack-cluster-active-directory.md)를 참조하세요.
-
 

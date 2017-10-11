@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a6a69bf555c7267d3fbeb03ff6c03054991960f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -293,11 +293,11 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 -->
 
 <!-- Anchors. -->
-[앱에 범주 선택 추가]: #adding-categories
-[알림 등록]: #register
-[백 엔드에서 알림 보내기]: #send
-[앱 실행 및 알림 생성]: #test-app
-[다음 단계]: #next-steps
+[Add category selection to the app]: #adding-categories
+[Register for notifications]: #register
+[Send notifications from your back-end]: #send
+[Run the app and generate notifications]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
@@ -308,15 +308,9 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 <!-- URLs.-->
 [Notification Hubs 시작]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]: ../breakingnews-localized-wp8.md
-[Notification Hubs를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users/
+[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[Windows Phone용 Notification Hubs 사용 방법]: ??
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Phone]: ??
 

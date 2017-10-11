@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 165536dcaa7a5db1c913121895634659d70d5c9c
-ms.openlocfilehash: e4b2556533fcb22556ca526d5815908fdefb0788
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 83c4261fab0498541591c01f9bb692b396c7b751
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>페이지의 링크가 응용 프로그램 프록시 응용 프로그램에서 작동하지 않습니다.
 
 이 문서를 통해 Azure Active Directory 응용 프로그램 프록시 응용 프로그램의 링크가 올바르게 작동하지 않는 원인을 해결할 수 있습니다.
@@ -48,5 +46,4 @@ ms.lasthandoff: 06/30/2017
 
 ## <a name="next-steps"></a>다음 단계
 [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)
-
 

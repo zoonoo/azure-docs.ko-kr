@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>MyApps portal에 대한 도움이 필요합니까?
 
@@ -109,5 +108,4 @@ ms.lasthandoff: 07/21/2017
 ## <a name="next-steps"></a>다음 단계
 
 문제 해결 관련 정보는 [응용 프로그램 액세스 패널 웹 사이트 또는 모바일 응용 프로그램을 사용하는 문제](active-directory-application-access-panel-content-map.md)를 참조하세요.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: bf5263ce4d8fbc231029c101f167f4b55a921e60
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>자습서: PagerDuty와 Azure Active Directory 통합
 
@@ -276,5 +275,4 @@ PagerDuty의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-pagerduty-tutorial/tutorial_general_203.png
-
 

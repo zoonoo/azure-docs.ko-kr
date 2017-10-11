@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ef87cd82b021e40f0da05142878daff245cd9c62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-with-vmm-to-azure-replication"></a>4단계: Azure로의 Hyper-V(VMM 포함) 복제를 위한 네트워킹 계획
 
 전체 배포를 진행하려는 경우 [용량 계획](vmm-to-azure-walkthrough-capacity.md)을 수행한 후 이 문서의 내용을 참조하여 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용해 System Center Virtual Machine Manager(VMM) 클라우드의 온-프레미스 Hyper-V VM을 Azure로 복제할 때의 네트워크 계획 고려 사항에 대해 알아볼 수 있습니다.
@@ -114,4 +112,3 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 ## <a name="next-steps"></a>다음 단계
 
 [5단계: Azure 준비](vmm-to-azure-walkthrough-prepare-azure.md)로 이동합니다.
-

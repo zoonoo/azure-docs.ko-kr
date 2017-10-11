@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ed6f73d8baea5af0d2aa5f0ae885f305911ccc82
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="step-9-configure-network-mapping-for-hyper-v-replication-with-vmm-to-azure"></a>9단계: Azure로의 Hyper-V 복제(VMM 포함)를 위한 네트워크 매핑 구성
 
@@ -59,4 +58,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>다음 단계
 
 [10단계: 복제 정책 만들기](vmm-to-azure-walkthrough-replication.md)로 이동합니다.
-

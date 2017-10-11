@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 7aec9dcba717592b5324ac667008902bd323f537
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: a373c32271096308678fe3402e8420cc14fe5935
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 고정 공용 IP 주소가 있는 VM 만들기
 
@@ -254,4 +253,3 @@ VM을 만들기 전에 VM에서 사용할 리소스 그룹, VNet, 공용 IP 및 
         info:    Looking up the NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK
-

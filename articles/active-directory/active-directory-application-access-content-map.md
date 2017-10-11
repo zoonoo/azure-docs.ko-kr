@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 7cd25954c83abe3eb1d3d1b6ad076cd46ff9099e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 32d1c26a31f78bb58e9e1d5c47d9810c2ae881cd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-managing-application-access-and-permissions"></a>응용 프로그램 액세스 및 사용 권한을 관리하는 문제
 
 
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/18/2017
   다음 문서는 이 범주에서 가장 일반적인 몇 가지 문제를 해결하는 데 도움이 될 수 있습니다.
   * [응용 프로그램에 사용자가 할당된 방법을 모름](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-user-assignment/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [내 응용 프로그램 목록에 예기치 않은 응용 프로그램이 나타나고 이에 대해 자세히 알고 싶음](https://docs.microsoft.com/azure/active-directory/application-access-unexpected-application/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

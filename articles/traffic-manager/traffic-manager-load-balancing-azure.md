@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
 ## <a name="introduction"></a>소개
@@ -211,4 +210,3 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 * [Traffic Manager 개요](traffic-manager-overview.md)
 * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
 * [Azure Load Balancer개요](../load-balancer/load-balancer-overview.md)
-

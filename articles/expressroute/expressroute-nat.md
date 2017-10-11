@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expressroute-nat-requirements"></a>Express 경로 NAT 요구 사항
 Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려면 NAT을 설치하고 관리해야 합니다. 일부 연결 공급자는 NAT을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 그런 서비스를 제공하는지를 확인합니다. 그렇지 않은 경우 아래에 설명한 요구 사항을 준수해야 합니다. 
@@ -73,8 +71,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 * 워크플로 정보는 [Express 경로 회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
 * Express 경로 연결을 구성합니다.
   
-  * [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
+  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md)
   * [라우팅 구성](expressroute-howto-routing-classic.md)
-  * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-classic.md)
 

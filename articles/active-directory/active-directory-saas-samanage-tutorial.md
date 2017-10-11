@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: c54dbe407145a29a712acc3c0fb549a38ac26bed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>자습서: Samanage와 Azure Active Directory 통합
 
@@ -279,5 +278,4 @@ Samanage의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_203.png
-
 

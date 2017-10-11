@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
 Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제한하고 제어하는 데 사용할 수 있는 다양한 기본 제공 보안 컨트롤이 포함되어 있습니다.
@@ -65,5 +63,4 @@ Azure 데이터베이스는 다양한 조직 및 규정 준수 요구 사항을 
 - 서버 및 데이터베이스에 대한 [방화벽 규칙](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) 설정
 - [암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption)를 사용하여 데이터 보호
 - [SQL Database 감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) 사용
-
 

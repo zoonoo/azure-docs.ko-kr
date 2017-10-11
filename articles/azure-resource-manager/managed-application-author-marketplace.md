@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 응용 프로그램
 
  MSP, ISV 및 SI(시스템 통합자)는 Azure 관리되는 응용 프로그램을 사용하여 모든 Azure Marketplace 고객에게 솔루션을 제공할 수 있습니다. 이러한 솔루션으로 고객에 대한 유지 관리 및 서비스 오버헤드가 줄어듭니다. 게시자는 Marketplace를 통해 인프라 및 소프트웨어를 판매할 수 있습니다. 서비스 및 작업 지원을 관리되는 응용 프로그램에 연결할 수 있습니다. 자세한 내용은 [관리되는 응용 프로그램 개요](managed-application-overview.md)를 참조하세요.
@@ -220,7 +218,7 @@ Marketplace 양식에서 [Azure Marketplace](https://azuremarketplace.microsoft.
 
 목록에서 제품이 가장 잘 연결될 수 있는 범주를 5개까지 선택합니다. 이러한 범주는 고객의 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 사용할 수 있는 제품 범주에 매핑하는 데 사용됩니다.
 
-#### <a name="azure-marketplace"></a>Azure Marketplace
+#### <a name="azure-marketplace"></a>Azure 마켓플레이스
 
 관리되는 응용 프로그램 요약은 다음 필드를 표시합니다.
 
@@ -279,4 +277,3 @@ Marketplace 양식에서 [Azure Marketplace](https://azuremarketplace.microsoft.
 * Marketplace의 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [Marketplace의 Azure 관리되는 응용 프로그램 사용](managed-application-consume-marketplace.md)을 참조하세요.
 * 서비스 카탈로그 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시](managed-application-publishing.md)를 참조하세요.
 * 서비스 카탈로그 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 사용](managed-application-consumption.md)을 참조하세요.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>6단계: Azure로 Hyper-V 호스트 복제 준비
 
 Azure Site Recovery와 상호 작용하는 온-프레미스 Hyper-V 호스트를 준비하려면 이 문서의 지침을 사용합니다.
@@ -45,5 +43,4 @@ Site Recovery를 배포하는 동안 복제할 VM을 포함하는 Hyper-V 호스
 ## <a name="next-steps"></a>다음 단계
 
 [7단계: 자격 증명 모음 만들기](hyper-v-site-walkthrough-create-vault.md)로 이동합니다.
-
 

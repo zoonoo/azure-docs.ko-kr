@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: d4678afa4d7a9000761d3a60a54539fc1730f76a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: d4dc110eb25c3e550ac4663d28e626a696b58f62
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
 
 [Azure AD 응용 프로그램 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)에서 응용 프로그램을 추가하는 경우 사용자가 해당 응용 프로그램에 로그인할 때 사용할 수 있는 방법을 여러분이 선택할 수 있습니다. [Azure Portal](https://portal.azure.com/)에서 엔터프라이즈 응용 프로그램에 대해 **Single Sign-On** 탐색 항목을 선택하여 언제든지 이 옵션을 구성할 수 있습니다.
@@ -182,4 +180,3 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-

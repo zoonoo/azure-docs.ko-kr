@@ -15,14 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
 이 페이지는 도메인, DNS 영역, DNS 레코드 및 레코드 집합의 핵심 개념과 Azure DNS에서 지원되는 방식에 대해 설명합니다.
@@ -69,7 +67,7 @@ CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 
 
 영역 루트의 NS 레코드 집합(name '@')은 각 DNS 영역과 함께 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).
 
-이 레코드 집합에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다. 이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다. 
+이 레코드 집합에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다. 이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다.또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다. 
 
 이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 생성, 수정 및 삭제할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
 
@@ -140,4 +138,3 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 * Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.
-

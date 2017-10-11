@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대해 트랜잭션 최적화
 이 문서에서는 긴 롤백에 대한 위험을 최소화하면서 트랜잭션 코드의 성능을 최적화하는 방법을 설명합니다.
@@ -438,5 +437,4 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
 

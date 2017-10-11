@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 1121d22beddf73fd2109a4b410422f76dd37478e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>자습서: Boomi와 Azure Active Directory 통합
 
@@ -218,7 +216,7 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
     ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "사용자")
 
-3. **+**  아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
+3.  **+**  아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
 
     ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "사용자")
 
@@ -293,5 +291,4 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 [201]: ./media/active-directory-saas-boomi-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-boomi-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-boomi-tutorial/tutorial_general_203.png
-
 

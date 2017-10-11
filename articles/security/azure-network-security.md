@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 응용 프로그램과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
@@ -78,7 +75,7 @@ Azure는 네트워크 보안 논의가 이루어지는 많은 네트워킹 구�
 
 ### <a name="basic-network-connectivity"></a>기본 네트워크 연결
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 사이트 간 VPN 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 사용하여 VNet을 서로 연결하고 온-프레미스 네트워크에 연결할 수도 있습니다.
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 서로 하 고 온-프레미스 네트워크 사이트 간 Vpn을 사용 하 여 Vnet을 연결할 수도 있습니다 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)합니다.
 
 ![기본 네트워크 연결](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -163,11 +160,11 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 다음 옵션을 조합하여 온-프레미스 네트워크를 VNet에 연결할 수 있습니다.
 
-- **지점-사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure 사용을 막 시작하는 사용자나 개발자에게 유용합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
+- **지점-사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
 
 - **사이트 간 VPN:** VPN 장치 와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
-- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
+- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
 
 **트래픽 필터링**
 
@@ -175,9 +172,9 @@ VM 및 Cloud Services 역할 인스턴스 [네트워크 트래픽](https://docs.
 
 다음 옵션 중 하나 또는 둘 다를 사용하여 서브넷 간의 네트워크 트래픽을 필터링할 수 있습니다.
 
-- **NSG(네트워크 보안 그룹):** 각 NSG에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. VM의 각 NIC에 NSG를 적용할 수 있습니다. NIC 또는 Azure 리소스가 연결된 서브넷에 NSG를 적용할 수도 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)을 참조하세요.
+- **NSG(네트워크 보안 그룹):** 각 NSG에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. NSG는 VM의 각 NIC에 적용할 수 있습니다. NIC 또는 Azure 리소스가 연결된 서브넷에 NSG를 적용할 수도 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)을 참조하세요.
 
-- **Virtual Network 어플라이언스:** Virtual Network 어플라이언스는 방화벽과 같은 네트워크 기능을 수행하는 소프트웨어를 실행하는 VM입니다. Azure Marketplace에서 사용할 수 있는 NVA 목록을 확인하세요. WAN 최적화 및 기타 네트워크 트래픽 기능을 제공하는 NVA도 사용할 수 있습니다. NVA는 일반적으로 사용자 정의 또는 BGP 경로와 함께 사용됩니다. 또한 NVA를 사용하여 VNet 간의 트래픽을 필터링할 수도 있습니다.
+- **Virtual Network 어플라이언스:** Virtual Network 어플라이언스는 방화벽과 같은 네트워크 기능을 수행하는 소프트웨어를 실행하는 VM입니다. Azure Marketplace에서 사용할 수 있는 NVA 목록을 확인하세요. WAN 최적화 및 기타 네트워크 트래픽 기능을 제공하는 NVA도 사용할 수 있습니다. NVA는 일반적으로 사용자 정의 경로 또는 BGP 경로와 함께 사용됩니다. 또한 NVA를 사용하여 VNet 간의 트래픽을 필터링할 수도 있습니다.
 
 **라우팅**
 
@@ -665,4 +662,3 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 -   [Microsoft에서 빠르고 신뢰할 수 있는 글로벌 네트워크를 구축하는 방법](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
 -   [네트워크 혁신 조명](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Android에서 Engagement API를 사용하는 방법
 이 문서는 [Android Mobile Engagement SDK에 대한 고급 보고 옵션](mobile-engagement-android-advanced-reporting.md)문서의 추가 자료입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
@@ -224,7 +224,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 이 데이터는 구조화될 수 있으며, Android의 번들 클래스를 사용합니다. 이 클래스는 실제로 Android Intent의 추가 매개 변수처럼 작동합니다. 번들은 배열이나 다른 번들 인스턴스를 포함할 수 있습니다.
 
 > [!IMPORTANT]
-> 패키지 가능한 또는 직렬화 가능한 매개 변수를 넣는 경우 해당 `toString()` 메서드가 사람이 읽을 수 있는 문자열을 반환하도록 구현됩니다.  `bundle.putSerializable("key",value);`
+> 패키지 가능한 또는 직렬화 가능한 매개 변수를 넣는 경우 해당 `toString()` 메서드가 사람이 읽을 수 있는 문자열을 반환하도록 구현됩니다. `bundle.putSerializable("key",value);`
 > 
 > [!WARNING]
 > 추가 매개 변수의 스파스 배열은 지원되지 않습니다. 즉, 배열로 직렬화되지 않습니다. 추가 매개 변수에서 배열을 사용하기 전에 표준 배열로 변환해야 합니다.
@@ -281,9 +281,3 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 위의 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
             {"expiration":"2016-12-07","status":"premium"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

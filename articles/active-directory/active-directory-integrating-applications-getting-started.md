@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
-ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: e273d27bacf6978c5056c0ab09846c26426dd12b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -93,5 +92,4 @@ Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 �
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
 

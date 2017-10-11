@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: willzhan;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a4531b69c44337c4863016810123f7f89bf7f98f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
 Azure Media Services 팀은 Azure Media Services 액세스를 위한 Azure AD(Azure Active Directory) 인증 지원을 공개했습니다. 또한 Media Services 액세스를 위한 Azure Access Control 서비스 인증을 더 이상 사용하지 않을 계획이라고 발표했습니다. 모든 Azure 구독과 Media Services 계정은 Azure AD 테넌트에 연결되며 Azure AD 인증 지원은 다양한 보안 이점을 제공합니다. 이 변경 내용과 마이그레이션에 대한 자세한 내용은 다음 블로그 게시물 및 문서를 참조하세요(앱에 Media Services .NET SDK을 사용하는 경우).
@@ -147,4 +145,3 @@ OAuth 2.0 권한 부여 흐름(사용자 이름 및 암호, 사용자를 대신�
 ## <a name="next-steps"></a>다음 단계
 
 [계정에 파일 업로드](media-services-dotnet-upload-files.md) 시작
-

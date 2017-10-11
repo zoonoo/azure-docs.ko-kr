@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e481e2512f324733bb78f7d6f337b9522e78bea8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63d108bbfd0f58f8a40bf1c7c8649e3a1f7ed288
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>PowerShell를 사용하여 스냅숏에서 가상 컴퓨터 만들기
 
 이 스크립트는 OS 디스크의 스냅숏에서 가상 컴퓨터를 만듭니다. 

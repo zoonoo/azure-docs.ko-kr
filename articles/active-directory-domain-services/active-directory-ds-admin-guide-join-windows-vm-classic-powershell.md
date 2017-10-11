@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 1bb1546fb616131a1e1868a0d0610c4cad5d73e2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>PowerShell을 사용하여 Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 > [!div class="op_single_selector"]
@@ -157,4 +156,3 @@ Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
-

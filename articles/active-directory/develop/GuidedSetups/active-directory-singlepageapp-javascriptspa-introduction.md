@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 4f40ba0eb6ce3e55a1e5458bc6e83060fcf6624c
-ms.contentlocale: ko-kr
-
+ms.openlocfilehash: 3d195d0d67f8f82c9450ffd93767917698addee3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 응용 프로그램)에서 Microsoft Graph API 호출
 
@@ -47,4 +47,3 @@ ms.contentlocale: ko-kr
 > *msal.js*는 *Azure Active Directory v2 끝점*을 대상으로 하며 이를 통해 개인, 학교 및 회사 계정으로 로그인하여 토큰을 획득할 수 있습니다. *Azure Active Directory v2 끝점*에는 [몇 가지 제한 사항](..\active-directory-v2-limitations.md)이 있습니다. 학교 및 회사 계정에만 관심이 있는 경우 *adal.js* 및 *V1 끝점*을 사용합니다. v1 및 v2 끝점 간의 차이점을 이해하려면 [v1-v2 비교](..\active-directory-v2-compare.md)를 읽어보세요.
 
 <!--end-collapse-->
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>논리 앱 워크플로에서 Dynamics 365에 연결
 
 Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 만들고 항목을 업데이트하거나 레코드 목록을 반환하는 유용한 비즈니스 흐름을 만들 수 있습니다. Dynamics 365 커넥터를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
@@ -38,27 +36,27 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Dynamics 365에서 새 리드가 생성될 작업 만들기
 
-1.    [Azure에 로그인](https://portal.azure.com)합니다.
+1.  [Azure에 로그인](https://portal.azure.com)합니다.
 
-2.    Azure 검색 상자에 `Logic apps`를 입력하고 ENTER 키를 누릅니다.
+2.  Azure 검색 상자에 `Logic apps`를 입력하고 ENTER 키를 누릅니다.
 
       ![논리 앱 찾기](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    **논리 앱** 아래에서 **추가**를 클릭합니다.
+3.  **논리 앱** 아래에서 **추가**를 클릭합니다.
 
       ![LogicApp 추가](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    논리 앱을 만들려면 **이름**, **구독**, **리소스 그룹** 및 **위치** 필드를 작성하고 **만들기**를 클릭합니다.
+4.  논리 앱을 만들려면 **이름**, **구독**, **리소스 그룹** 및 **위치** 필드를 작성하고 **만들기**를 클릭합니다.
 
-5.    새 논리 앱을 선택합니다. **배포 성공** 알림이 수신되면 **새로 고침**을 클릭합니다.
+5.  새 논리 앱을 선택합니다. **배포 성공** 알림이 수신되면 **새로 고침**을 클릭합니다.
 
-6.    **배포 도구** 아래에서 **논리 앱 디자이너**를 클릭합니다. 템플릿 목록에서 **빈 논리 앱**을 클릭합니다.
+6.  **배포 도구** 아래에서 **논리 앱 디자이너**를 클릭합니다. 템플릿 목록에서 **빈 논리 앱**을 클릭합니다.
 
-7.    검색 상자에서 `Dynamics 365`를 입력합니다. Dynamics 365 트리거 목록에서 **Dynamics 365 – 레코드가 만들어지는 경우**를 선택합니다.
+7.  검색 상자에서 `Dynamics 365`를 입력합니다. Dynamics 365 트리거 목록에서 **Dynamics 365 – 레코드가 만들어지는 경우**를 선택합니다.
 
-8.    Dynamics 365에 로그인하라는 메시지가 나타나면 지금 로그인합니다.
+8.  Dynamics 365에 로그인하라는 메시지가 나타나면 지금 로그인합니다.
 
-9.    트리거 세부 정보에서 다음 정보를 입력합니다.
+9.  트리거 세부 정보에서 다음 정보를 입력합니다.
 
   * **조직 이름**. 논리 앱에서 수신하려는 Dynamics 365 인스턴스를 선택합니다.
 
@@ -174,4 +172,3 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 
 ## <a name="next-steps"></a>다음 단계
 [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-

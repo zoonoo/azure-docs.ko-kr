@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>1단계: Azure로 Hyper-V 복제를 위한 아키텍처 검토
 
 
@@ -116,4 +113,3 @@ VMM 없이 Hyper-V VM을 Azure에 복제하는 경우 여러 가지 구성 요�
 ## <a name="next-steps"></a>다음 단계
 
 [2단계: 배포 필수 구성 요소 검토](hyper-v-site-walkthrough-prerequisites.md)로 이동
-

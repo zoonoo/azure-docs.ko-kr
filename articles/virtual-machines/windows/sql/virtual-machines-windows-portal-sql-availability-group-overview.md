@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 3bf8cc49223e3e612a2343e8a3383bbbe02dcd82
-ms.openlocfilehash: 3d18551823abbb9beca4212aa8095b6757a080cb
-
-
+ms.openlocfilehash: 2cbb9ff3b2d13996b1b8dc64aa833807c264c877
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Always On 가용성 그룹 소개 #
 
 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다. 
@@ -51,9 +50,3 @@ Azure Virtual Machines에서 SQL Server 가용성을 빌드할 준비가 되면 
 ## <a name="next-steps"></a>다음 단계
 
 [다른 지역의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-dr.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

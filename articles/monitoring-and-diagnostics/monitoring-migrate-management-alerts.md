@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 
@@ -122,4 +121,3 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * [활동 로그 경고 웹후크 스키마](monitoring-activity-log-alerts-webhook.md) 검토
 * [서비스 알림](monitoring-service-notifications.md)에 대해 자세히 알아보기
 * [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보기
-

@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 21b34e30a7e07b37ccae3f101f2ab4dfadfad9bf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
 다음 참고 사항과 지침은 Azure Key Vault .NET/C# 라이브러리로 작업하는 개발자를 위한 것입니다. 1.0 버전에서 2.0 버전으로 전환되면 업데이트할 경우 대부분 **Key Vault 인증서** 지원과 같은 기능 향상 및 추가 기능의 이점을 제공하기 위해 코드에서 마이그레이션 작업을 수행해야 했습니다.
@@ -108,5 +106,4 @@ Key Vault 인증서 지원은 x509 인증서 및 다음 동작의 관리를 위�
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
 * 패키지는 암호화 작업에 대해 **Microsoft.Azure.KeyVault.Extensions** 및 **Microsoft.Azure.KeyVault.Cryptography**로 나눠집니다.
-
 

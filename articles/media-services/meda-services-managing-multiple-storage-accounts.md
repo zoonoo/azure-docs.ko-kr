@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산 관리
 Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단일 미디어 서비스 계정에 연결할 수 있습니다. 여러 저장소 계정을 미디어 서비스 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
@@ -271,5 +270,4 @@ namespace MultipleStorageAccounts
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

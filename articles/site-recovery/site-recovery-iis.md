@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 IIS 웹 팜 가상 컴퓨터를 복제하는 방법에 대해 설명합니다."
+description: "이 문서에서는 Azure Site Recovery를 사용하여 IIS 웹 팜 가상 컴퓨터를 복제하는 방법에 대해 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제
 
 ## <a name="overview"></a>개요
 
 
-응용 프로그램 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 조직에서 다양한 웹 응용 프로그램이 서로 다른 용도로 사용될 수 있습니다. 급여 처리, 금융 응용 프로그램 및 고객 연결 웹 사이트와 같은 응용 프로그램 중 일부는 조직에서 가장 중요할 수 있습니다. 조직에서는 생산성의 손실, 더 나아가 조직의 브랜드 이미지 손상을 방지하기 위해 조직을 항상 운영하는 것이 중요합니다.
+응용 프로그램 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 응용 프로그램은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 금융 응용 프로그램 및 고객 연결 웹 사이트와 같은 일부 응용 프로그램은 조직에 매우 중요할 수 있습니다. 조직 내 생산성의 손실, 더 나아가 브랜드 이미지 손상을 방지하기 위해 이러한 웹 응용 프로그램이 항상 정상적으로 실행되도록 하는 것이 중요합니다.
 
 중요한 웹 응용 프로그램은 일반적으로 웹, 데이터베이스 및 응용 프로그램이 서로 다른 계층에 있는 다중 계층 응용 프로그램으로 설정됩니다. 여러 계층으로 분산하는 것 외에도 각 계층에 여러 서버를 사용하여 트래픽 부하를 분산할 수도 있습니다. 또한 다양한 계층 간 그리고 웹 서버 상의 매핑은 고정 IP 주소를 기반으로 할 수 있습니다. 장애 조치에서, 특히 웹 서버에 구성된 웹 사이트가 여러 개 있는 경우 이러한 매핑 중 일부를 업데이트해야 합니다. SSL을 사용하는 웹 응용 프로그램의 경우 인증서 바인딩을 업데이트해야 합니다.
 
@@ -123,7 +122,7 @@ DNS가 동적 DNS 업데이트를 위해 구성된 경우 일반적으로 가상
 
 > [!NOTE]
 >
-> 아래 예제와 같이 사이트 바인딩에 대해 '모두 할당되지 않음'으로 표시했으면 장애 조치 후에 이 바인딩을 업데이트할 필요가 없습니다. 또한 사이트와 연결된 IP 주소가 장애 조치 후에 변경되지 않으면 사이트 바인딩을 업데이트할 필요가 없습니다. (IP 주소의 보존은 기본사이트와 복구 사이트에 할당된 네트워크 아키텍처 및 서브넷에 따라 달라지므로 조직에 적합하거나 적합하지 않을 수 있습니다.)
+> 아래 예제와 같이 사이트 바인딩에 대해 '모두 할당되지 않음'으로 표시했으면 장애 조치 후에 이 바인딩을 업데이트할 필요가 없습니다. 또한 사이트와 연결된 IP 주소가 장애 조치 후에 변경되지 않으면 사이트 바인딩을 업데이트할 필요가 없습니다. (IP 주소의 보존은 기본 사이트와 복구 사이트에 할당된 네트워크 아키텍처 및 서브넷에 따라 달라지므로 조직에 적합하거나 적합하지 않을 수 있습니다.)
 
 ![SSL 바인딩](./media/site-recovery-iis/sslbinding.png)
 
@@ -149,7 +148,7 @@ d) IP 주소 - SSL 서버 인증서가 IIS 서버의 IP에 대해 발급되면, 
 ## <a name="doing-a-test-failover"></a>테스트 장애 조치 수행
 [이 지침](site-recovery-test-failover-to-azure.md)에 따라 테스트 장애 조치를 수행합니다.
 
-1.  Azure Portal로 이동하여 복구 서비스 자격 증명 모음을 선택합니다.
+1.  Azure Portal로 이동하여 Recovery Service 자격 증명 모음을 선택합니다.
 1.  IIS 웹 팜에 대해 만든 복구 계획을 클릭합니다.
 1.  '테스트 장애 조치'를 클릭합니다.
 1.  복구 지점 및 Azure 가상 네트워크를 선택하여 테스트 장애 조치 프로세스를 시작합니다.
@@ -159,11 +158,10 @@ d) IP 주소 - SSL 서버 인증서가 IIS 서버의 IP에 대해 발급되면, 
 ## <a name="doing-a-failover"></a>장애 조치 수행
 장애 조치를 수행할 때 [이 지침](site-recovery-failover.md)을 따릅니다.
 
-1.  Azure Portal로 이동하여 복구 서비스 자격 증명 모음을 선택합니다.
+1.  Azure Portal로 이동하여 Recovery Service 자격 증명 모음을 선택합니다.
 1.  IIS 웹 팜에 대해 만든 복구 계획을 클릭합니다.
 1.  '장애 조치'를 클릭합니다.
 1.  복구 지점을 선택하여 장애 조치 프로세스를 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Site Recovery를 사용하여 [다른 응용 프로그램을 복제하는 방법](site-recovery-workload.md)에 대해 자세히 알아볼 수 있습니다.
-

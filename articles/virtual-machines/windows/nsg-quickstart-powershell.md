@@ -1,6 +1,6 @@
 ---
 title: "Azure PowerShell을 사용하여 VM으로 포트 열기 | Microsoft Docs"
-description: "Azure 리소스 관리자 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
+description: "Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: e818e3b3c707e1471d6f580f8379a277d3575b89
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 VM의 포트 및 끝점을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령
-네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. [Azure Portal을 사용하여 수행할 수도 있습니다](nsg-quickstart-portal.md).
+네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](nsg-quickstart-portal.md).
 
 Azure 계정에 로그인합니다.
 
@@ -96,8 +95,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ## <a name="next-steps"></a>다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-* [Azure 리소스 관리자 개요](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)
 * [NSG(네트워크 보안 그룹)란?](../../virtual-network/virtual-networks-nsg.md)
-* [부하 분산 장치에 대한 Azure 리소스 관리자 개요](../../load-balancer/load-balancer-arm.md)
-
+* [부하 분산 장치에 대한 Azure Resource Manager 개요](../../load-balancer/load-balancer-arm.md)
 

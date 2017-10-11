@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
-ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/13/2016
-
+ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -82,4 +81,3 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
 
 [Google Play Services SDK 설정]:https://developers.google.com/android/guides/setup
-

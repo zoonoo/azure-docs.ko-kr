@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services - 문의
 ## <a name="contact-the-product-team"></a>제품팀에 문의
@@ -36,4 +35,3 @@ ms.lasthandoff: 08/24/2017
 **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/)**을 통한 Azure AD 도메인 서비스에 대한 여러분의 피드백을 환영합니다.
 
 문의하시려면 **'AADDS'**라는 단어로 질문 또는 피드백을 시작해 주세요.
-

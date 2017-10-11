@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ab1dc21a829140f8cd2e57837d83a05b0d71bcdf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-with-vmm-to-azure-replication"></a>3단계: Azure로의 복제를 위한 Hyper-V(VMM 포함)의 용량 및 크기 조정 계획
 
 [배포 필수 구성 요소](vmm-to-azure-walkthrough-prerequisites.md)를 검토한 후 이 문서의 내용을 참조하여 [Azure Site Recovery](site-recovery-overview.md)를 사용해 System Center Virtual Machine Manager(VMM) 클라우드의 온-프레미스 Hyper-V VM을 Azure로 복제할 때 용량 및 크기 조정을 계획하는 방법을 파악할 수 있습니다.
@@ -85,4 +83,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>다음 단계
 
 [4단계: 네트워킹 계획](vmm-to-azure-walkthrough-network.md)으로 이동합니다.
-

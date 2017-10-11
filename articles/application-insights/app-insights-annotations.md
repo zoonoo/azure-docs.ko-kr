@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
-ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/20/2017
-
+ms.openlocfilehash: f7eb2f3cba535eb64db5544c498289c9e895987a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 [메트릭 탐색기](app-insights-metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs)에서 자동으로 만들 수 있습니다. [PowerShell에서 만들어](#create-annotations-from-powershell) 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
@@ -107,4 +106,3 @@ VS Team 시스템을 사용하지 않고 원하는 모든 프로세스에서 주
 
 * [작업 항목 만들기](app-insights-diagnostic-search.md#create-work-item)
 * [PowerShell을 사용한 자동화](app-insights-powershell.md)
-

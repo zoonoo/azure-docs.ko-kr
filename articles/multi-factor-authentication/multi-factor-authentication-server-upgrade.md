@@ -15,15 +15,12 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
 이 문서에서는 Azure MFA(Multi-factor Authentication) 서버 v6.0 이상을 업그레이드하는 프로세스를 단계별로 안내합니다. 이전 버전의 PhoneFactor Agent를 업그레이드해야 하는 경우 [PhoneFactor Agent를 Azure Multi-factor Authentication 서버로 업그레이드](multi-factor-authentication-get-started-server-upgrade.md)를 참조하세요.
@@ -116,4 +113,3 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 - [MFA 서버를 Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)
 
 - 응용 프로그램에 대한 [Windows 인증 구성](multi-factor-authentication-get-started-server-windows.md)
-

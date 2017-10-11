@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: ae6c92d4f005b389de2d65c30113580190914b42
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: f3a11afd8fbd6a5e6b94cf1ebee7ea20665421bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>PowerShell을 사용하여 다중 NIC이 있는 VM 만들기
 
@@ -132,7 +131,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 ### <a name="step-3---create-the-nics-and-back-end-vms"></a>3단계 - NIC 및 백 엔드 VM 만들기
 루프를 사용하여 VM을 원하는 개수만큼 만들고 루프 내에서 필요한 NIC와 VM을 만듭니다. NIC와 VM을 만들려면 다음 단계를 실행합니다.
 
-1. `$numberOfVMs` 변수 값을 기반으로 필요한 횟수만큼 VM&1;개와 NIC&2;개를 만드는 명령을 반복하는 `for` 루프를 시작합니다.
+1. `$numberOfVMs` 변수 값을 기반으로 필요한 횟수만큼 VM 1개와 NIC 2개를 만드는 명령을 반복하는 `for` 루프를 시작합니다.
    
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
@@ -185,7 +184,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
     ```
 
-7. 위에서 만든 NIC&2;개를 `vmConfig` 개체에 추가합니다.
+7. 위에서 만든 NIC 2개를 `vmConfig` 개체에 추가합니다.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
@@ -228,8 +227,8 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
         Tags                         :
         TagsText                     : null
         AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-        AvailabilitySetReferenceText :     {
-                                     "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
+        AvailabilitySetReferenceText :  {
+                                    "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
                                     }
         Extensions                   :
         ExtensionsText               : null
@@ -337,4 +336,3 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
         TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         StatusCode          : OK
-

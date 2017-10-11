@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 82a1888cca687ce60f811c2c3cec6b971d4a0461
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 02df117908fc1790e8cfb9ec0a7218c1b8be856c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights의 Analytics 문제 해결
 [Application Insights Analytics](app-insights-analytics.md)에 문제가 있습니까? 여기에서 시작합니다. Analytics는 Azure Application Insights의 강력한 검색 도구입니다.
@@ -109,5 +108,4 @@ URL이 올바르지 않습니다.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
@@ -99,4 +97,3 @@ Service Bus에 대한 자세한 내용을 보려면 다음 링크를 방문하�
 
 * [Service Bus 소개](service-bus-messaging-overview.md)
 * [Service Bus 시작](service-bus-dotnet-get-started-with-queues.md)
-
