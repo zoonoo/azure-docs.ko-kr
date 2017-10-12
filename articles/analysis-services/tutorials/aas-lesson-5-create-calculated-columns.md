@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: eab74fbadc6a143ca5a2bc57a1762539a6d489c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>단원 5: 계산된 열 만들기
 
@@ -138,4 +137,3 @@ ProductCategoryName 계산된 열은 DimProductCategory 테이블에서 EnglishP
   
   
   
-

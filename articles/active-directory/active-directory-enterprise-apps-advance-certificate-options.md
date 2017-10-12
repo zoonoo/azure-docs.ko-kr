@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 42da703203fbd4c9225b82d119b53e5d03c63aba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
 현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 응용 프로그램을 지원합니다. 여기에는 SAML 2.0 프로토콜을 통해 Single Sign-On을 지원하는 500여 개의 응용 프로그램이 포함됩니다. 사용자가 SAML을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 응용 프로그램에 토큰을 보냅니다(HTTP POST를 통해). 그런 다음 응용 프로그램이 토큰을 유효성 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
@@ -68,4 +67,3 @@ Azure AD는 SAML 응답에 서명하기 위해 두 가지 서명 알고리즘을
 [2]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png
 [3]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png
 [4]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png
-

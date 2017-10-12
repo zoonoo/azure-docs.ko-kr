@@ -16,12 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다. 
@@ -36,7 +35,7 @@ Azure AD를 사용하면 현재 널리 사용하고 있는 SaaS 응용 프로그
 
 통합 아키텍처는 다음 네 가지 기본 문서 블록으로 구성됩니다.
 
-* Single Sign-On을 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 SaaS 응용 프로그램에 액세스할 수 있습니다.  Single Sign-On을 통해 사용자가 자신의 단일 조직 계정을 사용하여 응용 프로그램에 인증할 수 있습니다.
+* Single Sign-On을 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 SaaS 응용 프로그램에 액세스할 수 있습니다. Single Sign-On을 통해 사용자가 자신의 단일 조직 계정을 사용하여 응용 프로그램에 인증할 수 있습니다.
 
 * 사용자 프로비저닝은 대상 SaaS 응용 프로그램에 사용자 프로비저닝 및 프로비저닝 해제를 가능하게 합니다.  Single Sign-On을 통해 인증한 후에는, 사용자에게 프로비전된 계정으로 응용 프로그램을 사용하도록 권한을 부여할 수 있습니다.
 
@@ -211,4 +210,3 @@ Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형�
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-

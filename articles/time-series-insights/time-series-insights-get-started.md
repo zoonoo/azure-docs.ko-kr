@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: 5a159ed0ba38899b21212518d41ff995895904ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 
 Time Series Insights 환경은 수신 및 저장 기능이 있는 Azure 리소스입니다. 고객은 Azure Portal을 통해 환경에 필요한 용량을 프로비전합니다.
@@ -56,4 +54,3 @@ Time Series Insights 환경은 수신 및 저장 기능이 있는 Azure 리소�
 * [Time Series Insights 포털](https://insights.timeseries.azure.com)에서 환경에 액세스하도록 [데이터 액세스 정책 정의](time-series-insights-data-access.md)
 * [이벤트 원본 만들기](time-series-insights-add-event-source.md)
 * 이벤트 원본으로 [이벤트 보내기](time-series-insights-send-events.md)
-

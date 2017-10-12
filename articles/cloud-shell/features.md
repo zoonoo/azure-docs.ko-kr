@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash 기능 및 도구
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -43,7 +41,7 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 
 ### <a name="home-persistence-across-sessions"></a>여러 세션에 걸친 $Home 지속성
 
-세션 간에 파일을 유지하기 위해 Azure Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
+세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
 작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 저장소(`$Home\clouddrive`로 장착됨)를 자동으로 연결합니다.
 또한 Azure Cloud Shell의 Bash에서 `$Home` 디렉터리는 Azure 파일 공유에서 .img로 유지됩니다.
 `$Home` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 지속 되지 않습니다.
@@ -55,7 +53,7 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 |Category   |이름   |
 |---|---|
 |Linux 셸 인터프리터|Bash<br> sh               |
-|Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [배치 Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
+|Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [배치 Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
 |텍스트 편집기           |vim<br> nano<br> emacs       |
 |소스 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
@@ -65,10 +63,10 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 
 ## <a name="language-support"></a>언어 지원
 
-|언어   |버전   |
+|language   |버전   |
 |---|---|
 |.NET       |1.01       |
-|이동         |1.7        |
+|Go         |1.7        |
 |자바       |1.8        |
 |Node.js    |6.9.4      |
 |PowerShell  |[6.0(베타)](https://github.com/PowerShell/powershell/releases)       |
@@ -77,4 +75,3 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
 [Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/)
-

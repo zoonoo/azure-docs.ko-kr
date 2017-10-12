@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 이 문서에서는 Azure Site Recovery 서비스로 복제할 수 있는 워크로드 및 응용 프로그램을 설명합니다.
@@ -159,4 +158,3 @@ Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요]
 
 ## <a name="next-steps"></a>다음 단계
 [필수 구성 요소 확인](site-recovery-prereq.md)
-

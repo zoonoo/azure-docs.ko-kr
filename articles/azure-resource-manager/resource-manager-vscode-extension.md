@@ -13,14 +13,12 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code 확장을 사용하여 Azure Resource Manager 템플릿 만들기
 이 문서에서는 Visual Studio Code에서 Azure Resource Manager 도구 확장을 설치하고 사용하는 이점을 설명합니다. 확장하지 않고 VS Code에서 Resource Manager 템플릿을 만들 수 있지만 확장은 템플릿을 개발을 간소화하는 자동 완성 옵션을 제공합니다. 템플릿에서 사용할 수 있는 템플릿 함수, 매개 변수 및 변수를 제공합니다.
 
@@ -300,4 +298,3 @@ az group delete --name examplegroup
 * 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 * 저장소 계정의 속성에 대한 자세한 내용은 [저장소 계정 템플릿 참조](/azure/templates/microsoft.storage/storageaccounts)를 참조하세요.
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
-

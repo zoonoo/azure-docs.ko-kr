@@ -16,10 +16,10 @@ ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
 이 자습서에서는 Azure AD(Azure Active Directory)와 ServiceNow 및 ServiceNow Express를 통합하는 방법에 대해 알아봅니다.

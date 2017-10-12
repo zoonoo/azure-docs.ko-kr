@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure 기계 학습 예측에 대한 자동화된 데이터 파이프라인용 참고 자료
 **Microsoft Azure 기계 학습 자동화 데이터 파이프라인 참고 자료** 를 사용하면 예측 분석 모델별로 점수를 매길 수 있는 기계 학습 웹 서비스로 데이터를 가져오는 데 사용할 수 있는 기술을 탐색하는 데 도움이 됩니다.
@@ -43,5 +42,4 @@ ms.lasthandoff: 09/25/2017
 * 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](../studio/consume-web-services.md)을 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

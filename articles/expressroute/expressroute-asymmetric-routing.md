@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>여러 네트워크 경로를 포함한 비대칭 라우팅
 이 문서에서는 네트워크 원본과 대상 간에 여러 경로를 사용할 수 있을 때 전달 및 반환 네트워크 트래픽에서 다른 경로를 사용하는 방법을 설명합니다.

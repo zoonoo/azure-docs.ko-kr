@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>예제별 열 분할 변환
 이 변환은 사용자가 입력할 필요 없이 의미 있는 경계에서 열의 내용을 자동으로 분할합니다. 분할 알고리즘은 열의 내용을 분석한 후 경계를 선택합니다. 이러한 경계는 다음에 따라 정의될 수 있습니다.
 * 고정 구분 기호
@@ -178,4 +176,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="technical-notes"></a>기술 참고 사항
 
 분할 변환 기능은 **자동 프로그램 합성** 기술을 기반으로 합니다. 이 기술에서는 데이터 변환 프로그램이 입력된 데이터를 기반으로 자동으로 학습됩니다. 프로그램은 도메인 특정 언어로 합성됩니다. DSL은 특정 정규식 컨텍스트에서 발생하는 구분 기호 및 필드를 기반으로 합니다. 이 기술에 대한 자세한 내용은 [이 항목에 최신 게시](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/)에 나와 있습니다. 
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 ms.openlocfilehash: aabe845e806eb99176f89695751023bb57353d41
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services---supported-regions"></a>Azure AD Domain Services - 지원되는 지역
 Azure AD Domain Services를 사용할 수 있는 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/)를 참조하세요.

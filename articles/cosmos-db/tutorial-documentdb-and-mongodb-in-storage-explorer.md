@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리(미리 보기)
 
@@ -153,5 +152,4 @@ Azure Cosmos DB 계정을 마우스 오른쪽 단추로 클릭하고 **데이터
 ## <a name="next-steps"></a>다음 단계
 
 Azure Storage 탐색기 계정을 Azure Cosmos DB 계정에 연결했습니다. 이제 Storage 탐색기에 대해 자세히 알아보고 [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)(Storage 탐색기 시작(미리 보기))에서 추가 서비스를 연결해 보겠습니다.
-
 

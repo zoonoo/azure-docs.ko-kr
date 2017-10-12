@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-create-pipelines.md)
@@ -172,9 +170,9 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 안 됩니다. 기본 시간 제한은 7일입니다.
-retry | 최대 다시 시도 횟수 | Integer | 안 됩니다. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | Integer | 안 됩니다. 기본값은 20초
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
+retry | 최대 다시 시도 횟수 | Integer | 아니요. 기본값은 0입니다.
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | Integer | 아니요. 기본값은 20초
 
 ### <a name="control-activity"></a>제어 작업
 제어 작업에는 다음과 같은 최상위 수준 구조가 있습니다.
@@ -395,4 +393,3 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 - [복사 작업을 포함하는 데이터 파이프라인 만들기](quickstart-create-data-factory-powershell.md)
 - [데이터 변환 활동을 사용하여 파이프라인 빌드](tutorial-transform-data-spark-powershell.md)
-

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 4c0e2d649f71d7797efbfe2c8e93ea0c844152df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
-[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백 엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
+[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹트래 픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -81,7 +80,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 ![트래픽 관리자 끝점][TrafficManagerEndpoint]
 
-응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 트래픽 관리자에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 아래 그림처럼 [Azure 클래식 포털](https://manage.azure.com) 의 구성 섹션에서 URL을 구성할 수 있습니다.
+응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 트리팩 관리자에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 아래 그림처럼 [Azure 클래식 포털](https://manage.azure.com) 의 구성 섹션에서 URL을 구성할 수 있습니다.
 
 ![트래픽 관리자를 구성하는 방법][ConfigureTrafficManager]
 
@@ -96,7 +95,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 프로그램 WAF 클라우드 서비스의 가상 IP 주소 (VIP)는 SourceAddres Prefix를 바꿉니다.
 
-> 참고: 클라우드 서비스의 VIP는 클라우드 서비스를 삭제하고 다시 만들 때 변경 됩니다. 이렇게 하면 네트워크 리소스 그룹의 IP 주소를 업데이트해야 합니다. 
+> 참고: 클라우드 서비스의 VIP는 클라우드 서비스를 삭제하고 다시  만들 때 변경 됩니다. 이렇게 하면 네트워크 리소스 그룹의 IP 주소를 업데이트해야 합니다. 
 > 
 > 
 
@@ -110,4 +109,3 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
-

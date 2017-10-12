@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 자동화 DSC 개요
 
@@ -65,4 +65,4 @@ DSC 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 �
 * DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation DSC에서 구성을 컴파일](automation-dsc-compile.md)을 참조하세요.
 * Azure Automation DSC에 대한 PowerShell cmdlet 참조는 [Azure Automation DSC cmdlet ](/powershell/module/azurerm.automation/#automation)을 참조하세요.
 * 가격 책정 정보는 [Azure Automation DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-* 연속 배포 파이프라인에서 Azure 자동화 DSC를 사용 하는 예제를 보려면 [IaaS Vm 사용 하 여 Azure 자동화 DSC 및 Chocolatey 연속 배포](automation-dsc-cd-chocolatey.md)
+* 연속 배포 파이프라인에서 Azure Automation DSC를 사용하는 예제는 [Azure Automation DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: e07b6808f2401ac7b2b21e5f8816bac5a15b50b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -69,4 +67,3 @@ ms.lasthandoff: 02/16/2017
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

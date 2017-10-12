@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Azure CLI를 사용하여 새 또는 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 구성
 
@@ -161,4 +160,3 @@ az network public-ip show \
 WAF 규칙을 사용자 지정하는 방법을 알아보려면 [Azure CLI 2.0을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정](application-gateway-customize-waf-rules-cli.md)을 참조하세요.
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

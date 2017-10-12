@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 6fa23728680779e33eda7bb9aa8a01b9cad9a82b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a4c44b356ac97f4ee4c1122885d4d13f85c80cbc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 이 문서에서는 [Dynatrace](https://www.dynatrace.com/) OneAgent를 배포하여 Azure Container Service 클러스터의 모든 에이전트 노드를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 Dynatrace SaaS/Managed 계정이 필요합니다. 

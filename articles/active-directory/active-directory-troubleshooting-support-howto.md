@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: f55e6c009cfccce8434d3e13c337a9adb72a4f70
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: a67fcbb8b41b79bad995b38fae3db0a7a85be428
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-support-for-azure-active-directory"></a>Azure Active Directory를 지원하는 방법
 
@@ -96,4 +95,3 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/)
 
 * [Docs.microsoft.com의 기술 문서](https://docs.microsoft.com/azure/active-directory/)
-

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Azure에서 Office 365 구독의 디렉터리 관리
 이 문서에서는 Azure 클래식 포털을 사용하여 Office 365 구독에 대해 만들어진 디렉터리를 관리하는 방법을 설명합니다. Azure 클래식 포털에 로그인하려면 Azure 구독의 서비스 관리자 또는 공동 관리자여야 합니다. Azure 구독이 없는 경우 지금 [무료 30일 평가판](https://azure.microsoft.com/trial/get-started-active-directory/) 에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다. Office 365에 로그인하는 데 사용하는 회사 또는 학교 계정을 사용해야 합니다.
@@ -33,8 +34,8 @@ Azure 구독이 이미 있는 경우 추가 디렉터리를 관리하는 프로�
 
 | 구독 | Office 365 | Azure |
 | --- | --- | --- |
-|   표시 이름 |Contoso |기본 Azure AD(Azure Active Directory) 디렉터리 |
-|   도메인 이름 |contoso.com |msmithhotmail.onmicrosoft.com |
+|   표시 이름 | Contoso | 기본 Azure AD(Azure Active Directory) 디렉터리 |
+|   도메인 이름 | contoso.com | msmithhotmail.onmicrosoft.com |
 
 그는 다단계 인증 등의 Azure AD 기능을 설정할 수 있도록 Microsoft 계정을 사용하여 Azure에 로그인한 동안 Contoso 디렉터리의 사용자 ID를 관리하려고 합니다. 다음 다이어그램은 프로세스를 설명하는 데 도움이 될 수 있습니다.
 

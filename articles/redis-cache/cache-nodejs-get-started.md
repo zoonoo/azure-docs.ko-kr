@@ -14,12 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Azure Redis Cache를 Node.js와 함께 사용하는 방법
 > [!div class="op_single_selector"]
@@ -86,5 +85,4 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 ## <a name="next-steps"></a>다음 단계
 * [캐시 진단을 사용](cache-how-to-monitor.md#enable-cache-diagnostics)하도록 설정하면 캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있습니다.
 * 공식 [Redis 설명서](http://redis.io/documentation)를 읽어보세요.
-
 

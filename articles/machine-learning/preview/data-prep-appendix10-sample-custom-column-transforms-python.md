@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a6e331e622b007232a62b34c2220d60d1d050ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-of-custom-column-transforms-python"></a>사용자 지정 열 변환 샘플(Python) 
 메뉴에서 이 변환의 이름은 '열 추가(스크립트)'입니다.
 
@@ -55,7 +53,6 @@ Unix Epoch 이후의 시간(초)(Col1을 날짜로 가정)
 ```python
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
-
 
 
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 7076b476ba71c5d94ae4728e5f6032b0d7e047ad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>자습서: Brightspace by Desire2Learn와 Azure Active Directory 통합
 
@@ -118,7 +116,7 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하고 테스
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
     | `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 [Brightspace by Desire2Learn 지원팀](https://www.d2l.com/contact/)에 문의하세요.
@@ -234,5 +232,4 @@ Brightspace by Desire2Learn의 경우 [Brightspace by Desire2Learn 지원팀](ht
 [201]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_203.png
-
 

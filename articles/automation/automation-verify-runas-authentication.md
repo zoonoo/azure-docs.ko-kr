@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
+ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Automation 실행 계정 인증 테스트
 Automation 계정이 성공적으로 만들어지면 새로 만들어지거나 업데이트된 Automation 실행 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포에서 성공적으로 인증할 수 있는지를 확인하는 간단한 테스트를 수행할 수 있습니다.    
 
@@ -113,4 +111,3 @@ Runbook의 자세한 결과를 보려면 **출력** 타일을 클릭합니다.  
 ## <a name="next-steps"></a>다음 단계
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
-

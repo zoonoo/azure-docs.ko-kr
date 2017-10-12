@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 Azure ADAL(Active Directory 인증 라이브러리)은 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 사용자를 인증하고 API 호출 보안을 위한 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
@@ -92,4 +91,3 @@ Azure AD에 대한 인증을 사용하여 이 시나리오를 설명하는 코�
 - [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 - [Azure Active directory 인증 시나리오](active-directory-authentication-scenarios.md)
 - [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
-

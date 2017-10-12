@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: kgremban
 ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
 PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication 서버로 업그레이드하려면 PhoneFactor Agent 및 연결된 구성 요소를 먼저 삭제합니다. 그런 다음 Multi-Factor Authentication 서버 및 연결된 구성 요소를 설치할 수 있습니다.

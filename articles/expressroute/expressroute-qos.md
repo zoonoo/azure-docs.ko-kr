@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: cherylmc
 ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-qos-requirements"></a>Express 경로 QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. Express 경로를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.

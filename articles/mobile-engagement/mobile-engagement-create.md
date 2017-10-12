@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement 앱 만들기
 이 문서에서는 **빨리 만들기** 메서드를 사용하여 새 **Azure Mobile Engagement** 앱을 만드는 방법을 보여 줍니다. 또한 문서는 앱을 모니터링하고 관리하기 위해 **Mobile Engagement** 포털을 탐색하는 방법도 보여줍니다. 

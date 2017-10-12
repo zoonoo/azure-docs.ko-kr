@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 043141e8496a947f54564d29a1d7fb724fac5cda
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: 08f860dcf0f1d6c69cee02261b2a4989fc5c694a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용
 
@@ -100,6 +99,5 @@ AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체
 ## <a name="see-also"></a>참고 항목
 
 * [Data Lake 저장소를 저장소로 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-
 
 

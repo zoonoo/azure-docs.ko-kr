@@ -1,6 +1,6 @@
 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기** > **웹 + 모바일** > **알림 허브**를 선택합니다.
    

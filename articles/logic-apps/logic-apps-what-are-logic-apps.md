@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Logic Apps란 무엇인가요?
 Logic Apps는 클라우드에서 확장 가능한 통합 및 워크플로를 단순화하고 구현하는 방법을 제공합니다. 모델에 비주얼 디자이너를 제공하고 프로세스를 워크플로로 알려진 일련의 단계로 자동화합니다.  서비스 및 프로토콜에 걸쳐 신속하게 통합하기 위해 클라우드 및 온-프레미스에 [많은 커넥터](../connectors/apis-list.md) 가 있습니다.  'Dynamics CRM에 계정을 추가하는 경우'와 같이 논리 앱은 트리거로 시작하고, 실행 후에 작업, 변환 및 조건 논리의 다양한 조합을 시작할 수 있습니다.
@@ -68,8 +67,8 @@ Logic Apps 환경을 구성하는 몇 가지 주요 부분은 다음과 같습�
 ## <a name="getting-started"></a>시작하기
 * Logic Apps를 시작하려면 [Logic App 만들기][create] 자습서를 따르세요.  
 * [일반적인 예제 및 시나리오 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Logic Apps로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Logic Apps와 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
+* [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
+* [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-web-overview.md
@@ -78,4 +77,3 @@ Logic Apps 환경을 구성하는 몇 가지 주요 부분은 다음과 같습�
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

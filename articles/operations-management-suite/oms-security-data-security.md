@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Operations Management Suite 보안 및 감사 솔루션 데이터 보안
 고객이 위협을 방지, 감지하고 위협에 응답할 수 있도록 하려면 [OMS(Operations Management Suite) 보안 및 감사 솔루션](operations-management-suite-overview.md)에서는 다음을 포함하여 리소스에 대한 데이터를 수집하고 처리합니다.

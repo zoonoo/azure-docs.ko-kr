@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -103,7 +102,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>VPN 게이트웨이를 통해 전송되는 트래픽을 지정하려면 어떻게 해야 합니까?
 
-#### <a name="resource-manager-deployment-model"></a>Resource Manager 배포 모델
+#### <a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
 
 * PowerShell: "AddressPrefix"를 사용하여 로컬 네트워크 게이트웨이에 대한 트래픽을 지정합니다.
 * Azure Portal: [로컬 네트워크 게이트웨이 > 구성> 주소 공간]으로 이동합니다.
@@ -173,7 +172,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
 
-**Resource Manager 배포 모델**<br>
+**리소스 관리자 배포 모델**<br>
 예. 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
 
 **클래식 배포 모델**<br>
@@ -233,4 +232,3 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
-

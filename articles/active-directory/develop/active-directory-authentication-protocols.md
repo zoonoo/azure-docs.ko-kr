@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e106a9bdf28243dd829b6a014b73c148809c1bde
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # Azure Active Directory 인증 프로토콜
 Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 및 권한 부여 프로토콜을 지원합니다. 이 섹션의 항목에서는 Azure AD에서 지원되는 프로토콜 및 이 프로토콜의 구현에 대해 설명합니다. 이 항목에서는 지원되는 클레임 유형을 검토하고, 페더레이션 메타데이터 사용에 대해 소개하고, 자세한 OAuth 2.0. 및 SAML 2.0 프로토콜 참조 설명서 및 문제 해결 섹션을 소개합니다.
@@ -39,4 +38,3 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
-

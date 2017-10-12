@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 35b898aa3c03aeef914a7df574ac65a22a6c7bec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Cloud App Discovery를 사용하여 관리되지 않는 클라우드 응용 프로그램 찾기
 ## <a name="summary"></a>요약
@@ -50,5 +49,4 @@ Cloud App Discovery는 Azure Active Directory Premium의 기능으로 조직의 
 * [사용자 지정 포트를 사용하는 프록시 서버용 클라우드 앱 검색 레지스트리 설정](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 * [클라우드 앱 검색 에이전트 Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
 

@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD의 인증 시나리오
 Azure AD(Azure Active Directory)는 Identity-as-a-service를 제공하며 OAuth 2.0 및 OpenID Connect 등의 업계 표준 프로토콜뿐만 아니라 신속하게 코딩을 시작하는 데 유용한 여러 플랫폼용 오픈 소스 라이브러리를 지원하여 개발자의 인증 작업을 간소화합니다. 이 문서는 Azure AD가 지원하는 다양한 시나리오에 대해 설명하고 시작하는 방법을 보여 줍니다. 다음 섹션으로 구분하여 설명합니다.

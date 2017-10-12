@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 로밍 및 공동 작업
 이 문서는 Azure Machine Learning Workbench를 활용하여 프로젝트를 컴퓨터 간에 로밍하는 것은 물론 팀 동료와 공동 작업을 할 수 있는 방법을 안내합니다. 
 
@@ -125,5 +123,4 @@ Azure Machine Learning 실험 계정, 작업 영역 및 프로젝트는 Azure Re
 모든 리소스 뷰에서 사용자를 추가할 리소스를 찾습니다. 페이지 내의 액세스 제어(IAM) 링크를 클릭합니다. 사용자 추가 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
-
 

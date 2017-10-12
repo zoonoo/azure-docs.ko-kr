@@ -7,15 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="getting-started-with-data-preparation"></a>데이터 준비 시작
 
 데이터 준비 시작 가이드를 시작합니다. 
@@ -120,7 +117,7 @@ UI 내에 여러 데이터 흐름이 한꺼번에 포함될 수 있으며 각 �
 [부록 5 - 지원되는 대상](data-prep-appendix5-supported-destinations.md)  
 [부록 6 - Python 필터 식 샘플](data-prep-appendix6-sample-filter-expressions-python.md)  
 [부록 7 - Python 변환 데이터 흐름 식 샘플](data-prep-appendix7-sample-transform-data-flow-python.md)  
-[부록 8 - Python의 데이터 원본 샘플](data-prep-appendix8-sample-source-connections-python.md)  
+[부록 8 - Python 데이터 원본 샘플](data-prep-appendix8-sample-source-connections-python.md)  
 [부록 9 - Python 대상 연결 샘플](data-prep-appendix9-sample-destination-connections-python.md)  
 [부록 10 - Python 열 변환 샘플](data-prep-appendix10-sample-custom-column-transforms-python.md)  
 

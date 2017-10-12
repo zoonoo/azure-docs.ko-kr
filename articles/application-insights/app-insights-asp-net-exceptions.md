@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: bwren
+ms.openlocfilehash: d7603f47d985e1abbab96e931e46e37a8ecb4bc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -33,8 +32,8 @@ ms.lasthandoff: 09/21/2017
 * 일부 응용 프로그램 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
   * [웹 양식](#web-forms)
   * [MVC](#mvc)
-  * [Web API 1.*](#web-api-1)
-  * [Web API 2.*](#web-api-2)
+  * [Web API 1.*](#web-api-1x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Visual Studio를 사용하여 예외 진단
@@ -80,9 +79,9 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 응용
 
 여러 옵션이 있습니다.
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](app-insights-diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수 있습니다.
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace)를 사용하여 POST 정보와 같은 긴 데이터를 보낼 수 있습니다.
-* [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](app-insights-diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다. 
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
+* [TrackException()](#exceptions) 은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처](app-insights-asp-net-trace-logs.md)하고 볼 수 있습니다.
 
 이러한 이벤트를 보려면, [검색](app-insights-diagnostic-search.md)과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택합니다.
@@ -230,7 +229,7 @@ HandleError 특성을 컨트롤러의 새 특성으로 바꿉니다.
 [샘플](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Global.asax.cs에서 `AiHandleErrorAttribute`를 글로벌 필터로 등록합니다.
+Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합니다.
 
     public class MyMvcApplication : System.Web.HttpApplication
     {
@@ -445,4 +444,3 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 * [REST, SQL 및 기타 종속성 호출 모니터링](app-insights-asp-net-dependencies.md)
 * [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](app-insights-javascript.md)
 * [성능 카운터 모니터링](app-insights-performance-counters.md)
-

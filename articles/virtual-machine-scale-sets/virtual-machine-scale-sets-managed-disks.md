@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 확장 집합 및 관리 디스크
 
@@ -52,6 +51,5 @@ Resource Manager 템플릿을 변환하여 확장 집합에 관리 디스크를 
 관리 디스크를 확장 집합과 함께 사용하는 자세한 방법은 [이 문서](./virtual-machine-scale-sets-attached-disks.md)를 참조하세요.
 
 대규모 확장 집합을 시작하려면 [이 문서](./virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
-
 
 

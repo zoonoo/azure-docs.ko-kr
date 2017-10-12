@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 540d8974ee2c02f80bccf28764b4d0d243e98d85
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-for-virtual-private-network-connectivity-preview"></a>가상 개인 네트워크 연결에 대한 Azure Active Directory 조건부 액세스(미리 보기)
 
@@ -180,5 +179,4 @@ Windows RRAS 기반 배포의 경우 NPS 서버에서 다음 명령을 실행하
 ## <a name="next-steps"></a>다음 단계
 
 Microsoft가 이 기능을 구현하는 방법에 대한 정보를 얻으려면 [자동 VPN 프로필을 통해 Windows 10에서 원격 액세스 향상](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile)을 참조하세요.    
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관(미리 보기) 저장소 계층
 
@@ -319,7 +318,7 @@ Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 
 
 3. **기존 저장소 계정을 Blob 저장소 계정으로 변환할 수 있나요?**
    
-    안 됩니다. Blob Storage 계정은 다른 종류의 저장소 계정이며, 새로 계정을 만들고 이전에 설명한 대로 데이터를 마이그레이션해야 합니다.
+    아니요. Blob Storage 계정은 다른 종류의 저장소 계정이며, 새로 계정을 만들고 이전에 설명한 대로 데이터를 마이그레이션해야 합니다.
 
 4. **동일한 계정에서 두 저장소 계층에 모두 데이터를 저장할 수 있나요?**
    

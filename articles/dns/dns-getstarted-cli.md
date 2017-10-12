@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS 시작
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 �
 Azure DNS에서 DNS 영역 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 영역 관리](dns-operations-dnszones-cli.md)를 참조하세요.
 
 Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
-

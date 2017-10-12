@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 컴퓨터를 백업하려면
 
 Azure에 데이터를 백업하면 Recovery Services 자격 증명 모음이라는 Azure 리소스에 해당 데이터가 저장됩니다. Recovery Services 자격 증명 모음 리소스는 대부분의 Azure 서비스의 설정 메뉴에서 사용할 수 있습니다. Recovery Services 자격 증명 모음을 Azure 서비스 대부분의 설정 메뉴에 통합하면 데이터를 매우 쉽게 백업할 수 있습니다. 그러나 회사의 각 데이터베이스 또는 가상 컴퓨터에서 개별적으로 작업하는 것은 지루한 일입니다. 한 부서 또는 한 위치에 있는 모든 가상 컴퓨터의 데이터를 백업하려면 어떻게 해야 할까요? 백업 정책을 만들어 원하는 가상 컴퓨터에 적용하면 여러 가상 컴퓨터를 쉽게 백업할 수 있습니다. 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
@@ -28,7 +26,7 @@ Azure에 데이터를 백업하면 Recovery Services 자격 증명 모음이라�
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 
@@ -187,4 +185,3 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
 
 > [!div class="nextstepaction"]
 > [CLI를 사용하여 VM 복원](./tutorial-restore-disk.md)
-

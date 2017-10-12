@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cac35aa26fcdb7f2fb0db3b895d3c99d77f3b4ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>다른 실험에서 얻은 사용자의 데이터를 Azure 기계 학습 스튜디오로 가져오기
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -33,5 +32,4 @@ ms.lasthandoff: 09/25/2017
 4. **확인** 확인 표시를 클릭합니다.
 
 저장이 완료되면 작업 영역의 모든 실험에서 데이터 집합을 사용할 수 있습니다. 모듈 팔레트의 **저장된 데이터 집합** 목록에서 찾을 수 있습니다.
-
 

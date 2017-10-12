@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
+ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: b67f95847ac3228aa1d04d89af7e9fe4eeff3220
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 앱 서비스의 인증 및 권한 부여
 ## <a name="what-is-app-service-authentication--authorization"></a>앱 서비스 인증/권한 부여란?
@@ -150,11 +149,11 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 
 * [iOS용 Google 로그인 SDK 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>API 응용 프로그램
-다음 자습서에서는 API Apps를 보호하는 방법을 보여 줍니다.
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
-* [Azure App Service의 API Apps에 대한 서비스 주체 인증][apia-service]
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -175,4 +174,3 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-

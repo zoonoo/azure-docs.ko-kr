@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 
@@ -86,4 +85,3 @@ Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전
 * [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
 * [Azure ID 관리의 기본 항목](fundamentals-identity.md)
 * [암호 재설정 활동에 대한 보고서](active-directory-passwords-reporting.md)
-

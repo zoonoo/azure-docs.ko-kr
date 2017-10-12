@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 끝점에 대한 앱 형식
 Azure AD(Azure Active Directory) v2.0 끝점은 모두 업계 표준 프로토콜 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다. 이 문서에서는 기본 설정 언어 또는 플랫폼에 관계없이 Azure AD v2.0을 사용하여 빌드할 수 있는 앱 형식을 설명합니다. 이 문서의 정보는 [코드 작업을 시작](active-directory-appmodel-v2-overview.md#getting-started)하기 전에 개략적인 시나리오를 이해하는 데 도움이 됩니다.

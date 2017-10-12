@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>HDInsight의 HBase: Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
 Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.
@@ -61,7 +60,6 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 * [HDInsight의 Hadoop에서 HBase 사용 시작][hbase-get-started]
 * [Azure Virtual Network에 HDInsight 클러스터 만들기][hbase-provision-vnet]
 * [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md)
-* [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
 * [Maven을 사용하여 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드][hbase-build-java-maven]
 
 ## <a name="see-also"></a>참고 항목
@@ -69,8 +67,6 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 * [Bigtable: 구조화된 데이터의 분산 저장소 시스템](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

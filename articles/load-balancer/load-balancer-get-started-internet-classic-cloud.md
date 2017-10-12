@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 52824d5c39bb821351650584c33f70e2e84749cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>클라우드 서비스를 위한 인터넷 연결 부하 분산 장치 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -91,5 +89,4 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
 

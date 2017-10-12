@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure 앱 서비스에 대한 모범 사례
 이 문서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
@@ -50,5 +49,4 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="nodejs"></a>새 Node.js 앱이 Azure 앱 서비스에 배포되는 경우
 Node.js 앱에 대한 Azure 앱 서비스 기본 구성은 가장 일반적인 앱 요구에 가장 적합하게 지정되었습니다. Node.js 앱 구성이 개별화된 조정부터 성능 향상, CPU/메모리/네트워크 리소스에 대한 리소스 사용 최적화 등의 다양한 이점을 얻을 수 있는 경우 모범 사례 및 문제 해결 단계를 검토할 수 있습니다. [Azure 앱 서비스의 Node 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)설명서에서는 Node.js 앱에 대해 구성해야 하는 iisnode 설정에 대해 설명하고, 앱이 직면할 수 있는 다양한 시나리오 또는 문제에 대해 설명하고, 이러한 문제를 해결하는 방법을 보여 줍니다.   
-
 

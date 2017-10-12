@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Azure Active Directory의 Cloud App Discovery 개선 사항 
 80% 이상의 직원이 승인되지 않은 SaaS 앱을 업무 목적으로 사용한다고 인정합니다. 이제 Azure AD의 Cloud App Discovery와 Microsoft Cloud App Security 데이터 및 분석 기능을 통합하여 비관리 클라우드 앱을 더 쉽게 식별할 수 있습니다. 이 새로운 통합에는 이전에 필요한 것과 다른 설정 단계가 필요합니다.

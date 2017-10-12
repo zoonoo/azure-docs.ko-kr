@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>먼저 보기: Resource Manager 배포에서 파일 및 폴더 백업
 이 문서는 Resource Manager 배포를 사용하여 Windows Server(또는 Windows 컴퓨터) 파일 및 폴더를 Azure에 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure 백업을 시작하려는 분들은 여기서 시작하시면 됩니다.
@@ -191,7 +190,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 3. 백업 예약 마법사의 시작 페이지에서 **다음**을 클릭합니다.
 4. 백업할 항목 선택 페이지에서 **항목 추가**를 클릭합니다.
 5. 백업할 파일 및 폴더를 선택한 다음 **확인**을 클릭합니다.
-6. **다음**을 누릅니다.
+6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
     매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
@@ -229,4 +228,3 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 * [Windows 컴퓨터 백업](backup-configure-vault.md)에 대해 자세히 알아보세요.
 * 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 * 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
-

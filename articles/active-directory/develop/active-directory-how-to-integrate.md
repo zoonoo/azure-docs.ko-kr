@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -82,5 +81,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 [코드 작성 시작하기](active-directory-developers-guide.md#get-started).
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
-
 

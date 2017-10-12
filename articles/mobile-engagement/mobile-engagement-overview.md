@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-overview"></a>Azure Mobile Engagement 개요
 Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 실시간 사용자 분석에 제공하고 컨텍스트 인식 푸시 알림 및 앱 내 메시징을 가능하게 하는 SaaS(Software-as-a-Service) 사용자 참여 플랫폼입니다.

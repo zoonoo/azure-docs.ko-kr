@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
 ## <a name="overview"></a>개요
@@ -31,7 +29,7 @@ ms.lasthandoff: 09/20/2017
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 
 * 웹 앱의 해당 폴더에 런타임 파일을 복사합니다(연속 WebJob의 경우 *App_Data/jobs/continuous*, 예약된 주문형 WebJob의 경우 *App_Data/jobs/triggered*).
-* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure 스케줄러 작업](#scheduler)을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
+* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure 스케줄러 작업](#scheduler) 을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
 
 WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
@@ -169,4 +167,3 @@ WebJob 프로젝트 자체적으로 배포하려면 **솔루션 탐색기**에�
 ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 독립 WebJob의 경우 웹 프로젝트에 사용되는 것과 동일한 **웹 게시** 마법사가 나타나지만 변경할 수 있는 설정은 더 적습니다.
-

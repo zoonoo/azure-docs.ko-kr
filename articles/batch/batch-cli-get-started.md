@@ -3,7 +3,7 @@ title: "배치용 Azure CLI 시작 | Microsoft Docs"
 description: "Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다."
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -32,7 +31,7 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
 
 ## <a name="set-up-the-azure-cli"></a>Azure CLI 설치
 
-Azure CLI를 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli.md)에서 설명하는 단계를 수행합니다.
+Azure CLI를 설치하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에서 설명하는 단계를 수행합니다.
 
 > [!TIP]
 > 서비스 업데이트 및 향상을 최대한 활용하기 위해 Azure CLI 설치를 자주 업데이트하는 것이 좋습니다.
@@ -97,9 +96,7 @@ Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를
 
     Azure AD의 이점은 RBAC(역할 기반 액세스 제어)를 제공한다는 것입니다. RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계 없이 할당된 역할에 따라 달라집니다. 계정 키를 관리하는 대신 RBAC 역할을 관리하고 Azure AD에서 액세스와 인증을 처리하도록 할 수 있습니다.  
 
-    풀 할당 모드가 '사용자 구독'으로 설정된 Azure Batch 계정을 만든 경우 Azure AD로 인증해야 합니다. 
-
-    Azure AD를 사용하여 배치 계정에 로그인하려면 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 명령을 호출합니다. 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

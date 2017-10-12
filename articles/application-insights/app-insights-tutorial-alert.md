@@ -9,14 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: ce297476cfdf80564c6c0cb835955a146f7a1c12
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 40b3cd74fc68158b679db462278edef4827d8603
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 응용 프로그램 상태에 대한 모니터링 및 경고
 
 Azure Application Insights를 사용하여 응용 프로그램을 모니터링하고 사용할 수 없거나 오류가 발생하거나 성능 문제를 겪을 때 경고를 보낼 수 있습니다.  이 자습서에서는 응용 프로그램의 가용성을 지속적으로 확인하고 검색된 문제에 대한 응답으로 서로 다른 종류의 경고를 보내도록 테스트를 만드는 과정을 단계별로 안내합니다.  다음 방법에 대해 알아봅니다.

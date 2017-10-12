@@ -1,6 +1,6 @@
 ---
-title: "Azure Cloud Shell(미리 보기)에서 파일 유지 | Microsoft Docs"
-description: "Azure Cloud Shell이 파일을 유지하는 방법에 대한 연습입니다."
+title: "Azure Cloud Shell에서 파일 유지(미리 보기) | Microsoft Docs"
+description: "Azure Cloud Shell에서 파일을 유지하는 방법의 연습입니다."
 services: azure
 documentationcenter: 
 author: maertendmsft
@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Azure Cloud Shell 작동 방식
+## <a name="how-cloud-shell-works"></a>Cloud Shell 작동 방식
 Azure Cloud Shell은 다음 방법을 통해 파일을 유지합니다. 
 * 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다.
 
@@ -32,7 +31,7 @@ Azure Cloud Shell은 다음 방법을 통해 파일을 유지합니다.
 ![Get-CloudDrive 실행](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ## <a name="unmount-cloud-drive"></a>클라우드 드라이브를 탑재 해제
-언제든지 Azure Cloud Shell에 마운트된 파일 공유의 마운트를 해제할 수 있습니다. 파일 공유가 제거된 경우 다음 세션에서 새 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
+언제든지 Cloud Shell에 마운트된 파일 공유의 마운트를 해제할 수 있습니다. 파일 공유가 제거된 경우 다음 세션에서 새 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 
 `Dismount-CloudDrive` 명령은 현재 저장소 계정에서 파일 공유를 탑재 해제합니다. 클라우드 드라이브를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 ![CloudDrive 탑재 해제 실행](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
@@ -41,5 +40,5 @@ Azure Cloud Shell은 다음 방법을 통해 파일을 유지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [PowerShell에 대한 빠른 시작](quickstart-powershell.md) <br>
-[Azure File Storage 관해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
-[저장소 태그에 관해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[저장소 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

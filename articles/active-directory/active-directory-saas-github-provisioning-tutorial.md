@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3cc70273e95dbf4913e7bbcd8a37bd9a52987b60
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위해 GitHub 구성
 
 
@@ -108,5 +106,4 @@ Azure AD 프로비전 로그를 읽는 방법에 대한 자세한 내용은 [자
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받는 방법을 알아봅니다.](active-directory-saas-provisioning-reporting.md)
-
+* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](active-directory-saas-provisioning-reporting.md).

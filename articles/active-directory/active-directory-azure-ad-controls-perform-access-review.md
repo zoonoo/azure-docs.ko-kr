@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c9115bb5bc3d22c67ea0ac77b8972ae7f919926b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 액세스를 검토하는 방법
 
 Azure Active Directory는 액세스 검토라는 기능을 사용하여 회사에서 Azure AD 및 기타 Microsoft Online Services에 속한 응용 프로그램에 대한 액세스 및 그룹 구성원을 관리하는 방법을 간소화합니다.  Microsoft에서 그룹 구성원 또는 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스를 검토하도록 요청하는 전자 메일을 받았을 수 있습니다. 
@@ -43,7 +41,6 @@ Azure Active Directory는 액세스 검토라는 기능을 사용하여 회사�
 ## <a name="next-steps"></a>다음 단계
 
 거부된 사용자 액세스는 즉시 제거되지 않으며, 검토가 완료되거나 관리자가 검토를 중지하면 제거될 수 있습니다. 따라서 응답을 변경하고 이전에 거부된 사용자를 승인하거나 이전에 승인된 사용자를 거부하려면 행을 클릭하고 응답을 다시 설정하고 새 응답을 선택합니다.  액세스 검토가 완료될 때까지 이 작업을 수행할 수 있습니다.
-
 
 
 

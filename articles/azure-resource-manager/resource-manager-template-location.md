@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
 ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 위치 설정
 템플릿을 배포할 때는 각 리소스의 위치를 지정해야 합니다. 이 항목에서는 각 리소스 유형에 대한 구독에서 사용할 수 있는 위치를 확인하는 방법을 보여 줍니다.

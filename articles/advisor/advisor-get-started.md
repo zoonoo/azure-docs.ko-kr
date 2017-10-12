@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
 
 Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 가져오고, 권장 사항을 검색하고, 권장 사항을 새로 고치는 방법을 알아봅니다.
@@ -94,4 +93,3 @@ Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 -  [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
-

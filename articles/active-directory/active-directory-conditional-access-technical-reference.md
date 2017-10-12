@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 27ace4e9bc4a1626059fba657dce0c629d52f32d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
@@ -120,10 +119,10 @@ Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지�
 
 | OS                     | 브라우저                    | 지원     |
 | :--                    | :--                         | :-:         |
-| 윈도우 10             | Internet Explorer, Edge     | ![확인][1] |
-| 윈도우 10             | Chrome                      | ![확인][1] |
+| Windows 10             | Internet Explorer, Edge     | ![확인][1] |
+| Windows 10             | Chrome                      | ![확인][1] |
 | Windows 8 / 8.1        | Internet Explorer, 크롬   | ![확인][1] |
-| 윈도우 7              | Internet Explorer, 크롬   | ![확인][1] |
+| Windows 7              | Internet Explorer, 크롬   | ![확인][1] |
 | iOS                    | Safari, Intune Managed Browser                      | ![확인][1] |
 | Android                | 크롬, Intune Managed Browser                      | ![확인][1] |
 | Windows Phone          | Internet Explorer, Edge     | ![확인][1] |
@@ -132,7 +131,7 @@ Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지�
 | Windows Server 2012 R2 | Internet Explorer, 크롬   | ![확인][1] |
 | Windows Server 2008 R2 | Internet Explorer, 크롬   | ![확인][1] |
 | macOS                  | Safari                      | ![확인][1] |
-| macOS                  | Chrome                      | 서비스 예정 |
+| macOS                  | Chrome                      | 곧 출시됩니다 |
 
 > [!NOTE]
 > 크롬 지원의 경우 Windows 10 Creators 업데이트(버전 1703) 이상을 사용해야 합니다.<br>
@@ -153,11 +152,11 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | Azure RemoteApp| Azure RemoteApp 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android, macOS|
 | Dynamics 365 앱| Dynamics 365| Windows 10, Windows 8.1, Windows 7, iOS, Android|
 | Microsoft Office 365 Teams(Windows Desktop, iOS, Android, Windows Phone, 웹 클라이언트 등, Microsoft Teams과 모든 해당 앱을 지원하는 모든 서비스 제어)| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| 윈도우 10|
+| 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook 모바일 앱| Office 365 Exchange Online| iOS|
 | Outlook 2016(macOS용 Office)| Office 365 Exchange Online| macOS|
-| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 동기화 클라이언트, 향후 Office Groups 및 SharePoint 앱 지원 예정| Office 365 SharePoint Online| 윈도우 10|
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 동기화 클라이언트, 향후 Office Groups 및 SharePoint 앱 지원 예정| Office 365 SharePoint Online| Windows 10|
 | Office 2016 앱, Office 2013(최신 인증 사용), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 동기화 클라이언트| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Office 모바일 앱| Office 365 SharePoint Online| iOS, Android|
 | macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 지원), 향후 OneDrive for Business 지원 예정| Office 365 SharePoint Online| macOS|
@@ -218,6 +217,5 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-technical-reference/01.png
-
 
 

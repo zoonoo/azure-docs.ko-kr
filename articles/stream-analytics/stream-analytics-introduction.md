@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-stream-analytics"></a>Stream Analytics란 무엇인가요?
 
 Azure Stream Analytics는 스트리밍 데이터에 대한 실시간 분석 계산 작업을 설정할 수 있는 완전히 관리되는 이벤트 처리 엔진입니다. 데이터는 장치, 센서, 웹 사이트, 소셜 미디어 피드, 응용 프로그램, 인프라 시스템 등에서 가져올 수 있습니다. 
@@ -99,5 +97,4 @@ Stream Analytics는 들어오는 데이터를 초당 최대 1GB의 속도로 처
 * [Stream Analytics 작업 크기를 조정하는 방법](stream-analytics-scale-jobs.md)을 알아봅니다. 
 * [Stream Analytics 및 Azure Machine Learning을 통합하는 방법](stream-analytics-machine-learning-integration-tutorial.md)을 알아봅니다.
 * [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)에서 Stream Analytics에 대한 질문의 답변을 찾아보세요.
-
 

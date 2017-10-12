@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란 무엇인가요?
 
 Azure Machine Learning은 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
@@ -38,7 +36,7 @@ Azure Machine Learning의 주요 구성 요소는 다음과 같습니다.
 Azure Machine Learning은 오픈 소스 기술을 완벽하게 지원합니다. 다음 Machine Learning 프레임워크와 같이 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다.
 
 - [scikit-learn](http://scikit-learn.org/)
-- [TensorFlow](https://www.tensorflow.org/)
+- [Tensorflow](https://www.tensorflow.org/)
 - [Microsoft Cognitive 도구 키트](https://www.microsoft.com/en-us/cognitive-toolkit/)
 - [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)
 
@@ -179,7 +177,7 @@ Azure Machine Learning 외에도 Machine Learning 모델을 빌드, 배포 및 �
 - Hadoop 또는 Spark 클러스터에서 규모 수준으로 R 및 Python 교육 배포
 
 ### <a name="data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터
-[DSVM(데이터 과학 가상 컴퓨터)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. DSVM은 Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Linux 버전의 DSVM은 Ubuntu 16.04 LTS 및 OpenLogic 7.2 CentOS 기반 Linux 배포에서 제공됩니다. 
+[DSVM(데이터 과학 가상 컴퓨터)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. DSVM은 Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Linux 버전의 DSVM은 Ubuntu 16.04 LTS 및 OpenLogic 7.2 CentOS 기반 Linux 배포에서 제공됩니다. 
 
 단일 노드에서 작업을 실행하거나 호스트해야 하는 경우 데이터 과학 가상 컴퓨터를 사용합니다. 또는 단일 컴퓨터에서 처리를 원격으로 강화해야 하는 경우에 사용합니다. 데이터 과학 가상 컴퓨터는 Azure Machine Learning 실험과 Azure Machine Learning 모델 관리 모두를 대상으로 지원됩니다. 
 
@@ -219,4 +217,3 @@ Microsoft Cognitive Services를 장치 및 플랫폼에서 앱을 개발하는 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning 설치 및 만들기](quickstart-installation.md)
-

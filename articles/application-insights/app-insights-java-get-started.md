@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -37,7 +36,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
-1. [Microsoft Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. Application Insights 리소스 만들기 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
 
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
@@ -109,17 +108,17 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 ### <a name="questions"></a>질문...
 * *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
 
-  * `applicationinsights-core`는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
-  * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
+  * `applicationinsights-core` 는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
+  * `applicationinsights-web` 은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
 
-  * 최신 버전의 [Java용 Application Insights SDK](https://aka.ms/qqkaq6)를 다운로드하여 이전 버전을 대체합니다.
+  * 최신 버전의 [Java용 Application Insights SDK](https://aka.ms/qqkaq6) 를 다운로드하여 이전 버전을 대체합니다.
   * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml 파일 추가
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
-Azure Portal에서 가져온 계측 키를 대체합니다.
+Azure 포털에서 가져온 계측 키를 대체합니다.
 
 ```XML
 
@@ -158,7 +157,7 @@ Azure Portal에서 가져온 계측 키를 대체합니다.
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이 식별자를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
-* Application Insights 키를 시스템 속성으로 Azure Portal에서 동적으로 전달할 수 있습니다(-DAPPLICATION_INSIGHTS_IKEY=your_ikey). 정의된 속성이 없는 경우 Azure 앱 설정에서 환경 변수(APPLICATION_INSIGHTS_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이 시퀀스를 사용하면 다양한 환경에 대한 여러 InstrumentationKeys를 동적으로 관리할 수 있습니다.
+* Application Insights 키를 시스템 속성으로 Azure 포털에서 동적으로 전달할 수 있습니다(-DAPPLICATION_INSIGHTS_IKEY=your_ikey). 정의된 속성이 없는 경우 Azure 앱 설정에서 환경 변수(APPLICATION_INSIGHTS_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이 시퀀스를 사용하면 다양한 환경에 대한 여러 InstrumentationKeys를 동적으로 관리할 수 있습니다.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>계측 키를 설정하는 다른 방법
 Application Insights SDK는 다음 순서로 키를 찾습니다.
@@ -227,7 +226,7 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Application Insights에서 원격 분석 보기
-[Microsoft Azure Portal](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
+[Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
@@ -253,7 +252,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
-더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](app-insights-analytics.md)은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
+더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](app-insights-analytics.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
 ![분석 예제](./media/app-insights-java-get-started/025.png)
 
@@ -324,7 +323,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
   * `tabular`: 성능 카운터 데이터는 표 행 형식입니다.
 
 #### <a name="windows-performance-counters"></a>Windows 성능 카운터
-각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
+각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) 는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
 
 ```XML
     <PerformanceCounters>
@@ -399,4 +398,3 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cdccd4ce7b87f47d21578076653bde901748188b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>문제 해결 가이드: 기계 학습 작업 영역 만들기 및 연결
 이 가이드에서는 Azure 기계 학습 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.
@@ -71,4 +70,3 @@ Microsoft는 기계 학습 환경을 가능한 한 원활하게 만들기 위해
 [screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:media/troubleshooting-creating-ml-workspace/screen6.png
-

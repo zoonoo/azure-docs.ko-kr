@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pool-resize-start-event"></a>풀 크기 조정 시작 이벤트
 
  이 이벤트는 풀 크기 조정이 시작되면 내보내집니다. 풀 크기 조정은 비동기 이벤트이므로 풀 크기 조정 완료 이벤트는 크기 조정 작업이 완료되면 내보진다고 예상할 수 있습니다.
@@ -44,4 +43,3 @@ ms.lasthandoff: 04/22/2017
 |targetDedicated|Int32|풀에 대해 요청된 계산 노드 수입니다.|
 |enableAutoScale|Bool|풀 크기가 시간이 지남에 따라 자동으로 조정되는지 여부를 지정합니다.|
 |isAutoPool|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
-

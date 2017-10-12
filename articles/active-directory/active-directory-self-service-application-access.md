@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리
 최종 사용자에 대한 셀프 서비스 기능을 사용하는 작업은 엔터프라이즈 IT에 대한 일반적인 시나리오입니다. 사용자가 많고 응용 프로그램의 많으며 액세스 권한 부여 결정을 내리는 가장 많은 정보를 가진 사람은 디렉터리 관리자가 아닐 수도 있습니다. 종종 응용 프로그램에 액세스할 수 있는 사용자를 결정하는 최상의 사용자는 팀 리더는 또는 다른 위임된 관리자입니다. 그러나 앱을 사용하는 것은 사용자이며, 사용자는 작업을 수행하는 데 무엇이 필요한지 알고 있습니다.
@@ -109,4 +108,3 @@ ms.lasthandoff: 09/06/2017
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
-

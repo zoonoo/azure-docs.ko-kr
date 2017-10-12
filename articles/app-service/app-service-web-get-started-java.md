@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
+ms.openlocfilehash: d12e3be2d6658d2a6cc18ed6ad9a149235b8b581
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d4b84efa3370308d1d99a9361acad1801aa5330b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
@@ -200,4 +199,3 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
-

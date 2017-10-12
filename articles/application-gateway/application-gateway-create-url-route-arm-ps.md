@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
+ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b1ed7d5693ff7e6730255462411d462694b730e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>경로 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -221,7 +220,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 백 엔드 풀에 대한 URL 규칙 경로를 구성합니다. 이 단계에서는 Application Gateway에서 사용되는 상대 경로를 구성하고 URL 경로와 들어오는 트래픽을 처리하는 데 할당되는 백 엔드 풀 간의 매핑을 정의합니다.
 
 > [!IMPORTANT]
-> 각 경로는 "/"로 시작해야 하며 별표는 경로 끝에만 추가할 수 있습니다. 사용 가능한 예는 /xyz, /xyz* 또는 /xyz/*입니다. 경로 검사기에 제공되는 문자열에는 첫 번째 "?" 또는 "#" 뒤의 텍스트가 포함되지 않으며, 이러한 문자는 사용할 수 없습니다. 
+> 각 경로는 "/"로 시작해야 하며 별표는 경로 끝에만 추가할 수 있습니다. 사용 가능한 예는 /xyz, /xyz *또는 /xyz/*입니다. 경로 검사기에 제공되는 문자열에는 첫 번째 "?" 또는 "#" 뒤의 텍스트가 포함되지 않으며, 이러한 문자는 사용할 수 없습니다. 
 
 다음 예제에서는 두 개의 규칙을 만듭니다. 그중 하나는 백 엔드 **pool1**로 트래픽을 라우팅하는 "/image/" 경로용 규칙이고, 다른 하나는 백 엔드 **pool2**로 트래픽을 라우팅하는 "/video/" 경로용 규칙입니다. 이러한 규칙을 사용하면 각 URL 집합에 대한 트래픽이 백 엔드로 라우팅됩니다. 예를 들어 http://contoso.com/image/figure1.jpg는 **pool1**로 라우팅되고 http://contoso.com/video/example.mp4는 **pool2**로 라우팅됩니다.
 
@@ -296,5 +295,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>다음 단계
 
 SSL(Secure Sockets Layer) 오프로드에 대해 알아보려는 경우 [Azure Resource Manager를 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성](application-gateway-ssl-arm.md)을 참조하세요.
-
 

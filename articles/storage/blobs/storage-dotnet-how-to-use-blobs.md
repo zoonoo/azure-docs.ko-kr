@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: tamram
+ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 7a432a22c5c2c2fc5e42cfe000dd34262ba4c85e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob 저장소 시작
 
@@ -402,4 +401,3 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [.NET용 파일 저장소 시작](../files/storage-dotnet-how-to-use-files.md)
 * [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)
-

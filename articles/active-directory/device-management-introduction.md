@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
 
@@ -155,6 +154,5 @@ thumb의 규칙으로 인해 다음을 사용해야 합니다.
     - Azure Active Directory Windows 10 장치를 설정하려면 [Azure Active Directory 등록 Windows 10 장치를 구성하는 방법](device-management-azuread-registered-devices-windows10-setup.md) 참조
     - Azure Active Directory 조인 장치를 설정하려면 [Azure Active Directory 조인 장치를 구성하는 방법](device-management-azuread-joined-devices-setup.md) 참조
     - 하이브리드 Azure AD 조인 장치를 설정하려면 [Azure Active Directory 조인 장치를 구성하는 방법](device-management-hybrid-azuread-joined-devices-setup.md) 참조
-
 
 

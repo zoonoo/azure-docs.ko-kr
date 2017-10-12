@@ -16,12 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서.NET Core 웹앱 만들기 
 
@@ -186,4 +185,3 @@ git push azure master
 
 > [!div class="nextstepaction"]
 > [컨테이너용 Azure Web App에서 .NET Core 및 SQL Database 웹앱 빌드](tutorial-dotnetcore-sqldb-app.md)
-

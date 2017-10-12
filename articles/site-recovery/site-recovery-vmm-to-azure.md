@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure Portal에서 Site Recovery를 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터를 Azure에 복제
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Azure 클래식](site-recovery-vmm-to-azure-classic.md)
-> * [PowerShell - 리소스 관리자](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell 클래식](site-recovery-deploy-with-powershell.md)
 
 
@@ -76,19 +75,19 @@ ms.lasthandoff: 08/21/2017
 장애 조치(Failover) 후 생성된 Azure VM이 연결될 수 있도록 Azure 네트워크가 필요합니다.
 
 * 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
-* 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [리소스 관리자 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
+* 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 * 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독 내에서 [이동](../azure-resource-manager/resource-group-move-resources.md)할 수 없습니다.
 
 ### <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
-* Azure로 복제된 데이터를 계속 유지하려면 표준/프리미엄 Azure Storage 계정이 필요합니다.[Premium Storage](../storage/common/storage-premium-storage.md)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 사용됩니다. 프리미엄 계정을 사용하여 복제된 데이터를 저장하려는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장하는 표준 저장소 계정이 필요할 수도 있습니다. 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
-* 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [리소스 관리자 모드](../storage/common/storage-create-storage-account.md) 또는 [클래식 모드](../storage/common/storage-create-storage-account.md)에서 계정을 설정합니다.
+* Azure로 복제된 데이터를 계속 유지하려면 표준/프리미엄 Azure Storage 계정이 필요합니다.[Premium Storage](../storage/common/storage-premium-storage.md)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 사용됩니다. 프리미엄 계정을 사용하여 복제된 데이터를 저장하려는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장하는 표준 저장소 계정이 필요할 수도 있습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
+* 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../storage/common/storage-create-storage-account.md) 또는 [클래식 모드](../storage/common/storage-create-storage-account.md)에서 계정을 설정합니다.
 * 시작하기 전에 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 - Site Recovery에 사용되는 저장소 계정은 동일하거나 다른 구독 내에서 [이동](../azure-resource-manager/resource-group-move-resources.md)할 수 없습니다.
 
 ### <a name="prepare-the-vmm-server"></a>VMM 서버 준비
 * VMM 서버가 [필수 조건](#prerequisites)을 준수하는지 확인합니다.
-* Site Recovery를 배포하는 동안 VMM 서버의 모든 클라우드를 Azure Portal에서 사용할 수 있도록 지정할 수 있습니다. 특정 클라우드만 포털에 표시되도록 하려면 VMM 관리 콘솔에서 특정 클라우드에만 해당 설정을 활성화하면 됩니다.
+* Site Recovery를 배포하는 동안 VMM 서버의 모든 클라우드를 Azure 포털에서 사용할 수 있도록 지정할 수 있습니다. 특정 클라우드만 포털에 표시되도록 하려면 VMM 관리 콘솔에서 특정 클라우드에만 해당 설정을 활성화하면 됩니다.
 
 ### <a name="prepare-for-network-mapping"></a>네트워크 매핑을 준비
 Site Recovery를 배포하는 동안 네트워크 매핑을 설정해야 합니다. 네트워크 매핑은 원본 VMM VM 네트워크와 대상 Azure 네트워크 사이를 매핑하여 다음과 같은 것을 가능하게 합니다.
@@ -100,8 +99,8 @@ Site Recovery를 배포하는 동안 네트워크 매핑을 설정해야 합니�
   * 원본 Hyper-V 호스트 서버의 VM이 VMM VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
   * [위의](#set-up-an-azure-network)
 
-## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기** > **모니터링 + 관리** > **Backup 및 Site Recovery(OMS)**를 클릭합니다.
 
     ![새 자격 증명 모음](./media/site-recovery-vmm-to-azure/new-vault3.png)
@@ -122,11 +121,11 @@ Site Recovery를 배포하는 동안 네트워크 매핑을 설정해야 합니�
 2. **시작**에서 **Site Recovery** > **인프라 준비** > **보호 목표**를 차례로 클릭합니다.
 
     ![목표 선택](./media/site-recovery-vmm-to-azure/choose-goals.png)
-3. **보호 목표**에서 **Azure에**를 선택하고 **예, Hyper-V 사용**을 선택합니다. **예**를 선택하여 VMM을 사용하여 Hyper-V 호스트 및 복구 사이트를 관리하기로 확인합니다. 그런 후 **OK**를 클릭합니다.
+3. **보호 목표**에서 **Azure에**를 선택하고 **예, Hyper-V 사용**을 선택합니다. **예** 를 선택하여 VMM을 사용하여 Hyper-V 호스트 및 복구 사이트를 관리하기로 확인합니다. 그런 후 **OK**를 클릭합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음에 서버를 등록합니다. Hyper-V 호스트에 Azure Recovery Services 에이전트를 설치합니다.
+VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음에 서버를 등록합니다. Hyper-V 호스트에 Azure 복구 서비스 에이전트를 설치합니다.
 
 1. **인프라 준비** > **원본**을 클릭합니다.
 
@@ -167,7 +166,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
     > [!NOTE]
     > 미사용 데이터를 암호화하는 데는 Azure Site Recovery에서 제공한 데이터 암호화 옵션을 사용하는 대신, Azure에서 제공하는 암호화 기능을 사용하는 것이 좋습니다. Azure에서 제공한 암호화 기능은 저장소 > 계정에 대해 설정할 수 있으며 암호화/암호 해독이 Azure Storage로 처리됨에 따라 향상된 성능을 달성할 수 있습니다.
-    > [Azure에서 Storage 서비스 암호화에 대해 자세히 알아보세요](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    > [Azure에서 저장소 서비스 암호화에 대해 자세히 알아보세요](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
     
 8. 자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
 9. VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화하려면 **클라우드 메타데이터 동기화**를 활성화합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다. **등록**을 클릭하여 프로세스를 완료합니다.
@@ -176,29 +175,29 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 10. 등록이 시작됩니다. 등록이 완료되면 **Site Recovery 인프라** > **VMM 서버**에 해당 서버가 표시됩니다.
 
 
-## <a name="install-the-azure-recovery-services-agent-on-hyper-v-hosts"></a>Hyper-V 호스트에 Azure Recovery Services 에이전트 설치
+## <a name="install-the-azure-recovery-services-agent-on-hyper-v-hosts"></a>Hyper-V 호스트에 Azure 복구 서비스 에이전트 설치
 
-1. 공급자를 설치한 후에는 Azure Recovery Services 에이전트 설치 파일을 다운로드해야 합니다. VMM 클라우드의 각 Hyper-V 서버에서 설치 프로그램을 실행합니다.
+1. 공급자를 설치한 후에는 Azure 복구 서비스 에이전트 설치 파일을 다운로드해야 합니다. VMM 클라우드의 각 Hyper-V 서버에서 설치 프로그램을 실행합니다.
 
     ![Hyper-V 사이트](./media/site-recovery-vmm-to-azure/hyperv-agent1.png)
 2. **필수 구성 요소 확인**에서 **다음**을 클릭합니다. 누락된 필수 구성 요소는 자동으로 설치됩니다.
 
-    ![필수 구성 요소 Recovery Services 에이전트](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
+    ![필수 구성 요소 복구 서비스 에이전트](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
 3. **설치 설정**에서 설치 위치 및 캐시 위치를 수락하거나 수정합니다. 최소 5GB의 저장 공간이 있는 드라이브에 캐시를 구성할 수 있지만 600GB 이상의 여유 공간이 있는 캐시 드라이브에 구성하는 것이 좋습니다. **설치**를 클릭합니다.
-4. 설치가 완료되면 **닫기**를 클릭하여 완료합니다.
+4. 설치가 완료되면 **닫기** 를 클릭하여 완료합니다.
 
     ![MARS 에이전트 등록](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
 
 ### <a name="command-line-installation"></a>명령줄 설치
-다음 명령을 사용하여 명령줄에서 Microsoft Azure Recovery Services 에이전트를 설치할 수 있습니다.
+다음 명령을 사용하여 명령줄에서 Microsoft Azure 복구 서비스 에이전트를 설치할 수 있습니다.
 
      marsagentinstaller.exe /q /nu
 
 ### <a name="set-up-internet-proxy-access-to-site-recovery-from-hyper-v-hosts"></a>Hyper-V 호스트에서 Site Recovery에 대한 인터넷 프록시 액세스를 설정합니다.
 
-VM을 복제하려면 Hyper-V 호스트에서 실행되는 Recovery Services 에이전트가 인터넷을 통해 Azure에 액세스할 수 있어야 합니다. 프록시를 통해 인터넷에 액세스하는 경우 다음과 같이 프록시를 설정합니다.
+VM을 복제하려면 Hyper-V 호스트에서 실행되는 복구 서비스 에이전트가 인터넷을 통해 Azure에 액세스할 수 있어야 합니다. 프록시를 통해 인터넷에 액세스하는 경우 다음과 같이 프록시를 설정합니다.
 
-1. Hyper-V 호스트에서 Microsoft Azure Backup MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
+1. Hyper-V 호스트에서 Microsoft Azure 백업 MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 3. **프록시 구성** 탭에서 프록시 서버 정보를 지정합니다.
 
@@ -210,24 +209,24 @@ VM을 복제하려면 Hyper-V 호스트에서 실행되는 Recovery Services 에
 
 1. **인프라 준비** > **대상**을 클릭하고 장애 조치 가상 컴퓨터를 만들려는 구독 및 리소스 그룹을 선택합니다. 장애 조치 가상 컴퓨터에 대해 Azure(클래식 또는 리소스 관리)에서 사용하려는 배포 모델을 선택합니다.
 
-    ![저장소](./media/site-recovery-vmm-to-azure/enablerep3.png)
+    ![창고](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
     ![저장소](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
-3. 아직 저장소 계정을 만들지 않았으며 리소스 관리자를 사용하여 계정을 만들려면 **+저장소 계정**을 클릭하여 인라인에서 계정을 만듭니다.  **저장소 계정 만들기** 블레이드에서 계정 이름, 형식, 구독 및 위치를 지정합니다. 계정이 Recovery Services 자격 증명 모음과 같은 위치에 있어야 합니다.
+3. 아직 저장소 계정을 만들지 않았으며 Resource Manager를 사용하여 계정을 만들려면 **+저장소 계정**을 클릭하여 인라인에서 계정을 만듭니다.  **저장소 계정 만들기** 블레이드에서 계정 이름, 형식, 구독 및 위치를 지정합니다. 계정이 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
 
    ![저장소](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * 클래식 모델을 사용하여 저장소 계정을 만들려면 Azure Portal에서 만들면 됩니다. [자세히 알아보기](../storage/common/storage-create-storage-account.md)
+   * 클래식 모델을 사용하여 저장소 계정을 만들려면 Azure 포털에서 만들면 됩니다. [자세히 알아보기](../storage/common/storage-create-storage-account.md)
    * 복제된 데이터에 프리미엄 저장소 계정을 사용하는 경우 온-프레미스 데이터에 지속적인 변화를 캡처하는 복제 로그를 저장하는 추가 표준 저장소 계정을 설정합니다.
-5. 아직 Azure 네트워크를 만들지 않았으며 리소스 관리자를 사용하여 네트워크를 만들려면 **+네트워크**를 클릭하여 인라인에서 네트워크를 만듭니다. **가상 네트워크 만들기** 블레이드에서 네트워크 이름, 주소 범위, 서브넷 세부 정보, 구독 및 위치를 지정합니다. 네트워크가 Recovery Services 자격 증명 모음과 같은 위치에 있어야 합니다.
+5. 아직 Azure 네트워크를 만들지 않았으며 Resource Manager를 사용하여 네트워크를 만들려면 **+네트워크**를 클릭하여 인라인에서 네트워크를 만듭니다. **가상 네트워크 만들기** 블레이드에서 네트워크 이름, 주소 범위, 서브넷 세부 정보, 구독 및 위치를 지정합니다. 네트워크가 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
 
    ![네트워크](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
 
-   클래식 모델을 사용하여 네트워크를 만들려면 Azure Portal에서 만들면 됩니다. [자세히 알아보기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+   클래식 모델을 사용하여 네트워크를 만들려면 Azure 포털에서 만들면 됩니다. [자세히 알아보기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>네트워크 매핑 구성
 
@@ -307,8 +306,8 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
 3. **대상**에서 구독, 장애 조치(failover) 후 배포 모델 및 복제된 데이터에 사용 중인 저장소 계정을 선택합니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. 사용하려는 저장소 계정을 선택합니다. 갖고 있는 저장소 계정 말고 다른 저장소 계정을 사용하려면 [새로 만듭니다](#set-up-an-azure-storage-account). 복제된 데이터에 프리미엄 저장소 계정을 사용하는 경우 온-프레미스 데이터에 지속적인 변화를 캡처하는 복제 로그를 저장하는 추가 표준 저장소 계정을 선택해야 합니다. 리소스 관리자 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure Portal](../storage/common/storage-create-storage-account.md)에서 만들면 됩니다. 그런 후 **OK**를 클릭합니다.
-5. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 갖고 있는 네트워크 말고 다른 네트워크를 사용하려면 **새로 만듭니다**. 리소스 관리자 모델을 사용하여 네트워크를 만들려면 [새로 만들기](#set-up-an-azure-network)를 클릭합니다. 리소스 관리자 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 네트워크를 만들려면 [Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 만들면 됩니다. 해당하는 경우 서브넷을 선택합니다. 그런 후 **OK**를 클릭합니다.
+4. 사용하려는 저장소 계정을 선택합니다. 갖고 있는 저장소 계정 말고 다른 저장소 계정을 사용하려면 [새로 만듭니다](#set-up-an-azure-storage-account). 복제된 데이터에 프리미엄 저장소 계정을 사용하는 경우 온-프레미스 데이터에 지속적인 변화를 캡처하는 복제 로그를 저장하는 추가 표준 저장소 계정을 선택해야 합니다. Resource Manager 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털](../storage/common/storage-create-storage-account.md)에서 만들면 됩니다. 그런 후 **OK**를 클릭합니다.
+5. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 갖고 있는 네트워크 말고 다른 네트워크를 사용하려면 **새로 만듭니다**. Resource Manager 모델을 사용하여 네트워크를 만들려면 [새로 만들기](#set-up-an-azure-network)를 클릭합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 네트워크를 만들려면 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 만들면 됩니다. 해당하는 경우 서브넷을 선택합니다. 그런 후 **OK**를 클릭합니다.
 6. **Virtual Machines** > **가상 컴퓨터 선택**에서 복제하려는 각 컴퓨터를 클릭하여 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/enable-replication5.png)
@@ -345,7 +344,7 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다.
+3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다.
 다음 사항에 유의하세요.
 
    * 대상 IP 주소를 설정할 수 있습니다. 주소를 입력하지 않으면 장애 조치(Failover)된 컴퓨터가 DHCP를 사용합니다. 장애 조치(failover) 시 사용할 수 없는 주소를 설정하면 장애 조치(failover)가 실패합니다. 주소를 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우 테스트 장애 조치(failover)에 동일한 대상 IP 주소를 사용해도 됩니다.
@@ -358,14 +357,14 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
 
      ![복제 활성화](./media/site-recovery-vmm-to-azure/test-failover4.png)
 
-4. **디스크**에서 복제될 VM의 운영 체제 및 데이터 디스크를 볼 수 있습니다.
+4. **디스크** 에서 복제될 VM의 운영 체제 및 데이터 디스크를 볼 수 있습니다.
 
 #### <a name="managed-disks"></a>관리 디스크
 
 **계산 및 네트워크** > **계산 속성**에서 Azure에 마이그레이션할 때 컴퓨터에 Managed Disks를 연결하려면 VM에서 "Managed Disks 사용" 설정을 "예"로 설정할 수 있습니다. Managed Disks는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. [Managed Disks에 대한 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
 
    - Managed Disks를 만들고 Azure에 장애 조치 시에만 가상 컴퓨터에 연결합니다. 보호를 사용하도록 설정하여 온-프레미스 컴퓨터의 데이터를 저장소 계정에 계속 복제합니다.
-   리소스 관리자 배포 모델을 사용하여 배포된 가상 컴퓨터에 대해서만 Managed Disks를 만들 수 있습니다.  
+   Resource Manager 배포 모델을 사용하여 배포된 가상 컴퓨터에 대해서만 Managed Disks를 만들 수 있습니다.  
 
   > [!NOTE]
   > 현재 Azure로부터 온-프레미스 Hyper-V 환경으로의 장애 복구는 Managed Disks를 포함한 컴퓨터에 지원되지 않습니다. Azure에 이 컴퓨터를 마이그레이션할 경우 "Managed Disks 사용"을 "예"로 설정합니다.
@@ -373,8 +372,8 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
    - "Managed Disks 사용"을 "예"로 설정하면 리소스 그룹에서 "Managed Disks 사용"을 "예"로 설정한 가용성 집합만을 선택할 수 있습니다. Managed Disks를 포함한 가상 컴퓨터가 "Managed Disks 사용" 속성을 "예"로 설정한 가용성 집합의 일부이기 때문입니다. 장애 조치 시 Managed Disks를 사용하려는 의도에 따라 "Managed Disks 사용" 속성이 설정된 가용성 집합을 만들었는지 확인합니다.  마찬가지로 "Managed Disks 사용"을 "아니요"로 설정하면 리소스 그룹에서 "Managed Disks 사용" 속성을 "아니요"로 설정한 가용성 집합만을 선택할 수 있습니다. [Managed Disks와 가용성 집합에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
 
   > [!NOTE]
-  > 복제에 사용되는 저장소 계정이 특정 시점에 저장소 서비스 암호화로 암호화된 경우 장애 조치 중에 Managed Disks를 만드는 작업에 실패합니다. "Managed Disks 사용"을 "아니요"로 설정하고 장애 조치를 다시 시도하거나 가상 컴퓨터에 대한 보호를 사용하지 않도록 하고 특정 시점에서 Storage 서비스 암호화를 사용하지 않은 저장소 계정에 보호할 수 있습니다.
-  > [Storage 서비스를 암호화 및 Managed Disks에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+  > 복제에 사용되는 저장소 계정이 특정 시점에 저장소 서비스 암호화로 암호화된 경우 장애 조치 중에 Managed Disks를 만드는 작업에 실패합니다. "Managed Disks 사용"을 "아니요"로 설정하고 장애 조치를 다시 시도하거나 가상 컴퓨터에 대한 보호를 사용하지 않도록 하고 특정 시점에서 저장소 서비스 암호화를 사용하지 않은 저장소 계정에 보호할 수 있습니다.
+  > [저장소 서비스를 암호화 및 Managed Disks에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="test-the-deployment"></a>배포 테스트
@@ -384,7 +383,7 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
 ### <a name="before-you-start"></a>시작하기 전에
 
  - 장애 조치(Failover) 후 RDP를 사용하여 Azure VM에 연결하려면 [연결 준비](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에 대해 알아보세요.
- - 완벽하게 테스트하려면 테스트 환경에 Active Directory 및 DNS 복사본이 필요합니다. [자세히 알아보세요](site-recovery-active-directory.md#test-failover-considerations)를 확인하세요.
+ - 완벽하게 테스트하려면 테스트 환경에 Active Directory 및 DNS 복사본이 필요합니다. [자세히 알아보세요](site-recovery-active-directory.md#test-failover-considerations)을 확인하세요.
 
 ### <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
@@ -392,7 +391,7 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
 2. 복구 계획을 장애 조치(Failover)하려면 **복구 계획**에서 계획 > **테스트 장애 조치(Failover)**를 마우스 오른쪽 버튼으로 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).
 3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
 4. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 **Site Recovery 작업**의 **테스트 장애 조치(Failover)** 작업에서 진행률을 추적할 수 있습니다.
-5. 또한 장애 조치(failover)가 완료된 후 Azure Portal > **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. VM의 크기가 적당하고, 올바른 네트워크에 연결되었고, 실행 중인지 확인해야 합니다.
+5. 또한 장애 조치(failover)가 완료된 후 Azure 포털 > **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. VM의 크기가 적당하고, 올바른 네트워크에 연결되었고, 실행 중인지 확인해야 합니다.
 6. 장애 조치(failover) 후 연결을 준비하는 경우 Azure VM에 연결할 수 있어야 합니다.
 7. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 컴퓨터가 삭제됩니다.
 
@@ -434,7 +433,7 @@ Site Recovery는 원본 환경, Site Recovery 구성 요소, 네트워킹 및 �
     > [!NOTE]
     > 미사용 데이터를 암호화하는 데는 Azure Site Recovery에서 제공한 암호화 옵션(EncryptionEnabled 옵션)을 사용하는 대신, Azure에서 제공하는 암호화 기능을 사용하는 것이 좋습니다. Azure에서 제공한 암호화 기능은 저장소 계정에 대해 설정할 수 있으며 암호화/암호 해독이 Azure Storage로 처리됨에 따라 향상된 성능을  
     > 달성할 수 있습니다.
-    > [Azure에서 Storage 서비스 암호화에 대해 자세히 알아보세요](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    > [Azure에서 저장소 서비스 암호화에 대해 자세히 알아보세요](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
     
 * **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
 * **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
@@ -449,7 +448,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 * **대역폭 조정**: 몇 가지 레지스트리 키를 사용하면 복제에 사용되는 대역폭에 영향을 줄 수 있습니다.
 
 #### <a name="throttle-bandwidth"></a>대역폭 제한
-1. Hyper-V 호스트 서버에서 Microsoft Azure Backup MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
+1. Hyper-V 호스트 서버에서 Microsoft Azure 백업 MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 3. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택하고 근무 시간 및 근무 외 시간에 대한 한도를 설정합니다. 유효 범위는 초당 512Kbps~102Mbp입니다.
 
@@ -461,7 +460,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
     $tue = [System.DayOfWeek]::Tuesday
     Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
 
-**Set-OBMachineSetting -NoThrottle**은 제한이 필요 없다는 뜻입니다.
+**Set-OBMachineSetting -NoThrottle** 은 제한이 필요 없다는 뜻입니다.
 
 #### <a name="influence-network-bandwidth"></a>네트워크 대역폭에 영향
 **UploadThreadsPerVM** 레지스트리 값은 디스크의 데이터 전송(초기 또는 델타 복제)에 사용되는 스레드 수를 제어합니다. 값이 높을수록 복제에 사용되는 네트워크 대역폭이 증가합니다. **DownloadThreadsPerVM** 레지스트리 값은 장애 복구를 수행하는 동안 데이터 전송에 사용되는 스레드 수를 지정합니다.
@@ -475,4 +474,3 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 ## <a name="next-steps"></a>다음 단계
 
 초기 복제가 완료되고 배포를 테스트한 후에는 필요할 때 장애 조치(failover)를 호출할 수 있습니다. 여러 장애 조치(failover) 유형 및 장애 조치(failover) 실행 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
-

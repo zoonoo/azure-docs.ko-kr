@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bb1c7d318939c42edb9a51e28dec31593f2485f9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-machine-learning-experiment-execution-service"></a>Azure Machine Learning 실험 실행 서비스 개요
 Azure ML(Azure Machine Learning) 실험 실행 서비스를 사용하면 데이터 과학자가 Azure ML의 실행 및 실행 관리 기능을 사용하여 실험을 실행할 수 있습니다. 이는 빠른 반복과 함께 빠른 실험 프레임워크를 제공합니다. Azure ML Workbench를 사용하면 컴퓨터에서 로컬 실행으로 시작하고 GPU 또는 Spark를 실행하는 HDInsight 클러스터를 포함한 원격 Data Science VM 등의 다른 환경으로 확장할 수 있습니다.
 
@@ -254,4 +252,3 @@ GPU에서 스크립트를 실행하려면 이 문서의 가이드: ["Azure Machi
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)
 * [모델 관리](model-management-overview.md)
-

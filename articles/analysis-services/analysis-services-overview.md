@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -128,4 +127,3 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 
 ## <a name="next-steps"></a>다음 단계
 Azure Analysis Services에 대해 자세히 이해했으므로 이제는 이 서비스를 시작할 단계입니다. Azure에서 [서버를 만드는 방법](analysis-services-create-server.md)을 알아봅니다. 서버가 준비되었으면 [Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)를 단계별로 수행하여 완전한 기능을 갖춘 테이블 형식 모델을 만들고 서버에 배포하는 방법을 알아봅니다.
-

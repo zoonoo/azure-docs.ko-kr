@@ -8,15 +8,12 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a5bbb1ecd3886a1453986c2deadb7b35e54b67b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
 Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API](#batch-development-apis)중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 클라이언트 응용 프로그램 또는 서비스는 배치 API를 통해 배치 서비스와 통신할 수 있습니다. 배치 API를 사용하면 가상 컴퓨터 또는 클라우드 서비스 중 하나인 계산 노드의 풀을 만들고 관리할 수 있습니다. 그런 다음 해당 노드에서 작업과 태스크를 실행하도록 예약할 수 있습니다. 
@@ -108,4 +105,3 @@ Batch 응용 프로그램 및 서비스를 빌드 및 디버깅하는 데 도움
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com
-

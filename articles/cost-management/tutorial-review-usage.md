@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="review-usage-and-costs"></a>사용량 및 비용 검토
 
 Cloudyn에서 개발한 Azure Cost Management는 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -101,4 +98,3 @@ VM 인스턴스 ID를 보려면 **후보 목록** 옆에 있는 더하기 기호
 
 > [!div class="nextstepaction"]
 > [데이터에 대한 액세스 제어](tutorial-user-access.md)
-

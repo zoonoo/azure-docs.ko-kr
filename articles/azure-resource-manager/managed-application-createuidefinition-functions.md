@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: 856ccd7433a46187a5d7bad27b79c804e7931eb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 62ee10eb8e6f33cc4d828cf01b405c846bef8aa4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
 이 섹션에는 CreateUiDefinition의 지원되는 모든 함수에 대한 서명이 포함되어 있습니다.
@@ -788,5 +787,4 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager에 대한 소개는 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
-
 

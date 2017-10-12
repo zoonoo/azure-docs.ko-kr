@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
+ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -64,7 +63,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ![역할 추가 명령](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  Service Bus 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
+클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다.  예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다.  서비스 버스 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
 
 ## <a name="install-python-on-the-cloud-service"></a>클라우드 서비스에 Python 설치
 > [!WARNING]
@@ -367,4 +366,3 @@ Azure Storage 또는 Service Bus를 사용하는 등 웹 및 작업자 역할에
 [Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-

@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-with-vmm-to-azure-replication"></a>2단계: Azure에 Hyper-V(VMM 포함) 복제를 위한 필수 구성 요소 검토
 
 [시나리오 아키텍처](vmm-to-azure-walkthrough-architecture.md)를 검토한 후에는 이 문서를 읽고 배포 필수 구성 요소를 이해해야 합니다. 
@@ -45,4 +41,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>다음 단계
 
 [3단계: 용량 계획](vmm-to-azure-walkthrough-capacity.md)으로 이동합니다.
-

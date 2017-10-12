@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -100,4 +99,3 @@ Visual Studio Team Services에서 지속적인 배포를 사용할 수 있는 �
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>FTP 또는 FTPS를 사용하여 App Service에 내 앱을 배포하려면 어떻게 하나요?
 
 FTP 또는 FTPS를 사용하여 App Service에 웹앱을 배포하는 방법에 대한 자세한 내용은 [FTP/S를 사용하여 App Service에 앱 배포](app-service-deploy-ftp.md)를 참조하세요.
-

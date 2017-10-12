@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
 이 문서에서는 데이터베이스 보안 모범 사례 및 데이터베이스 위반을 차단, 검색 및 대응하기 위해 Azure Cosmos DB에서 제공하는 주요 기능에 대해 설명합니다.
@@ -98,4 +96,3 @@ ms.lasthandoff: 09/25/2017
 감사 로깅에 대한 자세한 내용은 [Azure Cosmos DB 진단 로깅](logging.md)을 참조하세요.
 
 Microsoft 인증서에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.
-

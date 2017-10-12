@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>예제 실험을 복사하여 새로운 기계 학습 실험 만들기
 처음부터 기계 학습 실험을 새로 만드는 대신 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)의 예제 실험으로 시작하는 방법을 알아봅니다. 예제를 사용하여 고유의 기계 학습 솔루션을 직접 빌드할 수 있습니다.
@@ -69,4 +68,3 @@ ms.lasthandoff: 09/25/2017
 * [다양한 소스에서 데이터 가져오기](import-data.md)
 * [Machine Learning의 R 언어용 빠른 시작 자습서](r-quickstart.md)
 * [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
-

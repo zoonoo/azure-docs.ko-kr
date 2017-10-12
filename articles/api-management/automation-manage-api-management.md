@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e0e91cf3652b71af49242206057854500f78b2e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cc08f006fabf07db0f89578144f7269e3bc7a510
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure 자동화를 사용하여 Azure API 관리를 관리
 이 가이드에서는 Azure 자동화 서비스 및 이를 사용하여 Azure API 관리의 관리를 간소화하는 방법에 대해 소개합니다.
@@ -42,5 +41,4 @@ API 관리는 [Azure API 관리 API용 Windows PowerShell cmdlet](https://azure.
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure API 관리를 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 더 자세히 알아보세요.
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)를 참조하세요.
-
 
