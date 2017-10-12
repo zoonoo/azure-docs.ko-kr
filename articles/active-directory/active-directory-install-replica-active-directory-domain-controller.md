@@ -1,25 +1,27 @@
 ---
 title: "Azure에서 복제 Active Directory 도메인 컨트롤러 설치| Microsoft Docs"
 description: "온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다."
-services: virtual-network
+services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
-ms.service: virtual-network
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: f36a78fb8f8712ae8bb0ed6b5b8b081867198687
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/25/2017
+
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치
 이 항목에서는 Azure 가상 네트워크의 Azure VM(가상 컴퓨터)에 온-프레미스 Active Directory 도메인에 대한 추가 도메인 컨트롤러(복제본 DC라고도 함)를 설치하는 방법을 보여 줍니다.
@@ -113,3 +115,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+

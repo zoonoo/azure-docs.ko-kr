@@ -193,7 +193,7 @@ ms.lasthandoff: 09/25/2017
 
 이미지는 이전에 매니페스트를 만든 옵션을 사용하여 만들 수 있습니다. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 또는 단일 명령을 사용하여 매니페스트와 이미지를 만들 수 있습니다. 
 
