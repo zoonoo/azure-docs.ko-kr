@@ -1,4 +1,4 @@
---- 
+---
 title: "Azure Automation 시작 | Microsoft Docs"
 description: "이 문서에서는 Azure Marketplace에서 제공하는 제품을 등록하기 위한 준비 과정에서 설계 및 구현 세부 정보를 검토함으로써 Azure Automation 서비스에 대해 간략히 설명합니다."
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Azure Automation 시작
 
 이 시작 가이드에서는 Azure Automation 배포와 관련된 핵심 개념을 소개합니다. Azure Automation을 처음 사용하거나 System Center Orchestrator와 같은 자동화 워크플로 소프트웨어를 사용해 보았으면 이 가이드를 통해 Automation을 준비하고 등록하는 방법을 이해할 수 있습니다.  그런 후에는 프로세스 자동화 요구 사항을 지원하기 위해 runbook을 개발할 준비가 됩니다. 
@@ -90,7 +88,7 @@ Azure Automation에서 Azure cmdlet을 사용하여 리소스에 대해 수행�
 각 Automation 계정의 Automation 리소스는 단일 Azure 지역과 연결되지만 Automation 계정은 구독 내 모든 리소스를 관리할 수 있습니다. 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있는 경우 여러 지역에서 Automation 계정을 만듭니다.
 
 > [!NOTE]
-> Azure Portal에서 작성된 Automation 계정 및 Automation 계정이 포함하는 리소스는 Azure 클래식 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure Resource Manager 모듈을 사용해야 합니다.
+> Azure Portal에서 작성된 Automation 계정 및 Automation 계정이 포함하는 리소스는 Azure 클래식 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
 > 
 
 Azure Portal에서 Automation 계정을 만들 경우 두 개의 인증 엔터티를 자동으로 만듭니다.
@@ -191,6 +189,5 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Automation 실행 계정 인증 테스트](automation-verify-runas-authentication.md)를 검토하여 새 Automation 계정이 Azure 리소스에 대해 인증할 수 있는지 확인할 수 있습니다.
 * Runbook을 만들기 시작하려면 먼저 지원되는 [Automation runbook 형식](automation-runbook-types.md) 및 관련 고려 사항을 검토합니다.
-
 
 

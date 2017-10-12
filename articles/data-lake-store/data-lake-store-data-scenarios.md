@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
 빅 데이터 처리에는 네 가지 주요 단계가 있습니다.
@@ -133,4 +132,3 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 
 * 먼저 [Azure Data Factory를 사용하여 Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 이동](../data-factory/copy-activity-overview.md)할 수 있습니다.
 * 그 후에는 [Power BI를 Azure SQL Data Warehouse와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) 하여 데이터를 시각적으로 표현할 수 있습니다.
-

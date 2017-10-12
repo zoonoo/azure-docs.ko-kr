@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
 ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>스테이징에서 Azure 마켓플레이스용 VM 제품 테스트
 스테이징이란 SKU를 마켓플레이스에 배포하기 전에 기능을 테스트하고 확인할 수 있는 사설 "샌드박스"에 배포하는 것을 의미합니다. 그러면 SKU는 배포한 고객에게 표시되는 것처럼 스테이징으로 표시됩니다. VM 이미지는 인증되어야만 스테이징으로 푸시될 수 있습니다.

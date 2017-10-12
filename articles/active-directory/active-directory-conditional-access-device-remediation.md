@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다'
 
@@ -160,5 +159,4 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -76,7 +75,7 @@ Media Services를 사용하여 비디오를 스트림하려면 원본 비디오�
 업로드가 완료되면 새 자산이 **자산** 창에 나열됩니다. 
 
 ## <a name="encode-assets"></a>자산 인코딩
-동적 패키징을 활용하려면 소스 파일을 다중 비트 전송률 MP4 파일 집합으로 인코딩해야 합니다. 인코딩 단계는 이 섹션에 나와 있습니다.
+동적 패키징을 활용하려면 원본 파일을 다중 비트 전송률 MP4 파일 집합으로 인코딩해야 합니다. 인코딩 단계는 이 섹션에 나와 있습니다.
 
 ### <a name="encode-assets-in-the-portal"></a>포털에서 자산 인코딩
 Azure Portal에서 Media Encoder Standard를 사용하여 콘텐츠를 인코딩하려면
@@ -99,8 +98,8 @@ Azure Portal에서 Media Encoder Standard를 사용하여 콘텐츠를 인코딩
 ## <a name="publish-content"></a>콘텐츠 게시
 콘텐츠를 스트리밍 또는 다운로드하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산에 있는 파일에 대한 액세스를 제공합니다. Azure Media Services는 두 가지 유형의 로케이터를 지원합니다. 
 
-* **스트리밍(OnDemandOrigin) 로케이터**. 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예로 HLS, 부드러운 스트리밍 및 MPEG-DASH를 들 수 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 
-* **점진적(공유 액세스 서명) 로케이터**. 점진적 로케이터는 점진적 다운로드를 통해 비디오를 제공하는 데 사용합니다.
+* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예로 HLS, 부드러운 스트리밍 및 MPEG-DASH를 들 수 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 
+* **점진적(공유 액세스 서명) 로케이터** 점진적 로케이터는 점진적 다운로드를 통해 비디오를 제공하는 데 사용합니다.
 
 HLS 스트리밍 URL을 작성하려면 URL에 *(format=m3u8-aapl)*을 추가합니다.
 
@@ -157,4 +156,3 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

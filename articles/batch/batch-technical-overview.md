@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch를 사용하여 본질적인 병렬 워크로드 실행
 
@@ -87,4 +86,3 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [HPC, 배치 및 �
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-

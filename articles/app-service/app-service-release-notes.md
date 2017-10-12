@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
 이 문서에는 Azure SDK for .NET 2.5.1 릴리스의 릴리스 정보가 포함되어 있습니다. 
@@ -63,5 +62,4 @@ ms.lasthandoff: 09/07/2017
 * API 앱 프로젝트를 클라우드 서비스 프로젝트와 함께 사용할 수 없습니다.
 * API 앱 프로젝트 템플릿은 C#에서만 사용할 수 있습니다.
 * "Azure API 앱 클라이언트 추가" 상황에 맞는 메뉴를 통한 API 앱 사용은 C#에서만 지원됩니다.
-
 

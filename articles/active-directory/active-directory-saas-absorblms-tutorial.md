@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 549e353bb41f1f31bc0441294d0a8066779402e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
 
@@ -287,5 +286,4 @@ Britta Simon을 Absorb LMS에 할당하려면 다음을 수행합니다.
 [201]: ./media/active-directory-saas-absorblms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-absorblms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-absorblms-tutorial/tutorial_general_203.png
-
 

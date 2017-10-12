@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure 포털에서 Azure 스케줄러 시작
 Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 자습서에서는 작업을 만드는 방법을 알아봅니다. 스케줄러의 모니터링 및 관리 기능도 알아봅니다.

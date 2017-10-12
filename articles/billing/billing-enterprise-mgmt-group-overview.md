@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성 
 
 여러 구독이 있는 경우 "관리 그룹"이라는 컨테이너로 구성하여 구독 전반에서 액세스, 정책, 비용 및 규정 준수를 보다 편리하게 관리할 수 있습니다. 예를 들어 만들 수 있는 리소스 종류를 제한하는 정책을 관리 그룹에 적용할 수 있습니다.
@@ -93,6 +90,5 @@ Azure Portal 내의 관리 그룹은 미리 보기로 제공되며 이 초기 �
 
 > [!Note]
 > 디렉터리가 달라지면 정책이 적용되지 않습니다. 
-
 
 

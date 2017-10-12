@@ -15,10 +15,10 @@ ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
 Azure Active Directory는 개발자가 사용자를 Microsoft에서 지원하는 회사 또는 학교 계정에 안전하게 로그인할 수 있게 도와주는 클라우드 ID 서비스입니다.  여기 설명서는 산업 표준 인증 프로토콜 OAuth 및 OpenID Connect를 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다.

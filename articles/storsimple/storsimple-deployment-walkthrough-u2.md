@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
 > [!div class="op_single_selector"]
@@ -221,5 +220,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](storsimple-manager-service-administration.md) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
 

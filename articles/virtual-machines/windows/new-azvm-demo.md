@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c303235ead2af7cfaa368a5b5f00567ae44cfb86
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Cloud Shell에서 New-AzVM(미리 보기)을 사용하여 Windows 가상 컴퓨터 만들기 
 
 New-AzVM(미리 보기) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간단한 방법입니다. 이 가이드는 New-AzVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 Windows Server 2016을 실행하는 새 Azure 가상 컴퓨터를 만드는 방법을 자세히 설명합니다. 배포가 완료되면 RDP를 사용하여 서버에 연결합니다.  
@@ -83,4 +81,3 @@ Remove-AzureRmResourceGroup -Name myVMResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 가상 컴퓨터 자습서](./tutorial-manage-vm.md)
-

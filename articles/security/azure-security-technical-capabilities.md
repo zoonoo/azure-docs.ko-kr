@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 
@@ -530,4 +529,3 @@ OMS를 사용하면 경쟁력 있는 솔루션보다 저렴한 비용으로 온-
 - [네트워크 보안](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [위협 관리](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
-

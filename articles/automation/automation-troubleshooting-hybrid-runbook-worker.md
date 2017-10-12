@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: magoedte
+ms.openlocfilehash: 1a72fcf2493396b4744a49b01f3c6da8eed0de40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9d1ceda5a072f494651a751a25a8ccf66e4c72ef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대한 문제 해결 팁
 
 이 문서에서는 Automation Hybrid Runbook Worker에서 발생할 수 있는 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.

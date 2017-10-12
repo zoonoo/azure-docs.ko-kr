@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 수행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다. 
@@ -193,4 +192,3 @@ ms.lasthandoff: 09/25/2017
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 내결함성](copy-activity-fault-tolerance.md)
 - [복사 작업 성능](copy-activity-performance.md)
-

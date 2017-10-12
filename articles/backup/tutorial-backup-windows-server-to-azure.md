@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
 
@@ -103,7 +102,7 @@ MARS(Microsoft Azure Recovery Services) 에이전트는 Windows Server와 Recove
  
 4. 메시지가 나타나면 Windows Server의 백업을 암호화하는 데 사용할 암호화 암호를 제공합니다. Microsoft는 잃어버린 암호를 복구할 수 없으므로, 암호를 안전한 위치에 저장하세요.
 
-5. **Finish**를 클릭합니다. 
+5. **마침**을 클릭합니다. 
 
 ## <a name="configure-backup-and-retention"></a>백업 및 보존 구성
 
@@ -161,5 +160,4 @@ Microsoft Azure Recovery Services 에이전트를 사용하면 Azure에 백업�
 
 > [!div class="nextstepaction"] 
 > [Azure에서 Windows Server로 파일 복원](./tutorial-backup-restore-files-windows-server.md) 
-
 

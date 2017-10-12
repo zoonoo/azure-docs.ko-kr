@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>가상 네트워크 서비스 끝점 구성
 
@@ -397,4 +396,3 @@ VNet에 대한 서비스 리소스를 보호하기 위한 자세한 정보는 �
 [가상 네트워크에 대한 Azure Storage 계정 보호](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 [가상 네트워크에 대한 Azure SQL 보호](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
-

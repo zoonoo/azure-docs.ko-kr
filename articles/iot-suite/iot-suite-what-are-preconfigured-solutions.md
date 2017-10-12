@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
+ms.openlocfilehash: e0e79cb3b4c71c5d424f3b46af72fcb8b2f63ead
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: d66dece63d2ba944c8f3828ba68c6202485d47e0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?
 
@@ -176,4 +175,3 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
-

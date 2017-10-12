@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: b07386eeb0d3e05a0b4545be39030066fbdafd3d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>첫 번째 실행 동안 Azure AD에 새 Windows 10 장치 조인
 
@@ -87,4 +86,3 @@ Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 �
 - 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
 - Azure AD 포털에서 장치를 관리하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)를 참조하세요.
-

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture"></a>1단계: 아키텍처 검토
 
@@ -60,8 +60,7 @@ VMM 클라우드의 Hyper-V VM을 Azure에 복제할 때는 여러 가지 구성
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업** 탭에서 작업을 모니터링할 수 있습니다.
-        ![작업 목록](media/vmm-to-azure-walkthrough-architecture/image1.png)![보호 드릴 다운 사용](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. **작업** 탭에서 작업을 모니터링할 수 있습니다.      ![작업 목록](media/vmm-to-azure-walkthrough-architecture/image1.png)![보호 드릴 다운 사용](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>초기 데이터 복제
 

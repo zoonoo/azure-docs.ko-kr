@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Azure Web App for Containers를 사용한 연속 배포
 
@@ -93,4 +92,3 @@ Docker 허브 페이지에서 **웹후크**를 클릭한 후 **웹후크 만들�
 * [Containers용 Azure Web App에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](./app-service-linux-faq.md) 
 * [Azure CLI 2.0을 사용하여 Web App for Containers 관리](./app-service-linux-cli.md)
-

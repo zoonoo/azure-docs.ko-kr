@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: maxluk
+ms.openlocfilehash: 9d66931e1c855788163d92f0c3f34f55c44615dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>HDInsight의 Spark 소개
 
@@ -133,4 +132,3 @@ HDInsight의 Spark 클러스터를 만드는 것으로 시작합니다. [빠른 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 * [Azure HDInsight의 Apache Spark에 대해 알려진 문제](hdinsight-apache-spark-known-issues.md)
-

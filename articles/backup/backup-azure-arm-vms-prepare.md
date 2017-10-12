@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 컴퓨터를 백업하기 위한 환경 준비
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.lasthandoff: 09/05/2017
 Azure Backup 서비스에는 VM을 보호하는 두 가지 유형의 자격 증명 모음이(백업 자격 증명 모음 및 복구 서비스 자격 증명 모음) 있습니다. 백업 자격 증명 모음은 클래식 배포 모델을 사용하여 배포된 VM을 보호합니다. 복구 서비스 자격 증명 모음은 **클래식으로 배포되거나 Resource Manager 배포 VM을 양쪽 모두** 보호합니다. Resource Manager 배포 VM을 보호하려면 복구 서비스 자격 증명 모음을 사용해야 합니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
 >
 >
 
@@ -315,4 +314,3 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-

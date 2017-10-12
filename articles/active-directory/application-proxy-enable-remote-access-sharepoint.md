@@ -15,14 +15,12 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
 이 문서에서는 온-프레미스 SharePoint 서버를 Azure AD(Azure Active Directory) 응용 프로그램 프록시와 통합하는 방법을 설명합니다.
@@ -208,5 +206,4 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint 사이트를 외부�
 
 - [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](active-directory-application-proxy-custom-domains.md)
 - [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
-
 

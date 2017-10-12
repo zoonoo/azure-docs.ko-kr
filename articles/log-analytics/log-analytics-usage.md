@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 Log Analytics는 데이터를 전송한 컴퓨터 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 Log Analytics 서비스에 전송된 데이터의 양을 확인합니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
@@ -173,4 +172,3 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 * [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 변경합니다.
 * [이벤트 로그 구성](log-analytics-data-sources-windows-events.md)을 변경합니다.
 * [syslog 구성](log-analytics-data-sources-syslog.md)을 변경합니다.
-

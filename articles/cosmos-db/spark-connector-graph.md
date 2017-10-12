@@ -15,12 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 3ba34ac177cb9b88030be85288e3b3a429d4fd8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Spark 및 Apache TinkerPop Gremlin을 사용하여 그래프 분석 수행
 
@@ -406,4 +405,3 @@ Azure Cosmos DB에 그래프를 유지할 수 있는 방법을 보여주려면 �
 이 빠른 시작 문서에서는 Azure Cosmos DB와 Spark를 결합하여 그래프를 사용하는 방법을 알아 보았습니다.
 
 > [!div class="nextstepaction"]
-

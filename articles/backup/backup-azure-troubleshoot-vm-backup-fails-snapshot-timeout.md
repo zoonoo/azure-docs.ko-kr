@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
+ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup 오류 문제 해결: 에이전트 및/또는 확장 관련 문제
 
 이 문서에서는 VM 에이전트와 통신 및 확장의 문제와 관련된 백업 실패를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
@@ -180,5 +178,4 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 6. **제거**를 클릭합니다.
 
 이렇게 하면 다음 백업 동안 확장을 다시 설치해야 합니다.
-
 

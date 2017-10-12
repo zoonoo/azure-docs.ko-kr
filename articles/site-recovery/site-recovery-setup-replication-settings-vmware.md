@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
-ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Azure에 대한 VMware의 복제 정책 관리
 
@@ -88,4 +86,3 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > 구성 서버가 하나 이상 연결되어 있는 경우 복제 정책을 삭제할 수 없습니다. 정책을 사용하는 복제된 항목이 없는지 확인하고 정책을 삭제하기 전에 연결된 구성 서버를 모두 삭제합니다.
-

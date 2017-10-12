@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Security Center에서 적응 응용 프로그램 컨트롤(미리 보기)
 이 연습을 통해 Azure Security Center에서 응용 프로그램 컨트롤을 구성하는 방법에 대해 알아봅니다.
@@ -61,7 +60,7 @@ ms.lasthandoff: 09/20/2017
 
 ![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-목록에는 다음이 포함됩니다.
+이 목록에는 다음과 같은 정보가 포함됩니다.
 - **이름**: 구독 또는 리소스 그룹의 이름
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
 - **상태**: 권장의 상태로 대부분의 경우 열려 있음
@@ -90,7 +89,7 @@ ms.lasthandoff: 09/20/2017
 
 ![리소스 그룹](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-목록에는 다음이 포함됩니다.
+이 목록에는 다음과 같은 정보가 포함됩니다.
 
 - **이름**: 구독 또는 리소스 그룹의 이름
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
@@ -115,7 +114,7 @@ ms.lasthandoff: 09/20/2017
     - **ViolationsBlocked**: 적용 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행되려 합니다.
     - **ViolationsAudited**: 감사 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행됩니다.
     - **RulesViolatedManually**: 사용자가 ASC 관리 포털을 통해서가 아닌 VM에서 규칙을 수동으로 구성하려고 하는 경우입니다.
-- **아니요  VM 수**: 이러한 문제 유형이 있는 가상 컴퓨터의 수입니다.
+-  **VM 수**: 이러한 문제 유형이 있는 가상 컴퓨터의 수입니다.
 
 이러한 줄을 하나씩 클릭하면 이러한 유형의 위반이 있는 모든 VM에 대한 정보를 볼 수 있는 [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 페이지로 리디렉션됩니다. 각 줄의 끝에 있는 세 점을 클릭하면 해당 특정 항목을 삭제할 수 있습니다. **가상 컴퓨터 구성** 섹션에는 이러한 규칙이 적용된 VM이 나열되어 있습니다. 
 
@@ -157,5 +156,4 @@ Security Center는 안정적인 응용 프로그램의 집합을 실행하는 �
 * [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다. 
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
 

@@ -3,7 +3,7 @@ title: "Azure Automation 실행 계정 만들기 | Microsoft Docs"
 description: "이 문서에서는 Automation 계정을 업데이트하고 PowerShell 또는 포털에서 실행 계정을 만드는 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 09ddca83fc0f39d7911813e488317f9434fdcfc8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8a42f73fbe33b422b7881f8a17a1f421e2b5dfc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>실행 계정으로 Automation 계정 인증 업데이트 
 다음과 같은 경우 포털 또는 PowerShell을 사용하여 기존 Automation 계정을 업데이트할 수 있습니다.
 

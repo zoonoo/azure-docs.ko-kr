@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7f1d55b90af4e5397d74a8e37b44b5a88530897d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10cc1daf89212635243cbfe8f7b598a567d0f7c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 
 API Management에서는 클라이언트 인증서를 사용하여 API에 대한 액세스(예: API Management에 대한 클라이언트)를 보호하는 기능을 제공합니다. 현재, 클라이언트 인증서의 지문을 원하는 값과 비교해서 확인할 수 있습니다. API Management에 업로드된 기존 인증서와 지문을 비교해서 확인할 수도 있습니다.  
@@ -88,5 +86,4 @@ API Management에서는 클라이언트 인증서를 사용하여 API에 대한 
 
 *  [클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [인증서 업로드 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
 

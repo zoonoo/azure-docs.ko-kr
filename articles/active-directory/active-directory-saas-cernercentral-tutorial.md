@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: f01e605d2d3f68f7e95839dab78b3b10e43d28f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>자습서: Cerner Central과 Azure Active Directory 통합
 
@@ -141,7 +140,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     
     ![Single Sign-on 구성](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpointicon.png)
 
-    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여넣습니다.
+    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
     
     ![Single Sign-on 구성](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_endpoint.png)
      
@@ -248,5 +247,4 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [201]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cernercentral-tutorial/tutorial_general_203.png
-
 

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Azure AD 암호를 잊어버렸어요. 도와주세요!
 
@@ -117,4 +116,3 @@ ms.lasthandoff: 07/06/2017
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "인증 데이터 확인"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "암호 변경"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "암호가 재설정되었습니다."
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0459eb5cc71939202c8491f6b2714e28bd8e202d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
 Azure Active Directory를 사용하여 사용자 각자 또는 의사 결정자가 액세스 검토에 참여하고 사용자의 액세스에 다시 인증(또는 "증명")하도록 요청하여 손쉽게 사용자가 적절한 액세스를 갖는지 확인할 수 있습니다.  검토자는 Azure AD에서 제안 사항에 따라 지속적인 액세스에 대한 각 사용자의 요구에 입력을 제공할 수 있습니다. 액세스 검토가 완료되면 더 이상 필요하지 않은 사용자에서 액세스를 변경 및 제거할 수 있습니다.
@@ -51,7 +49,6 @@ Azure Active Directory를 사용하여 사용자 각자 또는 의사 결정자�
 ## <a name="next-steps"></a>다음 단계
 
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
-
 
 
 

@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cefec9c703d3d1544eb7216c97b0a065a39ee2eb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 오픈 소스 기술 문제에 대한 FAQ(질문과 대답)가 있습니다.
@@ -252,4 +249,3 @@ MySQL 앱 내 기능이 실행 중인지 확인한 후 PHPMyAdmin을 사용해 �
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>PHPMyadmin을 사용하여 내 MySQL 앱 내 데이터베이스를 가져오거나 내보낼 때 HTTP 403 오류가 발생합니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
 이전 버전의 Chrome을 사용하고 있으면 알려진 버그가 발생할 수 있습니다. 문제를 해결하려면 최신 버전의 Chrome으로 업그레이드합니다. 또한 Internet Explorer 또는 Edge와 같이 문제가 발생하지 않는 다른 브라우저를 사용해 보세요.
-

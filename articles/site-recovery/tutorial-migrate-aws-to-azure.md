@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -86,9 +85,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 마이그레이션할 하나 이상의 VM이 필요합니다. 이 EC2 인스턴스는 64비트 버전 Windows Server 2008 R2 SP1 이상, Windows Server 2012, Windows Server 2012 R2 또는 Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만)을 실행해야 합니다. 서버는 Citrix PV 또는 AWS PV 드라이버만 사용해야 합니다. RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 않습니다.
 
-복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. Site Recovery는 사용자가 VM에 대해 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다.
+복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다.
 
-도메인 또는 로컬 계정을 사용할 수 있습니다. Linux VM에서 계정은 원본 Linux 서버의 루트여야 합니다. Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
+도메인 또는 로컬 계정을 사용할 수 있습니다. Linux VM의 경우 계정은 원본 Linux 서버의 루트여야 합니다. Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
 
   - 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 DWORD 항목 **LocalAccountTokenFilterPolicy**를 추가하고 값을 1로 설정합니다.
     
@@ -264,4 +263,3 @@ Azure VM에 마이그레이션할 EC2 인스턴스에 대해 실제 장애 조�
 
 > [!div class="nextstepaction"]
 > [Azure Windows 가상 컴퓨터 자습서](../virtual-machines/windows/tutorial-manage-vm.md)
-

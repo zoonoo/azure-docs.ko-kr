@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발
 
@@ -59,4 +58,3 @@ ms.lasthandoff: 09/25/2017
 > [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)의 이 연습에서 개발하는 실험의 작업 복사본을 찾을 수 있습니다. **[연습 - 신용 위험 예측](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**으로 이동하고 **Studio에서 열기**를 클릭하여 Machine Learning Studio 작업 영역으로 실험의 복사본을 다운로드합니다.
 > 
 > 이 연습은 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 하며 [갤러리](http://gallery.cortanaintelligence.com/)에서 사용 가능합니다.
-

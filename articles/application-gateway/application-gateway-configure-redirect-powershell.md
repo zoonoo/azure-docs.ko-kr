@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway에서 리디렉션 구성
 
 응용 프로그램 게이트웨이는 정의된 구성에 따라 트래픽을 리디렉션하는 기능을 지원합니다. 일반 방문에서 리디렉션에 대해 자세히 알아보려면 [Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 참조하세요. 이 문서에서는 HTTP에서 HTTPS로의 리디렉션, 경로 기반 리디렉션, 다중 사이트 리디렉션 및 외부 사이트로의 리디렉션에 대한 예제를 제공합니다.

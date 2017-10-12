@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: bwren
 ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>OMS Log Analytics에서 Slack에 메시지를 보내는 경고 웹후크 작업 만들기
 [Log Analytics 경고](log-analytics-alerts.md) 에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다.  [Log Analytics의 경고](log-analytics-alerts.md)

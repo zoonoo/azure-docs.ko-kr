@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>Azure CLI를 사용하여 Azure Batch 풀 관리
 
 다음 스크립트는 Azure Batch 서비스에서 계산 노드의 풀을 만들고 관리하기 위해 Azure CLI에서 사용 가능한 몇 가지 도구를 보여 줍니다.
@@ -39,11 +37,11 @@ Batch 풀은 Cloud Services 구성(Windows 전용)이나 Virtual Machine 구성(
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>클라우드 서비스 구성이 있는 풀 샘플 스크립트
 
-[!code-azurecli[메인](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "클라우드 서비스 풀 관리")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>가상 컴퓨터 구성이 있는 풀 샘플 스크립트
 
-[!code-azurecli[메인](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "가상 컴퓨터 풀 관리")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>풀 정리
 
@@ -79,5 +77,4 @@ az batch pool delete --pool-id mypool-linux
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 Batch CLI 스크립트 샘플은 [Azure Batch CLI 설명서](../batch-cli-samples.md)에서 확인할 수 있습니다.
-
 

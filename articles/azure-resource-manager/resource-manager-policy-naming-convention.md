@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>이름 및 텍스트에 대한 리소스 정책 적용
 이 항목에서는 명명 및 텍스트 규칙 설정에 적용할 수 있는 몇 가지 [리소스 정책](resource-manager-policy.md)을 보여 줍니다. 이러한 정책은 리소스 이름 및 태그 값에 대해 일관성을 보장합니다. 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 성능 팁
 Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 [SDK 메서드 호출](set-throughput.md#set-throughput-sdk)을 수행하는 것만큼 쉽습니다. 그러나 네트워크 호출을 통해 Cosmos DB에 액세스하기 때문에 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화를 지정할 수 있습니다.
@@ -145,14 +144,8 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     - Azure에 배포된 ASP.NET 웹 응용 프로그램에서는 Azure Portal의 **응용 프로그램 설정**에서 **64비트 플랫폼**을 선택하면 됩니다.
 
 ## <a name="indexing-policy"></a>인덱싱 정책
-1. **더 빠른 피크 시간 수집 속도에 대한 지연 인덱싱 사용**
-
-    컬렉션 수준에서 Cosmos DB를 통해 컬렉션의 문서를 자동으로 인덱싱할지 여부를 선택할 수 있는 인덱싱 정책을 지정할 수 있습니다.  또한 동기(일관성)와 비동기(지연) 인덱스 업데이트 중에서 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 동기적으로 모드를 사용하면 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 [일관성 수준](consistency-levels.md) 과 동일한 일관성 수준을 적용할 수 있습니다.
-
-    지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 대해 고려할 수 있으며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 또한 지연 인덱스를 사용하면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 그러나 지연 인덱싱을 사용할 경우 쿼리 결과는 Cosmos DB 계정에 대해 구성된 일관성 수준에 관계없이 궁극적으로 일관성을 갖게 됩니다.
-
-    따라서 일관된 인덱싱 모드(IndexingPolicy.IndexingMode가 Consistent로 설정됨)는 한 번 쓰는 데 가장 높은 요청 단위 요금이 부과되고, 지연 인덱싱 모드(IndexingPolicy.IndexingMode는 Lazy로 설정됨)와 인덱싱 없음 모드(IndexingPolicy.Automatic이 False로 설정됨)는 쓰는 시간에 대한 인덱싱 비용이 없습니다.
-2. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
+ 
+1. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
     Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
 
@@ -214,4 +207,3 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 Cosmos DB를 평가하는 데 사용된 샘플 응용 프로그램은 [Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 
 또는 확장성 및 고성능을 위한 응용 프로그램 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partition-data.md)을 참조하세요.
-

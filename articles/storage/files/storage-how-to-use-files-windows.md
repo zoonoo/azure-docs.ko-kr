@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
 
@@ -36,7 +34,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 | Windows 8.1            | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012    | SMB 3.0     | 예                   | 예                  |
-| 윈도우 7              | SMB 2.1     | 예                   | 아니요                   |
+| Windows 7              | SMB 2.1     | 예                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니요                   |
 
 <sup>1</sup>Windows 10 버전 1507, 1511, 1607, 1703 및 1709
@@ -127,7 +125,7 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 * [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>개념 문서 및 비디오
-* [Azure Files: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)(Azure Files: Windows 및 Linux를 위한 원활한 클라우드 SMB 파일 시스템)
 * [Linux에서 Azure Files 사용 방법](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-files"></a>Azure Files의 도구 지원
@@ -145,4 +143,3 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 ### <a name="reference"></a>참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-

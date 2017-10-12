@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 6abad7d9d501a1fdead83a1a678f1b053ee70a25
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>ELK를 사용하여 Azure Container Service 클러스터 모니터링
 이 문서에서는 Azure Container Service의 DC/OS 클러스터에 ELK(Elasticsearch, Logstash, Kibana) 스택을 배포하는 방법을 보여 줍니다. 
@@ -70,5 +69,4 @@ HAPROXY 대시보드에 액세스하려면 `http://$PUBLIC_NODE_IP_ADDRESS:9090/
 * 로그를 필터링하려면 [ELK로 로그 필터링](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/)을 참조하세요. 
 
  
-
 

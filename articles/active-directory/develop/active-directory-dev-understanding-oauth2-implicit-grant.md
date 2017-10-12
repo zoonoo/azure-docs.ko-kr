@@ -16,10 +16,10 @@ ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure AD(Active Directory)의 OAuth2 암시적 허용 흐름 이해
 OAuth2 암시적 허용은 OAuth2 사양에서 보안 문제가 가장 많은 허용으로 악명이 높습니다. 그런데도 이는 ADAL JS가 구현한 방법이며 SPA 응용 프로그램을 작성할 때 권장하는 방법입니다. 무엇을 제공하나요? 모두 절충의 문제이며 이미 판명되었듯이 암시적 허용은 브라우저에서 JavaScript를 통해 웹 API를 사용하는 응용 프로그램에 대해 추진할 수 있는 최선의 방법입니다.

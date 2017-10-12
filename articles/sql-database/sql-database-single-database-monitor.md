@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 데이터베이스 성능 모니터링
 Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 모니터링을 통해 데이터베이스에 과도한 용량이 있는지, 리소스가 최대값에 도달하는 문제가 있는지 확인한 후 데이터베이스의 성능 수준 및 [서비스 계층](sql-database-service-tiers.md)을 조정할 시기인지 여부를 결정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 그래픽 도구를 사용하거나 SQL [동적 관리 뷰](https://msdn.microsoft.com/library/ms188754.aspx)를 사용하여 데이터베이스를 모니터링할 수 있습니다.
@@ -217,4 +216,3 @@ SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/li
 
 - [Azure SQL Database 자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 데이터베이스 인덱스 및 쿼리 실행 계획을 자동으로 튜닝합니다.
 - [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 사용하여 데이터베이스 성능을 자동으로 모니터링합니다. 이 기능은 성능 문제의 진단 정보 및 근본 원인 분석을 제공합니다.
-

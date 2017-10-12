@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 이 문서에서는 데이터 관리 게이트웨이를 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
@@ -250,4 +249,3 @@ Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환�
 다음 문서를 검토합니다.
 - [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) - 게이트웨이에 대한 자세한 개요를 제공합니다.
 - [온-프레미스 및 클라우드 저장소 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) - 단일 노드가 있는 게이트웨이를 사용하기 위한 단계별 지침이 포함된 연습을 제공합니다. 
-

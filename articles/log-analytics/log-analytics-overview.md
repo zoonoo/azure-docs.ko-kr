@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
 ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics란?
 Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는[\(OMS\)Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md)의 서비스입니다.  이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.  이 문서에서는 Log Analytics에서 제공하는 값, 작동하는 방법의 개요 및 더 알아볼 수 있도록 더 자세한 내용에 대한 링크를 간략하게 설명합니다.

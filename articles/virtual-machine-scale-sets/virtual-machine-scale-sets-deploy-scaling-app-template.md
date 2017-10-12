@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>템플릿을 사용하여 자동 크기 조정 앱 배포
 
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서는 [간단한 확장 집합 배포](virtual-machine-scale-sets-mvss-start.md)를 토대로 구축되었으며 Azure Resource Manager 템플릿을 사용하여 확장 집합에 간단한 자동 크기 조정 응용 프로그램을 배포하는 방법을 설명합니다.  PowerShell, CLI 또는 포털을 사용하여 크기 자동 조정도 설정할 수 있습니다. 자세한 내용은 [크기 자동 조정 개요](virtual-machine-scale-sets-autoscale-overview.md)를 참조하세요.
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 끝점의 달라진 점
 Azure Active Directory에 익숙하거나 이전에 Azure AD와 앱을 통합했다면 v2.0 끝점에서 예상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다.  이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.

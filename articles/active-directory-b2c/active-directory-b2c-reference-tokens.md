@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
+ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: 토큰 참조
 
@@ -155,5 +154,4 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/key
 | ID 토큰 |1시간 |ID 토큰은 일반적으로 1시간 동안 유효합니다. 웹앱은 이 수명을 사용하여 사용자와의 자체 세션을 유지 관리할 수 있습니다(권장). 다른 세션 수명을 선택할 수도 있습니다. 앱이 새 ID 토큰을 가져와야 하는 경우 Azure AD에 대해 새 로그인 요청을 만들면 됩니다. Azure AD를 통해 유효한 브라우저 세션이 사용자에게 있는 경우 해당 사용자는 자격 증명을 다시 입력하지 않아도 됩니다. |
 | 새로 고침 토큰 |최대 14일 |단일 새로 고침 토큰이 최대 14일 동안 유효합니다. 그러나 새로 고침 토큰은 여러 가지 이유로 언제든지 무효화될 수 있습니다. 앱은 요청이 실패하거나 앱이 새로 고침 토큰을 새 것으로 바꿀 때까지 새로 고침 토큰을 사용하도록 계속 시도합니다. 또한 사용자가 마지막으로 자격 증명을 입력한 후 90일이 지나면 새로 고침 토큰이 무효화될 수 있습니다. |
 | 권한 부여 코드 |5분 |권한 부여 코드는 의도적으로 수명이 단기입니다. 권한 부여 코드가 수신되면 액세스 토큰, ID 토큰 또는 새로 고침 토큰에 대해 즉시 교환해야 합니다. |
-
 

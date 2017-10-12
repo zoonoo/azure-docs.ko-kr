@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>자습서: Cezanne HR 소프트웨어와 Azure Active Directory 통합
 
@@ -299,5 +298,4 @@ Azure AD 사용자가 Cezanne HR 소프트웨어에 로그인할 수 있도록 �
 [201]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_203.png
-
 

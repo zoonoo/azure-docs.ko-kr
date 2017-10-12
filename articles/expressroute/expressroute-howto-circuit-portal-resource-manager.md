@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -158,5 +157,4 @@ ExpressRoute 회로를 수정하려면 아래 그림과 같이 **구성**을 클
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
 

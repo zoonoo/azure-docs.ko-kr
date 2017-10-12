@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
 ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>클래식 포털에서 Express 경로에 대한 가상 네트워크 만들기
 이 문서의 단계에서는 클래식 배포 모델 및 클래식 포털을 사용하여 ExpressRoute와 함께 사용할 가상 네트워크 및 가상 네트워크 게이트웨이를 구성하는 과정을 안내합니다.

@@ -17,12 +17,11 @@ ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: e93bfacfd74c0e8f34bc1bab372cc287193e992f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conditional-access-in-the-azure-classic-portal"></a>Azure 클래식 포털의 조건부 액세스
 
@@ -97,5 +96,4 @@ Azure AD에서 장치 기반 인증 기관 정책을 구성하는 방법에 대�
 ### <a name="next-steps"></a>다음 단계
 * [조건부 액세스 FAQ](active-directory-conditional-faqs.md)
 * [기술 참조](active-directory-conditional-access-technical-reference.md)
-
 

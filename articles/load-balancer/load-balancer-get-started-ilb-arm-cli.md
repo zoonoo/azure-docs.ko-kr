@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 83cf027d95018de61ea906268d8f24700203e0c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
@@ -218,5 +216,4 @@ azure network lb delete --resource-group nrprg --name ilbset
 [원본 IP 선호도를 사용하여 부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
 

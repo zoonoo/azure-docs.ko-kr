@@ -1,29 +1,27 @@
 ---
 title: "Azure Backup으로 VM에 파일 복원 | Microsoft Docs"
 description: "Backup 및 Recovery Services를 사용하여 Azure VM에서 파일 수준 복원을 수행하는 방법을 알아봅니다."
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: abad99f862e3831e70254e76e768e4eb7b2a5053
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6a009ef06e4e92d234b1954fbb282ff50fc4cae8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 컴퓨터에 파일 복원
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 개별 파일을 복원하는 방법에 대해 자세히 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -88,7 +86,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
 ## <a name="generate-file-recovery-script"></a>파일 복구 스크립트 생성
 파일을 복원하기 위해 Azure Backup은 복구 지점을 로컬 드라이브로 연결하는 VM에서 실행할 스크립트를 제공합니다. 이 로컬 드라이브를 찾아보고, VM에 파일을 직접 복원한 다음, 복구 지점 연결을 해제할 수 있습니다. Azure Backup에서는 일정 및 보존에 할당된 정책에 따라 데이터를 계속 백업합니다.
 
-1. VM에 대한 복구 지점을 나열하려면 **az backup recoverypoint list**를 사용합니다. 이 예제에서는 *myRecoveryServicesVault*에서 보호되는 *myVM*이라는 VM에 대한 최근 복구 지점을 선택합니다.
+1. VM에 대한 복구 지점을 나열하려면 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list)를 사용합니다. 이 예제에서는 *myRecoveryServicesVault*에서 보호되는 *myVM*이라는 VM에 대한 최근 복구 지점을 선택합니다.
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -100,7 +98,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
         --output tsv
     ```
 
-2. 복구 지점을 VM에 연결하거나 탑재하는 스크립트를 가져오려면 **az backup restore files mount-rp**를 사용합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 보호되는 *myVM*이라는 VM에 대한 스크립트를 가져옵니다.
+2. 복구 지점을 VM에 연결하거나 탑재하는 스크립트를 가져오려면 [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp)를 사용합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 보호되는 *myVM*이라는 VM에 대한 스크립트를 가져옵니다.
 
     *myRecoveryPointName*을 이전 명령에서 가져온 복구 지점 이름으로 바꿉니다.
 
@@ -147,7 +145,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     ./myVM_we_1571974050985163527.sh
     ```
 
-    스크립트가 실행되면 복구 지점에 액세스하기 위해 암호를 입력하라는 메시지가 표시됩니다. 복구 스크립트를 생성한 이전 **az backup restore files mount-rp** 명령의 출력에 표시된 암호를 입력합니다.
+    스크립트가 실행되면 복구 지점에 액세스하기 위해 암호를 입력하라는 메시지가 표시됩니다. 복구 스크립트를 생성한 이전 [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) 명령의 출력에 표시된 암호를 입력합니다.
 
     스크립트의 출력에서 복구 지점에 대한 경로가 제공됩니다. 다음 예제 출력에서는 복구 지점이 */home/azureuser/myVM-20170919213536/Volume1*에 탑재되었음을 보여 줍니다.
 
@@ -187,7 +185,7 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     exit
     ```
 
-8. **az backup restore files unmount-rp**를 사용하여 VM에서 복구 지점을 분리합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 *myVM*이라는 VM의 복구 지점을 분리합니다.
+8. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp)를 사용하여 VM에서 복구 지점을 분리합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 *myVM*이라는 VM의 복구 지점을 분리합니다.
 
     *myRecoveryPointName*을 이전 명령에서 가져온 복구 지점 이름으로 바꿉니다.
     
@@ -212,5 +210,4 @@ Azure에 Windows Server를 백업하는 방법을 알아보려면 다음 자습�
 
 > [!div class="nextstepaction"]
 > [Azure에 Windows Server 백업](tutorial-backup-windows-server-to-azure.md)
-
 

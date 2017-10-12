@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-api-management"></a>API 관리란?
 API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다. 모든 곳의 비즈니스는 디지털 플랫폼으로 운영을 확장함으로써 새로운 채널을 생성하고, 새로운 고객을 찾고, 기존 고객과 더 깊은 관계를 구축하고자 합니다. API 관리는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
@@ -125,7 +125,6 @@ API 관리에 대해 자세히 알아보려면 Microsoft Ignite 2015 conference�
 [Policy reference]: api-management-policy-reference.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
-
 
 
 

@@ -15,12 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
 
@@ -123,4 +122,3 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 * [Azure 질문에 대한 Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)
-

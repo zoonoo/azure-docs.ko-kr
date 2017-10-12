@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 1785b4da8c54354dbc48c514dbb8f969a1f997ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Windows VM에서 MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -143,4 +141,3 @@ Key Vault에서 비밀을 검색한 후에는 이름과 암호가 필요한 서�
 - MSI의 개요는 [관리 서비스 ID 개요](../active-directory/msi-overview.md)를 참조하세요.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
-

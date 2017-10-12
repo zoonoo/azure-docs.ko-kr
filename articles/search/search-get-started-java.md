@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure 검색 시작
 > [!div class="op_single_selector"]
@@ -101,8 +101,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
    
     ![][6]
 3. **Apply**를 클릭합니다.
-4. <seg>
-  **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**를 선택합니다.</seg>
+4. **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**를 선택합니다.
 5. Apache를 확장하고 이전에 설치한 Apache Tomcat 서버의 버전을 선택합니다. 예제 시스템에는 버전 8이 설치되어 있습니다.
    
     ![][7]

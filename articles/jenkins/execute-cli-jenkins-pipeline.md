@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
 
@@ -93,7 +91,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>Azure Web App 만들기
 
- [az webapp create](/cli/azure/appservice/web#create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
+ [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 �
 > * GitHub 리포지토리 준비
 > * Jenkins 파이프라인 만들기
 > * 파이프라인 실행 및 웹앱 확인
-

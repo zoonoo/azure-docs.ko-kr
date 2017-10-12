@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 67534da42ac27989a8b08cec4d6f9f9c31774264
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>자습서: Pingboard와 Azure Active Directory 통합
 
@@ -272,4 +271,3 @@ Azure AD 사용자가 Pingboard에 로그인할 수 있도록 하려면 Pingboar
 [201]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_203.png
-

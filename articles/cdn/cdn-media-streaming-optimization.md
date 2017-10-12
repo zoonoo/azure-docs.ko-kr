@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Azure Content Delivery Network를 통한 미디어 스트리밍 최적화 
  
@@ -98,5 +97,4 @@ Verizon의 Azure Content Delivery Network는 일반 웹 배달 최적화 형식�
 ### <a name="cache-fill-wait-time"></a>캐시 채우기 대기 시간
 
  부분 캐시 공유와 함께 유용한 캐시 채우기 대기 시간 기능은 HTTP 응답 헤더가 원본 서버에서 도착할 때까지 에지 서버에서 동일한 리소스에 대한 향후 요청을 보류하도록 합니다. 타이머가 만료되기 전에 원본 서버의 HTTP 응답 헤더가 도착하면 보류된 모든 요청이 증가하는 캐시에서 처리됩니다. 동시에 캐시는 원본 서버의 데이터로 채워집니다. 기본적으로 캐시 채우기 대기 시간은 3,000밀리초로 설정됩니다. 
-
 

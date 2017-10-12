@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>OMS 아키텍처
 [OMS(Operations Management Suite)](https://azure.microsoft.com/documentation/services/operations-management-suite/)는 온-프레미스 및 클라우드 환경을 관리하기 위한 클라우드 기반 서비스의 모음입니다.  이 문서는 OMS의 다양한 온-프레미스 및 클라우드 구성 요소와 대략적인 클라우드 컴퓨팅 아키텍처에 대해 설명합니다.  자세한 내용은 각 서비스의 설명서를 참조하세요.
@@ -71,18 +70,17 @@ Azure Site Recovery에는 세 가지 기본 복제 시나리오가 있습니다.
 
 **VMware 가상 컴퓨터 복제**
 
-* VMware 가상 컴퓨터를 VMware를 실행하는 보조 데이터 센터 또는 Azure 저장소로 복제할 수 있습니다.  Azure로 복제할 경우 사이트 간 VPN 또는 Azure Express 경로 또는 보안 인터넷 연결을 사용할 수 있습니다. 보조 데이터 센터로 복제할 경우 InMage Scout 데이터 채널이 사용됩니다.
+* VMware 가상 컴퓨터를 VMware를 실행하는 보조 데이터 센터 또는 Azure 저장소로 복제할 수 있습니다.  Azure로 복제할 경우 사이트 간 VPN 또는 Azure ExpressRoute 또는 보안 인터넷 연결을 사용할 수 있습니다. 보조 데이터 센터로 복제할 경우 InMage Scout 데이터 채널이 사용됩니다.
 
 **물리적 Windows 또는 Linux 서버 복제** 
 
-* 물리적 서버를 보조 데이터 센터 또는 Azure 저장소로 복제할 수 있습니다. Azure로 복제할 경우 사이트 간 VPN 또는 Azure Express 경로 또는 보안 인터넷 연결을 사용할 수 있습니다. 보조 데이터 센터로 복제할 경우 InMage Scout 데이터 채널이 사용됩니다.  Azure Site Recovery에는 일부 통계를 표시하는 OMS 솔루션이 있지만 모든 작업에 Azure 포털을 사용해야 합니다.
+* 물리적 서버를 보조 데이터 센터 또는 Azure 저장소로 복제할 수 있습니다. Azure로 복제할 경우 사이트 간 VPN 또는 Azure ExpressRoute 또는 보안 인터넷 연결을 사용할 수 있습니다. 보조 데이터 센터로 복제할 경우 InMage Scout 데이터 채널이 사용됩니다.  Azure Site Recovery에는 일부 통계를 표시하는 OMS 솔루션이 있지만 모든 작업에 Azure 포털을 사용해야 합니다.
 
 ![Azure Site Recovery의 개략적 아키텍처](media/operations-management-suite-architecture/site-recovery.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)에 대해 알아보기
-* [Azure 자동화](https://azure.microsoft.com/documentation/services/automation)에 대해 알아보기
-* [Azure 백업](http://azure.microsoft.com/documentation/services/backup)에 대해 알아보기
+* [Azure Automation](https://azure.microsoft.com/documentation/services/automation)에 대해 알아보기
+* [Azure Backup](http://azure.microsoft.com/documentation/services/backup)에 대해 알아보기
 * [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)에 대해 알아보기
-
 

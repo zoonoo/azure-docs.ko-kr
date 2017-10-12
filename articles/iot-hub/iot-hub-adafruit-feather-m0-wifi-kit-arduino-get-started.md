@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/16/2017
 ms.author: xshi
+ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8eee4b2eea165176bddf0896685636bbac4db321
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather M0 WiFi를 클라우드의 Azure IoT Hub에 연결
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -161,7 +159,7 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
 1. **파일** > **기본 설정**(Windows/Linux) 또는 **Arduino** > **환경설정**(Mac)을 클릭하고 아래 링크를 복사하여 Arduino IDE 기본 설정의 **Additional Boards Manager URLs**(추가 보드 관리자 URL) 옵션에 붙여넣습니다.
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 
@@ -240,5 +238,4 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
 IoT Hub에 Feather M0 WiFi를 연결하고 캡처된 센서 데이터를 IoT Hub로 보냈습니다. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-
 

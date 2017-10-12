@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Azure HDInsight, Hadoop 기술 스택 및 Hadoop 클러스터에 대한 소개
  이 문서에서는 Hadoop 기술 스택의 클라우드 배포인 Azure HDInsight에 대해 소개합니다. 또한 Hadoop 클러스터에 대한 정의와 사용 시기에 대해서도 설명합니다. 

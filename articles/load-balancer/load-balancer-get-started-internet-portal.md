@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure 포털을 사용하여 인터넷 연결 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
@@ -37,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다.
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 09/25/2017
 * 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 * 프로브 - 백 엔드 주소 풀의 가상 컴퓨터 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-Azure Resource Manager의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
+Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Azure 포털에서 부하 분산 장치 설정
 
@@ -65,7 +63,7 @@ Azure Resource Manager의 분산 장치 구성 요소에 대한 자세한 내용
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 이름을 입력합니다. 여기서는 **myLoadBalancer**라고 지칭합니다.
 4. **형식**에서 **Public**을 선택합니다.
 5. **공용 IP 주소** 아래에서 **myPublicIP**이라는 새 공용 IP를 만듭니다.
-6. 리소스 그룹에서 **myRG**를 선택합니다. 그런 다음 해당 **위치**를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치는 배포를 시작하며 배포를 완료하는 데 몇 분 정도가 걸립니다.
+6. 리소스 그룹에서 **myRG**를 선택합니다. 그런 다음 해당 **위치**를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치에서 배포를 시작하며 배포를 완료하는 데 몇 분 정도가 걸립니다.
 
     ![부하 분산 장치에 대한 리소스 그룹 업데이트](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -116,4 +114,3 @@ Azure Resource Manager의 분산 장치 구성 요소에 대한 자세한 내용
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

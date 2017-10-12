@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
 다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API 관리로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.

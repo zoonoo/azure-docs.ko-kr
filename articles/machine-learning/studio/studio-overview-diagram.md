@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure 기계 학습 스튜디오 기능 개요 다이어그램
 **Microsoft Azure 기계 학습 스튜디오 기능 개요** 다이어그램은 기계 학습 스튜디오를 사용하여 예측 분석 모델을 개발하고 해당 모델을 Azure 클라우드에서 운영할 수 있는 방법을 개략적으로 설명합니다.
@@ -51,5 +50,4 @@ ms.lasthandoff: 09/25/2017
 * 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘에 대해 자세히 알아보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

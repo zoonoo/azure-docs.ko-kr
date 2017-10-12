@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
 
@@ -788,4 +787,3 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 * [HDInsight에 RStudio Server 추가(클러스터 생성 동안 설치되지 않은 경우)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [HDInsight의 R 서버에 대한 Compute 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)
-

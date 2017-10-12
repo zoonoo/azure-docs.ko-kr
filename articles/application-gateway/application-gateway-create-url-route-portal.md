@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
+ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: f90813c0150d17f301f243c534d77ffd3da297b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Azure Portal을 사용하여 응용 프로그램 게이트웨이용 경로 기반 규칙 만들기
 
@@ -91,4 +90,3 @@ Azure Application Gateway를 사용하여 SSL 오프로드를 구성하는 방�
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
-

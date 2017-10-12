@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 42e1743b67a46c9eac6cce44852ea3a48fd38e5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Datadog을 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Datadog 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Datadog 계정이 필요합니다. 
@@ -50,5 +49,4 @@ Datadog은 Azure 컨테이너 서비스 클러스터 내의 컨테이너에서 �
 ![DC/OS Universe의 Datadog 구성](./media/container-service-monitoring/datadog3.png) 
 
 위의 구성에서 인스턴스는 10000000로 설정되므로 새 노드가 클러스터에 추가될 때마다 Datadog은 해당 노드에 에이전트를 자동으로 배포합니다. 이는 일시적인 해결책입니다. 패키지를 설치하면 Datadog 웹 사이트로 다시 이동하여 "[대시보드](https://app.datadoghq.com/dash/list)"를 찾아야 합니다. 여기에 사용자 지정 및 통합 대시보드가 표시됩니다. [Docker 대시보드](https://app.datadoghq.com/screen/integration/docker)에는 클러스터를 모니터링하는 데 필요한 모든 컨테이너 메트릭이 있게 됩니다. 
-
 

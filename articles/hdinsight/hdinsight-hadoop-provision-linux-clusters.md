@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
+ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -254,4 +253,3 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 - [HDInsight, Hadoop 에코시스템 및 Hadoop 클러스터의 정의](hdinsight-hadoop-introduction.md)
 - [HDInsight에서 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Windows PC에서 HDInsight의 Hadoop 작업](hdinsight-hadoop-windows-tools.md)
-

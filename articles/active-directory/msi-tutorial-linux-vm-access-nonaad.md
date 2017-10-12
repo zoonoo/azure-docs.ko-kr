@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: elkuzmen
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-azure-key-vault"></a>Linux VM에서 MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -137,7 +135,6 @@ Key Vault에서 비밀을 검색한 후에는 이름과 암호가 필요한 서�
 - MSI의 개요는 [관리 서비스 ID 개요](../active-directory/msi-overview.md)를 참조하세요.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
-
 
 
 

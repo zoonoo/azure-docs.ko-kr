@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Azure Active Directory 응용 프로그램 관리 문제 해결
 이 문서에서는 **응용 프로그램 레지스트리**를 사용한 **엔터프라이즈 응용 프로그램** 관리 및 새 응용 프로그램 개발과 관련해서 발생하는 일반적인 몇 가지 문제 해결에 도움이 되는 문서를 찾기 위한 정보를 제공합니다.

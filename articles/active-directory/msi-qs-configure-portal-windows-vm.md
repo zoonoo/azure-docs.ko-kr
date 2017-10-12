@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: bryanla
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -75,4 +73,3 @@ MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음�
 - Azure Portal을 사용하여 Azure VM MSI에 [다른 Azure 리소스 액세스 권한](msi-howto-assign-access-portal.md)을 제공합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
-

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: f02b95a3d6020a77fdfcd096a3c11f5cae5aa49c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Application Gateway는 다중 테넌트 백 엔드를 지원합니다.
 
 Azure Application Gateway는 가상 컴퓨터 확장 집합, 네트워크 인터페이스, 공개/개인 IP 또는 FQDN(정규화된 도메인 이름)을 백 엔드 풀의 일부로 지원합니다. 기본적으로 응용 프로그램 게이트웨이는 클라이언트에서 들어오는 HTTP 호스트 헤더를 변경하지 않으며 변경되지 않은 헤더를 백 엔드로 보냅니다. [Azure Web Apps](../app-service/app-service-web-overview.md) 및 [API Management](../api-management/api-management-key-concepts.md)처럼 기본적으로 다중 테넌트이고 특정 호스트 헤더 또는 SNI 확장을 사용하여 올바른 끝점을 확인하는 여러 서비스가 있습니다. 이제 Application Gateway는 사용자가 백 엔드 HTTP 설정에 따라 들어오는 HTTP 호스트 헤더를 덮어쓰는 기능을 지원합니다. 이 기능을 사용하면 다중 테넌트 백 엔드 Azure 웹앱 및 API 관리를 지원할 수 있습니다. 이 기능은 표준 및 WAF SKU에 모두 제공됩니다. 다중 테넌트 백 엔드 지원은 SSL 종료 및 종단 간 SSL 시나리오에서도 작동합니다.
@@ -41,4 +39,3 @@ Azure Application Gateway는 가상 컴퓨터 확장 집합, 네트워크 인터
 ## <a name="next-steps"></a>다음 단계
 
 [Application Gateway를 사용하여 App Service Web Apps 구성](application-gateway-web-app-powershell.md)을 방문하여 웹앱을 백 엔드 풀 멤버로 사용하여 응용 프로그램 게이트웨이를 설정하는 방법을 알아봅니다.
-

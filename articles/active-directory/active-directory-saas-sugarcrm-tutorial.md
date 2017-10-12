@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: c27aef24e859522b8001ecb747906abdca14d87a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>자습서: Sugar CRM과 Azure Active Directory 통합
 
@@ -291,5 +290,4 @@ Sugar CRM의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_203.png
-
 

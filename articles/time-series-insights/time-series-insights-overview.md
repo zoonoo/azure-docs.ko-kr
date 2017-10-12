@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
 Azure Time Series Insights는 수십억 개의 이벤트를 동시에 쉽게 수집, 저장, 탐색, 분석할 수 있는 저장소, 분석 및 시각화 구성 요소를 갖춘 관리되는 클라우드 서비스입니다. Time Series Insights는 데이터의 전체 보기를 제공하여 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 추세와 비정상을 검색하고 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 하여 비용이 많이 드는 장치 가동 중지를 방지할 수 있습니다. Time Series Insights는 이벤트 브로커(예: IoT Hub 또는 Event Hubs)에서 시계열 데이터를 수집하고, 데이터를 인덱싱하고, 구성 가능한 보존 정책에 따라 데이터를 폐기합니다. 사용자는 직관적인 UX 또는 REST 쿼리 API를 통해 데이터를 사용합니다.
@@ -51,4 +49,3 @@ Azure Time Series Insights는 수십억 개의 이벤트를 동시에 쉽게 수
 * **환경**: 환경은 수신 및 저장 용량이 있는 Azure 리소스입니다.  고객은 필요한 용량을 갖춘 Azure Portal을 통해 환경을 프로비전합니다.
 * **이벤트 원본**: 이벤트 원본은 Azure Event Hubs 같은 이벤트 브로커에서 파생됩니다.  Time Series Insights는 이벤트 원본에 직접 연결하여 코드를 작성하지 않고 데이터 스트림을 수집합니다. 현재 Time Series Insights는 Azure Event Hubs 및 Azure IoT Hubs를 지원합니다.
 * **참조 데이터**: Time Series Insights는 사용자에게 시계열 데이터를 참조 데이터와 조인하는 기능을 제공합니다.  참조 데이터는 장치에 대한 메타데이터 또는 비교적 자주 변경되지 않는 다른 정적 데이터를 포함할 수 있습니다. Time Series Insights는 사용자가 데이터를 거의 실시간으로 시각화하고 분석할 수 있도록 참조 데이터를 데이터 스트림과 조인합니다.
-

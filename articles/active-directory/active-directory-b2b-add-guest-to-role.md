@@ -17,10 +17,10 @@ ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
 

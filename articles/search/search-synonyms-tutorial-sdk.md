@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 03/31/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.lasthandoff: 04/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Azure Search에 대한 동의어(미리 보기) C# 자습서
 
@@ -167,4 +167,3 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 * [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md) 검토
 * [동의어 REST API 설명서](https://aka.ms/rgm6rq) 검토
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/)에 대한 참고 자료를 찾아봅니다.
-

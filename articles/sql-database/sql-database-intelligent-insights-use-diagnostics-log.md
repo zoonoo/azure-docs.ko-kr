@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4890baa4ead3323834a82b3f9340cf751bf0c755
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights의 Azure SQL Database 성능 진단 로그 사용
 
 이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능에 사용하도록 이 진단 로그를 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure 이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage) 또는 타사 솔루션에 보낼 수 있습니다.
@@ -147,7 +145,6 @@ Intelligent Insights 성능 로그는 사용자 지정 DevOps 경고 및 보고 
 - [Intelligent Insights를 사용하여 Azure SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
 - [Azure SQL 분석을 사용하여 Azure SQL Database를 모니터링](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)하는 방법을 알아봅니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-
 
 
 

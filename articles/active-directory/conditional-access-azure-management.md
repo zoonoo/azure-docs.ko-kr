@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d4fa31d664209ba7fea9ee85773d0ab9efb81bed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>조건부 액세스로 Azure Management에 대한 액세스 관리
 
 Azure Active Directory(Azure AD)의 조건부 액세스는 사용자가 지정한 특정 조건을 기반으로 클라우드 앱에 대한 액세스를 제어합니다. 액세스를 허용하려면 정책의 요구 사항에 대한 부합 여부를 기준으로 액세스를 허용 또는 차단하는 조건부 액세스 정책을 만듭니다. 

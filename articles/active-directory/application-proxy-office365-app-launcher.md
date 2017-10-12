@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
 이 문서에서는 사용자를 사용자 지정 홈 페이지에 연결하도록 앱을 구성하는 방법을 설명합니다. 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시할 때 내부 URL을 설정하지만 사용자가 처음 보게 되는 페이지는 설정하지 않는 경우가 있습니다. 사용자가 앱에 액세스할 때 올바른 페이지로 이동하도록 사용자 지정 홈 페이지를 설정합니다. Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 앱에 액세스할 때 여기서 설정한 사용자 지정 홈 페이지로 이동하게 됩니다.
@@ -144,4 +142,3 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 - [Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-enable-remote-access-sharepoint.md)
 - [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
-

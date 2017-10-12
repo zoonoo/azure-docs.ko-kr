@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c2c5aee3db11255be5a6fe405424c2cbb92c5b95
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 응용 프로그램 액세스에 대한 액세스 검토 만들기
 
 사용자에게 더 이상 필요하지 않은 권한이 있는 경우 "부실" 역할 할당이 됩니다.  상태 액세스 할당과 관련된 위험을 줄이기 위해 관리자는 액세스 검토를 만들어 응용 프로그램에 할당된 그룹 구성원 또는 사용자에 대한 검토를 요청할 수 있습니다. [사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) 및 [게스트 액세스 관리](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) 가이드에서는 이러한 시나리오에 대한 자세한 정보를 제공합니다.  
@@ -51,6 +49,5 @@ ms.lasthandoff: 09/20/2017
 액세스 검토가 시작되면 Azure AD에서 검토자에게 액세스 검토를 요청하는 전자 메일을 자동으로 보냅니다. 사용자가 전자 메일을 받지 못한 경우 [액세스를 검토하는 방법](active-directory-azure-ad-controls-perform-access-review.md)의 지침을 보낼 수 있습니다.  
 
 액세스 검토 기간이 만료되었거나 관리자가 액세스 검토를 중지한 후에는 [액세스 검토 수행](active-directory-azure-ad-controls-complete-access-review.md)의 단계에 따라 결과를 확인하고 적용합니다.
-
 
 

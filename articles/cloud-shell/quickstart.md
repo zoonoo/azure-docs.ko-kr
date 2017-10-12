@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
 이 문서는 [Azure Portal](https://ms.portal.azure.com/)에서 Azure Cloud Shell의 Bash를 사용하는 방법을 자세히 설명합니다.
@@ -29,8 +27,8 @@ ms.lasthandoff: 09/25/2017
 > [!NOTE]
 > [Azure Cloud Shell의 PowerShell](quickstart-powershell.md) 빠른 시작도 사용할 수 있습니다.
 
-## <a name="start-cloud-shell"></a>Azure Cloud Shell 다시 시작
-1. Azure Portal의 위쪽 탐색 모음에서 **Azure Cloud Shell**을 시작합니다. <br>
+## <a name="start-cloud-shell"></a>Cloud Shell 시작
+1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
 ![](media/quickstart/shell-icon.png)
 2. 구독을 선택하여 저장소 계정 및 Azure 파일 공유 만들기
 3. "저장소 만들기"를 선택합니다.
@@ -63,7 +61,7 @@ ms.lasthandoff: 09/25/2017
 > [!NOTE]
 > VM을 인증하는 데 사용된 공개 및 개인 키는 기본적으로 Azure CLI 2.0에 의해 `/User/.ssh/id_rsa` 및 `/User/.ssh/id_rsa.pub`에 배치됩니다. .ssh 폴더는 연결된 Azure 파일 공유의 5GB 이미지에서 유지됩니다.
 
-이 VM의 사용자 이름은 Azure Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
+이 VM의 사용자 이름은 Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>Linux VM으로 SSH
 1. Azure Portal 검색 표시줄에서 VM 이름을 검색합니다.
@@ -71,12 +69,12 @@ ms.lasthandoff: 09/25/2017
 
 ![](media/quickstart/sshcmd-copy.png)
 
-SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야합니다. <br>
+SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니다. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>정리 
 리소스 그룹 및 해당 그룹 내의 모든 리소스를 삭제합니다. <br>
-`az group delete -n MyRG`을 실행합니다.
+`az group delete -n MyRG` 실행
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/17/2015
 ms.author: bwren
 ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell을 사용하여 Azure 웹앱에서 Application Insights 설정
 [Microsoft Azure](https://azure.com)는 [Azure Application Insights](app-insights-overview.md)에 [Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)될 수 있습니다. 진단은 Azure 클라우드 서비스 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.

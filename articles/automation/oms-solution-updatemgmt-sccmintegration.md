@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>OMS 업데이트 관리와 System Center Configuration Manager 통합[미리 보기]
 
 PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 SUM(소프트웨어 업데이트 관리) 주기의 일환으로 이 강력하고 완성도 있는 소프트웨어 업데이트 관리를 신뢰합니다.  
@@ -56,5 +54,4 @@ OMS 솔루션으로 업데이트 배포를 완료한 후 선택한 컴퓨터 그
 Configuration Manager 클라이언트인 Windows Server VM에 대한 업데이트를 관리하려면 이 솔루션에서 관리하는 모든 클라이언트에 대해 소프트웨어 업데이트 관리 기능을 사용하지 않도록 클라이언트 정책을 구성해야 합니다.  기본적으로 클라이언트 설정은 계층의 모든 장치를 대상으로 합니다.  이 정책 설정 및 구성하는 방법에 대한 자세한 내용은 [System Center Configuration Manager에서 클라이언트 설정을 구성하는 방법](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings)을 검토합니다.  
 
 이 구성 변경을 수행한 후 [업데이트 배포 만들기](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)에 설명된 단계에 따라 새 배포를 만들고 드롭다운 목록에서 OMS 컴퓨터 그룹으로 표시되는 적절한 Configuration Manager 컬렉션을 선택합니다. 
-
 

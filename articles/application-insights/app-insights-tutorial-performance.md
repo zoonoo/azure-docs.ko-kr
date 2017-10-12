@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 411e10367f02846261f9fcc7717b5abb147b2c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32311136a670261952d9bd0cf372e10a83cfe745
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
 Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 해당 작업 및 성능 분석을 돕습니다.  이 정보를 사용하여 발생할 수 있는 문제를 식별하거나 사용자에게 가장 큰 영향을 주는 응용 프로그램에 대한 개선 사항을 식별할 수 있습니다.  이 자습서에서는 응용 프로그램의 서버 구성 요소 및 클라이언트 관점의 성능을 분석하는 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
@@ -127,4 +125,3 @@ Application Insights는 최적화를 위한 서버 프로세스 식별 외에도
 
 > [!div class="nextstepaction"]
 > [응용 프로그램 상태에 대한 경고](app-insights-tutorial-alert.md)
-

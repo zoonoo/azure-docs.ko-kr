@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
 이 문서는 [Azure Portal](https://aka.ms/PSCloudPreview)에서 Azure Cloud Shell의 PowerShell을 사용하는 방법을 자세히 설명합니다.
@@ -29,7 +27,7 @@ ms.lasthandoff: 09/25/2017
 > [!NOTE]
 > [Azure Cloud Shell의 Bash](quickstart.md) 빠른 시작도 사용할 수 있습니다.
 
-## <a name="start-cloud-shell"></a>Azure Cloud Shell 다시 시작
+## <a name="start-cloud-shell"></a>Cloud Shell 시작
 
 1. Azure Portal의 위쪽 탐색 모음에서 **Azure Cloud Shell** 버튼을 클릭합니다.
 

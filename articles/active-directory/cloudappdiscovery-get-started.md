@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD에서 Cloud App Discovery 설정
 
 Azure AD의 새 Cloud App Discovery 향상이 이제 Azure Active Directory Premium P1 라이선스를 통해 제공됩니다. 이러 향상은 Microsoft Cloud App Security와의 통합을 기반으로 합니다. Cloud App Discovery는 트래픽 로그를 15,000여 클라우드 앱의 Cloud App Security 카탈로그와 비교하여 클라우드 사용 및 섀도 IT에 대한 최신 정보를 제공합니다. 

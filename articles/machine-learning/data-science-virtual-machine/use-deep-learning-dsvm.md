@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9bc56d242abde919f6150b88c81921d409e1d94c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>심화 학습 가상 컴퓨터 사용
 
@@ -36,7 +35,6 @@ AI에 대한 DLVM에는 많은 도구가 제공됩니다. [심화 학습 및 AI 
 2. [이미지 내 제품을 검색하는 종단 간 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 엄청난 성과를 거둘 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
 
 3. [텍스트 문서 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 심화 학습용 Keras API를 사용하여 텍스트 문서의 분류를 위해 두 개의 다른 신경망(계층 신경 네트워크 및 LSTM(장단기 메모리))을 빌드하고 학습하는 방법을 보여 줍니다. Keras는 가장 인기 있는 심화 학습 프레임워크인 Microsoft Cognitive Toolkit, TensorFlow 및 Theano의 프런트 엔드입니다.
-
 
 
 

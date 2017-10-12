@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Azure App Service에 Spring Boot 응용 프로그램 배포
 
 **[Spring Framework]**는 Java 개발자가 엔터프라이즈 수준 응용 프로그램을 만드는 데 도움이 되는 오픈 소스 솔루션이며, 해당 플랫폼 맨 위에 빌드되는 인기 있는 프로젝트 중 하나가 [Spring Boot]입니다. 이 프로젝트는 독립 실행형 Java 응용 프로그램을 만들기 위한 간단한 방법을 제공합니다.
@@ -243,4 +241,3 @@ Spring Boot 샘플 프로젝트에 대한 자세한 내용은 [Spring Boot 시�
 [AZ08]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ08.png
 [AZ09]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ09.png
 [AZ10]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ10.png
-

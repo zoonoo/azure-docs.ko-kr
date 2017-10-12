@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/13/2017
 ms.author: tedway
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Excel에서 Azure 기계 학습 웹 서비스 사용
  Azure 기계 학습 스튜디오를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
@@ -74,4 +73,3 @@ RRS 호출은 다음 두 가지 상황에서 수행됩니다.
 [2]: ./media/consuming-from-excel/enableeditting.png
 [3]: ./media/consuming-from-excel/enablecontent.png
 [4]: ./media/consuming-from-excel/sampletable.png
-

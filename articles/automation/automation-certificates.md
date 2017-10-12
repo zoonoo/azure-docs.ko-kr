@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: e434292485ef9da1a8e23da25ac731d9bf0177ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 7082f0c4b1a4cf0f67da5254b4ebb019c7299683
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="certificate-assets-in-azure-automation"></a>Azure 자동화의 인증서 자산
 
 인증서를 Azure Automation에 안전하게 저장하게 저장할 수 있으며, 그러면 Runbook 또는 DSC 구성이 Azure Resource Manager 리소스에 대한 **Get-AzureRmAutomationCertificate** 활동을 사용하여 인증서에 액세스할 수 있습니다. 그러면 인증을 위해 인증서를 사용하는 Runbook 및 DSC 구성을 만들거나 Azure 또는 타사 리소스에 추가할 수 있습니다.
@@ -117,4 +115,3 @@ ms.lasthandoff: 09/14/2017
 ## <a name="next-steps"></a>다음 단계
 
 - Runbook이 수행하도록 설계된 활동의 논리적 흐름을 제어하도록 링크로 작업하는 방법에 대한 자세한 정보는 [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 참조하세요. 
-

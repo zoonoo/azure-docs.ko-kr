@@ -16,12 +16,11 @@ ms.date: 08/24/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure 구독과 Azure Active Directory의 연관 관계
 이 문서에서는 Azure 구독과 Azure Active Directory(Azure AD) 간의 관계와 같은 정보 및 Azure AD 디렉터리에 기존 구독을 추가하는 방법을 다룹니다.
@@ -58,7 +57,7 @@ Azure AD는 다음을 포함하여 대부분의 Microsoft 클라우드 서비스
 자세한 내용은 [Azure 구독 소유권을 다른 계정에 양도](../billing/billing-subscription-transfer.md)를 참조하세요.
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>구독 및 디렉터리를 모두 관리하기 위한 제안
-Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이 섹션에서는 Azure 구독 관리자와 Azure AD 디렉터리 관리자 간의 차이점을 설명합니다. 관리자 역할 및 구독을 관리하기 위해 해당 역할을 사용하는 다른 제안은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
+Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이 섹션에서는 Azure 구독 관리자와 Azure AD 디렉터리 관리자 간의 차이점을 설명합니다. 관리자 역할 및 구독을 관리하기 위해 해당 역할을사용하는 다른 제안은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
 
 등록할 때 기본적으로 서비스 관리자 역할이 할당됩니다. 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 
 
@@ -79,4 +78,3 @@ Azure 구독 관리자와 Azure AD 디렉터리 관리자는 서로 다른 역�
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
-

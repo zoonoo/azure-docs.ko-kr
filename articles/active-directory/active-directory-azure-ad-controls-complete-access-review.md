@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 수행
 
 관리자는 [액세스 검토를 만들어](active-directory-azure-ad-controls-create-access-review.md) 응용 프로그램에 할당된 그룹 구성원이나 사용자의 검토를 요청할 수 있습니다. Azure AD는 검토자에게 액세스를 검토하도록 요청하는 전자 메일을 자동으로 보냅니다. 사용자가 전자 메일을 받지 못한 경우 [액세스를 검토하는 방법](active-directory-azure-ad-controls-perform-access-review.md)의 지침을 보낼 수 있습니다.  액세스 검토 기간이 만료되었거나 관리자가 액세스 검토를 중지한 후에는 이 문서의 단계에 따라 결과를 확인하고 적용합니다.
@@ -59,4 +57,3 @@ ms.lasthandoff: 09/20/2017
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 3cfcc5abbee03ca8fbbec4e4eae711e7c2d9deae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 703b516c8fd443d2bb751530a8f62496b020cb5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포 
 
@@ -154,5 +153,4 @@ sudo mysql –h v1-mariadb
 ## <a name="next-steps"></a>다음 단계
 
 * Kubernetes 차트 관리에 대한 자세한 내용을 보려면 [Helm 설명서](https://github.com/kubernetes/helm/blob/master/docs/index.md)를 참조하십시오. 
-
 

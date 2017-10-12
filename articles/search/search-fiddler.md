@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 > [!div class="op_single_selector"]

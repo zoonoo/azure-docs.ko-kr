@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
 ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure 저장소에서 진단 데이터 저장 및 보기
 진단 데이터를 Microsoft Azure 저장소 에뮬레이터 또는 Azure 저장소에 전송하지 않는 한 진단 데이터는 영구적으로 저장되지 않습니다. 저장소에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.

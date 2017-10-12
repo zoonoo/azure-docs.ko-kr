@@ -10,14 +10,12 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal의 Azure Linux VM에서 Jenkins 서버 만들기
 
 이 빠른 시작은 Azure에서 사용하기 위해 구성된 도구와 플러그 인을 사용하여 Ubuntu Linux VM에 [Jenkins](https://jenkins.io)를 설치하는 방법을 보여줍니다. 작업을 완료하면 Azure에서 실행되는 Jenkins 서버가 [GitHub](https://github.com)에서 샘플 Java 앱을 작성합니다.
@@ -113,4 +111,3 @@ Jenkins 콘솔에서 **새 작업 만들기**를 선택하고 이름을 **mySamp
 
 > [!div class="nextstepaction"]
 > [Jenkins 에이전트로 Azure VM 추가](jenkins-azure-vm-agents.md)
-
