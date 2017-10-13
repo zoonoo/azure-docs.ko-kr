@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 ms.translationtype: HT
 ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
@@ -75,7 +75,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
     "name": "HttpLinkedService",
     "properties":
     {
-        "type": "Http",
+        "type": "HttpServer",
         "typeProperties":
         {
             "authenticationType": "Basic",
