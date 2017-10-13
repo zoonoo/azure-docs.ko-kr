@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 ms.openlocfilehash: a9565194bc2e4dccfd29ba120ac35e21d43c770a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-question-about-azure-windows-virtual-machines-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터에 대한 질문과 대답
 > [!IMPORTANT] 

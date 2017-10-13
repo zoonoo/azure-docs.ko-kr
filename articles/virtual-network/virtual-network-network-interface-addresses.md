@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
 네트워크 인터페이스용 공용 및 개인 IP 주소를 추가, 변경 및 제거하는 방법에 대해 알아봅니다. 가상 컴퓨터는 네트워크 인터페이스에 할당된 개인 IP 주소를 통해 Azure Virtual Network 및 연결된 네트워크의 다른 리소스와 통신할 수 있습니다. 또한 개인 IP 주소가 있으면 예측할 수 없는 IP 주소를 사용하는 인터넷으로의 아웃바운드 통신도 가능합니다. 네트워크 인터페이스에 할당된 [공용 IP 주소](virtual-network-public-ip-address.md)를 사용하면 인터넷에서 가상 컴퓨터에 대한 인바운드 통신을 수행할 수 있습니다. 또한 공용 IP 주소가 있으면 가상 컴퓨터에서 예측할 수 없는 IP 주소를 사용하는 인터넷으로의 아웃바운드 통신도 가능합니다. 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 
@@ -205,4 +203,3 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 |여러 NIC를 사용하여 VM 만들기|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Azure Load Balancer 뒤에 개인 IPv6 주소가 있는 단일 NIC VM 만들기|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager 템플릿](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

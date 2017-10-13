@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5add8703b7b16ba8d9dc49f42f5e71b195c46653
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>명령줄에서 Azure 프로젝트 빌드
 Microsoft Build Engine(MSBuild)을 사용하여 Visual Studio가 설치되지 않은 빌드 랩 환경에 제품을 빌드할 수 있습니다. MSBuild는 Microsoft에서 확장 가능하고 완전히 지원되는 프로젝트 파일에 대한 XML 형식을 사용합니다. MSBuild 파일 형식으로 하나 이상의 플랫폼 및 구성에 대해 어떤 항목을 빌드해야 하는지 설명할 수 있습니다
@@ -38,5 +37,4 @@ Microsoft Build Engine(MSBuild)을 사용하여 Visual Studio가 설치되지 �
 
 ## <a name="next-steps"></a>다음 단계
 패키지를 빌드한 후에 Azure에 배포할 수 있습니다. 해당 프로세스를 자동화하는 방법을 보여 주는 자습서에 대해서는 [Azure의 클라우드 서비스에 대한 지속적인 전송](./cloud-services/cloud-services-dotnet-continuous-delivery.md)을 참조하세요.
-
 

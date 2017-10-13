@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 컴퓨터를 모니터링하고 업데이트하는 방법
 
@@ -184,11 +183,11 @@ Log Analytics 작업 영역은 기능 및 서비스(예: 업데이트 관리)에
 
 또한 유효성 검사 프로세스는 VM이 MMA(Microsoft Monitoring Agent) 및 하이브리드 작업자로 프로비전되는지 여부도 확인합니다. 이 에이전트는 VM과 통신하고 업데이트 상태에 대한 정보를 얻습니다. 
 
-이러한 필수 구성 요소가 충족되지 않는 경우 솔루션 설정 옵션을 제공하는 배너가 나타납니다.
+이러한 필수 조건이 충족되지 않는 경우 솔루션 설정 옵션을 제공하는 배너가 나타납니다.
 
 ![업데이트 관리 온보드 구성 배너](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
-솔루션을 사용하도록 설정하려면 이 배너를 클릭합니다. 유효성 검사 후에 다음 필수 구성 요소가 누락된 것으로 확인될 경우 자동으로 추가됩니다.
+솔루션을 사용하도록 설정하려면 이 배너를 클릭합니다. 유효성 검사 후에 다음 필수 조건이 누락된 것으로 확인될 경우 자동으로 추가됩니다.
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) 작업 영역
 * [자동화](../../automation/automation-offering-get-started.md)
@@ -249,7 +248,7 @@ Log Analytics 작업 영역은 기능 및 서비스(예: 업데이트 관리)에
 
 **출력** 타일을 클릭하여 대상 VM의 업데이트 배포를 관리하는 runbook의 작업 스트림을 확인합니다.
 
-배포의 모든 오류에 대 한 자세한 정보를 보려면 **오류**를 클릭합니다.
+배포의 모든 오류에 대한 자세한 정보를 보려면 **오류**를 클릭합니다.
 
 ## <a name="advanced-monitoring"></a>고급 모니터링 
 
@@ -290,4 +289,3 @@ Azure Security Center에 대해 알아보려면 다음 자습서로 진행합니
 
 > [!div class="nextstepaction"]
 > [VM 보안 관리](./tutorial-azure-security.md)
-

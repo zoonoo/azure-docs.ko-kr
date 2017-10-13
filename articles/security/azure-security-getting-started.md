@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 보안 시작
 IT 자산을 작성하거나 클라우드 공급자에 마이그레이션하는 경우 해당 조직이 제공하는 서비스와 컨트롤을 통해 응용 프로그램 및 데이터를 보호할 수 있는 해당 조직의 역량에 의존하여 클라우드 기반 자산의 보안을 관리합니다.

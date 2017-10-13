@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치
 이 항목에서는 Azure 가상 네트워크의 Azure VM(가상 컴퓨터)에 온-프레미스 Active Directory 도메인에 대한 추가 도메인 컨트롤러(복제본 DC라고도 함)를 설치하는 방법을 보여 줍니다.
@@ -115,4 +114,3 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
@@ -193,4 +192,3 @@ Azure Service Fabric 보안을 사용하여 다른 사용자 계정으로 클러
 ## <a name="next-steps"></a>다음 단계
 - 클러스터 보안에 대한 개념 정보는 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) 및 [Azure Portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)을 참조하세요.
 - Service Fabric에서 클러스터 보안에 대해 자세히 알아보려면 [Service Fabric 클러스터 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)을 참조하세요.
-
