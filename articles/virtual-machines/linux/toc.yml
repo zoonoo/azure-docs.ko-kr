@@ -247,6 +247,7 @@
             - name: NVIDIA GPU 드라이버 설치
               href: n-series-driver-setup.md
     - name: 저장소 관리
+      href: about-disks-and-vhds.md
       items:
         - name: Managed Disks에 대한 자세한 정보
           href: managed-disks-overview.md
