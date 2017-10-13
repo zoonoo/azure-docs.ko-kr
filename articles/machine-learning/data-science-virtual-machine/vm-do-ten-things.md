@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일
 
 Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 및 모델링 작업을 수행할 수 있는 강력한 데이터 과학 개발 환경입니다. 이 환경에는 온-프레미스, 클라우드 또는 하이브리드 배포에 대한 간편하고 신속하게 분석을 시작할 수 있는 여러 대중적인 분석 도구가 기본적으로 내장되고 번들로 제공됩니다. DSVM은 여러 Azure 서비스와 긴밀하게 연동하며 Azure의 Azure SQL Data Warehouse, Azure Data Lake, Azure Storage 또는 Azure Cosmos DB에 저장된 데이터를 읽고 처리할 수 있습니다. 또한 Azure 기계 학습 및 Azure Data Factory와 같은 기타 분석 도구를 활용할 수 있습니다.
@@ -868,5 +866,4 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 
 ## <a name="summary"></a>요약
 이는 Microsoft 데이터 과학 가상 컴퓨터에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.
-
 

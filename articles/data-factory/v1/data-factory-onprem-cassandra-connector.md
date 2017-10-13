@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 06ee23d7e6a0f046e9656a40fca105ff6270a481
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-onprem-cassandra-connector.md)
-> * [버전 2- 미리 보기](../connector-cassandra.md)
+> * [버전 1 - GA](data-factory-onprem-cassandra-connector.md)
+> * [버전 2 - 미리 보기](../connector-cassandra.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 Cassandra 커넥터](../connector-cassandra.md)를 참조하세요.
@@ -261,20 +260,20 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 ### <a name="type-mapping-for-cassandra"></a>Cassandra에 대한 형식 매핑
 | Cassandra 형식 | .NET 기반 형식 |
 | --- | --- |
-| ASCII |String |
+| ASCII |문자열 |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| BOOLEAN |BOOLEAN |
 | DECIMAL |DECIMAL |
-| DOUBLE |Double |
+| DOUBLE |DOUBLE |
 | FLOAT |단일 |
-| INET |String |
+| INET |문자열 |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |문자열 |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |문자열 |
 | VARINT |DECIMAL |
 
 > [!NOTE]
@@ -350,4 +349,3 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-

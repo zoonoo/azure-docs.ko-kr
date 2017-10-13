@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft 보안 응답 센터
 Microsoft 보안 대응 센터 (MSRC)는 전 세계에게 가장 경험이 풍부한 보안 전문가들이 이끌고 있습니다. 이러한 전문가들은 일년 24시간 내내 보안 인시던트, 온-프레미스, 및 클라우드 취약점을 식별, 모니터링, 대응, 및 해결합니다.

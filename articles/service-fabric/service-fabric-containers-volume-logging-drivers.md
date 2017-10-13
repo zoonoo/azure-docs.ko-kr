@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 37436f7be4f09c14febef6174faf956fa07255ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>컨테이너에 대한 볼륨 플러그 인 및 로깅 드라이버 지정
 
 Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 및 [Docker 로깅 드라이버](https://docs.docker.com/engine/admin/logging/overview/) 지정을 지원합니다. 플러그 인은 다음 매니페스트에 표시된 대로 응용 프로그램 매니페스트에서 지정됩니다.
@@ -76,5 +74,4 @@ Service Fabric 클러스터에 컨테이너를 배포하려면 다음 문서를 
 
 
 [Service Fabric에 컨테이너 배포](service-fabric-deploy-container.md)
-
 

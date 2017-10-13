@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
 
 Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. Log Analytics 또는 Azure Monitor에서 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다. 이 자습서에서는 저장소 계정에 데이터를 보관하도록 Azure 환경을 구성하는 과정을 안내합니다.
@@ -164,4 +162,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)
-

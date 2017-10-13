@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
 ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메트릭)에 따라 실행 중인 인스턴트 수를 늘리거나 줄일 수 있습니다. 이 문서에서는 사용하고자 하는 공용 메트릭에 대해 설명합니다. Cloud Services 및 서버 팜용 Azure Portal에서 크기를 조정할 리소스의 메트릭을 선택할 수 있습니다. 그러나 크기를 조정하기 위해 여러 리소스에서 임의 메트릭을 선택할 수도 있습니다.

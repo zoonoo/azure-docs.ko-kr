@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 15269f9728e9dc45e6436e53b1859f76d4a7a0c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/18/2017
 > [!NOTE] 
 > Python 또는 [Azure Python 패키지][Azure Python package]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
 
-## <a name="create-a-topic"></a>주제 만들기
+## <a name="create-a-topic"></a>토픽 만들기
 **ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 프로그래밍 방식으로 서비스 버스에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python

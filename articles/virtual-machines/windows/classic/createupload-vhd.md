@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Windows Server VHD를 만들어서 Azure에 업로드
 이 문서에서는 일반화된 자체 VM 이미지를 VHD(가상 하드 디스크)로 업로드하고 이를 가상 컴퓨터를 만드는 데 사용하는 방법을 소개합니다. Microsoft Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD에 대하여](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.

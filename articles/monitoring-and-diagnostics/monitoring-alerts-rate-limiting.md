@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>SMS 메시지, 전자 메일 및 웹후크 게시에 대한 속도 제한
 속도 제한은 특정 전화 번호나 이메일 주소로 너무 많은 알림이 전송될 때 발생하는 알림의 일시 중단입니다. 속도를 제한하면 경고를 관리하고 실행할 수 있게 됩니다.

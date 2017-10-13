@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dkshir
 ms.openlocfilehash: 679cda28bf3ce9fb207fe3693a3453b355f1de15
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>desired 속성을 사용하여 장치 구성
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

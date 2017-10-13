@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
 ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요

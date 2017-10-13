@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 554dec5fbbe5c98585f8be58f5d4e8203d788a00
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="stream-analytics-resource-health-blade"></a>Stream Analytics Resource Health 블레이드
 
 Azure Portal의 **Resource Health** 블레이드에서 Azure Stream Analytics 작업의 상태를 보여 줍니다. 또한 문제를 해결하는 데 도움이 되는 실행 가능 지침을 보여 줍니다. 

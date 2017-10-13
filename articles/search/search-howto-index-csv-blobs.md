@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
 ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱
 기본적으로 [Azure 검색 Blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어 다음 구분된 텍스트가 제공됩니다. 

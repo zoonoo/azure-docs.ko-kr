@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](azure-diagnostics.md)를 참조하세요.
@@ -300,4 +299,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 성능 카운터 이름에 와일드카드(\*)를 사용하면 포털에서 구성된 카운터와 수집된 카운터 사이의 상관 관계를 지정할 수 없습니다.
 
 **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > **복사 설정**을 선택합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다. 또한 포털이 기본 사용 환경이 되도록 하려면 와일드카드를 사용하지 않도록 합니다.
-

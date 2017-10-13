@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure 검색에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure 검색을 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.

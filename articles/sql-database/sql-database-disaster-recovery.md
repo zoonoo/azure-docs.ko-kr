@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
 Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능을 제공합니다.
@@ -100,5 +99,4 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 * Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
 * 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
-
 

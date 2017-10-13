@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: v-shysun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 39d85e7c1c45dd1bb28705ae06c4b5364b8baf37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -66,6 +65,6 @@ Azure SQL Database를 사용하면 [성능 튜닝 권장 사항](sql-database-ad
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL Database에서 자동 튜닝을 사용하도록 설정하고 자동 튜닝 기능으로 워크로드를 완벽하게 관리하려면 [자동 튜닝 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
+- Azure SQL Database에서 자동 조정을 사용하도록 설정하고 자동 조정 기능으로 작업을 완벽하게 관리하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
 - 수동 튜닝을 사용하려면 [Azure Portal에서 튜닝 권장 사항](sql-database-advisor-portal.md)을 검토하고 쿼리의 성능을 개선하는 권장 사항을 직접 적용합니다.
 - [Azure SQL Database 서비스 계층](sql-database-performance-guidance.md)을 변경하여 데이터베이스에 제공되는 리소스를 변경합니다.

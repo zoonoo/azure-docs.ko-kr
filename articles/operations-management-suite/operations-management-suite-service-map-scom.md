@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
   > 이 기능은 공개 미리 보기 상태입니다.
@@ -134,4 +132,3 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 
 ### <a name="feedback"></a>사용자 의견
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
-

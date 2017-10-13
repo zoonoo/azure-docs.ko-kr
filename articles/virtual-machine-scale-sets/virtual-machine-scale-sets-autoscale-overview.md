@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>자동 크기 조정 및 가상 컴퓨터 규모 집합 사용 방법
 크기 집합에서 수행되는 가상 컴퓨터 자동 크기 조정은 성능 요구 사항에 일치하기 위해 필요에 따라 집합에서 컴퓨터를 만들거나 삭제하는 것입니다. 작업량이 증가하면 작업을 효과적으로 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다.

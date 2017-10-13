@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics에서 Wire Data 2.0(미리 보기) 솔루션
 
 ![Wire Data 기호](./media/log-analytics-wire-data/wire-data2-symbol.png)
@@ -456,4 +454,3 @@ OMS 포털에서 **Wire Data 2.0** 타일을 클릭하여 Wire Data 대시보드
 ## <a name="next-steps"></a>다음 단계
 
 - [로그를 검색](log-analytics-log-searches.md) 하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
-

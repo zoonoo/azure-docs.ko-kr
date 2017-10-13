@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
 ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="describing-a-service-fabric-cluster"></a>서비스 패브릭 클러스터 설명
 서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 Resource Manager는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장합니다. 이러한 주요 규칙을 적용하는 동시에 클러스터의 리소스 사용도 최적화되도록 시도합니다.
 
@@ -529,4 +527,3 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
 ms.openlocfilehash: 4292f9d8cd181073fdf0adff99fcb9624e0e9f55
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Windows VMSS 및 원하는 상태 구성
 이 문서에서는 [필요한 상태 구성 확장 처리기](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 위한 Resource Manager 템플릿에 대해 설명합니다. 

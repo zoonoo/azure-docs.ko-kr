@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스에 대한 리소스를 관리합니다.
 
@@ -37,7 +36,7 @@ Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 �
 ![서비스 계층 및 성능 수준 구성](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> P11 또는 P15 서비스 계층을 선택하는 경우 [4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 검토하세요.
+> P11 또는 P15 서비스 계층을 선택하는 경우 [4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 검토하세요.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>PowerShell을 사용하여 단일 데이터베이스 리소스 관리
@@ -60,12 +59,12 @@ Azure CLI를 사용하여 Azure SQL Database 서비스 계층, 성능 수준 및
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |데이터베이스 만들기|
-|[az sql db list](/cli/azure/sql/db#list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|데이터베이스 사용 정보 반환|
-|[az sql db show](/cli/azure/sql/db#show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
-|[az sql db update](/cli/azure/sql/db#update)|데이터베이스 업데이트|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
+
 
 > [!TIP]
 > 데이터베이스의 크기 정보를 쿼리한 후 단일 Azure SQL Database를 다른 성능 수준으로 크기 조정하는 Azure CLI 예제 스크립트는 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
@@ -111,4 +110,3 @@ Azure SQL Database 서비스 계층, 성능 수준 및 저장소 용량을 설�
 - 서비스 계층, 성능 수준 및 저장소 용량에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
-

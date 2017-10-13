@@ -9,14 +9,12 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
 
@@ -64,4 +62,3 @@ Azure Database for MySQL은 기본적으로 SSL을 사용하도록 설정됩니�
 
 ## <a name="next-steps"></a>다음 단계
 연결 문자열에 대한 자세한 내용은 [연결 문자열](howto-connection-string.md)을 참조하세요.
-

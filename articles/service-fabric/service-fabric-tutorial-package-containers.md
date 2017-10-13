@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 응용 프로그램 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
@@ -241,7 +239,7 @@ sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:190
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80)로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
 
 ![votingapp][votingapp]
 
@@ -375,6 +373,5 @@ Service Fabric에서 응용 프로그램의 장애 조치 및 크기 조정에 �
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

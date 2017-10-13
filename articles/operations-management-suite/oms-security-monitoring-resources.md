@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링
 이 문서는 OMS 보안 및 감사 기능을 사용하여 리소스를 모니터링하고 보안 문제를 식별하는 방법을 설명합니다.

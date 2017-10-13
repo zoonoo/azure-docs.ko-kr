@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>응용 프로그램의 전역 설정을 관리하는 방법
 응용 프로그램에서 제공하는 **설정** 메뉴 옵션은 응용 프로그램의 플랫폼과 응용 프로그램에 대해 부여한 권한에 따라 달라집니다. 설정에는 세부 정보, 프로젝트, 네이티브 푸시, 푸시 속도, 태그(앱 정보) 및 상업적 압력 등이 있습니다. 설정 섹션의 태그(앱 정보) 메뉴 옵션은 응용 프로그램(SDK 사용) 또는 백 엔드(장치 API 사용)에서 관리할 수 있습니다. 

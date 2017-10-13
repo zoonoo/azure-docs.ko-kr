@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure Monitor 시작
 Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 플랫폼 서비스입니다. Azure에서 Azure Monitor를 통해 리소스의 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행할 수 있습니다. 모니터 포털 블레이드, [Monitor PowerShell Cmdlet](insights-powershell-samples.md), [플랫폼 간 CLI](insights-cli-samples.md) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하는 데이터를 통해 작업을 수행할 수 있습니다. 이 문서에서는 데모용 포털을 사용하여 Azure Monitor의 몇 가지 주요 구성 요소에 대해 살펴봅니다.
@@ -103,4 +102,3 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor 개요](monitoring-overview.md)
-

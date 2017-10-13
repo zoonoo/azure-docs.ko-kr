@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 Azure SQL 데이터베이스(SQL DB)용 탄력적 데이터베이스를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
@@ -150,7 +149,6 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

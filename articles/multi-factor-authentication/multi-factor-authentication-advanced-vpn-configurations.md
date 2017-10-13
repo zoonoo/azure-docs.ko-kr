@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure Multi-Factor Authentication 및 타사 VPN 솔루션을 사용한 고급 시나리오
 Azure Multi-Factor Authentication은 다양한 타사 VPN 솔루션과 원활하게 연결하는 데 사용할 수 있습니다. 이 문서는 Cisco ® ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 어플라이언스를 중점적으로 다룹니다. 이러한 세 가지 일반적인 어플라이언스를 해결하기 위해 구성 지침을 작성했습니다. Multi-Factor Authentication Server는 RADIUS, LDAP, IIS 또는 AD FS에 대한 클레임 기반 인증을 사용하는 다른 시스템과 통합할 수도 있습니다. [MFA 서버 구성](multi-factor-authentication-get-started-server.md#next-steps)에서 자세한 내용을 볼 수 있습니다.
 

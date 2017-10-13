@@ -107,6 +107,8 @@
       href: /rest/api/postgresql
 - name: 리소스
   items:
+    - name: 배포 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: 가격
@@ -124,4 +126,4 @@
     - name: 지원 옵션
       href: 'https://azure.microsoft.com/support/options/'
     - name: 고객 사례
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL%20"'
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'

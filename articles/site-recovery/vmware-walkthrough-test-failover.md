@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
+ms.openlocfilehash: f1c0052862dd2b97dbea500615f7ac4eabc97217
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>12단계: Azure에 VMware VM에 대한 테스트 장애 조치 실행
 
@@ -114,4 +113,3 @@ ms.lasthandoff: 08/21/2017
 - 여러 장애 조치 유형 및 장애 조치 실행 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
 - 컴퓨터를 복제하고 장애 복구하는 대신 마이그레이션하는 경우 [여기를 참조하세요](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
 - Azure VM을 장애 복구하고 기본 온-프레미스 사이트로 다시 복제하는 [장애 복구(failback)에 대해 자세히 알아보세요](site-recovery-failback-azure-to-vmware.md).
-

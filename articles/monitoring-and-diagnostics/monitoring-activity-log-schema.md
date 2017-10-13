@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: johnkem
 ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다.

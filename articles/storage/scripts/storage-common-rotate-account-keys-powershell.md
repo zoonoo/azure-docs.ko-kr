@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fe7e12991cb59eb32e173b0552eb155bf66c6c76
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>저장소 계정 만들기 및 계정 액세스 키 회전
 
 이 스크립트는 Azure Storage 계정을 만들고, 새 저장소 계정의 기본 액세스 키를 표시하고 나서, 키를 갱신(회전)합니다.
@@ -60,4 +58,3 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 저장소 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
-

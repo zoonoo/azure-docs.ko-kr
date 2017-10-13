@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search 인덱서의 필드 매핑
 Azure 검색 인덱서를 사용할 때 입력 데이터가 대상 인덱스 스키마와 정확히 일치하지 않는 경우에 직면할 수 있습니다. 이러한 경우 **필드 매핑** 을 사용하여 데이터를 원하는 모양으로 변환할 수 있습니다.
 
@@ -206,4 +204,3 @@ Azure SQL 데이터베이스는 Azure 검색의 `Collection(Edm.String)` 필드�
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
-

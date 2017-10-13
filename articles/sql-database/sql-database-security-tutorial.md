@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
@@ -48,9 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - Microsoft Excel
 - Azure SQL Server 및 Database - [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md), [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md) 및 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-powershell.md)를 참조하세요. 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -179,7 +178,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![감사 설정](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
+4. **저장소 세부 정보** 를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
 
    > [!TIP]
    > 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
@@ -254,5 +253,4 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
 > [!div class="nextstepaction"]
 >[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
-
 

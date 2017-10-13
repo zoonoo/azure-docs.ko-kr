@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 40e01a7a6a2ea6127ab725f04649cec47b9d9422
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 84e925b4461e55e570e9848bf03d3d352bfff898
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-powershell"></a>PowerShell을 사용하여 Network Watcher 토폴로지 보기
 
 > [!div class="op_single_selector"]
@@ -138,6 +136,5 @@ Resources       : [
 ## <a name="next-steps"></a>다음 단계
 
 [PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
-
 
 

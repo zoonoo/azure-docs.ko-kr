@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3e46b4bdcf7b55c31afe5e7bc84a1fb95ad98701
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="availability-of-service-fabric-services"></a>서비스 패브릭 서비스의 가용성
 이 문서에서는 Service Fabric이 서비스의 가용성을 유지하는 방법에 대한 개요를 설명합니다.
 
@@ -48,4 +46,3 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 - [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
 - [Reliable Services](service-fabric-reliable-services-introduction.md)
-

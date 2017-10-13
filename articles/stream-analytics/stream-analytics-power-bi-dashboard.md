@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 만들고 사용하는 방법도 학습합니다.
@@ -259,4 +258,3 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

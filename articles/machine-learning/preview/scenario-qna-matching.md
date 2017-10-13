@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 Q & A 일치
 개방형 질문에 대한 대답은 어려우며 종종 SME(실무 전문가)의 수동 작업이 필요합니다. 내부 SME에 대한 요구를 줄이기 위해 회사에서는 종종 사용자를 지원하는 수단으로 FAQ(질문과 대답) 목록을 만듭니다. 이 예제에서는 개방형 쿼리를 기존 FAQ 질문/답변 쌍과 일치시키는 다양하고 효과적인 기계 학습 방법을 보여 줍니다. 이 예제는 Azure Machine Learning Workbench를 사용하여 이러한 솔루션을 빌드하는 간편한 개발 프로세스를 보여 줍니다. 
 
@@ -99,7 +97,7 @@ ms.lasthandoff: 09/25/2017
 
 질문과 대답 일치 예제는 세 가지 유형의 파일을 통해 제공됩니다. 첫 번째 유형은 일련의 Jupyter Notebook으로, 전체 워크플로에 대한 단계별 설명을 보여 줍니다. 두 번째 유형은 구문 학습 및 기능 추출을 위한 사용자 지정 Python 모듈을 포함하는 일련의 Python 파일입니다. 이 Python 모듈은 이 예제뿐만 아니라 다른 사용 사례에서도 사용할 수 있습니다. 세 번째 유형은 Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수를 튜닝하고 모델 성능을 추적하는 Python 파일 집합입니다.
 
-이 예제 파일은 다음과 같이 구성됩니다.
+이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
 | 파일 이름 | 형식 | 설명
 | ----------|------------|--------
@@ -162,4 +160,3 @@ ms.lasthandoff: 09/25/2017
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/)(IEEE Transactions on Audio, Speech, and Language Processing, vol. 19, no. 8, pp. 2451-2460, 2011년 11월)
-

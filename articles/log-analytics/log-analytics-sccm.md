@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
 ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장치 수집 데이터를 동기화할 수 있습니다. 이 경우 OMS에서 구성 관리자 계층 구조의 데이터를 사용할 수 있습니다.

@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
 ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>PostgreSQL용 Azure 데이터베이스 서버
 이 항목에서는 PostgreSQL용 Azure 데이터베이스 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.

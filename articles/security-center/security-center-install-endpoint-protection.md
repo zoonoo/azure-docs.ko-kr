@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Security Center를 사용하여 Endpoint Protection 문제 관리
 Azure Security Center는 맬웨어 방지 보호의 상태를 모니터링하여 Endpoint Protection 문제 블레이드 아래에서 해당 내용을 보고합니다. Security Center에서는 VM(가상 컴퓨터) 및 컴퓨터를 맬웨어 방지 위협에 취약하게 만들 수 있는 검색된 위협, 불충분한 보호 수준 등의 문제가 강조 표시됩니다. **Endpoint Protection 문제** 아래의 정보를 사용하면 확인된 문제를 해결하기 위한 계획을 파악할 수 있습니다.
@@ -114,4 +113,3 @@ Security Center에 대해 알아보려면 다음을 참조하세요.
 [4]:./media/security-center-install-endpoint-protection/endpoint-protection-issues-computers.png
 [5]:./media/security-center-install-endpoint-protection/log-search.png
 [6]:./media/security-center-install-endpoint-protection/info-filtered-to-computer.png
-

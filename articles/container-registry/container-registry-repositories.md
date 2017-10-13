@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 06b809c31cecef1714f60d04657eb74c611be8cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: d737df98fee955b57166cb44f45f61dff906514e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Azure 컨테이너 레지스트리 리포지토리
 
@@ -54,4 +53,3 @@ Azure 컨테이너 레지스트리 리포지토리를 보려면
 
 ## <a name="next-steps"></a>다음 단계
 이제 기본 사항을 배웠으니 레지스트리 사용을 시작할 준비가 되었습니다! 예를 들어, 컨테이너 이미지를 [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) 클러스터에 배포하기 시작하세요.
-

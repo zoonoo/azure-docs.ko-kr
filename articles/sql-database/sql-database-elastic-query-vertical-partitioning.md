@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]

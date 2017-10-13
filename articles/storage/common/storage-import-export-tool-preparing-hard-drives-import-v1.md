@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 가져오기 작업을 위해 하드 드라이브를 하나 이상 준비하려면 다음 단계를 수행합니다.

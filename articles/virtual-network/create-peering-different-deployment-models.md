@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1adf219dc4ca9ba91dc1ffc1ae98b764c9ef61b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독 
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 09/25/2017
 가상 네트워크 피어링은 같은 Azure 지역에 있는 두 가상 네트워크 간에만 만들 수 있습니다.
 
   > [!WARNING]
-  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링 만들기는 현재 미리 보기 상태입니다. 아래의 미리 보기에 해당하는 구독을 등록할 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 일반 가용성 릴리스의 시나리오에서 가상 네트워크 피어링을 만드는 것과는 가용성과 신뢰성의 수준이 다를 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 지원되지 않으며, 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
+  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링을 만드는 기능은 현재 미리 보기 상태입니다. 아래에서 미리 보기 구독을 등록할 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 일반 가용성 릴리스의 시나리오에서 가상 네트워크 피어링을 만드는 것과는 가용성과 신뢰성의 수준이 다를 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 지원되지 않으며, 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
 클래식 배포 모델을 통해 배포된 두 개의 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 클래식 배포 모델을 통해 만든 두 가상 네트워크 또는 서로 다른 Azure 지역에 있는 두 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
 
@@ -67,7 +66,7 @@ ms.lasthandoff: 09/25/2017
       -ProviderNamespace Microsoft.Network
     ```
   > [!WARNING]
-  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링 만들기는 현재 미리 보기 상태입니다. 이 시나리오에서 만든 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
+  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링을 만드는 기능은 현재 미리 보기 상태입니다. 이 시나리오에서 만든 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
 ## <a name="cli"></a>피어링 만들기 - 포털
 
@@ -301,4 +300,3 @@ ms.lasthandoff: 09/25/2017
 - 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#requirements-and-constraints)에 철저하게 익숙해집니다.
 - 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-a-peering)에 대해 알아봅니다.
 - 가상 네트워크 피어링을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 방법을 알아봅니다.
-

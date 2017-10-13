@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pen-testing"></a>펜 테스트
 응용 프로그램 테스트 및 배포를 위해 Microsoft Azure를 사용하는 장점은 응용 프로그램을 개발하고, 테스트하고, 배포하기 위해 온-프레미스 인프라를 준비할 필요가 없다는 것입니다. 모든 인프라는 Microsoft Azure Platform 서비스에서 처리합니다. 자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.

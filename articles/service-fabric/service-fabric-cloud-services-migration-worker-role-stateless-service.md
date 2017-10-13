@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
 ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 클라우드 서비스 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. 클라우드 서비스에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 응용 프로그램에 대한 서비스 패브릭으로의 가장 간단한 마이그레이션 경로입니다.

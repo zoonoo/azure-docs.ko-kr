@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 45d89cb9b51e7091f8921d3f58d3a4594851ca7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -130,7 +129,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 
 ### <a name="step-4-set-up-the-target-environment"></a>4단계: 대상 환경 설정
 
-**인프라 준비** > **대상**을 선택하고 장애 조치(failover) 후 VM에 사용하려는 배포 모델을 지정합니다. 시나리오에 따라 **클래식** 또는 **Resource Manager**를 선택할 수 있습니다.
+**인프라 준비** > **대상**을 선택하고 장애 조치(failover) 후 VM에 사용하려는 배포 모델을 지정합니다. 시나리오에 따라 **클래식** 또는 **리소스 관리자**를 선택할 수 있습니다.
 
 ![대상 창][10]
 
@@ -242,4 +241,3 @@ Azure Storage 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려면
 [13]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
 [15]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
-

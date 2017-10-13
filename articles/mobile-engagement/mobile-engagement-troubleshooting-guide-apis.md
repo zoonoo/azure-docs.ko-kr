@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
 ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>API 문제에 대한 문제 해결 가이드
 다음은 관리자가 API를 통해 Azure Mobile Engagement와 상호 작용하는 방법과 관련해서 발생할 수 있는 문제입니다.

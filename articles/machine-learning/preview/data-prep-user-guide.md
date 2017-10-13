@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>데이터 준비 사용자 가이드 
 데이터 준비 환경은 많은 기능을 제공합니다. 다음 문서에서는 환경의 기본적인 부분에 대해 설명합니다.
@@ -110,4 +109,3 @@ ms.lasthandoff: 09/25/2017
 [부록 8 - Python 데이터 원본 샘플](data-prep-appendix8-sample-source-connections-python.md)  
 [부록 9 - Python 대상 연결 샘플](data-prep-appendix9-sample-destination-connections-python.md)  
 [부록 10 - Python 열 변환 샘플](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

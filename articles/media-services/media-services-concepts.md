@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
 ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 미디어 서비스 개념
 이 항목에서는 가장 중요한 미디어 서비스 개념에 대한 개요를 제공합니다.

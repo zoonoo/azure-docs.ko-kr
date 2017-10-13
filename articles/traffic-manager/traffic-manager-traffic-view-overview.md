@@ -16,18 +16,16 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
 
 >[!NOTE]
->Traffic Manager의 트래픽 보기 기능은 공개 미리 보기 상태이며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
+>Traffic Manager의 트래픽 보기 기능은 공개 미리 보기로 제공되며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림은 [Azure Traffic Manager 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager) 페이지를 참조하세요.
 
 Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 프로필이 생성될 때 설정한 라우팅 방법을 기준으로 정상 상태의 끝점으로 라우팅될 수 있습니다. 이를 통해 Traffic Manager에는 사용자 기반(DN 확인자 세분성 수준) 및 해당 트래픽 패턴 보기가 제공됩니다. 트래픽 보기를 사용하도록 설정하면 실행 가능한 정보를 제공할 수 있게 처리됩니다. 
 
@@ -51,5 +49,4 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 - [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 - [트래픽 관리자 프로필을 만드는](traffic-manager-create-profile.md)
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 보안 서비스 및 기술
 현재 및 미래 Azure 고객들과 이야기를 나눌 때 우리는 이런 질문을 자주 받습니다. “Azure가 제공하는 모든 보안 관련 서비스 및 기술 목록을 구비하고 계십니까?”

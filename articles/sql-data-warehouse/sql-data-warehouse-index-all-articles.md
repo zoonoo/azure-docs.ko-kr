@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
 이 항목에서는 Azure의 **SQL 데이터 웨어하우스** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.

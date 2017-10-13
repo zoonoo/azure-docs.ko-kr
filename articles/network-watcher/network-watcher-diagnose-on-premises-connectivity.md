@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
 Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 장치의 선택도 고유합니다. Azure는 현재 장치 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 장치](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 장치를 구성하기 전에 장치 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 장치 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 설정이 정확하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
@@ -115,4 +113,3 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 [Azure Network Watcher 문제 해결을 사용하여 VPN 게이트웨이 모니터링](network-watcher-monitor-with-azure-automation.md)을 방문하여 PowerShell 및 Azure Automation으로 VPN Gateway 연결 확인에 대해 알아보기
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
-

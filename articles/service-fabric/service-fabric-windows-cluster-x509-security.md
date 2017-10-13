@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
+ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간에 통신을 보호하는 방법 뿐만 아니라 X.509 인증서를 사용하여 이 클러스터에 연결된 클라이언트를 인증하는 방법을 설명합니다. 이렇게 하면 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -327,5 +326,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 인증서 구성이 잘못되면 배포 도중 클러스터가 나타나지 않을 수 있습니다. 보안 문제를 자체 진단하려면 이벤트 뷰어 그룹 *응용 프로그램 및 서비스 로그* > *Microsoft-Service Fabric*에서 확인하세요.
 > 
 > 
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -319,5 +318,4 @@ HealthEvents                    :
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-
 

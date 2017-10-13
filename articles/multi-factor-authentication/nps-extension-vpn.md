@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Azure용 NPS(네트워크 정책 서버) 확장을 사용하여 Azure MFA(Multi-Factor Authentication)와 VPN 인프라 통합
 
 ## <a name="overview"></a>개요
@@ -476,5 +474,4 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)
 
 [Azure Active Directory와 온-프레미스 디렉터리 통합](../active-directory/connect/active-directory-aadconnect.md)
-
 

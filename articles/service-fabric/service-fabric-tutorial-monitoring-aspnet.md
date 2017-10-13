@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 이 자습서는 시리즈의 4부입니다. Application Insights를 사용하여 Service Fabric 클러스터에서 실행되는 ASP.NET Core 응용 프로그램에 대한 모니터링 및 진단을 설정하는 단계를 안내합니다. 자습서의 1부, [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 개발한 응용 프로그램에서 원격 분석 데이터를 수집합니다. 
 
@@ -238,4 +236,3 @@ public async Task<IActionResult> Delete(string name)
 - [Service Fabric에서 모니터링 및 진단 탐색](service-fabric-diagnostics-overview.md)
 - [Application Insights를 사용한 Service Fabric 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)
 - Application Insights에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/en-us/azure/application-insights/)를 참조하세요.
-

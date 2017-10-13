@@ -16,10 +16,10 @@ ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 

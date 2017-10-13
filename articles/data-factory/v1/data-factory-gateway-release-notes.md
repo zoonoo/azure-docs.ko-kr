@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
@@ -252,4 +251,3 @@ ms.lasthandoff: 09/25/2017
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Azure 데이터 팩터리 시나리오에 영향을 주는 변경은 없습니다.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
 
@@ -193,4 +192,3 @@ Site Recovery를 사용하여 Dynamics AX 응용 프로그램에 대한 완전�
 
 ## <a name="next-steps"></a>다음 단계
 Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법에 대해 자세히 알아보려면 [어떤 워크로드를 보호할 수 있습니까?](site-recovery-workload.md) 를 참조하세요.
-

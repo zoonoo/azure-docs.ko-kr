@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Azure Search 서비스 REST API 버전 2016-09-01로 업그레이드
 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)의 2015-02-28 또는 2015-02-28-Preview 버전을 사용하는 경우 이 문서를 통해 일반적으로 다음 API 버전인 2016-09-01을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.

@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 응용 프로그램 데이터에 대한 액세스 보호
 
 이 자습서는 시리즈의 3부입니다. 저장소 계정에 대한 액세스를 보호하는 방법을 배웁니다. 

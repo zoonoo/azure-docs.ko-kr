@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 솔루션 평가 도구
 ## <a name="overview"></a>개요
 Cortana Intelligence 솔루션 평가 도구를 사용하여 고급 분석 솔루션의 Microsoft 권장 모범 사례 준수를 평가할 수 있습니다. Microsoft는 파트너(ISV/SI)와 협력하여 고객, 재판매인 및 구현을 위한 고품질 솔루션을 제공합니다. 이 가이드에서는 솔루션과 함께 솔루션 평가 도구를 사용하는 프로세스를 안내하고 검사 대상의 특정 모범 사례에 대해 설명합니다.
@@ -199,5 +198,4 @@ Azure Data Factory를 사용하여 모델 학습 프로세스를 자동화하는
 [클라우드 비즈니스 성장을 위한 Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
 
 [Cortana Intelligence용 Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
-
 

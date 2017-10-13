@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/24/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4b8d5fdab1744b2db658917f91d6dac05db30d2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 4e10a009eb67706d927ece5692134d802094cdf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -80,4 +79,3 @@ IoT Hub 또는 이벤트 허브의 경우 등록하면서 데이터를 읽을 �
 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 * 타임스탬프 속성 이름은 _대/소문자를 구분_합니다.
 * JSON 문자열처럼 이벤트 원본에서 가져오는 타임스탬프 속성 값은 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_ 형식이어야 합니다. 이러한 문자열의 예는 “2008-04-12T12:53Z”입니다.
-

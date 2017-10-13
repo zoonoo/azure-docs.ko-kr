@@ -97,7 +97,7 @@
           href: sql-database-elastic-transactions-overview.md
         - name: 탄력적 작업
           href: sql-database-elastic-jobs-overview.md
-        - name: SQL 취약점 평가
+        - name: SQL 취약성 평가
           href: sql-vulnerability-assessment.md
         - name: SQL Server 일반 기능
           href: sql-database-features.md
@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: 확장 이벤트
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: 호환성 수준
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: 메모리 내 모니터링
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 확장
@@ -266,6 +264,12 @@
         - name: PowerShell에서 가상 네트워크 규칙
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: 비즈니스 연속성
+      items:
+        - name: 자격 증명 모음 구성 - 백업
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: 지역에서 복제 - 포털
+          href: sql-database-geo-replication-portal.md
+    - name: 데이터 로드 및 이동
       items:
         - name: BCP를 사용하여 데이터 로드
           href: sql-database-load-from-csv-with-bcp.md

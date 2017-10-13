@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: ed3c4bf2dcdda3e04a18682da568ae73f41bb37d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.

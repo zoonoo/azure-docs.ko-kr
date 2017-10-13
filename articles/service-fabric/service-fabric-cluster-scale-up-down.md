@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Service Fabric 클러스터 규모 조정 | Microsoft Docs"
-description: "각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정하여 수요에 따라 Microsoft Azure Service Fabric 클러스터의 크기를 조정합니다. Microsoft Azure Service Fabric 클러스터에 노드 추가 또는 제거"
+title: "Service Fabric 클러스터 규모 조정 | Microsoft Docs"
+description: "각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정하여 수요에 따라 Service Fabric 클러스터의 크기를 조정합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>자동 크기 조정 규칙을 사용하여 Microsoft Azure Service Fabric 클러스터 크기 조정
-가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Microsoft Azure Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [Microsoft Azure Service Fabric 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Microsoft Azure Service Fabric 노드 형식은 백 엔드에서 가상 컴퓨터 확장 집합으로 구성되므로 각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>자동 크기 조정 규칙을 사용하여 서비스 패브릭 클러스터 크기 조정
+가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [서비스 패브릭 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 컴퓨터 확장 집합으로 구성되므로 각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
 
 > [!NOTE]
 > 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다.
@@ -48,12 +47,12 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 > 
 > 
 
-현재는 자동 크기 조정 기능이 응용 프로그램에서 Microsoft Azure Service Fabric에 보고할 수 있는 로드에 따라 결정되지 않습니다. 따라서 현재는 자동 크기 조정이 각 가상 컴퓨터 확장 집합 인스턴스에서 내보낸 성능 카운터에 의해서만 결정됩니다.  
+현재는 자동 크기 조정 기능이 응용 프로그램에서 서비스 패브릭에 보고할 수 있는 로드에 따라 결정되지 않습니다. 따라서 현재는 자동 크기 조정이 각 가상 컴퓨터 확장 집합 인스턴스에서 내보낸 성능 카운터에 의해서만 결정됩니다.  
 
 [각 가상 컴퓨터 확장 집합에 대해 자동 크기 조정을 설정](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)하는 지침을 따르세요.
 
 > [!NOTE]
-> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) 을 호출해야 합니다.
+> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출해야 합니다.
 > 
 > 
 
@@ -67,7 +66,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 ## <a name="manually-remove-vms-from-the-primary-node-typevirtual-machine-scale-set"></a>주 노드 형식/가상 컴퓨터 확장 집합에서 수동으로 VM 제거
 > [!NOTE]
-> Microsoft Azure Service Fabric 시스템 서비스는 클러스터의 주 노드 형식에서 실행됩니다. 따라서 해당 노드 형식을 종료하거나 포함된 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요. 
+> 서비스 패브릭 시스템 서비스는 클러스터의 주 노드 형식에서 실행됩니다. 따라서 해당 노드 형식을 종료하거나 포함된 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요. 
 > 
 > 
 
@@ -91,12 +90,12 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 3. [빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 의 샘플/지침에 따라 해당 노드 형식에서 VM 수를 하나씩 변경합니다. 이렇게 하면 가장 높은 VM 인스턴스가 제거됩니다. 
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요.
 
-## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Microsoft Azure Service Fabric Explorer에서 볼 수 있는 동작
-클러스터를 강화하는 경우 Microsoft Azure Service Fabric Explorer는 클러스터의 일부로 노드 수(가상 컴퓨터 확장 집합 인스턴스)를 반영합니다.  그러나 클러스터 규모를 축소할 때 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) 를 호출하지 않으면 제거된 노드/VM 인스턴스가 계속 비정상 상태로 표시됩니다.   
+## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer에서 볼 수 있는 동작
+클러스터를 강화하는 경우 Service Fabric Explorer는 클러스터의 일부로 노드 수(가상 컴퓨터 확장 집합 인스턴스)를 반영합니다.  그러나 클러스터 규모를 축소할 때 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) 를 호출하지 않으면 제거된 노드/VM 인스턴스가 계속 비정상 상태로 표시됩니다.   
 
 다음은 이 동작에 대한 설명입니다.
 
-Microsoft Azure Service Fabric Explorer에 나열된 노드는 Microsoft Azure Service Fabric 시스템 서비스(특히 FM)가 클러스터에 포함된 노드 수에 대해 알고 있는 내용이 반영된 것입니다. 가상 컴퓨터 확장 집합의 규모를 축소하면 VM이 삭제되지만 FM 시스템 서비스는 해당 노드(삭제된 VM에 매핑된 노드)가 돌아올 것으로 생각합니다. 따라서 Microsoft Azure Service Fabric Explorer는 성능 상태가 오류 또는 알 수 없음이어도 해당 노드를 계속 표시합니다.
+Service Fabric Explorer에 나열된 노드는 서비스 패브릭 시스템 서비스(특히 FM)가 클러스터에 포함된 노드 수에 대해 알고 있는 내용이 반영된 것입니다. 가상 컴퓨터 확장 집합의 규모를 축소하면 VM이 삭제되지만 FM 시스템 서비스는 해당 노드(삭제된 VM에 매핑된 노드)가 돌아올 것으로 생각합니다. 따라서 Service Fabric Explorer는 성능 상태가 오류 또는 알 수 없음이어도 해당 노드를 계속 표시합니다.
 
 VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵션이 있습니다.
 
@@ -106,7 +105,7 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 2) VM 인스턴스가 규모 축소되면 [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx)을 호출해야 합니다.
 
 > [!NOTE]
-> 가용성을 유지하고 상태를 보존하기 위해 Microsoft Azure Service Fabric 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우 외에는 일반적으로 클러스터의 모든 컴퓨터를 종료하는 것은 안전하지 않습니다.
+> 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우 외에는 일반적으로 클러스터의 모든 컴퓨터를 종료하는 것은 안전하지 않습니다.
 > 
 > 
 
@@ -120,4 +119,3 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e751e2f0ec812de43a03749e04ff165fa62ec649
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-collect-model-data-using-data-collection"></a>데이터 컬렉션을 사용하여 모델 데이터를 수집하는 방법
 
 모델 데이터 컬렉션 기능을 사용하면 Machine Learning 웹 서비스의 모델 입력 및 예측을 보관할 수 있습니다. 이 문서에서는 모델 데이터 컬렉션의 다음과 같은 측면에 대해 설명합니다.
@@ -108,5 +106,4 @@ Microsoft 소프트웨어 및 오픈 소스 도구를 사용하여 다양한 방
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
 - [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) - Hive 테이블에 csv 데이터를 로드하고 blob에 대해 직접 SQL 쿼리 수행
-
 

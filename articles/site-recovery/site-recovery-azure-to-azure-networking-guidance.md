@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 99c08a1efbc610959fb4ba824dcb0601efac5877
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>Azure Virtual Machines 복제에 대한 네트워킹 지침
 
@@ -185,4 +184,3 @@ ExpressRoute 구성의 경우 다음 모범 사례를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
-

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 장치에 대한 CHAP 구성
 이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 1200 장치 뿐만 아니라 StorSimple 8000 시리즈에도 적용됩니다.

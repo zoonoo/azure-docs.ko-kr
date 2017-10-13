@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 484283a98831b3d5fbf079a3bf5eb9ec0d7ab4d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리
 
@@ -346,5 +345,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [11]: ./media/sql-database-aad-authentication/active-directory-integrated.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
-
 

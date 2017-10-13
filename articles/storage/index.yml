@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">클라우드에서 이미지 데이터 업로드 및 검색</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Blob을 처리하는 Azure Functions 트리거</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob을 처리하는 Azure Functions 트리거</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">응용 프로그램 데이터 보호</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">저장소 모니터링 및 문제 해결</a>
   - title: 샘플

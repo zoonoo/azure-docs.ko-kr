@@ -15,12 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication은 무엇을 의미하나요?
 IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 계정에 보안 확인을 좀 더 추가했다고 이야기했을 수 있습니다.  이것은 무엇을 의미할까요?
@@ -48,4 +47,3 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 | [설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다. |
 | [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md) |앱 암호 만들기 및 사용에 대한 정보를 찾아보세요. |
 | [모바일 앱 사용](microsoft-authenticator-app-how-to.md) |[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
-

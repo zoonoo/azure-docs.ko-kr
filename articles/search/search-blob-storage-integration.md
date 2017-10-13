@@ -9,14 +9,12 @@ ms.service: search
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search로 Blob Storage 검색
 
 Azure Blob Storage에 저장된 다양한 콘텐츠 형식에서 검색하면 어려운 문제를 해결할 수 있습니다. 그러나 Azure Search를 사용하면 단 몇 번의 클릭으로 Blob의 콘텐츠에 인덱스를 만들고 검색할 수 있습니다. Blob Storage를 통해 검색하려면 Azure Search 서비스를 프로비전해야 합니다. Azure Search의 다양한 서비스 한도 및 가격 책정 계층은 [가격 책정 페이지](https://aka.ms/azspricing)에서 확인할 수 있습니다.
@@ -55,4 +53,3 @@ Azure Search는 BLOB 저장소 포털 블레이드에서 직접 BLOB에 추가�
 
 ### <a name="next-steps"></a>다음 단계
 전체 [설명서](https://aka.ms/azsblobindexer)에서 Azure Search Blob Indexer에 대해 자세히 알아봅니다.
-

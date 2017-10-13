@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 모델 관리
 
@@ -126,4 +125,3 @@ Azure Machine Learning 모델 관리는 모델을 다시 학습하는 데 사용
 
 ## <a name="next-steps"></a>다음 단계
 모델 관리를 시작하려면 [모델 관리 구성](model-management-configuration.md)을 참조하세요.
-

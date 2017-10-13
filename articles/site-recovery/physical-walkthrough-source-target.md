@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
 ms.openlocfilehash: e89bbf5a2c1d71852e49da43d3106a05ebfc28a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-7-set-up-the-source-and-target-for-physical-server-replication-to-azure"></a>7단계: Azure에 물리적 서버 복제를 위한 원본 및 대상 설정
 

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
 ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-with-vmm-to-azure"></a>5단계: Azure로의 Hyper-V 복제(VMM 포함)를 위한 Azure 리소스 준비
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 이 **메뉴** 는 다음 플레이 북의 섹션에 연결됩니다. 
@@ -699,5 +698,4 @@ Power BI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 ## <a name="summary"></a>요약
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다. 
-
 

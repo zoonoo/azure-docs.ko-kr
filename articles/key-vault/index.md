@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="key-vault-documentation"></a>Key Vault 설명서
 
 Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스에서 사용하는 암호화 키 및 암호를 보호하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 리소스 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법을 보여 줍니다.
@@ -175,5 +173,4 @@ Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스�
 </ul>
 
 ---
-
 

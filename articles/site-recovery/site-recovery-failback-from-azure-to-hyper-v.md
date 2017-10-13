@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Site Recovery에서 Hyper-V 가상 컴퓨터에 대한 장애 복구
 
 이 문서에서는 Site Recovery에서 보호하는 가상 컴퓨터를 장애 복구하는 방법에 대해 설명합니다.
@@ -98,4 +96,3 @@ Azure는 항상 사용 가능한 환경이며 가상 컴퓨터를 항상 사용�
 장애 복구 작업을 완료하면 가상 컴퓨터를 **커밋**합니다. 커밋은 Azure 가상 컴퓨터와 해당 디스크를 삭제하고 VM을 다시 보호할 수 있도록 준비합니다.
 
 **커밋** 후에는 *역방향 복제*를 시작할 수 있습니다. 그러면 가상 컴퓨터가 온-프레미스에서 Azure로 다시 보호됩니다. 이 경우 VM이 Azure에서 해제되어 차별적인 변경 내용만 보내기 때문에 변경 내용만 복제합니다.
-

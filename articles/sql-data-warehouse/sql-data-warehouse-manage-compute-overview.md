@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL 데이터 웨어하우스의 계산 능력 관리(개요)
 > [!div class="op_single_selector"]

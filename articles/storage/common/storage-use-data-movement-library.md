@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -570,7 +569,6 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 이 시작 자습서에서 Azure Storage와 상호 작용하고 Windows, Linux 및 macOS에서 실행되는 응용 프로그램을 만들었습니다. 이 입문서에서는 Blob Storage에 초점을 맞추었지만, 이 동일한 정보를 File Storage에도 적용할 수 있습니다. 자세한 내용은 [Azure Storage 데이터 이동 라이브러리 참조 설명서](https://azure.github.io/azure-storage-net-data-movement)를 참조하세요.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
 
 
 

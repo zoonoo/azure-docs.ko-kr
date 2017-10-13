@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Service Fabric으로 컨테이너 서비스의 장애 조치(failover) 및 크기 조정을 보여 줍니다.
 
 이 자습서는 시리즈의 3부입니다. 이 자습서에서는 장애 조치(failover)가 Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다. 또한 컨테이너의 크기를 조정하는 방법을 배웁니다. 이 자습서에서는 다음을 수행했습니다.
@@ -89,4 +87,3 @@ Service Fabric 컨테이너는 해당 서비스에 대한 로드를 수용하도
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png
 [sfxscale]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscale.png
 [sfxscaledone]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscaledone.png
-

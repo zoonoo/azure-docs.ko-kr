@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 ## <a name="overview"></a>개요

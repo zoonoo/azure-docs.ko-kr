@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
-ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 566daede7e0b32110ceae2afa473e427992bc3a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services 설명서
 
@@ -108,8 +107,14 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XML 스키마</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XML 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">역할 스키마</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration 스키마</a></p>
                     </div>
                 </div>
             </div>
@@ -128,6 +133,3 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
         </div>
     </li>
 </ul>
-
-
-

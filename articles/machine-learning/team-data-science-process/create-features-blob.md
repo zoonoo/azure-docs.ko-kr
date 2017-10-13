@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기
 이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. Panda 데이터 프레임에 데이터를 로드하는 방법을 설명한 후, 표시기 값과 범주화 기능과 함께 Python 스크립트를 사용하여 범주 기능을 생성하는 방법을 보여줍니다.
@@ -124,5 +123,4 @@ ms.lasthandoff: 09/25/2017
 3. 이제 아래 그림과 같이 Azure 기계 학습 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
 
 ![판독기 blob](./media/data-blob/reader_blob.png)
-
 

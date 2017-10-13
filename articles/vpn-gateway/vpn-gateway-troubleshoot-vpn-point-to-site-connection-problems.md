@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2017
 ms.author: genli
+ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -264,4 +263,3 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 ### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**에서 기존 VPN 클라이언트 구성 파일을 삭제하고 VPN 클라이언트 설치 프로그램을 다시 실행합니다.
-

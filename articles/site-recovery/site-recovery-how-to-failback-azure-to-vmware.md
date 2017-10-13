@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
 
@@ -136,4 +135,3 @@ Azure에서 장애 조치된 가상 컴퓨터를 제거하려면 커밋이 필�
 
 ## <a name="common-issues"></a>일반적인 문제
 장애 복구를 수행 하기 전에 vCenter가 연결되었는지 확인합니다. 연결되지 않은 경우 디스크의 연결을 끊고 가상 컴퓨터를 다시 연결하는 작업이 실패합니다.
-

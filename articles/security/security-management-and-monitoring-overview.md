@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
 ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 Azure는 Azure 클라우드 서비스 및 가상 컴퓨터 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.

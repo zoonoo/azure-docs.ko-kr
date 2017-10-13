@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>스트림 분석 Data Lake 저장소 출력
 스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.

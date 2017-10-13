@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
 ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 응용 프로그램에서 Azure 검색을 사용하는 방법
 이 문서는 [Azure 검색.NET SDK](https://aka.ms/search-sdk)를 준비하여 실행하기 위한 연습입니다. Azure 검색을 사용하여 응용 프로그램에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.

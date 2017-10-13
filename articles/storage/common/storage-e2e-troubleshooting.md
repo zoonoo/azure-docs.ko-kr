@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
+ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1aa40c4de48c0117e9d3f9d434972adecccdb548
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 메시지 분석기를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -374,4 +373,3 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 * [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
-

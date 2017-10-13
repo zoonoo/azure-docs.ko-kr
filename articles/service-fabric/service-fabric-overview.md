@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -96,4 +95,3 @@ Service Fabric은 [Visual Studio Team Services](https://www.visualstudio.com/tea
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-

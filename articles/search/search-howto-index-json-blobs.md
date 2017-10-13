@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure 검색 BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 JSON이 포함된 blob에서 구조화된 콘텐츠를 추출하도록 Azure 검색 blob 인덱서를 구성하는 방법을 보여 줍니다.
 
@@ -172,4 +170,3 @@ JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 �
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
-

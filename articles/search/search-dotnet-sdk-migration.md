@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 버전 2.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 3으로 응용 프로그램을 업그레이드할 수 있습니다.

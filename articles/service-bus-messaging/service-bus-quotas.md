@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
 ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-quotas"></a>서비스 버스 할당량
 이 섹션에는 Microsoft Azure Service Bus 메시징의 기본 할당량 및 제한 임계값이 나열됩니다.

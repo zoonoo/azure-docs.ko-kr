@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
 이 항목에서는 [Media Encoder Standard 기본 설정](media-services-mes-presets-overview.md)의 기반이 되는 XML 스키마의 일부 요소와 형식에 대해 설명하며, 요소 및 해당 유효 값에 대한 설명도 제공합니다. 전체 스키마는 나중에 게시됩니다.  

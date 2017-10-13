@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: d38fc766d5226be7161433555da9622e006c80e9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-2-before-you-start"></a>2단계: 시작하기 전에
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure 지역 간에 Azure VM(가상 컴퓨터)을 복제하는 [아키텍처](azure-to-azure-walkthrough-architecture.md)를 검토한 후에 이 문서를 사용하여 필수 구성 요소를 확인합니다.
@@ -74,4 +72,3 @@ ms.lasthandoff: 08/31/2017
 ## <a name="next-steps"></a>다음 단계
 
 [3단계: 네트워킹 계획](azure-to-azure-walkthrough-network.md)으로 이동하여 아웃바운드 연결을 설정합니다.
-

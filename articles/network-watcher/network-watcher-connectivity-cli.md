@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Network Watcher를 통해 연결 확인
 
 > [!div class="op_single_selector"]
@@ -307,4 +305,3 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 컴퓨터 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
-

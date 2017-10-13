@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - 질문과 대답
 이 문서는 Azure Data Factory 서비스의 버전 2에 적용됩니다. FAQ(질문과 대답) 목록 및 그에 대한 답변 제공합니다.  
@@ -157,7 +156,7 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트를 �
 ## <a name="technical-deep-dive"></a>기술 심층 분석 
 
 ### <a name="can-i-have-version-1-and-version-2-pipelines-run-side-by-side"></a>버전 1과 버전 2 파이프라인을 함께 실행할 수 있습니까?
-안 됩니다. 버전 2 또는 버전 1 데이터 팩터리는 다른 버전의 엔터티(연결된 서비스, 데이터 집합, 파이프라인 등)를 가질 수 없습니다.   
+아니요. 버전 2 또는 버전 1 데이터 팩터리는 다른 버전의 엔터티(연결된 서비스, 데이터 집합, 파이프라인 등)를 가질 수 없습니다.   
 
 ### <a name="do-i-still-need-to-define-datasets-in-version-2"></a>버전 2에서도 데이터 집합을 정의해야 합니까?
 데이터 집합은 대부분의 활동에서 더 이상 필수 엔터티가 아닙니다. 변환을 위해 데이터 집합의 스키마 및 기타 메타데이터 정보를 사용하는 복사, Machine Learning, 조회, 유효성 검사 및 사용자 지정 활동에 필요합니다. 나머지 활동에는 데이터 집합이 더 이상 필요하지 않습니다.
@@ -194,5 +193,4 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트를 �
 
 - [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
 - [자습서: 클라우드에서 데이터 복사](tutorial-copy-data-dot-net.md)
-
 

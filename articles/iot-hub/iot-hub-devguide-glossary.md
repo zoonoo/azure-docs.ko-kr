@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -257,4 +256,3 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 ## <a name="x509-client-certificate"></a>X.509 클라이언트 인증서
 장치는 X.509 인증서를 사용하여 [IoT Hub](#iot-hub)와 인증을 수행할 수 있습니다. [SAS 토큰](#shared-access-signature)을 사용하는 대신 X.509 인증서를 사용합니다.
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트를 구성하는 방법
 
 이 문서에서는 내부 부하 분산 장치에 HA(고가용성) 포트를 배포하는 예제를 제공합니다. 네트워크 가상 어플라이언스 특정 구성의 경우 해당 공급자 웹 사이트를 참조하세요.
@@ -90,4 +88,3 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 ## <a name="next-steps"></a>다음 단계
 
 - [고가용성 포트](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보기
-

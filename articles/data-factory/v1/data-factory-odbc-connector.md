@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0e49539e0ca3fb841f282b988bdf0db12068ebd5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-odbc-connector.md)
-> * [버전 2- 미리 보기](../connector-odbc.md)
+> * [버전 1 - GA](data-factory-odbc-connector.md)
+> * [버전 2 - 미리 보기](../connector-odbc.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 ODBC 커넥터](../connector-odbc.md)를 참조하세요.
@@ -399,4 +398,3 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 게�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-

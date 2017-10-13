@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure 보안 센터에서 차세대 방화벽 추가
 Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.

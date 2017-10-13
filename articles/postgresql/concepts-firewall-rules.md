@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
 ms.openlocfilehash: 150c4f53c5ab6a6425b6af7d286d4c1518b006f8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

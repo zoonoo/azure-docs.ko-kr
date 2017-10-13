@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: d2a03be810bd7f792876607ec735eb578b65a3b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="views-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 뷰
 뷰는 SQL 데이터 웨어하우스에서 특히 유용합니다. 여러가지 다양한 방법을 사용하여 솔루션의 품질을 개선할 수 있습니다.  이 문서에서는 고려해야 할 제한 사항 뿐만 아니라 뷰를 통해 솔루션을 보완하는 방법의 예도 중점적으로 설명되어 있습니다.

@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data"></a>데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL 데이터 웨어하우스로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -208,4 +207,3 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
-

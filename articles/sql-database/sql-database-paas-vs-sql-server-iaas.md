@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
 Azure에는 Microsoft Azure의 SQL Server 워크로드를 호스팅하는 다음과 같은 두 가지 옵션이 있습니다.
@@ -66,7 +65,6 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 |  | 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 |SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성하고 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. | |
 |  | 기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다. |모든 관리 권한이 있는 사용자 지정 환경이 필요합니다. | |
 |  | 확장 패턴을 사용하여 [가로 또는 세로로 분할](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 될 수 있는 최대 4TB 이상의 데이터베이스 |저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. | |
-|  | [SaaS(Software-as-a-Service) 응용 프로그램 빌드](sql-database-design-patterns-multi-tenancy-saas-applications.md) |엔터프라이즈 및 하이브리드 응용 프로그램 마이그레이션 및 빌드 | |
 |  | | |
 | **리소스:** |기본 인프라를 구성하고 관리하는 데 IT 리소스를 사용하지 않지만 응용 프로그램 계층에 중점을 두려고 합니다. |구성 및 관리를 위한 일부 IT 리소스가 있습니다. 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
 | **총 소유 비용** |하드웨어 비용을 제거하고 관리 비용을 절감합니다. |하드웨어 비용을 제거합니다. |
@@ -146,5 +144,4 @@ Microsoft는 **SQL Database** Basic, Standard Premium 및 Premium RS 서비스 �
 * SQL Database를 시작하려면 [첫 Azure SQL Database](sql-database-get-started-portal.md)를 참조하세요.
 * [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 * Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) 을 참조하세요.
-
 

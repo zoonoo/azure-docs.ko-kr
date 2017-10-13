@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/14/2017
 ms.author: tedway;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4dbb1779bf36be74ee83aeed8e4940902915603a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Azure 기계 학습 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
@@ -91,4 +90,3 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 [04]: ./media/excel-add-in-for-web-services/image4.png
 [05]: ./media/excel-add-in-for-web-services/image5.png
 [06]: ./media/excel-add-in-for-web-services/image6.png
-

@@ -8,14 +8,12 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
 
 이 시나리오에서는 Azure Machine Learning Workbench를 사용하여 scikit-learn API를 구현하는 Machine Learning 알고리즘에서 하이퍼 매개 변수의 분산 튜닝을 확장하는 방법을 보여줍니다. 원격 Docker 컨테이너와 Spark 클러스터를 하이퍼 매개 변수를 튜닝하는 실행 백 엔드로 구성하고 사용하는 방법을 보여줍니다.
@@ -312,7 +310,6 @@ CLI에서 실행하여 수행될 수 있습니다. 이 설치는 몇 분 정도 
 ## <a name="references"></a>참조
 
 [1] T. Chen 및 C. Guestrin [XGBoost: 확장성 있는 트리 부팅 시스템](https://arxiv.org/abs/1603.02754) KDD 2016
-
 
 
 

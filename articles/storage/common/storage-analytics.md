@@ -14,24 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: tamram
+ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 61e4f599d17417c11d7ff79489300b82df0bc9c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-analytics"></a>저장소 분석
 
-Azure Storage Analytics는 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
+Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
 
-저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob Service 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx), [큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452243.aspx), [Table service 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 및 [파일 서비스 속성 가져오기](https://msdn.microsoft.com/library/mt427369.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
+저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob Service 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx), [큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452243.aspx), [Table service 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 및 [파일 서비스 속성 가져오기](https://msdn.microsoft.com/library/mt427369.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
 
 집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob 서비스 및 테이블 서비스 API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
 저장소 분석에 저장되는 데이터의 양은 20TB로 제한됩니다. 이 제한은 총 저장소 계정 제한과 관계없이 적용됩니다. 청구 및 데이터 보존 정책에 대한 자세한 내용은 [저장소 분석 및 청구](https://msdn.microsoft.com/library/hh360997.aspx)를 참조하세요. 저장소 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
-저장소 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## <a name="about-storage-analytics-logging"></a>저장소 분석 로깅 정보
 저장소 분석은 저장소 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
@@ -61,7 +60,7 @@ Azure Storage Analytics는 로깅을 수행하며 저장소 계정에 대한 메
 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 항목에 나와 있습니다.
 
 ### <a name="how-logs-are-stored"></a>로그 저장 방법
-모든 로그는 $logs 컨테이너의 블록 Blob에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 작성됩니다. $logs 컨테이너는 `http://<accountname>.blob.core.windows.net/$logs`와 같은 저장소 계정의 Blob 네임스페이스에 있습니다. 저장소 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다.
+모든 로그는 $logs 컨테이너의 블록 Blob에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 작성됩니다. $logs 컨테이너는와 같은 저장소 계정의 Blob 네임스페이스에 있습니다. `http://<accountname>.blob.core.windows.net/$logs` 저장소 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다.
 
 > [!NOTE]
 > $logs 컨테이너는 [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) 등의 메서드를 사용하여 컨테이너 나열 작업을 수행할 때는 표시되지 않으므로 직접 액세스해야 합니다. 예를 들어 [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) 메서드를 사용하여 `$logs` 컨테이너의 Blob에 액세스할 수 있습니다.
@@ -121,7 +120,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 ## <a name="about-storage-analytics-metrics"></a>저장소 분석 메트릭 정보
 저장소 분석에서는 저장소 서비스에 대한 요청 관련 용량 데이터 및 집계된 트랜잭션 통계를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 응용 프로그램의 성능을 개선할 수 있습니다.
 
-저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. **서비스 속성 가져오기** 작업을 사용하여 각 서비스에 대한 저장소 분석을 사용하도록 설정할 수 있습니다.
+저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. **서비스 속성 가져오기** 작업을 사용하여 각 서비스에 대한 저장소 분석을 사용하도록 설정할 수 있습니다.
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 각 저장소 서비스 및 요청한 API 작업에 대해 시간 또는 분 간격으로 유용한 데이터 집합이 기록됩니다. 이러한 데이터에는 수신/송신, 가용성, 오류, 분류된 요청 비율 등이 포함됩니다. 트랜잭션 세부 정보의 전체 목록은 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx) 항목에서 확인할 수 있습니다.
@@ -180,7 +179,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="setting-up-storage-analytics"></a>저장소 분석 설정
-* [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
+* [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [저장소 분석 설정 및 구성](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### <a name="storage-analytics-logging"></a>저장소 분석 로깅
@@ -192,5 +191,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 * [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/hh343258.aspx)
 * [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 * [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
-
 

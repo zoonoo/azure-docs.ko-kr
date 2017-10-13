@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: masnider;
 ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reliable-services-overview"></a>신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 항목은 다음에 대해 설명합니다.

@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
 ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블에 대한 데이터 형식을 정의하기 위한 지침
 이러한 권장 사항을 사용하여 SQL Data Warehouse와 호환되는 테이블 데이터 형식을 정의합니다. 호환성 외에도 데이터 형식의 크기를 최소화하면 쿼리 성능이 향상됩니다.

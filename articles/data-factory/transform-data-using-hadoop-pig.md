@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7745f273283ff998b41fe59a10e705e7564a7bd3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Pig 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +65,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | name                | 작업의 이름                     | 예      |
 | 설명         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
 | type                | Hive 작업의 경우 작업 유형은 HDinsightPig입니다. | 예      |
-| linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 서비스 계산](compute-linked-services.md) 문서를 참조하세요. | 예      |
+| linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | scriptLinkedService | 실행할 Pig 스크립트를 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
 | scriptPath          | scriptLinkedService에서 참조하는 Azure Storage에 저장된 스크립트 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 아니요       |
 | getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니요       |
@@ -84,4 +83,3 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)
-

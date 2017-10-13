@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 196f6d03567cbad8e061d45be546bc86015ede2e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Switch 문으로 Logic Apps에서 다양한 작업 수행
 
 워크플로를 작성할 때 종종 개체 또는 식의 값을 기반으로 하는 다양한 작업을 수행해야 합니다. 예를 들어 논리 앱을 HTTP 요청의 상태 코드 또는 전자 메일에서 선택한 옵션에 따라 서로 다르게 작동하도록 하고자 할 수 있습니다.

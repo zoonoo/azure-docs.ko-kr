@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 15e4487217ec21bb33380422640cb19dfcbcee39
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 09/25/2017
     - **가장 최근에 처리됨**: VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
     - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
     - **사용자 지정**: 복구 지점을 선택합니다.
-3. **테스트 장애 조치(Failover)**에서 장애 조치(failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다.
+3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다.
 4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음 이름 > **설정** > **작업** >
    **Site Recovery 작업**에서 **테스트 장애 조치(Failover)** 작업을 클릭하면 됩니다.
 5. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
@@ -75,4 +74,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [온-프레미스 VMware VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](tutorial-vmware-to-azure-failover-failback.md)
-

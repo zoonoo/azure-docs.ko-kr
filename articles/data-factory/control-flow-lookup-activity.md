@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 조회 작업은 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회하는 데 사용할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
@@ -244,4 +243,3 @@ Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [웹 작업](control-flow-web-activity.md)
-

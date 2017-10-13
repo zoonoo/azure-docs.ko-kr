@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: sdanie
 ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
 Azure Redis Cache는 메모리 내 또는 SQL Server 데이터베이스가 아니라 캐시에 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 제공자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Redis Cache 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성합니다.

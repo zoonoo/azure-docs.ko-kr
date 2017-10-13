@@ -15,12 +15,11 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 62242f356afd55a7f9e432faa6cdf3be74b7c18c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 66c8e89a81285391a524ffb95ef48227cbdcd388
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
@@ -111,4 +110,3 @@ Microsoft Authenticator 앱을 열면 각각 6자리 또는 8자리 숫자를 �
 * Microsoft 계정에 대한 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
 * 회사 또는 학교 계정에 [2단계 인증 문제](multi-factor-authentication-end-user-troubleshoot.md)가 있나요?
 * [Microsoft Authenticator를 사용하여 휴대폰에서 로그인합니다.](microsoft-authenticator-app-phone-signin-faq.md)
-

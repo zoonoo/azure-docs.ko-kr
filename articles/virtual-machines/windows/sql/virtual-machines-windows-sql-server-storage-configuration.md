@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
 ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 저장소 구성
 Azure에서 SQL Server 가상 컴퓨터 이미지를 구성하는 경우 포털에서는 저장소 구성을 자동화할 수 있습니다. 저장소를 VM에 연결하고 해당 저장소를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.

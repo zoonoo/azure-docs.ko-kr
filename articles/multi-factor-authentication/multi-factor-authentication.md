@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: kgremban
+ms.openlocfilehash: 231028a7389dba50efe7d197837855b39826f9b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 정의
 2단계 인증은 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.
@@ -55,4 +54,3 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 - [Azure Multi-Factor Authentication 작동 방법](multi-factor-authentication-how-it-works.md)에 대해 알아보기
 
 - 다른 [Azure Multi-Factor Authentication에 대한 다양한 버전 및 사용량 메서드](multi-factor-authentication-versions-plans.md)에 대해 알아보기
-

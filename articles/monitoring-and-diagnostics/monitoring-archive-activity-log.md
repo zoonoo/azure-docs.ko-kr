@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
 ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.

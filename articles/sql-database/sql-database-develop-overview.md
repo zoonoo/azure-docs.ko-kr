@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 47d119e4e4fd1420186e8600c8c085ab939fa6a5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
@@ -77,4 +76,3 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 ## <a name="next-steps"></a>다음 단계
 모든 [SQL 데이터베이스의 기능](sql-database-technical-overview.md)을 탐색합니다.
-

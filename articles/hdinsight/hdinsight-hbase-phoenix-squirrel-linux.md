@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
+ms.openlocfilehash: 41bfef95059b7c5343d952b4fe372e3baae6f9d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용
 Azure HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Phoenix 문법(영문)](http://phoenix.apache.org/language/index.html)을 참조하세요.
@@ -77,8 +76,7 @@ HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합�
 * [Azure Virtual Network에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] -
   가상 네트워크 통합을 사용하면 HBase 클러스터를 응용 프로그램과 동일한 가상 네트워크에 배포할 수 있으므로 응용 프로그램에서 HBase와 직접 통신 할 수 있습니다.
 * [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md). 두 Azure 데이터 센터 간에 HBase 복제를 설정하는 방법을 알아봅니다.
-* [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
-  HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법을 알아봅니다.
+
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -86,7 +84,6 @@ HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합�
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
@@ -95,4 +92,3 @@ HBase 클러스터에 연결할 때 ZooKeeper VM 중 하나에 연결해야 합�
 [img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
 [img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
-

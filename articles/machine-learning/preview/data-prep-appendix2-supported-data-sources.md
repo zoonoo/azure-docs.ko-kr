@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a77b31e07f118155094fab4d3393ffdb37c9c6f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-for-this-release"></a>이 릴리스에 대해 지원되는 데이터 원본 
 다음 문서에서는 데이터 준비에서 현재 지원되는 데이터 원본 목록을 간단하게 설명합니다.
 
@@ -89,6 +87,5 @@ Parquet 형식은 저장소에서 다양한 형태가 될 수 있습니다. 작�
 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치
 
 ### <a name="azure-blob"></a>Azure BLOB
-Azure Storage(BLOB), Azure 구독 필요
-
+Azure Storage(BLOB)는 Azure 구독을 필요로 합니다
 

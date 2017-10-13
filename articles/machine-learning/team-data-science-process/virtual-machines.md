@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 88fe9673176cdade92faad4bbdcb2e1bd11f4a55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Azure 데이터 과학 가상 컴퓨터를 IPython Notebook 서버로 프로비전
 Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정하는 방법을 설명하는 지침이 제공됩니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure 저장소로 데이터를 업로드하거나 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다. 
@@ -44,5 +43,4 @@ Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정�
 > Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **Azure 클래식 포털** 에서 [중지(할당 해제)](http://manage.windowsazure.com/)상태에 있어야 합니다. 가상 컴퓨터를 할당 해제하는 방법 및 단계별 지침은 [사용하지 않을 때 가상 컴퓨터 종료 및 할당 해체](../data-science-virtual-machine/setup-virtual-machine.md#shutdown)를 참조하세요.
 > 
 > 
-
 

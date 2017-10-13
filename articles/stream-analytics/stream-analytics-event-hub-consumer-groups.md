@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>이벤트 허브 수신자를 사용하여 Azure Stream Analytics 디버그
 
 Azure Stream Analytics에서 Azure 이벤트 허브를 사용하여 작업에서 데이터를 수집하거나 출력할 수 있습니다. 이벤트 허브 사용에 대한 모범 사례는 여러 소비자 그룹을 사용하여 작업 확장성을 보장하는 것입니다. 한 가지 이유는 특정 입력에 대한 Stream Analytics 작업의 판독기 수가 단일 소비자 그룹의 판독기 수에 영향을 준다는 것입니다. 수신자의 정확한 수는 확장 토폴로지 논리에 대한 내부 구현 세부 정보를 기반으로 합니다. 수신자 수는 외부적으로 노출되지 않습니다. 판독기 수는 작업 시작 시간에 또는 작업을 업그레이드하는 동안에 바뀔 수 있습니다.
@@ -90,4 +88,3 @@ FROM data
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
 * [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

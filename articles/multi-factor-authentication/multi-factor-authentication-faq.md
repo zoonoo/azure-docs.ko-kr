@@ -16,10 +16,10 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.

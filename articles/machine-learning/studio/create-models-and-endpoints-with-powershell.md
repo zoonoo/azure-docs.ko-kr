@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cc938fdaa6843f7c9e974d9b88a9b682b4678493
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell을 사용하여 한 실험에서 여러 기계 학습 모델 및 웹 서비스 끝점 만들기
 일반적인 기계 학습 문제는 다음과 같습니다. 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 입력으로 서로 다른 학습 데이터 집합을 포함하는 여러 모델을 만들려고 합니다. 이 문서에서는 단일 실험을 사용하여 Azure 기계 학습 스튜디오에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
@@ -172,4 +171,3 @@ Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountN
         Write-Host ('Patching endpoint ' + $endpointName + '...');
         Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
     }
-

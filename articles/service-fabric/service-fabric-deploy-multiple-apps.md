@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
 이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
@@ -74,7 +72,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용
 * **/target** : 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 원본 디렉터리와 달라야 합니다.
 * **/appname** : 기존 응용 프로그램의 응용 프로그램 이름을 정의합니다. 이 이름은 매니페스트에서 서비스 패브릭 응용 프로그램 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
 * **/exe**: Service Fabric이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
-* **/ma** : 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다.  `/ma:'bin/www'`는 패키징 도구에 `bin/ma`를 node.exe의 인수로 사용하도록 지시합니다.
+* **/ma** : 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다.  `/ma:'bin/www'`는 패키징 도구에 `bin/www`를 node.exe의 인수로 사용하도록 지시합니다.
 * **/AppType** : 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다.
 
 /target 매개 변수에서 지정한 디렉터리로 이동하면 다음과 같이 도구가 완벽하게 작동하는 서비스 패브릭 패키지를 만든 것을 볼 수 있습니다.
@@ -220,4 +218,3 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 * [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)에서 컨테이너 배포 방법을 알아봅니다.
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-

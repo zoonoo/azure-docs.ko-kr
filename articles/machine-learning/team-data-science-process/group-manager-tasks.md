@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="group-manager-tasks"></a>그룹 관리자 작업
 
 이 토픽에서는 그룹 관리자가 자신의 데이터 과학 조직을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 TDSP([Team Data Science Process](overview.md))를 표준화하는 공동 작업 그룹 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
@@ -55,9 +52,9 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>리포지토리를 복제하고 시작 및 종료 코드를 확인하기 위한 필수 조건
  
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있어야 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
-- **Windows DSVM**을 사용하는 경우 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 시스템에 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이 단계를 수행하면 최신 설치 관리자 페이지로 이동됩니다. 여기에서 .exe 설치 관리자를 다운로드하여 실행합니다. 
-- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들어 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이 단계를 수행하면 최신 설치 관리자 페이지로 이동됩니다. 여기에서 .exe 설치 관리자를 다운로드하여 실행합니다. 
+- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 
 
 ## <a name="1-create-account-on-vsts-server"></a>1. VSTS 서버에 계정 만들기
@@ -316,9 +313,9 @@ GitRepos\GroupCommon\GroupProjectTemplate 디렉터리에서 다음 명령을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명 링크입니다.
+다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명으로 연결되는 링크입니다.
 
 - [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)
 - [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)
-- [데이터 과학 팀에 대한 프로젝트 개별 참가자](project-ic-tasks.md)
+- [데이터 과학 팀에 대한 프로젝트 개별 참가자 작업](project-ic-tasks.md)

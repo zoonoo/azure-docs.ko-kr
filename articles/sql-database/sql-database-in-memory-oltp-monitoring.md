@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리에 최적화된 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 서비스 계층은 최대 메모리 내 OLTP 저장소 크기가 있으며 이는 [단일 데이터베이스 리소스 제한](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [탄력적 풀 리소스 제한](sql-database-resource-limits.md#elastic-pool-change-storage-size)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패(오류 41823)하기 시작할 수 있습니다. 해당 시점에서 데이터를 삭제하여 하나에 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/30/2017
 
 ## <a name="next-steps"></a>다음 단계
 모니터링 지침은 [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)을 참조하세요.
-

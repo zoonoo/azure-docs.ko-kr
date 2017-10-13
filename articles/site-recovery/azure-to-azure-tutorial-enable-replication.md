@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 09/25/2017
 > * 복구 서비스 자격 증명 모음 만들기
 > * 대상 리소스 설정 확인
 > * VM에 대해 아웃바운드 액세스 설정
-> * VM에 대해 복제 활성화
+> * VM에 대한 복제 사용
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -165,4 +164,3 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 > [!div class="nextstepaction"]
 > [재해 복구 훈련 실행](azure-to-azure-tutorial-dr-drill.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 983a3d22c73721c643b8283679040a0b6f7beedf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스에서 데이터 탐색
 이 문서에서는 데이터 과학 프로세스에 일반적으로 사용되는 4개의 서로 다른 저장소 환경에서 데이터를 탐색하는 방법을 설명합니다.
@@ -32,5 +31,4 @@ ms.lasthandoff: 09/25/2017
 다음 **메뉴** 는 다양한 저장소 환경에서 데이터를 탐색하기 위해 이러한 도구를 사용하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
-
 

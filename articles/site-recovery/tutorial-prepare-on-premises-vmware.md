@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e59a78f2c348b581155484d77e272a050da1f1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
@@ -116,4 +115,3 @@ VM에서 다음 표에 요약된 Azure 요구 사항을 준수하는지 확인�
 
 > [!div class="nextstepaction"]
 > [Azure에 VMware VM 재해 복구 설정](tutorial-vmware-to-azure.md)
-

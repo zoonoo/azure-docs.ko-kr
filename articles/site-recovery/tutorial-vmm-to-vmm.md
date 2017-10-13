@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -163,4 +162,3 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 ## <a name="next-steps"></a>다음 단계
 
 [재해 복구 훈련 실행](tutorial-dr-drill-secondary.md)
-

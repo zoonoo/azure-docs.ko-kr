@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -1000,4 +999,3 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)
 * [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)
-

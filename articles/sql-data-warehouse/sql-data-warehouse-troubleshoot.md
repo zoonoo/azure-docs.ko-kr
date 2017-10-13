@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스 문제 해결
 이 항목에서는 고객이 제기하는 가장 일반적인 문제 해결 질문 일부에 대해 설명합니다.

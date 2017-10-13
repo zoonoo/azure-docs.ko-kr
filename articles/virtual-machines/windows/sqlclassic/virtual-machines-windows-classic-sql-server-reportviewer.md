@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
 > [!IMPORTANT] 
@@ -93,5 +92,4 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 [Azure 가상 컴퓨터의 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](../classic/ps-sql-report.md)
-
 

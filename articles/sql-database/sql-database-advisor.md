@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-recommendations"></a>성능 권장 사항
 
@@ -81,6 +80,5 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 * 자동화된 진단을 사용하여 데이터베이스 성능을 자동으로 모니터링 및 성능 문제의 근본 원인 분석에 대한 자세한 내용은 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요.
 * Azure Portal에서 성능 권장 사항을 사용하는 방법에 대한 단계는 [Azure Portal의 성능 권장 사항](sql-database-advisor-portal.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insight](sql-database-query-performance.md)를 참조하세요.
-
 
 

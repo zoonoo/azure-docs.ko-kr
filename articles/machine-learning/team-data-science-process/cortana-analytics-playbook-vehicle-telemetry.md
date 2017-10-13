@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: af8b3d5bf891c93c30a05c5f02d86639a466dde5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>차량 원격 분석 솔루션 플레이북
 이 **메뉴** 는 이 플레이북 장에 연결됩니다. 
@@ -58,5 +57,4 @@ Microsoft의 Cortana Intelligence는 데이터를 지능형 작업으로 변환�
 
 * **시뮬레이트된 차량 신호 및 진단**: 차량 텔레매틱스 시뮬레이터는 지정된 시간에 차량의 상태 및 주행 패턴에 해당하는 진단 정보 및 신호를 내보냅니다. 
 * **차량 카탈로그**: 모델 매핑에 대한 VIN이 포함된 참조 데이터 집합입니다.
-
 

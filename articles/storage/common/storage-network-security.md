@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure Storage 방화벽 및 Virtual Network 구성(미리 보기)
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
@@ -367,4 +366,3 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 [서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview)에서 Azure 네트워크 서비스 끝점에 대해 자세히 알아봅니다.
 
 [Azure Storage 보안 가이드](storage-security-guide.md)에서 Azure Storage 보안에 대해 자세히 알아봅니다.
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>정규식을 사용하여 Log Analytics에서 로그 검색 필터링
 
@@ -99,4 +98,3 @@ ms.lasthandoff: 08/11/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [검색 로그](log-analytics-log-searches.md)에 대해 알아보고 Log Analytics 리포지토리에서 데이터를 보고 분석합니다.
-

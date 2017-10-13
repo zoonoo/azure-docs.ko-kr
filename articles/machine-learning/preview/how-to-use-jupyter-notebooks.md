@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법
 
@@ -109,5 +108,4 @@ $ az ml notebook start
 ## <a name="next-steps"></a>다음 단계
 - Jupyter Notebook 사용 방법은 [Jupyter 공식 설명서](http://jupyter-notebook.readthedocs.io/en/latest/)를 참조하세요.    
 - Azure ML 실험 실행 환경에 대한 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experiment-execution-configuration.md)를 검토하세요.
-
 

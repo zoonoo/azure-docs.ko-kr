@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Microsoft 모니터링으로 경고 관리
 경고는 관리자가 주목해야 하는 문제를 나타냅니다.  OMS(Operations Management Suite)의 Log Analytics 및 SCOM(System Center Operations Manager)은 경고의 생성 방식, 관리 및 분석 방식, 중요 문제가 검색되었음을 알리는 방식에서 분명한 차이가 있습니다.

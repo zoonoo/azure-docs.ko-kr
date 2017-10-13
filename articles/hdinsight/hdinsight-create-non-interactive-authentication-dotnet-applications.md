@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 9ad482a932c56aa2585560eb74cf4cef06a6fa52
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 응용 프로그램 만들기
 Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체의 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여 줍니다. 대화형 응용 프로그램의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
@@ -129,4 +128,3 @@ Azure AD 응용 프로그램에 [역할](../active-directory/role-based-access-b
 * [Azure Portal에서 Azure Active Directory 응용 프로그램 및 서비스 주체를 만듭니다](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * [Azure Resource Manager를 사용하여 서비스 주체를 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)하는 방법을 알아봅니다.
 * [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)에 대해 알아봅니다.
-

@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: d0c6523b4d90c29781d256b2882b0935b50e2af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
 Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, Virtual Machines, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 비롯한 나날이 다양해지는 통합 공용 클라우드 서비스입니다.  Microsoft Azure는 온-프레미스 하드웨어에 투자하지 않고 원하는 때에 사용에 대한 비용을 지불할 수 있도록 확장할 수 있는 계산 플랫폼을 제공합니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
@@ -139,4 +138,3 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 이제 Azure의 Linux를 대략적으로 이해하게 되었을 것입니다.  다음 단계로는 좀 더 깊이 들어가서 몇 개의 VM을 만들어 보겠습니다.
 
 * [Azure CLI를 통해 일반 작업을 위한 샘플 스크립트 확장 목록 탐색](cli-samples.md)
-

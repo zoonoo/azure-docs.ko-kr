@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: genli
+ms.openlocfilehash: 3011ef7eced5a24ba07d06e2db2f5e4d344b94de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 524f6303f71590de75f7eb8fd2a9082c35dfa651
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
 Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 

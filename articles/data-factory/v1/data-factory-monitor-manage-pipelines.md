@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c473d4adf3b87fe6dc9fa89e0bae112bf27d47ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -659,4 +658,3 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 데이터 팩터리와 함께 관련된 모든 리소스(예: 데이터 팩터리와 관련된 경고)를 이동할 수도 있습니다.
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-

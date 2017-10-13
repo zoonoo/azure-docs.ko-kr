@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
+ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 0398e9f814614b3dccf849385903a8ed8717eafb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 공용 IP 주소 만들기
 
 Azure 가용성 영역(미리 보기)에서 공용 IP 주소를 배포할 수 있습니다. 가용성 영역은 Azure 지역에서 물리적으로 별도 영역입니다. 방법 배우기:

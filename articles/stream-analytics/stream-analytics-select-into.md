@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 6ffa756eef0cfa44d7dd397e43afbf054ac2df7a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>SELECT INTO 문을 사용하여 쿼리 디버그
 
@@ -84,5 +83,4 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

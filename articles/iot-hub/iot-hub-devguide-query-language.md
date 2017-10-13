@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
 ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>참조 - 장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 

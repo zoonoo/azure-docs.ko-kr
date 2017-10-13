@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>기계 학습 라이브 채팅 지원에서 도움 받기
 [Azure 기계 학습 스튜디오](what-is-ml-studio.md) 에서는 기계 학습 모델을 작성하는 직관적인 인터페이스를 제공합니다. 시작하는데 도움을 주는 커뮤니티가 작성한 예제의 [갤러리](gallery-how-to-use-contribute-publish.md)가 있습니다. 그리고 계속 진행하는 데 도움이 되는 질문을 할 수 있는 [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)이 있습니다. 
@@ -39,5 +38,4 @@ ms.lasthandoff: 09/25/2017
 Machine Learning 팀의 구성원과 기타 데이터 과학자 및 개발자가 볼 수 있는 [Machine Learning 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)에 언제든지 질문을 게시할 수 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

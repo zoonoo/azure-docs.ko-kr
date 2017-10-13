@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 0a32c758693c1889d7acfa6510bffba46b7eabc2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 829e0759f8aeb8758f6b8895b88b60b66ffb22ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
@@ -112,4 +111,3 @@ Azure AD 응용 프로그램을 선택한 후에는 응용 프로그램 및 사�
 ## <a name="next-steps"></a>다음 단계
 
 [계정에 파일 업로드](media-services-portal-upload-files.md) 시작
-

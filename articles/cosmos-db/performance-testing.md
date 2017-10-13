@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
 성능 및 규모 테스트는 응용 프로그램 개발의 핵심 단계입니다. 많은 응용 프로그램에서 데이터베이스 계층은 전체 성능과 확장성에 큰 영향을 미칩니다. 따라서 성능 테스트의 주요 구성 요소가 됩니다. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 탄력적 확장 및 예측 가능한 성능을 목적으로 구축되었습니다. 이러한 기능은 고성능 데이터베이스 계층이 필요한 응용 프로그램에 잘 맞습니다. 
@@ -106,6 +105,5 @@ Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 
 * [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Azure Cosmos DB 성능 향상을 위한 클라이언트 구성 옵션](performance-tips.md)
 * [Azure Cosmos DB의 서버 쪽 분할](partition-data.md)
-
 
 

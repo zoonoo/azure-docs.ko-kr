@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Azure Site Recovery에서 VMware vCenter 서버 관리
 이 문서는 VMware vCenter에서 수행될 수 있는 다양한 Site Recovery 작업을 설명합니다.

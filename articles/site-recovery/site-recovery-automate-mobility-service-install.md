@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
 ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
 Operations Management Suite에서는 무중단 업무 방식 계획의 일부분으로 사용 가능한 포괄적인 백업 및 재해 복구 솔루션이 제공됩니다.

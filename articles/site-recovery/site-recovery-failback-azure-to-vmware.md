@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
 ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
 

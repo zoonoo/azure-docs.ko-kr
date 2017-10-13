@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>오프라인 분석을 위해 테넌트 데이터베이스에서 분석 데이터베이스로 데이터 추출
 

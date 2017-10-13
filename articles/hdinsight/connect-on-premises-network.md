@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
 Azure Virtual Networks와 VPN Gateway를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 이 문서는 다음에 대한 계획 정보를 제공합니다.
@@ -343,4 +341,3 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
-

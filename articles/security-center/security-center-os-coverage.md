@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Security Center에서 지원되는 플랫폼
 클래식 및 Resource Manager 배포 모델을 모두 사용하여 작성된 VM(가상 컴퓨터)에 대해 보안 상태 모니터링 및 권장 사항이 제공됩니다.
@@ -63,4 +62,3 @@ ms.lasthandoff: 09/25/2017
 - [Azure Security Center에서 유형별 보안 경고](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Security Center에서 가상 컴퓨터 동작 분석 및 크래시 덤프 메모리 분석에 대해 자세히 알아봅니다.
 - [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-

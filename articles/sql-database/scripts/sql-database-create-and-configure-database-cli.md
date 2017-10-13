@@ -14,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 10/11/2017
 ms.author: janeng
-ms.openlocfilehash: 908898ca691d2b53b9f54afa60c41e091163bd50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: c7c90d2d7a2d3631ffc63be88f2b8b95e2eb26a8
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성
 
@@ -34,7 +34,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[기본](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "SQL Database 만들기")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -50,10 +50,10 @@ az group delete --name myResourceGroup
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az sql server create](/cli/azure/sql/server#create) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
-| [az sql db create](/cli/azure/sql/db#create) | 논리 서버에 SQL Database를 만듭니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | 논리 서버에 SQL Database를 만듭니다. |
 | [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Azure Marketplace에 제품 게시 및 관리
 다른 Azure 고객 및 파트너가 구매하여 사용하도록 개발자가 Azure Marketplace에 나열된 솔루션을 만들고, 배포하고, 관리하는 데 도움을 주기 위해 이 문서를 제공합니다.

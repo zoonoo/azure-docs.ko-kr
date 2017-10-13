@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 데이터베이스 관리
 SQL 데이터 웨어하우스는 데이터베이스 관리의 여러 측면을 자동화합니다. 예를 들어 성능을 조정하려는 경우 적정 수준의 계산 리소스를 조정하고 해당 비용만 지불하기만 하면 SQL 데이터 웨어하우스에서 모든 확장 및 축소 작업을 수행합니다.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
 ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Security Center에서 Azure Storage 계정에 암호화 사용
 Azure Security Center에서는 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다.

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
+ms.openlocfilehash: bbd0658a3bafc1b82ff6ddd39a4d23d015188337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Network 및 Windows Virtual Machines 관리
 
 Azure Virtual Machines는 내부 및 외부 네트워크 통신에서 Azure 네트워킹을 사용합니다. 이 자습서에서는 가상 네트워크에 여러 VM(가상 컴퓨터)을 만들고 이러한 컴퓨터 간에 네트워크 연결을 구성합니다. 다음 방법에 대해 알아봅니다.
@@ -281,4 +279,3 @@ New-AzureRmVM `
 
 > [!div class="nextstepaction"]
 > [Azure에서 Windows 가상 컴퓨터 백업](./tutorial-backup-vms.md)
-

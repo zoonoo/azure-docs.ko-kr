@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 저장된 프로시저
 SQL 데이터 웨어하우스는 SQL Server에 있는 여러 TRANSACT-SQL 기능을 지원합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 활용하고자 하는 특정 기능 확장 사항이 있습니다.

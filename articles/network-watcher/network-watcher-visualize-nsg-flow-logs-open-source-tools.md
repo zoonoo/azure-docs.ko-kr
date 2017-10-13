@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 8b313b68be07da1a943748d21da68c169980cfc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹의 송/수신 IP 트래픽을 이해하는 데 사용할 수 있는 정보를 제공합니다. 이러한 흐름 로그는 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
@@ -107,8 +105,8 @@ input {
          codec => "json"
          # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
          # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-         file_head_bytes => 21
-         file_tail_bytes => 9
+         file_head_bytes => 12
+         file_tail_bytes => 2
          # Enable / tweak these settings when event is too big for codec to handle.
          # break_json_down_policy => "with_head_tail"
          # break_json_batch_count => 2
@@ -258,4 +256,3 @@ sudo /etc/init.d/logstash start
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-

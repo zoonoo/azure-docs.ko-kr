@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.openlocfilehash: 6e9c56874bf4bda7f4248a44e274532ed2555153
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco는 Azure SQL 데이터베이스를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장합니다.
 ![Umbraco 로고](./media/sql-database-implementation-umbraco/umbracologo.png)

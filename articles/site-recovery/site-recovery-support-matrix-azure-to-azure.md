@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
+ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
-ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -55,7 +54,7 @@ ms.lasthandoff: 09/20/2017
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
 **클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
-**Resource Manager** | 지원됨 |
+**리소스 관리자** | 지원됨 |
 
 >[!NOTE]
 >
@@ -85,6 +84,8 @@ ms.lasthandoff: 09/20/2017
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7
+- Debian 8
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -191,4 +192,3 @@ VNet 간 연결 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-t
 ## <a name="next-steps"></a>다음 단계
 - [Azure VM 복제를 위한 네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 자세히 알아보기
 - [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호 시작
-

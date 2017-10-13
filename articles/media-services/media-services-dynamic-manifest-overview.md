@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 미디어 서비스 2.11 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 보관됩니다.
@@ -211,4 +210,3 @@ ms.lasthandoff: 08/28/2017
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-

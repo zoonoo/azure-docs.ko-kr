@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Windows 유니버설 앱 SDK 콘텐츠
 이 문서는 응용 프로그램에서 SDK가 배포한 콘텐츠를 나열하고 설명합니다.

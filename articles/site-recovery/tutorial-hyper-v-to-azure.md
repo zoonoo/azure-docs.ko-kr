@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -31,9 +30,9 @@ ms.lasthandoff: 09/25/2017
 > * Azure 및 온-프레미스 필수 조건 설정
 > * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기 
 > * 원본 및 대상 복제 환경 설정 
-> * 네트워크 매핑 설정(System Center VMM에서 Hyper-V가 관리되는 경우)
+> * 네트워크 매핑 설정(System Center VMM에서 관리되는 Hyper-V인 경우)
 > * 복제 정책 만들기
-> * VM에 대해 복제 활성화
+> * VM에 대한 복제 사용
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -255,9 +254,9 @@ VMM을 사용하는 경우 네트워크 매핑을 설정합니다.
     >  Premium Storage로 복제하는 경우 30초 빈도가 지원되지 않습니다. Premium Storage에서 지원하는 blob당 스냅숏 수(100)에 따라 제한이 결정됩니다. [자세히 알아봅니다](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
 
 4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 보호된 컴퓨터를 이 기간 내의 모든 지점으로 복구할 수 있습니다.
-5. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 빈도(1-12시간)를 지정합니다. Hyper-V에서는 두 가지 유형의 스냅숏을 사용합니다.
+5. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 빈도(1-12시간)를 지정합니다. Hyper-V에서는 다음 두 가지 유형의 스냅숏을 사용합니다.
     - **표준 스냅숏**: 전체 가상 컴퓨터의 증분 스냅숏을 제공합니다.
-    - **앱 일치 스냅숏**: VM 내 응용 프로그램 데이터의 지정 시간 스냅숏을 만듭니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 앱이 일관된 상태가 되도록 합니다. 응용 프로그램 일치 스냅숏을 사용하면 소스 VM에서 앱 성능에 영향을 줍니다. 구성할 추가 복구 지점 수보다 작은 값으로 설정합니다.
+    - **앱 일치 스냅숏**: VM 내의 응용 프로그램 데이터에 대한 특정 시점 스냅숏을 만듭니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 앱이 일관된 상태가 되도록 합니다. 응용 프로그램 일치 스냅숏을 사용하면 소스 VM에서 앱 성능에 영향을 줍니다. 구성한 추가 복구 지점 수보다 작은 값을 설정합니다.
 6. **초기 복제 시작 시간**에서 초기 복제를 시작하는 시간을 나타냅니다. 복제는 인터넷 대역폭을 통해 발생하므로 사용량이 많은 시간을 피해서 복제 일정을 예약할 수 있습니다.
 7. **Azure에 저장된 데이터 암호화**에서 Azure Storage의 미사용 데이터를 암호화할지 여부를 지정합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -278,5 +277,4 @@ VMM을 사용하는 경우 네트워크 매핑을 설정합니다.
  **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되고 나면 초기 복제가 완료되며 가상 컴퓨터는 장애 조치(failover)를 수행할 준비가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[재해 복구 드릴 실행](tutorial-dr-drill-azure.md)
-
+[재해 복구 훈련 실행](tutorial-dr-drill-azure.md)

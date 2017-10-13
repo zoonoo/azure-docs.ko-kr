@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: a441e76fae0bda829cb112d307b3b436809b9c9b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 > [!div class="op_single_selector"]
@@ -243,12 +242,11 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
-[!code-csharp[기본](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+[!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

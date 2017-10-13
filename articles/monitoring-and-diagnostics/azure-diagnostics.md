@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>Azure 진단이란?
 Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure 클라우드 서비스 웹 및 작업자 역할, Microsoft Windows 및 서비스 패브릭을 실행하는 Azure 가상 컴퓨터에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 별도의 자체 진단이 있습니다.
@@ -79,4 +78,3 @@ Azure 진단 확장은 이 데이터를 Azure Storage 계정에 전송하거나 
 * [Azure 진단에서 성능 카운터 사용](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md)에 대해 알아봅니다.
 * [Azure 진단 정보를 Application Insights로 전송](azure-diagnostics-configure-application-insights.md)에 대해 알아봅니다.
 * 진단을 시작하거나 Azure Storage 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure 진단 문제 해결](azure-diagnostics-troubleshooting.md)을 참조하세요.
-

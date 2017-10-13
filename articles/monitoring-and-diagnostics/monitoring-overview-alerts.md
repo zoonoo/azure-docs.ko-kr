@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고란?
 이 문서에서는 Microsoft Azure의 다양한 경고 출처, 경고의 목적과 장점, 경고 사용을 시작하는 방법에 대해 설명합니다. 경고는 특히 Azure Monitor에 적용되지만 다른 서비스에 대한 포인터를 제공합니다. 경고는 Azure에서 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있는 모니터링 방법을 제공합니다.
@@ -92,4 +91,3 @@ Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터
 * [근 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)에 대해 자세히 알아보기
 * [서비스 알림](monitoring-service-notifications.md)에 대해 자세히 알아보기
 * [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보기
-

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-ms.translationtype: HT
-ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.contentlocale: ko-kr
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 ## AD 테넌트에 응용 프로그램 등록
 먼저, 응용 프로그램을 Azure AD(Azure Active Directory) 테넌트에 등록해야 합니다. 그러면 응용 프로그램에 대한 응용 프로그램 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
@@ -31,4 +31,3 @@ ms.contentlocale: ko-kr
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * 네이티브 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용할 **리디렉션 URI**를 제공합니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: `http://MyFirstAADApp`
 * 등록이 끝나면 Azure AD는 응용 프로그램에 고유한 클라이언트 식별자인 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해둡니다.
-

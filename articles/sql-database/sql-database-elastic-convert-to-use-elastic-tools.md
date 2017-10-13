@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 Azure SQL 데이터베이스 데이터베이스 도구(예: [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)를 사용해야 합니다. 

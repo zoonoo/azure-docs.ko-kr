@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Azure 보안 센터에서 OS 취약성 해결
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center는 OS 구성이 권장 구성 규칙과 일치하지 않는 경우 취약성을 해결하는 것이 좋으며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -52,7 +51,7 @@ OS 취약성 수정은 Security Center에서 권장 사항으로 표시됩니다
   - **CCEID**: 규칙에 대한 CCE 고유 식별자입니다. 보안 센터는 일반 구성 열거형(CCE)을 사용하여 구성 규칙에 대한 고유 ID를 할당합니다.
   - **이름**: 실패한 규칙의 이름입니다.
   - **규칙 유형**: 레지스트리 키, 보안 정책 또는 감사 정책입니다.
-  - **아니요  VM 및 컴퓨터 수**: 실패한 규칙이 적용되는 VM 및 컴퓨터의 총 수입니다.
+  -  **VM 및 컴퓨터 수**: 실패한 규칙이 적용되는 VM 및 컴퓨터의 총 수입니다.
   - **규칙 심각도**: CCE 심각도 값(위험, 중요, 경고)입니다.
   - **상태**: 권장 사항의 현재 상태입니다.
 
@@ -111,4 +110,3 @@ Security Center에 대해 알아보려면 다음 리소스를 참조하세요.
 [4]: ./media/security-center-remediate-os-vulnerabilities/search.png
 [5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
 [6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
-

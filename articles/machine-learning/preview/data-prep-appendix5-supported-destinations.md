@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 415ceba02eb3c8da3de5ab3aa6980fbe5bae2db9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-exports-for-this-preview"></a>이 미리 보기에 대해 지원되는 데이터 내보내기 
 여러 다른 형식으로 내보내는 것이 가능합니다. 이러한 형식은 데이터 준비의 중간 결과를 Machine Learning 워크플로의 나머지 부분에 통합하기 전에 유지하는 데 사용할 수 있습니다.
 
@@ -53,10 +51,9 @@ Parquet은 형식으로써 비교적 신생이라 서로 다른 라이브러리 
 
 
 ## <a name="locations"></a>위치 
-### <a name="local"></a>로컬 
+### <a name="local"></a>Local 
 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치
 
 ### <a name="azure-blob"></a>Azure BLOB 
 Azure Storage(BLOB)는 Azure 구독을 필요로 합니다
-
 

@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbe691174409202a8fd9602a69e764f0a8e2816b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="individual-contributor-tasks"></a>개별 참가자 작업
 
 이 항목에서는 개별 참가자가 데이터 과학 팀을 위해 수행해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP(Team Data Science Process)](overview.md)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
@@ -113,5 +110,4 @@ Azure 파일 저장소를 DSVM에 탑재하려면 [데이터 과학 팀에 대�
 - [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 개별 참가자 작업](project-ic-tasks.md)
-
 

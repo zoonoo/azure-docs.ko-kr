@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
@@ -180,5 +179,4 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>고급 분석 프로세스 및 기술 작동 예제
 공용 데이터 집합과 Cortana 분석 프로세스를 사용하여 종단간 연습 예제는 [실행 중인 Cortana 분석 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
-
 

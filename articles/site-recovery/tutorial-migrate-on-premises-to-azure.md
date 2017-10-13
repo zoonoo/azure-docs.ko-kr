@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbee77e669f49bdebb57121df8672a9253945b3c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 09/25/2017
 > * 온-프레미스 관리 서버 배포
 > * 복제 정책 설정 및 복제 사용
 > * 재해 복구 훈련을 실행하여 모든 항목이 제대로 작동하는지 확인
-> * Azure에 대한 일회성 장애 조치(Failover) 실행
+> * Azure에 대한 일회성 장애 조치(failover) 실행
 
 ## <a name="overview"></a>개요
 
@@ -108,7 +107,7 @@ ms.lasthandoff: 09/25/2017
 
 
 > [!WARNING]
-> **진행 중인 장애 조치(Failover) 취소 안 함**: 장애 조치(Failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(Failover)를 취소하면 장애 조치(Failover)가 중지되지만 VM은 다시 복제되지 않습니다.
+> **진행 중인 장애 조치(failover) 취소 안 함**: 장애 조치(failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(Failover)를 취소하면 장애 조치(Failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
 일부 시나리오에서는 장애 조치(Failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 물리적 서버, VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(Failover)가 더 오래 걸릴 수 있습니다.
 
@@ -117,4 +116,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [Azure로 마이그레이션한 후 Azure VM을 다른 지역에 복제](site-recovery-azure-to-azure-after-migration.md)
-

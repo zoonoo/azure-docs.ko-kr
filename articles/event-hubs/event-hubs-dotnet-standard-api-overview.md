@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 이 문서는 핵심 Event Hubs .NET Standard 클라이언트 API 일부를 요약해서 설명합니다. 현재 다음과 같은 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.

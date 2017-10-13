@@ -16,10 +16,10 @@ ms.date: 08/10/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: 6c3a2ac18fdb7a7a722447af720b9dee28adef08
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Microsoft Azure 로그 통합 소개
 Azure 로그 통합, 주요 기능 및 작동 원리에 대해 알아봅니다.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fec85bcf1ce46374815fddcd21ab2e8f73cbd1df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API를 사용하여 클러스터 및 응용 프로그램 관리자가 Service Fabric 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 응용 프로그램 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 응용 프로그램 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 서비스 패브릭 클러스터 및 응용 프로그램을 관리하기 위한 도구를 개발할 수 있습니다.
@@ -48,5 +47,4 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 | InvalidX509Store |X509 인증서 저장소를 열 수 없습니다. |
 | InvalidSubjectName |주체 이름이 올바르지 않습니다. |
 | InvalidAllowedCommonNameList |일반 이름 목록 문자열의 형식이 올바르지 않습니다. 쉼표로 구분된 목록이어야 합니다. |
-
 

@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -127,11 +126,11 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Workbench는 IDE인가요?**
 
-아니오. Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 
+아니요. Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-아니오. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
+아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
 
 **명령줄 기능을 지원하나요?**
 
@@ -201,7 +200,7 @@ A: Azure Machine Learning Workbench 응용 프로그램은 Azure 구독자가 �
 
 **내 웹 서비스 호출 빈도에 따라 비용이 청구되나요?**
 
-아니오. 웹 서비스는 모델 관리 비용에 영향을 미치지 않고 필요한 대로 자주 호출할 수 있습니다. 응용 프로그램의 요구 사항을 충족시키기 위해 배포 범위를 완벽하게 제어할 수 있어야 합니다.
+아니요. 웹 서비스는 모델 관리 비용에 영향을 미치지 않고 필요한 대로 자주 호출할 수 있습니다. 응용 프로그램의 요구 사항을 충족시키기 위해 배포 범위를 완벽하게 제어할 수 있어야 합니다.
 
 **Azure Machine Learning Model Management에서 구매한 단위 수를 어떻게 조정할 수 있나요?**
 
@@ -230,4 +229,3 @@ Azure Portal 또는 CLI를 사용하여 단위 수를 높거나 낮게 변경할
 **Azure 기계 학습에 대한 지원을 받으려면 어떻게 해야 하나요?**
 
 기술 지원을 받으려면 Azure Support로 이동한 다음 Machine Learning을 선택하세요. Azure Machine Learning은 팀이 모니터링하는 "Azure-Machine-Learning"라는 태그가 지정된 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)에 관한 커뮤니티도 현재 운영하고 있습니다.  제안 사항 및 기능 요청은 [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) 사이트에서 제출할 수 있습니다. 
-

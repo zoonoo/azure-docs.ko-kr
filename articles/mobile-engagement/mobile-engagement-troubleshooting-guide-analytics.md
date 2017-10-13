@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>분석, 모니터링, 구분 및 대시보드 문제에 대한 문제 해결 가이드
 다음은 Azure Mobile Engagement에서 응용 프로그램, 장치 및 사용자에 대한 정보를 수집하는 방법과 관련해서 발생할 수 있는 문제입니다.

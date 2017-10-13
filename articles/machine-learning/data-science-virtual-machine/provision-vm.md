@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a438a0d83ad4749953297b6481cba9cec5900140
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 가상 컴퓨터 프로비전
 Microsoft 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 컴퓨터) 이미지입니다. 포함된 도구는 다음과 같습니다.
@@ -206,5 +205,4 @@ Microsoft R을 사용하여 데이터베이스 내 분석을 사용하도록 설
 * 문서 참조: [데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일](http://aka.ms/dsvmtenthings)
 * 체계적으로 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana Intelligence 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com) 를 방문하세요. 또한 가상 컴퓨터의 **시작** 메뉴 및 데스크톱에 이 갤러리에 대한 아이콘을 제공합니다.
-
 

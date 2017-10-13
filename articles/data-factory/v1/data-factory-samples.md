@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 ## <a name="samples-on-github"></a>GitHub의 샘플
@@ -123,4 +122,3 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 16. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다.
 
 Visual Studio를 사용하여 Data Factory 엔터티를 작성하고 Azure에 게시하는 방법에 대한 자세한 내용은 [첫 번째 데이터 팩터리(Visual Studio) 빌드](data-factory-build-your-first-pipeline-using-vs.md) 를 참조하세요.          
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.openlocfilehash: 91546157cc8eabf68706391ce706038d8dc5f82d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 Node.js를 사용하여 실제 센서에서 원격 분석 전송
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>명명된 인증 자격 증명 설정
 Visual Studio에서 Azure에 응용 프로그램을 게시하거나 기존 클라우드 서비스를 모니터링하려면 Visual Studio에서 Azure에 대한 요청을 인증하는 데 사용할 수 있는 자격 증명을 제공해야 합니다. 이러한 자격 증명을 제공하기 위해 로그인 할 수 있는 Visual Studio의 여러 위치 사항이 있습니다. 예를 들어 서버 탐색기에서 **Azure** 노드에 대한 바로 가기 메뉴를 열고 **Microsoft Azure 구독에 연결**을 선택할 수 있습니다. 로그인할 때 Azure 계정에 연결된 구독 정보를 Visual Studio에서 사용할 수 있습니다. 아무 작업도 수행할 필요가 없습니다.

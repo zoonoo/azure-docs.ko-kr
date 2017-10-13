@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
 네트워크 보안 그룹 흐름 로그를 통해 네트워크 보안 그룹의 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. 이러한 흐름 로그는 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
@@ -136,4 +134,3 @@ ms.lasthandoff: 03/22/2017
 [11]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure11.png
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
-

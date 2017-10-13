@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
 ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>VHD를 만드는 동안 발생하는 일반적인 문제 해결 방법
 이 문서는 가상 컴퓨터 솔루션을 게시하거나 관리하는 동안 문제가 발생하거나 관련된 일반적인 질문이 있는 Azure Marketplace 게시자 및/또는 공동 관리자를 돕기 위해 제공됩니다.

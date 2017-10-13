@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure 기계 학습 웹 서비스 배포
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
@@ -191,4 +190,3 @@ For more information on how to manage Azure Machine Learning web service endpoin
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-

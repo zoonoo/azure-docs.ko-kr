@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색
 이 문서에서는 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법을 다룹니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
@@ -72,5 +71,4 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 
 ## <a name="cortana-analytics-process-in-action-example"></a>실행 중인 Cortana 분석 프로세스 예
 공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
-
 

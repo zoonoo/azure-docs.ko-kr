@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: tamram
+ms.openlocfilehash: 019da8eb9e42894fa3592cd11cce1dc6754290f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8306ae5d4a943b9246da1d941725150c60026ca5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure 저장소와 함께 Azure PowerShell 사용
 ## <a name="overview"></a>개요
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. 작업 기반 명령줄 셸 및 시스템 관리를 위해 특별히 설계된 스크립트 언어로, PowerShell을 사용하면 Azure 서비스 및 응용 프로그램의 관리를 을 쉽게 제어하고 자동화할 수 있습니다. 예를 들어 cmdlet을 사용하여 [Azure Portal](https://portal.azure.com)을 통해 수행할 수 있는 것과 동일한 작업을 수행할 수 있습니다.
@@ -848,4 +846,3 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-

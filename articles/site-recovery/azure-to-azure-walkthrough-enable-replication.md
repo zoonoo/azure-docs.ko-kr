@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 8/01/2017
 ms.author: raynew
+ms.openlocfilehash: 8691ff9dbdb79ef445482b355b00859072d539e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: f426ba4341e61d3c7da820d7d5097b217e94ca0e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-5-enable-replication-for-azure-vms"></a>5단계: Azure VM을 복제하도록 설정
 
 
@@ -108,4 +105,3 @@ Site Recovery는 대상 지역의 기본 설정(원본 지역 설정 기반)과 
 ## <a name="next-steps"></a>다음 단계
 
 [6단계: 테스트 장애 조치(failover) 실행](azure-to-azure-walkthrough-test-failover.md)으로 이동
-

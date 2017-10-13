@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>문서 컬렉션 분석
 
 이 시나리오에서는 Azure ML Workbench를 사용한 문구 학습, 토픽 모델링, 토픽 모델 분석과 같은 기법을 포함하는, 여러 문서 컬렉션을 요약하고 분석하는 방법을 보여줍니다. Azure Machine Learning Workbench는 방대한 문서 컬렉션에 대한 손쉬운 크기 조정을 제공하며, 로컬 컴퓨터에서 데이터 과학 가상 컴퓨터, Spark 클러스터에 이르는 다양한 컴퓨팅 컨텍스트에서 모델을 교육하고 조정할 메커니즘을 제공합니다. Azure Machine Learning Workbench의 Jupyter 노트북을 통해 쉽게 개발할 수 있습니다.
@@ -49,7 +47,7 @@ ms.lasthandoff: 09/25/2017
 
 1. 구 학습
 
-1. 토픽 모델링
+1. 항목 모델링
 
 1. 코퍼스 요약
 
@@ -67,10 +65,10 @@ ms.lasthandoff: 09/25/2017
 
 이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
 1.  Azure Machine Learning Workbench 열기
-2.  **프로젝트** 페이지에서 **+** 부호를 클릭하고 **새 프로젝트**를 선택합니다.
+2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **프로젝트 검색 템플릿** 검색 상자에서 "문서 컬렉션 분석"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**를 클릭합니다.
+5.  **만들기**
 
 ## <a name="data-description"></a>데이터 설명
 
@@ -92,7 +90,7 @@ ms.lasthandoff: 09/25/2017
 | `SponsorName` | 문자열 | 법안/결의안을 제안한 주요 발기인 이름. | 예 |
 | `Type` | 문자열 | 주요 발기인의 직함, 'rep'(하원 의원) 또는 'sen'(상원 의원) 중 하나입니다. | 예 |
 | `State` | 문자열 | 주요 발기인의 주. | 예 |
-| `District` | 정수 | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | 예 |
+| `District` | Integer | 발기인의 직함이 하원 의원일 경우 주요 발기인의 지구 번호. | 예 |
 | `Party` | 문자열 | 주요 발기인의 당. | 예 |
 | `Subjects` | 문자열 | 의회 도서관에서 법안에 점증적으로 추가한 주제어. 주제어는 쉼표로 연결됩니다. 이러한 용어는 의회 도서관 직원에 의해 작성되며 법안의 정보가 처음 게시될 때 일반적으로 제공되지 않습니다. 이러한 용어는 언제든지 추가될 수 있습니다. 따라서 법안의 수명이 다하면 일부 주체는 더 이상 관련이 없을 수도 있습니다. | 예 |
 
@@ -173,7 +171,7 @@ phraseLearner.RunConfiguration(textData,
 > 구 학습 단계는 다중 처리와 함께 구현됩니다. 하지만 CPU 코어가 더 많이 쓴다고 해서 실행 시간이 더 빨라지는 것을 의미하지는 **않습니다**. 자사의 테스트에 따르면 다중 처리의 오버 헤드로 인해 코어가 8개 이상일 때 성능은 더 이상 향상되지 않았습니다. 8코어(3.6 GHz) 컴퓨터에서 25,000 구를 학습하는 데 약 2시간 반이 걸렸습니다.
 >
 
-### <a name="topic-modeling"></a>토픽 모델링
+### <a name="topic-modeling"></a>항목 모델링
 
 LDA를 사용하는 잠재 토픽 모델 학습은 이 시나리오에서 세 번째 단계입니다. [gensim](https://radimrehurek.com/gensim/) Python 패키지는 이 단계에서 [LDA 토픽 모델](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)을 학습하는 데 필요합니다. 이 단계에 대한 해당 노트북은 `3_Topic_Model_Training.ipynb`입니다. 또한 문서 분석 패키지를 사용하는 방법에 관해 `step3.py`을 참조할 수 있습니다.
 
@@ -246,4 +244,3 @@ Notebook `5_Topic_Model_Analysis.ipynb`은 문서 컬렉션의 토픽 내용을 
 * **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 제12회 국제 음성 의사 소통 협회 연례회의. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_주제 일관성 측정의 공간 탐험_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). 웹 검색 및 데이터 마이닝에 관한 제8차 ACM 국제 회의의 진행. ACM, 2015.
-

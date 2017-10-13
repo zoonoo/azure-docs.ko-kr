@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
 위협 모델링 도구는 위협 모델링 요구에 도움이 됩니다. 도구에 대한 기본적인 소개는 [위협 모델링 도구 시작](./azure-security-threat-modeling-tool-getting-started.md)을 참조하세요.
@@ -210,4 +208,3 @@ ms.lasthandoff: 09/08/2017
 
 * 커뮤니티에 템플릿을 제공하려면 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 페이지로 이동하세요. 
 * 도구를 시작하려면 [다운로드](https://aka.ms/tmtpreview) 페이지로 이동합니다.
-

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 953f090f775da5e48b2f4ed36550a5624ae4596b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customer-acceptance"></a>고객 승인
 
-이 항목에서는 팀 데이터 과학 프로세스의 **고객 승인 단계**와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 프로젝트에서 일반적으로, 종종 반복적으로 실행하는 주요 단계를 설명합니다.
+이 항목에서는 팀 데이터 과학 프로세스의 **고객 승인 단계**와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
 * **비즈니스 이해**
 * **데이터 취득 및 이해**
@@ -33,7 +32,7 @@ ms.lasthandoff: 09/25/2017
 
 다음은 **팀 데이터 과학 프로세스 수명 주기**의 시각적 표현입니다. 
 
-![TDSP-수명 주기2](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP - 수명 주기 2](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>목표
@@ -61,6 +60,6 @@ ms.lasthandoff: 09/25/2017
 * [4. 배포](lifecycle-deployment.md)
 * [5. 고객 승인](lifecycle-acceptance.md)
 
-**특정 시나리오** 에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. 이러한 단계들은 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
+**특정 시나리오** 에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 
-Azure Machine Learning Studio를 사용하는 팀 데이터 과학 프로세스의 단계를 실행하는 예제는 [Azure ML을 사용하여](http://aka.ms/datascienceprocess) 학습 경로를 참조하세요.
+Azure Machine Learning Studio를 사용하는 Team Data Science Process의 단계를 실행하는 예제는 [Azure ML 사용](http://aka.ms/datascienceprocess) 학습 경로를 참조하세요.

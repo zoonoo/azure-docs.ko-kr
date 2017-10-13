@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.openlocfilehash: d2765d4606bf6f926def15788ab23efd2a000ad4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js를 사용하여 Azure SQL Database 쿼리
 
@@ -145,6 +144,5 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 - [SSMS를 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database-csharp.md)을 알아봅니다.
 - [SSMS를 사용하여 연결 및 쿼리하는 방법](sql-database-connect-query-ssms.md)을 알아봅니다.
 - [Visual Studio Code를 사용하여 연결 및 쿼리하는 방법](sql-database-connect-query-vscode.md)을 알아봅니다.
-
 
 

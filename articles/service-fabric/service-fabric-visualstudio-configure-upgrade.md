@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 응용 프로그램의 업그레이드 구성
 Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 응용 프로그램을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.

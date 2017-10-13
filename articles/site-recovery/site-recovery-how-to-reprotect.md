@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 다시 보호
 
@@ -271,5 +270,4 @@ Azure의 가상 컴퓨터를 기존의 온-프레미스 가상 컴퓨터에 복�
 *데이터 저장소가 ESXi 호스트에서 액세스할 수 없습니다.*
 
 장애 복구(failback)는 [마스터 대상 필수 정보](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) 및 [지원 데이터 저장소](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback)를 참조합니다.
-
 

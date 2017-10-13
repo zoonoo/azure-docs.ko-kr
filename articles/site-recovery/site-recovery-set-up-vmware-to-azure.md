@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>원본 환경 설정(Azure-VMware)
 > [!div class="op_single_selector"]
 > * [VMware에서 Azure로](./site-recovery-set-up-vmware-to-azure.md)
@@ -103,4 +101,3 @@ Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 컴퓨
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 [대상 환경 설정](./site-recovery-prepare-target-vmware-to-azure.md).
-

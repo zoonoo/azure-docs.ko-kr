@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
+ms.openlocfilehash: 14161a0747add43a99e301eacf700ab79c77c767
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1ba8debc1ccc827bc242cdc7a7ab484a85d3c0ae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
@@ -204,5 +203,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/solutions
 [트랜잭션 전자 메일 배달]: https://sendgrid.com/use-cases/transactional-email
-
 

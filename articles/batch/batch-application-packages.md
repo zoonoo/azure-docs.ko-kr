@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>응용 프로그램을 배포하여 Batch 응용 프로그램 패키지에서 노드 계산
 

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 검색 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -111,5 +110,4 @@ Azure Search 인덱스를 만든 후에는 다음 단계로 이동할 수 있습
 
  [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  
  [Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
-
 

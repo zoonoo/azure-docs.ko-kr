@@ -16,10 +16,10 @@ ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 데이터베이스의 JSON 기능 시작
 Azure SQL 데이터베이스를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.

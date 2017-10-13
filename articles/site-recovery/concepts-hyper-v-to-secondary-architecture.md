@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-1. 단일 컴퓨터에 장애 조치(failover)를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치(failover)를 오케스트레이션할 수 있습니다.
+1. 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
 2. 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
     - 보조 사이트로 계획되지 않은 장애 조치(failover)를 수행하는 경우 장애 조치 후에 보조 위치의 컴퓨터가 보호되지 않습니다.
     - 계획된 장애 조치를 실행했으면 장애 조치 후에 보조 위치에 있는 컴퓨터가 보호됩니다.
@@ -69,4 +68,3 @@ ms.lasthandoff: 09/25/2017
 
 지원 매트릭스 검토. 자습서에 따라 VMM 클라우드 간에 Hyper-V 복제를 사용하도록 설정합니다.
 장애 조치(failover) 및 장애 복구(failback) 실행
-

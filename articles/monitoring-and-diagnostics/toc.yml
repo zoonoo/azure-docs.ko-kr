@@ -108,7 +108,7 @@
           href: monitoring-archive-activity-log.md
         - name: 활동 로그를 Event Hubs로 스트림
           href: monitoring-stream-activity-logs-event-hubs.md
-        - name: Resource Manager로 작업 감사
+        - name: 리소스 관리자로 작업 감사
           href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
         - name: Resource Manager로 활동 로그 경고 만들기
           href: monitoring-create-activity-log-alerts-with-resource-manager-template.md

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/06/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 11a56418156a46e1fcef7b8d1c6003990000046f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 799715093bd1a8c8e77e6cdb7168670dc263dfa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Visual Studio에서 Azure 클라우드 서비스 프로젝트 구성
 프로젝트 요구 사항에 따라 Azure 클라우드 서비스 프로젝트를 구성할 수 있습니다. 다음 범주에 대해 프로젝트 속성을 설정할 수 있습니다.
@@ -51,5 +50,4 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="next-steps"></a>다음 단계
 - [여러 서비스 구성을 사용하여 Azure 프로젝트 구성](vs-azure-tools-multiple-services-project-configurations.md)
-
 

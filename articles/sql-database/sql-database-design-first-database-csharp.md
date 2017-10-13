@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: genemi
+ms.openlocfilehash: 1deffdd05c195597f4c63e3b5570ed94566b1f7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Azure SQL Database 설계 및 C#과 ADO.NET에 연결
 
@@ -70,5 +69,4 @@ And it starts with a ## H2.
 
 > [!div class="nextstepaction"]
 >[SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
-
 

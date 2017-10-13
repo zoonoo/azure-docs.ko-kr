@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL 데이터베이스의 비즈니스 연속성 개요
 
@@ -158,4 +157,3 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 
 ## <a name="next-steps"></a>다음 단계
 독립 실행형 데이터베이스 및 탄력적 풀에 대한 응용 프로그램 디자인 고려 사항에 대한 자세한 내용은[ 클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
-

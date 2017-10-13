@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Office 365 비디오 커넥터 시작
 Office 365 비디오에 연결하여 Office 365 비디오에 대한 정보 가져오기, 비디오 목록 가져오기 등을 수행합니다. Office 365 비디오로 다음을 수행할 수 있습니다.

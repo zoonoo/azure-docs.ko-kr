@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
 ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure 저장소의 데이터 이동
 온-프레미스 데이터를 Azure 저장소로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.

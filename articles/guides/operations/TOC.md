@@ -16,9 +16,9 @@
 ### [온라인 요금 계산기](http://azure.microsoft.com/pricing/calculator)
 ### [청구 경고 설정](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
+## [Azure 리소스 관리자](azure-operations-guide.md#azure-resource-manager)
 
-### [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Azure Portal을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Azure PowerShell을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Azure CLI를 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

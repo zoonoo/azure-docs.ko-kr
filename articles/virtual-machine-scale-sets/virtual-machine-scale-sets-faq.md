@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 9/14/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure Virtual Machine Scale Sets에 대한 FAQ
 
 Azure의 Virtual Machine Scale Sets에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
@@ -703,5 +701,4 @@ VM이 2개 미만인 가상 컴퓨터 확장 집합을 만드는 또 다른 경�
 - 가상 컴퓨터 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.
   - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 종단 간 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 컴퓨터 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 컴퓨터 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
-
 

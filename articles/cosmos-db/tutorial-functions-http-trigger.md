@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: mvc
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기
 
 Azure Cosmos DB는 스키마가 없고 서버를 사용하지 않으며 전 세계에 배포된 다중 모델 데이터베이스입니다. Azure Function은 요청 시 코드를 실행할 수 있으며 서버를 사용하지 않는 컴퓨팅 서비스입니다. 이 두 가지 Azure 서비스를 모두 가지고 있다면 컴퓨팅과 데이터베이스 요구에 대한 프로비전 및 서버 유지 관리를 걱정하지 않고 우수한 앱 만들기에 전념할 수 있게 해주는 서버 없는 아키텍처의 기초를 다진 것입니다.
@@ -277,4 +275,3 @@ Azure Function의 유효성이 확인되고 올바르게 작동하는 것으로 
 > [글로벌 분포](distribute-data-globally.md) 
 
 이 문서는 [Brady Gaster의 스키마 없는 및 서버를 사용하지 않는](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) 블로그 시리즈를 기반으로 합니다. 시리즈의 추가 게시물을 보려면 그의 블로그를 방문하십시오.
-

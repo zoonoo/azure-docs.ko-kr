@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-python-and-the-sdk"></a>Python 및 SDK 설치
 Python은 Windows에서 쉽게 설정할 수 있으며 Mac, Linux 및 [Bash for Windows](https://msdn.microsoft.com/commandline/wsl/about)에서는 사전 설치되어 제공됩니다. 이 가이드에서는 설치 및 Azure와 함께 사용할 수 있도록 컴퓨터를 설정하는 작업을 단계별로 안내합니다.
@@ -151,4 +150,3 @@ WSGI 규격 프레임워크 사용에 대한 자세한 내용은 [Azure Websites
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
-

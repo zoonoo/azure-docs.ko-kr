@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 94909fd1db426267eb60e5d7f4d753de82ca0377
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET의 Graph API를 사용하여 개발
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
@@ -287,4 +286,3 @@ Gremlin을 사용하여 필터 식을 혼합하고, `loop` 단계를 사용하�
 
 > [!div class="nextstepaction"]
 > [Gremlin을 사용하여 쿼리](tutorial-query-graph.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="energy-demand-time-series-forecasting"></a>에너지 수요 시계열 예측
 
 
@@ -195,4 +193,3 @@ python evaluate-all-models.py
 이 샘플은 에너지 수요를 예측하기 위해 종단 간 시계열 예측 솔루션을 빌드하는 방법을 보여 줍니다. 이 샘플에서 살펴본 많은 원칙을 다른 예측 시나리오 및 산업으로 확장할 수 있습니다.
 
 이 시나리오는 Azure Machine Learning Workbench를 사용하여 데이터 과학자가 Jupyter Notebook 환경 및 메트릭 기록 기능과 같은 유용한 기능을 갖춘 실제 솔루션을 개발하도록 지원하는 방법을 보여 줍니다. 이 샘플은 또한 Azure Machine Learning 운영화 CLI를 사용하여 모델을 운영 및 배포하는 방법에 대해 안내합니다. 웹 서비스 API를 배포하면 개발자나 데이터 엔지니어가 예측 모델을 다양한 데이터 파이프라인에 통합할 수 있습니다.
-

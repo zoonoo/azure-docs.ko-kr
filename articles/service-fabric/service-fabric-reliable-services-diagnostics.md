@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
 ms.openlocfilehash: 63a7707f16bbf037c0c91da1d02093e2314dc06e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.

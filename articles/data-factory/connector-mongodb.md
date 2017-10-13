@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6f11d4184b5edbcb80411f146ae01ecfe62b6e91
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,8 +61,8 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
 | username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시합니다. |예(기본 인증을 사용하는 경우) |
-| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |안 됩니다. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자체 호스팅 통합 런타임 또는 Azure 통합 런타임을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. |아니요 |
+| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -175,7 +174,7 @@ Azure Data Factory 서비스는 컬렉션에 있는 **최신 100개의 문서**�
 
 MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| MongoDB 데이터 형식 | Data Factory 중간 데이터 형식 |
+| MongoDB 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
 |:--- |:--- |
 | 이진 |Byte[] |
 | Boolean |Boolean |

@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
 ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-catalog-developer-samples"></a>데이터 카탈로그 개발자 샘플
 데이터 카탈로그 REST API를 사용하여 데이터 카탈로그 앱 개발을 시작합니다. 데이터 카탈로그 REST API는 데이터 카탈로그 리소스에 대한 등록, 주석 달기 및 데이터 자산을 프로그래밍 방식으로 검색하기 위해 프로그래밍 방식으로 액세스를 제공하는 REST 기반 API입니다.

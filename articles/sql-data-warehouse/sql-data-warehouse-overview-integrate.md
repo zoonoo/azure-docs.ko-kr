@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="leverage-other-services-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 기타 서비스 활용
 사용자는 SQL 데이터 웨어하우스를 통해 핵심 기능 외에도, Azure에서 다양한 기타 서비스를 함께 활용할 수 있습니다.  특히 다음과 긴밀하게 통합하는 단계를 현재 진행했습니다.

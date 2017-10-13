@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure 기계 학습을 통해 고급 분석 수행
 
@@ -149,4 +148,3 @@ Azure Machine Learning의 게이트웨이 설정 프로세스를 마쳤습니다
 실험 실행이 완료되면 **데이터 가져오기** 모듈의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터베이스에서 가져온 데이터를 시각화할 수 있습니다.
 
 실험 개발이 끝나면 모델을 배포하고 운영할 수 있습니다. 배치 실행 서비스를 사용하는 경우 **데이터 가져오기** 모듈에서 구성한 온-프레미스 SQL Server 데이터베이스의 데이터는 읽힌 후 점수를 매기는 데 사용됩니다. 온-프레미스 데이터의 점수를 매기는 데 요청 응답 서비스를 사용할 수 있지만, 대신 [Excel 추가 기능](excel-add-in-for-web-services.md) 을 사용하는 것이 좋습니다. 현재, **데이터 내보내기** 를 통해 온-프레미스 SQL Server 데이터베이스에 쓰는 방식은 실험 또는 게시된 웹 서비스에서 지원되지 않습니다.
-

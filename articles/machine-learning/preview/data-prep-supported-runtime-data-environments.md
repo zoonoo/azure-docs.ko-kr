@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02e0ca96bff7781c242b4c5e965b229065e71725
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>이 릴리스에 지원되는 행렬 
 코드가 데이터 원본을 사용하여 데이터를 로드하거나 데이터 준비에서 Pandas 또는 Spark 데이터 프레임을 가져올 때 다음과 같은 실험 계산 환경 및 데이터 위치의 조합이 지원됩니다.
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/25/2017
 **Maven JDBC SQL Server 드라이버 6.2.1 사용 이 패키지(또는 호환 가능한 제품)가 계산 환경의 spark_dependencies.yml 파일에 포함되어 있어야 합니다.
 
 ***계산 환경에서 데이터베이스에 연결할 수 있다면 Azure SQL Database, Azure SQL Data Warehouse 또는 Microsoft SQL Server를 지원합니다. 
-

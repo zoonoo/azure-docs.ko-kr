@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-advanced-threat-detection"></a>Azure 고급 위협 검색
 ## <a name="introduction"></a>소개
 
@@ -432,4 +430,3 @@ Azure Security Center의 고급 검색 기능은 Microsoft Azure 리소스를 �
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
 
 Azure SQL Database 위협 검색은 데이터베이스에 대한 잠재적 위협에 대한 문제를 해결하는 데 도움이 되었습니다.
-

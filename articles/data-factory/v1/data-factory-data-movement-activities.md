@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3334230097c3c0932fd732ff3f4e9c0aa35dbcc0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-data-movement-activities.md)
-> * [버전 2- 미리 보기](../copy-activity-overview.md)
+> * [버전 1 - GA](data-factory-data-movement-activities.md)
+> * [버전 2 - 미리 보기](../copy-activity-overview.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 복사 작업](../copy-activity-overview.md)을 참조하세요.
@@ -216,4 +215,3 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 ## <a name="next-steps"></a>다음 단계
 * 복사 작업에 대해 자세히 알아보려면 [Azure Blob 저장소에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
-

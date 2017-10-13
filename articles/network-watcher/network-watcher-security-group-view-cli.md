@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 1756e14819e3b7c79361c193413a1fcd7f24a4e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: c2d86777625059253864c1c9dc885aa28ac4b016
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Azure CLI 2.0을 사용하는 보안 그룹 보기에서 가상 컴퓨터 보안 분석
 
 > [!div class="op_single_selector"]
@@ -164,4 +162,3 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 [Network Watcher를 사용하여 NSG(네트워크 보안 그룹) 감사](network-watcher-nsg-auditing-powershell.md)를 방문하여 네트워크 보안 그룹의 유효성 검사를 자동화하는 방법을 알아봅니다.
 
 [보안 그룹 개요 보기](network-watcher-security-group-view-overview.md)를 방문하여 네트워크 리소스에 적용되는 보안 규칙에 대해 자세히 알아봅니다.
-

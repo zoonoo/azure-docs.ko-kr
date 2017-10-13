@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
 ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure 검색 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드
 ## <a name="overview"></a>개요
@@ -415,5 +414,4 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, 기계 학습) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
-
 

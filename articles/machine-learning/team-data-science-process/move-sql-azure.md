@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d0c36990ba897bef83601bd4295518618224733
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL Database로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
@@ -78,4 +77,3 @@ SQL 데이터베이스 마이그레이션 마법사를 사용하는 단계는 [S
 ADF(Azure Data Factory)를 사용하여 Azure SQL Database로 데이터를 이동하는 절차는 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](move-sql-azure-adf.md) 토픽에 제공됩니다. 이 토픽에서는 ADF를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 이동하는 방법을 보여 줍니다.
 
 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션되거나 수정해야 하거나 마이그레이션할 때 비즈니스 논리를 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.
-

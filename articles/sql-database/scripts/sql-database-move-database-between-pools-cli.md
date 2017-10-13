@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/05/2017
 ms.author: janeng
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 946492e1d4b784a2a70b553826b4ec837799ff6d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL Database 이동
 
 이 Azure CLI 스크립트 예제는 두 개의 탄력적 풀을 만들고 한 SQL 탄력적 풀에서 다른 SQL 탄력적 풀로 Azure SQL Database를 이동한 다음 탄력적 풀의 데이터베이스를 단일 Azure 데이터베이스 성능 수준으로 이동합니다. 
@@ -36,7 +34,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[기본](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "풀 간에 데이터베이스 이동")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -64,6 +62,5 @@ az group delete --name myResourceGroup
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 SQL Database CLI 스크립트 샘플은 [Azure SQL Database 설명서](../sql-database-cli-samples.md)에서 찾을 수 있습니다.
-
 
 

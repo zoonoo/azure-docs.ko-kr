@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: 59bff7e1f7bdfc1786c4ee47ab2a652e2df85289
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -115,5 +114,4 @@ Data Lake Store의 새로운 기능을 참조하려는 경우 [Data Lake Store U
 * [Azure Data Lake Store 개요](data-lake-store-overview.md)
 * [Data Lake Store 시작](data-lake-store-get-started-portal.md)
 * [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
-
 

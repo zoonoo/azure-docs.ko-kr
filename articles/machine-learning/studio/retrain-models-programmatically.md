@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 기계 학습 모델 다시 학습
 이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.
@@ -187,4 +186,3 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-

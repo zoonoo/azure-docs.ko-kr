@@ -11,10 +11,10 @@ ms.custom:
 ms.topic: article
 ms.date: 05/15/2017
 ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 응용 프로그램을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.

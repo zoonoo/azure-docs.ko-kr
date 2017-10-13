@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
 보안은 데이터베이스 관리에서 가장 중요하며 항상 Azure SQL Database의 최우선 순위였습니다. Azure SQL Database는 방화벽 규칙과 연결 암호화를 통해 연결 보안을 지원합니다. 사용자 이름과 암호를 사용한 인증과, Azure Active Directory에서 관리하는 Azure Active Directory Authentication을 지원합니다. 권한 부여는 역할 기반 액세스 제어를 사용합니다.
@@ -34,7 +32,7 @@ Microsoft는 엔터프라이즈 데이터를 암호화하는 추가적인 방법
 -   하드웨어 보안 모듈 또는 암호화 키 계층의 중앙 관리가 필요한 경우 Azure VM에서 SQL Server와 함께 Azure Key Vault 사용을 고려합니다.
 -   Always Encrypted(현재 미리 보기 상태)를 사용하면 암호화가 응용 프로그램에 하며 클라이언트가 SQL Database와 암호화 키를 공유하지 않고도 클라이언트 응용 프로그램 내부에서 중요 데이터를 암호화할 수 있습니다.
 
-Azure SQL Database 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터베이스 감사 기능을 Microsoft Power BI와 통합합니다.
+Azure SQL 데이터베이스 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터베이스 감사 기능을 Microsoft Power BI와 통합합니다.
 
  SQL Azure 데이터베이스는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](http://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
 
@@ -219,4 +217,3 @@ Azure Marketplace는 고객과 파트너에게 더 좋은 서비스를 제공하
 - [Azure Security Center 및 Azure SQL Database 서비스](https://docs.microsoft.com/azure/security-center/security-center-sql-database)에 대한 자세한 정보
 - 위협 요소 탐지에 대한 자세한 내용은 [SQL Database 위협 요소 탐지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)를 참조하세요.
 - 자세한 내용은 [SQL Database 성능 향상](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)을 참조하세요. 
-

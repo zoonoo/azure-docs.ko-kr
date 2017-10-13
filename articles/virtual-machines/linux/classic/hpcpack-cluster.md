@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
 Windows Server를 실행하는 헤드 노드 및 지원되는 Linux 배포를 실행하는 여러 컴퓨터 노드를 포함하는 Azure의 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 클러스터를 설정합니다. 클러스터의 Windows 헤드 노드와 Linux 노드 간에 데이터를 이동하는 옵션을 탐색합니다. Linux HPC 작업을 클러스터에 제출하는 방법에 대해 알아봅니다.

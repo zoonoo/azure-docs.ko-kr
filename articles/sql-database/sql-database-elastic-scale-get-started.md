@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>탄력적 데이터베이스 도구 시작하기
 이 문서에서는 샘플 앱을 실행하도록 지원하여 개발자 환경을 소개합니다. 이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 이 샘플은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 기능을 보여 줍니다.
@@ -99,5 +97,4 @@ Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
-
 

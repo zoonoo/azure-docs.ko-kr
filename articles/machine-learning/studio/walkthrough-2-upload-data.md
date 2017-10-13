@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 469c94f6115f99bc4cf067e9c8f0e55c64990358
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>연습 2단계: Azure 기계 학습 실험에 기존 데이터 업로드
 [Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -105,4 +104,3 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 [2]: media/walkthrough-2-upload-data/add-dataset.png
 [3]: media/walkthrough-2-upload-data/upload-dataset.png
 [4]: media/walkthrough-2-upload-data/dataset-list.png
-

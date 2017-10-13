@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0f35030b90cbd854512fb6b9a8ef564584fc101b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-onprem-postgresql-connector.md)
-> * [버전 2- 미리 보기](../connector-postgresql.md)
+> * [버전 1 - GA](data-factory-onprem-postgresql-connector.md)
+> * [버전 2 - 미리 보기](../connector-postgresql.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 PostgreSQL 커넥터](../connector-postgresql.md)를 참조하세요.
@@ -67,7 +66,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 PostgreSQL의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: PostgreSQL에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-postgresql-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 PostgreSQL의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: PostgreSQL에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-postgresql-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 PostgreSQL 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -313,31 +312,31 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | bigserial |serial8 |Int64 |
 | bit [ (n) ] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
-| 부울 |bool |Boolean |
+| 부울 |bool |부울 |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
-| character [ (n) ] |char [ (n) ] |String |
-| character varying [ (n) ] |varchar [ (n) ] |String |
-| cid | |String |&nbsp;
-| cidr | |String |&nbsp;
+| character [ (n) ] |char [ (n) ] |문자열 |
+| character varying [ (n) ] |varchar [ (n) ] |문자열 |
+| cid | |문자열 |&nbsp;
+| cidr | |문자열 |&nbsp;
 | circle | |Byte[], String |&nbsp;
 | date | |Datetime |&nbsp;
-| daterange | |String |&nbsp;
+| daterange | |문자열 |&nbsp;
 | double precision |float8 |Double |
 | inet | |Byte[], String |&nbsp;
-| intarry | |String |&nbsp;
-| int4range | |String |&nbsp;
-| int8range | |String |&nbsp;
+| intarry | |문자열 |&nbsp;
+| int4range | |문자열 |&nbsp;
+| int8range | |문자열 |&nbsp;
 | 정수 |int, int4 |Int32 |
 | interval [ fields ] [ (p) ] | |Timespan |&nbsp;
-| json : | |String |&nbsp;
+| json : | |문자열 |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | line | |Byte[], String |&nbsp;
 | lseg | |Byte[], String |&nbsp;
 | macaddr | |Byte[], String |&nbsp;
 | money | |10진수 |&nbsp;
 | numeric [ (p, s) ] |decimal [ (p, s) ] |10진수 |
-| numrange | |String |&nbsp;
+| numrange | |문자열 |&nbsp;
 | oid | |Int32 |&nbsp;
 | path | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
@@ -357,4 +356,3 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-

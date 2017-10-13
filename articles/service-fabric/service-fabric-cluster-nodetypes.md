@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
+ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 컴퓨터 확장 집합 
 가상 컴퓨터 확장 집합은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 컴퓨터 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식에 대해 별도의 확장 집합을 설정합니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 다른 포트의 집합을 열며 다른 용량 메트릭을 사용할 수 있습니다.
@@ -150,4 +149,3 @@ Azure Portal의 부하 분산 장치 페이지에서 **설정** > **인바운드
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-

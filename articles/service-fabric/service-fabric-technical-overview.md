@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
@@ -103,5 +102,4 @@ ms.lasthandoff: 09/25/2017
 * [서비스 패브릭의 개요](service-fabric-overview.md)
 * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 * [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
-
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 

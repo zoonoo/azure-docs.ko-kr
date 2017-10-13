@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/31/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 84b78fe4eb60162f3cad0ae4ae7f98864d5bbf2b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Spark 문제 해결
 
 Apache Ambari에서 Apache Spark 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
@@ -228,5 +226,4 @@ java.lang.OutOfMemoryError
 
 - [Spark 메모리 관리 개요(영문)](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [HDInsight 클러스터에서 Spark 응용 프로그램 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
-
 

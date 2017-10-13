@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Azure Mobile Engagement와 기타 유사한 Azure 서비스 비교
 Microsoft Azure에서 제공하는 서비스 목록은 계속 확장되고 있으며 간혹 Azure Mobile Engagement가 최근에 읽거나 소식을 들은 다른 서비스와 어떻게 다른지 궁금할 수 있습니다. 이 문서는 혼동을 명확히 하고 사용자의 용도에 가장 적합할 때 Azure Mobile Engagement를 선택하도록 안내합니다. 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062620f2174ecc93c1deb816069e32152dbef636
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 반복 실험 관리
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.
@@ -84,4 +83,3 @@ ms.lasthandoff: 09/25/2017
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-

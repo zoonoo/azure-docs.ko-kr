@@ -1,6 +1,5 @@
-
 ---
-title: "Microsoft Azure Service Fabric 클러스터 설정 변경 | Microsoft Docs"
+title: "Azure Service Fabric 클러스터 설정 변경 | Microsoft Docs"
 description: "이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,15 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
-이 문서에서는 Microsoft Azure Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
+이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
 
 > [!NOTE]
 > 이러한 설정의 일부만 포털에서 사용할 수 있습니다. 아래에 나열된 설정을 포털에서 사용할 수 없는 경우 Azure Resource Manager 템플릿을 사용하여 해당 설정을 사용자 지정합니다.
@@ -82,8 +80,8 @@ ms.lasthandoff: 09/28/2017
 ## <a name="setup"></a>설정
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| FabricDataRoot |String |Microsoft Azure Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
-| FabricLogRoot |문자열 |Microsoft Azure Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
+| FabricDataRoot |String |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
+| FabricLogRoot |문자열 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 | ServiceRunAsAccountName |String |패브릭 호스트 서비스를 실행할 계정 이름 |
 | ServiceStartupType |String |패브릭 호스트 서비스의 시작 유형 |
 | SkipFirewallConfiguration |bool, 기본값: false |시스템에서 방화벽 설정을 설정해야 하는지 여부를 지정합니다. Windows 방화벽을 사용하는 경우에만 적용됩니다. 타사 방화벽을 사용하는 경우 사용할 시스템 및 응용 프로그램에 대한 포트를 열어야 합니다. |
@@ -615,5 +613,4 @@ ms.lasthandoff: 09/28/2017
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
 
 [Azure 클러스터에서 인증서 추가, 롤오버, 제거 ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

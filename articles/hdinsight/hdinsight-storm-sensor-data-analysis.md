@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/09/2017
 ms.author: larryfr
+ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0d1cc959c87bd64ed728f8b56c9b9156fa492a8b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석
 
-HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하는 방법에 대해 알아봅니다. 데이터는 HDInsight의 Apache HBase에 저장되며 D3.js를 사용하여 시각화됩니다.
+HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하는 방법에 대해 알아보니다. 데이터는 HDInsight의 Apache HBase에 저장되며 D3.js를 사용하여 시각화됩니다.
 
 이 문서에 사용되는 Azure Resource Manager 템플릿은 리소스 그룹에 여러 Azure 리소스를 만드는 방법을 보여 줍니다. 템플릿은 Azure Virtual Network, 두 개의 HDInsight 클러스터(Storm 및 HBase) 및 Azure Web App을 만듭니다. 실시간 웹 대시보드의 node.js 구현은 웹앱에 자동으로 배포됩니다.
 
@@ -46,7 +45,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 > [!IMPORTANT]
 > 기존 HDInsight 클러스터가 필요하지 않습니다. 이 문서의 단계는 다음 리소스를 만듭니다.
 > 
-> * Azure Virtual Network
+> * Azure 가상 네트워크
 > * HDInsight 클러스터의 Storm(Linux 기반, 작업자 노드 2개)
 > * HDInsight 클러스터의 HBase(Linux 기반, 작업자 노드 2개)
 > * 웹 대시보드를 호스트하는 Azure 웹앱
@@ -57,10 +56,10 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이 예제는 다음 구성 요소로 구성됩니다.
 
-* **Azure Event Hubs**: 센서에서 수집된 데이터를 포함합니다.
+* **Azure 이벤트 허브**: 센서에서 수집된 데이터를 포함합니다.
 * **HDInsight의 Storm**: 이벤트 허브의 데이터를 실시간으로 처리합니다.
 * **HDInsight의 HBase**: Storm에서 처리된 후에 데이터에 대한 영구 NoSQL 데이터 저장소를 제공합니다.
-* **Azure Virtual Network 서비스**: HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터 간 보안 통신을 설정합니다.
+* **Azure 가상 네트워크 서비스**: HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터 간 보안 통신을 설정합니다.
   
   > [!NOTE]
   > Java HBase 클라이언트 API를 사용하는 경우에 가상 네트워크가 필요합니다. HBase 클러스터에 대한 공용 게이트웨이를 통해 노출되지 않습니다. HBase 및 Storm 클러스터를 동일한 가상 네트워크에 설치하면 Storm 클러스터(또는 가상 네트워크의 다른 시스템)에서 클라이언트 API를 사용하여 HBase에 직접 액세스할 수 있습니다.
@@ -114,11 +113,11 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기** -> **사물 인터넷** -> **Event Hubs**를 선택합니다.
 2. **네임스페이스 만들기** 섹션에서 다음 작업을 수행합니다.
    
-   1. 네임스페이스의 **이름**을 입력합니다.
+   1. 네임스페이스의 **이름** 을 입력합니다.
    2. 가격 책정 계층을 선택합니다. **기본** 이면 충분합니다.
-   3. 사용할 Azure **구독**을 선택합니다.
+   3. 사용할 Azure **구독** 을 선택합니다.
    4. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
-   5. Event Hub의 **위치**를 선택합니다.
+   5. Event Hub의 **위치** 를 선택합니다.
    6. **대시보드에 고정**을 선택하고 **만들기**를 클릭합니다.
 
 3. 만들기 프로세스가 완료되면 네임스페이스에 대한 Event Hubs 정보가 표시됩니다. 여기에서 **+ Event Hub 추가**를 선택합니다. **Event Hub 만들기** 섹션에서 **sensordata**의 이름을 입력한 다음 **만들기**를 선택합니다. 다른 필드는 기본값으로 둡니다.
@@ -269,7 +268,7 @@ eventhub.partitions: 2
    
     ![데이터가 표시된 대시보드](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-2. Event Hubs가 실행 중인 동안 이전 단계의 `node app.js` 명령을 사용하여 새 데이터를 대시보드로 보냅니다. 온도 값은 임의로 생성되기 때문에 큰 온도 변화를 표시하도록 그래프가 업데이트됩니다.
+2. 이벤트 허브가 실행 중인 동안 이전 단계의 `node app.js` 명령을 사용하여 새 데이터를 대시보드로 보냅니다. 온도 값은 임의로 생성되기 때문에 큰 온도 변화를 표시하도록 그래프가 업데이트됩니다.
    
    > [!NOTE]
    > `node app.js` 명령을 사용할 때 **hdinsight-eventhub-example/SendEvents/Nodejs** 디렉터리에 있어야 합니다.
@@ -300,7 +299,7 @@ eventhub.partitions: 2
    * **SSH 암호**: Storm 및 HBase 클러스터에 대한 SSH 사용자의 암호입니다.
    * **위치**: 클러스터가 만들어지는 지역입니다.
      
-     **확인**을 클릭하여 매개 변수를 저장합니다.
+     **확인** 을 클릭하여 매개 변수를 저장합니다.
 
 3. **기본** 섹션에서 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 4. **리소스 그룹 위치** 드롭다운 메뉴에서 **설정** 섹션의 **위치** 매개 변수에 대해 선택한 것과 동일한 위치를 선택합니다.
@@ -322,7 +321,7 @@ eventhub.partitions: 2
 dashboard.uri: http://localhost:3000
 ```
 
-`http://localhost:3000`을 `http://BASENAME-dashboard.azurewebsites.net`으로 변경하고 파일을 저장합니다. **BASENAME**을 이전 단계에서 제공한 기본 이름으로 바꿉니다. 또한 이전에 만든 리소스 그룹을 사용하여 대시보드를 선택하고 URL을 확인할 수도 있습니다.
+`http://localhost:3000`을 `http://BASENAME-dashboard.azurewebsites.net`으로 변경하고 파일을 저장합니다. **BASENAME** 을 이전 단계에서 제공한 기본 이름으로 바꿉니다. 또한 이전에 만든 리소스 그룹을 사용하여 대시보드를 선택하고 URL을 확인할 수도 있습니다.
 
 ## <a name="create-the-hbase-table"></a>HBase 테이블 만들기
 
@@ -374,7 +373,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
     ```
 
     > [!NOTE]
-    > `your_HDInsight_cluster_name`을 HDInsight 클러스터 이름으로 바꿉니다. `jq` 유틸리티 설치에 대한 자세한 내용은 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조합니다.
+    > `your_HDInsight_cluster_name` 을 HDInsight 클러스터 이름으로 바꿉니다. `jq` 유틸리티 설치에 대한 자세한 내용은 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)를 참조합니다.
     >
     > 메시지가 표시되면 HDInsight 관리자 로그인의 암호를 입력합니다.
 
@@ -524,4 +523,3 @@ Java에서 토폴로지를 만들기에 대한 자세한 내용은 [HDInsight의
 .NET에서 토폴로지를 만들기에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight의 Apache Storm용 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 [azure-portal]: https://portal.azure.com
-

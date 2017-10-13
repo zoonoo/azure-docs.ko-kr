@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
 ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Azure 검색에 대한 SKU 또는 가격 책정 계층 선택
 Azure Search에서는 특정 가격 책정 계층 또는 SKU에서 [서비스가 프로비전](search-create-service-portal.md)됩니다. 선택 사항에는 **무료**, **기본**, **표준**이 있으며 **표준**은 여러 구성 및 용량으로 사용 가능합니다.

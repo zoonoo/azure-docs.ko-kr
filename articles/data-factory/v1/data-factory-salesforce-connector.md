@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d0b597cb734518ed8cc55d52e33f6f88917ec09d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-salesforce-connector.md)
-> * [버전 2- 미리 보기](../connector-salesforce.md)
+> * [버전 1 - GA](data-factory-salesforce-connector.md)
+> * [버전 2 - 미리 보기](../connector-salesforce.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 Salesforce 커넥터](../connector-salesforce.md)를 참조하세요.
@@ -315,4 +314,3 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md) 를 참조하세요.
-

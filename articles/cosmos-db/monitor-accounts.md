@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정의 경우 처리량, 저장소, 가용성, 대기 시간 및 일관성을 모니터링하는 데 메트릭의 전체 도구 모음을 사용할 수 있습니다.
@@ -39,7 +38,7 @@ ms.lasthandoff: 09/21/2017
 1. [Azure Portal](https://portal.azure.com/)에서 왼쪽 표시줄에 있는 **모니터**를 클릭합니다.
 2. 리소스 메뉴에서 **메트릭**을 클릭합니다.
 3. **모니터 - 메트릭** 창의 **리소스 그룹** 드롭다운 메뉴에서 모니터링할 Azure Cosmos DB 계정과 연결된 리소스 그룹을 선택합니다. 
-4. **리소스** 드롭다운 메뉴에서 모니터링할 데이터베이스 계정을 선택합니다.
+4. **리소스** 드롭 다운 메뉴에서 모니터링할 데이터베이스 계정을 선택합니다.
 5. **사용 가능한 메트릭** 목록에서 표시할 메트릭을 선택합니다. 다중 선택을 하려면 CTRL 단추를 사용합니다. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>계정 페이지에서 성능 메트릭 보기
@@ -87,5 +86,4 @@ ms.lasthandoff: 09/21/2017
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 용량 계획에 대한 자세한 내용은 [Azure Cosmos DB Capacity Planner 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
-
 

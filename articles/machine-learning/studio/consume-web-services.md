@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Azure Machine Learning 웹 서비스 사용 방법
 
@@ -125,5 +124,4 @@ Machine Learning 웹 서비스에 연결하려면 ScoreData를 전달하는 **ur
 1. 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 배포합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 이 문서의 시작 부분 가까이에 있는 **Azure Machine Learning 권한 부여 키 가져오기** 섹션을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
-
 

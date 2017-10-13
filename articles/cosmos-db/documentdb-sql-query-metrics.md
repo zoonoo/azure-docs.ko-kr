@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](documentdb-sql-query.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
@@ -280,6 +279,5 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 * 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](documentdb-sql-query.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
 * 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](indexing-policies.md)을 참조하세요. 
-
 
 

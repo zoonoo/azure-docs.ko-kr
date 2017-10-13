@@ -17,10 +17,10 @@ ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Azure의 Windows 가상 컴퓨터에서 SSL 인증서로 IIS 웹 서버 보호
 웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Later) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Windows VM(가상 컴퓨터)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.

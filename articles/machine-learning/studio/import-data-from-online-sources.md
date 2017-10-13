@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f58bd7206bb19328635b9834ca81bcdf692882c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure 기계 학습 스튜디오로 데이터 가져오기
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure 기계 학습 실험으로 이동하는 데 필요한 정보를 설명합니다.
@@ -81,4 +80,3 @@ Azure 기계 학습 **데이터 가져오기** 모듈은 다음과 같은 데이
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-

@@ -9,12 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -705,4 +704,3 @@ EventHubs 끝점에 게시된 메시지를 사용하는 방법에 대해 알아�
 * [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md)에 수집하는 메트릭에 대한 메트릭 경고를 만듭니다.
 * 메트릭에 대한 [모니터링 차트](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)를 만듭니다.
 * 메트릭을 사용해 [가상 컴퓨터 확장 집합 만들기](/azure/virtual-machines/linux/tutorial-create-vmss)를 수행하여 자동 크기 조정을 제어하는 방법에 대해 알아봅니다.
-

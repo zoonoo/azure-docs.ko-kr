@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2fa03b82750585454430da0c29392db57b20d3c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +50,7 @@ ms.lasthandoff: 09/25/2017
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureStorage** |예 |
 | connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -89,7 +88,7 @@ SAS(공유 액세스 서명)는 저장소 계정의 리소스에 대한 위임�
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureStorage** |예 |
 | sasUri | BLOB, 컨테이너, 테이블 등의 Azure 저장소 리소스에 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -197,7 +196,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니요 |
 | azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다. 이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>허용되는 값은 **merge**(기본값) 및 **replace**입니다. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. 이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. |아니요 |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 timespan입니다. 예: "00:20:00"(20분) |아니요(기본값: 90초 - 저장소 클라이언트의 기본 시간 제한) |
+| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 시간 범위입니다. 예: "00:20:00"(20분) |아니요(기본값: 90초 - 저장소 클라이언트의 기본 시간 제한) |
 
 **예제:**
 
@@ -260,7 +259,7 @@ Azure Table 간에 데이터를 복사하는 경우 Azure Table 데이터 형식
 
 Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
 
-| Azure Table 데이터 형식 | Data Factory 중간 데이터 형식 | 세부 정보 |
+| Azure Table 데이터 형식 | 데이터 팩터리 중간 데이터 형식 | 세부 정보 |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |바이트 배열은 최대 64KB입니다. |
 | Edm.Boolean |bool |부울 값입니다. |

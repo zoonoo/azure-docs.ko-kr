@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -37,9 +36,9 @@ Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
 |    provision     | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.|
 |    recover-system  | 현재 쿼럼 손실에 걸린 시스템 서비스를 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다.|
 |report-health   | Service Fabric 클러스터 대한 상태 보고서를 보냅니다.|
-|    select       | Service Fabric 클러스터 끝점에 연결합니다.|
+|    선택       | Service Fabric 클러스터 끝점에 연결합니다.|
 | unprovision     | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.|
-|    upgrade         | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다.|
+|    업그레이드         | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다.|
 |    upgrade-resume  | 클러스터 업그레이드를 다음 업그레이드 도메인으로 이동합니다.|
 |    upgrade-rollback| Service Fabric 클러스터의 업그레이드를 롤백합니다.|
 |    upgrade-status  | 현재 클러스터 업그레이드의 진행률을 가져옵니다.|
@@ -204,10 +203,10 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
  |   --app-type-health-map                 | JSON 인코딩된 응용 프로그램 형식 쌍의 사전
                                             name and maximum percentage unhealthy before raising
                                             error.|
- |   --code-version                        | 클러스터 코드 버전입니다.| |   --config-version                      | 클러스터 구성 버전입니다.| |   --delta-health-evaluation             | 각 업그레이드 도메인 완료 후 절대 상태 평가보다는 델타 상태 평가를 할 수 있습니다.| |   --delta-unhealthy-nodes               | 클러스터 업그레이드 중에 허용되는 노드 상태 저하의 최대 허용치입니다.  기본값: 10.
+ |   --code-version                        | 클러스터 코드 버전입니다.| |   --config-version                      | 클러스터 구성 버전입니다.| |   --delta-health-evaluation             | 각 업그레이드 도메인 완료 후 절대 상태 평가보다는 델타 상태 평가를 할 수 있습니다.| |   --delta-unhealthy-nodes               | 클러스터 업그레이드 중에 허용되는 노드 상태 저하의 최대 허용치입니다.  기본값은 10입니다.
 델타는 업그레이드 시작 시 노드 상태와 상태 평가 시 노드 상태 간에 측정됩니다. 도메인 업그레이드가 완료될 때마다 클러스터의 글로벌 상태가 허용 범위 내에 있는지 확인하기 위해 점검이 수행됩니다.| |   --failure-action                      | 사용할 수 있는 값: 'Invalid', 'Rollback', 'Manual'.| |   --force-restart                       | 다시 시작을 강제합니다.| |   --health-check-retry                  | 재시도 시간 제한 상태 점검(밀리초 단위로 측정).| |   --health-check-stable                 | 안정적 지속 시간 상태 점검(밀리초 단위로 측정).| |  --health-check-wait                   | 대기 시간 상태 점검(밀리초 단위로 측정).| |  --replica-set-check-timeout           | 복제본 세트 업그레이드 시간 제한 점검(밀리초 단위로 측정).| |   --rolling-upgrade-mode                | 사용할 수 있는 값: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값: UnmonitoredAuto.| |  --timeout -t                          | 서버 시간 제한(초).  기본값: 60.| |  --unhealthy-applications              | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다.
 예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 응용 프로그램 형식의 응용 프로그램은 제외합니다. 적은 수의 응용 프로그램에 대한 하나의 오류를 허용하는 계산 반올림입니다.| |   --unhealthy-nodes                     | 오류를 보고하기 전에 허용되는 비정상 노드의 최대 백분율입니다.
-예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 적은 수의 노드에 대한 하나의 오류를 허용하는 계산 반올림입니다 큰 클러스터에서, 일부 노드는 언제나 작동이 안되거나 수리 중이라 이 비율은 그것을 감안하도록 구성되어야 합니다.| |   --upgrade-domain-delta-unhealthy-nodes| 클러스터 업그레이드 중에 허용되는 업그레이드 도메인 노드 상태 저하의 최대 허용치입니다.
+예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 큰 클러스터에서, 일부 노드는 언제나 작동이 안되거나 수리 중이라 이 비율은 그것을 감안하도록 구성되어야 합니다.| |   --upgrade-domain-delta-unhealthy-nodes| 클러스터 업그레이드 중에 허용되는 업그레이드 도메인 노드 상태 저하의 최대 허용치입니다.
 기본값: 15.
 델타는 업그레이드 시작 시 업그레이드 도메인 노드 상태와 상태 평가 시 업그레이드 도메인 노드 상태 간에 측정됩니다. 업그레이드 도메인 업그레이드가 완료될 때마다 클러스터의 글로벌 상태가 허용 범위 내에 있는지 확인하기 위해 점검이 수행됩니다.| |   --upgrade-domain-timeout              | 업그레이드 도메인 시간 제한(밀리초 단위로 측정).| |   --upgrade-timeout                     | 업그레이드 시간 제한(밀리초 단위로 측정).| |   --warning-as-error                    | 경고는 오류와 같은 심각도로 처리됩니다.|
 

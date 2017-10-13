@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics 뷰 디자이너 타일 참조
 Log Analytics에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터의 서로 다른 시각화 요소를 포함하고 있는 OMS 콘솔에서 사용자 지정 보기를 만들 수 있습니다. 이 문서에서는 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조가 제공됩니다.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 0e06d21bd0b6ef807f38e41dcd50c9cd715607a3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 질문과 대답
 이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows 가상 컴퓨터에 대한 질문과 대답](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.

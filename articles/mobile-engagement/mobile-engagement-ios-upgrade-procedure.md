@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-procedures"></a>업그레이드 절차
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.

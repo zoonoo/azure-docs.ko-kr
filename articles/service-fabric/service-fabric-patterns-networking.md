@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -599,4 +598,3 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 [클러스터 만들기](service-fabric-cluster-creation-via-arm.md)
-

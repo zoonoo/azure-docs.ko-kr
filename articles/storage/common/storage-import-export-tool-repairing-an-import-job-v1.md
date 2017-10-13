@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: c837713fd9e7d03287ae5a3644fd6bb47714c9d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="repairing-an-import-job"></a>가져오기 작업 복구
 Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob Service에 파일 또는 파일의 일부를 복사하지 못할 수 있습니다. 이 오류의 몇 가지 원인은 다음과 같습니다.  

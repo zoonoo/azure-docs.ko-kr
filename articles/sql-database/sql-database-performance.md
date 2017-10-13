@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.

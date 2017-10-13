@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
+ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 저장소 확장성 및 성능 목표
 ## <a name="overview"></a>개요
@@ -83,5 +82,4 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 * [Azure 저장소에서 복제](../storage-redundancy.md)
 * [Microsoft Azure 저장소 성능 및 확장성 검사 목록](../storage-performance-checklist.md)
 * [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 

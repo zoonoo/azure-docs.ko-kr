@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 컴퓨터 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
@@ -131,4 +130,3 @@ Site Recovery를 사용하여 보호되는 가상 컴퓨터/물리적 서버는 
 [**계획된 장애 조치**](site-recovery-failback-from-azure-to-hyper-v.md) 옵션을 사용하여 Hyper-V 가상 컴퓨터를 Azure에서 온-프레미스로 **장애 복구**합니다.
 
 Hyper-V 가상 컴퓨터를 VMM 서버에서 관리하는 다른 온-프레미스 데이터 센터로 장애 조치하고 기본 데이터 센터를 사용할 수 있는 경우 **역방향 복제** 옵션을 사용하여 기본 데이터 센터로 복제를 다시 시작합니다.
-

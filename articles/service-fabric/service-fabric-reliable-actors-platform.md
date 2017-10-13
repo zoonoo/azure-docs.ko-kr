@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors는 *행위자 서비스*라는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트되는 프레임워크에서 실행됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
@@ -396,7 +395,7 @@ Remoting V2 스택을 사용하려면 다음과 같은 변경 내용이 필요�
 2. 위의 업그레이드를 마친 후 ActorClients를 업그레이드합니다.
 이 단계를 수행하려면 Actor Proxy가 Remoting V2 스택을 사용 중인지 확인합니다.
 
-3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
+3. 이 단계는 옵션입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
@@ -415,4 +414,3 @@ Remoting V2 스택을 사용하려면 다음과 같은 변경 내용이 필요�
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-

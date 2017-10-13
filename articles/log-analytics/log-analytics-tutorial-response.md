@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Log Analytics 경고로 이벤트에 응답
 Log Analytics의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별합니다.  경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Create and share dashboards of Log Analytics data(Log Analytics 데이터의 대시보드 만들기 및 공유)](log-analytics-tutorial-dashboards.md) 자습서의 연속입니다.   

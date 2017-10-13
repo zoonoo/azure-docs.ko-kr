@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 363fdd9f1de933bb4050f91e1e111aaf3e419058
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell를 사용하는 보안 그룹 보기에서 가상 컴퓨터 보안 분석
 
 > [!div class="op_single_selector"]
@@ -131,6 +129,5 @@ NetworkInterfaces : [
 ## <a name="next-steps"></a>다음 단계
 
 [Network Watcher를 사용하여 NSG(네트워크 보안 그룹) 감사](network-watcher-nsg-auditing-powershell.md)를 방문하여 네트워크 보안 그룹의 유효성 검사를 자동화하는 방법을 알아봅니다.
-
 
 

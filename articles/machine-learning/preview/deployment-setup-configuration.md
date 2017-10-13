@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -172,4 +171,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ## <a name="next-steps"></a>다음 단계
 갤러리의 많은 샘플 중 하나를 수행합니다.
-

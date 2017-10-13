@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신
 
 **Azure 활동 로그**는 Azure에서 구독 수준 이벤트 기록을 제공합니다. *누가*, *어떤* 리소스를 *언제* 만들고, 업데이트하거나 삭제했는지에 대한 정보를 제공합니다. **활동 로그 경고**를 만들어 경고 조건과 일치하는 활동이 발생했을 때 전자 메일, SMS 또는 webhook 알림을 받을 수 있습니다. 이 빠른 시작은 간단한 네트워크 보안 그룹을 만들고 활동 로그를 탐색하여 발생한 이벤트를 파악한 다음, 앞으로 진행할 네트워크 보안 그룹이 만들어질 때 알림을 받도록 활동 로그 경고를 작성하는 과정을 안내합니다.
@@ -26,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -101,4 +99,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [모니터링 데이터 보관](./monitor-tutorial-archive-monitoring-data.md)
-

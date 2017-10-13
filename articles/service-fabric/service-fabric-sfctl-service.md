@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -84,17 +83,17 @@ ms.lasthandoff: 09/27/2017
 | --stateful            | 서비스가 상태 저장 서비스임을 나타냅니다.|
 | --stateless           | 서비스가 상태 비저장 서비스임을 나타냅니다.|
 | --target-replica-set-size| 숫자로 된 대상 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다.|
-| --timeout -t          | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t          | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h             | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o           | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query               | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose             | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
 기존 Service Fabric 서비스를 삭제합니다.
@@ -105,19 +104,19 @@ ms.lasthandoff: 09/27/2017
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
 | --force-remove      | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 응용 프로그램이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 응용 프로그램이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다.|
-| --timeout -t        | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h           | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o         | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query             | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-description"></a>sfctl service description
 기존 Service Fabric서비스에 대한 설명을 가져옵니다.
@@ -128,18 +127,18 @@ ms.lasthandoff: 09/27/2017
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
-| --timeout -t        | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h           | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o         | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query             | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-health"></a>sfctl service health
 지정된 Service Fabric 서비스의 상태를 가져옵니다.
@@ -154,17 +153,17 @@ ms.lasthandoff: 09/27/2017
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다. 값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
 |--exclude-health-statistics     | 쿼리 결과의 일부로 상태 통계를 반환해야 하는지 여부를 나타냅니다. 기본값은 False입니다. 통계에는 상태가 Ok, Warning 및 Error인 자식 엔터티 수가 표시됩니다.|
 | --partitions-health-state-filter| 상태에 따라 서비스 상태 쿼리의 결과로 반환된 파티션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 파티션만 반환됩니다. 모든 파티션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 "6"이면 HealthState 값이 OK(2) 및 Warning(4)인 파티션의 상태가 반환됩니다. - Default - 기본값입니다. 모든 HealthState와 일치합니다.                  값은 0입니다. - 없음 - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
-| --timeout -t                 | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t                 | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h                    | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o                  | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.                  기본값: json.|
-| --query                      | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose                    | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug                      | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h                    | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o                  | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                  기본값: json.|
+| --query                      | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose                    | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-info"></a>sfctl service info
 Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정보를 가져옵니다.
@@ -177,17 +176,17 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --- | --- |
 | --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
 | --service-id     [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
-| --timeout -t            | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h               | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o             | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query                 | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose               | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-list"></a>sfctl service list
 응용 프로그램 ID로 지정된 응용 프로그램에 속하는 모든 서비스에 대한 정보를 가져옵니다.
@@ -201,17 +200,17 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --application-id [필수]| 응용 프로그램 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 "fabric://myapp/app1"인 경우 응용 프로그램 ID가 6.0 이상에서는 "myapp~app1"이고 이전 버전에서는 "myapp/app1"입니다.|
 | --continuation-token    | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩되지 말아야 합니다.|
 | --service-type-name     | 쿼리할 서비스를 필터링하는 데 사용되는 서비스 유형 이름입니다.|
-| --timeout -t            | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t            | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h               | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o             | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query                 | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose               | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug                 | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h               | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o             | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query                 | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose               | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
 서비스 유형을 설명하는 매니페스트를 가져옵니다.
@@ -225,39 +224,39 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --application-type-name    [필수]| 응용 프로그램 유형의 이름입니다.|
 | --application-type-version [필수]| 응용 프로그램 유형의 버전입니다.|
 | --service-manifest-name    [필수]| Service Fabric 클러스터에 응용 프로그램 유형의 일부로 등록된 서비스 매니페스트의 이름입니다.|
-| --timeout -t                      | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t                      | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h                         | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o                       | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.                       기본값: json.|
-| --query                           | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose                         | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug                           | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h                         | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o                       | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.                       기본값: json.|
+| --query                           | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose                         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
 현재 쿼럼 손실 상태에 있는 지정된 서비스를 복구하려고 시도해야 한다는 것을 Service Fabric 클러스터에 나타냅니다.
 
-현재 쿼럼 손실 상태에 있는 지정된 서비스를 복구하려고 시도해야 한다는 것을 Service Fabric 클러스터에 나타냅니다. 이 작업은 다운된 복제본을 복구할 수 없는 경우에만 수행해야 합니다. 이 API를 잘못 사용하면 데이터가 손실될 수 있습니다.
+현재 쿼럼 손실 상태에 있는 지정된 서비스를 복구하려고 시도해야 한다는 것을 Service Fabric 클러스터에 나타냅니다. 이 작업은 다운된 복제본을 복구할 수 없는 경우에만 수행해야 합니다. 이 API를 잘못 사용하면 잠재적인 데이터 손실이 발생할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
-| --timeout -t        | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이 되고 이전 버전에서는 "myapp/app1/svc1"이 됩니다.|
+| --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h           | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o         | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query             | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
 Service Fabric 파티션을 해결합니다.
@@ -268,21 +267,21 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수]| 서비스 ID입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0부터 계층 이름은 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
+| --service-id [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"인 경우 서비스 ID가 6.0 이상에서는 "myapp~app1~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다.|
 | --partition-key-type| 파티션의 키 유형입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 이 매개 변수가 필요합니다. 가능한 값은 다음과 같습니다. - None(1) - PartitionKeyValue 매개 변수가 지정되지 않았음을 나타냅니다. 파티션 구성표가 Singleton인 파티션에 유효합니다. 기본값입니다. 값은 1입니다. - Int64Range(2) - PartitionKeyValue 매개 변수가 int64 파티션 키임을 나타냅니다. 파티션 구성표가 Int64Range인 파티션에 유효합니다. 값은 2입니다. - Named(3) -         PartitionKeyValue 매개 변수가 파티션의 이름임을 나타냅니다. 파티션 구성표가 Named인 파티션에 유효합니다. 값은 3입니다.|
 | --partition-key-value  | 파티션 키입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 필요합니다.|
 | --previous-rsp-version | 이전에 수신한 응답의 버전 필드 값입니다. 이전에 얻은 결과가 오래되었다는 것을 사용자가 아는 경우에 필요합니다.|
-| --timeout -t        | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t        | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h           | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o         | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query             | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose           | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug             | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h           | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o         | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query             | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose           | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
 
 ## <a name="sfctl-service-update"></a>sfctl service update
 지정된 업데이트 설명을 사용하여 지정된 서비스를 업데이트합니다.
@@ -306,18 +305,18 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 | --stateful            | 대상 서비스가 상태 저장 서비스임을 나타냅니다.|
 | --stateless           | 대상 서비스가 상태 비저장 서비스임을 나타냅니다.|
 | --target-replica-set-size| 숫자로 된 대상 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다.|
-| --timeout -t          | 서버 시간 제한(초)입니다.  기본값: 60.|
+| --timeout -t          | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
 |인수|설명|
 | --- | --- |
-| --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 높입니다.|
-| --help -h             | 이 도움말 메시지를 표시하고 종료합니다.|
-| --output -o           | 출력 형식입니다.  허용되는 값: json, jsonc, table, tsv.  기본값: json.|
-| --query               | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
-| --verbose             | 로깅의 자세한 정도를 높입니다. 전체 디버그 로그의 경우 --debug를 사용합니다.|
+| --debug               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
+| --help -h             | 이 도움말 메시지 및 종료를 표시합니다.|
+| --output -o           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값:           json.|
+| --query               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+| --verbose             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md).
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Service Fabric CLI를 사용하는 방법을 알아봅니다.
+- Service Fabric CLI [설정](service-fabric-cli.md)
+- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

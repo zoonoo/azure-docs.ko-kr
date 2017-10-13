@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f7a924b576690f5b76418a3de6221ef6c39c39f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다.
@@ -89,5 +88,4 @@ Azure 컨테이너 간 Blob을 전송하려면 다음 명령을 사용합니다.
 > 3. **/Source** 매개 변수를 사용하여 *특정 blob 파일* 을 다운로드하도록 지정할 수 없습니다. 특정 파일을 다운로드하려면 */Pattern* 매개 변수를 사용하여 다운로드할 blob 파일 이름을 지정하세요. **/S** 매개 변수를 사용하면 AzCopy에서 파일 이름 패턴을 재귀적으로 검색할 수 있습니다. 패턴 매개 변수가 없으면 AzCopy는 해당 디렉터리의 모든 파일을 다운로드합니다.
 > 
 > 
-
 

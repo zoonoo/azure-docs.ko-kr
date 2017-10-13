@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fea76427d45a72fe3f0a42082373162f24221094
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Marathon REST API를 통해 DC/OS 컨테이너 관리
 DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공합니다. DC/OS의 상단에 계산 워크로드의 예약 및 실행을 관리하는 프레임워크가 있습니다. 프레임워크는 인기 많은 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon REST API를 사용하여 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 
@@ -198,5 +197,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ## <a name="next-steps"></a>다음 단계
 * [Mesos HTTP 끝점에 대해 자세히 알아보기](http://mesos.apache.org/documentation/latest/endpoints/)
 * [Marathon REST API에 대해 자세히 알아보기](https://mesosphere.github.io/marathon/docs/rest-api.html)
-
 

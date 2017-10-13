@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
 이 문서에서는 2단계 인증 또는 다단계 인증에 대한 설정을 업데이트하는 방법에 대한 질문에 대답합니다. 계정에 로그인하는 데 문제가 있는 경우 문제 해결 도움말을 보려면 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)을 참조하세요.
@@ -71,4 +70,3 @@ IT 관리자가 2단계 인증을 관리하기 위한 특정 URL 또는 단계�
 ## <a name="next-steps"></a>다음 단계
 * [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)에 대한 문제 해결 팁 및 도움말 얻기
 * 2단계 인증을 지원하지 않는 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md) 설정.
-

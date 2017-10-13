@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 6fdbf12830a402eeb004587202eee604037430c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="implement-a-geo-distributed-database"></a>지리적으로 분산된 데이터베이스 구현
 
 이 자습서에서는 Azure SQL Database와 응용 프로그램을 원격 지역으로 장애 조치하도록 구성한 다음 장애 조치 계획을 테스트합니다. 다음 방법에 대해 알아봅니다. 
@@ -390,4 +388,3 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [활성 지역 복제 및 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md)을 참조하세요.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 39be936520d62cb1c1c28de9bd72f8f489166082
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침
 이 **메뉴** 는 이 플레이북 장에 연결됩니다. 
@@ -406,4 +405,3 @@ ms.lasthandoff: 09/25/2017
 ![차량 원격 분석 - 대시보드 2 구성](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.  
-

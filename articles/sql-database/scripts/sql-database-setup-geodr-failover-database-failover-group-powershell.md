@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0fcddfd7e224fc763616573e5cd8b3345cc46ded
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 50d1c0827ee7efac2b0f16a44705030184a3c07e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell을 사용하여 활성 지역에서 단일 Azure SQL Database에 대한 복제 장애 조치(failover) 그룹을 구성합니다.
 
 이 PowerShell 스크립트 예제는 단일 Azure SQL Database에 대해 활성 지역 복제 장애 조치(failover) 그룹을 구성하고 Azure SQL Database의 보조 복제본으로 장애 조치(failover)합니다.
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
-[!code-powershell[주](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "단일 데이터베이스에 대한 장애 조치(failover) 그룹 설정")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -66,4 +64,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
-

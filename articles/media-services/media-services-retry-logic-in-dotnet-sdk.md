@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
 ms.openlocfilehash: 859dd76db4ba06196a853469a1385703d835fa22
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리
 Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 있습니다. 일시적 오류가 발생하는 대부분의 경우 몇 번 재시도하면 성공적으로 작동합니다. .NET용 Media Services SDK는 웹 요청, 쿼리 실행, 변경 저장, 저장소 작업에 의해 발생하는 예외 및 오류와 관련된 일시적 오류를 처리하기 위해 재시도 논리를 구현합니다.  기본적으로 .NET용 Media Services SDK는 응용 프로그램에 예외를 다시 던져넣기 전에 재시도를 네 번 실행합니다. 그러면 응용 프로그램의 코드가 이 예외를 제대로 처리해야 합니다.  

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
 ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 이 문서에서는 Azure Portal, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.

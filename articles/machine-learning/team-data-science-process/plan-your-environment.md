@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de46e5a6833809f8413d6a2de62a8cb9fe178130
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 데이터 집합에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 관련된 작업을 위한 구체적인 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 집합의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
@@ -105,5 +104,4 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>고급 분석 시나리오 파악
 이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure 기계 학습의 고급 분석 시나리오](plan-sample-scenarios.md)에 약술되어 있습니다.
-
 

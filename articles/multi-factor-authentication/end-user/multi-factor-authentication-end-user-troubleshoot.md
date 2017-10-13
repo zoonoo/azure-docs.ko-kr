@@ -16,12 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4af968ec596540be428898cc4928b0d4c37bf6ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: e43ec0bf5b1e5d96eae413687e168a3230e2fe86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>2단계 인증에 관한 도움말 얻기
 이 문서는 2단계 인증과 관련하여 가장 많이 하는 질문에 대한 답변입니다.
@@ -96,4 +95,3 @@ ms.lasthandoff: 07/08/2017
 ## <a name="related-topics"></a>관련된 항목
 * [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)  
 * [Microsoft Authenticator 응용 프로그램 FAQ](microsoft-authenticator-app-faq.md)
-

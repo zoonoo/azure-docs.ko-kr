@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터에서 지원되는 언어 
 
 DSVM(데이터 과학 가상 컴퓨터)는 AI 응용 프로그램 빌드를 위한 몇 가지 미리 작성된 언어 및 개발 도구와 함께 제공됩니다. 다음은 일부 중요 항목입니다. 
@@ -103,7 +101,7 @@ DSVM의 기본 Python 환경은 모든 사용자가 읽을 수 있는 전역 환
 | ------------- | ------------- |
 | 지원되는 언어 버전 | Microsoft R Open 3.x(CRAN-R과 100% 호환 가능)<br /> Microsoft R Server 9.x Developer Edition(R 플랫폼용으로 준비된 확장 가능한 Enterprise 버전)|
 | 지원되는 DSVM 버전      | Linux, Windows     |
-| DSVM에서 설치/구성되는 방식  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| DSVM에 구성/설치 방법  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | 샘플 링크      | R에 대한 샘플 Jupyter 노트북이 포함되어 있습니다.     |
 | DSVM의 관련 도구      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>사용/실행 방법    
@@ -199,6 +197,5 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 **node.js**: node.js는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `node` 또는 `npm` 명령을 입력하여 node.js에 액세스할 수 있습니다. Windows에서는 node.js 응용 프로그램을 개발하기 위한 그래픽 IDE를 제공하기 위해 Visual Studio용 Node.js 도구 확장이 설치됩니다. 
 
 **F#**: Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `fsc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
-
 
 

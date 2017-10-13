@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 미디어 파일 및 Azure 미디어 Hyperlapse
 Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다.  [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure 미디어 서비스용 Microsoft Hyperlapse는 Azure 미디어 서비스 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.

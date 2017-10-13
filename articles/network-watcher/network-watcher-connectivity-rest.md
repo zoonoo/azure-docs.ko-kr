@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
+ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher를 통해 연결 확인
 
 > [!div class="op_single_selector"]
@@ -503,7 +501,6 @@ null
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 
 <!-- Image references -->
-
 
 
 

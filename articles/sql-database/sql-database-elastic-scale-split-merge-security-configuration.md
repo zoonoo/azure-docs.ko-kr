@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL 데이터베이스의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.

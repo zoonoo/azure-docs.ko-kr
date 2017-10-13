@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>푸시 알림 캠페인을 만들고 관리하는 방법
 UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 보내는 데 필요한 모든 정보를 제공하여 새 푸시 캠페인을 만들 수 있습니다. 푸시 캠페인 옵션은 알림, 설문 조사, 데이터 푸시 및 타일(Windows Phone에만 해당)의 4가지 캠페인 유형에 따라 약간씩 다릅니다.

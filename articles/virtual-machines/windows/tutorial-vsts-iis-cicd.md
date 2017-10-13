@@ -17,10 +17,10 @@ ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Visual Studio Team Services 및 IIS를 사용하여 연속 통합 파이프라인 만들기
 응용 프로그램 개발의 빌드, 테스트 및 배포 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Visual Studio Team Services 및 IIS를 실행하는 Azure의 Windows VM(가상 컴퓨터)를 사용하여 CI/CD 파이프라인을 만듭니다. 다음 방법에 대해 알아봅니다.

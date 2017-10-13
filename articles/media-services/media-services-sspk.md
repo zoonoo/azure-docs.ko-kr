@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
 ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
 ## <a name="overview"></a>개요

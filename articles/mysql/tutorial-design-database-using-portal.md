@@ -10,14 +10,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c7b76cacbdc4e483353f64cc4e50c974867bb5b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-database-for-mysql-database"></a>첫 번째 Azure Database for MySQL 데이터베이스 디자인
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
 
@@ -168,4 +166,3 @@ SELECT * FROM inventory;
 
 > [!div class="nextstepaction"]
 > [MySQL용 Azure Database에 응용 프로그램을 연결하는 방법](./howto-connection-string.md)
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 | lbName |부하 분산 장치의 이름을 지정합니다. 이 이름은 포털에 표시되거나 CLI 또는 PowerShell 명령을 사용하여 참조할 때 사용됩니다. |
 
 템플릿의 나머지 변수는 Azure가 리소스를 만들 때 할당되는 파생 값을 포함합니다. 이러한 변수를 변경하지 마십시오.
-

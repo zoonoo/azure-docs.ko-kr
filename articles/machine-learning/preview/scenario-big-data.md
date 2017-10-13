@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b76253fad43be231591023c4d4466bf6e3f329a0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="server-workload-forecasting-on-terabytes-data"></a>TB 단위의 데이터에 대한 서버 워크로드 예측
 
 이 예제는 데이터 과학자가 Azure ML Workbench를 사용하여 빅 데이터를 사용해야 하는 솔루션을 개발하는 방법을 보여 줍니다. Azure ML Workbench를 사용하여 사용자가 대규모 데이터 집합의 샘플부터 시작하여 데이터 준비, 기능 엔지니어링 및 기계 학습을 반복한 다음 최종적으로 많은 양의 전체 데이터 집합으로 프로세스를 확장할 수 있는 방법을 보여 줍니다. 
@@ -128,7 +126,7 @@ git 상태를 실행하여 버전 추적을 위한 파일의 상태를 조사합
 
 ## <a name="scenario-structure"></a>시나리오 구조
 
-이 예제 파일은 다음과 같이 구성됩니다.
+이 예제에 있는 파일은 다음과 같이 구성됩니다.
 
 | 파일 이름 | 형식 | 설명 |
 |-----------|------|-------------|
@@ -433,4 +431,3 @@ Azure ML Workbench의 오른쪽 사이드바에서 "실행"으로 이동하여 �
 
 사용자는 코드를 확장하여 교차 유효성 검사 및 하이퍼 매개 변수 튜닝을 탐색할 수 있습니다. 교차 유효성 검사 및 하이퍼 매개 변수 튜닝에 대한 자세한 내용을 보려면 https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning을 방문하세요.  
 시계열 예측에 대한 자세한 내용은 https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting을 참조하세요.
-

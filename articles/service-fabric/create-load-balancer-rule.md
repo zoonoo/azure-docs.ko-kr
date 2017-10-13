@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.

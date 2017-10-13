@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC(고성능 컴퓨팅) 클러스터 만들기
 HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 완전한 Windows 워크로드용 HPC Pack 2012 R2 클러스터를 배포합니다. 클러스터는 Windows Server, Microsoft HPC 팩 및 지정한 추가 Windows 계산 리소스를 실행하는 Active Directory 가입 헤드 노드로 구성됩니다. Azure에서 Linux 워크로드용 HPC Pack 클러스터를 배포하려면 [HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC 클러스터 만들기](../../linux/classic/hpcpack-cluster-powershell-script.md)를 참조하세요. Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) 및 [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)를 참조하세요.

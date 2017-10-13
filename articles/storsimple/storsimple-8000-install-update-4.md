@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 4 설치
 
@@ -102,5 +101,4 @@ Azure Portal을 통해 업데이트를 설치하려고 할 때 게이트웨이 �
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 4 릴리스](storsimple-update4-release-notes.md)에 대해 자세히 알아봅니다.
-
 

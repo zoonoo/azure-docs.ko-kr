@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -230,4 +229,3 @@ Operations Management Suite에서 보안 및 규정 준수 기능을 사용하�
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft 보안 대응 센터](https://technet.microsoft.com/library/dn440717.aspx)
 * [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)
-

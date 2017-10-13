@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
 Azure Monitor를 통해 많은 Azure 리소스에 대한 메트릭을 사용할 수 있습니다. 이러한 메트릭은 해당 리소스의 성능 및 상태를 전달합니다. 대부분의 경우 메트릭 값은 리소스에 문제가 있음을 가리킬 수 있습니다. 비정상적인 동작을 모니터링하고 문제가 발생할 경우 이를 알리는 메트릭 공고를 만들 수 있습니다. 이 빠른 시작에서는 논리 앱을 만들고 작업을 만들며 논리 앱에 대한 메트릭을 시각화하는 과정을 안내합니다. 그런 다음 경고를 만들고 논리 앱 리소스에 대한 메트릭의 알림을 수신하는 과정을 거칩니다.
@@ -116,4 +114,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [Azure Monitor 구독 작업 경고](./monitor-quick-audit-notify-action-in-subscription.md )
-

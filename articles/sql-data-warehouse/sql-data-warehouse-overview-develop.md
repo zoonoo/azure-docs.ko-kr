@@ -16,10 +16,10 @@ ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대한 디자인 결정 및 코딩 기술
 SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 이러한 개발 문서를 살펴보세요.

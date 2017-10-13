@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4e9416d75d5887de059a6fcfc66683940e3e6fe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 자세한 내용은 [통합 런타임](concepts-integration-runtime.md)을 참조하세요.
@@ -73,4 +72,3 @@ Azure IR을 만든 후 연결된 서비스 정의에서 참조할 수 있습니�
 - [자체 호스팅된 통합 런타임](create-self-hosted-integration-runtime.md)
 - [Azure SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)
  
-

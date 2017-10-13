@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
@@ -210,4 +209,3 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-

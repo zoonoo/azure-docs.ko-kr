@@ -11,12 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -184,7 +183,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 대상 리소스를 선택하고 확인합니다.
 
 1. **인프라 준비** > **대상**을 클릭하고 사용하려는 Azure 구독을 선택합니다.
-2. 대상 배포 모델이 Resource Manager 기반인지, 클래식인지 지정합니다.
+2. 대상 배포 모델이 리소스 관리자 기반인지, 클래식인지 지정합니다.
 3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
    ![대상](./media/tutorial-vmware-to-azure/storage-network.png)
@@ -232,4 +231,3 @@ VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바�
 
 > [!div class="nextstepaction"]
 > [재해 복구 훈련 실행](site-recovery-test-failover-to-azure.md)
-

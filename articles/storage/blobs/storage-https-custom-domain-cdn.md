@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: mihauss
 ms.openlocfilehash: 6bad04df324a374f6e8473890345cf516322abd6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스
 

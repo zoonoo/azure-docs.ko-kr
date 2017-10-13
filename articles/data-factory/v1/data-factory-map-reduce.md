@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4af93d03fc4d3ffa0956d72cc0fc90bc98d15020
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -250,5 +249,4 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
 

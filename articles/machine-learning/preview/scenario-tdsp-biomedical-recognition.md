@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하여 생명 공학 엔터티 인식
 
 이 실제 시나리오의 목표는 Azure Machine Learning Workbench를 사용하여 구조화되지 않은 텍스트에서 엔터티 추출과 같은 복잡한 NLP(자연어 처리) 작업을 해결하는 방법을 중점적으로 설명하는 것입니다.
@@ -130,7 +128,7 @@ ms.lasthandoff: 09/25/2017
 
 단계별 데이터 과학 워크플로는 다음과 같습니다.
 
-### <a name="1-data-acquisition-and-understanding"></a>1. 데이터 획득 및 이해
+### <a name="1-data-acquisition-and-understanding"></a>1. 데이터 취득 및 이해
 
 [데이터 획득 및 이해](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md)를 참조하세요.
 
@@ -269,5 +267,4 @@ Spark에서 Word2Vec 알고리즘을 사용하여 단어 포함 모델을 학습
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)
 * [Spark Word2Vec: lessons learned](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/)
-
 

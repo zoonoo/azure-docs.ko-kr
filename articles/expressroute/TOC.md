@@ -35,6 +35,7 @@
 ## Microsoft 피어링에 대한 경로 필터 구성
 ### [Azure 포털](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성
@@ -45,7 +46,7 @@
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)
 ### [라우팅 최적화](expressroute-optimize-routing.md)
 ### [비대칭 라우팅](expressroute-asymmetric-routing.md)
-### [ExpressRoute용 NAT](expressroute-routing-nat.md)
+### [ExpressRoute용 NAT](expressroute-nat.md)
 
 ## 문제 해결
 ### [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)

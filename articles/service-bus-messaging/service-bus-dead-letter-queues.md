@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2017
 ms.author: clemensv;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: c16bcf30ab96f79e59404a41852e4cd227e28b08
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>서비스 버스 배달 못 한 편지 큐의 개요
 
@@ -104,5 +102,4 @@ while(true)
 
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
 

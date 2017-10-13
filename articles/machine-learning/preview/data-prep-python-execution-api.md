@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ceecc718f8198e9a88cae4acbe97e7f26d95f984
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="executing-data-sources-and-data-preparation-packages-from-python"></a>Python에서 데이터 원본 및 데이터 준비 패키지 실행
 
@@ -51,4 +50,3 @@ Python 내에서 데이터 원본 또는 데이터 준비 패키지를 사용하
 - `dataflow_idx`는 실행할 패키지의 데이터 흐름에 대한 0부터 시작하는 인덱스입니다. 지정한 데이터 흐름이 다른 데이터 흐름 또는 데이터 원본을 참조하는 경우에도 실행됩니다.
 - `secrets`는 비밀에 대한 선택적 dict 매핑 키입니다.
 - `spark`는 Spark 데이터 프레임을 반환할지 또는 Pandas 데이터 프레임을 반환할지를 지정하는 선택적 부울입니다. 기본적으로 Azure ML Workbench는 컨텍스트에 따라 런타임에 반환할 데이터 프레임의 종류를 결정합니다.
-

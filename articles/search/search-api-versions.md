@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 검색의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이전 버전과 호환성을 유지하기 위해 API의 새 버전을 게시하기 위해 이러한 업데이트가 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.

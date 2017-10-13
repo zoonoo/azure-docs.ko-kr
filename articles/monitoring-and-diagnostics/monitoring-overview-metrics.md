@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
 
@@ -127,23 +125,6 @@ Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure
  ![Azure Monitor의 메트릭 및 자동 크기 조정](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>지원되는 서비스 및 메트릭에 대해 알아보기
-Azure Monitor는 새로운 메트릭 인프라입니다. 다음과 같은 Azure Portal의 Azure 서비스 및 새 버전의 Azure Monitor API을 지원합니다.
-
-* VM(Azure Resource Manager 기반)
-* 가상 컴퓨터 확장 집합
-* Batch
-* Event Hubs 네임스페이스
-* 서비스 버스 네임스페이스(프리미엄 SKU에만 해당)
-* SQL Database(버전 12)
-* 탄력적인 SQL 풀
-* 웹 사이트
-* 웹 서버 팜
-* Logic Apps
-* IoT Hub
-* Redis 캐시
-* 네트워킹: 응용 프로그램 게이트웨이
-* Search
-
 모든 지원되는 서비스 및 메트릭의 상세 목록은 [Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭](monitoring-supported-metrics.md)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -152,4 +133,3 @@ Azure Monitor는 새로운 메트릭 인프라입니다. 다음과 같은 Azure 
 * [자동 크기 조정에 대한 공통 메트릭](insights-autoscale-common-metrics.md)
 * [경고 규칙을 만드는 방법](insights-alerts-portal.md)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
-

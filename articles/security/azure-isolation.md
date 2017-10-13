@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
 ### <a name="overview"></a>개요
@@ -348,5 +346,4 @@ Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사�
 - [저장소 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure는 고객 VM 기반 계산을 저장소와 분리합니다. 이러한 분리를 통해 계산 및 저장소를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다. 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. 모든 요청은 고객의 선택에 따라 HTTP 또는 HTTPS를 통해 실행됩니다.
-
 

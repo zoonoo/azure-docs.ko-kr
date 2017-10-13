@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
 Azure HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
@@ -113,5 +112,4 @@ HDInsight 응용 프로그램을 게시하려면
 * [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)하고 더 많은 응용 프로그램을 추가하는 방법을 알아봅니다. 
 * [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터를 만드는 방법](hdinsight-hadoop-create-linux-clusters-arm-templates.md)을 알아봅니다.
 * [HDInsight에서 비어 있는 에지 노드를 사용](hdinsight-apps-use-edge-node.md)하여 HDInsight 클러스터에 액세스하고, HDInsight 응용 프로그램을 테스트하고, HDInsight 응용 프로그램을 호스팅하는 방법을 알아봅니다.
-
 

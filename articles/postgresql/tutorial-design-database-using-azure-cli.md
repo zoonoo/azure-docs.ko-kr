@@ -11,12 +11,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 700c68f354c61cb975ae684d558e650631ff4d66
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL을 디자인합니다 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -203,4 +202,3 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 > * 데이터 복원
 
 다음에는 Azure Portal을 사용하여 유사한 작업을 수행하는 방법에 대해 알아보고, [Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-portal.md) 자습서를 검토합니다.
-

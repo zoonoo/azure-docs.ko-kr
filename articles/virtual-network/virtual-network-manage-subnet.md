@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -109,4 +108,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>다음 단계
 
 서브넷에서 가상 컴퓨터를 만들려면 [가상 네트워크 만들기 및 서브넷에서 VM 배포](virtual-network-get-started-vnet-subnet.md#create-vms)를 참조하세요.
-

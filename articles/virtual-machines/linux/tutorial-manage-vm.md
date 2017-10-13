@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
 
 Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
@@ -325,4 +323,3 @@ VM 디스크에 대해 자세히 알아보려면 다음 자습서로 이동합�
 
 > [!div class="nextstepaction"]
 > [VM 디스크 만들기 및 관리](./tutorial-manage-disks.md)
-

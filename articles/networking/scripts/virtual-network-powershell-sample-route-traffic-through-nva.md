@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: 883d28dac72a66c2186d222f72b04d68e532cead
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="sample-script"></a>샘플 스크립트
 
 
-[!code-powershell[주](../../../powershell_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.ps1 "네트워크 가상 어플라이언스를 통한 트래픽 라우팅")]
+[!code-powershell[main](../../../powershell_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.ps1 "Route traffic through a network virtual appliance")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

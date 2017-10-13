@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: abhisram
 ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
 Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트 및 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.

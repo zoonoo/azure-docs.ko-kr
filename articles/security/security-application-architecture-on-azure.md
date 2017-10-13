@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Azure 상의 응용 프로그램 아키텍처
 Microsoft Azure에서 클라우드 기반 솔루션의 보안을 유지하려면 견고한 아키텍처 기초가 중요합니다. 설계자, 디자이너 및 구현자는 모두 응용 프로그램 및 서비스 아키텍처의 풍부한 지식을 활용합니다. 이러한 기본 지식은 모든 클라우드 기반 솔루션의 구성 요소를 이해하고 디자인 및 구현의 모든 측면으로 보안을 손쉽게 통합하는 데 도움이 됩니다.

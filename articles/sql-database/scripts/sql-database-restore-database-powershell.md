@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2be93bd623ae3960c61d54d4219cc4b60257f88d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 1c8ce646f28d5f13ec1c5760d4c110b994b3a4cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>PowerShell을 사용하여 백업에서 Azure SQL Database 복원
 
 이 PowerShell 스크립트 예제는 지역 중복 백업에서 Azure SQL Database를 복원하고 삭제된 Azure SQL Database를 최신 백업으로 복원하며 Azure SQL Database를 특정 시점으로 복원합니다.  
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[기본](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "SQL Database 만들기")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -61,4 +59,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
-

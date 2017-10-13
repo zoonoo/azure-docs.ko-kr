@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
@@ -1970,4 +1968,3 @@ POST의 경우:
       "top": 5,
       "suggesterName": "sg"
     }
-

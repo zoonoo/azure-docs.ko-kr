@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
@@ -170,7 +169,7 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다. Storm UI를 보려면 웹 브라우저를 사용하여 **https://CLUSTERNAME.azurehdinsight.net/stormui**를 엽니다. 여기서 **CLUSTERNAME**은 클러스터의 이름입니다.
 
 > [!NOTE]
-> 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및 암호를 입력합니다.
+> 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
 
 ### <a name="main-page"></a>기본 페이지
 
@@ -245,4 +244,3 @@ REST API에서 반환되는 정보는 클러스터 내에서만 사용할 수 �
 [Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](hdinsight-storm-develop-java-topology.md)에 대해 알아봅니다.
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
-

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Azure 응용 프로그램에서 Node.js 버전 지정
 Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 특정 버전의 Node.js를 사용하는지 확인하는 것이 좋습니다. Azure에 호스트되는 응용 프로그램에 대해 이 작업을 수행하는 여러 가지 방법이 있습니다.
@@ -98,4 +97,3 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [Azure 명령줄 도구]:cli-install-nodejs.md
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
-

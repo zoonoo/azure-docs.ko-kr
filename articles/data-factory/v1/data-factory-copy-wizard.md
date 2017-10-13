@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2302f4bfe98c3e731685f5c63774b060caa8c3a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
@@ -91,5 +90,4 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
 다음 비디오, 데모, 자습서 및 샘플 앱으로 빠르게 기능을 활용해 보세요.
@@ -102,5 +100,4 @@ Azure Search에 대한 다중 세션 데모 및 실습입니다.
 | [검색 응용 프로그램에 제안을 추가하는 방법](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |일반적으로 자동 완성이라고 하는 제안 기능을 구현하는 방법을 알아봅니다. 이 데모에서는 Azure 검색 제안을 활용하는 MVC4 응용 프로그램 개발, JavaScript에서 Twitter typeahead.js 라이브러리를 사용한 효과적인 자동 제안 구성 요소 개발, 유사 일치 제안을 사용하여 사용자가 단어를 잘못 입력한 경우에도 제안을 표시하도록 하는 방법 등의 다양한 주제를 자세히 설명합니다. |
 | [TechNet 가상 실습: Microsoft Azure 검색 응용 프로그램 구축](http://go.microsoft.com/?linkid=9874663) |개발 환경, 도구, 설명서 및 데이터를 제공 하는 가상 실습입니다. 실습을 완료하려면 평가판 구독 또는 개인 Azure 구독이 있는 Azure 계정이 필요합니다. |
 | [SQL Server 데이터와 Azure 검색 동기화](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Azure 검색 인덱스에 SQL Server 관계형 데이터베이스의 데이터를 로드하는 방법을 설명하는 블로그 게시물입니다. |
-
 

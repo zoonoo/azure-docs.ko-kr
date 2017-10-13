@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: ambapat
 ms.openlocfilehash: 5dbee1221f64045c64fecb344de1e03b2183dfb1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 ## <a name="introduction"></a>소개

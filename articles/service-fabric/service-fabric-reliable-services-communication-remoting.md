@@ -1,7 +1,6 @@
-
 ---
 title: "Service Fabric의 서비스 원격 호출 | Microsoft Docs"
-description: "Service Fabric 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 서비스와 통신할 수 있도록 합니다."
+description: "서비스 패브릭 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 서비스와 통신할 수 있도록 합니다."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Reliable Services로 서비스 원격 호출
 특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다.
@@ -204,7 +202,7 @@ V1에서 V2로 업그레이드하려면 2 단계 업그레이드가 필수입니
 이 단계를 수행하면 클라이언트는 V2 스택을 사용합니다.
 클라이언트 프로젝트/서비스에 어떠한 변경도 할 필요가 없습니다. 업데이트된 인터페이스 어셈블리로 클라이언트 프로젝트를 빌드하면 충분합니다.
 
-3. 이 단계는 선택 사항입니다. V2Listener 특성을 사용하여 V2 서비스를 업그레이드합니다.
+3. 이 단계는 옵션입니다. V2Listener 특성을 사용하여 V2 서비스를 업그레이드합니다.
 이 단계를 수행하면 서비스는 V2 수신기만 수신합니다.
 
 ```csharp
@@ -392,4 +390,3 @@ V1에서 V2로 업그레이드하려면 2 단계 업그레이드가 필수입니
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services와 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
 * [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)
-

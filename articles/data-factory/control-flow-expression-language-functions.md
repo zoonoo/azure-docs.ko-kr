@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +81,7 @@ ms.lasthandoff: 09/25/2017
 |replace|문자열을 지정된 문자열로 바꿉니다. 예를 들어 다음 식은<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 다음을 반환합니다.<br /><br /> `the new string`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: string<br /><br /> **설명**: 필수.  매개 변수 2가 매개 변수 1에 있으면 매개 변수 2에 대해 문자열을 검색하고 매개 변수 3으로 업데이트됩니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Old string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 3으로 바꿀 문자열입니다.<br /><br /> **매개 변수 번호**: 3<br /><br /> **이름**: New string<br /><br /> **설명**: 필수. 매개 변수 1에 일치 항목이 있으면 매개 변수 2의 문자열을 바꾸는 데 사용할 문자열입니다.|  
 |GUID| 전역적으로 고유한 문자열(GUID)을  생성합니다. 예를 들어 다음 출력을 생성할 수 있습니다.`c2ecc88d-88c8-4096-912c-d6f2e2b138ce`<br /><br /> `guid()`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. [이 Guid 값의 형식을 지정하는 방법](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)을 나타내는 단일 형식 지정자입니다. 형식 매개 변수는 "N", "D", "B", "P" 또는 "X"일 수 있습니다. 형식이 제공되지 않으면 "D"가 사용됩니다.|  
 |toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
-|toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
+|toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |indexof|문자열 내에서 대소문자를 구분하지 않고 값의 인덱스를 찾습니다. 예를 들어 다음 식은 `7`: `indexof('hello, world.', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 인덱스를 검색할 값입니다.|  
 |lastindexof|문자열 내에서 대소문자를 구분하지 않고 값의 마지막 인덱스를 찾습니다. 예를 들어 다음 식은 `3`: `lastindexof('foofoo', 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 인덱스를 검색할 값입니다.|  
 |startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `lastindexof('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값으로 시작할 수 있습니다.|  
@@ -96,7 +95,7 @@ ms.lasthandoff: 09/25/2017
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |contains|사전에 키가 포함되거나, 목록에 값이 포함되거나, 문자열에 하위 문자열이 포함된 경우 true를 반환합니다. 예를 들어 다음 식은 `true:``contains('abacaba','aca')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Within collection<br /><br /> **설명**: 필수. 내부를 검색할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Find object<br /><br /> **설명**: 필수. **Within collection** 내부에서 찾을 개체입니다.|  
-|length|배열 또는 문자열 내의 요소 수를 반환합니다. 예를 들어 다음 식은 `3`: `length('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 길이를 가져올 컬렉션입니다.|  
+|length|배열 또는 문자열 내의 요소 수를 반환합니다. 예를 들어 다음 식은 `3`:  `length('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 길이를 가져올 컬렉션입니다.|  
 |empty|개체, 배열 또는 문자열이 비어 있으면 true를 반환합니다. 예를 들어 다음 식은 `true`를 반환합니다.<br /><br /> `empty('')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수. 비어 있는지 확인할 컬렉션입니다.|  
 |교집합|전달된 배열 또는 개체 간에 공통의 요소가 있는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2]`을 반환합니다.<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수. 평가할 컬렉션입니다. 개체는 결과에 표시하기 위해 전달된 모든 컬렉션에 있어야 합니다.|  
 |union|여기에 전달된 배열 또는 개체에 있는 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`를 반환합니다.<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 최종 출력에 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수. 평가할 컬렉션입니다. 컬렉션에 나타나는 개체가 결과에 나타납니다.|  
@@ -111,7 +110,7 @@ ms.lasthandoff: 09/25/2017
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |equals|두 값이 같으면 true를 반환합니다. 예를 들어, parameter1이 foo이면 다음 식이 `true`: `equals(parameters('parameter1'), 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**와 비교할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**과 비교할 개체입니다.|  
-|less|첫 번째 인수가 두 번째 인수보다 작으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `true`:  `less(10,100)`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 작은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 큰지 확인할 개체입니다.|  
+|less|첫 번째 인수가 두 번째 인수보다 작으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `true`:  `less(10,100)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 작은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 큰지 확인할 개체입니다.|  
 |lessOrEquals|첫 번째 인수가 두 번째 인수보다 작거나 같으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `true`:  `lessOrEquals(10,10)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 작거나 같은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 크거나 같은지 확인할 개체입니다.|  
 |greater|첫 번째 인수가 두 번째 인수보다 크면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `false`:  `greater(10,10)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 큰지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 작은지 확인할 개체입니다.|  
 |greaterOrEquals|첫 번째 인수가 두 번째 인수보다 크거나 같으면 true를 반환합니다. 값은 integer, float 또는 string 형식만 가능합니다. 예를 들어 다음 식은 `false`:  `greaterOrEquals(10,100)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Object 1<br /><br /> **설명**: 필수. **Object 2**보다 크거나 같은지 확인할 개체입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Object 2<br /><br /> **설명**: 필수. **Object 1**보다 작거나 같은지 확인할 개체입니다.|  

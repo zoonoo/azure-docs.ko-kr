@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
 
 ![웹앱 기호](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
@@ -144,4 +142,3 @@ Azure Web Apps 분석 솔루션을 작업 영역에 추가하면 개요 대시�
 
 - 특정 메트릭에 대한 [경고](log-analytics-alerts-creating.md)를 만듭니다.
 - [로그 검색](log-analytics-log-searches.md)을 사용하여 활동 로그의 자세한 정보를 봅니다.
-

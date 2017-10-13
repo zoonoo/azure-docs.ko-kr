@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
 ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>ASP.NET Core를 사용하여 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
 기본적으로 Azure 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.

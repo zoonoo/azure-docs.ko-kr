@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 745701b571a6cfa93798d7536ddb9d28ab45ea73
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Azure에서 T-SQL 및 Python을 사용하여 SQL Data Warehouse 데이터 과학 연습
 
 이러한 연습은 예측 분석을 수행하는 데 SQL Data Warehouse를 사용합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. SQL Data Warehouse에 대한 소개는 [Azure SQL Data Warehouse란?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)을 참조하세요.

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전
 
 이전 자습서에서 장치를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 사용자가 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security)을 기반으로 장치에 대한 Device Provisioning Service를 구성하고, 장치가 처음으로 부팅될 때 Device Provisioning Service에 연결할 수 있도록 제조 프로세스에서 장치를 구성하기 위한 지침을 제공합니다. 이 자습서에서는 다음과 같은 프로세스를 설명합니다.
@@ -186,5 +184,4 @@ int main()
 
 > [!div class="nextstepaction"]
 > [IoT Hub에 장치 프로비전](tutorial-provision-device-to-hub.md)
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.openlocfilehash: 4787e4033e1afda6339b0b917263ecc165e400ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="input-metadata"></a>입력 메타데이터
 인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다.  태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다. 출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 &lt;asset_id&gt;_metadata.xml입니다(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml). 여기서 &lt;asset_id&gt;는 입력 자산의 AssetId 값입니다.  

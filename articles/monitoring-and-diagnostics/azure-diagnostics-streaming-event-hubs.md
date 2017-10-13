@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
 ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
 Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트릭 및 로그를 수집하고 결과를 Azure 저장소로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.

@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>도메인에 가입된 HDInsight 클러스터 관리(미리 보기)
 도메인에 가입된 HDInsight의 사용자 및 역할에 대해 알아보고 도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다.

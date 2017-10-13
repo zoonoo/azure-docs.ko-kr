@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Azure의 서비스 패브릭 클러스터와 사용하는 리소스 삭제
 서비스 패브릭 클러스터는 클러스터 리소스 자체 외에도 다른 많은 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다.
@@ -109,4 +108,3 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
-

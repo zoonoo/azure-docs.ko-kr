@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl-application"></a>sfctl application
 응용 프로그램 및 응용 프로그램 종류를 만들고, 삭제하고, 관리합니다.
 
@@ -47,7 +45,7 @@ ms.lasthandoff: 09/26/2017
                       정확하게 지정된 이름입니다.|
 | type-list    | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램의 유형 목록을 가져옵니다.|
 | unprovision  | 클러스터에서 Microsoft Azure Service Fabric 응용 프로그램 유형을 제거하거나 등록 취소합니다.|
-| upgrade      | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레이드를 시작합니다.|
+| 업그레이드      | Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레이드를 시작합니다.|
 | upgrade-resume  | Microsoft Azure Service Fabric 클러스터에 응용 프로그램을 다시 업그레이드하기 시작합니다.|
 | upgrade-rollback| Microsoft Azure Service Fabric 클러스터에서 현재 진행 중인 응용 프로그램 업그레이드
                       롤백을 시작합니다.|
@@ -349,7 +347,7 @@ Microsoft Azure Service Fabric 클러스터에서 응용 프로그램 업그레�
 
 |인수|설명|
 | --- | --- |
-| --앱-id             [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. For
+| --앱-id             [필수]| 응용 프로그램의 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '~' 문자로 구분됩니다. 자세한
         example, if the application name is 'fabric://myapp/app1', the application identity would be
         'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
 | --app-version        [필수]| 대상 애플리케이션 버전입니다.| | --parameters         [필수]| JSON 인코딩된 응용 프로그램 매개 변수 목록은 응용 프로그램을 업그레이드할 때 적용되도록 재정의합니다.| | --default-service-health-policy| 기본적으로 서비스 형식의 상태를 평가하기 위해 사용되는 JSON 인코딩된 상태 정책의 사양입니다.| | --failure-action            | 

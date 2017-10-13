@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
  
@@ -97,4 +95,3 @@ Windows 또는 Linux 가상 컴퓨터에서 운영 및 성능 데이터를 수�
 
 > [!div class="nextstepaction"]
 > [Log Analytics에서 데이터 보기 또는 분석](log-analytics-tutorial-viewdata.md)
-

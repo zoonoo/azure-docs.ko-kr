@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL 데이터베이스를 사용하여 규모 확장
 **탄력적 데이터베이스** 도구를 사용하여 Azure SQL 데이터베이스의 규모를 쉽게 확장할 수 있습니다. 이러한 도구와 기능을 사용하면 **Azure SQL 데이터베이스** 의 거의 무제한 데이터베이스 리소스를 사용하여 트랜잭션 워크로드에 대한 솔루션과 특히 SaaS(Software as a Service) 응용 프로그램을 만들 수 있습니다. 탄력적 데이터베이스 기능은 다음으로 구성됩니다.

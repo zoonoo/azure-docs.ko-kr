@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: b3ca2ed90dd14350d3962a558aaac41f2e007bbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 Azure 서비스로 IoT Hub는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. Microsoft Azure Platform에는 재해 복구(DR) 기능 또는 지역 간 가용성을 포함하는 솔루션을 빌드하도록 도와주는 기능도 포함되어 있습니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하려면 이러한 Azure DR 기능을 활용하도록 솔루션을 설계하고 준비합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][Disaster recovery and high availability for Azure applications] 문서는 Azure 응용 프로그램에서 HA 및 DR을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
@@ -60,4 +59,3 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
-

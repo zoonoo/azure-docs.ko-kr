@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure 보안 센터에서 웹 응용 프로그램 방화벽 추가
 Azure Security Center에서는 웹 응용 프로그램을 보호하기 위해 Microsoft 파트너의 WAF(웹 응용 프로그램 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이 권장 사항을 적용하는 방법의 예를 보여 줍니다.
@@ -87,4 +86,3 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-

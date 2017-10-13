@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
+ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: b9fac8796b9cb36418d4494eaaf8080744321e19
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Storage 메트릭(미리 보기)
 
 Azure Storage에 관한 메트릭을 사용하여 사용량 추세를 분석하고 요청을 추적하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
@@ -267,4 +265,3 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="see-also"></a>참고 항목
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-

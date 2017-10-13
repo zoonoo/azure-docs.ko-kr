@@ -3,7 +3,7 @@ title: "Python에서 큐 저장소를 사용하는 방법 | Microsoft Docs"
 description: "Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다."
 documentationcenter: php
 services: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 5fa4e35184b39bd672bfc8b19b2d41acb164abdf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3900a023f03eb9ce22fdf71030291c7ab5f6f30b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -75,7 +74,7 @@ UseDevelopmentStorage=true
 Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를 사용해야 합니다. 다음 기술 중 하나를 사용할 수 있습니다.
 
 * 연결 문자열을 직접 전달합니다.
-* 웹앱의 환경 변수를 사용하여 연결 문자열을 저장합니다. 연결 문자열 구성에 관한 [Azure 웹앱 구성 설정](../../app-service-web/web-sites-configure.md) 문서를 참조하세요.
+* 웹앱의 환경 변수를 사용하여 연결 문자열을 저장합니다. 연결 문자열 구성에 관한 [Azure 웹앱 구성 설정](../../app-service/web-sites-configure.md) 문서를 참조하세요.
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
 ```php
@@ -410,5 +409,4 @@ catch(ServiceException $e){
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
-
 

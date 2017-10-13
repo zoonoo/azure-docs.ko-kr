@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -185,7 +184,7 @@ Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제
 
 Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계된 [상태 보고서를 볼](service-fabric-view-entities-aggregated-health.md) 수 있습니다.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 또는 기타 시각화 도구
-* 상태 쿼리([PowerShell](/powershell/module/ServiceFabric/), [C# FabricClient API](/api/system.fabric.fabricclient.healthclient) 및 [Java FabricClient API](/java/api/system.fabric._health_client) 또는 [REST API](/rest/api/servicefabric)를 통해)
+* 상태 쿼리([PowerShell](/powershell/module/ServiceFabric/), [C# FabricClient API](/dotnet/api/system.fabric.fabricclient.healthclient) 및 [Java FabricClient API](/java/api/system.fabric._health_client) 또는 [REST API](/rest/api/servicefabric)를 통해)
 * PowerShell, API 또는 REST를 통해 속성 중 하나로 상태를 가지고 있는 엔터티 목록을 반환하는 일반 쿼리
 
 다음 Microsoft Virtual Academy 비디오에는 Service Fabric 상태 모델 및 사용 방법을 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
@@ -206,4 +205,3 @@ Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계�
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-

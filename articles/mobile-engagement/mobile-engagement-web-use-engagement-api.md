@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>웹 응용 프로그램에서 Azure Mobile Engagement API 사용
 이 문서는 [웹 응용 프로그램에서 Mobile Engagement를 통합](mobile-engagement-web-integrate-engagement.md)하는 방법을 안내하는 문서를 보완하는 추가 문서로, Azure Mobile Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.

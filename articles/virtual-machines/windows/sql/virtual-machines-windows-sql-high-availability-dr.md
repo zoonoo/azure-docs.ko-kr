@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -140,5 +139,4 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 ### <a name="other-resources"></a>기타 리소스
 * [Azure에 새 Active Directory 포리스트 설치](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Azure VM에서 가용성 그룹을 위한 장애 조치 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
-
 

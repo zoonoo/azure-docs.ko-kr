@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 이 자습서는 시리즈의 1부입니다. PowerShell을 사용하여 기존 Azure VNET(가상 네트워크)에 Windows Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
@@ -252,4 +250,3 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 
 [cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
-

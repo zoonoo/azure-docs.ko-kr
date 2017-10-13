@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 표준 저장소와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
@@ -154,4 +153,3 @@ Azure Backup 서비스를 Managed Disks와 함께 사용하면 시간 기반 백
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](/azure/virtual-machines/windows/quick-create-powershell.md)
 
 * [Azure CLI 2.0을 사용하여 Linux VM 만들기](../../virtual-machines/windows/quick-create-cli.md)
-

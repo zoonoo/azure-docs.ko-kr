@@ -15,10 +15,10 @@ ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
 ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health는 Azure 서비스의 문제가 사용 중인 서비스에 영향을 줄 때 시기적절하고 개인 설정된 정보를 제공합니다.  향후 계획된 유지 관리에 대해 준비하는 데도 도움이 됩니다.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: bwren
 ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics의 IIS 로그
 IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  

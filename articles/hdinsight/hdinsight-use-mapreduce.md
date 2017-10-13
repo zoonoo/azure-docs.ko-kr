@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 625bbf802888b70ccac57b7da3d7060a9706ddec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
 
@@ -43,7 +42,7 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성�
 
 * **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
 
-* **리듀서**: 매퍼에서 나온 튜플을 소비하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
+* **리듀서**: 매퍼에서 나온 튜플을 소배하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
 
 다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
 
@@ -199,4 +198,3 @@ HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 �
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Log Analytics 에이전트에서 Azure 가상 컴퓨터를 Log Analytics에 연결
 
@@ -423,4 +422,3 @@ Azure에 없는 컴퓨터의 경우, 다음 문서에 설명된 방법을 사용
 
 * [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)
 * [Log Analytics에 Linux 컴퓨터 연결](log-analytics-linux-agents.md)
-

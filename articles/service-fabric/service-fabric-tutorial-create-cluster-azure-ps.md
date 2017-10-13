@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-cluster-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 Windows 클러스터 만들기
 이 자습서에서는 Azure에서 실행되는 Windows Service Fabric 클러스터를 만드는 방법을 보여 줍니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.
 
@@ -157,4 +155,3 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 이제 다음 자습서로 이동하여 기존 응용 프로그램을 배포하는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
 > [Docker Compose를 사용하여 기존 .NET 응용 프로그램 배포](service-fabric-host-app-in-a-container.md)
-

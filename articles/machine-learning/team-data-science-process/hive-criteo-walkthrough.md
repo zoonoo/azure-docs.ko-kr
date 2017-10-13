@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -631,5 +630,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 요청한 두 가지 테스트 예제(python 스크립트의 JSON 프레임워크)에 대해 "Scored Labels, Scored Probabilities" 형식의 응답이 제공됩니다. 이 사례에서는 미리 만든 코드에서 제공하는 기본값(모든 숫자 열의 경우 0, 모든 범주 열의 경우 문자열 "값")을 선택했습니다.
 
 Azure Machine Learning을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-architecture-overview"></a>보안 아키텍처 개요
 강력한 아키텍처 기초 확립은 Azure에서의 솔루션 배포를 공고히 한다는 측면에서 성공의 열쇠 중 하나입니다. 이러한 지식을 갖는다면 물어야 할 올바른 질문을 알고 질문에 대한 올바른 답을 찾을 준비가 갖추게 되어 여러분의 요구 사항을 더 잘 이해할 수 있습니다. 올바른 질문을 하여 올바른 답을 얻는다면 배포의 보안을 최적화하는 데 큰 도움이 됩니다.

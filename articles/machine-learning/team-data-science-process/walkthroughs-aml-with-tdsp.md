@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Team Data Science 구조화 프로젝트
 
 이러한 자습서 및 샘플은 Azure Machine Learning Workbench로 Team Data Science 구조화 프로젝트를 만드는 방법을 보여 줍니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. HDInsight의 Spark 개요는 [HDInsight의 Spark 소개](../../hdinsight/hdinsight-apache-spark-overview.md)를 참조하세요.

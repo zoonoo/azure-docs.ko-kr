@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
 ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement 데모 앱
 유용한 리소스를 찾고 Mobile Engagement에 대한 자세한 정보를 알아보는데 도움이 되도록 **iOS**, **Android** 및 **Windows** 플랫폼용 Azure Mobile Engagement 데모 앱을 게시했습니다.

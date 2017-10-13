@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 쿼리 저장소 운영
 Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 지속적으로 수집하고 제공하는, 완전히 관리되는 데이터베이스 기능입니다. 쿼리 저장소는 비행기의 블랙박스와 비슷하게 생각할 수 있으며, 클라우드와 온-프레미스 고객의 쿼리 성능 문제 해결을 상당히 간소화합니다. 이 문서는 Azure의 쿼리 저장소 운영에 대한 구체적인 측면을 설명합니다. 미리 수집된 쿼리 데이터를 사용하면, 성능 문제를 신속하게 진단하고 해결할 수 있기 때문에 업무에 더 많은 시간을 집중할 수 있습니다. 
@@ -51,7 +50,7 @@ Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 
 > 
 > 
 
-사용자 지정 설정을 유지하려는 경우에는, [쿼리 저장소 옵션을 사용하여 ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)를 사용하여 이전 상태로 구성을 되돌립니다. 최적의 구성 매개 변수를 선택하는 방법을 알아보려면, [쿼리 저장소 모범 사례](https://msdn.microsoft.com/library/mt604821.aspx)를 확인하세요.
+사용자 지정 설정을 유지하려는 경우에는, [쿼리 저장소 옵션을 사용하여 ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) 를 사용하여 이전 상태로 구성을 되돌립니다. 최적의 구성 매개 변수를 선택하는 방법을 알아보려면, [쿼리 저장소 모범 사례](https://msdn.microsoft.com/library/mt604821.aspx) 를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [SQL 데이터베이스 성능 Insight](sql-database-performance.md)
@@ -63,5 +62,4 @@ Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 
 * [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
 * [쿼리 저장소 사용 시나리오](https://msdn.microsoft.com/library/mt614796.aspx)
 * [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx) 
-
 

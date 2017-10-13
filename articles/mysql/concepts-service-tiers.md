@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>MySQL용 Azure Database 옵션 및 성능: 각 가격 책정 계층에서 사용할 수 있는 항목 이해
 MySQL 서버용 Azure Database를 만들 때 해당 서버에 할당되는 리소스를 구성하는 세 가지 주요 선택 사항을 결정합니다. 이 선택 사항은 서버의 성능과 규모에 영향을 미칩니다.

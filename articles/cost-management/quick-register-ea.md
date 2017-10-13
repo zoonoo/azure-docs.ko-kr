@@ -10,27 +10,24 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
-Azure Enterprise Agreement를 사용하여 Azure Cost Management에 Cloudyn으로 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.  또한 비용 데이터를 즉시 보기 시작하는 방법을 보여 줍니다.
+Azure Enterprise Agreement를 사용하여 Azure Cost Management에 Cloudyn으로 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 - Azure Portal( http://portal.azure.com )에 로그인합니다.
 
-## <a name="create-a-trial-registration"></a>평가판 등록을 만들기
+## <a name="create-a-trial-registration"></a>평가판 등록 만들기
 
-1. Azure Portal의 서비스 목록에서 **비용 관리 + 청구**를 클릭합니다.
-2. **개요**에서 **비용 관리**를 클릭합니다.  
+1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
+2. **개요**에서 **Cost Management**를 클릭합니다.  
     ![비용 관리 페이지](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. **비용 관리** 페이지에서 **비용 관리로 이동**을 선택하여 새 창에 Cloudyn 등록 페이지를 엽니다.
 4. Cloudyn 포털 평가판 등록 페이지에서 회사 이름을 입력하고 **Azure Enterprise 등록 관리자**를 선택합니다.  
@@ -48,8 +45,7 @@ Azure Enterprise Agreement를 사용하여 Azure Cost Management에 Cloudyn으�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작 정보에서는 Azure Enterprise Agreement 정보를 사용하여 비용 관리에 등록했습니다. 또한 Cloudyn 포털에 로그인하여 비용 데이터 보기를 시작했습니다. Cloudyn를 통한 Azure Cost Management에 대한 자세한 내용을 보려면 비용 관리 자습서를 계속 진행하세요.
+이 빠른 시작 정보에서는 Azure Enterprise Agreement 정보를 사용하여 비용 관리에 등록했습니다. 또한 Cloudyn 포털에 로그인하여 비용 데이터 보기를 시작했습니다. Cloudyn으로 Azure Cost Management에 대한 자세한 내용을 보려면 Cost Management의 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [비용 데이터 보기](./tutorial-review-usage.md)
-

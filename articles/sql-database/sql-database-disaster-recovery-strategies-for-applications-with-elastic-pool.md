@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
 ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략
 수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 재해 복구 기능을 지원합니다. 이 문서에서는 이러한 SQL 데이터베이스 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.

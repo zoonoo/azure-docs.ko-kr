@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
 ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure 미디어 서비스를 사용하여 DRM 라이선스 또는 AES 키 제공
 AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보호 추가 및 콘텐츠를 스트림할 수 있습니다(자세한 내용은 [이](media-services-protect-with-drm.md) 문서 참조). 그러나 라이선스 및/또는 키를 제공하는 데 AMS만 사용하고 온-프레미스 서버를 사용하여 인코딩, 암호화 및 스트리밍을 수행하려는 고객이 있습니다. 이 문서에서는 AMS를 사용하여 PlayReady 및/또는 Widevine 라이선스를 제공하지만 나머지 작업에는 온-프레미스 서버를 사용하여 수행하는 방법을 설명합니다. 

@@ -11,14 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
+ms.openlocfilehash: e115a9a5f925dc038aca4e403d678cce06262ab0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: f6c98833c73b70bcf1f8ca53596a34f09807b276
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Node.js를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Node.js](https://nodejs.org/)를 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Node.js를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
@@ -46,7 +44,7 @@ npm list
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다.
 3. 서버 이름을 클릭합니다.
 4. 서버의 **개요** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
@@ -254,4 +252,3 @@ function queryDatabase() {
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
-

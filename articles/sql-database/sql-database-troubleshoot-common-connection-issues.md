@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: b8abf1285318e491d51aadf90f921103d84ce1a4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 2748768e88c046c39232492396872e1c7ed590a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 연결 문제 해결
 Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL Database 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 
@@ -90,5 +89,4 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 * [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 * [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 * [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure 서비스의 Azure Monitor에서 메트릭 경고 만들기 - PowerShell
 > [!div class="op_single_selector"]
@@ -135,4 +134,3 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그 수집](monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
-

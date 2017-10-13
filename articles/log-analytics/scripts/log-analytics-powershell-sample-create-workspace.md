@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30d036ae56acc3a798d2776f292243f65cbea43d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell을 사용하여 Log Analytics 작업 영역 만들기
 
 이 스크립트는 데이터 수집, 분석 및 작업을 시작하려는 경우 필요한 Azure Log Analytics 작업 영역을 통해 신속하게 시작하고 실행할 수 있습니다.  
@@ -48,5 +46,4 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
-
 

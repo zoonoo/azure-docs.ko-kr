@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>11단계: Azure로 Hyper-V 복제를 위한 테스트 장애 조치(failover) 실행
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터(System Center VMM에서 관리되지 않음)에서 Azure로 테스트 장애 조치(failover)를 실행하는 방법을 설명합니다.
@@ -100,5 +98,4 @@ ms.lasthandoff: 08/21/2017
 
 - 여러 장애 조치 유형 및 장애 조치 실행 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
 - Azure VM을 장애 복구하고 기본 온-프레미스 Hyper-V 사이트로 다시 복제하는 [장애 복구(failback)에 대해 자세히 읽어보세요](site-recovery-failback-from-azure-to-hyper-v.md).
-
 

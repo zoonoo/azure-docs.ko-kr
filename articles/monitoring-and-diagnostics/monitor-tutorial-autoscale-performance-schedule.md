@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
 자동 크기 조정 설정을 사용하면 미리 설정된 조건에 따라 서비스의 인스턴스를 추가/제거할 수 있습니다. 이러한 설정은 포털을 통해 만들 수 있습니다. 이 메서드는 자동 크기 조정 설정을 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 자습서는 다음을 설명합니다.
@@ -31,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Web App 및 App Service 계획 만들기
 1. 왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
@@ -174,4 +172,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!div class="nextstepaction"]
 > [모니터링 데이터 보관](./monitor-tutorial-archive-monitoring-data.md)
-

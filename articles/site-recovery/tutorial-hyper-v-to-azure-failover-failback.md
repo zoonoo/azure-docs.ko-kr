@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/15/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1cc21661450a983c25b24fe2a6228e26ceecec6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 복제, 장애 조치(failover) 및 장애 복구(failback)를 관리하고 오케스트레이션합니다.
@@ -56,14 +54,14 @@ ms.lasthandoff: 09/25/2017
 ##### <a name="azure-vms-running-windows"></a>Windows가 실행되는 Azure VM
 
 1. 인터넷을 통해 Azure VM에 액세스하려면 장애 조치(failover) 전에 온-프레미스 VM에서 RDP를 사용합니다. TCP 및 UDP 규칙이 **공용** 프로필에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.
-2. 사이트 간 VPN을 통해 액세스하려면 온-프레미스 컴퓨터에서 RDP를 사용합니다. **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 및 개인** 네트워크에 대해 RDP가 허용되어야 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아봅니다](https://support.microsoft.com/kb/3031135). 장애 조치(failover)를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우에는 업데이트가 완료될 때까지 가상 컴퓨터에 로그인할 수 없습니다. 
-3. 장애 조치(failover) 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인한 다음 해당 [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
+2. 사이트 간 VPN을 통해 액세스하려면 온-프레미스 컴퓨터에서 RDP를 활성화합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아봅니다](https://support.microsoft.com/kb/3031135). 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 컴퓨터에 로그인할 수 없습니다. 
+3. 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인한 다음 해당 [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
 
 
 ##### <a name="azure-vms-running-linux"></a>Linux가 실행되는 Azure VM
 
-1. 장애 조치(failover) 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다. 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
-2. 장애 조치(failover) 후 Azure VM에서 장애 조치된 VM 및 이 VM에 연결되어 있는 Azure 서브넷의 네트워크 보안 그룹 규칙에서 SSH 포트로 들어오는 연결을 허용하도록 설정합니다.  VM에 [공용 IP 주소를 추가](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)합니다. **부트 진단**을 확인하여 VM의 스크린샷을 볼 수 있습니다.
+1. 장애 조치(failover) 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다. 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
+2. 장애 조치 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다.  VM에 대한 [공용 IP 주소를 추가](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)합니다. **부트 진단**을 확인하여 VM의 스크린샷을 볼 수 있습니다.
 
 
 #### <a name="verify-vm-properties"></a>VM 속성 확인
@@ -130,5 +128,4 @@ Azure에서 온-프레미스 사이트로 장애 조치(failover)한 후 온-프
 
 > [!NOTE]
 > 역방향 복제는 Azure VM이 해제된 후에 발생한 변경 내용만 복제하며 델타 변경 내용만 전송됩니다.
-
 

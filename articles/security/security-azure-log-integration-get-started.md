@@ -16,10 +16,10 @@ ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: 9d39ecd513386b75b4b640721f80991caaf9ade8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 로그 통합과 Azure 진단 로깅 및 Windows 이벤트 전달
 AzLog(Azure 로그 통합)은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있도록 합니다. 이 통합을 통해 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 보안 대시보드를 사용할 수 있습니다.

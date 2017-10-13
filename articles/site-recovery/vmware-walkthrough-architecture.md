@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27.017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 2bbab5f1ac0efe9632ad6c818504584e2503cf15
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-vmware-replication-to-azure"></a>1단계: Azure에 VMware 복제를 위한 아키텍처 검토
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware 가상 컴퓨터를 Azure에 복제할 때 사용된 구성 요소 및 프로세스를 설명합니다.
@@ -87,4 +85,3 @@ ms.lasthandoff: 09/27/2017
 ## <a name="next-steps"></a>다음 단계
 
 [2단계: 필수 조건 및 제한 사항 확인](vmware-walkthrough-prerequisites.md)으로 이동합니다.
-

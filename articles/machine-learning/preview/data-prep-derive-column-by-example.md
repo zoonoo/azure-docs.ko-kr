@@ -11,15 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="derive-column-by-example-transformation"></a>예제별 열 파생 변환
 
 **예제별 열 파생** 변환을 통해 사용자는 하나 이상의 기존 열의 파생 항목을 사용자가 제공한 파생 결과 예제를 사용하여 만들도록 설정할 수 있습니다. 파생은 지원되는 문자열, 날짜 및 숫자 변환의 어떤 조합이든 될 수 있습니다. 
@@ -189,11 +186,11 @@ Round, Floor, Ceiling, 범주화, 0이나 공백인 안쪽 여백, 또는 1000�
 |:-----|:-----:|
 |Male|**0**|
 |Female|**1**|
-|Unknown|**2**|
+|알 수 없음|**2**|
 |Female|1|
 |Female|1|
 |Male|0|
-|Unknown|2|
+|알 수 없음|2|
 |Male|0|
 |Female|1|
 
@@ -289,7 +286,7 @@ Round, Floor, Ceiling, 범주화, 0이나 공백인 안쪽 여백, 또는 1000�
 
 이러한 날짜 부분은 동일한 데이터 집합에 서로 다른 예제별 변환을 사용하여 추출되었습니다. 볼드체 문자열은 각 해당 변환에서 제공된 예제를 나타냅니다.
 
-|DateTime|요일|날짜|월|년|시|분|초|
+|DateTime|요일|Date|월|Year|Hour|분|초|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Wed|17|Jan|1990|13|32|01|
@@ -390,4 +387,3 @@ Round, Floor, Ceiling, 범주화, 0이나 공백인 안쪽 여백, 또는 1000�
 
 ### <a name="reference"></a>참조
 예제별 문자열 변환 기술에 관한 자세한 내용은 [이 게시물](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/)에서 찾을 수 있습니다.
-

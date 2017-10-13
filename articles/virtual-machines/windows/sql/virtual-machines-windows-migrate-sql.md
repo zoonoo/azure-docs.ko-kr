@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: carlasab
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
@@ -99,5 +98,4 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
 Azure SQL Server 가상 컴퓨터를 만드는 방법에 대한 지침은 CSS SQL Server 엔지니어 블로그에서 [캡처한 이미지에서 Azure SQL 가상 컴퓨터를 '복제'하는 팁과 트릭](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)을 참조하세요.
-
 

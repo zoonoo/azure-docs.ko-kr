@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>근 실시간 메트릭 경고(미리 보기)
 이제 Azure Monitor는 근 실시간 메트릭 경고(미리 보기)라는 새로운 유형의 메트릭 경고를 지원합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 이러한 경고는 몇 가지 점에서 일반 메트릭 경고와 다릅니다.
@@ -95,7 +93,6 @@ ms.lasthandoff: 09/25/2017
 * 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인
 * 편집 또는 삭제
 * 해당 경고에 대한 알림 수신을 일시 중지 또는 재개하려면 **사용 중지** 또는 **사용**하도록 설정합니다.
-
 
 
 

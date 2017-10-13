@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-trust-center"></a>Microsoft 보안 센터
 Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.

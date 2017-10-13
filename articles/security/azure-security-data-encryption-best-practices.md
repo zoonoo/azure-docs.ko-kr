@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 클라우드의 데이터를 보호하기 위한 핵심 중 하나는 데이터에서 발생 가능한 상태 그리고 해당 상태에 어떤 컨트롤을 제공할 것인지 설명하는 것입니다. Azure 데이터 보안 및 암호화 모범 사례를 위해 다음과 같은 데이터 상태와 관련된 권장 사항이 제공됩니다.

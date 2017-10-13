@@ -16,12 +16,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 9f03e61e05383c309fb66b67e0641b17df5ab00f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
@@ -77,4 +76,3 @@ Azure MFA 서버 및 관련 구성 요소 간 부하 분산을 위해서는 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure MFA 서버 설치 및 구성](multi-factor-authentication-get-started-server.md)
-

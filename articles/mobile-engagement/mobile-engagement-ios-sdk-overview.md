@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 iOS SDK
 이 문서에서는 iOS 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-ios-get-started.md)의 단계를 진행하세요
@@ -184,4 +183,3 @@ XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-

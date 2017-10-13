@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
 이 방법에서는 현재 공개 미리 보기로 제공되는 차세대 Azure Monitor 메트릭 차트 환경을 설명합니다. 새로운 환경에서는 다차원 메트릭 및 차원이 없는 기본 메트릭 모두에 대해 렌더링 차트를 지원합니다. 여러 리소스 종류, 다중 리소스 그룹 및 구독에서 메트릭을 오버레이한 차트를 그릴 수 있습니다. 차원 필터를 적용하고 그룹화하여 다차원 메트릭 차트를 사용자 지정할 수 있습니다. 사용자 지정된 차트를 포함하여 모든 차트를 대시보드에 고정할 수 있습니다.

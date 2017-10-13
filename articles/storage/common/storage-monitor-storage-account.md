@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
+ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
@@ -159,4 +158,3 @@ $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사
 
 * 저장소 분석의 [메트릭, 로깅 및 청구](../storage-analytics.md)에 대해 자세히 알아봅니다.
 * PowerShell 및 프로그래밍 방식으로 C#을 사용하여 [Azure Storage 메트릭 사용 및 메트릭 데이터 보기](../storage-enable-and-view-metrics.md)를 수행합니다.
-

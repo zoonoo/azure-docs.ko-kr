@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Data Factory와 함께 SQL Data Warehouse로 데이터 로드
 
 Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../data-factory/copy-activity-overview.md)에서 Azure SQL Data Warehouse로 데이터를 로드할 수 있습니다. 예를 들어 Data Factory를 사용하여 Azure SQL Database 또는 Oracle 데이터베이스에서 SQL Data Warehouse로 데이터를 로드할 수 있습니다. 이 문서의 자습서에서는 온-프레미스 SQL Server 데이터베이스에서 SQL Data Warehouse로 데이터를 로드하는 방법을 보여 줍니다.
@@ -38,7 +36,7 @@ Azure Data Factory를 사용하여 [지원되는 원본 데이터 저장소](../
 - **Azure Storage 계정**이 필요합니다. 저장소 계정이 아직 없을 경우 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 알아보세요. 최적의 성능을 위해 저장소 계정 및 데이터 웨어하우스를 동일한 Azure 지역에 배치합니다.
 
 ## <a name="configure-a-data-factory"></a>Data Factory 구성
-1. [Azure 포털][] 에 로그인합니다.
+1. [Azure 포털][]에 로그인합니다.
 2. 데이터 웨어하우스를 찾고 클릭하여 엽니다.
 3. 주 블레이드에서 **데이터 로드** > **Azure Data Factory**를 클릭합니다.
 
@@ -165,4 +163,3 @@ SQL Data Warehouse의 데이터를 탐색하려면 다음 문서를 참조하세
 
 <!-- Azure references -->
 [Azure 포털]: https://portal.azure.com
-

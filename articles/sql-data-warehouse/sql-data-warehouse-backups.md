@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL Data Warehouse 백업
 SQL Data Warehouse는 데이터 웨어하우스 백업 기능의 일부로 로컬 및 지리적 백업을 제공합니다. 여기에는 Azure Storage Blob 스냅숏 및 지역 중복 저장소가 포함됩니다. 데이터 웨어하우스 백업을 사용하여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원하거나 다른 지리적 지역으로 복원하세요. 이 문서에서는 SQL Data Warehouse의 백업에 대해 구체적으로 설명합니다.

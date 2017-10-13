@@ -14,13 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -420,9 +418,33 @@ ms.lasthandoff: 03/03/2017
     }
   ],
   "outputs": {
-    "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
-      "type": "object"
+    "workspaceName": {
+      "type": "string",
+      "value": "[parameters('workspaceName')]"
+    },
+    "provisioningState": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').provisioningState]"
+    },
+    "source": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').source]"
+    },
+    "customerId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
+    },
+    "pricingTier": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
+    },
+    "retentionInDays": {
+      "type": "int",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "portalUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
     }
   }
 }
@@ -458,5 +480,4 @@ Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 템플릿을 사용하여 Azure VM에 에이전트 배포](log-analytics-azure-vm-extension.md)
-
 

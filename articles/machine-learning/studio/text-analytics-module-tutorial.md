@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 텍스트 분석 모델 만들기
 Azure 기계 학습을 사용하여 텍스트 분석 모델을 빌드하고 작동할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
@@ -91,5 +90,4 @@ N-Gram 특성 추출을 사용하는 대신, 특성 해시 모듈을 사용할 �
 
 ## <a name="next-steps"></a>다음 단계
 [MSDN 설명서](https://msdn.microsoft.com/library/azure/dn905886.aspx)에서 텍스트 분석 모듈에 대해 자세히 알아봅니다.
-
 

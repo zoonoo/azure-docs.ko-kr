@@ -7,18 +7,16 @@ ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
+ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 macOS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법도 보여 줍니다. 이 문서의 단계에서는 개발자가 Python을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
-

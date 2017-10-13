@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>3단계: 물리적 서버에서 Azure로 복제를 위한 수용작업량 및 크기 조정 계획
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="sizing-recommendations"></a>크기 조정 권장 사항
 
-표에 CPU를 기반으로 크기 조정 권장 사항이 요약되어 있습니다.
+표에 CPU를 기반으로 하는 크기 조정 권장 사항이 요약되어 있습니다.
 
 **CPU** | **메모리** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터**
 --- | --- | --- | --- | ---
@@ -106,7 +104,7 @@ ms.lasthandoff: 06/29/2017
     1. **설정** > **Site Recovery 서버**에서 구성 서버 > **프로세스 서버**를 클릭합니다.
     2. 현재 사용 중인 프로세스 서버를 마우스 오른쪽 버튼으로 클릭하고 > **스위치**를 클릭합니다.
     3. **대상 프로세스 서버 선택**에서 사용할 프로세스 서버를 선택한 다음 서버가 처리할 VM을 선택합니다.
-    4. 정보 아이콘을 클릭합니다. 부하 결정을 할 때 도움이 되도록 선택된 각 VM을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다.
+    4. 정보 아이콘을 클릭합니다. 부하를 결정할 수 있도록 선택된 각 VM을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다.
     5. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다.
 
 ## <a name="control-network-bandwidth"></a>네트워크 대역폭 제어
@@ -148,4 +146,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>다음 단계
 
 [4단계: 네트워킹 계획](physical-walkthrough-network.md)으로 이동합니다.
-

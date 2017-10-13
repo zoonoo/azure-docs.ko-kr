@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/6/2017
 ms.author: tedway; neerajkh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4941ccf8c6d7a0c77527e9c1d722bc3a770114a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-geo-help-documentation"></a>다중 지역 도움말 문서
 이 문서에서는 다른 Azure 지역에서 작업 영역을 만들고 웹 서비스를 게시하는 방법을 설명합니다.  [지역별 Azure 제품 페이지](https://azure.microsoft.com/en-us/regions/services/)는 Azure Machine Learning을 사용할 수 있는 지역을 나열합니다.
@@ -59,4 +58,3 @@ ms.lasthandoff: 09/25/2017
 [2]: ./media/multi-geo/multi-geo_2.png
 [3]: ./media/multi-geo/multi-geo_3.png
 [4a]: ./media/multi-geo/multi-geo_4a.png
-

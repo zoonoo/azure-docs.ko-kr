@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 45f1c61189b338d38681c8e93be01953da65913f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
-이 자습서에서는 VMware VM을 Azure로 장애 조치(Failover)하는 방법을 설명합니다. 장애 조치(Failover)한 후에 온-프레미스 사이트가 사용 가능해지면 장애 복구(Failback)합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 VMware VM을 Azure로 장애 조치(Failover)하는 방법을 설명합니다. 장애 조치(failover)한 후에 온-프레미스 사이트가 사용 가능해지면 장애 복구(failback)합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VMware VM 속성을 확인하여 Azure 요구 사항을 준수하는지 검토
@@ -62,7 +61,7 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matr
 
 3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 [관리되는 디스크 설정](#managed-disk-considerations)을 수정할 수 있습니다.
 
-4. 장애 조치(Failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
+4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 
 5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
@@ -71,19 +70,19 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](site-recovery-support-matr
 1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)**를 클릭합니다.
 
 2. **장애 조치(Failover)**에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-   - **최신**(기본값): 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(Failover) 후에 생성된 Azure VM은 장애 조치(Failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-   - **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-   - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다.
+   - **최신**(기본값): 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+   - **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+   - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치합니다.
    - **사용자 지정**: 복구 지점을 지정합니다.
 
 3. 장애 조치를 트리거하기 전에 원본 가상 컴퓨터를 종료하려고 시도하려면 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 
-4. Azure VM에 연결할 준비가 된 경우 연결하고, 장애 조치(Failover) 후에 유효성 검사를 수행합니다.
+4. Azure VM에 연결할 준비가 된 경우 연결하고, 장애 조치(failover) 후에 유효성을 검사합니다.
 
-5. 확인한 후 장애 조치(Failover)를 **커밋**합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
+5. 확인한 후 장애 조치(failover)를 **커밋**합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
-> **진행 중인 장애 조치(Failover) 취소 안 함**: 장애 조치(Failover)를 시작하기 전에 VM 복제가 중지됩니다.
+> **진행 중인 장애 조치(failover) 취소 안 함**: 장애 조치(failover)를 시작하기 전에 VM 복제가 중지됩니다.
 > 진행 중인 장애 조치(Failover)를 취소하면 장애 조치(Failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
 일부 시나리오에서는 장애 조치(Failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 물리적 서버, VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(Failover)가 더 오래 걸릴 수 있습니다.
@@ -154,4 +153,3 @@ VM에서 vCenter를 사용하지 않는 경우 컴퓨터를 다시 보호하기 
 2. Azure로 복제된 데이터를 전송하는 데 사용되는 프로세스 서버를 선택하고 **확인**을 클릭합니다.
 
 다시 보호가 완료되면 VM이 Azure로 다시 복제하고 필요에 따라 장애 조치(Failover)를 수행할 수 있습니다.
-

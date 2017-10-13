@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center 마이그레이션 FAQ
 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 FAQ는 플랫폼 마이그레이션에 대한 질문에 답변합니다.
@@ -53,7 +52,7 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
 >
 
 ### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Log Analytics 또는 OMS에 대한 요금을 청구하나요?
-안 됩니다. Security Center에서 만든 작업 영역은 노드 요금 청구당 OMS에 구성되는 동안 OMS 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
+아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 OMS에 구성되는 동안 OMS 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 및 'Security' 솔루션을 설치합니다.
@@ -195,4 +194,3 @@ Security Center 플랫폼 마이그레이션을 자세히 알아보려면 다음
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
 [6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
-

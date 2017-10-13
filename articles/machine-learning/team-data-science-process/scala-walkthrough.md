@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
 이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
@@ -1108,5 +1107,4 @@ Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는
 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
 
 [Spark에서 빌드한 기계 학습 모델 점수 매기기](spark-model-consumption.md) 에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob 저장소에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
-
 

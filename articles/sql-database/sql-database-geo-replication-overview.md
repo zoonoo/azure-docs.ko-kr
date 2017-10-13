@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 10/11/2017
 ms.author: sashan
+ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 290d672146765b9273697ba35e99231a5b854679
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>개요: 장애 조치 그룹 및 활성 지역 복제
 활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전이 발생하거나 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 장애 조치는 사용자의 응용 프로그램에서 수동으로 시작되어야 합니다. 장애 조치 후 새 주 데이터베이스에는 다른 연결 끝점이 있습니다. 
@@ -176,7 +175,7 @@ DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않�
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](/rest/api/sql/Databases/CreateOrUpdate) |만들기 작업 동안 상태를 반환합니다. |
 | [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(failover))](/rest/api/sql/replicationlinks/failover) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](/rest/api/sql/replicationlinks/failoverallowdataloss) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
 | [복제 링크 가져오기](/rest/api/sql/replicationlinks/get) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
 | [복제 링크 - 데이터베이스 기준 목록](/rest/api/sql/replicationlinks/listbydatabase) | 지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
 | [복제 링크 삭제](/rest/api/sql/databases/delete) | 데이터베이스 복제 링크를 삭제합니다. 장애 조치(failover) 중에 수행할 수 없습니다. |
@@ -192,11 +191,10 @@ DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않�
 ## <a name="next-steps"></a>다음 단계
 * 샘플 스크립트에 대해서는 다음을 참조하세요.
    - [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-   - [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [활성 지역 복제를 사용하여 풀된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
    - [단일 데이터베이스에 대한 장애 조치(failover) 그룹 구성 및 장애 조치(failover)(미리 보기)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 * 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
-
 

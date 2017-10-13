@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
@@ -80,5 +79,4 @@ ms.lasthandoff: 08/30/2017
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
 * [DTU 및 eDTU](sql-database-what-is-a-dtu.md)에 대해 자세히 알아봅니다.
 * DTU 사용 모니터링에 대한 자세한 내용은 [모니터링 및 성능 튜닝](sql-database-troubleshoot-performance.md)을 참조하세요.
-
 

@@ -16,10 +16,10 @@ ms.custom: partners
 ms.date: 12/27/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL 데이터 웨어하우스 데이터 관리 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL 데이터 웨어하우스를 지원하는 데이터 관리 도구 및 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.

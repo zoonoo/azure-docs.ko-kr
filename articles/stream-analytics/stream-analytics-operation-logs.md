@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2ee0871752dc2a3da345339fb826340d44ae48d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-stream-analytics-jobs-using-service-and-operation-logs"></a>서비스 및 작업 로그를 사용하여 Stream Analytics 작업 디버그
 모든 Azure 서비스는 관리 작업과 관련된 세부 정보를 기록하는 작업 로깅 메시지를 사용자에게 제공합니다. Azure Stream Analytics에서 이 정보는 작업 상태, 작업 진행률 및 오류 메시지를 보고 시작부터 출력 처리까지 시간에 따른 작업 진행 상황을 추적하는 등 디버깅 목적으로 사용할 수 있습니다.
@@ -92,5 +91,4 @@ Azure Portal에서 메시지 수준을 필터링하여 **위험** 이벤트를 �
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure 검색에서 검색 결과를 페이징하는 방법
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure 검색 서비스의 사용 방법에 대한 지침을 제공합니다.

@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
 이 문서는 Azure Search에서 Lucene 전체 텍스트 검색이 작동하는 방식에 대해 자세히 이해할 필요가 있는 개발자를 위해 작성되었습니다. 텍스트 쿼리의 경우 Azure Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
@@ -410,4 +408,3 @@ Azure Search의 모든 인덱스는 여러 분할 영역으로 자동 분할되�
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

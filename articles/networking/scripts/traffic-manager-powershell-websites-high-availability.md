@@ -16,10 +16,10 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: 2f0ac4fd1779661aab04bafb217e64af5d619a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>응용 프로그램 고가용성을 위한 트래픽 라우팅
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[주](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "고가용성을 위한 트래픽 라우팅")]
+[!code-powershell[main](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
 
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.

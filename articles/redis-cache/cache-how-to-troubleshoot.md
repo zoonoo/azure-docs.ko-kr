@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
 ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Azure Redis Cache 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Redis Cache 문제를 해결하는 것에 대한 지침을 제공합니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>탄력적 데이터베이스 작업 시작
 Azure SQL 데이터베이스에 대한 탄력적 데이터베이스 작업(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. 탄력적 데이터베이스 작업 기능에 대한 자세한 내용은 [기능 개요 페이지](sql-database-elastic-jobs-overview.md)를 참조하세요.

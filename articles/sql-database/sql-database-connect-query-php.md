@@ -15,12 +15,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 08/08/2017
 ms.author: carlrab
+ms.openlocfilehash: 1cf95cf2c9413f99a4013ff961c8a18c31cc51f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>PHP를 사용하여 Azure SQL Database 쿼리
 
@@ -101,4 +100,3 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 - [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
 - [SQL Server용 Microsoft PHP 드라이버](https://github.com/Microsoft/msphpsql/)
 - [문제 보고 또는 질문(영문)](https://github.com/Microsoft/msphpsql/issues)
-

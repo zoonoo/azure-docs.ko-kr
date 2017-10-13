@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Event Hubs 네임스페이스로 Azure 진단 로그 스트림
 포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 진단 설정에서 Service Bus 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.

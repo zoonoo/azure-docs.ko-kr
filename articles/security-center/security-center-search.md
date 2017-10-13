@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-search"></a>Azure Security Center 검색
 Azure Security Center에서는 [Log Analytics 검색](../log-analytics/log-analytics-log-searches.md)을 사용하여 보안 데이터를 검색하고 분석합니다. Log Analytics는 데이터를 신속하게 검색하고 통합할 수 있는 쿼리 언어를 포함합니다. Security Center에서 Log Analytics 검색을 활용하여 쿼리를 생성하고 수집된 데이터를 분석할 수 있습니다.
@@ -67,4 +66,3 @@ Security Center에 대해 자세히 알아보려면 다음 항목을 참조하�
 [1]: ./media/security-center-search/search.png
 [2]: ./media/security-center-search/workspace-selector.png
 [3]: ./media/security-center-search/log-search.png
-

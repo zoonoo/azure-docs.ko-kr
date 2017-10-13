@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
 [네트워크 보안 그룹 흐름 로그](network-watcher-nsg-flow-logging-overview.md)는 Azure 네트워크 인터페이스의 송/수신 IP 트래픽을 파악하는 데 사용할 수 있는 정보를 제공합니다. 흐름 로그는 네트워크 보안 그룹 규칙 기반의 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 네트워크 인터페이스, 흐름에 대한 5계층 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜) 및 트래픽이 허용 또는 거부되었는지 여부를 보여 줍니다.
@@ -249,4 +247,3 @@ Network Watcher와 Graylog를 통합함으로써 이제는 네트워크 보안 �
 ## <a name="next-steps"></a>다음 단계
 
 [Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 67f66f9b8703f2cab93a2274a90c161a55848c34
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>하드 드라이브의 파일에서 Machine Learning Studio로 학습 데이터 가져오기
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -44,4 +43,3 @@ Azure Machine Learning Studio에서 학습 데이터로 사용할 하드 드라�
 데이터가 업로드되면 데이터 집합 모듈에 저장되고 작업 영역의 모든 실험에서 사용할 수 있습니다.
 
 실험을 편집할 때 모듈 팔레트에 있는 **저장된 데이터 집합** 목록의 **내 데이터 집합** 목록에서 만든 데이터 집합을 찾을 수 있습니다. 추가 분석 및 기계 학습을 위해 데이터 집합을 사용하려고 할 때 데이터 집합을 실험 캔버스에 끌어서 놓을 수 있습니다.
-

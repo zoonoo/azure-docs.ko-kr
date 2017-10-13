@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22b4f5fbaef9c9bfd00b374d459da7f981af30ec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 파일 시스템 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-onprem-file-system-connector.md)

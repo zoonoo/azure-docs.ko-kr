@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc4d793bcf402a3e742fae2b2c0052f2d60d1b47
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.
@@ -165,4 +164,3 @@ headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_ke
 resp = requests.post(url, data, headers=headers)
 resp.text
 ```
-

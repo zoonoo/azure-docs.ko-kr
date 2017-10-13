@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 응용 프로그램과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다.
@@ -275,11 +273,11 @@ Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manag
 
 Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
+[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
--   들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   가상 컴퓨터에 들어오는 인터넷 트래픽을 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
+-   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
 
 - 외부 트래픽을 특정 가상 컴퓨터로 전달
 
@@ -398,4 +396,3 @@ Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위�
 - [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링합니다.
-

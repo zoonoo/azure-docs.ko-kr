@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 오늘날 기업에서는 최종 사용자(외부)를 위해 또는 직원(내부)을 위해 모바일 응용 프로그램을 만드는 일이 점점 많아지고 있습니다. 기업은 가동 중인 기존 백엔드 시스템이 모바일 응용 프로그램 아키텍처에 통합되어야 하는 메인프레임 또는 일부 LoB 응용 프로그램이 되도록 합니다. 이 가이드에서는 일반적인 시나리오에 사용 가능한 솔루션을 권장하는 이 통합을 가장 잘 수행할 수 있는 방법에 대해 설명합니다.
@@ -266,4 +265,3 @@ ms.lasthandoff: 09/20/2017
 [Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
 [알림 허브 - Windows 유니버설 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
-

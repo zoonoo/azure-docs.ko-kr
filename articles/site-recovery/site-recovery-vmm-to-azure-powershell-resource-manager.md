@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
 ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]

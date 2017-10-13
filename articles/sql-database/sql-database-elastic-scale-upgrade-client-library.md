@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드
 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 새 버전은 Visual Studio의 NuGetand 및 NuGetPackage 관리자 인터페이스를 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결
 이 모니터링 및 문제 해결 가이드를 사용하면 복제 상태를 추적하는 방법 및 Azure Site Recovery에 대한 문제해결 기술에 대해 배울 수 있습니다.
@@ -196,4 +194,3 @@ Azure Site Recovery에 대한 지원 티켓을 모으려면 URL(<http://aka.ms/g
 포털에서 **연결** 단추가 흐리게 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않는 경우 원격 데스크톱/공유 셸을 사용하려면 먼저 공용 IP 주소를 만들고 가상 컴퓨터에 할당해야 합니다. 그런 다음 가상 컴퓨터의 네트워크 인터페이스에 공용 IP를 추가할 수 있습니다.  
 
 ![장애 조치된 가상 컴퓨터의 네트워크 인터페이스에서 공용 IP 추가](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

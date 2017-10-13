@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 506b625905abf52963230a787af66f956bc292b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
 
@@ -101,4 +100,3 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 > [!div class="nextstepaction"]
 > [Azure에 재해 복구하기 위해 온-프레미스 VMware 인프라 준비](tutorial-prepare-on-premises-vmware.md)
-

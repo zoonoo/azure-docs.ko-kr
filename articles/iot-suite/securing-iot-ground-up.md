@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 장치의 안전한 프로비전, 이러한 장치 및 클라우드 간의 보안 연결, 처리 및 저장 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 장치, 배포의 지리적 분산 및 솔루션 내 많은 수의 장치에 대한 작업이 포함됩니다.
 
@@ -124,4 +122,3 @@ IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

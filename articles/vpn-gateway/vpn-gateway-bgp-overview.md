@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateway에서의 BGP 개요
 이 문서에서는 Azure VPN Gateway에서의 BGP(경계 게이트웨이 프로토콜) 지원에 대한 개요를 제공합니다.
@@ -55,6 +54,5 @@ BGP는 직접 또는 간접 연결 여부에 관계없이 서로 다른 네트�
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-프레미스 간 연결 및 VNet 간 연결에 대해 BGP를 구성하는 단계는 [Azure VPN Gateway에서 BGP 시작하기](vpn-gateway-bgp-resource-manager-ps.md)를 참조하세요.
-
+프레미스 간 연결 및 VNet 간 연결에 대해 BGP를 구성하는 단계는 [Azure VPN Gateway에서 BGP 시작하기](vpn-gateway-bgp-resource-manager-ps.md) 를 참조하세요.
 

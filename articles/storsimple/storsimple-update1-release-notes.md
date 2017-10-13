@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 02c393f632c355ea5fbde554adbd8b1169ad8bc8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 1.2 릴리스 정보
 
@@ -113,5 +112,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-steps"></a>다음 단계
 * [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
-
 

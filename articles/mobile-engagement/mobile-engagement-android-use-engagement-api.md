@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Android에서 Engagement API를 사용하는 방법
 이 문서는 [Android Mobile Engagement SDK에 대한 고급 보고 옵션](mobile-engagement-android-advanced-reporting.md)문서의 추가 자료입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
 ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 컴퓨터를 배포합니다.

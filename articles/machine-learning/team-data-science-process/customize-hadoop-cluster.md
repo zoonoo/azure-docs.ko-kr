@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>팀 데이터 과학 프로세스용 Azure HDInsight Hadoop 클러스터 사용자 지정
 이 문서에서는 HDInsight 서비스로 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다. 이 사용자 지정을 통해 클러스터에서 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)에서 Anaconda에 포함된 널리 사용되는 많은 Python 모듈을 편리하게 사용할 수 있습니다. 이 시나리오에 사용되는 프로시저에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
@@ -89,5 +88,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 고급 분석 프로세스의 다음 단계는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure Machine Learning에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 클러스터에 저장된 Hive 레코드를 처리하는 데 사용된 UDF(사용자 정의 함수)의 클러스터 헤드 노드에서 Anaconda에 포함된 Python 모듈에 액세스하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](move-hive-tables.md#submit)을 참조하세요.
-
 

@@ -15,12 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Azure에서 MySQL 데이터베이스 만들기 및 연결
 이 자습서에서는 [Azure Portal](https://portal.azure.com)(공급자가 [ClearDB](http://www.cleardb.com/))에서 MySQL 데이터베이스를 만들고 [Azure App Service](app-service/app-service-web-overview.md)에서 실행 중인 PHP 웹앱에서 연결하는 방법을 보여 줍니다.
@@ -71,4 +70,3 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
-

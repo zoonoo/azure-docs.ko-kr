@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
 ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.

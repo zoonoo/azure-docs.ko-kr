@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
 [PowerBI.com](https://powerbi.microsoft.com/) 은 사용자 및 조직에 중요한 데이터로 대시보드와 보고서를 만들어 공유할 수 있는 온라인 서비스입니다.  Power BI 데스크톱은 다양한 데이터 원본에서 데이터를 검색하고, 데이터를 병합 및 변환하며, 강력한 보고서 및 시각화를 제작하고, 보고서를 Power BI에 게시할 수 있는 전용 보고서 제작 도구입니다.  Power BI Desktop의 최신 버전에서는 이제 Power BI용 Cosmos DB 커넥터를 통해 Cosmos DB 계정에 연결할 수 있습니다.   
@@ -226,5 +225,4 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 ## <a name="next-steps"></a>다음 단계
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.
 * Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>서비스 버스 메시징 예외
 이 문서는 Microsoft Azure 서비스 버스 메시징 API를 통해 발생하는 몇 가지 예외를 설명합니다. 이 참조는 변경될 수 있으므로 나중에 다시 업데이트를 확인하세요.

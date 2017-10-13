@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-oms"></a>OMS를 사용하여 이벤트 분석 및 시각화
 
 OMS(Operations Management Suite)는 클라우드에 호스트된 응용 프로그램 및 서비스를 모니터링하고 진단하는 데 도움이 되는 관리 서비스 모음입니다. OMS에 대한 자세한 개요와 OMS에서 무엇을 제공하는지 보려면 [OMS란?](../operations-management-suite/operations-management-suite-overview.md)을 참조하세요.

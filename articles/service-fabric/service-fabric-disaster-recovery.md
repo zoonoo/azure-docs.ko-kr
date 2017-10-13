@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성 전달의 중요한 부분은 서비스가 다른 모든 유형의 오류를 감당할 수 있는지 확인하는 것입니다. 계획되지 않으며 사용자 통제 하에 있지 않은 오류의 경우 특히 이러한 과정이 중요합니다. 이 문서에서는 올바르게 모델링 및 관리되지 않는 경우 재해가 될 수 있는 몇 가지 일반적인 오류 모드에 대해 설명합니다. 또한 재해가 발생할 경우 수행할 완화 및 작업에 대해서도 설명합니다. 목표는 계획 여부에 관계없이 오류가 발생할 때 가동 중지 시간 또는 데이터 손실의 위험을 없애거나 제한하는 것입니다.
@@ -154,4 +153,3 @@ Service Fabric에는 시드 노드라는 개념이 있습니다. 이러한 노�
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
-

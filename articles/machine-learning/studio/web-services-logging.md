@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>기계 학습 웹 서비스에 대해 로깅 사용
 이 문서에서는 Machine Learning 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
@@ -86,5 +85,4 @@ _로그 형식_은 다음 값 중 하나를 사용합니다.
 * 일괄 처리  
 * score/requests  
 * score/init  
-
 

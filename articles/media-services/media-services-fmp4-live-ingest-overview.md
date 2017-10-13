@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
 ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양
 이 사양에서는 Azure Media Services용 조각화된 MP4 기반 라이브 스트리밍 수집에 대한 프로토콜 및 형식을 설명합니다. Media Services는 Azure를 클라우드 플랫폼으로 사용하여 고객이 실시간으로 라이브 이벤트를 스트림하고 콘텐츠를 브로드캐스트할 수 있는 라이브 스트리밍 서비스를 제공합니다. 이 문서에서는 매우 중복되고 강력한 라이브 수집 메커니즘을 구축하는 모범 사례도 다룹니다.

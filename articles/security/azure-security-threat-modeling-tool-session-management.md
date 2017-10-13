@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-session-management--articles"></a>보안 프레임: 세션 관리 | Articles 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
@@ -33,7 +31,7 @@ ms.lasthandoff: 08/23/2017
 | **웹 응용 프로그램** | <ul><li>[HTTPS를 통해 사용할 수 있는 응용 프로그램은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 응용 프로그램은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절한 로그아웃 구현](#proper-app-logout)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
+## <a id="logout-adal">Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현</a>
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

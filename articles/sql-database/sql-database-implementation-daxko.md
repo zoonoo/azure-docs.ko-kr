@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
 ![Daxko/CSI 로고](./media/sql-database-implementation-daxko/csidaxkologo25.png)

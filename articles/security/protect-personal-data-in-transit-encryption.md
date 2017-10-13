@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 8c59fa7e9315922af4fab5f8492194b50459ef8b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure 암호화 기술: 암호화를 사용하여 전송 중인 개인 데이터 보호
 
@@ -195,4 +194,3 @@ Microsoft는 암호화를 사용하여 고객과 Azure 클라우드 서비스 �
 - [VPN 게이트웨이 FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
 - [Azure App Service에 대한 SSL 인증서 구입 및 구성](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)
-

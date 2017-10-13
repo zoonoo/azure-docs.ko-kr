@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9e79f275b8de045892517ec33581b72195a81f32
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 17da71ac0c5ab9330b9244c0354e4d161d98229e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Visual Studio를 사용하여 Azure 클라우드 서비스 역할 구성
 Azure 클라우드 서비스에는 하나 이상의 작업자 또는 웹 역할이 포함될 수 있습니다. 각 역할에 대해 해당 역할을 설정하는 방법을 정의하고 해당 역할을 실행하는 방법을 구성해야 합니다. 클라우드 서비스의 역할에 대한 자세한 내용은 [Azure 클라우드 서비스 소개](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)를 참조하세요. 
@@ -278,5 +277,4 @@ Visual Studio에서 Azure 클라우드 서비스를 만들 때 두 개의 서비
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
-
 

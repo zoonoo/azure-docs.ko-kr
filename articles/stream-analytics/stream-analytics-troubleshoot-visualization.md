@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Stream Analytics 작업 시각화 및 문제 해결
 다른 클라우드 기반 기술과 마찬가지로 Stream Analytics에서도 작업이 예상된 출력(또는 해당 문제에 대한 출력)을 생성하지 않는 이유를 알아내기 위해 문제 해결이 필요합니다. 이러한 개념을 고려할 때 Stream Analytics은 스트리밍 작업을 시각화하는 기능을 제공합니다. 이 기능은 모델링 도구만큼 유용하며 업무에 필요한 문서 작성이라는 부수적인 효과도 제공합니다.
@@ -46,5 +45,4 @@ ms.lasthandoff: 08/29/2017
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

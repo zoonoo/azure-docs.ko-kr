@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-mvp-program"></a>Azure 보안 MVP 프로그램
 Microsoft MVP(Most Valuable Professional)는 다른 사용자가 그들이 쌓아온 Microsoft 기술에서의 경험을 최대한 활용할 수 있도록 돕기 위해 모범을 보여왔던 커뮤니티 리더입니다. 놀라운 열정, 실제 지식 및 기술적 전문성을 커뮤니티 및 Microsoft와 공유합니다.

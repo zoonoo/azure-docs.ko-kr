@@ -3,7 +3,7 @@ title: "Azure SQL Database에 대한 자동 조정 사용 | Microsoft Docs"
 description: "Azure SQL Database에서 쉽게 자동 조정을 사용할 수 있습니다."
 services: sql-database
 documentationcenter: 
-author: veljko-msft
+author: vvasic
 manager: drasumic
 editor: vvasic
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/19/2016
-ms.author: veljko-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.author: vvasic
 ms.openlocfilehash: 378e5a6a8cea80a551666c3692f8aa650620f66d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-automatic-tuning"></a>자동 조정 사용
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-replica"></a>sfctl 복제본
 서비스 파티션에 속한 복제본을 관리합니다.
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/26/2017
 |    deployed-list| Service Fabric 노드에서 배포된 복제본 목록을 가져옵니다.|
 |    health    | Service Fabric 상태 저장 서비스 복제본 또는 상태 비저장 서비스의 상태를 가져옵니다.
                    인스턴스.|
-|    정보      | Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.|
+|    info      | Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.|
 |    list      | Service Fabric 서비스 파티션 복제본에 대한 정보를 가져옵니다.|
 |    제거    | 노드에서 실행되는 서비스 복제본을 제거합니다.|
 |    report-health| Service Fabric 복제본에 대한 상태 보고서를 보냅니다.|
@@ -66,7 +65,7 @@ Service Fabric 노드에서 배포된 복제본의 세부 정보를 가져옵니
 ## <a name="sfctl-replica-health"></a>sfctl 복제본 상태
 Service Fabric 상태 저장 서비스 복제본 또는 상태 비저장 서비스 인스턴스를 가져옵니다.
 
-Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. .
+Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제본에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 에서도 확인할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 

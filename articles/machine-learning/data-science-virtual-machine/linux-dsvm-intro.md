@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 가상 컴퓨터 프로비전
 
@@ -374,5 +373,4 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
-
 

@@ -13,32 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/20/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 581948164acef2fe8894e58fb8c8da7772c4cbd9
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: bcb68caa9659dd0e0a04834f3eead955387fdf7d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 데이터베이스 리소스 제한
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>단일 데이터베이스: 저장소 크기 및 성능 수준
 
-다음 표에서는 각 서비스 계층과 성능 수준에서 단일 데이터베이스에 대해 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) 또는 [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
+다음 표에서는 각 서비스 계층과 성능 수준에서 단일 데이터베이스에 대해 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) 또는 [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ## <a name="single-database-change-storage-size"></a>단일 데이터베이스: 저장소 크기 변경
 
 - 단일 데이터베이스에 대한 DTU 가격에는 특정 크기의 저장소가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 저장소는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 저장소 크기 및 최대 크기 제한에 대한 자세한 내용은 [단일 데이터베이스: 저장소 크기 및 성능 수준](#single-database-storage-sizes-and-performance-levels)을 참조하세요.
-- 단일 데이터베이스에 대한 추가 저장소는 [Azure Portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#update), 또는 [REST API](/rest/api/sql/databases/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
+- 단일 데이터베이스에 대한 추가 저장소는 [Azure Portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az_sql_db_update), 또는 [REST API](/rest/api/sql/databases/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
 - 단일 데이터베이스에 대한 추가 저장소 가격은 추가 저장소 용량에 해당 서비스 계층의 추가 저장소 단가를 곱한 것입니다. 추가 저장소 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ## <a name="single-database-change-dtus"></a>단일 데이터베이스: DTU 변경
 
-처음에 서비스 계층, 성능 수준 및 저장소 용량을 선택한 후, [Azure Portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#update) 또는 [REST API](/rest/api/sql/databases/update)를 사용하여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다. 
+처음에 서비스 계층, 성능 수준 및 저장소 용량을 선택한 후, [Azure Portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az_sql_db_update) 또는 [REST API](/rest/api/sql/databases/update)를 사용하여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다. 
 
 다음 비디오는 성능 계층을 동적으로 변경하여 단일 데이터베이스에 대해 사용 가능한 DTU를 늘리는 방법을 보여 줍니다.
 
@@ -101,12 +100,12 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 ## <a name="elastic-pool-change-storage-size"></a>탄력적 풀: 저장소 크기 변경
 
 - 탄력적 풀에 대한 eDTU 가격에는 특정 크기의 저장소가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 저장소는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 저장소 크기 및 최대 크기 제한에 대한 자세한 내용은 [탄력적 풀: 저장소 크기 및 성능 수준](#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
-- 탄력적 풀에 대한 추가 저장소는 [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#update) 또는 [REST API](/rest/api/sql/elasticpools#Update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
+- 탄력적 풀에 대한 추가 저장소는 [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
 - 탄력적 풀에 대한 추가 저장소 가격은 추가 저장소 용량에 해당 서비스 계층의 추가 저장소 단가를 곱한 것입니다. 추가 저장소 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ## <a name="elastic-pool-change-edtus"></a>탄력적 풀: eDTU 변경
 
-[Azure Portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#update) 또는 [REST API](/rest/api/sql/elasticpools#Update)를 사용하여 리소스 필요량에 따라 탄력적 풀에 사용할 수 있는 리소스를 늘리거나 줄일 수 있습니다.
+[Azure Portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) 또는 [REST API](/rest/api/sql/elasticpools/update)를 사용하여 리소스 필요량에 따라 탄력적 풀에 사용할 수 있는 리소스를 늘리거나 줄일 수 있습니다.
 
 - 풀 eDTU 크기를 조정하는 경우 데이터베이스 연결이 잠시 끊어집니다. 이 동작은 단일 데이터베이스(풀의 데이터베이스 아님)에 대한 DTU 크기를 조정할 때와 동일합니다. 해당 기간 및 크기 조정 작업 동안 데이터베이스 연결 끊김에 미치는 영향에 대한 자세한 내용은 [단일 데이터베이스에 대한 DTU 크기 조정](#single-database-change-storage-size)을 참조하세요. 
 - 풀 eDTU의 크기를 조정하는 기간은 풀의 모든 데이터베이스에 사용되는 저장소 공간의 총 크기에 따라 달라질 수 있습니다. 일반적으로 크기 조정 대기 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스에서 사용 중인 총 공간이 200GB일 경우, 크기 조정을 위해 예상되는 대기 시간은 3시간 이하입니다. 표준 또는 기본 계층 내의 일부 경우에는 크기 조정 대기 시간이 사용 중인 공간 크기에 관계 없이 5분 이내일 수 있습니다.
@@ -148,4 +147,3 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 - 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-what-is-a-dtu.md)를 참조하세요.
-

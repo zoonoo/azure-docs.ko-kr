@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 28526c05c7f364f0fcaaa362fc97857f850040ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 노드 API 개요
 
 ## <a name="overview"></a>개요
@@ -213,4 +211,3 @@ WebSocket.relayedConnect(
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
 * [Azure 릴레이란?](relay-what-is-it.md)
 * [사용 가능한 Relay API](relay-api-overview.md)
-

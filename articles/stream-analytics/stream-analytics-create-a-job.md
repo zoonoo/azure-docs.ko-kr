@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 05fdf1e20efd129cdfc27e1d37bc9e124edf5dcd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Stream Analytics을 위한 데이터 분석 처리 작업을 만드는 방법
 Azure Stream Analytics에서 최상위 리소스는 Stream Analytics 작업입니다.  하나 이상의 입력 데이터 원본, 데이터 변환을 표현하는 쿼리 및 결과가 기록되는 하나 이상의 출력 대상으로 이루어져 있습니다. 이러한 요소가 모여서 데이터 시나리오 스트리밍을 위한 데이터 분석 처리 작업을 수행할 수 있게 해줍니다.

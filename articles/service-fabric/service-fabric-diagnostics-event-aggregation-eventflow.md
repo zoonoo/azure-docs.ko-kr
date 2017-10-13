@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 
 [Microsoft 진단 EventFlow](https://github.com/Azure/diagnostics-eventflow)(영문)는 노드의 이벤트를 하나 이상의 모니터링 대상으로 라우팅할 수 있습니다. EventFlow가 서비스 프로젝트에 NuGet 패키지로 포함되어 있어 EventFlow 코드와 구성이 서비스와 함께 이동하므로 Azure 진단에 대해 앞에서 언급한 노드별 구성 문제가 제거됩니다. EventFlow는 서비스 프로세스 내에서 실행되며 구성된 출력에 직접 연결됩니다. 이러한 직접 연결로 인해 EventFlow는 Azure, 컨테이너 및 온-프레미스 서비스 배포에서 작동합니다. 각 EventFlow 파이프라인이 외부 연결을 만들기 때문에 컨테이너와 같이 고밀도 시나리오에서 EventFlow를 실행하는 경우 신중해야 합니다. 따라서 여러 프로세스를 호스트하는 경우 몇 가지 아웃바운드 연결이 생성됩니다. 이 경우`ServiceType`의 모든 복제본이 동일한 프로세스에서 실행되어 아웃바운드 연결 수를 제한하므로 Service Fabric 응용 프로그램에 별로 문제가 되지 않습니다. EventFlow는 이벤트 필터링도 제공하므로 지정된 필터와 일치하는 이벤트만 보냅니다.
@@ -157,4 +155,3 @@ servicefabric:/<section-name>/<setting-name>
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [OMS를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 설명서](https://github.com/Azure/diagnostics-eventflow)
-

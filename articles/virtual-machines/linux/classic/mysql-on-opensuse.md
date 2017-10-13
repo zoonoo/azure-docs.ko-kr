@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
 ms.openlocfilehash: 01b798a25575b66f89057315ce80d6cc0cde53b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치
 [MySQL][MySQL]은 인기 있는 오픈 소스 SQL Database입니다. 이 자습서에서는 OpenSUSE Linux를 실행하는 가상 컴퓨터를 만든 다음 MySQL을 설치하는 방법을 보여 줍니다.

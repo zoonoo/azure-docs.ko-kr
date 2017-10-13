@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: 3b9be28143060537b1a35004c3b3486b8738e956
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -152,4 +151,3 @@ Azure Portal을 사용하여 해당 [보존 기간](sql-database-service-tiers.m
 * 장기 백업 보존에 대해 알아보려면 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 * Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업의 장기 보존에서 구성, 관리 및 복원하려면 [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md)(장기 백업 보존 관리 구성 및 사용)을 참조하세요. 
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.  
-

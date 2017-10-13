@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
 이 문서에서는 Microsoft Azure SUSE Linux VM(가상 컴퓨터)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 및 기타 필수 조건과 관련된 모든 세부 정보는 SAP 정보 1928533, “Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형”에서 찾을 수 있습니다.
@@ -164,5 +163,4 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>클라우드에서 Linux의 Oracle에 대한 SAP 지원
 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. 이 지원 제한 사항이 Azure 관련 토픽은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 토픽을 논의하려면 Oracle에 직접 문의합니다.
-
 

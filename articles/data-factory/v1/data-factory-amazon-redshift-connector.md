@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,17 +31,17 @@ ms.lasthandoff: 09/25/2017
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다. 
 
-Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원하고, 다른 데이터 저장소에서 Amazon Redshift로 데이터를 이동하는 작업은 지원되지 않습니다.
+Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원합니다. 다른 데이터 저장소에서 Amazon Redshift로 데이터를 이동하는 작업은 지원되지 않습니다.
 
 > [!TIP]
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 내용은 [클러스터에 대한 액세스 권한 부여](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
+* 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
-다른 도구 및 API를 사용하여 Amazon Redshift 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
+다른 도구 및 API를 사용하여 Amazon Redshift 원본의 데이터를 이동하는 복사 활동으로 파이프라인을 만들 수 있습니다.
 
 파이프라인을 만드는 가장 쉬운 방법은 Azure Data Factory 복사 마법사를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
@@ -85,7 +84,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. **name**, **description**, **inputs** 테이블, **outputs** 테이블 및 **policy** 속성은 모든 유형의 작업에 사용할 수 있습니다. **typeProperties** 섹션에서 사용할 수 있는 속성은 각 작업 유형에 대해 다릅니다. 복사 활동의 경우 속성은 데이터 원본 및 싱크의 형식에 따라 달라집니다.
 
-복사 작업의 경우 소스가 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
@@ -108,7 +107,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 
 이 예제에서는 Amazon Redshift에서 Azure SQL Data Warehouse로 데이터를 복사합니다. 이 예제에서는 Redshift **UNLOAD** 명령, 준비된 복사 데이터 및 Microsoft PolyBase를 사용합니다.
 
-이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로 **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 SQL Data Warehouse에 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
+이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로, **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 SQL Data Warehouse에 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
 
 ![Amazon Redshift에서 SQL Data Warehouse로 워크플로 복사](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
 
@@ -151,7 +150,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 * [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
 
-샘플은 Amazon Redshift의 쿼리 결과에서 Azure Blob에 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
+샘플에서는 Amazon Redshift의 쿼리 결과에서 Azure Blob으로 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
 
 **Amazon Redshift 연결된 서비스**
 
@@ -188,7 +187,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 ```
 **Amazon Redshift 입력 데이터 집합**
 
-**external** 속성을 "true"로 설정하면 데이터 집합이 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 이 속성 설정은 데이터 집합이 데이터 팩터리의 작업에 의해 생성되지 않음을 나타냅니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 집합에서 이 속성을 true로 설정합니다.
+**external** 속성을 "true"로 설정하면 데이터 집합이 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 이 속성 설정은 데이터 집합이 데이터 팩터리의 작업에 의해 생성되지 않음을 나타냅니다. 파이프라인에서의 활동에 의해 생성되지 않은 입력 데이터 집합에서 속성을 true로 설정합니다.
 
 ```json
 {
@@ -270,7 +269,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 
 **Azure Redshift 원본(RelationalSource 형식) 및 Azure Blob 싱크를 사용하는 파이프라인의 복사 작업**
 
-파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함합니다. 파이프라인은 매시간 실행하도록 예약됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 활동을 포함합니다. 파이프라인은 매시간 실행하도록 예약됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {
@@ -328,7 +327,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-복사 작업에서 Amazon Redshift 형식에서 .NET 형식으로 데이터를 변환할 때 다음 매핑이 사용됩니다.
+복사 활동에서 Amazon Redshift 형식에서 .NET 형식으로 데이터를 변환할 때 다음 매핑이 사용됩니다.
 
 | Amazon Redshift 형식 | .NET 형식 |
 | --- | --- |
@@ -349,11 +348,10 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 원본 데이터 집합의 열을 싱크 데이터 집합의 열에 매핑하는 방법을 알아보려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="repeatable-reads-from-relational-sources"></a>관계형 원본에서 반복 가능한 읽기
-관계형 데이터 저장소에서 데이터를 복사할 때 의도하지 않은 결과를 방지하기 위해 반복성을 명심해야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 다시 시도 **policy** 속성을 구성할 수도 있습니다. 조각의 재실행 횟수에 관계없이 동일한 데이터를 읽어야 합니다. 또한 조각을 다시 실행하는 방법에 관계 없이 동일한 데이터를 읽어야 합니다. 자세한 내용은 [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
+관계형 데이터 저장소에서 데이터를 복사할 때 의도하지 않은 결과를 방지하기 위해 반복성을 명심해야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 다시 시도 **policy** 속성을 구성할 수 있습니다. 조각의 재실행 횟수에 관계없이 동일한 데이터를 읽어야 합니다. 또한 조각을 다시 실행하는 방법에 관계 없이 동일한 데이터를 읽어야 합니다. 자세한 내용은 [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
-복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
+복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

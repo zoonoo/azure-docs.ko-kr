@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: 086a853d0849ee22f992c9d3265f6988bcc7bd83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc61be74d85a309c158716460b918baaf4fa94dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
 > [!div class="op_single_selector"]
@@ -82,8 +80,8 @@ $requestBody = @"
 }
 "@
 
-}
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
 ```
 
 이 작업은 장시간 실행되므로 작업 쿼리를 위한 URI와 결과에 대한 URI가 다음 응답에 표시된 것처럼 응답 헤더에 반환됩니다.
@@ -116,7 +114,7 @@ null
 다음 예제에서 볼 수 있듯이 작업 URI를 사용하여 작업 진행 상태를 쿼리합니다.
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 작업이 진행 중인 동안에는 다음 예제에서 볼 수 있듯이 응답에 **진행 중**이 표시됩니다.
@@ -140,7 +138,7 @@ armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-000
 반환된 상태가 **성공**이면 operationResult URI에서 GET 메서드를 호출하여 결과를 검색합니다.
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 다음 응답은 게이트웨이 문제 해결 결과를 쿼리할 때 반환된 일반적인 성능 저하 응답의 예입니다. 응답에서 속성이 의미하는 바를 확실히 알려면 [결과 이해](#understanding-the-results)를 참조하세요.
@@ -332,4 +330,3 @@ Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침�
 ## <a name="next-steps"></a>다음 단계
 
 VPN 연결을 중지하도록 설정이 변경된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 문제가 될 수 있는 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
 ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 클래스는 분할된 데이터베이스 환경에서 ADO.Net 응용 프로그램이 GSM(전역 분할된 데이터베이스 맵)과 LSM(로컬 분할된 데이터베이스 맵) 간의 모든 불일치를 쉽게 감지하고 수정하는 기능을 제공합니다. 

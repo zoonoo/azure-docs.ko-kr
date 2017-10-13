@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
+ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: db2e0bd43161aad02ffce61b4cd9325892844dde
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로 서비스 카나리아 릴리스
 
 이 연습에서는 DC/OS 클러스터를 사용하여 Azure Container Service에 Vamp를 설정합니다. Vamp 데모 서비스인 "sava"를 카나리아 릴리스한 후 스마트 트래픽 필터링을 적용하여 서비스와 Firefox의 호환성 문제를 해결합니다. 
@@ -299,5 +296,4 @@ Vamp는 **조건**을 사용하여 게이트웨이의 경로 간 트래픽을 �
 * Node.js에서 Vamp 자동화 스크립트를 빌드하고 [Vamp 워크플로](http://vamp.io/documentation/tutorials/create-a-workflow/)로 실행합니다.
 
 * 추가 [VAMP 자습서](http://vamp.io/documentation/tutorials/overview/)를 살펴봅니다.
-
 

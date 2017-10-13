@@ -14,12 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c81ab9004bf71007395d2545c4e44b07c865aa9d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 알림 허브를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -198,7 +197,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 끝점으로 HTTP POST 요청을 보냅니다.
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>자습서 완료
+## <a name="complete-tutorial"></a>자습서 완료
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
 알림 허브 클라이언트를 초기화합니다( [시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
@@ -254,5 +253,4 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-
 

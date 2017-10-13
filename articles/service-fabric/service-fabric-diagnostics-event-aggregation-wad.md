@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
 ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]

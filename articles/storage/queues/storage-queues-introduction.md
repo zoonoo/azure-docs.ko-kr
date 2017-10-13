@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-queues"></a>큐 소개
 
@@ -45,7 +44,7 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **저장소 계정:** Azure Storage에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)(영문)를 참조하십시오.
+* **저장소 계정:** Azure Storage에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) (영문)를 참조하십시오.
 
 * **큐:** 큐에는 메시지 집합이 포함됩니다. 모든 메시지는 큐에 있어야 합니다. 큐 이름은 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
 
@@ -53,6 +52,5 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 ## <a name="next-steps"></a>다음 단계
 
-* [저장소 계정 만들기](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [저장소 계정을 만드는](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [.NET을 사용하여 큐 시작하기](storage-dotnet-how-to-use-queues.md)
-

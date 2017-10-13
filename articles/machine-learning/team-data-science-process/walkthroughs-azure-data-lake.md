@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 100f75c5d21d5723bd7438b49e982ff116b75908
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
 
 이러한 연습은 예측 분석을 수행하는 데 Azure Data Lake와 함께 U-SQL을 사용합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. Azure Data Lake에 대한 소개는 [Azure Data Lake Store 개요](../../data-lake-store/data-lake-store-overview.md)를 참조하세요.

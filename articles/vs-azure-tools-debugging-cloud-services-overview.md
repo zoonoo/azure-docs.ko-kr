@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/18/2017
 ms.author: kraigb
 ms.openlocfilehash: cdcd4ca1fbc7e0a2f24122b32148cbda3d6951a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Azure 클라우드 서비스를 디버그하는 다양한 방법을 알아봅니다.
 이 문서에서는 Azure 클라우드 서비스를 디버그하는 다양한 방법에 대한 링크를 제공합니다. 

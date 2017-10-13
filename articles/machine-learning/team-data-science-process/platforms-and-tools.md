@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
 
 Microsoft는 클라우드 또는 온 프레미스 플랫폼 모두에 대해 광범위한 데이터 및 분석 서비스와 리소스를 제공합니다. 데이터 과학 프로젝트의 실행이 효율적이고 확장 가능하게 되도록 배포할 수 있습니다. 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 구현하는 팀에 대한 지침은 [TDSP(Team Data Science Process)](overview.md)에서 제공됩니다.  이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.

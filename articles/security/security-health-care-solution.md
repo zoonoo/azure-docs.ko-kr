@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: terrylan
 ms.openlocfilehash: 34ded89eb7fe005be2341f96e5b883ec73d9e0a5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드
 Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통합 업체(SI), 독립 소프트웨어 공급 업체(ISV) 및 의료 조직은 규정 준수 의무를 충족하는 데 도움이 되는 보안 제어를 통합하는 데 도움이 되는 지침을 찾고 있습니다.

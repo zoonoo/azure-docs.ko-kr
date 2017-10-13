@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Service Fabric Cluster Resource Manager 제한
 클러스터 Resource Manager를 올바르게 구성한 경우에도 클러스터가 중단될 수 있습니다. 예를 들어 동시 노드 및 장애 도메인 오류가 있을 수 있습니다. 업그레이드 중에 이러한 문제가 발생하면 어떻게 하나요? Cluster Resource Manager는 항상 모든 항목을 수정하려고 시도하며 클러스터의 리소스를 사용하여 클러스터를 다시 구성하고 문제를 해결하려고 합니다. 제한은 클러스터가 리소스를 사용하여 안정화(노드 다시 작동, 네트워크 파티션 정상화, 수정된 비트 배포)할 수 있도록 방어벽을 제공하는 데 도움이 됩니다.
 
@@ -95,4 +93,3 @@ Service Fabric에는 복제본 이동 수를 제한하는 두 가지 메커니�
 ## <a name="next-steps"></a>다음 단계
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 - 클러스터 Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
-

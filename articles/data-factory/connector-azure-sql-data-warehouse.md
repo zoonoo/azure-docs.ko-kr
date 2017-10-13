@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fb67c70d1e85307c38a185e2b47729880880d55b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +52,7 @@ Azure SQL Data Warehouse 연결된 서비스에 다음 속성이 지원됩니다
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureSqlDW** | 예 |
 | connectionString |connectionString 속성에 대한 Azure SQL 데이터 웨어하우스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 기본 인증만 지원됩니다. 이 필드를 SecureString으로 표시합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 
 > [!IMPORTANT]
@@ -232,7 +231,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2, ...입니다. |예. **rejectType**이 **백분율**인 경우 |
 | useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True**, **False**(기본값)입니다. |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 timespan입니다. 예: “00:30:00”(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |아니요 |
 | preCopyScript |각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요 |(#repeatability-during-copy). |쿼리 문입니다. |아니요 |
 
 **예제:**
@@ -418,7 +417,7 @@ NULL 값은 특별한 형태의 기본값입니다. 열이 null을 허용하면 
 
 Azure SQL Data Warehouse 간에 데이터를 복사하는 경우 Azure SQL Data Warehouse 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Azure SQL Data Warehouse 데이터 형식 | Data Factory 중간 데이터 형식 |
+| Azure SQL Data Warehouse 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |

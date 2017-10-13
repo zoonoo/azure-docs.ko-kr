@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)
 이 문서에서는 DTU(데이터베이스 트랜잭션 단위) 및 eDTU(탄력적 데이터베이스 트랜잭션 단위)와 최대 DTU 또는 eDTU를 적중하는 경우 발생하는 상황에 대해 설명합니다.  
@@ -65,4 +64,3 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 * 단일 데이터베이스 및 탄력적 풀에 대해 사용할 수 있는 DTU 및 eDTU와 CPU, 메모리, 데이터 I/O, 트랜잭션 로그 I/O 이외 리소스의 제한에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 * [SQL Database Query Performance Insight](sql-database-query-performance.md) 를 참조하여 DTU 소비를 이해합니다.
 * DTU 혼합을 결정하는 데 사용되는 OLTP 벤치마크 워크로드의 방법론을 이해하려면 [SQL Database 벤치마크 개요](sql-database-benchmark-overview.md) 를 참조하세요.
-

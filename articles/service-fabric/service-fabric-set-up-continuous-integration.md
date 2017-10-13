@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Visual Studio Team Services로 Service Fabric 연속 통합 및 배포 설정
 이 문서에서는 VSTS(Visual Studio Team Services)를 사용한 Azure Service Fabric 응용 프로그램에 대한 지속적인 통합 및 배포를 설정하는 단계를 설명합니다.

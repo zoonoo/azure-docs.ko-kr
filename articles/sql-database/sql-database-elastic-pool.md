@@ -11,19 +11,17 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 38c8c83909fe6a68e8850c9ac9d796784c38c70a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2af5be1c2250c3ec363b97c21bc3fa05c8ace984
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
 SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 크기를 조정하기 위한 간단하고 비용 효과적인 솔루션입니다. 탄력적 풀에 있는 데이터베이스는 단일 Azure SQL Database 서버에 있으며 설정된 가격으로 설정된 수의 리소스(eDTU([Elastic Database 트랜잭션 단위](sql-database-what-is-a-dtu.md)))를 공유합니다. Azure SQL 데이터베이스의 탄력적 풀을 사용하면 SaaS 개발자가 각각의 데이터베이스에 성능 탄력성을 제공하는 동시에 규정된 예산 내의 데이터베이스 그룹에 가격 성능을 최적화할 수 있습니다. 
@@ -329,12 +327,12 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀을 만들고 관리�
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#create)|탄력적 풀을 만듭니다.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#list)|서버에서 탄력적 풀의 목록을 반환합니다.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#list-dbs)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#list-editions)|사용 가능한 풀 DTU 설정, 저장소 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 저장소 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|탄력적 풀을 업데이트합니다.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|탄력적 풀을 삭제합니다.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|탄력적 풀을 만듭니다.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|서버에서 탄력적 풀의 목록을 반환합니다.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|사용 가능한 풀 DTU 설정, 저장소 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 저장소 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|탄력적 풀을 업데이트합니다.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|탄력적 풀을 삭제합니다.|
 
 ## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Transact-SQL을 사용하여 탄력적 풀 내에서 데이터베이스 관리
 
@@ -382,4 +380,3 @@ SQL Database 탄력적 풀을 만들고 관리하려면 다음 REST API 요청�
 * 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 * 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 * 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 응용 프로그램 소개](sql-database-wtp-overview.md)를 참조하세요.
-

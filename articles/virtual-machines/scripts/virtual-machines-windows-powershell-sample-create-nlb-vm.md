@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 25bcbbcd1615e01a384825d7bd1582a528e91f71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>항상 사용 가능한 가상 컴퓨터 간에 트래픽 부하 분산
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "VM NLB 만들기")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

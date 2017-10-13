@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
 ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 이벤트 허브로 스트림
 포털에서 기본 제공 "내보내기" 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 로그 프로필에서 Service Bus 규칙 ID를 사용하도록 설정하여 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.

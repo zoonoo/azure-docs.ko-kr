@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: sdanie
 ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법 
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 컴퓨터 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.

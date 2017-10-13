@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
+ms.openlocfilehash: 8815d4409b9b18d34fae737c1c0dc22d2ed633a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: ddc7d4faf50129911103d6ebb6a17c8ee76c8767
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
 Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하는 로컬 조건을 보고할 수 있는 상태 엔터티가 있는 [상태 모델](service-fabric-health-introduction.md)을 사용합니다. [상태 저장소](service-fabric-health-introduction.md#health-store) 는 모든 상태 데이터를 집계하여 엔터티가 정상인지 여부를 판단합니다.
@@ -36,15 +35,9 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 
 ```xml
 <Service Name="WordCountService">
-<<<<<<< HEAD
-    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="3">
-      <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
-    </StatefulService>
-=======
   <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
     <UniformInt64Partition PartitionCount="[WordCountService_PartitionCount]" LowKey="1" HighKey="26" />
   </StatefulService>
->>>>>>> 5e84dbdd8e45a5d6b36f435a550b7433b873bf11
 </Service>
 ```
 
@@ -1254,4 +1247,3 @@ HealthEvents          :
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-

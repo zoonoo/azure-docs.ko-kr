@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
 ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
 이 항목에서는 Azure Redis Cache 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.

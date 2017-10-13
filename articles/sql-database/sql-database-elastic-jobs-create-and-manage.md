@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 7058139814a0a20d6fb6305e1e469946bb6b7d77
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: d30cc74778e0b36dd632c2f040ce80d1ca8af5a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)
 
@@ -107,6 +105,5 @@ ms.lasthandoff: 02/16/2017
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 [5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
-
 
 

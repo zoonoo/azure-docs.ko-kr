@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>재해 복구를 위한 네트워크 디자인
 
@@ -167,4 +166,3 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
 
 ## <a name="next-steps"></a>다음 단계
 [알아봅니다](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) .
-

@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
@@ -132,11 +132,11 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
 
 파일이 올바른 줄 끝을 가지고 있는지 확인하려면 다음 PowerShell 스크립트를 사용합니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
 다음 PowerShell 스크립트를 사용하여 파일을 업로드하고 작업을 실행하고 출력을 확인합니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
 ## <a name="run-from-an-ssh-session"></a>SSH 세션에서 실행
 

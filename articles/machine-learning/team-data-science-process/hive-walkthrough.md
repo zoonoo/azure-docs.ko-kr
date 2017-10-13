@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 [TDSP(팀 데이터 과학 프로세스)](overview.md)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
@@ -837,4 +836,3 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

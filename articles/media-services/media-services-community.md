@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-community"></a>Azure 미디어 서비스 커뮤니티
 이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다.   

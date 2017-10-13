@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: a27a65627fecf35b59122110250a40c6fe8077b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -69,7 +68,7 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 
 Wingtip SaaS 응용 프로그램은 데이터베이스 당 테넌트 모델을 사용하여 빌드되므로 테넌트 데이터베이스 스키마는 단일 테넌트 관점에서 정의됩니다. 테넌트 전용 정보는 하나의 테이블 *Venue*에 존재하며 이 테이블에는 항상 하나의 행이 있고 따라서 기본 키가 없는 힙으로 실현됩니다. 정상적인 사용에서는 데이터가 속해 있는 테넌트에 의심의 여지가 없기 때문에 스키마의 다른 테이블은 *Venue* 테이블과 관련될 필요가 없습니다.
 
-그러나 탄력적 쿼리는 모든 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 이 패턴을 시뮬레이션하기 위해 '전역' 뷰 집합이 전역적으로 쿼리되는 각 테이블에 테넌트 ID를 프로젝션하는 테넌트 데이터베이스에 추가됩니다. 예를 들어 *VenueEvents* 보기는 계산된 *VenueId*를 *이벤트* 테이블에서 프로젝션된 열에 추가합니다. 탄력적 쿼리는 (기본 *이벤트* 테이블이 아닌) *VenueEvents*를 통해 헤드 데이터베이스에서 외부 테이블을 정의하여 *VenueId*에 따라 조인을 밀어 넣을 수 있습니다. 그러면 각 원격 데이터베이스에서 병렬로 실행될 수 있습니다. 이렇게 하면 반환되는 데이터의 양이 크게 줄어듭니다. 그 결과 많은 쿼리의 성능이 크게 증가합니다. 이러한 전역 보기는 모든 테넌트 데이터베이스(및 *basetenantdb*)에서 미리 생성됩니다.
+그러나 탄력적 쿼리는 모든 데이터베이스에 쿼리할 경우 테넌트 별로 분할된 단일 논리 데이터베이스의 일부인 경우와 같이 해당 데이터를 처리합니다. 이 패턴을 시뮬레이션하기 위해 '전역' 뷰 집합이 전역적으로 쿼리되는 각 테이블에 테넌트 ID를 프로젝션하는 테넌트 데이터베이스에 추가됩니다. 예를 들어 *VenueEvents* 보기는 계산된 *VenueId*를 *이벤트* 테이블에서 프로젝션된 열에 추가합니다. 탄력적 쿼리는 (기본 *이벤트* 테이블이 아닌) *VenueEvents*를 통해 헤드 데이터베이스에서 외부 테이블을 정의하여 *VenueId*에 따라 조인을 밀어넣을 수 있습니다. 그러면 각 원격 데이터베이스에서 병렬로 실행될 수 있습니다. 이렇게 하면 반환되는 데이터의 양이 크게 줄어듭니다. 그 결과 많은 쿼리의 성능이 크게 증가합니다. 이러한 전역 보기는 모든 테넌트 데이터베이스(및 *basetenantdb*)에서 미리 생성됩니다.
 
 1. SSMS를 열고 [테넌트1-&lt;사용자&gt; 서버에 연결](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms)합니다.
 2. **데이터베이스**를 확장하고 **contosoconcerthall**을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -193,4 +192,3 @@ Wingtip SaaS 응용 프로그램은 데이터베이스 당 테넌트 모델을 �
 
 * [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [탄력적 쿼리](sql-database-elastic-query-overview.md)
-

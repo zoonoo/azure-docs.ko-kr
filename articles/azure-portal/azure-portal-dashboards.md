@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다.  이 문서에서는 대시보드 만들기, 편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>스케줄러 고가용성 및 안정성
 ## <a name="azure-scheduler-high-availability"></a>Azure 스케줄러 고가용성 

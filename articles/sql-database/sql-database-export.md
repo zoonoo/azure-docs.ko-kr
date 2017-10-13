@@ -10,16 +10,16 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/15/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: faa567ec615a07da8633629fc98e3454c84a8f5f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 4427b74f205dcd2eabf825bbfc345279dc303f96
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 
 > [!IMPORTANT] 
 > Azure SQL Database 자동화된 내보내기는 2017년 3월 1일에 사용이 중지되었습니다. [장기 백업 보존](sql-database-long-term-retention.md
-) 또는 [Azure Automation](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)을 사용하여 선택한 일정에 따라 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플의 경우 GitHub에서 [샘플 PowerShell 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드합니다.
+) 또는 [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)을 사용하여 선택한 일정에 따라 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플의 경우 GitHub에서 [샘플 PowerShell 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드합니다.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL Database를 내보낼 경우 고려 사항

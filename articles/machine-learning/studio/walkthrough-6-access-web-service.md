@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1a31bc95b249c3fa1caced138bbf3459eb6282c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>연습 6단계: Azure 기계 학습 웹 서비스 액세스
 
@@ -49,5 +48,4 @@ ms.lasthandoff: 09/25/2017
 또한 R, C# 및 Python 프로그래밍 언어에서 제공하는 시작 코드를 사용하여 웹 서비스에 액세스하는 사용자 지정 응용 프로그램을 개발할 수도 있습니다.
 
 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
-
 

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법에 대해 알아봅니다.
@@ -211,7 +209,6 @@ Remove-AzureRmImage `
 
 > [!div class="nextstepaction"]
 > [항상 사용 가능한 VM 만들기](tutorial-availability-sets.md)
-
 
 
 

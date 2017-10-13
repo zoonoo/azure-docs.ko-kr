@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>수동 또는 자동으로 인스턴스 개수 조정
 [Azure 포털](https://portal.azure.com/)에서 서비스의 인스턴스 개수를 수동으로 설정하거나, 수요에 다라 자동으로 크기가 조정되도록 매개 변수를 설정할 수 있습니다. 이를 일반적으로 *규모 확장* 또는 *규모 감축*이라고 합니다.

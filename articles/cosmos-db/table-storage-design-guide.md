@@ -15,10 +15,10 @@ ms.workload: storage
 ms.date: 02/28/2017
 ms.author: mimig
 ms.openlocfilehash: fd34fb135c76eed4041c29e00e98dde330dfe3f3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 저장소 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]

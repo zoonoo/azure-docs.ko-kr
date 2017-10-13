@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-recovery-plans"></a>복구 계획 만들기
 
@@ -109,4 +108,3 @@ VMM 원본 사이트가 있는 경우 VMM 서버에 스크립트를 생성하고
 ## <a name="next-steps"></a>다음 단계
 
 장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
-

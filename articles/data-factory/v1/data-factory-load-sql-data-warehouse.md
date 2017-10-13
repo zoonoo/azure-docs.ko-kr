@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 092b7651543bd67e6536088952303045cfaf8717
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다.  대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL Data Warehouse는 엔터프라이즈 데이터 웨어하우스 워크로드에 최적화됩니다.  저장소를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
@@ -214,4 +213,3 @@ Azure SQL Data Warehouse 데이터베이스 실행에 대한 몇 가지 모범 �
 ## <a name="next-steps"></a>다음 단계
 * [Data Factory 복사 마법사](data-factory-copy-wizard.md) - 이 문서에서는 복사 마법사에 대해 자세히 설명합니다.
 * [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md) - 이 문서에는 참조 성능 측정값과 조정 가이드가 포함됩니다.
-

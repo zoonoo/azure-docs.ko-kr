@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
 ms.openlocfilehash: 96a817e43a830e836f2faa4603fc88ed9c0b1828
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-11-enable-replication-to-azure-for-hyper-v-vms-in-vmm-clouds"></a>11단계: VMM 클라우드의 Hyper-V VM을 Azure로 복제할 수 있도록 설정
 

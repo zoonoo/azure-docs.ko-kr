@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V와 Azure 간 복제 아키텍처
 
 
@@ -154,5 +151,4 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 지원 매트릭스 검토. 자습서에 따라 Azure에 대한 Hyper-V 복제를 사용하도록 설정합니다.
 장애 조치 및 장애 복구 실행
-
 

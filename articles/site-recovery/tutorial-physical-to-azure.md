@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f9a5092d4dacce8aa1630830499635b3b4eb151
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 09/25/2017
 이 자습서에서는 Azure에 대한 온-프레미스 물리적 Windows 및 Linux 서버의 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure 및 온-프레미스 필수 구성 요소 설정
+> * Azure 및 온-프레미스 필수 조건 설정
 > * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기 
 > * 원본 및 대상 복제 환경 설정
 > * 복제 정책 만들기
@@ -76,7 +75,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 [Azure Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 저장소에서 Azure VM을 만듭니다.
-- 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+- 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
 - 저장소 계정은 표준 또는 [프리미엄](../storage/common/storage-premium-storage.md)일 수 있습니다.
 - 프리미엄 계정을 설정하는 경우 로그 데이터에 추가 표준 계정이 필요합니다.
 
@@ -157,7 +156,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
     ![복제 정책](./media/tutorial-physical-to-azure/replication-policy.png)
 
 
-정책은 구성 서버에 자동으로 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책 **rep-policy-failback**이 만들어집니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
+정책은 구성 서버와 자동으로 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책 **rep-policy-failback**이 만들어집니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.
 
 ## <a name="enable-replication"></a>복제 활성화
 
@@ -185,4 +184,3 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 ## <a name="next-steps"></a>다음 단계
 
 [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
-

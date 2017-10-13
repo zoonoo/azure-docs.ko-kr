@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>OMS(Operations Management Suite)의 솔루션 대상 지정 기능을 사용하여 관리 솔루션의 범위를 특정 에이전트(미리 보기)로 지정할 수 있습니다.
 OMS에 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 OMS 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.

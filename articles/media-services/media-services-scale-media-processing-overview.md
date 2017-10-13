@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: 1009d8b87cb3a131909f3ae9ee231f9ebb408c04
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 

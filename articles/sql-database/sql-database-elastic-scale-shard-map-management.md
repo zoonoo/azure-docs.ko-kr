@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: f626cf417d8b3f1761f3c900d49039b3ff83b093
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 응용 프로그램을 **분할 키**의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet**라고도 함). 

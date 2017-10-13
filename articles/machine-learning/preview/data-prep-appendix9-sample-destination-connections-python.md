@@ -12,15 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e85ab5d52c2265536f72fa7301c0a25fa3a112cc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="sample-of-destination-connections-python"></a>대상 연결 샘플(Python) 
 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
 
@@ -35,7 +32,7 @@ Excel에 쓰려면 추가 라이브러리가 필요하며, 새 라이브러리 �
 위의 작업이 모두 완료되었다고 가정한다면 다음 줄은 데이터 표를 Excel 문서의 단일 시트에 씁니다. Write DataFlow(스크립트) 변환을 추가하고 식 섹션에 다음 코드를 입력합니다.
 
 
-#### <a name="on-windows"></a>Windows에서 
+#### <a name="on-windows"></a>Windows  
 ```python
 df.to_excel('c:\dev\data\Output\Customer.xlsx', sheet_name='Sheet1')
 ```
@@ -44,4 +41,3 @@ df.to_excel('c:\dev\data\Output\Customer.xlsx', sheet_name='Sheet1')
 ```python
 df.to_excel('c:/dev/data/Output/Customer.xlsx', sheet_name='Sheet1')
 ```
-

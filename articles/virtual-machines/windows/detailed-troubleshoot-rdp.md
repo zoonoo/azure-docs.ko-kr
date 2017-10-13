@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
+ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 컴퓨터에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
@@ -99,7 +98,7 @@ ms.lasthandoff: 09/06/2017
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Resource Manager에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
+> 리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
 
 동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 컴퓨터를 삭제합니다.
 
@@ -200,5 +199,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 

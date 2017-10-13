@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>서비스 패브릭 클러스터 분산
 Service Fabric 클러스터 리소스 관리자는 노드나 서비스의 추가 또는 제거에 대응하는 동적 로드 변경을 지원합니다. 또한 제약 조건 위반을 자동으로 수정하고 사전에 로드를 분산하도록 클러스터를 조정합니다. 그러나 이러한 작업은 얼마나 자주 수행될까요? 그리고 이러한 작업을 트리거하는 것은 무엇일까요?
@@ -215,4 +214,3 @@ ClusterManifest.xml
 [Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
 [Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
-

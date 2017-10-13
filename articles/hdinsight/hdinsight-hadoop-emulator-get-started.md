@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 40706ca30795d72120ff3edd728087d025a8b6c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 컴퓨터의 에뮬레이터인 Hadoop 샌드박스 시작
 
@@ -87,5 +86,4 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 컴퓨터에서 Hor
 * [Hortonworks Sandbox와 Visual Studio를 사용하는 방법 알아보기](hdinsight-hadoop-emulator-visual-studio.md)
 * [Hortonworks Sandbox의 방법 알아보기](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop 자습서 - HDP 시작](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
 

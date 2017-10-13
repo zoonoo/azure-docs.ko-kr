@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 가상 컴퓨터 프로비전 
 
@@ -87,4 +86,3 @@ Linux DLVM은 이미 X2Go 서버를 통해 프로비전되었고 클라이언트
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
 VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도구를 사용하여 시작할 준비가 되었습니다. 여러 도구에 대한 시작 메뉴 타일 및 데스크톱 아이콘이 있습니다. 
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -134,5 +133,4 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
-
 

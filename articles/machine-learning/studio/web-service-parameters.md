@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 715ea008b84c1a503661394da14e8af167327941
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Azure 기계 학습 웹 서비스 매개 변수 사용
 Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
@@ -88,5 +87,4 @@ Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Ma
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
 

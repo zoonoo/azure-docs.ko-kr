@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a5bbf899fd13de4c5a7d3379e2231828c102b372
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 이 토픽에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
@@ -326,4 +325,3 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 파이프라인이 실행된 후에는 blob에 대해 선택한 컨테이너에 표시된 데이터를 하루에 한 개 파일로 볼 수 있습니다.
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
-

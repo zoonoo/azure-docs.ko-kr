@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 OMS 리포지토리의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -188,5 +187,4 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 > **ML 스튜디오에 로그인** 링크를 클릭하면 현재 로그인된 Microsoft 계정을 사용하여 기계 학습 스튜디오가 열립니다. Azure 클래식 포털에 로그인하여 작업 영역을 만드는 데 사용한 Microsoft 계정에는 해당 작업 영역을 열 수 있는 권한이 자동으로 부여되지 않습니다. 작업 영역을 열려면 작업 영역의 소유자로 정의된 Microsoft 계정으로 로그인하거나 작업 공간 소유자의 참가 초대를 받아야 합니다.
 > 
 > 
-
 

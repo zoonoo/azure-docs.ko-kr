@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
@@ -49,7 +48,7 @@ ms.lasthandoff: 09/27/2017
 지정된 Service Fabric 파티션의 상태를 가져옵니다.
 
 지정된 파티션의 상태 정보를 가져옵니다. 상태에 따라 서비스에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다.
-ReplicasHealthStateFilter를 사용하여 파티션에 ReplicaHealthState 개체 컬렉션을 필터링합니다. Health store에 존재하지 않는 파티션을 지정하면 이 cmdlet은 오류를 반환합니다. .
+ReplicasHealthStateFilter를 사용하여 파티션에 ReplicaHealthState 개체 컬렉션을 필터링합니다. Health store에 존재하지 않는 파티션을 지정하면 이 cmdlet은 오류를 반환합니다. 에서도 확인할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -119,7 +118,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 지정된 Service Fabric 파티션의 로드를 가져옵니다.
 
-지정된 파티션에 관한 정보를 반환합니다. 응답에는 부하 정보 목록이 들어 있습니다. 각 정보에는 부하 메트릭 이름, 값 및 마지막 보고 시간(UTC)이 포함됩니다. .
+지정된 파티션에 관한 정보를 반환합니다. 응답에는 부하 정보 목록이 들어 있습니다. 각 정보에는 부하 메트릭 이름, 값 및 마지막 보고 시간(UTC)이 포함됩니다. 에서도 확인할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -163,7 +162,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 이 API는 지정된 파티션의 일부 또는 모든 복제본 또는 인스턴스를 다시 시작합니다.
 
-이 API는 장애 조치를 테스트하는 데 유용합니다. 상태 비저장 서비스 파티션을 대상으로 사용하는 경우, RestartPartitionMode는 AllReplicasOrInstances이어야 합니다. 진행률을 가져오려면 동일한 OperationId를 사용하여 GetPartitionRestartProgress API를 호출합니다. .
+이 API는 장애 조치를 테스트하는 데 유용합니다. 상태 비저장 서비스 파티션을 대상으로 사용하는 경우, RestartPartitionMode는 AllReplicasOrInstances이어야 합니다. 진행률을 가져오려면 동일한 OperationId를 사용하여 GetPartitionRestartProgress API를 호출합니다. 에서도 확인할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -171,7 +170,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 | --- | --- |
 | --operation-id           [필수]| 이 API의 호출을 식별하는 GUID입니다.  이 값은 해당 GetProgress API에 전달됩니다.|
 | --partition-id           [필수]| 파티션의 id입니다.|
-| --restart-partition-mode [필수]| - Invalid - Reserved.  API에 전달하지 마세요. -                     AllReplicasOrInstances - 파티션의 모든 복제본 또는 인스턴스는 동시에 시작합니다. - OnlyActiveSecondaries -                     보조 복제본만 다시 시작합니다. .|
+| --restart-partition-mode [필수]| - Invalid - Reserved.  API에 전달하지 마세요. -                     AllReplicasOrInstances - 파티션의 모든 복제본 또는 인스턴스는 동시에 시작합니다. - OnlyActiveSecondaries -                     보조 복제본만 다시 시작합니다. 에서도 확인할 수 있습니다.|
 | --service-id             [필수]| 서비스 id입니다. 일반적으로 'fabric:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric://myapp/app1/svc1"이면 서비스 id는 6.0+에서 "myapp~app1~svc1"이고 이전 버전에서 "myapp/app1/svc1"입니다.|
 | --timeout -t                    | 서버 시간 제한(초).  기본값: 60.|
 

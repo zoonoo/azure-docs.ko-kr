@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: aee24e5c478c4453655952cc626d7d6c857e7962
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>Azure Redis Cache의 호스트 이름, 포트 및 키 가져오기
 
 이 시나리오에서는 Azure Redis Cache 인스턴스에 연결하는 데 사용되는 호스트 이름, 포트 및 키를 검색하는 방법을 알아봅니다.

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 155e29e467b9752d491f62973ffccc986041fcab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공합니다. 풍부하게 다양한 클라우드 및 온-프레미스 데이터 저장소에서 매일 수십 테라바이트의 데이터를 복사할 수 있습니다. 초고속 데이터 로드 성능은 핵심적인 "빅 데이터" 문제인 고급 분석 솔루션을 구축하고 모든 데이터에서 깊은 통찰을 얻는 데 집중할 수 있도록 하는 열쇠입니다.
@@ -409,4 +408,3 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../../cosmos-db/performance-levels.md)
 * 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
 * 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
-

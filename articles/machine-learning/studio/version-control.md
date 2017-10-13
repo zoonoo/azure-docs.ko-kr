@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: haining
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9d1fcc761115c64fafb811d6ca1c2389babfdc15
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 응용 프로그램 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -101,4 +100,3 @@ ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스
 * [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) 모듈을 다운로드하고 ALM 태스크를 자동화하기 시작합니다.
 * PowerShell 및 재학습 API를 통해 [단일 실험을 사용하여 여러 ML 모델을 만들고 관리](create-models-and-endpoints-with-powershell.md)하는 방법에 대해 알아봅니다.
 * [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)에 대해 자세히 알아봅니다.
-

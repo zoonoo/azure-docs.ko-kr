@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
 ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy의 Azure 보안 교육 과정
 Microsoft Virtual Academy는 개발자, IT 및 데이터 전문가, 학생들이 최신 기술을 배우고 스킬을 구축하며 경력을 발전시켜 나갈 수 있게 도와 주기 위한 무료 온라인 교육을 제공합니다.

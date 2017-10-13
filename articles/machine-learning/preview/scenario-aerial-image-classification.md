@@ -8,14 +8,12 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 43b124fc3eb72adc5d299b218c9e16ec83d1a240
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
 이 예제는 Azure Machine Learning Workbench를 사용해 이미지 분류 모델의 분산된 교육 및 운영을 조정하는 방법을 보여줍니다. 미리 교육된 CNTK 모델을 사용하여 이미지를 기능화하고 파생된 기능을 사용하여 분류자를 교육하도록 [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) 패키지를 사용합니다. 그런 후 교육된 모델을 그대로 클라우드에 있는 큰 이미지 집합에 적용합니다. 이 단계는 [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) 클러스터에서 수행되어 작업자 노드를 추가 또는 제거하여 교육 및 운영 속도를 변경할 수 있게 해 줍니다.
@@ -54,7 +52,7 @@ ms.lasthandoff: 09/25/2017
 다음 지침에서는 이 예제에 대한 실행 환경을 설정하는 과정을 안내합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-- [Azure 계정](https://azure.microsoft.com/en-us/free/)(무료 평가판 사용 가능)
+- [Azure 계정](https://azure.microsoft.com/en-us/free/)(평가판 사용 가능)
     - 이 샘플은 40 작업자 노드(총 168 코어)로 HDInsight Spark 클러스터를 만듭니다. 사용자 계정에 사용 가능한 충분한 코어가 있는지 Azure Portal에서 구독에 대한 "사용 + 할당량" 탭을 검토하여 확인합니다.
     - 사용할 수 있는 코어가 적다면 HDInsight 클러스터 템플릿을 수정하여 프로비전된 사용자 수를 줄일 수 있습니다. 이에 대한 지침은 "HDInsight Spark 클러스터 만들기" 섹션 아래에 있습니다.
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
@@ -70,12 +68,12 @@ ms.lasthandoff: 09/25/2017
 
 이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
 1.  Azure Machine Learning Workbench 열기
-2.  **프로젝트** 페이지에서 **+** 부호를 클릭하고 **새 프로젝트**를 선택합니다.
+2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **Search Project Templates** 검색 상자에서 "Aerial Image Classification(항공 이미지 분류)"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**를 클릭합니다.
+5.  **만들기**
  
-#### <a name="create-the-resource-group"></a>리소스 그룹을 만듭니다.
+#### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
 1. Azure Machine Learning Workbench 프로젝트에서 File -> Open Command Prompt를 클릭하여 명령줄 인터페이스(CLI)를 엽니다.
 1. 명령줄 인터페이스에서 다음 명령을 실행하여 Azure 계정에 로그인합니다.
@@ -270,4 +268,3 @@ To dive deeper into this example:
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-state"></a>서비스 상태
 **서비스 상태**는 서비스가 작동하기 위해 필요한 메모리 내 또는 디스크의 데이터를 나타냅니다. 예를 들어 서비스가 작업을 수행하기 위해 읽고 쓰는 데이터 구조 및 멤버 변수를 포함합니다. 서비스의 구성 방식에 따라 디스크에 저장되어 있는 파일이나 기타 리소스도 포함할 수 있습니다. 예를 들어 데이터베이스가 데이터 및 트랜잭션 로그를 저장하는 데 사용하는 파일이 있습니다.
@@ -42,4 +41,3 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 * [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
 * [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)
-

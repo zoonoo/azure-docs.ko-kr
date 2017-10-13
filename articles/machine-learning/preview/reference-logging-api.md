@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>로깅 API 참조
 
 Azure ML의 로깅 라이브러리를 사용하면 나중에 분석하기 위해 기록 서비스로 추적되는 메트릭과 파일을 프로그램에서 내보낼 수 있습니다. 현재는 몇 가지 기본적인 메트릭 및 파일 유형이 지원되며 지원되는 유형 집합은 향후 Python 패키지 릴리스와 함께 증가될 것입니다.
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>다음 단계
 - [아이리스 분류 자습서, 2부](tutorial-classifying-iris-part-2.md)에서 로깅 API의 작동 상태를 살펴봅니다.
 - [Azure Machine Learning Workbench의 실행 기록 및 모델 메트릭을 사용하는 방법](how-to-use-run-history-model-metrics.md)을 검토하여 실행 기록에서 로깅 API를 어떻게 사용할 수 있는지 자세히 이해합니다.
-

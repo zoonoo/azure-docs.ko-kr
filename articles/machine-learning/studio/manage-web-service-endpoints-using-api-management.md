@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: roalexan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API 관리를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
 ## <a name="overview"></a>개요
@@ -365,4 +364,3 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
         time.sleep(1) # wait one second
     return
     invokeBatchExecutionService()
-

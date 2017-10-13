@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4e1935a7830b8174796ac12792fbbc0ed110d081
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-prep-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
 
@@ -159,7 +157,7 @@ Mac에서 해당 위치를 찾으려면 python의 앱별 설치와 해당 스크
 ```
 
 
-모듈을 사용하면 다음과 같습니다.  
+모듈:  
 ```python
 PathHint = Local  
 def read(df):  
@@ -361,4 +359,3 @@ def newvalue(row):
     else: 
         return row["Score"] 
 ```  
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법
 "어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 대답으로 수행할 작업에 따라 다릅니다. 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
@@ -247,4 +246,3 @@ Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 �
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

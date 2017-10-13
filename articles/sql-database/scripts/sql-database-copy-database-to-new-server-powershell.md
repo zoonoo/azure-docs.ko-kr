@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b57e37a1bc9391c88c8170f59a39654bf895d47
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 94314b3652a05ea387f0930a3a6315fcba6833d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>PowerShell을 사용하여 SQL Database를 새 서버에 복사
 
 PowerShell 스크립트 예제에서는 새 서버에 기존 데이터베이스의 복사본을 만듭니다. 
@@ -32,7 +30,7 @@ PowerShell 스크립트 예제에서는 새 서버에 기존 데이터베이스�
 
 ## <a name="copy-a-database-to-a-new-server"></a>새 서버에 데이터베이스 복사
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "새 서버에 데이터베이스 복사")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "Copy database to new server")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -61,4 +59,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
-

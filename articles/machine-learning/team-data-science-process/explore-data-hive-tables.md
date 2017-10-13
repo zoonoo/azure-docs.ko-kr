@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: dc5cbbf8db46607179e8b0e8657462afac21f7da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색
 이 문서는 HDInsight Hadoop 클러스터의 Hive 테이블에서 데이터를 탐색하는 데 사용된 샘플 Hive 스크립트를 제공합니다.
@@ -74,5 +73,4 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>택시 여정 데이터 시나리오에 대한 추가 쿼리 스크립트
 또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제가 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
-
 

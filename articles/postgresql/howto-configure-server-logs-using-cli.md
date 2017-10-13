@@ -11,10 +11,10 @@ ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
 ms.openlocfilehash: 26f8e12c493904f722cad5191ee053feff20f7fc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 로그를 다운로드할 수 있습니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 

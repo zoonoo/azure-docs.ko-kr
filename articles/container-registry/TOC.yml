@@ -19,6 +19,8 @@
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Azure Container Service
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+    - name: 서비스 패브릭
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: 방법 가이드
   items:
     - name: 이미지 밀어넣기 및 끌어오기

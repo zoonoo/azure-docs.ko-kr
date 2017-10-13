@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs에서 월간 예상 랩 비용 추세 보기
 DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움이 됩니다. 이 문서는 **월간 예상 비용 추세** 차트를 사용하여 이번 달의 현재 예상 비용 합계 뿐만 아니라 이번 달의 월말 추정 비용을 보는 방법을 보여줍니다. 이 문서에서는 Azure 포털의 월간 예상 비용 추세 차트를 보는 방법을 알아봅니다.

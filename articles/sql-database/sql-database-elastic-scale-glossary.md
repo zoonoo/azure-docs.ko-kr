@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 0fda4bb948bbed1c14d468519ba67cce9bc4e6c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-tools-glossary"></a>탄력적 데이터베이스 도구 용어집
 Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다. 

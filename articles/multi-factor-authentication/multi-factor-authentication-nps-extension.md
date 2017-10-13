@@ -15,12 +15,11 @@ ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -251,4 +250,3 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 - NPS 확장을 사용하여 [원격 데스크톱 게이트웨이](nps-extension-remote-desktop-gateway.md) 및 [VPN 서버](nps-extension-vpn.md)를 통합하는 방법 알아보기
 
 - [Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결](multi-factor-authentication-nps-errors.md)
-

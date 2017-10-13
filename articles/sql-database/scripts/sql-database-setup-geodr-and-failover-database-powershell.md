@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 80bc573233b73882d4bce553de1a627ae76ed1b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: e6c82973032b88e7ed16baf6ce71086d9d86d902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>PowerShell을 사용하여 단일 Azure SQL Database에 대한 활성 지역 복제 구성
 
 이 PowerShell 스크립트 예제는 단일 Azure SQL Database에 대해 활성 지역 복제를 구성하고 Azure SQL Database의 보조 복제본으로 장애 조치(failover)합니다.
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
-[!code-powershell[주](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "단일 데이터베이스에 대한 활성 지역 복제 설정")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -66,4 +64,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
-

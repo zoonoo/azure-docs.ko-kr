@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 2dd30470ee0f6c038a8601bfca73fc97091de2fa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl"></a>sfctl 
 Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은 Service Fabric 6.0 런타임과 호환됩니다. 명령은 명사 - 동사 패턴을 따릅니다. 자세한 내용은 다음 하위 그룹을 참조하세요.
 
@@ -32,7 +30,7 @@ Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은
 | [chaos](service-fabric-sfctl-chaos.md)   | 비정상 상황 테스트 서비스를 시작, 중지 및 보고합니다.|
 | [cluster](service-fabric-sfctl-cluster.md) | Service Fabric 클러스터를 선택, 관리 및 운영합니다.|
 | [compose](service-fabric-sfctl-compose.md) | Docker Compose 응용 프로그램을 생성, 삭제 및 관리합니다.|
-| [is](service-fabric-sfctl-is.md)      | 인프라 서비스에 쿼리하고 명령을 보냅니다.|
+| [is](service-fabric-sfctl-is.md)      | 쿼리하고 인프라 서비스에 명령을 보냅니다.|
 | [node](service-fabric-sfctl-node.md)    | 클러스터를 형성하는 노드를 관리합니다.|
 | [partition](service-fabric-sfctl-partition.md)  | 모든 서비스에 대한 파티션을 쿼리하고 관리합니다.|
 | [rpm](service-fabric-sfctl-rpm.md)        | 복구 관리자 서비스에 쿼리하고 명령을 보냅니다.|
@@ -41,5 +39,5 @@ Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은
 | [store](service-fabric-sfctl-store.md)   | 클러스터 이미지 저장소에서 기본 파일 수준 작업을 수행합니다.|
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md).
-- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Service Fabric CLI를 사용하는 방법을 알아봅니다.
+- Service Fabric CLI [설정](service-fabric-cli.md)
+- [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

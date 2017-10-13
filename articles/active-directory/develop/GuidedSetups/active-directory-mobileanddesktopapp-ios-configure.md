@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.openlocfilehash: 0ebca65585fc87bd4a85ba092cd423fce9540f58
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="create-an-application-express"></a>응용 프로그램(Express) 만들기
 이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.

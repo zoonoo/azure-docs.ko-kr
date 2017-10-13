@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: a7ea6141285a0098339f1e071af2592dd4535c12
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse----downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse - 감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원
 [감사](sql-data-warehouse-auditing-overview.md) 는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 작동합니다.

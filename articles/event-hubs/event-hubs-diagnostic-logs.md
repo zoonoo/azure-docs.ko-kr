@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
 
@@ -30,6 +28,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 * **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
+
 진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 사용하도록 설정하려면:
 
 1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
@@ -137,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>다음 단계
 * [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 API 개요](event-hubs-api-overview.md)
-* [이벤트 허브 시작](event-hubs-csharp-ephcs-getstarted.md)
-
+* [이벤트 허브 시작](event-hubs-dotnet-standard-getstarted-send.md)

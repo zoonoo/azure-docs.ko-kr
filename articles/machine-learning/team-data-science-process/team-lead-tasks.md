@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-lead-tasks"></a>팀 리더 작업
 
 이 항목에서는 팀 리더가 데이터 과학 팀을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP](overview.md)(Team Data Science Process)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. 공동 작업 및 팀 학습을 향상시키는 데 도움이 되도록 디자인되었습니다. 이 프로세스는 Microsoft와 업계의 모범 사례 및 구조를 추출하고 기업이 분석 프로그램의 이점을 완전히 실현할 수 있도록 데이터 과학 이니셔티브를 성공적으로 구현하는 데 필요합니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
@@ -68,14 +66,14 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="0-prerequisites"></a>0. 필수 조건
 
-필수 조건은 [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)에 요약된 작업을 그룹 관리자가 완료하여 충족됩니다. 요약하면, 팀 리더 작업을 시작하기 전에 다음 요구 사항을 충족해야 합니다. 
+[데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)에서 설명하는 그룹 관리자에게 할당된 작업을 완료하면 필수 구성 요소가 충족됩니다. 요약하면, 팀 리더 작업을 시작하기 전에 다음 요구 사항을 충족해야 합니다. 
 
 - 그룹 관리자가 **그룹 VSTS 서버**(또는 다른 일부 코드 호스팅 플랫폼의 그룹 계정)를 설정합니다.
 - 사용하려는 코드 호스팅 플랫폼의 그룹 관리자가 **GroupProjectTemplate 리포지토리**(R1)를 그룹 계정에 설정합니다.
 - 팀의 리포지토리를 만들기 위해 그룹 계정에 대한 **권한**을 얻습니다.
-- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있어야 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
-- **Windows DSVM**을 사용하는 경우 [GCM(Git 자격 증명 관리자)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 시스템에 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 최신 설치 관리자 페이지로 이동합니다. 여기에서 .exe 설치 관리자를 다운로드하여 실행합니다. 
-- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들어 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
+- Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 가상 컴퓨터)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
+- **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
+- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
     
 ## <a name="1-create-a-team-project-and-repositories"></a>1. 팀 프로젝트 및 리포지토리 만들기
 
@@ -259,7 +257,7 @@ ms.lasthandoff: 09/25/2017
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
-> 여러 Git 리포지토리에 커밋하는 경우 각 Git 리포지토리에 커밋할 때 동일한 이름과 메일 주소를 사용합니다. 동일한 이름과 메일 주소를 사용하면 나중에 여러 리포지토리에서 Git 작업을 추적하기 위해 PowerBI 대시보드를 빌드할 때 편리합니다.
+> 여러 Git 리포지토리에 커밋하는 경우 각 Git 리포지토리에 커밋할 때 동일한 이름과 이메일 주소를 사용합니다. 동일한 이름과 이메일 주소를 사용하면 나중에 여러 리포지토리에서 Git 작업을 추적하기 위해 PowerBI 대시보드를 작성할 때 편리합니다.
 
 ![20](./media/team-lead-tasks/team-leads-20-git-config-name.png)
 
@@ -412,9 +410,9 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명 링크입니다.
+다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명으로 연결되는 링크입니다.
 
 - [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)
 - [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)
-- [데이터 과학 팀에 대한 프로젝트 개별 참가자](project-ic-tasks.md)
+- [데이터 과학 팀에 대한 프로젝트 개별 참가자 작업](project-ic-tasks.md)

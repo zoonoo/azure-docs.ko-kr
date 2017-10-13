@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
 ms.openlocfilehash: 01a2bb6d99776feec936315bc882c3097ce832d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>CLI 2.0을 사용하여 AAD 앱 만들기 및 Azure Media Services API 액세스 구성
 

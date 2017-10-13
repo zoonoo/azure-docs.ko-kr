@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
 ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.

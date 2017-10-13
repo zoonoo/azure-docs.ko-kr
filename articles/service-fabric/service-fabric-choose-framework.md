@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: vturecek
 ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
 서비스 패브릭은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다. 서비스는 플랫폼의 기능과 응용 프로그램 프레임워크를 최대한 활용하기 위해 Service Fabric API를 사용할 수 있습니다. 서비스는 Service Fabric 클러스터에서 호스트되는 컨테이너에서 실행 중인 모든 언어 또는 코드로 작성된 컴파일된 실행 프로그램일 수도 있습니다.

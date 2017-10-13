@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0270a43f79202d102a8cdfe9cba7011a882e8117
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-machine-learning-model"></a>Machine Learning 모델 재학습
 Azure 기계 학습에서 기계 학습 모델 운영 프로세스의 일부로 모델은 학습 및 저장됩니다. 그런 다음 이를 서술적 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다. 
@@ -99,5 +98,4 @@ New Web 서비스에 대한 재학습을 설정하는 프로세스에는 다음 
 <!--image links-->
 [1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
-
 
