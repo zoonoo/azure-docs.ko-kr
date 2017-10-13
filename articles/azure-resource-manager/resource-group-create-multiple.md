@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/26/2017
 ms.author: tomfitz
 ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
 이 항목에서는 Azure Resource Manager 템플릿에서 반복하여 리소스의 여러 인스턴스 또는 리소스에 있는 속성의 여러 인스턴스를 만드는 방법을 보여 줍니다.

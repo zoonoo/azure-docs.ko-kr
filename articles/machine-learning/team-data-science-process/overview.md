@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="team-data-science-process-overview"></a>Team Data Science Process 개요
 
@@ -108,4 +107,3 @@ TDSP는 다음과 같은 공유 분석 및 저장소 인프라를 관리하기 �
 ## <a name="next-steps"></a>다음 단계
 
 [Team Data Science Process: 역할 및 작업](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) 이 프로세스를 표준화하는 데이터 과학 팀에 대한 핵심 인력 역할 및 관련된 작업에 대해 간략하게 설명합니다. 
-

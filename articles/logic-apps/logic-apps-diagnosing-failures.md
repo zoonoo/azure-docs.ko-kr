@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-logic-app-failures"></a>논리 앱 오류 진단
 Logic Apps에서 문제 또는 오류가 발생하는 경우 오류의 원인을 파악하는 데 도움이 되는 방법이 몇 가지 있습니다.  

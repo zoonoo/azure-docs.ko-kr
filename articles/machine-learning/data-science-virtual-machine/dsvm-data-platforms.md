@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-platforms"></a>데이터 플랫폼
 
 데이터 과학 가상 컴퓨터 (DSVM)를 사용하여 광범위한 데이터 플랫폼에 대한 분석을 빌드할 수 있습니다. 원격 데이터 플랫폼에 대 한 인터페이스를 외에도 DSVM 신속 하 게 개발 및 프로토타입 생성에 대 한 로컬 인스턴스를 제공합니다. 
@@ -35,9 +33,9 @@ ms.lasthandoff: 09/25/2017
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
 | 지원되는 DSVM 버전      | Windows      |
-| 일반적인 사용      | 더 작은 데이터 집합을 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
+| 일반적인 사용 용도      | 더 작은 데이터 집합을 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
 | 샘플에 대한 링크      |    뉴욕 시 데이터 집합의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| DSVM에 관련된 도구       | SQL Server Management Studio <br/> * ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
+| DSVM의 관련 도구       | SQL Server Management Studio <br/> * ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
 > SQL Server 2016 Developer Edition은 개발 및 테스트 목적으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다. 
@@ -98,7 +96,7 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
 필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>그것은 DSVM에 어떻게 구성/설치됩니까? 
+### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 |플랫폼|설치 위치($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
@@ -106,5 +104,4 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
 
 
 Azure Blob 또는 Azure Data Lake storage(ADLS)에서 데이터에 액세스하기 위한 라이브러리 및 Microsoft의 MMLSpark 기계 학습을 사용하여 라이브러리가 SPARK_HOME/jar에 미리 설치 됩니다. 이러한 JAR은 Apache Spark가 시작될 때 자동으로 로드됩니다. 기본적으로 Apache Spark는 로컬 디스크의 데이터를 사용합니다. DSVM에서 Spark 인스턴스가 Azure blob 또는 ADLS에 저장된 데이터에 액세스하려면 Azure blob 및 Azure Data Lake Storage에 대한 적절한 자격 증명을 사용하여 $SPARK_HOME/conf/core-site.xml.template(Blob 및 ADLS 구성에 대한 자리 표시자가 있음)에서 찾은 템플릿을 기반으로 하는 `core-site.xml` 파일을 생성/구성해야 합니다. [여기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application)서 ADLS 서비스 자격 증명을 만드는 방법에 대한 자세한 단계를 찾을 수 있습니다. Azure blob 또는 ADLS에 대한 자격 증명을 core-site.xml 파일에 입력하고 나면 wasb:// 또는 adl://의 URI 접두사와 함께 해당 원본에 저장된 데이터를 참조할 수 있습니다. 
-
 

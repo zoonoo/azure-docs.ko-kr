@@ -11,10 +11,10 @@ ms.service: multiple
 ms.custom: accessibility
 manager: timlt
 ms.openlocfilehash: 87ef9bf72f110ea3c27d0554e461d8c12132d422
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Azure Portal에서 고대비 켜기 또는 테마 변경
 Azure Portal에서 더 많은 대비가 필요하거나 색 구성표를 변경하려면 포털 설정으로 이동하여 변경합니다. 

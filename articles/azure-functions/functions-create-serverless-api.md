@@ -11,14 +11,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
 이 자습서에서는 Azure Functions를 사용하여 확장성이 뛰어난 API를 빌드하는 방법을 알아봅니다. Azure Functions에는 Node.JS, C# 등을 비롯한 다양한 언어로 쉽게 끝점을 작성할 수 있도록 하는 기본 제공 HTTP 트리거 및 바인딩 컬렉션이 제공됩니다. 이 자습서에서는 API 디자인의 특정 작업을 처리하도록 HTTP 트리거를 사용자 지정합니다. 또한 Azure Functions 프록시와 통합하고 모의 API를 설정하여 API를 확장할 준비를 진행합니다. 이러한 모든 작업은 Functions의 서버 없는 Compute 환경에서 수행되므로 리소스 확장 문제를 걱정할 필요가 없으며 API 논리에만 집중하면 됩니다.
@@ -195,4 +193,3 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [Azure Functions 프록시 사용(미리 보기)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-

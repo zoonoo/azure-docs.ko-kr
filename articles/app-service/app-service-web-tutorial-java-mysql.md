@@ -15,14 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure에서 Java 및 MySQL 웹앱 빌드
 
 이 자습서에서는 Azure에서 Java 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다. 작업이 완료되면 [Azure App Service Web Apps](app-service-web-overview.md)에서 실행되는 [MySQL용 Azure 데이터베이스](https://docs.microsoft.com/azure/mysql/overview)에 [Spring Boot](https://projects.spring.io/spring-boot/) 응용 프로그램 저장 데이터가 생깁니다.
@@ -391,7 +389,7 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 
 6. FTP는 이전과 같은 업데이트된 .WAR이며, 기존 *site/wwwroot/webapps/ROOT* 디렉터리와 *ROOT.war*를 제거한 다음, 업데이트된 .WAR 파일을 ROOT.war로 업로드합니다. 
 
-앱을 새로 고치면 **만든 시간** 열이 표시됩니다. 새 작업을 추가하면 앱은 자동으로 timestamp를 채웁니다. 기본 데이터 모델이 변경되더라도 기존 작업은 변경되지 않고 앱과 함께 작동합니다. 
+앱을 새로 고치면 **만든 시간** 열이 표시됩니다. 새 작업을 추가하면 앱은 자동으로 timestamp를 채웁니다. 기본 데이터 모델이 변경되더라도 기존 작업은 변경되지 않고 앱와 함께 작동합니다. 
 
 ![새 열로 업데이트된 Java 앱](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       

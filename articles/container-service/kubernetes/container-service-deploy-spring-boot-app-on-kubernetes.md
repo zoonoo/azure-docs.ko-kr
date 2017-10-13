@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-the-azure-container-service"></a>Azure Container Service의 Kubernetes 클러스터에 Spring Boot 응용 프로그램 배포
 
 **[Spring Framework]**는 Java 개발자가 웹, 모바일 및 API 응용 프로그램을 만들 수 있는 인기 있는 오픈 소스 프레임워크입니다. 이 자습서에서는 Spring을 사용하여 빠르게 시작하기 위한 규칙 기반 접근법인 [Spring Boot]를 사용하여 만든 샘플 앱을 사용합니다.
@@ -76,7 +74,7 @@ ms.lasthandoff: 08/12/2017
    mvn package spring-boot:run
    ```
 
-1. http://localhost:8080 으로 이동하거나 다음 `curl` 명령을 사용하여 웹앱을 테스트합니다.
+1. Http://localhost:8080으로 이동하거나 다음 `curl` 명령을 사용하여 웹앱을 테스트합니다.
    ```
    curl http://localhost:8080
    ```
@@ -365,4 +363,3 @@ Azure와 함께 사용자 지정 Docker 이미지를 사용하는 방법에 대�
 [KB05]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB05.png
 [KB06]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB06.png
 [KB07]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB07.png
-
