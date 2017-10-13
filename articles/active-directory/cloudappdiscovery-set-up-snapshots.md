@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Cloud App Discovery 스냅숏 보고서 만들기
 
 자동 로그 수집기를 설정하기 전에 로그를 수동으로 업로드하여 Cloud App Security가 구문 분석하게 합니다.  아직 로그가 없고 로그의 형태에 관한 샘플을 보려면 아래 절차를 통해 샘플 로그 파일을 다운로드하여 로그가 대략 어떻게 보이는지 파악합니다.
@@ -56,4 +54,3 @@ ms.lasthandoff: 09/25/2017
 * [Azure AD에서 Cloud App Discovery 사용 시작](cloudappdiscovery-get-started.md)
 * [연속 보고를 위한 자동 로그 업로드 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.openlocfilehash: cc4fb87e559f554634ae062a59bee31f0831da64
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비
 ## <a name="overview"></a>개요

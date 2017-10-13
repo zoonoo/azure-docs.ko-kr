@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aaf11636484fb6295c9522795b069839d2783ba9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,4 +297,3 @@ Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-

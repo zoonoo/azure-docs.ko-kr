@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -264,5 +263,4 @@ ms.lasthandoff: 09/07/2017
 * 상단 탐색 모음에 새로운 “사용자” 단추 및 메뉴를 추가했습니다. 이 메뉴를 통해 사용자는 Azure Data Catalog에 로그온하는 데 사용된 계정을 볼 수 있고 원하는 경우 로그아웃하는 데 사용된 계정을 볼 수 있습니다. 이 메뉴는 Azure Data Catalog REST API를 사용하는 개발자에게 유용한 카탈로그 이름도 표시합니다.
 * 표준 버전에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 Azure Data Catalog에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 * Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
-
 

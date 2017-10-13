@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 44c87b00f4fc63dbfd45a07d9a8cddc5eaf1a65c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있습니다. 잠금 수준을 **CanNotDelete** 또는 **ReadOnly**로 설정할 수 있습니다. 

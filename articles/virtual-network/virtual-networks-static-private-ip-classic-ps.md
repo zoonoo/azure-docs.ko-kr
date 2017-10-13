@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 5da2992fad89a703086b7645c88f6d8e1a39e4b3
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>PowerShell을 사용하여 가상 컴퓨터(클래식)에 대한 개인 IP 주소 구성
 
@@ -133,5 +132,4 @@ IP 주소 *192.168.1.101*을 *TestVnet*이라는 이름의 VNet에서 사용할 
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
 

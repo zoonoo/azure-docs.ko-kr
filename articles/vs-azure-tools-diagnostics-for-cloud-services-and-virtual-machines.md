@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성
 Azure 클라우드 서비스 또는 Azure 가상 컴퓨터는 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 구성할 수 있습니다. Azure 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 데이터를 전송합니다. Azure에서 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
@@ -302,5 +301,4 @@ RoleEntryPoint 메서드는 IIS가 아닌, WAIISHost.exe 컨텍스트에서 호�
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 로깅 진단에 대한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 사용](cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
-
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
 이 문서에서는 Azure 데이터 팩터리에서 지원하는 함수와 변수에 대한 정보를 제공합니다.
@@ -229,5 +228,4 @@ SliceStart로 표현된 일 대신 이전 일의 데이터를 읽으려면 다�
 ```
 
 사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx) (예: yy 대 yyyy) 토픽을 참조하세요. 
-
 

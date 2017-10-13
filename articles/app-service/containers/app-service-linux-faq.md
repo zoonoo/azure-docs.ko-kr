@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>Azure App Service Web App for Containers 관련 FAQ
 
@@ -138,4 +137,3 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 * [Azure Web App for Containers란?](app-service-linux-intro.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Azure Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)
-

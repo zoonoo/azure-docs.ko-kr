@@ -14,15 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 10/9/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
-ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 1fc0cb2b036e835450ee0fc404cce12439fabc77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure 구독에 대한 청구 또는 크레딧 경고 설정
 Azure 구독의 계정 관리자인 경우 Azure 청구 경고 서비스를 사용하여 Azure 계정에 대한 청구 활동을 모니터링하고 관리하는 데 도움이 되는 사용자 지정된 청구 경고를 만들 수 있습니다.
@@ -62,4 +61,3 @@ EA 고객은 지출 할당량을 설정하여 등록 상태인 각 부서에 대
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
-

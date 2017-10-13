@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법
 API 관리는 원하는 Azure 지역의 수에 상관 없이 단일 API 관리 서비스를 배포하기 위해 API 게시자를 사용할 수 있는 여러 지역 배포를 지원합니다. 이를 통해 지역적으로 배포된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인인 경우 가능한 서비스를 개선할 수도 있습니다. 
@@ -78,5 +78,4 @@ Azure Portal에서 API 관리 서비스 인스턴스에 대한 **크기 조정 �
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-
 

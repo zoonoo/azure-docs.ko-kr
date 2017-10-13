@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3212631ede7125bd849c2d9ba86ba2a0747d69ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-application-groups"></a>응용 프로그램 그룹 소개
 Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭](service-fabric-cluster-resource-manager-metrics.md)을 통해 표시됨)를 클러스터 전체에 균등하게 분산하여 클러스터 리소스를 관리합니다. Service Fabric은 클러스터에서 노드의 용량과 [용량](service-fabric-cluster-resource-manager-cluster-description.md)을 통해 전체적으로 클러스터를 관리합니다. 메트릭과 용량은 다양한 워크로드에 잘 적용되지만 서로 다른 Service Fabric 응용 프로그램 인스턴스를 과도하게 사용하는 패턴은 때때로 추가 요구 사항을 가져옵니다. 예를 들어 다음을 원할 수 있습니다.
@@ -217,4 +216,3 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
-

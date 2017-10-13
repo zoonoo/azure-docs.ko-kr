@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Visual Studio Team Services에서 연속 통합
 Azure 템플릿을 배포하려면 빌드, 테스트, Azure에 복사("준비"라고도 함), 템플릿 배포 등 다양한 단계에서 태스크를 수행합니다. VS Team Services(Visual Studio Team Services)에 템플릿을 배포하는 방법에는 두 가지가 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
 ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다.

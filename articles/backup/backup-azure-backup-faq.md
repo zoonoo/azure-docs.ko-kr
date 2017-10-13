@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Backup FAQ | Microsoft 문서"
 description: "Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. "
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -185,4 +183,3 @@ Azure 백업 에이전트를 사용하는 경우 암호화 키는 16자 이상�
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>암호화 키를 잃어버리면 어떻게 되나요? 제가 데이터를 복구할 수 있나요? 아니면 Microsoft가 데이터를 복구할 수 있나요? <br/>
 백업 데이터를 암호화하는 데 사용되는 키는 고객 사업장에만 존재합니다. Microsoft는 Azure에 복사본을 유지하지 않으며 키에 대한 어떠한 액세스 권한도 없습니다. 고객이 키를 잃어버릴 경우 Microsoft는 백업 데이터를 복구할 수 없습니다.
-

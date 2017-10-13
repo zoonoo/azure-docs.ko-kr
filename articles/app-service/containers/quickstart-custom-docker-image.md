@@ -16,14 +16,12 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
+ms.openlocfilehash: 28b0b50c68fa7c16a354fd16b7dfd930436c6b4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 사용자 지정 Docker Hub 이미지 실행 #
 
 App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 배포할 수도 있습니다. 이 요약에서는 웹앱을 만들어 Python 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
@@ -79,4 +77,3 @@ http://<app_name>.azurewebsites.net
 
 > [!div class="nextstepaction"]
 > [Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드](tutorial-docker-python-postgresql-app.md)
-

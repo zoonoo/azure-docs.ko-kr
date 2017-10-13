@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
 ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 리소스 관리자 소개
 이전에 IT 시스템 또는 온라인 서비스를 관리하는 작업은 특정 물리적 또는 가상 컴퓨터를 특정 서비스 또는 시스템에 전담하는 것을 의미했습니다. 서비스는 계층으로 설계되었습니다. “웹” 계층 및 “데이터” 또는 “저장소” 계층이 있었습니다. 응용 프로그램에는 요청이 들어오고 나가는 메시지 계층과 캐싱에 전용으로 사용되는 컴퓨터 집합이 있었습니다. 워크로드의 각 계층 또는 형식에 특정 컴퓨터가 전용으로 지정되어 있었습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있었습니다. 특정 유형의 워크로드로 인해 컴퓨터가 너무 뜨거워지는 문제가 발생한 경우 해당 계층에 동일한 구성으로 더 많은 컴퓨터를 추가했습니다. 그러나 모든 워크로드를 쉽게 확장할 수 있는 것은 아니었습니다. 특히 데이터 계층을 사용할 때는 컴퓨터를 더 큰 컴퓨터로 바꾸었습니다. 간편성. 컴퓨터에 오류가 발생한 경우 컴퓨터를 복원할 수 있을 때까지 전체 응용 프로그램 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.
@@ -64,4 +63,3 @@ Cluster Resource Manager가 서비스를 이동시키는 일을 담당하므로 
 - 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
 - 클러스터 리소스 관리자는 서비스 패브릭의 관리 기능으로 작동합니다. 해당 통합에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md)
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-

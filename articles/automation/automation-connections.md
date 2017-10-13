@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
+ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 00f0b370a05b29c44d0df8f7e9db115ff998b710
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connection-assets-in-azure-automation"></a>Azure 자동화의 연결 자산
 
 자동화 연결 자산은 외부 서비스 또는 runbook의 응용 프로그램이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 응용 프로그램에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 **Get-AutomationConnection** 활동을 사용하여 runbook 또는 DSC 구성에 액세스할 수 있습니다. 
@@ -161,4 +159,3 @@ Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 검토하여 runbook의 논리 흐름을 지시하고 제어하는 방법을 이해합니다.  
 
 - Azure Automation에서 PowerShell 모듈을 사용하는 방법 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
-

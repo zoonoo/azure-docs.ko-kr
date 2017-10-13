@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 서비스에 대한 가상 네트워크 통합
 
 Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크에 배포된 서비스 인스턴스에서 개인 액세스가 가능합니다.
@@ -76,7 +74,6 @@ Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>여러 Azure 서비스에서 가상 네트워크 통합
 
 가상 네트워크의 서브넷에 Azure 서비스를 배포하고 중요한 서비스 리소스를 해당 서브넷으로 보호할 수 있습니다. 예를 들어 가상 네트워크에 HDInsight를 배포하고 저장소 계정을 HDInsight 서브넷으로 보호할 수 있습니다.
-
 
 
 

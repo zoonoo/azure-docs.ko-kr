@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 가상 컴퓨터의 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -352,5 +351,4 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
 * [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결된 템플릿 사용
 하나의 Azure Resource Manager 템플릿 내에서 다른 템플릿에 연결하여 배포를 특정 용도의 템플릿 집합으로 분해할 수 있습니다. 응용 프로그램을 여러 코드 클래스로 분해하는 경우처럼 이러한 분해는 테스트, 다시 사용 및 가독성 측면에서 이점을 제공합니다.  

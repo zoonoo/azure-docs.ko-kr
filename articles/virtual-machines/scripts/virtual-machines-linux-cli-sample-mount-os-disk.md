@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: c32ea5e6cade34a9c8dac0eab523ebcaa10ef039
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM 운영 체제 디스크 문제 해결
 
 이 스크립트는 실패했거나 문제가 있는 가상 컴퓨터의 운영 체제 디스크를 두 번째 가상 컴퓨터에 대한 데이터 디스크로 탑재합니다. 디스크 문제를 해결하거나 데이터를 복구할 때 유용할 수 있습니다. 
@@ -34,7 +32,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "VM 빠른 생성")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Quick Create VM")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 
@@ -53,4 +51,3 @@ ms.lasthandoff: 09/09/2017
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
-

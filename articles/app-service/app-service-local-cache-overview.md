@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 앱 서비스 로컬 캐시 개요
 Azure 웹앱의 콘텐츠는 Azure 저장소에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
@@ -52,7 +51,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
 
 * [Azure 포털](#Configure-Local-Cache-Portal)
-* [Azure Resource Manager](#Configure-Local-Cache-ARM)
+* [Azure 리소스 관리자](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>방법: Azure 포털을 사용하여 로컬 캐시 구성
 <a name="Configure-Local-Cache-Portal"></a>
@@ -115,4 +114,3 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>로컬 캐시는 더 빠른 로컬 드라이브로 복사할 대상에서 디렉터리를 제외합니까?
 저장소 콘텐츠를 복사하는 단계의 일부로 리포지토리로 이름이 지정된 모든 폴더가 제외됩니다. 이는 사용자 사이트 콘텐츠에 웹앱의 일상적인 작업에 불필요할 수도 있는 소스 제어 리포지토리가 포함될 수 있는 시나리오에 유용합니다. 
-

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure 가상 네트워크 계획 및 디자인
 실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](virtual-networks-create-vnet-arm-pportal.md)을 알아보는 것이 좋습니다.

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -200,4 +199,3 @@ Azure 구독 권한을 확인하려면
 * 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 * 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.  
 * 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요.
-

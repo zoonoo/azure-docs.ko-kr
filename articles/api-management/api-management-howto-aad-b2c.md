@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: d99dbbd834cb8f067b88b765ccddcd7f4eb44a1f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 > [!WARNING]
 > Azure Active Directory B2C 통합은 [개발자 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.
 
@@ -205,4 +203,3 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-

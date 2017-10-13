@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
 ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, 가상 컴퓨터 크기 집합 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.

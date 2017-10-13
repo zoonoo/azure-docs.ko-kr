@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
 ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]

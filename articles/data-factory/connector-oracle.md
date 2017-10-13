@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ad9807fc72e3a6e0a6d3916d2d9e042af1fa83ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +124,7 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Or
 | type | 복사 작업 원본의 형식 속성을 **OracleSource**로 설정해야 합니다. | 예 |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요 |
 
-“oracleReaderQuery”를 지정하지 않으면 데이터 집합의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 집합 정의에 “structure”가 없는 경우 모든 열은 테이블에서 선택됩니다.
+“oracleReaderQuery”를 지정하지 않으면 데이터 집합의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 **예제:**
 
@@ -167,7 +166,7 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Oracl
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **OracleSink**로 설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: 00:30:00(30분). | 아니요 |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). | 아니요 |
 | preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 아니요 |
 
 **예제:**
@@ -205,7 +204,7 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Oracl
 
 Oracle 간에 데이터를 복사할 경우 Oracle 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Oracle 데이터 형식 | Data Factory 중간 데이터 형식 |
+| Oracle 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[] |

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/14/2017
 ms.author: kraigb
+ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Azure Tools를 사용하여 클라우드 서비스 게시
 Azure Tools for Microsoft Visual Studio를 사용하여 Visual Studio에서 직접 Azure 응용 프로그램을 게시할 수 있습니다. Visual Studio는 클라우드 서비스의 스테이징 또는 프로덕션 환경에 통합 게시를 지원합니다.
@@ -81,7 +80,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 다음 절차는 **Azure 응용 프로그램 게시** 마법사를 사용하는 경우를 가정합니다.
 
 ### <a name="to-enable-web-deploy-when-you-publish-your-application"></a>응용 프로그램을 게시할 때 웹 배포를 사용하도록 설정하려면
-1. 모든 웹 역할 확인란에 대해 **웹 배포 사용**을 활성화하려면 먼저 원격 데스크톱 연결을 구성해야 합니다. 모든 역할에 대해 **원격 데스크톱 사용**을 선택한 다음 **원격 데스크톱 구성** 상자가 나타나면 원격 연결에 사용할 자격 증명을 제공합니다. 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
+1. 모든 웹 역할 확인란에 대해 **웹 배포 사용** 을 활성화하려면 먼저 원격 데스크톱 연결을 구성해야 합니다. 모든 역할에 대해 **원격 데스크톱 사용**을 선택한 다음 **원격 데스크톱 구성** 상자가 나타나면 원격 연결에 사용할 자격 증명을 제공합니다. 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md) 을 참조하세요.
 2. 응용 프로그램의 모든 웹 역할에 웹 배포를 사용하려면 **모든 웹 역할에 웹 배포 사용**을 선택합니다.
    
     노란색 경고 삼각형이 나타납니다. 웹 배포는 기본적으로 신뢰할 수 없는 자체 서명 인증서를 사용하며, 이 인증서는 민감한 데이터를 업로드하는 데 적합하지 않습니다. 민감한 데이터를 위해 이 프로세스의 보안을 보장해야 하는 경우 웹 배포 연결에 사용할 SSL 인증서를 추가할 수 있습니다. 이 인증서는 신뢰할 수 있는 인증서여야 합니다. 이에 대한 자세한 방법은 이 항목 뒷부분에서 **보안 웹 배포 구현** 섹션을 참조하세요.
@@ -90,7 +89,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
     클라우드 서비스가 게시됩니다. 생성된 가상 컴퓨터에 IIS에 사용하도록 설정된 원격 연결이 있으므로 웹 배포를 사용하여 웹 역할을 다시 게시하지 않고도 웹 역할을 업데이트할 수 있습니다.
    
    > [!NOTE]
-   > 웹 역할에 둘 이상의 인스턴스가 구성된 경우 응용 프로그램을 게시하기 위해 만든 패키지에서 각 웹 역할이 하나의 인스턴스로 제한된다는 내용의 웹 메시지가 나타납니다. **확인**을 선택하여 계속합니다. 요구 사항 섹션에서 설명한 바와 같이 둘 이상의 웹 역할은 지원되지만 역할당 하나의 인스턴스만 허용됩니다.
+   > 웹 역할에 둘 이상의 인스턴스가 구성된 경우 응용 프로그램을 게시하기 위해 만든 패키지에서 각 웹 역할이 하나의 인스턴스로 제한된다는 내용의 웹 메시지가 나타납니다. **확인** 을 선택하여 계속합니다. 요구 사항 섹션에서 설명한 바와 같이 둘 이상의 웹 역할은 지원되지만 역할당 하나의 인스턴스만 허용됩니다.
    > 
    > 
 
@@ -148,5 +147,4 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
-
 

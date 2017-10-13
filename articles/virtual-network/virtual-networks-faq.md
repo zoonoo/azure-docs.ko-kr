@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
+ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -216,4 +215,3 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 - [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
 - [리소스 관리자](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 및 [클래식](/powershell/module/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - 두 배포 모델을 통해 배포된 VNet을 관리하는 [Azure CLI(명령줄 인터페이스)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources).  
-

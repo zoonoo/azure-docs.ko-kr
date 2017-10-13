@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-github-connector"></a>GitHub 커넥터 시작
 GitHub은 서비스를 호스팅하는 웹 기반 Git 리포지토리입니다. 고유한 기능을 추가할 뿐 아니라 Git의 분산된 수정 버전 제어 및 SCM(소스 코드 관리) 기능을 모두 제공합니다.
