@@ -7,6 +7,7 @@
 ## [FAQ](active-directory-faq.md)
 
 # 시작
+## [Azure AD 시작](get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
 ## [회사 브랜딩 구성](customize-branding.md)

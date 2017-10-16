@@ -1,6 +1,7 @@
 - name: 데이터 과학 가상 컴퓨터 설명서
   items: null
 - name: 개요
+  expanded: true
   items:
     - name: 데이터 과학 VM은 무엇입니까?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: 심층 학습 VM 사용
       href: use-deep-learning-dsvm.md
 - name: 참조
+  expanded: true
   items:
+    - name: DSVM 검색
+      href: dsvm-tools-overview.md
     - name: 심층 학습 및 AI 프레임워크
       href: dsvm-deep-learning-ai-frameworks.md
     - name: ML 및 데이터 과학 도구

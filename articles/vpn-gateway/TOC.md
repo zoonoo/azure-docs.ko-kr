@@ -17,8 +17,7 @@
 ### [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
+### [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
 ## 지점 및 사이트 간 연결 구성 - 네이티브 Azure 인증서 인증
 ### P2S VPN 구성
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## VPN Gateway에 BGP 구성
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## 강제 터널링 구성
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell(클래식)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [사이트 간 연결이 일시적으로 끊김](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [사이트 간 연결을 사용할 수 없음](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Application Gateway 세션 선호도 문제](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [VNet 또는 VPN 연결 구성 및 유효성 검사](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 참조
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

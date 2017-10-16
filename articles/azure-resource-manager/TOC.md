@@ -1,5 +1,5 @@
 # 개요
-## [Resource Manager란?](resource-group-overview.md)
+## [리소스 관리자란?](resource-group-overview.md)
 ## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
 ## [구독 거버넌스](resource-manager-subscription-governance.md)
@@ -58,6 +58,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
+### [관리 그룹으로 구독 구성](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [거버넌스 예제](resource-manager-subscription-examples.md)
 
 ## 액세스 제어

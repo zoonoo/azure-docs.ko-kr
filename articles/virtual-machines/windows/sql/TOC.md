@@ -1,6 +1,6 @@
 # 개요
-## [Azure VM의 SQL Server란?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [가격 책정](virtual-machines-windows-sql-server-pricing-guidance.md)
+## [Windows SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [가격](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # 시작

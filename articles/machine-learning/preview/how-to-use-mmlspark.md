@@ -9,13 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/26/2017
+ms.openlocfilehash: 6714e8ad77693f0cdefe3e40c99153299e1c72d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 506d439dc51513138c92e05bc5855848fc60f6a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Apache Spark에 대한 Microsoft Machine Learning 라이브러리를 사용하는 방법
 
@@ -69,7 +68,11 @@ packages:
 CLI 창에서 다음 명령을 실행합니다.
 
 ```
-az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```
+az ml experiment prepare -c <myhdi>
 ```
 
 이제 클러스터를 프로젝트의 계산 대상으로 사용할 수 있습니다.
@@ -84,4 +87,3 @@ Azure Machine Learning Workbench가 Spark 작업을 클러스터에 제출합니
 MMLSpark 라이브러리 및 예제에 대한 내용은 [MMLSpark GitHub 리포지토리](https://github.com/Azure/mmlspark)를 참조하세요.
 
 *Apache®, Apache Spark 및 Spark®는 미국 및/또는 기타 국가에서 Apache Software Foundation의 등록 상표 또는 상표입니다.*
-

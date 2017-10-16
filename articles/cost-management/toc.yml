@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: 리소스
   items:
+    - name: 비용 관리 비디오
+      href: ref-videos.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격

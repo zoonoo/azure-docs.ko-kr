@@ -7,6 +7,8 @@
 ## [SAP HANA 설치](hana-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 ## [문제 해결 및 모니터링](troubleshooting-monitoring.md)
+## 방법
+### [STONITH로 HA 설치](ha-setup-with-stonith.md)
 # Azure Virtual Machines의 SAP HANA
 ## [단일 인스턴스 SAP HANA](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)

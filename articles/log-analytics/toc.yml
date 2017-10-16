@@ -53,6 +53,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure 리소스
               href: log-analytics-azure-storage.md
+            - name: Azure Storage에서 진단 또는 로그 데이터
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: 구성 관리자
@@ -92,6 +94,8 @@
           items:
             - name: 정규식
               href: log-analytics-log-searches-regex.md
+            - name: 작업 영역 간 검색
+              href: log-analytics-cross-workspace-search.md
         - name: 검색 결과에서 작업 수행
           href: log-analytics-log-search-takeaction.md
         - name: 컴퓨터 그룹
@@ -214,7 +218,7 @@
           href: log-analytics-data-collector-api.md
         - name: PowerShell cmdlet
           href: log-analytics-powershell-workspace-configuration.md
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: log-analytics-template-workspace-configuration.md
         - name: 로그 검색 API
           href: log-analytics-log-search-api.md
@@ -229,6 +233,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST (영문)
       href: /rest/api/loganalytics
+    - name: 뷰 디자이너 타일 참조
+      href: log-analytics-view-designer-tiles.md
+    - name: 뷰 디자이너 시각화 요소 참조
+      href: log-analytics-view-designer-parts.md
 - name: 리소스
   items:
     - name: Azure 로드맵

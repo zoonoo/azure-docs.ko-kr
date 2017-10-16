@@ -240,6 +240,7 @@
 
 ### 응용 프로그램 배포 또는 제거
 #### [로컬 클러스터에 응용 프로그램 배포](service-fabric-get-started-with-a-local-cluster.md)
+#### [Azure 리소스 관리자](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -269,7 +270,7 @@
 #### 생성
 ##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
-##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
 #### 확장
 ##### [수동](service-fabric-cluster-scale-up-down.md)
 ##### [프로그래밍 방식](service-fabric-cluster-programmatic-scaling.md)
@@ -341,8 +342,8 @@
 # 참조
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](/cli/azure/sf)
-## [Service Fabric CLI](service-fabric-sfctl.md)
+## [Azure CLI(az sf)](/cli/azure/sf)
+## [Service Fabric CLI(sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)
 ### [sfctl cluster](service-fabric-sfctl-cluster.md)

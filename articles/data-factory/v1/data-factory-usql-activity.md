@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: 3a0a097afa0ef5efe11cb5044bf9ea5d399e463f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4465694d02e56c774a5750a1455c2e66ecbda523
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -208,17 +207,18 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성 | 설명 | 필수 |
-|:--- |:--- |:--- |
-| 형식 |type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. |예 |
-| scriptPath |U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. |아니요(스크립트를 사용하는 경우) |
-| scriptLinkedService |스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. |아니요(스크립트를 사용하는 경우) |
-| script |scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` |아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
-| degreeOfParallelism |작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. |아니요 |
-| 우선 순위 |대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. |아니요 |
-| 매개 변수 |U-SQL 스크립트의 매개 변수 |아니요 |
-| runtimeVersion | 사용할 U-SQL 엔진의 런타임 버전 | 아니요 | 
-| compilationMode | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p>| 아니요 | 
+| 속성            | 설명                              | 필수                                 |
+| :------------------ | :--------------------------------------- | :--------------------------------------- |
+| 형식                | type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. | 예                                      |
+| linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 Azure Data Lake Analytics에 대한 참조 | 예                                      |
+| scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)                   |
+| scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
+| script              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요                                       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요                                       |
+| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니요                                       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니요                                       |
+| compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p> | 아니요                                       |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 를 참조하세요. 
 
@@ -342,6 +342,5 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 ```
 
 이 경우 입력 파일은 여전히 /datalake/input 폴더에서 가져오며 출력 파일은 /datalake/output 폴더에 생성됩니다. 파일 이름은 조각 시작 시간에 따라 동적입니다.  
-
 
 

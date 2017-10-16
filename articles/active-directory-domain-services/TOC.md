@@ -15,9 +15,9 @@
 
 # 방법
 ## 관리되는 도메인 가입
-### [Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [PowerShell을 사용하여 Windows Server VM 가입](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [PowerShell을 사용하는 Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

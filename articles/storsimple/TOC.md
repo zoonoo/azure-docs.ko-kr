@@ -118,6 +118,7 @@
 ##### [웹 프록시 구성](storsimple-8000-configure-web-proxy.md)
 ##### [데이터 0 설정 수정](storsimple-8000-modify-data-0.md)
 
+#### [Azure PowerShell 샘플 스크립트 사용](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [StorSimple Snapshot Manager 사용](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md)

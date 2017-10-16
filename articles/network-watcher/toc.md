@@ -59,17 +59,20 @@
 # 방법
 ## [Azure Automation으로 VPN Gateway 모니터링](network-watcher-monitor-with-azure-automation.md)
 ## [VPN Gateway를 통한 온-프레미스 연결 진단](network-watcher-diagnose-on-premises-connectivity.md)
-## [패킷 캡처를 분석하여 잘못된 부분 찾기](network-watcher-deep-packet-inspection.md)
-## [패킷 캡처를 사용하여 Azure Functions로 자동 관리 네트워크 모니터링 수행](network-watcher-alert-triggered-packet-capture.md)
-## [Power BI를 사용하여 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [오픈 소스 도구를 사용하여 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Graylog를 사용하여 Azure에서 흐름 로그 시각화](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화](network-watcher-using-open-source-tools.md)
 ## [PowerShell을 사용하여 네트워크에서 규정 준수 및 감사 수행](network-watcher-nsg-auditing-powershell.md)
-## [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)
-## [오픈 소스 도구를 사용하여 침입 감지 수행](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Azure Log Analytics에서 Application Gateway 로그 분석](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Network Watcher 및 Grafana를 사용하여 흐름 로그 분석](network-watcher-nsg-grafana.md)
+## 패킷 캡처
+### [잘못된 부분을 찾기](network-watcher-deep-packet-inspection.md)
+### [Azure Functions로 자동 관리 네트워크 모니터링](network-watcher-alert-triggered-packet-capture.md)
+### [오픈 소스 도구를 사용하여 침입 감지 수행](network-watcher-intrusion-detection-open-source-tools.md)
+### [오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화](network-watcher-using-open-source-tools.md)
+## NSG 흐름 로그 분석
+### [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)
+### [Power BI 사용](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [탄력적 스택 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Grafana 사용](network-watcher-nsg-grafana.md)
+### [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # 참조
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

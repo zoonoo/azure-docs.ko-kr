@@ -24,22 +24,25 @@
 ## 배포
 ### [가상 네트워크](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
 
 ### 네트워크 보안 그룹
 #### [Azure 포털](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
 #### [템플릿](virtual-networks-create-nsg-arm-template.md)
 #### [응용 프로그램 보안 그룹](create-network-security-group-preview.md)
 #### 클래식
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [Azure CLI](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### 사용자 정의 경로
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [템플릿](virtual-network-create-udr-arm-template.md)
 #### 클래식
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -62,7 +65,8 @@
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
 ##### [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 ##### 클래식
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -78,7 +82,10 @@
 
 #### 여러 네트워크 인터페이스를 사용하는 VM 만들기
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [템플릿](virtual-network-deploy-multinic-arm-template.md)
+
 ##### 클래식
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
@@ -86,7 +93,8 @@
 #### 여러 IP 주소를 사용하여 VM 만들기
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
 ##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
 #### [가속 네트워킹을 사용하여 VM 만들기](virtual-network-create-vm-accelerated-networking.md)
@@ -102,9 +110,11 @@
 #### [가상 어플라이언스를 사용하여 네트워크 보안](virtual-network-scenario-udr-gw-nva.md)
 #### [Azure와 인터넷 간의 DMZ](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [클라우드 서비스 및 네트워크 보안](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [NSG와 간단한 DMZ](virtual-networks-dmz-nsg-asm.md)
-##### [방화벽 및 NSG와 DMZ](virtual-networks-dmz-nsg-fw-asm.md)
-##### [방화벽, UDR 및 NSG와 DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
+##### [NSG와 DMZ 만들기](virtual-networks-dmz-nsg.md)
+##### [NSG와 DMZ 만들기(클래식)](virtual-networks-dmz-nsg-asm.md)
+##### [방화벽 및 NSG와 DMZ 만들기(클래식)](virtual-networks-dmz-nsg-fw-asm.md)
+##### [방화벽, UDR 및 NSG와 DMZ(클래식)](virtual-networks-dmz-nsg-fw-udr-asm.md)
+
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
 
 ### 클래식
@@ -112,13 +122,22 @@
 ##### [Azure 포털](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
+#### [가상 네트워크 구성 파일에서 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+#### [서비스 구성 파일에서 DNS 설정 지정](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
 ## 구성
 ### 가상 컴퓨터
 #### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)
 #### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록](virtual-networks-name-resolution-ddns.md)
 #### [네트워크 처리량 최적화](virtual-network-optimize-network-bandwidth.md)
 #### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
+#### 클래식
+##### 고정 IP 주소
+###### [PowerShell](virtual-networks-reserved-private-ip.md)
+###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+##### [인스턴스 수준 공용 IP 주소](virtual-networks-instance-level-public-ip.md)
+
 ### 클래식
 #### 액세스 제어 목록
 ##### [Azure 포털](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +153,9 @@
 ### 네트워크 보안 그룹
 #### [Azure 포털](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+
 #### [로그](virtual-network-nsg-manage-log.md)
 ### NIC(네트워크 인터페이스)
 #### [NIC 만들기, 변경 또는 삭제](virtual-network-network-interface.md)
@@ -163,7 +184,7 @@
 ## [Azure PowerShell(클래식)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
-## [REST(Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
 
 
@@ -183,3 +204,4 @@
 ## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [네트워크 리소스 공급자](resource-groups-networking.md)

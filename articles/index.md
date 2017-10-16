@@ -1,14 +1,13 @@
---- 
+---
 layout: HubPage
-hide_bc: true
+hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
+ms.openlocfilehash: 05a288bf8ccbc70bb5ce5c52b0e85e0f784c7f3e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1e8b6749e445b7b8787b5b0246445a2bb810f80f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -563,7 +562,7 @@ ms.lasthandoff: 09/25/2017
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>ExpressRoute</p>
+                                                <p>Express 경로</p>
                                             </a>
                                         </li>
                                         <li>
@@ -591,6 +590,12 @@ ms.lasthandoff: 09/25/2017
                                             <a href="/bot-framework/azure-bot-service-overview">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch-ai/">
+                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -696,7 +701,7 @@ ms.lasthandoff: 09/25/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/overview">
+                                            <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Bing 엔터티 검색</p>
                                             </a>
@@ -1199,7 +1204,7 @@ ms.lasthandoff: 09/25/2017
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
-                                                <p>Azure Resource Manager</p>
+                                                <p>Azure 리소스 관리자</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2522,6 +2527,25 @@ ms.lasthandoff: 09/25/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/batch-ai/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Batch AI</h3>
+                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="fullSpan">
                                 <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
@@ -2663,10 +2687,10 @@ ms.lasthandoff: 09/25/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Custom Search&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Entities Search&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Entities Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Bing Image Search</a>
@@ -3608,7 +3632,7 @@ ms.lasthandoff: 09/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
+                                                    <h3>Azure 리소스 관리자</h3>
                                                     <p>Azure 리소스 배포 및 관리</p>
                                                 </div>
                                             </div>
@@ -4186,4 +4210,3 @@ Azure CLI </h3>
         </ul>
     </div>
 </div>
-

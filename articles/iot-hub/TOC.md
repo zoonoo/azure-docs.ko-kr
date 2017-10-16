@@ -114,6 +114,7 @@
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## 관리
 ### IoT Hub 만들기 
 #### [Azure Portal 사용](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Azure Portal 사용](iot-hub-configure-file-upload.md)
 #### [Azure PowerShell 사용](iot-hub-configure-file-upload-powershell.md)
 #### [Azure CLI 사용](iot-hub-configure-file-upload-cli.md)
-### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
+### [진단 및 모니터링](iot-hub-monitor-resource-health.md)
+#### [진단 설정으로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)
+#### [작업 모니터링](iot-hub-operations-monitoring.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
-### [작업 모니터링](iot-hub-operations-monitoring.md)
+### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [IP 필터링 구성](iot-hub-ip-filtering.md)
+
 ## 보안
 ### [처음부터 보안을 고려](iot-hub-security-ground-up.md)
 ### [보안 모범 사례](iot-hub-security-best-practices.md)
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
+### X.509 CA 인증서를 사용한 보안
+#### [X.509 CA 인증서 보안 개요](iot-hub-x509ca-overview.md)
+##### [X.509 CA 인증서 보안 개념](iot-hub-x509ca-concept.md)
+#### [X.509 CA 인증서 보안 시작](iot-hub-security-x509-get-started.md)
+##### [인증서 만들기 - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [개요](iot-hub-iot-edge-overview.md)
 ### 시작
