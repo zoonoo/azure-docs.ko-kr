@@ -15,18 +15,16 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d3ffa343a91aaad632705f24bcb357b7b20386d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-azure-search-connector.md)
-> * [버전 2- 미리 보기](../connector-azure-search.md)
+> * [버전 1 - GA](data-factory-azure-search-connector.md)
+> * [버전 2 - 미리 보기](../connector-azure-search.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 Azure Search 커넥터](../connector-azure-search.md)를 참조하세요.
@@ -298,4 +296,3 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 다음 문서를 참조하세요.
 
 * [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-

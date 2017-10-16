@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 89d1ebc090a7b667885f5dcbab14312efd767f0b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>자습서: Questetra BPM Suite와 Azure Active Directory 통합
 
@@ -277,5 +276,4 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [202]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_203.png
 [300]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/questera_bpm_suite_11.png 
-
 

@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 212b163c49fdd133b0ed2d99b33035fcc391aec6
 ms.openlocfilehash: 0d67166a16ae4d640080ad83e7625e594b0dc246
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="make-non-breaking-changes-safely-using-revisions"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
 이 자습서에는 API를 안전하게 변경하고 개발자에게 변경 내용을 알리는 방법을 설명합니다.
 

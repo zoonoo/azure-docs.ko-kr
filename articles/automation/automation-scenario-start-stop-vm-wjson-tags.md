@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure 자동화 시나리오: JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기
 고객은 종종 가상 컴퓨터의 시작 및 종료를 예약하여 구독 비용을 절감하거나 비즈니스 및 기술 요구 사항을 지원하는 데 도움을 주려고 합니다.
@@ -242,4 +241,3 @@ Azure 포털에서 Test-ResourceSchedule Runbook 작업의 세부 정보를 보�
 * PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 * Runbook 로깅 및 출력에 대한 자세한 내용은 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
 * Azure 실행 계정 및 이 계정을 사용하여 Runbook을 인증하는 방법에 대한 자세한 내용은 [Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-

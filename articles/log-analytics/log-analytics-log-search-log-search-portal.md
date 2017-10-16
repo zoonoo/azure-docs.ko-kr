@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 
@@ -165,4 +164,3 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 - [분석 포털 시작](https://go.microsoft.com/fwlink/?linkid=856079)에서 Log Analytics 쿼리 언어에 대해 자세히 알아봅니다.
 - 로그 검색 포털과 같은 데이터에 액세스하고 같은 쿼리를 실행할 수 있는 [고급 분석 포털](https://go.microsoft.com/fwlink/?linkid=856587) 사용 방법을 안내하는 자습서를 진행합니다.
-

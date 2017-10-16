@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: dcab91856bcebb8f3bfab8cc69b63fad487f8ace
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>사물 인터넷 보안 모범 사례
 IoT(사물 인터넷) 인프라를 보호하려면 엄격한 보안 심층 전략이 필요합니다. 이 전략을 위해서는 클라우드의 데이터를 보호하고, 공용 인터넷을 통해 전송되는 데이터의 무결성을 보호하고, 장치를 안전하게 프로비전해야 합니다. 각 계층은 전체 인프라에서 보다 강력한 보안 보증을 빌드합니다.

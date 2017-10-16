@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북
 ## <a name="executive-summary"></a>요약

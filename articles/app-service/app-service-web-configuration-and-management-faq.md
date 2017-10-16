@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc17196603a5bdcd7f880c3650512846fa0facef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -321,4 +320,3 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>온-프레미스 환경에서 App Service로 마이그레이션하려면 어떻게 하나요?
 
 Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://www.movemetothecloud.net/)를 참조하세요.
-

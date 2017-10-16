@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
 ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sku-series-unavailable"></a>SKU 시리즈 사용할 수 없음
 일부 지역에서는 특정 SKU를 새 구독에서 자동으로 사용할 수 없습니다.  이러한 현상은 [지역에 더 강력한 SKU가 도입되고](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) 레거시 SKU의 인지도가 감소할 때 발생할 수 있습니다.

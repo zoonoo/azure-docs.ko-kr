@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning 모델 데이터 수집 API 참조
 
@@ -95,5 +94,4 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 |-------------|------------|-------------------------|
 | input_data | 여러 형식 | 수집할 데이터(현재 형식 목록, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame이 허용됨). 데이터 프레임 형식의 경우, 기능 이름의 헤더가 존재할 경우 데이터 대상에 이 정보가 포함됩니다(ModelDataCollector 생성자에 기능 이름을 명시적으로 제공할 필요가 없음). |
 | user_correlation_id | string | 이 예측을 상호 연관짓기 위해 사용자가 제공할 수 있는 선택적 상관 관계 ID |
-
 

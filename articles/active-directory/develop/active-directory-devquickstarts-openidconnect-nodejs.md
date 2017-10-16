@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Azure AD에서 Node.js 웹앱 로그인 및 로그아웃
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -419,4 +417,3 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 [Azure AD를 사용하여 Web API 보안 유지](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

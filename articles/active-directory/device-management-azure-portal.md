@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 4b46e1627a229b0649d9ccd2550cd28fda9849f8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-devices-using-the-azure-portal---preview"></a>Azure Portal을 사용하여 장치 관리 - 미리 보기
 
@@ -197,7 +196,6 @@ Azure Portal을 사용하여 장치를 관리하려면 Azure AD에 등록되거�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)
-
 
 
 

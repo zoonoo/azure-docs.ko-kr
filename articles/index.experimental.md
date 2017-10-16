@@ -1,14 +1,13 @@
---- 
+---
 layout: HubPage
-hide_bc: true
+hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1021,7 +1020,7 @@ ms.lasthandoff: 09/07/2017
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure Resource Manager</p>
+                                                <p>Azure 리소스 관리자</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3021,7 +3020,7 @@ ms.lasthandoff: 09/07/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
+                                                    <h3>Azure 리소스 관리자</h3>
                                                     <p>Azure 리소스 배포 및 관리</p>
                                                 </div>
                                             </div>
@@ -3603,4 +3602,3 @@ ms.lasthandoff: 09/07/2017
         </ul>
     </div>
 </div>
-

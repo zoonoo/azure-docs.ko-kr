@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/31/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 75dcc603327b50718b279f3ce055663ec0bc2596
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)
 Visure Studio에서 서버 탐색기를 사용하여 Azure에서 호스팅되는 가상 컴퓨터에 대한 정보를 표시할 수 있습니다.
@@ -52,5 +51,4 @@ Azure에서 호스팅되는 가상 컴퓨터가 있는 경우 서버 탐색기�
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure 역할을 사용하는 방법에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
-
 

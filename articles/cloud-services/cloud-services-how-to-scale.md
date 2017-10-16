@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>클래식 포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 > [!div class="op_single_selector"]

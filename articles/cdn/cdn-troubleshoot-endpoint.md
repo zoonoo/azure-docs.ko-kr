@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>404 상태를 반환하는 CDN 끝점 문제 해결
 이 문서는 404 오류를 반환하는 [CDN 끝점](cdn-create-new-endpoint.md) 관련 문제를 해결하는 데 도움이 됩니다.

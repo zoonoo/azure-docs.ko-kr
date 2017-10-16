@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 28e0bc1414b0fea614f217dc3adf1484c1374018
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Azure에서 Windows Server로 파일 복구
 
@@ -82,4 +81,3 @@ Windows Server 데이터를 Azure로 백업 및 복원하는 방법에 대한 �
 
 > [!div class="nextstepaction"]
 > [암호화된 VM 백업](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
-

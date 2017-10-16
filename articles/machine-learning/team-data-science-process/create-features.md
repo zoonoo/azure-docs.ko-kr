@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: zhangya;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0933fec67bbcfc2a8c450c1e2472440cf38f338
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 이 토픽은 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure 기계 학습 스튜디오에서 가져온 것입니다. 
@@ -90,5 +89,4 @@ Azure 기계 학습에는 이러한 단어/문구 기능을 편리하게 생성�
 기능을 엔지니어링하고 선택하면 데이터에 포함된 주요 정보를 추출하려고 하는 학습 프로세스의 효율성이 증가됩니다. 이러한 모델이 입력 데이터를 정확하게 분류하고 원하는 결과를 더욱 안정적으로 예측하는 기능도 향상됩니다. 컴퓨터를 통해 학습을 다루기가 더욱 쉽도록 기능 엔지니어링 및 선택을 결합할 수도 있습니다. 이 작업은 모델을 보정하거나 학습하는 데 필요한 기능을 향상시키고 해당 수를 줄여 수행합니다. 수학적인 관점에서 보자면 모델을 학습하기 위해 선택한 기능은 데이터의 패턴을 설명한 다음 결과를 성공적으로 예측하는 최소한의 독립 변수 집합입니다.
 
 기능 엔지니어링이나 기능 선택을 반드시 항상 수행할 필요는 없습니다. 이러한 기능의 필요 여부는 보유하거나 수집한 데이터, 선택한 알고리즘 및 실험 목적에 따라 달라집니다.
-
 

@@ -50,7 +50,7 @@
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # 리소스
-## [GitHub의 Analysis Services 코드 샘플](https://github.com/Microsoft/Analysis-Services)
+## [샘플](analysis-services-samples.md)
 ## [Analysis Services 팀 블로그](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

@@ -16,14 +16,12 @@ ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
+ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 321a034340fb31efc1b539ba1a5ab5a34661cb63
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 컴퓨터 백업
 
 이 스크립트는 암호화된 Azure 가상 컴퓨터에 대한 GRS(지역 중복 저장소)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음에 기본 보호 정책이 적용됩니다. 이 정책은 가상 컴퓨터에 대한 일별 백업을 생성하고 30일 동안 각 백업을 유지합니다. 또한 스크립트는 가상 컴퓨터에 대한 초기 복구 지점을 트리거하고 해당 복구 지점을 365일 동안 유지합니다. 
@@ -65,5 +63,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
-
 

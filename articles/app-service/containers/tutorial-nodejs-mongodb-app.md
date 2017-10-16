@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 Node.js 및 MongoDB 웹앱 빌드
 
@@ -480,4 +479,3 @@ git push azure master
 
 > [!div class="nextstepaction"] 
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
-

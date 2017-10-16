@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/18/2017
+ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
+ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing API를 사용하여 프로그래밍 방식으로 Azure 사용량에 대한 통찰력을 얻기
 Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 설정된 데이터 분석 도구로 끌어옵니다. Azure 리소스 사용량 및 RateCard API를 통해 비용을 정확하게 예측하고 관리할 수 있습니다. API는 Azure Resource Manager가 노출한 API의 제품군의 일부로서 리소스 공급자로 구현됩니다.  
 
@@ -63,8 +61,6 @@ Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt21900
   * 다른 Azure 제품 유형에서 Azure 리소스에 더 나은 속도를 제공하는지 결정할 수도 있습니다.
   
 ## <a name="partner-solutions"></a>파트너 솔루션
-[고객에게 ITFM를 제공하는 Microsoft Azure 사용량 및 RateCard APIs 사용 가능한 Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)는 Azure 청구 API 파트너 [Cloudyn](https://www.cloudyn.com/microsoft-azure/)에서 제공하는 통합 환경을 설명합니다. 이 문서에서는 Cloudyn 및 Azure 청구 API를 사용하여 Azure 소비 데이터에서 통찰력을 얻을 수 있는 비디오를 포함하여 해당 환경에 대해 설명합니다.
-
 [Cloud Cruiser 및 Microsoft Azure 청구 API 통합](billing-usage-rate-card-partner-solution-cloudcruiser.md)에서는 [Azure Pack용 Cloud Cruiser의 Express](http://www.cloudcruiser.com/partners/microsoft/)가 WAP(Windows Azure Pack) 포털에서 어떻게 직접적으로 작동하는지 설명합니다. 사용자는 단일 사용자 인터페이스에서 Microsoft Azure 개인 또는 호스팅된 공용 클라우드의 운영 및 재무 측면을 완벽하게 관리할 수 있습니다.   
 
 ## <a name="next-steps"></a>다음 단계
@@ -78,5 +74,4 @@ Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt21900
 * Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
 
 * 클라우드 지출을 이해하는 데 필요한 도구 모음에 대한 추가 정보는 Gartner 문서 [IT 재무 관리(ITFM) 도구에 대한 시장 가이드](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)를 참조하세요.
-
 

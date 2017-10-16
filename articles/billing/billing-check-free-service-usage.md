@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
+ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e70a2378d1eda6aac01d5f5e5e449bb88f359dc6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="check-usage-on-the-azure-portal"></a>Azure Portal에서 사용량 확인
 
-1.  [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1.  [Azure 포털]( http://portal.azure.com) 에 로그인합니다.
 
 2.  왼쪽 탐색의 아래쪽에서 **더 많은 서비스**를 선택합니다.
 
@@ -72,4 +71,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

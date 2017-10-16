@@ -14,12 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 통합 사용
 LinkedIn 통합을 사용하면 사용자가 선택할 경우 Microsoft 앱 내의 개인 LinkedIn 네트워크 및 공용 LinkedIn 데이터에 모두 액세스할 수 있습니다. 각 사용자가 독립적으로 선택하여 LinkedIn 계정에 회사 계정을 연결할 수 있습니다.

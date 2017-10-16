@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 연결 장치 설정
 
@@ -125,7 +124,6 @@ Azure AD 포털에서 장치 설정을 검토할 수도 있습니다.
 - [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)
 - [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)
 - 
-
 
 
 

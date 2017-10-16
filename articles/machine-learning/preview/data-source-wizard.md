@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>데이터 원본 마법사 #
 
 데이터 원본 마법사는 코드 없이 데이터 집합을 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 집합에 대한 샘플 전략을 선택할 수 있습니다. 
@@ -74,4 +72,3 @@ ms.lasthandoff: 09/25/2017
 ![7단계](media/data-source-wizard/step6.png)
 
 완료를 클릭하면 새 데이터 원본이 프로젝트에 추가됩니다. 데이터 뷰의 Data Sources 그룹 아래에서 찾거나 **파일 보기**에서 .dsource 파일로 찾을 수 있습니다.
-

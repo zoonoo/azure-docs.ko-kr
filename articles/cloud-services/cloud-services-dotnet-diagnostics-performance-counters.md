@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
 ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Azure 응용 프로그램에서 성능 카운터 만들기 및 사용
 이 문서에서는 성능 카운터의 이점 및 Azure 응용 프로그램에 성능 카운터를 배치하는 방법을 설명합니다. 데이터를 수집하고 병목을 찾고 시스템 및 응용 프로그램 성능 튜닝에 사용할 수 있습니다.

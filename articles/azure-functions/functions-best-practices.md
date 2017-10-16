@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
 이 문서에서는 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
@@ -99,5 +97,4 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 Azure Functions에서는 Azure App Service를 사용하므로 App Service 지침도 알아야 합니다.
 * [패턴 및 사례 HTTP 성능 최적화](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
 

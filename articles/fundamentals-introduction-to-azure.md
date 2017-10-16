@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 소개
 Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다.  이 문서의 목적은 사용자가 클라우드 컴퓨팅에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.
@@ -538,4 +537,3 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 이제 Azure의 전체적인 모습에 대해 배워 보았습니다. 다음 단계에서는 첫 Azure 응용 프로그램을 작성해 보겠습니다. 사용할 언어를 선택한 후 [적절한 SDK로](/downloads/) 시작해 보세요. 클라우드 컴퓨팅은 새로운 표준입니다. 지금 시작하세요.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

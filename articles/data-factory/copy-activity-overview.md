@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -156,7 +155,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 | sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | Boolean |
 | redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | Boolean |
 | hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | Boolean |
-| effectiveIntegrationRuntime | 작업 실행을 제공하는 데 사용할 Integration Runtime을 "<IR name> (<region for Azure IR>)" 형식으로 표시합니다. | 텍스트(문자열) |
+| effectiveIntegrationRuntime | 작업 실행을 제공하는 데 사용할 Integration Runtime을 “`<IR name> (<region if it's Azure IR>)`” 형식으로 표시합니다. | 텍스트(문자열) |
 | usedCloudDataMovementUnits | 복사 중 유효 클라우드 데이터 이동 단위입니다. | Int32 값 |
 | redirectRowPath | "RedirectIncompatibleRowSettings"에서 구성한 Blob Storage에서 생략된 비호환 행의 로그에 대한 경로입니다. 아래 예제를 참조하십시오. | 텍스트(문자열) |
 | billedDuration | 데이터 이동에 대해 청구되는 기간입니다. | Int32 값(초) |
@@ -196,4 +195,3 @@ Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는
 - [한 위치의 데이터를 동일한 Azure Blob Storage의 다른 위치에 복사](quickstart-create-data-factory-dot-net.md)
 - [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](tutorial-copy-data-dot-net.md)
 - [온-프레미스 SQL Server에서 Azure로 데이터 복사](tutorial-hybrid-copy-powershell.md)
-

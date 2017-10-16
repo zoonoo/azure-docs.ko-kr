@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
 
 Azure Container Instances에서는 *컨테이너 그룹*을 사용하여 여러 컨테이너를 단일 호스트에 배포할 수 있습니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 응용 프로그램 사이드카를 빌드할 때 이러한 기능을 사용하면 유용합니다. 
@@ -203,4 +201,3 @@ Date: Mon, 17 Jul 2017 18:27:36 GMT
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서]: ./container-instances-tutorial-prepare-app.md
-

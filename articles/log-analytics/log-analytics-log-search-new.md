@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Log Analytics의 로그 검색 이해
 
@@ -91,4 +90,3 @@ Log Analytics의 로그 분석에서 핵심은 여러 방법으로 리포지토�
 
 - [로그 검색을 만들고 편집하는 데 사용하는 포털](log-analytics-log-search-portals.md)에 대해 알아보세요.
 - 새로운 쿼리 언어를 사용한 [쿼리 작성 자습서](log-analytics-tutorial-viewdata.md)를 확인해 보세요.
-

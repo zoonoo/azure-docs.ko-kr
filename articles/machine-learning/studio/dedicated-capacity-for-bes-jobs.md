@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning 작업에 대한 Azure 배치 서비스
 
@@ -112,4 +111,3 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 | **배치 풀 처리를 사용하는 경우**    | **클래식 일괄 처리를 사용하는 경우**  |
 |---|---|
 |많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>and<br/> 작업을 즉시 실행할 필요가 없습니다. |
-

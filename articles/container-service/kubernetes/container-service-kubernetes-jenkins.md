@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
+ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 85ac34444cc54b9c6fe9d5d3fcd1ab53bf1dc0d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Azure Container Service 및 Kubernetes로 Jenkins 통합 
 이 자습서에서는 Jenkins 플랫폼을 사용하여 다중 컨테이너 응용 프로그램을 Azure Container Service Kubernetes로 연속 통합을 설정하는 과정을 안내합니다. 이 워크플로는 Docker Hub에서 컨테이너 이미지를 업데이트하고 배포 롤아웃을 사용하여 Kubernetes 포드를 업그레이드합니다. 
 
@@ -209,4 +207,3 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 - Azure Container Registry를 배포하고 안전한 리포지토리에 이미지를 저장합니다. [Azure Container Registry 문서](https://docs.microsoft.com/azure/container-registry)를 참조하세요.
 - Jenkins에서 단계별 배포 및 자동화된 테스트를 포함하는 좀더 복잡한 워크플로를 빌드합니다.
 - Jenkins 및 Kubernetes와 CI/CD에 대한 자세한 내용은 [Jenkins 블로그](https://jenkins.io/blog/2015/07/24/integrating-kubernetes-and-jenkins/)를 참조하세요.
-

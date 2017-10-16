@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>논리 앱에서 커넥터 사용
 커넥터는 서비스, 프로토콜 및 플랫폼에 걸쳐 이벤트, 데이터 및 작업에 빠르게 액세스할 수 있도록 합니다.  논리 앱이 지원하는 커넥터의 전체 목록은 [여기에서 찾을 수 있습니다](apis-list.md).  커넥터는 논리 앱에서 트리거 또는 작업으로 사용할 수 있으며 사용하기 위해 구성된 *연결* 이 필요합니다(예: 사용자 대신 액세스하거나 게시할 수 있는 권한을 Twitter 계정에 부여).

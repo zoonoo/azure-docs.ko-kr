@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
 다음 표에 나열된 정보를 참조하여 Azure Backup Server를 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -89,4 +87,3 @@ ms.lasthandoff: 09/28/2017
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
 | Office 365 계정을 사용하여 전자 메일 알림을 설정하려고 합니다. | 오류 ID: 2013 가져오기| **원인:**<br/> Office 365 계정을 사용하려고 합니다. <br/> **권장 작업:**<br/> 가장 먼저 Exchange에서 DPM 서버에 대해 “Allow Anonymous Relay on a Receive Connector”(수신 커넥터에서 익명 릴레이 허용)가 설정되어 있는지 확인해야 합니다. 구성 방법에 대한 링크가 있습니다. http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. <br/> IIS를 사용하여 SMTP를 O365로 릴레이할 수 있도록 DPM 서버를 구성해야 합니다(https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx) O365로 릴레이하도록 IIS 설정 <br/> 중요 정보: 3단계->g->ii에서 반드시 domain\user가 아닌 user@domain.com 형식을 사용하세요. <br/> DPM을 SMTP 서버, 포트 587로 로컬 서버 이름을 사용하도록 지정하면 사용자에게 전자 메일이 전송됩니다. <br/> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정이어야 합니다. <br/> 참고: SMTP 서버 주소를 변경할 경우 새 설정으로 변경하고 설정 상자를 닫은 후 다시 열어 새 값이 적용되었는지 확인하세요.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 모범 사례입니다. <br/> 이 프로세스 중 언제라도 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 정리할 수 있습니다.<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword 및 SMTPUserName 키를 삭제합니다. <br/> 다시 시작할 때 UI에 다시 추가할 수 있습니다.
-

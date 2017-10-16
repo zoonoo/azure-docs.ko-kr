@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
 이 문서에서는 ITSM 제품/서비스를 OMS의 IT Service Management Connector에 연결하고 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. IT Service Management Connector에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -369,4 +368,3 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
  - [OMS 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
 - [연결에 대한 Log Analytics 보기](log-analytics-itsmc-overview.md#using-the-solution)
-

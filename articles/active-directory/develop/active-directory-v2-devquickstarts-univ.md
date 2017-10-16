@@ -16,10 +16,10 @@ ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>v2.0 끝점을 사용하여 Windows 유니버설 앱에 로그인 추가
   Windows 유니버설 앱에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다. 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.

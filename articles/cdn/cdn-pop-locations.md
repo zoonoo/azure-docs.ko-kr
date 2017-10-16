@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN POP 위치
 이 항목에는 **Verizon의 Azure CDN** 및 **Akamai의 Azure CDN**에 대한 현재 POP 위치가 나열되어 있습니다.
@@ -33,7 +32,7 @@ ms.lasthandoff: 09/08/2017
 
 | 지역 | Verizon | Akamai |
 | --- | --- | --- |
-| 북아메리카 | 애틀랜타, GA<br />보스턴, MA<br />시카고, IL<br />댈러스, TX<br />덴버, CO<br />로스앤젤레스, CA<br />마이애미, FL<br />뉴욕, NY<br />필라델피아, PA<br />산호세, 캘리포니아<br />시애틀, WA<br />워싱턴 D.C. | 캐나다<br />멕시코<br />미국 |
+| 북아메리카 | 애틀랜타, GA<br />보스턴, MA<br />시카코, IL<br />댈러스, TX<br />덴버, CO<br />로스앤젤레스, CA<br />마이애미, FL<br />뉴욕, NY<br />필라델피아, PA<br />산호세, 캘리포니아<br />시애틀, WA<br />워싱턴 D.C. | 캐나다<br />멕시코<br />미국 |
 | 남미 | 부에노스아이레스, 아르헨티나<br />리우데자네이루, 브라질<br />상파울루, 브라질<br />발파라이소, 칠레<br />바랑키야, 콜롬비아<br />메데인, 콜롬비아<br />키토, 에콰도르<br />리마, 페루 | 아르헨티나<br />브라질<br />칠레<br />콜롬비아<br />에콰도르<br />페루<br />우루과이 |
 | 북부 및 동부 유럽 | 코펜하겐, 덴마크<br />헬싱키, 핀란드<br />바르샤바, 폴란드<br />스톡홀름, 스웨덴 | 불가리아<br />덴마크<br />핀란드<br />노르웨이<br />폴란드<br />스웨덴<br /> |
 | 서부 유럽 | 비엔나, 오스트리아<br />파리, 프랑스<br />프랑크푸르트, 독일<br />암스테르담, 네덜란드<br />런던, 영국 | 오스트리아<br />벨기에<br />프랑스<br />독일<br />아일랜드<br />네덜란드<br />스위스<br />영국 |
@@ -46,5 +45,4 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="see-also"></a>참고 항목
 * [허용 목록에 대한 최신 IP 주소를 얻기 위한 Azure CDN 에지 노드 API](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure 기계 학습 웹 서비스: 배포 및 사용
 Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 응용 프로그램에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 응용 프로그램에서 호출될 수 있습니다.
@@ -97,4 +96,3 @@ Azure 기계 학습 웹 서비스 포털에서 웹 서비스를 테스트할 수
 
 ### <a name="from-a-rest-based-client"></a>REST 기반 클라이언트에서
 Azure 기계 학습 웹 서비스는 RESTful API입니다. .NET, Python, R, Java 등과 같은 다양한 플랫폼에서 이러한 API를 사용할 수 있습니다. [Microsoft Azure Machine Learning 웹 서비스 포털](https://services.azureml.net)의 웹 서비스에 대한 **사용** 페이지에는 시작하는 데 도움을 줄 수 있는 샘플 코드가 있습니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
-

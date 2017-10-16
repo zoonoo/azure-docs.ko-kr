@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>Azure 구독 또는 관리 그룹 찾기
 
 Azure에서 구독 또는 관리 그룹을 찾는 데 문제가 있는 경우 잘못된 디렉터리에서 찾고 있을 수 있습니다. 이런 상황은 계정이 여러 Azure Active Directory에 있는 경우에 발생할 수 있습니다. 각 [Active Directory는 독립적](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence)이며 디렉터리 간에 액세스 권한이 상속되지 않습니다.      
@@ -55,7 +53,6 @@ Azure Portal에서 디렉터리를 쉽게 전환할 수 있습니다.
 
 
  
-
 
 
 

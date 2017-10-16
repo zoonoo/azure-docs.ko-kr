@@ -16,12 +16,11 @@ ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Linux에서 Web Apps를 사용하여 Ruby 앱 만들기
 
@@ -172,4 +171,3 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>다음 단계
 
 [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
-

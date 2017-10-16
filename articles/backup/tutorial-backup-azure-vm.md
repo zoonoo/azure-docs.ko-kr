@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db4e1392acaeb2431d29a851113b7bc5a6dc1e9d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure에서 대규모로 Azure 가상 컴퓨터 백업
 
@@ -94,4 +93,3 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 * 백업 정책을 수정하려면 [AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md#create-a-protection-policy)을 참조하세요.
 * [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 * [가상 컴퓨터 복원](backup-azure-arm-restore-vms.md)
-

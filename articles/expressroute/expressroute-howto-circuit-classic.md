@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 93ddc2975db34053c6a776d1c3b931536f3f8ec7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
@@ -346,5 +345,4 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
 

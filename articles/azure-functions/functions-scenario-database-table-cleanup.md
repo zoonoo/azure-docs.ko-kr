@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 이 항목에서는 Azure Functions를 사용하여 Azure SQL Database의 테이블에서 행을 정리하는 예약된 작업을 만드는 방법을 보여 줍니다. 새 C# 함수는 Azure Portal에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 데이터베이스 연결 문자열을 함수 앱에서 설정으로 지정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 함수가 Mobile Apps 테이블에서 개별 CRUD 작업을 처리하게 하려면 [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)을 사용해야 합니다.
@@ -125,4 +124,3 @@ Functions에 대한 자세한 내용은 다음 항목을 참조하세요.
   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  
-

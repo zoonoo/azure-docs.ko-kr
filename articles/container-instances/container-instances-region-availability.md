@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: marsma
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 2b9b1b864bbfd73383759212dd7d91f8e4941544
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 지역 가용성
 
 미리 보기 중 Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 다음 지역에서 사용할 수 있습니다.

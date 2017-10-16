@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
+ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 87592410e6471219d3262cdcc7b47ee1b0686961
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -58,7 +57,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
-소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 웹 앱에 이렇게 하는 동안 azuredeploy.json 파일을 리포지토리 루트에 배치하여 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
+소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 웹 앱에 이렇게 하는 동안 azuredeploy.json 파일을 리포지토리 루트에 배치하여 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
 
 ## <a name="get-the-sample-resource-group-template"></a>샘플 리소스 그룹 템플릿 가져오기
 이제 바로 살펴보겠습니다.
@@ -89,7 +88,7 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 이 응용 프로그램을 수십, 수백 또는 수천 번, 때마다 정확히 동일한 구성으로 배포할 수 있습니다. 이 방법의 예측 가능성과 반복성으로 인해 쉽고 자신있게 대규모 응용 프로그램을 배포할 수 있습니다.
 
 ## <a name="examine-or-edit-azuredeployjson"></a>AZUREDEPLOY.JSON 검사(또는 편집)
-이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](/downloads/)를 아직 설치하지 않았다면 지금 설치하십시오.
+이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](https://azure.microsoft.com/downloads/)를 아직 설치하지 않았다면 지금 설치하십시오.
 
 1. 즐겨 찾는 git 도구를 사용하여 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 리포지토리를 복제합니다. 아래 스크린샷은 Visual Studio 2013의 팀 탐색기에서 이것을 보여줍니다.
    
@@ -158,7 +157,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `“<name>” : {“value”: “…”, “type”: “…”}`이라는 특정 형식을 가진 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
+`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `“<name>” : {“value”: “…”, “type”: “…”}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
 
 > [!TIP]
 > 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
@@ -180,7 +179,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 > 
 
 ## <a name="compare-the-json-template-with-deployed-resource-group"></a>배포된 리소스 그룹과 JSON 템플릿 비교
-[Azure 포털](https://portal.azure.com/)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백 엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
+[Azure 포털](https://portal.azure.com/)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
 
 예를 들어 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동하고 탐색기에서 노드를 확장하는 경우 해당 리소스 형식에서 수집되는 리소스 그룹 및 루트 수준 리소스를 볼 수 있습니다.
 
@@ -204,7 +203,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 솔루션 탐색기에서 복사한 azuredeploy.json를 엽니다.
-6. 여기서는 설명을 위해 **리소스 추가**를 클릭하여 일부 표준 Application Insight 리소스를 JSON 파일에 추가해 보겠습니다. JSON 파일 배포에 관심이 있다면 배포 단계를 건너뜁니다.
+6. 여기서는 설명을 위해 **리소스 추가**를 클릭하여 일부 표준  Application Insight 리소스를 JSON 파일에 추가해 보겠습니다. JSON 파일 배포에 관심이 있다면 배포 단계를 건너뜁니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. **Web Apps용 Application Insights**를 선택한 다음 기존 App Service 계획 및 웹앱을 선택했는지 확인하고 **추가**를 클릭합니다.
@@ -222,7 +221,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **새 배포**를 선택합니다.
+12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **New 배포ment**을 참조하십시오.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 아직 수행하지 않은 경우 Azure 계정에 로그인합니다.
@@ -269,5 +268,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 * [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
 

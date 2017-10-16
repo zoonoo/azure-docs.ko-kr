@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 커넥터 시작
 DB2용 Microsoft 커넥터는 Logic Apps를 IBM DB2 데이터베이스에 저장된 리소스에 연결합니다. 이 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버 컴퓨터와 통신하는 Microsoft 클라이언트를 포함합니다. Azure 가상화에서 실행되는 Windows용 IBM Bluemix dashDB 또는 IBM DB2와 같은 클라우드 데이터베이스, 온-프레미스 데이터 게이트웨이를 사용하는 온-프레미스 데이터베이스를 포함합니다. IBM DB2 플랫폼 및 버전의 [지원되는](connectors-create-api-db2.md#supported-db2-platforms-and-versions) 목록을 참조하세요(이 항목에서).

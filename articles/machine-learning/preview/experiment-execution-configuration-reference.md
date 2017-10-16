@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 68958dd42ef2382caaa740c52fc4f20c1cd3eff0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>Azure Machine Learning Workbench 실행 구성 파일
 
 Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동작은 **aml_config** 폴더의 파일을 통해 제어됩니다. 이 폴더는 프로젝트 폴더 루트 아래에 있습니다. 최적의 방법으로 실행에 대해 원하는 결과를 얻으려면 이 파일의 내용을 이해해야 합니다.
@@ -113,7 +111,7 @@ packages:
 ## <a name="run-configuration"></a>실행 구성
 특정 실행 구성을 지정하려면 파일 쌍이 필요합니다. 이들은 일반적으로 CLI 명령을 사용하여 생성됩니다. 하지만 기존 명령을 복제하고 이름 변경 및 편집할 수 있습니다.
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -126,8 +124,8 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 >[!NOTE]
 > 실행 구성 파일에 대한 _로컬_ 또는 _docker_ 이름은 임의로 지정할 수 있습니다. Azure ML Workbench는 편의상 공백 프로젝트를 만들 때 이 두 실행 구성을 추가합니다. 프로젝트 템플릿에 제공되는 "<run configuration name>.runconfig" 파일을 이름 변경하거나 원하는 이름의 새 파일을 만들 수 있습니다.
 
-### <a name="compute-target-namecompute"></a><compute target name>.compute
-_<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 구성 정보를 지정합니다. 이는 이름-값 쌍의 목록입니다. 다음은 지원되는 설정입니다.
+### <a name="compute-target-namecompute"></a>\<compute target name>.compute
+_\<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 구성 정보를 지정합니다. 이는 이름-값 쌍의 목록입니다. 다음은 지원되는 설정입니다.
 
 **type**: 계산 환경의 유형입니다. 지원되는 값은 다음과 같습니다.
   - local
@@ -135,7 +133,7 @@ _<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 구
   - remotedocker
   - cluster
 
-**baseDockerImage**: Python/PySpark 스크립트를 실행하는 데 사용하는 Docker 이미지입니다. 기본값은 _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_입니다. 또한 다른 이미지 한 개, _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_도 지원하며, 이는 호스트 컴퓨터에 대한 GPU 액세스 권한을 부여합니다(GPU가 존재하는 경우).
+**baseDockerImage**: Python/PySpark 스크립트를 실행하는 데 사용하는 Docker 이미지입니다. 기본값은 _microsoft/mmlspark:plus-0.7.91_입니다. 또한 다른 이미지 한 개, _microsoft/mmlspark:plus-gpu-0.7.91_도 지원하며, 이는 호스트 컴퓨터에 대한 GPU 액세스 권한을 부여합니다(GPU가 존재하는 경우).
 
 **address**: 가상 컴퓨터 또는 HDInsight 클러스터 헤드-노드의 IP 주소 또는 FQDN(정규화된 도메인 이름)입니다.
 
@@ -149,8 +147,8 @@ _<compute target name>.compute_ 파일은 계산 대상에 대한 연결 및 구
 
 **nativeSharedDirectory**: 이 속성은 파일을 같은 계산 대상에서 실행 간에 공유하기 위해 저장할 수 있는 기본 디렉터리(예: _~/.azureml/share/_)를 지정합니다. Docker 컨테이너에서 실행할 때 이 설정을 사용하는 경우 _sharedVolumes_를 True로 설정해야 한다. 그렇지 않으면 실행되지 않습니다.
 
-### <a name="run-configuration-namerunconfig"></a><run configuration name>.runconfig
-_<run configuration name>.runconfig_는 Azure ML Workbench 실행 동작을 지정합니다. 즉, 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 구성 동작을 지정합니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
+### <a name="run-configuration-namerunconfig"></a>\<run configuration name>.runconfig
+_\<run configuration name>.runconfig_는 Azure ML Workbench 실행 동작을 지정합니다. 실행 기록 추적 또는 많은 다른 대상과 함께 사용할 계산 대상 등과 같은 실행 구성 동작을 구성할 수 있습니다. 실행 구성 파일의 이름은 Azure ML Workbench 데스크톱 응용 프로그램에서 실행 컨텍스트 드롭다운을 채우는 데 사용됩니다.
 
 **ArgumentVector**: 이 섹션은 이 실행의 일부로 실행할 스크립트 및 해당 스크립트에 대한 매개 변수를 지정합니다. 예를 들어 "<run configuration name>.runconfig" 파일에 다음과 같은 코드 조각이 있는 경우 
 
@@ -212,4 +210,5 @@ DataSourceSubstitutions:
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-
+## <a name="next-steps"></a>다음 단계
+[실행 환경 구성](experiment-execution-configuration.md)에 대한 자세한 정보

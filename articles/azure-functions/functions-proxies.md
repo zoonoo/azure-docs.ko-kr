@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 102e54627a8fee721d3ed85e86a8009e706bb5b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Azure Functions 프록시 사용(미리 보기)
 
@@ -218,4 +217,3 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 [변수 사용]: #using-variables
 [원래 클라이언트 요청의 매개 변수]: #request-parameters
 [백 엔드 응답의 매개 변수]: #response-parameters
-

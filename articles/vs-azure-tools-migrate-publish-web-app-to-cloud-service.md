@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>방법: Visual Studio에서 Azure 클라우드 서비스로 웹 응용 프로그램 마이그레이션 및 게시
 Azure의 호스팅 서비스와 확장성을 활용하기 위해 웹 응용 프로그램을 Azure 클라우드 서비스로 마이그레이션 및 게시해야 하는 경우가 있습니다. 기존 응용 프로그램을 최소한 변경하고 Azure에서 웹 응용 프로그램을 실행할 수 있습니다.
@@ -202,4 +201,3 @@ Azure에 웹 응용 프로그램을 게시하려면 응용 프로그램이 아�
 
 ## <a name="next-steps"></a>다음 단계
 게시에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요. 또한 [명명된 인증 자격 증명 설정](vs-azure-tools-setting-up-named-authentication-credentials.md)도 참조하세요.
-

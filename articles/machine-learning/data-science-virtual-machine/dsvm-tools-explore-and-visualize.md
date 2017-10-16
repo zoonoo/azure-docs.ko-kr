@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터용 데이터 탐색 및 시각화 도구
 
 데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. 다음은 이 핵심 단계를 용이하게 진행하도록 하기 위해 DSVM에 제공된 몇 가지 도구입니다. 
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 | ------------- | ------------- |
 | 어떤 도구인가요?   | 빅 데이터에 대한 오픈 소스 SQL 쿼리 엔진    |
 | 지원되는 DSVM 버전      | Windows, Linux  |
-| DSVM에서 설치/구성되는 방식      |  `/dsvm/tools/drill*`에 포함 모드 전용으로만 설치됩니다.   |
+| DSVM에 구성/설치 방법      |  `/dsvm/tools/drill*`에 포함 모드 전용으로만 설치됩니다.   |
 | 일반적인 사용 용도      |  ETL을 요구하지 않는 현재 상태의 데이터 탐색입니다. CSV, JSON, 관계형 테이블, Hadoop을 비롯한 여러 다른 데이터 원본 및 형식 쿼리     |
 | 사용/실행 방법      | 바탕 화면 바로 가기  <br/> [10분 내에 드릴 시작](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | DSVM의 관련 도구      |   Rattle, Weka, SQL Server Management Studio      |
@@ -40,30 +38,29 @@ ms.lasthandoff: 09/25/2017
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| 어떤 도구인가요?   |  Weka는 데이터 마이닝 작업에 대한 Machine Learning 알고리즘의 컬렉션입니다. 이러한 알고리즘은 데이터 집합에 직접 적용하거나 자체 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
+| 무엇인가요?   |  Weka는 데이터 마이닝 작업에 대한 기계 학습 알고리즘 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 DSVM 버전     | Windows, Linux     |
-| 일반적인 사용 용도      | 일반적인 ML 도구     |
-| 사용/실행 방법      | Windows에서는 시작 메뉴에서 Weka를 검색합니다. Linux에서는 2GoX를 사용하여 로그인한 다음 응용 프로그램-> 개발 -> Weka로 이동합니다. |
-| 샘플 링크      | [Weka 샘플](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| 일반적인 사용 용도      | 범용 ML 도구     |
+| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux인 경우 X2Go에 로그인한 후 Applications -> Development -> Weka로 이동합니다. |
+| 샘플에 대한 링크      | [Weka 샘플](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM의 관련 도구      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| 어떤 도구인가요?   |   R을 사용하는 데이터 마이닝을 위한 그래픽 사용자 인터페이스   |
+| 무엇인가요?   |   R을 사용한 데이터 마이닝에 대한 그래픽 사용자 인터페이스   |
 | 지원되는 DSVM 버전     | Windows, Linux     |
-| 일반적인 사용 용도      | R에 대한 일반적인 UI 데이터 마이닝 도구    |
-| 사용/실행 방법      | UI 도구입니다. Windows에서는 명령 프롬프트를 시작하고 R을 실행한 후 R 내부에서 `rattle()`을 실행합니다. Linux에서는 X2Go에 연결하고 터미널을 시작한 후 R을 실행하고 R 내부에서 `rattle()`을 실행합니다. |
-| 샘플 링크      | [Rattle](https://togaware.com/onepager/) |
+| 일반적인 사용 용도      | R에 대한 일반 UI 데이터 마이닝 도구    |
+| 사용/실행 방법      | UI 도구. Windows에서 명령 프롬프트를 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. Linux에서 X2Go와 연결하여 터미널을 시작하고, R을 실행한 후, R 내부에서 `rattle()`을 실행합니다. |
+| 샘플에 대한 링크      | [Rattle](https://togaware.com/onepager/) |
 | DSVM의 관련 도구      |LightGBM, Weka, Xgboost   |
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
-| 어떤 도구인가요?   | 대화형 데이터 시각화 및 BI 도구    |
+| 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
 | 지원되는 DSVM 버전      | Windows  |
-| 일반적인 사용 용도      |  데이터 시각화 및 빌드 대시보드   |
+| 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |
-
 

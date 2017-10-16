@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Azure Cosmos DB 및 DocumentDB API를 사용하여 Java 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -724,7 +723,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
    
    * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.
    * 대상 상자에서 WAR 파일을 저장할 대상을 선택합니다.
-   * **Finish**를 클릭합니다.
+   * **마침**을 클릭합니다.
 3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 응용 프로그램 추가](../app-service/web-sites-java-add-app.md)를 참조하세요.
    
     WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
@@ -757,4 +756,3 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 응용 프로그램 배포](#Deploy)를 참조하세요.
 
 [1]: media/documentdb-java-application/keys.png
-

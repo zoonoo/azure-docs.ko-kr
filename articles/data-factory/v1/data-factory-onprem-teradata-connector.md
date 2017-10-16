@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d371604997d036aea6b4d4112bd124d127a2f3f1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-onprem-teradata-connector.md)
-> * [버전 2- 미리 보기](../connector-teradata.md)
+> * [버전 1 - GA](data-factory-onprem-teradata-connector.md)
+> * [버전 2 - 미리 보기](../connector-teradata.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 Teradata 커넥터](../connector-teradata.md)를 참조하세요.
@@ -57,7 +56,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 Teradata의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  온-프레미스 Teradata의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요. 
 
 다음 섹션에서는 Teradata 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -287,11 +286,11 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 
 | Teradata 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
-| Char |String |
-| Clob |String |
-| Graphic |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |문자열 |
+| Clob |문자열 |
+| Graphic |문자열 |
+| VarChar |문자열 |
+| VarGraphic |문자열 |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -304,7 +303,7 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | SmallInt |Int16 |
 | Date |DateTime |
 | Time |TimeSpan |
-| Time With Time Zone |String |
+| Time With Time Zone |문자열 |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
@@ -317,14 +316,14 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Interval Month |String |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
+| Interval Year |문자열 |
+| Interval Year To Month |문자열 |
+| Interval Month |문자열 |
+| Period(Date) |문자열 |
+| Period(Time) |문자열 |
+| Period(Time With Time Zone) |문자열 |
+| Period(Timestamp) |문자열 |
+| Period(Timestamp With Time Zone) |문자열 |
 | Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
@@ -335,4 +334,3 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-

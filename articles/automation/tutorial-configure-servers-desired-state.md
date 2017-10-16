@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: eslesar
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 63a83e35ce29541de578cb264464448fb6ee3e1c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
 Azure Automation DSC(필요한 상태 구성 개요)를 사용하면 서버 구성을 지정하고 시간이 지남에 따라 해당 서버가 지정된 상태에 있는지 확인할 수 있습니다.
@@ -98,7 +96,7 @@ Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -Resour
 
 ## <a name="register-a-vm-to-be-managed-by-dsc"></a>DSC에서 관리되는 VM 등록
 
-Azure 자동화 DSC를 사용하여 Azure VM(클래식 및 Resource Manager), 온-프레미스 VM, Linux 컴퓨터, AWS VM 및 온-프레미스 물리적 컴퓨터를 관리할 수 있습니다. 이 항목에서는 Azure Resource Manager VM만 등록하는 방법에 대해 설명합니다.
+Azure 자동화 DSC를 사용하여 Azure VM(클래식 및 리소스 관리자), 온-프레미스 VM, Linux 컴퓨터, AWS VM 및 온-프레미스 물리적 컴퓨터를 관리할 수 있습니다. 이 항목에서는 Azure Resource Manager VM만 등록하는 방법에 대해 설명합니다.
 다른 유형의 컴퓨터 등록에 대한 내용은 [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
 
 `Register-AzureRmAutomationDscNode` cmdlet을 호출하여 Azure Automation DSC에 VM을 등록합니다.

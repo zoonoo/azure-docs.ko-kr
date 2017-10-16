@@ -11,14 +11,12 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
+ms.openlocfilehash: 3a2635ac968d843226f05dc51cf4a5f078235c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins를 사용하여 Azure App Service로 지속적인 통합 및 배포 설정
 
 이 자습서는 [Spring Boot](http://projects.spring.io/spring-boot/) 프레임워크로 개발된 샘플 Java 웹앱의 Jenkins를 사용한 [Linux에서 Azure App Service Web App](/azure/app-service/containers/app-service-linux-intro)으로의 지속적인 통합 및 배포(CI/CD)를 설정합니다.
@@ -187,4 +185,3 @@ ms.lasthandoff: 09/29/2017
 - [Azure VM을 빌드 에이전트로 사용](/azure/jenkins/jenkins-azure-vm-agents)
 - [Azure CLI로 작업 및 파이프라인의 리소스 관리](/azure/jenkins/execute-cli-jenkins-pipeline)
  
-

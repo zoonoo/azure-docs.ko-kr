@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2017
 ms.author: kumud
 ms.custom: 
+ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fcefa16112e29c897d72ade80bc612b7765c578d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
 
 >[!NOTE]
@@ -41,7 +39,7 @@ Visual Studio Mobile Center를 사용하여 개발한 모바일 응용 프로그
 클라이언트 응용 프로그램에서 Traffic Manager로 보낸 측정값은 RUM(실제 사용자 측정) 키라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API 또는 PowerShell/CLI 인터페이스를 사용하여 RUM 키를 가져올 수 있습니다.
 
 Azure Portal을 사용하여 RUM Key를 얻으려면 다음 절차를 수행합니다.
-   1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판을 등록할 수 있습니다.
+   1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.
    2. 포털의 검색 창에서 수정하려는 Traffic Manager 프로필 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
    3. Traffic Manager 프로필 페이지에서 **설정** 아래의 **실제 사용자 측정**을 클릭합니다.
    4. **키 생성**을 클릭하여 새 RUM 키를 만듭니다.
@@ -110,5 +108,4 @@ Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트]
 - Mobile Center [등록](https://mobile.azure.com)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 - [트래픽 관리자 프로필을 만드는](traffic-manager-create-profile.md)
-
 

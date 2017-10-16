@@ -16,10 +16,10 @@ ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
@@ -93,7 +93,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 | HDInsight HBase 모니터링 <br>(미리 보기)                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
 | [Key Vault 분석](log-analytics-azure-key-vault.md)                   | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | Azure Portal/Marketplace에서 추가할 수 없습니다. |
-| [맬웨어 평가](log-analytics-malware.md)                                            | <ul><li> 보안 및 규정 준수</li></ul>                                 | 무료<br> 독립 실행형<br>&nbsp;노드당&nbsp;(OMS)                                                                           | 2017년 6월 19일 이후 보안 및 규정 준수 솔루션을 추가할 경우 작업 영역 가격 책정 계층에 관계 없이 [노드당 비용이 청구됩니다](https://azure.microsoft.com/pricing/details/security-compliance/). 처음 60일 동안 무료로 사용할 수 있습니다.  |
+| [맬웨어 평가](log-analytics-malware.md)                                            | <ul><li>보안 및 규정 준수</li></ul>                                 | 무료<br> 독립 실행형<br>&nbsp;노드당&nbsp;(OMS)                                                                           | 2017년 6월 19일 이후 보안 및 규정 준수 솔루션을 추가할 경우 작업 영역 가격 책정 계층에 관계 없이 [노드당 비용이 청구됩니다](https://azure.microsoft.com/pricing/details/security-compliance/). 처음 60일 동안 무료로 사용할 수 있습니다.  |
 | [네트워크 성능 모니터](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | |
 | [Office 365 분석(미리 보기)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
 | [보안 및 감사](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>보안&nbsp;및&nbsp;규정 준수</li></ul>                       | 무료<br> 독립 실행형<br>&nbsp;노드당&nbsp;(OMS)                                                                           | 보안 이벤트 로그를 수집하려면 이 솔루션이 필요<br>2017년 6월 19일 이후 보안 및 규정 준수 솔루션을 추가할 경우 작업 영역 가격 책정 계층에 관계 없이 [노드당 비용이 청구됩니다](https://azure.microsoft.com/pricing/details/security-compliance/). 처음 60일 동안 무료로 사용할 수 있습니다. |
@@ -143,8 +143,8 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 | AD 평가 |Windows |&#8226; |&#8226; |  |  |&#8226; |7 일 |
 | AD 복제 상태 |Windows |&#8226; |&#8226; |  |  |&#8226; |5일 |
 | 에이전트 상태 | Windows 및 Linux | &#8226; | &#8226; |   |   | &#8226; | 1분 |
-| 경고 관리(Nagios) | Linux |&#8226; |  |  |  |  |도착 시 |
-| 경고 관리(Zabbix) | Linux |&#8226; |  |  |  |  |1분 |
+| 경고 관리(Nagios) |Linux |&#8226; |  |  |  |  |도착 시 |
+| 경고 관리(Zabbix) |Linux |&#8226; |  |  |  |  |1분 |
 | 경고 관리(Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3분 |
 | Application Insights 커넥터(미리 보기) | Azure |   |   |   |   |   | 알림 시 |
 | Azure Application Gateway 분석 | Azure |   |   |   |   |   | 알림 시 |
@@ -161,7 +161,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 | SurfaceHub |Windows |&#8226; |  |  |  |  |도착 시 |
 | System Center Operations Manager 평가(미리 보기) | Windows | &#8226; | &#8226; |   |   | &#8226; | 7일 |
 | Analytics 업그레이드(미리 보기) | Windows | &#8226; |   |   |   |   | 2일 |
-| VMware 모니터링(미리 보기) |  Linux | &#8226; |   |   |   |   | 3분 |
+| VMware 모니터링(미리 보기) | Linux | &#8226; |   |   |   |   | 3분 |
 | 실시간 데이터 |Windows(2012 R2/8.1 이상) |&#8226; |&#8226; |  |  |  | 1분 |
 
 
@@ -171,7 +171,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | 해당 없음 |
 | 변경 내용 추적 |Windows |&#8226; |&#8226; |  |  |&#8226; |매시간 |
-| 변경 내용 추적 | Linux |&#8226; |  |  |  |  |매시간 |
+| 변경 내용 추적 |Linux |&#8226; |  |  |  |  |매시간 |
 | 업데이트 관리 | Windows |&#8226; |&#8226; |  |  |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
 
 ### <a name="security--compliance"></a>보안 및 규정 준수
@@ -209,8 +209,8 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 | ETW |Windows |  |  |&#8226; |  |  |5분 |
 | IIS 로그 |Windows |&#8226; |&#8226; |&#8226; |  |  |5분 |
 | 성능 카운터 |Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
-| 성능 카운터 | Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
-| syslog | Linux |&#8226; |  |  |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
+| 성능 카운터 |Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
+| syslog |Linux |&#8226; |  |  |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
 | Windows 보안 이벤트 로그 |Windows |&#8226; |&#8226; |&#8226; |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
 | Windows 방화벽 로그 |Windows |&#8226; |&#8226; |  |  |  |도착 시 |
 | Windows 이벤트 로그 |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |Azure 저장소: 10분, 에이전트: 도착 시 |

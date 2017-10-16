@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 5aa47b4b12dc136a3f6ba66688804859f9eb5446
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Hadoop으로 Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -129,7 +128,6 @@ curl 관련 기타 HDInsight 문서:
 * [REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행](hdinsight-hadoop-use-hive-curl.md)
 * [REST를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업 실행](hdinsight-hadoop-use-mapreduce-curl.md)
 * [cURL을 사용하여 HDInsight에서 Hadoop과 Pig 작업 실행](hdinsight-hadoop-use-pig-curl.md)
-
 
 
 

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>IoT Hub 장치 프로비전 서비스에서 장치 등록을 관리하는 방법
 
 *장치 등록*은 특정 시점에 Azure IoT Hub 장치 프로비전 서비스에 등록할 수 있는 단일 장치 또는 장치 그룹의 레코드를 만듭니다. 등록 레코드에는 원하는 IoT Hub를 포함하여 해당 등록의 일부로 해당 장치에 대한 초기 원하는 구성을 포함합니다. 이 문서에서는 프로비전 서비스에 대한 장치 등록을 관리하는 방법을 보여줍니다.
@@ -76,7 +74,6 @@ ms.lasthandoff: 09/06/2017
 5. 작업이 완료되면 장치 등록의 목록에서 제거된 항목이 표시됩니다. 
  
     ![포털에서 등록 제거](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
 

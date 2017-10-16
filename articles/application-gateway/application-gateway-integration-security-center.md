@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
 
 Application Gateway와 Security Center에서 웹 응용 프로그램 리소스를 보호하는 방법에 대해 알아봅니다. Application Gateway WAF(웹 응용 프로그램 방화벽)는 [Security Center](../security-center/security-center-intro.md)와 통합되어 사용자 환경에서 보호되지 않는 웹 응용 프로그램에 대한 위협을 방지, 검색 및 대응할 수 있는 완벽한 보기를 제공합니다.

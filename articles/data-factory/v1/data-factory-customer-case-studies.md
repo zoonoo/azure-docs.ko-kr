@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Data Factory - 고객 사례 연구 | Microsoft Docs"
 description: "고객들이 Azure 데이터 팩터리를 어떻게 사용하고 있는지 알아봅니다."
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1868e4b96f3d062de1efb7c56c86aae3b0de9097
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 고객 사례 연구
 데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다.  고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.
@@ -49,4 +47,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
 [매일 수억 개의 게임 이벤트를 분석하여 장엄한 Xbox 환경 제공](https://customers.microsoft.com/en-us/story/xboxunlimited)
-

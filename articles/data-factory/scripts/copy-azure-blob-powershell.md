@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ad97a40c5c12aa5a8f69a8d56750bd6f39725be0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>PowerShell을 사용하여 데이터 팩터리 파이프라인을 만들어 클라우드의 데이터 복사
 
 이 샘플 PowerShell 스크립트는 Azure Cosmos DB API 계정을 만듭니다. 
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/25/2017
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
-리소스 그룹에서 데이터 팩터리를 제거 하려면 다음 명령을 실행합니다. 
+리소스 그룹에서 Data Factory를 제거하려면 다음 명령을 실행합니다. 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<resource group name>"

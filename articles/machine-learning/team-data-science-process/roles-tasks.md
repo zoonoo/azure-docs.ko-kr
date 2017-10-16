@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
 
 Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 빌드하는 구조적 방법론을 제공합니다. 이 문서에서는 이 프로세스를 표준화하는 데이터 과학 팀의 주요 인력 역할 및 관련 작업을 설명합니다. 
@@ -134,9 +132,9 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명 링크입니다.
+다음은 Team Data Science Process에서 정의한 역할 및 작업에 대한 자세한 설명으로 연결되는 링크입니다.
 
 - [데이터 과학 팀에 대한 그룹 관리자 작업](group-manager-tasks.md)
 - [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)
 - [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)
-- [데이터 과학 팀에 대한 프로젝트 개별 참가자](project-ic-tasks.md)
+- [데이터 과학 팀에 대한 프로젝트 개별 참가자 작업](project-ic-tasks.md)

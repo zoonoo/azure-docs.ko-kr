@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning 서비스 보안 개념 
 
 IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다. 이 문서는 장치 프로비전과 관련된 *보안* 개념의 개요를 제공합니다. 이 문서는 배포를 위한 장치 준비에 관련된 모든 사람에게 적합합니다.
@@ -67,4 +65,3 @@ TPM은 플랫폼을 인증하는 데 사용되는 키를 안전하게 저장하�
 ## <a name="leaf-certificate"></a>리프 인증서
 
 리프 인증서 또는 최종 엔터티 인증서는 인증서 소유자를 식별하는 데 사용되며 해당 인증서 체인의 루트 인증서를 갖습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다.
-

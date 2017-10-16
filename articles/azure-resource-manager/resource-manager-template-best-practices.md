@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 생성 모범 사례
 이 지침은 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 됩니다. 지침은 제안 사항일 뿐입니다. 명시된 경우를 제외하고 필수 사항은 아닙니다. 사용자 시나리오에서는 다음 방법 또는 예제 중 하나를 변형해야 할 수 있습니다.

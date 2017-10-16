@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-columns-by-example-transformation"></a>예제별 열 결합 변환
 이 변환을 사용하여 여러 열의 값을 결합하여 새 열을 추가할 수 있습니다. 사용자는 이 변환을 수행하기 위해 구분 기호를 지정하거나 결합된 값 예제를 제공할 수 있습니다. 사용자가 결합 예제를 제공하면, **예제별 열 파생** 변환에서 사용된 것과 같은 **By-Example** 엔진을 사용하여 변환이 처리됩니다.
 
@@ -64,7 +62,7 @@ ms.lasthandoff: 09/25/2017
 
 **굵게** 표시한 값은 예제로 제공되었습니다.
 
-|Date|월|Year|Hour|분|Second|결합된 열|
+|Date|월|Year|Hour|분|초|결합된 열|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|Oct|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
 |16|Oct|2016|16|22|33|16-Oct-2016 15:01:33 PDT|
@@ -74,5 +72,4 @@ ms.lasthandoff: 09/25/2017
 |16|Jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
 |23|Mar|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
 |16|Apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
-
 

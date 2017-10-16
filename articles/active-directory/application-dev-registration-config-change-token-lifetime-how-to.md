@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 54c30123bb582f515dfb0324cdfd897a6c4af5c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 토큰 수명 기본값을 변경하는 방법
 
 Azure AD Premium을 사용하면 앱 개발자 및 테넌트 관리자가 기밀이 아닌 클라이언트에 대해 발급된 토큰의 수명을 구성할 수 있습니다. 토큰 수명 정책은 테넌트 전체 또는 액세스 중인 리소스에 설정됩니다.
@@ -38,5 +35,4 @@ Azure AD Premium을 사용하면 앱 개발자 및 테넌트 관리자가 기밀
 [토큰 수명 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
 [Azure AD 토큰 참조](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
-
 

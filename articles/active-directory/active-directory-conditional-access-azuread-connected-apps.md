@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 1dd3088137b5bd4ff3407c5e5735d93de373ecd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스 시작
 [SaaS](https://azure.microsoft.com/overview/what-is-saas/) 앱과 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액세스는 그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스를 구성할 수 있습니다. 
@@ -87,5 +86,4 @@ ms.lasthandoff: 12/29/2016
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
 

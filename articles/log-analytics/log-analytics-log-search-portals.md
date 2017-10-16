@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte; bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털 | Microsoft Docs
 
@@ -47,5 +46,4 @@ Log Analytics를 통해 다양한 장소에서 로그 검색을 사용하여 작
 
 - 쿼리 언어를 사용하여 쿼리를 작성하는 방법은 [로그 검색](log-analytics-tutorial-viewdata.md) 사용에 대한 자습서를 살펴보세요.
 - 복잡한 쿼리를 작성하고 로그 검색을 위한 개발 환경으로 사용하려면 [고급 분석 포털](https://go.microsoft.com/fwlink/?linkid=856587)을 확인하세요.
-
 

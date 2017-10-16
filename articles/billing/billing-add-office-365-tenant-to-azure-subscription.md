@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Azure 구독에 Office 365 테넌트 연결
 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 별도 Azure 및 Office 365 구독을 연결합니다. 구독을 연결하려면 Azure 서비스 관리자 계정으로 Azure에 로그인하고 디렉터리를 추가한 다음 Azure Active Directory 테넌트에 Office 365 직장 또는 학교 계정을 추가합니다.
@@ -94,5 +93,4 @@ Azure 구독에 관리자를 추가하려면 [구독 또는 서비스를 관리�
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
 

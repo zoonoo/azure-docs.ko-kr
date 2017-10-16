@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
@@ -114,5 +113,4 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 **Microsoft가 사용자의 대회 솔루션 및 응모작을 보관하나요?**
 
 사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions) 을 참조하세요.
-
 

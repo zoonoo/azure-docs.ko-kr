@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅
 
 Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. [Azure Portal](https://portal.azure.com)에서는 이러한 메트릭의 집계 보기를 제공합니다. 보다 세부적인 메트릭을 위해 클라이언트 SDK와 [진단 로그](./logging.md) 둘 다를 사용할 수 있습니다.
@@ -101,4 +99,3 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 * [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)
 * [Azure Cosmos DB에 대한 성능 팁](performance-tips.md)
-

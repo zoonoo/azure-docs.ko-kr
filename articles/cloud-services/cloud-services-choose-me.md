@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>클라우드 서비스 또는 다른 항목을 선택해야 합니까?
 Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각은 다양한 서비스 세트를 제공하므로 정확히 무엇을 수행하고자 하는지에 따라 선택 항목이 달라집니다.
@@ -63,5 +62,4 @@ IIS를 사용하지 않고 앱을 독립 실행형으로 실행합니다.
 [Node.js로 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md)  
 [PHP로 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md)  
 [Python에서 클라우드 서비스 앱 만들기](cloud-services-python-ptvs.md)
-
 

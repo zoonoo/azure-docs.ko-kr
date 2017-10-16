@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-application-insights-profiler-on-an-azure-cloud-services-resource"></a>Azure Cloud Services 리소스에서 Application Insights Profiler를 사용하도록 설정
 
 이 연습에는 Azure Cloud Services 리소스에서 호스트되는 ASP.NET 응용 프로그램에서 Azure Application Insights Profiler를 사용하도록 설정하는 방법을 보여 줍니다. 예제에는 Azure Virtual Machines, 가상 컴퓨터 확장 집합 및 Azure Service Fabric에 대한 지원이 포함됩니다. 예제는 모두 Azure Resource Manager 배포 모델을 지원하는 템플릿이 필요합니다. 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](/azure-resource-manager/resource-manager-deployment-model)를 검토하세요.
@@ -289,4 +287,3 @@ Commenting out these sections for now
 - [프로파일러 문제 해결](app-insights-profiler.md#troubleshooting)에서 프로파일러 문제 해결에 대한 도움말을 찾아 보세요.
 
 - [Application Insights Profiler](app-insights-profiler.md)에서 프로파일러에 대해 자세히 읽어보세요.
-

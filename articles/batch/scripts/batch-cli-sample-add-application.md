@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Azure CLI를 사용하여 응용 프로그램을 Azure Batch에 추가
 
 이 스크립트는 Azure Batch 풀 또는 작업에 사용할 응용 프로그램을 설정하는 방법을 보여 줍니다. 응용 프로그램을 설정하려면 실행 파일을 해당 종속성과 함께 .zip 파일로 패키지로 만듭니다. 이 예제에서는 실행 가능한 zip 파일을 'my-application-exe.zip'이라고 합니다.
@@ -33,7 +31,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/batch/add-application/add-application.sh "응용 프로그램 추가")]
+[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
 ## <a name="clean-up-application"></a>응용 프로그램 정리
 
@@ -60,4 +58,3 @@ az batch application delete -g myresourcegroup -n mybatchaccount --application-i
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 Batch CLI 스크립트 샘플은 [Azure Batch CLI 설명서](../batch-cli-samples.md)에서 확인할 수 있습니다.
-

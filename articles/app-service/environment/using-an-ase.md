@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -49,7 +48,7 @@ ASE가 없는 경우 [App Service Environment 만들기][MakeExternalASE]의 지
 
 ASE에서 웹앱을 만들려면:
 
-1. **새로 만들기** > **웹 + 모바일** > **웹앱** 을 선택합니다.
+1. **새로 만들기**  > **웹 + 모바일** > **웹앱**을 선택합니다.
 
 2. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
 
@@ -180,4 +179,3 @@ ASE를 삭제하려면 다음을 수행합니다.
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
-

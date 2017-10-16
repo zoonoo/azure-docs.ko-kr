@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>데이터 과학 가상 컴퓨터 (DSVM)의 샘플
 
 DSVM은 Jupyter 노트북 형식의 아주 잘 작동하는 샘플과 Jupyter 기반이 아닌 샘플을 포함하여 제공합니다. 바탕화면 또는 응용 프로그램 메뉴에서 `Jupyter` 아이콘을 클릭하여 Jupyter를 액세스할 수 있습니다.  
@@ -106,5 +103,4 @@ DSVM에 로그인할 때와 동일한 암호를 사용하여 로그인합니다.
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![XGBoost 샘플](./media/xgboost-samples.png)<br/>
-
 

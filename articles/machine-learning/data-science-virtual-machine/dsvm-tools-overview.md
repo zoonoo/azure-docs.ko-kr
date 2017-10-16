@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c6948447ea7bfa6219bf70d46d14f82724fa0c60
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터에 대해 알아보기
 
@@ -38,4 +37,3 @@ DSVM에 포함된 도구, 플랫폼, 유틸리티 및 샘플은 다음 섹션으
 6. **[데이터 탐색 및 시각화 도구](dsvm-tools-explore-and-visualize.md)**
 7. **[데이터 플랫폼](dsvm-data-platforms.md)**
 8. **[샘플 및 연습](dsvm-samples-and-walkthroughs.md)**
-

@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침
 이 문서에서는 Windows Server AD DS(Active Directory 도메인 서비스) 및 AD FS(Active Directory Federation Services) 온-프레미스 배포와 Microsoft Azure 가상 컴퓨터에 배포 간의 중요한 차이점을 설명합니다.

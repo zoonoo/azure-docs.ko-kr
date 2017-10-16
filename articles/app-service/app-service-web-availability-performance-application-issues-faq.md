@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 990215d9e82b67256363ff195d2af9a91dc0706a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 응용 프로그램 성능 FAQ
 
@@ -190,4 +189,3 @@ App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>내 App Service 웹앱을 원격 디버그하는 데 Visual Studio를 사용하려면 어떻게 해야 하나요?
 
 Visual Studio를 사용하여 웹앱을 디버그하는 방법을 보여 주는 자세한 연습은 [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/)(App Service 웹앱 원격 디버그)을 참조하세요.
-

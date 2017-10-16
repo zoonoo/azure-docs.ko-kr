@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
 ms.openlocfilehash: da567097be38ac649c6bf1de1508de24d21cb877
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성 
 이 문서에서는 가상 컴퓨터와 같은 리소스를 Azure에 프로비전하기 위해 Terraform를 설치 및 구성하는 필수 단계를 설명합니다. Azure 자격 증명을 만들고 사용하여 Terraform에서 클라우드 리소스를 안전하게 프로비전하도록 하는 방법에 대해 알아봅니다.

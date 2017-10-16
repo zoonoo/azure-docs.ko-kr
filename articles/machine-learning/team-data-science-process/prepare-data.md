@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>확장된 기계 학습을 위한 데이터 준비 작업
 데이터 전처리 및 정리는 일반적으로 기계 학습에 데이터 집합을 효과적으로 사용할 수 있기 전에 수행해야 하는 중요한 작업입니다. 원시 데이터는 노이즈가 많고, 불안정하고, 값이 누락된 경우가 종종 있습니다. 이러한 데이터를 모델링에 사용하면 결과가 잘못될 수 있습니다. 이러한 작업은 TDSP(팀 데이터 과학 프로세스)의 일부이며 일반적으로 필요한 전처리를 검색하고 계획하는 데 사용되는 데이터 집합의 초기 탐색을 수행합니다. TDSP 프로세스에 대한 자세한 지침은 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에 설명된 단계를 참조하세요.
@@ -102,10 +102,4 @@ Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전
 > *데이터 마이닝: 개념 및 기술*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber 및 Jian Pei
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

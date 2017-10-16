@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
@@ -99,4 +98,3 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 * [Resource Manager 템플릿을 사용하여 다중 VM 환경 및 PaaS 리소스를 만듭니다](devtest-lab-create-environment-from-arm.md). 그런 다음 개인 리포지토리에 템플릿을 저장할 수 있습니다.
 
 VM을 만드는 경우 Git 리포지토리에 아티팩트 또는 템플릿이 추가되었는지 확인할 수 있습니다. 아티팩트 또는 템플릿 목록에서 즉시 사용할 수 있습니다. 사용자의 개인 리포지토리 이름은 원본을 지정하는 열에 표시됩니다. 
-

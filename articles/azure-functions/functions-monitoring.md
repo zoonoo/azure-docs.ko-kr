@@ -15,14 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
 ## <a name="overview"></a>개요 
@@ -456,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>종속성
 
-종속성이 자동으로 표시되지는 않지만 종속성을 표시하는 사용자 지정 코드를 작성할 수 있습니다. [C# 사용자 지정 원격 분석 섹션](#create-custom-telemetry-data-in-c-function-code)의 샘플 코드에 방법이 나와 있습니다. 샘플 코드의 결과는 다음과 같은 Application Insights의 *응용 프로그램 맵*입니다.
+종속성이 자동으로 표시되지는 않지만 종속성을 표시하는 사용자 지정 코드를 작성할 수 있습니다. [C# 사용자 지정 원격 분석 섹션](#custom-telemetry-in-c-functions)의 샘플 코드에 방법이 나와 있습니다. 샘플 코드의 결과는 다음과 같은 Application Insights의 *응용 프로그램 맵*입니다.
 
 ![응용 프로그램 맵](media/functions-monitoring/app-map.png)
 
@@ -521,4 +519,3 @@ PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
 > [!div class="nextstepaction"]
 > [Functions에서 사용하는 로깅 프레임워크 자세히 알아보기](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
-

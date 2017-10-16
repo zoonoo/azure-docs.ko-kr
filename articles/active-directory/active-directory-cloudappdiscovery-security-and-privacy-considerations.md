@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
 이 항목에서는 Azure Active Directory Cloud App Discovery 내에서 데이터 수집, 처리 및 보안 방법에 대해 설명합니다. Microsoft는 사용자의 개인 정보를 보호하고 데이터를 보호하기 위해 최선을 다하고 있습니다. Microsoft는 서비스 운영을 위한 안전한 소프트웨어 개발 주기 사례를 준수하고 있습니다. 데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
@@ -160,5 +159,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 ## <a name="additional-resources"></a>추가 리소스
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
 

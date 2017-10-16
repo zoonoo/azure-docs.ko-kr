@@ -9,14 +9,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d4ba2ca6f7adc8b51030c02d9e9eeb2b9995bb4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - 개념
 
 이 문서에서는 Azure Machine Learning을 사용하기 위해 알고 있어야 할 개념을 정의하고 설명합니다. 
@@ -58,4 +56,3 @@ ms.lasthandoff: 09/25/2017
 - **이미지:** 매니페스트를 사용하여 Docker 이미지를 생성 및 다시 생성할 수 있습니다. 컨테이너화된 Docker 이미지는 클라우드, 로컬 컴퓨터 또는 IoT 장치에서 실행할 수 있는 유연성을 제공합니다. 이미지는 자체적으로 포함되며, 모델을 사용하여 새 데이터의 점수를 매기는 데 필요한 모든 종속성을 포함합니다. 
 
 - **서비스:** 모델 관리를 사용하면 모델을 웹 서비스로 배포할 수 있습니다. 웹 서비스 논리와 종속성은 이미지로 캡슐화됩니다. 각 웹 서비스는 지정된 URL에 대한 요청을 처리할 준비가 된 이미지를 기반으로 하는 컨테이너 집합입니다. 웹 서비스는 단일 배포로 간주됩니다.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9eacb57b5a00ff11739695ed3311be0c638ba25f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell 기능 및 도구
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -39,11 +37,11 @@ Azure Cloud Shell의 PowerShell은 Microsoft Azure PowerShell에 대한 계정 �
 
 ### <a name="files-persistence-across-sessions"></a>여러 세션에 걸친 파일 지속성
 
-세션 간에 파일을 유지하기 위해 Azure Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
+세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
 작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 저장소(`$home\clouddrive`로 장착됨)를 자동으로 연결합니다.
 Azure Cloud Shell에 대한 요청은 제각기 임시 컴퓨터를 할당하므로 `$home\clouddrive` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 유지되지 않습니다.
 
-[Azure 파일 공유를 Azure Cloud Shell에 연결하는 방법에 대해 자세히 알아봅니다.](persisting-shell-storage-powershell.md)
+[Azure 파일 공유를 Cloud Shell에 연결하는 방법에 대해 자세히 알아봅니다.](persisting-shell-storage-powershell.md)
 
 ### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
@@ -91,7 +89,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 ## <a name="tools"></a>도구
 
-|**범주**    |**name**                                 |
+|**범주**    |**Name**                                 |
 |----------------|-----------------------------------------|
 |Azure 도구     |[Azure PowerShell(4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
 |텍스트 편집기    |vim<br> nano                             |
@@ -113,4 +111,3 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 [Azure Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md) <br>
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/)
-

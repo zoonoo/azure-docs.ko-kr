@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/30/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1f646016158c212747d7f9841449c348b41f9a15
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Data Lake Store의 데이터에 대한 재해 복구 가이드
 
@@ -46,5 +45,4 @@ Azure Data Lake Store가 자동화된 복제본을 통해 데이터 복원력을
 ## <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Deep Learning Virtual Machine 소개
 
 ## <a name="why-deep-learning-virtual-machine"></a>Deep Learning Virtual Machine을 사용하는 이유 
@@ -39,5 +37,4 @@ Deep Learning Virtual Machine을 시작하려면 다음 단계를 따릅니다.
 * [Deep Learning Virtual Machine 프로비전](provision-deep-learning-dsvm.md)
 * [Deep Learning Virtual Machine 사용](use-deep-learning-dsvm.md)
 * [ 도구 참조](dsvm-deep-learning-ai-frameworks.md)
-* [샘플 ](dsvm-samples-and-walkthroughs.md)
-
+* [샘플](dsvm-samples-and-walkthroughs.md)

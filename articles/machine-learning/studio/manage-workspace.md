@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f90234bdd5c917a502d24cd16256bc11c7fbed0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Azure 기계 학습 작업 영역 관리
 
@@ -136,5 +135,4 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 * **설명** 웹 서비스에 대한 설명을 입력할 수 있습니다. 설명은 필수 필드입니다.
 * **로깅** 오류 끝점에 대한 로깅을 사용하거나 사용하지 않도록 설정할 수 있습니다. 로깅에 대한 자세한 내용은 [Machine Learning 웹 서비스에 대한 로깅 사용](web-services-logging.md)을 참조하세요.
 * **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. 기계 학습 스튜디오에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
-
 

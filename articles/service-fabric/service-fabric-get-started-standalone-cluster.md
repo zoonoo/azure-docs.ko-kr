@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
 ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>첫 번째 Service Fabric 독립 실행형 클러스터 만들기
 온-프레미스 또는 클라우드에 Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 컴퓨터나 가상 컴퓨터에 Service Fabric 독립 실행형 클러스터를 만들 수 있습니다. 이 빠른 시작을 통해 몇 분만에 독립 실행형 개발 클러스터를 만들 수 있습니다.  작업을 완료하면 앱을 배포할 수 있는 단일 컴퓨터에 3개 노드 클러스터가 실행 중입니다.

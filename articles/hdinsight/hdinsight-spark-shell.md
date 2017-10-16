@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
 ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Spark 셸에서 Spark 실행
 
@@ -35,7 +34,7 @@ SSH를 사용하여 클러스터의 주 헤드 노드에 연결하여 HDInsight�
 
 Azure Portal에서 클러스터에 대한 전체 SSH 명령을 얻을 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. HDInsight Spark 클러스터에 대한 창으로 이동합니다.
 3. SSH(Secure Shell)를 선택합니다.
 
@@ -79,5 +78,4 @@ Spark 셸 명령(`spark-shell`, `pyspark` 또는 `sparkR`)은 여러 명령줄 �
 - 개요는 [Azure HDInsight의 Spark 소개](hdinsight-apache-spark-overview.md)를 참조하세요.
 - Spark 클러스터 및 SparkSQL을 사용하려면 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 - Spark로 스트리밍 데이터를 처리하는 응용 프로그램을 작성하려면 [Spark 구조적 스트리밍이란?](hdinsight-spark-streaming-overview.md)을 참조하세요.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure 기계 학습의 새로운 기능
 
@@ -53,5 +52,4 @@ ms.lasthandoff: 09/25/2017
 * 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(일괄 처리 실행 서비스) 테스트 페이지를 제공합니다.
 
 또한 새 웹 서비스 모델에 배포하거나 기존 웹 서비스 모델에 계속해서 배포할 수 있도록 Machine Learning 스튜디오가 업데이트되었습니다. 
-
 
