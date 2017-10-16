@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 77cf65930a6d622e54395dd563901977c9d76170
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Teradata에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +36,7 @@ Teradata 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 특히 이 Teradata 커넥터는 다음을 지원합니다.
 
 - Teradata **버전 12 이상**
-- **기본** 또는 **Windows** 인증을 사용하여 데이터 복사
+- **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -126,7 +125,7 @@ Teradata에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 집합의 "tableName"이 지정된 경우) |
 
 **예제:**

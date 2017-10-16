@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Azure Portal을 사용하여 리소스 정책 할당 및 관리
 Azure Portal에서는 리소스 그룹 및 구독에 리소스 정책을 할당할 수 있습니다. 사용자 인터페이스를 사용하면 할당하려는 정책을 쉽게 선택하고, 해당 정책의 매개 변수 값을 지정하여 정책 설정을 사용자 지정할 수 있습니다. 

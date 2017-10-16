@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Azure CLI 2.0에서 경로 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -100,7 +99,7 @@ az network application-gateway http-listener create --name imageListener --front
 > [!IMPORTANT]
 > 각 경로는 "/"로 시작해야 하며 별표는 경로 끝에만 추가할 수 있습니다. 사용 가능한 예는 /xyz, /xyz* 또는 /xyz/*입니다. 경로 검사기에 제공하는 문자열은 "?" 또는 "#"으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다. 
 
-다음 예제에서는 백 엔드 **imagesBackendPool**로 트래픽을 라우팅하는 "/images/*" 경로용 규칙 하나를 만듭니다. 이 규칙을 통해 각 URL 집합에 대한 트래픽이 백 엔드로 라우팅됩니다. 예를 들어 http://adatum.com/images/figure1.jpg는 **imagesBackendPool**로 이동합니다. 또한 경로가 미리 정의된 경로 규칙과 일치하지 않으면 규칙 경로 맵 구성은 기본 백 엔드 주소 풀을 구성합니다. 예를 들어 http://adatum.com/shoppingcart/test.html은 일치하지 않는 트래픽에 대한 기본 풀로 정의된 **pool1**로 이동합니다.
+다음 예제에서는 백 엔드 **imagesBackendPool** 로 트래픽을 라우팅하는 /images/\* 경로용 규칙 하나를 만듭니다. 이 규칙을 통해 각 URL 집합에 대한 트래픽이 백 엔드로 라우팅됩니다. 예를 들어 http://adatum.com/images/figure1.jpg는 **imagesBackendPool** 로 이동합니다. 또한 경로가 미리 정의된 경로 규칙과 일치하지 않으면 규칙 경로 맵 구성은 기본 백 엔드 주소 풀을 구성합니다. 예를 들어 http://adatum.com/shoppingcart/test.html은 일치하지 않는 트래픽에 대한 기본 풀로 정의된 **pool1** 로 이동합니다.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -124,4 +123,3 @@ SSL(Secure Sockets Layer) 오프로드에 대해 알아보려는 경우 [SSL 오
 [1]: ./media/application-gateway-create-url-route-cli/figure1.png
 [2]: ./media/application-gateway-create-url-route-cli/figure2.png
 [3]: ./media/application-gateway-create-url-route-cli/figure3.png
-

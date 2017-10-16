@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>이 미리 보기에 지원되는 검사기
 이 문서에서는 이 미리 보기에서 사용할 수 있는 검사기 집합을 간략하게 설명합니다.
 
@@ -113,4 +111,3 @@ X-축에서 시간을 인식하는 선 그래프
 ### <a name="actions"></a>작업
 이 검사기는 맵에서 지점 선택을 통한 필터링을 지원합니다. Ctrl 키를 누른 채 클릭하고 지점 주변의 정사각형 형태로 마우스로 끌어옵니다. 그런 다음 앞에서 설명한 대로 필터를 적용합니다.
 가능한 모든 지점이 표시되도록 맵의 크기를 신속하게 조정할 수 있으며 더 이상 맵 왼쪽의 **E** 키를 누르지 않아도 됩니다.
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 저장소 보안 가이드
 ## <a name="overview"></a>개요
@@ -275,7 +274,7 @@ Azure 파일 공유는 UNIX에서 사용할 수 있지만 Linux SMB 클라이언
 
   이 문서에서는 Azure 파일 공유에 대해 대략적으로 설명하고 Windows에서 이 기능을 탑재하고 사용하는 방법을 설명합니다.
 
-* [Linux에서 Azure Files를 사용하는 방법](../files/storage-how-to-use-files-linux.md)
+* [Linux에서 Azure Files 사용 방법](../files/storage-how-to-use-files-linux.md)
 
   이 문서에서는 Linux 시스템에 Azure 파일 공유를 마운트하고 파일을 업로드/다운로드하는 방법을 보여 줍니다.
 
@@ -518,7 +517,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 
    **리소스**
 
-* [“FIPS 모드”를 더 이상 권장하지 않는 이유](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [“FIPS 모드”를 더 이상 권장하지 않는 이유](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   이 블로그 문서에서는 FIPS의 개요를 제공하고 기본적으로 FIPS 모드를 사용하지 않는 이유를 설명합니다.
 * [FIPS 140 유효성 검사(영문)](https://technet.microsoft.com/library/cc750357.aspx)
@@ -527,4 +526,3 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과](https://support.microsoft.com/kb/811833)
 
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Azure 자동화를 사용하여 Azure 저장소 관리
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure 저장소 blob, 테이블 및 큐 관리를 간소화하는 방법을 소개합니다.

@@ -16,10 +16,10 @@ ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>v2.0 인증 프로토콜에 대한 중요 업데이트
 개발자들은 주목하세요! 앞으로 2주 동안 v2.0 인증 프로토콜에 대해 몇 가지 업데이트를 수행할 예정이며, 이는 미리보기 기간 동안 작성한 앱에 대해 상당한 변화를 가져올 수 있습니다.  

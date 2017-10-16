@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
 Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 앱은 Azure, Sovereign Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
@@ -182,4 +180,3 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 이렇게 하려면 **도움말** 메뉴를 클릭한 다음 **피드백 보내기**를 클릭합니다.
 
 ![사용자 의견](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-

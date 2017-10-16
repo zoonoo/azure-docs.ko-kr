@@ -12,12 +12,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 614193fd61f976c61ef0de8be14c7bc55d7c28da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>다른 Azure 지역에 Azure VM 복제(미리 보기)
 
@@ -74,4 +73,3 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 > [!div class="nextstepaction"]
 > [Azure VM에 대해 재해 복구 구성](azure-to-azure-tutorial-enable-replication.md)
-

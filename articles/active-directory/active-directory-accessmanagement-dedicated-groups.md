@@ -16,12 +16,11 @@ ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Azure Active Directory의 전용 그룹
 Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 정의된 그룹에 대한 멤버 자격을 자동으로 만들고 채웁니다. 전용 그룹의 멤버를 Azure 클래식 포털, Windows PowerShell cmdlet 또는 프로그래밍 방식으로 추가하거나 제거할 수 없습니다.
@@ -61,4 +60,3 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory란?](active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

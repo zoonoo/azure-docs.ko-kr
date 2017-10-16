@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭 검토
 
@@ -84,9 +83,9 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
 예를 들어 BizTalk 서비스에서 저장소 계정의 새로운 기본 키를 사용할 수 있습니다. 다음을 수행합니다.
 <br/><br/>
 <ol>
-<li>[BizTalk Service]를 선택하고 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
+<li>BizTalk Service를 선택하고 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
 <li>Azure 클래식 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
-<li>[BizTalk Service]를 선택하고 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
+<li>BizTalk Service를 선택하고 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
 <li>Azure 클래식 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
 </ol>
 <br/>
@@ -134,7 +133,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 <tr>
 <td><strong>서비스 URL</strong></td>
-<td>BizTalk 서비스의 URL입니다. 이는 [BizTalk Service]를 만들 때 입력한 <strong>도메인 URL</strong>과 동일합니다.</td>
+<td>BizTalk 서비스의 URL입니다. 이는 BizTalk Service를 만들 때 입력한 <strong>도메인 URL</strong>과 동일합니다.</td>
 </tr>
 <tr>
 <td><strong>공용 VIP(가상 IP) 주소</strong></td>
@@ -206,9 +205,9 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 예를 들어 BizTalk 서비스에서 저장소 계정의 새로운 기본 키를 사용할 수 있습니다. 다음을 수행합니다.
 <br/><br/>
 <ol>
-<li>[BizTalk Service]를 선택하고 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
+<li>BizTalk Service를 선택하고 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
 <li>Azure 클래식 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
-<li>[BizTalk Service]를 선택하고 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
+<li>BizTalk Service를 선택하고 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
 <li>Azure 클래식 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
 </ol>
 <br/>
@@ -352,5 +351,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>저장소 계정에 리소스 정책 적용
 이 항목에서는 Azure Storage 계정에 적용할 수 있는 몇 가지 [리소스 정책](resource-manager-policy.md)을 보여 줍니다. 이러한 정책을 통해 조직에 배포된 저장소 계정에 대한 일관성을 보장합니다. 

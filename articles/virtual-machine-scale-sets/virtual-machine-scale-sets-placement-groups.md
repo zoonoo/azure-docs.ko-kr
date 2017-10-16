@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/1/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 Virtual Machine Scale Sets와 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)를 만들 수 있습니다. 이 문서에서는 _대규모 가상 컴퓨터 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
@@ -85,6 +84,5 @@ Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만�
 
 >[!NOTE] 
 단일 배치 그룹만 지원하는 것(기본 동작)에서 여러 배치 그룹을 지원하도록 확장 집합을 변경할 수 있지만 그 반대로는 변환할 수 없습니다. 따라서 변환하기 전에 대규모 확장 집합의 속성을 이해해야 합니다. 특히, Azure Load Balancer를 사용한 계층 4 부하 분산이 필요하지 않는지 확인합니다.
-
 
 

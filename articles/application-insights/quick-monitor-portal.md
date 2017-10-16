@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 5c7e4f876165752824dab2ab8d0c7ecd44864710
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 응용 프로그램 모니터링 시작
 
 Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성, 성능 및 사용량을 손쉽게 모니터링할 수 있습니다.  또한 사용자 보고를 기다리지 않고 응용 프로그램에서 오류를 신속하게 식별하고 진단할 수 있습니다.  앱의 성능 및 효율성에 대한 Application Insights에서 수집하는 정보를 사용하면 응용 프로그램을 유지 관리하고 개선하는 데 더 많은 정보를 갖고 선택할 수 있습니다.

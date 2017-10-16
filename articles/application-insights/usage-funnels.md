@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Application Insights Funnels를 사용하여 고객이 응용 프로그램을 사용하는 방법 검색
 
 고객 환경을 이해하는 것이 비즈니스에 가장 중요합니다. 응용 프로그램이 여러 단계와 관련된 경우, 고객 대부분이 전체 프로세스를 거치는지 아니면 특정 시점에서 프로세스를 종료하는지를 알아야 합니다. 웹 응용 프로그램에서 일련의 단계를 거치는 것을 “깔때기”라고 합니다. Application Insights Funnels를 사용하여 사용자에 대한 정보를 얻고 단계별 전환율을 모니터링할 수 있습니다. 
@@ -50,4 +48,3 @@ Funnels에 대해 알아보는 가장 쉬운 방법은 예제를 살펴보는 �
   * [보존](app-insights-usage-retention.md)
   * [통합 문서](app-insights-usage-workbooks.md)
   * [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
-

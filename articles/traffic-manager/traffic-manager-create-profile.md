@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
 이 문서에서는 사용자를 두 Azure Web Apps 끝점으로 라우팅하도록 **우선 순위** 라우팅 형식을 사용하는 프로필을 만드는 방법을 설명합니다. **우선 순위** 라우팅 형식을 사용하면 두 번째 끝점은 백업으로 유지되는 동안 첫 번째 끝점으로 모든 트래픽이 라우팅됩니다. 결과적으로, 첫 번째 끝점이 비정상 상태가 되면 사용자는 두 번째 끝점으로 라우팅될 수 있습니다.
@@ -73,7 +71,6 @@ ms.lasthandoff: 09/29/2017
 - [라우팅 형식](traffic-manager-routing-methods.md)에 대해 자세히 알아보세요.
 - [끝점 형식](traffic-manager-endpoint-types.md)에 대해 자세히 알아보세요.
 - [끝점 모니터링](traffic-manager-monitoring.md)에 대해 자세히 알아보세요.
-
 
 
 

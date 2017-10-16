@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 경고
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -65,8 +64,8 @@ ms.lasthandoff: 09/08/2017
    > 
 8. **메트릭**, **연산자** 및 **트리거 값**을 선택하여 모니터링하기 위해 **식**을 만듭니다.
    
-   * **메트릭**의 경우 모니터링하려는 조건의 유형을 선택합니다.  **대역폭 Mbps**는 초당 메가비트인 대역폭 양입니다.  **총 연결**은 에지 서버에 대한 동시 HTTP 연결의 수입니다.  다양한 캐시 상태 및 상태 코드의 정의는 [Azure CDN 캐시 상태 코드](https://msdn.microsoft.com/library/mt759237.aspx) 및 [Azure CDN HTTP 상태 코드](https://msdn.microsoft.com/library/mt759238.aspx)를 참조하세요.
-   * **연산자**는 메트릭과 트리거 값 간의 관계를 설정하는 수학 연산자입니다.
+   * **메트릭**의 경우 모니터링하려는 조건의 유형을 선택합니다.  **대역폭 Mbps** 는 초당 메가비트인 대역폭 양입니다.  **총 연결** 은 에지 서버에 대한 동시 HTTP 연결의 수입니다.  다양한 캐시 상태 및 상태 코드의 정의는 [Azure CDN 캐시 상태 코드](https://msdn.microsoft.com/library/mt759237.aspx) 및 [Azure CDN HTTP 상태 코드](https://msdn.microsoft.com/library/mt759238.aspx)를 참조하세요.
+   * **연산자** 는 메트릭과 트리거 값 간의 관계를 설정하는 수학 연산자입니다.
    * **트리거 값**은 알림이 전송되기 전에 충족해야 하는 임계값입니다.
      
      다음 예제에서 만들어진 식이 404 상태 코드의 수가 25보다 큰 경우 알림이 전송됨을 나타냅니다.
@@ -105,11 +104,10 @@ ms.lasthandoff: 09/08/2017
     > **테스트 알림** 단추를 클릭하여 HTTP 게시 알림을 테스트할 수 있지만 경고 구성을 저장한 후에 가능합니다.
     > 
     > 
-13. **저장** 단추를 클릭하여 경고 구성을 저장합니다.  5단계에서 **경고 사용**을 선택한 경우 경고는 지금 활성화됩니다.
+13. **저장** 단추를 클릭하여 경고 구성을 저장합니다.  5단계에서 **경고 사용** 을 선택한 경우 경고는 지금 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 * [사용 패턴](cdn-analyze-usage-patterns.md)
-
 

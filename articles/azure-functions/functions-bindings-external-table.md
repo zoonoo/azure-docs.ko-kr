@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure Functions 외부 테이블 바인딩(미리 보기)
 이 문서에서는 기본 제공 바인딩을 사용하는 사용자 함수 내에서 SaaS 공급자(예: Sharepoint, Dynamics)의 테이블 형식 데이터를 조작하는 방법을 보여 줍니다. Azure Functions는 외부 테이블에 대한 입력 및 출력 바인딩을 지원합니다.
@@ -200,4 +199,3 @@ dataSetName은 “default”입니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

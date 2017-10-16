@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7346b4a146a228efdc3824ba989f3de77a4df8ca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +51,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | 형식 속성은 **OData** |예 |
 | url | OData 서비스의 루트 URL입니다. |예 |
-| authenticationType | OData 원본에 연결하는 데 사용되는 인증 형식입니다.<br/>가능한 값은 **Anonymous**, **Basic** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | 예 |
+| authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다.<br/>가능한 값은 **Anonymous**, **Basic** 및 **Windows**입니다. OAuth는 지원되지 않습니다. | 예 |
 | userName | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
 | 암호 | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
@@ -210,7 +209,7 @@ OData에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 
 OData에서 데이터를 복사하는 경우 OData 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| OData 데이터 형식 | Data Factory 중간 데이터 형식 |
+| OData 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |

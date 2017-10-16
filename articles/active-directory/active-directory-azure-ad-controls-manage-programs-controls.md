@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-programs-and-their-controls"></a>프로그램 및 해당 컨트롤 관리 
 
 Azure AD에는 액세스 권한이 있는 사용자에 대한 감시를 보장하는 컨트롤의 예인 그룹 구성원 및 응용 프로그램 액세스에 대한 액세스 검토가 포함됩니다. 조직에서 이러한 컨트롤을 통해 거버넌스, 위험 관리 및 준수 요구 사항을 효율적으로 처리할 수 있습니다.  
@@ -37,5 +35,4 @@ Azure AD에는 액세스 권한이 있는 사용자에 대한 감시를 보장�
 ## <a name="next-steps"></a>다음 단계
 
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
-
 

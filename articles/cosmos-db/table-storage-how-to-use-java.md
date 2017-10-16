@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7f92b1e14a514e9eda39f7ca94f63fc761dfdf41
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-table-storage-from-java"></a>Java에서 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/21/2017
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#Next-Steps) 섹션을 참조하십시오.
 
-SDK는 Android 장치에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
+SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -243,7 +242,7 @@ catch (Exception e)
 * 일괄 작업은 4MB 데이터 페이로드로 제한됩니다.
 
 ## <a name="how-to-retrieve-all-entities-in-a-partition"></a>방법: 파티션의 모든 엔터티 검색
-테이블에서 파티션의 엔터티를 쿼리하려는 경우 **TableQuery**를 사용할 수 있습니다. 지정된 결과 유형을 반환하는 쿼리를 특정 테이블에 대해 만들려면 **TableQuery.from**을 호출하십시오. 다음 코드는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. **TableQuery.generateFilterCondition**은 쿼리에 필요한 필터를 만들기 위한 도우미 메서드입니다. 쿼리에 필터를 적용하려면 **TableQuery.from** 메서드에 의해 반환된 참조에 대해 **where**를 호출합니다. **CloudTable** 개체에 대해 **execute**를 호출하여 쿼리가 실행되면 쿼리는 **CustomerEntity** 결과 유형이 지정된 **반복기**를 반환합니다. 그러면 반환된 **반복기**를 for each 루프에서 사용하여 결과를 이용할 수 있습니다. 이 코드는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+테이블에서 파티션의 엔터티를 쿼리하려는 경우 **TableQuery**를 사용할 수 있습니다. 지정된 결과 유형을 반환하는 쿼리를 특정 테이블에 대해 만들려면 **TableQuery.from** 을 호출하십시오. 다음 코드는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. **TableQuery.generateFilterCondition** 은 쿼리에 필요한 필터를 만들기 위한 도우미 메서드입니다. 쿼리에 필터를 적용하려면 **TableQuery.from** 메서드에 의해 반환된 참조에 대해 **where**를 호출합니다. **CloudTable** 개체에 대해 **execute**를 호출하여 쿼리가 실행되면 쿼리는 **CustomerEntity** 결과 유형이 지정된 **반복기**를 반환합니다. 그러면 반환된 **반복기** 를 for each 루프에서 사용하여 결과를 이용할 수 있습니다. 이 코드는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
 ```java
 try
@@ -348,7 +347,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-retrieve-a-single-entity"></a>방법: 단일 엔터티 검색
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 Table service에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```java
 try
@@ -504,7 +503,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-delete-an-entity"></a>방법: 엔터티 삭제
-엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출하십시오. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
+엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete** 를 호출하십시오. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
 
 ```java
 try
@@ -581,4 +580,3 @@ catch (Exception e)
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-

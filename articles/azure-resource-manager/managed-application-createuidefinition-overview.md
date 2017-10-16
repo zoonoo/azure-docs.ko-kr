@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 176b891538f85c5638a2321561c3d8bd377d245b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.openlocfilehash: 077012a2fe9b4b6e6e042fdeb9be2b1d37685bc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-createuidefinition"></a>CreateUiDefinition 시작
 이 문서에서는 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성하기 위해 Azure Portal에서 사용되는 CreateUiDefinition의 핵심 개념을 소개합니다.

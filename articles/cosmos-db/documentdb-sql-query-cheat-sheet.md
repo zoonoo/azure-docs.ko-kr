@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료 PDF
 **Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료**를 사용하면 인쇄하기 쉬운 PDF 참조 시트에 일반적인 데이터베이스 쿼리, 키워드, 기본 제공 함수 및 연산자를 표시하여 DocumentDB API 데이터에 대한 쿼리를 빠르게 작성할 수 있습니다. 
@@ -43,5 +42,4 @@ SQL 쿼리 참고 자료를 다운로드하고 신속하게 참조하여 쿼리�
 
 ## <a name="release-notes"></a>릴리스 정보
 2016년 7월 29일 업데이트에는 TOP가 포함되었습니다.
-
 

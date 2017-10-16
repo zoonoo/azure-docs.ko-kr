@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>DocumentDB API를 사용하여 Azure Cosmos DB로 데이터를 가져오는 방법
 
@@ -557,4 +556,3 @@ Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본
 
 > [!div class="nextstepaction"]
 >[데이터는 어떻게 쿼리하나요?](../cosmos-db/tutorial-query-documentdb.md)
-

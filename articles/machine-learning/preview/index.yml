@@ -24,7 +24,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
             text: 설치 및 만들기
             href: quickstart-installation
   - title: 단계별 자습서

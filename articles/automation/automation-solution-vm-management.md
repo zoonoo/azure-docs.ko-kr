@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Automation의 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션
 
 업무 시간 외 VM 시작/중지[미리 보기] 솔루션은 사용자가 정의한 일정에 따라 Azure Resource Manager 가상 컴퓨터를 시작하고 중지하며 OMS Log Analytics를 통해 가상 컴퓨터를 시작하고 중지하는 성공적인 Automation 작업에 대한 정보를 제공합니다.  
@@ -245,5 +243,4 @@ StartVM 및 StopVM Runbook의 시간에 따른 작업 상태를 보여줍니다.
 
 
    
-
 

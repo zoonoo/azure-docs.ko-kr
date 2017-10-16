@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -334,4 +333,3 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 다음 단추(빨간색으로 강조 표시됨)를 사용하여 경고를 편집, 삭제 또는 비활성화합니다.
 
 ![경고 단추](./media/data-factory-monitor-manage-app/AlertButtons.png)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: bca66bbdd9da9b3e4099d0d961f42c9368a17f5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-resource-policies-to-network-resources"></a>네트워크 리소스에 리소스 정책 적용
 이 문서에서는 Azure 가상 네트워크 게이트웨이에 적용할 수 있는 [리소스 정책](resource-manager-policy.md) 예를 보여 줍니다. 이 정책은 조직에 배포된 게이트웨이의 일관성을 보장합니다. 

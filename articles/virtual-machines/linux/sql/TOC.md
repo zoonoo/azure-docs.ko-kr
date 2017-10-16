@@ -1,6 +1,7 @@
 # 개요
 ## [Linux SQL Server VM](sql-server-linux-virtual-machines-overview.md)
 ## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [FAQ](sql-server-linux-faq.md)
 
 # 시작
 ## [Azure Portal에서 VM 프로비전](provision-sql-server-linux-virtual-machine.md)

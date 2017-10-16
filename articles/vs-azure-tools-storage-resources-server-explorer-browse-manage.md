@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -151,8 +150,8 @@ Azure 진단에 대한 자세한 내용은 [Azure 진단을 사용하여 로깅 
 서버 탐색기에서는 저장소 계정의 큐 보기, 큐 생성 및 삭제, 큐를 열어 메시지 보기, 큐에 메시지 추가하기가 가능합니다. 큐를 확인하기 위해 열 때 개별 메시지를 볼 수 있으며 왼쪽 위 모서리의 단추를 사용하여 큐에서 다음의 작업을 수행할 수 있습니다.
 
 * 큐 보기를 새로 고칩니다.
-* 큐에 메시지를 추가합니다.
-* 최상위 메시지를 큐에서 제거합니다.
+* 큐에 메시지 추가.
+* 최상위 메시지를 큐에서 제거
 * 전체 큐를 지웁니다.
 
 다음 이미지에서는 두 개의 메시지를 포함하는 큐를 보여 줍니다.
@@ -187,7 +186,7 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
    
     ![테이블 엔터티 추가 또는 편집](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
    
-단일 테이블의 엔터티는 속성(열)과 동일한 집합을 가질 필요가 없습니다. 테이블 데이터 보기 및 편집에 대한 다음의 제한 사항에 유의하십시오.
+단일 테이블의 엔터티는 속성 (열)과 동일한 집합을 가질 필요가 없습니다. 테이블 데이터 보기 및 편집에 대한 다음의 제한 사항에 유의하십시오.
    
 * 이진 데이터(`type byte[]`)를 보거나 편집할 수 없지만 테이블에 저장할 수는 있습니다.
 * Azure의 Table Storage는 **PartitionKey** 또는 **RowKey** 값의 편집을 지원하지 않으므로 해당 작업을 할 수 없습니다.
@@ -213,7 +212,7 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
     **쿼리 작성기** 대화 상자가 나타납니다. 다음 그림에서는 쿼리 작성기에서 작성되고 있는 쿼리를 보여줍니다.
    
     ![쿼리 작성기](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
-3. 쿼리 작성을 마친 경우 대화 상자를 닫습니다. 쿼리의 결과 텍스트 형식이 WCF Data Services 필터로 텍스트 상자에 나타납니다.
+3. 쿼리 작성을 마친 경우 대화 상자를 닫습니다. 쿼리의 결과 텍스트 형식이 WCF 데이터 서비스 필터로 텍스트 상자에 나타납니다.
 4. 쿼리를 실행하려면 녹색 삼각형 아이콘을 선택합니다.
    
 또한 필터 텍스트 상자에 WCF Data Services 필터 문자열을 직접 입력한 경우 테이블 디자이너에 표시되는 엔터티 데이터를 필터링할 수 있습니다. 이러한 종류의 문자열은 SQL WHERE 절과 유사하지만 HTTP 요청으로 서버에 전송됩니다. 필터 문자열을 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 대한 필터 문자열 생성](https://msdn.microsoft.com/library/azure/ff683669.aspx)을 참조하세요.
@@ -287,5 +286,4 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
 
 ## <a name="next-steps"></a>다음 단계
 Azure Storage 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure Storage 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
-
 

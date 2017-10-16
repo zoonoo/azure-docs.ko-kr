@@ -1,5 +1,5 @@
 # 개요
-## [가상 컴퓨터 정보](../../virtual-machines-windows-about.md)
+## [가상 컴퓨터 정보](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [디스크 및 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [가상 네트워크](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
@@ -22,7 +22,7 @@
 ## 네트워크
 ### [끝점을 설정하는 방법](setup-endpoints.md)
 ### [VM을 VNet 또는 클라우드 서비스와 연결](connect-vms.md)
-### [Resource Manager VNet에 클래식 VNet 연결](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+### [리소스 관리자 VNet에 클래식 VNet 연결](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [부하 분산 장치 만들기](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [Azure PowerShell을 사용하여 NSG 관리](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 

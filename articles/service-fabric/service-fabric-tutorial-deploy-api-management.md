@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1cadb543660b636ce7f0285973e6fb4141841b99
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-api-management-with-service-fabric"></a>Service Fabric을 사용하여 API Management 배포
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
 
@@ -247,7 +245,7 @@ print(response.text)
 2. API Management 서비스 블레이드에서 **API**를 선택합니다.
 3. **+API** 및 **빈 API** 상자를 차례로 클릭하고 대화 상자를 채워 새 API를 추가합니다.
 
-    - **웹 서비스 URL**: Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 자습서에서는 "http://servicefabric"을 사용합니다.
+    - **웹 서비스 URL**: Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 이 자습서에서는 " http://servicefabric "을 사용합니다.
     - **표시 이름**: API 이름을 제공합니다. 이 자습서에서는 "Service Fabric 앱"을 사용합니다.
     - **이름**: "service-fabric-app"을 입력합니다.
     - **URL 구성표**: **HTTP**, **HTTPS** 또는 **둘 다**를 선택합니다. 이 자습서에서는 **둘 다**를 사용합니다.

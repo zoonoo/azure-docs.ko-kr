@@ -12,12 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: rachelap
+ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -37,7 +36,7 @@ SendGrid 바인딩에서 지원하는 속성은 다음과 같습니다.
 |속성  |설명  |
 |---------|---------|
 |**name**| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
-|**type**| 필수 - `sendGrid`로 설정해야 합니다.|
+|**type**| 필수 - `sendGrid`으로 설정해야 합니다.|
 |**direction**| 필수 - `out`으로 설정해야 합니다.|
 |**apiKey**| 필수 - 함수 앱의 앱 설정에 저장된 API 키의 이름으로 설정해야 합니다. |
 |**to**| 수신자의 전자 메일 주소입니다. |
@@ -121,4 +120,3 @@ Azure Functions에 대한 다른 바인딩 및 트리거에 대한 정보는 다
 - [Azure Functions에 대한 모범 사례](functions-best-practices.md) Azure Functions를 만들 때 사용할 몇 가지 모범 사례를 나열합니다.
 
 - [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
-

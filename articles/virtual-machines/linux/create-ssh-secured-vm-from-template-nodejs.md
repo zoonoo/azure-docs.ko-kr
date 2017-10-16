@@ -17,10 +17,10 @@ ms.date: 05/12/2017
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d4aaa78fcdf3bd9e2e236606f2d3049f464a8a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Azure CLI 1.0 및 Azure Resource Manager 템플릿을 사용하여 Linux VM을 만드는 방법
 이 문서에서는 Azure CLI 1.0 및 Azure Resource Manager 템플릿을 사용하여 Linux 가상 컴퓨터를 신속하게 배포하는 방법을 보여 줍니다. 이 문서의 내용을 실행하기 위해 필요한 사항:

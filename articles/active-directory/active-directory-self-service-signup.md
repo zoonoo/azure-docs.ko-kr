@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 511088156d3546e2e0f3ac40e72bf2b8e4ae2cb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-self-service-signup-for-azure"></a>Azure의 셀프 서비스 등록이란?
 이 항목에서는 셀프 서비스 등록 프로세스 및 DNS 도메인 이름을 인수하는 방법을 설명합니다.  
@@ -206,4 +205,3 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-

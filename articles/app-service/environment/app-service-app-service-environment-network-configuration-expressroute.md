@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Express 경로를 사용하는 앱 서비스 환경에 대한 네트워크 구성 세부 정보
 ## <a name="overview"></a>개요
-고객은 [Azure ExpressRoute][ExpressRoute] 회로를 가상 네트워크 인프라로 연결할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다.  App Service Environment는 이 [가상 네트워크][virtualnetwork] 인프라의 서브넷에서 만들 수 있습니다.  다음 앱 서비스 환경에서 실행 중인 앱은 Express 경로 연결을 통해서만 액세스할 수 있는 백 엔드 리소스에 대한 보안 연결을 설정할 수 있습니다.  
+고객은 [Azure ExpressRoute][ExpressRoute] 회로를 가상 네트워크 인프라로 연결할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다.  App Service Environment는 이 [가상 네트워크][virtualnetwork] 인프라의 서브넷에서 만들 수 있습니다.  다음 앱 서비스 환경에서 실행 중인 앱은 Express 경로 연결을 통해서만 액세스할 수 있는 백엔드 리소스에 대한 보안 연결을 설정할 수 있습니다.  
 
 App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 가상 네트워크에서 **만들 수도 있습니다**.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다. 
 
@@ -57,7 +56,7 @@ Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않
 가능하면 다음 구성을 사용하는 것이 좋습니다.
 
 * Express 경로 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
-* 앱 서비스 환경을 포함하는 서브넷에 적용된 UDR은 인터넷의 다음 홉 형식을 사용하여 0.0.0.0/0를 정의합니다.(이 예제는 이 문서에서 아래쪽에 있음) 
+* 앱 서비스 환경을 포함하는 서브넷에 적용된 UDR은 인터넷의 다음 홉 형식을 사용하여  0.0.0.0/0를 정의합니다.(이 예제는 이 문서에서 아래쪽에 있음) 
 
 이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 Express 경로를 담당하고 앱 서비스 환경에서 아웃바운드 인터넷 액세스를 보장합니다.
 
@@ -136,4 +135,3 @@ App Service 환경을 시작하려면 [App Service 환경 소개][IntroToAppServ
 
 
 <!-- IMAGES -->
-

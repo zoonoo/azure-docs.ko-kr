@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>대규모 병렬 처리(MPP)에 대한 분산 데이터 및 분산 테이블
 Microsoft의 대규모 병렬 처리(MPP) 시스템인 SQL Data Warehouse 및 병렬 데이터 웨어하우스의 사용자 데이터가 분산되는 원리에 대해 알아봅니다. 분산 데이터를 효율적으로 사용하도록 데이터 웨어하우스를 디자인하면 MPP 아키텍처의 쿼리 처리 장점을 얻을 수 있습니다. 몇 가지 데이터베이스 디자인 선택에 따라 쿼리 성능 향상에 상당한 영향을 미칠 수 있습니다.  

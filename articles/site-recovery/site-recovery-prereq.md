@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Site Recovery를 사용하여 온-프레미스에서 Azure로 복제하기 위한 필수 구성 요소
 
 > [!div class="op_single_selector"]
@@ -130,4 +128,3 @@ VMware, VMM, Hyper-V 호스트 서버에서 이러한 URL을 사용할 수 있�
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | 필요하지 않음 | 필요하지 않음 | 필요하지 않음 | SQL 다운로드 허용 |
 |``time.windows.com`` | 허용 | 허용 | 허용 | 허용|
 |``time.nist.gov`` | 허용 | 허용 | 허용 | 허용 |
-

@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eacecb9f084ead76633cf802751d3a603cb2f0d8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](data-factory-onprem-db2-connector.md)
-> * [버전 2- 미리 보기](../connector-db2.md)
+> * [버전 1 - GA](data-factory-onprem-db2-connector.md)
+> * [버전 2 - 미리 보기](../connector-db2.md)
 
 > [!NOTE]
 > 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 DB2 커넥터](../connector-db2.md)를 참조하세요.
@@ -327,19 +326,19 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Time |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Char |문자열 |
+| VarChar |문자열 |
+| LongVarChar |문자열 |
+| DB2DynArray |문자열 |
 | 이진 |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |문자열 |
+| VarGraphic |문자열 |
+| LongVarGraphic |문자열 |
+| Clob |문자열 |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |문자열 |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
@@ -363,4 +362,3 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 [복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요.
-

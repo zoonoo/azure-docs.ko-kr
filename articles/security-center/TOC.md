@@ -19,6 +19,7 @@
 # 방법
 
 ## 보안 정책
+### [개요](security-center-policies-overview.md)
 ### [데이터 수집](security-center-enable-data-collection.md)
 ### [보안 정책](security-center-policies.md)
 ### [전자 메일 알림](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Endpoint Protection 설치](security-center-install-endpoint-protection.md)
 #### [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)
-#### [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [OS 버전 업데이트](security-center-update-os-version.md)
 #### [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md)
 ### [보안 상태 모니터링](security-center-monitoring.md)

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e84a0a05cbe1952d8325a9aed1c1df411bfcb877
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-for-service-fabric"></a>Service Fabric에 대한 컨테이너 이미지 만들기
 
 이 자습서는 Linux Service Fabric 클러스터에서 컨테이너를 사용하는 방법을 보여 주는 자습서 시리즈의 1부입니다. 이 자습서에서는 Service Fabric과 함께 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 후속 자습서에서 이러한 이미지는 Service Fabric 응용 프로그램의 일부로 사용됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
@@ -57,12 +55,7 @@ Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로�
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-```
-
-복제된 디렉터리에서 다음 명령을 사용하여 작업 디렉터리를 입력합니다. 
-
-```bash 
-cd Linux/container-tutorial/
+cd service-fabric-dotnet-containers/Linux/container-tutorial/
 ```
 
 'container-tutorial' 디렉터리는 'azure-vote'라는 폴더를 포함합니다. 'azure-vote' 폴더는 프런트 엔드 소스 코드와 프런트 엔드를 빌드하는 Dockerfile을 포함합니다. 또한 'container-tutorial' 디렉터리는 redis 이미지를 빌드하는 Dockerfile이 있는 'redis' 디렉터리를 포함합니다. 이러한 디렉터리는 이 자습서 집합에 필요한 자산을 포함합니다. 
@@ -126,7 +119,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --ad
 
 ## <a name="log-in-to-your-container-registry"></a>컨테이너 레지스트리에 로그인
 
-이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인합니다. [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공합니다.
+이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인합니다. [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
 ```bash
 az acr login --name <acrName>
@@ -190,7 +183,7 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 
 ## <a name="push-images-to-registry"></a>레지스트리에 이미지 푸시
 
-레지스트리에 *azure-vote-front* 이미지를 밀어 넣습니다. 
+레지스트리에 *azure-vote-front* 이미지를 밀어넣습니다. 
 
 다음 예제를 사용하여 ACR loginServer 이름을 해당 환경의 loginServer로 바꿉니다.
 
@@ -242,4 +235,3 @@ Yeoman을 사용하여 Service Fabric 응용 프로그램으로 컨테이너 패
 
 > [!div class="nextstepaction"]
 > [Service Fabric 응용 프로그램으로 컨테이너 패키지 및 배포](service-fabric-tutorial-package-containers.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공합니다.
@@ -96,7 +95,7 @@ ms.lasthandoff: 09/08/2017
 이 테이블은 모든 시나리오에 적용되는 Azure CDN 압축 동작을 설명합니다.
 
 > [!IMPORTANT]
-> **Verizon의 Azure CDN** 프로필(Standard 및 Premium)의 경우, 적합한 파일만 압축될 수 있습니다.  압축이 가능하게 하려면 파일이 다음 조건을 충족해야 합니다.
+> **Verizon의 Azure CDN** 프로필(Standard 및 Premium)의 경우, 적합한 파일만 압축될 수 있습니다.  압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
 > 
 > * 128바이트 초과.
 > * 1MB 미만.
@@ -139,5 +138,4 @@ Azure Portal에서 언급된 형식에 대해 압축을 사용하거나 사용�
 
 ## <a name="see-also"></a>참고 항목
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
-
 

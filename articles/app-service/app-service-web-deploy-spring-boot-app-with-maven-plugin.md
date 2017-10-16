@@ -14,14 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f22089349e149d8e71df88d5c173869d2a5abad7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-spring-boot-app-to-azure"></a>Azure Web Apps의 Maven 플러그 인을 사용하여 Spring Boot 앱을 Azure에 배포하는 방법
 
 [Apache Maven](http://maven.apache.org/)에서 [Azure Web Apps의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin)은 Maven 프로젝트에 Azure App Service의 원활한 통합을 제공하고 Azure App Service에 웹앱을 배포하는 개발자를 위한 프로세스를 간소화합니다.
@@ -271,8 +269,8 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 [Azure CLI(명령줄 인터페이스)]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure 포털]: https://portal.azure.com/
-[체험판 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
+[Azure Portal]: https://portal.azure.com/
+[무료 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
@@ -287,4 +285,3 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 [AP01]: ./media/app-service-web-deploy-spring-boot-app-with-maven-plugin/AP01.png
 [AP02]: ./media/app-service-web-deploy-spring-boot-app-with-maven-plugin/AP02.png
-
