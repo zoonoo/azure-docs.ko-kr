@@ -3,7 +3,7 @@ title: "Azure Blob Storage에서 SQL Database로 데이터 복사 | Microsoft Do
 description: "이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 단계별 지침을 제공합니다."
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,17 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
+ms.openlocfilehash: 6f1a93c2906eaab82dcfb9bae1ee4a54dce300bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 80abdd1524160427c17e05bd0086d2c7f6a54910
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
-Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하면 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 예약하며, 계산 서비스(예: Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning)를 사용하여 데이터를 처리/변환하고, 사용하는 BI(비즈니스 인텔리전스) 응용 프로그램용 데이터 저장소(예: Azure SQL Data Warehouse)에 출력 데이터를 게시할 수 있습니다. 
+Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
 
 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -343,7 +342,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>파이프라인 실행 모니터링
 
-1. **Main** 메서드에 데이터 복사가 완료될 때까지 파이프라인 실행 상태를 지속적으로 확인하는 다음 코드를 추가합니다.
+1. **Main** 메서드에 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행의 상태를 검사합니다.
 
     ```csharp
     // Monitor the pipeline run
@@ -510,7 +509,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -533,4 +531,3 @@ Press any key to exit...
 
 > [!div class="nextstepaction"]
 >[온-프레미스에서 클라우드로 데이터 복사](tutorial-hybrid-copy-powershell.md)
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
+ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cf05a28c0fe40839e26cef1af51f3f0317e1e154
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
 
@@ -99,6 +97,14 @@ Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비�
 Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. 자기만의 Azure SQL Database 또는 관리되는 인스턴스(개인 미리 보기) 서버를 해당 서버에 연결할 SSIS 프로젝트/패키지(SSISDB)의 카탈로그를 호스팅하게 만들 수 있습니다. 노드 크기를 지정하여 계산 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.
 
 자세한 내용은 방법 가이드 아래의 Azure-SSIS IR 만들기 및 구성 방법 토픽을 참조하세요.  만든 후 SSIS 온-프레미스를 사용할 때와 마찬가지로 SSDT(SQL Server 데이터 도구) 및 SSMS(SQL Server Management Studio) 등 친숙한 도구를 사용하여 기존 SSIS 패키지를 조금만 변경하고 배포 및 관리할 수 있습니다.
+
+Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세요. 
+
+- [자습서: Azure에 SSIS 패키지 배포](tutorial-deploy-ssis-packages-azure.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
+- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
+- [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
+- [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
+- [Azure-SSIS IR을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서는 Azure-SSIS IR을 Azure 가상 네트워크(VNet)에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 VNet에 조인할 수 있도록 VNet을 구성하는 단계도 제공합니다. 
 
 ## <a name="determining-which-ir-to-use"></a>사용할 IR 결정
 각 변환 작업에는 통합 런타임을 가리키는 대상 계산 연결된 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
@@ -181,4 +187,4 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 다음 문서를 참조하세요.
 
 - [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
-
+- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
