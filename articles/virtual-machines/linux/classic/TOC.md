@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Resource Manager 템플릿 작성](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
-## [계산 REST](/rest/api/compute)
-## [네트워크 REST](/rest/api)
-## [저장소 REST](/rest/api/storageservices)
+## [계산 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [네트워크 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [저장소 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # 리소스

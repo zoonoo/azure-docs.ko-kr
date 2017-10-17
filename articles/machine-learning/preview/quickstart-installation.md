@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning 미리 보기 계정을 만들기 및 Azure Machine Learning Workbench 설치
 Azure Machine Learning은 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
@@ -27,10 +25,16 @@ Azure Machine Learning은 데이터를 준비하고, 실험을 개발하고, 클
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-현재 Azure Machine Learning Workbench는 다음 운영 체제에만 설치할 수 있습니다: Windows 10, Windows Server 2016 및 macOS Sierra.
+현재 Azure Machine Learning Workbench 데스크톱 앱은 다음 운영 체제에만 설치할 수 있습니다. 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>macOS High Sierra는 아직 지원되지 않습니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-azure-machine-learning-accounts"></a>Azure Machine Learning 계정 만들기
 Azure Portal을 사용하여 Azure Machine Learning 계정을 프로비전합니다. 
@@ -118,7 +122,7 @@ macOS Sierra를 실행하는 컴퓨터에 Azure Machine Learning Workbench를 �
 
 5. 이제 Azure Machine Learning Workbench가 다음 디렉터리에 설치되었습니다. 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>처음 로그인하기 위해 Azure Machine Learning Workbench 실행
 1. 설치 프로세스가 완료된 후 설치 관리자의 마지막 화면에서 **Workbench 시작** 버튼을 클릭합니다. 설치 관리자를 닫은 경우 바탕 화면에서 Machine Learning Workbench 바로 가기를 찾고 **Azure Machine Learning Workbench**라는 메뉴를 시작하여 앱을 시작합니다.
@@ -184,4 +188,3 @@ macOS Sierra를 실행하는 컴퓨터에 Azure Machine Learning Workbench를 �
 
 > [!div class="nextstepaction"]
 > [아이리스 분류 자습서](tutorial-classifying-iris-part-1.md)
-
