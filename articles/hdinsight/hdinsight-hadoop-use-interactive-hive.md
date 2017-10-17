@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/11/2017
 ms.author: jgao
+ms.openlocfilehash: 822c5f2302fb32d0d5a05ba69132282c050b7b8b
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
 Interactive Query(Hive LLAP 또는 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 
@@ -30,7 +29,6 @@ Interactive Query(Hive LLAP 또는 [Live Long and Process](https://cwiki.apache.
 Interactive Query 클러스터는 Hadoop 클러스터와 다릅니다. Hive 서비스만 포함합니다. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie 및 기타 서비스는 이 클러스터 유형에서 곧 제거될 예정입니다.
 > Interactive Query 클러스터의 Hive 서비스는 Ambari Hive 보기, Beeline 및 Microsoft Hive ODBC(Open Database Connectivity) Driver를 통해서만 액세스할 수 있습니다. Hive 콘솔, Templeton, Azure CLI(Azure 명령줄 도구) 또는 Azure PowerShell을 통해서는 액세스할 수 없습니다. 
 > 
 > 
@@ -86,5 +84,4 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 * [HDInsight에서 Hadoop과 Hive 보기 사용](hdinsight-hadoop-use-hive-ambari-view.md) 방법에 대해 알아봅니다.
 * [Beeline을 사용하여 HDInsight에서 Hive 쿼리를 제출하는 방법](hdinsight-hadoop-use-hive-beeline.md)을 알아봅니다.
 * [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel을 연결하는 방법](hdinsight-connect-excel-hive-odbc-driver.md)을 알아봅니다.
-
 
