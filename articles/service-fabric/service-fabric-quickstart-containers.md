@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
@@ -51,7 +49,7 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 
 **서비스 템플릿** 목록에서 **컨테이너**를 선택합니다.
 
-**이미지 이름**에서 [Windows Server 2016 Nano Server 및 IIS 기본 이미지](https://hub.docker.com/r/nanoserver/iis/)인 "nanoserver/iis"를 입력합니다. 
+**이미지 이름**에 [Windows Server Nano Server 및 IIS 기본 이미지](https://hub.docker.com/r/microsoft/iis/)인 "microsoft/iis:nanoserver"를 입력합니다. 
 
 "MyContainerService" 서비스 이름을 지정하고 **확인**을 클릭합니다.
 
@@ -68,6 +66,7 @@ ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` �
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
 ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-**연결 끝점** 필드에 클러스터의 연결 끝점을 입력하고 **게시**를 클릭합니다. 파티 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`
+**연결 끝점** 필드에 클러스터의 연결 끝점을 입력합니다. 파티 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`  **게시**를 클릭하면 응용 프로그램이 배포됩니다.
 
 브라우저를 열고 http://winh1x87d1d.westus.cloudapp.azure.com:80 으로 이동합니다. IIS 기본 웹 페이지가 표시됩니다. ![IIS 기본 웹 페이지][iis-default]
 
@@ -120,7 +119,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

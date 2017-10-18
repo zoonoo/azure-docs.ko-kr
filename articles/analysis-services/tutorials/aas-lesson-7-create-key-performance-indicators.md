@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>단원 7: 핵심 성과 지표 만들기
 
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/03/2017
 
     이 측정값을 KPI에 대한 기본 측정값으로 제공합니다.  
   
-4.  **InternetCurrentQuarterSalesPerformance** > **KPI 만들기**를 마우스 오른쪽 단추로 클릭합니다.   
+4.  측정값 표에서 **InternetCurrentQuarterSalesPerformance** > **KPI 만들기**를 마우스 오른쪽 단추로 클릭합니다.   
   
 5.  KPI(핵심 성과 지표) 대화 상자의 **대상**에서 **절대값**을 선택한 후 **1.1**을 입력합니다.  
   
@@ -88,4 +87,3 @@ ms.lasthandoff: 06/03/2017
 [단원 8: 큐브 뷰 만들기](../tutorials/aas-lesson-8-create-perspectives.md)
   
   
-

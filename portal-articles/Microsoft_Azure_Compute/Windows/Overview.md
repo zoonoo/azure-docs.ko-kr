@@ -1,6 +1,6 @@
 ---
-title: "Windows 가상 컴퓨터 개요 | Microsoft Docs"
-description: "Azure 포털 내에서 Windows 가상 컴퓨터 개요에 대 한 콘텐츠를 도움말"
+title: "Windows Virtual Machines 개요 | Microsoft Docs"
+description: "Azure Portal 내에 있는 Windows 가상 컴퓨터의 도움말 콘텐츠 개요"
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
 
@@ -28,7 +28,7 @@ Windows Server 2016을 실행하는 Virtual Machine 내에 IIS 웹 서버를 배
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 
-배포, 관리 및 Azure에서 Windows Vm을 모니터링 하는 방법에 알아봅니다.
+Azure에서 Windows VM을 배포하고 관리하며 모니터링하는 방법을 알아봅니다.
 
 - [Windows VM 생성 및 관리](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [VM 디스크 생성 및 관리](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -58,5 +58,5 @@ Azure에 첫 번째 응용 프로그램을 배포합니다.
 
 ## <a name="more"></a>추가
 
-- [자세한 내용은 설명서를 참조 합니다.](/azure/virtual-machines/windows/index)
-- [모든 Azure 서비스에 알아보기](https://aka.ms/j3wr7y)
+- [설명서를 방문하여 자세히 알아보기](/azure/virtual-machines/windows/index)
+- [모든 Azure 서비스에 대해 알아보기](https://aka.ms/j3wr7y)

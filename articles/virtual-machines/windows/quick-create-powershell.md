@@ -16,35 +16,28 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: dacea9ef9b502ecd264dd4fcd1e8f4ef23f48c87
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: f03b747dd2498267dc470d42b1acafd331fd92b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 가이드에서는 PowerShell을 사용하여 Windows Server 2016이 실행되는 Azure Virtual Machine을 만드는 방법을 자세히 설명합니다. 배포가 완료되면 서버에 연결하고 IIS를 설치합니다.  
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
-`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
-
-```powershell
-Login-AzureRmAccount
-```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -53,7 +46,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 
 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공하고 인터넷에 연결하는 데 사용됩니다.
 
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
@@ -69,7 +62,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location E
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>네트워크 보안 그룹 및 네트워크 보안 그룹 규칙을 만듭니다. 
 네트워크 보안 그룹은 인바운드 및 아웃바운드 규칙을 사용하여 가상 컴퓨터를 보호합니다. 이 경우 포트 3389에 대해 들어오는 원격 데스크톱 연결을 허용하는 인바운드 규칙이 만들어집니다. 포트 80에 대한 인바운드 규칙을 만들어서 들어오는 웹 트래픽을 허용하려고 합니다.
 
-```powershell
+```azurepowershell-interactive
 # Create an inbound network security group rule for port 3389
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
@@ -88,7 +81,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 컴퓨터에 대한 네트워크 카드를 만듭니다. 
 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 가상 컴퓨터에 네트워크 카드를 만듭니다. 네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
@@ -98,7 +91,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 가상 컴퓨터 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 컴퓨터에 대한 사용자 이름 및 암호로 구성됩니다.
 
-```powershell
+```azurepowershell-interactive
 # Define a credential object
 $cred = Get-Credential
 
@@ -111,7 +104,7 @@ $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
 
 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 컴퓨터를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 ```
 
@@ -121,11 +114,11 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 
 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 명령을 사용하여 가상 컴퓨터의 공용 IP 주소를 반환합니다. 다음 단계에서 웹 연결을 테스트하기 위해 브라우저와 연결할 수 있도록 이 IP 주소를 기록해 둡니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-다음 명령을 사용하여 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 *publicIPAddress*로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
+다음 명령을 사용하여 로컬 컴퓨터에서 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 *publicIPAddress*로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -135,7 +128,7 @@ mstsc /v:<publicIpAddress>
 
 이제 Azure VM에 로그인했으므로 IIS를 설치하고 웹 트래픽을 허용하는 로컬 방화벽 규칙을 사용하려면 PowerShell의 단일 줄을 사용할 수 있습니다. PowerShell 프롬프트를 열고 다음 명령을 실행합니다.
 
-```powershell
+```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
@@ -149,7 +142,7 @@ IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 �
 
 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
@@ -159,4 +152,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 가상 컴퓨터 자습서](./tutorial-manage-vm.md)
-

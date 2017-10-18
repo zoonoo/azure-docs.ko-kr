@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -199,3 +199,5 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 * 강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
 * 항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
 * 네트워킹 Azure CLI 명령 목록은 [Azure CLI](https://docs.microsoft.com/cli/azure/network)를 참조하세요.
+* Azure Resource Manager 템플릿을 사용하여 사이트 간 VPN 연결을 만드는 방법은 [사이트 간 VPN 연결 만들기](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)를 참조하세요.
+* Azure Resource Manager 템플릿을 사용하여 VNet 간 VPN 연결을 만드는 방법은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)를 참조하세요.

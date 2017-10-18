@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -164,11 +162,11 @@ Linux용 Service Fabric SDK는 쉽게 응용 프로그램을 만들고 컨테이
 
 Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을 열고 `yo azuresfcontainer`을 실행합니다.  
 
-응용 프로그램 이름을 지정합니다(예: "mycontainer"). 
+응용 프로그램 이름을 지정하고(예: "mycontainer") 응용 프로그램 서비스 이름을 지정합니다(예: "myservice").
 
-컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: "myregistry.azurecr.io/samples/helloworldapp"). 
+이미지 이름에 컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: "myregistry.azurecr.io/samples/helloworldapp"). 
 
-이 이미지는 워크로드 진입점이 정의되지 않으므로 입력 명령을 명시적으로 지정해야 합니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함). 
+이 이미지가 워크로드 진입점을 정의하지 않으므로 입력 명령을 명시적으로 지정하지 않아도 됩니다(컨테이너 내에서 명령을 실행하면 시작된 후에 컨테이너가 실행되도록 유지함). 
 
 "1"이라는 인스턴스 수를 지정합니다.
 
@@ -391,4 +389,3 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

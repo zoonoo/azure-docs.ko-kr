@@ -1,6 +1,6 @@
 ---
-title: "Azure 함수 개요 | Microsoft Docs"
-description: "Azure 포털 내에서 Azure 함수 개요에 대 한 콘텐츠를 도움말"
+title: "Azure Functions 개요 | Microsoft Docs"
+description: "Azure Portal 내에 있는 Azure Functions의 도움말 콘텐츠 개요"
 services: functions
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: fa593eef1c01311d20216f3ab3af7ffcb54e12f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-documentation"></a>Azure Functions 설명서
 
@@ -20,16 +20,16 @@ Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지
 
 ## <a name="5-minute-quickstarts"></a>5분 빠른 시작
 
-사용 하 여 Hello World 함수를 만드는 방법에 알아봅니다.
+다음을 사용하여 Hello World 함수를 만드는 방법에 대해 알아봅니다.
 
 - [Azure 포털](/azure/azure-functions/functions-create-first-azure-function)
 - [Azure CLI](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>단계별 자습서
 
-빌드 및 Azure 기능을 관리 하는 방법에 알아봅니다.
+Azure Functions를 만들고 관리하는 방법을 알아봅니다.
 
-- [서버가 없는 소셜 미디어 대시보드 만들기](/azure/azure-functions/functions-twitter-email)
+- [서버 없는 소셜 미디어 대시보드 구축](/azure/azure-functions/functions-twitter-email)
 - [Azure Functions를 사용하여 서버 없는 API 만들기](/azure/azure-functions/functions-create-serverless-api)
 
 ## <a name="samples"></a>샘플
@@ -40,5 +40,5 @@ Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지
 
 ## <a name="more"></a>추가
 
-- [자세한 내용은 설명서를 참조 합니다.](/azure/app-functions/index)
-- [모든 Azure 서비스에 알아보기](https://aka.ms/j3wr7y)
+- [설명서를 방문하여 자세히 알아보기](/azure/app-functions/index)
+- [모든 Azure 서비스에 대해 알아보기](https://aka.ms/j3wr7y)

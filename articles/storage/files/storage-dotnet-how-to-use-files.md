@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발 
 > [!NOTE]
 > 이 문서에서는 .NET 코드를 사용하여 Azure Files를 관리하는 방법을 보여줍니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-introduction.md)를 참조하세요.
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서에서는 .NET을 사용하여 Azure Files를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 개발하는 데 필요한 기본 사항을 보여줍니다. 즉 간단한 콘솔 응용 프로그램을 만들고, .NET 및 Azure Files를 통해 기본 동작을 수행하는 방법을 보여줍니다.
+이 자습서에서는 .NET을 사용하여 Azure Files를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 개발하는 데 필요한 기본 사항을 보여줍니다. 즉, 간단한 콘솔 응용 프로그램을 만들고, .NET 및 Azure Files를 통해 기본 작업을 수행하는 방법을 보여줍니다.
 
 * 파일 내용 가져오기
 * 파일 공유에 대한 할당량(최대 크기) 설정
@@ -138,7 +136,7 @@ if (share.Exists())
 콘솔 응용 프로그램을 실행하여 출력을 확인합니다.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>파일 공유에 대한 최대 크기 설정
-Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유에 대한 할당량(또는 최대 크기)을 기가바이트 단위로 설정할 수 있습니다. 또한 공유에 현재 저장된 데이터의 양도 확인할 수 있습니다.
+Azure Storage 클라이언트 라이브러리의 버전 5.x부터는 파일 공유에 대한 할당량(또는 최대 크기)을 기가바이트 단위로 설정할 수 있습니다. 또한 공유에 현재 저장된 데이터의 양도 확인할 수 있습니다.
 
 공유에 대한 할당량을 설정하여 공유에 저장되는 파일의 전체 크기를 제한할 수 있습니다. 공유에 있는 파일의 총 크기가 공유에 대해 설정된 할당량을 초과하면 클라이언트는 해당 파일이 비어 있지 않는 한, 기존 파일의 크기를 늘리거나 새 파일을 만들 수 없습니다.
 
@@ -327,6 +325,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 blob인 경우 복사 작업 동안 해당 blob에 대한 액세스를 인증하는 SAS를 만듭니다.
 
+## <a name="share-snapshots-preview"></a>공유 스냅숏(미리 보기)
+Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏(미리 보기)를 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
+
+**공유 스냅숏 만들기**
+
+다음 예제에서는 파일 공유 스냅숏을 만듭니다.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**공유 스냅숏 나열**
+
+다음 예제에서는 공유에 공유 스냅숏을 나열합니다.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**공유 스냅숏 내에서 파일 및 디렉터리 찾아보기**
+
+다음 예제에서는 공유 스냅숏 내에서 파일 및 디렉터리를 찾습니다.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**공유 및 공유 스냅숏 나열 및 공유 스냅숏의 파일 공유 또는 파일 복원** 
+
+파일 공유의 스냅숏을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
+
+파일 공유의 공유 스냅숏을 쿼리하여 파일 공유 스냅숏의 파일을 복원할 수 있습니다. 그런 다음 특정 공유 스냅숏에 속하는 파일을 검색하고 해당 버전을 사용하여 직접 읽고 비교하거나 복원할 수 있습니다.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**공유 스냅숏 삭제**
+
+다음 예제에서는 파일 공유 스냅숏을 삭제합니다.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>메트릭을 사용하여 Azure Files 문제 해결
 이제 Azure 저장소 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
@@ -390,7 +462,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 ### <a name="conceptual-articles-and-videos"></a>개념 문서 및 비디오
-* [Azure Files: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)(Azure Files: Windows 및 Linux를 위한 원활한 클라우드 SMB 파일 시스템)
 * [Linux에서 Azure Files 사용 방법](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>파일 저장소용 도구 지원

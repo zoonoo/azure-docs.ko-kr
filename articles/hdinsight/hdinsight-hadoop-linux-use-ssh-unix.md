@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -46,6 +45,11 @@ HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubun
 >
 > 에지 노드를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)을 참조하세요.
 
+> [!TIP]
+> HDInsight에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 ‘예’를 선택하여 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
+>
+> 이전에 같은 이름의 서버에 연결한 경우 저장된 호스트 키 서버의 호스트 키와 일치하지 않는다는 경고가 나타날 수도 있습니다. 이 경우 SSH 클라이언트가 클러스터에 연결하지 않을 수도 있습니다. 서버 이름에 대한 기존 항목을 제거하는 방법에 대해 SSH 클라이언트에 대한 설명서를 참조하세요.
+
 ## <a name="ssh-clients"></a>SSH 클라이언트
 
 Linux, Unix 및 macOS 시스템은 `ssh` 및 `scp` 명령을 제공합니다. `ssh` 클라이언트는 일반적으로 Linux 또는 Unix 기반 시스템에서 원격 명령줄 세션을 만드는 데 사용됩니다. `scp` 클라이언트는 클라이언트와 원격 시스템 간에 파일을 안전하게 복사하는 데 사용됩니다.
@@ -58,7 +62,7 @@ Microsoft Windows는 기본적으로 SSH 클라이언트를 제공하지 않습�
 
 * [Git(https://git-scm.com/)](https://git-scm.com/)(영문): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
 
-* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크탑은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
+* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크톱은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
 
 * [OpenSSH(https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell 팀은 OpenSSH를 Windows에 이식하여 테스트 릴리스를 제공합니다.
 

@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -25,11 +24,28 @@ Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔�
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-Python 2.7 및 3.6을 모두 지원하지만, Python 3.6을 사용하는 것이 좋습니다. 다음 섹션에서는 모든 필수 구성 요소 및 CLI를 설치하는 방법에 대해 설명합니다.
+CLI는 Python 버전 2.7, 3.5, 3.6을 지원합니다. Python 2.7 지원이 끝나기 때문에 Python 3.6이 권장된 버전입니다.
+
+### <a name="service-fabric-target-runtime"></a>Service Fabric 대상 런타임
+
+Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하기 위한 것입니다. 다음 표를 사용하여 설치할 CLI의 버전을 확인합니다.
+
+| CLI 버전   | 지원되는 런타임 버전 |
+|---------------|---------------------------|
+| 최신(~=2)  | 최신(~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+필요에 따라 `pip install` 명령에 `==<version>`을 접미사로 붙여 설치하기 위해 CLI의 대상 버전을 지정할 수 있습니다. 예를 들어 1.1.0 버전에서 구문은 다음과 같습니다.
+
+```
+pip install -I sfctl==1.1.0
+```
+
+필요한 경우 다음 `pip install` 명령을 앞에서 언급한 명령으로 바꿉니다.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python 및 Service Fabric CLI 설치
 
- 플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3.6 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
+플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 그러면 다음 명령을 실행하여 Service Fabric CLI를 설치합니다.
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Linux용 Ubuntu 및 Windows 하위 시스템
+
+Service Fabric CLI를 설치하려면 그러면 다음 명령을 실행합니다.
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-Ubuntu 16.04 Desktop의 경우 타사 PPA(Personal Package Archive)를 사용하여 Python 3.6을 설치할 수 있습니다.
-
-터미널에서 다음 명령을 실행합니다.
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-그런 다음 Python 3.6을 설치하기 위해 Service Fabric CLI를 설치하려면 다음 명령을 실행합니다.
+다음을 사용하여 설치를 테스트할 수 있습니다.
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
+다음과 같은 명령을 찾을 수 없음 오류가 표시되면:
+
+`sfctl: command not found`
+
+`$PATH`에서 `~/.local/bin`에 액세스할 수 있도록 합니다.
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-이러한 단계는 Python 3.5 및 2.7 시스템 설치에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
+Linux용 Windows 하위 시스템에 대한 설치가 잘못된 폴더 사용 권한으로 인해 실패하는 경우 승격된 사용 권한으로 다시 시도해야 합니다.
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 것이 좋습니다. HomeBrew가 아직 설치되지 않은 경우 다음 명령을 실행하여 설치합니다.
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-`sfctl`을 찾을 수 없다는 오류가 발생하면 다음 명령을 실행합니다.
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-이러한 단계는 Python 2.7 시스템 설치를 수정하지 않습니다.
 
 ## <a name="cli-syntax"></a>CLI 구문
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Service Fabric CLI를 업데이트하려면 다음 명령을 실행합니다(원래 설치 중 선택한 항목에 따라 `pip`를 `pip3`으로 대체).
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Service Fabric CLI에서 응용 프로그램 배포](service-fabric-application-lifecycle-sfctl.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)
-

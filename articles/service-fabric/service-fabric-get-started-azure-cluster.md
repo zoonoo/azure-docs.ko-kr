@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
+ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Azure에서 첫 번째 Service Fabric 클러스터 만들기
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 이 빠른 시작을 사용하여 몇 분만에 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 또는 [Azure Portal](http://portal.azure.com)을 통해 Windows 또는 Linux에서 실행하는 다섯 개의 노드 클러스터를 만들 수 있습니다.  
 
@@ -251,6 +249,17 @@ az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 az sf cluster health
 ```
 
+### <a name="connect-to-the-nodes-directly"></a>노드에 직접 연결 
+
+Linux 클러스터에서 노드에 연결하려면 3389부터 포트 번호를 지정하여 노드를 연결하는 데 SSH를 사용할 수 있습니다. 예를 들어 앞에서 만든 5개의 노드 클러스터에 대한 명령은 다음과 같습니다.
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
 ## <a name="next-steps"></a>다음 단계
 이제 개발 클러스터를 설정했으며 다음을 시도하세요.
 * [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
@@ -266,4 +275,3 @@ az sf cluster health
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

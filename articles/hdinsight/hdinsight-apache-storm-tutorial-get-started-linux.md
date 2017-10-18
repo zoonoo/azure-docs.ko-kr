@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
@@ -44,7 +43,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 다음 단계를 사용하여 HDInsight 클러스터에 Storm을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기**, **인텔리전스 + 분석**, **HDInsight**를 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기**, **데이터 + 분석**, **HDInsight**를 차례로 선택합니다.
 
     ![HDInsight 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
     * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.
 
-    ![구독 선택](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![구독 선택](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. **클러스터 유형**을 선택한 다음 **클러스터 구성** 블레이드에서 다음 값을 설정합니다.
 
@@ -69,7 +68,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
     * **클러스터 계층**: 표준
 
-    마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
+   마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
 
     ![클러스터 유형 선택](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -92,7 +91,11 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공개 키를 사용하는 경우, `-i` 매개 변수를 사용하여 일치하는 개인 키를 지정해야 할 수 있습니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
+    > [!TIP]
+    > SSH 클라이언트에서 호스트의 신뢰성을 설정할 수 없다고 표시될 수도 있습니다. 그럴 경우 `yes`를 입력하여 계속합니다.
+
+    > [!NOTE]
+    > SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공개 키를 사용하는 경우, `-i` 매개 변수를 사용하여 일치하는 개인 키를 지정해야 할 수 있습니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -118,10 +121,10 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 
 Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 사용합니다.
 
-1. Storm UI를 표시하려면 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net/stormui를 엽니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
+1. Storm UI를 표시하려면 웹 브라우저를 열고 `https://CLUSTERNAME.azurehdinsight.net/stormui`로 이동합니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 
     > [!NOTE]
-    > 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+    > 사용자 이름 및 암호를 제공하도록 요청을 받으면  클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및 암호를 입력합니다.
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
@@ -210,4 +213,3 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -71,7 +70,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 
 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 
-## <a name="pages-under-the-section-sync"></a>섹션 동기화의 페이지
+## <a name="pages-under-the-sync-section"></a>동기화 섹션의 페이지
 
 ### <a name="connect-your-directories"></a>디렉터리에 연결
 Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충분한 권한이 있는 계정의 포리스트 이름과 자격 증명이 필요합니다.
@@ -170,7 +169,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 | Exchange 메일 공용 폴더 | Exchange 메일 공용 폴더 기능을 사용하면 온-프레미스 Active Directory의 메일 사용이 가능한 공용 폴더 개체를 Azure AD로 동기화할 수 있습니다. |
 | Azure AD 앱 및 특성 필터링 |Azure AD 앱 및 특성 필터링을 사용하여 동기화된 특성 집합을 사용자 지정할 수 있습니다. 이 옵션은 마법사에 구성 페이지를 두 개 더 추가합니다. 자세한 내용은 [Azure AD 앱 및 특성 필터링](#azure-ad-app-and-attribute-filtering)을 참조하세요. |
 | 암호 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 암호 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 이 옵션을 또한 백업 옵션으로 레거시 클라이언트 지원을 보장하도록 사용할 수 있습니다. 자세한 내용은 [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요.|
-| 암호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../active-directory-passwords-getting-started.md)을 참조하세요. |
+| 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../active-directory-passwords-getting-started.md)을 참조하세요. |
 | 그룹 쓰기 저장 |**Office 365 그룹** 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback)을 참조하세요. |
 | 장치 쓰기 저장 |Azure AD의 장치 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)을 참조하세요. |
 | 디렉터리 확장 특성 동기화 |디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 자세한 내용은 [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)을 참조하세요. |
@@ -232,9 +231,12 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS로 페더레이션 구성
 Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클릭으로 간단합니다. 구성하기 전에 다음 사항이 필요합니다.
 
-* 원격 관리가 사용 가능한 페더레이션 서버용 Windows Server 2012 R2 서버
-* 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 서버
+* 원격 관리가 사용 가능한 페더레이션 서버용 Windows Server 2012 R2 이상 서버
+* 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 이상 서버
 * 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
+
+>[!NOTE]
+>페더레이션 트러스트를 관리하는 데 사용하지 않는 경우에도 Azure AD Connect를 사용하여 AD FS 팜의 SSL 인증서를 업데이트할 수 있습니다.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS 구성 필수 조건
 Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap)에 나열된 포트 요구 사항을 살펴봅니다.
@@ -245,6 +247,9 @@ Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에�
 ![AD FS 팜](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 기존 AD FS 팜을 사용하도록 선택한 경우 AD FS와 Azure AD 간의 트러스트 관계를 구성하는 화면으로 이동합니다.
+
+>[!NOTE]
+>Azure AD Connect는 AD FS 팜을 하나만 관리하는 데 사용할 수 있습니다. 선택한 AD FS 팜에 구성된 Azure AD와 기존 페더레이션 트러스트가 있는 경우 트러스트는 Azure AD Connect에서 다시 처음부터 만들어집니다.
 
 ### <a name="specify-the-ad-fs-servers"></a>AD FS 서버 지정
 AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 이 구성을 수행하기 전에 모든 서버를 Active Directory에 조인합니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 AD FS 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다.
@@ -303,7 +308,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 이 페이지에서 구성이 이루어집니다.
 
 > [!NOTE]
-> 설치를 계속하기 전에 페더레이션을 구성한 경우 [페더레이션 서버에 대 한 이름 확인](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers)을 구성했는지 확인합니다.
+> 설치를 계속하기 전에 페더레이션을 구성한 경우 [페더레이션 서버에 대한 이름 확인](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers)을 구성했는지 확인합니다.
 >
 >
 
@@ -350,4 +355,3 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](active-directory-aadconnectsync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

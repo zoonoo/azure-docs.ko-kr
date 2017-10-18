@@ -13,15 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/11/2017
+ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 699ec578832e894b5bfc0cfad35528eac377c4ff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 응용 프로그램 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -68,9 +67,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure IaaS VM Backup |<p>**예**</p><p>Azure 패브릭의 일부</p><p>[Azure IaaS(Infrastructure as a Service) 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> |<p>**아니요**</p> <p>System Center DPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다.</p> |<p>Recovery Services 자격 증명 모음</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>어떤 응용 프로그램 및 워크로드를 백업할 수 있나요?
-다음 표에서는 Azure Backup을 사용하여 보호할 수 있는 데이터와 워크로드의 매트릭스를 제공합니다. Azure Backup 솔루션 열에는 해당 솔루션의 배포 설명서에 대한 링크가 있습니다. 각 Azure Backup 구성 요소는 클래식 (Service Manager 배포 모델) 또는 Resource Manager 배포 모델 환경에 배포할 수 있습니다.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+다음 표에서는 Azure Backup을 사용하여 보호할 수 있는 데이터와 워크로드의 매트릭스를 제공합니다. Azure Backup 솔루션 열에는 해당 솔루션의 배포 설명서에 대한 링크가 있습니다. 
 
 | 데이터 또는 워크로드 | 원본 환경 | Azure Backup 솔루션 |
 | --- | --- | --- |
@@ -93,7 +90,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure Backup(MARS) 에이전트 |아니요(Windows 기반 에이전트만) |
 | System Center DPM |<li> Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/> <li> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원 </br> </br>  *Azure VM에서 파일 일치 백업을 사용할 수 없음* <br/> |
 | Azure Backup 서버 |<li>Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/> <li> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원 </br></br> *Azure VM에서 파일 일치 백업을 사용할 수 없음*  |
-| Azure IaaS VM Backup |[사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 응용 프로그램 일치 백업<br/> [세분화된 파일 복구](backup-azure-restore-files-from-vm.md)<br/> [모든 VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 복원](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
+| Azure IaaS VM Backup |[사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 응용 프로그램 일치 백업<br/> [세분화된 파일 복구](backup-azure-restore-files-from-vm.md)<br/> [모든 VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 복원](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage VM 사용
 Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../storage/common/storage-premium-storage.md)를 참조하세요.
@@ -224,13 +221,12 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 ## <a name="what-is-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음이란?
 Recovery Services 자격 증명 모음은 백업 복사본, 복구 지점 및 백업 정책과 같은 데이터를 보관하는 데 사용되는 Azure의 온라인 저장소 엔터티입니다. Recovery Services 자격 증명 모음을 사용하여 Azure 서비스 및 온-프레미스 서버와 워크스테이션에 대한 백업 데이터를 보관할 수 있습니다. Recovery Services 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 구독 내에서 Recovery Services 자격 증명 모음을 원하는 만큼 만들 수 있습니다.
 
-Azure Service Manager를 기반으로 한 Backup 자격 증명 모음이 자격 증명 모음의 첫 번째 버전이었습니다. Azure Resource Manager 모델 기능을 추가한 Recovery Services 자격 증명 모음이 자격 증명 모음의 두 번째 버전입니다. 기능 차이에 대한 자세한 설명은 [Recovery Services 자격 증명 모음 개요 문서](backup-azure-recovery-services-vault-overview.md)를 참조하세요. Backup 자격 증명 모음을 만드는 데 포털을 더 이상 사용할 수 없지만 Backup 자격 증명 모음은 계속 지원됩니다.
+Azure Service Manager를 기반으로 한 Backup 자격 증명 모음이 자격 증명 모음의 첫 번째 버전이었습니다. Azure Resource Manager 모델 기능을 추가한 Recovery Services 자격 증명 모음이 자격 증명 모음의 두 번째 버전입니다. 기능 차이에 대한 자세한 설명은 [Recovery Services 자격 증명 모음 개요 문서](backup-azure-recovery-services-vault-overview.md)를 참조하세요. Backup 자격 증명 모음을 만드는 데 포털을 더 이상 사용할 수 없지만 Backup 자격 증명 모음은 계속 지원됩니다. 백업 자격 증명 모음을 관리하려면 Azure Portal을 사용해야 합니다.
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 10월 15일**부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. <br/> **2017년 11월 1일까지**:
->- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
->- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
->
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 10월 15일**부터는 PowerShell을 사용하여 백업 자격 증명 모음을 만들 수 없습니다. <br/> **2017년 11월 1일**까지 나머지 모든 백업 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+
+
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Azure Backup은 Azure Site Recovery와 어떻게 다른가요?
 Azure Backup 및 Azure Site Recovery는 모두 데이터를 백업하고 해당 데이터를 복원할 수 있다는 점에서 서로 관련되어 있습니다. 그러나 이러한 서비스에는 비즈니스 연속성과 재해 복구를 비즈니스에 제공하는 데 있어 다른 목적이 있습니다. Azure Backup을 사용하여 데 세분화된 수준에서 데이터를 보호하고 복원합니다. 예를 들어 랩톱의 프레젠테이션이 손상된 경우 Azure Backup을 사용하여 해당 프레젠테이션을 복원합니다. 다른 데이터 센터를 통해 VM에 구성과 데이터를 복제하려면 Azure Site Recovery를 사용합니다.
@@ -260,4 +256,3 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨�
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

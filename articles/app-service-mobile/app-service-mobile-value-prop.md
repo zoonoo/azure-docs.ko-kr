@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
@@ -68,7 +67,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
 * **지속적인 배포**: App Service는 일반 SCM(공급 체인 관리) 시스템과 통합할 수 있으므로 SCM 시스템의 분기에 푸시하여 새 버전의 백 엔드를 자동으로 배포할 수 있습니다.
 
-  [배포 옵션]에 대해 자세히 알아보세요.
+  [배포 옵션](../app-service/app-service-deploy-local-git.md)에 대해 자세히 알아보세요.
 
 * **가상 네트워킹**: App Service는 가상 네트워크, Azure ExpressRoute 또는 하이브리드 연결을 사용하여 온-프레미스 리소스에 연결할 수 있습니다.
 
@@ -80,14 +79,13 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure App Service에서 Mobile Apps를 시작하려면 [시작] 자습서를 완료합니다. 자습서에서는 선택한 모바일 백 엔드과 클라이언트를 생성하는 기본 사항을 설명합니다. 인증 통합, 오프라인 동기화 및 푸시 알림에 대해서도 설명합니다. 각 클라이언트 응용 프로그램에 한 번씩, 여러 번 이 자습서를 완료할 수 있습니다.
+Azure App Service에서 Mobile Apps를 시작하려면 [시작] 자습서를 완료합니다. 자습서에서는 선택한 모바일 백 엔드와 클라이언트를 생성하는 기본 사항을 설명합니다. 인증 통합, 오프라인 동기화 및 푸시 알림에 대해서도 설명합니다. 각 클라이언트 응용 프로그램에 한 번씩, 여러 번 이 자습서를 완료할 수 있습니다.
 
 Mobile Apps에 대한 자세한 내용은 [학습 맵]을 검토하세요.
 Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를 참조하세요.
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [시작]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를
 [Xamarin.iOS 및 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[자동 크기 조정]: ../app-service-web/web-sites-scale.md
-[스테이징 환경]: ../app-service-web/web-sites-staged-publishing.md
-[배포 옵션]: ../app-service-web/web-sites-deploy.md
+[자동 크기 조정]: ../app-service/web-sites-scale.md
+[스테이징 환경]: ../app-service/web-sites-staged-publishing.md
 [하이브리드 연결]: ../biztalk-services/integration-hybrid-connection-overview.md
-[가상 네트워크]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service 환경]: ../app-service-web/app-service-app-service-environment-intro.md
+[가상 네트워크]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[App Service 환경]: ../app-service/environment/intro.md
 [학습 맵]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

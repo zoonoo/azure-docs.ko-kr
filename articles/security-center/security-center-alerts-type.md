@@ -12,25 +12,24 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 
+고급 감지를 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 **가격 책정 계층**을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+
 > [!NOTE]
-> 고급 감지를 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 **가격 책정 계층**을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
->
+> Security Center는 Linux 컴퓨터에서 악의적인 행동을 감지하는 감사된 레코드인 공통 감사 프레임워크를 활용하는 새로운 집합의 감지에 대한 제한된 미리 보기를 출시했습니다. 전자 메일로 [당사](mailto:ASC_linuxdetections@microsoft.com)에 구독 ID를 보내어 미리 보기에 조인하세요.
 
 ## <a name="what-type-of-alerts-are-available"></a>어떤 유형의 경고를 사용할 수 있습니까?
-Azure Security Center는 다양한 [검색 기능](security-center-detection-capabilities.md)을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거한 경고, 대상 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. 경고에 포함된 정보는 위협을 검색하는 데 사용되는 분석의 유형에 따라 달라집니다. 인시던트는 위협을 조사할 때 유용할 수 있는 추가 컨텍스트 정보를 포함할 수도 있습니다.  이 문서는 다음 경고 유형에 대한 정보를 제공합니다.
+Azure Security Center는 다양한 [검색 기능](security-center-detection-capabilities.md)을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. 경고에 포함된 정보는 위협을 검색하는 데 사용되는 분석의 유형에 따라 달라집니다. 인시던트는 위협을 조사할 때 유용할 수 있는 추가 컨텍스트 정보를 포함할 수도 있습니다.  이 문서는 다음 경고 유형에 대한 정보를 제공합니다.
 
 * VMBA(가상 컴퓨터 동작 분석)
 * 네트워크 분석
@@ -45,7 +44,7 @@ Azure Security Center는 동작 분석을 사용하여 가상 컴퓨터 이벤�
 >
 
 ### <a name="crash-analysis"></a>충돌 분석
-크래시 덤프 메모리 분석은 기존 보안 솔루션을 피할 수 있는 정교한 맬웨어를 감지하는 데 사용되는 방법입니다. 다양한 형식의 맬웨어는 디스크에 작성하지 않거나 디스크에 작성된 소프트웨어 구성 요소를 암호화하여 바이러스 백신 제품에서 탐지되지 않으려 합니다. 따라서 맬웨어는 기존 맬웨어 방지 방법을 사용하여 감지하기 어렵게 됩니다. 그러나 이러한 종류의 맬웨어는 작동하기 위해 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 검색될 수 있습니다.
+크래시 덤프 메모리 분석은 기존 보안 솔루션을 피할 수 있는 정교한 맬웨어를 감지하는 데 사용되는 방법입니다. 다양한 형식의 맬웨어는 디스크에 작성하지 않거나 디스크에 작성된 소프트웨어 구성 요소를 암호화하여 바이러스 백신 제품에서 탐지되지 않으려 합니다. 이 방법으로 인해 기존 맬웨어 방지 방법을 사용하여 맬웨어를 감지하기 어렵게 됩니다. 그러나 이러한 종류의 맬웨어는 작동하기 위해 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 검색될 수 있습니다.
 
 소프트웨어가 충돌할 때 크래시 덤프는 충돌 시 메모리의 일부를 캡처합니다. 충돌은 맬웨어, 일반 응용 프로그램 또는 시스템 문제로 인해 발생할 수 있습니다. 크래시 덤프의 메모리를 분석하여 Security Center는 소프트웨어에서 취약점을 악용하고 기밀 데이터에 액세스하고 손상된 컴퓨터에서 은밀하게 유지하는 데 사용되는 기술을 감지할 수 있습니다. 분석이 Security Center 백 엔드에 의해 수행되므로 호스트에 대한 최소 성능에 영향을 주게 됩니다.
 
@@ -122,7 +121,7 @@ Security Center는 대상 가상 컴퓨터에서 실행되는 의심스러운 �
 
 ![의심스러운 프로세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>여러 도메인 계정 쿼리
+### <a name="multiple-domains-accounts-queried"></a>쿼리된 여러 도메인 계정
 Security Center는 Active Directory 도메인 계정을 쿼리하는 여러 시도를 감지할 수 있으며 이는 일반적으로 네트워크 정찰 중에 공격자에 의해 발생합니다. 공격자는 이 기술을 활용하여 사용자를 식별하고 도메인 관리자 계정을 식별하고 도메인 컨트롤러인 컴퓨터를 식별하고 다른 도메인과 잠재적인 도메인 트러스트 관계가 있는지를 식별하는 도메인을 쿼리할 수 있습니다.
 
 이러한 유형의 경고 예제는 다음과 같습니다.
@@ -139,7 +138,7 @@ Security Center는 Windows Server 2016 및 Windows 10에서 보안 이벤트 479
 
 ### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>대/소문자의 비정상적인 혼합
 
-Security Center는 명령줄에서 대/소문자 혼합이 사용된 것을 감지하면 경고를 트리거합니다. 일부 공격자는 이 기술을 사용하여 대/소문자 또는 해시 기반 컴퓨터 규칙을 숨길 수 있습니다.
+Security Center는 명령줄에서 대/소문자 혼합이 사용된 것을 감지하면 경고를 트리거합니다. 일부 공격자는 이 방법을 사용하여 대/소문자 또는 해시 기반 컴퓨터 규칙을 숨길 수 있습니다.
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
@@ -189,7 +188,7 @@ Security Center 네트워크 위협 감지는 Azure IPFIX(인터넷 프로토콜
 
 ![의심스러운 나가는 트래픽 경고](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-이 경고는 이 공격을 시작하는 데 사용된 리소스를 식별하는 데 사용할 수 있는 정보를 제공합니다. 이 경고는 또한 손상된 컴퓨터, 검색 시간 및 사용된 프로토콜 및 포트를 식별하는 정보를 제공합니다. 이 블레이드는 이 문제를 완화하기 위해 사용할 수 있는 수정 단계 목록도 제공합니다.
+이 경고는 이 공격을 시작하는 데 사용된 리소스를 식별하는 데 사용할 수 있는 정보를 제공합니다. 이 경고는 또한 손상된 컴퓨터, 검색 시간 및 사용된 프로토콜 및 포트를 식별하는 정보를 제공합니다. 이 페이지에서는 이 문제를 완화하기 위해 사용할 수 있는 수정 단계 목록도 제공합니다.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>악의적인 컴퓨터와 네트워크 통신
 Azure Security Center는 Microsoft 위협 인텔리전스 피드를 활용하여 악성 IP 주소와 통신하는 손상된 컴퓨터를 검색할 수 있습니다. 많은 경우 악성 주소는 명령 및 제어 센터입니다. 이 경우에 Security Center는 Pony Loader 맬웨어([Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)라고도 함)를 사용하여 실행된 통신을 감지했습니다.
@@ -254,4 +253,3 @@ SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스�
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-

@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Azure Files 소개
 Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 가까이에 빠르게 액세스하기 위해 Azure File Sync(미리 보기)를 사용하여 Azure File 공유를 Windows Server에서 캐시할 수 있습니다.
 
 ## <a name="videos"></a>비디오
-| Azure Files 소개(27분) | Azure Files 자습서(5분)  |
+| Azure Files Sync 소개(2분) | Sync를 사용하는 Azure Files(Ignite 2017)(85분)  |
 |-|-|
-| [![Azure Files 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Azure Files 자습서의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Azure Files Sync 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Sync를 사용하는 Azure Files 프레젠테이션의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Azure Files가 유용한 이유
 Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.

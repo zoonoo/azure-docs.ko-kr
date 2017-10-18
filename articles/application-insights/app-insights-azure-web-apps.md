@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure 웹앱 성능 모니터링
 [Azure Portal](https://portal.azure.com)에서 [Azure 웹앱](../app-service/app-service-web-overview.md)의 응용 프로그램 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
@@ -50,7 +49,7 @@ Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오�
     
     값: `true`
    * 설정을 **저장**하고 앱을 **다시 시작**합니다.
-3. **앱을 모니터링합니다**.  [데이터를 내보냅니다](#explore-the-data).
+3. **앱을 모니터링합니다**.  [데이터를 탐색합니다](#explore-the-data).
 
 나중에 원하는 경우 Application Insights로 앱을 빌드할 수 있습니다.
 
@@ -120,5 +119,4 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](app-insights-javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
 * [가용성 웹 테스트를 설정](app-insights-monitor-web-app-availability.md) 합니다.
-
 

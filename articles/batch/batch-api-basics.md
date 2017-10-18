@@ -3,7 +3,7 @@ title: "개발자를 위한 Azure Batch 개요 | Microsoft Docs"
 description: "개발자의 관점에서 Batch 서비스와 해당 API에 대한 기능을 알아봅니다."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -46,7 +45,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 다음 섹션에서는 이러한 내용 및 분산된 전산 시나리오를 사용할 수 있는 Batch의 다른 리소스를 설명합니다.
 
 > [!NOTE]
-> Batch 서비스를 사용하려면 [Batch 계정](#account)이 필요합니다. 대부분의 Batch 솔루션에서는 파일 저장 및 검색을 위해 [Azure Storage][azure_storage] 계정을 사용합니다. Batch는 현재 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만 지원합니다.
+> Batch 서비스를 사용하려면 [Batch 계정](#account)이 필요합니다. 대부분의 Batch 솔루션에서는 파일 저장 및 검색을 위해 연결된 [Azure Storage][azure_storage] 계정을 사용합니다. 
 >
 >
 
@@ -71,44 +70,14 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 ## <a name="account"></a>계정
 Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 Batch 계정과 연결됩니다.
 
-[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 Azure Storage 계정을 연결할 수 있습니다.
+[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 응용 프로그램을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
 
-### <a name="pool-allocation-mode"></a>풀 할당 모드
+단일 배치 계정에서 여러 배치 워크로드를 실행하거나 다른 Azure 지역이 아닌 동일한 구독에 있는 배치 계정 간에 워크로드를 배포할 수 있습니다.
 
-Batch 계정을 만들 때 계산 노드의 [풀](#pool)이 할당되는 방식을 지정할 수 있습니다. 즉 Azure Batch에서 관리하는 구독에 계산 노드 풀을 할당하거나 사용자의 구독에 해당 풀을 직접 할당하도록 선택할 수 있습니다. 계정에 대한 *풀 할당 모드* 속성에 따라 할당되는 풀의 위치가 결정됩니다. 
+> [!NOTE]
+> Batch 계정을 만들 때 일반적으로 기본 **Batch 서비스** 모드를 선택해야 합니다. 여기에서 풀이 Azure에서 관리하는 구독에서 배후에 할당됩니다. 더 이상 권장되지 않는 대체 **사용자 구독** 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다.
+>
 
-사용할 풀 할당 모드를 결정하려면 시나리오에 가장 적합한 구성을 고려합니다.
-
-* **Batch 서비스**: Batch 서비스는 기본 풀 할당 모드로, 풀이 Azure에서 관리하는 구독에서 배후에 할당됩니다. Batch 서비스 풀 할당 모드와 관련된 다음과 같은 핵심 사항에 유의하세요.
-
-    - Batch 서비스 풀 할당 모드는 Cloud Service 및 Virtual Machine 풀을 모두 지원합니다.
-    - Batch 서비스 풀 할당 모드는 공유 키 인증 또는 [Azure AD(Azure Active Directory) 인증](batch-aad-auth.md)을 모두 지원합니다. 
-    - Batch 서비스 풀 할당 모드로 할당된 풀에는 전용 계산 노드 또는 우선 순위가 낮은 계산 노드를 사용할 수 있습니다.
-    - 사용자 지정 VM 이미지에서 Azure 가상 컴퓨터 풀을 만들거나 가상 네트워크를 사용하려는 경우 Batch 서비스 풀 할당 모드를 사용하지 마세요. 대신 사용자 구독 풀 할당 모드로 계정을 만듭니다.
-    - Batch 서비스 풀 할당 모드로 만든 계정에 프로비전되는 가상 컴퓨터 풀은 [Azure Virtual Machines Marketplace][vm_marketplace] 이미지에서 만들어야 합니다.
-
-* **사용자 구독**: 사용자 구독 풀 할당 모드를 사용하는 Batch 풀은 해당 계정을 만든 Azure 구독에 할당됩니다. 사용자 구독 풀 할당 모드와 관련된 다음과 같은 핵심 사항에 유의하세요.
-     
-    - 사용자 구독 풀 할당 모드는 가상 컴퓨터 풀만 지원합니다. Cloud Services 풀은 지원하지 않습니다.
-    - 사용자 지정 VM 이미지에서 가상 컴퓨터 풀을 만들거나 가상 컴퓨터 풀과 함께 가상 네트워크를 사용하려면 사용자 구독 풀 할당 모드를 사용해야 합니다.  
-    - 사용자 구독에 할당된 풀에 [Azure Active Directory 인증](batch-aad-auth.md)을 사용해야 합니다. 
-    - 풀 할당 모드가 사용자 구독으로 설정된 경우 Batch 계정에 대해 Azure Key Vault를 설정해야 합니다. 
-    - 사용자 구독 풀 할당 모드로 만든 계정에는 풀에 전용 계산 노드만 사용할 수 있습니다. 우선 순위가 낮은 노드는 지원되지 않습니다.
-    - 사용자 구독 풀 할당 모드 계정에 프로비전되는 가상 컴퓨터 풀은 [Azure Virtual Machines Marketplace][vm_marketplace] 이미지 또는 사용자가 제공하는 사용자 지정 이미지에서 만들 수 있습니다.
-
-다음 표에서는 Batch 서비스 및 사용자 구독 풀 할당 모드를 비교하여 보여 줍니다.
-
-| **풀 할당 모드**                 | **Batch 서비스**                                                                                       | **사용자 구독**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **다음에 풀이 할당됨**               | Azure에서 관리하는 구독                                                                           | Batch 계정이 만들어진 사용자 구독                        |
-| **지원되는 구성**             | <ul><li>클라우드 서비스 구성</li><li>가상 컴퓨터 구성(Linux 및 Windows)</li></ul> | <ul><li>가상 컴퓨터 구성(Linux 및 Windows)</li></ul>                |
-| **지원되는 VM 이미지**                  | <ul><li>Azure Marketplace 이미지</li></ul>                                                              | <ul><li>Azure Marketplace 이미지</li><li>사용자 지정 이미지</li></ul>                   |
-| **지원되는 계산 노드 형식**         | <ul><li>전용 노드</li><li>우선 순위가 낮은 노드</li></ul>                                            | <ul><li>전용 노드</li></ul>                                                  |
-| **지원되는 인증**             | <ul><li>공유 키</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault 필요**             | 아니요                                                                                                      | 예                                                                                |
-| **코어 할당량**                           | Batch 코어 할당량에 의해 결정됨                                                                          | 구독 코어 할당량에 의해 결정됨                                              |
-| **Azure Vnet(Virtual Network) 지원** | 클라우드 서비스 구성을 사용하여 만든 풀                                                      | 가상 컴퓨터 구성을 사용하여 만든 풀                               |
-| **Vnet 배포 모델 지원됨**      | 클래식 배포 모델을 사용하여 만든 Vnet                                                             | 클래식 배포 모델 또는 Azure Resource Manager를 사용하여 만든 Vnet |
 
 ## <a name="azure-storage-account"></a>Azure Storage 계정
 
@@ -135,7 +104,7 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
 
 풀에 추가된 모든 노드에는 고유 이름 및 IP 주소가 할당됩니다. 노드가 풀에서 제거되면 운영 체제 또는 파일에 적용된 모든 변경 내용이 손실되며, 해당 이름 및 IP 주소가 나중에 사용할 수 있도록 해제됩니다. 노드가 풀에서 제거되면 수명이 끝납니다.
 
-풀을 만들 때 다음과 같은 특성을 지정할 수 있습니다. 일부 설정은 Batch [계정](#account)의 풀 할당 모드에 따라 다릅니다.
+풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
 
 - Compute 노드 운영 체제 및 버전
 - Compute 노드 유형 및 대상 노드 수
@@ -150,11 +119,9 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
 다음 섹션에서는 이러한 설정 각각에 대해 자세히 설명합니다.
 
 > [!IMPORTANT]
-> Batch 서비스 풀 할당 모드로 Batch 계정에는 Batch 계정의 코어 수를 제한하는 기본 할당량이 있습니다. 코어 수는 계산 노드 수에 해당합니다. [Azure Batch 서비스 할당량 및 제한](batch-quota-limit.md)에서 [할당량 증가](batch-quota-limit.md#increase-a-quota) 방법에 대한 기본 할당량과 지침을 찾을 수 있습니다. 풀에서 대상 노드 수를 달성하지 못하는 경우 코어 할당량이 원인일 수 있습니다.
+> Batch 계정에는 Batch 계정의 코어 수를 제한하는 기본 할당량이 있습니다. 코어 수는 계산 노드 수에 해당합니다. [Azure Batch 서비스 할당량 및 제한](batch-quota-limit.md)에서 [할당량 증가](batch-quota-limit.md#increase-a-quota) 방법에 대한 기본 할당량과 지침을 찾을 수 있습니다. 풀에서 대상 노드 수를 달성하지 못하는 경우 코어 할당량이 원인일 수 있습니다.
 >
->사용자 구독 풀 할당 모드로 만든 Batch 계정은 Batch 서비스 할당량을 지원하지 않습니다. 대신 지정된 구독에 대한 코어 할당량을 공유합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 [Virtual Machines 제한](../azure-subscription-service-limits.md#virtual-machines-limits)을 참조하세요.
->
->
+
 
 ### <a name="compute-node-operating-system-and-version"></a>Compute 노드 운영 체제 및 버전
 
@@ -174,41 +141,14 @@ Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노�
 
 풀을 만들 때 기본 VHD 이미지의 OS에 따라 적절한 **nodeAgentSkuId**를 선택해야 합니다. [지원되는 노드 에이전트 SKU 나열](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 작업을 호출하여 사용 가능한 노드 에이전트 SKU ID를 OS 이미지 참조에 매핑할 수 있습니다.
 
-Batch 계정을 만들 때 풀 할당 모드를 설정하는 방법은 [계정](#account) 섹션을 참조하세요.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>가상 컴퓨터 풀에 대한 사용자 지정 이미지
 
-가상 컴퓨터 풀을 프로비전하는 데 사용자 지정 이미지를 사용하려면 사용자 구독 풀 할당 모드로 Batch 계정을 만듭니다. 이 모드를 사용하면 해당 계정이 있는 구독에 Batch 풀이 할당됩니다. Batch 계정을 만들 때 풀 할당 모드를 설정하는 방법은 [계정](#account) 섹션을 참조하세요.
+사용자 지정 이미지를 사용하려면 일반화하여 이미지를 준비해야 합니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 컴퓨터 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요. 
 
-사용자 지정 이미지를 사용하려면 일반화하여 이미지를 준비해야 합니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure Linux VM을 캡처하여 템플릿으로 사용](../virtual-machines/linux/capture-image-nodejs.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지 준비에 대한 자세한 내용은 [Azure PowerShell을 사용하여 사용자 지정 VM 이미지 만들기](../virtual-machines/windows/tutorial-custom-images.md)를 참조하세요. 
+자세한 요구 사항 및 단계는 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](batch-custom-images.md)를 참조하세요.
 
-> [!IMPORTANT]
-> 사용자 지정 이미지를 준비할 때는 다음 사항에 유의해야 합니다.
-> - Batch 풀을 프로비전하는 데 사용할 기본 OS 이미지에 사전 설치된 Azure 확장(사용자 지정 스크립트 확장)이 없는지 확인합니다. 이미지에 사전 설치된 확장이 있는 경우 Azure에서 VM 배포 시 문제가 발생할 수 있습니다.
-> - Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상하므로 사용자가 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하는지 확인합니다.
->
->
 
-사용자 지정 이미지를 사용하여 가상 컴퓨터 구성 풀을 만들려면 사용자 지정 VHD 이미지를 저장하기 위한 표준 Azure Storage 계정이 하나 이상 있어야 합니다. 사용자 지정 이미지는 Blob으로 저장됩니다. 풀을 만들 때 사용자 지정 이미지를 참조하려면 [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) 속성의 [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) 속성에 대해 사용자 지정 이미지 VHD Blob의 URI를 지정합니다.
-
-저장소 계정이 다음 조건을 충족하는지 확인합니다.   
-
-- 사용자 지정 이미지 VHD Blob이 있는 저장소 계정은 Batch 계정(사용자 구독)과 동일한 구독에 있어야 합니다.
-- 지정된 저장소 계정은 Batch 계정과 동일한 지역에 있어야 합니다.
-- 현재 표준 범용 저장소 계정만 지원됩니다. Azure 프리미엄 저장소는 나중에 지원됩니다.
-- 사용자 지정 VHD Blob이 여러 개 있는 단일 저장소 계정을 지정하거나 Blob 하나만 있는 저장소 계정을 여러 개 지정할 수 있습니다. 더 나은 성능을 얻으려면 저장소 계정을 여러 개 사용하는 것이 좋습니다.
-- 고유한 사용자 지정 이미지 VHD Blob마다 최대 40개의 Linux VM 인스턴스 또는 20개의 Windows VM 인스턴스를 지원할 수 있습니다. 더 많은 VM을 포함하는 풀을 만들려면 VHD Blob 복사본을 만들어야 합니다. 예를 들어 200개 Windows VM이 있는 풀의 경우 **osDisk** 속성에 고유한 10개의 VHD Blob을 지정해야 합니다.
-
-Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려면 다음을 수행합니다.
-
-1. Azure Portal에서 Batch 계정으로 이동합니다.
-2. **설정** 블레이드에서 **풀** 메뉴 항목을 선택합니다.
-3. **풀** 블레이드에서 **추가** 명령을 선택합니다. 그러면 **풀 추가** 블레이드가 표시됩니다.
-4. **이미지 유형** 드롭다운에서 **사용자 지정 이미지(Linux/Windows)**를 선택합니다. 포털에서 **사용자 지정 이미지** 선택기가 표시됩니다. 동일한 컨테이너에서 VHD를 하나 이상 선택하고 **선택** 단추를 클릭합니다. 
-    향후에는 여러 저장소 계정 및 컨테이너에서 여러 개의 VHD를 지원할 예정입니다.
-5. 사용자 지정 VHD에 대해 올바른 **게시자/제품/SKU**를 선택하고, 원하는 **캐싱** 모드를 선택한 다음, 풀에 대한 다른 모든 매개 변수를 입력합니다.
-6. 풀이 사용자 지정 이미지를 기반으로 하는지 확인하려면 **풀** 블레이드의 리소스 요약 섹션에 있는 **운영 체제** 속성을 참조하세요. 이 속성의 값은 **사용자 지정 VM 이미지**입니다.
-7. 풀과 연결된 모든 사용자 지정 VHD가 해당 풀의 **속성** 블레이드에 표시됩니다.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>Compute 노드 유형 및 대상 노드 수
 
@@ -220,8 +160,7 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
     Azure에 여유 용량이 부족하면 우선 순위가 낮은 계산 노드는 선취될 수 있습니다. 작업을 실행하는 중에 노드가 선취되면 해당 작업은 다시 대기 상태가 되고 계산 노드를 다시 사용할 수 있게 되면 다시 실행됩니다. 우선 순위가 낮은 노드는 작업 완료 시간이 유연하고 작업은 여러 노드에 분산되어 있는 워크로드에 적합한 옵션입니다. 시나리오에 우선 순위가 낮은 노드를 사용하도록 결정하기 전에 선점으로 인해 손실되는 작업을 최소화하고 쉽게 다시 만들 수 있어야 합니다.
 
-    우선 순위가 낮은 계산 노드는 풀 할당 모드를 **Batch 서비스**로 설정하여 만든 Batch 계정에서만 사용할 수 있습니다.
-
+    
 우선 순위가 낮은 계산 노드와 전용 계산 노드를 모두 동일한 풀에서 사용할 수 있습니다. &mdash;우선 순위가 낮은 노드 및 전용 노드&mdash;의 각 유형에는 고유한 대상 설정이 있으므로 원하는 노드 수를 지정할 수 있습니다. 
     
 계산 노드 수는 상황에 따라 풀이 원하는 노드 수에 도달하지 않을 수 있기 때문에 *대상* 이라고 합니다. 예를 들어, Batch 계정의 [코어 할당량](batch-quota-limit.md)에 먼저 도달하는 경우 풀은 대상에 도달하지 못할 수 있습니다. 또는 최대 노드 수를 제한하는 풀에 자동 확장 수식을 적용한 경우, 풀이 대상에 도달하지 못할 수 있습니다.
@@ -267,7 +206,7 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 [응용 프로그램 패키지](#application-packages)를 지정하여 풀에 계산 노드를 배포할 수 있습니다. 응용 프로그램 패키지는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 풀에 지정할 응용 프로그램 패키지는 해당 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 모든 노드에 설치됩니다.
 
 > [!NOTE]
-> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만든 모든 Batch 풀에서 지원됩니다. Cloud Service 구성을 사용하여 풀을 만든 경우에만 2016년 3월 10일에서 2017년 7월 5일 사이에 만든 Batch 풀에서 지원됩니다. 2016년 3월 10일 이전에 만든 Batch 풀에서는 응용 프로그램 패키지를 지원하지 않습니다. 응용 프로그램 패키지를 사용하여 Batch 노드에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만든 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다. 응용 프로그램 패키지를 사용하여 Batch 노드에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 >
 >
 
@@ -447,34 +386,15 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>VNet(가상 네트워크) 및 방화벽 구성 
 
-Azure Batch의 계산 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. 서브넷이 있는 VNet 만들기에 대한 자세한 내용은 [서브넷이 있는 Azure Virtual Network 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 
+Batch에서 계산 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. 서브넷이 있는 VNet 만들기에 대한 자세한 내용은 [서브넷이 있는 Azure Virtual Network 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 
 
- * 풀에 연결된 VNet은 다음과 같아야 합니다.
+VNet 요구 사항:
 
-   * Azure Batch 계정과 동일한 Azure **지역**이어야 합니다.
-   * Azure Batch 계정과 동일한 **구독**이어야 합니다.
+* 가상 네트워크는 Azure Batch 계정과 동일한 Azure **지역** 및 **구독**에 있어야 합니다.
 
-* 지원되는 VNet 유형은 Batch 계정에 대해 풀이 할당되는 방식에 따라 다릅니다.
+* 가상 컴퓨터 구성을 사용하여 만든 풀에는 ARM(Azure Resource Manager) 기반 가상 네트워크만 사용할 수 있습니다. 클라우드 서비스 구성을 사용하여 만든 풀에는 ARM 및 클래식 가상 네트워크를 모두 사용할 수 있습니다. 
 
-    - Batch 계정에 대한 풀 할당 모드가 Batch 서비스로 설정된 경우 **Cloud Services 구성**을 사용하여 만든 풀에만 VNet을 할당할 수 있습니다. 또한 클래식 배포 모델로 지정된 VNet을 만들어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
- 
-    - Batch 계정에 대한 풀 할당 모드가 사용자 구독으로 설정된 경우 **가상 컴퓨터 구성**을 사용하여 만든 풀에만 VNet을 할당할 수 있습니다. **Cloud Services 구성**을 사용하여 만든 풀은 지원되지 않습니다. 연결된 VNet은 Azure Resource Manager 배포 모델 또는 클래식 배포 모델로 만들 수 있습니다.
-
-    풀 할당 모드에 따른 VNet 지원을 요약하는 표는 [풀 할당 모드](#pool-allocation-mode) 섹션을 참조하세요.
-
-* Batch 계정에 대한 풀 할당 모드를 Batch 서비스로 설정한 경우 Batch 서비스 주체가 VNet에 액세스할 수 있는 권한을 제공해야 합니다. VNet에서 Batch 서비스 주체에 대한 [클래식 가상 컴퓨터 참가자 RBAC(역할 기반 Access Control)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) 역할을 할당해야 합니다. 지정된 RBAC 역할을 제공하지 않으면 Batch 서비스는 400(잘못된 요청)을 반환합니다. Azure Portal에서 역할을 추가하려면
-
-    1. **VNet**, **액세스 제어(IAM)** > **역할** > **가상 컴퓨터 참가자** > **추가**를 차례로 선택합니다.
-    2. **권한 추가** 블레이드에서 **가상 컴퓨터 참가자** 역할을 선택합니다.
-    3. **권한 추가** 블레이드에서 Batch API를 검색합니다. API를 찾을 때까지 다음 문자열을 차례로 검색합니다.
-        1. **MicrosoftAzureBatch**
-        2. **Microsoft Azure Batch** - 최신 Azure AD 테넌트에서는 이 이름을 사용할 수도 있습니다.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다. 
-    3. Batch API 서비스 주체를 선택합니다. 
-    4. **Save**를 클릭합니다.
-
-        ![Batch 서비스 주체에 VM 참가자 역할 할당](./media/batch-api-basics/iam-add-role.png)
-
+* ARM 기반 네트워크를 사용하려면 Batch 클라이언트 API가 [Azure Active Directory 인증](batch-aad-auth.md)를 사용해야 합니다. 클래식 가상 네트워크를 사용하려면 'MicrosoftAzureBatch' 서비스 주체에는 지정된 가상 네트워크에 대한 '클래식 가상 컴퓨터 참여자' RBAC(역할 기반 액세스 제어) 역할이 있어야 합니다. 
 
 * 지정된 서브넷에서 총 대상 노드 수(즉, 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성의 합)를 수용할 만한 충분한 가용 **IP 주소**가 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
 
@@ -666,4 +586,3 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-

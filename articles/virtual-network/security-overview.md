@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -59,8 +58,8 @@ ms.lasthandoff: 09/27/2017
 
 **고려 사항**
 
-- **호스트 노드의 가상 IP:** DHCP, DNS 및 상태 모니터링과 같은 기본 인프라 서비스는 가상화된 호스트 IP 주소 168.63.129.16 및 169.254.169.254를 통해 제공됩니다. 이러한 공용 IP 주소는 Microsoft에 속하며, 이 용도로 모든 지역에서 유일하게 사용되는 가상화된 IP 주소입니다. 이 IP 주소는 VM을 호스트하는 서버 컴퓨터(호스트 노드)의 실제 IP 주소에 매핑됩니다. 호스트 노드는 DHCP 릴레이, DNS 재귀 확인자, 부하 분산 장치 상태 검색 및 컴퓨터 상태 검색에 대한 검색 소스 등의 역할을 합니다. 이러한 IP 주소의 통신은 공격이 아닙니다. 이러한 IP 주소 간에 트래픽을 차단하는 경우 가상 컴퓨터가 제대로 작동하지 않을 수 있습니다.
-- **라이선싱(키 관리 서비스)**: VM에서 실행되는 Windows 이미지를 사용하려면 라이선스가 있어야 합니다. 사용 허가를 위해 라이선스 요청이 이러한 쿼리를 처리하는 키 관리 서비스 호스트 서버로 전송됩니다. 요청은 1688 포트를 통해 아웃바운드로 수행됩니다.
+- **호스트 노드의 가상 IP:** DHCP, DNS 및 상태 모니터링과 같은 기본 인프라 서비스는 가상화된 호스트 IP 주소 168.63.129.16 및 169.254.169.254를 통해 제공됩니다. 이러한 공용 IP 주소는 Microsoft에 속하며, 이 용도로 모든 지역에서 유일하게 사용되는 가상화된 IP 주소입니다. 해당 주소는 가상 컴퓨터를 호스트하는 서버 컴퓨터(호스트 노드)의 실제 IP 주소에 매핑합니다. 호스트 노드는 DHCP 릴레이, DNS 재귀 확인자, 부하 분산 장치 상태 검색 및 컴퓨터 상태 검색에 대한 검색 소스 등의 역할을 합니다. 이러한 IP 주소의 통신은 공격이 아닙니다. 이러한 IP 주소 간에 트래픽을 차단하는 경우 가상 컴퓨터가 제대로 작동하지 않을 수 있습니다.
+- **라이선싱(키 관리 서비스):** 가상 컴퓨터에서 실행되는 Windows 이미지는 사용이 허가되어 있어야 합니다. 사용 허가를 위해 라이선스 요청이 이러한 쿼리를 처리하는 키 관리 서비스 호스트 서버로 전송됩니다. 요청은 1688 포트를 통해 아웃바운드로 수행됩니다.
 - **부하가 분산된 풀의 가상 컴퓨터**: 적용되는 원본 포트와 주소 범위는 부하 분산 장치가 아닌 원래 컴퓨터에서 가져옵니다. 대상 포트와 주소 범위는 부하 분산 장치가 아닌 대상 컴퓨터에서 가져옵니다.
 - **Azure 서비스 인스턴스**: HDInsight, 응용 프로그램 서비스 환경 및 가상 컴퓨터 확장 집합과 같은 몇 가지 Azure 서비스의 인스턴스는 가상 네트워크 서브넷에 배포됩니다. 리소스를 배포한 서브넷에 네트워크 보안 그룹을 적용하기 전에 각 서비스에 대한 포트 요구 사항을 잘 이해하도록 합니다. 서비스에 필요한 포트를 거부하는 경우 서비스가 제대로 작동하지 않습니다. 
 
@@ -126,7 +125,7 @@ ms.lasthandoff: 09/27/2017
 
 * **VirtualNetwork**(*Resource Manager) (클래식의 경우* *VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링된](virtual-network-peering-overview.md) 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
 * **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, 태그는 Azure의 상태 검색이 시작되는 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
-* **Internet**(Resource Manager)(클래식의 경우 **INTERNET**): 이 태그는 Azure 공용 IP 주소 공간을 나타냅니다. 이 태그에 의해 포함된 주소는 [Azure 소유 공용 IP 공간](https://www.microsoft.com/download/details.aspx?id=41653) 문서에 나열되며 정기적으로 업데이트됩니다.
+* **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
 * **AzureTrafficManager**(Resource Manager에만 해당): 이 태그는 Azure Traffic Manager 서비스의 IP 주소 공간을 나타냅니다.
 * **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 사용할 수 있는 추가 지역 서비스 태그: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS 및 Storage.WestUS2 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다.
 * **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 이 서비스 태그에 특정 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 모든 Azure 지역에 Sql을 지정할 수 없습니다. 지역을 개별적으로 지정해야 합니다. 사용 가능한 다른 지역 서비스 태그: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS, and Sql.WestUS2 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure SQL Database가 아닌 Azure SQL Database 서비스를 나타냅니다.
@@ -152,7 +151,7 @@ ms.lasthandoff: 09/27/2017
  
 응용 프로그램 보안 그룹을 만들고 보안 규칙에서 지정하는 경우 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 네트워크 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md#powershell)의 1~5단계를 완료하여 사용하도록 등록하고 중요한 정보는 [미리 보기 기능](#preview-features)을 참고해야 합니다. 미리 보기 중에 응용 프로그램 보안 그룹은 가상 네트워크의 범위로 제한됩니다. 네트워크 보안 그룹에서 응용 프로그램 보안 그룹에 대한 교차 참조로 피어링된 가상 네트워크는 적용되지 않습니다. 
+응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md#powershell)의 1~5단계를 완료하여 사용하도록 등록하고 중요한 정보는 [미리 보기 기능](#preview-features)을 참고해야 합니다. 미리 보기 중에 응용 프로그램 보안 그룹은 가상 네트워크의 범위로 제한됩니다. 네트워크 보안 그룹에서 응용 프로그램 보안 그룹에 대한 교차 참조로 피어링된 가상 네트워크는 적용되지 않습니다. 
 
 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 응용 프로그램 보안 그룹을 사용하기 전에 먼저 사용하도록 등록해야 합니다. 기능은 미국 중서부 지역에서만 사용할 수 있습니다.
 
@@ -160,4 +159,3 @@ ms.lasthandoff: 09/27/2017
 
 * [네트워크 보안 그룹 만들기](virtual-networks-create-nsg-arm-pportal.md) 자습서 완료
 * [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md) 자습서 완료
-

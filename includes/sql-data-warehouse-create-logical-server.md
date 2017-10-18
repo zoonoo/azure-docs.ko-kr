@@ -9,7 +9,7 @@
   
 3. **만들기**를 클릭하여 새 SQL Server(논리 서버) 블레이드를 엽니다.
 
-   <kbd>![논리 서버 블레이드를 여세요](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![논리 서버 블레이드](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
+   <kbd> ![논리 서버 블레이드 열기](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![논리 서버 블레이드](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. [SQL Server(논리 서버)] 블레이드의 서버 이름 텍스트 상자에서 새 논리 서버의 유효한 이름을 제공합니다. 녹색 확인 표시가 유효한 이름을 제공한 것을 나타냅니다.
     

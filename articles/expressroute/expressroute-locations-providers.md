@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: 951b8e1dfc86d8fc73cf8d6f596558b73169169c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -89,7 +88,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **뉴욕** |Coresite, Equinix, Megaport, Zayo Group |
 | **뉴포트(웨일스)** |Next Generation Data |
 | **오사카** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **파리** |Colt, Interxion, Equinix, Orange |
+| **파리** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **퀘벡 시티** | Megaport |
 | **샌안토니오** |Megaport |
 | **상파울루** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
@@ -150,7 +149,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치**: | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
+| **암스테르담** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet, Telia |
 | **시카고** | Equinix | Lightower, Windstream |
 | **댈러스** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **프랑크푸르트** | Telecity | Nianet, QSC AG |
@@ -185,4 +184,3 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
-

@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>단원 4: 관계 만들기
 
@@ -34,7 +33,10 @@ ms.lasthandoff: 06/03/2017
 이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 3: 날짜 테이블로 표시](../tutorials/aas-lesson-3-mark-as-date-table.md)를 모두 완료해야 합니다. 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>기존 관계 검토 및 새 관계 추가  
-데이터 가져오기를 사용하여 데이터를 가져올 때 AdventureWorksDW2014 데이터베이스에서 7개의 테이블을 가져왔습니다. 일반적으로 관계형 원본에서 데이터를 가져올 때 데이터와 함께 기존 관계가 자동으로 가져오기 됩니다. 그러나 모델 작성을 진행하기 전에 테이블 간의 관계가 적절히 생성되었는지 확인해야 합니다. 이 자습서에서는 3가지 새로운 관계를 추가합니다.  
+데이터 가져오기를 사용하여 데이터를 가져올 때 AdventureWorksDW2014 데이터베이스에서 7개의 테이블을 가져왔습니다. 일반적으로 관계형 원본에서 데이터를 가져올 때 데이터와 함께 기존 관계가 자동으로 가져오기 됩니다. 데이터 가져오기가 데이터 모델에 자동으로 관계를 만들려면 데이터 원본에 있는 테이블 간 관계가 있어야 합니다.
+
+모델 작성을 진행하기 전에 테이블 간의 관계가 적절히 생성되었는지 확인해야 합니다. 이 자습서에서는 3가지 새로운 관계를 추가합니다.  
+
   
 #### <a name="to-review-existing-relationships"></a>기존 관계를 검토하려면  
   
@@ -44,6 +46,9 @@ ms.lasthandoff: 06/03/2017
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
+    > [!NOTE]
+    > 테이블 간의 관계가 표시되지 않으면, 데이터 원본에서 해당 테이블 간의 관계가 없음을 의미할 가능성이 높습니다.
+
     모델 디자이너의 오른쪽 아래 모서리에 있는 미니맵 컨트롤을 사용하여 가능한 많은 테이블을 포함합니다. 테이블을 다른 위치로 클릭하여 끌어 가깝게 가져오거나 특정 순서로 배치할 수도 있습니다. 테이블을 이동해도 테이블 간 관계에는 영향을 주지 않습니다. 특정 테이블의 모든 열을 보려면 테이블 가장자리를 클릭하고 끌어 확장하거나 축소합니다.  
   
 2.  **DimCustomer** 테이블 및 **DimGeography** 테이블 사이의 실선을 클릭합니다. 이러한 두 테이블 간의 실선은 이 관계가 활성 상태임을 나타내므로 기본적으로 DAX 수식을 계산할 때 사용됩니다.  
@@ -63,7 +68,7 @@ ms.lasthandoff: 06/03/2017
     |예|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |예|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    관계가 없는 경우 사용자 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다.  
+    관계가 없는 경우 사용자 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다. 관계 없음이 표시되는 경우 데이터 원본에 관계가 없음을 의미합니다. 데이터 모델에서 수동으로 만들 수 있습니다.
 
 ### <a name="take-a-closer-look"></a>자세히 보기
 다이어그램 뷰에는 화살표, 별표 및 테이블 간의 관계를 보여 주는 선 수를 알 수 있습니다.
@@ -102,4 +107,3 @@ ms.lasthandoff: 06/03/2017
   
   
   
-

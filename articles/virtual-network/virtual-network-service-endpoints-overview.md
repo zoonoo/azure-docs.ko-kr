@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network 서비스 끝점(미리 보기)
 
 VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트워크 개인 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 끝점을 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다.
@@ -57,8 +55,11 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 - 가상 네트워크 서비스 끝점은 Azure 서비스에 가상 네트워크의 ID를 제공합니다. 서비스 끝점을 가상 네트워크에 사용할 수 있게 되면 리소스에 가상 네트워크 규칙을 추가하여 가상 네트워크에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
 - 현재 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다. 서비스 끝점에서 서비스 트래픽은 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 개인 주소를 원본 IP 주소로 사용하도록 전환됩니다. 이 스위치를 사용하면 IP 방화벽에서 사용되는 예약된 공용 IP 주소가 필요 없이 서비스에 액세스할 수 있습니다.
-- 온-프레미스의 Azure 서비스 액세스 보호: 기본적으로 가상 네트워크에 대해 보호된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute 회로의 NAT IP 주소도 허용해야 합니다. Azure 서비스 리소스에 대한 IP 방화벽 구성을 통해 NAT IP 주소를 추가할 수 있습니다.
-- ExpressRoute: 프레미스에서 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용 중인 경우 각 ExpressRoute 회로는 두 개의 NAT IP 주소를 사용합니다. 이 주소는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용됩니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 두 개의 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾기 위해 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+- __온-프레미스에서 Azure 서비스 액세스 보안 유지__:
+
+  기본적으로 가상 네트워크에 대해 보호된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대한 IP 방화벽 구성을 통해 해당 IP 주소를 추가할 수 있습니다.
+
+  ExpressRoute: 프레미스에서 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용 중인 경우 공용 피어링을 위해 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 두 개의 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).[ExpressRoute 공용 피어링을 위한 NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)에 대해 자세히 알아봅니다.
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
   IP 주소 전환은 가상 네트워크의 서비스 트래픽에만 영향을 줍니다. 가상 컴퓨터에 할당된 공용 IPv4 주소 간에 주소가 지정된 다른 모든 트래픽에는 영향이 없습니다. Azure 서비스의 경우 Azure 공용 IP 주소를 사용하는 기존 방화벽 규칙이 있는 경우 이러한 규칙은 가상 네트워크 개인 주소로 전환하는 동시에 작동이 중지됩니다.
 - 서비스 끝점에서 Azure 서비스의 DNS 항목은 현재 상태로 유지되고 Azure 서비스에 할당된 공용 IP 주소로 계속 사용됩니다.
-- 서비스 끝점의 네트워크 보안 그룹:
-  - 인터넷에 아웃바운드 인터넷 트래픽을 허용합니다. 따라서 트래픽이 가상 네트워크에서 Azure 서비스 공용 IP 주소로 이동할 수 있습니다.
-  - 네트워크 보안 그룹에서 [서비스 태그](security-overview.md#service-tags)를 사용하여 Azure 서비스의 주소를 제외하고 공용 IP 주소에 대한 트래픽을 거부할 수 있습니다. 네트워크 보안 그룹 규칙에서 지원되는 Azure 서비스를 대상으로 지정할 수 있습니다. 각 태그 내에 있는 IP 주소의 유지 관리는 Azure에서 제공됩니다.
+- 서비스 끝점의 NSG(네트워크 보안 그룹):
+  - 기본적으로 NSG는 아웃바운드 인터넷 트래픽을 허용하고 따라서 VNet에서 Azure 서비스로의 트래픽을 허용합니다. 서비스 끝점에서 계속 그대로 작동합니다. 
+  - 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure 서비스에 대한 트래픽만 허용하려는 경우 NSG에서 __"Azure 서비스 태그"__를 사용하여 수행할 수 있습니다. NSG 규칙에서 대상으로 지원되는 Azure 서비스를 지정할 수 있습니다. 또한 각 태그의 기반이 되는 IP 주소의 유지 관리는 Azure에서 제공됩니다. 자세한 내용은 [NSG의 Azure 서비스 태그](https://aka.ms/servicetags)를 참조하세요. 
 
 ### <a name="scenarios"></a>시나리오
 
@@ -89,7 +90,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 ### <a name="logging-and-troubleshooting"></a>로깅 및 문제 해결
 
 서비스 끝점이 특정 서비스에 구성되면 서비스 끝점 경로가 다음 항목에 적용되는지 유효성을 검사합니다. 
-
+ 
 - 서비스 진단에서 모든 서비스 요청의 원본 IP 주소 유효성을 검사합니다. 서비스 끝점에서 모든 새로운 요청은 요청의 원본 IP 주소를 가상 네트워크 개인 IP 주소로 표시하고 가상 네트워크에서 요청한 클라이언트에 할당됩니다. 끝점이 없는 경우 주소는 Azure 공용 IP 주소입니다.
 - 서브넷의 모든 네트워크 인터페이스에서 유효 경로를 볼 수 있습니다. 서비스에 대한 경로:
   - 각 서비스의 주소를 지정하는 구체적인 기본 경로를 표시합니다.
@@ -121,5 +122,4 @@ Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리�
 - [가상 네트워크에 대한 Azure Storage 계정을 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용
-
 

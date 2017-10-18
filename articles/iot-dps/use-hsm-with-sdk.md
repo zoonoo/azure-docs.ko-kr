@@ -1,6 +1,6 @@
 ---
-title: "Azure 방법 - Device Provisioning Service 클라이언트 SDK에서 다른 HSM 사용 | Microsoft Docs"
-description: "Azure 방법 - Device Provisioning Service 클라이언트 SDK를 사용하여 실제 장치 및 시뮬레이터에서 다른 HSM을 사용합니다."
+title: "Azure 방법 - Azure에서 Device Provisioning Service 클라이언트 SDK와 함께 다른 하드웨어 보안 모델을 사용하는 방법 | Microsoft Docs"
+description: "Azure 방법 - Azure에서 Device Provisioning Service 클라이언트 SDK와 함께 다른 하드웨어 보안 모델을 사용하는 방법"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Device Provisioning Service 클라이언트 SDK에서 다른 HSM을 사용하는 방법
 이 단계에서는 실제 장치 및 시뮬레이터를 사용하여 C의 Device Provisioning Service 클라이언트 SDK에서 다른 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)을 사용하는 방법을 보여 줍니다.  프로비전 서비스는 X**.**509 및 TPM(신뢰할 수 있는 플랫폼 모듈)의 두 가지 인증 모드를 지원합니다.
 
@@ -150,4 +148,3 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

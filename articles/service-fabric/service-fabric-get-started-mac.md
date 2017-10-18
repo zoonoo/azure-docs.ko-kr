@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Java를 사용하여 Service Fabric 서비스를 빌드하려면 빌드 작업�
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI 설정
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac에서 Service Fabric CLI(sfctl) 설정
 
-[Service Fabric CLI](service-fabric-cli.md)는 클러스터 및 응용 프로그램을 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 명령을 포함합니다. 해당 항목은 Python에 기반하므로 다음 명령을 사용하여 계속 진행하기 전에 Python 및 PIP를 설치해야 합니다.
+[Service Fabric CLI](service-fabric-cli.md#cli-mac)의 지침에 따라 Mac에 Service Fabric CLI(`sfctl`)를 설치합니다.
+클러스터, 응용 프로그램 및 서비스를 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 CLI 명령입니다.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
 
-## <a name="create-application-on-mac-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
 Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 따르세요.
 
 1. Mac에 Node.js 및 NPM이 설치되어 있어야 합니다. 그렇지 않으면 다음을 사용하여 Homebrew를 사용하는 Node.js 및 NPM을 설치할 수 있습니다. Mac에 설치된 Node.js 및 NPM의 버전을 확인하려면 ``-v`` 옵션을 사용할 수 있습니다.
@@ -165,4 +162,3 @@ Service Fabric은 Java 서비스를 만들고 빌드하고 배포하는 프로�
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Azure IoT Hub Device Provisioning Service를 사용하여 시뮬레이션된 장치 만들기 및 프로비전(미리 보기)
 
 다음 단계에서는 Windows OS를 실행 중인 개발 컴퓨터에서 시뮬레이션된 장치를 만들고 Windows TPM 시뮬레이터를 장치의 [HSM(하드웨어 보안 모듈)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)으로 실행하며 코드 샘플을 사용하여 시뮬레이션된 장치를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여 줍니다. 
@@ -29,7 +27,7 @@ ms.lasthandoff: 09/13/2017
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비 
 
-1. 컴퓨터에 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)이 설치되어 있는지 확인합니다. 
+1. 컴퓨터에 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)이 설치되어 있는지 확인합니다. ‘C++를 사용한 데스크톱 개발’ 워크로드를 Visual Studio 설치에 사용할 수 있도록 해야 합니다.
 
 2. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드하여 설치합니다.
 
@@ -122,4 +120,3 @@ ms.lasthandoff: 09/13/2017
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning 서비스 자습서](./tutorial-set-up-cloud.md)
-

@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 컴퓨터 확장 집합이란?
 가상 컴퓨터 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 빅 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
@@ -34,9 +33,14 @@ ms.lasthandoff: 09/02/2017
 * [Guy Bowerman과 가상 컴퓨터 규모 집합](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>확장 집합 만들기 및 관리
-**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 컴퓨터 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다.
+**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 컴퓨터 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 
 
-개별 Azure Resource Manager VM처럼 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 크기 집합을 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure Resource Manager 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요.
+확장 집합은 [가용성 영역](../availability-zones/az-overview.md)에 배포할 수 있습니다.
+
+> [!NOTE]
+> 현재 가상 컴퓨터 확장 집합은 단일 가용성 영역의 배포만 지원합니다. 다중 영역 배포는 나중에 지원됩니다.
+
+개별 Azure Resource Manager VM처럼 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 확장 집합을 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure Resource Manager 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요.
 
 가상 컴퓨터 크기 집합에 대한 예제 템플릿의 집합은 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 찾을 수 있습니다. (제목에서 **vmss**로 템플릿을 찾습니다.)
 
@@ -167,4 +171,3 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 **A.** 예. 크기 집합은 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적인 가용성 집합입니다. 100대 이상인 VM의 확장 집합은 여러 가용성 집합에 해당하는 여러 *배치 그룹*으로 확장됩니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 컴퓨터 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
 확장 집합에 대한 질문의 자세한 답변은 [Azure Virtual Machine Scale Sets FAQ](virtual-machine-scale-sets-faq.md)에서 확인할 수 있습니다.
-

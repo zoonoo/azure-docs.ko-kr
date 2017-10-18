@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>Q: 내 주요 자격 증명 모음 클라이언트 응용 프로그램은 방화벽 뒤에 있어야 합니다. 주요 자격 증명 모음에 대한 액세스를 활성화하려면 어떤 포트, 호스트 또는 IP 주소를 열어야 합니까?
@@ -38,9 +38,9 @@ ms.lasthandoff: 07/11/2017
 
 | 주체 유형 | 끝점:포트 |
 | --- | --- |
-| Microsoft 계정을 사용하는 사용자<br> (예를 들어 user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| 사용자 또는 Azure AD와 회사 또는 학교 계정을 사용 하 여 서비스 사용자 (예를 들어 user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
-| 사용자 또는 서비스 사용자는 회사 또는 학교 계정 및 Active Directory Federation Services (AD FS) 또는 다른 페더레이션된 끝점을 사용 하 여 (예를 들어 user@contoso.com) |회사 또는 학교 계정에 대한 모든 끝점 및 AD FS 또는 다른 페더레이션된 끝점 |
+| Microsoft 계정을 사용하는 사용자<br> (예: user@hotmail.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Azure AD로 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체(예: user@contoso.com) |**전역:**<br> login.microsoftonline.com:443<br><br> **Azure 중국:**<br> login.chinacloudapi.cn:443<br><br>**Azure 미국 정부:**<br> login-us.microsoftonline.com:443<br><br>**Azure 독일:**<br> login.microsoftonline.de:443 |
+| 회사 또는 학교 계정을 사용하는 사용자 또는 서비스 주체 및 AD FS(Active Directory Federation Services) 또는 다른 페더레이션된 끝점(예: user@contoso.com) |회사 또는 학교 계정에 대한 모든 끝점 및 AD FS 또는 다른 페더레이션된 끝점 |
 
 다른 복잡한 시나리오도 가능합니다. 추가 정보는 [Azure Active Directory 인증 흐름](/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory와 응용 프로그램 통합](/documentation/articles/active-directory-integrating-applications/) 및 [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 참조하세요.  
 
@@ -49,7 +49,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 
 | 작업의 유형 | 끝점:포트 |
 | --- | --- |
-| 주요 자격 증명 모음 제어 평면 작업<br> Azure 리소스 관리자를 통해 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
+| Key Vault 제어 평면 작업<br> - Azure Resource Manager 사용 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
 | Azure Active Directory Graph API |**전역:**<br> graph.windows.net:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.windows.net:443<br><br> **Azure 독일:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Key Vault 작업

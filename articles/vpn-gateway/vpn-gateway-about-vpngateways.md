@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: e012526af264edd8b4fdbe84ff8b8648fb6d675c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway 정보
 
@@ -86,15 +85,17 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
-S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다.
+S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
 >[!NOTE]
 >P2S RADIUS 인증 및 IKEv2는 현재 미리 보기로 제공되고 있습니다.
 >
 
-지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
-
 ![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>P2S의 배포 모델 및 메서드
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>VNet 간 연결(IPsec/IKE VPN 터널)
 
@@ -130,13 +131,13 @@ ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게�
 
 ## <a name="coexisting"></a>사이트 간 및 ExpressRoute 공존 연결
 
-ExpressRoute는 공용 인터넷을 사용하지 않는 WAN에서 Azure를 비롯한 Microsoft 서비스에 대한 개별 직접 연결입니다. 사이트 간 VPN 트래픽은 공용 인터넷을 통해 암호화되어 이동합니다. 동일한 가상 네트워크에 대한 사이트 간 VPN 및 ExpressRoute 연결을 구성할 수 있으면 여러 장점이 있습니다.
+ExpressRoute는 공용 인터넷을 사용하지 않는 WAN에서 Azure를 비롯한 Microsoft 서비스에 대한 개별 직접 연결입니다. 사이트 간 VPN 트래픽은 공용 인터넷을 통해 암호화되어 이동합니다. 동일한 가상 네트워크에 대한 사이트 간 VPN 및 Express 경로 연결을 구성할 수 있으면 여러 장점이 있습니다.
 
 사이트 간 VPN을 ExpressRoute에 대한 보안 장애 조치(failover) 경로로 구성하거나 사이트 간 VPN을 사용하여 사용자 네트워크의 일부가 아니지만 ExpressRoute를 통해 연결된 사이트에 연결할 수 있습니다. 이 구성에는 동일한 가상 네트워크에 대한 두 개의 가상 네트워크 게이트웨이가 필요합니다. 하나는 'Vpn' 게이트웨이 유형을 사용하고 다른 하나는 'ExpressRoute' 게이트웨이 유형을 사용합니다.
 
 ![ExpressRoute 및 VPN Gateway 공존 연결 예제](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>S2S 및 ExpressRoute에 대한 배포 모델 및 메서드
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>S2S 및 ExpressRoute 공존의 배포 모델 및 메서드
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -156,4 +157,3 @@ VPN Gateway에 대한 자주 묻는 질문은 [VPN Gateway FAQ](vpn-gateway-vpn-
 - 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 - [구독 및 서비스 한도](../azure-subscription-service-limits.md#networking-limits)를 참조하세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
-

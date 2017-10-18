@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2073948d44ccc4b9b83e4eaf4f250dc272e46292
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: 테이블 API 소개
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 09/08/2017
 * 보장된 고가용성
 * [자동 보조 인덱싱(영문)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 
-이러한 응용 프로그램은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다.
+이러한 응용 프로그램은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API는 .NET 및 Python에 사용할 수 있습니다.
 
 Aravind Ramachandran이 Azure Cosmos DB용 테이블 API를 시작하는 방법을 설명하는 다음 비디오를 시청하는 것이 좋습니다.
 
@@ -64,5 +63,6 @@ Aravind Ramachandran이 Azure Cosmos DB용 테이블 API를 시작하는 방법�
 * [.NET의 테이블 API(미리 보기)를 사용하여 개발](tutorial-develop-table-dotnet.md)
 * [테이블 API를 사용하여 테이블 데이터 쿼리](tutorial-query-table.md)
 * [테이블 API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법](tutorial-global-distribution-table.md)
-* [.NET용 Azure Cosmos DB 테이블 API SDK](table-sdk-dotnet.md)
+* [Azure Cosmos DB 테이블 .NET API](table-sdk-dotnet.md)
+* [Python용 Azure Cosmos DB 테이블 SDK](table-sdk-python.md)
 

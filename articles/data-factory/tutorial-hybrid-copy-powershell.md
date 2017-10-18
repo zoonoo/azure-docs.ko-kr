@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>온-프레미스 및 클라우드 간 데이터 복사
 Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
 
@@ -218,12 +216,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         "name": "SqlServerLinkedService"
     }
    ```
-2. 온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요한 데이터를 암호화하기 위해 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**을 실행하여 위의 JSON 페이로드를 전달할 수 있습니다. 이 암호화를 사용하면 DPAPI(데이터 보호 API)를 사용하여 자격 증명을 암호화하고 자체 호스팅 통합 런타임 노드에 로컬로 저장합니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 'encryptedLinkedService.json')로 리디렉션될 수 있습니다. 
+2. 온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요한 데이터를 암호화하기 위해 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**을 실행하여 위의 JSON 페이로드를 전달할 수 있습니다. 이 암호화를 사용하면 DPAPI(데이터 보호 API)를 사용하여 자격 증명을 암호화하고 자체 호스팅 통합 런타임 노드에 로컬로 저장합니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 'encryptedLinkedService.json')로 리디렉션될 수 있습니다. 
 
     명령을 실행하기 전에 **&lt;integration runtime name&gt;**을 통합 런타임 이름으로 바꿉니다.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. 이전 단계의 JSON을 통해 다음 명령을 실행하여 **SqlServerLinkedService**를 만듭니다.

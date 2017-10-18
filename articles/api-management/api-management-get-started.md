@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Azure API 관리에서 첫 번째 API 관리
 ## <a name="overview"> </a>개요
@@ -71,7 +71,7 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 서비스 인스턴스에 대해 원하는 **구독**, **리소스 그룹** 및 **지역**을 선택합니다.
 
-입력 **Contoso ltd.** 에 대 한는 **조직 이름**에 전자 메일 주소를 입력 하 고는 **관리자 전자 메일** 필드입니다.
+**조직 이름**으로 **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에서 이메일 주소를 입력합니다.
 
 > [!NOTE]
 > 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법][How to configure notifications and email templates in Azure API Management]을 참조하세요.
@@ -116,7 +116,7 @@ API는 게시자 포털에서 구성됩니다. 여기에 도달하려면 서비�
 1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 **http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger** 라디오 단추를 클릭합니다.
 2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
 3. **제품(선택 사항)** 상자를 클릭하고 **시작**을 선택합니다.
-4. **저장** 을 클릭하여 API를 가져옵니다.
+4. **저장**을 클릭하여 API를 가져옵니다.
 
 ![새 API 추가][api-management-import-new-api]
 
@@ -141,7 +141,7 @@ API 섹션에는 여러 탭이 있습니다. **요약** 탭은 API에 대한 기
 API를 호출하려면 개발자는 먼저 제품에 대한 액세스 권한을 주는 제품을 구독해야 합니다. 개발자가 개발자 포털에서 제품을 구독할 수 있습니다. 또는 관리자가 게시자 포털에서 개발자가 제품에 구독하도록 만들 수 있습니다. 이 자습서의 이전 단계에서 API 관리 인스턴스를 만들었기 때문에 현재 관리자이므로 기본적으로 모든 제품에 구독되어 있습니다.
 
 ## <a name="call-operation"> </a>개발자 포털에서 작업 호출
-개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 자습서에서는 기본 계산기 API의 **두 정수 추가** 작업을 호출합니다. 게시자 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털** 을 클릭합니다.
+개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 자습서에서는 기본 계산기 API의 **두 정수 추가** 작업을 호출합니다. 게시자 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털**을 클릭합니다.
 
 ![개발자 포털][api-management-developer-portal-menu]
 
@@ -164,7 +164,7 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 ![응답][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>분석 보기
-기본 계산기에 대한 분석을 보려면 개발자 포털의 오른쪽 위에 있는 메뉴에서 **관리** 를 선택하여 게시자 포털로 다시 전환합니다.
+기본 계산기에 대한 분석을 보려면 개발자 포털의 오른쪽 위에 있는 메뉴에서 **관리**를 선택하여 게시자 포털로 다시 전환합니다.
 
 ![관리][api-management-manage-menu]
 
