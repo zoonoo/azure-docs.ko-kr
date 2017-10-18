@@ -158,6 +158,10 @@
           href: model-management-cli-reference.md
         - name: 모델 데이터 수집 API
           href: model-data-collection-api-reference.md
+    - name: 릴리스 정보
+      items:
+        - name: 스프린트 0 - 2017년 10월
+          href: release-notes-sprint-0.md
 - name: 리소스
   items:
     - name: 질문과 대답

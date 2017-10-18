@@ -101,6 +101,7 @@
 ##### [볼륨 컨테이너 관리](storsimple-8000-manage-volume-containers.md)
 ##### [볼륨 관리 - 현재](storsimple-8000-manage-volumes-u2.md)
 ###### [FAQ: 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.md)
+##### [역할 기반 액세스 제어](storsimple-8000-role-based-access-control.md)
 ##### [ACR 관리](storsimple-8000-manage-acrs.md)
 ##### [대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md)
 ##### [작업 보기 및 관리](storsimple-8000-manage-jobs-u2.md)
@@ -132,9 +133,9 @@
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
 ### 솔루션 빌드
-#### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veeam을 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec를 사용하는 StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
-#### [Veritas NetBackup를 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
+#### [Veritas NetBackup을 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -188,7 +189,7 @@
 #### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
 ## 참조
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 시리즈(클래식 포털)
@@ -273,9 +274,9 @@
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
 ### 솔루션 빌드
-#### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veeam을 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec를 사용하는 StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
-#### [Veritas NetBackup를 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
+#### [Veritas NetBackup을 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)

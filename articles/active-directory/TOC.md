@@ -44,6 +44,7 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
+#### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
 ### [사용자 작업 정보 관리](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
+#### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### 작업
 #### [Azure AD 등록 Windows 10 장치 설정](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD 가입 장치 설정](device-management-azuread-joined-devices-setup.md)
-#### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
 ### 문제 해결
@@ -204,6 +206,7 @@
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
+####[Azure Active Directory에서 사용자의 경험 숨기기](active-directory-coreapps-hide-third-party-app.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)

@@ -6,8 +6,12 @@
       href: overview.md
 - name: 빠른 시작
   items:
-    - name: 사용자 지정 이벤트 만들기 및 라우팅
+    - name: 사용자 지정 이벤트 만들기 - Azure CLI
       href: custom-event-quickstart.md
+    - name: 사용자 지정 이벤트 만들기 - Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: 사용자 지정 이벤트 만들기 - Azure Portal
+      href: custom-event-quickstart-portal.md
 - name: 자습서
   items:
     - name: 논리 앱을 사용하여 VM 변경 내용 모니터링

@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Hyper-V에서 보조 사이트로 아키텍처
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Azure에서 Azure로 지원 매트릭스
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: 온-프레미스에서 Azure로 지원 매트릭스
       href: site-recovery-support-matrix-to-azure.md
     - name: 온-프레미스에서 보조 사이트로 지원 매트릭스

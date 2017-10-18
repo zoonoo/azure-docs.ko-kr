@@ -13,15 +13,13 @@
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
 ## [권한](security-center-permissions.md)
 ## [지원되는 플랫폼](security-center-os-coverage.md)
-## [파트너 통합](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # 방법
-
-## 보안 정책
-### [개요](security-center-policies-overview.md)
+## [보안 정책](security-center-policies-overview.md)
 ### [데이터 수집](security-center-enable-data-collection.md)
 ### [보안 정책](security-center-policies.md)
+### [Azure 정책을 사용한 보안 정책](security-center-azure-policy.md)
 ### [전자 메일 알림](security-center-provide-security-contact-details.md)
 ### [가격 책정 계층](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [이를 통해 검색](security-center-search.md)
 
 ## 예방
+### [보안 솔루션](security-center-partner-integration.md)
+#### [연결된 솔루션 모니터링](security-center-partner-solutions.md)
+#### [Microsoft ATA 연결](security-center-ata-integration.md)
+#### [Azure AD ID 보호 연결](security-center-aadip-integration.md)
 ### [보안 권장 사항 구현](security-center-recommendations.md)
 ### [응용 프로그램 권장 사항](security-center-application-recommendations.md)
 #### [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [OS 버전 업데이트](security-center-update-os-version.md)
 #### [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md)
 ### [보안 상태 모니터링](security-center-monitoring.md)
-### [파트너 솔루션 모니터링](security-center-partner-solutions.md)
 ### [ID 및 액세스](security-center-identity-access.md)
 
 ## 검색 및 응답

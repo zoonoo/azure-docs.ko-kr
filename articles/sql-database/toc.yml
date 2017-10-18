@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: 복구 드릴 수행
           href: sql-database-disaster-recovery-drills.md
-    - name: 데이터 로드 및 이동
+    - name: SQL Database로 마이그레이션
       items:
         - name: SQL Server DB 마이그레이션
           href: sql-database-cloud-migrate.md
         - name: T-SQL 변경 사항
           href: sql-database-transact-sql-information.md
+        - name: 마이그레이션 후 데이터베이스 관리
+          href: sql-database-manage-after-migration.md
+    - name: 데이터 로드 및 이동
+      items:
         - name: DB 복사
           href: sql-database-copy.md
         - name: DB 가져오기

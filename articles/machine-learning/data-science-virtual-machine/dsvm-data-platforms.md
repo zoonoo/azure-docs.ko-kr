@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | 더 작은 데이터 집합을 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
 | 샘플에 대한 링크      |    뉴욕 시 데이터 집합의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| DSVM의 관련 도구       | SQL Server Management Studio <br/> * ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
+| DSVM의 관련 도구       | SQL Server Management Studio <br/> ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
 > SQL Server 2016 Developer Edition은 개발 및 테스트 목적으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다. 
