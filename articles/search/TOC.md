@@ -68,7 +68,7 @@
 ### [제안](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [패싯 탐색](search-faceted-navigation.md)
 ### [동의어 미리 보기](search-synonyms.md)
-
+### [보안 필터](search-security-trimming-for-azure-search.md)
 # 참조
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
