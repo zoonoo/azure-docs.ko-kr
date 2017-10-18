@@ -66,8 +66,7 @@ ms.lasthandoff: 10/11/2017
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB DocumentDB API 컬렉션을 비롯한 다양한 원본에서 데이터를 Azure Cosmos DB 또는 Azure DocumentDB로 가져오는 도구입니다.
-      |
+| 무엇인가요?   | JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB 및 Azure Cosmos DB DocumentDB API 컬렉션을 비롯한 다양한 원본에서 데이터를 Azure Cosmos DB 또는 Azure DocumentDB로 가져오는 도구입니다.      |
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure 테이블 저장소에서 CosmosDB로 데이터 가져오기 또는 SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기.     |
 |  사용/실행 방법    |   명령줄을 버전을 사용하려면, 명령 프롬프트를 연 다음 `dt`을 입력합니다. GUI 도구를 사용하려면, 명령 프롬프트를 연 다음 `dtui`을 입력합니다.    |
