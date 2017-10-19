@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/06/2017
+
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>빠른 시작: Azure AD에서 로그인 페이지에 회사 브랜딩 추가
 혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure AD(Active Directory)는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. 로그인 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시되는 페이지입니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
@@ -82,11 +83,11 @@ Azure AD 로그인은 사용자가 브라우저를 닫고 다시 열 때 로그�
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
-   ![사용자 관리 열기](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![사용자 관리 열기](./media/customize-branding/user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **회사 브랜딩**을 선택합니다.
 4. **사용자 및 그룹 - 회사 브랜딩** 블레이드에서 **편집** 명령을 선택합니다.
 
-    ![사용자 지정 브랜딩 편집](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![사용자 지정 브랜딩 편집](./media/customize-branding/edit-branding.png)
 5. 사용자 지정할 요소를 수정합니다. 모든 요소는 선택 사항입니다.
 6. **Save**를 클릭합니다.
 
@@ -97,11 +98,11 @@ Azure AD 로그인은 사용자가 브라우저를 닫고 다시 열 때 로그�
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. 텍스트 상자에서 **사용자 및 그룹**을 선택한 다음 **Enter**를 선택합니다.
 
-   ![사용자 관리 열기](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![사용자 관리 열기](./media/customize-branding/user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **회사 브랜딩**을 선택합니다.
 4. **사용자 및 그룹 - 회사 브랜딩** 블레이드에서 **언어 추가** 명령을 선택합니다.
 
-    ![언어별 브랜딩 요소 추가](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![언어별 브랜딩 요소 추가](./media/customize-branding/add-language.png)
 5. 사용자 지정할 요소를 수정합니다. 모든 요소는 선택 사항입니다.
 6. **Save**를 클릭합니다.
 

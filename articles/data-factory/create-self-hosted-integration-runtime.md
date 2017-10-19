@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
-IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요. 
+IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
@@ -30,20 +31,20 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 이 문서에서는 자체 호스팅 IR을 만들고 구성하는 방법을 소개합니다.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>자체 호스팅 IR을 설치하는 대략적인 단계
-1.  자체 호스팅 통합 런타임을 만듭니다. 다음은 PowerShell 예제입니다. 
+1.  자체 호스팅 통합 런타임을 만듭니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  자체 호스팅 통합 런타임을 다운로드하여 설치합니다(로컬 컴퓨터).
-3.  인증 키를 검색하고 자체 호스팅 통합 런타임을 키로 등록합니다. 다음은 PowerShell 예제입니다. 
+3.  인증 키를 검색하고 자체 호스팅 통합 런타임을 키로 등록합니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
-온-프레미스와 클라우드 간에 데이터를 복사할 때 이 작업은 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 소스와 클라우드 간에 데이터를 전송합니다. 
+온-프레미스와 클라우드 간에 데이터를 복사할 때 이 작업은 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 소스와 클라우드 간에 데이터를 전송합니다.
 
 다음은 자체 호스팅 IR을 통한 복사 절차를 요약하는 대략적인 데이터 흐름입니다.
 
@@ -66,7 +67,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 - **Express 경로**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 자체 호스팅 통합 런타임을 사용하여 서비스와 데이터 원본 간의 연결을 설정합니다.
 - 클라우드의 데이터 저장소가 **Azure IaaS 가상 컴퓨터**에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 조건
 
 - 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 자체 호스팅 통합 런타임을 **도메인 컨트롤러에 설치하는 것은 지원되지 않습니다**.
 - **.NET Framework 4.6.1 이상**이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
@@ -77,7 +78,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 
 ## <a name="installation-best-practices"></a>설치 모범 사례
 자체 호스팅 통합 런타임은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하여 설치할 수 있습니다. 단계별 지침은 [온-프레미스 및 클라우드 간 데이터 이동](tutorial-hybrid-copy-powershell.md) 문서를 참조하세요.
-  
+
 - 호스트 컴퓨터에서 자체 호스팅 통합 런타임에 대한 전원 계획을 구성하여 컴퓨터가 최대 절전 모드를 시작하지 않도록 합니다. 호스트 컴퓨터가 최대 절전 모드인 경우 자체 호스팅 통합 런타임이 오프라인이 됩니다.
 - 자체 호스팅된 통합 런타임과 연결된 자격 증명은 정기적으로 백업합니다.
 
@@ -103,14 +104,14 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성 
-자체 호스팅 Integration Runtime은 여러 온-프레미스 컴퓨터에 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 Integration Runtime에 연결할 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다. 
+자체 호스팅 Integration Runtime은 여러 온-프레미스 컴퓨터에 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 Integration Runtime에 연결할 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다.
 1. Azure Data Factory와의 빅 데이터 솔루션이나 클라우드 데이터 통합에서 자체 호스팅 Integration Runtime의 고가용성으로 단일 실패 지점이 없어 최대 4개 노드의 연속성을 보장합니다.
 2. 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능 및 처리량을 향상시킵니다. 자세한 내용은 [성능 비교](copy-activity-performance.md)를 참조하세요.
 
-[자습서](tutorial-hybrid-copy-powershell.md)에서 설명한 대로 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 Integration Runtime을 설치하고 New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet에서 구한 인증 키를 등록하는 것만으로 간단히 여러 노드를 연결할 수 있습니다. 
+[자습서](tutorial-hybrid-copy-powershell.md)에서 설명한 대로 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 Integration Runtime을 설치하고 New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet에서 구한 인증 키를 등록하는 것만으로 간단히 여러 노드를 연결할 수 있습니다.
 
 > [!NOTE]
-> 각각의 노드를 연결하기 위해 새로운 자체 호스팅 Integration Runtime을 만들 필요는 없습니다. 
+> 각각의 노드를 연결하기 위해 새로운 자체 호스팅 Integration Runtime을 만들 필요는 없습니다.
 
 ## <a name="system-tray-icons-notifications"></a>시스템 트레이 아이콘/알림
 커서를 시스템 트레이 아이콘/알림 메시지 위로 이동하면 자체 호스팅 통합 런타임의 상태에 대한 세부 정보가 팝업 창에 표시됩니다.
@@ -137,7 +138,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 >
 > 일부 클라우드 데이터베이스(예: Azure SQL Database, Azure Data Lake 등)의 경우 해당 방화벽 구성에서 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 목록으로 만들어야 합니다.
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사 
+### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사
 방화벽 규칙이 회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 자체 호스팅 통합 런타임이 원본과 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
 
 예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로** 복사하려면 다음 단계를 수행합니다.
@@ -200,8 +201,8 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     프록시 태그 내에 scriptLocation과 같은 필수 설정을 지정하는 추가 속성을 사용할 수 있습니다. 구문은 [proxy 요소(네트워크 설정)](https://msdn.microsoft.com/library/sa91de1e.aspx)를 참조하세요.
 
     ```xml
@@ -221,7 +222,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 2.  Integration Runtime Configuration Manager를 열 때 상태가 "**연결 끊김**" 또는 "**연결 중**"으로 표시됩니다. Windows 이벤트 로그를 확인할 때 "이벤트 뷰어" > "응용 프로그램 및 서비스 로그" > "Microsoft Integration Runtime"에 다음 오류와 같은 오류 메시지가 표시됩니다.
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
