@@ -16,6 +16,7 @@
 ### [VM 만들기](devtest-lab-add-vm.md)
 ### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
 ### [Azure CLI로 VM 만들기 및 관리](devtest-lab-vmcli.md)
+### [VM 다시 시작](devtest-lab-restart-vm.md)
 
 ## 랩에서 환경 사용
 ### [환경 만들기](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [정책 및 일정 설정](devtest-lab-set-lab-policy.md)
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md)
+### [사용이 허가된 이미지를 사용하도록 설정](devtest-lab-enable-licensed-images.md)
 ### [랩에 태그 추가](devtest-lab-add-tag.md)
 
 ## [사용자 지정 이미지 또는 수식 선택](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [랩 확장](devtest-lab-scale-lab.md)
 
 # 참조
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [랩 자동 만들기 또는 수정](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
