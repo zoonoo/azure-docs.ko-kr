@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
+
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -100,4 +101,5 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [Azure Active Directory 포털의 로그인 활동 보고서](active-directory-reporting-activity-sign-ins.md)를 참조하세요.
+
 
