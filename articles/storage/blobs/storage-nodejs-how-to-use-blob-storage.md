@@ -425,4 +425,4 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Azure portal]: https://portal.azure.com  
 [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/  
-[노드 API 참조를 위한 Azure Storage SDK]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Node용 Azure Storage SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html  
