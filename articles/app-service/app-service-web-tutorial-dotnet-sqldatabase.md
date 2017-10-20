@@ -14,13 +14,15 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc, devcenter
 ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 09/20/2017
+
 ---
+
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 데이터 기반 ASP.NET 웹앱을 개발하고 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)에 연결하는 방법을 보여 줍니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다.
@@ -429,3 +431,4 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 > [!div class="nextstepaction"]
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+
