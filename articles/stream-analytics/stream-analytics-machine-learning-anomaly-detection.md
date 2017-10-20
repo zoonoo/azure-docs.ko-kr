@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 - **scalar_expression**
 
-  변칙 검색을 수행할 스칼라 식입니다. 단일(스칼라) 값을 반환하는 float 또는 bigint 형식의 식입니다. 와일드 카드 식 **\***는 허용되지 않습니다. **scalar_expression** 은 다른 분석 함수 또는 외부 함수를 포함할 수 없습니다.
+  변칙 검색을 수행할 스칼라 식입니다. 단일(스칼라) 값을 반환하는 float 또는 bigint 형식의 식입니다. 와일드 카드 식 **\*** 는 허용되지 않습니다. **scalar_expression** 은 다른 분석 함수 또는 외부 함수를 포함할 수 없습니다.
 
 - **OVER ( [ partition_by_clause ] limit_duration_clause [when_clause])**
 
