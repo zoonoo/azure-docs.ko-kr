@@ -37,7 +37,7 @@ Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -> 
 
 ### <a name="installing-or-updating-on-windows"></a>Windows에서 설치(또는 업데이트)
 
-Https://www.python.org/에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
+https://www.python.org/ 에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
 
 관리자 권한으로 실행을 사용하여 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
