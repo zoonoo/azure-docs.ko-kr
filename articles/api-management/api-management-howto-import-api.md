@@ -3,7 +3,7 @@ title: "Azure API Management에 API 가져오기 | Microsoft Docs"
 description: "Azure API Management에 API 및 해당 작업을 가져오는 방법에 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
+author: steved0x
 manager: erikre
 editor: 
 ms.assetid: 40398b0a-ac2c-43f0-89e1-07e4abbf502f
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
 API 관리에서 새 API를 만들고 작업을 수동으로 추가하거나 API를 작업과 함께 한 번에 가져올 수 있습니다.
@@ -40,7 +39,7 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 
 ![API 가져오기][api-management-import-apis]
 
-**API 가져오기** 창에는&3;개의 탭이 있으며 각기 API 사양을 제공하는&3;가지 방법에 해당합니다.
+**API 가져오기** 창에는 3개의 탭이 있으며 각기 API 사양을 제공하는 3가지 방법에 해당합니다.
 
 * **클립보드에서** 지정된 입력란에 API 사양을 붙여넣을 수 있습니다.
 * **파일에서** API 사양을 포함하는 파일로 이동하여 선택할 수 있습니다.
@@ -95,4 +94,3 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create APIs]: api-management-howto-create-apis.md
 [How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-
