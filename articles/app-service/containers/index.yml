@@ -21,19 +21,19 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg'
             text: .NET Core
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg'
             text: Node.js
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg'
             text: PHP
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg'
             text: Java
             href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json'
       - type: paragraph
@@ -53,9 +53,9 @@ sections:
         style: ordered
         items:
           - html: <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB를 사용하는 .NET Core</a> 또는 <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 응용 프로그램 만들기
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 응용 프로그램에 매핑</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 응용 프로그램에 바인딩</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">응용 프로그램에 CDN 추가</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 응용 프로그램에 매핑</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 응용 프로그램에 바인딩</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">응용 프로그램에 CDN 추가</a>
   - title: 샘플
     items:
       - type: paragraph

@@ -59,6 +59,7 @@
 ## 문제 해결
 ### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
 ### [진단 로깅 및 메트릭](application-gateway-diagnostics.md)
+### [Application Gateway 세션 선호도 문제](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # 참조
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)

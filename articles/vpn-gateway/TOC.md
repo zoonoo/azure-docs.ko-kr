@@ -81,7 +81,6 @@
 ### [지점 및 사이트 간 연결 문제](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [사이트 간 연결이 일시적으로 끊김](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [사이트 간 연결을 사용할 수 없음](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Application Gateway 세션 선호도 문제](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [VNet 또는 VPN 연결 구성 및 유효성 검사](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 참조

@@ -97,6 +97,7 @@
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [개요](active-directory-enable-sso-scenario.md)
 ### [시작](active-directory-integrating-applications-getting-started.md)
 ### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
-### [클라우드 앱 검색](cloudappdiscovery-overview.md)
-#### [에이전트 없는 검색 설정](cloudappdiscovery-get-started.md)
+### [클라우드 앱 검색](cloudappdiscovery-get-started.md)
 #### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

@@ -109,6 +109,7 @@
 ### 장치 작업을 사용하여 장치 펌웨어 업데이트
 #### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-firmware-update.md)
 ### 작업 예약 및 브로드캐스트
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
