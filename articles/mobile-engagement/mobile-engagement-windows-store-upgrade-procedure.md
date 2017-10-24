@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows 유니버설 앱 SDK 업그레이드 절차
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
@@ -190,7 +190,7 @@ SDK에서는 `Engagement`(이)라는 용어를 사용합니다. 이 변경 내�
 
 현재 Capptain NuGet 패키지는 제거해야 합니다. Capptain 리소스 폴더의 모든 변경 내용도 제거됩니다. 해당 폴더의 파일을 보존하려면 복사본을 만드세요.
 
-그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. 해당 패키지는 [NuGet 웹 사이트]에서 직접 찾을 수 있습니다. 또는 여기서 인덱스입니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
+그런 다음 새 Microsoft Azure Engagement NuGet 패키지를 프로젝트에 설치합니다. 해당 패키지는 [NuGet 웹 사이트]에서 직접 찾을 수 있습니다. 또는 여기 인덱스에서 찾을 수도 있습니다. 이 작업을 수행하면 Engagement에서 사용하는 모든 리소스 파일이 바뀌며 프로젝트 참조에 새 Engagement DLL이 추가됩니다.
 
 Capptain DLL 참조를 삭제하여 프로젝트 참조를 정리해야 합니다. 이렇게 하지 않으면 Capptain 버전이 충돌하여 오류가 발생합니다.
 

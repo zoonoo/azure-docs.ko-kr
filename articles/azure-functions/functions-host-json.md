@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 96103e7014212ecaa3e4e9238ae3b9c7a851cca9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: e836ccd204ff06e1eb0494cb392e781f29fdf421
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
 *host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host에 있습니다.
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/29/2017
 
 다음 샘플 *host.json* 파일에는 가능한 모든 옵션이 지정되어 있습니다.
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -101,7 +99,7 @@ ms.lasthandoff: 09/29/2017
 
 [Application Insights에 대한 메트릭을 계산](functions-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -121,7 +119,7 @@ ms.lasthandoff: 09/29/2017
 
 [Application Insights에서 샘플링 기능](functions-monitoring.md#configure-sampling)을 제어합니다.
 
-```javascript
+```json
 {
     "applicationInsights": {
         "sampling": {
@@ -141,7 +139,7 @@ ms.lasthandoff: 09/29/2017
 
 [Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md)에 대한 구성 설정입니다.
 
-```javascript
+```json
 {
     "eventHub": {
       "maxBatchSize": 64,
@@ -161,7 +159,7 @@ ms.lasthandoff: 09/29/2017
 
 작업 호스트가 실행할 함수 목록입니다.  빈 배열은 모든 함수를 실행한다는 의미입니다.  [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. 함수 앱에서 *host.json*의 이 속성 대신 *function.json* `disabled` 속성을 사용하십시오.
 
-```javascript
+```json
 {
     "functions": [ "QueueProcessor", "GitHubWebHook" ]
 }
@@ -171,7 +169,7 @@ ms.lasthandoff: 09/29/2017
 
 모든 함수에 대한 시간 제한 기간을 나타냅니다. 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. App Service 계획에는 한도 없고 기본값은 null이며 이것은 시간 제한이 없음을 나타냅니다.
 
-```javascript
+```json
 {
     "functionTimeout": "00:05:00"
 }
@@ -181,7 +179,7 @@ ms.lasthandoff: 09/29/2017
 
 [http 트리거 및 바인딩](functions-bindings-http-webhook.md)에 대한 구성 설정입니다.
 
-```javascript
+```json
 {
     "http": {
         "routePrefix": "api",
@@ -203,7 +201,7 @@ ms.lasthandoff: 09/29/2017
 
 작업 호스트의 고유 ID입니다. 대시가 제거된 소문자 GUID일 수 있습니다. 로컬에서 실행될 때 필요합니다. Azure Functions에서 실행할 때 `id`가 생략되면 ID가 자동으로 생성됩니다.
 
-```javascript
+```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
 }
@@ -213,7 +211,7 @@ ms.lasthandoff: 09/29/2017
 
 [ILogger 개체](functions-monitoring.md#write-logs-in-c-functions) 또는 [context.log](functions-monitoring.md#write-logs-in-javascript-functions)에 의해 기록된 로그 필터링을 제어합니다.
 
-```javascript
+```json
 {
     "logger": {
         "categoryFilter": {
@@ -238,7 +236,7 @@ ms.lasthandoff: 09/29/2017
 
 [저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md)에 대한 구성 설정입니다.
 
-```javascript
+```json
 {
     "queues": {
       "maxPollingInterval": 2000,
@@ -262,7 +260,7 @@ ms.lasthandoff: 09/29/2017
 
 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)에 대한 구성 설정입니다.
 
-```javascript
+```json
 {
     "serviceBus": {
       "maxConcurrentCalls": 16,
@@ -282,7 +280,7 @@ ms.lasthandoff: 09/29/2017
 
 Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [singleton 지원에 대한 GitHub 문제](https://github.com/Azure/azure-webjobs-sdk-script/issues/912)를 참조하세요.
 
-```javascript
+```json
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -305,7 +303,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 `TraceWriter` 개체를 사용하여 만드는 로그에 대한 구성 설정입니다. [C# 로깅](functions-reference-csharp.md#logging) 및 [Node.js 로깅](functions-reference-node.md#writing-trace-output-to-the-console)을 참조하세요. 
 
-```javascript
+```json
 {
     "tracing": {
       "consoleLevel": "verbose",
@@ -323,11 +321,26 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 변경 내용을 모니터링해야 하는 [공유 코드 디렉터리](functions-reference-csharp.md#watched-directories) 집합입니다.  이 디렉터리의 코드가 변경되면 변경 내용이 함수에 의해 선택되도록 합니다.
 
-```javascript
+```json
 {
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## <a name="durabletask"></a>durableTask
+
+[지속성 함수](durable-functions-overview.md)의 [작업 허브](durable-functions-task-hubs.md) 이름입니다.
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub"
+  }
+}
+```
+
+작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](durable-functions-task-hubs.md)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -336,4 +349,3 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 > [!div class="nextstepaction"]
 > [환경 변수의 전역 설정 보기](functions-app-settings.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -158,7 +158,7 @@ SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공합니
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
-사용 하 여 일부 전자 메일 속성을 덮어쓸 수  **설정*속성** *를 사용 하 여 추가 또는  **추가*속성** *입니다.
+일부 전자 메일 속성을 **set*Property****를 사용하여 덮어쓰거나 *add*Property***를 사용하여 추가할 수 있습니다.
 
 예를 들어 **ReplyTo** 주소를 지정하려면 다음을 사용하십시오.
 

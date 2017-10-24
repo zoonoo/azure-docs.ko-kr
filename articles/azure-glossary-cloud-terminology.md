@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -37,7 +36,7 @@ Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정�
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
 ## <a name="app-service-app"></a>App Service 앱
-[Azure App Service](app-service/app-service-value-prop-what-is.md)에서 [웹 사이트 또는 웹 응용 프로그램](app-service-web/app-service-web-overview.md), [웹 API](app-service-api/app-service-api-apps-why-best-platform.md) 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
+[Azure App Service](app-service/app-service-web-overview.md)에서 웹 사이트 또는 웹 응용 프로그램, 웹 API 또는 [모바일 앱 백 엔드](app-service-mobile/app-service-mobile-value-prop.md)를 호스팅하기 위해 제공하는 계산 리소스입니다. App Service 앱은 *App Services*, *웹앱*, *API 앱* 및 *모바일 앱*이라고도 합니다.
 
 ## <a name="availability-set"></a>가용성 집합
 응용 프로그램 중복성 및 안정성을 제공하기 위해 함께 관리되는 가상 컴퓨터의 컬렉션입니다. 가용성 집합을 사용하면 계획되거나 계획되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 컴퓨터를 사용할 수 있도록 합니다.  
@@ -159,5 +158,4 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  
 * [비즈니스 응용 프로그램을 위한 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [데이터 센터의 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

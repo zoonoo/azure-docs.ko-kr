@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 07/18/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL용 Azure Database: Go 언어를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 Go를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Go를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -28,7 +26,7 @@ ms.lasthandoff: 07/24/2017
 - [Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go 및 MySQL 커넥터 설치
-[Go](https://golang.org/doc/install) 및 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 자신의 컴퓨터에 설치합니다. 플랫폼에 따라 다음 단계를 수행합니다.
+[Go](https://golang.org/doc/install) 및 [MySQL용 go-sql-driver](https://github.com/go-sql-driver/mysql#installation)를 자신의 컴퓨터에 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
 
 ### <a name="windows"></a>Windows
 1. [설치 지침](https://golang.org/doc/install)에 따라 Microsoft Windows용 Go를 [다운로드](https://golang.org/dl/)하고 설치합니다.
@@ -65,7 +63,7 @@ ms.lasthandoff: 07/24/2017
 
 ### <a name="apple-macos"></a>Apple macOS
 1. 해당 플랫폼과 일치하는 [설치 지침](https://golang.org/doc/install)에 따라 Go를 다운로드하고 설치합니다. 
-2. Bash 셸을 시작합니다. 
+2. Bash 셸을 시작합니다.
 3. 홈 디렉터리에서 프로젝트 폴더를 만듭니다(예: `mkdir -p ~/go/src/mysqlgo/`).
 4. 디렉터리를 폴더로 변경합니다(예: `cd ~/go/src/mysqlgo/`).
 5. 현재 홈 디렉터리의 go 폴더와 같이 유효한 소스 디렉터리를 가리키도록 GOPATH 환경 변수를 설정합니다. Bash 셸에서 `export GOPATH=~/go`를 실행하여 go 디렉터리를 현재 셸 세션에 대한 GOPATH로 추가합니다.
@@ -82,10 +80,10 @@ ms.lasthandoff: 07/24/2017
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
 3. **myserver4demo** 서버 이름을 클릭합니다.
-4. 서버의 **속성** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
+4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
  ![MySQL용 Azure Database - 서버 관리자 로그인](./media/connect-go/1_server-properties-name-login.png)
 5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
    
@@ -103,7 +101,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 
 이 코드는 세 개의 패키지, 즉 [sql 패키지](https://golang.org/pkg/database/sql/), MySQL용 Azure Database와 통신할 드라이버로 사용되는 [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation), 명령줄에 출력되는 입출력을 위한 [fmt 패키지](https://golang.org/pkg/fmt/)를 가져옵니다.
 
-[sql.Open()](http://go-database-sql.org/accessing.html) 메서드를 호출하여 MySQL용 Azure Database에 연결하고 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 메서드를 사용하여 연결을 확인합니다. [데이터베이스 핸들](https://golang.org/pkg/database/sql/#DB)은 이러한 과정 내내 사용되며 데이터베이스 서버에 대한 연결 풀을 보유합니다. [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 메서드를 여러 번 호출하여 여러 DDL 명령을 실행합니다. 또한 [Prepare()](http://go-database-sql.org/prepared.html) 및 Exec()를 사용하여 다른 매개 변수로 준비된 문을 실행하여 3개 행을 삽입합니다. 매번 사용자 지정 checkError() 메서드를 사용하여, 오류가 발생하여 서둘러 종료했는지 확인합니다.
+[sql.Open()](http://go-database-sql.org/accessing.html) 메서드를 호출하여 MySQL용 Azure Database에 연결하고 [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) 메서드를 사용하여 연결을 확인합니다. [데이터베이스 핸들](https://golang.org/pkg/database/sql/#DB)은 이러한 과정 내내 사용되며 데이터베이스 서버에 대한 연결 풀을 보유합니다. [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) 메서드를 여러 번 호출하여 여러 DDL 명령을 실행합니다. 또한 [Prepare()](http://go-database-sql.org/prepared.html) 및 Exec()를 사용하여 다른 매개 변수로 준비된 문을 실행하여 3개 행을 삽입합니다. 매번 사용자 지정 checkError() 메서드를 사용하여, 오류가 발생했는지와 서둘러 종료했는지 확인합니다.
 
 `host`, `database`, `user` 및 `password` 상수는 원하는 값으로 바꿉니다. 
 
@@ -356,4 +354,3 @@ func main() {
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./concepts-migrate-import-export.md)
-

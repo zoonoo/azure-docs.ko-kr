@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 PolyBase 사용을 위한 가이드
 이 가이드는 SQL 데이터 웨어하우스의 PolyBase를 사용하는 방법에 대한 실용적인 정보를 제공합니다.
@@ -134,7 +133,7 @@ PolyBase로 최적의 로드 성능을 이루기 위한 권장 사항은 다음�
 
 ## <a name="polybase-limitations"></a>PolyBase 제한 사항
 SQL DW의 PolyBase에는 로드 작업을 설계할 때 고려가 필요한 다음과 같은 제한 사항이 있습니다.
-- 단일 행은 1,000,000바이트보다 넓을 수 없습니다. (n)varchar(max) 열을 포함하여 정의된 테이블 스키마에 관계없이 항상 적용됩니다. 즉 외부 테이블 (n)varchar(max) 열은 데이터 형식에서 정의된 2GB 한도가 아니라 최대 1,000,000바이트가 가능합니다.
+- 단일 행은 1,000,000바이트보다 넓을 수 없습니다. 정의된 테이블 스키마에 관계없이 항상 적용됩니다.
 - SQL Server 또는 Azure SQL Data Warehouse의 텍스트가 많은 열에서 ORC 파일 형식으로 데이터를 내보낼 때는 Java의 메모리 부족 오류 때문에 50개 열로 제한될 수 있습니다. 이를 해결하려면 열의 하위 집합만 내보냅니다.
 
 
@@ -174,4 +173,3 @@ SQL Data Warehouse로 데이터를 이동하는 방법에 대한 자세한 내�
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

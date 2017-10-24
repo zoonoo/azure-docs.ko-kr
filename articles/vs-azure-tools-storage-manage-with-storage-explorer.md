@@ -3,8 +3,8 @@ title: "저장소 탐색기(미리 보기) 시작 | Microsoft Docs"
 description: "저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
-ms.author: kraigb
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
 ## <a name="overview"></a>개요
@@ -43,6 +42,7 @@ Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure S
 * [외부 저장소에 연결](#attach-or-detach-an-external-storage-account) - 저장소 계정의 계정 이름, 키 및 끝점을 사용하여 다른 Azure 구독에 속하거나 국가별 Azure 클라우드 아래에 있는 저장소 리소스를 관리합니다.
 * [SAS를 사용하여 저장소 계정 연결](#attach-storage-account-using-sas): SAS(공유 액세스 서명)를 사용하여 다른 Azure 구독에 속한 저장소 리소스를 관리합니다.
 * [SAS를 사용하여 서비스 연결](#attach-service-using-sas) - SAS를 사용하여 다른 Azure 구독에 속한 특정 저장소 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
+* [연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): 연결 문자열을 사용하여 Cosmos DB 계정을 관리합니다.
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 > [!NOTE]
@@ -223,6 +223,17 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 
     ![SAS를 사용하여 공유 서비스에 연결한 결과][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결
+Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용하는 것입니다. 연결 문자열을 사용하여 연결하려면 다음 단계를 따르세요.
+
+1. 왼쪽 트리에서 **Local and Attached**(로컬 및 연결)를 찾아 **Azure Cosmos DB 계정**을 마우스 오른쪽 단추로 클릭한 후 **Connect to Azure Cosmos DB...**(Azure Cosmos DB에 연결...)를 선택합니다.
+
+    ![연결 문자열을 사용하여 Azure Cosmos DB에 연결][33]
+
+2. Azure Cosmos DB API를 선택하고 **연결 문자열**을 붙여 넣은 후 **확인**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>저장소 계정 검색
 저장소 계정 목록이 긴 경우 특정 저장소 계정을 찾는 빠른 방법은 왼쪽 창 맨 위에 있는 검색 상자를 사용하는 것입니다.
 
@@ -232,6 +243,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
+* [Azure Storage 탐색기에서 Azure Cosmos DB 관리(미리 보기)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

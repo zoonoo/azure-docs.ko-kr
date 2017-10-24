@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -149,16 +149,16 @@ ms.lasthandoff: 07/11/2017
 
     이때 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에 다른 코드가 없어야 합니다.
 
-1. 다음 방법 이미 있어야 AppDelegate.m 완료는 [알림 허브 시작] [ get-started] 자습서입니다.  그렇지 않은 경우 메서드를 추가합니다.
+1. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 AppDelegate.m에 있어야 합니다.  그렇지 않은 경우 메서드를 추가합니다.
    
-    -(void) MessageBox:(NSString *) 제목 메시지:(NSString *) messageText {
+    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * 응용 프로그램 (void):(UIApplication *) 응용 프로그램 didReceiveRemoteNotification: (NSDictionary *) 사용자 정보 {NSLog (@"% @", 사용자 정보);   [메시지 자체 MessageBox:@"Notification": [[사용자 정보 objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
    
    이 메서드는 단일 **UIAlert**를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
 2. ViewController.m에서 AppDelegate.h에 대해 import 문을 추가하고 다음 코드를 XCode 생성 **구독** 메서드에 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
@@ -212,7 +212,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(선택 사항) 장치에서 알림 보내기
-일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이 업데이트 될 작업을 수행 하는 `SendNotificationRESTAPI` 에 정의한 메서드는 [알림 허브 시작] [ get-started] 자습서입니다.
+일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하기 위해 [Notification Hubs 시작][get-started] 자습서에 정의한 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 
 1. ViewController.m에서 범주 태그에 대한 매개 변수를 허용하고 적절한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림을 보내도록 다음과 같이 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
    

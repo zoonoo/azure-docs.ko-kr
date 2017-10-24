@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Database를 사용하는 다중 테넌트 SaaS 응용 프로그램 배포 및 탐색 | Microsoft Docs"
+title: "다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs"
 description: "Azure SQL Database를 사용하는 SaaS 패턴을 보여 주는 Wingtip SaaS 다중 테넌트 응용 프로그램을 배포하고 탐색합니다."
 keywords: "SQL Database 자습서"
 services: sql-database
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: 2e6816ce2740b0325c6f59338f0365c6b40539f3
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램 배포 및 탐색 - Wingtip SaaS
 
@@ -161,11 +160,11 @@ Wingtip SaaS 앱을 배포합니다.
 
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 SQL Server 목록으로 이동하여 **catalog-&lt;USER&gt;** 서버를 엽니다. 카탈로그 서버에는 두 개의 데이터베이스가 포함되어 있습니다. **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 빈 *golden* 또는 템플릿 데이터베이스)입니다.
+1. [Azure Portal](http://portal.azure.com)에서 SQL 서버 목록으로 이동하여 **catalog-&lt;USER&gt;** 서버를 엽니다. 카탈로그 서버에는 두 개의 데이터베이스가 포함되어 있습니다. **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 빈 *golden* 또는 템플릿 데이터베이스)입니다.
 
    ![데이터베이스](./media/sql-database-saas-tutorial/databases.png)
 
-1. SQL Server 목록으로 돌아와서 테넌트 데이터베이스가 있는 **tenants1-&lt;USER&gt;** 서버를 엽니다. 각 테넌트 데이터베이스는 50eDTU 표준 풀의 _탄력적 표준_ 데이터베이스입니다. 또한 이전에 프로비전한 테넌트 데이터베이스인 _Red Maple Racing_ 데이터베이스가 있습니다.
+1. SQL 서버 목록으로 돌아와서 테넌트 데이터베이스가 있는 **tenants1-&lt;USER&gt;** 서버를 엽니다. 각 테넌트 데이터베이스는 50eDTU 표준 풀의 _탄력적 표준_ 데이터베이스입니다. 또한 이전에 프로비전한 테넌트 데이터베이스인 _Red Maple Racing_ 데이터베이스가 있습니다.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 
@@ -203,4 +202,3 @@ Wingtip SaaS 앱을 배포합니다.
 * 탄력적 풀에 대한 자세한 내용은 [*Azure SQL 탄력적 풀이란?*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)을 참조하세요.
 * 탄력적 작업에 대해 알아보려면 [*규모가 확장된 클라우드 데이터베이스 관리*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)를 참조하세요.
 * 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [*다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)을 참조하세요.
-

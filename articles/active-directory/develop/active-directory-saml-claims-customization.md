@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory의 사전 통합된 앱에 대한 SAML 토큰에서 발급된 클레임 사용자 지정 | Microsoft Docs"
-description: "Azure Active Directory의 사전 통합된 앱에 대한 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대해 알아봅니다."
+title: "Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정 | Microsoft Docs"
+description: "Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
+ms.openlocfilehash: 73f63300e65e1f6bc25edf7f28ec2769acbb7c9e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Azure Active Directory의 사전 통합된 앱에 대한 SAML 토큰에서 발급된 클레임 사용자 지정
-현재 Azure Active Directory에서는 SAML 2.0 프로토콜을 사용하여 Single Sign-On을 지원하는 360개 이상의 응용 프로그램을 포함하여 Azure AD 응용 프로그램 갤러리에서 사전 통합된 수천 개의 응용 프로그램을 지원합니다. 사용자가 SAML을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 응용 프로그램에 토큰을 보냅니다(HTTP POST를 통해). 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정
+오늘날 Azure Active Directory는 사용자 지정 응용 프로그램뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 응용 프로그램 모두를 포함하여 대부분의 엔터프라이즈 응용 프로그램에서 단일 로그인을 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 (HTTP POST를 통해) 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
 ID에서 "클레임"은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](http://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 

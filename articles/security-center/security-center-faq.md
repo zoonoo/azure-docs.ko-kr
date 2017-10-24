@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 506c23179d09e2e22065c8ba2bc85a341bb0ea09
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 보안 센터 FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -43,7 +41,7 @@ Security Center는 두 계층으로 제공됩니다.
 
 **무료 계층**은 Azure 리소스, 기본 보안 정책, 보안 권장 사항, 그리고 파트너의 보안 제품 및 서비스와의 통합 등의 보안 상태를 볼 수 있게 해줍니다.
 
-**표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층은 처음 60일 동안 무료입니다. 60일을 넘어 서비스를 계속 사용하는 경우 서비스 요금이 자동으로 청구되기 시작합니다.  업그레이드하려면 [보안 정책](security-center-policies.md#set-security-policies)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+**표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층은 처음 60일 동안 무료입니다. 60일을 넘어 서비스를 계속 사용하는 경우 서비스 요금이 자동으로 청구되기 시작합니다.  업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다.
 
 ## <a name="permissions"></a>권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
@@ -115,8 +113,8 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * Azure 가상 네트워크
 * Azure SQL 서비스
 * Azure 저장소 계정
-* Azure Web Apps([App Service Environment](../app-service/app-service-app-service-environments-readme.md))
-* VM 및 [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
+* Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
+* VM 및 App Service Environment에서 웹 응용 프로그램 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
 ## <a name="virtual-machines"></a>가상 컴퓨터
 ### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 컴퓨터가 지원되나요?
@@ -132,4 +130,3 @@ VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?
 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.
-

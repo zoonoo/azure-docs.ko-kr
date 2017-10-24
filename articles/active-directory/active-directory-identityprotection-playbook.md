@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
@@ -119,7 +119,7 @@ Azure Active Directory ID 보호:
 2. **ID 보호**로 이동합니다.
 3. 기본 **Azure AD ID 보호** 블레이드에서 **설정**을 클릭합니다. 
 4. **포털 설정** 블레이드의 **보안 규칙**에서 **로그인 위험**을 클릭합니다.
-5. 에 * * 위험에 로그인 * * 블레이드를 **에** 아래 **사용 규칙이**합니다. 
+5. **로그인 위험** 블레이드의 **규칙 사용**에서 **켜기**를 선택합니다. 
 6. 다음 옵션 중 하나를 선택합니다.
    
    a. 차단하려면 **로그인 차단**에서 **보통**을 선택합니다.

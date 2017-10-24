@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/11/2017
 * 워크플로 내에서 발생한 오류를 보는 방법
 
 > [!TIP]
-> 이 프로젝트에 대한 고급 비디오를 보려면 [통합 사용자 그룹](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group")을 참조하세요.
+> 이 프로젝트에 대한 고급 비디오를 보려면 [통합 사용자 그룹](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "통합 사용자 그룹")을 참조하세요.
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 

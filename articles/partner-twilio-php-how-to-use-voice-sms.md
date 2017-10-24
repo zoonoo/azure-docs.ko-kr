@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: bd50eac7390e8639f77894689388e6926cdb619c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -74,14 +74,14 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
 ## <a id="create_app"></a>HP 응용 프로그램 만들기
-Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 응용 프로그램은 Twilio 서비스를 사용하는 다른 PHP 응용 프로그램과 차이가 없습니다. 이 문서 Twilio 서비스를 사용 하는 방법에 대해 중점적으로 Twilio 서비스는 REST 기반 하 고 여러 가지 방법으로 PHP에서 호출할 수 있습니다, [GitHub에서 PHP 용 Twilio 라이브러리][twilio_php]합니다. PHP 용 Twilio 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 참조 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]합니다.
+Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 응용 프로그램은 Twilio 서비스를 사용하는 다른 PHP 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP용 Twilio 라이브러리 사용에 대한 자세한 내용은 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]을 참조하세요.
 
-빌드하고 Twilio/PHP 응용 프로그램을 Azure에 배포 하기 위한 자세한 지침은 [Azure에서 PHP 응용 프로그램에서 전화 통화를 사용 하 여 Twilio를 확인 하는 방법을][howto_phonecall_php]합니다.
+Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_php]을 참조하세요.
 
 ## <a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 다음과 같은 두 가지 방법으로 PHP용 Twilio 라이브러리를 사용하도록 응용 프로그램을 구성할 수 있습니다.
 
-1. GitHub에서 PHP 용 Twilio 라이브러리를 다운로드 ([https://github.com/twilio/twilio-php][twilio_php]) 추가 하 고는 **서비스** 응용 프로그램에 디렉터리입니다.
+1. GitHub의 PHP용 Twilio 라이브러리([https://github.com/twilio/twilio-php][twilio_php])를 다운로드하고 응용 프로그램에 **Services** 디렉터리를 추가합니다.
    
     또는
 2. PHP용 Twilio 라이브러리를 PEAR 패키지로 설치합니다. 다음 명령을 사용하여 설치할 수 있습니다.
@@ -93,7 +93,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
         require_once 'Services/Twilio.php';
 
-자세한 내용은 참조 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]합니다.
+자세한 내용은 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]를 참조하세요.
 
 ## <a id="howto_make_call"></a>방법: 발신 전화 걸기
 다음은 **Services_Twilio** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하십시오.
@@ -139,7 +139,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [고유한 웹 사이트에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 
-* **참고**: SSL 인증서 유효성 검사 오류를 해결 하려면 참조 [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **참고**: SSL 인증서 유효성 검사 오류 문제를 해결하려면 [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation]을 참조하세요. 
 
 ## <a id="howto_send_sms"></a>방법: SMS 메시지 보내기
 다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호는 자동으로 입력됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
@@ -225,7 +225,7 @@ PHP 페이지가 TwiML 응답을 제공하도록 설정된 경우 `Services_Twil
         echo 'Error: ' . $e->getMessage();
     }
 
-Twilio를 사용 하 여 PHP 사용 하 여 Azure에 대 한 자세한 내용은 참조 하십시오. [Azure에서 PHP 응용 프로그램에서 전화 통화를 사용 하 여 Twilio를 확인 하는 방법을][howto_phonecall_php]합니다.
+Azure에서 PHP와 함께 Twilio를 사용하는 방법에 대한 자세한 내용은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_php]을 참조하세요.
 
 ## <a id="AdditionalServices"></a>방법: 추가 Twilio 서비스 사용
 여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation]를 참조하세요.

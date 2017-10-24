@@ -6,14 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 5f35a3bdd97b72acfe06b6bec54d41814e560b1c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -75,7 +74,7 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 ## <a name="deploy-the-infrastructure"></a>인프라 배포
 
-이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요.
+이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 미리 보기 릴리스의 경우 Event Grid는 **westus2** 및 **westcentralus** 지역을 지원합니다. 리소스 그룹 위치로 다음 지역 중 하나를 사용합니다.
 
 Azure CLI의 경우 
 
@@ -93,7 +92,7 @@ PowerShell의 경우 다음을 사용합니다.
 ```powershell
 New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName tf08202storage -functionAppName <app-name>
+New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 메시지가 표시되면 암호 값을 입력합니다.

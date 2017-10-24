@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
+ms.openlocfilehash: 25f0578a9e273c30ecc98af5b66c6dd43305aa03
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6179c4a3ba54260e9bd80156ec84e1d9aa3a0561
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-azure-active-directory-login"></a>Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,9 +31,6 @@ ms.lasthandoff: 09/20/2017
 3. **Azure Active Directory**를 클릭한 다음 **관리 모드**에서 **Express**를 클릭합니다.
 4. Azure Active Directory에서 응용 프로그램을 등록하려면 **확인** 을 클릭합니다. 이렇게 하면 새롭게 등록됩니다. 기존 등록을 대신 선택하려는 경우 **기존 앱 선택** 을 클릭한 다음 테넌트 내에서 이전에 만든 등록 이름을 검색합니다.
    등록을 클릭하여 선택하고 **확인**을 클릭합니다. Azure Active Directory 설정 블레이드에서 **확인** 을 클릭합니다.
-   
-   ![][0]
-   
    기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 5. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory로 로그인**으로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
 6. **Save**를 클릭합니다.
@@ -45,31 +41,21 @@ ms.lasthandoff: 09/20/2017
 수동으로 구성 설정을 제공하도록 선택할 수도 있습니다. 사용하려는 AAD 테넌트가 Azure에 로그인하는 테넌트와 다른 경우 권장되는 솔루션입니다. 구성을 완료하려면 먼저 Azure Active Directory에 등록을 만든 다음 앱 서비스에 등록 세부 정보 중 일부를 제공해야 합니다.
 
 ### <a name="register"> </a>Azure Active Directory에 응용 프로그램 등록
-1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Azure Active Directory 앱을 구성하는 데 이 정보를 사용합니다.
-2. [Active Directory] 에 로그인한 다음 **Active Directory**로 이동합니다.
-   
-    ![][2]
-3. 디렉터리를 선택한 다음 맨 위에서 **응용 프로그램** 탭을 선택합니다. 맨 아래에서 **추가** 를 클릭하여 새로운 앱 등록을 만듭니다.
-4. **내 조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
-5. 응용 프로그램 추가 마법사에서 응용 프로그램의 **이름**을 입력하고 **웹 응용 프로그램 및/또는 웹 API** 유형을 클릭합니다. 계속하려면 클릭합니다.
-6. **SIGN-ON URL** 상자에 앞에서 복사한 응용 프로그램 URL을 붙여넣습니다. **앱 ID URI** 상자에 동일한 URL을 입력합니다. 계속하려면 클릭합니다.
-7. 응용 프로그램이 추가되면 **구성** 탭을 클릭합니다. **Single Sign-on** 아래 **회신 URL**을 앞에 */.auth/login/aad/callback* 경로가 추가된 응용 프로그램 URL이 되도록 편집합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. HTTPS 체계를 사용 중인지 확인합니다.
-   
-    ![][3]
-8. **저장**을 클릭합니다. 그런 다음 앱의 **클라이언트 ID** 를 복사합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
-9. 맨 아래 명령 모음에서 **끝점 보기**를 클릭한 다음 **페더레이션 메타데이터 문서** URL을 복사하고 해당 문서를 다운로드하거나 브라우저에서 이 문서로 이동합니다.
-10. 루트 **EntityDescriptor** 요소 내에 테넌트에 관련된 GUID(“테넌트 ID”라고 함) 앞에 양식 `https://sts.windows.net/`의 **entityID** 특성이 있어야 합니다. 이 값을 복사하여 **발급자 URL**로 사용합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
+1. [Azure 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. 응용 프로그램 **URL**을 복사합니다. Azure Active Directory 앱을 구성하는 데 이 정보를 사용합니다.
+2. **Active Directory**를 선택한 후 **앱 등록**을 선택하고 위쪽의 **새 응용 프로그램 등록**을 클릭하여 새 앱 등록을 시작합니다. 
+3. 응용 프로그램 등록 만들기 대화 상자에서 응용 프로그램의 **이름**을 입력하고 **웹앱 API** 유형을 선택한 후 **로그온 URL** 상자에 응용 프로그램 URL(1단계)을 붙여 넣습니다. 그런 다음 **만들기**를 클릭합니다.
+4. 몇 초 후에 방금 만든 새 만든 응용 프로그램 등록이 나타납니다.
+5. 응용 프로그램이 추가되면 응용 프로그램 등록 이름을 클릭하고 위쪽의 **설정**을 클릭한 후 **속성**을 클릭합니다. 
+6. **앱 ID URI** 상자에 응용 프로그램 URL(1단계)을 붙여 넣고, **홈페이지 URL**에도 응용 프로그램 URL(1단계)을 붙여 넣은 후 **저장**을 클릭합니다.
+7. 이제 **회신 URL**을 클릭하고 **회신 URL**을 편집한 후 응용 프로그램 URL(1단계)을 붙여 넣고, 프로토콜을 **https://** 프로토콜(http:// 아님)로 수정한 후 URL 끝에 */.auth/login/aad/callback*을 추가합니다. (예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`) **Save**를 클릭합니다.   
+8.  이때 앱의 **응용 프로그램 ID**를 복사합니다. 나중에 사용할 수 있게 보관합니다. 웹 응용 프로그램을 구성하는 데 필요합니다.
+9. 응용 프로그램 등록 세부 정보 블레이드를 닫습니다. Azure Active Directory 앱 등록 요약으로 돌아가 위쪽의 **끝점** 단추를 클릭하고 **페더레이션 메타데이터 문서** URL을 복사합니다. 
+10. 새 브라우저 창을 열고 URL을 붙여넣은 후 XML 페이지로 이동합니다. 문서 맨 위에는 **EntityDescriptor** 요소가 추가되며, 테넌트에 관련된 GUID(“테넌트 ID”라고 함) 앞에 양식 `https://sts.windows.net/`의 **entityID** 특성이 있어야 합니다. 이 값을 복사하여 **발급자 URL**로 사용합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
 
 ### <a name="secrets"> </a>응용 프로그램에 Azure Active Directory 정보 추가
-1. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증/권한 부여**를 클릭합니다.
-2. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다.
-3. **Azure Active Directory**를 클릭한 다음 **관리 모드**에서 **고급**을 클릭합니다. 앞에서 얻은 클라이언트 ID 및 발급자 URL 값을 붙여넣습니다. 그런 후 **OK**를 클릭합니다.
-   
-   ![][1]
-   
-   기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
-4. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory로 로그인**으로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
-5. **Save**를 클릭합니다.
+1. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **인증/권한 부여**를 클릭합니다. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다. 인증 공급자 아래의 **Azure Active Directory**를 클릭하여 응용 프로그램을 구성합니다. (선택 사항) 기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다. **요청이 인증되지 않은 경우 수행할 작업**을 선택하고 **Azure Active Directory로 로그인**으로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
+2. Active Directory 인증 구성에서 **관리 모드** 아래의 **고급**을 클릭합니다. 응용 프로그램 ID를 클라이언트 ID 상자에 붙여 넣고(8단계) entityId(10단계)를 발급자 URL 값에 붙여 넣습니다. 그런 후 **OK**를 클릭합니다.
+3. Active Directory 인증 구성 블레이드에서 **저장**을 클릭합니다.
 
 이제 앱에서 Azure Active Directory를 인증에 사용할 준비가 되었습니다.
 
@@ -93,14 +79,20 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 
 <!-- Images. -->
 
-[0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-express-settings.png
-[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-advanced-settings.png
-[2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-navigate-aad.png
-[3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-configure.png
+[0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-url.png
+[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app_registration.png
+[2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-create.png
+[3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-config-appidurl.png
+[4]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-registration-config-replyurl.png
+[5]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints.png
+[6]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints-fedmetadataxml.png
+[7]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth.png
+[8]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth-config.png
+
+
 
 <!-- URLs. -->
 
 [Azure 포털]: https://portal.azure.com/
 [Active Directory]: https://manage.windowsazure.com/
 [alternative method]:#advanced
-

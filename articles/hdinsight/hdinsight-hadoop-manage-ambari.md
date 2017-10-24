@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: dc0f9ff030f70985dad0f3b74ba0ee3dda1d9f4b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리
 
@@ -51,6 +51,9 @@ Ambari 웹 UI는 HTTPS://CLUSTERNAME.azurehdidnsnsight.net의 HDInsight 클러�
 클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 이러한 서비스에 액세스하려면 SSH 터널을 만들어야 합니다. 자세한 내용은 [HDInsight와 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
 ## <a name="ambari-web-ui"></a>Ambari 웹 UI
+
+> [!WARNING]
+> Ambari 웹 UI의 일부 기능만 HDInsight에서 지원됩니다. 자세한 내용은 이 문서의 [지원되지 않는 작업](#unsupported-operations) 섹션을 참조하세요.
 
 Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵니다. 클러스터를 만들 때 사용했던 클러스터 관리자 사용자(기본값 관리자)와 암호를 사용합니다.
 
@@ -236,3 +239,13 @@ Ambari 뷰를 사용하면 개발자가 [Ambari 보기 프레임워크](https://
 * Hive 뷰: Hive 뷰를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 뷰 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 뷰 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 * Tez 보기: Tez 뷰를 사용하면 작업을 더 잘 이해하고 최적화할 수 있습니다. Tez 작업 실행 방법 및 사용되는 리소스에 대한 정보를 볼 수 있습니다.
+
+## <a name="unsupported-operations"></a>지원되지 않는 작업
+
+다음 Ambari 작업은 HDInsight에서 지원되지 않습니다.
+
+* __메트릭 수집기 서비스 이동__. 메트릭 수집기 서비스에 대한 정보를 볼 경우 서비스 작업 메뉴에서 사용할 수 있는 작업 중 하나는 __메트릭 수집기 이동__입니다. 이 기능은 HDInsight에서 지원되지 않습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+HDInsight에서 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용하는 방법을 알아봅니다.

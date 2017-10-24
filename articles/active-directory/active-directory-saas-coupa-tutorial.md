@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 이 자습서는 Azure 및 Coupa의 통합을 보여주기 위한 것입니다.  
@@ -142,7 +142,7 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 **Coupa에 사용자를 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
-2. 에 * * Coupa * * 응용 프로그램 통합 페이지에서 클릭 **사용자 할당**합니다.
+2. **Coupa** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
    ![사용자 할당](./media/active-directory-saas-coupa-tutorial/IC791911.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.

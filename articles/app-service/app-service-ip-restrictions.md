@@ -14,18 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: byvinyal
+ms.openlocfilehash: 54c0c5050c812c2a59631541d94c553974acd2f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 83cdc42d412f646ddf1ecd1b65bf9aa46983b26b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 고정 IP 제한 #
 
-IP 제한을 사용하여 앱 액세스가 차단되는 IP 주소 목록을 정의할 수 있습니다. 차단 목록에는 서브넷 마스크에 의해 정의되는 개별 IP 주소 또는 IP 주소 범위를 포함할 수 있습니다.
+IP 제한을 사용하여 앱 액세스가 허용되는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에 의해 정의되는 개별 IP 주소 또는 IP 주소 범위를 포함할 수 있습니다.
 
-클라이언트에서 앱에 대한 요청이 생성되면 차단 목록에 대해 IP 주소가 평가됩니다. 일치 항목이 있으면 앱이 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드를 사용하여 응답합니다.
+클라이언트에서 앱에 대한 요청이 생성되면 허용 목록에 대해 IP 주소가 평가됩니다. IP 주소가 목록에 없는 경우 앱은 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 응답합니다.
 
 IP 제한은 앱에 할당된 것과 동일한 App Service 계획 인스턴스에서 평가됩니다.
 
@@ -40,4 +39,3 @@ IP 제한은 앱에 할당된 것과 동일한 App Service 계획 인스턴스�
 **[+] 추가**를 클릭하여 새 IP 제한 규칙을 추가할 수 있습니다.
 
 ![IP 제한 추가](media/app-service-ip-restrictions/add-ip-restrictions.png)
-

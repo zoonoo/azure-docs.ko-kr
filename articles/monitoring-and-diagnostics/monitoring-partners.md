@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![파트너 로고][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![파트너 로고][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![파트너 로고][cloudmonix-logo]<br/>**CloudHealth**][cloudmonix-anchor] |
+| [![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![파트너 로고][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![파트너 로고][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![파트너 로고][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API를 통한 Azure Activity Log를 포함하여 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.

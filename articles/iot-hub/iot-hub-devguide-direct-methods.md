@@ -15,16 +15,15 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 ## <a name="overview"></a>개요
-IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
+IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 접근 방법은 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
 
 각 장치 메서드는 단일 장치를 대상으로 합니다. [jobs][lnk-devguide-jobs]는 여러 장치에서 직접 메서드를 호출하고 연결되지 않은 장치에 대한 메서드 호출을 예약하는 방법을 제공합니다.
 
@@ -45,7 +44,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 직접 메서드는 동기식이며 제한 시간(기본값: 30초, 최대 3600초 설정 가능)이 지나면 성공하거나 실패합니다. 직접 메서드는 장치가 온라인 상태에서 명령을 수신하는 경우에만 작동하기(예: 휴대폰에서 조명 켜기)를 바라는 대화형 시나리오에서 유용합니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 장치는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
 
-직접 메서드는 클라우드 쪽에서는 HTTP 전용, 장치 쪽에서는 MQTT 또는 AMQP입니다.
+직접 메서드는 클라우드 쪽에서는 HTTPS 전용, 장치 쪽에서는 MQTT 또는 AMQP입니다.
 
 메서드 요청 및 응답에 대한 페이로드는 최대 8KB의 JSON 문서입니다.
 
@@ -123,7 +122,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
-직접 메서드를 사용하는 방법에 대해 알아봤으니 다음 IoT Hub 개발자 가이드 항목을 살펴보세요.
+직접 메서드를 사용하는 방법에 대해 알아봤으니 다음 IoT Hub 개발자 가이드 문서를 살펴보세요.
 
 * [여러 장치에서 jobs 예약][lnk-devguide-jobs]
 
@@ -143,4 +142,3 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-

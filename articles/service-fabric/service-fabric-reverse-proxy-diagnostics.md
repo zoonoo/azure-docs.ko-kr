@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
+ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>역방향 프로세스에서의 요청 처리 모니터링 및 진단 
 
@@ -158,11 +157,11 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
     
     위험/오류 이벤트에만 수집을 활성화할 경우 시간 제한 및 해결 시도 수에 대한 상세 정보가 있는 하나의 이벤트가 표시됩니다. 
     
-    서비스가 사용자에게 404 상태 코드를 다시 보내야 하는 경우 "X-ServiceFabric" 헤더가 동반되어야 합니다. 이를 수정하고 나면 역방향 프록시가 상태 코드를 클라이언트로 다시 보냅니다.  
+    404 상태 코드를 사용자에게 다시 전송하려고 하는 서비스는 응답에 "X-ServiceFabric" 헤더를 추가해야 합니다. 이 헤더가 응답에 추가되면 역방향 프록시가 상태 코드를 클라이언트로 다시 보냅니다.  
 
 4. 클라이언트가 요청에서 분리된 경우.
 
-    아래 이벤트는 역방향 프록시가 클라이언트에 응답을 전달하지만 클라이언트가 분리된 경우 기록됩니다.
+    다음 이벤트는 역방향 프록시가 클라이언트에 응답을 전달하지만 클라이언트가 분리된 경우 기록됩니다.
 
     ```
     {
@@ -180,6 +179,18 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
       }
     }
     ```
+5. 역방향 프록시는 404 FABRIC_E_SERVICE_DOES_NOT_EXIST를 반환합니다.
+
+    서비스 매니페스트에서 서비스 끝점에 대해 URI 체계를 지정하지 않으면 FABRIC_E_SERVICE_DOES_NOT_EXIST 오류가 반환됩니다.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    이 문제를 해결하려면 매니페스트에 URI 체계를 지정합니다.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > 웹 소켓 요청 처리와 관련한 이벤트는 현재 기록되지 않습니다. 이것은 다음 릴리스에 추가될 것입니다.
@@ -189,4 +200,3 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
 * Visual Studio에서 Service Fabric 이벤트를 보려면 [로컬 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)을 참조하세요.
 * 다른 서비스 인증서 유효성 검사 옵션을 사용하여 보안 역방향 프록시를 구성하려면 [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)(보안 서비스에 연결하도록 역방향 프록시 구성)에서 Azure Resource Manager 템플릿 샘플을 참조하세요.
 * 자세한 내용은 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요.
-

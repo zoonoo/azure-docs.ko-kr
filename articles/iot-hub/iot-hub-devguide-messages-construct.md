@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/18/2017
 
 속성 이름과 값은 다음과 같은 경우에 ASCII 영숫자 문자와 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``를 포함할 수 있습니다.
 
-* HTTP 프로토콜을 사용하여 장치-클라우드 메시지를 보냅니다.
+* HTTPS 프로토콜을 사용하여 장치-클라우드 메시지를 보냅니다.
 * 클라우드-장치 메시지를 보냅니다.
 
 다른 프로토콜을 사용하여 보낸 메시지를 인코딩하고 디코딩하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.

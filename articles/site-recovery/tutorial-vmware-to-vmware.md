@@ -4,7 +4,7 @@ description: "Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 
 services: site-recovery
 documentationcenter: 
 author: nsoneji
-manager: jwhit
+manager: gauarvd
 editor: 
 ms.assetid: 68616d15-398c-4f40-8323-17b6ae1e65c0
 ms.service: site-recovery
@@ -12,14 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: raynew
+ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: da1df5546b7f99549a693c4e2df4eefb7a423c7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버의 재해 복구 설정
 
@@ -59,22 +58,27 @@ ms.lasthandoff: 09/25/2017
 
 다음과 같이 업데이트를 설치합니다.
 
-1. [update](https://aka.ms/asr-scout-update5) zip 파일을 다운로드합니다. 이 파일에 포함된 항목은 다음과 같습니다.
+> [!NOTE]
+>모든 Scout 구성 요소의 파일 업데이트 버전이 업데이트 .zip 파일에서 같지 않을 수 있습니다. 이전 버전인 경우는 이 업데이트의 이전 업데이트 이후에 구성 요소가 변경되지 않았음을 나타냅니다.
 
-   * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-   * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-   * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
-   * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. .zip 파일의 압축을 풉니다.
-    - **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-    - **구성 서버/프로세스 서버**: **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
-    - **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 통합 에이전트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
-    - **vContinuum 서버**: **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
-    - **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-    - **Windows 원본 서버**: 업데이트 4가 이미 실행되는 경우 원본 서버에 업데이트 5 에이전트를 설치할 필요가 없습니다. 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다.
-    - **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+[update](https://aka.ms/asr-scout-update6) zip 파일을 다운로드합니다. 파일에는 다음 구성 요소가 포함됩니다. 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. .zip 파일의 압축을 풉니다.
+2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+3. **구성 서버/프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+4. **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
+  **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+5. **vContinuum 서버**: **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+    **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+7. **Windows 원본 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
+    업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
+8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 
 ## <a name="enable-replication"></a>복제 활성화
 
@@ -89,10 +93,34 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="updates"></a>업데이트
 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
+업데이트 날짜: 2017년 10월 6일
+
+Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 1에서 업데이트 5까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항 및 개선된 기능이 포함되어 있습니다. 
+
+#### <a name="new-platform-support"></a>새 플랫폼 지원
+* 원본 Windows Server 2016에 대한 지원이 추가되었습니다.
+* 다음 Linux 운영 체제에 대한 지원이 추가되었습니다.
+    - RHEL(Red Hat Enterprise Linux) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* VMware Center 6.5에 대한 지원이 추가되었습니다.
+
+> [!NOTE]
+> * Windows용 기본 UA(통합 에이전트) 설치 관리자는 Windows Server 2016을 지원하도록 새로 고쳐졌습니다. 새 설치 관리자 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**가 기본 Scout GA 패키지에 패키지됩니다(**InMage_Scout_Standard_8.0.1 GA Oct17.zip**). 지원되는 모든 Windows 버전에 동일한 설치 관리자가 사용됩니다. 
+> * 기본 Windows vContinuum 및 마스터 대상 설치 관리자는 Windows Server 2016을 지원하도록 새로 고쳐졌습니다. 새 설치 관리자 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**가 기본 Scout GA 패키지에 패키지됩니다(**InMage_Scout_Standard_8.0.1 GA Oct17.zip**). Windows 2016 마스터 대상 및 Windows 2012R2 마스터 대상을 배포하는 데 동일한 설치 관리자가 사용됩니다.
+> * [자격 증명 모음 만들기](#create-a-vault)에서 설명한 대로 포털에서 GA 패키지를 다운로드합니다.
+>
+
+#### <a name="bug-fixes-and-enhancements"></a>버그 수정 및 향상된 기능
+- 복제할 디스크 목록을 포함하는 Linux VM에 대한 장애 복구(Failback) 보호 실패가 구성 마지막에 비어 있습니다.
+
+
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 업데이트 5
 Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 1에서 업데이트 4까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항이 포함되어 있습니다.
 - Site Recovery Scout 업데이트 4에서 업데이트 5로 수정된 사항은 특히 마스터 대상 및 vContinuum 구성 요소에 대한 것입니다.
-- 원본, 마스터 대상, 구성, 프로세스 및 RX 서버에서 이미 업데이트 5를 실행하는 경우 마스터 대상 서버에만 적용합니다. 
+- 원본, 마스터 대상, 구성, 프로세스 및 RX 서버에서 이미 업데이트 4를 실행하는 경우 마스터 대상 서버에만 적용합니다. 
 
 #### <a name="new-platform-support"></a>새 플랫폼 지원
 * SUSE Linux Enterprise Server 11 SP4(서비스 팩 4)
@@ -223,5 +251,4 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
   * vContinuum 마법사에서 MSCS VM을 보호하는 동안 디스크 보기에서 **세부 정보**를 클릭하면 디스크가 자동으로 선택 취소됩니다.
   * P2V(Physical-to-Virtual) 시나리오에서 CIMnotify 및 CqMgHost와 같은 필수 HP 서비스는 VM 복구에서 수동으로 이동되지 않습니다. 이 문제로 인해 부팅 시간이 늘어납니다.
   * 마스터 대상 서버에 27개 이상의 디스크가 있으면 Linux VM 보호가 실패합니다.
-
 

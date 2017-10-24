@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
 이 문서는 Microsoft 클라우드의 다음 서비스를 비교하고 대조하며 비즈니스 프로세스의 자동화 및 통합 문제를 모두 해결할 수 있습니다.
@@ -81,16 +80,18 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 | 확장 |구성이 없는 크기 조정 |App Service 계획 크기 조정 |
 | 가격 |사용량 과금 또는  App Service 계획의 일부 |App Service 계획의 일부 |
 | 실행 형식 |트리거됨, 예약됨(타이머 트리거 사용) |트리거됨, 연속, 예약됨 |
-| 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
-| 브라우저 내부 개발 |지원됨 | 지원되지 않음 |
-| Windows 스크립트(.cmd, .bat) |실험적 |지원됨 |
-| PowerShell |실험적 |지원됨 |
+| 트리거 이벤트 |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
+| 브라우저 내부 개발 |지원됨 |지원되지 않음 |
 | C# |지원됨 |지원됨 |
 | F# |지원됨 |지원되지 않음 |
-| Bash |실험적 |지원됨 |
-| PHP |실험적 |지원됨 |
-| 파이썬 |실험적 |지원됨 |
 | JavaScript |지원됨 |지원됨 |
+| Java |지원됨 | 지원되지 않음 |
+| Bash |실험적 |지원됨 |
+| Windows 스크립트(.cmd, .bat) |실험적 |지원됨 |
+| PowerShell |실험적 |지원됨 |
+| PHP |실험적 |지원됨 |
+| Python |실험적 |지원됨 |
+| TypeScript |실험적 |지원되지 않음 |
 
 Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이미 수행하고 있는 서비스에 따라 다릅니다. 코드 조각을 실행할 App Service 앱이 있고 동일한 DevOps 환경에서 코드 조각을 함께 관리하려는 경우 WebJobs를 사용합니다. 다음 시나리오에서 함수를 사용합니다.
 
@@ -123,5 +124,4 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

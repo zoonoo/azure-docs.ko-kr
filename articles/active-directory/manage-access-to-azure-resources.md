@@ -12,20 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
+ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 17879d69b95186848a81e4ff4afdf8fc0d1a511e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure 리소스에 대한 액세스 관리
 
-클라우드 리소스에 대한 ID 및 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 기능입니다.  Azure AD(Azure Active Directory)는 Microsoft Azure의 ID 및 액세스 시스템입니다.  
+클라우드 리소스에 대한 ID 및 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 기능입니다. Azure AD(Azure Active Directory)는 Microsoft Azure의 ID 및 액세스 시스템입니다.  
 
+지원되는 Azure AD의 기능 영역을 탐색하기 전에 다음 비디오를 확인하세요. "SSO, 역할 기반 액세스 제어 및 조건부를 사용하여 Azure 클라우드에 대한 액세스 잠금" 여기에서 다음에 대해 알아봅니다.
+
+- 온-프레미스 Active Directory를 사용하여 Azure Portal에 대한 Single Sign-On을 구성하는 모범 사례
+- 구독에서 리소스에 대한 세분화된 액세스 제어를 위해 Azure RBAC 사용
+- Azure AD 조건부 액세스를 사용하여 강력한 인증 규칙 적용
+- 관리 서비스 ID의 개념에서 Azure 리소스는 자동으로 Azure 서비스에 인증할 수 있고 개발자는 API 키 또는 비밀을 처리할 필요가 없습니다.
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## <a name="feature-areas"></a>기능 영역
 Azure AD는 Azure 리소스에 대한 액세스를 관리하기 위한 다음과 같은 기능을 제공합니다.
 
 |||

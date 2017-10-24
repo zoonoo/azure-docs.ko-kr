@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -66,7 +66,7 @@ bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발
 
 따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다.  일치하는 항목이 없는 경우 인증이 실패합니다. 
 
-예를 들어 사용자의 UPN를 bsimon@bmcontoso.com, 토큰 AD FS 문제에서 IssuerUri 요소 http://bmcontoso.com/adfs/services/trust로 설정 됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
+예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 http://bmcontoso.com/adfs/services/trust로 설정됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
 다음은 이 논리를 구현하는 사용자 지정된 클레임 규칙입니다.
 

@@ -3,21 +3,19 @@ title: "Azure Application Insights를 사용하여 런타임 예외 진단 | Mic
 description: "Azure Application Insights를 사용하여 응용 프로그램에서 런타임 예외를 찾고 진단하는 자습서입니다."
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 58c69e9c75f3a97c04b2c5b2e3b9acfc7065c658
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
 Azure Application Insights는 응용 프로그램에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 응용 프로그램을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
@@ -39,6 +37,7 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](http://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
+- [Visual Studio 스냅숏 디버거](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger) 사용
 - Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
 - 자습서는 응용 프로그램에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 

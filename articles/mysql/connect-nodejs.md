@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/17/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0c0bd4b707c114d2991e5f0473a4bfbe9e463e3c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>MySQL용 Azure Database: Node.js를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Node.js](https://nodejs.org/)를 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 Node.js를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Node.js](https://nodejs.org/)를 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Node.js를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -31,7 +30,7 @@ ms.lasthandoff: 07/21/2017
 - Node.js 응용 프로그램에서 MySQL에 연결하려면 [mysql2](https://www.npmjs.com/package/mysql2) 패키지를 설치합니다. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Node.js 및 MySQL 커넥터 설치
-플랫폼에 따라 적절한 지침을 수행하여 Node.js를 설치합니다. npm을 사용하여 프로젝트 폴더에 mysql2 패키지와 해당 종속성을 설치합니다.
+사용하는 플랫폼에 따라 적절한 섹션의 지침을 수행하여 Node.js를 설치합니다. npm을 사용하여 프로젝트 폴더에 mysql2 패키지와 해당 종속성을 설치합니다.
 
 ### <a name="windows"></a>**Windows**
 1. [Node.js 다운로드 페이지](https://nodejs.org/en/download/)를 방문하여 원하는 Windows 설치 관리자 옵션을 선택합니다.
@@ -88,13 +87,13 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
 3. **myserver4demo** 서버 이름을 클릭합니다.
-4. 서버의 **속성** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
+4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
  ![MySQL용 Azure Database - 서버 관리자 로그인](./media/connect-nodejs/1_server-properties-name-login.png)
 5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js에서 JavaScript 코드 실행
-1. JavaScript 코드를 텍스트 파일에 붙여넣고 C:\nodejsmysql\createtable.js 또는 /home/username/nodejsmysql/createtable.js와 같이 .js 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
-2. 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd nodejsmysql`).
+1. JavaScript 코드를 텍스트 파일에 붙여넣고 .js 파일 확장명이 포함된 프로젝트 폴더(C:\nodejsmysql\createtable.js 또는 /home/username/nodejsmysql/createtable.js)에 저장합니다.
+2. 명령 프롬프트 또는 Bash 셸을 시작한 후 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd nodejsmysql`).
 3. 응용 프로그램을 실행하려면 node 명령 다음에 파일 이름을 입력합니다(예: `node createtable.js`).
 4. Windows에서 노드 응용 프로그램이 환경 변수 경로에 없는 경우 전체 경로를 사용하여 노드 응용 프로그램을 시작해야 할 수도 있습니다(예: `"C:\Program Files\nodejs\node.exe" createtable.js`).
 
@@ -316,4 +315,3 @@ function deleteData(){
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./concepts-migrate-import-export.md)
-

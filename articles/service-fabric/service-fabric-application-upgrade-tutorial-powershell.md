@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c685deaa008cfdba5971cef4cfc7dfa41b1df64d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 9dfeff7aea50db2cbaacacdbac724d6f9dfd7019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
 > [!div class="op_single_selector"]
@@ -74,7 +73,6 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-
 이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **Build** 옵션을 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드**를 선택한 경우 코드가 변경되었으므로 모든 프로젝트의 버전을 업데이트해야 합니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지**를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 이 작업을 수행하면 배포 가능한 응용 프로그램 패키지가 만들어집니다.  업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
@@ -112,6 +110,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 위 명령이 실패하면 모든 서비스를 다시 빌드해야 할 가능성이 높습니다. 2단계에서 언급했듯이 WebService 버전도 업데이트해야 합니다.
 
+응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 응용 프로그램 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
+
 ## <a name="step-5-start-the-application-upgrade"></a>5단계: 응용 프로그램 업그레이드 시작
 이제 [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) 명령을 사용하여 응용 프로그램 업그레이드를 시작할 수 있습니다.
 
@@ -142,5 +146,4 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
 

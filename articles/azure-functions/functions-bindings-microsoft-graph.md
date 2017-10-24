@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
+ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0eb0ac63c7dbb9d6cbba093937231e93670529e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-microsoft-graph-bindings"></a>Azure Functions Microsoft Graph 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -45,7 +43,11 @@ Microsoft Graph 바인딩은 _바인딩 확장_을 통해 제공됩니다. 바�
 
 ### <a name="enabling-functions-20-preview"></a>Functions 2.0 미리 보기를 사용하도록 설정
 
-바인딩 확장은 Azure Functions 2.0 미리 보기에만 사용할 수 있습니다. Functions 2.0을 사용하려면 `FUNCTIONS_EXTENSION_VERSION` 응용 프로그램 설정을 "베타"로 설정합니다.  응용 프로그램 설정을 구성하는 방법은 [Azure Functions에서 응용 프로그램 설정](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 참조하세요.
+바인딩 확장은 Azure Functions 2.0 미리 보기에만 사용할 수 있습니다. 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](functions-versions.md)을 참조하세요.
 
 ### <a name="installing-the-extension"></a>확장 설치
 
@@ -1060,4 +1062,3 @@ public class UserSubscription {
 
 [HTTP 트리거]: functions-bindings-http-webhook.md
 [Microsoft Graph에서 웹후크 작업]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
 이 문서에서는 일반적인 마켓플레이스 시나리오 문제를 해결하고 지원을 받는 방법에 대해 설명합니다.
@@ -75,7 +75,7 @@ ms.lasthandoff: 07/11/2017
 
 ![inprivate][4]
 
-**2. 회사의 회사 또는 학교 계정으로 로그인** (즉, AzureStore@yourcompany.com).
+**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com)으로 로그인합니다**.
 
 ![signin][5]
 

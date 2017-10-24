@@ -1,6 +1,6 @@
 ---
-title: "인텔리전스 Insights의 데이터베이스 사용량 모니터링 - Azure SQL Database | Microsoft Docs"
-description: "인텔리전스 Insights를 통해 데이터베이스 성능 상황을 알 수 있습니다."
+title: "Intelligent Insights를 사용하여 데이터베이스 사용량 모니터링 - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다."
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>인텔리전스 Insights
 
 ***&#8220;인텔리전스 Insights를 통해 데이터베이스 성능 상황을 알 수 있습니다.&#8221;***
 
-Azure SQL Database의 기본 제공 인텔리전스는 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다. 검색되면 이를 상세하게 분석하여 문제에 대한 지능형 평가와 함께 진단 로그를 생성합니다. 이 평가는 데이터베이스 성능 문제의 근본 원인 분석과 성능 개선을 위한 가능한 권장 사항이 있는 위치로 구성되어 있습니다. 이것이 바로 ***&#8220;인텔리전스 Insights입니다.&#8221;*** 
+Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다. 검색되면 이를 상세하게 분석하여 문제에 대한 지능형 평가와 함께 진단 로그를 생성합니다. 이 평가는 데이터베이스 성능 문제의 근본 원인 분석과 성능 개선을 위한 가능한 권장 사항이 있는 위치로 구성되어 있습니다. 이것이 바로 ***&#8220;인텔리전스 Insights입니다.&#8221;*** 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>인텔리전스 Insights가 할 수 있는 일은 무엇입니까?
 
@@ -161,6 +160,5 @@ Azure SQL Database 기본 제공 인텔리전스가 워크로드 성능에 영�
 * [인텔리전스 Insights Azure SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md) 사용
 * [Azure SQL Analytics를 사용하여 Azure SQL Database를 모니터링](../log-analytics/log-analytics-azure-sql.md)하는 방법 알아보기
 * [Azure 리소스에서 로그 데이터 수집 및 소비](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하는 방법 알아보기
-
 
 

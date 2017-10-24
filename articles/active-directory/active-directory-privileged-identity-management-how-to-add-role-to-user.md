@@ -16,10 +16,10 @@ ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
 ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법
 Azure AD(Active Directory)와 전역 관리자(또는 회사 관리자)는 사용자가 Azure AD에서 **영구적으로** 역할에 할당되도록 업데이트할 수 있습니다. 이 작업은 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember` 등 PowerShell cmdlet을 사용하여 완료됩니다. 또는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)에 설명된 대로 Azure 클래식 포털을 사용할 수 있습니다.
@@ -47,7 +47,7 @@ Privileged Identity Management를 사용하여 역할에 사용자를 추가하�
 
 > [!NOTE]
 > 역할에 포함된 새 사용자는 기본적으로 그 역할에 대해서만 자격이 있습니다. 역할을 영구적으로 지정하려면 목록에서 사용자를 클릭합니다. 사용자의 정보가 새 블레이드에 표시됩니다. 사용자 정보 메뉴에서 **make perm** (영구 지정)을 선택합니다.  
-> 사용자에 대 한 Azure Multi-factor Authentication (MFA)를 등록할 수 없습니다 또는 Microsoft 계정을 사용 하는 경우 (일반적으로 @outlook.com), 해당 역할에 영구적으로 적용 되도록 해야 합니다. 활성화 과정에서 적격 관리자에게 MFA를 등록하도록 요청하는 메시지가 표시됩니다.
+> 사용자가 Azure MFA(Multi-Factor Authentication)를 등록할 수 없거나 Microsoft 계정(일반적으로 @outlook.com)을 사용하고 있는 경우 사용자 정보는 모든 역할에서 영구적으로 유지되도록 해야 합니다. 활성화 과정에서 적격 관리자에게 MFA를 등록하도록 요청하는 메시지가 표시됩니다.
 
 사용자가 역할을 부여받을 자격이 있으므로 [역할을 활성화 또는 비활성화하는 방법](active-directory-privileged-identity-management-how-to-activate-role.md)의 지침에 따라 역할을 활성화할 수 있음을 알려 줍니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -75,9 +75,9 @@ ms.lasthandoff: 08/03/2017
 
 * 연락처는 메일을 사용할 수 있어야 합니다. 다음 규칙을 통해 확인합니다.
   * `IsPresent([proxyAddresses]) = True)`. proxyAddresses 특성을 채워야 합니다.
-  * 기본 전자 메일 주소는 proxyAddresses 특성 또는 메일 특성에서 찾을 수 있습니다. 현재 상태는 @ 하는 데 콘텐츠 전자 메일 주소 인지 확인 합니다. 이 두 가지 규칙 중 하나가 True로 평가되어야 합니다.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` 포함 된 항목을 "SMTP:" 없을 경우, 수 및는 @ 문자열에서 찾을 수 있습니까?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 메일 특성 채워지고 이면 수는 @ 문자열에서 찾을 수 있습니까?
+  * 기본 전자 메일 주소는 proxyAddresses 특성 또는 메일 특성에서 찾을 수 있습니다. @의 유무는 콘텐츠가 전자 메일 주소인지 확인하는 데 사용됩니다. 이 두 가지 규칙 중 하나가 True로 평가되어야 합니다.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` "SMTP:"가 있는 항목이 있나요? 있다면 문자열에서 @를 찾을 수 있나요?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 메일 특성이 채워지나요? 그리고 채워진다면 문자열에서 @를 찾을 수 있나요?
 
 다음 연락처 개체는 Azure AD에 동기화되지 **않습니다** .
 

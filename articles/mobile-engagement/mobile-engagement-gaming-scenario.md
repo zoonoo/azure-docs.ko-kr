@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>게임 앱에서 Mobile Engagement 구현
 ## <a name="overview"></a>개요
@@ -61,7 +61,7 @@ IT 팀의 권고에 따라 다음 질문에 답하기 위해 다음과 같은 �
 * 레벨 20을 통과한 사용자는 1주일에 10달러를 넘게 쓰기 시작합니다.
 * 사용자들은 레벨 16, 24, 32에서 프리미엄 패키지를 구입하는 경향이 있습니다.
 
-이 분석을 이용하여 모바일 프로젝트 책임자는 앱 내 판매를 늘리기 위해 특정 푸시 알림 순서를 만들기로 결정했습니다. 세 가지 푸시 순서, 즉 시작 프로그램, 판매 프로그램 및 비활성 프로그램을 만들고 이대로 호출합니다. 자세한 내용은 참조는 [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
+이 분석을 이용하여 모바일 프로젝트 책임자는 앱 내 판매를 늘리기 위해 특정 푸시 알림 순서를 만들기로 결정했습니다. 세 가지 푸시 순서, 즉 시작 프로그램, 판매 프로그램 및 비활성 프로그램을 만들고 이대로 호출합니다. 자세한 내용은 [플레이 북](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]을 참조하세요.
 
 <!--Image references-->
 

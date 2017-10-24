@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -968,7 +968,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    네트워크 lb 주소 풀이 삭제 [옵션] < 리소스 그룹 >< lb-이름 ><name>
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 부하 분산 장치에서 백엔드 IP 풀 범위 리소스를 제거합니다.
 
@@ -1353,7 +1353,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    네트워크 공개 ip [옵션] < 리소스 그룹 > 표시<name>
+    network public-ip show [options] <resource-group> <name>
 
 리소스 그룹 내 공용 IP 리소스에 대한 공용 IP 속성을 표시합니다.
 

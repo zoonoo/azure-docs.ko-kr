@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
+ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
@@ -38,7 +37,7 @@ Azure Storage는 저장소 계정에서 데이터의 중복성을 위해 선택�
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS의 주요 기능
 
-RA-GRS에 응용 프로그램을 설계할 경우 다음과 같은 주요 사항을 염두하세요.
+RA-GRS에 맞게 응용 프로그램을 설계할 경우 다음과 같은 주요 사항을 염두하세요.
 
 * Azure Storage는 기본 지역에서 저장한 데이터의 읽기 전용 복사본을 보조 지역에서 유지합니다. 위에서 언급한 대로 저장소 서비스가 보조 지역의 위치를 결정합니다.
 
@@ -244,4 +243,3 @@ static function OnBeforeResponse(oSession: Session) {
 * LastSyncTime 설정 방법에 대한 다른 예제를 비롯한 읽기 액세스 지역 중복에 대한 자세한 내용은 [Windows Azure Storage 중복 작업 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)를 참조하세요.
 
 * 기본 끝점과 보조 끝점 간에 전환을 수행하는 방법을 보여주는 전체 샘플은 [Azure 샘플 – RA-GRS 저장소에서 회로 차단 패턴 사용](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)을 참조하세요.
-

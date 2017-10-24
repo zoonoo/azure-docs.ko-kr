@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
@@ -122,6 +121,12 @@ ms.lasthandoff: 09/02/2017
 
 이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
 
+**Q:** 디스크 "Bek Volume" 또는 "/mnt/azure_bek_disk"란 무엇인가요?
+
+**A:** Windows용 "Bek volume" 또는 Linux용 "/mnt/azure_bek_disk"는 암호화된 Azure IaaS VM에 대한 암호화 키를 안전하게 저장하는 로컬 데이터 볼륨입니다.
+> [!NOTE]
+> 이 디스크의 내용은 삭제하거나 편집하지 않아야 합니다. IaaS VM의 암호화 작업에 암호화 키가 필요하므로 이 디스크를 분리하지 않도록 합니다.
+
 **Q:** 질문을 하거나 의견을 제출할 수 있는 곳은 어디인가요?
 
 **A:** [Azure Disk Encryption 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)에서 질문하거나 피드백을 제출할 수 있습니다.
@@ -132,4 +137,3 @@ ms.lasthandoff: 09/02/2017
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Azure 가상 컴퓨터 암호화](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
@@ -75,7 +75,7 @@ Azure는 네트워크 보안 논의가 이루어지는 많은 네트워킹 구�
 
 ### <a name="basic-network-connectivity"></a>기본 네트워크 연결
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 서로 하 고 온-프레미스 네트워크 사이트 간 Vpn을 사용 하 여 Vnet을 연결할 수도 있습니다 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)합니다.
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. VNet은 구독 전용 Azure 네트워크 인프라의 논리적 격리입니다. 사이트 간 VPN 및 전용 [WAN 링크](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 사용하여 VNet을 서로 연결하고 온-프레미스 네트워크에 연결할 수도 있습니다.
 
 ![기본 네트워크 연결](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -425,9 +425,9 @@ Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한
 
 Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
--   들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   가상 컴퓨터에 들어오는 인터넷 트래픽을 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
+-   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
 
 -   외부 트래픽을 특정 가상 컴퓨터에 전달합니다.
 

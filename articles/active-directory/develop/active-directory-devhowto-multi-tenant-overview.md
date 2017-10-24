@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure Active Directory (AD) 사용자를 로그인하는 방법
 소프트웨어를 서비스 응용 프로그램으로 많은 조직에 제공하는 경우, 어떠한 Azure AD 테넌트에서나 로그인을 허용하도록 응용 프로그램을 구성할 수 있습니다.  Azure AD에서는 이 구성을 다중 테넌트 응용 프로그램 만들기라고 합니다.  모든 Azure AD 테넌트의 사용자는 응용 프로그램에 계정을 사용하기로 동의한 후 응용 프로그램에 로그인할 수 있습니다.  
 
 기존 응용 프로그램에 자체 계정 시스템이 있거나 다른 클라우드 공급자에서 비롯된 다른 종류의 로그인을 지원하는 경우 테넌트의 Azure AD 로그인을 간단하게 추가할 수 있습니다. 앱을 등록하고 OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고 응용 프로그램에 "Microsoft를 사용하여 로그인" 단추를 배치합니다. 다음과 같은 단추를 클릭하여 응용 프로그램을 브랜딩하는 방법에 대해 자세히 알아보세요.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![로그인 단추][AAD-Sign-In]][AAD-App-Branding]
 
 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 응용 프로그램을 빌드하는 것에 이미 익숙하다고 가정합니다.  잘 알지 못할 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]로 돌아가 빠른 시작 중 하나를 시도합니다!
 
@@ -62,7 +61,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 앞서 언급한 대로, 다중 테넌트 응용 프로그램은 Azure AD 응용 프로그램 브랜딩 지침에 따라 사용자에 대한 일관된 로그인 환경도 제공해야 합니다. 다음과 같은 단추를 클릭하여 응용 프로그램을 브랜딩하는 방법에 대해 자세히 알아보세요.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![로그인 단추][AAD-Sign-In]][AAD-App-Branding]
 
 /공통된 끝점과 코드 구현 사용에 대해 자세히 알아보겠습니다.
 
@@ -240,7 +239,6 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

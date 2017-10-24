@@ -17,10 +17,10 @@ ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory ID 보호 알림
 Azure AD ID 보호는 두 가지 유형의 자동화된 알림 전자 메일을 보내어 사용자 위험과 위험 이벤트를 관리합니다.
@@ -41,7 +41,7 @@ Azure AD ID 보호가 계정이 손상되었다고 식별하는 경우 사용자
 * ID 보호에서 관련된 보고서에 대한 링크
 
 <br>
-![업데이트 관리](./media/active-directory-identityprotection-notifications/400.png "업데이트 관리")
+![수정](./media/active-directory-identityprotection-notifications/400.png "수정")
 <br>
 
 주 단위 요약 메일 보내기를 끌 수 있습니다.

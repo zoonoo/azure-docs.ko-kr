@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 09/29/2017
+ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a82c283df688d36cd284973312e276f30ed893c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>MySQL용 Azure Database의 Compute 단위 설명
-이 문서에서는 Compute 단위의 개념과 워크로드가 최대 Compute 단위에 도달할 때 발생하는 현상에 대해 설명합니다.
+이 항목에서는 Compute 단위의 개념과 워크로드가 최대 Compute 단위에 도달할 때 발생하는 현상에 대해 설명합니다.
 
 ## <a name="what-are-compute-units"></a>Compute 단위란?
 Compute 단위는 MySQL 서버용 단일 Azure Database에서 사용할 수 있도록 보장되는 CPU 처리량을 측정하는 단위입니다. Compute 단위는 CPU 및 메모리 리소스를 혼합해서 측정합니다. 일반적으로 50 Compute 단위는 코어의 절반과 같습니다. 100 Compute 단위는 하나의 코어와 같습니다. 2000 Compute 단위는 서버에서 사용할 수 있도록 보장되는 처리량의 20개 코어와 같습니다.
@@ -29,7 +28,7 @@ Compute 단위당 메모리 양은 기본 및 표준 가격 책정 계층에 대
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>내 작업에 필요한 Compute 단위의 수를 확인하려면 어떻게 해야 하나요?
 온-프레미스 또는 가상 컴퓨터에서 실행되는 기존 MySQL 서버를 마이그레이션하려는 경우 워크로드에 필요한 처리량의 코어 수를 예측하여 Compute 단위의 수를 결정할 수 있습니다. 
 
-기존 온-프레미스 또는 가상 컴퓨터 서버에서 현재 4개 코어를 사용하는 경우(CPU 하이퍼스레드 제외) 먼저 MySQL 서버용 Azure Database에 대해 400 Compute 단위를 구성하여 시작합니다. Compute 단위는 응용 프로그램 가동 중지 시간이 거의 없이도 워크로드 필요량에 따라 동적으로 확장 또는 축소할 수 있습니다. 
+기존 온-프레미스 또는 가상 컴퓨터 서버에서 현재 4개 코어를 사용하는 경우(CPU 하이퍼스레드 제외) 먼저 MySQL 서버용 Azure Database에 대해 400 Compute 단위를 구성하여 시작합니다. Compute 단위는 응용 프로그램 가동 중지 시간이 거의 없이도 작업 필요량에 따라 동적으로 확장 또는 축소할 수 있습니다. 
 
 Azure Portal에서 메트릭 그래프를 모니터링하거나 Azure CLI 명령을 작성하여 Compute 단위를 측정합니다. 모니터링할 관련 메트릭은 Compute 단위 백분율 및 Compute 단위 제한입니다.
 
@@ -39,10 +38,9 @@ Azure Portal에서 메트릭 그래프를 모니터링하거나 Azure CLI 명령
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>내 최대 Compute 단위에 도달한 경우 어떻게 되나요?
 선택한 가격 책정 계층 및 성능 수준의 최대 한도까지 데이터베이스 워크로드를 실행하는 리소스를 제공하도록 성능 수준이 보정 및 제어됩니다. 
 
-워크로드가 Compute 단위 또는 프로비전된 IOPS 제한 중 최대 제한에 도달할 경우 최대 허용 수준에서 계속 리소스를 활용할 수 있지만 쿼리의 대기 시간이 증가할 가능성이 큽니다. 속도 저하가 너무 심해서 쿼리 시간이 초과되지 않는 한 이러한 제한으로 인해 오류가 발생하지는 않지만 워크로드 속도가 느려집니다. 
+워크로드가 Compute 단위 또는 프로비전된 IOPS 제한 중 최대 제한에 도달할 경우 최대 허용 수준에서 계속 리소스를 활용할 수 있지만 쿼리의 대기 시간이 증가할 가능성이 큽니다. 속도 저하가 너무 심해서 쿼리 시간이 초과되지 않는 한, 이러한 제한으로 인해 오류가 발생하지는 않지만 워크로드 속도가 느려집니다. 
 
 워크로드가 연결 수의 최대 제한에 도달할 경우 명시적 오류가 발생됩니다. 리소스 제한에 대한 자세한 내용은 [MySQL용 Azure Database의 제한 사항](concepts-limits.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 가격 책정 계층에 대한 자세한 내용은 [MySQL용 Azure Database 가격 책정 계층](./concepts-service-tiers.md)을 참조하세요.
-

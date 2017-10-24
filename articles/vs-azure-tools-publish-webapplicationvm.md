@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 스크립트)
 가상 컴퓨터에 웹 응용 프로그램을 배포합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
@@ -79,7 +79,7 @@ True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않�
 | Accept Wildcard Characters? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-가상 컴퓨터 계정에 대한 자격 증명입니다. 예: VMPassword @{Name = "admin"; 암호 = "password"}
+가상 컴퓨터 계정에 대한 자격 증명입니다. 예: -VMPassword @{Name = "admin"; Password = "password"}
 
 | Aliases | 없음 |
 | --- | --- |
@@ -90,7 +90,7 @@ True인 경우 신뢰할 수 있는 루트 인증 기관에서 서명되지 않�
 | Accept Wildcard Characters? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Azure에서 SQL 데이터베이스에 대한 자격 증명입니다. 예: DatabaseServerPassword @{Name = "admin"; 암호 = "password"}
+Azure에서 SQL 데이터베이스에 대한 자격 증명입니다. 예: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
 | Aliases | 없음 |
 | --- | --- |

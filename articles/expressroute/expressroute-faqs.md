@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -37,9 +36,9 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ExpressRoute 파트너 및 위치](expressroute-locations.md) 의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ExpressRoute 파트너 및 위치](expressroute-locations.md) 의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 Express 경로 회로를 주문할 수 있습니다.
 
-### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
+### <a name="how-much-does-expressroute-cost"></a>Express 경로 비용
 
 가격 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/) 를 참조하세요.
 
@@ -85,6 +84,14 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* [경로 필터](#route-filters-for-microsoft-peering)를 사용하면 Microsoft 피어링을 통해 동일한 공용 서비스에 액세스할 수 있습니다.
+  * Power BI
+  * 재무 및 운영을 위한 Dynamics 365
+  * 다음 몇 가지 예외를 제외한 대부분의 Azure 서비스
+    * CDN
+    * Visual Studio Team Services 부하 테스트
+    * Multi-Factor 인증
+    * 트래픽 관리자
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 
@@ -115,6 +122,10 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>내 ExpressRoute 링크 중 하나가 실패하면 연결이 끊어지나요?
 
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
+
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
+
+다른 피어링 위치에 있는 여러 ExpressRoute 회로를 가상 네트워크에 연결하여 고가용성을 달성할 수 있습니다. 예를 들어 한 ExpressRoute 사이트가 다운되면 연결이 다른 ExpressRoute 사이트로 장애 조치(Failover)됩니다. 기본적으로 가상 네트워크에서 나오는 트래픽은 ECMP(동일 비용 다중 경로 라우팅)를 기준으로 라우팅됩니다. 연결 가중치를 사용하여 특정 연결을 기본 연결로 사용할 수 있습니다. 연결 가중치에 대한 자세한 내용은 [ExpressRoute 라우팅 최적화](expressroute-optimize-routing.md)를 참조하세요.
 
 ### <a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 
@@ -162,6 +173,12 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 자세한 내용은 [여러 구독에서 ExpressRoute 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>다른 Azure Active Directory 테넌트 또는 기업계약 등록에 연결된 여러 Azure 구독이 있습니다. 별도 테넌트 및 등록에 속하는 가상 네트워크를 동일한 테넌트 또는 등록에 없는 단일 ExpressRoute 회로에 연결할 수 있나요?
+
+예. ExpressRoute 인증은 추가 구성 없이도 구독, 테넌트 및 등록 간에 적용될 수 있습니다. 
+
+자세한 내용은 [여러 구독에서 ExpressRoute 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>가상 네트워크가 서로 격리된 동일한 회로에 연결되어 있나요?
 
 번호 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
@@ -178,7 +195,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 예. 기본 경로(0.0.0.0/0)를 보급하여 가상 네트워크 내에 배포된 가상 컴퓨터에 대한 모든 인터넷 연결을 차단하고 ExpressRoute 회로를 통해 모든 트래픽을 라우팅할 수 있습니다.
 
-기본 경로를 보급하는 경우 공용 피어링(예: Azure storage 및 SQL DB)을 통해 프레미스에 다시 제공된 서비스로 트래픽을 수행합니다. 공용 피어링 경로 또는 인터넷을 통해 트래픽을 Azure로 반환하도록 라우터를 구성해야 합니다.
+기본 경로를 보급하는 경우 공용 피어링(예: Azure storage 및 SQL DB)을 통해 프레미스에 다시 제공된 서비스로 트래픽을 수행합니다. 공용 피어링 경로 또는 인터넷을 통해 트래픽을 Azure로 반환하도록 라우터를 구성해야 합니다. 서비스에 대해 서비스 끝점(미리 보기)을 사용하도록 설정한 경우 서비스에 대한 트래픽은 프레미스에 강제로 전송되지 않습니다. 트래픽은 Azure 백본 네트워크 내에 유지됩니다. 서비스 끝점에 대한 자세한 내용은 [가상 네트워크 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)을 참조하세요.
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>동일한 ExpressRoute 회로에 연결된 가상 네트워크가 서로 통신할 수 있나요?
 
@@ -344,13 +361,12 @@ Office 365 서비스 및 Dynamics 365를 사용하려면 프리미엄 추가 기
 
 아니요, Dynamics 365에 대해 권한을 부여받을 필요가 없습니다. 규칙을 만든 다음, 권한을 부여받지 않고 Dynamics 365 커뮤니티를 선택하면 됩니다.
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>Microsoft 피어링을 이미 사용하고 있습니다. 경로 필터를 사용하려면 어떻게 해야 하나요?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>2017년 8월 1일 이전에 Microsoft 피어링을 사용하도록 설정했습니다. 경로 필터를 사용하려면 어떻게 해야 하나요?
 
-경로 필터를 만들고, 사용할 서비스를 선택하고, 해당 필터를 Microsoft 피어링에 연결하면 됩니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+기존 회로가 Office 365 및 Dynamics 365용 접두사를 계속 보급하게 됩니다. 동일한 Microsoft 피어링을 통해 Azure 공용 접두사 보급 알림을 추가하려면 경로 필터를 만들고, 보급해야 하는 서비스(필요한 Office 365 서비스 및 Dynamics 365 포함)를 선택하고, 해당 필터를 Microsoft 피어링에 추가할 수 있습니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>한 위치에서 Microsoft 피어링을 사용하고 있습니다. 이제 다른 위치에서 사용하도록 설정하려고 했지만 접두사가 표시되지 않습니다.
 
 * 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다.
 
 * 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
-

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -48,7 +47,7 @@ Wingtip SaaS 앱은 단일 테넌트 데이터 모델을 사용하며, 각 장�
 
 데이터베이스 성능 관리는 성능 데이터 컴파일과 분석 및 그런 다음 응용 프로그램에 대해 허용되는 응답 시간을 유지하도록 매개 변수를 조정하여 이 데이터에 반응하는 과정으로 구성됩니다. 여러 테넌트를 호스팅할 때 Elastic Database 풀은 예측 불가능한 워크로드를 가진 데이터베이스 그룹에 대한 리소스를 제공하고 관리하는 비용 효율적인 방법입니다. 특정 워크로드 패턴의 경우 풀에서 관리하면 S3 데이터베이스 두 개만 이점을 얻을 수 있습니다.
 
-![미디어](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![응용 프로그램 다이어그램](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 풀 및 풀에 있는 데이터베이스를 모니터링하여 성능의 허용 범위로 유지되는지 확인해야 합니다. 풀 구성을 모든 데이터베이스의 집계 워크로드에 대한 요구에 맞게 조정하여 풀 eDTU가 전체 워크로드에 적합하게 해야 합니다. 데이터베이스별 최소 및 데이터베이스별 최대 eDTU 값을 특정 응용 프로그램 요구 사항에 적합한 값으로 조정합니다.
 
@@ -115,11 +114,11 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
 
 풀의 리소스 사용률은 풀에 있는 모든 데이터베이스에 대한 집계 데이터베이스 사용률입니다. 데이터베이스 차트에는 가장 많이 사용되는 5개의 데이터베이스가 표시됩니다.
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![데이터베이스 차트](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 풀에는 상위 5개 데이터베이스 이외에 추가 데이터베이스가 있으므로 풀 사용률은 상위 5개 데이터베이스 차트에 반영되지 않은 작업을 표시합니다. 추가 세부 정보를 보려면 **데이터베이스 리소스 사용률**을 클릭합니다.
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![데이터베이스 리소스 사용률](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>풀에 대한 성능 경고 설정
@@ -249,4 +248,3 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
 * [SQL 탄력적 풀](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Log Analytics 설정 및 사용 자습서
-

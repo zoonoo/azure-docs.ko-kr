@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Containers용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
 
@@ -529,16 +528,16 @@ az acr credential show --name {azure-container-registry-name}
 }
 ```
 
-이제 필요한 자격 증명이 있으므로 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. 로그인하려면 레지스트리의 URL이 필요합니다. `http://{azure-container-registry-name>.azurecr.io` 양식을 사용합니다.
+이제 필요한 자격 증명이 있으므로 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. 서버 이름은 로그인하는 데 필요합니다. `{azure-container-registry-name>.azurecr.io` 양식을 사용합니다.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-로그인이 성공했다고 확인합니다. `docker push` 명령을 실행하고, 이미지 이름 및 태그 앞에 있는 레지스트리의 전체 URL을 사용하여 이미지의 태그를 지정합니다.
+로그인이 성공했다고 확인합니다. `docker push` 명령을 사용하고, 이미지 이름 및 태그 앞에 있는 레지스트리의 이름을 사용하여 이미지의 태그를 지정합니다.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 ACR 저장소를 나열하여 푸시가 레지스트리에 대한 컨테이너에 성공적으로 추가되었는지 확인합니다. 
@@ -623,4 +622,3 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 ## <a name="next-steps"></a>다음 단계
 
 [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
-

@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
+ms.openlocfilehash: 168829494de33a21df68d3fc5e2a174f435c5ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>개체 특성에 따른 동적 그룹 채우기
 Azure 클래식 포털에서는 Azure AD(Azure Active Directory) 그룹에 대해 더 복잡한 특성 기반의 동적 멤버 자격을 사용하도록 설정할 수 있는 기능을 제공합니다.  
 
@@ -266,26 +264,26 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>특성을 사용하여 장치 개체에 대한 규칙 만들기
 또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
 
-| 속성              | 허용되는 값                  | 사용 현황                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | 임의의 문자열 값입니다.                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | 임의의 문자열 값입니다.                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | 임의의 문자열 값입니다.                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | 유효한 장치 범주 이름    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | 임의의 문자열 값입니다.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | 임의의 문자열 값입니다.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | 개인, 회사               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | 임의의 문자열 값입니다.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | 임의의 문자열 값입니다.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | 임의의 문자열 값입니다.                | (device.managementType -eq "")                              |
-| organizationalUnit      | 임의의 문자열 값입니다.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | 유효한 deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | 유효한 AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| 속성              | 허용되는 값                     | 사용 현황                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                         | (device.accountEnabled -eq true)                            |
+| displayName             | 임의의 문자열 값입니다.                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | 임의의 문자열 값입니다.                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | 임의의 문자열 값입니다.                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | 유효한 장치 범주 이름       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | 임의의 문자열 값입니다.                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | 임의의 문자열 값입니다.                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | 개인, 회사                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | 임의의 문자열 값입니다.                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Apple 장치 등록 프로필 이름    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true false                         | (device.isRooted -eq true)                              |
+| managementType          | 모바일 장치의 경우 "MDM", Intune PC 에이전트를 통해 관리되는 컴퓨터의 경우 "PC"    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | 온-프레미스 Active Directory에 의해 설정된 OU의 이름과 일치하는 임의의 문자열 값 | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | 유효한 Intune deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | 유효한 Azure AD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.
+> Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 장치 규칙을 만들 수 없습니다.
 >
 >
 
@@ -310,4 +308,3 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [그룹 설정을 구성하는 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

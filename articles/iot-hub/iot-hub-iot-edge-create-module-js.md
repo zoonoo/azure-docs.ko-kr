@@ -11,11 +11,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e23c4aa7bb3eb4fab18d5a13cbad28e07c18d8f2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Node.js를 사용하여 Azure IoT Edge 모듈 만들기
 
@@ -121,7 +121,7 @@ Azure IoT Edge 모듈을 입력을 수신하고, 처리하며, 출력을 생성�
 
 출력은 입력과 유사하게, 하드웨어 동작(예: 깜박이는 LED), 다른 모듈로 보내는 메시지 또는 그밖에 무엇(예: 콘솔에 인쇄)을 트리거할 수 있습니다.
 
-모듈은 `message` 개체를 사용하여 서로 통신합니다. `message`의 **콘텐츠**는 사용자가 선호하는 모든 종류의 데이터를 표시할 수 있는 바이트 배열입니다. **속성**은 `message`에서 사용할 수 있으며 단순히 문자열-문자열 매핑입니다. **속성**을 HTTP 요청의 헤더 또는 파일의 메타데이터로 생각할 수도 있습니다.
+모듈은 `message` 개체를 사용하여 서로 통신합니다. `message`의 **콘텐츠**는 사용자가 선호하는 모든 종류의 데이터를 표시할 수 있는 바이트 배열입니다. **속성**은 `message`에서 사용할 수 있으며 단순히 문자열-문자열 매핑입니다. **속성**을 HTTPS 요청의 헤더 또는 파일의 메타데이터로 생각할 수도 있습니다.
 
 JS에서 Azure IoT Edge 모듈을 개발하려면 필요한 메서드 `receive()`를 구현하는 새 모듈 개체를 만들어야 합니다. 이 시점에서 선택적 `create()` 또는 `start()`나 `destroy()` 메서드를 구현하도록 선택할 수도 있습니다. 다음 코드 조각에서는 JS 모듈 개체의 스캐폴딩을 보여 줍니다.
 

@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
 이 예에서는 방화벽, 4개의 Windows Server 및 네트워크 보안 그룹이 포함된 DMZ를 만듭니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다. 
 
-![NVA NSG와 인바운드 DMZ][1]
+![NVA 및 NSG와 인바운드 DMZ][1]
 
 ## <a name="environment-description"></a>환경 설명
 이 예에서는 다음을 포함하는 구독이 있습니다.
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/11/2017
 
 새 규칙을 만들고 "WebTraffic"과 같은 이름을 제공합니다. 
 
-대상 NAT 규칙 아이콘은 다음과 같습니다: ![대상 NAT 아이콘][2]
+대상 NAT 규칙 아이콘은 다음과 같습니다. ![대상 NAT 아이콘][2]
 
 규칙 자체는 다음과 같이 표시됩니다.
 

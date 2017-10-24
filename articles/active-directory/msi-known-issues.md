@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 10/07/2017
 ms.author: skwan
+ms.openlocfilehash: c091ea7cec35099d8ad2ab47361cd4c1278fdab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 3cfd1eb55a031696635270a56ed5028e3b249543
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -58,6 +56,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ## <a name="known-issues"></a>알려진 문제
 
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>MSI 확장에 대한 스키마 내보내기를 시도하는 동안 발생하는 "Automation 스크립트" 오류
+
+VM에서 관리되는 서비스 ID를 활성화하는 경우 VM 또는 해당 리소스 그룹에 "Automation 스크립트" 기능을 사용하려고 할 때 다음과 같은 오류가 표시됩니다.
+
+![MSI 자동화 스크립트 내보내기 오류](media/msi-known-issues/automation-script-export-error.png)
+
+현재 관리되는 서비스 ID VM 확장은 리소스 그룹 템플릿으로 해당 스키마를 내보내는 기능을 지원하지 않습니다. 결과적으로 생성된 템플릿은 리소스에서 관리되는 서비스 ID를 활성화하는 구성 매개 변수를 표시하지 않습니다. [템플릿을 사용하여 VM 관리되는 서비스 ID 구성](msi-qs-configure-template-windows-vm.md)의 예제를 수행하여 이러한 섹션을 수동으로 추가할 수 있습니다.
+
+스키마 내보내기 기능을 MSI VM 확장에 사용할 수 있는 경우 [VM 확장을 포함하는 리소스 그룹 내보내기](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions)에 나열됩니다.
+
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Azure Portal에 구성 블레이드가 표시되지 않음
 
 VM에 VM 구성 블레이드가 표시되지 않는 경우 해당 지역의 Portal에서 MSI가 아직 사용하도록 설정되지 않은 것입니다.  나중에 다시 확인하세요.  [PowerShell](msi-qs-configure-powershell-windows-vm.md) 또는 [Azure CLI](msi-qs-configure-cli-windows-vm.md)를 사용하여 VM에 대해 MSI를 사용하도록 설정할 수도 있습니다.
@@ -87,4 +95,3 @@ VM이 시작되면 다음 명령을 사용하여 태그를 제거할 수 있습�
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-

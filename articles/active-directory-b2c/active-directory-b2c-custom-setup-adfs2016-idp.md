@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -155,8 +153,10 @@ ADFS 계정으로 페더레이션하려면 응용 프로그램 대신 Azure AD B
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>등록 또는 로그인 사용자 경험에 ADFS 계정 클레임 공급자 등록
 이 시점에서 ID 공급자가 설정되었습니다.  그러나 등록/로그인 화면에서 사용할 수 없습니다. 이제 `SignUpOrSignIn` 사용자 경험에 ADFS 계정 ID 공급자를 추가해야 합니다. 사용할 수 있도록 하려면 기존 템플릿 사용자 경험의 복제본을 만듭니다.  그런 다음 ADFS ID 공급자를 포함하도록 수정합니다.
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>이전에 `<UserJourneys>` 요소를 정책의 기본 파일에서 확장 파일(TrustFrameworkExtensions.xml)로 복사한 경우 이 섹션을 건너뛸 수 있습니다.
+
 1.  정책의 기본 파일(예: TrustFrameworkBase.xml)을 엽니다.
 2.  `<UserJourneys>` 요소를 찾고 `<UserJourneys>` 노드의 전체 콘텐츠를 복사합니다.
 3.  확장 파일(예: TrustFrameworkExtensions.xml)을 열고 `<UserJourneys>` 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
@@ -228,4 +228,3 @@ ADFS 계정으로 페더레이션하려면 응용 프로그램 대신 Azure AD B
 
 ## <a name="download-the-complete-policy-files"></a>완성 정책 파일 다운로드
 선택 사항: 사용자 지정 정책을 사용하여 시작을 완료한 후에 고유한 사용자 지정 정책 사용하여 시나리오를 빌드하는 것이 좋습니다. [참조 전용 정책 샘플 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

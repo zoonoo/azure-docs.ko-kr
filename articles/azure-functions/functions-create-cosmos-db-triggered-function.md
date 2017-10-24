@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -66,11 +65,11 @@ ms.lasthandoff: 09/25/2017
     | **컬렉션 이름** | 항목 | 모니터링할 컬렉션의 이름입니다. |
     | **임대 컬렉션이 없는 경우 새로 만들기** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
 
-4. **Azure Cosmos DB 계정 연결** 레이블 옆에 있는 **새로 만들기**를 선택하고 **+ 새로 만들기**를 선택합니다. 
+4. **Azure Cosmos DB 계정 연결** 레이블 옆에 있는 **새로 만들기**를 선택하고, 기존 Cosmos DB 계정을 선택하거나 **+ 새로 만들기**를 선택합니다. 
  
     ![Azure Cosmos DB 연결 구성](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. 다음 표에 지정된 대로 **새 계정** 설정을 사용합니다.
+6. 새 Cosmos DB 계정을 만들 때는 테이블에 지정된 대로 **새 계정** 설정을 사용합니다.
 
     | 설정      | 제안 값  | 설명                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Queue Storage 트리거에 대한 자세한 내용은 [Azure Functions Storage 큐 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
-

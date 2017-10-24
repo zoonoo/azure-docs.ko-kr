@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Android용 Azure Authenticator
 IT 관리자가 Microsoft Azure Authenticator로 로그인하여 회사 리소스에 액세스하도록 권장했을 수도 있습니다. 이 응용 프로그램은 다음 두 가지 로그인 옵션을 제공합니다.
@@ -37,7 +37,7 @@ Google Play 스토어에서 Azure Authenticator 앱을 설치할 수 있습니�
 
 1. 앱의 홈 화면에서 EULA(최종 사용자 사용권 계약)에 동의합니다.
 2. 계정 활성화 화면에서 오른쪽에 있는 상황에 맞는 메뉴를 클릭하고 **회사 계정**을 선택합니다.
-3. 계정 추가 화면에서 선택 * * 작업 계정 * *입니다.
+3. 계정 추가 화면에서 **회사 계정**을 선택합니다.
 4. 장치 관리자 활성화 화면에서 **활성화**를 클릭합니다.
 5. 개인 정보 취급 방침 화면에서 확인란을 선택하고 **확인**을 클릭합니다.
 6. 작업 공간 연결 화면에서 조직이 제공한 사용자 ID를 입력하고 **연결**을 클릭합니다.

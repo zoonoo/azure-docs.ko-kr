@@ -12,17 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
+ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 70a869ac428efa0af93adbb5ee78ebc83a13a785
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyzers-in-azure-search"></a>Azure Search의 분석기
 
-*분석기*는 쿼리 문자열의 텍스트와 인덱싱된 문서의 콘텐츠를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 인덱싱 중 분석기는 인덱스에 기록되는 토큰화된 용어로 텍스트를 변환합니다. 검색 중에 분석기는 인덱스의 용어와 일치하는 문서를 검색하는 데 사용되는 쿼리 용어에 대해 동일한 변환을 수행합니다.
+*분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 인덱싱 중 분석기는 *토큰화된 용어* 인덱스에 기록되는 *토큰*으로 텍스트를 변환합니다. 검색 중에 분석기는 *쿼리 용어*에 대해 동일한 변환을 수행하여 인덱스에서 일치하는 용어를 검색하는 기반을 제공합니다.
 
 다음 변환은 분석 중에 일반적으로 발생합니다.
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 09/15/2017
 + 대문자 단어는 소문자가 됩니다.
 + 단어는 시제에 관계 없이 일치를 찾을 수 있도록 루트 양식으로 세분화됩니다.
 
-Azure Search는 기본 분석기를 제공합니다. 다른 분석기를 통해 필드를 기준으로 재정의할 수 있습니다. 이 문서의 목적은 특정 필드에 대한 사전적 분석 프로세스를 사용자 지정하기 위한 여러 옵션을 살펴보고 모범 사례를 제공하는 것입니다. 또한 주요 시나리오에 대한 예제 구성을 보여줍니다.
+Azure Search에서는 [표준 Lucene 분석기](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 기본 분석기로 사용합니다. 필드별로 기본 분석기를 재정의할 수 있습니다. 이 문서에서는 선택 옵션에 대해 설명하고 사용자 지정 분석에 대한 모범 사례를 제공합니다. 또한 주요 시나리오에 대한 예제 구성을 보여 줍니다.
 
 ## <a name="supported-analyzers"></a>지원되는 분석기
 
@@ -40,24 +38,24 @@ Azure Search는 기본 분석기를 제공합니다. 다른 분석기를 통해 
 | Category | 설명 |
 |----------|-------------|
 | [표준 Lucene 분석기](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
-| 미리 정의된 분석기 | 제한된 사용자 지정을 그대로 사용하는 완성된 제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의"하는 방법은 사용자 지정 없이 이름별로 참조하는 것입니다. <br/><br/>[특수(언어 중립적) 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리를 필요로 합니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)는 개별 언어에 대해 풍부한 언어 지원을 제공합니다. Azure Search는 35개의 Lucene 언어 분석기 및 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
+| 미리 정의된 분석기 | 제한된 사용자 지정을 그대로 사용하는 완성된 제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의"하는 방법은 사용자 지정 없이 이름별로 참조하는 것입니다. <br/><br/>[특수(언어 중립적) 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Search는 35개의 Lucene 언어 분석기 및 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
 |[사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 하나의 토크 나이저(필수) 및 선택적 필터(char 또는 토큰)로 구성된 기존 요소를 결합한 사용자 정의 구성입니다.|
 
 **패턴** 또는 **중지**와 같은 미리 정의된 분석기를 사용자 지정하여 [미리 정의된 분석기 참조](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)에서 설명한 다른 옵션을 사용할 수 있습니다. 미리 정의된 분석기 중 일부에만 옵션을 설정할 수 있습니다. 사용자 지정으로 *myPatternAnalyzer*와 같은 이름을 가진 새 구성을 제공하여 Lucene 패턴 분석기와 구분합니다.
 
 ## <a name="how-to-specify-analyzers"></a>분석기를 지정하는 방법
 
-1. 사용자 지정 분석기의 경우 인덱스 정의에 `analyzer` 섹션을 만듭니다. 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 및 [사용자 지정 분석기 > 만들기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer)를 참조하세요.
+1. (사용자 지정 분석기의 경우) 인덱스 정의에 **분석기** 섹션을 만듭니다. 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 및 [사용자 지정 분석기 > 만들기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer)를 참조하세요.
 
-2. 분석기를 사용하려는 검색 가능한 각각의 필드에서 `analyzer` 속성을 [인덱스의 필드 정의](https://docs.microsoft.com/rest/api/searchservice/create-index)에 있는 대상 분석기의 이름으로 설정합니다. 유효한 값은 미리 정의된 분석기, 언어 분석기 또는 인덱스 스키마에 이전에 정의된 사용자 지정 분석기를 포함합니다.
+2. 인덱스의 [필드 정의](https://docs.microsoft.com/rest/api/searchservice/create-index)에서 **analyzer** 속성을 대상 분석기의 이름(예: `"analyzer" = "keyword"`)으로 설정합니다. 유효한 값에는 미리 정의된 분석기, 언어 분석기 또는 인덱스 스키마에 정의된 사용자 지정 분석기의 이름이 포함됩니다.
 
-  또는 `analyzer` 속성 대신 `indexAnalyzer` 및 `searchAnalyzer` 매개 변수 필드를 사용하여 인덱싱 및 쿼리에 대해 서로 다른 분석기를 설정할 수 있습니다. 
+3. 경우에 따라 한 가지 **analyzer** 속성 대신 **indexAnalyzer** 및 **searchAnalyzer** 필드 매개 변수를 사용하여 인덱싱 및 쿼리에 대해 서로 다른 분석기를 설정할 수 있습니다. 
 
-3. 분석은 인덱싱하는 동안 이루어집니다. 기존 인덱스에 `analyzer`를 추가할 경우 다음 단계를 확인합니다.
+3. 필드 정의에 분석기를 추가하면 인덱스에 대해 쓰기 작업이 발생합니다. 기존 인덱스에 **analyzer**를 추가할 경우 다음 단계를 확인합니다.
  
  | 시나리오 | 단계 |
  |----------|-------|
- | (아직 인덱싱되지 않은)새 필드를 추가합니다. | 새 필드에 대한 콘텐츠를 제공하는 문서를 추가하거나 업데이트할 때 분석이 이루어집니다. 이 작업에 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용합니다.|
+ | 새 필드 추가 | 스키마에 아직 필드가 존재하지 않으면 변경할 필드가 없습니다. 새 필드에 대한 콘텐츠를 제공하는 문서를 추가하거나 업데이트할 때마다 텍스트 분석이 이루어집니다. 이 작업에 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용합니다.|
  | 기존 인덱싱된 필드에 분석기를 추가합니다. | 해당 필드에 대해 반전된 텍스트를 처음부터 다시 만들고 이 필드에 대한 문서 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index) [만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 중인 인덱스의 경우 수정된 정의를 제공하는 새 필드를 만들어 사용하기 시작해야 합니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 통합합니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
 
 ## <a name="best-practices"></a>모범 사례
@@ -267,4 +265,3 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
-

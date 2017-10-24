@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 10/04/2017
 ms.author: bwren
+ms.openlocfilehash: 5786ac45b3459e813b1716a3c408db47b393b6ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -367,5 +366,4 @@ namespace IngestionClient
 ## <a name="next-steps"></a>다음 단계
 
 * [Log Analytics 쿼리 언어 둘러보기](app-insights-analytics-tour.md)
-* [*Logstash*를 사용하여 Application Insights에 데이터 전송](https://github.com/Microsoft/logstash-output-application-insights)
-
+* Logstash를 사용 중인 경우 [Logstash 플러그 인을 사용하여 Application Insights로 데이터를 보냅니다](https://github.com/Microsoft/logstash-output-application-insights).

@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -52,6 +51,7 @@ ms.lasthandoff: 07/21/2017
 *   [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>요구 사항
 
 **최소**:
@@ -75,7 +75,10 @@ ms.lasthandoff: 07/21/2017
 
 * 게이트웨이가 이러한 상황에서 실행되지 않을 수 있기 때문에 꺼지거나, 절전 또는 인터넷에 연결되지 않은 컴퓨터에서 게이트웨이를 설치하지 않습니다. 또한 무선 네트워크에서는 게이트웨이 성능이 저하될 수 있습니다.
 
-* 설치하는 동안 Microsoft 계정이 아니라 Azure Active Directory(Azure AD)에서 관리하는 [회사 또는 학교 계정](https://docs.microsoft.com/azure/active-directory/sign-up-organization)으로 로그인해야 합니다. 
+* 설치하는 동안 Microsoft 계정이 아니라 Azure Active Directory(Azure AD)에서 관리하는 [회사 또는 학교 계정](https://docs.microsoft.com/azure/active-directory/sign-up-organization)으로 로그인해야 합니다.
+
+  > [!TIP]
+  > MSDN 구독에 Visual Studio가 있는 Microsoft 계정을 사용하려는 경우 Microsoft 계정을 사용하여 [Azure Active Directory에서 디렉터리(테넌트)를 만들거나](../active-directory/develop/active-directory-howto-tenant.md) 기본 디렉터리를 사용합니다. 암호가 있는 사용자를 디렉터리를 추가한 다음 해당 사용자에게 구독에 대한 액세스 권한을 제공합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
   나중에 Azure Portal에서 게이트웨이 설치를 통해 게이트웨이 리소스를 만들고 연결할 때 동일한 회사 또는 학교 계정을 사용해야 합니다. 그런 다음 논리 앱과 온-프레미스 데이터 원본 간의 연결을 만들 때 이 게이트웨이 리소스를 선택합니다. [Azure AD 회사 또는 학교 계정을 사용해야 하는 이유는 무엇인가요?](#why-azure-work-school-account)
 
@@ -145,10 +148,20 @@ ms.lasthandoff: 07/21/2017
 
 4. 마이그레이션, 복원 또는 사용하려는 게이트웨이에 대한 이름과 복구 키를 제공합니다.
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Windows 서비스 계정
+
+온-프레미스 데이터 게이트웨이는 Windows 서비스로 실행되고 Windows 서비스 로그인 자격 증명에 `NT SERVICE\PBIEgwService`를 사용하도록 설정됩니다. 게이트웨이는 기본적으로 게이트웨이를 설치한 컴퓨터에서 "서비스로 로그온(Log on as a service)"할 권한을 가집니다. Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows 서비스 계정에 적어도 **참가자** 권한이 있어야 합니다. 
+
+> [!NOTE]
+> Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용되는 동일한 계정 및 클라우드 서비스에 로그인하는 데 사용되는 Azure 회사 또는 학교 계정과 다릅니다.
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>게이트웨이 다시 시작
 
-게이트웨이는 Windows 서비스로 실행됩니다. 다른 Windows 서비스와 마찬가지로 여러 가지 방법으로 서비스를 시작하고 중지할 수 있습니다. 예를 들어 게이트웨이가 실행 중인 컴퓨터에서 관리자 권한으로 명령 프롬프트를 열고 다음 명령 중 하나를 실행할 수 있습니다.
+다른 Windows 서비스와 마찬가지로 여러 가지 방법으로 서비스를 시작하고 중지할 수 있습니다. 예를 들어 게이트웨이가 실행 중인 컴퓨터에서 관리자 권한으로 명령 프롬프트를 열고 다음 명령 중 하나를 실행할 수 있습니다.
 
 * 서비스를 중지하려면 다음 명령을 실행합니다.
   
@@ -157,13 +170,6 @@ ms.lasthandoff: 07/21/2017
 * 서비스를 시작하려면 이 명령을 실행 합니다.
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Windows 서비스 계정
-
-온-프레미스 데이터 게이트웨이는 Windows 서비스 로그인 자격 증명에 `NT SERVICE\PBIEgwService`를 사용하도록 설정됩니다. 게이트웨이는 기본적으로 게이트웨이를 설치한 컴퓨터에서 "서비스로 로그온(Log on as a service)"할 권한을 가집니다.
-
-> [!NOTE]
-> Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용되는 동일한 계정 및 클라우드 서비스에 로그인하는 데 사용되는 Azure 회사 또는 학교 계정과 다릅니다.
 
 ## <a name="configure-a-firewall-or-proxy"></a>방화벽 또는 프록시 구성
 
@@ -336,4 +342,3 @@ TcpTestSucceeded       : True
 * [논리 앱에서 온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)
 * [엔터프라이즈 통합 기능](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Azure Logic Apps용 커넥터](../connectors/apis-list.md)
-

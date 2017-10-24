@@ -14,12 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
+ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b1f192a935dbf234936690b0d36b6ce708d38b14
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage에서 Azure CLI 2.0 사용
 
@@ -32,11 +31,11 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 저장소 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
+이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 저장소 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
-* **저장소 계정**: [Azure Storage 계정 정보](storage-create-storage-account.md)의 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
+* **저장소 계정**: [Azure 저장소 계정 정보](storage-create-storage-account.md)의 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
 
 ### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -134,7 +133,7 @@ echo "Done"
 
 **스크립트 구성 및 실행**
 
-1. 원하는 텍스트 편집기를 연 다음 앞의 스크립트를 복사하여 편집기에 붙여넣습니다.
+1. 원하는 텍스트 편집기를 연 다음 앞서의 스크립트를 복사하여 편집기에 붙여넣습니다.
 
 2. 다음으로 구성 설정을 반영하도록 스크립트의 변수를 업데이트합니다. 다음 값을 지정한 대로 바꿉니다.
 
@@ -172,7 +171,7 @@ Done
 ```
 
 > [!TIP]
-> 앞의 출력은 **테이블** 형식입니다. CLI 명령에서 `--output` 인수를 지정하여 사용할 출력 형식을 지정하거나 `az configure`를 사용하여 전역으로 설정할 수 있습니다.
+> 앞서의 출력은 **테이블** 형식입니다. CLI 명령에서 `--output` 인수를 지정하여 사용할 출력 형식을 지정하거나 `az configure`를 사용하여 전역으로 설정할 수 있습니다.
 >
 
 ## <a name="manage-storage-accounts"></a>저장소 계정 관리
@@ -228,7 +227,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](/rest/api/storageservices/blob-service-concepts)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
-Azure Storage의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
+Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
 
 ```azurecli
 az storage container create --name <container_name>
@@ -373,10 +372,146 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
+## <a name="create-share-snapshot"></a>공유 스냅숏 만들기
+`az storage share snapshot` 명령을 사용하면 공유 스냅숏을 만들 수 있습니다.
+
+```cli
+az storage share snapshot -n <share name>
+```
+
+샘플 출력
+```json
+{
+  "metadata": {},
+  "name": "<share name>",
+  "properties": {
+    "etag": "\"0x8D50B7F9A8D7F30\"",
+    "lastModified": "2017-10-04T23:28:22+00:00",
+    "quota": null
+  },
+  "snapshot": "2017-10-04T23:28:35.0000000Z"
+}
+```
+
+### <a name="list-share-napshots"></a>공유 스냅숏 나열
+
+`az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅숏을 나열할 수 있습니다.
+
+```cli
+az storage share list --include-snapshots
+```
+
+**샘플 출력**
+```json
+[
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:44:13.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:45:18.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": null
+  }
+]
+```
+
+### <a name="browse-share-snapshots"></a>공유 스냅숏 찾아보기
+`az storage file list`를 사용하여 특정 공유 스냅숏을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
+
+```azurecli-interactive
+az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
+```
+
+**샘플 출력**
+```
+Name            Content Length    Type    Last Modified
+--------------  ----------------  ------  ---------------
+HelloWorldDir/                    dir
+IMG_0966.JPG    533568            file
+IMG_1105.JPG    717711            file
+IMG_1341.JPG    608459            file
+IMG_1405.JPG    652156            file
+IMG_1611.JPG    442671            file
+IMG_1634.JPG    1495999           file
+IMG_1635.JPG    974058            file
+
+```
+### <a name="restore-from-share-snapshots"></a>공유 스냅숏에서 복원
+
+`az storage file download` 명령을 사용하여 공유 스냅숏에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
+
+```azurecli-interactive
+az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
+```
+**샘플 출력**
+```
+{
+  "content": null,
+  "metadata": {},
+  "name": "IMG_0966.JPG",
+  "properties": {
+    "contentLength": 533568,
+    "contentRange": "bytes 0-533567/533568",
+    "contentSettings": {
+      "cacheControl": null,
+      "contentDisposition": null,
+      "contentEncoding": null,
+      "contentLanguage": null,
+      "contentType": "application/octet-stream"
+    },
+    "copy": {
+      "completionTime": null,
+      "id": null,
+      "progress": null,
+      "source": null,
+      "status": null,
+      "statusDescription": null
+    },
+    "etag": "\"0x8D50B5F49F7ACDF\"",
+    "lastModified": "2017-10-04T19:37:03+00:00",
+    "serverEncrypted": true
+  }
+}
+```
+## <a name="delete-share-snapshot"></a>공유 스냅숏 삭제
+`--snapshot` 매개 변수에 공유 스냅숏 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
+
+```cli
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+```
+
+샘플 출력
+```json
+{
+  "deleted": true
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 Azure CLI 2.0을 사용하는 방법에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다.
 
 * [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 2.0 명령 참조](/cli/azure)
 * [GitHub의 Azure CLI 2.0](https://github.com/Azure/azure-cli)
-

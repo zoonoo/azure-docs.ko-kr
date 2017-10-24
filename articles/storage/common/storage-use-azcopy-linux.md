@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 Linux에서 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob 및 File Storage에(로부터) 복사하도록 디자인된 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
@@ -497,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
+파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `--blob-type page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다. 사용 가능한 형식은 `page | block | append`입니다.
 
 `--sync-copy`는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
@@ -691,5 +690,4 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

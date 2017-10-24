@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
 Azure 모바일 서비스의 최신 버전은 Azure 앱 서비스의 **모바일 앱** 기능입니다.
@@ -79,7 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-services-server-sdks"></a>모바일 *서비스* 서버 SDK
 | 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |* * 버전 헤더가 * * |
+| .NET |[WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**버전 헤더 없음** |
 | Node.js |(서비스 예정) |**버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->

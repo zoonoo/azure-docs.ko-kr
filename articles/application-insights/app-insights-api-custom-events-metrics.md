@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
+ms.openlocfilehash: 99f81f33a1f8a981fc00161f463a28a8459fa7ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fe769fb433d65374109fec60c6c6d032b1ad97fb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -46,6 +45,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
   * [ASP.NET 프로젝트](app-insights-asp-net.md)
   * [Java 프로젝트](app-insights-java-get-started.md)
+  * [Node.js 프로젝트](app-insights-nodejs.md)
   * [각 웹 페이지의 JavaScript](app-insights-javascript.md) 
 * 장치 또는 웹 서버 코드에 다음을 포함합니다.
 
@@ -54,9 +54,11 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+    
+    *Node.js:* `var applicationInsights = require("applicationinsights");`
 
-## <a name="constructing-a-telemetryclient-instance"></a>TelemetryClient 인스턴스 생성
-`TelemetryClient`의 인스턴스를 생성합니다(웹 페이지의 JavaScript는 제외).
+## <a name="get-a-telemetryclient-instance"></a>TelemetryClient 인스턴스 가져오기
+`TelemetryClient`의 인스턴스 가져오기(웹 페이지의 JavaScript는 제외):
 
 *C#*
 
@@ -69,10 +71,17 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 *Java*
 
     private TelemetryClient telemetry = new TelemetryClient();
+    
+*Node.JS*
+
+    var telemetry = applicationInsights.defaultClient;
+
 
 TelemetryClient는 스레드로부터 안전합니다.
 
-앱의 각 모듈에 대해 TelemetryClient 인스턴스를 사용하는 것이 좋습니다. 예를 들어 웹 서비스에 들어오는 HTTP 요청을 보고하는 TelemetryClient 인스턴스 하나가 있고 미들웨어 클래스에 비즈니스 논리 이벤트를 보고하는 다른 하나가 있을 수 있습니다. `TelemetryClient.Context.User.Id`와 같은 속성을 설정하여 사용자 및 세션을 추적하거나 `TelemetryClient.Context.Device.Id`를 설정하여 컴퓨터를 식별할 수 있습니다. 이 정보는 인스턴스에서 보내는 모든 이벤트에 연결됩니다.
+ASP.NET 및 Java 프로젝트에서는 앱의 각 모듈에 대해 TelemetryClient 인스턴스를 만드는 것이 좋습니다. 예를 들어 웹 서비스에 들어오는 HTTP 요청을 보고하는 TelemetryClient 인스턴스 하나가 있고 미들웨어 클래스에 비즈니스 논리 이벤트를 보고하는 다른 하나가 있을 수 있습니다. `TelemetryClient.Context.User.Id`와 같은 속성을 설정하여 사용자 및 세션을 추적하거나 `TelemetryClient.Context.Device.Id`를 설정하여 컴퓨터를 식별할 수 있습니다. 이 정보는 인스턴스에서 보내는 모든 이벤트에 연결됩니다.
+
+Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentationKey?)`를 사용하여 새 인스턴스를 만들 수 있지만 단일 항목 `defaultClient`와 격리된 구성이 필요한 시나리오에만 권장됩니다.
 
 ## <a name="trackevent"></a>TrackEvent
 Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](app-insights-metrics-explorer.md)에 집계된 개수로 표시하고 [진단 검색](app-insights-diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
@@ -96,6 +105,10 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 *Java*
 
     telemetry.trackEvent("WinGame");
+    
+*Node.JS*
+
+    telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Microsoft Azure Portal에서 이벤트 보기
 이벤트의 수를 보려면 [메트릭 탐색기](app-insights-metrics-explorer.md) 블레이드를 열고 새 차트를 추가한 다음 **이벤트**를 선택합니다.  
@@ -151,6 +164,12 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
 ```
+
+*Node.JS*
+
+ ```Javascript
+     telemetry.trackMetric({name: "queueLength", value: 42.0});
+ ```
 
 #### <a name="aggregating-metrics"></a>메트릭 집계
 
@@ -426,7 +445,7 @@ using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName
 
 ![관련 항목](./media/app-insights-api-custom-events-metrics/21.png)
 
-사용자 지정 작업 추적에 대한 자세한 내용은 [application-insights-custom-operations-tracking.md]를 참조하세요.
+사용자 지정 작업 추적에 대한 자세한 내용은 [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](application-insights-custom-operations-tracking.md)을 참조하세요.
 
 ### <a name="requests-in-analytics"></a>분석의 요청 
 
@@ -467,6 +486,17 @@ Application Insights로 예외를 보냅니다.
     catch (ex)
     {
        appInsights.trackException(ex);
+    }
+    
+*Node.JS*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       telemetry.trackException({exception: ex});
     }
 
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
@@ -514,6 +544,10 @@ exceptions
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+    
+*Node.JS*
+
+    telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
 
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
@@ -555,6 +589,20 @@ finally
 }
 ```
 
+```Javascript
+var success = false;
+var startTime = new Date().getTime();
+try
+{
+    success = dependency.Call();
+}
+finally
+{
+    var elapsed = new Date() - startTime;
+    telemetry.trackDependency({dependencyTypeName: "myDependency", name: "myCall", duration: elapsed, success:success});
+}
+```
+
 서버 SDK는 특정 종속성 호출(예: 데이터베이스 및 REST API)을 자동으로 검색하고 추적하는 [종속성 모듈](app-insights-asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착하지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
 
 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다.
@@ -585,6 +633,10 @@ dependencies
 
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
+    
+*Node.JS*
+
+    telemetry.flush();
 
 함수는 [서버 원격 분석 채널](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)에 대해 비동기입니다.
 
@@ -671,6 +723,15 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
+
+*Node.JS*
+
+    // Set up some properties and metrics:
+    var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
+    var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
+
+    // Send the event:
+    telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
 
 
 *Visual Basic*
@@ -818,6 +879,13 @@ requests
     context.getProperties().put("Game", currentGame.Name);
 
     gameTelemetry.TrackEvent("WinGame");
+    
+*Node.JS*
+
+    var gameTelemetry = new applicationInsights.TelemetryClient();
+    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+
+    gameTelemetry.TrackEvent({name: "WinGame"});
 
 
 
@@ -851,6 +919,28 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 ```
 
 *선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+
+*Node.JS*
+
+```Javascript
+
+    telemetry.config.disableAppInsights = true;
+```
+
+*선택한 표준 수집기를 사용하지 않도록 설정*(예를 들어 성능 카운터, HTTP 요청 또는 종속성)하려면 초기화 시 구성 메서드를 SDK 초기화 코드로 체이닝합니다.
+
+```Javascript
+
+    applicationInsights.setup()
+        .setAutoCollectRequests(false)
+        .setAutoCollectPerformance(false)
+        .setAutoCollectExceptions(false)
+        .setAutoCollectDependencies(false)
+        .setAutoCollectConsole(false)
+        .start();
+```
+
+초기화 후에 이러한 수집기를 사용하지 않도록 설정하려면 구성 개체 `applicationInsights.Configuration.setAutoCollectRequests(false)`를 사용합니다.
 
 ## <a name="debug"></a>개발자 모드
 디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
@@ -942,10 +1032,11 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## <a name="sdk-code"></a>SDK 코드
-* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server 패키지](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 * [모든 플랫폼](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
@@ -961,6 +1052,5 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 
 * [문제 해결](app-insights-troubleshoot-faq.md)
-
 
 

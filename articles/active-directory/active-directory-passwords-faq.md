@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -178,7 +177,7 @@ ms.lasthandoff: 08/29/2017
   >
 * **Q: 얼마 동안 전자 메일 및 SMS 일회용 암호가 유효합니까?**
 
-  > **A:** 암호 재설정을 위한 세션 수명은 105분입니다. 사용자에게는 암호 재설정 작업 시작부터 해당 암호를 재설정하는 데 105분이 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
+  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 사용자에게는 암호 재설정 작업 시작부터 해당 암호를 재설정하는 데 15분이 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
   >
   >
 
@@ -280,4 +279,3 @@ ms.lasthandoff: 08/29/2017
 * [**비밀번호 쓰기 저장**](active-directory-passwords-writeback.md) - 비밀번호 쓰기 저장이 온-프레미스 디렉터리와 함께 작동 하는 원리
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-

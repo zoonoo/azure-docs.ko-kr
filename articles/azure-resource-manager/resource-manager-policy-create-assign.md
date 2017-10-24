@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>리소스 정책 할당 및 관리
 
@@ -31,6 +30,23 @@ ms.lasthandoff: 07/28/2017
 4. 어느 경우든, 정책을 범위(예: 구독 또는 리소스 그룹)에 할당합니다. 이제 정책의 규칙이 적용됩니다.
 
 이 문서에서는 REST API, PowerShell 또는 Azure CLI를 통해 정책 정의를 만들고 범위에 해당 정의를 할당하는 단계에 중점을 둡니다. 포털을 사용해서 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. 이 문서에서 정책 정의를 만드는 구문은 집중적으로 설명하지 않습니다. 정책 구문에 대한 정보는 [리소스 정책 개요](resource-manager-policy.md)를 참조하세요.
+
+## <a name="exclusion-scopes"></a>제외 범위
+
+정책을 할당할 때 범위를 제외할 수 있습니다. 이 기능을 사용하면 구독 수준에서 정책을 할당하지만 정책이 적용되지 않는 위치를 지정할 수 있으므로 정책 할당을 간소화할 수 있습니다. 예를 들어 구독에는 네트워크 인프라를 위한 리소스 그룹이 있습니다. 응용 프로그램 팀에서 해당 리소스를 다른 리소스 그룹에 배포합니다. 이러한 팀에서 보안 문제를 초래할 수 있는 네트워크 리소스를 만들지 않기를 원하는 한편, 네트워크 리소스 그룹에서 네트워크 리소스를 허용하려고 합니다. 구독 수준에서 정책을 할당하지만 네트워크 리소스 그룹은 제외합니다. 여러 하위 범위를 지정할 수 있습니다.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+할당에 제외 범위를 지정하려면 **2017-06-01-preview** API 버전을 사용합니다.
 
 ## <a name="rest-api"></a>REST API
 
@@ -168,8 +184,28 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ### <a name="create-policy-definition"></a>정책 정의 만들기
 `New-AzureRmPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다.
 
+파일에서 정책 정의를 만들려면 경로를 파일에 전달합니다. 외부 파일의 경우 다음을 사용합니다.
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+로컬 파일의 경우 다음을 사용합니다.
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+인라인 규칙을 사용하여 정책 정의를 만들려면 다음을 사용합니다.
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 출력 `$definition` 개체에 저장되어 정책 할당 중에 사용됩니다. 
-
-JSON을 매개 변수로 지정하지 않고 정책 규칙을 포함하는 .json 파일의 경로를 제공할 수 있습니다.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 다음 예제에서는 매개 변수를 포함하는 정책 정의를 만듭니다.
 
@@ -319,8 +349,10 @@ az policy definition list
 
 정책 정의 명령과 함께 Azure CLI를 사용하여 정책 정의를 만들 수 있습니다.
 
+인라인 규칙을 사용하여 정책 정의를 만들려면 다음을 사용합니다.
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>다음 단계
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
 

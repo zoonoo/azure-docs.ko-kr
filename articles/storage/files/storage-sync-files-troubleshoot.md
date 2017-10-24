@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 1ea7956e92dbc85f62383e4b041c4c830599f765
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cf3f3cf63cafc3b883d26144a53066ee421eb2a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
-Azure 파일 동기화(미리 보기)를 사용하면 공유를 Windows 서버 온-프레미스 또는 Azure에 복제할 수 있습니다. 그러면 관리자와 사용자는 Windows Server를 통해(예: SMB 또는 NFS 공유를 통해) 파일 공유에 액세스하게 됩니다. 이는 지사와 같이 Azure 데이터 센터에서 멀리 떨어진 곳에서 데이터에 액세스하고 수정하는 시나리오에 특히 유용합니다. 여러 Windows Server 끝점 간(예: 여러 지사 간)에 데이터가 복제될 수 있습니다.
+Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
 이 문서는 Azure 파일 동기화 배포와 관련된 문제를 해결하는 데 도움을 주기 위해 작성되었습니다. 여기서 정보를 찾지 못하는 경우, 이 가이드는 시스템에서 중요한 로그를 수집하여 문제를 더 자세히 조사하는 방법을 보여 줍니다. 다음 옵션은 Azure 파일 동기화에 대한 지원을 얻기 위해 사용할 수 있습니다.
 
@@ -37,7 +35,22 @@ Azure 파일 동기화 에이전트 설치에 실패할 경우 에이전트 설�
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-설치에 실패한 후 원인을 확인하려면 installer.log를 검토합니다.
+설치에 실패한 후 원인을 확인하려면 installer.log를 검토합니다. 
+
+> [!Note]  
+> Microsoft 업데이트를 사용하도록 선택했으며 Windows 업데이트 서비스가 실행되지 않는 경우 에이전트 설치가 실패합니다.
+
+## <a name="cloud-endpoint-creation-fails-with-the-following-error-the-specified-azure-fileshare-is-already-in-use-by-a-different-cloudendpoint"></a>클라우드 끝점 생성이 "지정된 Azure 파일 공유가 이미 다른 클라우드 끝점에서 사용되고 있습니다." 오류를 나타내며 실패합니다.
+Azure 파일 공유가 다른 클라우드 끝점에서 이미 사용되고 있으면 이 오류가 발생합니다. 
+
+이 오류가 표시되고 Azure 파일 공유가 현재 클라우드 끝점에서 사용되고 있지 않으면 아래의 단계를 수행하여 Azure 파일 공유에서 Azure File Sync 메타데이터를 지우세요.
+
+> [!Warning]  
+> 클라우드 끝점에서 현재 사용 중인 Azure 파일 공유에서 메타데이터를 삭제하면 Azure File Sync 작업이 실패합니다. 
+
+1. Azure Portal에서 Azure 파일 공유로 이동합니다.  
+2. Azure 파일 공유를 마우스 오른쪽 단추로 클릭하고 **메타데이터 편집**을 선택합니다.
+3. SyncService를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
 
 ## <a name="server-is-not-listed-under-registered-servers-in-the-azure-portal"></a>Azure Portal의 등록된 서버 아래에 서버가 나열되지 않음
 저장소 동기화 서비스의 등록된 서버 아래에 서버가 나열되지 않으면 다음 단계를 수행합니다.
@@ -49,6 +62,16 @@ StorageSyncAgent.msi /l*v Installer.log
 ![“This server is already registered”(서버가 이미 등록되었습니다.) 오류 메시지가 있는 서버 등록 대화 상자의 스크린샷](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
 서버가 전에 저장소 동기화 서비스에 등록된 경우 이 메시지가 표시됩니다. 현재 저장소 동기화 서비스에서 서버 등록을 취소하고 새 저장소 동기화 서비스에 등록하려면 [Azure 파일 동기화로 서버 등록 해제](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service) 단계를 수행하세요.
+
+서버가 저장소 동기화 서비스의 등록된 서버 아래에 표시되지 않으면 등록을 취소하려는 서버에서 다음 PowerShell 명령을 실행합니다.
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+
+> [!Note]  
+> 서버가 클러스터에 속하는 경우 클러스터 등록을 제거하는 선택적 `Reset-StorageSyncServer -CleanClusterRegistration` 매개 변수도 있습니다. 클러스터의 마지막 노드가 등록 취소되면 이 스위치를 사용해야 합니다.
 
 ## <a name="how-to-troubleshoot-sync-not-working-on-a-server"></a>서버에서 작동하지 않는 동기화 문제 해결 방법
 서버에서 동기화에 실패하는 경우 다음을 수행합니다.

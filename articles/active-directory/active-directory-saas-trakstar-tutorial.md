@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>자습서: Trakstar와 Azure Active Directory 통합
 
@@ -39,6 +37,7 @@ Trakstar와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
 - Trakstar Single Sign-On이 설정된 구독
+    - Trakstar에서 SSO는 유료 기능입니다. 조직에서 사용하려면 [Trakstar 클라이언트 지원 팀](mailto:support@trakstar.com)에 문의하세요.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -112,12 +111,13 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Single Sign-on 구성](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`
+    a. **로그온 URL** 텍스트 상자에서 Trakstar 내에 있는 **ACS(소비자) URL**에서 발견된 `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` 형식의 값을 복사합니다(설정 > 인증 및 SSO).
 
-    b. **식별자** 텍스트 상자에서 `https://<subdomain>.trakstar.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 기본값 `https://app.trakstar.com`을 그대로 둡니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Trakstar 클라이언트 지원 팀](mailto:integrations@trakstar.com)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 관리자 권한으로 Trakstar에 로그인하여 이러한 값을 가져옵니다.
+    > 설정 내에서 "인증 및 SSO" 탭이 표시되지 않으면 기능이 없을 수도 있습니다.
  
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -131,7 +131,7 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Single Sign-on 구성](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. **Trakstar** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Trakstar 지원 팀](mailto:integrations@trakstar.com)으로 보내야 합니다. 
+7. **Trakstar** 쪽에서 Single Sign-On을 구성하려면 관리자 권한으로 로그인하여 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 입력합니다. 
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -170,7 +170,7 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
 ### <a name="creating-a-trakstar-test-user"></a>Trakstar 테스트 사용자 만들기
 
-이 섹션은 Trakstar에서 Britta Simon이라는 사용자를 만드는 방법을 보여주기 위한 것입니다. [Trakstar 지원 팀](mailto:integrations@trakstar.com)과 함께 Trakstar 계정에 사용자를 추가하세요. 
+이 섹션은 Trakstar에서 Britta Simon이라는 사용자를 만드는 방법을 보여주기 위한 것입니다.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -228,5 +228,4 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

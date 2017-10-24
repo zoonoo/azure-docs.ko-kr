@@ -8,16 +8,14 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0603119da20e74b423072ce6afdb8c9f20830383
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 MySQL용 Azure Database에서 서버를 백업 및 복원하는 방법
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 MySQL용 Azure Database에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 MySQL용 Azure Database를 사용할 경우 데이터베이스 서비스가 자동으로 5분마다 서비스 백업을 수행합니다. 
@@ -27,13 +25,13 @@ MySQL용 Azure Database를 사용할 경우 데이터베이스 서비스가 자�
 이 자동 백업 기능을 사용하면 서버 및 모든 데이터베이스를 새 서버에 이전 특정 시점으로 복원할 수도 있습니다.
 
 ## <a name="restore-in-the-azure-portal"></a>Azure Portal에서 복원
-MySQL용 Azure Database를 사용하면 서버를 다시 특정 시점으로 서버의 새로운 복사본에 복원할 수 있습니다. 이 새 서버를 사용하여 데이터를 복구할 수 있습니다. 
+MySQL용 Azure Database를 사용하면 서버를 특정 시점으로 서버의 새로운 복사본에 복원할 수 있습니다. 이 새 서버를 사용하여 데이터를 복구할 수 있습니다. 
 
 예를 들어 오늘 정오에 실수로 테이블을 삭제한 경우 정오 바로 전으로 복원하고 누락된 테이블과 데이터를 서버의 새로운 복사본에서 검색할 수 있습니다.
 
 다음 단계는 샘플 서버를 특정 시점으로 복원합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)
 
 2. MySQL용 Azure Database 서버를 찾습니다. 왼쪽 창에서 **모든 리소스**를 선택한 다음, 목록에서 서버를 선택합니다.
 
@@ -48,7 +46,7 @@ MySQL용 Azure Database를 사용하면 서버를 다시 특정 시점으로 서
 - **가격 책정 계층**: 가격 책정 계층 선택은 자동으로 원본 서버와 동일한 가격 책정 계층으로 채워지고 여기서 변경할 수 없습니다. 
 ![PITR 복원](./media/howto-restore-server-portal/pitr-restore.png)
 
-5. **확인**을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
+5. **확인**을 클릭하여 서버를 특정 시점으로 복원합니다. 
 
 6. 복원이 완료되면 예상대로 데이터베이스가 복원되었는지 확인하기 위해 생성하였던 새 서버를 찾습니다.
 

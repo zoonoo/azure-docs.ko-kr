@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma;bradsev
+ms.openlocfilehash: 8398af10d4826373e16420be3309c6ae8246ca4b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b061e797f5515ab02265547d751d1a918413879a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 가상 컴퓨터에 대한 소개
 
 데이터 과학 가상 컴퓨터(DSVM)는 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. DSVM은 Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Linux 버전의 DSVM은 Ubuntu 16.04 LTS 및 OpenLogic 7.2 CentOS 기반 Linux 배포에서 제공됩니다. 
@@ -64,7 +62,7 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 정품 인증) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
-| 관계형 데이터베이스                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
+| 관계형 데이터베이스                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS에만 해당) |
 | 데이터베이스 도구                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC 드라이버| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)(쿼리 도구), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC 드라이버|
 | SQL Server R Services를 통한 확장성 있는 데이터베이스 내 분석 | Y     |N              |
 | 다음의 커널이 있는 **[Jupyter 노트북 서버](http://jupyter.org/),**                                  | Y     | Y |
@@ -155,5 +153,4 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 ### <a name="for-the-linux-data-science-vm"></a>Linux 데이터 과학 VM
 * Linux 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비전](linux-dsvm-intro.md)을 참조하세요.
 * Linux VM을 통해 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 가상 컴퓨터의 데이터 과학](linux-dsvm-walkthrough.md)을 참조하세요.
-
 

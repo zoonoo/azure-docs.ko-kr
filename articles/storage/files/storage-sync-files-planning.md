@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3c003d498600a2cfd12ef2adfb7c16f9dfaddb37
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
-Azure 파일 동기화(미리 보기)를 사용하면 공유를 Windows Server 온-프레미스 또는 Azure에 복제할 수 있습니다. 그러면 관리자와 사용자는 Windows Server를 통해(예: SMB 또는 NFS 공유를 통해) 파일 공유에 액세스하게 됩니다. 이는 지사와 같이 Azure 데이터 센터에서 멀리 떨어진 곳에서 데이터에 액세스하고 수정하는 시나리오에 특히 유용합니다. 여러 Windows Server 끝점 간(예: 여러 지사 간)에 데이터가 복제될 수 있습니다. 
+Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
 이 가이드에서는 Azure 파일 동기화를 배포할 때 고려해야 할 사항을 설명합니다. [Azure Files 배포에 대한 계획](storage-files-planning.md) 가이드 테스트를 읽어보는 것이 좋습니다. 
 
@@ -139,14 +137,9 @@ Azure 파일 동기화는 다음 지역에서는 미리 보기로만 사용할 �
 미리 보기에서는 저장소 동기화 서비스와 동일한 지역에서만 Azure 파일 공유와의 동기화를 지원합니다.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
-Azure 파일 동기화 에이전트에 대한 업데이트는 새 기능을 추가하고 발견된 문제를 해결하기 위해 주기적으로 릴리스됩니다. 릴리스 시, Microsoft 업데이트에서 Azure 파일 동기화 에이전트에 대한 모든 업데이트를 가져오도록 설정하는 것이 좋습니다. 즉, 일부 조직에서는 업데이트를 엄격하게 제어하려고 할 것입니다. 이전 버전의 Azure 파일 동기화 에이전트를 사용하는 배포:
-
-- 저장소 동기화 서비스는 새로운 주 버전의 초기 릴리스가 있고 3개월 동안 이전 주 버전을 유지합니다. 예를 들어 버전 1.\*는 버전 2.\*가 릴리스되고 3개월까지 저장소 동기화 서비스에서 지원됩니다.
-- 3개월이 경과된 후 저장소 동기화 서비스는 만료된 버전을 사용하는 등록된 서버가 해당 동기화 그룹과 동기화할 수 없도록 차단하기 시작합니다.
-- 이전 주 버전의 3개월 내에는 모든 버그 픽스가 현재 주 버전에만 적용됩니다.
+[!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
-

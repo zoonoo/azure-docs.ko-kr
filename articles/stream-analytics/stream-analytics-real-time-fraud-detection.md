@@ -40,7 +40,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 1. Azure Portal에 로그인하고 **새로 만들기** > **사물 인터넷** > **이벤트 허브**를 클릭합니다. 
 
-2. **네임스페이스 만들기** 블레이드에서 네임스페이스 이름을 입력합니다(예: `<yourname>-eh-ns-demo`). 네임스페이스에 어떤 이름이든 사용할 수 있지만 이름은 URL에 대해 유효해야 하며 Azure 전체에서 고유해야 합니다. 
+2. **네임스페이스 만들기** 창에서 네임스페이스 이름을 입력합니다(예: `<yourname>-eh-ns-demo`). 네임스페이스에 어떤 이름이든 사용할 수 있지만 이름은 URL에 대해 유효해야 하며 Azure 전체에서 고유해야 합니다. 
     
 3. 구독을 선택하고 리소스 그룹을 만들거나 선택한 후 **만들기**를 클릭합니다. 
 
@@ -48,7 +48,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
  
 4. 네임스페이스에서 배포를 완료했으면 Azure 리소스 목록에서 이벤트 허브 네임스페이스를 찾습니다. 
 
-5. 새 네임스페이스를 클릭하고 네임스페이스 블레이드에서 **+&nbsp;이벤트 허브**를 클릭합니다. 
+5. 새 네임스페이스를 클릭하고 네임스페이스 창에서 **이벤트 허브**를 클릭합니다.
 
     ![새 이벤트 허브를 만들기 위한 이벤트 허브 추가 단추 ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
@@ -62,9 +62,9 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 프로세스에서 이벤트 허브로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
-1.  이벤트 네임스페이스 블레이드에서 **이벤트 허브**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
+1.  이벤트 네임스페이스 창에서 **이벤트 허브**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
 
-2.  이벤트 허브 블레이드에서 **공유 액세스 정책**을 클릭한 후 **+&nbsp;추가**를 클릭합니다.
+2.  이벤트 허브 창에서 **공유 액세스 정책**을 클릭한 후 **+&nbsp;추가**를 클릭합니다.
 
     >[!NOTE]
     >이벤트 허브 네임스페이스가 아니라 이벤트 허브로 작업하고 있는지 확인합니다.
@@ -91,7 +91,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 ## <a name="configure-and-start-the-event-generator-application"></a>이벤트 생성기 응용 프로그램 구성 및 시작
 
-TelcoGenerator 앱을 시작하기 전에 호출 레코드를 방금 만든 이벤트 허브에 전송할 수 있도록 구성합니다.
+TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 허브에 전송할 수 있도록 구성합니다.
 
 ### <a name="configure-the-telcogeneratorapp"></a>TelcoGeneratorapp 구성
 
@@ -156,12 +156,12 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 방금 만든 이�
 
 ### <a name="configure-job-input"></a>작업 입력 구성
 
-1. 대시보드 또는 **모든 리소스** 블레이드에서 `sa_frauddetection_job_demo` Stream Analytics 작업을 찾아 선택합니다. 
-2. Stream Analytics 작업 블레이드의 **작업 토폴로지** 섹션에서 **입력** 상자를 클릭합니다.
+1. 대시보드 또는 **모든 리소스** 창에서 `sa_frauddetection_job_demo` Stream Analytics 작업을 찾아 선택합니다. 
+2. Stream Analytics 작업 창의 **작업 토폴로지** 섹션에서 **입력** 상자를 클릭합니다.
 
-    ![Streaming Analytics 작업 블레이드에서 토폴로지 아래 입력 상자](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+    ![Streaming Analytics 작업 창에서 토폴로지 아래 입력 상자](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
+3. **+&nbsp;추가**를 클릭한 후 창을 다음 값으로 채웁니다.
 
     * **입력 별칭**: 이름으로 `CallStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
     * **원본 형식**: **데이터 스트림**을 선택합니다. (**참조 데이터**는 이 자습서에서 사용하지 않는 정적 조회 데이터를 나타냄)
@@ -179,7 +179,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 방금 만든 이�
 
 이 시점에는 들어오는 데이터 스트림을 읽도록 설정된 Stream Analytics 작업이 있습니다. 다음 단계는 실시간으로 데이터를 분석하는 변환을 만드는 것입니다. 쿼리를 만들어 이 작업을 수행합니다. Stream Analytics는 실시간 처리에 대해 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 쿼리는 스트림 분석과 관련된 일부 확장 기능을 포함한 SQL과 유사한 언어를 사용합니다. 
 
-매우 간단한 쿼리로 들어오는 모든 데이터를 단순히 읽을 수 있습니다. 그러나 보통은 데이터에서 특정 데이터 또는 관계를 찾는 쿼리를 작성합니다. 자습서의 이 섹션에서는 분석을 위해 입력 스트림을 변환할 수 있는 몇 가지 방법에 대해 알아보기 위해 여러 쿼리를 작성 및 테스트합니다. 
+간단한 쿼리로 들어오는 모든 데이터를 읽을 수 있습니다. 그러나 보통은 데이터에서 특정 데이터 또는 관계를 찾는 쿼리를 작성합니다. 자습서의 이 섹션에서는 분석을 위해 입력 스트림을 변환할 수 있는 몇 가지 방법에 대해 알아보기 위해 여러 쿼리를 작성 및 테스트합니다. 
 
 여기서 작성한 쿼리는 화면에 변환된 데이터를 표시하기만 합니다. 이후 섹션에서는 출력 싱크 및 변환된 데이터를 해당 싱크에 기록하는 쿼리를 구성합니다.
 
@@ -190,13 +190,13 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 방금 만든 이�
 TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream Analytics 작업은 이벤트 허브에서 읽어오도록 구성됩니다. 쿼리로 작업을 테스트하여 올바르게 읽고 있는지 확인할 수 있습니다. Azure 콘솔에서 쿼리를 테스트하려면 샘플 데이터가 필요합니다. 이 연습에서는 이벤트 허브로 들어오는 스트림에서 샘플 데이터를 추출합니다.
 
 1. TelcoGenerator 앱이 실행 중이고 호출 레코드를 생성하고 있는지 확인합니다.
-2. 포털에서 Streaming Analytics 작업 블레이드로 돌아갑니다. (블레이드를 닫은 경우 **모든 리소스** 블레이드에서 `sa_frauddetection_job_demo`를 검색)
+2. 포털에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 **모든 리소스** 창에서 `sa_frauddetection_job_demo` 검색)
 3. **쿼리** 상자를 클릭합니다. Azure에서는 작업에 대해 구성된 입력 및 출력을 나열하고 데이터가 출력으로 전송됨에 따라 사용자가 입력 스트림을 변환하는 쿼리를 작성할 수 있도록 합니다.
-4. **쿼리** 블레이드에서 `CallStream` 입력 옆에 있는 점을 클릭한 후 **입력의 샘플 데이터**를 선택합니다.
+4. **쿼리** 창에서 `CallStream` 입력 옆에 있는 점을 클릭한 후 **입력의 샘플 데이터**를 선택합니다.
 
     ![Streaming Analytics 작업 항목에 대해 샘플 데이터를 사용하는 메뉴 옵션, “입력의 샘플 데이터” 선택됨](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
-    그러면 입력 스트림을 읽는 시간에 따라 정의된, 가져올 샘플 데이터의 양을 지정할 수 있는 블레이드가 열립니다.
+    그러면 입력 스트림을 읽는 시간에 따라 정의된, 가져올 샘플 데이터의 양을 지정할 수 있는 창이 열립니다.
 
 5. **분**을 3으로 설정한 후 **확인**을 클릭합니다. 
     
@@ -314,9 +314,9 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
-1. Azure Portal에서 Streaming Analytics 작업 블레이드로 돌아갑니다. (블레이드를 닫은 경우 **모든 리소스** 블레이드에서 `sa_frauddetection_job_demo`를 검색)
+1. Azure Portal에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 **모든 리소스** 창에서 `sa_frauddetection_job_demo` 검색)
 2. **작업 토폴로지** 섹션에서 **출력** 상자를 클릭합니다. 
-3. **출력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
+3. **출력** 창에서 **+&nbsp;추가**를 클릭한 후 창을 다음 값으로 채웁니다.
 
     * **출력 별칭**: 이름으로 `CallStream-FraudulentCalls`를 사용합니다. 
     * **싱크**: **Blob Storage**를 선택합니다.
@@ -328,13 +328,13 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
     `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
     
-    ![Stream Analytics 작업에 대한 “새 출력” 블레이드](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
+    ![Stream Analytics 작업에 대한 “새 출력” 창](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
 4. **만들기**를 클릭합니다. 
 
     Azure에서 저장소 계정을 만들고 키를 자동으로 생성합니다. 
 
-5. **출력** 블레이드를 닫습니다. 
+5. **출력** 창을 닫습니다. 
 
 ## <a name="start-the-streaming-analytics-job"></a>Streaming Analytics 작업 시작
 
@@ -342,17 +342,17 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 1. TelcoGenerator 앱이 실행되고 있는지 확인합니다.
 
-2. 작업 블레이드에서 **시작**을 클릭합니다.
+2. 작업 창에서 **시작**을 클릭합니다.
 
-    ![Stream Analytic 작업 시작](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
+    ![Stream Analytics 작업 시작](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
 
-3. **작업 시작** 블레이드에서 작업 출력 시작 시간으로 **지금**을 선택합니다. 
+3. **작업 시작** 창에서 작업 출력 시작 시간으로 **지금**을 선택합니다. 
 
 4. **시작**을 클릭합니다. 
 
-    ![Stream Analytics 작업에 대한 “작업 시작” 블레이드](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
+    ![Stream Analytics 작업에 대한 “작업 시작” 창](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
 
-    Azure에서 사용자에게 작업이 시작된 때를 알려주고 작업 블레이드에 상태가 **실행 중**으로 표시됩니다.
+    Azure에서 사용자에게 작업이 시작된 때를 알려주고 작업 창에 상태가 **실행 중**으로 표시됩니다.
 
     ![Stream Analytics 작업 상태, “실행 중” 표시](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-running-status.png)
     
@@ -374,7 +374,7 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 
 그러나 작업을 수행했고 만든 리소스가 필요하지 않는 경우 불필요한 Azure 비용이 발생하지 않도록 해당 항목을 삭제할 수 있습니다. 이 경우 다음을 수행하는 것이 좋습니다.
 
-1. Streaming Analytics 작업을 중지합니다. **작업** 블레이드의 맨 위에서 **중지**를 클릭합니다.
+1. Streaming Analytics 작업을 중지합니다. **작업** 창의 맨 위에서 **중지**를 클릭합니다.
 2. Telco Generator 앱을 중지합니다. 앱을 시작한 명령 창에서 Ctrl + C를 누릅니다.
 3. 이 자습서에 대해 새 Blob Storage 계정을 만든 경우 계정을 삭제합니다. 
 4. Streaming Analytics 작업을 삭제합니다.
@@ -390,7 +390,6 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 다음 문서를 통해 이 자습서를 진행할 수 있습니다.
 
 * [Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드](stream-analytics-power-bi-dashboard.md). 이 문서에서는 실시간 시각화 및 분석을 위해 Stream Analytics 작업의 TelCo 출력을 Power BI로 보내는 방법을 보여 줍니다.
-* [Azure Functions를 사용하여 Azure Redis Cache에 Azure Stream Analytics의 데이터를 저장하는 방법](stream-analytics-functions-redis.md). 이 문서에서는 Azure Functions를 사용하여 Service Bus 큐를 통해 사기성 호출을 Azure Redis Cache에 기록하는 방법을 보여 줍니다.
 
 일반적인 Stream Analytics에 대한 자세한 내용은 다음 문서를 살펴보세요.
 

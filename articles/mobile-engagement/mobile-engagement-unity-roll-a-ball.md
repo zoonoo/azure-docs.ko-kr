@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a id="unity-roll-a-ball"></a>Unity Roll a Ball 게임 만들기
 이 자습서에서는 약간 수정된 [Unity Roll a Ball 자습서](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)의 주요 단계를 다룹니다. 이 샘플 게임은 앱 사용자에 의해 제어되는 구 모양의 '플레이어' 개체로 구성되며, 플레이어 개체를 수집 가능한 개체와 충돌하여 수집 가능한 개체를 '수집'하는 것이 이 게임의 목표입니다. 이 자습서는 여러분이 Unity 편집기 환경에 대한 기본 지식을 갖춘 것으로 가정하고 진행됩니다. 문제가 발생하면 전체 자습서를 참조하셔야 합니다. 
@@ -262,7 +262,7 @@ ms.lasthandoff: 07/11/2017
 7. Unity 편집기에서 **플레이**를 누르면 키보드의 방향 키로 Player 개체를 이동하여 이 **Roll a Ball** 게임을 플레이할 수 있습니다. 
 
 ### <a name="updating-the-game-for-mobile-play"></a>모바일 플레이가 가능하도록 게임 업데이트
-Unity의 기본 자습서는 위의 섹션에서 끝입니다. 이제 모바일 장치에서 쉽게 플레이할 수 있도록 게임을 수정하겠습니다. 지금까지는 게임 테스트에서 키보드 입력을 사용했습니다. 이제 우리 수정 플레이어 즉, 전화의 동작을 사용 하 여 제어할 수 있도록 가 속도계 입력으로 사용합니다. 
+Unity의 기본 자습서는 위의 섹션에서 끝입니다. 이제 모바일 장치에서 쉽게 플레이할 수 있도록 게임을 수정하겠습니다. 지금까지는 게임 테스트에서 키보드 입력을 사용했습니다. 이제는 스마트폰 동작을 사용하여(예: 가속도계를 입력으로 사용) 플레이어를 제어할 수 있도록 게임을 수정하겠습니다. 
 
 편집을 위해 **PlayerController** 스크립트를 열고, 가속도계의 동작을 사용하여 Player 개체를 이동하도록 **FixedUpdate** 메서드를 업데이트합니다. 
 

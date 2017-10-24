@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
+ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6e1fa23bffc03a8a77c0c9e3342609c042fc4a5b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure Managed Service Identity(공개 미리 보기)를 사용하는 방법
 
 > [!NOTE] 
@@ -29,6 +27,10 @@ ms.lasthandoff: 09/20/2017
 ## <a name="creating-an-app-with-an-identity"></a>ID를 사용하여 앱 만들기
 
 ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성을 설정해야 합니다.
+
+> [!NOTE] 
+> 사이트에 대한 기본 슬롯만 ID를 받게 됩니다. 배포 슬롯을 위한 관리 서비스 ID는 아직 지원되지 않습니다.
+
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
@@ -46,7 +48,7 @@ ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성�
 
 ### <a name="using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
-Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service-web/app-service-deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service/app-service-deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
 
 모든 `Microsoft.Web/sites` 유형의 리소스는 ID를 사용하여 리소스 정의에 다음 속성을 포함하는 방법으로 만들 수 있습니다.
 ```json
@@ -145,6 +147,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |resource|수신 웹 서비스의 앱 ID URI입니다.|
 > |token_type|토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요.|
 
+
 이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response)과 동일합니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
@@ -194,3 +197,11 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
+PowerShell에서:
+```powershell
+$apiVersion = "2017-09-01"
+$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
+```

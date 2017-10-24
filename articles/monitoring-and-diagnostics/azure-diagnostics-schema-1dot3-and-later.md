@@ -14,19 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 90d39f75f547eff9c87997eb83460875c12dcfe4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
 > Azure 진단 확장은 성능 카운터 및 기타 통계를 수집하는 데 사용하는 구성 요소입니다.
 > - Azure 가상 컴퓨터 
-> - 가상 컴퓨터 확장 집합
+> - 가상 컴퓨터 크기 집합
 > - 서비스 패브릭 
 > - 클라우드 서비스 
 > - 네트워크 보안 그룹
@@ -526,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure 진단을 배포하는 가상 컴퓨터의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>**을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure 진단을 배포하는 가상 컴퓨터 또는 가상 컴퓨터 크기 집합의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>**을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
@@ -654,4 +652,3 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *Tree: Root - DiagnosticsConfiguration - IsEnabled*
 
  부울 값입니다. `true`를 사용하여 진단을 사용하도록 설정하거나 `false`를 사용하여 진단을 사용하지 않도록 설정합니다.
-

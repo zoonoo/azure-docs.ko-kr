@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 Azure Functions에서는 *트리거* 및 *바인딩*을 통해 Azure 및 기타 서비스의 이벤트에 대응하는 코드를 쓸 수 있습니다. 이 문서는 지원되는 모든 프로그래밍 언어의 트리거 및 바인딩에 대한 개념적 개요를 제공합니다. 여기에서는 모든 바인딩에 공통되는 기능을 설명합니다.
 
@@ -43,21 +41,21 @@ Azure Functions Portal의 **통합** 탭에서 트리거와 바인딩을 구성�
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>예: 큐 트리거 및 테이블 출력 바인딩
 
-Azure Queue Storage에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 트리거 및 Table 출력 바인딩을 사용하여 구현할 수 있습니다. 
+Azure Queue Storage에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue Storage 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
-큐 트리거는 **통합** 탭에 다음 정보가 필요합니다.
+Azure Queue Storage 트리거에는 **통합** 탭에 있는 다음 정보가 필요합니다.
 
-* 큐에 대한 저장소 계정 연결 문자열이 포함된 앱 설정의 이름
+* Azure Queue Storage에 대한 Azure Storage 계정 연결 문자열이 포함된 앱 설정의 이름
 * 큐 이름
 * `order`와 같이 큐 메시지의 내용을 읽을 수 있는 코드 내 식별자
 
 Azure Table Storage를 작성하려면 다음 정보로 출력 바인딩을 사용합니다.
 
-* 테이블의 저장소 계정 연결 문자열이 포함된 앱 설정의 이름
+* Azure Table Storage에 대한 Azure Storage 계정 연결 문자열이 포함된 앱 설정의 이름
 * 테이블 이름
 * 코드에서 출력 항목을 만들기 위한 식별자 또는 함수에서 반환된 값
 
-바인딩은 *function.json*에 서비스 비밀이 포함되지 않은 모범 사례를 실행하기 위해 연결 문자열에 앱 설정을 사용합니다.
+바인딩은 앱 설정에 저장된 연결 문자열 값을 사용하여 *function.json*에 서비스 비밀이 포함되지 않고 대신 앱 설정의 이름만 포함되는 모범 사례를 적용합니다.
 
 그런 다음 코드에서 제공한 식별자를 사용하여 Azure Storage와 통합합니다.
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>dataType 속성 바인딩
 
-.NET에서는 형식을 사용하여 입력 데이터에 대한 데이터 형식을 정의합니다. 예를 들어 `string`을 사용하여 이진으로 읽을 바이트 배열 및 큐 트리거의 텍스트에 바인딩합니다.
+.NET에서는 형식을 사용하여 입력 데이터에 대한 데이터 형식을 정의합니다. 예를 들어 `string`을 사용하여 큐 트리거의 텍스트, 이진으로 읽을 바이트 배열 및 POCO 개체로 직렬화할 사용자 지정 형식에 바인딩합니다.
 
 JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정의에 `dataType` 속성을 사용합니다. 예를 들어 이진 형식의 HTTP 요청 내용을 읽으려면 `binary` 형식을 사용합니다.
 
@@ -213,7 +211,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정
 
 앱 설정은 `%MyAppSetting%`과 같이 값이 퍼센트 기호로 둘러싸인 경우에만 확인됩니다. 트리거 및 바인딩의 `connection` 속성은 특수한 경우이며 앱 설정으로 값을 자동 확인합니다. 
 
-다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 큐 트리거입니다.
+다음 예제는 `%input-queue-name%` 앱 설정을 사용하여 트리거할 큐를 정의하는 Azure Queue Storage 트리거입니다.
 
 ```json
 {
@@ -233,7 +231,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정
 
 트리거가 제공한 데이터 페이로드(예: 함수를 트리거한 큐 메시지) 이외에 많은 트리거가 추가 메타데이터 값을 제공합니다. 이러한 값은 C# 및 F#에서 입력 매개 변수로 사용하거나 JavaScript에서 `context.bindings` 개체의 속성으로 사용할 수 있습니다. 
 
-예를 들어 큐 트리거는 다음 속성을 지원합니다.
+예를 들어 Azure Queue Storage 트리거는 다음 속성을 지원합니다.
 
 * QueueTrigger - 유효한 문자열인 경우 트리거 메시지 내용
 * DequeueCount
@@ -245,7 +243,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정
 
 각 트리거의 메타데이터 속성은 해당 참조 항목에서 자세히 설명되어 있습니다. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
-예를 들어 Blob 트리거는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행합니다([Blob Storage 트리거](functions-bindings-storage-blob.md#storage-blob-trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
+예를 들어 Blob 트리거에는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행할 수 있습니다([Blob Storage 트리거](functions-bindings-storage-blob.md#storage-blob-trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
 
 ```json
   "bindings": [
@@ -428,4 +426,3 @@ C# 및 기타 .NET 언어에서는 *function.json*의 선언적 바인딩과 달
 - [알림 허브](functions-bindings-notification-hubs.md)
 - [모바일 앱](functions-bindings-mobile-apps.md)
 - [외부 파일](functions-bindings-external-file.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
+ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Log Analytics의 경고 이해
 
@@ -144,6 +143,5 @@ Log Analytics의 규칙에 의해 만든 경고 레코드에는 **경고**의 **
 ## <a name="next-steps"></a>다음 단계
 * [경고 관리 솔루션](log-analytics-solution-alert-management.md)을 설치하여 System Center Operations Manager에서 수집한 경고와 함께 Log Analytics에서 만든 경고를 분석합니다.
 * 경고를 생성할 수 있는 [로그 검색](log-analytics-log-searches.md) 에 대해 자세한 내용을 읽습니다.
-* 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md) 하는 연습을 완료합니다.  
+* 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md)하는 연습을 완료합니다.  
 * 경고에 의해 식별된 문제를 수정하는 [Azure 자동화의 Runbook](https://azure.microsoft.com/documentation/services/automation) 을 작성하는 방법에 대해 알아봅니다.
-

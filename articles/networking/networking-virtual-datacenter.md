@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
+ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 487c2dc22acc5194ef103ebef01c62c887580335
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-azure-virtual-data-center"></a>Microsoft Azure 가상 데이터 센터
 **Microsoft Azure**: 더 빠른 이동, 비용 절감, 온-프레미스 앱 및 데이터 통합
 
@@ -126,7 +124,7 @@ vDC는 여러 스포크 간에 공유 허브 인프라를 사용하여 전체 �
 ##### <a name="subscription-limits-and-multiple-hubs"></a>구독 제한 및 다중 허브
 Azure에서 모든 구성 요소는 유형에 관계없이 Azure 구독에 배포됩니다. 다른 Azure 구독에서 Azure 구성 요소를 분리하면 차별화된 액세스 및 권한 부여 수준을 설정하는 것과 같은 다양한 LOB에 대한 요구 사항을 충족할 수 있습니다.
 
-모든 IT 시스템의 경우처럼 플랫폼 제한은 있지만, 단일 vDC를 많은 수의 스포크로 확장할 수 있습니다. 허브 배포는 특정 Azure 구독에 구속되므로 제한 사항 및 한도가 적용됩니다(예를 들어 VNet 피어링의 최대 수, [Azure 구독 및 서비스 한도, 할당량 및 제약 조건][Limits] 참조). 이러한 한도가 문제가 될 수 있는 경우 단일 허브-스포크에서 허브 및 스포크 클러스터로 모델을 확장함으로써 아키텍처를 추가적으로 확장할 수 있습니다. 하나 이상의 Azure 지역에 있는 여러 허브를 Express Route 또는 사이트 간 VPN을 사용하여 상호 연결할 수 있습니다.
+모든 IT 시스템의 경우처럼 플랫폼 제한은 있지만, 단일 vDC를 많은 수의 스포크로 확장할 수 있습니다. 허브 배포는 특정 Azure 구독에 구속되므로 제한 사항 및 한도가 적용됩니다(예를 들어 VNet 피어링의 최대 수, [Azure 구독 및 서비스 한도, 할당량 및 제약 조건][ Limits] 참조). 이러한 한도가 문제가 될 수 있는 경우 단일 허브-스포크에서 허브 및 스포크 클러스터로 모델을 확장함으로써 아키텍처를 추가적으로 확장할 수 있습니다. 하나 이상의 Azure 지역에 있는 여러 허브를 Express Route 또는 사이트 간 VPN을 사용하여 상호 연결할 수 있습니다.
 
 [![2]][2]
 
@@ -223,7 +221,7 @@ IT 인프라 팀의 주요 작업 중 하나는 엔터프라이즈에서 IP 주�
 
 [![8]][8]
 
-[**가상 어플라이언스 네트워크**][NVA] 허브에서 인터넷에 액세스할 수 있는 경계 네트워크는 일반적으로 방화벽 및/또는 WAF(웹 응용 프로그램 방화벽)의 팜을 통해 관리됩니다.
+[**가상 어플라이언스 네트워크**][ NVA] 허브에서 인터넷에 액세스할 수 있는 경계 네트워크는 일반적으로 방화벽 및/또는 WAF(웹 응용 프로그램 방화벽)의 팜을 통해 관리됩니다.
 
 일반적으로 여러 다른 LOB는 다양한 웹 응용 프로그램을 사용하며, 이러한 응용 프로그램은 다양한 취약점 및 악용 가능성을 겪게 됩니다. 웹 응용 프로그램 방화벽은 일반적인 방화벽보다는 좀 더 심도 있는 방식으로 웹 응용 프로그램(HTTP/HTTPS)에 대한 공격을 감지하는 데 사용되는 특수한 제품입니다. 전형적인 방화벽 기술에 비해 WAF는 위협으로부터 내부 웹 서버를 보호하기 위한 특정 기능 집합을 포함합니다.
 
@@ -387,4 +385,3 @@ Traffic Manager는 Azure 공용 끝점에서 작동하며 트래픽을 제어하
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
-

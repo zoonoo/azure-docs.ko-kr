@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
+ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: Graph API 사용
 Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주요 예제는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션해야 할 수 있습니다. 고유한 페이지에서 사용자 등록을 호스팅하고 백그라운드에서 Azure AD B2C 디렉터리에 사용자 계정을 만들려고 할 수 있습니다. 이러한 형식의 태스크는 사용자 계정을 만들고 읽고 업데이트 및 삭제하는 기능이 필요합니다. Azure AD Graph API를 사용하여 이 태스크를 수행할 수 있습니다.
@@ -68,9 +67,13 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 ## <a name="configure-delete-permissions-for-your-application"></a>응용 프로그램에 대한 삭제 권한 구성
 현재 *디렉터리 데이터 읽기 및 쓰기* 사용 권한에는 사용자를 삭제하는 등 모든 삭제 작업을 수행하는 기능이 포함되지 **않습니다**. 응용 프로그램에 사용자를 삭제하는 기능을 제공하려는 경우 PowerShell을 포함하는 이러한 추가 단계를 수행해야 합니다. 그렇지 않은 경우 다음 섹션으로 건너뛸 수 있습니다.
 
-우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
+아직 설치하지 않은 경우 먼저 [Azure AD PowerShell v1 모듈(MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)을 설치합니다.
 
-PowerShell 모듈을 설치한 후에 PowerShell을 열고 B2C 테넌트에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호를 묻는 메시지가 표시되면 B2C 테넌트 관리자 계정의 사용자 이름 및 암호를 입력합니다.
+```powershell
+Install-Module MSOnline
+```
+
+PowerShell 모듈을 설치한 후에 Azure AD B2C 테넌트에 연결합니다.
 
 > [!IMPORTANT]
 > B2C 테넌트에 대해 **로컬**인 B2C 테넌트 관리자 계정을 사용해야 합니다. 이러한 계정은 다음과 같습니다. myusername@myb2ctenant.onmicrosoft.com
@@ -358,5 +361,4 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 사용자 �
 * 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 대로 필수적인 몇 가지 속성이 있습니다.
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
-
 

@@ -14,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Docker Compose 응용 프로그램을 만들고, 삭제하고, 관리합니다.
+Docker Compose 배포를 만들고, 삭제하고, 관리합니다.
 
 ## <a name="commands"></a>명령
 
 |명령|설명|
 | --- | --- |
-|    만들기| 작성 파일에서 Service Fabric 응용 프로그램을 만듭니다.|
-|    list  | Service Fabric 클러스터에서 만든 작성 응용 프로그램의 목록을 가져옵니다.|
-|   제거| 클러스터에서 기존 Service Fabric 작성 응용 프로그램을 삭제합니다.|
-|   status(상태)| Service Fabric 작성 응용 프로그램에 관한 정보를 가져옵니다.|
-|upgrade       | Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다.|
+|    create| Compose 파일에서 Service Fabric 응용 프로그램을 배포합니다.|
+|    list  | Service Fabric 클러스터에서 만든 작성 배포의 목록을 가져옵니다.|
+|   제거| 클러스터에서 기존 Service Fabric 작성 배포를 삭제합니다.|
+|   status| Service Fabric 작성 배포에 관한 정보를 가져옵니다.|
+|업그레이드       | Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니다.|
 |    upgrade-status| 이 Service Fabric 작성 배포에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다.|
 
 
@@ -44,11 +43,11 @@ Service Fabric 작성 배포를 만듭니다.
 |인수|설명|
 | --- | --- |
 | --file-path [필수]| 대상 Docker Compose 파일의 경로입니다.|
- |   --name      [필수]| 배포의 id입니다.|
-|    --encrypted-pass      | 컨테이너 레지스트리 암호를 묻는 메시지를 표시하는 대신 이미 암호화된 암호를 사용합니다.|
-|    --has-pass            | 컨테이너 레지스트리에 대한 암호를 묻는 메시지를 표시합니다.|
-|    --timeout -t          | 서버 시간 제한(초).  기본값: 60.|
- |   --user                | 컨테이너 레지스트리에 연결할 사용자 이름입니다.|
+ |   --deployment-name  [필수]| 배포의 이름입니다.|
+|    --encrypted-pass             | 컨테이너 레지스트리 암호를 묻는 메시지를 표시하는 대신 이미 암호화된 암호를 사용합니다.|
+|    --has-pass                   | 컨테이너 레지스트리에 대한 암호를 묻는 메시지를 표시합니다.|
+|    --timeout -t                 | 서버 시간 제한(초).  기본값: 60.|
+ |   --user                       | 컨테이너 레지스트리에 연결할 사용자 이름입니다.|
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -136,7 +135,7 @@ Service Fabric 클러스터에서 작성 배포 업그레이드를 시작합니�
 |인수|설명|
 | --- | --- |
 |    --file-path        [필수]| 대상 Docker Compose 파일의 경로입니다.|
-|    --name             [필수]| 배포의 id입니다.|
+|    --deployment-name  [필수]| 배포의 이름입니다.|
 |    --default-svc-type-health-map| 서비스의 상태를 평가하는 데 사용된 상태 정책을 설명하는 JSON 인코딩된 사전입니다.|
 |    --encrypted-pass             | 컨테이너 레지스트리 암호를 묻는 메시지를 표시하는 대신 이미 암호화된 암호를 사용합니다.|
  |   --failure-action             | 사용할 수 있는 값: 'Invalid', 'Rollback', 'Manual'.|

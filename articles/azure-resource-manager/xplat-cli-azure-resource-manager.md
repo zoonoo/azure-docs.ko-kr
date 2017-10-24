@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용
 
-이 문서에서는 Azure CLI 및 Azure Resource Manager를 사용하여 솔루션을 관리하는 방법을 알아봅니다. Resource Manager에 익숙하지 않은 경우에는 [Resource Manager 개요](resource-group-overview.md) 참조하세요. 이 항목에서는 관리 작업에 중점을 둡니다. 다음을 수행합니다.
+이 문서에서는 Azure CLI 및 Azure Resource Manager를 사용하여 솔루션을 관리하는 방법을 알아봅니다. Resource Manager에 익숙하지 않은 경우에는 [Resource Manager 개요](resource-group-overview.md) 참조하세요. 이 문서에서는 관리 작업에 중점을 둡니다. 다음을 수행합니다.
 
 1. 리소스 그룹 만들기
 2. 리소스 그룹에 리소스 추가
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
 구독에 리소스를 배포하려면 리소스를 포함하는 리소스 그룹을 만들어야 합니다.
 
 리소스 그룹을 만들려면 **az group create** 명령을 사용합니다. 이 명령은 **name** 매개 변수를 사용하여 리소스 그룹에 대한 이름을 지정하고 **location** 매개 변수를 사용하여 위치를 지정합니다.
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>리소스 그룹에 리소스 추가
+
 리소스를 리소스 그룹에 추가하려면 **az resource create** 명령을 사용하거나 만드는 리소스의 종류에 해당하는 명령(예: **az storage account create**)을 사용합니다. 리소스의 종류에 해당하는 명령에는 새 리소스에 필요한 속성의 매개 변수가 포함되기 때문에 이 명령을 사용하는 것이 보다 간편할 수 있습니다. **az resource create**를 사용하는 경우 속성을 설정하라는 메시지를 표시하지 않으려면 설정할 속성을 모두 알아야 합니다.
 
 하지만 스크립트를 통해 리소스를 추가하면 새 리소스가 Resource Manager 템플릿에 존재하지 않기 때문에 나중에 혼동을 일으킬 수 있습니다. 템플릿을 사용하면 솔루션을 안정적이고 반복적으로 배포할 수 있습니다.
@@ -133,7 +134,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>태그 추가
 
-태그를 사용하면 다양한 속성에 따라 리소스를 구성할 수 있습니다. 예를 들어 동일한 부서에 속하는 여러 리소스 그룹에 몇 가지 리소스를 둘 수 있습니다. 리소스에 부서 태그 및 값을 적용하여 동일한 범주에 속하는 것으로 표시할 수 있습니다. 또는 리소스가 프로덕션 환경에서 사용되는지 또는 테스트 환경에서 사용되는지를 표시할 수 있습니다. 이 항목에서는 하나의 리소스에만 태그를 적용하지만 사용자 환경에서는 모든 리소스에 태그를 적용하는 것이 대부분 타당합니다.
+태그를 사용하면 다양한 속성에 따라 리소스를 구성할 수 있습니다. 예를 들어 동일한 부서에 속하는 여러 리소스 그룹에 몇 가지 리소스를 둘 수 있습니다. 리소스에 부서 태그 및 값을 적용하여 동일한 범주에 속하는 것으로 표시할 수 있습니다. 또는 리소스가 프로덕션 환경에서 사용되는지 또는 테스트 환경에서 사용되는지를 표시할 수 있습니다. 이 문서에서는 태그를 하나의 리소스에만 적용하지만, 사용자 환경에서는 모든 리소스에 적용하는 것이 가장 적합합니다.
 
 다음 명령은 저장소 계정에 두 개의 태그를 적용합니다.
 
@@ -176,6 +177,14 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>리소스 ID 가져오기
+
+많은 명령에서 리소스 ID를 매개 변수로 사용합니다. 리소스 ID를 가져와서 변수에 저장하려면 다음을 사용합니다.
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>리소스 잠금
 

@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
+ms.openlocfilehash: 3a81ab859bea5bfe53c7f761e0b40ad481c4c41a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 8b599c3e0e7d4fa3ae5bdb156191bff0553249ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="configure-a-vm-managed-service-identity-msi-using-a-template"></a>템플릿을 사용하여 VM MSI(관리 서비스 ID) 구성
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>템플릿을 사용하여 VM 관리 서비스 ID 구성
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-관리 서비스 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
+MSI(관리 서비스 ID)는 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
 이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure VM에 대해 MSI를 사용하도록 설정하고 제거하는 방법을 알아봅니다.
 
@@ -35,26 +33,26 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Azure VM 생성 중에/기존 VM에 대해 MSI를 사용하도록 설정
 
-Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resource Manager 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스/수정된 리소스를 배포하는 기능을 제공합니다. 로컬 방식과 포털/웹 기반 방식을 모두 포함하는 템플릿 편집과 배포를 위한 여러 가지 옵션이 제공됩니다. 그중 몇 가지 옵션은 다음과 같습니다.
+Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resource Manager 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스 또는 수정된 리소스를 배포하는 기능을 제공합니다. 다음을 비롯한 로컬 및 포털 기반 템플릿 편집 및 배포에 여러 가지 옵션이 제공됩니다.
 
-   - [Azure Marketplace의 사용자 지정 템플릿을](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 새로 만들거나, 기존의 일반 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
+   - [Azure Marketplace의 사용자 지정 템플릿](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
    - [원본 배포](../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history) 또는 [배포의 현재 상태](../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group)에서 템플릿을 내보내 기존 리소스 그룹에서 템플릿을 파생합니다.
-   - VS Code와 같은 로컬 [JSON 편집기](../azure-resource-manager/resource-manager-create-first-template.md)를 사용하여 템플릿을 편집한 다음 PowerShell 또는 CLI를 사용하여 업로드/배포합니다.
-   - Visual Studio의 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 템플릿을 만들고 배포합니다.  
+   - 로컬 [JSON 편집기(예: VS Code)](../azure-resource-manager/resource-manager-create-first-template.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
+   - Visual Studio [Azure 리소스 그룹 프로젝트](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 템플릿을 만들고 배포합니다.  
 
-어떤 경로를 사용하든 초기 배포와 재배포 중에 템플릿 구문이 동일하므로 새 VM이나 기존 VM에서 동일한 방식으로 MSI를 사용하도록 설정할 수 있습니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 수행합니다.
+선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 기존 또는 새 VM에서 동일한 방식으로 MSI를 사용합니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 수행합니다.
 
-1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "가상 컴퓨터 참여자" 역할).
 
-2. 템플릿을 편집기에 로드한 후 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 이 스크린샷과 약간 다를 수 있습니다.
+2. 템플릿을 편집기에 로드한 후 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 다음 스크린샷과 약간 다를 수 있습니다.
 
    >[!NOTE] 
    > 이 예제에서는 `vmName`, `storageAccountName`, `nicName` 등을 템플릿에 정의한 것으로 가정합니다.
    >
 
-   ![템플릿 편집 이전 스크린샷 - VM 찾기](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![템플릿의 스크린샷 - VM 찾기](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-3. 다음 구문을 사용하여 `"type": "Microsoft.Compute/virtualMachines"` 속성과 같은 수준에 `"identity"` 속성을 추가합니다.
+3. `"type": "Microsoft.Compute/virtualMachines"` 속성과 동일한 수준에서 `"identity"` 속성을 추가합니다. 다음 구문을 사용합니다.
 
    ```JSON
    "identity": { 
@@ -62,7 +60,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
    },
    ```
 
-4. 그런 후에 다음 구문을 사용하여 VM MSI 확장을 `resources` 요소로 추가합니다.
+4. 그런 후에 VM MSI 확장을 `resources` 요소로 추가합니다. 다음 구문을 사용합니다.
 
    >[!NOTE] 
    > 다음 예제에서는 Windows VM 확장(`ManagedIdentityExtensionForWindows`)을 배포한다고 가정합니다. 또한 `"name"` 및 `"type"` 요소에 `ManagedIdentityExtensionForLinux`를 대신 사용하여 Linux에 대해 구성할 수도 있습니다.
@@ -90,22 +88,19 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
    }
    ```
 
-5. 작업을 완료하면 템플릿은 다음 예제와 같이 표시됩니다.
+5. 작업을 완료하면 템플릿은 다음과 같이 표시됩니다.
 
-   ![템플릿 편집 이후 스크린샷](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![업데이트 이후 템플릿의 스크린샷](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Azure VM에서 MSI 제거
 
-MSI가 더 이상 필요하지 않은 가상 컴퓨터가 있는 경우 다음을 수행합니다.
+MSI가 더 이상 필요하지 않은 VM이 있는 경우 다음을 수행합니다.
 
-1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “가상 컴퓨터 참여자”.
+1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다(예: "가상 컴퓨터 참여자" 역할).
 
 2. 앞 섹션에서 추가한 두 요소 VM의 `"identity"` 속성 및 `"Microsoft.Compute/virtualMachines/extensions"` 리소스를 제거합니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-- [관리 서비스 ID 개요](msi-overview.md)
-
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
-
+- MSI에 대한 광범위한 관점은 [관리 서비스 ID 개요](msi-overview.md)를 참조하세요.
 

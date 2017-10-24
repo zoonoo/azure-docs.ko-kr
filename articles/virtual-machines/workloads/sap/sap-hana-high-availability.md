@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Azure VM(Virtual Machines)의 SAP HANA 고가용성
 
@@ -370,7 +369,7 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     * 데이터 볼륨의 위치 [/hana/data/HDB] 입력: -> ENTER
     * 로그 볼륨의 위치 [/hana/log/HDB] 입력: -> ENTER
     * 최대 메모리 할당 제한? [n]: -> ENTER
-    * '...' 호스트의 인증서 호스트 이름 입력 [...]: -> ENTER
+    * 호스트의 인증서 호스트 이름 '...' [...] 입력: -> ENTER
     * SAP 호스트 에이전트 사용자(sapadm) 암호 입력:
     * SAP 호스트 에이전트 사용자(sapadm) 암호 확인:
     * 시스템 관리자(hdbadm) 암호 입력:
@@ -645,4 +644,3 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다. 
-

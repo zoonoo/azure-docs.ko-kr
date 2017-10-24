@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
 
 이 문서는 릴리스된 버전을 추적하고 최신 버전으로 업데이트해야 하는지 여부를 파악할 수 있도록 도와줍니다.
+
+>[!IMPORTANT]
+>Azure AD Connect에서는 빌드 1.1.484부터 SQL Database를 업그레이드하기 위해 sysadmin 권한이 필요한 회귀 버그를 도입했습니다.  이 버그는 최신 빌드 1.1.614에도 발생합니다.  이 빌드로 업그레이드하는 경우 sysadmin 권한이 필요합니다.  Dbo 권한은 충분하지 않습니다.  sysadmin 권한 없이 Azure AD Connect를 업그레이드하려고 하면 업그레이드에 실패하고 이후로 Azure AD Connect가 더 이상 올바르게 작동하지 않습니다.  Microsoft는 이를 알고 해결하기 위해 노력하고 있습니다.
 
 다음은 관련 항목 목록입니다.
 
@@ -779,4 +781,3 @@ Active Directory에서 암호 해시를 읽을 수 있으려면 Active Directory
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

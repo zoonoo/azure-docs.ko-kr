@@ -3,7 +3,7 @@ title: "Azure MFA에 대한 액세스 및 사용 보고서 | Microsoft Docs"
 description: "Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
-Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사용할 수 있는 다양한 보고서를 제공합니다. 이러한 보고서는 Multi-Factor Authentication 관리 포털을 통해 액세스할 수 있습니다. 다음은 사용 가능한 보고서의 목록입니다.
+
+Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사용할 수 있는 다양한 보고서를 제공합니다. 이러한 보고서는 Multi-Factor Authentication 관리 포털을 통해 액세스할 수 있습니다. 다음 표에는 사용 가능한 보고서가 나와 있습니다.
 
 | 보고서 | 설명 |
 |:--- |:--- |
@@ -34,6 +35,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사
 | Queued |처리 및 해당 상태에 대해 대기 중인 보고서가 나열되어 있습니다. 보고서가 완료되면 보고서를 다운로드하거나 볼 링크가 제공됩니다. |
 
 ## <a name="view-reports"></a>보고서 보기
+
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 인증 공급자를 사용하는지 여부에 따라 이 두 옵션 중 하나를 따릅니다.
@@ -43,9 +45,17 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사
 
 <center>![클라우드](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## <a name="powershell-reporting"></a>Powershell 보고
+
+다음에 나오는 Powershell을 사용하여 MFA에 등록한 사용자를 식별합니다.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+다음에 나오는 Powershell을 사용하여 MFA에 등록하지 않은 사용자를 식별합니다.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **추가 리소스**
 
 * [사용자](end-user/multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

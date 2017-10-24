@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -57,7 +56,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 환경 설정을 지원하기 위해 몇 가지 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md)을 만들었습니다. 다른 방법을 사용하여 환경을 설정하려면 다음을 참조하세요.
 
-- [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
+- [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure Virtual Network에 HBase 클러스터 만들기](hdinsight-hbase-provision-vnet.md)
 
 ### <a name="set-up-one-virtual-network"></a>단일 가상 네트워크 설정
@@ -97,11 +96,54 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>별도의 2개 지역에 2개 가상 네트워크 설정
 
-별도의 두 지역에 두 개의 가상 네트워크를 만들려면 다음 이미지를 클릭하세요. 템플릿은 Azure Blob 전역 컨테이너에 저장됩니다.
+두 개의 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만들려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)에 저장됩니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-두 개의 가상 네트워크 간에 VPN 게이트웨이를 만듭니다. 지침은 [사이트 간 연결로 가상 네트워크 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조하세요.
+템플릿의 하드 코드된 일부 값:
+
+**VNet 1**
+
+| 속성 | 값 |
+|----------|-------|
+| 위치 | 미국 서부 |
+| VNet 이름 | &lt;ClusterNamePrevix>-vnet1 |
+| 주소 공간 접두사 | 10.1.0.0/16 |
+| 서브넷 이름 | 서브넷 1 |
+| 서브넷 접두사 | 10.1.0.0/24 |
+| 서브넷(게이트웨이) 이름 | GatewaySubnet(변경할 수 없음) |
+| 서브넷(게이트웨이) 접두사 | 10.1.255.0/27 |
+| 게이트웨이 이름 | vnet1gw |
+| 게이트웨이 유형 | Vpn |
+| 게이트웨이 VPN 유형 | 경로 기반 |
+| 게이트웨이 SKU | Basic |
+| 게이트웨이 IP | vnet1gwip |
+| 클러스터 이름 | &lt;ClusterNamePrefix>1 |
+| 클러스터 버전 | 3.6 |
+| 클러스터 종류 | HBase: |
+| 클러스터 작업자 노드 수 | 2 |
+
+
+**VNet 2**
+
+| 속성 | 값 |
+|----------|-------|
+| 위치 | 미국 동부 |
+| VNet 이름 | &lt;ClusterNamePrevix>-vnet2 |
+| 주소 공간 접두사 | 10.2.0.0/16 |
+| 서브넷 이름 | 서브넷 1 |
+| 서브넷 접두사 | 10.2.0.0/24 |
+| 서브넷(게이트웨이) 이름 | GatewaySubnet(변경할 수 없음) |
+| 서브넷(게이트웨이) 접두사 | 10.2.255.0/27 |
+| 게이트웨이 이름 | vnet2gw |
+| 게이트웨이 유형 | Vpn |
+| 게이트웨이 VPN 유형 | 경로 기반 |
+| 게이트웨이 SKU | Basic |
+| 게이트웨이 IP | vnet1gwip |
+| 클러스터 이름 | &lt;ClusterNamePrefix>2 |
+| 클러스터 버전 | 3.6 |
+| 클러스터 종류 | HBase: |
+| 클러스터 작업자 노드 수 | 2 |
 
 HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKeeper 노드에 대한 고정 IP 주소를 설정해야 합니다. 고정 IP를 설정하려면 이 문서의 [동일한 지역에 2개 가상 네트워크 설정](#set-up-two-virtual-networks-in-the-same-region) 섹션을 참조하세요.
 
@@ -111,11 +153,11 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 클러스터를 복제할 때 복제하려는 테이블을 지정해야 합니다. 이 섹션에서는 일부 데이터를 원본 클러스터에 로드합니다. 다음 섹션에서는 두 클러스터 간에 복제를 사용하도록 설정합니다.
 
-[Contacts(연락처)](hdinsight-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 데이터를 삽입하려면 **HBase 자습서: HDInsight의 Linux 기반 Hadoop에서 Apache HBase 사용 시작**의 지침을 따릅니다.
+[Contacts(연락처)](hdinsight-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 데이터를 삽입하려면 **HBase 자습서: HDInsight의 Apache HBase 사용 시작**의 지침을 따릅니다.
 
 ## <a name="enable-replication"></a>복제 활성화
 
-다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure CLI(명령줄 도구)를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure CLI(명령줄 도구)를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **Azure Portal에서 HBase 복제를 사용하도록 설정하려면**
 
@@ -241,7 +283,6 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 * [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]
 * [HDInsight HBase 개요][hdinsight-hbase-overview]
 * [Azure Virtual Network에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]
-* [HBase를 사용하여 Twitter 데이터 실시간 분석][hdinsight-hbase-twitter-sentiment]
 * [HDInsight(Hadoop)에서 Storm 및 HBase를 사용하여 센서 데이터 분석][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -254,8 +295,6 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>구성 서버 관리
 
 구성 서버는 Site Recovery 서비스와 온-프레미스 인프라 간의 코디네이터로 작동합니다. 이 문서에서는 구성 서버를 설정, 구성 및 관리하는 방법을 설명합니다.
@@ -113,7 +111,7 @@ ProxyPassword="Password"
 
 ## <a name="modify-user-accounts-and-passwords"></a>사용자 계정 및 암호를 수정합니다.
 
-CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**에 사용되는 사용자 계정을 관리하고 **보호된 컴퓨터에 모바일 서비스 강제 설치**를 수행합니다. 
+CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**에 사용되는 사용자 계정을 관리하고 **보호된 컴퓨터에 모바일 서비스 강제 설치를 수행합니다. 
 
 1. 구성 서버에 로그인합니다.
 2. 바탕 화면에서 사용할 수 있는 바로 가기를 클릭하여 CSPSConfigtool.exe를 시작합니다.
@@ -145,7 +143,7 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>다른 Recovery Services 자격 증명 모음에 구성 서버 등록
 
 > [!WARNING]
-> 아래와 같은 일련의 단계에서는 현재 자격 증명 모음으로부터 구성을 분리하고 구성 서버에서 보호된 모든 가상 컴퓨터의 복제를 중지합니다.
+> 다음 단계에서는 현재 자격 증명 모음으로부터 구성을 분리하고 구성 서버에서 보호된 모든 가상 컴퓨터의 복제를 중지합니다.
 
 1. 구성 서버에 로그인 합니다.
 2. 관리자 명령 프롬프트에서 명령을 실행합니다.
@@ -169,7 +167,7 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
     net start obengine
     ```
 
-## <a name="updating-a-configuration-server"></a>구성 서버 업데이트
+## <a name="upgrading-a-configuration-server"></a>구성 서버 업그레이드
 
 > [!WARNING]
 > 업데이트는 N-4 대 버전까지만 지원됩니다. 예를 들어 시장의 최신 버전이 9.11인 경우 버전 9.10, 9.9, 9.8 또는 9.7을 9.11로 직접 업데이트할 수 있습니다. 그러나 9.6 이하 버전의 경우 최소 9.7로 먼저 업데이트해야 구성 서버에 최신 버전을 적용할 수 있습니다. 이전 버전의 다운로드 링크는 [Azure Site Recovery 서비스 업데이트](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) 아래에서 찾을 수 있습니다.
@@ -180,11 +178,14 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
 4. 확인 단추를 클릭하여 확인하 업그레이드를 계속합니다.
 
 
-## <a name="decommissioning-a-configuration-server"></a>구성 서버 서비스 해제
-구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
-1. 이 구성 서버 아래의 모든 가상 컴퓨터에 대한 보호를 사용하지 않도록 설정합니다.
-2. 구성 서버에서 모든 복제 정책을 연결 해제합니다.
-3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 삭제합니다.
+## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
+
+> [!WARNING]
+> 구성 서버의 서비스 해제를 시작하기 전에 다음 사항을 확인하세요.
+> 1. 이 구성 서버 아래의 모든 가상 컴퓨터에 대한 [보호를 사용하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)합니다.
+> 2. 구성 서버에서 모든 복제 정책을 [연결 해제](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) 및 [삭제](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)합니다.
+> 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)합니다.
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
 1. Azure Portal의 자격 증명 모음 메뉴에서 **Site Recovery 인프라** > **구성 서버**로 이동합니다.
@@ -193,9 +194,6 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. **예**를 클릭하여 서버 삭제를 확인합니다.
-
-  >[!WARNING]
-  가상 컴퓨터, 복제 정책 또는 vCenter 서버/vSphere 호스트가 이 구성 서버에 연결되어 있으면 서버를 삭제할 수 없습니다. 자격 증명 모음을 삭제하기 전에 이러한 엔터티를 삭제합니다.
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>구성 서버 소프트웨어 및 해당 종속성 제거
   > [!TIP]
@@ -214,6 +212,31 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>구성 서버 삭제 또는 등록 취소(PowerShell)
+
+1. Azure PowerShell 모듈 [설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+2. 다음 명령을 사용하여 Azure 계정에 로그인
+    
+    `Login-AzureRmAccount`
+3. 자격 증명 모음이 있는 구독 선택
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  자격 증명 모음 컨텍스트 설정
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. 구성 서버 선택
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. 구성 서버 삭제
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> Remove-AzureRmSiteRecoveryFabric의 **-Force** 옵션은 구성 서버를 강제로 제거/삭제하는 데 사용할 수 있습니다.
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>구성 서버 SSL(Secure Socket Layer) 인증서 갱신
 구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 구성 서버에 연결된 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 구성 서버의 웹 서버는 SSL 인증서를 사용하여 해당 클라이언트를 인증합니다. 이 인증서의 만료 기간은 3년이며 다음 방법을 사용하여 언제든지 갱신할 수 있습니다.
@@ -241,7 +264,7 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  **지금 갱신** 단추 대신 **지금 업그레이드** 단추가 표시됩니다. 이것은 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다.
+  **지금 갱신** 단추 대신 **지금 업그레이드** 단추가 표시됩니다. 지금 업그레이드 단추는 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다.
 
 ## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>SSL(Secure Socket Layer) 인증서가 만료된 경우 구성 서버를 갱신합니다.
 
@@ -268,4 +291,3 @@ CSPSConfigTool.exe를 사용하여 **VMware 가상 컴퓨터의 자동 검색**�
 
 ## <a name="common-issues"></a>일반적인 문제
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

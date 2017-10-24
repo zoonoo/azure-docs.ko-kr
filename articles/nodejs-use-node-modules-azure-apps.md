@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
+ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 응용 프로그램에 Node.js 모듈 사용
 이 문서에서는 Azure에서 호스트되는 응용 프로그램에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 응용 프로그램에서 특정 버전의 모듈을 사용하고 Azure 네이티브 모듈을 사용하도록 하는 방법을 설명합니다.
@@ -54,7 +53,8 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 * 배포하는 동안 사용자 지정 bash 또는 셸 스크립트를 실행하도록 Azure 앱 서비스를 구성하여 사용자 지정 명령을 실행하고 **npm install** 실행 방식을 정확히 구성할 수 있습니다. 해당 환경을 구성하는 방법을 보여 주는 비디오는 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]를 참조하세요.
 
 ### <a name="using-a-packagejson-file"></a>package.json 파일 사용
-**package.json** 파일을 사용하여 응용 프로그램에서 요구하는 최상위 종속성을 지정할 수 있습니다. 그러면 호스팅 플랫폼이 배포의 일부로 **node\_packages** 폴더를 포함하도록 요구하는 대신 종속성을 설치할 수 있게 됩니다. 응용 프로그램이 배포된 후에는 **npm install** 명령을 사용하여 **package.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다.
+
+**package.json** 파일을 사용하여 응용 프로그램에서 요구하는 최상위 종속성을 지정할 수 있습니다. 그러면 호스팅 플랫폼이 배포의 일부로 **node\_modules** 폴더를 포함하도록 요구하는 대신 종속성을 설치할 수 있게 됩니다. 응용 프로그램이 배포된 후에는 **npm install** 명령을 사용하여 **package.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다.
 
 개발하는 동안 모듈 설치 시 **package.json** 파일에 모듈의 항목이 자동으로 추가되도록 **--save**, **--save-dev** 또는 **--save-optional** 매개 변수를 사용할 수 있습니다. 자세한 내용은 [npm-install](https://docs.npmjs.com/cli/install)(영문)을 참조하십시오.
 
@@ -91,4 +91,3 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]:cli-install-nodejs.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
-

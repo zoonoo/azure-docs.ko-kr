@@ -21,7 +21,7 @@ Azure는 **다음 조건 모두가 참일 경우**응용 프로그램에서 Pyth
     \.deployment
     \deploy.cmd
 
-사용할 수는 [Azure 명령줄 인터페이스] [ Azure command-line interface] 파일을 만듭니다.  프로젝트 폴더에서 다음 명령을 사용합니다.
+[Azure 명령줄 인터페이스][Azure command-line interface]를 사용하여 파일을 만들 수 있습니다.  프로젝트 폴더에서 다음 명령을 사용합니다.
 
     azure site deploymentscript --python
 

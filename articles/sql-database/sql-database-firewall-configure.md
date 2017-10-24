@@ -4,8 +4,8 @@ description: "서버 수준 및 데이터베이스 수준 방화벽 규칙으로
 keywords: "데이터베이스 방화벽"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: craigg
+author: CarlRabeler
+manager: jhubbard
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,20 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/15/2017
-ms.author: rickbyh
+ms.date: 10/11/2017
+ms.author: carlrab
+ms.openlocfilehash: a99ef3117cba8fea6a69e8f5cef15cf8fe711715
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 
 
 Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 
-#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>IP 규칙 대신 사용되는 가상 네트워크 규칙
+#### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>IP 규칙 대신 사용되는 가상 네트워크 규칙
 
 IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다. 가상 네트워크 규칙은 Virtual Network 서비스 끝점을 기반으로 합니다. 경우에 따라 가상 네트워크 규칙이 IP 규칙보다 더 좋을 수 있습니다. 자세한 내용은 [Azure SQL Database에 대한 가상 네트워크 서비스 끝점 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 참조하세요.
 
@@ -71,7 +70,7 @@ Azure에서 응용 프로그램을 Azure SQL Server에 연결할 수 있게 하�
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>방화벽 규칙 만들기 및 관리
-첫 번째 서버 수준 방화벽 설정은 [Azure Portal](https://portal.azure.com/)을 사용하거나 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#create) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules)를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 이러한 방법과 Transact-SQL을 사용하여 만들고 관리 할 수 있습니다. 
+첫 번째 서버 수준 방화벽 설정은 [Azure Portal](https://portal.azure.com/)을 사용하거나 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules)를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 이러한 방법과 Transact-SQL을 사용하여 만들고 관리 할 수 있습니다. 
 
 > [!IMPORTANT]
 > 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 사용해야만 만들고 관리할 수 있습니다. 
@@ -163,11 +162,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Azure CLI를 사용하여 방화벽 규칙 관리
 | Cmdlet | 수준 | 설명 |
 | --- | --- | --- |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다.|
-| [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| 방화벽 규칙을 삭제합니다.|
-| [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| 방화벽 규칙을 나열합니다.|
-| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| 방화벽 규칙의 세부 정보를 표시합니다.|
-| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| 방화벽 규칙을 업데이트합니다.
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|서버|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|서버|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|서버|방화벽 규칙 삭제|
 
 다음 예제에서는 Azure CLI를 사용하여 서버 수준 방화벽 규칙을 설정합니다. 
 
@@ -227,4 +226,3 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

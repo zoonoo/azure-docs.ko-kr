@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
+ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: b85003a94df3b97f5c64eb3b7e62071f07674c5e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
@@ -102,7 +100,7 @@ ms.lasthandoff: 08/23/2017
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
-| **참조**              | [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **참조**              | [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **단계** | 기본적으로 Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 모든 앱에 대해 HTTPS를 이미 사용하도록 설정합니다. 그러나 모든 와일드카드 도메인과 마찬가지로 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다([참조](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)). 배포된 앱에 액세스할 수 있는 사용자 지정 도메인에 대한 SSL을 사용하도록 설정하는 것이 좋습니다.|
 
 ## <a id="appservice-https"></a>Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용
@@ -113,7 +111,7 @@ ms.lasthandoff: 08/23/2017
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
-| **참조**              | [Azure App Service에 HTTPS 적용]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
+| **참조**              | [Azure App Service에서 HTTPS 적용](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 응용 프로그램에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 응용 프로그램으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 응용 프로그램 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
 
 ### <a name="example"></a>예제
@@ -407,4 +405,3 @@ Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언
 | **특성**              | 해당 없음  |
 | **참조**              | [통신 프로토콜 선택](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **단계** | SSL/TLS를 사용하여 HTTP/AMQP 또는 MQTT 프로토콜 보안을 유지합니다. |
-

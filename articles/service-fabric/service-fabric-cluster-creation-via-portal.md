@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Portal에서 Service Fabric 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure 포털 및 Azure 주요 자격 증명 모음을 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
+ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3b471fb21cf046417c094552c23c548c9da14fe8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -274,7 +272,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * **고급 설정 구성** 확인란을 선택하여 **관리 클라이언트** 및 **읽기 전용 클라이언트**에 대한 클라이언트 인증서를 입력합니다. 이러한 필드에는 관리 클라이언트 인증서의 지문과 읽기 전용 사용자 클라이언트 인증서의 지문을 입력하면 됩니다(해당하는 경우). 관리자가 클러스터에 연결하려고 할 경우, 여기에 입력한 지문 값과 일치하는 지문을 포함하는 인증서가 있어야만 액세스 권한이 부여됩니다.  
 
 #### <a name="4-summary"></a>4. 요약
-![“배포 서비스 패브릭 클러스터”를 표시하는 시작 보드 스크린샷 ][Notifications]
 
 클러스터 만들기를 완료하려면 **요약** 을 클릭하여 제공된 구성을 참조하거나 클러스터를 배포하는 데 사용할 Azure Resource Manager 템플릿을 다운로드합니다. 필수 설정을 입력하면 **확인** 단추가 녹색이 되고 이를 클릭하여 클러스터 만들기 프로세스를 시작할 수 있습니다.
 
@@ -326,4 +323,3 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-

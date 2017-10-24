@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 릴리스 정보
 이 문서에는 Azure SDK for .NET 2.6 릴리스의 릴리스 정보가 포함되어 있습니다. 
@@ -34,7 +34,7 @@ Azure SDK 2.6에서는 클라우드 서비스 역할에 대상 .NET Framework를
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Visual Studio용 HDInsight 도구 업데이트
 * **IntelliSense 향상 기능**: 원격 메타데이터 제안
   
-    이제 Visual Studio용 HDInsight 도구에서 하이브 스크립트를 편집할 때 원격 메타데이터 가져오기를 지원합니다. 예를 들어 입력할 수 있습니다 **선택 * FROM** 과 모든 테이블 이름이 표시 됩니다. 또한 테이블을 지정한 후 열 이름이 표시됩니다.
+    이제 Visual Studio용 HDInsight 도구에서 하이브 스크립트를 편집할 때 원격 메타데이터 가져오기를 지원합니다. 예를 들어 **SELECT * FROM**을 입력하여 모든 테이블 이름을 표시할 수 있습니다. 또한 테이블을 지정한 후 열 이름이 표시됩니다.
 * **HDInsight Emulator 지원**
   
     이제 Visual Studio용 HDInsight 도구에서 HDInsight Emulator 연결을 지원하므로 비용 없이 하이브 스크립트를 로컬로 개발한 다음 HDInsight 클러스터에 대해 이러한 스크립트를 실행할 수 있습니다. 

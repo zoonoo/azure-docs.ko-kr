@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -35,7 +34,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
 
-- **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입된 장치를 말합니다.
+- **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입 된 장치를 말합니다.
 - **Windows 하위 수준 장치** - 이 용어는 Windows 10과 Windows Server 2016 중 어떤 것도 실행하지 않는 **지원되는** 도메인에 가입된 Windows 장치를 말합니다.  
 
 
@@ -133,8 +132,9 @@ cmdlet:
 
 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Active Directory PowerShell 모듈을 사용합니다. 이 모듈은 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
+- 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용하는 Active Directory PowerShell 모듈 및 AD DS 도구를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
 - **MSOnline PowerShell 모듈 버전 1.1.166.0**에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)를 사용합니다.   
+- AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다.  기능 - 원격 서버 관리 도구 - 역할 관리 도구 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 
 Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경우 아래 스크립트를 사용하여 서비스 연결 지점을 만들 수 있습니다.
 
@@ -583,4 +583,3 @@ System Center Configuration Manager 같은 소프트웨어 배포 시스템을 �
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

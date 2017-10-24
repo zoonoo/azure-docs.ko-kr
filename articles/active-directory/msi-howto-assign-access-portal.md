@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal을 사용하여 MSI에 Azure 리소스 액세스 권한을 할당하는 방법"
-description: "Azure Portal을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침을 제공합니다."
+description: "Azure Portal을 사용하여 특정 리소스에 MSI를 할당하고 다른 리소스에 대한 액세스 권한을 할당하기 위한 단계별 지침"
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
+ms.openlocfilehash: 335f360c833f1c803c8ccc2d74a87efff23b3a7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9dd02c8d7580cd9233e192f807686b7857ccf696
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-the-azure-portal"></a>Azure Portal을 사용하여 MSI(관리 서비스 ID)에 리소스 액세스 권한 할당
+# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 서비스 ID 액세스 권한 할당
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-MSI를 사용하여 Azure 리소스를 구성한 후에는 모든 보안 주체와 마찬가지로 MSI에 다른 리소스 액세스 권한을 제공할 수 있습니다. 이 예제에서는 Azure Portal을 사용하여 Azure 가상 컴퓨터의 MSI에 Azure Storage 계정 액세스 권한을 제공하는 방법을 보여 줍니다.
+MSI(관리되는 서비스 ID)를 사용하여 Azure 리소스를 구성한 후에 모든 보안 주체와 마찬가지로 MSI에 다른 리소스 액세스 권한을 제공할 수 있습니다. 이 문서에서는 Azure Portal을 사용하여 Azure 가상 컴퓨터의 MSI에 Azure Storage 계정 액세스 권한을 제공하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,20 +37,20 @@ MSI를 사용하여 Azure 리소스를 구성한 후에는 모든 보안 주체�
 
 2. 액세스 제어를 수정하려는 리소스로 이동합니다. 이 예제에서는 Azure VM에 저장소 계정 액세스 권한을 제공할 것이므로 저장소 계정으로 이동합니다.
 
-3. 리소스의 "액세스 제어(IAM)" 페이지를 클릭하고 "+ 추가"를 클릭합니다. 그런 다음 역할을 지정하고, "가상 컴퓨터" 액세스 권한을 할당하고, 리소스가 있는 해당 구독 및 리소스 그룹을 지정합니다. 검색 기준 영역에 리소스가 표시되어야 합니다. 리소스를 선택하고 "저장"을 누릅니다. 
+3. 리소스의 **액세스 제어(IAM)** 페이지를 클릭하고 **+ 추가**를 선택합니다. 그런 다음 **역할**을 지정하고, **가상 컴퓨터 액세스 권한을 할당**하고, 리소스가 있는 해당 **구독** 및 **리소스 그룹**을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장**을 선택합니다. 
 
    ![액세스 제어(IAM) 스크린샷](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
-4. 그러면 주 "액세스 제어(IAM)" 페이지로 돌아오며, 리소스 MSI에 해당하는 새 항목이 표시됩니다. 이 예제에서는 데모 리소스 그룹의 VM "SimpleWinVM"에 저장소 계정에 대한 "Contributor" 액세스 권한이 제공되었습니다.
+4. 주 **액세스 제어(IAM)** 페이지로 돌아오면 리소스 MSI에 해당하는 새 항목이 표시됩니다. 이 예제에서는 데모 리소스 그룹의 VM "SimpleWinVM"에 저장소 계정에 대한 **참가자** 액세스 권한이 제공되었습니다.
 
    ![액세스 제어(IAM) 스크린샷](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>문제 해결
 
-리소스의 MSI가 사용 가능한 ID 목록에 표시되지 않으면 MSI가 올바르게 사용하도록 설정되었는지 확인하세요. 이 예제에서는 Azure VM으로 돌아가서 다음을 수행할 수 있습니다.
+리소스의 MSI가 사용 가능한 ID 목록에 표시되지 않으면 MSI가 올바르게 사용하도록 설정되었는지 확인하세요. 이 예제에서는 Azure VM으로 돌아가서 다음을 확인할 수 있습니다.
 
-- "구성" 페이지에서 MSI enabled = "Yes"인지 확인합니다.
-- "확장" 페이지에서 MSI 확장이 올바르게 배포되었는지 확인합니다.
+- **구성** 페이지에서 **MSI가 활성화됨** 값이 **예**로 설정되었는지 확인합니다.
+- **확장** 페이지에서 MSI 확장이 올바르게 배포되었는지 확인합니다.
 
 이 두 항목 중 하나가 올바르지 않으면 리소스에서 MSI를 재배포하거나 배포 오류 관련 문제를 해결해야 할 수 있습니다.
 
@@ -60,6 +58,5 @@ MSI를 사용하여 Azure 리소스를 구성한 후에는 모든 보안 주체�
 
 - MSI의 개요는 [관리 서비스 ID 개요](msi-overview.md)를 참조하세요.
 - Azure VM에서 MSI를 사용하도록 설정하려면 [Azure Portal을 사용하여 Azure VM MSI(관리 서비스 ID) 구성](msi-qs-configure-portal-windows-vm.md)을 참조하세요.
-
 
 

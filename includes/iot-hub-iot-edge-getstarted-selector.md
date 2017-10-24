@@ -31,7 +31,7 @@ Hello World 샘플은 이전 섹션에서 설명한 개념을 보여줍니다. �
 
 ![Azure IoT Edge에서 Broker가 모듈 간에 메시지를 라우팅하는 방법][5]
 
-위 그림은 Hello World 샘플의 아키텍처와 [리포지토리][lnk-iot-edge]에서 샘플의 다른 부분을 구현하는 원본 파일에 대한 상대 경로를 보여줍니다. 코드를 직접 알아보거나 아래 코드 조각을 참조용으로 사용합니다.
+앞의 그림은 Hello World 샘플의 아키텍처와 [리포지토리][lnk-iot-edge]에서 샘플의 다른 부분을 구현하는 원본 파일에 대한 상대 경로를 보여줍니다. 코드를 직접 탐색하거나 이 문서에 있는 코드 조각을 가이드로 사용합니다.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

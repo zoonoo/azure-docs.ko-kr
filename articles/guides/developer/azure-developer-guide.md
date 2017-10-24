@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
+ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
 ## <a name="what-is-azure"></a>Azure란? 
@@ -55,15 +53,9 @@ Azure는 필요한 응용 프로그램 개발 및 호스팅 요구 사항을 지
 
 웹 기반 프로젝트를 가장 빠른 경로로 게시하려면 Azure App Service를 고려합니다. App Service를 사용하면 웹앱을 쉽게 확장하여 모바일 클라이언트를 지원하고 사용된 REST API를 쉽게 게시할 수 있습니다. 이 플랫폼은 소셜 공급자, 트래픽 기반 자동 크기 조정, 프로덕션 환경에서 테스트, 연속 배포 및 컨테이너 기반 배포를 사용하여 인증을 제공합니다.
 
-App Service에서 앱을 만들 때 다음 유형 중 하나를 선택합니다.
+웹앱, 모바일 앱 백 엔드 및 API 앱을 만들 수 있습니다.
 
-- [Web Apps](../../app-service-web/app-service-web-overview.md): .NET, Java, PHP, Node.js 및 Python으로 작성된 웹 응용 프로그램 및 웹 사이트를 호스트할 수 있습니다.
-
-- [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md): Web Apps를 확장하여 모바일 장치에서의 액세스를 지원합니다. 소셜 공급자 및 Azure AD(Azure Active Directory)에서 인증을 활성화하고 백 엔드 저장소를 제공하고 푸시 알림을 위해 [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md)와 통합할 수 있습니다.
-
-- [API Apps](../../app-service-api/app-service-api-apps-why-best-platform.md): 클라이언트가 쉽게 사용할 수 있도록 Swagger 메타데이터를 사용하여 클라우드에서 API를 보다 안전하게 노출할 수 있습니다.
-
-세 개의 앱 유형 모두 App Service 런타임을 공유하므로 동일한 프로젝트나 솔루션에서 웹 사이트를 호스트하고 모바일 클라이언트를 지원하며 Azure의 API를 노출할 수 있습니다. App Service에 대해 알아보려면 [App Service 작동 방법](../../app-service/app-service-how-works-readme.md)을 참조하세요.
+세 개의 앱 유형 모두 App Service 런타임을 공유하므로 동일한 프로젝트나 솔루션에서 웹 사이트를 호스트하고 모바일 클라이언트를 지원하며 Azure의 API를 노출할 수 있습니다. App Service에 대해 자세히 알아보려면 [Azure Web Apps이란?](../../app-service/app-service-web-overview.md)을 참조하세요.
 
 App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub Webhook, Jenkins, Visual Studio Team Services, TeamCity 등을 포함하여 게시 및 연속 통합 배포를 위한 다양한 도구를 지원합니다.
 
@@ -71,7 +63,7 @@ App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub Webhook,
 
 >**사용 시기**: 기존 웹 응용 프로그램을 Azure에 마이그레이션하는 경우 및 웹앱에 완전히 관리되는 호스팅 플랫폼이 필요한 경우 App Service를 사용합니다. 앱에서 모바일 클라이언트를 지원하거나 REST API를 노출해야 하는 경우에도 App Service를 사용할 수 있습니다.
 
->**시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service-web/web-sites-dotnet-get-started.md), [모바일 앱](../../app-service-mobile/app-service-mobile-ios-get-started.md) 또는 [API 앱](../../app-service-api/app-service-api-dotnet-get-started.md)을 쉽게 만들고 배포할 수 있습니다.
+>**시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service/app-service-web-get-started-dotnet.md), [모바일 앱](../../app-service-mobile/app-service-mobile-ios-get-started.md) 또는 [API 앱](../../app-service/app-service-web-tutorial-rest-api.md)을 쉽게 만들고 배포할 수 있습니다.
 
 >**지금 사용해 보기**: App Service를 사용하면 Azure 계정에 등록하지 않고도 사용 시간이 짧은 앱을 프로비전하여 플랫폼을 사용해 볼 수 있습니다. 플랫폼을 사용해 보고 [Azure App Service 앱을 만듭니다](https://tryappservice.azure.com/).
 
@@ -130,7 +122,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**시작하기**: [DocumentDB C# 콘솔 응용 프로그램을 빌드합니다](../../documentdb/documentdb-get-started.md). MongoDB 개발자인 경우 [MongoDB에 대한 DocumentDB 프로토콜 지원](../../documentdb/documentdb-protocol-mongodb.md)을 참조하세요.
 
-[Azure Data Factory](../../data-factory/data-factory-introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 BizTalk Services의 [하이브리드 연결](../../biztalk-services/integration-hybrid-connection-overview.md)을 사용하면 App Service 호스트된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 응용 프로그램에서 Azure 데이터 및 저장소 서비스에 연결할 수도 있습니다.
+[Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 BizTalk Services의 [하이브리드 연결](../../biztalk-services/integration-hybrid-connection-overview.md)을 사용하면 App Service 호스트된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 응용 프로그램에서 Azure 데이터 및 저장소 서비스에 연결할 수도 있습니다.
 
 #### <a name="docker-support"></a>Docker 지원
 
@@ -196,7 +188,7 @@ VM을 프로비전하든 연속 통합을 사용하여 웹앱을 게시하든, A
 
 >**지금 사용해 보기:** [다양한 DevOps 통합을 사용해 봅니다](https://azure.microsoft.com/try/devops/).
 
->**시작하기**: App Service 앱의 DevOps 옵션을 보려면 [Azure App Service에 연속 배포](../../app-service-web/app-service-continuous-deployment.md)를 참조하세요.
+>**시작하기**: App Service 앱의 DevOps 옵션을 보려면 [Azure App Service에 연속 배포](../../app-service/app-service-continuous-deployment.md)를 참조하세요.
 
 
 ## <a name="azure-regions"></a>Azure 지역
@@ -333,4 +325,3 @@ Azure는 Azure 구독에 대한 메타데이터 정보 및 리소스 사용에 �
 Azure에 응용 프로그램이나 솔루션을 배포한 후에는 경고에 정의된 지출 한도에 다달했을 때 메일을 보내는 경고를 만들 수 있습니다.
 
 >**시작하기**: 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](../../billing-set-up-alerts.md)을 참조하세요.
-

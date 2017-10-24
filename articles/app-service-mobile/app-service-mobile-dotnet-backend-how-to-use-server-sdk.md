@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 657fea16e47c15efd262c86d6a150a721476134a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -126,7 +125,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 * [Microsoft.Azure.Mobile.Server.Login]은 사용자 지정 인증 시나리오 동안 사용되는 정적 메서드인 AppServiceLoginHandler.CreateToken() 메서드를 제공합니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
-이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Azure 앱 서비스 배포 설명서](../app-service-web/web-sites-deploy.md)에 나오는 Git 또는 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
+이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Git](../app-service/app-service-deploy-local-git.md) 또는 사용 가능한 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
 
 1. Visual Studio에서 NuGet 패키지를 복원하려면 프로젝트를 빌드하십시오.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. 처음 게시할 때는 게시 프로필을 정의해야 합니다. 이미 정의된 프로필이 있을 때 프로필을 선택하고 **게시**를 클릭합니다.
@@ -413,16 +412,16 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>방법: .NET 서버 SDK 디버그 및 문제 해결
 Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
 
-* [Azure 앱 서비스 모니터링](../app-service-web/web-sites-monitor.md)
-* [Azure 앱 서비스에 진단 로그 사용](../app-service-web/web-sites-enable-diagnostic-log.md)
-* [Visual Studio에서 Azure 앱 서비스 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Azure 앱 서비스 모니터링](../app-service/web-sites-monitor.md)
+* [Azure 앱 서비스에 진단 로그 사용](../app-service/web-sites-enable-diagnostic-log.md)
+* [Visual Studio에서 Azure 앱 서비스 문제 해결](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>로깅
 표준 ASP.NET 추적 작성을 사용하여 앱 서비스 진단 로그에 쓸 수 있습니다. 로그를 작성하려면 먼저 모바일 앱 백 엔드에서 진단을 활성화해야 합니다.
 
 진단을 사용하도록 설정하고 로그에 쓰려면:
 
-1. [진단을 사용하는 방법](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag)에서 단계를 수행합니다.
+1. [진단을 사용하는 방법](../app-service/web-sites-enable-diagnostic-log.md#enablediag)에서 단계를 수행합니다.
 2. 코드 파일에 다음 using 문을 추가합니다.
 
         using System.Web.Http.Tracing;
@@ -431,7 +430,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 서버 프로젝트를 다시 게시하고 모바일 앱 백 엔드에 액세스하여 로깅을 통해 코드 경로를 실행합니다.
-5. [방법: 로그 다운로드](../app-service-web/web-sites-enable-diagnostic-log.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
+5. [방법: 로그 다운로드](../app-service/web-sites-enable-diagnostic-log.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
@@ -472,4 +471,3 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-

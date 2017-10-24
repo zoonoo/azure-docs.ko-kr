@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
 이 문서는 PolyBase를 사용하여 ADLS(Azure Data Lake Store)에서 SQL Data Warehouse로 데이터를 로드하는 데 필요한 모든 단계를 제공합니다.
@@ -170,7 +169,7 @@ REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어�
 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
 위치는 데이터를 읽으려는 맨 위에 있는 디렉터리를 지정합니다.
-이 경우 /DimProduct/ 아래에 하위 디렉터리가 있으면 PolyBase는 하위 디렉터리 내의 모든 데이터를 가져옵니다.
+이 경우 /DimProduct/ 아래에 하위 디렉터리가 있으면 PolyBase는 하위 디렉터리 내의 모든 데이터를 가져옵니다. Azure Data Lake는 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드한 후 읽을 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
 Azure Data Lake Store에서 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS로 로드는 사용자가 만든 강력한 형식의 외부 테이블을 사용합니다.
@@ -238,4 +237,3 @@ Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [Columnstore �
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

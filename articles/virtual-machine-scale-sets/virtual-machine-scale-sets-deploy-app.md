@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 컴퓨터 확장 집합에 응용 프로그램 배포
 
 이 문서에서는 확장 집합을 프로비전할 때 소프트웨어를 설치하는 여러 방법을 설명합니다.
@@ -49,7 +47,7 @@ Azure에 갖고 있는 가상 컴퓨터를 사용하여 확장 집합에 사용�
 
 디스크에 대한 자세한 내용은 [Managed Disks 개요](../virtual-machines/windows/managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요.
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>확장 집합이 프로비전되면 설치
+## <a name="already-provisioned"></a>크기 집합이 프로비전되면 설치
 
 가상 컴퓨터 확장 집합에 가상 컴퓨터 확장을 적용할 수 있습니다. 가상 컴퓨터 확장을 사용하여 확장 집합의 가상 컴퓨터를 하나의 전체 그룹으로 사용자 지정할 수 있습니다. 확장에 대한 자세한 내용은 [가상 컴퓨터 확장](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
@@ -228,5 +226,4 @@ az vmss create \
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
+ms.openlocfilehash: a56d48eaf335d9e78eeba99162cea7c61d96b7cb
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 쉬운 모니터링을 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 Azure SQL Database를 구성할 수 있습니다.
@@ -106,6 +105,17 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
    ```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
+
+### <a name="to-configure-multiple-azure-subscriptions"></a>Azure 구독을 여러 개 구성하려면
+
+여러 구독을 지원하려면 [PowerShell을 사용하여 Azure 리소스 메트릭 로깅 사용](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)에서 PowerShell 스크립트를 사용합니다. 하나의 Azure 구독에서 다른 Azure 구독의 작업 영역으로 진단 데이터를 전송하는 스크립트를 실행할 때 작업 영역 리소스 ID를 매개 변수로 제공합니다.
+
+- Azure 구독을 여러 개 구성하려면 다음 명령을 사용하세요.
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -448,4 +458,3 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
    - [Azure Event Hubs란](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)를 참조하세요.
-

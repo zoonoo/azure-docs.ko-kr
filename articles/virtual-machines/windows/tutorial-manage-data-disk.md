@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell을 사용하여 Azure 디스크 관리
 
 Azure 가상 컴퓨터는 디스크를 사용하여 VM 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크의 배포 및 관리에 대해 다룹니다. 다음에 대해 알아봅니다.
@@ -35,7 +33,9 @@ Azure 가상 컴퓨터는 디스크를 사용하여 VM 운영 체제, 응용 프
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 
@@ -91,7 +91,7 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 | 디스크당 IOPS | 500 | 2,300 | 5,000 |
 디스크당 처리량 | 100MB/초 | 150MB/초 | 200MB/s |
 
-위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 64 데이터 디스크는 Standard_GS5 VM에 연결할 수 있습니다. 이러한 각 디스크는 P30에 해당하는 크기이며 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Linux VM 크기](./sizes.md)를 참조하세요.
+위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 64 데이터 디스크는 Standard_GS5 VM에 연결할 수 있습니다. 이러한 각 디스크는 P30에 해당하는 크기이며 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [VM 유형 및 크기](./sizes.md)를 참조하세요.
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 
@@ -99,31 +99,31 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 
 [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig)를 사용하여 초기 구성을 만듭니다. 다음 예제에서는 크기가 128GB인 디스크를 구성합니다.
 
-```powershell
+```azurepowershell-interactive
 $diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) 명령을 사용하여 데이터 디스크를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 명령을 사용하여 데이터 디스크를 추가할 가상 컴퓨터를 가져옵니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 데이터 디스크를 가상 컴퓨터 구성에 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
 [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 가상 컴퓨터를 업데이트합니다.
 
-```powershell
+```azurepowershell-interactive
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
@@ -135,7 +135,7 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 
 가상 컴퓨터와 RDP 연결 만들기 PowerShell을 열고 이 스크립트를 실행합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
@@ -157,4 +157,3 @@ VM 구성 자동화에 대해 자세히 알아보려면 다음 자습서로 이�
 
 > [!div class="nextstepaction"]
 > [VM 구성 자동화](./tutorial-automate-vm-deployment.md)
-

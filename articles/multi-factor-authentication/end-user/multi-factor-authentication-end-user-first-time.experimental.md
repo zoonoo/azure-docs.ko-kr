@@ -4,8 +4,8 @@ description: "회사에서 Azure Multi-Factor Authentication을 구성하는 경
 services: multi-factor-authentication
 keywords: "Active Directory 사용 방법, 클라우드의 Active Directory, Active Directory 자습서"
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barlanmsft
+manager: angrobe
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: kgremban
+ms.date: 09/12/2017
+ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: e74f2cbeca5385b2e766d02a5f3f8ba3a815c91f
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3499a7b23a7b4bdd44b5d9e8d7e750681efc3825
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
 2단계 인증은 다른 사람이 침입하기 어렵게 만들어 계정을 보호하는 추가 보안 단계입니다. 이 문서를 읽고 있다면 아마도 회사 또는 학교 관리자로부터 Multi-Factor Authentication에 대한 전자 메일을 받았을 것입니다. 또는 로그인을 시도했고 추가 보안 검증을 설정하라는 메시지를 받았을 수도 있습니다. 해당되는 경우 **자동 등록 프로세스를 완료해야만 로그인할 수 있습니다**.
@@ -58,7 +57,7 @@ IT 부서에서 2단계 인증을 사용하여 시작하도록 요청하는 경�
 
 3. 휴대폰이나 태블릿에서 앱을 열고 **+**를 선택하여 계정을 추가합니다. (Android 장치에서 세 개의 점을 선택한 후 **계정 추가**를 선택합니다.)
 4. 회사 또는 학교 계정을 추가할지 지정합니다. 휴대폰에서 QR 코드 스캐너를 엽니다. 카메라가 제대로 작동하지 않는 경우 회사 정보를 수동으로 입력할 수 있습니다. 자세한 내용은 [수동으로 계정 추가](#add-an-account-manually)를 참조하세요.  
-5. 모바일 앱 구성 화면에 표시되는 QR 코드 그림을 스캔합니다.  **완료**를 선택하여 QR 코드 화면을 닫습니다.  
+5. 모바일 앱 구성 화면에 표시되는 QR 코드 그림을 스캔합니다.  **완료** 를 선택하여 QR 코드 화면을 닫습니다.  
 
    ![QR 코드 화면](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 
@@ -107,5 +106,4 @@ QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추�
 * 기본 옵션 변경 및 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 * 2단계 인증을 지원하지 않는 네이티브 장치 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md)를 설정합니다.
 * 휴대폰 서비스가 없는 경우에도 빠르고 안전한 인증을 위해서는 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 확인하세요.
-
 

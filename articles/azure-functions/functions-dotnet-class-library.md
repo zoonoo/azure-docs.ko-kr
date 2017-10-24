@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/10/2017
 ms.author: donnam
+ms.openlocfilehash: 4654e1b041451c5626bbb48b1ef57f29c08b6b0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
 
@@ -31,8 +30,8 @@ Azure Functions는 스크립트 파일 외에도 하나 이상의 함수 구현�
 
 이 문서에는 다음과 같은 필수 조건이 있습니다.
 
-- [Visual Studio 2017 15.3 미리 보기](https://www.visualstudio.com/vs/preview/) - **ASP.NET 및 웹 개발** 및 **Azure 개발** 워크로드를 설치합니다.
-- [Azure Function Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 버전 15.3](https://www.visualstudio.com/vs/) 이상 버전
+- **Azure 개발** 워크로드를 설치합니다.
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
@@ -50,14 +49,15 @@ Azure Functions 프로젝트를 빌드하면 *function.json* 파일이 함수의
 
 이 변환은 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) NuGet 패키지에서 수행됩니다. 원본은 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) GitHub 리포지토리에서 사용할 수 있습니다.
 
-## <a name="triggers-and-bindings"></a>트리거 및 바인딩
+## <a name="triggers-and-bindings"></a>트리거 및 바인딩 
 
 다음 표에서는 Azure Functions 클래스 라이브러리 프로젝트에서 사용할 수 있는 트리거와 바인딩을 나열합니다. 모든 특성은 `Microsoft.Azure.WebJobs` 네임스페이스에 있습니다.
 
 | 바인딩 | 특성 | NuGet 패키지 |
 |------   | ------    | ------        |
 | [Blob 저장소 트리거, 입력, 출력](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob 저장소] |
-| [Cosmos DB 입력 및 출력 바인딩](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB 트리거](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB 입력 및 출력](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Event Hubs 트리거 및 출력](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [외부 파일 입력 및 출력](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [HTTP 및 웹후크 트리거](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ Azure Functions 프로젝트를 빌드하면 *function.json* 파일이 함수의
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Blob 저장소 트리거, 입력 및 출력 바인딩
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Blob 저장소 트리거, 입력 바인딩 및 출력 바인딩
 
 Azure Functions는 Azure Blob Storage에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 식 및 메타데이터 바인딩에 대한 자세한 내용은 [Azure Functions Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
 
-Blob 트리거는 `[BlobTrigger]` 특성으로 정의됩니다. `[StorageAccount]` 특성을 사용하여 전체 함수 또는 클래스에서 사용되는 저장소 계정을 정의할 수 있습니다.
+Blob 트리거는 `[BlobTrigger]` 특성으로 정의됩니다. `[StorageAccount]` 특성을 사용하여 전체 함수 또는 클래스에서 사용에서 저장소 계정에 대한 연결 문자열이 포함된 앱 설정 이름을 정의할 수 있습니다.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,9 +121,22 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Cosmos DB 입력 및 출력 바인딩
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩
 
-Azure Functions는 Cosmos DB에 대한 입력 및 출력 바인딩을 지원합니다. Cosmos DB 바인딩의 기능에 대한 자세한 내용은 [Azure Functions Cosmos DB 바인딩](functions-bindings-documentdb.md)를 참조하세요.
+Azure Functions는 Cosmos DB에 대한 트리거, 입력 바인딩 및 출력 바인딩을 지원합니다. Cosmos DB 바인딩의 기능에 대한 자세한 내용은 [Azure Functions Cosmos DB 바인딩](functions-bindings-documentdb.md)를 참조하세요.
+
+Cosmos DB 문서에서 트리거하려면 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] NuGet 패키지의 `[CosmosDBTrigger]` 특성을 사용합니다. 다음 예제에서는 특정 `database` 및 `collection`에서 트리거합니다. `myCosmosDB` 설정에는 Cosmos DB 인스턴스에 대한 연결이 포함되어 있습니다. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
 
 Cosmos DB 문서에 바인딩하려면 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] NuGet 패키지에서 `[DocumentDB]` 특성을 사용합니다. 다음 예제에는 큐 트리거와 DocumentDB API 출력 바인딩이 있습니다.
 
@@ -131,7 +144,7 @@ Cosmos DB 문서에 바인딩하려면 [Microsoft.Azure.WebJobs.Extensions.Docum
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ Azure Functions는 Notification Hubs에 대한 출력 바인딩을 지원합니�
 
 Azure Functions는 Azure 큐에 대한 트리거 및 출력 바인딩을 지원합니다. 자세한 내용은 [Azure Functions Queue Storage 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
 
-다음 예제에서는 `[Queue]` 특성을 사용하여 큐 출력 바인딩이 포함된 함수 반환 형식을 사용하는 방법을 보여 줍니다. 큐 트리거를 정의하려면 `[QueueTrigger]` 특성을 사용합니다.
+다음 예제에서는 `[Queue]` 특성을 사용하여 큐 출력 바인딩이 포함된 함수 반환 형식을 사용하는 방법을 보여 줍니다. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+큐 트리거를 정의하려면 `[QueueTrigger]` 특성을 사용합니다.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -257,6 +278,7 @@ public static class QueueFunctions
 }
 
 ```
+
 
 <a name="sendgrid"></a>
 
@@ -411,7 +433,7 @@ C# 스크립팅에서 Azure Functions 사용에 대한 자세한 내용은 [Azur
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +448,7 @@ C# 스크립팅에서 Azure Functions 사용에 대한 자세한 내용은 [Azur
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +464,3 @@ C# 스크립팅에서 Azure Functions 사용에 대한 자세한 내용은 [Azur
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

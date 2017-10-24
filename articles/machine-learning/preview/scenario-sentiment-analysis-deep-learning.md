@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
+ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6ace1ec1130898d5cdc4e5c8b957e13aecc87174
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning에서 심층 학습을 사용하여 감정 분석
 
 감정 분석은 자연어 처리 영역에서 잘 알려진 작업입니다. 일련의 텍스트에서 해당 텍스트의 감정을 결정하는 작업입니다. 이 솔루션은 CNTK를 Keras(모델 수준 라이브러리, 심층 학습 모델을 개발하기 위한 높은 수준의 구성 요소 제공)의 백 엔드로 사용하고 영화 리뷰에서 감정 분석을 구현하려고 합니다.
@@ -29,6 +27,8 @@ ms.lasthandoff: 09/25/2017
 솔루션은 https://github.com/Azure/MachineLearningSamples-SentimentAnalysis에 위치합니다.
 
 ## <a name="link-to-the-gallery-github-repository"></a>갤러리 GitHub 리포지토리에 연결
+
+공용 GitHub 리포지토리에 대한 다음 링크로 이동하세요.
 
 [https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
@@ -48,18 +48,9 @@ ms.lasthandoff: 09/25/2017
 
 * 이 솔루션에서는 Docker 엔진이 로컬에 설치된 Windows 10에서 Azure Machine Learning Workbench를 실행 중이라고 가정합니다. macOS에서도 지침은 거의 같습니다.
 
-## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기
-
-이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
-1.  Azure Machine Learning Workbench 열기
-2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
-3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
-4.  **프로젝트 검색 템플릿** 검색 상자에서 "심층 학습에서 감정 분석"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**
-
 ## <a name="data-description"></a>데이터 설명
 
-이 샘플에 사용되는 데이터 집합은 소규모의 수작업 데이터 집합이며 [Github 리포지토리](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/Data)의 데이터 폴더에 위치합니다.
+이 샘플에 사용되는 데이터 집합은 소규모의 수작업 데이터 집합이며 [데이터 폴더](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data)에 있습니다.
 
 첫 번째 열에는 영화 리뷰가 포함되고 두 번째 열에는 해당 감정(0 - 부정, 1 - 긍정)이 포함됩니다. 데이터 집합은 단순히 데모 용도로 사용되지만 일반적으로 강력한 감정 점수를 얻으려면 대규모 데이터 집합이 필요합니다. 예를 들어 Keras의 [IMDB 영화 리뷰 감정 분류 문제](https://keras.io/datasets/#datasets )는 25,000개의 IMDB 영화 리뷰 데이터 집합으로 구성되며 감정별로(긍정 또는 부정) 레이블이 지정됩니다. 이 교육에서는 AML Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법을 보여주려고 합니다.
 
@@ -67,20 +58,19 @@ ms.lasthandoff: 09/25/2017
 
 폴더 구조는 다음과 같이 정렬됩니다.
 
-1. 코드: AML Workbench를 사용하여 감정 분석에 관련된 모든 코드를 포함합니다.  
-2. 데이터: 솔루션에 사용된 데이터 집합을 포함합니다.  
-3. 랩: 모든 실습 교육을 포함합니다.  
+1. AML Workbench를 사용하는 감정 분석에 관련된 모든 코드는 루트 폴더에 있습니다.
+2. data: 솔루션에 사용된 데이터 집합을 포함합니다.
+3. docs: 모든 실습 교육을 포함합니다.
 
 솔루션을 수행하는 실습 교육의 순서는 다음과 같습니다.
 
 | 순서| 파일 이름 | 관련된 파일 |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisDataPreparation.md) | 'Data/sampleReviews.txt' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingDocker.md) | 'Code/SentimentExtraction.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'Code/SentimentExtractionDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisOperationalization.md) | 'Code/Operaionalization' |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
+| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
+| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>결론
 
 결론적으로 이 솔루션은 Azure Machine Learning Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법을 소개합니다. 제공되는 솔루션이 유연하여 CNTK/Tensorflow를 Keras에서 백 엔드로 사용합니다. 또한 HDF5 모델을 사용하여 운영합니다.
-

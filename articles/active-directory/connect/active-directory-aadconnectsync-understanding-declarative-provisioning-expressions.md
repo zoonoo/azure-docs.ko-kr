@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 합니다. 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있습니다.
@@ -81,7 +81,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 예를 들어   
 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`와 모든 값에 대해는 @-sign, 대체 사용 하 여 도메인 @contoso.com합니다.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` @-sign이 있는 모든 값의 경우 도메인을 @contoso.com으로 바꿉니다.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계

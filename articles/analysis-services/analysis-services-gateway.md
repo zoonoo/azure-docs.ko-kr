@@ -13,31 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 10/06/2017
 ms.author: owend
+ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure 온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 지역에서 여러 서비스를 연결할 수 있습니다. 
 
- Azure Analysis Services는 동일한 지역에서 게이트웨이 리소스가 필요합니다. 예를 들어 Azure Analysis Services 서버가 미국 동부 2 지역에 있으면 미국 동부 2 지역에서 게이트웨이 리소스가 필요합니다. 미국 동부 2의 여러 서버에서 동일한 게이트웨이를 사용할 수 있습니다.
-
 처음으로 게이트웨이 설치하기는 네 부분으로 이루어진 프로세스입니다.
 
-- **설치 프로그램 다운로드 및 실행** - 이 단계는 조직의 컴퓨터에 게이트웨이 서비스를 설치합니다.
+- **설치 프로그램 다운로드 및 실행** - 이 단계는 조직의 컴퓨터에 게이트웨이 서비스를 설치합니다. 또한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD의 계정을 사용하여 Azure에 로그인합니다. Azure B2B(게스트) 계정은 지원되지 않습니다.
 
-- **게이트웨이 등록** - 이 단계에서는 게이트웨이에 대한 이름 및 복구 키를 지정하고 게이트웨이 클라우드 서비스로 게이트웨이를 등록한 지역을 선택합니다.
+- **게이트웨이 등록** - 이 단계에서는 게이트웨이에 대한 이름 및 복구 키를 지정하고 게이트웨이 클라우드 서비스로 게이트웨이를 등록한 지역을 선택합니다. 게이트웨이 리소스를 Analysis Services 서버와 **동일한 지역에 등록해야** 합니다. 
 
 - **Azure에서 게이트웨이 리소스 만들기** - 이 단계에서는 Azure 구독에서 게이트웨이 리소스를 만듭니다.
 
-- **게이트웨이 리소스에 서버 연결** - 구독에 게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다.
-
-구독에 대해 구성된 게이트웨이 리소스가 있으면 여러 서버를 연결하고 이를 기타 서비스에 연결할 수 있습니다. 다른 지역에 서버 또는 다른 서비스가 있는 경우 다른 게이트웨이를 설치하고 추가 게이트웨이 리소스를 만들기만 하면 됩니다.
+- **게이트웨이 리소스에 서버 연결** - 구독에 게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다. 해당 지역에 있는 경우, 여러 서버 및 기타 리소스를 연결할 수 있습니다.
 
 지금 바로 시작하려면 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)을 참조하세요.
 
@@ -100,15 +95,15 @@ ms.lasthandoff: 08/25/2017
 ### <a name="general"></a>일반
 
 **Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요하나요? <br/>
-**A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에만 연결됩니다.
+**A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에 연결하는 데만 필요합니다.
 
 **Q**: 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치해야 하나요? <br/>
-**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 일반적으로 동일한 네트워크에서 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
+**A**: 아니요. 게이트웨이는 일반적으로 동일한 네트워크에서 서버에 연결할 수 있는 기능이 필요합니다.
 
 <a name="why-azure-work-school-account"></a>
 
 **Q:**: 회사 또는 학교 계정을 사용하여 로그인해야 하는 이유는 무엇인가요? <br/>
-**A**: 온-프레미스 데이터 게이트웨이를 설치할 때만 Azure 회사 또는 학교 계정을 사용할 수 있습니다. 로그인 계정은 Azure AD(Azure Active Directory)에서 관리하는 테넌트에 저장됩니다. 일반적으로 Azure AD 계정의 UPN(사용자 계정 이름)은 이메일 주소와 일치합니다.
+**A**: 온-프레미스 데이터 게이트웨이를 설치할 때만 회사 또는 학교 계정을 사용할 수 있습니다. 그리고 이 계정은 게이트웨이 리소스를 구성하는 구독과 동일한 테넌트에 있어야 합니다. 로그인 계정은 Azure AD(Azure Active Directory)에서 관리하는 테넌트에 저장됩니다. 일반적으로 Azure AD 계정의 UPN(사용자 계정 이름)은 이메일 주소와 일치합니다.
 
 **Q**: 자격 증명은 어디에 저장되나요? <br/>
 **A**: 데이터 원본에 입력한 자격 증명은 게이트웨이 클라우드 서비스에 암호화되어 저장됩니다. 자격 증명은 온-프레미스 데이터 게이트웨이에서 해독됩니다.
@@ -151,7 +146,7 @@ ms.lasthandoff: 08/25/2017
 또한 추적 쿼리를 위해 데이터 원본이 포함하는 도구를 살펴볼 수도 있습니다. 예를 들어 SQL Server 및 Analysis Services의 경우 확장 이벤트 또는 SQL 프로파일러를 사용할 수 있습니다.
 
 **Q**: 게이트웨이 로그는 어디에 있나요? <br/>
-**A**: 이 항목 뒷부분에 나오는 로그를 참조하세요.
+**A**: 이 문서 뒷부분에 나오는 로그를 참조하세요.
 
 ### <a name="update"></a>최신 버전으로 업데이트
 
@@ -201,6 +196,6 @@ ms.lasthandoff: 08/25/2017
 
 
 ## <a name="next-steps"></a>다음 단계
+* [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)   
 * [Analysis Services 관리](analysis-services-manage.md)
 * [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)
-

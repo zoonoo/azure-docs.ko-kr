@@ -11,19 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 525f67a856e5ffa9fcd3c8fd368a564adc2e99fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
 
 예외가 발생할 때 라이브 웹 응용 프로그램에서 자동으로 디버그 스냅숏을 수집할 수 있습니다. 스냅숏은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](app-insights-overview.md)의 스냅숏 디버거(미리 보기)는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅숏을 수집합니다. [스냅숏 수집기 NuGet 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 응용 프로그램에 포함하고 필요에 따라, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅숏은 Application Insights 포털의 [예외](app-insights-asp-net-exceptions.md)에 표시됩니다.
 
-포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드가 있는 좀 더 강력한 디버깅 환경을 구현하려면 [Visual Studio용 스냅숏 디버거 확장을 다운로드](https://aka.ms/snapshotdebugger)하여 Visual Studio 2017 Enterprise에서 스냅숏을 엽니다.
+포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드가 있는 좀 더 강력한 디버깅 환경을 구현하려면 [Visual Studio용 스냅숏 디버거 확장을 다운로드](https://aka.ms/snapshotdebugger)하여 Visual Studio 2017 Enterprise에서 스냅숏을 엽니다. Visual Studio에서 예외를 기다리지 않고 [Snappoints가 대화형으로 스냅숏을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
 
 스냅숏 컬렉션을 다음에 사용할 수 있습니다.
 * .NET Framework 및 .NET Framework 4.5 이상을 실행하는 ASP.NET 응용 프로그램
@@ -129,7 +128,7 @@ Azure 구독의 소유자는 스냅숏을 조사할 수 있습니다. 다른 사
 
 1. Access Control(IAM) 블레이드를 엽니다.
 1. +추가 단추를 클릭합니다.
-1. 역할 드롭 다운 목록에서 Application Insights 스냅숏 디버거를 선택합니다.
+1. 역할 드롭다운 목록에서 Application Insights 스냅숏 디버거를 선택합니다.
 1. 추가할 사용자의 이름을 검색하고 입력합니다.
 1. 저장 단추를 클릭하여 역할에 사용자를 추가합니다.
 
@@ -259,7 +258,6 @@ App Service에서 호스팅되지 _않는_ 응용 프로그램의 경우 업로�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 예외를 기다리지 않고 스냅숏을 가져오기 위해 [코드에서 snappoint를 설정](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/)합니다.
+* 예외를 기다리지 않고 스냅숏을 가져오기 위해 [코드에서 snappoint를 설정](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications)합니다.
 * [웹앱의 예외 진단](app-insights-asp-net-exceptions.md)에서는 Application Insights에서 추가 예외를 표시하는 방법을 설명합니다. 
 * [스마트 검색](app-insights-proactive-diagnostics.md)은 성능 예외를 자동으로 검색합니다.
-

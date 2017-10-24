@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 응용 프로그램 개요
 
 Azure를 사용하는 공급업체는 전 세계 고객에게 솔루션을 제공할 수 있습니다. Azure Marketplace는 자사 및 타사 공급업체에서 제공하는 수백 가지의 복잡한 다중 리소스 템플릿으로 구성된 갤러리입니다. 고객은 몇 분 이내로 PaaS(Platform as a Service) 및 SaaS(Software as a Service) 응용 프로그램을 사용하여 배포하고 시작할 수 있습니다. 
@@ -56,16 +54,14 @@ Marketplace의 관리되는 응용 프로그램을 사용하는 방법에 대한
 ## <a name="key-concepts"></a>주요 개념
 
 ### <a name="managed-resource-group"></a>관리되는 리소스 그룹
-템플릿에서 프로비전되는 모든 Azure 리소스를 만드는 관리되는 리소스 그룹입니다. 예를 들어 어플라이언스가 저장소 계정을 만드는 데 사용되는 경우 이 리소스 그룹에는 저장소 계정 리소스가 포함됩니다. 어플라이언스 리소스는 포함되지 않습니다.
+템플릿에서 프로비전되는 모든 Azure 리소스를 만드는 관리되는 리소스 그룹입니다. 예를 들어 응용 프로그램을 사용하여 저장소 계정을 만드는 경우 이 리소스 그룹에는 저장소 계정 리소스가 포함됩니다. 응용 프로그램 리소스는 포함되지 않습니다.
 
-### <a name="appliance-package"></a>어플라이언스 패키지
+### <a name="application-package"></a>응용 프로그램 패키지
 게시자는 템플릿 파일과 createUIDefinition 파일이 포함된 패키지를 만듭니다. 포함되는 파일은 구체적으로 다음과 같습니다.
 
-- **applianceMainTemplate.json**: 이 템플릿 파일은 어플라이언스에서 프로비전하는 모든 리소스를 정의합니다. 이 파일은 리소스를 만드는 데 사용되는 일반 템플릿 파일입니다.
+- **mainTemplate.json**: 응용 프로그램에서 프로비전하는 모든 리소스를 정의합니다. 이 파일은 리소스를 만드는 데 사용되는 일반 템플릿 파일입니다.
 
-- **MainTemplate.json**:이 템플릿 파일은 어플라이언스 리소스를 정의합니다(Microsoft.Solutions/appliances). 이 리소스에 정의되는 하나의 주요 속성은 ManagedResourceGroupId입니다. 이 속성은 applianceMainTemplate.json에 정의된 실제 리소스를 호스팅하는 데 사용되는 리소스 그룹을 나타냅니다.
-
-- **applianceCreateUIDefinition.json**: 이 파일은 템플릿에 정의된 매개 변수에 필요한 UI가 렌더링되는 방법을 설명합니다.
+- **createUIDefinition.json**: 템플릿에 정의된 매개 변수에 필요한 UI가 렌더링되는 방법을 설명합니다.
 
 ### <a name="authorization"></a>권한 부여
 게시자는 공급업체에서 고객을 대신하여 리소스를 관리하는 데 필요한 권한을 지정해야 합니다. 이 권한은 관리되는 리소스 그룹에 적용됩니다. 다음 값을 설정합니다.
@@ -81,4 +77,3 @@ Marketplace의 관리되는 응용 프로그램을 사용하는 방법에 대한
 * 서비스 카탈로그 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시](managed-application-publishing.md)를 참조하세요.
 * 서비스 카탈로그 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 사용](managed-application-consumption.md)을 참조하세요.
 * UI 정의 파일을 만들려면 [CreateUiDefinition 시작](managed-application-createuidefinition-overview.md)을 참조하세요.
-

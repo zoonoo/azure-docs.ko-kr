@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
+ms.openlocfilehash: c224955d5d3592fb9afaaf31e6e4e531250b138e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: c9dfd3e3b9c155255959f76fd9b58b6935888db2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure Functions C# 스크립트 개발자 참조
-> [!div class="op_single_selector"]
-> * [C# 스크립트](functions-reference-csharp.md)
-> * [F# 스크립트](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
->
->
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions에 대한 C# 스크립트 환경은 Azure WebJobs SDK를 기반으로 합니다. 데이터는 메서드 인수를 통해 C# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
 
@@ -83,7 +77,7 @@ public static string Run(string input, TraceWriter log)
 
 출력 바인딩에 여러 값을 쓰려면 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 형식을 사용합니다. 이러한 형식은 메서드가 완료될 때 출력 바인딩에 기록되는 쓰기 전용 컬렉션입니다.
 
-이 예에서는 `ICollector`를 사용하여 여러 큐 메시지를 씁니다.
+이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
 ```csharp
 public static void Run(ICollector<string> myQueueItem, TraceWriter log)
@@ -397,7 +391,7 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)는 지원되는 출력 바인딩 형식입니다.
-코드는 저장소 계정 연결 문자열(즉 `AzureWebJobsStorage`)에 대한 기본 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+앞의 코드 샘플에서 코드는 함수 앱의 주 저장소 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 저장소 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -440,7 +434,4 @@ public static async Task Run(string input, Binder binder)
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
-* [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
-* [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-

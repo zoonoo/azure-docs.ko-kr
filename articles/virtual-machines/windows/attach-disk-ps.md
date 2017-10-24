@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.openlocfilehash: 9ae27e6abc239fe76288e64a996ec39ba7782822
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
-ms.openlocfilehash: e259a9cf42719fb0426dce09b5526fa43585bb26
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
 이 문서에서는 PowerShell을 사용하여 신규 및 기존 디스크를 Windows 가상 컴퓨터에 연결하는 방법을 보여 줍니다. VM에서 관리 디스크를 사용하는 경우 관리 데이터 디스크를 추가로 연결할 수 있습니다. 또한 저장소 계정의 비관리 디스크를 사용하는 VM에 비관리 데이터 디스크를 연결할 수 있습니다.
@@ -31,13 +29,9 @@ ms.lasthandoff: 09/25/2017
 * 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터처럼 Premium Storage 지원 VM 크기가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>가상 컴퓨터에 빈 데이터 디스크 추가
@@ -46,7 +40,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ### <a name="using-managed-disks"></a>관리 디스크 사용
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
@@ -86,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-unmanaged-disks-in-a-storage-account"></a>저장소 계정에서 비관리 디스크 사용
 
-```powershell
+```azurepowershell-interactive
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
@@ -97,7 +91,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 빈 디스크를 추가한 후에는 디스크를 초기화해야 합니다. 디스크를 초기화하려면 VM에 로그인하여 디스크 관리를 사용합니다. VM을 만들 때 WinRM 및 인증서를 사용하도록 설정한 경우 원격 PowerShell을 사용하여 디스크를 초기화할 수 있습니다. 또한 사용자 지정 스크립트 확장을 사용할 수 있습니다. 
 
-```powershell
+```azurepowershell-interactive
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
@@ -106,7 +100,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
         
 스크립트 파일은 디스크를 초기화하기 위해 이 코드와 같은 것을 포함할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
     $letters = 70..89 | ForEach-Object { [char]$_ }
@@ -130,7 +124,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks"></a>관리 디스크 사용
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
 $location = 'West Central US' 
@@ -152,4 +146,3 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## <a name="next-steps"></a>다음 단계
 
 [스냅숏](snapshot-copy-managed-disk.md)을 만듭니다.
-

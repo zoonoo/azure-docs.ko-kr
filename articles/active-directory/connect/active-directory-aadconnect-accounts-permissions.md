@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
@@ -97,6 +96,10 @@ Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사가 Act
 
 ## <a name="upgrade"></a>업그레이드
 Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
+
+>[!IMPORTANT]
+>Azure AD Connect에서는 빌드 1.1.484부터 SQL Database를 업그레이드하기 위해 sysadmin 권한이 필요한 회귀 버그를 도입했습니다.  이 버그는 최신 빌드 1.1.614에도 발생합니다.  이 빌드로 업그레이드하는 경우 sysadmin 권한이 필요합니다.  Dbo 권한은 충분하지 않습니다.  sysadmin 권한 없이 Azure AD Connect를 업그레이드하려고 하면 업그레이드에 실패하고 이후로 Azure AD Connect가 더 이상 올바르게 작동하지 않습니다.  Microsoft는 이를 알고 해결하기 위해 노력하고 있습니다.
+
 
 | 주체 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

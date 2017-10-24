@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: 시작 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화(미리 보기)"
+description: "Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,29 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화(미리 보기)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 왼쪽 창에서 **새로 만들기**를 클릭합니다.
-3. **새로 만들기** 블레이드의 검색 창에 **Domain Services**를 입력합니다.
+3. **새로 만들기** 페이지의 검색 창에 **Domain Services**를 입력합니다.
 
     ![Domain Services 검색](./media/getting-started/search-domain-services.png)
 
-4. 검색 제안 목록에서 **Azure AD Domain Services**를 클릭하여 선택합니다. **Azure AD Domain Services** 블레이드에서 **만들기** 단추를 클릭합니다.
+4. 검색 제안 목록에서 **Azure AD Domain Services**를 클릭하여 선택합니다. **Azure AD Domain Services** 페이지에서 **만들기** 단추를 클릭합니다.
 
-    ![Domain Services 블레이드](./media/getting-started/domain-services-blade.png)
+    ![Domain Services 보기](./media/getting-started/domain-services-blade.png)
 
 5. **Azure AD Domain Services 사용** 마법사가 시작됩니다.
 
@@ -65,6 +64,10 @@ ms.lasthandoff: 08/29/2017
 
 3. **가상 네트워크의 형식**을 선택합니다. 기본적으로는 **Resource Manager** 가상 네트워크 형식을 선택합니다. 새로 만든 관리되는 도메인 모두에 이 형식의 가상 네트워크를 사용하는 것이 좋습니다.
 
+    > [!TIP]
+    > **클래식 가상 네트워크 지원이 사용 중단될 예정입니다.** 모든 새로운 배포에서 Resource Manager 가상 네트워크 형식을 선택합니다. 클래식 가상 네트워크는 더 이상 새로운 배포에서 지원되지 않습니다. 클래식 가상 네트워크에 배포된 기존의 관리되는 도메인은 계속 지원됩니다.
+    >
+
 4. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
 
 5. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 **기존 항목 사용** 옵션을 선택하여 리소스 그룹을 선택할 수 있습니다.
@@ -76,4 +79,3 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-step"></a>다음 단계
 [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
-
