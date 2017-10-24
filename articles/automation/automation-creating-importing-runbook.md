@@ -34,7 +34,7 @@ Azure Portal에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 3. 지금 runbook을 편집하려면 **Runbook 편집**을 클릭합니다. 그렇지 않은 경우 **확인**을 클릭합니다.
 4. 새 Runbook이 **Runbook** 탭에 표시됩니다.
 
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure Portal에서 새 Azure Automation Runbook을 만들려면
+### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure Portal에서 새 Azure Automation  Runbook을 만들려면
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. Hub에서 **Runbook**을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **새 Runbook 만들기**를 클릭합니다.
@@ -50,10 +50,10 @@ Azure Portal에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
     -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 
 ## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>파일의 Runbook을 Azure Automation으로 가져오기
-PowerShell 스크립트나 PowerShell 워크플로(.ps1 확장명) 또는 내보낸 그래픽 Runbook(.graphrunbook)을 Azure Automation에 가져와서 새 Runbook을 만들 수 있습니다.  다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
+PowerShell 스크립트나 PowerShell 워크플로(.ps1 확장명) 또는 내보낸된 그래픽 Runbook(.graphrunbook)을 Azure Automation에 가져와서 새 Runbook을 만들 수 있습니다.  다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
 * .graphrunbook 파일은 새 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)에만 가져올 수 있으며 그래픽 Runbook은 .graphrunbook 파일을 통해서만 만들 수 있습니다.
-* PowerShell 워크플로를 포함하는.ps1 파일은 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에만 가져올 수 있습니다.  파일에 여러 PowerShell 워크플로 있으면 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하고 각각 개별적으로 가져와야 합니다.
+* PowerShell 워크플로를 포함하는.ps1 파일은 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에만 가져올 수 있습니다.  파일에 여러 PowerShell 워크플로 있으면 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하 고 각각 개별적으로 가져와야 합니다.
 * 워크플로를 포함하지 않은 .ps1 파일은 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell Workflow Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다.  PowerShell 워크플로 Runbook에 가져오면 워크플로로 변환되며 Runbook에 적용된 변경 내용을 명시하는 메모가 포함됩니다.
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>Azure 클래식 포털로 파일에서 Runbook을 가져오려면
