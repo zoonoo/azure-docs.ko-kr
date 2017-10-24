@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -98,11 +97,13 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 ### <a name="requirements"></a>요구 사항
 
--   각 표에는 기본 키가 있어야 합니다.
+-   각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 변경이 필요한 경우 행을 삭제하고 새 기본 키 값으로 새로 만듭니다. 
 
 -   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
 
 -   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
+
+-   스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
 
@@ -140,6 +141,11 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우 어떻게 처리되나요?
 데이터 동기화에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>데이터 동기화를 사용하여 데이터베이스를 어떻게 내보내고 가져오나요?
+데이터베이스를 .bacpac 파일로 내보내고 가져와 새 데이터베이스를 만든 후에는 새 데이터베이스에서 데이터 동기화를 사용하기 위해 다음 두 가지를 수행해야 합니다.
+1.  [이 스크립트](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)를 사용하여 **새 데이터베이스**에서 데이터 동기화 개체와 파생 테이블을 정리합니다. 이 스크립트는 데이터베이스에서 모든 필요한 데이터 동기화 개체를 삭제합니다.
+2.  새 데이터베이스를 통해 동기화 그룹을 다시 만듭니다. 더 이상 기존 동기화 그룹이 필요하지 않으면 삭제합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
@@ -156,7 +162,6 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 
--   [SQL Database 개요](sql-database-technical-overview.md)
+-   [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
-

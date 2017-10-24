@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업 관리
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음�
 
     항목 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다. 또한 항목의 이름은 블레이드 맨 위에 있는 **백업 중지** 아래에 있습니다.
 4. 필요에 따라 **이유** 또는 **주석**을 제공합니다.
-5. 현재 항목에 대 한 백업 작업을 중지 하려면 클릭 ![백업 중지 단추](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. 현재 항목에 대한 백업 작업을 중지하려면 ![백업 중지 단추](./media/backup-azure-manage-vms/stop-backup-button-blue.png)를 클릭합니다.
 
     알림 메시지를 통해 백업 작업이 중지되었음을 알 수 있습니다.
 
@@ -219,7 +219,7 @@ Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음�
 
     항목 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다. 또한 항목의 이름은 블레이드 맨 위에 있는 **백업 데이터 삭제** 아래에 있습니다.
 3. 필요에 따라 **이유** 또는 **주석**을 제공합니다.
-4. 현재 항목에 대 한 백업 데이터를 삭제 하려면 클릭 ![백업 중지 단추](./media/backup-azure-manage-vms/delete-button.png)
+4. 현재 항목에 대한 백업 데이터를 삭제하려면 ![백업 중지 단추](./media/backup-azure-manage-vms/delete-button.png)를 클릭합니다.
 
     알림 메시지를 통해 백업 데이터가 삭제되었음을 알 수 있습니다.
 

@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2017
+ms.date: 09/29/2017
 ms.author: magoedte
+ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Linux 컴퓨터 연결 
 
 Microsoft OMS(Operations Management Suite)를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경으 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
@@ -75,7 +73,7 @@ PAM | 플러그형 인증 모듈 |
 
 **패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | Linux용 Operations Management Suite 에이전트
+omsagent | 1.4.1 | Linux용 Operations Management Suite 에이전트
 omsconfig | 1.1.1 | OMS 에이전트용 구성 에이전트
 omi | 1.2.0 | Open Management Infrastructure(OMI) -- 경량 CIM 서버
 scx | 1.6.3 | 운영 체제 성능 메트릭용 OMI CIM 공급자
@@ -93,8 +91,8 @@ Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 �
 ### <a name="system-configuration-changes"></a>시스템 구성 변경 내용
 OMS Agent for Linux 패키지를 설치한 후에는 다음과 같은 시스템 수준의 구성 변경이 추가로 적용됩니다. 이러한 아티팩트는 omsagent 패키지가 제거되면 제거됩니다.
 
-* `omsagent` 라는 이름의 권한 없는 사용자가 생성됩니다. 이 계정으로 omsagent 디먼이 실행됩니다.
-* sudoers "include" 파일은 /etc/sudoers.d/omsagent에 생성됩니다. 그러면 omsagent에서 syslog 및 omsagent 데몬을 다시 시작할 수 있도록 허가됩니다. 설치된 sudo 버전에서 sudo “include” 지시문이 지원되지 않으면, 이 항목은 /etc/sudoers에 기록됩니다.
+* `omsagent` 라는 이름의 권한 없는 사용자가 생성됩니다. omsagent 디먼이 이 계정으로 실행됩니다.
+* sudoers "include" 파일은 /etc/sudoers.d/omsagent에 생성됩니다. 이 파일은 omsagent가 syslog 및 omsagent 디먼을 다시 시작할 수 있도록 권한을 부여합니다. 설치된 sudo 버전에서 sudo “include” 지시문이 지원되지 않으면, 이 항목은 /etc/sudoers에 기록됩니다.
 * syslog 구성은 이벤트 하위 집합을 에이전트에 전달하도록 수정됩니다. 자세한 내용은 아래의 **데이터 수집 구성** 섹션을 참조하세요.
 
 ### <a name="upgrade-from-a-previous-release"></a>이전 릴리스에서 업그레이드
@@ -106,7 +104,7 @@ OMS Agent for Linux 패키지를 설치한 후에는 다음과 같은 시스템 
 
 [OMS 클래식 포털](https://mms.microsoft.com)로 전환하면 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다.  **개요** 페이지의 맨 위 메뉴에서 **설정**을 선택한 다음, **Connected Sources\Linux Servers**로 이동합니다.  **작업 영역 ID** 및 **기본 키** 오른쪽에 값이 표시됩니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.    
 
-1. GitHub에서 최신 [Linux용 OMS 에이전트(x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) 또는 [Linux x86용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh)를 다운로드합니다.  
+1. GitHub에서 최신 [Linux용 OMS 에이전트(x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) 또는 [Linux x86용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh)를 다운로드합니다.  
 2. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
 3. `--install` 또는 `--upgrade` 인수를 사용하여 번들을 설치합니다. 
 
@@ -237,7 +235,7 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 * OMS 서비스 끝점이 데이터 센터의 허용 목록에 없습니다. 
 
 #### <a name="resolutions"></a>해결 방법
-1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
+1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. 이 설정은 프록시를 통해 OMS 서비스에 연결하는 에이전트에 대한 자세한 출력을 허용합니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
@@ -263,7 +261,7 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 3. 이 항목 앞부분의 설치 지침에 따라 올바른 작업 영역 ID 및 작업 영역 키를 사용하여 다시 등록합니다.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
-이 문제는 알려진 문제이며 Linux 데이터를 OMS 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
+이 오류는 알려진 문제이며 Linux 데이터를 OMS 작업 영역으로 처음 업로드할 때 발생합니다. 이 오류는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
 
 ### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>문제: OMS 포털에서 데이터가 보이지 않음
 
@@ -281,5 +279,4 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 
     >[!NOTE]
     >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
-
 

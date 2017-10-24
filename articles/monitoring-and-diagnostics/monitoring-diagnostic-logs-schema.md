@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: johnkem
+ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -30,22 +29,22 @@ ms.lasthandoff: 09/25/2017
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| API Management | 스키마를 사용할 수 없음 |
+| API 관리 | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 응용 프로그램 게이트웨이 |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 진단 로깅](../batch/batch-diagnostics.md) |
 | Customer Insights | 스키마를 사용할 수 없음 |
 | Content Delivery Network | 스키마를 사용할 수 없음 |
-| CosmosDB | 스키마를 사용할 수 없음 |
+| CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
 | 데이터 레이크 분석 |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | 데이터 레이크 저장소 |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
-| IoT Hub 프로비전 서비스 | 스키마를 사용할 수 없음 |
+| IoT 허브 | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | 키 자격 증명 모음 |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
 | 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
-| 공용 IP 주소 DDOS 보호 | 스키마를 사용할 수 없음 |
+| DDoS 보호 | 스키마를 사용할 수 없음 |
 | Recovery Services | 스키마를 사용할 수 없음|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | 서버 관리 | 스키마를 사용할 수 없음 |
@@ -111,4 +110,3 @@ ms.lasthandoff: 09/25/2017
 * [**Event Hubs**로 리소스 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
-

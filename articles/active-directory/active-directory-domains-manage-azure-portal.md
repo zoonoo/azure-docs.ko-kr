@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: curtand;jeffsta
+ms.date: 10/10/2017
+ms.author: curtand
+ms.reviewer: elkuzmen
+ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2f5a41907e9fa304444b369311e182d3f00ef619
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 도메인 이름은 많은 디렉터리 리소스에 대한 식별자의 중요한 부분입니다. 사용자의 경우 사용자 이름 또는 메일 주소 부분이고 그룹의 경우 주소 부분이며 응용 프로그램의 경우 앱 ID URI 부분일 수 있습니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
@@ -27,13 +27,13 @@ ms.lasthandoff: 09/26/2017
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Azure AD 디렉터리에 대한 주 도메인 이름 설정
 디렉터리를 만든 경우 'contoso.onmicrosoft.com'과 같은 초기 도메인 이름은 주 도메인 이름이기도 합니다. 주 도메인은 새 사용자를 만들 때 새 사용자에 대한 기본 도메인 이름입니다. 주 도메인 이름을 설정하면 관리자에 대한 프로세스를 간소화하여 포털에 새 사용자를 만듭니다. 주 도메인 이름을 변경하려면:
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-2. **더 많은 서비스**를 선택하고 텍스트 상자에서 **Azure Active Directory**를 입력한 다음 **Enter**를 선택합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory**를 선택합니다.
    
    ![사용자 관리 열기](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. ***디렉터리-이름*** 블레이드에서 **도메인 이름**을 선택합니다.
-4. ***디렉터리 이름* - 도메인 이름** 블레이드에서 주 도메인 이름을 만들려는 도메인 이름을 선택합니다.
-5. ***도메인 이름*** 블레이드(즉, 제목에 새 도메인 이름이 있는 것을 여는 블레이드)에서 **Make primary** 명령을 선택합니다. 메시지가 표시되면 선택을 확인합니다.
+3. **도메인 이름**을 선택합니다.
+4. 주 도메인으로 지정하려는 도메인 이름을 선택합니다.
+5. **Make primary** 명령을 선택합니다. 메시지가 표시되면 선택을 확인합니다.
    
    ![주 도메인 이름 만들기](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
@@ -67,5 +67,4 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 도메인 이름 추가](add-custom-domain.md)
-
 

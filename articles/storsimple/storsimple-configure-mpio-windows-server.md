@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>StorSimple 장치에 대한 다중 경로 I/O 구성
 Microsoft는 Windows Server에서 MPIO(다중 경로 I/O) 기능에 대한 지원을 기본으로 제공하여 항상 사용 가능한 내결함성 SAN 구성 빌드를 돕습니다. MPIO는 중복 실제 경로 구성 요소(어댑터, 케이블 및 스위치)를 사용하여 서버 및 저장소 장치 간의 논리 경로를 만듭니다. 논리 경로에 오류를 일으키는 구성 요소 오류가 발생할 경우 응용 프로그램이 데이터에 계속 액세스할 수 있도록 다중 경로 논리가 I/O에 대한 대체 경로를 사용합니다. 또한 구성에 따라 MPIO가 이러한 모든 경로에서 부하를 다시 분산하여 성능을 향상할 수도 있습니다. 자세한 내용은 [MPIO 개요](https://technet.microsoft.com/library/cc725907.aspx "MPIO 개요 and features")를 참조하세요.  
@@ -114,8 +114,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 13. 디스크를 초기화하고 새 볼륨을 만듭니다. 포맷 프로세스 동안 64KB의 블록 크기를 선택합니다.
     ![디스크 관리](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. **디스크 관리**에서 **디스크**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO** 탭을 클릭합니다.
-    ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO** 탭을 클릭합니다. ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. **DSM 이름** 섹션에서 **세부 정보**를 클릭하고 해당 매개 변수가 기본 매개 변수로 설정되었는지 확인합니다. 기본 매개 변수는 다음과 같습니다.
     
     * 경로 확인 기간 = 30

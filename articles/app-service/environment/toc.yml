@@ -34,6 +34,8 @@
   items:
     - name: ASE 사용
       href: using-an-ase.md
+    - name: Application Gateway와 통합
+      href: integrate-with-application-gateway.md
     - name: 템플릿에서 ASE 만들기
       href: create-from-template.md
 - name: 참조

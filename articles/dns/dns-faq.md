@@ -11,15 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f365574a12047f6952209dc3883af32a2e9ecd1e
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
 ## <a name="about-azure-dns"></a>Azure DNS 정보
@@ -40,7 +39,7 @@ Azure DNS 요금 청구 모델은 Azure DNS에 호스트되는 DNS 영역의 수
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Azure DNS에 대한 SLA는 무엇인가요?
 
-유효한 DNS 요청에 대해 99.99% 이상의 시간 동안 하나 이상의 Azure DNS 이름 서버에서 응답을 제공할 것을 보장합니다.
+Microsoft는 유효한 DNS 요청에 대해 99.99% 이상의 시간 동안 하나 이상의 Azure DNS 이름 서버에서 응답을 제공할 것을 보장합니다.
 
 자세한 내용은 [Azure DNS SLA 페이지](https://azure.microsoft.com/support/legal/sla/dns)를 참조하세요.
 
@@ -58,7 +57,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 
 Azure DNS에서 DNS 영역을 호스트하기 위해 도메인을 구입할 필요는 없습니다. 도메인 이름을 소유하지 않고도 언제든지 DNS 영역을 만들 수 있습니다. 이 영역에 대한 DNS 쿼리는 해당 영역에 할당된 Azure DNS 이름 서버로 전송되는 경우에만 확인됩니다.
 
-DNS 영역을 전역 DNS 계층 구조에 연결하려면 도메인 이름을 구입해야 합니다. 이 경우 전 세계 어디에서든지 DNS 쿼리를 수행하여 DNS 영역을 찾고 DNS 레코드 응답을 받을 수 있습니다.
+DNS 영역을 전역 DNS 계층 구조에 연결하려면 도메인 이름을 구입해야 합니다. 이 경우 전 세계 어디에서든지 DNS 쿼리를 수행하여 DNS 영역을 찾고 DNS 레코드로 응답을 받을 수 있습니다.
 
 ## <a name="azure-dns-features"></a>Azure DNS 기능
 
@@ -75,12 +74,9 @@ Azure DNS는 지정된 DNS 레코드에 대한 각 DNS 쿼리가 항상 동일�
 이 기능은 백로그에서 추적하는 기능입니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar)할 수 있습니다.
 
 ### <a name="does-azure-dns-support-private-domains"></a>Azure DNS에서는 '개인' 도메인을 지원하나요?
+'개인' 도메인에 대한 지원은 사설 DNS 영역을 사용하여 구현됩니다.  이 기능은 현재 미리 보기로 제공됩니다.  사설 DNS 영역은 인터넷 연결 Azure DNS 영역과 동일한 도구를 사용하여 관리되지만 지정된 가상 네트워크 내에서만 확인할 수 있습니다.  자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
 
-아니요. Azure DNS는 현재 인터넷 연결 도메인만 지원합니다.
-
-이 기능은 백로그에서 추적하는 기능입니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int)할 수 있습니다.
-
-Azure의 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
+Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS에서는 DNSSEC를 지원하나요?
 
@@ -154,8 +150,9 @@ IDN(국제 도메인 이름)은 '[punycode](https://en.wikipedia.org/wiki/Punyco
 
 [Azure DNS에 대해 자세히 알아보기](dns-overview.md)
 <br>
+[개인 도메인에 Azure DNS 사용에 대해 자세히 알아보기](private-dns-overview.md)
+<br>
 [DNS 영역 및 레코드에 대해 자세히 알아보기](dns-zones-records.md)
 <br>
 [Azure DNS 시작](dns-getstarted-portal.md)
-
 

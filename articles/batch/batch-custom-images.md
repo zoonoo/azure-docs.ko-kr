@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기
 
@@ -29,7 +29,7 @@ Azure Batch에서 가상 컴퓨터 풀을 만들 경우 풀에서 각 계산 노
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **사용자 구독 풀 할당 모드로 만든 Batch 계정.** 가상 컴퓨터 풀을 프로비전하는 데 사용자 지정 이미지를 사용하려면 사용자 구독 [풀 할당 모드](batch-api-basics.md#pool-allocation-mode)로 Batch 계정을 만듭니다. 이 모드를 사용하면 해당 계정이 있는 구독에 Batch 풀이 할당됩니다. Batch 계정을 만들 때 풀 할당 모드를 설정하는 방법에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [계정](batch-api-basics.md#account) 섹션을 참조하세요.
+- **사용자 구독 풀 할당 모드로 만든 Batch 계정.** 이 모드를 사용하면 해당 계정이 있는 구독에 Batch 풀이 할당됩니다. 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [계정](batch-api-basics.md#account) 섹션을 참조하세요.
 
 - **Azure Storage 계정.** 사용자 지정 이미지를 사용하여 가상 컴퓨터 풀을 만들려면 동일한 구독 및 지역에 표준의 범용 Azure Storage 계정이 있어야 합니다. Azure VM에서 사용자 지정 이미지를 만드는 경우 VM의 OS 디스크가 상주하는 저장소 계정에 이미지를 복사하고 별도의 저장소 계정을 만들 필요가 없습니다. 
     

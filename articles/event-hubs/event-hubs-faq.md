@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: sethm;shvija
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
 ## <a name="general"></a>일반
@@ -44,7 +42,7 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 * 초당 최대 2MB의 송신 이벤트(이벤트 허브에서 사용된 이벤트)
 * 최대 84GB의 이벤트 저장소(기본 24시간 보존 기간에 대해 충분).
 
-이벤트 허브 처리량 단위는 주어진 시간 동안 선택된 단위의 최대 수에 따라 시간당 청구됩니다.
+이벤트 허브 처리량 단위는 주어진 시간 동안 선택된 단위의 최대 수에 따라 시간당 청구됩니다. 사용량이 증가하면 자동으로 [처리량 단위 수를 증가](event-hubs-auto-inflate.md)시킬 수 있습니다.
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>이벤트 허브 처리량 단위 제한을 적용하는 방법
 전체 수신 처리량 또는 네임스페이스 내 모든 이벤트 허브에서의 전체 수신 이벤트 비율이 집계 처리량 단위 허용 한도를 초과하면, 발신자가 제한되고 수신 할당량을 초과했음을 나타내는 오류가 표시됩니다.
@@ -53,6 +51,8 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>선택할 수 있는 처리량 단위 수에 제한이 있습니까?
 네임스페이스 당 20개의 처리량 단위로 기본 할당량이 적용됩니다. 지원 티켓을 제출하여 더 많은 처리량 단위 할당량을 요청할 수 있습니다. 20개의 처리량 단위 제한을 초과하면 번들은 20-100 처리량 단위에서 사용할 수 있습니다. 20개 이상의 처리량 단위를 사용하면 지원 티켓을 제출하지 않고 처리량 단위 수를 변경하는 기능을 제거합니다.
+
+[자동 확장](event-hubs-auto-inflate.md) 기능을 사용하여 사용량이 증가하면 자동으로 처리량 단위 수를 증가시킬 수 있습니다.
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>단일 AMQP 연결을 사용하여 여러 이벤트 허브에서 보내고 받을 수 있나요?
 예, 모든 이벤트 허브가 동일한 네임스페이스에 있는 경우 가능합니다.
@@ -120,4 +120,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
-
+* [Event Hubs 자동 확장](event-hubs-auto-inflate.md)

@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
 이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 클라이언트 라이브러리를 사용하여 저장소 계정에 이미지를 업로드하는 웹 응용 프로그램을 배포하는 방법을 보여 줍니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 생성됩니다.
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westcentralus
 이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다. 
 
 > [!IMPORTANT] 
-> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 현재 미국 중서부 및 미국 서부의 Blob Storage 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.   
+> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 현재 West Central US 및 West US 2의 Blob Storage 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.   
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자는 Blob Storage 계정에 대한 전역적으로 고유한 이름으로 바꿉니다.  
 
@@ -226,4 +224,3 @@ CDN을 사용하도록 설정하여 Azure Storage 계정의 콘텐츠를 캐시�
 
 > [!div class="nextstepaction"]
 > [Event Grid를 사용하여 업로드된 이미지의 크기를 조정하도록 Azure 함수 트리거](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

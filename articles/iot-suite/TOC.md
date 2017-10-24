@@ -37,7 +37,7 @@
 ## [원격 모니터링 솔루션의 장치 정보](iot-suite-remote-monitoring-device-info.md)
 ## [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 ## [연결된 공장 사용자 지정](iot-suite-connected-factory-customize.md)
-
+## [연결된 팩터리에 OPC 게시자 사용](iot-suite-connected-factory-publisher.md)
 # 참조
 ## [보안 아키텍처](iot-security-architecture.md)
 ## [보안 모범 사례](iot-security-best-practices.md)

@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: bwren
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Log Analytics 데이터를 Power BI로 내보내기
 
 >[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Log Analytics 데이터를 Power BI로 내보내는 이 프로세스가 더 이상 작동하지 않습니다.  그러면 업그레이드 전에 만든 모든 기존 일정을 사용할 수 없게 됩니다. 
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Log Analytics 데이터를 Power BI로 내보내는 이 프로세스가 더 이상 작동하지 않습니다.  그러면 업그레이드 전에 만든 모든 기존 일정을 사용할 수 없게 됩니다. 미리 보기 기능의 설정에서 Power BI 내보내기 기능을 켜는 기능이 더 이상 표시되지 않습니다. 이 기능은 업그레이드된 작업 영역에서 완전히 릴리스되었기 때문입니다. 
 >
 > 업그레이드 후 Azure Log Analytics는 Application Insights와 같은 플랫폼을 사용하며, [Application Insights 쿼리를 Power BI로 내보내는 프로세스](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)와 같은 프로세스를 사용하여 Log Analytics 쿼리를 Power BI로 내보냅니다.  해당 문서의 설명에 따라 분석 콘솔을 사용하여 쿼리를 내보낼 수도 있고, 로그 검색 포털의 화면 위쪽에 있는 **Power BI** 단추를 선택할 수도 있습니다.
+>
+> 업그레이드된 작업 영역에서 Power BI 내보내기 기능을 사용하려면 Azure의 작업 영역 리소스에 액세스해야 합니다. 액세스 권한이 없는 경우 액세스 권한이 없는 Power BI 데스크톱에 쿼리를 가져오면 오류 메시지가 표시됩니다.
 
 
 
@@ -126,4 +127,3 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 ## <a name="next-steps"></a>다음 단계
 * Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
-

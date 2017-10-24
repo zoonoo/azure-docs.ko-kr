@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 7118ec3f5aeae40fa7ecc592309a28b585c651a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
@@ -29,25 +28,23 @@ ms.lasthandoff: 09/26/2017
 |명령|설명|
 | --- | --- |
 |    report| 전달된 연속 토큰 또는 전달된 시간 범위를 기반으로 Chaos 보고서의 다음 세그먼트를 가져옵니다.|
-|    시작 | Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 지정된 값으로 Chaos 실행을 시작합니다.|
+|    start | Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 지정된 값으로 Chaos 실행을 시작합니다.|
 |    stop(정지)  | Chaos가 이미 실행 중이라면 클러스트에 있는 Chaos를 중단하고, 그렇지 않은 경우 아무 것도 하지 않습니다.|
 
 
 ## <a name="sfctl-chaos-report"></a>sfctl chaos report
 전달된 연속 토큰 또는 전달된 시간 범위를 기반으로 Chaos 보고서의 다음 세그먼트를 가져옵니다.
 
-Chaos 보고서의 다음 세그먼트를 가져오도록 ContinuationToken을 지정하거나 또는 StartTimeUtc 및 EndTimeUtc를 통해 시간 범위를 지정할 수 있지만 같은 호출 내에서 ContinuationToken과 시간 범위를 모두 지정할 수는 없습니다. Chaos 이벤트가 100개가 넘는 경우 Chaos 보고서는 Chaos 이벤트가 100개를 넘지 않는 세그먼트로 반환됩니다. 
+비정상 상황 보고서의 다음 세그먼트를 가져오도록 ContinuationToken을 지정하거나, StartTimeUtc 및 EndTimeUtc를 통해 시간 범위를 지정할 수 있지만 ContinuationToken과 시간 범위를 같은 호출 내에서 지정할 수는 없습니다. 100개가 넘는 비정상 상황 이벤트가 있는 경우 비정상 상황 보고서는 세그먼트에 100개 이하의 비정상 상황 이벤트가 포함되어 있는 세그먼트로 반환됩니다. 
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
 | --continuation-token| 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다.|
-| --end-time-utc   | 시간 범위의 종료 시간을 나타내는 틱 수입니다.
-                          Chaos report is to be generated. Please consult [DateTime.Ticks
-                          Property](https://msdn.microsoft.com/en-
-                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
-| --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 틱 수입니다. 틱에 관한 자세한 내용은 [DateTime.Ticks Property](https://msdn.microsoft.com/en- us/library/system.datetime.ticks%28v=vs.110%29)를 참조하세요.| | --timeout -t     | 서버 시간 제한(초).  기본값: 60.|
+| --end-time-utc   | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 틱 수입니다. 틱에 대한 자세한 내용은 [DateTime.Ticks 속성](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29)을 참조하세요.|
+| --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 틱 수입니다. 틱에 대한 자세한 내용은 [DateTime.Ticks 속성](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29)을 참조하세요.|
+| --timeout -t     | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 

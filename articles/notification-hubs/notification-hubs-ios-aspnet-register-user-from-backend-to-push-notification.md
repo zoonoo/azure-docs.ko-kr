@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/11/2017
    > 
 8. PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
    
-   * 응용 프로그램 (void):(UIApplication *) 응용 프로그램 didReceiveRemoteNotification:(NSDictionary *) 사용자 정보 {NSLog (@"% @", 사용자 정보);   UIAlertView * 경고 = [[UIAlertView alloc] initWithTitle:@"Notification" 메시지: [사용자 정보 objectForKey:@"inAppMessage"] 대리자: nil cancelButtonTitle: @"확인" otherButtonTitles:nil, nil];   [경고 표시]; }
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
    
    이 메서드는 앱이 실행되고 있는 동안 알림을 받으면 UI에 경고를 표시합니다.
 9. PushToUserViewController.m 파일을 열고 다음 구현에 키보드를 반환합니다.

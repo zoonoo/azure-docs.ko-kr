@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea38d3b47ff4b50446f4ffdc3dc544fdcf938e7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
-이 문서는 Windows와 Linux에서의 HDInsight 차이점과 기존 작업에서 Linux 기반 클러스터로 마이그레이션하는 방법에 대한 세부 정보를 제공합니다.
+이 문서에서는 Windows와 Linux의 HDInsight가 어떻게 다른지 자세히 설명합니다. 기존 워크로드를 Linux 기반 클러스터로 마이그레이션하는 방법에 대해서도 설명합니다.
 
-Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방법을 제공하지만 Linux 기반 클러스터로 마이그레이션해야 합니다. 예를 들어, 솔루션에 필요한 Linux 기반 도구 및 기술을 활요하는 것입니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 또한 많은 책, 동영상 및 기타 교육 자료에서 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
+Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방법을 제공하지만 Linux 기반 클러스터로 마이그레이션해야 합니다. 예를 들어, 솔루션에 필요한 Linux 기반 도구 및 기술을 활요하는 것입니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 많은 책, 동영상 및 기타 교육 자료에서는 사용자가 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
 
 > [!NOTE]
 > HDInsight 클러스터는 클러스터의 노드에 대한 운영 체제로 Ubuntu LTS(장기 지원)를 사용합니다. HDInsight와 함께 사용할 수 있는 Ubuntu의 버전 및 기타 구성 요소 버전 정보는 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요.
@@ -37,7 +36,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 
 ![마이그레이션 워크플로 다이어그램](./media/hdinsight-migrate-from-windows-to-linux/workflow.png)
 
-1. 기존의 워크플로, 작업 등을 Linux 기반 클러스터로 마이그레이션할 때 필요한 변경 사항을 파악하려면 이 문서의 각 섹션을 읽어보세요.
+1. 마이그레이션할 때 필요할 수 있는 변경 내용을 이해하려면 이 문서의 각 섹션을 읽어보세요.
 
 2. 테스트/품질 보증 환경으로 Linux 기반 클러스터를 만듭니다. Linux 기반 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -76,9 +75,9 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 
 2. 새 테스트 환경을 만들려면 HDInsight에서 Linux 기반 클러스터 만들기 문서에 나와 있는 단계를 따릅니다. 클러스터를 만들기 전에 **옵션 구성**을 선택합니다.
 
-3. 옵션 구성 블레이드에서 **연결된 저장소 계정**을 선택합니다.
+3. 선택적 구성 섹션에서 **연결된 저장소 계정**을 선택합니다.
 
-4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 블레이드에서 **선택**을 클릭합니다. 마지막으로 클러스터를 만듭니다.
+4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 섹션에서 **선택**을 클릭합니다. 마지막으로 클러스터를 만듭니다.
 
 5. 클러스터가 만들어지면 **SSH**를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -114,10 +113,10 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 | **PowerShell** (서버 쪽 스크립트, 클러스터 생성 중 사용한 스크립트 동작 포함) |Bash 스크립트로 다시 작성합니다. 스크립트 동작의 경우 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요. |
 | **Azure CLI** (서버 쪽 스크립트) |Linux에서 Azure CLI를 사용할 수 있지만, HDInsight 클러스터 헤드 노드에 사전에 설치되어 있지는 않습니다. Azure CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요. |
 | **.NET 구성 요소** |.NET은 Linux 기반 HDInsight 클러스터에서 [Mono](https://mono-project.com)를 통해 완전히 지원되지 않습니다. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
-| **Win32 구성 요소 또는 기타 Windows 전용 기술** |참고 자료는 구성 요소 또는 기술에 따라 다릅니다. Linux와 호환되는 버전을 찾을 수도 있고 대체 솔루션을 찾거나 이 구성 요소를 다시 작성해야 할 수도 있습니다. |
+| **Win32 구성 요소 또는 기타 Windows 전용 기술** |참고 자료는 구성 요소 또는 기술에 따라 다릅니다. Linux와 호환되는 버전을 찾을 수도 있습니다. 찾지 못한 경우 대체 솔루션을 찾거나 이 구성 요소를 다시 작성해야 합니다. |
 
 > [!IMPORTANT]
-> HDInsight 관리 SDK는 Mono와 완전히 호환되지 않습니다. 이때에는 HDInsight 클러스터에 배포된 솔루션의 일부로 사용하지 않아야 합니다.
+> HDInsight 관리 SDK는 Mono와 완전히 호환되지 않습니다. HDInsight 클러스터에 배포되는 솔루션의 일부로 사용하지 마세요.
 
 ## <a name="cluster-creation"></a>클러스터 만들기
 
@@ -135,7 +134,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스�
 
 ### <a name="cluster-customization"></a>클러스터 사용자 지정
 
-**스크립트 동작** 은 Bash 스크립트에서 작성해야 합니다. 스크립트 동작은 클러스터 생성 중 사용할 수 있지만 Linux 기반 클러스터의 경우 클러스터가 작업을 실행한 후 사용자 지정을 수행할 때에도 사용할 수 있습니다. 자세한 내용은 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+**스크립트 동작** 은 Bash 스크립트에서 작성해야 합니다. Linux 기반 클러스터는 클러스터를 만드는 동안 또는 후에 스크립트 작업을 사용할 수 있습니다. 자세한 내용은 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 다른 사용자 지정 기능은 **부트스트랩**입니다. Windows 클러스터의 경우 이 기능을 사용하면 Hive와 함께 사용하기 위한 추가 라이브러리 위치를 지정할 수 있습니다. 클러스터를 생성한 다음 이러한 라이브러리는 `ADD JAR`를 사용할 필요 없이 자동으로 Hive 쿼리와 함께 사용할 수 있습니다.
 
@@ -145,7 +144,7 @@ Linux 기반 클러스터용 부트스트랩은 이 기능을 제공하지 않�
 
 Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에서만 작동하는 반면 Linux 기반 HDInsight 클러스터는 리소스 관리자 가상 네트워크가 필요합니다. Linux-HDInsight 클러스터에서 연결해야 하는 Classic Virtual Network에 리소스가 있는 경우 [Resource Manager Virtual Network에 Classic Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
 
-HDInsight에서 Azure 가상 네트워크를 사용하기 위한 구성 요구 사항에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+구성 요구 사항에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
 
 ## <a name="management-and-monitoring"></a>관리 및 모니터링
 
@@ -164,8 +163,6 @@ Ambari에는 클러스터의 잠재적인 문제를 알려주는 경고 시스�
 > Ambari 경고는 문제가 *있을 수 있다*라는 의미이며, 문제가 *있다*는 것은 아닙니다. 예를 들어 평소처럼 액세스할 수 있는데도 HiveServer2에 액세스할 수 없다는 경고가 나타날 수 있습니다.
 >
 > 많은 경고는 서비스에서 간격 기반 쿼리로 구현되므로 특정 시간 프레임 내에서 응답을 기대합니다. 그러므로 경고가 발생했다고 해서 반드시 해당 서비스가 다운되었다는 것이 아니라 예상된 시간 프레임 내에 결과를 반환하지 않았다는 것을 의미합니다.
-
-사용자는 조치를 취하기 전에 경고가 오랜 시간 동안 발생했는지 또는 이전에 보고되었던 사용자 문제를 반영하는지 여부를 평가해야 합니다.
 
 ## <a name="file-system-locations"></a>파일 시스템 위치
 
@@ -230,7 +227,7 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 
 Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 체제의 기본 셸을 사용하여 명령줄 명령을 실행합니다. Windows 셸에 의존하는 Oozie 워크플로가 있는 경우 Linux 셸 환경(Bash)에 의존하도록 워크플로를 다시 작성해야 합니다. Oozie와 함께 셸 작업을 사용하는 방법에 대한 자세한 내용은 [Oozie 셸 작업 확장](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)을 참조하세요.
 
-셸 작업을 통해 호출된 C# 응용 프로그램에 의존하는 Oozie 워크플로가 있는 경우 Linux 환경에서 이러한 응용 프로그램을 검증해야 합니다. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
+C# 응용 프로그램을 사용하는 워크플로가 있는 경우 Linux 환경에서 해당 응용 프로그램의 유효성을 검사하세요. 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
 
 ## <a name="storm"></a>Storm
 
@@ -238,7 +235,7 @@ Oozie 워크플로에서는 셸 작업이 가능합니다. 셸 작업은 운영 
 | --- | --- |
 | Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) 를 참조하세요. |
 | Storm UI |Storm UI는 https://CLUSTERNAME.azurehdinsight.net/stormui에서 사용할 수 있습니다. |
-| C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 2016년 10월 28일 이후 생성된 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. |
+| C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. 2016년 10월 28일 이후에 생성된 클러스터에만 사용할 수 있습니다. |
 
 ## <a name="hbase"></a>HBase
 
@@ -261,11 +258,11 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 ### <a name="line-endings"></a>줄 끝
 
-일반적으로 Windows 기반 시스템에서는 줄 끝으로 CRLF를 사용하며, Linux 기반 시스템에서는 LF를 사용합니다. CRLF 줄 끝을 사용하여 데이터를 생성 또는 예상하는 경우, LF 줄 끝을 사용하여 작업하려면 공급자 또는 소비자를 수정해야 할 수 있습니다.
+일반적으로 Windows 기반 시스템에서는 줄 끝으로 CRLF를 사용하며, Linux 기반 시스템에서는 LF를 사용합니다. LF와 함께 작동하도록 기존 데이터 생산자와 소비자를 수정해야 할 수도 있습니다.
 
-예를 들어 Windows 기반 클러스터에서 Azure PowerShell을 사용하여 HDInsight를 쿼리하면 CRLF를 사용하여 데이터를 반환합니다. Linux 기반 클러스터의 동일한 쿼리는 LF를 반환합니다. Linux 기반 클러스터로 마이그레이션하기 전에 줄 끝이 솔루션에 문제를 일으키는지 테스트해야 합니다.
+예를 들어 Windows 기반 클러스터에서 Azure PowerShell을 사용하여 HDInsight를 쿼리하면 CRLF를 사용하여 데이터를 반환합니다. Linux 기반 클러스터의 동일한 쿼리는 LF를 반환합니다. Linux 기반 클러스터로 마이그레이션하기 전에 줄 끝이 솔루션에 문제를 일으키는지 테스트합니다.
 
-Linux 클러스터 노드에서 직접 실행되는 스크립트가 있는 경우에는 항상 LF를 줄 끝으로 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 클러스터에서 스크립트를 실행할 때 오류가 표시될 수 있습니다.
+항상 LF를 클러스터 노드에서 실행되는 스크립트의 끝 줄로 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 클러스터에서 스크립트를 실행할 때 오류가 표시될 수 있습니다.
 
 포함된 CR 문자가 있는 문자열이 스크립트에 없는 경우 다음 방법 중 하나를 사용하여 줄 끝을 대량 변경할 수 있습니다.
 
@@ -290,4 +287,3 @@ Linux 클러스터 노드에서 직접 실행되는 스크립트가 있는 경�
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-

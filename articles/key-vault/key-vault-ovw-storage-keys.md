@@ -9,12 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/14/2017
+ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 
@@ -139,10 +138,15 @@ Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0
 
 ### <a name="set-permissions"></a>권한 설정
 
-저장소 권한을 *모두*로 설정했는지 확인합니다.
+저장소 권한을 *모두*로 설정했는지 확인합니다. 다음 명령을 사용하여 yourUserPrincipalId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+Get-AzureRmADUser -SearchString "your name"
+```
+이제 자신의 이름을 검색하고 관련된 ObjectId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>액세스 허용
@@ -238,4 +242,3 @@ OBO 토큰은 PowerShell 또는 CLI의 네이티브 클라이언트 응용 프�
 
 - [키, 비밀 및 인증서에 대한 정보](https://docs.microsoft.com/rest/api/keyvault/)
 - [Key Vault 팀 블로그](https://blogs.technet.microsoft.com/kv/)
-

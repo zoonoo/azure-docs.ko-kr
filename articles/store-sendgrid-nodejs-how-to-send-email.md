@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -66,7 +66,7 @@ SendGrid 모듈을 사용하여 전자 메일 메시지를 만들려면 먼저 E
 
 텍스트 속성과 html 속성을 모두 설정하면 HTML 메시지를 지원할 수 없는 클라이언트에서 텍스트 콘텐츠로 안정적으로 대체됩니다.
 
-전자 메일 함수에서 지 원하는 모든 속성에 대 한 자세한 내용은 참조 하십시오. [sendgrid nodejs][sendgrid-nodejs]합니다.
+Email 함수에서 지원하는 모든 속성에 대한 자세한 내용은 [sendgrid-nodejs][sendgrid-nodejs]를 참조하세요.
 
 ## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
 Email 함수를 사용하여 전자 메일 메시지를 만든 후에는 SendGrid에서 제공하는 Web API를 사용하여 해당 메시지를 보낼 수 있습니다. 
@@ -161,7 +161,7 @@ SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니�
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
-사용 하 여 일부 전자 메일 속성을 덮어쓸 수  **설정*속성** *를 사용 하 여 추가 또는  **추가*속성** *입니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
+일부 전자 메일 속성을 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
 
     email.addTo('jeff@contoso.com');
 
@@ -170,7 +170,7 @@ SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니�
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-자세한 내용은 참조 [sendgrid nodejs][sendgrid-nodejs]합니다.
+자세한 내용은 [sendgrid-nodejs][sendgrid-nodejs]를 참조하세요.
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
 SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API documentation](영문)를 참조하십시오.
@@ -178,7 +178,7 @@ SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하�
 ## <a name="next-steps"></a>다음 단계
 SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
-* SendGrid Node.js 모듈 리포지토리: [sendgrid nodejs][sendgrid-nodejs]
+* SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 설명서: <https://sendgrid.com/docs>
 * Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 

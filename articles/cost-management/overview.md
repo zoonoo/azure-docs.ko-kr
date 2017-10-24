@@ -5,19 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2017
+ms.date: 09/29/2017
 ms.topic: overview
 ms.service: Cost Management
 manager: carmonm
 ms.custom: mvc
+ms.openlocfilehash: 9edcfa20b25d7048c2066fba86203a29ba1f84fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d68e11757717ed23e2413c683d6e82c44c719010
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
 Cloudyn에서 개발한 Azure Cost Management를 사용하면 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. Cost Management를 통해 관리하고 조정할 수 있는 사용률이 낮은 리소스를 식별하여 클라우드 소비를 최적화할 수 있습니다.
@@ -39,11 +37,11 @@ Cloudyn에서 개발한 Azure Cost Management를 사용하면 Azure 리소스와
 
 액세스 제어를 통해 사용자 및 팀이 필요한 Cost Management 데이터에만 액세스하도록 하여 비용을 관리할 수 있습니다. 엔터티 구조, 사용자 관리 및 받는 사람 목록을 포함한 예약된 보고서를 사용하여 액세스를 할당합니다.
 
-경고는 비정상적인 지출 또는 과도한 지출이 발생할 때 자동으로 알려주어 비용을 관리하는 데 도움이 됩니다. 또한 경고는 이해 관계자에게 비정상 지출 및 과다 지출에 대한 위험을 자동으로 알릴 수 있습니다. 다양한 보고서는 예산 및 비용 임계값에 따라 경고를 지원합니다.
+경고는 비정상적인 지출 또는 과도한 지출이 발생할 때 자동으로 알려주어 비용을 관리하는 데 도움이 됩니다. 또한 경고는 이해 관계자에게 비정상 지출 및 과다 지출에 대한 위험을 자동으로 알릴 수 있습니다. 다양한 보고서는 예산 및 비용 임계값에 따라 경고를 지원합니다. 단, 경고는 현재 CSP 파트너 계정 또는 구독에 지원되지 않습니다.
 
 ## <a name="improve-efficiency"></a>효율성 향상
 
-최적의 VM 사용을 확인하고 유휴 VM을 식별하거나 유휴 VM 및 Cost Management와 연결되지 않은 디스크를 제거할 수 있습니다. 크기 조정 최적화 및 비효율성 보고서의 정보를 사용하여 유휴 VM의 크기를 줄이거나 제거하도록 계획할 수 있습니다.
+최적의 VM 사용을 확인하고 유휴 VM을 식별하거나 유휴 VM 및 Cost Management와 연결되지 않은 디스크를 제거할 수 있습니다. 크기 조정 최적화 및 비효율성 보고서의 정보를 사용하여 유휴 VM의 크기를 줄이거나 제거하도록 계획할 수 있습니다. 단, 최적화 보고서는 현재 CSP 파트너 계정 또는 구독에 지원되지 않습니다.
 
 ![크기 조정 권장 사항](.\media\overview\sizing.png)
 
@@ -54,4 +52,3 @@ AWS 예약 인스턴스를 프로비전한 경우 구매 권장 사항을 보고
 이제 Cost Management에 대해 알아보았으므로 다음 단계는 클라우드 환경을 등록하고 데이터를 탐색하기 시작하는 것입니다.
 
 - [개별 Azure 구독 등록](quick-register-azure-sub.md)
-

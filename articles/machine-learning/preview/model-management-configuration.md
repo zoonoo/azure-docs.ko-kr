@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -39,7 +38,7 @@ Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -] 
 
 ### <a name="installing-or-updating-on-windows"></a>Windows에서 설치(또는 업데이트)
 
-Https://www.python.org/에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
+https://www.python.org/ 에서 Python을 설치합니다. pip를 설치하도록 선택했는지 확인합니다.
 
 관리자 권한으로 실행을 사용하여 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
@@ -122,7 +121,7 @@ az ml env set -n [environment name] -g [resource group]
 웹 서비스를 프로덕션 환경에 배포하려면 먼저 다음 명령을 사용하여 환경을 설치합니다.
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 클러스터 환경 설치 명령은 구독에 다음 리소스를 만듭니다.
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > 환경이 생성된 후에는 이후 배포에서 위의 set 명령을 사용하여 다시 사용하면 됩니다.
 >
+
+>[!NOTE] 
+>HTTPS 끝점을 만들려면 az ml env setup에서 --cert-name 및 --cert-pem 옵션을 사용하여 클러스터를 만들 때 SSL 인증서를 지정합니다. 이렇게 하면 제공된 인증서를 사용하여 보호된 https에서 요청을 처리하도록 클러스터가 설정됩니다. 설정이 완료되면 클러스터의 FQDN을 가리키는 CNAME DNS 레코드를 만듭니다.
 
 ### <a name="create-an-account"></a>계정 만들기
 계정은 모델 배포를 위해 반드시 필요합니다. 이 작업은 계정당 한 번만 수행하면 되며, 여러 배포에서 동일한 계정을 다시 사용할 수 있습니다.
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>다음 단계
 갤러리의 많은 샘플 중 하나를 수행합니다.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
+ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 192680cc3faee86c0a45bc9abe4b6579ec56f324
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
 Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장 및 액세스하기 위한 여러 가지 기능을 제공합니다. 이 문서에서는 Azure 파일, Blob 및 디스크에 대해 설명하고 이러한 기능 중에서 선택하는 데 도움이 되도록 작성되었습니다.
@@ -70,7 +68,7 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |인증|기본 제공|net use로 설정|  
 |정리|자동|설명서|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
-|최대 크기|1TB 디스크|공유 내 5TB 파일 공유 및 1TB 파일|  
+|최대 크기|4TB 디스크|공유 내 5TB 파일 공유 및 1TB 파일|  
 |최대 8KB IOps|500IOps|1000IOps|  
 |처리량|디스크당 최대 60MB/s|파일 공유당 최대 60MB/s|  
 
@@ -81,4 +79,3 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 일부 SMB 기능은 클라우드에 적용되지 않습니다. 자세한 내용은 [Azure File 서비스에서 지원되지 않는 기능](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)을 참조하세요.
   
 디스크에 대한 자세한 내용 [디스크 및 이미지 관리](../../virtual-machines/windows/about-disks-and-vhds.md) 및 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/classic/attach-disk.md)을 참조하세요.
-

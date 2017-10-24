@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: fb65e3c34d2b2a14370792d8506c13c8c5fb522e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: e2f26c1abe09feff77e1e2633d8bfcf4ca527aee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Linux에서 Azure IoT Edge 아키텍처 살펴보기
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/23/2017
 
 **build.sh** 스크립트는 **iot-edge** 리포지토리의 로컬 복사본에 있는 **build** 폴더에 해당 출력을 생성합니다. 이 출력에는 이 샘플에서 사용된 두 개의 IoT Edge 모듈이 포함됩니다.
 
-빌드 스크립트는 **liblogger.so**를 **build/modules/logger/** 폴더에 배치하고 **libhello\_world.so**를 **build/modules/hello_world/** 폴더에 배치합니다. 다음 예제 JSON 설정 파일에 표시된 대로 **module path** 값에 이러한 경로를 사용합니다.
+빌드 스크립트는 **liblogger.so**를 **build/modules/logger/** 폴더에 배치하고 **libhello\_world.so**를 **build/modules/hello_world/** 폴더에 배치합니다. 예제 JSON 설정 파일에 표시된 대로 **module path** 값에 이러한 경로를 사용합니다.
 
 hello\_world\_sample 프로세스는 JSON 구성 파일에 대한 경로를 명령줄 인수 형태로 사용합니다. 다음 예제 JSON 파일은 **samples/hello\_world/src/hello\_world\_lin.json**의 SDK 리포지토리에서 제공됩니다. 이 구성 파일은 빌드 스크립트를 수정하여 IoT Edge 모듈이나 샘플 실행 파일을 기본 위치가 아닌 위치에 배치한 경우 외에는 그대로 작동합니다.
 
@@ -79,9 +78,8 @@ hello\_world\_sample 프로세스는 JSON 구성 파일에 대한 경로를 명�
 1. 다음 명령 실행:
 
     ```sh
-    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`
+    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json
     ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
-
 

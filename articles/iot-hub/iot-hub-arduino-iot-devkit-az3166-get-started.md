@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
+ms.openlocfilehash: e8abae4d523ad537563f2c2964a3585b68fda7c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 253a2d34ea5b3f4f8253900be27c54fe5ca1dacf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -102,6 +101,9 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 ### <a name="upgrade-to-the-latest-firmware"></a>최신 펌웨어로 업그레이드
 
+> [!NOTE] 
+> v1.1부터 DevKit은 부팅 로더에서 ST-SAFE를 활성화합니다. v1.1에서 실행 중인 경우 제대로 작동하려면 펌웨어를 업그레이드해야 합니다.
+
 펌웨어를 업그레이드해야 하는 경우 화면에는 최신 펌웨어 버전이 표시됩니다. 업그레이드하려면 [펌웨어 업그레이드](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) 가이드를 따릅니다.
 
 ![최신 펌웨어 버전 표시](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
@@ -119,7 +121,6 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 이제 IoT 응용 프로그램을 빌드하도록 개발 환경(도구 및 패키지)을 설정할 시간입니다. 운영 체제에 따라 Windows 또는 macOS 버전을 선택할 수 있습니다.
 
-
 ### <a name="windows"></a>Windows
 
 설치 패키지를 사용하여 개발 환경을 준비하는 것이 좋습니다. 문제가 발생하는 경우 [수동 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/)를 따라 수행할 수 있습니다.
@@ -129,8 +130,7 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 다운로드한 .zip 파일은 DevKit 개발에 필요한 모든 필요한 도구 및 패키지를 포함합니다.
 
 > [!div class="button"]
-[다운로드](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
-
+[다운로드](https://aka.ms/devkit/prod/installpackage/latest)
 
 .zip 파일은 다음 도구 및 패키지를 포함합니다. 이미 일부 구성 요소를 설치한 경우 스크립트에서 이를 검색하고 건너뜁니다.
 
@@ -144,7 +144,7 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 #### <a name="run-the-installation-script"></a>설치 스크립트 실행
 
-Windows 파일 탐색기에서 .zip 파일을 찾고 압축을 풉니다. Install.cmd를 찾아 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+Windows 파일 탐색기에서 .zip 파일을 찾고 압축을 풉니다. `install.cmd`를 찾아 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
 ![파일 탐색기](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
 
@@ -161,8 +161,7 @@ Arduino 확장에 대한 VS Code는 Arduino IDE에 의존합니다. Arduino IDE�
 인터넷 속도에 따라 설치에는 약 10분이 걸립니다. 설치가 완료되면 바탕 화면에 Visual Studio Code 및 Arduino IDE 바로 가기가 표시됩니다.
 
 > [!NOTE] 
-> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
-
+> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. 해결하려면 VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
 
 ### <a name="macos-preview"></a>macOS(미리 보기)
 
@@ -249,20 +248,20 @@ DevKit이 연결되어 있지 않은지 확인합니다. VS Code를 먼저 시�
 ![소개 페이지](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
 
 > [!NOTE] 
-> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
+> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류 메시지가 나타납니다. VS Code를 닫고 Arduino IDE를 다시 한 번 시작하면 VS Code가 Arduino IDE 경로를 올바르게 찾습니다.
 
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-**Arduino 예제** 탭에서 **MXCHIP AZ3166에 대한 예제** > **AzureIoT**로 이동하고 **GetStarted**를 선택합니다.
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **GetStarted**를 선택합니다. 그러면 프로젝트 폴더가 있는 새 VSCode 창이 열립니다.
 
 ![Arduino 예제 탭](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
 
-창을 닫은 경우 다시 열면 됩니다. Cmd+Shift+P(macOS: Cmd+Shift+P)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
-솔루션 창에서 `task cloud-provision`를 입력하여 Ctrl+P(macOS: Cmd+P)를 통해 작업을 실행합니다.
+솔루션 창에서 `task cloud-provision`를 입력하여 `Ctrl+P`(macOS: `Cmd+P`)를 통해 작업을 실행합니다.
 
 VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프로비전하는 과정을 안내합니다.
 
@@ -272,13 +271,15 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 ### <a name="install-the-required-library"></a>필요한 라이브러리 설치
 
-1. F1 키 또는 Cmd+Shift+P(macOS: Cmd+Shift+P)를 선택하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 라이브러리 관리자**를 찾아서 선택합니다.
+1. `F1` 또는 `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 눌러 명령 팔레트를 열고 **Arduino**를 입력한 다음 **Arduino: 라이브러리 관리자**를 찾아서 선택합니다.
 
-2. **ArduinoJson** 라이브러리를 검색하고 **설치**를 선택합니다.
+2. **ArduinoJson** 라이브러리를 검색하고 **설치**: ![Arduino 라이브러리 설치](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)를 선택합니다.
 
-### <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+### <a name="build-and-upload-the-device-code-windows"></a>장치 코드 빌드 및 업로드(Windows)
+1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
+2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에 DevKit ID와 '구성'이 표시됩니다.
 
-Ctrl+P(macOS: Cmd+P)를 사용하여 `task device-upload`를 실행합니다. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에는 **구성**이 표시됩니다. `task cloud-provision` 단계에서 검색되는 연결 문자열을 설정하는 것입니다.
+이는 `task cloud-provision` 단계에서 검색하는 연결 문자열을 설정하기 위한 것입니다.
 
 그런 다음 터미널은 Arduino 스케치 확인 및 업로드를 시작합니다.
 
@@ -286,13 +287,32 @@ Ctrl+P(macOS: Cmd+P)를 사용하여 `task device-upload`를 실행합니다. �
 
 DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
+### <a name="build-and-upload-the-device-code-mac"></a>장치 코드 빌드 및 업로드(Mac)
+
+1. DevKit을 구성 모드로 전환: 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에는 '구성'이 표시됩니다.
+2. `Cmd+P`를 사용하여 `task device-upload`를 실행합니다.
+
+이는 `task cloud-provision` 단계에서 검색하는 연결 문자열을 설정하기 위한 것입니다.
+
+그러면 VSCode가 Arduino 스케치를 확인하고 업로드하기 시작합니다.
+
+![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+
+DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
+
 ## <a name="test-the-project"></a>프로젝트 테스트
 
-VS Code에서 상태 표시줄의 전원 플러그 아이콘을 선택하여 직렬 모니터를 엽니다.
+VS Code에서 다음 단계에 따라 직렬 모니터를 열고 설정합니다.
+
+1. 상태 표시줄에서 `COM[X]` 단어를 클릭하여 오른쪽 COM 포트를 `STMicroelectronics`: ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)로 설정합니다.
+
+2. 상태 표시줄의 전원 플러그 아이콘을 클릭하여 직렬 모니터: ![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)를 엽니다.
+
+3. 상태 표시줄에서 전송 속도를 나타내는 숫자를 클릭하고 `115200`: ![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)으로 설정합니다.
 
 다음과 같은 결과가 표시되면 샘플 응용 프로그램은 성공적으로 실행됩니다.
 
-* 직렬 모니터는 다음 스크린샷의 내용으로 동일한 정보를 표시합니다.
+* 직렬 모니터는 아래 스크린샷의 내용으로 동일한 정보를 표시합니다.
 * MXChip IoT DevKit의 LED가 깜박입니다.
 
 ![VS Code의 최종 출력](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
@@ -314,4 +334,3 @@ IoT Hub에 MXChip IoT DevKit를 성공적으로 연결하고 캡처된 센서 �
 - [Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 날씨 예측](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
 - [iothub-explorer를 사용하여 장치 관리](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
 - [Logic Apps를 사용하여 원격 모니터링 및 알림](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
-

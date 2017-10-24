@@ -13,18 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7d7676be26a8b68ab9fda18388e2b8cd5ed5f60b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 2ce497146abf664b0084cd96963523812f166e3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
-이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 구성 및 관리 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
+이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 구성 및 관리 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md)를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -136,3 +135,76 @@ Microsoft에서는 서버, 네트워크 및 응용 프로그램을 지속적으�
 
 CSR은 텍스트 파일입니다. 인증서를 궁극적으로 사용하는 컴퓨터에서 만들어서는 안됩니다. 이 문서가 App Service를 위해 작성되었지만 CSR 생성은 일반적이며 Cloud Services에도 적용됩니다.
 
+## <a name="how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way"></a>내 Cloud Services에 대한 맬웨어 방지 확장을 자동화된 방식으로 추가하려면 어떻게 해야 하나요?
+
+시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
+ 
+- [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+
+맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
+
+## <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Cloud Services에 대한 SNI(서버 이름 표시)를 사용하도록 설정하려면 어떻게 해야 하나요?
+
+다음 방법 중 하나를 사용하여 Cloud Services에서 SNI를 사용하도록 설정할 수 있습니다.
+
+### <a name="method-1-use-powershell"></a>방법 1: PowerShell 사용
+
+아래와 같이 클라우드 서비스 역할 인스턴스에 대한 시작 작업에서 PowerShell cmdlet **New-WebBinding**을 사용하여 SNI 바인딩을 구성할 수 있습니다.
+    
+    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
+    
+[여기](https://technet.microsoft.com/library/ee790567.aspx)에 설명된 대로 $sslFlags는 다음과 같은 값 중 하나일 수 있습니다.
+
+|값|의미|
+------|------
+|0|SNI 없음|
+|1|SNI 사용 |
+|2 |중앙 인증서 저장소를 사용하는 비 SNI 바인딩|
+|3|중앙 인증서 저장소를 사용하는 SNI 바인딩 |
+ 
+### <a name="method-2-use-code"></a>방법 2: 코드 사용
+
+이 [블로그 게시물](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)에 설명된 대로 역할 시작의 코드를 통해 SNI 바인딩을 구성할 수 있습니다.
+
+    
+    //<code snip> 
+                    var serverManager = new ServerManager(); 
+                    var site = serverManager.Sites[0]; 
+                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
+                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    serverManager.CommitChanges(); 
+    //</code snip> 
+    
+위의 방법 중 하나를 사용하여, SNI 바인딩이 적용되기 위해서는 시작 작업을 사용하거나 코드를 통해 특정 호스트 이름에 대한 해당 인증서(*.pfx)를 역할 인스턴스에 먼저 설치해야 합니다.
+
+## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>내 Azure Cloud Service에 태그를 추가하려면 어떻게 해야 하나요? 
+
+Cloud Service는 클래식 리소스입니다. Azure Resource Manager를 통해 만든 리소스만 태그를 지원합니다. 클래식 서비스와 같은 클래식 리소스에는 태그를 적용할 수 없습니다. 
+
+## <a name="how-to-enable-http2-on-cloud-services-vm"></a>Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?
+
+Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서 HTTP/2에 대한 지원이 함께 제공됩니다. TLS 확장을 통해 HTTP/2를 협상하는 TLS로 클라이언트(브라우저)가 IIS 서버에 연결되어 있는 경우 서버 쪽에서 변경을 수행할 필요가 없습니다. TLS를 통해 HTTP/2의 사용을 지정하는 h2-14 헤더가 기본적으로 전송되기 때문입니다. 반면에 HTTP/2로 업그레이드하도록 클라이언트를 업그레이드 헤더로 전송 중인 경우 서버 쪽에서 아래 변경을 수행하여 업그레이드 작업이 HTTP/2 연결을 끝냈는지 확인해야 합니다. 
+
+1. regedit.exe를 실행합니다.
+2. 레지스트리 키(HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters)를 찾습니다.
+3. **DuoEnabled**라는 새 DWORD 값을 만듭니다.
+4. 해당 값을 1로 설정합니다.
+5. 서버를 다시 시작합니다.
+6. **기본 웹 사이트**로 이동하여 **바인딩**에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
+
+자세한 내용은 다음을 참조하세요.
+
+- [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
+- [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
+         
+
+위 단계는 시작 작업을 통해 자동화할 수 있으므로 새로운 PaaS 인스턴스가 만들어질 때마다 시스템 레지스트리에 위의 변경 내용을 수행할 수 있습니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](cloud-services-startup-tasks.md)을 참조하세요.
+
+ 
+이 작업이 끝난 후에 다음 방법 중 하나를 사용하여 HTTP/2가 사용하도록 설정되어 있는지 여부를 확인할 수 있습니다.
+
+- IIS 로그의 프로토콜 버전을 사용하도록 설정하고 IIS 로그를 확인합니다. 로그에 HTTP/2가 표시됩니다. 
+- Internet Explorer/Edge에서 F12 개발자 도구 사용을 설정하고 네트워크 탭으로 전환하여 프로토콜을 확인합니다. 
+
+자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.

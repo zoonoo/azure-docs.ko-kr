@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/19/2017
 ms.author: larryfr
+ms.openlocfilehash: 92a37474ec65cd640a200e9f20ba51badf5e795e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 10dc8789e8f4a2b27fd3a4c6fec2ab28c674170a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
@@ -137,7 +136,9 @@ Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/rel
 
 기본적으로 HDInsight의 Storm에는 HdfsBolt에서 Storm의 클래스 경로에 있는 Azure Storage 또는 Data Lake Store와 통신하는 데 사용하는 구성 요소가 포함되지 않습니다. 다음 스크립트 동작을 사용하여 클러스터의 Storm에 대한 `extlib` 디렉터리에 이러한 구성 요소를 추가합니다.
 
-| 스크립트 URI | 이를 적용하는 노드 | 매개 변수 | | `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh` | Nimbus, 감독자 | None |
+* 스크립트 URI: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* 다음에 적용할 노드: Nimbus, Supervisor
+* 매개 변수: 없음
 
 HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
@@ -222,5 +223,4 @@ Storm 토폴로지가 중지될 때까지 실행되거나 클러스터가 삭제
 ## <a name="next-steps"></a>다음 단계
 
 이제 Storm을 사용하여 Azure Data Lake Store에 쓰는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](hdinsight-storm-example-topology.md)를 검색합니다.
-
 

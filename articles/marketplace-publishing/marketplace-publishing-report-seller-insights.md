@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>판매자 통찰력 보고서 이해
 **판매자 통찰력이란 무엇인가요?**
@@ -84,8 +84,7 @@ ms.lasthandoff: 07/11/2017
 https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증명으로 로그인합니다.
 ![passwordreminder][7]
 
-**게시자** 탭을 선택합니다.
-![selectpublisherstab][8]
+**게시자** 탭을 선택합니다. ![selectpublisherstab][8]
 
 URL에서 게시자 ID를 찾습니다.
 

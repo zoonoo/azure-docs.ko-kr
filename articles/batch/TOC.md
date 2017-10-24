@@ -20,6 +20,7 @@
 ### [동시 노드 작업](batch-parallel-node-tasks.md)
 ### [상태별 작업 계수](batch-get-task-counts.md)
 ### [사용자 지정 이미지로 풀 만들기](batch-custom-images.md)
+### [가상 네트워크에서 풀 만들기](batch-virtual-network.md)
 ### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
 ### [Linux 계산 노드](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Azure Batch 계산 노드 환경 변수](batch-compute-node-environment-variables.md)
 
 # 관련 항목
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [배치 Shipyard](https://github.com/Azure/batch-shipyard)
 ## [배치 및 데이터 팩터리를 사용하여 데이터 처리](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft Cloud Services 및 네트워크 보안
 Microsoft 클라우드 서비스는 대규모 서비스와 인프라, 엔터프라이즈급 기능 및 여러 하이브리드 연결 옵션을 제공합니다. 고객은 인터넷이나, 사설 네트워크 연결을 제공하는 Azure Express 경로를 통해 이러한 서비스에 액세스할 수 있습니다. 고객은 Microsoft Azure 플랫폼을 통해 인프라를 클라우드로 자연스럽게 확장하고 다중 계층 아키텍처를 빌드할 수 있습니다. 또한 타사 보안 서비스 및 가상 어플라이언스를 통해 향상된 기능을 구현할 수 있습니다. 이 백서에서는 Express 경로를 통해 액세스하는 Microsoft 클라우드 서비스 사용할 때 고객이 고려해야 하는 보안 및 아키텍처 문제에 대해 개괄적으로 설명합니다 또한 Azure Virtual Network에서 더 안전한 서비스를 만드는 과정을 다룹니다.
 
@@ -79,7 +77,7 @@ Microsoft에서는 클라우드 인프라 보호를 위해 상당한 투자를 �
 
 1.    **DDoS 방지**: DDoS 방지는 대규모 인터넷 기반 공격으로부터 Azure 플랫폼 자체를 보호하는 Azure의 물리적 네트워크 계층입니다. 이러한 공격에서는 여러 "봇" 노드를 사용하여 인터넷 서비스 과부하를 시도합니다. Azure에는 모든 인바운드, 아웃바운드 및 Azure 지역 연결 간에 강력한 DDoS 방지 메시가 있습니다. 이 DDoS 방지 계층은 사용자가 구성 가능한 속성이 없으며 고객이 액세스할 수 없습니다. DDoS 보호 계층은 대규모 공격으로부터 플랫폼으로써 Azure를 보호하고 아웃바운드 트래픽 및 크로스 Azure 지역 트래픽도 모니터링합니다. 고객은 VNet에서 네트워크 가상 어플라이언스를 사용하여 플랫폼 수준 보호를 통과하지 않는 소규모 공격에 대해 추가 복원력 계층을 구성할 수 있습니다. 실제 DDoS의 예로는 인터넷 연결 IP 주소가 대규모 DDoS 공격을 당한 경우 Azure에서 공격 근원지를 감지하고 원하는 대상에 도달하기 전에 잘못된 트래픽을 삭제합니다. 거의 모든 경우에 공격받은 끝점은 공격의 영향을 받지 않습니다. 끝점이 영향을 받는 경우는 드문데, 트래픽은 다른 끝점에 영향을 받지 않으며 공격받은 끝점에만 영향을 받습니다. 따라서 다른 고객 및 서비스는 해당 공격으로 인한 영향을 알지 못합니다. Azure DDoS는 대규모 공격만 찾는다는 점에 주의해야 합니다. 플랫폼 수준 보호 임계값이 초과되기 전에 특정 서비스가 과부하될 수 있습니다. 예를 들어 Azure 플랫폼 수준 DDoS 보호에서 위협을 등록하기 전에 DDoS 공격에 의해 단일 A0 IIS 서버의 웹 사이트가 오프라인으로 사용될 수 있습니다.
 
-2.    **공용 IP 주소**: 공용 IP 주소(서비스 끝점, 공용 IP 주소, Application Gateway, 사용자 리소스로 라우팅되는 인터넷에 공용 IP 주소를 제공하는 기타 Azure 기능)를 통해 클라우드 서비스 또는 리소스 그룹은 노출된 공용 인터넷 IP 주소 및 포트를 포함할 수 있습니다. 끝점에서는 NAT(Network Address Translation)를 사용하여 트래픽을 Azure Virtual Network상의 내부 주소와 포트로 라우팅합니다. 이 경로가 외부 트래픽을 가상 네트워크 내부로 전달하는 기본 방법입니다. 공용 IP 주소는 사용자가 구성하여 어떤 트래픽을 안으로 들이며, 가상 네트워크의 어느 부분에서 어떻게 전환하느냐를 결정할 수 있습니다.
+2.  **공용 IP 주소**: 공용 IP 주소(서비스 끝점, 공용 IP 주소, Application Gateway, 사용자 리소스로 라우팅되는 인터넷에 공용 IP 주소를 제공하는 기타 Azure 기능)를 통해 클라우드 서비스 또는 리소스 그룹은 노출된 공용 인터넷 IP 주소 및 포트를 포함할 수 있습니다. 끝점에서는 NAT(Network Address Translation)를 사용하여 트래픽을 Azure Virtual Network상의 내부 주소와 포트로 라우팅합니다. 이 경로가 외부 트래픽을 가상 네트워크 내부로 전달하는 기본 방법입니다. 공용 IP 주소는 사용자가 구성하여 어떤 트래픽을 안으로 들이며, 가상 네트워크의 어느 부분에서 어떻게 전환하느냐를 결정할 수 있습니다.
 
 트래픽이 Virtual Network에 도달하면 작동하는 많은 기능이 있습니다. Azure Virtual Network는 고객이 워크로드를 연결하고 기본 네트워크 수준의 보안을 적용하는 토대입니다. 다음 기능과 특성을 갖는 Azure의 고객용 사설 네트워크(Virtual Network 계층)입니다.
 
@@ -539,8 +537,8 @@ ExpressRoute 사설 피어링 네트워크 연결을 추가하면 안전하며 �
 [13]: ./media/best-practices-network-security/example4networklogical.png "NVA 관점에서의 논리적 네트워크"
 [14]: ./media/best-practices-network-security/example5designoptions.png "사이트 간 하이브리드 네트워크를 통해 Azure 게이트웨이에 연결된 DMZ"
 [15]: ./media/best-practices-network-security/example5designs2s.png "사이트 간 VPN을 사용하는 Azure 게이트웨이가 있는 DMZ"
-[16]: ./media/best-practices-network-security/example6designoptions.png "Azure 게이트웨이 연결 Express 경로 하이브리드 네트워크가 있는 DMZ"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "Express 경로 연결을 사용하는 Azure 게이트웨이가 있는 DMZ"
+[16]: ./media/best-practices-network-security/example6designoptions.png "Azure 게이트웨이 연결 ExpressRoute 하이브리드 네트워크가 있는 DMZ"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "ExpressRoute 연결을 사용하는 Azure 게이트웨이가 있는 DMZ"
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/
@@ -552,4 +550,3 @@ ExpressRoute 사설 피어링 네트워크 연결을 추가하면 안전하며 �
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

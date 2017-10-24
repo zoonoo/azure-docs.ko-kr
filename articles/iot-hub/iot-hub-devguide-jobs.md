@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: juanpere
+ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 6e4ca8ad0c444930f5e45eed0a024412de82dbb1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 ## <a name="overview"></a>개요
@@ -33,7 +32,7 @@ ms.lasthandoff: 08/29/2017
 * 직접 메서드 호출
 
 ## <a name="job-lifecycle"></a>작업 수명 주기
-작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다.  서비스 지향 URI(`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`)를 통해 작업을 시작하고 서비스 지향 URI(`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다.  작업이 시작된 후에는 작업 쿼리를 통해 백 엔드 앱에서 실행 중인 작업의 상태를 새로 고칠 수 있습니다.
+작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다.  서비스 지향 URI(`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`)를 통해 작업을 시작하고 서비스 지향 URI(`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다. 작업이 시작된 후 실행 중인 작업의 상태를 새로 고치기 위해 작업 쿼리를 실행합니다.
 
 > [!NOTE]
 > 작업을 시작할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -44,7 +43,7 @@ ms.lasthandoff: 08/29/2017
 다음 참조 항목에서는 작업 사용에 대한 자세한 정보를 제공합니다.
 
 ## <a name="jobs-to-execute-direct-methods"></a>직접 메서드를 실행할 작업
-작업을 사용하여 장치 집합에서 [직접 메서드][lnk-dev-methods]를 실행하기 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
+다음 코드 조각은 작업을 사용하여 장치 집합에서 [직접 메서드][lnk-dev-methods]를 실행하기 위한 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -67,7 +66,7 @@ ms.lasthandoff: 08/29/2017
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-쿼리 조건은 아래와 같이 단일 장치 ID 또는 장치 ID 목록에 있을 수도 있습니다.
+쿼리 조건은 다음 예제와 같이 단일 장치 ID 또는 장치 ID 목록에 있을 수도 있습니다.
 
 **예**
 ```
@@ -78,7 +77,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [IoT Hub 쿼리 언어][lnk-query]는 추가 세부 정보에서 IoT Hub 쿼리 언어를 설명합니다.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>장치 쌍 속성을 업데이트하는 작업
-작업을 사용하여 장치 쌍 속성을 업데이트하는 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
+다음 코드 조각은 작업을 사용하여 장치 쌍 속성을 업데이트하는 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -98,7 +97,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>작업 진행 상태 쿼리
-[작업 쿼리][lnk-query]를 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
+다음 코드 조각은 [작업 쿼리][lnk-query]를 위한 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -112,7 +111,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 응답에서 continuationToken이 제공됩니다.  
 
 ## <a name="jobs-properties"></a>작업 속성
-작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명은 다음과 같습니다.
+다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
 
 | 속성 | 설명 |
 | --- | --- |
@@ -120,15 +119,15 @@ queryCondition = "deviceId IN ['MyDevice1']
 | **startTime** |작업에 대해 응용 프로그램에서 제공한 시작 시간(ISO-8601)입니다. |
 | **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
 | **type** |작업 형식: |
-| **scheduledUpdateTwin**: desired 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. | |
-| **scheduledDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. | |
+| | **scheduledUpdateTwin**: desired 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. |
+| | **scheduledDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. |
 | **상태** |작업의 현재 상태입니다. 가능한 상태 값: |
-| **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. | |
-| **예약됨** : 이후 시간에 예약됩니다. | |
-| **실행 중** : 현재 활성 상태의 작업입니다. | |
-| **취소됨** : 작업이 취소되었습니다. | |
-| **실패함** : 작업이 실패했습니다. | |
-| **완료됨** : 작업이 완료되었습니다. | |
+| | **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. |
+| | **예약됨** : 이후 시간에 예약됩니다. |
+| | **실행 중** : 현재 활성 상태의 작업입니다. |
+| | **취소**: 작업이 취소되었습니다. |
+| | **실패함** : 작업이 실패했습니다. |
+| | **완료됨** : 작업이 완료되었습니다. |
 | **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
 
 **deviceJobStatistics** 속성입니다.
@@ -167,4 +166,3 @@ queryCondition = "deviceId IN ['MyDevice1']
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-

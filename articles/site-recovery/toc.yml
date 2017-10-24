@@ -73,26 +73,19 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: FAQ
       href: site-recovery-faq.md
-    - name: Azure로 VMware 복제를 위한 용량 계획
-      href: site-recovery-plan-capacity-vmware.md
-      items:
-        - name: Azure로 VMware 복제를 위한 Deployment Planner
-          href: site-recovery-deployment-planner.md
-    - name: Hyper-V 복제를 위한 Capacity Planner
-      href: site-recovery-capacity-planner.md
 - name: 방법 가이드
   items:
     - name: 재해 복구
       items:
-        - name: 다중 테넌트를 지원하는 VMware VM에 대한 Azure로
+        - name: 다중 테넌트를 지원하는 VMware VM에서 Azure로
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-        - name: Hyper-V VM에 대한 Azure로
+        - name: Hyper-V VM에서 Azure로
           href: tutorial-hyper-v-to-azure.md
-        - name: 물리적 서버에 대한 Azure로
+        - name: 물리적 서버에서 Azure로
           href: tutorial-physical-to-azure.md
-        - name: Hyper-V VM에 대한 보조 사이트로
+        - name: Hyper-V VM에서 보조 사이트로
           href: tutorial-vmm-to-vmm.md
-        - name: VMware VM 및 물리적 서버에 대한 보조 사이트로
+        - name: VMware VM 및 물리적 서버에서 보조 사이트로
           href: tutorial-vmware-to-vmware.md
         - name: Azure로 재해 복구 훈련 실행
           href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
           href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: 용량 및 크기 조정
+      items:
+        - name: Azure로 VMware 복제를 위한 용량 계획
+          href: site-recovery-plan-capacity-vmware.md
+        - name: Azure로 VMware 복제를 위한 Deployment Planner 도구
+          href: site-recovery-deployment-planner.md
+        - name: Azure로 Hyper-V 복제를 위한 용량 계획
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+        - name: Azure로 Hyper-V 복제를 위한 Capacity Planner 도구
+          href: site-recovery-capacity-planner.md
+        - name: VMware 복제를 위한 프로세스 서버 확장
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: 온-프레미스 사이트 간에 Hyper-V 복제를 위한 성능 크기 조정 테스트
+          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: 구성
       items:
         - name: 원본 환경 설정
@@ -120,6 +127,8 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: 복제 설정 구성
           href: site-recovery-setup-replication-settings-vmware.md
+        - name: 복제에서 디스크 제외
+          href: site-recovery-exclude-disk.md
         - name: VMware 복제를 위해 모바일 서비스 배포
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -157,9 +166,11 @@
         - name: Azure에서 장애 복구
           items:
             - name: Azure에서 VMware로 장애 복구(failback)
-              href: site-recovery-failback-azure-to-vmware.md
+              href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Azure에서 Hyper-V로 장애 복구(failback)
               href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: 장애 복구(failback)를 위해 Linux 마스터 대상 서버 설정
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: 자동화
       items:
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
@@ -202,8 +213,6 @@
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: 구성 서버 관리
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
-        - name: 확장 프로세스 서버 관리
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: vCenter 서버 관리
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: 서버 제거 및 보호 사용 안 함

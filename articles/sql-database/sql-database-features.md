@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
+ms.openlocfilehash: 5824347cbfd80ce2d21e256f4ce6e6fe2201792f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
 Azure SQL Database는 SQL Server와 공용 코드 베이스를 공유하며 데이터베이스 수준에서 대부분의 동일한 기능을 지원합니다. Azure SQL Database와 SQL Server 간의 주요 기능 차이점은 인스턴스 수준에 있습니다. 
@@ -130,4 +128,3 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 
 - Azure SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요.
 - Transact-SQL 지원 및 차이점에 대한 정보는 [SQL Database에 대한 마이그레이션 중 Transact-SQL 차이점 해결](sql-database-transact-sql-information.md)을 참조하세요.
-

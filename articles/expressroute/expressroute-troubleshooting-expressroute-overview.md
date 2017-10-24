@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -97,7 +96,7 @@ ExpressRoute 회로가 작동하려면 *회로 상태*가 *사용*이고, *공�
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Azure Portal을 통해 리소스 그룹 이름을 가져올 수 있습니다. 이 문서의 이전 하위 섹션을 참조하고, 리소스 그룹 이름은 예제 스크린샷에 나열되어 있습니다.
+>Azure를 통해 리소스 그룹 이름을 가져올 수 있습니다. 이 문서의 이전 하위 섹션을 참조하고, 리소스 그룹 이름은 예제 스크린샷에 나열되어 있습니다.
 >
 >
 
@@ -172,14 +171,9 @@ ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioni
 서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 개인 피어링(Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
 
 ###<a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
->[!IMPORTANT]
->서비스 공급자가 ExpressRoute 피어링을 구성한 경우 해당 피어링이 Azure Portal에 포털에 *표시되지 않는* 알려진 버그가 있습니다. 포털 또는 PowerShell을 통해 ExpressRoute 피어링을 추가하면 *서비스 공급자 설정을 덮어씁니다*. 이 작업을 수행하면 ExpressRoute 회로의 라우팅이 중단되며, 설정을 복원하고 일반 라우팅을 다시 설정하려면 서비스 공급자의 지원이 필요합니다. 서비스 공급자가 계층 2 서비스만 제공하는 것이 확실한 경우에만 ExpressRoute 피어링을 수정하세요!
->
->
 
-<p/>
 >[!NOTE]
->서비스 공급자가 계층 3을 제공하고 포털에서 피어링이 비어 있는 경우 PowerShell을 사용하여 서비스 공급자가 구성한 설정을 확인할 수 있습니다.
+>레이어 3을 서비스 공급자가 제공하고 포털에서 피어링이 비어 있는 경우 포털의 새로 고침 단추를 사용하여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
 >
 >
 
@@ -410,7 +404,6 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

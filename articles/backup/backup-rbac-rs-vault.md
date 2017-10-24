@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/22/2017
 ms.author: trinadhk;markgal
+ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 액세스 제어를 사용하여 Azure Backup 복구 지점 관리
 Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Backup에서 제공하는 역할은 Azure Portal 또는 Recovery Services 자격 증명 모음 PowerShell cmdlet에서 수행할 수 있는 작업으로 제한됩니다. Azure Backup 에이전트 클라이언트 UI, System Center Data Protection Manager UI 또는 Azure Backup Server UI에서 실행되는 작업은 이러한 역할의 제어를 받지 않습니다.
+> Azure Backup에서 제공하는 역할은 Azure Portal 또는 Recovery Services 자격 증명 모음 PowerShell cmdlet에서 수행할 수 있는 작업으로 제한됩니다. Azure 백업 에이전트 클라이언트 UI, System Center Data Protection Manager UI 또는 Azure Backup Server UI에서 실행되는 작업은 이러한 역할의 제어를 받지 않습니다.
 
 Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역할을 3개 제공합니다. [Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
 
@@ -47,7 +45,7 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역�
 | Azure VM의 백업 활성화 | 자격 증명 모음의 Backup 운영자, VM의 가상 컴퓨터 참여자 |
 | VM의 주문형 백업 | Backup 운영자 |
 | VM 복원 | Backup 운영자, VM 및 Vnet이 배포될 리소스 그룹 참여자 |
-| 디스크, VM 백업의 개별 파일 복원 | Backup 운영자 |
+| 디스크, VM 백업의 개별 파일 복원 | Backup 운영자, VM의 가상 컴퓨터 참여자 |
 | Azure VM 백업에 대한 백업 정책 만들기 | Backup 참여자 |
 | Azure VM 백업의 백업 정책 수정 | Backup 참여자 |
 | Azure VM 백업의 백업 정책 삭제 | Backup 참여자 |
@@ -56,10 +54,9 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역�
 | 등록된 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 삭제 | Backup 참여자 |
 
 ## <a name="next-steps"></a>다음 단계
-* [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md): Azure Portal에서 RBAC를 통해 시작합니다.
+* [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [역할 기반 액세스 제어 문제 해결](../active-directory/role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
-

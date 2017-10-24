@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>예: "POST"를 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
-원시 데이터 POST를 사용하여 새 하위를 만들고 해당 서버의 정의된 URL(위치)을 반환하거나 서버의 정의된 URL에서 하위 일부를 업데이트합니다.  여기서는 하위 항목은 스트림, 즉 구조화 되지 않은 경우, 예: 텍스트 파일입니다.  POST는 위치 없는 idempotent가 아닙니다.
+원시 데이터 POST를 사용하여 새 하위를 만들고 해당 서버의 정의된 URL(위치)을 반환하거나 서버의 정의된 URL에서 하위 일부를 업데이트합니다.  여기서 하위는 스트림입니다. 즉 구조화 되어 있지 않습니다. 예: 텍스트 파일.  POST는 위치 없는 idempotent가 아닙니다.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -84,7 +84,7 @@ DELETE를 사용하여 지정된 URI를 제거합니다.
         </FunctionImport>
 
 ## <a name="example-functionimport-using-put"></a>예: "PUT"을 사용하는 FunctionImport
-PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  PUT 없으므로 동일한 상태를 여러 번 실행 발생 idempotent은 하위 구조가 두 즉, x = 5.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
+PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  여기서 하위는 구조입니다. PUT은 idempotent이므로 여러 번 발생하면 동일한 상태, 즉 x=5가 됩니다.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
         <FunctionImport Name="UpdateModel" EntitySet="UpdateAnExistingModelEntitySet" ReturnType="Collection(MyOffer.UpdateAnExistingModelEntity)" d:EncodeParameterValues="true" d:AllowedHttpMethods="PUT" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>예: "PUT"을 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
-원시 데이터 PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  여기서는 하위 항목은 스트림, 즉 구조화 되지 않은 경우, 예: 텍스트 파일입니다.  없으므로 동일한 상태를 여러 번 실행 발생 PUT은 idempotent 방식 이므로 즉, x = 5.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
+원시 데이터 PUT을 사용하여 새 하위를 만들거나 서버의 정의된 URL에서 전체 하위를 업데이트합니다.  여기서 하위는 스트림입니다. 즉 구조화 되어 있지 않습니다. 예: 텍스트 파일.  PUT은 idempotent이므로 여러 번 발생하면 동일한 상태, 즉 x=5가 됩니다.  PUT은 지정된 리소스의 전체 콘텐츠에서 사용해야 합니다.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">

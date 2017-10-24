@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-azure-activity-logs"></a>Azure 활동 로그 보기
 
@@ -90,10 +90,10 @@ Activity Log Analytics 솔루션을 작업 영역에 추가하면 개요 대시�
 
 | 블레이드 | 설명 |
 | --- | --- |
-| Azure 활동 로그 항목 | 사용자가 선택한 날짜 범위에 해당하는 상위 Azure 활동 로그 항목 레코드의 가로 막대형 차트를 표시하고 상위 10개 활동 호출자 목록을 표시합니다. 가로 막대형 차트에 대 한 로그 검색을 실행 하려면 클릭 <code>Type=AzureActivity</code>합니다. 호출자 항목을 클릭하면 해당 항목에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
-| 상태별 활동 로그 | 사용자가 선택한 날짜 범위에 해당하는 Azure 활동 로그 상태의 도넛형 차트를 보여 줍니다. 상위 10개 상태 레코드 목록도 보여 줍니다. 에 대 한 로그 검색을 실행 하려면 차트를 클릭 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>합니다. 상태 항목을 클릭하면 해당 상태 레코드에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
-| 리소스별 활동 로그 | 활동 로그와 함께 총 리소스 수를 표시하고 각 리소스에 대한 레코드 수와 함께 상위 10개 리소스를 나열합니다. 에 대 한 로그 검색을 실행 하려면 전체 영역의 클릭 <code>Type=AzureActivity &#124; measure count() by Resource</code>, 솔루션에 사용할 수 있는 모든 Azure 리소스를 보여 주는 합니다. 리소스를 클릭하면 해당 리소스에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
-| 리소스 공급자별 활동 로그 | 활동 로그를 생성하는 총 리소스 공급자 수를 표시하고 상위 10개 리소스 공급자를 나열합니다. 에 대 한 로그 검색을 실행 하려면 전체 영역의 클릭 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, 모든 Azure 리소스 공급자를 보여 주는 합니다. 리소스 공급자를 클릭하면 해당 공급자에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
+| Azure 활동 로그 항목 | 사용자가 선택한 날짜 범위에 해당하는 상위 Azure 활동 로그 항목 레코드의 가로 막대형 차트를 표시하고 상위 10개 활동 호출자 목록을 표시합니다. 가로 막대형 차트를 클릭하면 <code>Type=AzureActivity</code>에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭하면 해당 항목에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
+| 상태별 활동 로그 | 사용자가 선택한 날짜 범위에 해당하는 Azure 활동 로그 상태의 도넛형 차트를 보여 줍니다. 상위 10개 상태 레코드 목록도 보여 줍니다. 차트를 클릭하면 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>에 대한 로그 검색이 실행됩니다. 상태 항목을 클릭하면 해당 상태 레코드에 대한 모든 활동 로그 항목을 반환하는 로그 검색이 실행됩니다. |
+| 리소스별 활동 로그 | 활동 로그와 함께 총 리소스 수를 표시하고 각 리소스에 대한 레코드 수와 함께 상위 10개 리소스를 나열합니다. 전체 영역을 클릭하여 <code>Type=AzureActivity &#124; measure count() by Resource</code>에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 리소스를 클릭하면 해당 리소스에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
+| 리소스 공급자별 활동 로그 | 활동 로그를 생성하는 총 리소스 공급자 수를 표시하고 상위 10개 리소스 공급자를 나열합니다. 전체 영역을 클릭하여 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>에 대해 로그 검색을 실행하면 모든 Azure 리소스 공급자가 표시됩니다. 리소스 공급자를 클릭하면 해당 공급자에 대한 모든 활동 레코드를 반환하는 로그 검색이 실행됩니다. |
 
 ![Azure 활동 로그 대시보드](./media/log-analytics-activity/activity-log-dash.png)
 

@@ -15,20 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
+ms.openlocfilehash: 3e54cb45cf002a183a5b0bd9b3082a235cd825f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-ports-overview-preview"></a>고가용성 포트 개요(미리 보기)
 
 Azure Load Balancer의 표준 SKU에는 모든 포트에서와 지원되는 모든 프로토콜에 대해 트래픽을 분산하는 기능인 HA(고가용성) 포트가 도입되었습니다. 내부 부하 분산 장치를 구성하는 동안 사용자는 프런트 엔드 및 백 엔드 포트를 **0**으로 설정하고 프로토콜을 **all**로 설정할 수 있는 HA 포트 규칙을 구성할 수 있으므로 모든 트래픽이 내부 부하 분산 장치를 통과할 수 있습니다.
 
 >[!NOTE]
-> 고가용성 포트 기능은 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 고가용성 포트 기능은 Load Balancer 표준에서 사용할 수 있으며 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Load Balancer 표준 리소스와 함께 HA 포트를 사용하려면 Load Balancer 표준 미리 보기에 등록해야 합니다. Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)와 등록에 대한 지침을 따르십시오.
 
 부하 분산 알고리즘은 여전히 동일하게 유지되며 대상은 <원본 IP 주소, 원본 포트, 대상 IP 주소, 대상 포트, 프로토콜>의 다섯 가지 입력 사항에 따라 선택됩니다. 그러나 이 구성을 사용하면 단일 LB 규칙에서 사용 가능한 모든 트래픽을 처리할 수 있으며 구성이 복잡해지지 않고 추가할 수 있는 부하 분산 규칙의 최대 수에 따른 제한도 줄어듭니다.
 
@@ -71,12 +69,17 @@ Load Balancer 표준 SKU에서 HA 포트 기능의 미리 보기에 참여하려
 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```
-## <a name="caveats"></a>주의 사항
+    ```  
+
+
+>[!NOTE]
+>이 기능을 사용하려면 HA 포트 외에 Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)에도 등록해야 합니다. HA 포트 또는 Load Balancer 표준 미리 보기 등록에는 최대 1시간이 걸릴 수 있습니다.
+
+## <a name="limitations"></a>제한 사항
 
 다음은 HA 포트에 대해 지원되는 구성 또는 예외 사항입니다.
 
-- 단일 프런트 엔드 ipConfiguration에는 HA 포트(모든 포트)가 있는 단일 DSR 부하 분산 장치 규칙이나 HA 포트(모든 포트)가 있는 단일 비DSR 부하 분산 장치 규칙을 설정할 수 있습니다. 둘 다 사용할 수는 없습니다.
+- 단일 프런트 엔드 IP 구성에는 HA 포트(모든 포트)가 있는 단일 DSR Load Balancer 규칙이나 HA 포트(모든 포트)가 있는 단일 비DSR Load Balancer 규칙을 설정할 수 있습니다. 둘 다 사용할 수는 없습니다.
 - 단일 네트워크 인터페이스 IP 구성에는 HA 포트가 있는 비DSR 부하 분산 장치 규칙 하나만 설정할 수 있습니다. 이 ipconfig에 대해 다른 규칙을 구성할 수는 없습니다.
 - 단일 네트워크 인터페이스 IP 구성에 HA 포트가 있는 하나 이상의 DSR 부하 분산 장치 규칙을 설정할 수 있습니다. 단, 각각의 프런트 엔드 IP 구성은 고유해야 합니다.
 - 모든 부하 분산 규칙이 HA 포트(DSR 전용)이거나 모든 규칙이 비HA 포트(DSR 및 비DSR)인 경우 동일한 백 엔드 풀을 가리키는 두 개(또는 그 이상)의 부하 분산 장치 규칙이 공존할 수 있습니다. HA 포트와 비HA 포트 규칙의 조합이 있는 경우 이러한 두 가지 LB 규칙이 공존할 수 없습니다.
@@ -86,5 +89,4 @@ Load Balancer 표준 SKU에서 HA 포트 기능의 미리 보기에 참여하려
 ## <a name="next-steps"></a>다음 단계
 
 [내부 부하 분산 장치에서 HA 포트 구성](load-balancer-configure-ha-ports.md)
-
 

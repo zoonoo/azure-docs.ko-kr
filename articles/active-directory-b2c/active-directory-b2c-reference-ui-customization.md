@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 08/29/2017
 > [!NOTE]
 > 이 문서에서 설명하는 페이지 UI 사용자 지정 기능은 로그인 전용 정책, 함께 제공되는 암호 재설정 페이지 및 확인 전자 메일에는 적용되지 않습니다.  이러한 기능은 대신 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용합니다.
 >
+> 마찬가지로 사용자가 로그인하기 *전에* 프로필 정책 편집을 시작한 경우 이 사용자는 [회사 브랜드 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정 가능한 페이지로 리디렉션됩니다.
 
 이 문서는 다음 항목을 설명합니다.
 

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 467a08b1ba9f7c0070dfa0cf3df18326cf49ca70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows 컨테이너용 Kubernetes 클러스터 배포
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure Container Service](../container-service-intro.md)에서 [Kubernetes](https://kubernetes.io/docs/home/) 클러스터를 배포하는 방법에 대해 자세히 설명합니다. 클러스터가 배포되면 Kubernetes `kubectl` 명령줄 도구를 사용하여 해당 클러스터에 연결하고 첫 번째 Windows 컨테이너를 배포합니다.
@@ -168,7 +166,7 @@ iis      1/1          Running       0           32s
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-이 명령을 사용하면 Kubernetes에서 해당 공용 IP 주소를 사용하여 서비스 및 [Azure 부하 분산 장치 규칙](container-service-kubernetes-load-balancing.md)을 만듭니다. 
+이 명령을 사용하면 Kubernetes에서 해당 공용 IP 주소를 사용하여 서비스 및 Azure Load Balancer 규칙을 만듭니다. 
 
 다음 명령을 실행하여 서비스의 상태를 확인합니다.
 
@@ -203,4 +201,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes 클러스터 관리](container-service-tutorial-kubernetes-prepare-app.md)
-

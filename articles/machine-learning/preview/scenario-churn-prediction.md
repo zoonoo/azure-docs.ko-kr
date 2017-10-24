@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning을 사용한 고객 변동 분석
 
 평균적으로 기존 고객 유지는 새로운 고객을 유치하는 데 드는 비용보다 5배 더 저렴합니다. 결과적으로, 마케팅 임원들은 종종 고객 변동의 가능성을 예측하기 위해 애쓰고 변동률을 최소화하기 위해 필요한 작업을 찾습니다.
@@ -69,7 +67,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기
 
 이 예제를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
-1.  Azure Machine Learning Workbench를 엽니다.
+1.  Azure Machine Learning Workbench 열기
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **프로젝트 템플릿 검색** 검색 상자에 “고객 변동 예측”을 입력하고 템플릿을 선택합니다.
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="data-description"></a>데이터 설명
 
-솔루션에 사용된 데이터 집합은 SIDKDD 2009 경쟁에서 가져온 것입니다. `CATelcoCustomerChurnTrainingSample.csv`라고 하며, [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data) 폴더에 위치해 있습니다. 데이터 집합은 프랑스 통신 회사인 Orange의 노이즈가 많은 다른 유형의 데이터(숫자/범주 변수)로 구성되어 있으며 익명으로 처리됩니다.
+솔루션에 사용된 데이터 집합은 SIDKDD 2009 경쟁에서 가져온 것입니다. `CATelcoCustomerChurnTrainingSample.csv`라고 하며, [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data) 폴더에 위치해 있습니다. 데이터 집합은 프랑스 통신 회사인 Orange의 노이즈가 많은 다른 유형의 데이터(숫자/범주 변수)로 구성되어 있으며 익명으로 처리됩니다.
 
 변수는 고객 인구 통계 정보, 호출 통계(예: 평균 호출 기간, 호출 오류 비율 등), 계약 정보, 불만 통계를 캡처합니다. 변동 변수는 이진값(0 - 변동되지 않음, 1 - 변동됨)입니다.
 
@@ -85,27 +83,24 @@ ms.lasthandoff: 09/25/2017
 
 폴더 구조는 다음과 같이 정렬됩니다.
 
-__코드__: Azure Machine Learning Workbench을 사용하는 변동 예측에 관련된 모든 코드를 포함합니다.
+__data__: 솔루션에 사용된 데이터 집합을 포함  
 
-__데이터__: 솔루션에 사용된 데이터 집합을 포함합니다.  
-
-__랩__: 모든 실습 교육을 포함합니다.
+__docs__: 모든 실습 교육을 포함
 
 솔루션을 수행하는 실습 교육의 순서는 다음과 같습니다.
-1. 데이터 준비: 코드 폴더의 데이터 준비와 관련된 파일은 `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` 및 `CATelcoCustomerChurnTrainingSample.csv`입니다.
-2. 모델링 및 평가: 코드 폴더의 모델링 및 평가와 관련된 주요 파일은 `CATelcoCustomerChurnModeling.py`입니다.
-3. Docker에서 모델링 및 평가: 코드 폴더의 이 작업에 대한 주요 파일은 `CATelcoCustomerChurnModelingDocker.py`입니다.
+1. 데이터 준비: 데이터 폴더의 데이터 준비와 관련된 주요 파일은 `CATelcoCustomerChurnTrainingSample.csv`입니다.
+2. 모델링 및 평가: 루트 폴더의 모델링 및 평가와 관련된 주요 파일은 `CATelcoCustomerChurnModeling.py`입니다.
+3. Docker에서 모델링 및 평가: 루트 폴더의 이 작업에 대한 주요 파일은 `CATelcoCustomerChurnModelingDocker.py`입니다.
 4. 운영화: 배포에 대한 주요 파일은 모델(`model.pkl`) 및 `churn_schema_gen.py`입니다.
 
 | 순서| 파일 이름 | 관련 파일 |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | ‘Data/CATelcoCustomerChurnTrainingSample.csv’ |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | ‘Code/CATelcoCustomerChurnModeling.py’ |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | ‘Code/CATelcoCustomerChurnModelingDocker.py’ |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | ‘Code/model.pkl’<br>‘Code/churn_schema_gen.py’ |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 위에 설명한 순차적 방식으로 교육을 수행합니다.
 
 ## <a name="conclusion"></a>결론
 이 실습 시나리오는 Azure Machine Learning Workbench를 사용하여 변동 예측을 수행하는 방법을 설명했습니다. 먼저 데이터 정리를 수행하여 노이즈가 많은 다른 유형의 데이터를 처리하고, 데이터 준비 도구를 사용한 기능 엔지니어링이 이어졌습니다. 그 후, 오픈 소스 Machine Learning 도구를 사용하여 분류 모델을 만들고 평가한 다음, 로컬 Docker 컨테이너를 사용하여 프로덕션용으로 준비된 모델을 배포했습니다.
-

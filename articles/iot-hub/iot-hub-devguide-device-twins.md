@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 ## <a name="overview"></a>개요
@@ -139,7 +138,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 쌍을 사용하여 펌웨어 업데이트와 같이 오래 실행되는 작업을 동기화할 수 있습니다. 속성을 사용하여 장치에서 장기 실행 작업을 동기화하고 추적하는 방법에 대한 자세한 내용은 [desired 속성을 사용하여 장치 구성][lnk-twin-properties]을 참조하세요.
 
 ## <a name="back-end-operations"></a>백 엔드 작업
-솔루션 백 엔드는 HTTP를 통해 공개되는 다음과 같은 원자성 작업을 사용하여 장치 쌍에서 작동합니다.
+솔루션 백 엔드는 HTTPS를 통해 공개되는 다음과 같은 원자성 작업을 사용하여 장치 쌍에서 작동합니다.
 
 1. **ID로 장치 쌍 검색** 이 작업은 태그 및 desired, reported 및 시스템 속성을 포함하여 장치 쌍 문서를 반환합니다.
 2. **장치 쌍 부분 업데이트**. 이 작업은 솔루션 백 엔드에서 장치 쌍의 태그 또는 desired 속성을 부분적으로 업데이트할 수 있도록 합니다. 부분 업데이트는 속성을 추가하거나 업데이트하는 JSON 문서로 표현됩니다. `null`로 설정된 속성은 제거됩니다. 다음 예제에서는 값이 `{"newProperty": "newValue"}`인 desired 속성을 새로 생성하고, `existingProperty`의 기존 값을 `"otherNewValue"`로 덮어쓰고, `otherOldProperty`를 제거합니다. 기존 desired 속성이나 태그에는 변화가 발생하지 않습니다.
@@ -369,4 +368,3 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-

@@ -13,18 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
 
-이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
+이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md)를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -55,7 +54,7 @@ ms.lasthandoff: 06/15/2017
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>구독 또는 서비스에서 제한/할당량/제한 조건으로 인해 클라우드 서비스를 배포하는 데 실패하는 이유는 무엇인가요?
 할당하는 데 필요한 리소스가 지역/데이터 센터 수준에서 서비스에 허용되는 기본 또는 최대 할당량을 초과하는 경우 클라우드 서비스의 배포에 실패할 수 있습니다. 자세한 내용은 [Cloud Services 제한](../azure-subscription-service-limits.md#cloud-services-limits)을 참조하세요.
 
-포털에서 구독에 대한 현재 사용량/할당량도 추적할 수 있습니다. Azure Portal =>구독=>\<적절한 구독=>"사용량 + 할당량"
+포털에서 구독에 대한 현재 사용량/할당량도 추적할 수 있습니다. Azure Portal => 구독=> \<적절한 구독=> “사용량 + 할당량”
 
 Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 리소스 사용량 API(미리 보기)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview)을 참조하세요.
 
@@ -64,5 +63,15 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 자세한 내용은 [클라우드 서비스를 업데이트하는 방법](cloud-services-update-azure-service.md)을 참조하세요.
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 저장소 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
 
+Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클래식 리소스이므로 Azure Resource Manager 저장소 계정과 함께 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
+ 
+- REST API를 통해 배포.
+
+    Service Management REST API를 통해 배포하면 클래식 및 Azure Resource Manager 저장소 계정 모두를 통해 작업할 수 있는 blob 저장소에 대한 SAS URL을 지정하여 이러한 제한의 문제를 해결할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/ee460813.aspx)에서 ‘PackageUrl’ 속성에 대해 자세히 읽어보세요.
+  
+- [Azure Portal](https://portal.azure.com)을 통해 배포.
+
+    호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용하는 프록시/shim을 통해 전송되므로 이 작업은 [Azure Portal](https://portal.azure.com)에서 작동합니다. 
+ 

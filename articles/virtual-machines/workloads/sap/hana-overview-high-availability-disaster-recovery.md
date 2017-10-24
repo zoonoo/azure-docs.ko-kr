@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/02/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -113,7 +112,7 @@ Azure(큰 인스턴스)의 SAP HANA에 기반한 저장소 인프라는 볼륨�
 
 다음과 같은 세 가지 다른 볼륨 클래스를 대상으로 저장소 스냅숏을 수행할 수 있습니다.
 
-- /hana/data, /hana/log 및 /hana/shared(/usr/sap 포함)에 대해 결합된 스냅숏. 이 스냅숏을 사용하려면 SAP HANA 스냅숏을 실행해야 합니다.
+- /hana/data 및 /hana/shared(/usr/sap 포함)에 대해 결합된 스냅숏. 이 스냅숏을 만들려면 저장소 스냅숏에 대한 준비로 SAP HANA 스냅숏을 만들어야 합니다. SAP HANA 스냅숏은 데이터베이스가 저장소 관점에서 일관된 상태에 있도록 합니다.
 - /hana/logbackups에 대한 별도 스냅숏.
 - OS 파티션(유형 1 HANA 큰 인스턴스의 경우만 해당).
 
@@ -870,7 +869,6 @@ Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154
 Size of Latest Snapshot Replicated: 244KB
 Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
 ```
-
 
 
 

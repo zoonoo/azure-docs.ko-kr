@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
-ms.openlocfilehash: 3c591680160101a91174868714392674c9aa7178
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.reviewer: elkuzmen
+ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요
 도메인 이름은 다음의 일부로 많은 디렉터리 리소스에 대한 중요한 식별자일 수 있습니다.
@@ -29,8 +30,8 @@ ms.lasthandoff: 08/03/2017
 
 Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
 
-> [!IMPORTANT]
-> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 도메인 이름을 관리하는 방법은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참조하세요.
+> [!TIP]
+> [Azure AD Admin Center](https://aad.portal.azure.com)에서 도메인 이름을 관리하는 방법은 [Azure Active Directory에서 사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참조하세요.
 
 Azure AD의 도메인 이름은 전역적으로 고유합니다. 사용자 지정 도메인 이름은 한 번에 하나의 Azure AD 테넌트에서 사용할 수 있습니다. 한 Azure AD 디렉터리에서 도메인 이름을 확인했다면 다른 Azure AD 디렉터리에서 동일한 도메인 이름을 확인하거나 사용할 수 없습니다.
 
@@ -51,9 +52,7 @@ Azure AD는 도메인에 대한 DNS(도메인 이름 서비스) 영역 파일에
 DNS 항목을 도메인 이름의 영역 파일에 추가하면 다른 도메인 서비스(예: 전자 메일, 웹 호스팅)에 영향을 주지 않습니다.
 
 ## <a name="federated-and-managed-domain-names"></a>페더레이션 및 관리되는 도메인 이름
-사용자에게 온-프레미스 Active Directory 및 Azure AD 간의 페더레이션된 로그인 환경을 제공하기 위해 Azure AD에서 사용자 지정 도메인 이름을 구성할 수 있습니다. 페더레이션을 위한 도메인을 구성하려면 Azure AD에서 권한 있는 리소스 및 Windows Server Active Directory에 대한 업데이트도 필요합니다. Azure AD Connect에서 또는 PowerShell을 사용하여 페더레이션된 도메인 구성을 완료해야 합니다. Azure 클래식 포털에서 사용자 지정 도메인의 페더레이션을 시작할 수 없습니다. [Azure AD Connect를 사용하여 사용자 로그인을 위해 AD FS를 구성하는 방법에 대해 알아보려면 이 동영상을 보세요](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect).
-
-경우에 따라 페더레이션되지 않은 도메인을 관리되는 도메인이라고 합니다. Azure AD 디렉터리에 대한 초기 도메인은 암시적으로 관리되는 도메인으로 평가됩니다.
+사용자에게 온-프레미스 Active Directory 및 Azure AD 간의 페더레이션된 로그인 환경을 제공하기 위해 Azure AD에서 사용자 지정 도메인 이름을 구성할 수 있습니다. 페더레이션을 위한 도메인을 구성하려면 Azure AD에서 권한 있는 리소스 및 Windows Server Active Directory에 대한 업데이트도 필요합니다. Azure AD Connect에서 또는 PowerShell을 사용하여 페더레이션된 도메인 구성을 완료해야 합니다. Azure 클래식 포털에서 사용자 지정 도메인의 페더레이션을 시작할 수 없습니다. 경우에 따라 페더레이션되지 않은 도메인을 관리되는 도메인이라고 합니다. Azure AD 디렉터리에 대한 초기 도메인은 암시적으로 관리되는 도메인으로 평가됩니다.
 
 ## <a name="primary-domain-names"></a>주 도메인 이름
 디렉터리의 주 도메인 이름은 관리자가 [Azure Portal](https://portal.azure.com/) 또는 Office 365 관리 포털 또는 Microsoft Intune 포털과 같은 다른 포털에서 새 사용자를 만들 때 사용자 이름의 '도메인' 부분에 기본값으로 미리 선택된 도메인 이름입니다. 디렉터리에는 하나의 주 도메인 이름만 있을 수 있습니다. 관리자는 페더레이션되지 않은 모든 확인된 사용자 지정 도메인 또는 초기 도메인이 되도록 주 도메인 이름을 변경할 수 있습니다.

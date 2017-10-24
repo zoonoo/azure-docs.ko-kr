@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
+ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 00673cac31eb25bb8dd8228d6a36617c3812f5db
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Azure Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
@@ -97,9 +95,9 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 1. **자격 증명을 로컬에 저장**하도록 선택할 수 있습니다. 자체 호스팅 통합 런타임에서 로컬로 자격 증명을 암호화하고 저장하려면 [자체 호스팅 통합 런타임에서 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)의 단계를 따르십시오. 모든 커넥터가 이 옵션을 지원합니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터/자격 증명 정보를 암호화합니다. 
 
-   **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet을 사용하여 연결된 서비스 자격 증명을 암호화하고 연결된 서비스의 중요한 세부 정보를 암호화합니다. 그런 다음 반환된 JSON(**connectionString**의 **EncryptedCredential** 요소)을 사용하여 **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet으로 연결된 서비스를 만들 수 있습니다.  
+   **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용하여 연결된 서비스 자격 증명을 암호화하고 연결된 서비스의 중요한 세부 정보를 암호화합니다. 그런 다음 반환된 JSON(**connectionString**의 **EncryptedCredential** 요소)을 사용하여 **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet으로 연결된 서비스를 만들 수 있습니다.  
 
-2. 위 단계에서 설명한 대로 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet을 사용하지 않고, 대신 JSON의 연결 문자열/자격 증명 인라인과 **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet을 사용하면 연결된 서비스는 **암호화되어 Azure Data Factory 관리 저장소에 저장**됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
+2. 위 단계에서 설명한 대로 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용하지 않고, 그 대신 JSON의 연결 문자열/자격 증명 인라인과 **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet을 사용하면 연결된 서비스는 **암호화되어 Azure Data Factory 관리 저장소에 저장**됩니다. 중요한 정보는 여전히 인증서로 암호화되며 이러한 인증서는 Microsoft에서 관리합니다.
 
 
 
@@ -186,4 +184,3 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 복사 활동의 성능에 대한 자세한 내용은 [복사 활동 성능 및 조정 가이드](copy-activity-performance.md)를 참조하세요.
 
  
-

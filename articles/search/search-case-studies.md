@@ -1,5 +1,5 @@
 ---
-title: "Azure 검색을 사용 하는 사용자: 사례 연구 및 고객 스토리 | Microsoft Docs"
+title: "Azure Search를 사용하는 사람: 사례 연구 및 고객 사례 | Microsoft Docs"
 description: "Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색과 관련한 사례 연구 및 고객 스토리"
 services: search
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
 풍부한 Azure 검색 경험을 다음과 같은 조직의 온라인 응용 프로그램에 통합하여 해당 조직이 비즈니스를 발전시키도록 도운 방법에 대해 알아봅니다.

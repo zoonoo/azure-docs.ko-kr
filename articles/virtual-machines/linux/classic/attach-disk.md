@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 > [!IMPORTANT] 
@@ -89,7 +89,7 @@ ms.lasthandoff: 07/11/2017
     sudo fdisk /dev/sdc
     ```
 
-4. 메시지가 나타나면 입력  **n**  파티션을 만듭니다.
+4. 프롬프트가 표시되면 **n**을 입력하여 파티션을 만듭니다.
 
     ![장치 만들기](./media/attach-disk/fdisknewpartition.png)
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 07/11/2017
     > [!NOTE]
     > `nofail` 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 
-    파일 시스템을 탑재 해제했다가 다시 탑재하여 파일 시스템이 제대로 탑재되었는지 테스트할 수 있습니다. 예를 들면 이전 단계에서 만든 예제 탑재 지점 `/datadrive`를 사용하여 수행합니다.
+    파일 시스템을 탑재 해제했다가 다시 탑재하여 파일 시스템이 제대로 탑재되었는지 테스트할 수 있습니다. 즉 앞의 단계에서 만든 예제 마운트 지점 `/datadrive`를 사용합니다.
 
     ```bash
     sudo umount /datadrive

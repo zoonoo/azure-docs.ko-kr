@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: 서버 로그
           href: concepts-server-logs.md
+        - name: 고가용성
+          href: concepts-high-availability.md
     - name: 리소스
       items:
         - name: 가격 책정 계층
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+    - name: 모니터
+      href: concepts-monitoring.md
     - name: 개발
       items:
         - name: 연결 라이브러리
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: 서버 로그 액세스
       items:
+        - name: Azure portal
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
+    - name: 모니터
+      items:
+        - name: 메트릭에 대한 경고 만들기
+          href: howto-alert-on-metric.md
 - name: 참조
   items:
     - name: Azure CLI

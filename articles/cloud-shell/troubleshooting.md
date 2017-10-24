@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/2/2017
 ms.author: damaerte
+ms.openlocfilehash: a23023649474d4b4a36a362593dd7affde49b1a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32d4d4d10e5d8986e2dfe94430f52db8f038e245
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure Cloud Shell 문제 해결
 Azure Cloud Shell의 문제에 대해 알려진 해결책은 다음과 같습니다.
 
@@ -56,8 +54,12 @@ Azure Cloud Shell의 문제에 대해 알려진 해결책은 다음과 같습니
  ```
  [Azure 사용자 지정 스크립트 확장][customex]를 사용하면 새 방화벽 규칙을 추가하기 위해 원격 VM에 로그온하는 것을 피할 수 있습니다.
  위의 스크립트를 예를 들어 `addfirerule.ps1`이란 파일에 저장하고, Azure 저장소 컨테이너로 업로드할 수 있습니다.
- 그런 후에 다음 명령을 시돱니다.
+ 그런 후에 다음 명령을 시도합니다.
 
  ``` Powershell
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
+
+ ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir`은 결과를 Azure 드라이브로 캐시합니다.
+ - **세부 정보**: `dir`의 결과가 Azure 드라이브로 캐시됩니다.
+ - **해결**: Azure 드라이브 보기에서 리소스를 만들거나 제거한 후 `dir -force`를 실행하여 업데이트합니다.

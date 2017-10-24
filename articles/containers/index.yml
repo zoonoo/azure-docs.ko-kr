@@ -47,10 +47,10 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Azure Container Instances와 컨테이너화된 앱 만들기
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Service Fabric을 사용하여 Windows 컨테이너 응용 프로그램 배포
             image:
-              src: /azure/media/index/ContainerService.svg
+              src: /azure/media/index/Fabric.svg
           - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
             title: Linux 컨테이너용 Kubernetes 클러스터 만들기
             image:
@@ -59,12 +59,16 @@ sections:
             title: Docker Swarm 클러스터 배포
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: DC/OS 클러스터 배포
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Azure Container Registry에서 개인 Docker 레지스트리 만들기
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: 컨테이너용 Azure Web Apps로 컨테이너화된 앱 만들기
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: DC/OS 클러스터 배포
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
   - title: Azure 및 컨테이너에 대한 무료 Pluralsight 동영상 교육

@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 32e5c2c7c058267c7a2c43d5264922c8a4cab83a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
 Cost Management 데이터에 대한 액세스는 사용자 또는 엔터티 관리에서 제공됩니다. Cloudyn 사용자 계정은 *엔터티* 및 관리 기능에 대한 액세스를 결정합니다. 관리자와 사용자의 두 가지 액세스 유형이 있습니다. 관리자 액세스는 사용자별로 수정된 경우를 제외하고는 사용자가 사용자 관리, 받는 사람 목록 관리 및 모든 엔터티 데이터에 대한 루트 엔터티 액세스를 포함한 Cloudyn 포털의 모든 기능을 무제한으로 사용하도록 허용합니다. 사용자 액세스는 최종 사용자가 엔터티 데이터에 대한 액세스 권한을 사용하여 보고서를 보고 만들기 위한 것입니다.
@@ -80,8 +77,7 @@ Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 
 > * 사용자 액세스 권한이 있는 사용자 만들기
 > * 엔터티 만들기
 
-Cloudyn을 시작하고 관련 기능을 사용하는 방법을 알아보려면 다음 Cloudyn 설명서로 진행하세요.
+이전 데이터를 사용하여 소비를 예측하는 방법에 대해 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Cloudyn 설명서](https://support.cloudyn.com/hc/)
-
+> [향후 소비 예측](tutorial-forecast-spending.md)

@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
+ms.openlocfilehash: 4e18a413a0559b1ddebecf1b29722d21ef35c337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5fa9926e2230b285a2598e5d43048d6591bd1b03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>IDE와 함께 실행되도록 Azure Machine Learning Workbench를 구성하는 방법 
 
 인기 있는 Python IDE(통합 개발 환경)와 함께 실행되도록 Azure Machine Learning Workbench를 구성할 수 있습니다. 이렇게 하면 데이터 준비, 코드 작성, 실행 추적 및 연산화 간에 데이터 과학 개발 환경을 원활하게 이동할 수 있습니다. 현재 지원되는 IDE는 다음과 같습니다.
@@ -43,8 +41,7 @@ ms.lasthandoff: 09/25/2017
 * macOS - .app 경로(예: “/Applications/PyCharm CE.app”)를 선택하면 앱에서 나머지 경로를 자동으로 추가합니다. 실행 파일의 전체 경로는 기본적으로 `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`입니다. bin 폴더 `/usr/local/bin/charm`에서도 PyCharm을 찾을 수 있습니다.
 
 ## <a name="open-project-in-ide"></a>IDE에서 프로젝트 열기 
-구성이 완료되었으면 **파일** 메뉴를 열고 **프로젝트 열기(<IDE_Name>)**를 선택하여 IDE에서 Azure Machine Learning 프로젝트를 열 수 있습니다.
-
+구성이 완료되면 Azure Machine Learning Workbench에서 **파일** 메뉴를 열고 **프로젝트 열기(<IDE_Name>)**를 클릭하여 Azure Machine Learning 프로젝트를 열 수 있습니다. 이 작업은 구성된 IDE에서 현재 활성 프로젝트를 엽니다. _참고: 프로젝트에 없는 경우 **프로젝트 열기(<IDE_Name>)**가 비활성화됩니다._
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Visual Studio Code에서 통합 터미널 구성
 
@@ -56,5 +53,4 @@ _셸: `C:\windows\System32\cmd.exe`(작업 영역 설정으로 정의됨)가 터
 Azure ML Workbench 명령줄 인터페이스와 매끄럽게 작동하도록 셸을 구성하려면 `yes`를 선택합니다.
 
 ### <a name="mac"></a>Mac
-Mac에서 Visual Studio Code의 통합 터미널을 사용하여 `az` 명령을 실행하려면 프로젝트의 `.vscode/settings.json` 파일의 `PATH` 값과 동일하도록 `PATH` 값을 수동으로 구성해야 합니다.
-
+Mac에서 Visual Studio Code의 통합 터미널을 사용하여 `az` 명령을 실행하려면 `terminal.integrated.env.osx` 키 아래에서 프로젝트의 `.vscode/settings.json` 파일에 있는 `PATH`와 동일한 값이 되도록 `PATH`를 수동으로 설정해야 합니다. 터미널에서 다음 명령을 실행하면 됩니다. `PATH=<PATH in .vscode/settings>`

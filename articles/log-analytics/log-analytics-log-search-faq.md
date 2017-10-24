@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/09/2017
 ms.author: bwren
+ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 새 로그 검색 FAQ 및 알려진 문제
 
 이 문서에는 [새 쿼리 언어로의 Log Analytics](log-analytics-log-search-upgrade.md) 업그레이드와 관련한 질문과 대답 및 알려진 문제가 포함되어 있습니다.  작업 영역을 업그레이드하도록 결정하기 전에 이 전체 문서를 읽어야 합니다.
@@ -30,6 +28,10 @@ ms.lasthandoff: 09/26/2017
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>질문: 경고 규칙이 매우 많습니다. 업그레이드 후에 새 언어로 규칙을 다시 만들어야 하나요?  
 아니요, 경고 규칙은 업그레이드 중에 새 검색 언어로 자동 변환됩니다.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>질문: 웹후크 및 Runbook 작업에 대한 경고 규칙이 있습니다. 업그레이드 시에도 계속 작동할까요?
+
+아니요, 웹후크 및 Runbook 작업에 페이로드 처리 방법을 변경해야 하는 몇 가지 변경 사항이 있습니다. 다양한 출력 형식을 표준화하고 페이로드 크기를 줄이기 위해 이러한 변경 작업을 수행했습니다. 이러한 형식에 대한 자세한 내용은 [Log Analytics에서 경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 있습니다.
 
 
 ## <a name="computer-groups"></a>컴퓨터 그룹
@@ -48,7 +50,7 @@ ms.lasthandoff: 09/26/2017
 ## <a name="dashboards"></a>대시보드
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>질문: 대시보드를 업그레이드된 작업 영역에서 계속 사용할 수 있나요?
-작업 영역을 업그레이드하기 전에 추가한 **내 대시보드**를 계속 사용할 수 있습니다. 하지만 해당 타일을 편집하거나 새로 만들 수는 없습니다.  [뷰 디자이너](log-analytics-view-designer.md)로 뷰를 계속 만들고 편집할 수 있으며, Azure Portal에서 대시보드를 만들 수도 있습니다.
+업그레이드를 통해 **내 대시보드** 사용을 중단하는 과정이 시작됩니다.  작업 영역을 업그레이드하기 전에 대시보드에 추가한 타일은 계속 사용할 수 있지만 해당 타일을 편집하거나 새 타일을 추가할 수는 없습니다.  보다 풍부한 기능이 있는 [뷰 디자이너](log-analytics-view-designer.md)로 뷰를 계속 만들고 편집할 수 있으며, Azure Portal에서 대시보드를 만들 수도 있습니다.
 
 
 ## <a name="log-searches"></a>로그 검색
@@ -58,6 +60,9 @@ ms.lasthandoff: 09/26/2017
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>질문: 내 쿼리 결과가 정렬되지 않는 이유는 무엇입니까?
 새 쿼리 언어에서는 결과가 기본적으로 정렬되지 않습니다.  [정렬 연산자](https://go.microsoft.com/fwlink/?linkid=856079)를 사용하여 하나 이상의 속성으로 결과를 정렬합니다.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>질문: 업그레이드 후에 메트릭 보기는 어디로 이동하나요?
+메트릭 보기는 로그 검색의 성능 데이터를 그래픽으로 표시합니다.  이 보기는 업그레이드 후에 더 이상 사용할 수 없습니다.  [렌더링 연산자](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator)를 사용하여 시간 차트의 쿼리 출력 형식을 지정할 수 있습니다.
 
 ### <a name="question-where-did-minify-go-after-i-upgraded"></a>질문: 업그레이드한 후 축소는 어디로 이동합니까?
 축소는 검색 결과를 요약하여 보여주는 기능입니다.  업그레이드한 후 축소 옵션은 로그 검색 포털에 더 이상 나타나지 않습니다.  [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) 또는 [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster)를 사용하여 새로운 검색 언어로 유사한 기능을 얻을 수 있습니다. 
@@ -104,7 +109,7 @@ ms.lasthandoff: 09/26/2017
 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults)는 새 검색 언어로 아직 업그레이드되지 않았습니다.  작업 영역을 업그레이드한 후에도 이 cmdlet으로 레거시 쿼리 언어를 계속 사용합니다.  cmdlet이 업데이트되면 업데이트된 해당 설명서를 사용할 수 있게 됩니다.
 
 
-## <a name="resource-manager-templates"></a>Resource Manager 템플릿
+## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
 ### <a name="question-can-i-create-an-upgraded-workspace-with-a-resource-manager-template"></a>질문: Resource Manager 템플릿을 사용하여 업그레이드된 작업 영역을 작성할 수 있나요?
 예.  2017년 3월 15일 미리 보기의 API 버전을 사용하고 다음 예제와 같이 템플릿의 **기능** 섹션을 포함해야 합니다.
@@ -146,10 +151,10 @@ Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하�
 ## <a name="upgrade-process"></a>업그레이드 프로세스
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>질문: 작업 영역이 여러 개 있습니다. 모든 작업 영역을 동시에 업그레이드할 수 있나요?  
-안 됩니다.  각 업그레이드는 단일 작업 영역에 적용됩니다. 현재는 여러 작업 영역을 한 번에 업그레이드할 수 있는 방법이 없습니다. 업그레이드된 작업 영역의 다른 사용자도 영향을 받게 됩니다.  
+아니요.  각 업그레이드는 단일 작업 영역에 적용됩니다. 현재는 여러 작업 영역을 한 번에 업그레이드할 수 있는 방법이 없습니다. 업그레이드된 작업 영역의 다른 사용자도 영향을 받게 됩니다.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>질문: 업그레이드하면 작업 영역에 수집되어 있는 기존 로그 데이터가 수정되나요?  
-안 됩니다. 작업 영역 검색에 사용할 수 있는 로그 데이터는 업그레이드의 영향을 받지 않습니다. 저장된 검색, 경고 및 보기는 새 검색 언어로 자동 변환됩니다.  
+아니요. 작업 영역 검색에 사용할 수 있는 로그 데이터는 업그레이드의 영향을 받지 않습니다. 저장된 검색, 경고 및 보기는 새 검색 언어로 자동 변환됩니다.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>질문: 내 작업 영역을 업그레이드하지 않으면 어떻게 되나요?  
 향후 몇 개월 이내에 레거시 로그 검색은 사용되지 않을 예정입니다. 이 시점까지 업그레이드하지 않은 작업 영역은 자동으로 업그레이드됩니다.
@@ -173,4 +178,3 @@ Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하�
 ## <a name="next-steps"></a>다음 단계
 
 - [새 Log Analytics 쿼리 언어로 작업 영역 업그레이드](log-analytics-log-search-upgrade.md)에 대해 자세히 알아봅니다.
-

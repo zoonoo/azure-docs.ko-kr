@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
+ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: ddbba4b45c5c7cd8ee69390581cd78b820d19259
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 조건 중 하나가 참인 경우 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크(VNet)에 조인해야 합니다. 
 
@@ -40,8 +38,9 @@ SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우
 - 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager VNet이 있는 경우 먼저 Azure-SSIS 통합 런타임이 조인할 [클래식 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 만듭니다. 그런 다음 [클래식-Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다.
 
 ## <a name="domain-name-services-server"></a>도메인 이름 서비스 서버 
-Azure-SSIS 통합 런타임에서 조인한 VNet에서 자체 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 이 지침에 따라 VNet의 Azure-SSIS 통합 런타임 노드에서 Azure 끝점을 확인할 수 있는지 확인하십시오.
+Azure-SSIS 통합 런타임에서 조인한 VNet에서 자체 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 지침에 따라 [VNet의 Azure-SSIS 통합 런타임 노드에서 Azure 끝점을 확인할 수 있는지 확인하십시오](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
+## <a name="network-security-group"></a>네트워크 보안 그룹
 Azure-SSIS 통합 런타임에서 조인한 VNet에 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다.
 
 | 포트 | 방향 | 전송 프로토콜 | 목적 | 인바운드 원본/아웃바운드 대상 |
@@ -101,4 +100,3 @@ Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(비공개 미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
-

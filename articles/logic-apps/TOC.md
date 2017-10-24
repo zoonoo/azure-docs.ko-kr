@@ -5,8 +5,8 @@
 
 # 시작
 ## [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md)
-## [논리 앱용 템플릿](logic-apps-use-logic-app-templates.md)
-## [템플릿에서 논리 앱 만들기](logic-apps-arm-provision.md)
+## [템플릿에서 논리 앱 만들기](logic-apps-create-logic-apps-from-templates.md)
+## [Resource Manager 템플릿에서 논리 앱 만들기](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [논리 앱으로 MABS 앱 이동](logic-apps-move-from-mabs.md)
 
 # 방법

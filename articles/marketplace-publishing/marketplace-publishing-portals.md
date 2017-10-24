@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
 ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-you-will-need"></a>필요한 포털
 제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure 포털이 나와 있습니다.                                                                            
@@ -35,7 +35,7 @@ Microsoft 개발자 센터 계정 만들기는 일회성 작업입니다. 계정
 > 
 
 ### <a name="identityaccount-used"></a>사용되는 ID/계정
-이상적으로이 메일 그룹 또는 보안 그룹 (예: azurepublishing @*partnercompany*.com). 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
+이상적으로 이것은 메일 그룹 또는 보안 그룹(예: azurepublishing@*partnercompany*.com)입니다. 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
 
 > [!TIP]
 > 개인 계정도 사용되지만 개인에 대한 종속성을 제거하는 메일 그룹이나 보안 그룹을 사용하는 것이 좋습니다.

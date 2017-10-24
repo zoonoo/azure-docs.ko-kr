@@ -1,5 +1,5 @@
 ---
-title: "Azure Security Center 가격 책정 | Microsoft Docs"
+title: "보안 강화를 위해 Security Center의 표준 계층으로 업그레이드 | Microsoft Docs"
 description: "이 문서에서는 Azure Security Center에 대한 가격 책정 정보를 제공합니다."
 services: security-center
 documentationcenter: na
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/15/2017
 ms.author: terrylan
+ms.openlocfilehash: 14513c37964246397d9f748322975ef40ef3e8ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cd4001a3280c83875f30b04d5d38caec26f4f0b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-security-center-pricing"></a>Azure Security Center 가격 책정
+# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
 
 ## <a name="pricing-tiers"></a>가격 책정 계층
@@ -68,4 +67,3 @@ Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png
-

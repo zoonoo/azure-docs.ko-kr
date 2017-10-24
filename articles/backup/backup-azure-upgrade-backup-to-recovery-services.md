@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > 리소스 그룹 이름에는 제약이 있습니다. 지침을 준수해야 합니다. 그렇지 않으면 자격 증명 모음 업그레이드에 실패할 수 있습니다.
 >
 >**Azure US Government** 고객은 스크립트를 실행하는 동안 환경을 "AzureUSGovernment"로 설정해야 합니다.
+>**Azure China** 고객은 스크립트를 실행하는 동안 환경을 "AzureChinaCloud"로 설정해야 합니다.
 
 다음 코드 조각은 PowerShell 명령이 표시되는 예제입니다.
 
@@ -159,4 +159,3 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 [IaaS VM 백업](backup-azure-arm-vms-prepare.md)</br>
 [Azure Backup Server 백업](backup-azure-microsoft-azure-backup.md)</br>
 [Windows Server 백업](backup-configure-vault.md)
-

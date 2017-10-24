@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* 집계 사전에 대한 버그 수정입니다.
+* 리소스 링크에서 슬래시 잘라내기에 대한 버그 수정입니다.
+* 유니코드 인코딩에 대한 테스트가 추가되었습니다.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
 
@@ -127,6 +131,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |2017년 9월 29일 |--- |
 | [2.2.0](#2.2.0) |2017년 5월 10일 |--- |
 | [2.1.0](#2.1.0) |2017년 5월 1일 |--- |
 | [2.0.1](#2.0.1) |2016년 10월 30일 |--- |
@@ -154,5 +159,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
-
 

@@ -1,98 +1,110 @@
 ---
-title: "Azure 컨테이너 레지스트리 리포지토리 | Microsoft Docs"
-description: "Docker 이미지에 Azure 컨테이너 레지스트리 리포지토리를 사용하는 방법"
+title: "빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기"
+description: "PowerShell을 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다."
 services: container-registry
 documentationcenter: 
-author: cristy
-manager: balans
-editor: dlepow
+author: neilpeterson
+manager: timlt
+editor: tysonn
 ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
-ms.author: cristyg
+ms.date: 09/07/2017
+ms.author: nepeters
+ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell을 사용하여 Azure Container Registry 만들기
 
-# <a name="create-a-private-docker-container-registry-using-the-azure-powershell"></a>Azure PowerShell을 사용하여 개인 Docker 컨테이너 레지스트리 만들기
-[Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview)의 명령을 사용하여 Windows 컴퓨터에서 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure Portal](container-registry-get-started-portal.md), [Azure CLI](container-registry-get-started-azure-cli.md)을 사용하여 또는 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 사용하여 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 PowerShell을 사용하여 관리되는 Azure Container Registry 인스턴스를 만드는 방법에 대해 자세히 설명합니다.
 
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
-* 배경 지식 및 개념은 [개요](container-registry-intro.md)를 참조하세요.
-* 지원되는 cmdlet의 전체 목록은 [Azure Container Registry 관리 Cmdlet](https://docs.microsoft.com/en-us/powershell/module/azurerm.containerregistry/)을 참조하세요.
+또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure PowerShell**: Azure PowerShell을 설치하고 시작하려면 [설치 지침](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)을 참조하세요. `Login-AzureRMAccount`을 실행하여 Azure 구독에 로그인합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep)을 참조하세요.
-* **리소스 그룹**: 컨테이너 레지스트리를 만들기 전에 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹이 Container Registry 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 있도록 해야 합니다. Azure PowerShell을 사용하여 리소스 그룹을 만들려면 [PowerShell 참조](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group)를 참조하세요.
-* **저장소 계정**(선택 사항): 동일한 위치의 컨테이너 레지스트리를 백업할 표준 Azure [저장소 계정](../storage/common/storage-introduction.md)을 만듭니다. `New-AzureRMContainerRegistry`를 사용하여 레지스트리를 만들 때 저장소 계정을 지정하지 않으면 명령에서 자동으로 생성됩니다. PowerShell을 사용하여 저장소 계정을 만들려면 [PowerShell 참조](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount)를 참조하세요. Premium Storage는 현재 지원되지 않습니다.
-* **서비스 주체**(선택 사항): PowerShell을 사용하여 레지스트리를 만들 때 기본적으로 액세스가 가능하도록 설정되지 않습니다. 필요에 따라 레지스트리에 기존 Azure Active Directory 서비스 주체를 할당하거나 새 주체를 만들어서 할당할 수 있습니다. 또는 레지스트리의 관리 사용자 계정을 사용할 수 있습니다. 이 문서의 뒷부분에 나오는 섹션을 참조하세요. 레지스트리 액세스에 대한 자세한 내용은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
+`Login-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+
+```powershell
+Login-AzureRmAccount
+```
+
+## <a name="create-resource-group"></a>리소스 그룹 만들기
+
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+```
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-`New-AzureRMContainerRegistry` 명령을 실행하여 컨테이너 레지스트리를 만듭니다.
 
-> [!TIP]
-> 레지스트리를 만들 때 전역적으로 고유한 최상위 도메인 이름(문자 및 숫자만 포함)을 지정합니다. 레지스트리 이름 예제가 `MyRegistry`이지만 자신만의 고유한 이름으로 대체합니다.
->
->
+[New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) 명령을 사용하여 ACR 인스턴스를 만듭니다.
 
-다음 명령은 미국 중남부 지역에 `MyResourceGroup`이라는 리소스 그룹의 `MyRegistry`라는 컨테이너 레지스트리를 만들기 위해 최소의 매개 변수를 사용합니다.
+레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-* `-StorageAccountName` 는 선택 사항입니다. 지정하지 않으면 지정된 리소스 그룹에서 레지스트리 이름 및 타임스탬프로 구성된 이름으로 저장소 계정이 만들어집니다.
+## <a name="log-in-to-acr"></a>ACR에 로그인
 
-## <a name="assign-a-service-principal"></a>서비스 주체 할당
-PowerShell 명령을 사용하여 Azure Active Directory [서비스 주체](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 레지스트리에 할당합니다. 이 예제의 경우 서비스 주체에 소유자 역할이 할당되어 있지만 필요하면 [다른 역할](../active-directory/role-based-access-control-configure.md)을 할당할 수 있습니다.
+컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 먼저, [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) 명령을 사용하여 ACR 인스턴스에 대한 관리자 자격 증명을 가져옵니다.
 
-### <a name="create-a-service-principal"></a>서비스 주체 만들기
-다음 명령에서 새 서비스 주체를 만듭니다. `-Password` 매개 변수를 통해 강력한 암호를 지정합니다.
-
-```PowerShell
-$ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName ApplicationDisplayName -Password "MyPassword"
+```powershell
+$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
 ```
 
-### <a name="assign-a-new-or-existing-service-principal"></a>새로운 서비스 주체 또는 기존 서비스 주체 할당
-레지스트리에 새 서비스 주체 또는 기존 서비스 주체를 할당할 수 있습니다. 레지스트리에 소유자 역할 액세스를 할당하려면 다음 예제와 유사한 명령을 실행합니다.
+다음으로, [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 ACR 인스턴스에 로그인합니다.
 
-```PowerShell
-New-AzureRMRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Registry.Id
+```bash
+docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-##<a name="sign-in-to-the-registry-with-the-service-principal"></a>서비스 주체를 사용하여 레지스트리에 로그인
-레지스트리에 서비스 주체를 할당한 후에 다음 명령을 사용하여 로그인할 수 있습니다.
+이 명령은 완료되면 '로그인했습니다.'라는 메시지를 반환합니다.
 
-```PowerShell
-docker login -u $ServicePrincipal.ApplicationId -p myPassword
+## <a name="push-image-to-acr"></a>ACR에 이미지 푸시
+
+Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있어야 합니다. 필요한 경우에 다음 명령을 실행하여 미리 만든 이미지를 Docker Hub에서 끌어옵니다.
+
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
-## <a name="manage-admin-credentials"></a>관리자 자격 증명 관리
-관리자 계정은 각 컨테이너 레지스트리에 대해 자동으로 생성되며 기본적으로 비활성화됩니다. 다음 예제는 컨테이너 레지스트리에 대한 관리자 자격 증명을 관리하는 PowerShell 명령을 보여줍니다.
+이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) 명령을 실행하여 ACR 인스턴스의 로그인 서버 이름을 반환합니다.
 
-### <a name="obtain-admin-user-credentials"></a>관리자 사용자 자격 증명 가져오기
-```PowerShell
-Get-AzureRMContainerRegistryCredential -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+```powershell` Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>기존 레지스트리에 대한 관리자 사용자 활성화
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -EnableAdminUser
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>기존 레지스트리에 대한 관리자 사용자 비활성화
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -DisableAdminUser
+마지막으로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, ACR 인스턴스 및 모든 컨테이너 이미지를 제거할 수 있습니다.
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
 
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances 자습서](../container-instances/container-instances-tutorial-prepare-app.md)

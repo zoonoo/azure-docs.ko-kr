@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
+ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 6fe7d46e39de204874c8bc91a0101b9e0541539b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 
@@ -29,16 +28,16 @@ Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터
 
 * **사용자 정의 메타데이터**: 사용자 정의 메타 데이터는 이름-값 쌍의 형태로 제공된 리소스에서 지정 하는 메타 데이터입니다. 메타데이터를 사용하여 저장소 리소스와 함께 추가 값을 저장할 수 있습니다. 이러한 추가 메타데이터 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
 
-저장소 리소스에 대한 속성 및 메타데이터 값 검색은 두 단계로 이루어집니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 메서드를 호출하여 명시적으로 가져와야 합니다.
+저장소 리소스에 대한 속성 및 메타데이터 값 검색은 두 단계로 이루어집니다. 이러한 값을 읽으려면 먼저 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다.
 
 > [!IMPORTANT]
-> **FetchAttributes** 메서드 중 하나를 호출하지 않으면 저장소 리소스에 대한 속성 및 메타데이터 값이 채워지지 않습니다.
+> **FetchAttributesAsync** 메서드 중 하나를 호출하지 않으면 저장소 리소스에 대한 속성 및 메타데이터 값이 채워지지 않습니다.
 >
 > 이름/값 쌍에 ASCII 문자가 아닌 문자가 포함되어 있으면 `400 Bad Request`를 수신합니다. 메타데이터 이름/값 쌍은 유효한 HTTP 헤더이며, HTTP 헤더와 관련된 모든 제한 사항을 준수해야 합니다. 따라서 ASCII 문자가 아닌 문자가 포함된 이름 및 값에 URL 인코딩 또는 Base64 인코딩을 사용하는 것이 좋습니다.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>속성 설정 및 검색
-속성 값을 검색하려면 Blob 또는 컨테이너에서 **FetchAttributes** 메서드를 호출하여 속성을 채운 다음 값을 읽습니다.
+속성 값을 검색하려면 Blob 또는 컨테이너에서 **FetchAttributesAsync** 메서드를 호출하여 속성을 채운 다음 값을 읽습니다.
 
 개체에서 속성을 설정하려면 속성 값을 지정한 다음 **SetProperties** 메서드를 호출합니다.
 
@@ -59,7 +58,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
-container.FetchAttributes();
+await container.FetchAttributesAsync();
 Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
 Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
 Console.WriteLine("ETag: {0}", container.Properties.ETag);
@@ -77,26 +76,26 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 다음 코드 예제에서는 컨테이너에서 메타데이터를 설정합니다. 하나의 값은 컬렉션의 **추가** 메서드를 사용하여 설정됩니다. 다른 값은 암시적 키/값 구문을 사용하여 설정됩니다. 둘 다 모두 유효합니다.
 
 ```csharp
-public static void AddContainerMetadata(CloudBlobContainer container)
+public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    // Add some metadata to the container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
-    container.SetMetadata();
+    // Set the container's metadata.
+    await container.SetMetadataAsync();
 }
 ```
 
 메타데이터를 검색하려면 아래 예제에 나온 것처럼 Blob 또는 컨테이너에서 **FetchAttributes** 메서드를 호출하여 **Metadata** 컬렉션을 채운 다음 값을 읽습니다.
 
 ```csharp
-public static void ListContainerMetadata(CloudBlobContainer container)
+public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
-    container.FetchAttributes();
+    // Fetch container attributes in order to populate the container's properties and metadata.
+    await container.FetchAttributesAsync();
 
-    //Enumerate the container's metadata.
+    // Enumerate the container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {
@@ -109,4 +108,3 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 ## <a name="next-steps"></a>다음 단계
 * [.NET용 Azure Storage 클라이언트 라이브러리 참조](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [.NET용 Azure Storage 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
-

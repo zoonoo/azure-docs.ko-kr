@@ -12,16 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 09/27/2017
 ms.author: raynew
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
 ## <a name="what-are-paired-regions"></a>쌍을 이루는 지역이란?
@@ -51,9 +49,8 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 일본 |일본 동부 |일본 서부 |
 | 브라질 |브라질 남부(1) |미국 중남부 |
 | 미국 정부 |미국 정부 아이오와 |미국 정부 버지니아 |
-| 미국 정부 |미국 정부 버지니아 |미국 정부 텍사스 |
-| 미국 정부 |미국 정부 텍사스 |미국 정부 애리조나 |
 | 미국 정부 |미국 정부 애리조나 |미국 정부 텍사스 |
+| 미국 국방부 |미국 국방부 동부 |미국 국방부 중부 |
 | 영국 |영국 서부 |영국 남부 |
 | 독일 |독일 중부 |독일 북동부 |
 
@@ -99,4 +96,3 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![데이터](./media/best-practices-availability-paired-regions/9Orange.png)
 **데이터 상주** – 지역은 세금 및 법률 집행 관할 구역의 데이터 상주 요구 사항을 충족하기 위해 동일한 지리적 위치 내에 쌍으로 상주합니다(브라질 남부 제외).
-

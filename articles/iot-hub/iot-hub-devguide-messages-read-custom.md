@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 끝점 사용
 
@@ -34,7 +32,10 @@ IoT Hub를 사용하면 메시지 속성을 기반으로 IoT Hub 서비스 지�
 
 하나의 메시지가 여러 라우팅 규칙의 조건과 일치할 수 있습니다.이 경우 IoT Hub는 일치된 각 규칙과 연결된 끝점으로 메시지를 배달합니다. 또한 IoT Hub는 메시지 배달을 자동으로 중복 제거하므로 메시지가 모두 동일한 대상을 가진 여러 규칙과 일치하면 해당 대상에 한 번만 기록됩니다.
 
-IoT Hub에는 기본 [기본 제공 끝점][lnk-built-in]이 있습니다. 구독의 다른 서비스를 허브에 연결하여 메시지를 라우팅할 사용자 지정 끝점을 만들 수 있습니다. IoT Hub는 현재 사용자 지정 끝점으로 Event Hubs, Service Bus 큐 및 Service Bus 토픽을 지원합니다.
+IoT Hub에는 기본 [기본 제공 끝점][lnk-built-in]이 있습니다. 구독의 다른 서비스를 허브에 연결하여 메시지를 라우팅할 사용자 지정 끝점을 만들 수 있습니다. IoT Hub는 현재 사용자 지정 끝점으로 Azure Storage 컨테이너, Event Hubs, Service Bus 큐 및 Service Bus 토픽을 지원합니다.
+
+> [!NOTE]
+> IoT Hub는 데이터를 Azure Storage 컨테이너에 BLOB으로 쓰는 것만 지원합니다.
 
 > [!WARNING]
 > **세션** 또는 **중복 검색**이 사용하도록 설정된 Service Bus 큐 및 토픽은 사용자 지정 끝점으로 지원되지 않습니다.
@@ -43,6 +44,7 @@ IoT Hub에 사용자 지정 끝점을 만드는 방법에 대한 자세한 내�
 
 사용자 지정 끝점에서 읽는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
+* [Azure Storage 컨테이너][lnk-getstarted-storage]에서 읽기
 * [Event Hubs][lnk-getstarted-eh]에서 읽기
 * [Service Bus 큐][lnk-getstarted-queue]에서 읽기
 * [Service Bus 토픽][lnk-getstarted-topic]에서 읽기
@@ -63,4 +65,4 @@ IoT Hub 끝점에 대한 자세한 내용은 [IoT Hub 끝점][lnk-devguide-endpo
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

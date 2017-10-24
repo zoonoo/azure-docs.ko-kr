@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
+ms.openlocfilehash: 0ed8d3432a988c468260589cfe12090529c403d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
 Azure Load Balancer 표준 SKU 및 공용 IP 표준 SKU를 함께 사용하여 확장성이 매우 크고 신뢰할 수 있는 아키텍처를 만들 수 있습니다.  Load Balancer 표준을 사용하는 응용 프로그램은 모든 TCP 및 UDP 응용 프로그램에 대해 짧은 대기 시간, 높은 처리량 및 수백만의 흐름에 대한 크기 조정뿐만 아니라 새로운 기능을 활용할 수 있습니다.
 
 >[!NOTE]
-> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다.
+> Load Balancer 표준 SKU는 현재 미리 보기 상태입니다. 미리 보기 중 이 기능은 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 프로덕션 서비스의 경우 일반 공급 [Load Balancer 기본 SKU](load-balancer-overview.md)를 사용합니다.  이 미리 보기와 연결된 기능([가용성 영역](https://aka.ms/availabilityzones) 및 [HA 포트](https://aka.ms/haports))은 현재 별도의 등록이 필요합니다. Load Balancer [표준 미리 보기](#preview-sign-up)와 등록에 대한 각각의 지침을 따르십시오.
 
 ## <a name="why-use-load-balancer-standard"></a>Load Balancer 표준을 사용하는 이유
 
@@ -151,6 +149,8 @@ VNet 및 서브넷은 영역이 제한되지 않으므로 원하는 VM 인스턴
 #### <a name="zonal-deployments"></a>영역 배포
 
 필요에 따라 영역 프런트 엔드를 정의하여 프런트 엔드를 특정 영역에 맞출 수도 있습니다.  영역 프런트 엔드는 지정된 단일 가용성 영역에서만 제공되며 영역 VM 인스턴스와 결합할 때 리소스를 특정 영역에 맞출 수 있습니다.
+
+특정 영역에 생성된 공용 IP 주소는 항상 해당 영역에만 존재합니다.  공용 IP 주소의 영역을 변경하는 것은 불가능합니다.  여러 영역의 리소스에 연결할 수 있는 공용 IP 주소가 필요하면 대신 영역 중복 공용 IP를 만들어야 합니다.
 
 다음을 사용하여 가용성 영역 1에 영역 공용 IP 주소를 만듭니다(기존 Resource Manager 템플릿에 "zones" 및 "sku" 추가).
 
@@ -290,11 +290,11 @@ Load Balancer 표준 SKU는 새로운 제품이며 현재 미리 보기 상태�
 
 여러 할당 메서드를 제공하는 공용 IP 기본과 달리 공용 IP 표준은 항상 정적 할당입니다.
 
-또한 가용성 영역을 제공하는 지역에서 사용되는 경우 공용 IP 표준은 영역이 되도록 선언되지 않은 한 자동으로 영역 복원력이 있습니다.
+또한 가용성 영역을 제공하는 지역에서 사용되는 경우 공용 IP 표준은 영역이 되도록 선언되지 않은 한 자동으로 영역 복원력이 있습니다.  영역 공용 IP는 한 영역에서 다른 영역으로 변경할 수 없습니다.
 
 ## <a name="migration-between-skus"></a>SKU 간의 마이그레이션
 
-하나의 리소스 SKU에서 다른 리소스 SKU로 이동하려는 경우 다음 단계를 따릅니다.
+SKU는 변경할 수 없습니다.  하나의 리소스 SKU에서 다른 리소스 SKU로 이동하려는 경우 다음 단계를 따릅니다.
 
 ### <a name="migrating-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 마이그레이션
 
@@ -374,7 +374,7 @@ Load Balancer 표준 SKU 및 해당 도우미 공용 IP 표준 SKU에 대한 미
 >Load Balancer 표준 기능을 등록하는 데는 한 시간까지 소요될 수 있습니다.
 
 >[!NOTE]
->Load Balancer 및 공용 IP와 함께 가용성 영역을 사용하려는 경우 가용성 영역 미리 보기에 대한 구독도 등록해야 합니다.
+>[가용성 영역](https://aka.ms/availabilityzones) 및 [HA 포트](https://aka.ms/haports)가 있는 Load Balancer 표준을 사용하려면 다음 미리 보기에 대한 별도의 등록이 필요합니다.  해당 지침을 따르십시오.
 
 ## <a name="pricing"></a>가격
 
@@ -401,5 +401,4 @@ Load Balancer 표준 SKU는 구성된 규칙 및 처리된 데이터에 따라 �
 - [기본 Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보기
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보기
-
 

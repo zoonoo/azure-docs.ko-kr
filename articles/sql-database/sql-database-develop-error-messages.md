@@ -14,14 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
@@ -180,7 +179,7 @@ Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다
 | 40607 |16 |Windows 로그인은 해당 버전의 SQL Server에서 지원되지 않습니다. |
 | 40611 |16 |서버에는 최대 128개의 정의된 방화벽 규칙이 있을 수 있습니다. |
 | 40614 |16 |방화벽 규칙의 시작 IP 주소는 끝 IP 주소를 초과할 수 없습니다. |
-| 40615 |16 |로그인에서 요청된 서버 '{0}'을(를) 열 수 없습니다. IP 주소가 '{1}'인 클라이언트는 서버에 액세스할 수 없습니다.  액세스할 수 있게 하려면 SQL 데이터베이스 포털을 사용하거나 master 데이터베이스의 sp_set_firewall_rule을(를) 실행하여 해당 IP 주소 또는 주소 범위에 대한 방화벽 규칙을 만드십시오.  이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. |
+| 40615 |16 |로그인에서 요청된 서버 '{0}'을(를) 열 수 없습니다. IP 주소가 '{1}'인 클라이언트는 서버에 액세스할 수 없습니다.<br /><br />액세스할 수 있게 하려면 SQL 데이터베이스 포털을 사용하거나 master 데이터베이스의 sp\_set\_firewall\_rule을 실행하여 해당 IP 주소 또는 주소 범위에 대한 방화벽 규칙을 만드십시오. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. |
 | 40617 |16 |(규칙 이름)(으)로 시작하는 방화벽 규칙 이름이 너무 깁니다. 최대 길이는 128자입니다. |
 | 40618 |16 |방화벽 규칙 이름은 비워둘 수 없습니다. |
 | 40620 |16 |사용자 "%.&#x2a;ls"에 대한 로그인이 실패했습니다. 암호를 변경하지 못했습니다. 해당 버전의 SQL Server에서 로그인 시 암호 변경이 지원되지 않습니다. |
@@ -205,12 +204,12 @@ Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다
 | 40651 |16 |구독 (subscription-id)을(를) 사용할 수 없으므로 서버를 만들지 못했습니다. |
 | 40652 |16 |서버를 이동하거나 만들 수 없습니다. 구독 (subscription-id)이(가) 서버 할당량을 초과합니다. |
 | 40671 |17 |게이트웨이 및 관리 서비스 간의 통신 오류입니다. 나중에 다시 시도하십시오. |
-| 40852 |16 |로그인에서 요청된 서버 '%.*ls'의 데이터베이스 '%.*ls'을(를) 열 수 없습니다. 데이터베이스에 대한 액세스는 보안 지원 연결 문자열을 사용해서만 허용됩니다. 이 데이터베이스에 액세스하려면 서버 FQDN에 ‘secure(보안)’를 포함하도록 연결 문자열을 수정합니다 - '서버 이름'.database.windows.net은 '서버 이름'.database.`secure`.windows.net로 수정되어야 합니다. |
+| 40852 |16 |로그인에서 요청된 서버 '%.\*ls'의 데이터베이스 '%.\*ls'을(를) 열 수 없습니다. 데이터베이스에 대한 액세스는 보안 지원 연결 문자열을 사용해서만 허용됩니다. 이 데이터베이스에 액세스하려면 서버 FQDN에 ‘secure(보안)’를 포함하도록 연결 문자열을 수정합니다 - '서버 이름'.database.windows.net은 '서버 이름'.database.`secure`.windows.net로 수정되어야 합니다. |
+| 40914 | 16 | 로그인에서 요청한 '*[server-name]*' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.<br /><br />해결하려면 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 추가를 고려합니다. |
 | 45168 |16 |SQL Azure 시스템이 부하를 받고 있으며 단일 서버에 대해 동시 DB CRUD 작업에 대한 상한을 둡니다(예: 데이터베이스 만들기). 오류 메시지에 지정된 서버가 최대 동시 연결 수를 초과했습니다. 나중에 다시 시도하십시오. |
 | 45169 |16 |SQL Azure 시스템이 부하를 받고 있으며 단일 구독에 대해 동시 서버 CRUD 작업에 대한 상한을 두고 있습니다(예: 데이터베이스 만들기). 오류 메시지에 지정된 구독이 최대 동시 연결 수를 초과했으며 요청이 거부되었습니다. 나중에 다시 시도하십시오. |
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure SQL Database 기능](sql-database-features.md)에 대해 알아보세요.
 * [서비스 계층](sql-database-service-tiers.md)에 대해 알아보세요.
-
 

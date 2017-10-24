@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 서비스: 발급자 이름 및 발급자 키
 
@@ -50,7 +50,7 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 4. 사용 중인 구독을 선택합니다. `select-azuresubscription <name of your subscription>` 
 5. 새 네임스페이스를 만듭니다. `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-    예:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    예: `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
 5. 새 ACS 네임스페이스를 만들면(몇 분 정도 걸릴 수 있음) 발급자 이름 및 발급자 키 값이 연결 문자열에 나열됩니다. 
 

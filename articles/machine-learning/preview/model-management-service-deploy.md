@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d95f8d32d9aeca5202623909fcf78014fa2e4458
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>웹 서비스로 Machine Learning 웹 학습 모델 배포
 
@@ -165,7 +164,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->단일 명령을 사용하여 두 작업을 모두 수행할 수도 있습니다. 자세한 내용을 보려면 service create 명령과 함께 -h를 사용하세요.
+>단일 명령을 사용하여 이전 4단계를 수행할 수도 있습니다. 자세한 내용을 보려면 service create 명령과 함께 -h를 사용하세요.
 
 ### <a name="8-test-the-service"></a>8. 서비스 테스트
 다음 명령을 사용하여 서비스를 호출하는 방법에 대한 정보를 가져옵니다.
@@ -188,4 +187,3 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 
 ## <a name="next-steps"></a>다음 단계
 이제 웹 서비스를 로컬로 실행하여 테스트했으므로 대규모로 사용할 클러스터에 웹 서비스를 배포할 수 있습니다. 웹 서비스 배포를 위한 클러스터 설정에 대한 자세한 내용은 [모델 관리 구성](model-management-configuration.md)을 참조하세요. 
-

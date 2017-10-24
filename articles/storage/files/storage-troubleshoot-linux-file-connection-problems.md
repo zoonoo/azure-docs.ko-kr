@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
+ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -83,7 +82,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 ### <a name="cause"></a>원인
 
-일부 Linux 배포에서는 SMB 3.0의 암호화 기능이 아직 지원되지 않으므로 사용자가 SMB 3.0을 사용하여 Azure Files를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지가 표시될 수 있습니다.
+일부 Linux 배포에서는 SMB 3.0의 암호화 기능이 아직 지원되지 않으므로 사용자가 SMB 3.0을 사용하여 Azure Files를 탑재하려고 하면 기능 누락으로 인해 “115” 오류 메시지가 표시될 수 있습니다. 전체 암호화가 적용된 SMB 3.0은 현재 Ubuntu 16.04 이상을 사용할 때만 지원됩니다.
 
 ### <a name="solution"></a>해결 방법
 
@@ -104,11 +103,11 @@ Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니
 
 일부 시나리오에서는 **serverino** 탑재 옵션으로 **ls** 명령을 유도하여 모든 디렉터리 항목에 대해 stat를 실행할 수 있습니다. 이러한 동작은 큰 디렉터리를 나열하는 경우 성능 저하를 일으킬 수 있습니다. **/etc/fstab** 항목에서 탑재 옵션을 확인할 수 있습니다.
 
-`//azureuser.file.core.windows.net/cifs /cifs cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 **sudo mount | grep cifs** 명령을 실행하고 다음 출력 예와 같은 해당 출력을 확인하여 올바른 옵션이 사용되는지 확인할 수도 있습니다.
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 **cache=strict** 또는 **serverino** 옵션이 없는 경우 [설명서](../storage-how-to-use-files-linux.md)의 mount 명령을 실행하여 Azure Files를 분리했다가 다시 탑재합니다. 그런 다음 **/etc/fstab** 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
@@ -159,4 +158,3 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

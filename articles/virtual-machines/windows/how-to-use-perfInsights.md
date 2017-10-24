@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
+ms.openlocfilehash: 8d66bbdf6f7153cf59af60051e54377f6eccdc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload)는 유용한 진단 정보를 수집하고, I/O 스트레스 부하를 실행하며, Microsoft Azure에서 Windows VM 성능 문제를 해결하는 데 도움이 되는 분석 보고서를 제공하는 자동화된 스크립트입니다. 
+[PerfInsights](http://aka.ms/perfinsightsdownload)는 유용한 진단 정보를 수집하고, I/O 스트레스 부하를 실행하며, Microsoft Azure에서 Windows VM 성능 문제를 해결하는 데 도움이 되는 분석 보고서를 제공하는 자동화된 스크립트입니다. 이 스크립트는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 또는 독립 실행형 스크립트로 가상 컴퓨터에서 실행될 수 있습니다.
 
 VM 성능 문제로 Microsoft 지원 티켓을 열기 전에 이 스크립트를 실행하는 것이 좋습니다.
 
@@ -189,7 +188,16 @@ Diskspd IO 워크로드 테스트[OS 디스크(쓰기) 및 풀 드라이브(읽�
 
 ### <a name="how-do-i-run-perfinsights"></a>PerfInsights를 실행하는 방법 
 
-스크립트를 실행하려면 다음 단계를 수행합니다.
+PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하거나 독립 실행형 스크립트로 가상 컴퓨터에서 실행할 수 있습니다. 
+
+**Azure Portal에서 PerfInsights 설치 및 실행**
+
+이제 Azure Performance Diagnostics 확장이라고 하는 VM 확장을 사용하여 PerfInsights를 실행할 수 있습니다. 자세한 내용은 [Azure Performance Diagnostics 확장 설치](performance-diagnostics-vm-extension.md#install-the-extension)를 참조하세요.  
+
+**독립 실행형 모드에서 PerfInsights 스크립트 실행**
+
+PerfInsights 스크립트를 실행하려면 다음 단계를 수행합니다.
+
 
 1. [PerfInsights.zip](http://aka.ms/perfinsightsdownload)을 다운로드합니다.
 
@@ -350,4 +358,3 @@ Microsoft 지원 담당자와 협력할 때 문제 해결 프로세스를 지원
 보안을 강화하기 위해 처음 사용할 때 암호를 변경해야 합니다.
 
 DTM에 로그인하면 PerfInsights에서 수집한 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 파일을 업로드하는 대화 상자가 표시됩니다.
-

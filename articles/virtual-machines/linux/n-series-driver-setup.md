@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -95,6 +95,9 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> CentOS 7.3 또는 Red Hat Enterprise Linux 7.3에서 `sudo yum update`를 실행하여 커널 버전을 업데이트하지 마십시오. 현재 커널이 업데이트되면 드라이버 설치 및 업데이트가 작동하지 않습니다.
+>
 
 1. 커널 및 DKMS를 업데이트합니다.
  
@@ -119,15 +122,16 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 3. VM을 다시 부팅하고, 다시 연결한 후, Hyper-V에 대한 최신 Linux 통합 서비스를 설치합니다.
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
- 
-  tar xvzf lis-rpms-4.2.2-2.tar.gz
- 
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
   cd LISISO
- 
+
   sudo ./install.sh
- 
+
   sudo reboot
+
   ```
  
 4. VM에 다시 연결하고 `lspci` 명령을 실행합니다. NVIDIA M60 카드가 PCI 장치로 표시되는지 확인합니다.
@@ -225,11 +229,13 @@ lspci | grep -i NVIDIA
 
 1. CUDA 드라이버를 다운로드하여 설치합니다.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
@@ -249,25 +255,38 @@ lspci | grep -i NVIDIA
 
 3. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
+#### <a name="cuda-driver-updates"></a>CUDA 드라이버 업데이트
+
+배포 후에 CUDA 드라이버를 정기적으로 업데이트하는 것이 좋습니다.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
 
-1. 업데이트를 가져옵니다. 
+> [!IMPORTANT]
+> CentOS 7.3 또는 Red Hat Enterprise Linux 7.3에서 `sudo yum update`를 실행하여 커널 버전을 업데이트하지 마십시오. 현재 커널이 업데이트되면 드라이버 설치 및 업데이트가 작동하지 않습니다.
+>
 
-  ```bash
-  sudo yum update
-
-  sudo reboot
-  ```
-2. VM에 다시 연결하고 Hyper-V에 대한 최신 Linux 통합 서비스를 설치합니다.
+1. Hyper-V에 대한 최신 Linux 통합 서비스를 설치하십시오.
 
   > [!IMPORTANT]
   > NC24r VM에서 CentOS 기반 HPC 이미지를 설치한 경우 3단계로 건너뜁니다. Azure RDMA 드라이버 및 Linux 통합 서비스는 이미지에 사전 설치되어 있으므로 LIS는 업그레이드하지 않아야 하며 커널 업데이트는 기본적으로 사용되지 않도록 설정됩니다.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -285,7 +304,7 @@ lspci | grep -i NVIDIA
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -317,33 +336,20 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
 ![NVIDIA 장치 상태](./media/n-series-driver-setup/smi.png)
 
 
-### <a name="cuda-driver-updates"></a>CUDA 드라이버 업데이트
 
-배포 후에 CUDA 드라이버를 정기적으로 업데이트하는 것이 좋습니다.
+## <a name="rdma-network-for-nc24r-vms"></a>NC24r VM에 대한 RDMA 네트워크
 
-#### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+동일한 가용성 집합에 배포된 NC24r VM에서 RDMA 네트워크 연결을 사용하도록 설정할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
-```bash
-sudo apt-get update
+### <a name="distributions"></a>배포
 
-sudo apt-get upgrade -y
+RDMA 연결을 지원하는 Azure Marketplace의 다음 이미지 중 하나에서 NC24r VM을 배포합니다.
+  
+* **Ubuntu** - Ubuntu Server 16.04 LTS. Intel MPI를 다운로드하도록 VM에서 RDMA 드라이버를 구성하고 Intel에 등록:
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-
-#### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 기반 7.3 또는 Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
+* **CentOS 기반 HPC** - CentOS 기반 7.3 HPC. RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다. 
 
 
 ## <a name="troubleshooting"></a>문제 해결

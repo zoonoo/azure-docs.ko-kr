@@ -12,29 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 10/06/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: b8731e1fe48b7d809b113eb5273e3962542b8f34
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Log Analytics에서 경고 규칙에 작업 추가
 [경고가 Log Analytics에서 생성](log-analytics-alerts.md)될 때 하나 이상의 작업을 수행하는 [경고 규칙 구성](log-analytics-alerts.md)의 옵션이 있습니다.  이 문서에서는 사용 가능한 다양한 작업 및 각 종류를 구성하는 세부 정보를 설명합니다.
 
 | 작업 | 설명 |
 |:--|:--|
-| [Email](#email-actions) |    한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다. |
+| [Email](#email-actions) | 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다. |
 | [웹후크](#webhook-actions) | 단일 HTTP POST 요청을 통해 외부 프로세스를 호출합니다. |
 | [Runbook](#runbook-actions) | Azure Automation에서 Runbook을 시작합니다. |
 
 
 ## <a name="email-actions"></a>전자 메일 작업
-전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics이 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된&10;개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*입니다. 
+전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics이 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된 10개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*입니다. 
 
 전자 메일 작업에는 다음 표의 속성이 필요합니다.
 
@@ -58,19 +56,22 @@ ms.lasthandoff: 03/01/2017
 
 웹후크는 URL 및 외부 서비스에 보낸 데이터인 JSON 형식의 페이로드를 포함하고 있습니다.  기본적으로 페이로드는 다음 표의 값을 포함합니다.  이 페이로드를 자신만의 사용자 지정 페이로드로 바꾸도록 선택할 수 있습니다.  그러한 경우 각 매개 변수에 대한 표의 변수를 사용하여 해당 값을 사용자 지정 페이로드에 포함할 수 있습니다.
 
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 웹후크 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.  아래 [샘플](#sample-payload)에서 예를 볼 수 있습니다.
+
 | 매개 변수 | 변수 | 설명 |
 |:--- |:--- |:--- |
-| AlertRuleName |#AlertRuleName |경고 규칙의 이름입니다. |
+| AlertRuleName |#alertrulename |경고 규칙의 이름입니다. |
 | AlertThresholdOperator |#thresholdoperator |경고 규칙에 대한 임계값 연산자입니다.  *보다 큼* 또는 *보다 작음*. |
 | AlertThresholdValue |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
-| LinkToSearchResults |#LinkToSearchResults |경고를 생성한 쿼리에서 레코드를 반환하는 Log Analytics 로그 검색에 대한 링크입니다.. |
+| LinkToSearchResults |#linktosearchresults |경고를 생성한 쿼리에서 레코드를 반환하는 Log Analytics 로그 검색에 대한 링크입니다. |
 | ResultCount |#searchresultcount |검색 결과의 레코드 수입니다. |
-| SearchIntervalEndtimeUtc |#SearchIntervalEndtimeUtc |UTC 형식의 쿼리에 대한 종료 시간입니다. |
+| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |UTC 형식의 쿼리에 대한 종료 시간입니다. |
 | SearchIntervalInSeconds |#searchinterval |경고 규칙에 대한 기간입니다. |
-| SearchIntervalStartTimeUtc |#SearchIntervalStartTimeUtc |UTC 형식의 쿼리에 대한 시작 시간입니다. |
-| SearchQuery |#SearchQuery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
+| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |UTC 형식의 쿼리에 대한 시작 시간입니다. |
+| SearchQuery |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | SearchResults |아래 참조 |JSON 형식의 쿼리에서 반환된 레코드입니다.  처음 5,000 개의 레코드로 제한됩니다. |
-| WorkspaceID |#WorkspaceID |OMS 작업 영역의 ID입니다. |
+| WorkspaceID |#workspaceid |OMS 작업 영역의 ID입니다. |
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 
@@ -98,6 +99,7 @@ ms.lasthandoff: 03/01/2017
 
 웹후크를 통해 경고 규칙을 생성하여 [OMS Log Analytics에서 Slack에 메시지를 보내는 경고 웹후크 작업 만들기](log-analytics-alerts-webhooks.md)에서 외부 서비스를 시작하는 전체 예제를 연습할 수 있습니다.
 
+
 ## <a name="runbook-actions"></a>Runbook 작업
 Runbook 작업은 Azure 자동화에서 Runbook을 시작합니다.  이 유형의 작업을 사용하려면 OMS 작업 영역에 [자동화 솔루션](log-analytics-add-solutions.md) 을 설치하고 구성해야 합니다.  자동화 솔루션에서 구성한 자동화 계정의 Runbook 중에서 선택할 수 있습니다.
 
@@ -111,6 +113,9 @@ Runbook 작업에는 다음 표의 속성이 필요합니다.
 Runbook 작업은 [웹후크](../automation/automation-webhooks.md)를 사용하여 Runbook을 시작합니다.  경고 규칙을 만들 때 이름 **OMS 경고 수정** 에 이어 GUID를 가진 Runbook에 대해 새 웹후크가 자동으로 생성됩니다.  
 
 Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 변수](../automation/automation-webhooks.md)는 해당 경고를 생성한 로그 검색의 결과를 포함한 경고의 세부 정보를 포함합니다.  Runbook이 경고의 속성에 액세스하려면 **$WebhookData**를 매개 변수로 정의해야 합니다.  이 경고는 **$WebhookData**의 **RequestBody** 속성에서 **SearchResults**라고 하는 단일 속성에서 json 형식으로 사용할 수 있습니다.  이 항목은 다음 표의 속성을 가집니다.
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Runbook 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.  아래 [샘플](#sample-payload)에서 예를 볼 수 있습니다.
 
 | 노드 | 설명 |
 |:--- |:--- |
@@ -146,6 +151,418 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
             $Value     = $Record.CounterValue
         }
     }
+
+
+## <a name="sample-payload"></a>샘플 페이로드
+이 섹션은 기존 및 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)에서 웹후크 및 Runbook 작업에 대한 샘플 페이로드를 보여줍니다.
+
+### <a name="webhook-actions"></a>웹후크 작업
+
+#### <a name="legacy-workspace"></a>기존 작업 영역.
+다음은 기존 작업 영역에서 웹후크 작업에 대한 샘플 페이로드입니다.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Type=Usage",
+    "SearchResult": {
+        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
+        "__metadata": {
+        "resultType": "raw",
+        "total": 1,
+        "top": 2147483647,
+        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
+        "CoreSummaries": [
+            {
+            "Status": "Successful",
+            "NumberOfDocuments": 135000000
+            }
+        ],
+        "Status": "Successful",
+        "NumberOfDocuments": 135000000,
+        "StartTime": "2017-09-27T10:30:38.9453282Z",
+        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
+        "ETag": "636421050440907473",
+        "sort": [
+            {
+            "name": "TimeGenerated",
+            "order": "desc"
+            }
+        ],
+        "requestTime": 361
+        },
+        "value": [
+        {
+            "Computer": "-",
+            "SourceSystem": "OMS",
+            "TimeGenerated": "2017-09-26T13:59:59Z",
+            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+            "DataType": "Operation",
+            "StartTime": "2017-09-26T13:00:00Z",
+            "EndTime": "2017-09-26T13:59:59Z",
+            "Solution": "LogManagement",
+            "BatchesWithinSla": 8,
+            "BatchesOutsideSla": 0,
+            "BatchesCapped": 0,
+            "TotalBatches": 8,
+            "AvgLatencyInSeconds": 0.0,
+            "Quantity": 0.002502,
+            "QuantityUnit": "MBytes",
+            "IsBillable": false,
+            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+            "Type": "Usage",
+            "MG": "00000000-0000-0000-0000-000000000000",
+            "__metadata": {
+            "Type": "Usage",
+            "TimeGenerated": "2017-09-26T13:59:59Z"
+            }
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+#### <a name="upgraded-workspace"></a>업그레이드된 작업 영역.
+다음은 업그레이드된 작업 영역에서 웹후크 작업에 대한 샘플 페이로드입니다.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "WebhookAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "workspaceID",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+                "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Low"
+    }
+
+
+### <a name="runbooks"></a>Runbook
+
+#### <a name="legacy-workspace"></a>기존 작업 영역
+다음은 기존 작업 영역에서 Runbook 작업에 대한 샘플 페이로드입니다.
+
+    {
+        "SearchResults": {
+            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
+            "__metadata": {
+                "resultType": "raw",
+                "total": 1,
+                "top": 2147483647,
+                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
+                "CoreSummaries": [{
+                    "Status": "Successful",
+                    "NumberOfDocuments": 135000000
+                }],
+                "Status": "Successful",
+                "NumberOfDocuments": 135000000,
+                "StartTime": "2017-09-27T10:51:43.3075124Z",
+                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
+                "ETag": "636421063111002092",
+                "sort": [{
+                    "name": "TimeGenerated",
+                    "order": "desc"
+                }],
+                "requestTime": 511
+            },
+            "value": [{
+                "Computer": "-",
+                "SourceSystem": "OMS",
+                "TimeGenerated": "2017-09-26T13:59:59Z",
+                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
+                "DataType": "Operation",
+                "StartTime": "2017-09-26T13:00:00Z",
+                "EndTime": "2017-09-26T13:59:59Z",
+                "Solution": "LogManagement",
+                "BatchesWithinSla": 8,
+                "BatchesOutsideSla": 0,
+                "BatchesCapped": 0,
+                "TotalBatches": 8,
+                "AvgLatencyInSeconds": 0.0,
+                "Quantity": 0.002502,
+                "QuantityUnit": "MBytes",
+                "IsBillable": false,
+                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
+                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
+                "Type": "Usage",
+                "MG": "00000000-0000-0000-0000-000000000000",
+                "__metadata": {
+                    "Type": "Usage",
+                    "TimeGenerated": "2017-09-26T13:59:59Z"
+                }
+            }]
+        }
+    }
+
+#### <a name="upgraded-workspace"></a>업그레이드된 작업 영역
+다음은 업그레이드된 작업 영역에서 Runbook 작업에 대한 샘플 페이로드입니다.
+
+    {
+    "WorkspaceId": "workspaceID",
+    "AlertRuleName": "AutomationAlert",
+    "SearchQuery": "Usage",
+    "SearchResult": {
+        "tables": [
+        {
+            "name": "PrimaryResult",
+            "columns": [
+            {
+                "name": "TenantId",
+                "type": "string"
+            },
+            {
+                "name": "Computer",
+                "type": "string"
+            },
+            {
+                "name": "TimeGenerated",
+                "type": "datetime"
+            },
+            {
+                "name": "SourceSystem",
+                "type": "string"
+            },
+            {
+                "name": "StartTime",
+                "type": "datetime"
+            },
+            {
+                "name": "EndTime",
+                "type": "datetime"
+            },
+            {
+                "name": "ResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "LinkedResourceUri",
+                "type": "string"
+            },
+            {
+                "name": "DataType",
+                "type": "string"
+            },
+            {
+                "name": "Solution",
+                "type": "string"
+            },
+            {
+                "name": "BatchesWithinSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesOutsideSla",
+                "type": "long"
+            },
+            {
+                "name": "BatchesCapped",
+                "type": "long"
+            },
+            {
+                "name": "TotalBatches",
+                "type": "long"
+            },
+            {
+                "name": "AvgLatencyInSeconds",
+                "type": "real"
+            },
+            {
+                "name": "Quantity",
+                "type": "real"
+            },
+            {
+                "name": "QuantityUnit",
+                "type": "string"
+            },
+            {
+                "name": "IsBillable",
+                "type": "bool"
+            },
+            {
+                "name": "MeterId",
+                "type": "string"
+            },
+            {
+                "name": "LinkedMeterId",
+                "type": "string"
+            },
+            {
+                "name": "Type",
+                "type": "string"
+            }
+            ],
+            "rows": [
+            [
+                "861bd466-5400-44be-9552-5ba40823c3aa",
+                "-",
+                "2017-09-26T13:59:59Z",
+                "OMS",
+                "2017-09-26T13:00:00Z",
+                "2017-09-26T13:59:59Z",
+            "/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
+                null,
+                "Operation",
+                "LogManagement",
+                8,
+                0,
+                0,
+                8,
+                0,
+                0.002502,
+                "MBytes",
+                false,
+                "a4e29a95-5b4c-408b-80e3-113f9410566e",
+                "00000000-0000-0000-0000-000000000000",
+                "Usage"
+            ]
+        }
+        ]
+    },
+    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 1,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "Critical"
+    }
+
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 
@@ -30,7 +29,7 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 기본적으로 "보안 전송 필요" 옵션은 사용되지 않습니다.
 
 > [!NOTE]
-> Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다.
+> Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다. 또한 클래식 저장소 계정은 지원되지 않습니다.
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Azure Portal에서 "보안 전송 필요"를 사용하도록 설정
 
@@ -63,59 +62,65 @@ Azure 파일 서비스를 사용하는 경우 "보안 전송 필요"가 설정�
 * [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)(버전: 1.1.0)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)(버전: 0.11.0)
 
-### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>REST API를 사용하여 "보안 전송 필요" 설정 사용
+### <a name="enable-secure-transfer-required-setting-with-powershell"></a>PowerShell을 사용하여 "보안 전송 필요" 설정 사용
 
-REST API를 사용하여 테스트를 단순화하려면 [ArmClient](https://github.com/projectkudu/ARMClient)를 사용하여 명령줄에서 호출합니다.
+이 샘플에는 Azure PowerShell 모듈 버전 4.1 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
- 다음 명령줄을 사용하여 REST API로 설정을 확인합니다.
+`Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+
+ 다음 명령줄을 사용하여 설정을 확인합니다.
+
+```powershell
+> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : False
+...
 
 ```
-# Login Azure and proceed with your credentials
-> armclient login
 
-> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+다음 명령줄을 사용하여 설정을 사용하도록 설정합니다.
+
+```powershell
+> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : True
+...
+
 ```
 
-응답에서 _supportsHttpsTrafficOnly_ 설정을 찾습니다. 예:
+### <a name="enable-secure-transfer-required-setting-with-cli"></a>CLI를 사용하여 "보안 전송 필요" 설정 사용
 
-```Json
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+ 다음 명령줄을 사용하여 설정을 확인합니다.
+
+```azurecli-interactive
+> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
-  "kind": "Storage",
-  ...
-  "properties": {
-    ...
-    "supportsHttpsTrafficOnly": false
-  },
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": false,
   "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
-다음 명령줄을 사용하여 REST API로 설정을 활성화합니다.
+다음 명령줄을 사용하여 설정을 사용하도록 설정합니다.
 
-```
-
-# Login Azure and proceed with your credentials
-> armclient login
-
-> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
-
-```
-
-다음은 Input.json의 예입니다.
-```Json
-
+```azurecli-interactive
+> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
-  "location": "westus",
-  "properties": {
-    "supportsHttpsTrafficOnly": true
-  }
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": true,
+  "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
 ## <a name="next-steps"></a>다음 단계
 Azure Storage는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
-

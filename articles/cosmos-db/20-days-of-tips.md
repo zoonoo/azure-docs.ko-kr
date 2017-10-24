@@ -10,17 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
+ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB의 20일 팁
 
 ![매일 새 Azure Cosmos DB 팁을 알아봅니다.](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
@@ -159,9 +157,32 @@ ms.lasthandoff: 09/28/2017
 
 [![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
+## <a name="tip-18-request-units"></a>팁 18: 요청 단위
+
+팁 18: RU(요청 단위)란 무엇이며, Azure #CosmosDB에서 어떻게 구성하는지에 대해 알아봅니다. [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn)에서 문서를 참조하세요. 
+
+문서: [Azure Cosmos DB의 요청 단위](https://aka.ms/Kt2nbn)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## <a name="tip-19-partition-partition-partition"></a>팁 19: 파티션! 파티션! 파티션! 
+
+팁 19: 파티션! 파티션! 파티션! Azure #CosmosDB에 필요한 이유 및 방법. 문서: [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## <a name="tip-20-cheatsheet"></a>팁 20: 참고 자료
+
+팁 20: 모두가 훌륭한 이전 참고 자료를 좋아합니다. Azure #CosmosDB에도 하나 있습니다. [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)에서 확인해 보세요.
+
+참고 자료: [Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료 PDF](https://aka.ms/Nt01nl)
+
+[![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Cosmos DB 시작](introduction.md) 및 [Azure Cosmos DB의 기술 개요](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)를 읽어 Azure Cosmos DB에 대해 자세히 알아보세요.
-
 
 

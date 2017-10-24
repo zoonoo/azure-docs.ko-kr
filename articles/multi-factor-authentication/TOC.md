@@ -13,6 +13,7 @@
 # 방법
 ## 배포 및 사용
 ### [설정 구성](multi-factor-authentication-whats-next.md)
+#### [Phonefactor 포털 사용](multi-factor-authentication-whats-next-pfweb.md)
 ### [MFA 보고서](multi-factor-authentication-manage-reports.md)
 ### [기존 네트워크 정책 서버 사용](multi-factor-authentication-nps-extension.md)
 #### [NPS 확장에 대한 고급 구성](nps-extension-advanced-configuration.md)

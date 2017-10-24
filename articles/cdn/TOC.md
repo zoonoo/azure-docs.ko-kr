@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
-### [사용자 지정 도메인을 CDN에 매핑](cdn-map-content-to-custom-domain.md)
+### [CDN 끝점에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
 ### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
 ## 콘텐츠 최적화
 ### [최적화 개요](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## 분석
 ### [Azure CDN 사용 패턴 분석](cdn-log-analysis.md)
 #### [Verizon의 핵심 보고서](cdn-analyze-usage-patterns.md)
+#### [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)
 #### [Azure 진단 로그](cdn-azure-diagnostic-logs.md)
 ### Verizon의 Azure CDN에 대한 분석 도구
 #### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)

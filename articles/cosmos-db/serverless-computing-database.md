@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
+ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
 서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다.
@@ -159,7 +157,6 @@ Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한�
 
 
  
-
 
 
 

@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 6f272136d535dddd9c8213293841ace203c042a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Azure Cosmos DB의 파티션 및 확장
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 신속하고 예측 가능한 성능을 위해 세계적으로 배포된 다중 모델 데이터베이스 서비스입니다. 응용 프로그램의 증대에 따라 자연스럽게 확장됩니다. 이 문서에서는 Azure Cosmos DB의 모든 데이터 모델에서 분할이 어떻게 작동하는지에 대한 개요를 제공합니다. 또한 효과적으로 응용 프로그램을 확장하기 위해 Azure Cosmos DB 컨테이너를 구성하는 방법에 대해서도 설명합니다.
@@ -63,6 +61,12 @@ Azure Cosmos DB는 해시 기반 분할을 사용합니다. 항목을 작성하�
 >
 
 Azure Cosmos DB 컨테이너를 *고정* 또는 *무제한*으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 일부 API를 사용하면 고정된 크기의 컨테이너에서 파티션 키를 생략할 수 있습니다. 무제한으로 컨테이너를 만들려면 최소 처리량 2500RU/s를 지정해야 합니다.
+
+파티션에 데이터가 분산되는 방법을 확인하는 것이 좋습니다. 포털에서 이를 확인하려면 Azure Cosmos DB 계정으로 이동하고 **모니터링** 섹션에서 **메트릭**을 클릭한 다음, 오른쪽 창에서 **저장소** 탭을 클릭하여 데이터가 다른 물리적 파티션으로 분할되는지 확인합니다.
+
+![리소스 분할](./media/partition-data/partitionkey-example.png)
+
+왼쪽 이미지는 잘못된 파티션 키의 결과이며, 오른쪽 이미지는 좋은 파티션 키의 결과입니다. 왼쪽 이미지에서 데이터가 파티션 간에 균등하게 배포되지 않는 것을 볼 수 있습니다. 오른쪽 이미지와 비슷하게 그래프가 표시되도록 데이터를 배포해야 합니다.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>분할 및 프로비전된 처리량
 Azure Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이너를 만들 때 *초당 [RU(요청 단위)](request-units.md)* 면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU, 메모리 및 IO 같은 시스템 리소스의 양에 비례하는 RU 요금이 할당됩니다. 세션 일관성에 따라 1KB 문서를 읽을 경우 1RU가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 항목의 크기가 클수록 크기에 따라 더 높은 RU가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다. 
@@ -208,7 +212,6 @@ Azure Cosmos DB를 사용하여 다중 테넌트 응용 프로그램을 구현�
 
 * [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
 * [Azure Cosmos DB에서 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보
-
 
 
 
