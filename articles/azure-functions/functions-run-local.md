@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -49,7 +48,7 @@ npm install -g azure-functions-core-tools
 >[!IMPORTANT]   
 > Azure Functions 핵심 도구를 설치하기 전에 [.NET Core 2.0을 설치](https://www.microsoft.com/net/core)하십시오.  
 >
-> Azure Functions 런타임 2.0은 미리 보기 상태이며 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 2.0 알려진 문제](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)를 참조하세요. 
+> Azure Functions 런타임 2.0은 미리 보기 상태이며, 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 2.0 알려진 문제](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)를 참조하세요. 
 
  다음 명령을 사용하여 버전 2.0 도구를 설치합니다.
 
@@ -161,6 +160,7 @@ local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도
     ```
     두 명령 모두 먼저 Azure에 로그인해야 합니다.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>함수 만들기
 
 함수를 만들려면 다음 명령을 실행합니다.
@@ -187,7 +187,7 @@ func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>로컬로 함수 실행
 
 Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 이 호스트는 프로젝트의 모든 함수에 대한 트리거를 활성화합니다.
@@ -237,7 +237,60 @@ func host start --debug vscode
 
 ### <a name="passing-test-data-to-a-function"></a>테스트 데이터를 함수에 전달
 
-`func run <FunctionName>`을 사용하여 함수를 직접 호출하고 함수에 대한 입력 데이터를 제공할 수도 있습니다. 이 명령은 Azure Portal에서 **테스트** 탭을 사용하여 함수를 실행하는 것과 비슷합니다. 이 명령은 전체 Functions 호스트를 시작합니다.
+로컬로 함수를 테스트하려면 [Functions 호스트를 시작](#start)하고 HTTP 요청을 사용하여 로컬 서버에서 끝점을 호출합니다. 호출하는 끝점은 함수의 형식에 따라 달라집니다. 
+
+>[!NOTE]  
+> 이 항목의 예제에서는 cURL 도구를 사용하여 터미널 또는 명령 프롬프트의 HTTP 요청을 보냅니다. 로컬 서버에 HTTP 요청을 보내도록 선택한 도구를 사용할 수 있습니다. cURL 도구는 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다.
+
+함수를 테스트하는 방법에 대한 일반적인 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요.
+
+#### <a name="http-and-webhook-triggered-functions"></a>HTTP 및 웹후크 트리거된 함수
+
+다음 끝점을 호출하여 HTTP 및 웹후크 트리거된 함수를 로컬로 실행합니다.
+
+    http://localhost:{port}/api/{function_name}
+
+Functions 호스트가 수신 대기 중인 동일한 서버 이름 및 포트를 사용하도록 합니다. Function 호스트를 시작할 때 생성된 출력에서 이 항목을 확인합니다. 트리거에서 지원하는 HTTP 메서드를 사용하여 이 URL을 호출할 수 있습니다. 
+
+다음 cURL 명령은 _이름_ 매개 변수를 쿼리 문자열에 전달한 GET 요청에서 `MyHttpTrigger` 빠른 시작 함수를 트리거합니다. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+다음 예제는 요청 본문에서 _이름_을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+쿼리 문자열에서 데이터를 전달하는 브라우저에서 GET 요청을 만들 수 있습니다. 다른 모든 HTTP 메서드에서 cURL, Fiddler, Postman 또는 비슷한 HTTP 테스트 도구를 사용해야 합니다.  
+
+#### <a name="non-http-triggered-functions"></a>HTTP가 아닌 트리거된 함수
+HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 끝점을 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 이 끝점을 호출하면 함수를 트리거합니다. 필요에 따라 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
+
+다음 관리자 끝점을 호출하여 HTTP POST 요청을 포함하는 HTTP가 아닌 함수를 트리거합니다.
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+함수의 관리자 끝점에 테스트 데이터를 전달할 수 있지만 POST 요청 메시지의 본문에서 데이터를 제공해야 합니다. 메시지 본문에는 다음 JSON 형식이 필요합니다.
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+`<trigger_input>` 값에는 함수에 필요한 형식의 데이터가 포함됩니다. 다음 cURL 예제는 `QueueTriggerJS` 함수에 대한 POST 요청입니다. 이 경우에 입력은 큐에 위치해야 하는 메시지에 해당하는 문자열입니다.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>1.x 버전에서 `func run` 명령 사용
+
+>[!IMPORTANT]  
+> `func run` 명령은 도구의 2.x 버전에서 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](functions-versions.md) 항목을 참조하세요.
+
+`func run <FunctionName>`을 사용하여 함수를 직접 호출하고 함수에 대한 입력 데이터를 제공할 수도 있습니다. 이 명령은 Azure Portal에서 **테스트** 탭을 사용하여 함수를 실행하는 것과 비슷합니다. 
 
 `func run`은 다음 옵션을 지원합니다.
 
@@ -292,4 +345,3 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: donnam
-ms.openlocfilehash: 4654e1b041451c5626bbb48b1ef57f29c08b6b0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
 
@@ -286,7 +286,9 @@ public static class QueueFunctions
 
 Azure Functions는 프로그래밍 방식으로 전자 메일을 보내기 위한 SendGrid 출력 바인딩을 지원합니다. 자세한 내용은 [Azure Functions SendGrid 바인딩](functions-bindings-sendgrid.md)을 참조하세요.
 
-`[SendGrid]` 특성은 [Microsoft.Azure.WebJobs.Extensions.SendGrid] NuGet 패키지에 정의되어 있습니다.
+`[SendGrid]` 특성은 [Microsoft.Azure.WebJobs.Extensions.SendGrid] NuGet 패키지에 정의되어 있습니다. SendGrid 바인딩에는 `AzureWebJobsSendGridApiKey`라는 응용 프로그램 설정이 필요합니다. 여기에는 SendGrid API 키가 포함됩니다. SendGrid API 키의 기본 설정 이름입니다. 하나 이상의 SendGrid 키가 있거나 다른 설정 이름을 선택해야 하는 경우 다음 예제와 같이 `SendGrid` 바인딩 특성의 `ApiKey` 속성을 사용하여 이 이름을 설정할 수 있습니다.
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 다음은 `SendGridMessage`를 사용하여 Service Bus 큐 트리거 및 SendGrid 출력 바인딩을 사용하는 예입니다.
 
@@ -311,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+이 예제에서는 `AzureWebJobsSendGridApiKey`라는 응용 프로그램 설정에서 저장소인 SendGrid API 키가 필요합니다.
 
 <a name="service-bus"></a>
 
