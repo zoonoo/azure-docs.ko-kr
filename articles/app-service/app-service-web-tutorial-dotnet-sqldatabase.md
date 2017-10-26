@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a5814691da8430f986d052e9d81e480bda226a46
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -121,8 +121,8 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
 |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/) |
-|**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)|
+|**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>SQL Server 인스턴스 만들기
 
