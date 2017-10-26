@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다. 
@@ -116,7 +116,7 @@ Azure AD 응용 프로그램 갤러리에서 사용할 응용 프로그램을 �
 ### <a name="application-not-in-the-gallery"></a>응용 프로그램이 갤러리에 없습니까?
 응용 프로그램이 Azure AD 응용 프로그램 갤러리에 없으면 다음과 같은 옵션이 제공됩니다.
 
-* **사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다.  SAML 2.0을 지원하는 페더레이션된 앱이나 HTML 기반 로그인 페이지가 있고 암호기반 SSO가 구성된 앱을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](active-directory-saas-custom-apps.md)에 대한 이 문서를 참조하세요.
+* **사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다.  SAML 2.0을 지원하는 페더레이션된 앱이나 HTML 기반 로그인 페이지가 있고 암호기반 SSO가 구성된 앱을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 대한 이 문서를 참조하세요.
 * **개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 페더레이션된 Single Sign-On 또는 프로비저닝을 구현할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요. 
   
   * [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)

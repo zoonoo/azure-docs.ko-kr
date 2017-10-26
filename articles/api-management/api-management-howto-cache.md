@@ -3,7 +3,7 @@ title: "Azure API Management에서 캐싱을 추가하여 성능 향상 | Micros
 description: "대기 시간, 대역폭 사용 및 API 관리 서비스 호출에 대한 웹 서비스 부하를 개선하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API 관리에서 캐싱을 추가하여 성능 향상
 응답 캐싱을 위해 API 관리의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.

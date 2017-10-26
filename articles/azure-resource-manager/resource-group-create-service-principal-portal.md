@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -187,7 +187,7 @@ Azure 구독 권한을 확인하려면
 응용 프로그램은 이제 Azure Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 다른 플랫폼을 통해 응용 프로그램으로 로그인하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [Azure CLI](resource-group-authenticate-service-principal-cli.md)
 * [REST (영문)](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)

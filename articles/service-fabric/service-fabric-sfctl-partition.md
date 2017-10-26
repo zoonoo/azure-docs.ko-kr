@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
@@ -118,7 +118,7 @@ Service Fabric 서비스의 파티션 목록을 가져옵니다. 파티션 ID, �
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 지정된 Service Fabric 파티션의 로드를 가져옵니다.
 
-지정된 파티션에 관한 정보를 반환합니다. 응답에는 부하 정보 목록이 들어 있습니다. 각 정보에는 부하 메트릭 이름, 값 및 마지막 보고 시간(UTC)이 포함됩니다. 에서도 확인할 수 있습니다.
+지정된 파티션에 관한 정보를 반환합니다. 응답에는 부하 정보 목록이 들어 있습니다. 각 정보에는 부하 메트릭 이름, 값 및 마지막 보고 시간(UTC)이 포함됩니다.
 
 ### <a name="arguments"></a>인수
 

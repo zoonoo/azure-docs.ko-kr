@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fb9c71ede7558d12ce3e22dcd359ed82527e43
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 비갤러리 Single Sign-On 구성 문제
 
-응용 프로그램을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps) 문서에 있는 단계를 모두 수행했는지 확인합니다.
+응용 프로그램을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery) 문서에 있는 단계를 모두 수행했는지 확인합니다.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>응용 프로그램의 다른 인스턴스를 추가할 수 없음
 

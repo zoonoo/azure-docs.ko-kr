@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/08/2017
 ms.author: nepeters
-ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b58b10e644e934cc38a6e0512ba7642ab8bf27c4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell을 사용하여 Azure Container Registry 만들기
 
@@ -49,8 +49,8 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
-```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+```powershell
+$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="log-in-to-acr"></a>ACR에 로그인
@@ -58,13 +58,13 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 먼저, [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) 명령을 사용하여 ACR 인스턴스에 대한 관리자 자격 증명을 가져옵니다.
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
+$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
 다음으로, [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 ACR 인스턴스에 로그인합니다.
 
 ```bash
-docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
+docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
 이 명령은 완료되면 '로그인했습니다.'라는 메시지를 반환합니다.
@@ -79,10 +79,11 @@ docker pull microsoft/aci-helloworld
 
 이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) 명령을 실행하여 ACR 인스턴스의 로그인 서버 이름을 반환합니다.
 
-```powershell` Get-AzureRmContainerRegistry | Select Loginserver
+```powershell
+Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+[docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 태그를 지정합니다. *acrLoginServer*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1

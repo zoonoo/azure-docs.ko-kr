@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -87,7 +87,7 @@ AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암�
 ### <a name="optional-configuration---certificate-credential"></a>선택적 구성 - 인증서 자격 증명
 또한 Azure AD는 응용 프로그램에 대한 인증서 자격 증명을 지원합니다. 즉, 자체 서명된 인증서를 만들고 개인 키를 유지하고 Azure AD 응용 프로그램 등록에 공개 키를 추가합니다. 인증을 위해 응용 프로그램이 개인 키를 사용하여서명한 Azure AD에 작은 페이로드를 보내면 Azure AD가 등록된 공개 키를 사용하여 서명의 유효성을 검사합니다.
 
-인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate)를 참조하세요.
+인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
 
 ## <a name="get-tenant-id-from-subscription-id"></a>구독 ID에서 테넌트 ID 가져오기
 Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기 위해서는 응용 프로그램이 Azure 구독을 호스트하는 Azure AD 테넌트의 테넌트 ID를 알고 있어야 합니다. 대부분의 경우 사용자는 자신의 구독 ID를 알고 있지만 Azure Active Directory에 대한 테넌트 ID는 모를 수 있습니다. 사용자의 테넌트 ID를 얻으려면 사용자에게 구독 ID를 요청합니다. 구독에 대한 요청을 보낼 때 이 구독 ID를 제공합니다.

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
 
@@ -69,8 +69,6 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 인증서 서명 메서드에 대한 제한은 없습니다. ECC(타원 곡선암호화), SAN(주체 대체 이름 ) 및 다른 일반적인 인증서 형식은 모두 지원됩니다. 
 
 와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다. 
-
-자체 서명된 인증서도 사용할 수 있습니다. 개인 인증 기관을 사용하는 경우 인증서에 대한 CDP(인증서 해지 지점 배포 지점)는 공용이어야 합니다.
 
 ### <a name="changing-the-domain"></a>도메인 변경
 모든 확인된 도메인은 응용 프로그램에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 응용 프로그램에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](active-directory-domains-add-azure-portal.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 

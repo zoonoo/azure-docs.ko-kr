@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fbcde5af7668971bbeafc41b237aa89c593c4a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 컴퓨터를 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 컴퓨터)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
    |  | BEK + KEK VM | BEK 전용 VM |
    | --- | --- | --- |
    | **관리되지 않는 VM**  | 예 | 예  |
-   | **관리되는 VM**  | 예 | 아니요  |
+   | **관리되는 VM**  | 예 | 예  |
 
 ## <a name="prerequisites"></a>필수 조건
 * VM이 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 사용하여 암호화되었습니다. 
@@ -135,9 +135,7 @@ Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-|백업 | Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. | VM은 BEK 및 KEK를 모두 사용하여 암호화되어야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. [이전 섹션의 단계](#provide-permissions-to-azure-backup)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 PowerShell 설명서의 [ AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md#back-up-azure-vms)에서 “보호 사용” 섹션의 PowerShell 단계를 따를 수 있습니다. |  
-| 백업 |VM이 BEK만으로만 암호화되어 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 VM에서만 백업을 사용할 수 있습니다. |VM은 BEK 및 KEK를 사용하여 암호화되어야 합니다. 먼저 VM의 암호를 해독하고 BEK와 KEK를 모두 사용하여 암호화합니다. 먼저 BEK와 KEK를 모두 사용하여 VM을 암호화한 후 백업을 사용하도록 설정합니다. [VM 암호 해독 및 암호화](../security/azure-security-disk-encryption.md)에 대한 자세한 정보를 확인합니다.  |
+|백업 | Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. | [이전 섹션의 단계](#provide-permissions-to-azure-backup)에 따라 이러한 권한을 Backup에 제공해야 합니다. 또는 PowerShell 설명서의 [ AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md#back-up-azure-vms)에서 “보호 사용” 섹션의 PowerShell 단계를 따를 수 있습니다. |  
 | 복원 |이 VM과 연결된 키 자격 증명 모음이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 사용합니다. 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 |이 VM과 연결된 키와 비밀이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)을 참조하여 키와 비밀을 복원합니다. |
 | 복원 |Backup은 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |앞에서 설명한 대로 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)의 "백업된 디스크 복원" 섹션의 단계를 따라 먼저 디스크를 복원합니다.  그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
-

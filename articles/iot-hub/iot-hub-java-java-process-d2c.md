@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>IoT Hub 장치-클라우드 메시지 처리(Java)
 
@@ -42,7 +42,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 * [simulated-device] 자습서의 전체 작업 버전
 * 최신 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
-* 활성 Azure 계정. (계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.)
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
@@ -210,3 +210,4 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/free/

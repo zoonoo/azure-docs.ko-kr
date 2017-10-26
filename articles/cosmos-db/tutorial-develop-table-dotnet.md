@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -43,7 +43,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table 저장소](../storage/common/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB와 작업할 수 있습니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
 
-저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다. Azure Cosmos DB는 향후 업데이트에서 처리량 액세스에 최적화된 테이블을 지원하고, 기존 Azure Table 저장소 계정을 Azure Cosmos DB로 완벽하게 업그레이드할 것입니다.
+저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다.
 
 현재 Azure Table 저장소를 사용하는 경우 "프리미엄 테이블" 미리 보기를 사용하면 다음과 같은 이점이 있습니다.
 

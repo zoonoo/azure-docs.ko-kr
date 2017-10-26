@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 [Azure AD 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 Azure Active Directory를 사용하여 Single Sign-On을 지원하는 응용 프로그램을 나열하려면 먼저 응용 프로그램은 다음의 통합 모드 중 하나를 구현해야 합니다.
@@ -64,10 +64,10 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="saml-integration"></a>SAML 통합
-SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다. 응용 프로그램 통합이 Azure AD를 사용하여 작동하는지 테스트하면 다음 정보를 <mailto:waadpartners@microsoft.com>로 보냅니다.
+SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다. 응용 프로그램 통합이 Azure AD를 사용하여 작동하는지 테스트하면 다음 정보를 <mailto:waadpartners@microsoft.com>로 보냅니다.
 
 * Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
-* [여기](../active-directory-saas-custom-apps.md)에 설명한 대로 응용 프로그램에 대한 SAML 로그온 URL, 발급자 URL(엔터티 ID) 및 회신 URL(어설션 소비자 서비스) 값을 제공합니다. 일반적으로 SAML 메타데이터 파일의 일부로 이러한 값을 제공하는 경우 또한 해당 파일을 보냅니다.
+* [여기](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 설명한 대로 응용 프로그램에 대한 SAML 로그온 URL, 발급자 URL(엔터티 ID) 및 회신 URL(어설션 소비자 서비스) 값을 제공합니다. 일반적으로 SAML 메타데이터 파일의 일부로 이러한 값을 제공하는 경우 또한 해당 파일을 보냅니다.
 * SAML 2.0을 사용하여 응용 프로그램에서 Azure AD를 ID 공급자로 구성하는 방법에 대한 간략한 설명을 제공합니다. 응용 프로그램에서 셀프 서비스 관리 포털을 통해 Azure AD를 ID 공급자로 구성하도록 지원하는 경우 위에 제공된 자격 증명이 이를 설정할 기능을 포함하도록 합니다.
 * 아래의 정보를 제공합니다.
 
