@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d884e3ab71ae1967d1676bc0591ef86f64da6c5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Python을 사용하여 Data Lake Store로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -90,23 +90,23 @@ Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 �
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
     authority_uri = authority_host_uri + '/' + tenant
-    resource_uri = 'https://management.core.windows.net/'
+    RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-
+    
     context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(resource_uri, client_id, client_secret)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>파일 시스템 작업을 위해 클라이언트 암호로 서비스 간 인증
 
 Data Lake Store에서 폴더 만들기, 파일 업로드 등의 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Microsoft Azure Active Directory에 인증합니다. 다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 비밀을 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
 
-    token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="service-to-service-authentication-with-certificate-for-account-management"></a>계정 관리를 위해 인증서를 사용하여 서비스 간 인증
+<!-- ## Service-to-service authentication with certificate for account management
 
-Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Microsoft Azure Active Directory에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 응용 프로그램의 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -118,7 +118,7 @@ Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 �
 
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 서비스 간 인증을 사용하여 Python으로 Azure Data Lake Store를 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Python을 Azure Data Lake Store와 함께 사용하는 방법을 살펴볼 수 있습니다.
