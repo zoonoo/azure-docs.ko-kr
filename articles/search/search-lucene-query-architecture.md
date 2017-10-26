@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -183,11 +183,14 @@ Spacious,||air-condition*+"Ocean view"
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>어휘 분석의 예외 
 
 어휘 분석은 완전한 용어가 필요한 쿼리 유형, 즉 용어 쿼리 또는 구 쿼리에만 적용됩니다. 불완전한 용어가 사용된 쿼리, 다시 말해서 접두사 쿼리, 와일드 카드 쿼리, regex 쿼리 또는 유사 항목 쿼리에는 적용되지 않습니다. 우리 예제의 *air-condition\**이라는 용어가 사용된 접두사 쿼리를 포함하여 이러한 쿼리 유형은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 이러한 유형의 쿼리 용어에 수행되는 유일한 변환 작업은 소문자 변환입니다.
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>3단계: 문서 검색 
 
 문서 검색이란 인덱스에서 일치하는 용어가 포함된 문서를 찾는 것을 말합니다. 이 단계는 예를 통해 설명하는 것이 가장 빠릅니다. 다음과 같은 간단한 스키마를 가진 호텔 인덱스로 시작해 보겠습니다. 

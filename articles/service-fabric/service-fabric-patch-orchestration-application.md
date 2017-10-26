@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 
 실버 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있습니다. 골드 내구성 계층의 Azure 클러스터에는 해당 클러스터가 만들어진 시기에 따라 복구 관리자 서비스가 사용하도록 설정되어 있을 수도 있고 그렇지 않을 수도 있습니다. 브론즈 내구성 계층의 Azure 클러스터에는 복구 관리자 서비스가 기본적으로 사용하도록 설정되어 있지 않습니다. 서비스가 이미 사용하도록 설정되어 있는 경우 Service Fabric Explorer의 시스템 서비스 섹션에서 서비스가 실행되고 있는 것을 볼 수 있습니다.
 
-##### <a name="azure-portal"></a>Azure portal
+##### <a name="azure-portal"></a>Azure 포털
 클러스터를 설정할 때 Azure Portal에서 복구 관리자를 설정할 수 있습니다. 클러스터를 구성할 때 **추가 기능**에서 **복구 관리자 포함** 옵션을 선택합니다.
 ![Azure Portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -94,10 +94,10 @@ ms.lasthandoff: 10/11/2017
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. 이러한 변경 내용으로 클러스터 템플릿을 업데이트한 후 변경 내용을 적용하고 업그레이드가 완료되도록 합니다. 이제 클러스터에서 복구 관리자 시스템 서비스가 실행되고 있는 것을 볼 수 있습니다. Service Fabric Explorer의 시스템 서비스 섹션에 있는 `fabric:/System/RepairManagerService`입니다. 
@@ -119,15 +119,15 @@ ms.lasthandoff: 10/11/2017
     }
     ```
 
-2. 이제 아래와 같이 다음 `addonFeaturres` 섹션을 `fabricSettings` 섹션 뒤에 추가하여 복구 관리자 서비스를 사용하도록 설정합니다.
+2. 이제 아래와 같이 다음 `addonFeatures` 섹션을 `fabricSettings` 섹션 뒤에 추가하여 복구 관리자 서비스를 사용하도록 설정합니다.
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. 업데이트된 클러스터 매니페스트의 [새 클러스터 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) 또는 [클러스터 구성 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)를 사용하여 이러한 변경 내용으로 클러스터 매니페스트를 업데이트합니다. 업데이트된 클러스터 매니페스트로 클러스터가 실행되면 Service Fabric Explorer의 시스템 서비스 섹션에서 `fabric:/System/RepairManagerService`라는, 클러스터에서 실행되고 있는 복구 관리자 시스템 서비스를 볼 수 있습니다.

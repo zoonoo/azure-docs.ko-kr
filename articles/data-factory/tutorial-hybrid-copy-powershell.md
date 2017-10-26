@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>온-프레미스 및 클라우드 간 데이터 복사
-Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
+Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다.
 
-이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. Azure Data Factory의 자체 호스팅 IR(통합 런타임)을 만들어 사용하면 온-프레미스 데이터 저장소와 클라우드 데이터 저장소를 통합할 수 있습니다.  다른 도구/SDK를 사용하여 데이터 팩터리를 만드는 방법을 알아보려면 [빠른 시작](quickstart-create-data-factory-dot-net.md)을 참조하세요. 
+이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. Azure Data Factory의 자체 호스팅 IR(통합 런타임)을 만들어 사용하면 온-프레미스 데이터 저장소와 클라우드 데이터 저장소를 통합할 수 있습니다.  다른 도구/SDK를 사용하여 데이터 팩터리를 만드는 방법을 알아보려면 [빠른 시작](quickstart-create-data-factory-dot-net.md)을 참조하세요.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
+* **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
 * **Azure Storage 계정**. 이 자습서에서는 Azure Blob 저장소를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
 
@@ -115,13 +115,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   샘플 출력은 다음과 같습니다. 
+   샘플 출력은 다음과 같습니다.
 
    ```json
    {
@@ -144,19 +144,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    }
    ```
 
-4. 로컬 Windows 컴퓨터에서 자체 호스팅 통합 런타임을 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)하고, 이전 단계에서 얻은 인증 키를 사용하여 자체 호스팅 통합 런타임을 수동으로 등록합니다. 
+4. 로컬 Windows 컴퓨터에서 자체 호스팅 통합 런타임을 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)하고, 이전 단계에서 얻은 인증 키를 사용하여 자체 호스팅 통합 런타임을 수동으로 등록합니다.
 
    ![통합 런타임 등록](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다. 
+   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다.
 
    ![성공적으로 등록되었습니다.](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다. 
-    
+   노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다.
+
    ![노드가 연결됨](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>연결된 서비스 만들기 
+## <a name="create-linked-services"></a>연결된 서비스 만들기
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Azure Storage 연결된 서비스(대상/싱크) 만들기
 
@@ -167,7 +167,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server 연결된 서비스(원본) 만들기 및 암호화
 
-1. **C:\ADFv2Tutorial** 폴더에 다음 내용이 포함된 **SqlServerLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** 및 **&lt;password>**를 SQL Server의 값으로 바꿉니다. **&lt;integration** **runtime** **name>**을 통합 런타임 이름으로 바꿉니다. 
+1. **C:\ADFv2Tutorial** 폴더에 다음 내용이 포함된 **SqlServerLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** 및 **&lt;password>**를 SQL Server의 값으로 바꿉니다. **&lt;integration** **runtime** **name>**을 통합 런타임 이름으로 바꿉니다.
 
     ```json
     {
@@ -216,7 +216,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         "name": "SqlServerLinkedService"
     }
    ```
-2. 온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요한 데이터를 암호화하기 위해 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**을 실행하여 위의 JSON 페이로드를 전달할 수 있습니다. 이 암호화를 사용하면 DPAPI(데이터 보호 API)를 사용하여 자격 증명을 암호화하고 자체 호스팅 통합 런타임 노드에 로컬로 저장합니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 'encryptedLinkedService.json')로 리디렉션될 수 있습니다. 
+2. 온-프레미스 자체 호스팅 통합 런타임에서 JSON 페이로드의 중요한 데이터를 암호화하기 위해 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**을 실행하여 위의 JSON 페이로드를 전달할 수 있습니다. 이 암호화를 사용하면 DPAPI(데이터 보호 API)를 사용하여 자격 증명을 암호화하고 자체 호스팅 통합 런타임 노드에 로컬로 저장합니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 'encryptedLinkedService.json')로 리디렉션될 수 있습니다.
 
     명령을 실행하기 전에 **&lt;integration runtime name&gt;**을 통합 런타임 이름으로 바꿉니다.
 
@@ -227,7 +227,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. 이전 단계의 JSON을 통해 다음 명령을 실행하여 **SqlServerLinkedService**를 만듭니다.
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>싱크 Azure Blob Storage에 대한 데이터 집합 만들기
 
-1. **C:\ADFv2Tutorial** 폴더에 다음 내용이 포함된 **AzureBlobDataset.json**이라는 JSON 파일을 만듭니다. 
+1. **C:\ADFv2Tutorial** 폴더에 다음 내용이 포함된 **AzureBlobDataset.json**이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > 이 샘플 코드에서는 Azure Blob Storage에 **adftutorial**이라는 컨테이너가 있다고 가정합니다.
@@ -436,7 +436,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
             $result
             break
         }
-    } 
+    }
     ```
 
     샘플 실행의 출력은 다음과 같습니다.
@@ -449,7 +449,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. 싱크 Azure Blob 저장소에 연결하여 Azure SQL Database의 데이터가 제대로 복사되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
+이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

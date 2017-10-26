@@ -3,7 +3,7 @@ title: "Azure 앱 서비스에서 웹 앱 구성"
 description: "Azure 앱 서비스에서 웹 앱을 구성 하는 방법"
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: bb1144519db84e5685fbae1a2f55854e1102120a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹 앱 구성
 이 항목에서는 [Azure Portal]을 사용하여 웹앱을 구성하는 방법을 설명합니다.
@@ -27,7 +27,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="application-settings"></a>응용 프로그램 설정
 1. [Azure Portal]에서, 웹 앱에 대한 블레이드를 엽니다.
-2. **모든 설정**을 클릭합니다
 3. **응용 프로그램 설정**을 클릭합니다.
 
 ![응용 프로그램 설정][configure01]

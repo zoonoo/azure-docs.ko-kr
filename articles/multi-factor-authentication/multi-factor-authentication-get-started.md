@@ -3,29 +3,29 @@ title: "Azure MFA 클라우드 또는 서버 중에서 선택 | Microsoft Docs"
 description: "보안을 유지하려는 대상과 사용자의 위치에 대한 질문에 답하여 적합한 다단계 인증 보안 솔루션을 선택합니다.  클라우드, MFA 서버 또는 AD FS를 선택합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 266985c5602b835c710a74f1736fb51eade5c707
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
 Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 질문에 답해야 합니다.  해당 질문은 다음과 같습니다.
 
 * [보안을 유지하려는 대상은 무엇입니까](#what-am-i-trying-to-secure)
 * [사용자는 어디에 있습니까](#where-are-the-users-located)
-* [어떤 기능이 필요합니까?](#what-featured-do-i-need)
+* [어떤 기능이 필요합니까?](#what-features-do-i-need)
 
 다음 섹션에서는 이러한 각 대답의 결정에 대한 지침을 제공합니다.
 

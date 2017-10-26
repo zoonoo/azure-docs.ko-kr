@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0948f25cbb4f661cee4611fb5f7d4d22c9eeec1
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation runbook에는 사용자에게 오류 메시지와 같은 일종의 출력이나 다른 워크플로에서 사용하고자 하는 복잡한 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
@@ -182,7 +182,7 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.c
        $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
        –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
        $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
     }
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `

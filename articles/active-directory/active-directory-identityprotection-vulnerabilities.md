@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 364873ff54099a6123e40b12e819d1745751f285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfb75c91d66d61a63e3f6c3e431a9a45465cbf5c
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.

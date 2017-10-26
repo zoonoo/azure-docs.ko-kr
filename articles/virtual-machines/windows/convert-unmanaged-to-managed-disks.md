@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 7f26f357268d6a3190557b7099ef07c7ef805119
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 445117371fde91d0a0fcb96f06e42e2033692789
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
 비관리 디스크를 사용하는 기존 Windows VM(가상 컴퓨터)이 있는 경우 [Azure Managed Disks](managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
 
-이 문서에서는 Azure PowerShell을 사용하여 VM을 변환하는 방법을 보여 줍니다. 설치 또는 업그레이드가 필요한 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps.md)을 참조하세요.
+이 문서에서는 Azure PowerShell을 사용하여 VM을 변환하는 방법을 보여 줍니다. 설치 또는 업그레이드가 필요한 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

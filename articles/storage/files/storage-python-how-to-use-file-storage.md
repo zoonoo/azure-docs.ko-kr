@@ -14,18 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: robinsh
-ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 17fdbbe2ea1d22c6f0ac287c4afbe17a44563f41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## <a name="about-this-tutorial"></a>이 자습서 정보
 이 자습서에서는 Azure Files를 사용하여 파일 데이터를 저장하는 응용 프로그램이나 서비스를 Python을 사용하여 개발하는 데 필요한 기본 사항을 보여 줍니다. 즉 간단한 콘솔 응용 프로그램을 만들고, Python 및 Azure Files를 통해 기본 작업을 수행하는 방법을 보여 줍니다.
 
 * Azure 파일 공유 만들기
@@ -38,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Azure Storage SDK for Python 다운로드 및 설치
 
-Azure Storage SDK for Python은 Python 2.7, 3.3, 3.4, 3.5 또는 3.6을 요구하며 `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` 및 `azure-storage-queue` 네 가지 패키지로 제공됩니다. 이 자습서에서는 `azure-storage-file` 패키지를 사용하겠습니다.
+Azure Storage SDK for Python은 Python 2.7, 3.3, 3.4, 3.5 또는 3.6을 요구하며 `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` 및 `azure-storage-queue` 4가지 패키지로 제공됩니다. 이 자습서에서는 `azure-storage-file` 패키지를 사용하겠습니다.
  
 ## <a name="install-via-pypi"></a>PyPi를 통해 설치
 
@@ -54,7 +53,7 @@ pip install azure-storage-file
 > 
 > 
 
-대체 설치 방법을 확인하려면 [Github의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하십시오.
+대체 설치 방법을 확인하려면 [Github의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 응용 프로그램 설정
 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 원본 파일의 맨 위쪽에 다음을 추가합니다.

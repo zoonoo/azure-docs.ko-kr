@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 10/19/2017
 ms.author: raynew
+ms.openlocfilehash: d070fffd398a9a0ed6549b134ecbd1415baf2273
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
-
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Site Recovery를 사용하여 온-프레미스에서 Azure로 복제하기 위한 필수 구성 요소
 
 > [!div class="op_single_selector"]
@@ -112,7 +110,7 @@ VMM 클라우드에서 Hyper-V VM의 고객 소유 사이트로 재해 복구를
 
 | **구성 요소** | **세부 정보** |
 | --- | --- |
-| **Virtual Machine Manager** |  기본 및 보조 사이트 모두에서 VMM 서버를 배포하는 것이 좋습니다.<br/><br/> [단일 VMM 서버의 클라우드 간에 복제](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment)할 수 있습니다. 단일 VMM 서버에서 클라우드 간에 복제하려면 VMM 서버에 클라우드가 두 개 이상 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에 하나 이상의 클라우드가 포함되어 있어야 합니다. 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에 하나 이상의 VMM 호스트 그룹이 있어야 합니다. VMM 클라우드 설정에 대한 자세한 내용은 [Azure Site Recovery 배포 준비](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)를 참조하세요. |
+| **Virtual Machine Manager** |  기본 및 보조 사이트 모두에서 VMM 서버를 배포하는 것이 좋습니다.<br/><br/> 단일 VMM 서버에서 클라우드 간에 복제하려면 VMM 서버에 클라우드가 두 개 이상 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에 하나 이상의 클라우드가 포함되어 있어야 합니다. 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에 하나 이상의 VMM 호스트 그룹이 있어야 합니다. VMM 클라우드 설정에 대한 자세한 내용은 [Azure Site Recovery 배포 준비](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)를 참조하세요. |
 | **Hyper-V** | Hyper-V 서버는 사용된 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 하나 이상의 VM이 있어야 합니다.<br/><br/>  Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2에서 클러스터에 Hyper-V를 실행하는 경우 기술 자료 문서 [2961977](https://support.microsoft.com/kb/2961977)에 설명된 업데이트를 설치하는 것이 좋습니다.<br/><br/> Windows Server 2012의 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 클러스터 브로커에 대한 자세한 내용은 [클러스터 간 복제를 위한 복제본 브로커 역할 구성](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)을 참조하세요. |
 | **공급자** | 사이트 복구 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 HTTPS(포트 443)를 통해 Site Recovery와 통신하여 복제를 오케스트레이션합니다. LAN 또는 VPN 연결을 통해 기본 및 보조 Hyper-V 서버 간에 데이터 복제가 발생합니다.<br/><br/> VMM 서버에서 실행 중인 공급자는 다음 URL에 액세스할 수 있어야 합니다.<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Site Recovery 공급자는 VMM 서버에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로의 방화벽 통신을 허용하고 HTTPS(포트 443) 프로토콜을 허용해야 합니다. |
 
@@ -130,4 +128,3 @@ VMware, VMM, Hyper-V 호스트 서버에서 이러한 URL을 사용할 수 있�
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | 필요하지 않음 | 필요하지 않음 | 필요하지 않음 | SQL 다운로드 허용 |
 |``time.windows.com`` | 허용 | 허용 | 허용 | 허용|
 |``time.nist.gov`` | 허용 | 허용 | 허용 | 허용 |
-

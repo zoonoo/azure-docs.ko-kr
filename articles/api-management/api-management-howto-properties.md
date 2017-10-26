@@ -3,7 +3,7 @@ title: "Azure API 관리 정책에 속성을 사용하는 방법"
 description: "Azure API 관리 정책에 속성을 사용하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 517f434c8f7fabc1402fb938d5ff5c733b86f2fd
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Azure API 관리 정책에 속성을 사용하는 방법
 API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 속성을 사용하여 생성할 수 있습니다. 

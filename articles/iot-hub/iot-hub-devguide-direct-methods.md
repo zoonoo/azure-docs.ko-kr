@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
-## <a name="overview"></a>개요
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 접근 방법은 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
 
 각 장치 메서드는 단일 장치를 대상으로 합니다. [jobs][lnk-devguide-jobs]는 여러 장치에서 직접 메서드를 호출하고 연결되지 않은 장치에 대한 메서드 호출을 예약하는 방법을 제공합니다.
 
 IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메서드를 호출할 수 있습니다.
 
-### <a name="when-to-use"></a>사용하는 경우
 직접 메서드는 요청-응답 패턴을 따르며, 결과를 즉각적으로 확인해야 하는 통신, 대개는 팬을 작동하는 것과 같이 장치의 대화식 제어가 필요한 통신입니다.
 
 desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 대해 궁금한 점이 있으면 [클라우드-장치 통신 지침][lnk-c2d-guidance]을 참조하세요.
@@ -48,9 +46,6 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 메서드 요청 및 응답에 대한 페이로드는 최대 8KB의 JSON 문서입니다.
 
-## <a name="reference-topics"></a>참조 항목:
-다음 참조 항목에서는 직접 메서드 사용에 대한 자세한 정보를 제공합니다.
-
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>백 엔드 앱에서 직접 메서드 호출
 ### <a name="method-invocation"></a>메서드 호출
 장치의 직접 메서드 호출은 다음을 포함하는 HTTP 호출입니다.
@@ -60,16 +55,16 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * *헤더* - 권한 부여, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 * 다음과 같은 형식의 투명한 JSON *본문*:
 
-```
-{
-    "methodName": "reboot",
-    "responseTimeoutInSeconds": 200,
-    "payload": {
-        "input1": "someInput",
-        "input2": "anotherInput"
-    }
-}
-```
+   ```
+   {
+       "methodName": "reboot",
+       "responseTimeoutInSeconds": 200,
+       "payload": {
+           "input1": "someInput",
+           "input2": "anotherInput"
+       }
+   }
+   ```
 
 시간 제한은 초 단위입니다. 시간 제한이 설정되지 않으면 기본값이 30초로 설정됩니다.
 
@@ -80,12 +75,12 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 * *헤더* - ETag, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 * 다음과 같은 형식의 JSON *본문*:
 
-```
-{
-    "status" : 201,
-    "payload" : {...}
-}
-```
+   ```
+   {
+       "status" : 201,
+       "payload" : {...}
+   }
+   ```
 
    `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
 

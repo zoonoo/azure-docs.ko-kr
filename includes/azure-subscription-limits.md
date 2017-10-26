@@ -10,7 +10,7 @@
 | 구독당 예약된 IP |20 |100 |
 | 구독당 호스티드 서비스 인증서 |400 |400 |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |256 |256 |
-| 구독 당 경고 규칙 |250 |250 |
+
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 

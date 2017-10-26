@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 495e926a1975128707212ba571d47cfc7c9507b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: 사용자 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.

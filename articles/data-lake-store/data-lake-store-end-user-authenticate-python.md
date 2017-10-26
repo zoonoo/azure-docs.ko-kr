@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 27fe69753acc6fa047b5791a583d70e80318288a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Python을 사용하여 Data Lake Store로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -104,13 +104,13 @@ Data Lake Store 계정에 대한 계정 관리 작업을 수행할 수 있도록
     code = context.acquire_user_code(RESOURCE, client_id)
     print(code['message'])
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
 ### <a name="for-filesystem-operations"></a>파일 시스템 작업의 경우
 
 Data Lake Store 계정에 대한 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Microsoft Azure Active Directory에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 응용 프로그램을 인증하는 데 사용할 수 있습니다. 기존 Microsoft Azure Active Directory **네이티브** 응용 프로그램에 아래 값을 제공합니다.
 
-    token = lib.auth(tenant_id='FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>다단계 인증을 사용하지 않는 최종 사용자 인증
 

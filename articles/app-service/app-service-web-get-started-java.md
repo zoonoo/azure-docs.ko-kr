@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d12e3be2d6658d2a6cc18ed6ad9a149235b8b581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
@@ -105,7 +105,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
   * **새로 만들기**: App Service 계획의 이름인 기본값을 유지합니다.
   * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
-  * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
+  * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
 
    ![앱 서비스 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 

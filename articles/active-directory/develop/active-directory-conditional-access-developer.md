@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ed42af90a9c467042ff2537a38646f59147fb5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 개발자 지침
 
@@ -48,7 +48,7 @@ Azure AD(Active Directory)는 앱과 서비스를 보호하기 위한 여러 가
 * ADAL.js를 사용하는 단일 페이지 앱
 * 리소스를 호출하는 Web Apps
 
-조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스 시작](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules)을 참조하세요.
+조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스 시작](../active-directory-conditional-access-azuread-connected-apps.md)을 참조하세요.
 
 시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다.  새 정책이 적용될 때 앱이 계속 작동하도록 하려면 “챌린지” 처리를 구현해야 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다. 
 

@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](..\azure-functions\functions-overview.md)가 [Azure Blob 저장소](..\storage\blobs\storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 끝점이 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다. 
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 이 자습서를 완료하려면 다음이 필요합니다.
 
 + 이전 BLOB 저장소 자습서 [Azure Storage로 클라우드에 이미지 데이터 업로드][previous-tutorial]를 마쳐야 합니다. 
-+ BLOB 저장소 이벤트 기능에 대한 액세스 권한을 신청하여 부여 받아야 합니다. 이 항목으 다른 단계를 진행하기 전에 [BLOB 저장소 이벤트 액세스 권한을 요청](#request-storage-access)합니다.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0.14 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
-
-## <a name="enable-blob-storage-events"></a>BLOB 저장소 이벤트 활성화
-
-이 시점에서는 BLOB 저장소 이벤트 기능에 대한 액세스를 요청했어야 합니다.  
-
-### <a name="request-storage-access"></a>BLOB 저장소 이벤트 액세스 요청
-
-`az feature register` 명령을 사용하여 액세스를 요청합니다.
-
-> [!IMPORTANT]  
-> 가입을 요청한 순서대로 BLOB 저장소 이벤트 미리 보기 참여 요청을 수락하고 있습니다. 이 기능에 대한 액세스 부여는 1-2 영업일 정도 지연될 수 있습니다. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>승인 상태 확인
-
-BLOB 저장소 이벤트 액세스 권한이 부여 되었음을 알리는 Microsoft의 이메일이 도착할 것입니다. 언제든 `az feature show` 명령을 사용하여 액세스 요청 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-BLOB 저장소 이벤트 기능에 대한 액세스 권한을 부여 받은 후에는 이 명령이 `"Registered"` 값을 반환합니다. 
- 
-등록된 후 이 자습서를 계속 진행할 수 있습니다.
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 

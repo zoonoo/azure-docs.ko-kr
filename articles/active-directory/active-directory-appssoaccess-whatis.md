@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다. 
@@ -79,12 +79,10 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
-
-* Internet Explorer 8, 9, 10, 11 - Windows 7 이상( [IE 확장 배포 가이드](active-directory-saas-ie-group-policy.md)참조)
+* Internet Explorer 8, 9, 10, 11 - Windows 7 이상
+* Windows 10 Anniversary Edition 이상 Edge 
 * Chrome - Windows 7 이상 및 Mac OS X 이상
 * Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
-
-**참고:** 브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ### <a name="existing-single-sign-on"></a>기존 Single Sign-On
 응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure 관리 포털은 "기존 Single Sign-On”의 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들어 선택된 사용자의 액세스 패널에 배치할 수 있습니다. 

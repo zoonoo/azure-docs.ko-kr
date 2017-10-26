@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: df21b7213a647a66a16a84889bf7a24fde03c493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 834a81c36557feffaa01c256dad0338617486773
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합 
 
@@ -51,7 +51,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="before-you-begin"> </a> 시작하기 전에
 
-1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
+1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 2. Virtual Network를 만들고 API Management 및 Application Gateway에 대한 별도 서브넷을 만듭니다. 
 3. Virtual Network에 대한 사용자 지정 DNS 서버를 만들려면 배포를 시작하기 전에 수행합니다. Virtual Network의 새 서브넷에서 만든 가상 컴퓨터가 모든 Azure 서비스 끝점을 확인하고 액세스할 수 있도록 하여 작동을 이중으로 확인합니다.
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: cherylmc
+ms.openlocfilehash: d7d2dbff4bcd0d76b56c6f142afae4ce8359bb37
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치(미리 보기)
 
@@ -204,4 +203,3 @@ Azure VNet에 연결하는 모든 Mac 장치에 대해 별도의 프로필을 �
 ## <a name="next-steps"></a>다음 단계
 
 P2S 구성을 완료하려면 [P2S 구성 완료](point-to-site-how-to-radius-ps.md) 문서로 돌아갑니다.
-

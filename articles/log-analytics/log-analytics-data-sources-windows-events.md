@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics의 Windows 이벤트 로그 데이터 원본
 많은 응용 프로그램이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](log-analytics-data-sources.md) 중 하나입니다.  모니터링해야 하는 응용 프로그램에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 응용 프로그램 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -65,17 +65,6 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 다음 표에서는 Windows 이벤트 레코드를 검색하는 로그 검색의 다양한 예제를 제공합니다.
 
 | 쿼리 | 설명 |
-|:--- |:--- |
-| Type=Event |모든 Windows 이벤트 |
-| Type=Event EventLevelName=error |심각도가 오류인 모든 Windows 이벤트 |
-| Type=Event &#124; Measure count() by Source |원본별 Windows 이벤트 수 |
-| Type=Event EventLevelName=error &#124; Measure count() by Source |원본별 Windows 오류 이벤트 수 |
-
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
->
->| 쿼리 | 설명 |
 |:---|:---|
 | 이벤트 |모든 Windows 이벤트 |
 | Event &#124; where EventLevelName == "error" |심각도가 오류인 모든 Windows 이벤트 |

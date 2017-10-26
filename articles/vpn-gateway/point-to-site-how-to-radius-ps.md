@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2afaf869af36c98f86feba238c6e1a30d3939ef8
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 9ca423e8d752271fadbb5b51f38e691a0316576c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell(미리 보기)
 
@@ -254,4 +253,3 @@ VPN 클라이언트 구성을 사용하면 P2S 연결을 통해 VNet에 장치�
 ## <a name="next-steps"></a>다음 단계
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 컴퓨터에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
-

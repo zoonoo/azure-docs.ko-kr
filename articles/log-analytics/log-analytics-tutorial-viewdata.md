@@ -2,7 +2,7 @@
 title: "수집된 Azure Log Analytics 데이터 보기 또는 분석 | Microsoft Docs"
 description: "이 문서에는 로그 검색 포털을 사용하여 Log Analytics 리소스에 저장된 데이터를 분석하고 로그 검색을 만드는 방법을 설명하는 자습서가 포함되어 있습니다.  이 자습서에는 몇 가지 간단한 쿼리를 실행하여 여러 형식의 데이터를 반환하고 결과를 분석하는 방법이 나와 있습니다."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
 

@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 66c8e89a81285391a524ffb95ef48227cbdcd388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d1302416cfa767415d7bb1e8b426079099caf28
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
 이 문서에서는 Microsoft Authenticator 앱과 관련하여 발생하는 일반적인 질문에 대해 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요. 또한 앱의 특정 기능인 [휴대폰 FAQ를 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)에 대한 다른 FAQ도 있습니다.
 
-Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
+Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

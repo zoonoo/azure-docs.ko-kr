@@ -11,20 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Log Analytics의 로그 검색 이해
-
-> [!NOTE]
-> 이 문서에서는 새로운 쿼리 언어를 사용하는 Azure Log Analytics의 로그 검색에 대해 설명합니다.  [Azure Log Analytics 작업 영역을 새 로그 검색으로 업그레이드](log-analytics-log-search-upgrade.md)에서 새 언어에 대해 자세히 알아보고 작업 영역을 업그레이드하는 절차를 확인할 수 있습니다.  
->
-> 작업 영역을 새로운 쿼리 언어로 업그레이드하지 않은 경우에는 [Log Analytics에서 로그 검색을 사용하여 데이터 찾기](log-analytics-log-searches.md)를 참조하세요.
 
 로그 검색을 통해 Log Analytics의 모든 데이터를 검색해야 합니다.  포털에서 데이터를 분석하는 경우, 특정 조건에 대해 알리도록 경고 규칙을 구성하는 경우 또는 Log Analytics API를 사용하여 데이터를 검색하는 경우 모두는 원하는 데이터를 지정하려면 로그 검색을 사용하게 됩니다.  이 문서는 Log Analytics에서 로그 검색이 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다. 로그 검색 만들기 및 편집에 대한 자세한 내용 및 쿼리 언어에 대 한 참조는 [다음 단계](#next-steps) 섹션을 참조하세요.
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: c0b4f455f067e825362bdecc02ea62d7984f0d31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="unlicensed-usage-report"></a>허가되지 않은 사용 현황 보고서
 허가되지 않은 사용 현황 보고서를 사용하면 유료 Azure AD 기능을 사용하는 허가되지 않은 사용자를 식별할 수 있습니다. 이를 통해 구매한 라이선스를 더 잘 활용할 수 있도록 해주고 추가 라이선스가 필요할 때를 알려줍니다. 

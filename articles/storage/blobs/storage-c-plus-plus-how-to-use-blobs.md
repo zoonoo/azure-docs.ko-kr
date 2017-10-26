@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
+ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: daf480b7be78dc001712010eac6386d4744c3c1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -275,5 +274,4 @@ blockBlob.delete_blob();
 * [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../storage-use-azcopy.md)
-
 

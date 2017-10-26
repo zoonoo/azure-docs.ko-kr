@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS에 도메인 위임
 
 Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 도메인에 대한 DNS 쿼리가 Azure DNS에 도달하려면 부모 도메인에서 Azure DNS로 도메인을 위임해야 합니다. Azure DNS는 도메인 등록 기관이 아닙니다. 이 문서에서는 Azure DNS에 도메인을 위임하는 방법을 알아봅니다.
@@ -308,4 +306,3 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 [DNS 영역 관리](dns-operations-dnszones.md)
 
 [DNS 레코드 관리](dns-operations-recordsets.md)
-

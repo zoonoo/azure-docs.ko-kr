@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d5b41faa28d9181b957ce346e25804e16d9303d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure에서 Node.js 및 MongoDB 웹앱 작성
 
@@ -312,12 +312,12 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 자습서의 앞부분에서는 _config/env/production.js_에 데이터베이스 연결 문자열을 하드코딩했습니다. 최상의 보안을 유지하려면 이 중요한 데이터를 Git 리포지토리 외부에 두는 것이 좋습니다. Azure에서 실행되는 응용 프로그램의 경우는 대신 환경 변수를 사용합니다.
 
-Cloud Shell에서 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 명령을 사용하여 환경 변수를 _앱 설정_으로 지정합니다. 
+Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) 명령을 사용하여 환경 변수를 _앱 설정_으로 지정합니다. 
 
 다음 예제에서는 Azure 웹앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
-az webapp config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 Node.js 코드에서는 다른 환경 변수에 액세스할 때와 마찬가지로 `process.env.MONGODB_URI`를 사용하여 이 응용 프로그램 설정에 액세스합니다. 
@@ -346,7 +346,7 @@ FTP, 로컬 Git, GitHub, Visual Studio Team Services 및 BitBucket과 같은 다
 다음 명령에서 *\<사용자 이름>* 및 *\<암호>*를 새 사용자 이름 및 암호로 바꿉니다. 사용자 이름은 고유해야 합니다. 암호는 글자, 숫자, 기호와 같은 세 가지 요소 중 두 가지를 포함하여 8자 이상이어야 합니다. ` 'Conflict'. Details: 409` 오류가 발생하면 사용자 이름을 변경합니다. ` 'Bad Request'. Details: 400` 오류가 발생하면 더 강력한 암호를 사용합니다.
 
 ```azurecli-interactive
-az appservice web deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name <username> --password <password>
 ```
 
 앱을 배포할 때 이후 단계에서 사용할 사용자 이름과 암호를 기록합니다.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: 3bce0d93876077c33edb7d8a0a352d44a95ed934
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f141c3d22275ff04d7161415e9c9f879d85dbc08
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Windows Server 클러스터에서 독립 실행형 Azure Service Fabric 업그레이드
 > [!div class="op_single_selector"]
@@ -229,4 +228,3 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-

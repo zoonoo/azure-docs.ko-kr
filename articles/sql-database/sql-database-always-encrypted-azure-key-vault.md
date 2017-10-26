@@ -1,6 +1,6 @@
 ---
 title: "상시 암호화: SQL Database - Azure Key Vault | Microsoft Docs"
-description: "이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다."
+description: "이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다."
 keywords: "데이터 암호화, 암호화 키, 클라우드 암호화"
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 61bfd420425b4740f6d4ebc01a403a88ff351382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f22438c8a9d31f2b10d9ba9e1dd645842cf71712
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL 데이터베이스의 중요한 데이터 보호 및 Azure 주요 자격 증명 모음에 암호화 키 저장
 

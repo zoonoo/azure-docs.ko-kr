@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 컴퓨터에 여러 IP 주소 할당
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 10/11/2017
     ```
 
     >[!NOTE]
-    >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 NIC로 VM을 만드는 방법에 대해 자세히 알아보려면 [여러 NIC를 사용하여 VM 만들기](virtual-network-deploy-multinic-arm-ps.md) 문서를 참조하세요.
+    >이 문서에서는 모든 구성이 한 NIC에 할당되어 있지만 VM에 연결된 모든 NIC에 여러 IP 구성을 할당할 수 있습니다. 여러 NIC로 VM을 만드는 방법에 대해 자세히 알아보려면 [여러 NIC를 사용하여 VM 만들기](../virtual-machines/windows/multiple-nics.md) 문서를 참조하세요.
 
 9. 다음 명령을 입력하여 VM을 만듭니다.
 

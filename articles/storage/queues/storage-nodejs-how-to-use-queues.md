@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce61687e0f64b5971daca85265ef0e7d2b6f43b8
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -333,14 +333,21 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그][Azure Storage 팀 블로그]를 방문하세요.
+* [Azure Storage 팀 블로그][Azure Storage Team Blog](영문)를 방문하세요.
 * GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
+
+
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+
 [Azure Portal]: https://portal.azure.com
+
 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md)
 
+[Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
-[Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/ [웹 매트릭스를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: https://www.microsoft.com/web/webmatrix/
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

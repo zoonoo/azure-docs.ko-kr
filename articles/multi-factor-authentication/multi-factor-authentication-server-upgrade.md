@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -29,7 +29,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>최신 버전의 Azure MFA 서버 설치
 
-1. [Azure Multi-factor Authentication 서버 다운로드](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server)의 지침을 사용하여 최신 버전의 Azure MFA 서버를 다운로드합니다.
+1. [Azure Multi-factor Authentication 서버 다운로드](multi-factor-authentication-get-started-server.md#download-the-mfa-server)의 지침을 사용하여 최신 버전의 Azure MFA 서버를 다운로드합니다.
 2. C:\Program Files\multi-factor Authentication Server\Data\PhoneFactor.pfdata(기본 설치 위치로 가정)에 있는 MFA 서버 데이터 파일의 백업을 마스터 MFA 서버에 만듭니다.
 3. 고가용성을 위해 여러 서버를 실행하는 경우 업그레이드하려는 MFA 서버에 트래픽을 더 이상 전송하지 않도록 MFA 서버에서 인증을 받는 클라이언트 시스템을 변경합니다. 부하 분산 장치를 사용하는 경우 부하 분산 장치에서 MFA 서버를 제거하고 업그레이드한 후 해당 서버를 팜에 다시 추가합니다.
 4. 각 MFA 서버에서 새 설치 관리자를 실행합니다. 하위 서버는 마스터에 의해 복제되는 이전 데이터 파일을 읽을 수 있으므로 먼저 업그레이드합니다. 

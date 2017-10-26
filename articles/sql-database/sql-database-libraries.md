@@ -1,6 +1,6 @@
 ---
 title: "SQL Database용 연결 라이브러리 | Microsoft Docs"
-description: "다양한 클라이언트 프로그래밍 언어에서 SQL Server 및 SQL Database에 연결할 수 있도록 하는 모듈 다운로드를 위한 링크를 제공합니다. 모듈은 커뮤니티 또는 Microsoft에서 출시합니다."
+description: "다양한 클라이언트 프로그래밍 언어에서 SQL Server 및 SQL Database에 연결할 수 있도록 하는 모듈 다운로드를 위한 링크를 제공합니다."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6232877abc1e98b565abee8bf87505fe8edc7791
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Microsoft SQL Server의 연결 라이브러리 및 프레임워크
 

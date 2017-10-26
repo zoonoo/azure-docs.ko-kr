@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 메모리 내 기술 | Microsoft Docs"
-description: "Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 이러한 기술을 활용하는 방법을 알아봅니다."
+description: "Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다."
 services: sql-database
 documentationCenter: 
 author: jodebrui
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jodebrui
-ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab8f2d4f81249e7cd30ca556c64518fbffc27b9a
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 

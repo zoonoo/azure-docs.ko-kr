@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  
@@ -198,16 +198,6 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 다음 표에는 Syslog 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
 | 쿼리 | 설명 |
-|:--- |:--- |
-| Type=Syslog |모든 Syslog입니다. |
-| Type=Syslog SeverityLevel=error |심각도가 오류인 모든 Syslog 레코드입니다. |
-| Type=Syslog &#124; measure count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
-| Type=Syslog &#124; measure count() by Facility |기능별 Syslog 레코드 수입니다. |
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
-
-> | 쿼리 | 설명 |
 |:--- |:--- |
 | syslog |모든 Syslog입니다. |
 | Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: d8fec08deb44ec1cbb58f45ff5a01d348d99945a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory 로그인 활동 보고서 API 샘플
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
@@ -88,5 +87,4 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 * 이 항목의 샘플을 사용자 지정하시겠습니까? [Azure Active Directory 로그인 활동 API 참조](active-directory-reporting-api-sign-in-activity-reference.md)를 확인하세요. 
 * Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 * Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
-
 

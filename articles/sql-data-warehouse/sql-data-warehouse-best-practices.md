@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: 4608d0e3a98c2e9de322e630c26ae28f09706416
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3a7755281ceb2818f80e0e6b31cf51a46c8f650
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 대한 모범 사례
 이 문서는 Azure SQL 데이터 웨어하우스에서 최적의 성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
@@ -166,4 +166,4 @@ SQL 데이터 웨어하우스에는 쿼리 실행을 모니터링하는 데 사�
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
+[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/

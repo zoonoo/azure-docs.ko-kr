@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
-ms.openlocfilehash: e5161e61fdfc4d068ed3d7736bb2016dbd18759b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98c00f23a3ce7569c9cc85a62840500cc50ed3a1
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 > [!div class="op_single_selector"]
 > * [.NET 예제](documentdb-dotnet-samples.md)
 > * [Node.js 예제](documentdb-nodejs-samples.md)
 > * [Python 예제](documentdb-python-samples.md)
-> * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+> * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+- [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

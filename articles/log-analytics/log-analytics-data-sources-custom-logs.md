@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
 Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 응용 프로그램이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다.  수집된 후에는, Log Analytics의 [사용자 지정 필드](log-analytics-custom-fields.md) 기능을 사용하여 로그의 각 레코드를 별도의 필드로 구문 분석할 수 있습니다.
@@ -136,14 +136,6 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 다음 테이블은 사용자 지정 로그로부터 레코드를 검색하는 로그 검색의 다양한 예를 제공합니다.
 
 | 쿼리 | 설명 |
-|:--- |:--- |
-| Type=MyApp_CL |이름 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
-| Type=MyApp_CL Severity_CF=error |이름이 *Severity_CF*인 사용자 지정 필드의 값이 *error*이고 이름이 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
-
-> | 쿼리 | 설명 |
 |:--- |:--- |
 | MyApp_CL |이름 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |
 | MyApp_CL &#124; where Severity_CF=="error" |이름이 *Severity_CF*인 사용자 지정 필드의 값이 *error*이고 이름이 MyApp_CL인 사용자 지정 로그의 모든 이벤트. |

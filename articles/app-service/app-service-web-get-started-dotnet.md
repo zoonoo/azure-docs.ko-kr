@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 57b56f417db63f24f09a497fa780c7edda048e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ca3692fd779a26320100921d482df0d1f85855
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Azure에서 ASP.NET 웹앱 만들기
 
@@ -106,7 +106,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 |-|-|-|
 |App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
 | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
-| 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)은 호스팅 기능을 결정합니다. |
+| 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
 **확인**을 선택합니다.
 

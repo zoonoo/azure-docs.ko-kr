@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Hadoop 클러스터 만들기
 
@@ -229,7 +229,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
 > [!NOTE]
-> 이러한 단계는 [Azure CLI를 사용하여 리소스에 액세스하기 위한 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) 문서의 *암호를 사용하여 서비스 주체 만들기* 섹션의 요약된 버전입니다. 이러한 단계에서는 Azure REST API에 인증하는 데 사용되는 서비스 주체를 만듭니다.
+> 이러한 단계는 [Azure CLI를 사용하여 리소스에 액세스하기 위한 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) 문서의 *암호를 사용하여 서비스 주체 만들기* 섹션의 요약된 버전입니다. 이러한 단계에서는 Azure REST API에 인증하는 데 사용되는 서비스 주체를 만듭니다.
 
 1. 명령줄에서 다음 명령을 사용하여 Azure 구독을 나열합니다.
 

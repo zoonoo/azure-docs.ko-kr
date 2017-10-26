@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d4e5367dd41ce2ade7033cefcc774dcec9c82c
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -39,8 +39,7 @@ Azure Functions 도구는 [Visual Studio 2017 버전 15.3](https://www.visualstu
 
 ![Azure 개발 워크로드를 통한 Visual Studio 2017 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
->[!NOTE]  
->Visual Studio 2017 버전 15.3을 설치하거나 업그레이드한 후 Visual Studio 2017 tools for Azure Functions를 수동으로 업데이트해야 합니다. **확장 및 업데이트...** > **업데이트** > **Visual Studio Marketplace** > **Azure Functions 및 Web Jobs Tools** > **업데이트** 아래의 **도구** 메뉴에서 도구를 업데이트할 수 있습니다. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 함수를 만들고 배포하려면 다음이 필요합니다.
 

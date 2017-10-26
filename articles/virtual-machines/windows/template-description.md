@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: d45a43d1d4304fd0028d15b4797228a22cc6e76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 컴퓨터
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 10/11/2017
 - [크기](sizes.md)
 - [이름](/architecture/best-practices/naming-conventions) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
-- [네트워크 인터페이스](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 부트 진단
 
 ## <a name="disks-and-images"></a>디스크 및 이미지

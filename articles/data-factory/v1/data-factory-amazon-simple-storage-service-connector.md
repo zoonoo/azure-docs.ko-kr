@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2681e629d478208301091571d77a3c283a8e774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다.
 3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 데이터 팩터리 엔터티를 정의합니다. Amazon S3 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Amazon S3에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-amazon-s3-to-azure-blob) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 데이터 팩터리 엔터티를 정의합니다. Amazon S3 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Amazon S3에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) 섹션을 참조하세요.
 
 > [!NOTE]
 > 복사 작업에 대해 지원되는 파일 및 압축 형식에 대한 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.

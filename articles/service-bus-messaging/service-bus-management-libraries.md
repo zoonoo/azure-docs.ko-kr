@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/18/2017
 ms.author: sethm
-ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -51,8 +51,7 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-
-1. `ServiceBusManagementClient` 개체를 만듭니다.
+2. `ServiceBusManagementClient` 개체를 만듭니다.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,8 +60,7 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-
-1. `CreateOrUpdate` 매개 변수를 지정된 값으로 설정합니다.
+3. `CreateOrUpdate` 매개 변수를 지정된 값으로 설정합니다.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -71,8 +69,7 @@ Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니
        EnablePartitioning = true
    };
    ```
-
-1. 호출을 실행합니다.
+4. 호출을 실행합니다.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

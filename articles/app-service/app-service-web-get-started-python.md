@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc, devcenter
+ms.openlocfilehash: b3908aa6534d08c5f3bd41d439556f48067dc466
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9331039cef4ef047820e088cc84b92655336d12c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
 
@@ -200,4 +199,3 @@ git push azure master
 
 > [!div class="nextstepaction"]
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
-

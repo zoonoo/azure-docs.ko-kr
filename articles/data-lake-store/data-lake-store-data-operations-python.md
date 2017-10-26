@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 0c3bda65bd40a5d24e4c4ab3dcbbbf27fbbb87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3540e58a58f20842979212ba41f11ce2908941f5
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>REST API를 사용한 Azure Data Lake Store에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -103,7 +103,7 @@ pip install azure-datalake-store
     adlsAccountName = 'FILL-IN-HERE'
 
     ## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
+    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -133,4 +133,4 @@ pip install azure-datalake-store
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store Python(계정 관리) 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 * [Azure Data Lake Store Python(파일 시스템) 참조](http://azure-datalake-store.readthedocs.io/en/latest)
-* [Azure Data Lake Store와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)

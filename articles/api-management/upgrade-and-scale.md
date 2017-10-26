@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>API Management 인스턴스 업그레이드 및 크기 조정 
 
@@ -23,10 +23,10 @@ ms.lasthandoff: 10/11/2017
 
 단위당 용량 및 가격은 단위가 존재하는 **계층**에 따라 달라집니다. **개발자**, **표준**, **프리미엄**의 3계층 중에서 선택할 수 있습니다. 계층 내에서 서비스에 대한 용량을 늘려야 할 경우 단위를 추가해야 합니다. APIM 인스턴스에서 현재 선택된 계층에서 단위 추가가 허용되지 않는 경우 상위 수준 계층으로 업그레이드해야 합니다. 
 
-각 단위의 가격, 단위를 추가/제거하는 기능, 특정 기능의 포함 여부(예를 들어 다중 지역 배포)는 APIM 인스턴스에 대해 선택한 계층에 따라 달라집니다. [가격 정보](https://azure.microsoft.com/pricing/details/api-management/) 문서에서 단위당 가격 및 각 계층의 기능에 대해 설명합니다. 
+각 단위의 가격, 단위를 추가/제거하는 기능, 특정 기능의 포함 여부(예를 들어 다중 지역 배포)는 APIM 인스턴스에 대해 선택한 계층에 따라 달라집니다. [가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서 단위당 가격 및 각 계층의 기능에 대해 설명합니다. 
 
 >[!NOTE]
->[가격 정보](https://azure.microsoft.com/pricing/details/api-management/) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. 뒤에 나오는 "용량을 계획하는 방법" 섹션을 참조하세요.
+>[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. 뒤에 나오는 "용량을 계획하는 방법" 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

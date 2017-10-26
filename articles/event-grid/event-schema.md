@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e251cbfe7c4d8dfbd492817a8fa7af48e6b379df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
@@ -162,10 +162,6 @@ Event Hubs 이벤트는 이제 캡처 기능을 통해 파일을 저장소에 �
 
 
 ## <a name="azure-blob-storage"></a>Azure Blob 저장소
-
->[!IMPORTANT]
->Blob 저장소 이벤트를 사용하려면 Blob 저장소 이벤트 미리 보기에 등록해야 합니다. 미리 보기 프로그램에 대한 자세한 내용은 [Azure Blob 저장소 이벤트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview)를 참조하세요.  
-
 
 ### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
