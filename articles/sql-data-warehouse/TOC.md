@@ -2,8 +2,6 @@
 
 ## [SQL Data Warehouse란 무엇입니까?](sql-data-warehouse-overview-what-is.md)
 ## [데이터 웨어하우스 워크로드](sql-data-warehouse-overview-workload.md)
-## [분선 데이터](sql-data-warehouse-distributed-data.md)
-## [질문과 대답](sql-data-warehouse-overview-faq.md)
 
 # 시작
 
@@ -12,9 +10,13 @@
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
 
-
-
 # 방법
+
+## 서비스 기능
+### [MPP 아키텍처](massively-parallel-processing-mpp-architecture.md)
+### [성능 계층](performance-tiers.md)
+### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [질문과 대답](sql-data-warehouse-overview-faq.md)
 
 ## 백업 및 복원
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### 리소스 클래스
+#### [지침](resource-classes-for-workload-management.md)
+#### [워크로드 분석](analyze-your-workload.md)
 
 ## 성능
 
 ### [개요](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [모니터](sql-data-warehouse-manage-monitor.md)
-### [워크로드](sql-data-warehouse-develop-concurrency.md)
 
 ## 보안
 

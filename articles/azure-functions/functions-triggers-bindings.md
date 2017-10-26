@@ -3,7 +3,7 @@ title: "Azure Functions의 트리거 및 바인딩 작업 | Microsoft Docs"
 description: "Azure Functions에서 트리거 및 바인딩을 사용하여 코드 실행을 온라인 이벤트 및 클라우드 기반 서비스에 연결하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam
-ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: glenga
+ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 Azure Functions에서는 *트리거* 및 *바인딩*을 통해 Azure 및 기타 서비스의 이벤트에 대응하는 코드를 쓸 수 있습니다. 이 문서는 지원되는 모든 프로그래밍 언어의 트리거 및 바인딩에 대한 개념적 개요를 제공합니다. 여기에서는 모든 바인딩에 공통되는 기능을 설명합니다.

@@ -1,24 +1,14 @@
 - name: 컨테이너용 Azure
   href: index.yml
   items:
-    - name: ACS(Container Service)
-      href: 'https://docs.microsoft.com/en-us/azure/container-service/'
+    - name: 컨테이너 서비스(AKS)
+      href: 'https://docs.microsoft.com/en-us/azure/aks/'
       expanded: true
       items:
-        - name: kubernetes
-          href: 'https://docs.microsoft.com/azure/container-service/kubernetes/'
-          items:
-            - name: 개요 - Kubernetes용 Azure Container Service 소개
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes'
-            - name: 빠른 시작 - Linux 컨테이너용 Kubernetes 클러스터 배포
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-        - name: Docker Swarm 및 DC/OS
-          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/'
-          items:
-            - name: 빠른 시작 - Docker Swarm 클러스터 배포
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            - name: 빠른 시작 - DC/OS 클러스터 배포
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+        - name: AKS 소개
+          href: ../aks/intro-kubernetes.md
+        - name: AKS 클러스터 배포
+          href: ../aks/kubernetes-walkthrough.md
     - name: ACI(Container Instances)
       href: 'https://docs.microsoft.com/en-us/azure/container-instances/'
       items:
@@ -49,7 +39,7 @@
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication'
             - name: ACR 웹후크 사용
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook'
-    - name: 컨테이너용 Web Apps
+    - name: 컨테이너용 웹앱
       href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro'
       items:
         - name: 컨테이너용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
@@ -67,26 +57,11 @@
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
             - name: Docker Compose 사용
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Virtual Machines(Linux)
-      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview'
-      items:
-        - name: Azure에서 컨테이너 워크로드 배포 및 실행
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers'
-        - name: 방법
-          items:
-            - name: Docker 호스트 만들기
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
-            - name: Docker 컴퓨터 사용
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
-            - name: Docker Compose 사용
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Virtual Machines(Windows)
+    - name: Windows 컨테이너
       href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview'
       items:
         - name: 빠른 시작 - Windows Server에서의 Windows 컨테이너
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
-        - name: Azure의 가상 컴퓨터 및 컨테이너
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers'
         - name: Windows 컨테이너 정보
           href: 'https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index'
     - name: 참조
@@ -97,7 +72,7 @@
           href: 'https://docs.microsoft.com/en-us/cli/azure/acs'
         - name: Azure Container Registry(az acr)
           href: 'https://docs.microsoft.com/en-us/cli/azure/acr'
-        - name: 컨테이너용 Azure Web Apps(az appservice)
+        - name: 컨테이너용 Web Apps(az appservice)
           href: 'https://docs.microsoft.com/en-us/cli/azure/appservice'
         - name: Azure App Service Web App(az webapp)
           href: 'https://docs.microsoft.com/en-us/cli/azure/webapp'

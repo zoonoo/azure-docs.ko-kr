@@ -5,6 +5,8 @@
 ## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
 ## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQ](active-directory-faq.md)
+## [새로운 기능](whats-new.md)
+
 
 # 시작
 ## [Azure AD 시작](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### 작업
+##### [클래식 정책 마이그레이션](active-directory-conditional-access-migration.md)
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 ##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
 ##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)

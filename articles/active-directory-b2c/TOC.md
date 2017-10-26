@@ -80,16 +80,15 @@
 #### [동적으로 UI 사용자 지정](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [토큰 사용자 지정](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [암호 복잡성](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [암호 변경](active-directory-b2c-reference-password-change-custom.md)
-
 #### [로그인 유지 사용](active-directory-b2c-reference-kmsi-custom.md)
-
 ### 문제 해결
 #### [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)
 ## 참조
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
+### [SSO 세션 공급자](active-directory-b2c-reference-sso-custom.md)
 ### [보안 프레임워크 정의](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 용어

@@ -2,7 +2,7 @@
 ## [권한 있는 액세스 보안](active-directory-securing-privileged-access.md)
 ## [Azure AD PIM이란?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [역할](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Azure Privileged Identity Management](azure-pim-resource-rbac.md)
+## [Azure Resources용 PIM(미리 보기)](azure-pim-resource-rbac.md)
 ## [Privileged Identity Management 승인 워크플로](azure-ad-pim-approval-workflow.md)
 
 # 시작

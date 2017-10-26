@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ed4afa2b946fe11d5802a95f8a490f3419dc0f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 >[!NOTE]   
 >온라인에서 볼 수 있는 많은 cron 식은 `{second}` 필드를 생략합니다. 그 중 하나를 복사하는 경우 추가 `{second}` 필드에 대해 조정해야 합니다. 특정 예제를 보려면 아래에 있는 [일정 예제](#examples)를 참조하세요.
 
-CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려면 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://msdn.microsoft.com/library/ms912391.aspx)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
+CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려면 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
 
 예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용합니다.
 

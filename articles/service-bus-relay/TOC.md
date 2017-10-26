@@ -20,7 +20,9 @@
 ## 개발
 ### [사용 가능한 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
-#### [노드](relay-hybrid-connections-node-ws-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## 관리
+### [Azure Monitoring을 사용하여 Azure Relay 모니터링](relay-metrics-azure-monitor.md)
 
 # 참조
 ## .NET

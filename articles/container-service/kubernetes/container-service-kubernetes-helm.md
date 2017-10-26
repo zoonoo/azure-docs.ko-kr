@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3cfcc5abbee03ca8fbbec4e4eae711e7c2d9deae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dd137de99864fbac2c73400a88956f6afa324db
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포 
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Helm](https://github.com/kubernetes/helm/)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. Apt-get, Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다. 이 문서는 Azure Container Service에 배포된 Kubernetes 클러스터에서 Helm을 이용하여 작업하는 방법을 보여줍니다.
 

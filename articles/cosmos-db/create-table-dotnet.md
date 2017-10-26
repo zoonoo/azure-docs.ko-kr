@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 9d347f37ed6e0ddcde9d2f9a7a8d1d8ff65ab4f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: 테이블 API를 사용하여 .NET 응용 프로그램 빌드
 
@@ -97,7 +97,6 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
    TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
    table.Execute(retrieveOperation);
    ```
-   
    
    ```csharp
    TableOperation deleteOperation = TableOperation.Delete(items[i]);

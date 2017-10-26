@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>BizTalk Services에서 Logic Apps로 이동
 
@@ -127,5 +127,5 @@ BizTalk Services에서 HA(고가용성)를 실현하려면 지정된 지역에�
 
 ## <a name="next"></a>다음
 * [Logic Apps란?](logic-apps-what-are-logic-apps.md)
-* [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md) 또는 [미리 빌드된 템플릿](logic-apps-use-logic-app-templates.md)을 사용하여 신속하게 시작  
+* [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md) 또는 [미리 빌드된 템플릿](logic-apps-create-logic-apps-from-templates.md)을 사용하여 신속하게 시작  
 * 논리 앱에서 사용할 수 있는 [사용 가능한 모든 커넥터 보기](../connectors/apis-list.md)

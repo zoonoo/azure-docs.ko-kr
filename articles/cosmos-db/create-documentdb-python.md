@@ -15,12 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/16/2017
 ms.author: mimig
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a2059aeb0ac147c896a7306f9530a410974a8e9a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python 및 Azure Portal에서 DocumentDB API 앱 작성
 
@@ -164,6 +163,5 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 > [!div class="nextstepaction"]
 > [DocumentDB API용 Azure Cosmos DB로 데이터 가져오기](import-data.md)
-
 
 

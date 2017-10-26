@@ -15,6 +15,14 @@
       href: container-registry-get-started-powershell.md
 - name: 자습서
   items:
+    - name: 지역에서 복제
+      items:
+        - name: 1 - 컨테이너 레지스트리 준비
+          href: container-registry-tutorial-prepare-registry.md
+        - name: 2 - 웹 응용 프로그램 배포
+          href: container-registry-tutorial-deploy-app.md
+        - name: 3 - 웹 응용 프로그램 업데이트
+          href: container-registry-tutorial-deploy-update.md
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Azure Container Service

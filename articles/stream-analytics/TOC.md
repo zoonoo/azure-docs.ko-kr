@@ -20,6 +20,7 @@
 ### [샘플 입력 데이터](stream-analytics-sample-data-input.md)
 ### [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)
 ### [창 함수](stream-analytics-window-functions.md)
+
 ### [참조 데이터 사용](stream-analytics-use-reference-data.md)
 ### [쿼리 테스트](stream-analytics-test-query.md)
 ### [JavaScript UDF 통합](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [작업 다이어그램 및 메트릭](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO 디버깅](stream-analytics-select-into.md)
 ### [이벤트 순서 처리](stream-analytics-out-of-order-and-late-events.md)
+### [이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)
 ### [이벤트 허브 리더 제한](stream-analytics-event-hub-consumer-groups.md)
 ### [진단 로그](stream-analytics-job-diagnostic-logs.md)
 

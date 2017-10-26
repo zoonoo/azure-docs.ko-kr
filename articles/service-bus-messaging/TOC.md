@@ -63,6 +63,7 @@
 #### [트랜잭션 처리](service-bus-transactions.md)
 #### [쌍을 이루는 네임스페이스 구현](service-bus-paired-namespaces.md)
 ## 관리
+### [Azure Monitoring을 사용하여 Service Bus 모니터링](service-bus-metrics-azure-monitor.md)
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
 ### [진단 로그](service-bus-diagnostic-logs.md)
 ### [메시징 엔터티 일시 중단 및 다시 활성화](entity-suspend.md)

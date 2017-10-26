@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
@@ -62,19 +62,13 @@ ms.lasthandoff: 10/11/2017
 
    * 가상 네트워크에 해당 이름을 가진 기존 클라우드 서비스가 있는 경우
 
-3. **가상 네트워크의 형식**을 선택합니다. 기본적으로는 **Resource Manager** 가상 네트워크 형식을 선택합니다. 새로 만든 관리되는 도메인 모두에 이 형식의 가상 네트워크를 사용하는 것이 좋습니다.
+3. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
 
-    > [!TIP]
-    > **클래식 가상 네트워크 지원이 사용 중단될 예정입니다.** 모든 새로운 배포에서 Resource Manager 가상 네트워크 형식을 선택합니다. 클래식 가상 네트워크는 더 이상 새로운 배포에서 지원되지 않습니다. 클래식 가상 네트워크에 배포된 기존의 관리되는 도메인은 계속 지원됩니다.
-    >
+4. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 **기존 항목 사용** 옵션을 선택하여 리소스 그룹을 선택할 수 있습니다.
 
-4. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
+5. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 마법사의 **네트워크** 페이지에는 선택한 위치에 속하는 가상 네트워크만 표시됩니다.
 
-5. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 **기존 항목 사용** 옵션을 선택하여 리소스 그룹을 선택할 수 있습니다.
-
-6. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 마법사의 **네트워크** 페이지에는 선택한 위치에 속하는 가상 네트워크만 표시됩니다.
-
-7. 완료되면 **확인**을 클릭하여 마법사의 **네트워크** 페이지로 이동합니다.
+6. 완료되면 **확인**을 클릭하여 마법사의 **네트워크** 페이지로 이동합니다.
 
 
 ## <a name="next-step"></a>다음 단계

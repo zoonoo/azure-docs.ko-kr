@@ -119,7 +119,7 @@
 ##### [웹 프록시 구성](storsimple-8000-configure-web-proxy.md)
 ##### [데이터 0 설정 수정](storsimple-8000-modify-data-0.md)
 
-#### [Azure PowerShell 샘플 스크립트 사용](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [StorSimple Snapshot Manager 사용](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md)
@@ -132,10 +132,15 @@
 ##### [StorSimple Snapshot Manager를 통해 볼륨 관리](storsimple-snapshot-manager-manage-volumes.md)
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
+### 자동화
+
+#### [Azure PowerShell 샘플 스크립트 사용](storsimple-8000-automation-azurerm-scripts.md)
+#### [Azure Automation Runbook 사용](storsimple-8000-automation-azurerm-runbook.md)
+
 ### 솔루션 빌드
-#### [Veeam을 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec를 사용하는 StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
-#### [Veritas NetBackup을 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
+#### [Veritas NetBackup를 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -274,9 +279,9 @@
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
 
 ### 솔루션 빌드
-#### [Veeam을 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec를 사용하는 StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
-#### [Veritas NetBackup을 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
+#### [Veritas NetBackup를 사용하는 StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Azure에 자동화 파일 서버 DR](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express 경로를 사용하는 StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware를 사용하는 StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -56,10 +56,6 @@ ms.lasthandoff: 10/11/2017
 * **Q: 내 사용자가 다른 사용자가 이 데이터를 볼 수 없는 방식으로 데이터를 등록할 수 있습니까?**
 
   > **A:** 예, 사용자가 암호 재설정 등록 포털을 사용하여 데이터를 등록한 경우 전역 관리자 사용자에게만 표시되는 개인 인증 필드로 저장됩니다.
-    >
-    > [!NOTE]
-    > **Azure 관리자 계정**이 해당 인증 전화 번호를 등록하는 경우 휴대폰 필드로 채워지고 표시됩니다.
-    >
   >
   >
 * **Q: 내 사용자를 등록해야 암호 재설정을 사용할 수 있습니까?**

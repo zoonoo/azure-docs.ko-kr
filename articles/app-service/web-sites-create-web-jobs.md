@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -43,7 +43,7 @@ Azure Functions는 프로그램 및 스크립트를 실행하는 다른 방법�
 | 원격 디버깅을 지원합니다. | 원격 디버깅을 지원하지 않습니다.|
 
 > [!NOTE]
-> 웹앱이 20분 동안 작동하지 않으면 시간이 초과될 수 있습니다. 포털에서 SCM(배포) 사이트 또는 웹앱의 페이지에 대한 요청만이 타이머를 다시 설정합니다. 실제 사이트에 대한 요청은 타이머를 다시 설정하지 않습니다. 앱이 연속 또는 예약된 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정하여 WebJobs를 안정적으로 실행합니다. 이 기능은 기본, 표준 및 프리미엄 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)에서만 사용할 수 있습니다.
+> 웹앱이 20분 동안 작동하지 않으면 시간이 초과될 수 있습니다. 포털에서 SCM(배포) 사이트 또는 웹앱의 페이지에 대한 요청만이 타이머를 다시 설정합니다. 실제 사이트에 대한 요청은 타이머를 다시 설정하지 않습니다. 앱이 연속 또는 예약된 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정하여 WebJobs를 안정적으로 실행합니다. 이 기능은 기본, 표준 및 프리미엄 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에서만 사용할 수 있습니다.
 
 ## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 지원되는 파일 형식
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다. |
    | **파일 업로드** | ConsoleApp.zip | 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다. 지원되는 실행 파일 또는 스크립트 파일 형식은 [지원되는 파일 형식](#acceptablefiles) 섹션에 나열됩니다. |
    | **형식** | 연속 | [WebJob 형식](#webjob-types)은 이 문서의 앞부분에서 설명됩니다. |
-   | **규모** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)에 적용되지 않습니다. |
+   | **규모** | 다중 인스턴스 | 연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에 적용되지 않습니다. | 
 
 4. **확인**을 클릭합니다.
 

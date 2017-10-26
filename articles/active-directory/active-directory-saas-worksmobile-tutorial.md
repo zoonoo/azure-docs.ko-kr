@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a1968a59424eae278de3e7fa227ad340a1eb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760fbb21c86fa14808f9a946c2c2fd0814bfb139
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>자습서: WORKS MOBILE과 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ WORKS MOBILE에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-On 구성](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.worksmobile.com/jp/myservice`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
     b. **식별자** 텍스트 상자에 해당 값으로 `worksmobile.com`을 입력합니다.
 
