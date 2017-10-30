@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
-## <a name="introduction"></a>소개
+
 Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 이 자습서에서는 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하는 응용 프로그램을 만드는 단계를 안내합니다.
 
 다음을 학습합니다.
@@ -68,7 +68,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다.
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
-다음 단계에서는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 얻습니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
+다음 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명) 키](service-bus-sas.md)를 얻습니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 2. **설치된 템플릿**의 **Visual C#**에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 후 **OK**를 클릭합니다.
    
    ![][9]
-3. **.NET Framework 4.5** 역할에서 **ASP.NET 웹 역할**을 두 번 클릭합니다.
+3. **역할** 창에서 **ASP.NET 웹 역할**을 두 번 클릭합니다.
    
    ![][10]
 4. **Azure Cloud Service 솔루션**에서 **WebRole1**을 마우스로 가리키고 연필 아이콘을 클릭한 다음 웹 역할의 이름을 **FrontendWebRole**로 변경합니다. 그런 후 **OK**를 클릭합니다. "FrontEnd"가 아니라 소문자 "e"를 사용하여 "Frontend"를 입력해야 합니다.
@@ -92,12 +92,12 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 5. **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC**를 클릭합니다.
    
    ![][12]
-6. **새 ASP.NET 프로젝트** 대화 상자에서 **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
+6. **새 ASP.NET 프로젝트** 대화 상자에서 **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음**을 선택했는지 확인한 다음 **확인**을 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
    
     ![][16]
 7. **새 ASP.NET 프로젝트** 대화 상자로 돌아와서 **확인**을 클릭하여 프로젝트를 만듭니다.
 8. **FrontendWebRole** 프로젝트의 **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-9. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택하고 **설치**를 클릭하고 사용 약관에 동의합니다.
+9. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택하고 **설치**를 클릭하고 사용 약관에 동의합니다.
    
    ![][13]
    
@@ -182,12 +182,12 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 5. 이제 위에서 만든 `Submit()` 메서드에 대한 보기를 만듭니다. `Submit()` 메서드(매개 변수를 사용하지 않는 `Submit()`의 오버로드) 내에서 마우스 오른쪽 단추로 클릭한 다음 **보기 추가**를 선택합니다.
    
    ![][14]
-6. 보기를 만들 수 있는 대화 상자가 나타납니다. **템플릿** 목록에서 **만들기**를 선택합니다. **모델 클래스** 목록에서 **OnlineOrder** 클래스를 클릭합니다.
+6. 보기를 만들 수 있는 대화 상자가 나타납니다. **템플릿** 목록에서 **만들기**를 선택합니다. **모델 클래스** 목록에서 **OnlineOrder** 클래스를 선택합니다.
    
    ![][15]
 7. **추가**를 클릭합니다.
 8. 이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\Shared\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-9. **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **LITWARE 제품**으로 바꿉니다.
+9. **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 바꿉니다.
 10. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 강조 표시된 코드를 삭제합니다.
     
     ![][28]
@@ -361,9 +361,9 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 ## <a name="next-steps"></a>다음 단계
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.  
 
-* [Azure Service Bus 설명서][sbdocs]  
+* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 큐 사용 시작][sbacomqhowto]
 * [Service Bus 서비스 페이지][sbacom]  
-* [Service Bus 큐를 사용하는 방법][sbacomqhowto]  
 
 다중 계층 시나리오에 대한 자세한 내용은 다음을 참조하세요.  
 
@@ -390,7 +390,6 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

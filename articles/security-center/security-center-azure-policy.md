@@ -1,12 +1,12 @@
 ---
-title: "Azure Security Center에서 보안 정책 설정 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 설명합니다."
+title: "Azure Policy를 사용하여 Azure Security Center 보안 정책 통합 | Microsoft Docs"
+description: "이 문서를 통해 Azure Policy를 사용하여 Azure Security Center 보안 정책 통합을 구성할 수 있습니다."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Security Center에서 보안 정책 설정
-이 문서에서는 Security Center에 보안 정책을 구성하는 작업을 수행하는 데 필요한 단계를 안내합니다. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Azure Policy로 구동되는 Security Center에서 보안 정책 설정
+이 문서에서는 Azure Policy로 구동되는 Security Center에 보안 정책을 구성하는 작업을 수행하는 데 필요한 단계를 안내합니다. 
 
 
 ## <a name="how-security-policies-work"></a>보안 정책 작동 방법
-Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하고 정책 준수를 모니터링할 수 있습니다. 
+Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하거나 [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)를 사용하여 새 정책 정의를 만들고, (전체 조직, 조직 내 비즈니스 단위를 나타낼 수 있는) 관리 그룹에 정책을 할당하고, 정책 준수를 모니터링할 수 있습니다.
 
 > [!NOTE]
-> 이제 제한된 미리 보기 상태인 Azure Policy를 사용하여 Security Center 정책을 확장할 수 있습니다. [여기](http://aka.ms/getpolicy)를 클릭하여 미리 보기에 조인하거나 [여기](security-center-azure-policy.md)에서 설명서를 참조하세요.
-
-예를 들어 개발 또는 테스트에 사용되는 리소스는 프로덕션 응용 프로그램에 사용되는 리소스와 보안 요구 사항이 다릅니다. 마찬가지로 PII(Personally Identifiable Information) 같은 규제된 데이터를 가진 응용 프로그램에는 더 높은 수준의 보안이 필요할 수 있습니다. Azure Security Center에서 활성화된 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure Security Center 계획 및 운영 가이드](security-center-planning-and-operations-guide.md)를 참고하세요.
+> Azure Policy는 제한된 미리 보기로 제공됩니다. 조인하려면 [여기](https://aka.ms/getpolicy)를 클릭하세요. Azure 정책에 대한 자세한 내용은 [정책을 만들고 관리하여 규정 준수 적용](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy)을 참고하세요.
 
 ## <a name="edit-security-policies"></a>보안 정책 편집
-Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정하려면 해당 구독의 소유자, 참여자 또는 보안 관리자여야 합니다. Azure Portal에 로그인하고 다음 단계에 따라 Security Center에서 보안 정책을 구성합니다. 
+Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정하려면 해당 구독 또는 포함되는 관리 그룹의 소유자, 참가자 또는 보안 관리자여야 합니다. Azure Portal에 로그인하고 다음 단계에 따라 Security Center에서 보안 정책을 봅니다.
 
-1.  **Security Center** 대시보드의 **일반** 아래에서 **보안 정책**을 클릭합니다.
-2.  보안 정책을 사용하도록 설정하려는 구독을 선택합니다.
-3.  **정책 구성 요소** 섹션에서 **보안 정책**을 클릭합니다.
-4.  Security Center에 할당된 기본 정책입니다. 사용 가능한 보안 권장 사항을 설정/해제할 수 있습니다.
-5.  편집이 끝나면 **저장**을 클릭합니다.
+1. **Security Center** 대시보드의 **일반** 아래에서 **보안 정책**을 클릭합니다.
+2. 보안 정책을 사용하도록 설정하려는 구독을 선택합니다.
 
-## <a name="available-security-policy-options"></a>사용 가능한 보안 정책 옵션
+    ![정책 관리](./media/security-center-policies/security-center-policies-fig10.png)
 
-다음 테이블을 참조로 사용하여 각 옵션을 이해합니다.
+3. **정책 구성 요소** 섹션에서 **보안 정책**을 클릭합니다.
+
+    ![정책 구성 요소](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Azure 정책을 통해 Security Center에 할당된 기본 정책입니다. **정책 및 매개 변수** 아래에 있는 항목을 삭제할 수 있습니다. 또는 **사용할 수 있는 옵션** 아래에 있는 다른 정책 정의를 추가할 수 있습니다. 이렇게 하려면 정의 이름 옆에 있는 더하기 기호를 클릭하기만 됩니다.
+
+    ![정책 정의](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. 정책에 대한 자세한 설명을 확인하려는 경우 해당 정책을 클릭하면 다른 페이지에서 세부 정보 및 [정책 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) 구조가 포함된 JSON 코드가 열립니다.
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. 편집이 끝나면 **저장**을 클릭합니다.
+
+
+## <a name="available-security-policy-definitions"></a>사용 가능한 보안 정책 정의
+
+기본 보안 정책에서 사용할 수 있는 정책 정의를 이해하기 위해 참조로 다음 표를 사용합니다. 
 
 | 정책 | 상태가 켜진 경우 |
 | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: "Azure Batch Rendering 서비스를 사용하여 클라우드에서 렌더링 | Microsoft Docs"
+title: "Azure Batch Rendering 서비스 - 클라우드 규모 렌더링 | Microsoft Docs"
 description: "Maya에서 직접 사용량 기준 과금으로 Azure 가상 컴퓨터의 작업을 렌더링합니다."
 services: batch
 author: v-dotren
@@ -8,17 +8,17 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering 서비스 시작
 
 Azure Batch Rendering 서비스는 클라우드 규모 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering 서비스는 렌더링 작업의 작업 일정 및 큐, 실패 및 재시도 관리, 자동 크기 조정을 처리합니다. Batch Rendering 서비스는 [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3DS Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) 및 [V-Ray](https://www.chaosgroup.com/vray/maya)를 지원합니다. Maya 2017의 Batch 플러그 인을 사용하면 바탕 화면에서 바로 Azure의 렌더링 작업을 시작할 수 있습니다.
 
-Maya 및 3DS Max를 통해 [Batch Labs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램 또는 [Batch 템플릿 CLI](batch-cli-templates.md)를 사용하여 작업을 실행할 수 있습니다. Azure Batch CLI를 사용하면 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다. 대신, 템플릿 파일을 사용하여 Batch 풀, 작업, 및 태스크를 만들 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
+Maya 및 3ds Max를 통해 [BatchLabs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램 또는 [Batch 템플릿 CLI](batch-cli-templates.md)를 사용하여 작업을 실행할 수 있습니다. Azure Batch CLI를 사용하면 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다. 대신, 템플릿 파일을 사용하여 Batch 풀, 작업, 및 태스크를 만들 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 
 ## <a name="supported-applications"></a>지원되는 응용 프로그램
@@ -39,6 +39,7 @@ Batch Rendering 서비스를 사용하려면 다음이 필요합니다.
 - [Azure 계정](https://azure.microsoft.com/free/)
 - **Azure Batch 계정.** Azure Portal에서 Batch 계정을 만드는 방법에 대한 지침은 [Azure Portal에서 Batch 계정 만들기](batch-account-create-portal.md)를 참조하세요.
 - **Azure Storage 계정.** 렌더링 작업에 사용되는 자산은 Azure Storage에 저장됩니다. Batch 계정을 설정할 때 자동으로 저장소 계정을 만들 수 있습니다. 기존 저장소 계정을 사용할 수도 있습니다. Storage 계정에 대한 자세한 내용은 [Azure Portal에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](https://docs.microsoft.com/azure/storage/storage-create-storage-account)을 참조하세요.
+- **BatchLabs**(선택 사항). [BatchLabs](https://azure.github.io/BatchLabs)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Rendering 서비스를 사용할 필요 없이 Batch 솔루션을 개발하고 디버그하는 유용한 옵션입니다.
 
 Maya에 Batch 플러그 인을 사용하려면 다음이 필요합니다.
 
@@ -59,7 +60,7 @@ Batch 풀 및 계산 노드에 대한 자세한 내용은 [Batch를 사용하여
 
 Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 풀의 계산 노드에 분산합니다.
 
-응용 프로그램 로그를 다운로드하고 RDP 또는 SSH를 사용하여 개별 VM에 원격으로 연결하면 [Azure Portal](https://ms.portal.azure.com/)을 사용하여 작업을 모니터링하고 실패한 작업을 진단할 수 있습니다. 또한 [Batch Labs 클라이언트](https://github.com/Azure/BatchLabs)를 사용하여 관리, 모니터링 및 디버그할 수 있습니다.
+응용 프로그램 로그를 다운로드하고 RDP 또는 SSH를 사용하여 개별 VM에 원격으로 연결하면 [Azure Portal](https://ms.portal.azure.com/)을 사용하여 작업을 모니터링하고 실패한 작업을 진단할 수 있습니다. 또한 [BatchLabs 도구](https://azure.github.io/BatchLabs)를 사용하여 관리, 모니터링 및 디버그할 수 있습니다.
 
 Batch 작업에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [작업](batch-api-basics.md#job) 섹션을 참조하세요.
 
@@ -69,9 +70,9 @@ Batch 작업에 대한 자세한 내용은 [Batch를 사용하여 대규모 병�
 
 ### <a name="pre-configured-vm-images"></a>사전 구성 VM 이미지
 
-Azure는 사전 설치되어 사용이 가능한 Maya, 3DS Max, Arnold 및 V-Ray의 각 버전과 함께 Windows 및 Linux 이미지를 제공합니다. 풀을 만들 때 [Azure Portal](https://portal.azure.com), Maya 플러그 인 또는 [Batch Labs](https://github.com/Azure/BatchLabs)에서 이러한 이미지를 선택할 수 있습니다.
+Azure는 사전 설치되어 사용이 가능한 Maya, 3DS Max, Arnold 및 V-Ray의 각 버전과 함께 Windows 및 Linux 이미지를 제공합니다. 풀을 만들 때 [Azure Portal](https://portal.azure.com), Maya 플러그 인 또는 [BatchLabs](https://azure.github.io/BatchLabs)에서 이러한 이미지를 선택할 수 있습니다.
 
-Azure Portal 및 Batch Labs에서 사전 설치된 응용 프로그램으로 VM 이미지 중 하나를 설치할 수 있습니다. 배치 계정의 풀 섹션에서 **새로 만들기**를 선택한 다음, **풀 추가**의 **이미지 형식** 드롭다운 목록에서 **그래픽 및 렌더링(Linux/Windows)**을 선택하면 됩니다.
+Azure Portal 및 BatchLabs에서 사전 설치된 응용 프로그램으로 VM 이미지 중 하나를 설치할 수 있습니다. 배치 계정의 풀 섹션에서 **새로 만들기**를 선택한 다음, **풀 추가**의 **이미지 형식** 드롭다운 목록에서 **그래픽 및 렌더링(Linux/Windows)**을 선택하면 됩니다.
 
 ![배치 계정에 대한 이미지 형식 선택](./media/batch-rendering-service/add-pool.png)
 
@@ -101,17 +102,17 @@ Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습�
 Maya를 사용하면 다음을 수행할 수 있습니다.
 
 - [Maya용 Batch 플러그 인](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- [Batch Labs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램
+- [BatchLabs](https://azure.github.io/BatchLabs) 데스크톱 응용 프로그램
 - [Batch 템플릿 CLI](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3DS Max
 
 3DS Max를 사용하면 다음을 수행할 수 있습니다.
 
-- [Batch Labs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램(3DS Max Batch Labs 템플릿 사용에 대한 지침은 [Batch Labs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 참조)
+- [BatchLabs](https://azure.github.io/BatchLabs) 데스크톱 응용 프로그램(3ds Max BatchLabs 템플릿 사용에 대한 지침은 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 참조)
 - [Batch 템플릿 CLI](batch-cli-templates.md)
 
-3DS Max Batch Labs 템플릿을 사용하면 Azure Batch Rendering 서비스를 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3DS Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [Batch Labs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
+3DS Max Batch Labs 템플릿을 사용하면 Azure Batch Rendering 서비스를 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3ds Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
 
 또한 [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial)를 사용하여 렌더링 서비스를 기존 파이프라인과 통합할 수 있습니다.
 

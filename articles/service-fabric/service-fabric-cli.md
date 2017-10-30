@@ -6,13 +6,13 @@ author: samedder
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -32,7 +32,7 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신(~=2)  | 최신(~=6.0)            |
+| 최신(~=3)  | 최신(~=6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 필요에 따라 `pip install` 명령에 `==<version>`을 접미사로 붙여 설치하기 위해 CLI의 대상 버전을 지정할 수 있습니다. 예를 들어 1.1.0 버전에서 구문은 다음과 같습니다.
@@ -42,6 +42,8 @@ pip install -I sfctl==1.1.0
 ```
 
 필요한 경우 다음 `pip install` 명령을 앞에서 언급한 명령으로 바꿉니다.
+
+Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](https://github.com/Azure/service-fabric-cli/releases)를 참조하세요.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python 및 Service Fabric CLI 설치
 

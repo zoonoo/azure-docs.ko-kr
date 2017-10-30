@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza 포털을 사용하여 Time Series Insights 환경에 대한 이벤트 원본 만들기
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 이벤트 원본 만들기
 
-Time Series Insights 이벤트 원본은 Azure Event Hubs 같은 이벤트 브로커에서 파생됩니다. Time Series Insights는 이벤트 원본에 직접 연결하여 데이터 스트림을 수집하므로 사용자가 코드를 작성할 필요가 전혀 없습니다. 현재 Time Series Insights는 Azure Event Hubs 및 Azure IoT Hubs를 지원합니다. 향후 더 많은 이벤트 원본은 추가될 예정입니다.
+Time Series Insights 이벤트 원본은 Azure Event Hubs와 같은 이벤트 브로커에서 파생됩니다. Time Series Insights는 이벤트 원본에 직접 연결하여 데이터 스트림을 수집하므로 사용자가 코드를 작성할 필요가 전혀 없습니다. 현재 Time Series Insights는 Azure Event Hubs 및 Azure IoT Hubs를 지원합니다. 향후 더 많은 이벤트 원본은 추가될 예정입니다.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>환경에 이벤트 원본을 추가하는 단계
 
-1.  [Ibiza portal](https://portal.azure.com)에 로그인합니다.
-2.  Ibiza 포털의 왼쪽에 있는 메뉴에서 “All resources(모든 리소스)”를 클릭합니다.
+1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2.  Azure Portal의 왼쪽에 있는 메뉴에서 “모든 리소스”를 클릭합니다.
 3.  Time Series Insights 환경을 선택합니다.
 
   ![Time Series Insights 이벤트 원본 만들기](media/add-event-source/getstarted-create-event-source-1.png)

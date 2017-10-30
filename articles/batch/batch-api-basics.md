@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -72,10 +72,10 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 
 [Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 응용 프로그램을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
 
-단일 배치 계정에서 여러 배치 워크로드를 실행하거나 다른 Azure 지역이 아닌 동일한 구독에 있는 배치 계정 간에 워크로드를 배포할 수 있습니다.
+단일 Batch 계정에서 여러 Batch 워크로드를 실행하거나 다른 Azure 지역이 아닌 동일한 구독에 있는 Batch 계정 간에 워크로드를 배포할 수 있습니다.
 
 > [!NOTE]
-> Batch 계정을 만들 때 일반적으로 기본 **Batch 서비스** 모드를 선택해야 합니다. 여기에서 풀이 Azure에서 관리하는 구독에서 배후에 할당됩니다. 더 이상 권장되지 않는 대체 **사용자 구독** 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다.
+> Batch 계정을 만들 때 일반적으로 기본 **Batch 서비스** 모드를 선택해야 합니다. 여기에서 풀이 Azure에서 관리하는 구독에서 배후에 할당됩니다. 더 이상 권장되지 않는 대체 **사용자 구독** 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 모드에서 Batch 계정을 만들려면 Azure Key Vault와 계정을 연결해야 합니다.
 >
 
 
@@ -129,7 +129,7 @@ Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노�
 
 - **가상 컴퓨터 구성** - 풀이 Azure 가상 컴퓨터로 구성됨을 나타냅니다. 이러한 VM은 Linux 또는 Windows 이미지에서 만들 수 있습니다. 
 
-    가상 컴퓨터 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 컴퓨터 이미지 참조** 및 Batch **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
+    가상 컴퓨터 구성에 따라 풀을 만들 때는 노드 크기와 해당 노드를 만드는 데 사용되는 이미지의 원본뿐만 아니라 해당 노드에 설치될 **가상 컴퓨터 이미지 참조** 및 Batch **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요. 필요에 따라 하나 이상의 빈 데이터 디스크를 Marketplace 이미지에서 만든 풀 VM에 연결하거나 VM을 만드는 데 사용되는 사용자 지정 이미지에 데이터 디스크를 포함할 수 있습니다.
 
 - **Cloud Services 구성** - 풀이 Azure Cloud Services 노드로 구성됨을 나타냅니다. Cloud Services는 Windows 계산 노드*만* 제공합니다.
 
@@ -148,9 +148,11 @@ Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노�
 
 자세한 요구 사항 및 단계는 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](batch-custom-images.md)를 참조하세요.
 
+#### <a name="container-support-in-virtual-machine-pools"></a>가상 컴퓨터 풀에서 컨테이너 지원
 
+Batch API를 사용하여 가상 컴퓨터 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재는 Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하여 풀을 만들거나 Docker Community Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공해야 합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add#definitions_containerconfiguration)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Compute 노드 유형 및 대상 노드 수
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Compute 노드 유형 및 대상 노드 수
 
 풀을 만들 때 각각에 대해 원하는 계산 노드 유형 및 대상 수를 지정할 수 있습니다. 계산 노드의 두 가지 유형은 다음과 같습니다.
 
@@ -258,6 +260,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 * 응용 프로그램에 필요한 **환경 변수** . 자세한 내용은 [태스크에 대한 환경 설정](#environment-settings-for-tasks) 섹션을 참조하세요.
 * 태스크가 실행되어야 하는 **제약 조건** . 예를 들어 제약 조건은 태스크가 실행되도록 허용된 최대 시간, 실패한 태스크를 다시 시도해야 하는 최대 횟수 및 태스크의 작업 중인 디렉터리에 파일을 보관하는 최대 시간을 포함합니다.
 * **응용 프로그램 패키지** 입니다. [응용 프로그램 패키지](#application-packages)는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 작업 수준 응용 프로그램 패키지는 공유 풀 환경에서 특히 유용하며 여기서는 다른 작업이 하나의 풀에서 실행되고 작업이 완료될 때 풀이 삭제되지 않습니다. 작업에 있는 태스크가 풀에 있는 노드보다 적은 경우 태스크를 실행하는 노드에만 응용 프로그램을 배포하므로 태스크 응용 프로그램 패키지는 데이터 전송을 최소화할 수 있습니다.
+* 작업이 노드에서 실행되는 Docker 컨테이너를 만들기 위해 Docker 허브 또는 개인 레지스트리의 **컨테이너 이미지** 참조 및 추가 설정입니다. 풀이 컨테이너 구성으로 설정된 경우에만 이 정보를 지정합니다.
 
 노드에서 계산을 수행하도록 정의한 태스크 외에 다음과 같은 특수한 태스크도 Batch 서비스에서 제공됩니다.
 
@@ -386,39 +389,12 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>VNet(가상 네트워크) 및 방화벽 구성 
 
-Batch에서 계산 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. 서브넷이 있는 VNet 만들기에 대한 자세한 내용은 [서브넷이 있는 Azure Virtual Network 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 
+Batch에서 계산 노드 풀을 프로비전하면 풀을 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷과 연결할 수 있습니다. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다.  
 
-VNet 요구 사항:
+### <a name="vnet-requirements"></a>VNet 요구 사항
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* 가상 네트워크는 Azure Batch 계정과 동일한 Azure **지역** 및 **구독**에 있어야 합니다.
-
-* 가상 컴퓨터 구성을 사용하여 만든 풀에는 ARM(Azure Resource Manager) 기반 가상 네트워크만 사용할 수 있습니다. 클라우드 서비스 구성을 사용하여 만든 풀에는 ARM 및 클래식 가상 네트워크를 모두 사용할 수 있습니다. 
-
-* ARM 기반 네트워크를 사용하려면 Batch 클라이언트 API가 [Azure Active Directory 인증](batch-aad-auth.md)를 사용해야 합니다. 클래식 가상 네트워크를 사용하려면 'MicrosoftAzureBatch' 서비스 주체에는 지정된 가상 네트워크에 대한 '클래식 가상 컴퓨터 참여자' RBAC(역할 기반 액세스 제어) 역할이 있어야 합니다. 
-
-* 지정된 서브넷에서 총 대상 노드 수(즉, 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성의 합)를 수용할 만한 충분한 가용 **IP 주소**가 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-
-* 지정된 서브넷은 Batch 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다.
-
-* 지정된 VNet에 연결된 **NSG(네트워크 보안 그룹)** 및/또는 **방화벽**이 있는 경우 인바운드 통신에 대해 몇 개의 예약된 시스템 포트를 사용할 수 있어야 합니다.
-
-- 가상 컴퓨터 구성을 사용하여 만든 풀의 경우 포트 29876 및 29877을 사용하도록 설정하고 , Linux의 경우 포트 22, Windows의 경우 포트 3389를 사용하도록 설정합니다. 
-- 클라우드 서비스 구성을 사용하여 만든 풀의 경우 포트 10100, 20100 및 30100을 사용하도록 설정합니다. 
-- 포트 443에서 Azure Storage에 대한 아웃바운드 연결을 사용하도록 설정합니다. 또한 VNET을 제공하는 모든 사용자 지정 DNS 서버에서 Azure Storage 끝점을 확인할 수 있어야 합니다. 특히 `<account>.table.core.windows.net` 양식의 URL을 확인할 수 있어야 합니다.
-
-    다음 표에는 가상 컴퓨터 구성을 사용하여 만든 풀에 사용하도록 설정해야 하는 인바운드 포트가 설명되어 있습니다.
-
-    |    대상 포트    |    원본 IP 주소      |    Batch가 NSG를 추가합니까?    |    VM을 사용할 수 있도록 하는 데 필요합니까?    |    사용자의 작업   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>가상 컴퓨터 구성을 사용하여 만든 풀의 경우: 29876, 29877</li><li>클라우드 서비스 구성을 사용하여 만든 풀의 경우: 10100, 20100, 30100</li></ul>         |    Batch 서비스 역할 IP 주소만 |    예. Batch는 VM에 연결된 네트워크 인터페이스(NIC)의 수준에서 NSG를 추가합니다. 이러한 NSG는 Batch 서비스 역할 IP 주소의 트래픽만 허용합니다. 이러한 포트에 전체 웹을 허용하더라도 NIC에서 트래픽이 차단됩니다. |    예  |  Batch는 Batch IP 주소만 허용하기 때문에 NSG를 지정할 필요가 없습니다. <br /><br /> 하지만 NSG를 지정하는 경우에는 이러한 포트에 인바운드 트래픽을 허용하세요. <br /><br /> NSG에서 *를 원본 IP로 지정하더라도 Batch는 VM에 연결된 NIC 수준에서 NSG를 추가합니다. |
-    |    3389, 22               |    VM에 원격으로 액세스할 수 있도록 디버깅용으로 사용되는 사용자 컴퓨터입니다.    |    아니요                                    |    아니요                     |    VM에 원격 액세스(RDP/SSH)를 허용하려는 경우 NSG를 추가하세요.   |                 
-
-    다음 표에는 Azure Storage에 대한 액세스를 허용하기 위해 사용하도록 설정해야 하는 아웃바운드 포트가 설명되어 있습니다.
-
-    |    아웃바운드 포트    |    대상    |    Batch가 NSG를 추가합니까?    |    VM을 사용할 수 있도록 하는 데 필요합니까?    |    사용자의 작업    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    아니요    |    예    |    NSG를 추가하는 경우에는 이 포트에 아웃바운드 트래픽을 허용하세요.    |
-
+VNet에서 Batch 풀 설정에 대한 자세한 내용은 [가상 네트워크로 가상 컴퓨터의 풀 만들기](batch-virtual-network.md)를 참조하세요.
 
 ## <a name="scaling-compute-resources"></a>계산 리소스 크기 조정
 [자동 크기 조정](batch-automatic-scaling.md)으로 Batch 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다.
@@ -525,11 +501,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 ## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 * [.NET용 Azure Batch 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 Batch 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
-* Batch 솔루션을 개발하는 동안 사용할 [Batch Explorer][github_batchexplorer] 샘플 프로젝트를 다운로드하여 빌드합니다. Batch Explorer를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
-
-  * Batch 계정 내에서 풀, 작업 및 태스크 모니터링 및 조작
-  * 노드에서 `stdout.txt`, `stderr.txt` 및 기타 파일 다운로드
-  * 노드에서 사용자를 만들고 원격 로그인을 위한 RDP 파일 다운로드
+* Batch 솔루션을 개발하는 동안 사용하기 위해 [BatchLabs][batch_labs]를 다운로드 및 설치합니다. BatchLabs를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
 * [Linux 계산 노드의 풀을 만드는](batch-linux-nodes.md)방법을 알아봅니다.
 * MSDN에서 [Azure Batch 포럼][batch_forum]을 방문하세요. 포럼에서는 Batch를 배우는지 아니면 Batch를 사용하는 전문가인지를 질문합니다.
 
@@ -541,7 +513,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

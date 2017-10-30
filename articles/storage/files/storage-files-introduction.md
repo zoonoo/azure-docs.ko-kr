@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="introduction-to-azure-files"></a>Azure Files 소개
 Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 가까이에 빠르게 액세스하기 위해 Azure File Sync(미리 보기)를 사용하여 Azure File 공유를 Windows Server에서 캐시할 수 있습니다.
@@ -34,10 +34,10 @@ Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 * **온-프레미스 파일 서버 바꾸기 또는 보완**:  
     Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 장치를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Windows, macOS 및 Linux와 같이 자주 사용되는 운영 체제는 전세계 어디서나 Azure File 공유를 직접 탑재할 수 있습니다. Azure File 공유는 데이터가 사용되는 위치에 효율적으로 분산 캐싱하기 위해 온-프레미스 또는 클라우드에서 Azure File Sync를 사용하여 Windows Servers에 복제될 수도 있습니다.
 
-* **응용 프로그램 "리프트 앤 시프트"** -  
+* **응용 프로그램 "전환"**:  
     Azure Files를 사용하면 파일 응용 프로그램 또는 사용자 데이터를 저장하기 위해 파일 공유를 사용하는 클라우드로 응용 프로그램을 쉽게 "전환"할 수 있습니다. Azure Files를 사용하면 응용 프로그램 및 데이터를 모두 Azure로 이동시키는 "클래식" 전환 시나리오 및 응용 프로그램 데이터를 Azure Files로 이동시키는 "하이브리드" 전환 시나리오를 모두 사용하고 응용 프로그램이 계속 온-프레미스에서 실행됩니다. 
 
-* **클라우드 개발 간소화** -  
+* **클라우드 개발 간소화**:  
     새로운 클라우드 개발 프로젝트를 간소화하기 위해 다양한 방법으로 Azure Files를 사용할 수도 있습니다. 예:
     * **공유 응용 프로그램 설정**:  
         분산 응용 프로그램의 일반적인 패턴은 여러 응용 프로그램 인스턴스에서 액세스할 수 있는 중앙 집중식 위치에 구성 파일을 저장하는 것입니다. 응용 프로그램 인스턴스는 File REST API를 통해 해당 구성을 로드하고 사용자는 필요에 따라 SMB 공유를 로컬로 탑재하여 해당 인스턴스에 액세스할 수 있습니다.

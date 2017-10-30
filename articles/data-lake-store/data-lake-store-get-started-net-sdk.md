@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Store의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-이 문서에서는 .NET SDK를 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법을 알아 봅니다. 계정 관리 작업에는 Data Lake Store 계정 만들기, Azure 구독에서 계정 나열, 계정 삭제 등이 포함됩니다.
+이 문서에서는 .NET SDK를 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Store 계정 만들기, Azure 구독에서 계정 나열, 계정 삭제 등이 포함됩니다.
 
 .NET SDK를 사용하여 Data Lake Store에서 데이터 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Store의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)을 참조하세요.
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
    | 이름 |CreateADLApplication |
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
+4. **확인** 을 클릭하여 프로젝트를 만듭니다.
 5. NuGet 패키지를 프로젝트에 추가합니다.
 
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
@@ -63,13 +63,17 @@ ms.lasthandoff: 10/11/2017
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. 변수를 선언하고 자리 표시자에 대한 값을 제공합니다. 또한, 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재하는지 확인합니다.
 
@@ -105,9 +109,9 @@ ms.lasthandoff: 10/11/2017
 다음 코드 조각은 계정 만들기, 계정 삭제 등과 같은 서비스에 계정 관리 요청을 발급하는 데 사용되는 Data Lake Store 계정 클라이언트 개체를 만듭니다.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
-## <a name="create-a-data-lake-store-account"></a>Data Lake Store 계정 만들기
+## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 다음 코드 조각은 Data Lake Store 계정 클라이언트 개체를 만드는 동안 사용자가 제공한 Azure 구독에 Data Lake Store 계정을 만듭니다.
 
     // Create Data Lake Store account
@@ -132,7 +136,7 @@ ms.lasthandoff: 10/11/2017
         return accounts;
     }
 
-## <a name="delete-a-data-lake-store-account"></a>Data Lake Store 계정 삭제
+## <a name="delete-a-data-lake-store-account"></a>Data Lake 저장소 계정 삭제
 다음 코드 조각은 이전에 만든 Data Lake Store 계정을 삭제합니다.
 
     // Delete Data Lake Store account
@@ -143,4 +147,4 @@ ms.lasthandoff: 10/11/2017
 * [Data Lake Store .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
-* [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
+* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)

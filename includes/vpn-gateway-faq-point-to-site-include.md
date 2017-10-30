@@ -1,3 +1,5 @@
+이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇입니까?
 
 다음과 같은 클라이언트 운영 체제가 지원됩니다.

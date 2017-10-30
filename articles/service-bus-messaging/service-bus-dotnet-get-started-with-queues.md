@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기** 탭을 클릭하고 **Microsoft Azure Service Bus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2. **찾아보기** 탭을 클릭하고 **WindowsAzure.ServiceBus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
    
     ![NuGet 패키지 선택][nuget-pkg]
 
@@ -115,7 +115,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
         }
     }
     ```
-3. 프로그램을 실행하고 Azure Portal을 확인합니다. 네임스페이스 **개요** 블레이드에서 큐 이름을 클릭합니다. 큐 **Essentials** 블레이드가 표시됩니다. **활성 메시지 수** 값이 1이어야 합니다. 메시지를 검색하지 않고 보낸 사람 응용 프로그램을 실행할 때마다 이 값이 1씩 증가합니다. 또한 큐의 현재 크기는 앱이 큐에 메시지를 추가할 때마다 증가합니다.
+3. 프로그램을 실행하고 Azure Portal을 확인합니다. 네임스페이스 **개요** 창에서 큐 이름을 클릭합니다. 큐 **Essentials** 창이 표시됩니다. **활성 메시지 수** 값이 1이어야 합니다. 메시지를 검색하지 않고 보낸 사람 응용 프로그램을 실행할 때마다 이 값이 1씩 증가합니다. 또한 큐의 현재 크기는 앱이 큐에 메시지를 추가할 때마다 증가합니다.
    
       ![메시지 크기][queue-message]
 
@@ -178,7 +178,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
    
     ![큐 길이][queue-message-receive]
 
-축하합니다. 이제 큐를 만들고 메시지를 보내고 메시지를 받았습니다.
+축하합니다. 이제 큐를 만들고 해당 큐로 메시지를 보내고 동일한 큐에서 메시지를 받았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -189,4 +189,4 @@ Service Bus 메시징의 많은 고급 기능 중 일부를 보여 주는 [샘�
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

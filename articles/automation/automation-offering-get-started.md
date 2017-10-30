@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure Automation 시작
 
@@ -59,6 +59,7 @@ Windows용 PowerShell DSC 에이전트가 Azure Automation과 통신하려면 �
 
 * Windows Server 2012 이상
 * Windows PowerShell 4.0 이상  안정성 개선을 위해 컴퓨터에 Windows PowerShell 5.0을 설치하는 것이 좋습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=50395)에서 새 버전을 다운로드할 수 있습니다.
+* .NET Framework 4.6.2 이상
 * 최소 두 개의 코어
 * 최소 4GB의 RAM
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location ukwest
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -70,7 +70,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
-몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다.
+몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -176,7 +176,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 이 빠른 시작에서는 Docker Swarm 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 응용 프로그램을 배포했습니다.
 
-Docker warm을 Visual Studio Team Services와 통합하는 방법에 대해 자세히 알아보려면 Docker Swarm 및 VSTS를 사용하는 CI/CD를 진행합니다.
+Docker Swarm을 Visual Studio Team Services와 통합하는 방법에 대해 자세히 알아보려면 Docker Swarm 및 VSTS를 사용하는 CI/CD를 진행합니다.
 
 > [!div class="nextstepaction"]
 > [Docker Swarm 및 VSTS를 사용하는 CI/CD](./container-service-docker-swarm-setup-ci-cd.md)

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 컴퓨터 확장 집합이란?
 가상 컴퓨터 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 빅 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 * [Guy Bowerman과 가상 컴퓨터 규모 집합](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>확장 집합 만들기 및 관리
-**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 컴퓨터 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 
+**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에 확장 집합을 만들 수 있습니다. 결과에 **가상 컴퓨터 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 확장 집합을 관리하기 위해 Azure Portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md) 또는 Azure CLI 2.0을 사용할 수 있습니다.
 
 확장 집합은 [가용성 영역](../availability-zones/az-overview.md)에 배포할 수 있습니다.
 
@@ -46,8 +46,23 @@ ms.lasthandoff: 10/11/2017
 
 빠른 시작 템플릿 예의 경우, 포털 배포 기능에 연결되는 각 템플릿 링크의 추가 정보에 있는 "Azure에 배포" 단추입니다. 확장 집합을 배포하려면 단추를 클릭하고 포털에 필요한 매개 변수를 채웁니다. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>확장 집합 확장 및 축소
-**설정** 아래 **확장** 섹션을 클릭하여 Azure Portal에서 확장 집합의 용량을 변경할 수 있습니다. 
+
+## <a name="autoscale"></a>Autoscale
+일관된 응용 프로그램 성능을 유지하기 위해 확장 집합에서 VM 인스턴스의 수를 자동으로 늘리거나 줄일 수 있습니다. 이 자동 크기 조정 기능은 관리 오버헤드를 감소시켜 시간에 따른 고객 요구 변경 내용으로 확장 집합을 모니터링 및 튜닝합니다. 성능 메트릭, 응용 프로그램 응답 또는 고정된 일정에 따라 규칙을 정의하고 확장 집합은 필요에 따라 자동 크기 조정합니다.
+
+기본 자동 크기 조정 규칙의 경우 CPU 사용량 또는 디스크 I/O와 같은 호스트 기반 성능 메트릭을 사용할 수 있습니다. 이러한 호스트 기반 메트릭은 설치 및 구성할 추가 에이전트 또는 확장 없이 기본적으로 사용할 수 있습니다. 다음 도구 중 하나를 사용하여 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙을 만들 수 있습니다.
+
+- [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+보다 세부적인 성능 메트릭을 사용하려면 확장 집합의 VM 인스턴스에 Azure 진단 확장을 설치 및 구성할 수 있습니다. Azure 진단 확장을 사용하여 각 VM 인스턴스 내에서 메모리 사용과 같은 추가 성능 메트릭을 수집할 수 있습니다. 이러한 성능 메트릭은 Azure 저장소 계정으로 스트리밍되고 이 데이터를 사용하도록 자동 크기 조정 규칙을 만듭니다. 자세한 내용은 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 또는 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md)에서 Azure 진단 확장을 활성화하는 방법에 대한 문서를 참조하세요.
+
+응용 프로그램 성능 자체를 모니터링하기 위해 App Insights용 응용 프로그램에 작은 계측 패키지를 설치 및 구성할 수 있습니다. 그런 다음 응용 프로그램 응답 시간 또는 세션 수에 대한 자세한 성능 메트릭을 앱에서 다시 스트리밍할 수 있습니다. 그런 다음 응용 프로그램 수준 성능 자체에 대해 정의된 임계값을 사용하여 자동 크기 조정 규칙을 만들 수 있습니다. App Insights에 대한 자세한 내용은 [Application Insights란](../application-insights/app-insights-overview.md)을 참조하세요.
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>수동으로 확장 집합 확장 및 축소
+**설정** 아래 **확장** 섹션을 클릭하여 Azure Portal에서 확장 집합의 용량을 수동으로 변경할 수 있습니다. 
 
 명령줄에서 확장 집합 용량을 변경하려면 **Azure CLI**에서 [scale](https://github.com/Azure/azure-cli) 명령을 사용합니다. 예를 들어 이 명령을 사용하여 확장 집합을 10개의 VM 용량으로 설정합니다.
 
@@ -67,26 +82,6 @@ Azure Resource Manager 템플릿을 사용하여 확장 집합에서 가상 컴�
 
 용량을 변경하기 위해서 Azure Resource Manager 템플릿을 다시 배포하는 경우 업데이트된 용량을 가진 **SKU** 속성 패킷만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. [예를 들면 다음과 같습니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Autoscale
-
-크기 집합은 Azure Portal에서 만들어질 때 자동 크기 조정 설정으로 필요에 따라 구성할 수 있습니다. 그런 다음 평균 CPU 사용량에 따라 VM의 수를 늘리거나 줄일 수 있습니다. 
-
-[Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에 있는 많은 크기 집합 템플릿은 자동 크기 조정 설정을 정의합니다. 기존 확장 집합에 자동 크기 조정 설정을 추가할 수도 있습니다. 예를 들어 이 Azure PowerShell 스크립트는 다음과 같이 CPU 기반 자동 크기 조정을 확장 집합에 추가합니다.
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-크기 조정을 위한 유효한 메트릭 목록은 "Microsoft.Compute/virtualMachineScaleSets" 제목 아래 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)에서 확인할 수 있습니다. 일정 기반 자동 크기 조정 및 웹후크를 사용한 경고 시스템과 통합 등 고급 자동 크기 조정 옵션도 추가로 제공됩니다.
 
 ## <a name="monitoring-your-scale-set"></a>확장 집합 모니터링
 [Azure Portal](https://portal.azure.com)에 크기 집합 목록과 해당 속성이 표시됩니다. 또한 이 포털은 관리 작업을 지원합니다. 크기 집합과 크기 집합 내 개별 VM에서 관리 작업을 수행할 수 있습니다. 또한 이 포털은 사용자 지정 가능한 리소스 사용량 그래프도 제공합니다. 

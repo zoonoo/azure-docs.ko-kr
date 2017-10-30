@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -47,14 +47,14 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 #### <a name="example-for-private-peering"></a>개인 피어링에 대한 예제
 a.b.c.d/29를 사용하여 피어링을 설치하기로 선택한 경우 두 개의 /30 서브넷으로 분할됩니다. 아래 예제에서는 a.b.c.d/29 서브넷이 어떻게 사용되는지 살펴봅니다. 
 
-a.b.c.d/29는 a.b.c.d/30 및 a.b.c.d+4/30으로 분할되고 프로비전 API를 통해 Microsoft에 전달됩니다. 사용자는 기본 PE에 a.b.c.d+1을 VRF IP로 사용하고 Microsoft는 기본 MSEE에 a.b.c.d+2를 VRF IP로 사용합니다. 사용자는 보조 PE에 a.b.c.d+5를 VRF IP로 사용하고 Microsoft는 보조 MSEE에 a.b.c.d+6를 VRF IP로 사용합니다.
+a.b.c.d/29는 a.b.c.d/30 및 a.b.c.d+4/30으로 분할되고 프로비전 API를 통해 Microsoft에 전달됩니다. 사용자는 기본 PE에 a.b.c.d+1을 VRF IP로 사용하고 Microsoft는 기본 MSEE에 a.b.c.d+2를 VRF IP로 사용합니다. 사용자는 보조 PE에 a.b.c.d+5를 VRF IP로 사용하고 Microsoft는 보조 MSEE에 a.b.c.d+6을 VRF IP로 사용합니다.
 
 192.168.100.128/29을 선택하여 개인 피어링을 설치한 경우를 고려해 보세요. 192.168.100.128/29는 다음 중 192.168.100.128에서 192.168.100.135까지의 주소를 포함합니다.
 
 * 192.168.100.128/30은 192.168.100.129를 사용하는 공급자 및 192.168.100.130를 사용하는 Microsoft와 함께 링크1에 할당됩니다.
 * 192.168.100.132/30은 192.168.100.133를 사용하는 공급자 및 192.168.100.134를 사용하는 Microsoft와 함께 링크2에 할당됩니다.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Azure 공용 네트워크 및 Microsoft 피어링에 사용된 IP 주소
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Azure 공용 피어링에 사용된 IP 주소
 BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합니다. Microsoft은 라우팅 인터넷 레지스트리 및 인터넷 라우팅 레지스트리를 통해 IP 주소의 소유권을 확인할 수 있어야 합니다. 
 
 * 고유한 /29 서브넷 또는 두 개의 /30 서브넷을 사용하여 ExpressRoute 회로 당(하나 이상이 있는 경우) 각 피어링에 BGP를 설정해야 합니다. 
@@ -63,6 +63,18 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
   * 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30 서브넷의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
   * [가용성 SLA](https://azure.microsoft.com/support/legal/sla/) 이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
 
+### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft 피어링에 사용된 IP 주소
+BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합니다. Microsoft은 라우팅 인터넷 레지스트리 및 인터넷 라우팅 레지스트리를 통해 IP 주소의 소유권을 확인할 수 있어야 합니다.
+
+* 고유한 /29 (IPv4) 또는 /125 (IPv6) 서브넷 또는 두 개의 /30 (IPv4) 또는 /126 (IPv6) 서브넷을 사용하여 ExpressRoute 회로당(하나 이상이 있는 경우) 각 피어링에 BGP를 설정해야 합니다.
+* /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다.
+* 첫 번째 /30 서브넷은 기본 링크에 사용되고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
+* 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30 서브넷의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
+* /125 서브넷을 사용한 경우 두 개의 /126 서브넷으로 분할됩니다.
+* 첫 번째 /126 서브넷은 기본 링크에 사용되고 두 번째 /126 서브넷은 보조 링크에 사용됩니다.
+* 각 /126 서브넷의 경우 라우터에서 /126 서브넷의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /126 서브넷의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
+* [가용성 SLA](https://azure.microsoft.com/support/legal/sla/) 이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
+
 ## <a name="public-ip-address-requirement"></a>공용 IP 주소 요구 사항
 
 ### <a name="private-peering"></a>개인 피어링
@@ -70,7 +82,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 
 
 ### <a name="public-peering"></a>공용 피어링
-Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 Azure에서 호스팅되는 모든 서비스에 연결할 수 있습니다. [Expess 경로 FAQ](expressroute-faqs.md)에 나열된 서비스와 Microsoft Azure에서 ISV가 호스팅하는 서비스를 포함합니다. 공용 피어링의 Microsoft Azure 서비스에 대한 연결은 항상 네트워크에서 Microsoft 네트워크로 시작됩니다. Microsoft 네트워크를 대상으로 하는 트래픽에 대한 공용 IP 주소를 사용해야 합니다.
+Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 Azure에서 호스팅되는 모든 서비스에 연결할 수 있습니다. [Expess 경로 FAQ](expressroute-faqs.md) 에 나열된 서비스와 Microsoft Azure에서 ISV가 호스팅하는 서비스를 포함합니다. 공용 피어링의 Microsoft Azure 서비스에 대한 연결은 항상 네트워크에서 Microsoft 네트워크로 시작됩니다. Microsoft 네트워크를 대상으로 하는 트래픽에 대한 공용 IP 주소를 사용해야 합니다.
 
 > [!IMPORTANT]
 > 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다. Microsoft 피어링을 만들고, Microsoft 피어링을 통해 Azure PaaS 서비스에 연결하는 것이 좋습니다.  
@@ -80,7 +92,7 @@ Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 
 개인 AS 번호는 공용 피어링을 사용할 수 있습니다.
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
-Microsoft 피어링 경로를 사용하면 공용 IP 주소에 호스팅된 모든 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스의 목록에는 Office 365, Dynamics 365 및 Microsoft Azure PaaS 서비스가 포함됩니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4/IPv6 주소를 사용해야 합니다.
+Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Dynamics 365와 같은 Office 365 서비스가 포함됩니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
 
 IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는지 확인합니다.
 
@@ -106,7 +118,7 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 라우팅 Exchange는 eBGP 프로토콜을 통합니다. EBGP 세션은 MSEE와 라우터 간에 설정됩니다. BGP 세션의 인증은 요구되지 않습니다. 필요한 경우 MD5 해시를 구성할 수 있습니다. BGP 세션을 구성하는 방법에 대한 정보는 [구성 라우팅](expressroute-howto-routing-classic.md) 및 [회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
 
 ## <a name="autonomous-system-numbers"></a>자치 시스템 번호
-Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076를 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다.
+Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076을 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다.
 
 데이터 전송 대칭에 요구 사항이 없습니다. 전달 및 반환 경로는 다른 라우터 쌍을 트래버스할 수 있습니다. 동일한 경로는 사용자에게 속한 여러 회로 쌍에 걸쳐 한 쪽에서 보급해야 합니다. 경로 메트릭이 동일할 필요는 없습니다.
 
@@ -227,7 +239,6 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 ## <a name="next-steps"></a>다음 단계
 * ExpressRoute 연결을 구성합니다.
   
-  * [클래식 배포 모델용 ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure Resource Manager를 사용하여 ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
-  * [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [Resource Manager 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
-  * [ExpressRoute 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [ExpressRoute 회로에 Resource Manager VNet 연결](expressroute-howto-linkvnet-arm.md)
-
+  * [회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
+  * [피어링 구성 만들기 및 수정](expressroute-howto-routing-arm.md)
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-arm.md)

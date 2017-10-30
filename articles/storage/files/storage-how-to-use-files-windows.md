@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
@@ -29,7 +29,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 
 | Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | 예 | 예 |
+| Windows Server 반기 채널<sup>1</sup> | SMB 3.0 | 예 | 예 |
+| Windows 10<sup>2</sup>  | SMB 3.0 | 예 | 예 |
 | Windows Server 2016    | SMB 3.0     | 예                   | 예                  |
 | Windows 8.1            | SMB 3.0     | 예                   | 예                  |
 | Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
@@ -37,7 +38,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure F
 | Windows 7              | SMB 2.1     | 예                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니요                   |
 
-<sup>1</sup>Windows 10 버전 1507, 1511, 1607, 1703 및 1709
+<sup>1</sup>Windows Server 버전 1709  
+<sup>2</sup>Windows 10 버전 1507, 1607, 1703 및 1709
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.

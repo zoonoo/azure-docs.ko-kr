@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 601d756e0d6554d8a4db9cc83f6919fc36d1e844
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python을 사용한 Azure Data Lake Store의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ Python SDK를 사용하여 Azure Data Lake Store에서 Data Lake Store 계정 �
 * **Python**. Python을 [여기](https://www.python.org/downloads/)에서 다운로드할 수 있습니다. 이 문서에서는 Python 3.6.2를 사용합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
+* **Azure 리소스 그룹** 지침에 대해서는 [Azure 리소스 그룹 만들기](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
 
 ## <a name="install-the-modules"></a>모듈 설치
 
@@ -92,29 +94,6 @@ pip install azure-datalake-store
 * 응용 프로그램에 대한 최종 사용자 인증의 경우 [Python을 사용한 Data Lake Store의 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
 * 응용 프로그램에 대한 서비스 간 인증의 경우 [Python을 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
 
-## <a name="create-an-azure-resource-group"></a>Azure 리소스 그룹 만들기
-
-Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
-
-    ## Declare variables
-    subscriptionId= 'FILL-IN-HERE'
-    resourceGroup = 'FILL-IN-HERE'
-    location = 'eastus2'
-    
-    ## Create resource management client object
-    resourceClient = ResourceManagementClient(
-        credentials,
-        subscriptionId
-    )
-    
-    ## Create an Azure Resource Group
-    resourceClient.resource_groups.create_or_update(
-        resourceGroup,
-        ResourceGroup(
-            location=location
-        )
-    )
-
 ## <a name="create-client-and-data-lake-store-account"></a>클라이언트 및 Data Lake Store 계정 만들기
 
 다음 코드 조각은 Data Lake Store 계정 클라이언트를 먼저 만듭니다. 클라이언트 개체를 사용하여 Data Lake Store 계정을 만들 수 있습니다. 마지막으로 코드 조각은 파일 시스템 클라이언트 개체를 만듭니다.
@@ -122,9 +101,11 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
     adlsAccountName = 'FILL-IN-HERE'
+    resourceGroup = 'FILL-IN-HERE'
+    location = 'eastus2'
 
     ## Create data lake store account management client object
-    adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
+    adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
     ## Create a Data Lake Store account
     adlsAcctResult = adlsAcctClient.account.create(
@@ -156,4 +137,4 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store Python(계정 관리) 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 * [Azure Data Lake Store Python(파일 시스템) 참조](http://azure-datalake-store.readthedocs.io/en/latest)
-* [Azure Data Lake Store와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)

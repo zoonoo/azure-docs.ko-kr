@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -29,7 +29,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
-> * Linux 컨테이너를 Service Fabric에 배포
+> * Azure Linux Service Fabric 클러스터에 컨테이너 배포
 > * Service Fabric에서 컨테이너 크기 조정 및 장애 조치
 
 ## <a name="prerequisite"></a>필수 요소
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Azure에서 Service Fabric 클러스터에 컨테이너 배포
 응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터 또는 파티 클러스터를 사용합니다.
+
+> [!Note]
+> 응용 프로그램은 로컬 개발 컴퓨터의 Service Fabric 클러스터가 아니라 Azure의 클러스터에 배포되어야 합니다. 
+>
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 유지 관리합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
 

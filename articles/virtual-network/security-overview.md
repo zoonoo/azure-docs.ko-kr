@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -151,7 +151,10 @@ ms.lasthandoff: 10/11/2017
  
 응용 프로그램 보안 그룹을 만들고 보안 규칙에서 지정하는 경우 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md#powershell)의 1~5단계를 완료하여 사용하도록 등록하고 중요한 정보는 [미리 보기 기능](#preview-features)을 참고해야 합니다. 미리 보기 중에 응용 프로그램 보안 그룹은 가상 네트워크의 범위로 제한됩니다. 네트워크 보안 그룹에서 응용 프로그램 보안 그룹에 대한 교차 참조로 피어링된 가상 네트워크는 적용되지 않습니다. 
+응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md#powershell)의 1~5단계를 완료하여 사용하도록 등록하고 중요한 정보는 [미리 보기 기능](#preview-features)을 참고해야 합니다. 응용 프로그램 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
+
+-   응용 프로그램 보안 그룹 내의 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 서로 다른 가상 네트워크의 네트워크 인터페이스를 동일한 응용 프로그램 보안 그룹에 추가할 수 없습니다. 응용 프로그램 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 있는 가상 네트워크는 이후 할당된 모든 네트워크 인터페이스가 있어야 하는 가상 네트워크를 정의합니다.
+- 응용 프로그램 보안 그룹을 보안 규칙의 원본 및 대상으로 지정하는 경우 두 응용 프로그램 보안 그룹에 있는 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 예를 들어, ASG1이 VNet1에서 네트워크 인터페이스를 포함하고 ASG2가 VNet2에서 네트워크 인터페이스를 포함하는 경우 규칙에서 ASG1을 원본으로 ASG2를 대상으로 할당할 수 없으며 모든 네트워크 인터페이스는 VNet1에 있어야 합니다. 
 
 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 응용 프로그램 보안 그룹을 사용하기 전에 먼저 사용하도록 등록해야 합니다. 기능은 미국 중서부 지역에서만 사용할 수 있습니다.
 
