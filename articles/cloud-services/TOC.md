@@ -1,5 +1,5 @@
 # 개요
-## [Cloud Service란?](cloud-services-choose-me.md)
+## [란?](cloud-services-choose-me.md)
 ## [클라우드 서비스 구성 파일 및 패키징](cloud-services-model-and-package.md)
 
 # 시작
@@ -100,7 +100,7 @@
 ### [일반적인 배포 문제](cloud-services-troubleshoot-deployment-problems.md)
 ### [역할 시작 실패](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [복구 지침](cloud-services-disaster-recovery-guidance.md)
-### 클라우드 서비스 FAQ
+### Cloud Services FAQ
 #### [응용 프로그램 및 서비스 가용성 FAQ](cloud-services-application-and-service-availability-faq.md)
 #### [구성 및 관리 FAQ](cloud-services-configuration-and-management-faq.md)
 #### [연결 및 네트워킹 FAQ](cloud-services-connectivity-and-networking-faq.md)
@@ -116,7 +116,7 @@
 ## [.cscfg XML 스키마](schema-cscfg-file.md)
 ### [역할 스키마](schema-cscfg-role.md)
 ### [NetworkConfiguration 스키마](schema-cscfg-networkconfiguration.md)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
+## [REST (영문)](/rest/api/compute/cloudservices/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)

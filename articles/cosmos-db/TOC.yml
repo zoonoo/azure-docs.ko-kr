@@ -139,6 +139,7 @@
     - name: 개발
       items:
         - name: DocumentDB API
+          href: documentdb-index.md
           items:
             - name: 리소스
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'S1, S2, S3 사용 중지'
                   href: performance-levels.md
         - name: MongoDB API
+          href: mongodb-index.md
           items:
             - name: MongoDB 계정에 연결
               href: connect-mongodb-account.md

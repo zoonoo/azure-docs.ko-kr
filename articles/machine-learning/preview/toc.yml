@@ -44,7 +44,7 @@
     - name: 계산 환경 구성
       items:
         - name: 실험 구성
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: DSVM 및 HDI Spark 클러스터 만들기
           href: how-to-create-dsvm-hdi.md
         - name: GPU를 통한 학습
@@ -147,7 +147,7 @@
     - name: 실험
       items:
         - name: 실험 서비스 구성
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: 로깅 API
           href: reference-logging-api.md
     - name: 모델 관리
@@ -175,7 +175,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: 스택 오버플로

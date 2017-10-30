@@ -59,7 +59,7 @@
       items:
         - name: 가격 책정 계층
           href: concepts-service-tiers.md
-        - name: 계산 단위
+        - name: Compute 단위
           href: concepts-compute-unit-and-storage.md
         - name: 제한
           href: concepts-limits.md
@@ -101,7 +101,7 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: 서버 로그 액세스
       items:
-        - name: Azure portal
+        - name: Azure 포털
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md

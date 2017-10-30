@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 31e15ecb995f0a5b1164296132db15e8de7e4363
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c5d43338ca5a672e33dc9474a7874eb9d113377
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 #<a name="batch-documentation"></a>Batch 설명서
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/11/2017
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/">Node.JS</a></p>
+                        <p><a href="/nodejs/api/overview/azure/batch">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
@@ -182,10 +182,13 @@ ms.lasthandoff: 10/11/2017
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>배치</h3>
-                        <p><a href="/azure/batch/batch-diagnostics">배치 진단 로그</a></p>
-                        <p><a href="/azure/batch/batch-analytics">배치 분석</a></p>
-                        <p><a href="/azure/batch/batch-compute-node-environment-variables">배치 계산 노드 환경 변수</a></p>
+                        <h3>Batch</h3>
+                        <p>
+            <a href="/azure/batch/batch-diagnostics">Batch 진단 로그</a></p>
+                        <p>
+            <a href="/azure/batch/batch-analytics">Batch 분석</a></p>
+                        <p>
+            <a href="/azure/batch/batch-compute-node-environment-variables">Batch 계산 노드 환경 변수</a></p>
                     </div>
                 </div>
             </div>

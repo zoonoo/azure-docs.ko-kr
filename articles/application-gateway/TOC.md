@@ -14,16 +14,10 @@
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 시작
 ## Application Gateway 만들기
-### 공용 주소
-#### [Azure 포털](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell(클래식)](application-gateway-create-gateway.md)
-### 내부 연결
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell(클래식)](application-gateway-ilb.md)
+### [Azure 포털](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
+### [Azure CLI](application-gateway-create-gateway-cli.md)
 # 방법
 ## 웹 응용 프로그램 방화벽 구성
 ### [Azure 포털](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## SSL 구성
 ### [Azure 포털](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell(클래식)](application-gateway-ssl.md)
-### [Azure CLI](application-gateway-ssl.md)
-### [종단 간](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL 정책](application-gateway-configure-ssl-policy-powershell.md)
 ## URL 경로 기반 라우팅 구성
 ### [Azure 포털](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## 상태 프로브 구성
 ### [Azure 포털](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
 ## [Azure Security Center 통합](application-gateway-integration-security-center.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## 문제 해결
@@ -69,7 +60,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt299393)
 # 관련 항목
 ## [ExpressRoute](/azure/expressroute/)
 ## [가상 네트워크](/azure/virtual-network/)
