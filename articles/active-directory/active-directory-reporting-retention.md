@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a89d1f715464f79068a0c04ef908e86d0dc8ff46
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -60,6 +60,7 @@ ms.lasthandoff: 10/18/2017
 | :--                    | :--           | :--                 | :--                 |
 | 디렉터리 감사        | 7 일        | 30일             | 30일             |
 | 로그인 작업       | 해당 없음           | 30일             | 30일             |
+| Azure MFA 사용        | 90일       | 90일             | 90일             |
 
 **보안 신호**
 
