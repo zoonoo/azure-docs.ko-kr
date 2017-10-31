@@ -208,7 +208,7 @@
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
-####[Azure Active Directory에서 사용자의 경험 숨기기](active-directory-coreapps-hide-third-party-app.md)
+#### [사용자의 환경에서 타사 앱 숨기기](active-directory-coreapps-hide-third-party-app.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)

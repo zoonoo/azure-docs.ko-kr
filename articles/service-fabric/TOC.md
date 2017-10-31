@@ -193,7 +193,7 @@
 
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [알림 보내기](service-fabric-reliable-services-notifications.md)
-#### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+#### [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
 
 ### Reliable Actors 서비스 빌드
 #### 시작
@@ -358,6 +358,7 @@
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST (영문)](/rest/api/servicefabric)
+## [서비스 모델 XML 스키마](service-fabric-service-model-schema.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

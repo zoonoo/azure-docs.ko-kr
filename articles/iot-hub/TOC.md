@@ -178,7 +178,8 @@
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js SDK](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js(장치)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js(서비스)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [C 장치 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -189,7 +190,7 @@
 
 # 관련 항목
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure 이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)
+## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 

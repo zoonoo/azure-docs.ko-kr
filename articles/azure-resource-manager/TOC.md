@@ -3,7 +3,6 @@
 ## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
 ## [구독 거버넌스](resource-manager-subscription-governance.md)
-## [Managed Applications](managed-application-overview.md)
 
 # 시작
 ## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
@@ -43,7 +42,7 @@
 #### [템플릿 배포](resource-group-template-deploy-cli.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
-### Azure portal
+### Azure 포털
 #### [리소스 배포](resource-group-template-deploy-portal.md)
 #### [템플릿 내보내기](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -60,12 +59,12 @@
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
 ### [관리 그룹으로 구독 구성](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [거버넌스 예제](resource-manager-subscription-examples.md)
+### [관리되는 응용 프로그램](../managed-applications/overview.md)
 
 ## 액세스 제어
 ### 서비스 주체 만들기
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure 포털](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
@@ -81,13 +80,6 @@
 #### [저장소](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## 관리되는 응용 프로그램 사용
-### [서비스 카탈로그 응용 프로그램 게시](managed-application-publishing.md)
-### [서비스 카탈로그 응용 프로그램 사용](managed-application-consumption.md)
-### [마켓플레이스 응용 프로그램 게시](managed-application-author-marketplace.md)
-### [마켓플레이스 응용 프로그램 사용](managed-application-consume-marketplace.md)
-### [UI 정의 만들기](managed-application-createuidefinition-overview.md)
 
 ## 감사
 ### [활동 로그 보기](resource-group-audit.md)
@@ -125,21 +117,6 @@
 ### [숫자 함수](resource-group-template-functions-numeric.md)
 ### [리소스 함수](resource-group-template-functions-resource.md)
 ### [문자열 함수](resource-group-template-functions-string.md)
-## [UI 정의 함수](managed-application-createuidefinition-functions.md)
-## [UI 정의 요소](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

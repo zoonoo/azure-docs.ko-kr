@@ -45,8 +45,10 @@
           href: log-analytics-log-search-faq.md
         - name: 로그 검색 포털
           href: log-analytics-log-search-portals.md
-- name: 방법
+- name: 방법 가이드
   items:
+    - name: Log Analytics 작업 영역 만들기
+      href: log-analytics-quick-create-workspace.md
     - name: 데이터 수집
       items:
         - name: 연결된 소스
@@ -154,7 +156,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Activity Log Analytics
           href: log-analytics-activity.md
-        - name: AD 평가
+        - name: AD 상태 검사
           href: log-analytics-ad-assessment.md
         - name: AD 복제 상태
           href: log-analytics-ad-replication-status.md
@@ -197,7 +199,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SCOM 평가
+        - name: SCOM 상태 검사
           href: log-analytics-scom-assessment.md
         - name: 보안 감사
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -208,7 +210,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: 서비스 맵
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL 평가
+        - name: SQL 상태 검사
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md

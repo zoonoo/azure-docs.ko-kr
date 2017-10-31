@@ -65,17 +65,17 @@
               href: connector-amazon-redshift.md
             - name: Amazon S3
               href: connector-amazon-simple-storage-service.md
-            - name: 데이터 이동
+            - name: Azure Blob Storage
               href: connector-azure-blob-storage.md
             - name: Azure Cosmos DB
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
-            - name: Azure 검색
+            - name: Azure Search
               href: connector-azure-search.md
             - name: Azure SQL Database
               href: connector-azure-sql-database.md
-            - name: Azure SQL 데이터 웨어하우스
+            - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
@@ -188,8 +188,8 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: 모니터링 및 관리
       items:
-        - name: .NET 사용
-          href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
+        - name: SDK 사용
+          href: monitor-programmatically.md
         - name: Azure Monitor 사용
           href: monitor-using-azure-monitor.md
         - name: 시각적으로 모니터링

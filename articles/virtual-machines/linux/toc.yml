@@ -31,7 +31,7 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 컴퓨터 백업
+    - name: 9 - 가상 컴퓨터 Backup
       href: tutorial-backup-vms.md
     - name: 10 - VM 모니터링 및 업데이트
       href: tutorial-monitoring.md
@@ -79,7 +79,7 @@
       href: security-policy.md
     - name: 모니터링
       href: monitor.md
-    - name: 백업 및 복구
+    - name: Backup 및 복구
       href: backup-recovery.md
     - name: 고성능 컴퓨팅
       href: high-performance-computing.md
@@ -205,6 +205,17 @@
               href: terraform-install-configure.md
             - name: 완전한 VM 만들기
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Jenkins 서버 만들기
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: VM 에이전트를 사용하여 크기 조정
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Storage에 아티팩트 게시
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Jenkins 보안
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: 컨테이너 실행
       items:
         - name: Docker 호스트 만들기
