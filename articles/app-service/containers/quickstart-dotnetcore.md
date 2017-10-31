@@ -1,10 +1,10 @@
 ---
-title: "Azure의 Linux 컨테이너에서.NET Core 웹앱 만들기 | Microsoft Docs"
-description: "몇 분 만에 첫 번째 .NET Core Hello World 앱을 컨테이너용 Web App에 배포합니다."
+title: ".NET Core 웹앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs"
+description: "몇 분 안에 Linux의 App Service에 첫 번째 .NET Core Hello World 앱을 배포합니다."
 keywords: "azure app service, 웹앱, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -16,19 +16,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95383554d3fd8a1770a37a5396224c39b4f34c81
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서.NET Core 웹앱 만들기 
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 컨테이너용 Azure Web App에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다. 
+Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,20 +39,20 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>로컬로 앱 만들기 ##
+## <a name="create-the-app-locally"></a>로컬로 앱 만들기
 
-컴퓨터의 터미널 창에서 `hellodotnetcore`라는 디렉터리를 만들고 현재 디렉터리를 이 디렉터리로 변경합니다. 
+컴퓨터의 터미널 창에서 `hellodotnetcore`라는 디렉터리를 만들고 현재 디렉터리를 이 디렉터리로 변경합니다.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
-``` 
+```
 
 새 .NET Core 웹앱을 만듭니다.
 
 ```bash
 dotnet new web
-``` 
+```
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행
 
@@ -79,13 +79,13 @@ git commit -m "first commit"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>웹앱 만들기
+## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
 
 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
@@ -95,11 +95,11 @@ git commit -m "first commit"
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
 
 ![빈 웹앱 페이지](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-git 배포를 활성화하여 Linux 컨테이너에 새 빈 웹앱을 만들었습니다.
+git 배포를 활성화하여 기본 제공 이미지로 새 빈 웹앱을 만들었습니다.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -140,11 +140,11 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
+Node.js 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**축하합니다.** App Service에 첫 번째 Node.js 앱을 배포했습니다.
+**축하합니다.** Linux의 App Service에 첫 번째 Node.js 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
@@ -184,4 +184,4 @@ git push azure master
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [컨테이너용 Azure Web App에서 .NET Core 및 SQL Database 웹앱 빌드](tutorial-dotnetcore-sqldb-app.md)
+> [Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](tutorial-dotnetcore-sqldb-app.md)
