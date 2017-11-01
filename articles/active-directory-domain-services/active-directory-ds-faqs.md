@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -49,7 +49,7 @@ Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반�
 Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용할 수 없습니다.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD 도메인 서비스는 새 Azure 포털에서 사용할 수 있나요?
-예. [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD Domain Services를 구성할 수 있습니다. 나중에 [Azure 클래식 포털](https://manage.windowsazure.com)의 지원을 중지할 예정입니다.
+예. [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD Domain Services를 구성할 수 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com)은 더 이상 지원되지 않습니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?
 아니요. 일부 작업은 Azure AD Domain Services를 사용하는 설정의 일부분으로 수행되어야 합니다. 이러한 작업은 Resource Manager 템플릿을 통해 수행할 수 없습니다. 새로운 Azure Portal에서 디렉터리에 Azure AD Domain Services를 사용하도록 설정합니다.

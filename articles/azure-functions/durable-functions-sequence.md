@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0eb031893d53f09097b696e18f6c129be061136a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -71,13 +71,16 @@ Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에
 
 이 함수에는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 매개 변수가 있습니다. 이 매개 변수는 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>에 대한 오케스트레이터 함수의 호출로 전달된 입력을 가져오는 데 사용됩니다.
 
-## <a name="running-the-orchestration"></a>오케스트레이션 실행
+## <a name="run-the-sample"></a>샘플 실행
 
-`E1_HelloSequence` 오케스트레이션을 실행하려면 다음 HTTP 호출을 수행합니다.
+`E1_HelloSequence` 오케스트레이션을 실행하려면 다음 HTTP POST 요청을 전송합니다.
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+예를 들어 "myfunctionapp"이라는 함수 앱에서 샘플을 실행하는 경우 "{host}"를 "myfunctionapp.azurewebsites.net"으로 바꿉니다.
+
 결과는 다음과 같은 HTTP 202 응답입니다(간결하게 정리되었음).
 
 ```
@@ -120,7 +123,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>다음 단계
 
-이제는 지속성 함수의 핵심 메커니즘에 대해 기본적으로 이해하고 있습니다. 이 샘플은 매우 간단하며, 사용할 수 있는 몇 가지 기능만 보여 주었습니다. 다음에 나오는 샘플은 더 "실제적"이며, 매우 다양한 기능을 보여 줍니다.
+이 샘플은 간단한 함수 체인 오케스트레이션을 보여 주었습니다. 다음 예제는 팬아웃/팬인 패턴의 구현 방법을 보여 줍니다. 
 
 > [!div class="nextstepaction"]
 > [팬아웃/팬인 샘플 실행](durable-functions-cloud-backup.md)

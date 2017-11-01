@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0d92cdd32cb3eeedcb1c4e1bb2a975764a860b5
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
@@ -37,7 +37,7 @@ Storm에서는 응용 프로그램 토폴로지에 따라 계산 그래프가 �
 
 SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 응용 프로그램에서 네트워크 중단, 컴퓨터 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 응용 프로그램에 적합합니다. 그러나 응용 프로그램에서 정확한 계산을 수행해야 하는 등의 경우에는 응용 프로그램 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
 
-.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine) 기반 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 응용 프로그램을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
+.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 응용 프로그램을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
 
 SCP를 기반으로 데이터 처리 응용 프로그램을 빌드하려면 몇 가지 단계를 수행해야 합니다.
 
@@ -367,7 +367,7 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters*** 는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 | **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters*** 는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
-SCP.NET에서는 다음 키워드가 정의됩니다.
+SCP.NET에는 다음 키워드가 정의되어 있습니다.
 
 | **키워드** | **설명** |
 | --- | --- |
@@ -420,7 +420,7 @@ Context 개체에는 다음 API가 추가되었습니다.
 
     public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-사용자 코드는 내보낸 튜플이 해당 스트림에 대해 정의된 스키마를 따르는지 확인해야 합니다. 그렇지 않으면 시스템에서 런타임 예외를 throw합니다.
+개발자는 내보낸 튜플이 해당 스트림에 대해 정의된 스키마를 따르는지 확인해야 합니다. 그렇지 않으면 시스템에서 런타임 예외를 throw합니다.
 
 ### <a name="multi-stream-support"></a>여러 스트림 지원
 SCP는 사용자 코드가 여러 고유 스트림에서 동시에 내보내기 또는 수신을 수행할 수 있도록 지원합니다. Emit 메서드가 선택적 스트림 ID 매개 변수를 가져올 때 Context 개체에서 이 지원이 반영됩니다.
@@ -455,7 +455,7 @@ SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 
 3. [0,1]은 0부터 시작하는 필드 ID의 해시 집합을 의미합니다.
 
 ### <a name="hybrid-topology"></a>하이브리드 토폴로지
-원시 Storm은 Java로 작성됩니다. SCP.Net은 고객이 비즈니스 논리를 처리하도록 C\# 코드를 작성할 수 있도록 향상되었습니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
+원시 Storm은 Java로 작성됩니다. SCP.Net은 고객이 비즈니스 논리를 처리하도록 C\# 개발자가 C\# 코드를 작성할 수 있도록 향상되었습니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>사양 파일에서 Java Spout/Bolt 지정
 사양 파일에서 "scp-spout" 및 "scp-bolt"를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다. 해당 예제는 다음과 같습니다.
@@ -473,7 +473,7 @@ Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Ja
 
 여기서 **examples\\HybridTopology\\java\\target\\**은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
 
-### <a name="serialization-and-deserialization-between-java-and-c"></a>Java와 C\ 간의 직렬화 및 역직렬화
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Java와 C\# 간의 직렬화 및 역직렬화
 SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java Spout/Bolt와 상호 작용을 하기 위해 다음 그래프에서 볼 수 있듯이 Java 쪽과 C\# 쪽 사이에서 직렬화/역직렬화를 수행해야 합니다.
 
 ![Java 구성 요소로 전송하는 SCP 구성 요소로 전송하는 java 구성 요소의 다이어그램](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
@@ -623,7 +623,7 @@ ISCPBatchBolt 인스턴스를 만들면 입력 매개 변수에서 `txAttempt`�
         }
     }
 
-`FinishBatch()`을(를) 호출하면 `lastCommittedTxId`이(가) 업데이트됩니다(재생된 트랜잭션이 아닌 경우).
+`FinishBatch()`를 호출하면 `lastCommittedTxId`가 업데이트됩니다(재생된 트랜잭션이 아닌 경우).
 
     public void FinishBatch(Dictionary<string, Object> parms)
     {
@@ -632,7 +632,7 @@ ISCPBatchBolt 인스턴스를 만들면 입력 매개 변수에서 `txAttempt`�
 
         if (!replay)
         {
-            /* If it is not replayed, update the toalCount and lastCommittedTxId vaule */
+            /* If it is not replayed, update the totalCount and lastCommittedTxId value */
             totalCount = totalCount + this.count;
             lastCommittedTxId = this.txAttempt.TxId;
         }

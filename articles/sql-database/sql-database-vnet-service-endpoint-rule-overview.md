@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: genemi
-ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -125,6 +125,9 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 ## <a name="limitations"></a>제한 사항
 
 Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
+
+- 현재 **서비스 끝점**이 켜져 있는 서브넷에서 Azure 웹앱이 아직 예상대로 작동하지 않습니다. 이 기능을 곧 사용할 수 있도록 개발하는 중입니다.
+    - 이 기능이 완전히 구현될 때까지 웹앱을 SQL용 서비스 끝점이 켜져 있지 않은 다른 서브넷으로 이동하는 것이 좋습니다.
 
 - SQL Database에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이렇게 참조된 모든 서브넷은 SQL Database와 동일한 지리적 위치에서 호스팅되어야 합니다.
 
@@ -288,9 +291,6 @@ Microsoft Azure Virtual Network 서비스 끝점 기능과 Azure SQL Database에
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

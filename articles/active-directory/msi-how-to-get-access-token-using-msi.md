@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>로그인 및 토큰 획득에 대한 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Azure VM에서 MSI를 설정한 후에 로그인에 MSI를 사용하여 액세스 토큰을 요청할 수 있습니다. 이 문서에서는 로그인에 MSI [서비스 주체](develop/active-directory-dev-glossary.md#service-principal-object)를 사용하고 다른 리소스에 액세스하기 위해 [앱 전용 액세스 토큰](develop/active-directory-dev-glossary.md#access-token)을 획득하는 다음과 같은 다양한 방법을 보여줍니다.
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다. |
 | `token_type` | 토큰의 형식은 "전달자" 액세스 토큰입니다. 즉, 리소스가 이 토큰의 전달자에 액세스 권한을 제공할 수 있습니다. |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>MSI를 사용하여 Azure SDK 라이브러리에서 로그인하는 방법
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>Azure SDK 라이브러리와 MSI를 사용하는 방법
 
 Azure는 일련의 [Azure SDK](https://azure.microsoft.com/downloads)를 통해 여러 프로그래밍 플랫폼을 지원합니다. 일부는 MSI를 사용하는 로그인을 지원하도록 업데이트되었으며 사용법을 보여주는 예제를 제공합니다. 지원이 추가됨에 따라 이 목록이 업데이트됩니다.
 
 | SDK) | 샘플 |
 | --- | ------ | 
-| .NET   | [MSI가 활성화된 VM에서 리소스 관리](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [MSI가 활성화된 VM에서 저장소 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET | [관리 서비스 ID를 사용하여 Windows VM에서 ARM 템플릿 배포](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core | [관리 서비스 ID를 사용하여 Linux VM에서 Azure 서비스 호출](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js| [관리 서비스 ID를 사용하여 리소스 관리](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python | [MSI를 사용하여 VM 내부에서 쉽게 인증](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | 루비   | [MSI가 활성화된 VM에서 리소스 관리](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -281,7 +281,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Microsoft와 서비스 공급자 간의 ARP 유효성 검사
-이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 [Azure 클래식 포털][OldPortal]을 통해 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다. Azure Resource Manager 명령 사용과 관련된 문제를 해결하려면 [Resource Manager 배포 모델에서 ARP 테이블 가져오기][ARP] 문서를 참조하세요.
+이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다. Azure Resource Manager 명령 사용과 관련된 문제를 해결하려면 [Resource Manager 배포 모델에서 ARP 테이블 가져오기][ARP] 문서를 참조하세요.
 
 >[!NOTE]
 >ARP를 가져오려면 Azure Portal 및 Azure Resource Manager PowerShell 명령을 모두 사용할 수 있습니다. Azure Resource Manager PowerShell 명령에 오류가 발생하는 경우 클래식 PowerShell 명령은 Azure Resource Manager ExpressRoute 회로에서도 작동하므로 클래식 PowerShell 명령이 작동해야 합니다.
@@ -314,7 +314,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>MSEE에서 BGP 및 경로 유효성 검사
-이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 [Azure 클래식 포털][OldPortal]을 통해 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다.
+이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다.
 
 >[!NOTE]
 >BGP 정보를 가져오려면 Azure Portal 및 Azure Resource Manager PowerShell 명령을 모두 사용할 수 있습니다. Azure Resource Manager PowerShell 명령에 오류가 발생하는 경우 클래식 PowerShell 명령은 Azure Resource Manager ExpressRoute 회로에서도 작동하므로 클래식 PowerShell 명령이 작동해야 합니다.

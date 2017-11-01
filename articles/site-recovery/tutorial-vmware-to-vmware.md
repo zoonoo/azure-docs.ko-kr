@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/12/2017
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/12/2017
 ## <a name="updates"></a>업데이트
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
-업데이트 날짜: 2017년 10월 6일
+업데이트 날짜: 2017년 10월 12일
 
 Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 1에서 업데이트 5까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항 및 개선된 기능이 포함되어 있습니다. 
 
@@ -115,7 +115,6 @@ Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 
 
 #### <a name="bug-fixes-and-enhancements"></a>버그 수정 및 향상된 기능
 - 복제할 디스크 목록을 포함하는 Linux VM에 대한 장애 복구(Failback) 보호 실패가 구성 마지막에 비어 있습니다.
-
 
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 업데이트 5
 Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 1에서 업데이트 4까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항이 포함되어 있습니다.
@@ -139,10 +138,10 @@ Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 
     
 * 수정됨: 장애 복구 보호 중에 선택한 마스터 대상 서버가 보호된 원본 컴퓨터(전달 보호 중)와 동일한 ESXi 서버에 있지 않으면 vContinuum에서 장애 복구 중에 잘못된 마스터 대상 서버를 선택하고 복구 작업이 실패합니다.
 
-#### <a name="issues"></a>문제
-* P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 보호된 P2V MSCS 클러스터에 클러스터 수정 프로그램을 설치하려면 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 12섹션에서 설명하는 업그레이드 단계를 수행합니다.
-* 다시 보호할 때 초기에 보호된 경우와 같이 동일한 디스크 집합이 각 클러스터 노드에서 활성 상태인 경우 물리적 MSCS 클러스터를 다시 보호하는 데 기존 대상 디스크만 다시 사용할 수 있습니다. 그렇지 않은 경우 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes) 12섹션의 수동 단계에 따라 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하여 다시 보호 중에 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만듭니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
-* 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
+> [!NOTE]
+> * P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 보호된 P2V MSCS 클러스터에 클러스터 수정 프로그램을 설치하려면 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 12섹션에서 설명하는 업그레이드 단계를 수행합니다.
+> * 다시 보호할 때 초기에 보호된 경우와 같이 동일한 디스크 집합이 각 클러스터 노드에서 활성 상태인 경우 물리적 MSCS 클러스터를 다시 보호하는 데 기존 대상 디스크만 다시 사용할 수 있습니다. 그렇지 않은 경우 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes) 12섹션의 수동 단계에 따라 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하여 다시 보호 중에 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만듭니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
+> * 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 4
@@ -180,14 +179,13 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
   * 보호된 모든 장치에 대한 용량 및 사용 가능한 공간 세부 정보가 표시됩니다.
   * 원본 서버의 Scout 드라이버 상태가 제공됩니다.
 
-#### <a name="issues"></a>문제
-
-* **InMage_Scout_Standard_8.0.1_GA.zip** 기본 패키지에 포함된 항목:
+> [!NOTE]
+> * **InMage_Scout_Standard_8.0.1_GA.zip** 기본 패키지에 포함된 항목:
     * 업데이트된 구성 서버 기본 설치 관리자(**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
     * Windows 마스터 대상 기본 설치 관리자(**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
     * 모든 새 설치에서는 새 구성 서버 및 Windows 마스터 대상 GA 비트를 사용합니다.
-* 업데이트 4는 8.0.1 GA에 직접 적용할 수 있습니다.
-* 구성 서버 및 RX 업데이트는 적용된 후에 롤백할 수 없습니다.
+> * 업데이트 4는 8.0.1 GA에 직접 적용할 수 있습니다.
+> * 구성 서버 및 RX 업데이트는 적용된 후에 롤백할 수 없습니다.
 
 
 ### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 3

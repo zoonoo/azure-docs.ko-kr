@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure 온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이는 클라우드에서 온-프레미스 데이터 원본과 Azure Analysis Services 서버 간의 보안 데이터 전송을 제공하여 둘을 연결합니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 지역에서 여러 서비스를 연결할 수 있습니다. 
@@ -139,6 +139,9 @@ ms.lasthandoff: 10/11/2017
 **A**: 복구 키는 재해 발생 후 게이트웨이 설정을 마이그레이션하거나 복구할 수 있는 방법을 제공합니다.
 
 ## <a name="troubleshooting"> </a>문제 해결
+
+**Q:**: Azure에서 게이트웨이 리소스를 만들려고 할 때 게이트웨이 인스턴스 목록에서 내 게이트웨이를 볼 수 없는 이유는 무엇인가요? <br/>
+**A**: 가능한 2가지 이유가 있습니다. 첫째, 현재 또는 다른 구독에서 게이트웨이에 대한 리소스가 이미 만들어진 것일 수 있습니다. 이 가능성을 없애려면 포털에서 **온-프레미스 데이터 게이트웨이** 형식의 리소스를 나열합니다. 모든 리소스를 열거할 때 모든 구독을 선택해야 합니다. 리소스가 만들어지면 게이트웨이 리소스 만들기 포털 환경의 게이트웨이 인스턴스 목록에 해당 게이트웨이가 나타나지 않습니다. 두 번째 가능성은 게이트웨이 설치한 사용자의 Azure AD ID가 Azure Portal에 로그인한 사용자의 ID와 다른 경우입니다. 이를 해결하려면 게이트웨이 설치한 사용자와 동일한 계정을 사용하여 포털에 로그인합니다.
 
 **Q**: 온-프레미스 데이터 원본으로 어떤 쿼리가 전송되고 있는지를 어떻게 알 수 있나요? <br/>
 **A**: 전송 중인 쿼리를 포함하는 쿼리 추적을 사용하도록 설정할 수 있습니다. 문제 해결이 끝나면 쿼리 추적을 원래 값으로 다시 변경해야 합니다. 쿼리 추적 기능을 그대로 두면 큰 로그가 만들어집니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: e82cc53d53a6d0296aaab2c3a76ad4e2f6c12c54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
@@ -26,36 +26,40 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="singleton-example"></a>단일 항목 예제
 
-다음 C# 예제에서는 단일 항목 백그라운드 작업 오케스트레이션을 만드는 HTTP 트리거 함수를 보여 줍니다. 하나의 인스턴스만 존재하도록 하기 위해 잘 알려진 인스턴스 ID를 사용합니다.
+다음 C# 예제에서는 단일 항목 백그라운드 작업 오케스트레이션을 만드는 HTTP 트리거 함수를 보여 줍니다. 이 코드는 지정한 인스턴스 ID에 대해 인스턴스가 하나만 존재하는지 확인합니다.
 
 ```cs
-[FunctionName("EnsureSingletonTrigger")]
-public static async Task<HttpResponseMessage> Ensure(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post")] HttpRequestMessage req,
+[FunctionName("HttpStartSingle")]
+public static async Task<HttpResponseMessage> RunSingle(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    string instanceId,
     TraceWriter log)
 {
-    // Ensure only one instance is ever running at a time
-    const string OrchestratorName = "MySingletonOrchestrator";
-    const string InstanceId = "MySingletonInstanceId";
-
-    var existingInstance = await starter.GetStatusAsync(InstanceId);
+    // Check if an instance with the specified ID already exists.
+    var existingInstance = await starter.GetStatusAsync(instanceId);
     if (existingInstance == null)
     {
-        log.Info($"Creating singleton instance with ID = {InstanceId}...");
-        await starter.StartNewAsync(OrchestratorName, InstanceId, input: null);
+        // An instance with the specified ID doesn't exist, create one.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        await starter.StartNewAsync(functionName, instanceId, eventData);
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        return starter.CreateCheckStatusResponse(req, instanceId);
     }
-
-    return starter.CreateCheckStatusResponse(req, InstanceId);
+    else
+    {
+        // An instance with the specified ID exists, don't create one.
+        return req.CreateErrorResponse(
+            HttpStatusCode.Conflict,
+            $"An instance with ID '{instanceId}' already exists.");
+    }
 }
 ```
 
-기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 그러나 이 경우 트리거 함수는 `MySingletonInstanceId`의 값으로 미리 정의된 `InstanceId` 변수를 사용하여 오케스트레이터 함수에 인스턴스 ID를 미리 할당합니다. 이렇게 하면 트리거는 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_)를 호출하여 잘 알려진 인스턴스가 이미 실행 중인지 여부를 확인할 수 있습니다.
+기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 하지만 이 경우 인스턴스 ID가 URL에서 경로 데이터에 전달됩니다. 이 코드는 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_)를 호출하여 지정된 ID를 갖는 인스턴스가 이미 실행되고 있는지 확인합니다. 실행되고 있지 않으면 해당 ID를 사용하여 인스턴스가 만들어집니다.
 
 오케스트레이터 함수의 구현 세부 정보는 실제로 중요하지 않습니다. 시작하고 완료하는 일반 오케스트레이터 함수일 수 있거나 무기한 실행하는 오케스트레이터 함수일 수 있습니다(즉, [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)). 중요한 점은 한 번에 하나의 인스턴스만 실행된다는 점입니다.
-
-> [!NOTE]
-> 단일 항목 오케스트레이션 인스턴스가 종료하고, 실패하거나 완료하는 경우 동일한 ID를 사용하여 다시 만들 수 없습니다. 이러한 경우 새 인스턴스 ID를 사용하여 다시 만들도록 준비해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

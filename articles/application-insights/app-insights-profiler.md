@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
@@ -45,9 +45,9 @@ Application Insights로 구성된 웹앱은 구성 블레이드에 나열됩니�
 
 구성 블레이드에서 *프로파일러 사용* 또는 *프로파일러 사용 안 함* 단추를 사용하여 연결된 모든 웹앱의 프로파일러를 제어합니다.
 
-
-
 ![구성 블레이드][linked app services]
+
+App Service 계획을 통해 호스트되는 웹앱와 달리 *Azure Compute* 리소스(예:: 가상 컴퓨터, 가상 컴퓨터 크기 집합, Service Fabric, Cloud Services)에 호스트되는 응용 프로그램은 Azure에서 직접 관리되지 않습니다. 이 경우에는 여기에 연결하기 위한 웹앱이 없으며 화면에서 클릭하여 프로파일러를 사용하도록 설정하기만 하면 됩니다.
 
 ## <a name="disable-the-profiler"></a>프로파일러 사용 안 함
 개별 App Service 인스턴스에 대해 프로파일러를 중지하거나 다시 시작하려면 **App Service 리소스**의 **웹 작업**에서 찾을 수 있습니다. 삭제하려면 **확장** 아래에서 확인합니다.

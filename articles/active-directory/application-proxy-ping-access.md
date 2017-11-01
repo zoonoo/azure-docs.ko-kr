@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -108,6 +108,9 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
   ![권한 선택](./media/application-proxy-ping-access/select-permissions.png)
 
+17. 권한을 부여한 후 사용 권한 화면을 닫습니다. 
+![권한 부여](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
 
 1. 앱 설정 블레이드에서 **속성**을 선택합니다. 
@@ -132,7 +135,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 GraphAPI를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다. Azure AD Graph Explorer 또는 MS Graph를 사용하여 이 구성을 만들 수 있습니다. 
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 GraphAPI를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다. Azure AD Graph Explorer를 사용해야만 이 구성을 만들 수 있습니다. 
 
 이 예에서는 Graph Explorer를 사용합니다.
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 응용 프로그램에 할당해야 합니다.  이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
+>
+>정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 응용 프로그램에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
+
+### <a name="optional---use-a-custom-claim"></a>선택 사항 - 사용자 지정 클레임 사용
+응용 프로그램에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess 다운로드 및 앱 구성
 

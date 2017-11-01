@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba5606a8dbe311dae587ac3664cb77e0835e7f45
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,13 +288,13 @@ ms.lasthandoff: 10/11/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -326,11 +326,11 @@ ms.lasthandoff: 10/11/2017
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
-* 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 Express 경로 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 '클라우드 전용' 배포라고도 합니다. 이 방법으로 배포된 가상 컴퓨터는 인터넷과 Azure의 VM에 할당된 공용 인터넷 끝점을 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
+* 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 Express 경로 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 “클라우드 전용” 배포라고도 합니다. 이 방법으로 배포된 가상 컴퓨터는 인터넷과 Azure의 VM에 할당된 공용 인터넷 끝점을 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
 * 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
 
 > [!NOTE]
-> 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure 가상 컴퓨터가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 배경을 Azure로 배포하는 데 프레미스 간 구성이 지원됩니다. Azure에서 전체 SAP 배경을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS에 속해야 합니다. 이전 버전의 문서에서 하이브리드-IT 시나리오에 대해 설명했습니다. '하이브리드'란 용어는 온-프레미스와 Azure가 프레미스 간 연결을 사용한다는 사실을 기반으로 합니다. 이 경우 '하이브리드'는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
+> 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure 가상 컴퓨터가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 배경을 Azure로 배포하는 데 프레미스 간 구성이 지원됩니다. Azure에서 전체 SAP 배경을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS에 속해야 합니다. 이전 버전의 문서에서 하이브리드-IT 시나리오에 대해 설명했습니다. *하이브리드*란 온-프레미스와 Azure가 크로스-프레미스 연결을 사용한다는 사실을 기반으로 합니다. 이 경우 *하이브리드*는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
 > 
 > 
 
@@ -511,7 +511,7 @@ Azure 저장소 로컬 복제(로컬 중복)는 인프라 장애로 인한 데�
 
 Azure 저장소 계정은 관리 구성 요소일 뿐 아니라 제한의 대상이 됩니다. 단, 제한은 Azure 표준 저장소 계정인지 또는 Azure Premium Storage 계정인지에 따라 달라집니다. 정확한 기능 및 제한은 [여기][storage-scalability-targets]서 나열하고 있습니다.
 
-따라서 Azure Standard Storage의 경우 저장소 계정당 IOPS에 제한이 있습니다([이 문서][storage-scalability-targets]의 '총 요청 속도'가 포함된 행). 또한 2015년 7월 현재 초기 제한은 Azure 구독당 100개의 저장소 계정으로 설정되어 있습니다. 따라서 Azure 표준 저장소를 사용할 때 여러 저장소 계정 간 VM의 IOPS 균형을 조정해야 합니다. 반면 단일 VM은 가능한 경우 하나의 저장소 계정을 사용하는 것이 이상적입니다. 따라서 Azure 표준 저장소에서 호스트되는 각 VHD가 해당 할당량 한도에 도달할 수 있는 DBMS 배포의 경우 Azure 표준 저장소를 사용하는 Azure 저장소 계정당 30-40개의 VHD만 배포해야 합니다. 반면 Azure Premium Storage를 활용하고 대용량 데이터베이스를 저장하려는 경우 IOPS에 대해 신경 쓰지 않아도 됩니다. 하지만 Azure Premium Storage 계정은 데이터 볼륨 면에서 Azure 표준 저장소 계정보다 훨씬 더 제한적입니다. 결과적으로, 데이터 볼륨 제한에 도달할 때까지만 Azure Premium Storage 계정 내에 제한된 수의 VHD를 배포할 수 있습니다. 결국 Azure Storage 계정은 IOPS 및/또는 용량이 제한된 “가상 SAN”이라고 할 수 있습니다. 결과적으로, 작업은 온-프레미스 배포에서처럼 여러 '가상 SAN 장치' 또는 Azure 저장소 계정에 대해 여러 SAP 시스템의 VHD 레이아웃을 정의합니다.
+따라서 Azure Standard Storage의 경우 저장소 계정당 IOPS에 제한이 있습니다([이 문서][storage-scalability-targets]의 **총 요청 속도**가 포함된 행). 또한 2015년 7월 현재 초기 제한은 Azure 구독당 100개의 저장소 계정으로 설정되어 있습니다. 따라서 Azure 표준 저장소를 사용할 때 여러 저장소 계정 간 VM의 IOPS 균형을 조정해야 합니다. 반면 단일 VM은 가능한 경우 하나의 저장소 계정을 사용하는 것이 이상적입니다. 따라서 Azure 표준 저장소에서 호스트되는 각 VHD가 해당 할당량 한도에 도달할 수 있는 DBMS 배포의 경우 Azure 표준 저장소를 사용하는 Azure 저장소 계정당 30-40개의 VHD만 배포해야 합니다. 반면 Azure Premium Storage를 활용하고 대용량 데이터베이스를 저장하려는 경우 IOPS에 대해 신경 쓰지 않아도 됩니다. 하지만 Azure Premium Storage 계정은 데이터 볼륨 면에서 Azure 표준 저장소 계정보다 훨씬 더 제한적입니다. 결과적으로, 데이터 볼륨 제한에 도달할 때까지만 Azure Premium Storage 계정 내에 제한된 수의 VHD를 배포할 수 있습니다. 결국 Azure Storage 계정은 IOPS 및/또는 용량이 제한된 ‘가상 SAN’이라고 할 수 있습니다. 결과적으로, 작업은 온-프레미스 배포에서처럼 여러 ‘가상 SAN 장치’ 또는 Azure Storage 계정에 대해 여러 SAP 시스템의 VHD 레이아웃을 정의합니다.
 
 Azure Standard Storage의 경우 여러 저장소 계정의 저장소를 단일 VM에 두는 것은 권장되지 않습니다.
 
@@ -554,7 +554,7 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 
 온-프레미스 VM(특히 2계층 시스템)에 SAP 콘텐츠를 이미 설치한 경우 Azure VM 배포 후 SAP Software Provisioning Manager에서 지원하는 인스턴스 이름 변경 절차를 통해 SAP 시스템 설정을 적용할 수 있습니다(SAP Note [1619720]). 그렇지 않은 경우 Azure VM 배포 후 나중에 SAP 소프트웨어를 설치할 수 있습니다.
 
-SAP 응용 프로그램에서 사용하는 데이터베이스 콘텐츠를 기준으로 SAP 설치를 통해 콘텐츠를 새롭게 생성하거나 DBMS 데이터베이스 백업이 있는 VHD나 DBMS 기능을 통해 Microsoft Azure 저장소에 직접 백업하여 콘텐츠를 Azure로 가져올 수 있습니다. 이 경우 DBMS 데이터 및 로그 파일 온-프레미스를 사용하여 VHD를 준비한 다음 디스크로서 Azure로 가져올 수도 있습니다. 하지만 온-프레미스에서 Azure에 로드되는 DBMS 데이터 전송은 온-프레미스를 프로비전해야 하는 VHD 디스크에 대해 작동합니다.
+SAP 응용 프로그램에서 사용하는 데이터베이스 콘텐츠를 기준으로 SAP 설치를 통해 콘텐츠를 새롭게 생성하거나 DBMS 데이터베이스 백업이 있는 VHD나 DBMS 기능을 통해 Microsoft Azure Storage에 직접 백업하여 콘텐츠를 Azure로 가져올 수 있습니다. 이 경우 DBMS 데이터 및 로그 파일 온-프레미스를 사용하여 VHD를 준비한 다음 디스크로서 Azure로 가져올 수도 있습니다. 하지만 온-프레미스에서 Azure에 로드되는 DBMS 데이터 전송은 온-프레미스를 프로비전해야 하는 VHD 디스크에 대해 작동합니다.
 
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동
 온-프레미스에서 Azure로 특정 SAP 시스템을 이동하려고 합니다(리프트 및 전환). 이 작업은 OS, SAP 이진 파일 및 결과적 DBMS 이진을 포함하는 디스크와 DBMS 데이터와 로그 파일이 있는 디스크를 Azure에 업로드하여 수행할 수 있습니다. 위의 시나리오 2와는 달리 Azure VM에서 호스트 이름, SAP SID 및 SAP 사용자 계정을 온-프레미스 환경에서 구성된 대로 유지합니다. 그러므로 이미지 일반화는 필요하지 않습니다. 이 경우는 SAP 배경의 일부가 온-프레미스에서 실행되고 일부는 Azure에서 실행되는 프레미스 간 시나리오에 주로 적용됩니다.
@@ -641,7 +641,7 @@ D:\ 드라이브의 크기는 VM 유형에 따라 달라집니다. D:\ 드라이
 #### <a name="formatting-the-disks"></a>디스크 형식 설정
 SQL Server의 경우 SQL Server 서버 데이터 및 로그 파일을 포함하는 디스크의 NTFS 블록 크기는 64K여야 합니다. D:\ 드라이브의 형식을 설정할 필요가 없습니다. 이 드라이브는 미리 포맷되어 있습니다.
 
-데이터베이스를 복원 또는 생성해도 파일 콘텐츠를 비워 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행 중인 사용자 컨텍스트에 특정 사용 권한이 있어야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행되는 경우 해당 사용자에게 '볼륨 유지 관리 작업 수행' 사용자 권한을 할당해야 합니다.  자세한 내용은 Microsoft 기술 자료 문서 <https://support.microsoft.com/kb/2574695>를 참조하세요.
+데이터베이스를 복원 또는 생성해도 파일 콘텐츠를 비워 데이터 파일이 초기화되지 않도록 하려면 SQL Server 서비스가 실행 중인 사용자 컨텍스트에 특정 사용 권한이 있어야 합니다. 일반적으로 Windows 관리자 그룹의 사용자에게는 이러한 권한이 있습니다. SQL Server 서비스가 Windows 관리자가 아닌 사용자의 사용자 컨텍스트에서 실행되는 경우 해당 사용자에게 **볼륨 유지 관리 작업 수행** 사용자 권한을 할당해야 합니다.  자세한 내용은 Microsoft 기술 자료 문서 <https://support.microsoft.com/kb/2574695>를 참조하세요.
 
 #### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
 I/O 대역폭이 제한 요인이 될 수 있는 구성에서 측정마다 IOPS를 줄여 Azure와 같이 IaaS 시나리오에서 실행할 수 있는 워크로드를 늘릴 수 있습니다. 그러므로 아직 수행하지 않은 경우 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SQL Server 페이지 압축을 적용하는 것이 좋습니다.
@@ -654,7 +654,7 @@ Azure에 업로드하기 전에 데이터베이스 압축을 수행하는 이유
 
 데이터베이스 압축은 Azure 가상 컴퓨터에서도 온-프레미스에서와 마찬가지로 잘 작동합니다. 기존 SAP SQL Server 데이터베이스 압축 방법에 대한 자세한 내용은 <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>를 참조하세요.
 
-### <a name="sql-server-2014--storing-database-files-directly-on-azure-blob-storage"></a>SQL Server 2014 - Azure Blob Storage에 데이터베이스 파일 직접 저장
+### <a name="sql-server-2014---storing-database-files-directly-on-azure-blob-storage"></a>SQL Server 2014 - Azure Blob Storage에 데이터베이스 파일 직접 저장
 SQL Server 2014에서는 VHD '래퍼' 없이 Azure Blob Storage에 직접 데이터베이스 파일을 저장할 수 있습니다. 특히 표준 Azure Storage 또는 더 작은 VM 유형을 사용할 경우 일부 더 작은 VM 유형에 탑재할 수 있는 디스크 수를 제한하여 IOPS 제한을 극복할 수 있습니다. 이 방법은 사용자 데이터베이스에는 적용되지만 SQL Server의 시스템 데이터베이스에는 사용할 수 없습니다. SQL Server의 데이터 및 로그 파일에도 사용할 수 있습니다. VHD로 '래핑'하지 않고 이 방법으로 SAP SQL Server 데이터베이스를 배포하려는 경우 다음 사항에 유의하세요.
 
 * 사용된 저장소 계정이 SQL Server가 실행 중인 VM을 배포하는 데 사용된 것과 동일한 Azure 지역에 있어야 합니다.
@@ -673,18 +673,18 @@ SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되�
 ### <a name="backuprecovery-considerations-for-sql-server"></a>SQL Server에 대한 백업/복구 고려 사항
 Azure에 SQL Server를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SQL Server에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure 저장소에는 이제 세 개의 이미지가 있으므로 저장소 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 예를 들어 백업을 복구하여 2계층 SAP 구성을 동일한 시스템의 3계층 시스템 설정으로 전송할 수 있습니다.
 
-SQL Server를 Azure 저장소에 백업하는 방법은 세 가지가 있습니다.
+SQL Server를 Azure Storage에 백업하는 방법은 세 가지가 있습니다.
 
-1. SQL Server 2012 CU4 이상에서는 기본적으로 데이터베이스를 URL에 백업할 수 있습니다. 이 내용은 [SQL Server 2014의 새로운 기능 – 5부 - 백업/복원 향상](https://blogs.msdn.com/b/saponsqlserver/archive/2014/02/15/new-functionality-in-sql-server-2014-part-5-backup-restore-enhancements.aspx)블로그에 자세히 나와 있습니다. [SQL Server 2012 SP1 CU4 이상][dbms-guide-5.5.1] 챕터를 참조하세요.
+1. SQL Server 2012 CU4 이상에서는 기본적으로 데이터베이스를 URL에 백업할 수 있습니다. 이 내용은 [SQL Server 2014의 새로운 기능 – 5부 - 백업/복원 향상](https://blogs.msdn.com/b/saponsqlserver/archive/2014/02/15/new-functionality-in-sql-server-2014-part-5-backup-restore-enhancements.aspx) 블로그에 자세히 나와 있습니다. [SQL Server 2012 SP1 CU4 이상][dbms-guide-5.5.1] 챕터를 참조하세요.
 2. SQL 2012 CU4 이전의 SQL Server 릴리스는 리디렉션 기능을 사용하여 VHD에 백업하고 기본적으로 쓰기 스트림을 구성된 Azure 저장소 위치로 이동합니다. [SQL Server 2012 SP1 CU3 및 이전 버전][dbms-guide-5.5.2] 챕터를 참조하세요.
 3. 마지막 방법은 기존의 디스크에 SQL Server 백업 명령을 디스크 장치에 백업하는 것입니다. 이는 온-프레미스 배포 패턴과 동일하며 이 문서에서 자세히 설명하지 않습니다.
 
 #### <a name="0fef0e79-d3fe-4ae2-85af-73666a6f7268"></a>SQL Server 2012 SP1 CU4 이상
 이 기능을 사용하면 Azure BLOB 저장소에 직접 백업할 수 있습니다. 이 방법을 사용하지 않을 경우 디스크 및 IOPS 용량을 사용하는 다른 디스크에 백업해야 합니다. 기본 개념은 다음과 같습니다.
 
- ![Microsoft Azure 저장소 BLOB에 SQL Server 2012 백업 사용][dbms-guide-figure-400]
+ ![Microsoft Azure Storage BLOB에 SQL Server 2012 백업 사용][dbms-guide-figure-400]
 
-이 경우 SQL Server 백업을 저장할 디스크가 필요하지 않습니다. 그러므로 할당되는 디스크 수가 적고 디스크 IOPS의 전체 대역폭을 데이터 및 로그 파일에 사용할 수 있습니다. <https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations> 문서의 '제한' 섹션에 설명된 대로 최대 백업 크기는 최대 1TB로 제한되어 있습니다. SQL Server 백업 압축을 사용하더라도 백업 크기가 1TB를 넘으면 이 문서의 [SQL Server 2012 SP1 CU3 및 이전 버전][dbms-guide-5.5.2] 챕터에서 설명하는 기능을 사용해야 합니다.
+이 경우 SQL Server 백업을 저장할 디스크가 필요하지 않습니다. 그러므로 할당되는 디스크 수가 적고 디스크 IOPS의 전체 대역폭을 데이터 및 로그 파일에 사용할 수 있습니다. <https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations> 문서의 **제한** 섹션에 설명된 대로 최대 백업 크기는 최대 1TB로 제한되어 있습니다. SQL Server Backup 압축을 사용하더라도 백업 크기가 1TB를 넘으면 이 문서의 [SQL Server 2012 SP1 CU3 및 이전 버전][dbms-guide-5.5.2] 챕터에서 설명하는 기능을 사용해야 합니다.
 
 Azure Blob Storage 백업에서의 데이터베이스 복원을 설명하는 [관련 문서](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure)에서는 백업 크기가 25GB를 넘을 경우 Azure Blob Storage에서 직접 복원하지 않도록 권장하고 있습니다. 이 문서에서는 기능 제한 때문이 아니라 단순히 성능 고려 사항을 기준으로 한 것입니다. 따라서 상황별로 서로 다른 조건이 적용될 수 있습니다.
 
@@ -694,9 +694,9 @@ Azure Blob Storage 백업에서의 데이터베이스 복원을 설명하는 [�
 
 백업 자동화는 각 백업의 BLOB 이름을 다르게 지정하도록 하기 위해 중요합니다. 그렇지 않은 경우 백업이 덮어써지며 복원 체인이 끊어집니다.
 
-3가지 백업 유형이 혼합되지 않게 하려면 백업에 사용되는 저장소 계정에 다른 컨테이너를 생성하는 것이 좋습니다. 컨테이너는 VM 전용 또는 VM과 백업 형식이 될 수 있습니다. 스키마는 다음과 같습니다.
+3가지 백업 유형이 혼합되지 않게 하려면 백업에 사용되는 저장소 계정에 다른 컨테이너를 생성하는 것이 좋습니다. 컨테이너는 VM 전용 또는 VM 및 백업 유형일 수 있습니다. 스키마는 다음과 같습니다.
 
- ![Microsoft Azure 저장소 BLOB에 SQL Server 2012 백업 사용 - 개별 저장소 계정의 다양한 컨테이너][dbms-guide-figure-500]
+ ![Microsoft Azure Storage BLOB에 SQL Server 2012 백업 사용 - 개별 Storage 계정의 다양한 컨테이너][dbms-guide-figure-500]
 
 위의 예제에서 백업은 VM이 배포된 것과 동일한 저장소 계정으로 수행할 수 없습니다. 특히 백업을 위한 새 저장소 계정이 있어야 합니다. 저장소 계정 내에는 백업 형식 및 VM 이름의 매트릭스를 사용하여 생성된 여러 컨테이너가 있습니다. 이러한 구분을 사용하면 여러 VM의 백업을 쉽게 관리할 수 있습니다.
 
@@ -705,7 +705,7 @@ Azure Blob Storage 백업에서의 데이터베이스 복원을 설명하는 [�
 #### <a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 및 이전 버전
 Azure Storage에 대해 백업을 직접 수행하려면 먼저 [이](https://www.microsoft.com/download/details.aspx?id=40740) KBA 문서에 연결된 msi를 다운로드해야 합니다.
 
-x64 설치 파일 및 설명서를 다운로드합니다. 이 파일은 ‘Microsoft SQL Server Backup to Microsoft Azure Tool’ 프로그램을 설치합니다. 제품 설명서를 자세히 읽어보세요.  이 도구는 기본적으로 다음과 같은 방식으로 작동합니다.
+x64 설치 파일 및 설명서를 다운로드합니다. 이 파일은 **Microsoft SQL Server Backup to Microsoft Azure Tool**프로그램을 설치합니다. 제품 설명서를 자세히 읽어보세요.  이 도구는 기본적으로 다음과 같은 방식으로 작동합니다.
 
 * SQL Server 측에서 SQL Server 백업에 대한 디스크 위치가 정의됩니다(D:\ 드라이브 사용 안 함).
 * 이 도구를 사용하면 다른 유형의 백업을 서로 다른 Azure Storage 컨테이너에 저장할 수 있는 규칙을 정의할 수 있습니다.
@@ -717,7 +717,7 @@ x64 설치 파일 및 설명서를 다운로드합니다. 이 파일은 ‘Micro
 
 이 방법은 Azure Storage에 대해 기본적으로 백업을 지원하는 최신 SQL Server 버전에서는 사용하지 않아야 합니다. 단, Azure로의 기본 백업 제한이 Azure로의 기본 백업 실행을 차단합니다.
 
-#### <a name="other-possibilities-to-backup-sql-server-databases"></a>SQL Server 데이터베이스를 백업하는 다른 방법
+#### <a name="other-possibilities-to-back-up-sql-server-databases"></a>SQL Server 데이터베이스를 백업하는 다른 방법
 데이터베이스를 백업하는 다른 방법은 백업을 저장하는 데 사용하는 VM에 추가 데이터 디스크를 연결하는 것입니다. 이러한 경우 디스크가 모두 실행되고 있지 않은지 확인해야 합니다. 해당하는 경우 디스크의 탑재를 해제하고 '보관'한 다음 빈 디스크로 바꿔야 합니다. 패치를 다운한 경우 데이터베이스 파일이 있는 VHD에서 이러한 VHD를 별도의 Azure 저장소 계정에 보관해야 합니다.
 
 두 번째 방법은 많은 디스크를 연결할 수 있는 대용량 VM을 사용하는 것입니다(예를 들어 32VHD가 있는 D14). 저장소 공간을 사용하여 사용되는 공유를 빌드할 수 있는 유연한 환경을 구성한 다음 다양한 DBMS 서버에 대한 백업 대상으로 만듭니다.
@@ -734,9 +734,9 @@ x64 설치 파일 및 설명서를 다운로드합니다. 이 파일은 ‘Micro
 
 Microsoft Azure 저장소 BLOB을 더 최신 버전의 백업 대상으로 사용할 경우 각 특정 백업에 대해 하나의 URL 대상만 지정할 수 있습니다.
 
-그러나 이전 버전에서 ‘Microsoft SQL Server Backup to Microsoft Azure Tool’을 사용할 때는 둘 이상의 파일 대상을 정의할 수 있습니다. 둘 이상의 대상을 사용하여 백업을 확장하고 백업 처리량을 늘릴 수 있습니다. 그 결과 Azure 저장소 계정에도 여러 파일이 만들어집니다. 테스트에 따르면 여러 파일 대상을 사용하여 SQL Server 2012 SP1 CU4에 구현된 백업 확장으로 얻을 수 있는 처리량을 확실하게 얻을 수 있습니다. Azure로의 기본 백업 크기가 1TB로 제한되지도 않습니다.
+그러나 이전 버전에서 “Microsoft SQL Server Backup to Microsoft Azure Tool”을 사용할 때는 둘 이상의 파일 대상을 정의할 수 있습니다. 둘 이상의 대상을 사용하여 백업을 확장하고 백업 처리량을 늘릴 수 있습니다. 그 결과 Azure 저장소 계정에도 여러 파일이 만들어집니다. 테스트에 따르면 여러 파일 대상을 사용하여 SQL Server 2012 SP1 CU4에 구현된 백업 확장으로 얻을 수 있는 처리량을 확실하게 얻을 수 있습니다. Azure로의 기본 백업 크기가 1TB로 제한되지도 않습니다.
 
-그러나 처리량은 백업에 사용하는 Azure 저장소 계정의 위치에 따라 달라집니다. VM이 실행되지 않는 다른 지역에서 저장소 계정을 찾을 수 있습니다. 예를 들어 유럽 서부에서 VM 구성을 실행하고 백업에 사용할 저장소 계정을 북유럽에 둘 수 있습니다. 이렇게 하면 대상 저장소 및 VM이 동일한 지역 데이터 센터에서 실행될 수 있으므로 백업 처리량에 영향을 주고 150MB/초의 처리량을 생성할 가능성이 없습니다.
+그러나 처리량은 백업에 사용하는 Azure 저장소 계정의 위치에 따라 달라집니다. VM이 실행되지 않는 다른 지역에서 저장소 계정을 찾을 수 있습니다. 예를 들어 유럽 서부에서 VM 구성을 실행하고 백업에 사용할 Storage 계정을 북유럽에 둘 수 있습니다. 이렇게 하면 대상 저장소 및 VM이 동일한 지역 데이터 센터에서 실행될 수 있으므로 백업 처리량에 영향을 주고 150MB/초의 처리량을 생성할 가능성이 없습니다.
 
 #### <a name="managing-backup-blobs"></a>백업 BLOB 관리
 백업을 직접 관리해야 합니다. 잦은 트랜잭션 로그 백업의 실행으로 많은 Blob이 생성되므로 이러한 Blob의 관리를 통해 쉽게 Azure Portal의 작업 부하를 줄일 수 있습니다. 따라서 Azure Storage 탐색기를 활용하는 것이 좋습니다. Azure Storage 계정을 관리하는 데 도움이 되는 몇 가지 도구를 사용할 수 있습니다.
@@ -745,7 +745,7 @@ Microsoft Azure 저장소 BLOB을 더 최신 버전의 백업 대상으로 사�
 * Microsoft Azure Storage 탐색기(<https://azure.microsoft.com/downloads/>)
 * 타사 도구
 
-백업 및 Azure의 SAP에 대한 자세한 내용은 [SAP 백업 가이드](sap-hana-backup-guide.md)를 참조하세요.
+Azure의 백업 및 SAP에 대한 자세한 내용은 [SAP 백업 가이드](sap-hana-backup-guide.md)를 참조하세요.
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Microsoft Azure Marketplace에서 SQL Server 이미지 사용
 Microsoft는 Azure Marketplace에서 이미 SQL Server를 포함하는 버전의 VM을 제공합니다. SQL Server 및 Windows 라이선스가 필요한 SAP 고객의 경우, 이미 SQL Server가 설치된 VM을 스핀업하여 라이선스에 대한 요구 사항을 충족시킬 수 있습니다. SAP에 대한 이러한 이미지를 사용하려면 다음 사항을 고려해야 합니다.
@@ -757,7 +757,7 @@ Microsoft는 Azure Marketplace에서 이미 SQL Server를 포함하는 버전의
 #### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Microsoft Windows/SQL Server VM의 SQL Server 데이터 정렬 변경
 Azure Marketplace의 SQL Server 이미지는 SAP NetWeaver 응용 프로그램에서 요구하는 데이터 정렬을 사용하도록 설정되어 있지 않으므로 배포 후 즉시 변경해야 합니다. SQL Server 2012의 경우 VM을 배포하자마자 다음 단계를 통해 이 작업을 수행할 수 있으며 관리자가 배포된 VM에 로그인할 수 있습니다.
 
-* '관리자'로 Windows 명령 창을 엽니다.
+* 관리자 권한으로 Windows 명령 창을 엽니다.
 * 디렉터리를 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012로 변경합니다.
 * Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2 명령을 실행합니다.   
   * `<local_admin_account_name`>은 갤러리를 통해 처음으로 VM을 배포할 때 관리자 계정으로 정의된 계정입니다.
@@ -799,7 +799,7 @@ Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]�
 가용성 그룹 수신기를 사용하는 경우 몇 가지 고려 사항이 있습니다.
 
 * 가용성 그룹 수신기는 Windows Server 2012 이상을 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되고 있는지 확인해야 합니다. 
-* Windows Server 2008 R2의 경우 이 패치가 없고 연결 문자열에서 장애 조치(failover) 파트너를 지정하여 데이터베이스 미러링과 같은 방법으로 Always On을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908]참조).
+* Windows Server 2008 R2의 경우 이 패치가 없고 연결 문자열에서 장애 조치(Failover) 파트너를 지정하여 데이터베이스 미러링과 같은 방법으로 Always On을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908] 참조).
 * 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\host 파일을 유지 관리해야 합니다. 두 VM이 우발적으로 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않도록 하려면 Always On 구성에서 해당 VM의 네트워크 인터페이스에 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이 문서][virtual-networks-reserved-private-ip]에서 설명).
 
 [comment]: <> (이전 블로그)
@@ -850,7 +850,7 @@ Always On의 경우 데이터베이스 미러링에 비해 더 복잡한 설정�
    * 더 높은 처리량이 필요한 경우에만 디스크를 스트라이프합니다.
 3. D:\ 드라이브는 비영구적이며 Windows 재부팅 시 이 드라이브의 내용이 모두 손실되므로 계속 유지해야 하는 소프트웨어를 설치하거나 파일을 저장하지 마세요.
 4. Azure Standard Storage에 대해 디스크 캐싱을 사용하지 마세요.
-5. Azure 지역에서 복제된 저장소 계정을 사용하지 마세요.  DBMS 워크로드에 대한 로컬 중복을 사용합니다.
+5. Azure 지역에서 복제된 Storage 계정을 사용하지 마세요.  DBMS 워크로드에 대한 로컬 중복을 사용합니다.
 6. DBMS 공급업체의 HA/DR 솔루션을 사용하여 데이터베이스 데이터를 복제합니다.
 7. 항상 이름 확인을 사용하고 IP 주소를 사용하지 마세요.
 8. 가능한 가장 높은 데이터베이스 압축을 사용합니다. SQL Server의 경우 페이지 압축입니다.
@@ -1319,9 +1319,9 @@ SAP liveCache는 많은 계산을 수행하는 응용 프로그램이므로 RAM�
 
 SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할당된 모든 가상 CPU 리소스가 하이퍼바이저의 전용 물리적 CPU 리소스에 의해 지원됩니다. 오버프로비저닝이 발생되지 않습니다(따라서 CPU 리소스에 대한 경쟁 없음).
 
-마찬가지로, SAP에서 지원하는 모든 Azure VM 인스턴스 형식의 경우 VM 메모리가 모두 실제 메모리에 매핑되므로 예를 들어 오버프로비저닝(오버 커밋)이 사용되지 않습니다.
+마찬가지로, SAP에서 지원하는 모든 Azure VM 인스턴스 형식의 경우 VM 메모리가 실제 메모리에 100% 매핑되므로 예를 들어 과도 프로비저닝(오버 커밋)이 사용되지 않습니다.
 
-이러한 관점에서 볼 때, 새로운 D 시리즈 또는 DS 시리즈(Azure Premium Storage와 함께 사용) Azure VM 유형은 A 시리즈보다 60% 더 빠른 프로세서를 제공하므로 이 형식을 사용하는 것이 좋습니다. RAM 및 CPU 부하가 매우 높은 경우 G 시리즈와 GS 시리즈(Azure Premium Storage와 함께 사용) VM을 최신 Intel® Xeon® 프로세서 E5 v3 제품군과 함께 사용할 수 있으며 그 결과 D/DS 시리즈에 비해 2배 많은 메모리 및 4배 많은 SSD(반도체 드라이브)를 사용할 수 있습니다.
+이러한 관점에서 볼 때, 새로운 D 시리즈 또는 DS 시리즈(Azure Premium Storage와 함께 사용) Azure VM 유형은 A 시리즈보다 60% 더 빠른 프로세서를 제공하므로 이 형식을 사용하는 것이 좋습니다. RAM 및 CPU 부하가 가장 높은 경우 D/DS 시리즈보다 메모리는 2배 더 많고 SSD(반도체 드라이브) 저장소가 4배 더 많은 최신 Intel?? Xeon?? 프로세서 E5 v3 제품군에 G 시리즈 및 GS 시리즈(Azure Premium Storage와 함께)를 사용할 수 있나요
 
 #### <a name="storage-configuration"></a>저장소 구성
 SAP liveCache는 SAP MaxDB 기술을 기반으로 하므로 SAP MaxDB에 대해 [저장소 구성][dbms-guide-8.4.1] 챕터에서 설명한 모든 Azure Storage 모범 사례 권장 사항이 SAP liveCache에도 적용됩니다. 
@@ -1332,7 +1332,7 @@ SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적�
 ![생산적인 사용 사례를 위한 liveCache용 전용 Azure VM][dbms-guide-figure-700]
 
 #### <a name="backup-and-restore"></a>백업 및 복원
-성능 고려 사항을 포함한 백업 및 복원은 이미 SAP MaxDB 관련의 [백업 및 복원][dbms-guide-8.4.2] 및 [백업 및 복원에 대한 성능 고려 사항][dbms-guide-8.4.3] 챕터에서 설명하고 있습니다. 
+성능 고려 사항을 포함한 백업 및 복원은 이미 SAP MaxDB 관련의 [백업 및 복원][dbms-guide-8.4.2] 및 [백업 및 복원에 대한 성능 고려 사항][dbms-guide-8.4.3] 장에 설명되어 있습니다. 
 
 #### <a name="other"></a>기타
 다른 모든 일반 항목은 이미 SAP MaxDB 관련의 [이][dbms-guide-8.4.4] 챕터에서 설명하고 있습니다. 
@@ -1418,10 +1418,10 @@ Azure 페이지 Blob Storage 또는 Managed Disks에 기반한 디스크를 사�
 
 디스크당 현재 IOPS 할당량이 충분한 경우 탑재된 단일 디스크에 모든 데이터베이스 파일을 저장할 수 있습니다. 
 
-SAP 설치 가이드의 "데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항" 챕터에서도 성능 고려 사항을 참조할 수 있습니다.
+SAP 설치 가이드의 "데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항" 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
 또는 이 문서의 [소프트웨어 RAID][dbms-guide-2.2] 챕터에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능) 또는 Windows 2008 R2용 Windows 스트라이프를 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
-sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다. Windows 저장소 풀을 사용하는 경우 “-LogicalSectorSizeDefault” 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
+sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다. Windows 저장소 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
 #### <a name="backuprestore"></a>백업/복원
 LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 및 Hyper-V와 동일한 방법으로 지원됩니다.
@@ -1474,7 +1474,7 @@ Azure 페이지 Blob Storage에 기반한 디스크를 사용하는 경우 이 �
 
 디스크당 현재 IOPS 할당량이 충분한 경우 하나의 단일 디스크에 모든 데이터베이스 파일을 저장할 수 있습니다.
 
-SAP 설치 가이드의 "데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항" 챕터에서도 성능 고려 사항을 참조할 수 있습니다.
+SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항’ 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
 또는 이 문서의 [소프트웨어 RAID][dbms-guide-2.2] 챕터에서 설명한 대로 LVM(논리 볼륨 관리자) 또는 MDADM을 사용하여 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
 sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다.

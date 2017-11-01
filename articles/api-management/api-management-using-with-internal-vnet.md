@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -45,7 +45,7 @@ API Management를 내부 가상 네트워크 모드로 배포하는 경우 모�
 + **API Management 인스턴스** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
 ## <a name="enable-vpn"> </a>내부 가상 네트워크에서 API Management 만들기
-내부 가상 네트워크의 API Management 서비스는 ILB(내부 부하 분산 장치) 뒤에 호스팅됩니다. ILB의 IP 주소는 [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) 범위에 있습니다.  
+내부 가상 네트워크의 API Management 서비스는 ILB(내부 부하 분산 장치) 뒤에 호스팅됩니다.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 네트워크 연결 사용
 
@@ -69,7 +69,7 @@ API Management를 내부 가상 네트워크 모드로 배포하는 경우 모�
 * 가상 네트워크 내부에 기존 API Management 서비스 배포: [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) cmdlet을 사용하여 가상 네트워크 내에서 API Management 서비스를 이동하고 내부 가상 네트워크 형식을 사용하도록 구성합니다.
 
 ## <a name="apim-dns-configuration"></a>DNS 구성
-API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 DNS를 관리해야 합니다.
+API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 라우팅을 관리해야 합니다.
 
 > [!NOTE]
 > API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 끝점에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 끝점에는 게이트웨이, 개발자 포털, 게시자 포털, 직접 관리 끝점 및 Git가 포함됩니다.
@@ -105,6 +105,11 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 
    2. 그런 다음 DNS 서버에 레코드를 만들어 가상 네트워크 내에서만 액세스할 수 있는 이러한 끝점에 액세스할 수 있습니다.
 
+## <a name="routing"> </a> 라우팅
++ 서브넷 범위의 부하 분산된 개인 가상 IP 주소는 예약되며 VNet 내에서 API Management 서비스 끝점에 액세스하는 데 사용됩니다.
++ 부하 분산된 VIP(공용 IP 주소)도 포트 3443 통해서만 관리 서비스 끝점에 액세스하도록 하기 위해 예약됩니다.
++ 서브넷 IP 범위의 IP 주소(DIP)는 VNet 내의 리소스에 액세스하는 데 사용되고, 공용 IP 주소(VIP)는 VNet 외부 리소스에 액세스하는 데 사용됩니다.
++ 부하 분산된 공용 및 개인 IP 주소는 Azure Portal의 개요/기본 정보 블레이드에서 확인할 수 있습니다.
 
 ## <a name="related-content"> </a>관련 콘텐츠
 자세한 내용은 다음 문서를 참조하세요.

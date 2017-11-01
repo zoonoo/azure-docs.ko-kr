@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="review-usage-and-costs"></a>사용량 및 비용 검토
 
@@ -39,15 +39,17 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 ![예제 보고서](./media/tutorial-review-usage/actual-cost01.png)
 
-이 보고서는 지난 30일 동안의 모든 지출을 보여 줍니다. Azure 서비스에 대한 지출만 보려면 서비스 그룹을 적용한 다음 모든 Azure 서비스를 필터링합니다. 아래 이미지에서는 필터링된 서비스를 보여 줍니다.
+이 보고서는 지난 30일 동안의 모든 지출을 보여 줍니다. Azure 서비스에 대한 지출만 보려면 서비스 그룹을 적용한 다음 모든 Azure 서비스를 필터링합니다. 다음 이미지에서는 필터링된 서비스를 보여 줍니다.
 
 ![필터링된 서비스](./media/tutorial-review-usage/actual-cost02.png)
 
-위의 예에서 2017년 8월 31일부터 이전보다 비용이 적었습니다. 이 비용 추세는 약 9일 동안 다양한 서비스에서 계속되었습니다. 그런 후에 추가 지출은 이전과 같이 계속되었습니다. 그러나 너무 많은 열이 확실한 추세를 흐리게 할 수 있습니다. 보고서 보기를 꺾은선형 또는 영역형 차트로 변경하여 다른 보기로 표시된 데이터를 볼 수 있습니다. 아래 이미지에서는 추세를 더 명확하게 보여 줍니다.
+이전 예제에서는 2017년 8월 31일부터 이전보다 비용이 적었습니다. 이 비용 추세는 약 9일 동안 다양한 서비스에서 계속되었습니다. 그런 후에 추가 지출은 이전과 같이 계속되었습니다. 그러나 너무 많은 열이 확실한 추세를 흐리게 할 수 있습니다. 보고서 보기를 꺾은선형 또는 영역형 차트로 변경하여 다른 보기로 표시된 데이터를 볼 수 있습니다. 다음 이미지에서는 추세를 더 명확하게 보여 줍니다.
 
 ![보고서의 추세](./media/tutorial-review-usage/actual-cost03.png)
 
 이 예에서 Azure Storage 비용은 2017년 8월 31일부터 떨어졌지만 Azure 서비스는 다른 수준으로 유지되었습니다. 그래서, 무엇이 그 지출 감소를 초래했습니까? 이 예에서 일부 직원은 휴가 중이었고 저장소 서비스를 사용하지 않았습니다.
+
+사용량 및 비용 추세를 추적하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 클라우드 청구 데이터 대 시간 분석](https://youtu.be/7LsVPHglM0g)을 참조하세요.
 
 ## <a name="detect-usage-inefficiencies"></a>사용량 비효율성 검색
 
@@ -55,7 +57,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 조직에서 리소스를 클라우드로 처음 이동할 때 조직에 영향을 주는 일반적인 문제는 가상화 전략입니다. 조직에서는 종종 온-프레미스 가상화 환경에 대한 가상 컴퓨터를 만드는 데 사용한 것과 비슷한 방법을 사용합니다. 그리고 온-프레미스 VM을 있는 그대로 클라우드로 이동하여 비용을 절감한다고 가정합니다. 그러나 이러한 방법은 비용을 절감하지 못할 것입니다.
 
-문제는 기존 인프라에 대한 비용이 이미 지출되었다는 것입니다. 사용자는 원하는 경우 매우 큰 VM을 만들고 유지할 수 있지만, 유휴 상태에 있거나 실행되지 않는 VM으로 인해 거의 영향력이 없는 결과만 있을 것입니다. 매우 크거나 유휴 상태인 VM을 클라우드로 이동하면 비용이 *증가*할 가능성이 있습니다. 클라우드 서비스 공급자와 계약을 맺을 때 리소스에 대한 비용 할당은 매우 중요합니다. 리소스를 완벽하게 사용하는지의 약속에 대한 대가를 치러야 합니다.
+문제는 기존 인프라에 대한 비용이 이미 지출되었다는 것입니다. 사용자는 원하는 경우 큰 VM을 만들고 유지할 수 있지만, 유휴 상태에 있거나 실행되지 않는 VM으로 인해 영향력이 거의 없는 결과만 있을 것입니다. 크거나 유휴 상태인 VM을 클라우드로 이동하면 비용이 *증가*할 가능성이 있습니다. 클라우드 서비스 공급자와 계약을 맺을 때 리소스에 대한 비용 할당은 중요합니다. 리소스를 완벽하게 사용하는지의 약속에 대한 대가를 치러야 합니다.
 
 비용 효율적인 크기 조정 보고서는 VM 인스턴스 유형 용량과 과거의 CPU 및 메모리 사용량 데이터를 비교하여 잠재적인 연간 절감 효과를 식별합니다.  
 
@@ -67,9 +69,11 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 ![권장 사항 세부 정보](./media/tutorial-review-usage/sizing02.png)
 
-VM 인스턴스 ID를 보려면 **후보 목록** 옆에 있는 더하기 기호를 클릭합니다.
+**후보 목록** 옆에 있는 더하기 기호를 클릭하여 VM 인스턴스 ID를 확인합니다.
 
 ![후보 목록](./media/tutorial-review-usage/sizing03.png)
+
+사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
 
 ## <a name="create-alerts-for-unusual-spending"></a>비정상적 지출에 대한 경고 만들기
 

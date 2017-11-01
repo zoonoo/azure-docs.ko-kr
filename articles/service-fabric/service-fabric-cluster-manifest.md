@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric 독립 실행형 클러스터 구성 | Microsoft Docs"
-description: "독립 실행형 또는 개인 Service Fabric 클러스터를 구성하는 방법에 대해 알아봅니다."
+description: "독립 실행형 또는 온-프레미스 Azure Service Fabric 클러스터를 구성하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aeb4be94ea12c01f4ecd5652fa3b3243351e4853
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 ***ClusterConfig.JSON*** 파일을 사용하여 독립 실행형 Service Fabric 클러스터를 구성하는 방법을 설명합니다. 이 파일을 사용하여 독립 실행형 클러스터에 대한 Service Fabric 노드 및 해당 IP 주소, 클러스터의 다른 노드 형식, 보안 구성에 대한 정보와 장애/업그레이드 도메인과 관련된 네트워크 토폴로지에 대한 정보를 지정할 수 있습니다.
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 [독립 실행형 Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)하면 ClusterConfig.JSON 파일의 몇 가지 샘플이 작업 컴퓨터에 다운로드됩니다. 이름에 *DevCluster*가 있는 샘플은 논리 노드처럼 세 노드가 모두 동일한 컴퓨터에 있는 클러스터를 만드는 데 도움이 됩니다. 세 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터는 개발 또는 테스트 환경에 유용하며, 프로덕션 클러스터로 지원되지 않습니다. 이름에 *MultiMachine*이 있는 샘플은 각 노드가 별도의 컴퓨터에 있는 프로덕션 품질 클러스터를 만드는 데 도움이 됩니다. 이러한 클러스터의 주 노드 수는 [안정성 수준](#reliability)에 따라 결정됩니다. 5.7 릴리스 API 버전 05-2017에서는 안정성 수준 속성을 제거했습니다. 대신, 클러스터에 대한 가장 최적화된 안정성 수준을 계산하는 코드가 사용됩니다. 5.7 이상 코드 버전에서는 이 속성을 사용하지 않도록 합니다.
 
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* 및 *ClusterConfig.Unsecure.MultiMachine.JSON*은 각각 보안되지 않은 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다. 
+1. *ClusterConfig.Unsecure.DevCluster.JSON* 및 *ClusterConfig.Unsecure.MultiMachine.JSON*은 각각 보안되지 않은 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
 2. *ClusterConfig.Windows.DevCluster.JSON* 및 *ClusterConfig.Windows.MultiMachine.JSON*은 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
-3. *ClusterConfig.X509.DevCluster.JSON* 및 *ClusterConfig.X509.MultiMachine.JSON*은 [X509 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다. 
+3. *ClusterConfig.X509.DevCluster.JSON* 및 *ClusterConfig.X509.MultiMachine.JSON*은 [X509 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
 
 이제 아래와 같이 ***ClusterConfig.JSON*** 파일의 여러 섹션을 검토해 보겠습니다.
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: d47c219dfd1e62351d7113d930b17ac45f64c369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Team Data Science Process 템플릿으로 프로젝트 구조화
 
@@ -28,28 +28,29 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 TDSP란 고급 분석 솔루션을 실행 및 제공하기 위한 민첩하고 반복적인 데이터 과학 프로세스입니다. 엔터프라이즈 조직 내 데이터 과학 팀의 공동 작업과 효율성을 개선하기 위해 설계되었습니다. 4개 핵심 구성 요소를 통해 다음과 같은 목표를 지원합니다.
 
-   * 표준 [데이터 과학 수명 주기](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) 정의.
+   * 표준 [데이터 과학 수명 주기](../team-data-science-process/lifecycle.md) 정의.
    * 표준화된 프로젝트 구조체, [프로젝트 문서화 및 보고 템플릿](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
-   * 계산 및 저장소 인프라, 코드 리포지토리 같은 프로젝트 실행을 위한 인프라 및 리소스.
+   * 계산 및 저장소 인프라, 코드 리포지토리 같은 각 프로젝트 실행을 위한 인프라 및 리소스.
    * 다음과 같은 데이터 과학 프로젝트 작업을 위한 [도구 및 유틸리티](https://github.com/Azure/Azure-TDSP-Utilities):
-      - 공동 작업 버전 제어 및 코드 검토
+      - 공동 작업 버전 제어
+      - 코드 검토
       - 데이터 탐색 및 모델링
       - 작업 계획
 
-TDSP에 대한 자세한 내용은 [Team Data Science Process 개요](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md)를 참조하세요.
+TDSP에 대한 자세한 내용은 [Team Data Science Process 개요](../team-data-science-process/overview.md)를 참조하세요.
 
 ## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>TDSP 구조체 및 템플릿을 사용해야 하는 이유
-데이터 과학 팀의 공동 작업 효율성을 높이기 위한 핵심은 구조체, 수명 주기 및 데이터 과학 프로젝트 문서화를 표준화하는 것입니다. TDSP 템플릿으로 Machine Learning 프로젝트를 만드는 기능에는 팀 작업을 위한 프레임워크가 제공됩니다.
+데이터 과학 팀의 공동 작업 효율성을 높이기 위한 핵심은 구조체, 수명 주기 및 데이터 과학 프로젝트 문서화를 표준화하는 것입니다. TDSP 템플릿을 사용하여 Machine Learning 프로젝트를 만들면 원활한 팀워크를 위한 프레임워크가 제공됩니다.
 
 이전에 이러한 목표 달성에 도움이 되는 [TDSP 프로젝트 구조체 및 템플릿에 대한 GitHub 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)가 릴리스되었습니다. 하지만 지금까지는 데이터 과학 도구 내에서 TDSP 구조체 및 템플릿을 인스턴스화할 수 없었습니다. 이제는 TDSP 구조체 및 문서화 템플릿을 인스턴스화하는 Machine Learning 프로젝트를 만들 수 있습니다. 
 
 ## <a name="things-to-note-before-creating-a-new-project"></a>새 프로젝트를 만들기 전에 알아두어야 할 사항
-새로운 프로젝트를 만들기 *전에* 다음 사항을 기록하거나 검토합니다.
+새로운 프로젝트를 만들기 *전에* 다음 항목을 검토합니다.
 * TDSP Machine Learning [템플릿](https://aka.ms/tdspamlgithubrepo)을 검토합니다.
 * 콘텐츠("docs" 폴더에 있는 콘텐츠 제외) 크기는 25MB 미만이어야 합니다. 이 목록 뒤에 나오는 사항을 참조합니다.
 * sample\_data 폴더는 코드를 테스트하거나 초기 개발을 시작할 수 있는 작은 데이터 파일(5MB 미만)에만 사용됩니다.
 * Word 및 PowerPoint 파일과 같은 파일을 저장하면 "docs"폴더의 크기가 상당히 커질 수 있습니다. 공동 작업 Wiki, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) 또는 이러한 파일을 저장할 다른 공동 작업 리소스를 찾아보시기 바랍니다.
-* Machine Learning에서 큰 파일 및 출력을 처리하는 방법은 [변경 사항 유지 및 대용량 파일 처리](http://aka.ms/aml-largefiles)를 참조하세요.
+* Machine Learning에서 큰 파일 및 출력을 처리하는 방법을 알아보려면 [변경 사항 유지 및 대용량 파일 처리](http://aka.ms/aml-largefiles)를 참조하세요.
 
 > [!NOTE]
 > readme.md 파일을 제외하고, 프로젝트가 실행되는 동안 사용되지 *않는* 모든 문서화 관련 콘텐츠(텍스트, markdown, 이미지, 기타 문서 파일)는 반드시 "docs"(모두 소문자)라는 폴더에 상주해야 합니다. 이 폴더는 대상을 계산하기 위해 폴더 내 콘텐츠가 불필요하게 복사되는 일이 없도록 Azure Machine Learning 실행 시 무시되는 특수 폴더입니다. 이 폴더의 개체는 프로젝트 크기에 대한 25MB 제한에 포함되지 않습니다. 예를 들어, "docs"폴더는 문서화에 필요한 큰 이미지 파일을 저장할 장소입니다. 이러한 파일은 실행 기록을 통해 Git에서 여전히 추적합니다. 
@@ -94,7 +95,7 @@ TDSP 프로젝트 템플릿에는 다음과 같은 최상위 폴더가 포함되
 
 
 ## <a name="use-the-tdsp-structure-and-templates"></a>TDSP 구조체 및 템플릿 사용
-구조체 및 템플릿에 프로젝트 관련 정보를 추가해야 합니다. 프로젝트를 실행하고 전달하는 데 필요한 코드와 정보로 채워야 합니다. [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) 파일은 프로젝트 관련 정보를 사용하여 수정해야 하는 템플릿입니다. 여기에는 [TDSP 수명 주기](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)의 네 단계 각각에 대한 정보를 입력하는 데 도움이 되는 일련의 질문이 제공됩니다.
+구조체 및 템플릿에 프로젝트 관련 정보를 추가해야 합니다. 프로젝트를 실행하고 전달하는 데 필요한 코드와 정보로 채워야 합니다. [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) 파일은 프로젝트 관련 정보를 사용하여 수정해야 하는 템플릿입니다. 여기에는 [TDSP 수명 주기](../team-data-science-process/lifecycle.md)의 네 단계 각각에 대한 정보를 입력하는 데 도움이 되는 일련의 질문이 제공됩니다.
 
 실행 중 또는 완료 후 프로젝트 구조체가 어떻게 보이는지에 대한 예가 다음 그림의 왼쪽 패널에 표시됩니다. 이 프로젝트는 [Team Data Science Process 샘플 프로젝트: Azure Machine Learning에서 미국 인구 조사 데이터의 소득 분류](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) 샘플 프로젝트의 프로젝트입니다.
 

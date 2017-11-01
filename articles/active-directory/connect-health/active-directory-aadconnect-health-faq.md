@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c32ac27187a88dd13bb747f541968d2e81c5064
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -57,6 +57,10 @@ ms.lasthandoff: 10/11/2017
 | 3 | 51 | AD FS(Active Directory Federation Services) 서버 1개, AD FS 프록시 1개, 도메인 컨트롤러 1개 |
 | 4 | 76 | AD FS 서버 1개, AD FS 프록시 1개, 도메인 컨트롤러 2개 |
 | 5 | 101 | Azure AD Connect 서버 1개, AD FS 서버 1개, AD FS 프록시 1개, 도메인 컨트롤러 2개 |
+
+**Q: Azure AD Connect Health가 Azure Germany 클라우드를 지원하나요?**
+
+Azure AD Connect Health에는 Azure Germany에 [설치](active-directory-aadconnect-health-agent-install.md)가 있습니다. 독일어를 사용하는 클라우드 고객의 모든 데이터는 Azure Germany 클라우드 내에서 보관됩니다.
 
 
 ## <a name="installation-questions"></a>설치 관련 질문

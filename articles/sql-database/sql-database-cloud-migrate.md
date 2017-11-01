@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs"
-description: "클라우드에서 Azure SQL Database로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다. 데이터베이스 마이그레이션 도구를 사용하여 데이터베이스 마이그레이션 전에 호환성을 테스트합니다."
+description: "클라우드에서 Azure SQL Database로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다."
 keywords: "데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
 이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 다음 목록에는 가져오기 프로세스 도중 최상의 성능을 위한 권장 사항을 포함합니다.
 
 * 전송 성능을 최대화하기 위한 예산 범위 내에서 가장 높은 서비스 수준 및 성능 계층을 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. 
-* .BACPAC 파일과 대상 데이터 센터 간의 거리를 최소화합니다.
+* BACPAC 파일과 대상 데이터 센터 간의 거리를 최소화합니다.
 * 마이그레이션하는 동안 자동 통계 사용 안 함
 * 파티션 테이블 및 인덱스
 * 인덱싱된 뷰를 삭제하고 완료된 후 다시 만들기

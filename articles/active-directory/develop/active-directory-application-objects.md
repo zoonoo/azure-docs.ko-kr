@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 53ab4c04901994982b451149c4a82a5b72c9fc82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory(Azure AD)의 응용 프로그램 및 서비스 주체 개체
 경우에 따라 “응용 프로그램”이 Azure AD의 문맥에서 사용될 때 용어의 의미를 잘못 이해할 수 있습니다. 이 문서의 목표는 [다중 테넌트 응용 프로그램](active-directory-dev-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 그림을 통해 Azure AD 응용 프로그램 통합의 개념 및 구체적인 측면을 명확히 설명하는 것입니다.
@@ -34,7 +34,9 @@ Azure AD 응용 프로그램을 [Azure Portal][AZURE-Portal]에 등록할 때, A
 Azure AD 응용 프로그램은 응용 프로그램의 "홈" 테넌트라고도 알려진, 응용 프로그램이 등록된 Azure AD 테넌트에 상주하는 하나의 응용 프로그램 개체에 의해서만 정의됩니다. Azure AD Graph [응용 프로그램 엔터티][AAD-Graph-App-Entity]는 응용 프로그램 개체의 속성에 대한 스키마를 정의합니다. 
 
 #### <a name="service-principal-object"></a>서비스 주체 개체
-서비스 주체 개체는 런타임에 보안 주체가 응용 프로그램을 나타내는 기초를 제공하여 특정 테넌트에서 응용 프로그램 사용에 대한 정책 및 권한을 정의합니다. Azure AD Graph [서비스 주체 엔터티][AAD-Graph-Sp-Entity]는 서비스 주체 개체의 속성에 대한 스키마를 정의합니다. 
+Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려면 액세스해야 하는 엔터티를 보안 주체를 통해 나타내야 합니다. 사용자(사용자 주체) 및 응용 프로그램(서비스 주체) 둘 다 마찬가지입니다. 보안 주체는 해당 테넌트의 사용자/응용 프로그램에 대한 액세스 정책 및 권한을 정의합니다. 이를 통해 로그인 동안의 사용자/응용 프로그램의 인증 및 리소스 액세스 동안의 권한 부여 같은 핵심 기능이 허용됩니다.
+
+응용 프로그램이 테넌트의 리소스에 액세스하기 위한 권한을 받으면(등록 또는 [동의](active-directory-dev-glossary.md#consent) 시) 서비스 주체 개체가 만들어집니다. Azure AD Graph [서비스 주체 엔터티][AAD-Graph-Sp-Entity]는 서비스 주체 개체의 속성에 대한 스키마를 정의합니다.  
 
 #### <a name="application-and-service-principal-relationship"></a>응용 프로그램 및 서비스 주체 관계
 응용 프로그램 개체는 모든 테넌트에서 사용하기 위한 응용 프로그램의 *글로벌* 표현으로 그리고 서비스 주체는 특정 테넌트에서 사용하기 위한 *로컬* 표현으로 생각할 수 있습니다. 응용 프로그램 개체는 해당 서비스 주체 개체 만들기에 사용하기 위해 공통의 기본 속성이 *파생*되는 템플릿으로 제공됩니다. 따라서 응용 프로그램 개체는 소프트웨어 응용 프로그램과 1:1 관계가 있으며 해당 서비스 주체 개체와 1:다 관계가 있습니다.

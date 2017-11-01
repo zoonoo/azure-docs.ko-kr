@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 319ee2c0f7492389bc1767aa2669dd273f8cfa1b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>OMS를 사용하여 Windows Server 컨테이너 모니터링
 
 ## <a name="oms-containers-solution"></a>OMS 컨테이너 솔루션
 
-OMS(Operations Management Suite) 팀은 컨테이너의 모니터링 및 진단을 위해 컨테이너 솔루션을 게시했습니다. 이 솔루션은 Service Fabric 솔루션과 함께 Service Fabric에서 조정된 컨테이너 배포를 모니터링하기 위한 유용한 도구입니다. 다음은 이 솔루션의 대시보드 모습을 보여 주는 간단한 예입니다.
+OMS(Operations Management Suite) Log Analytics에는 컨테이너를 모니터링하는 데 사용할 수 있는 컨테이너 솔루션이 있습니다. 이 솔루션은 Service Fabric 솔루션과 함께 Service Fabric에서 조정된 컨테이너 배포를 모니터링하기 위한 유용한 도구입니다. 다음은 이 솔루션의 대시보드 모습을 보여 주는 간단한 예입니다.
 
 ![기본 OMS 대시보드](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -40,7 +40,7 @@ OMS(Operations Management Suite) 팀은 컨테이너의 모니터링 및 진단�
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1. Service Fabric 클러스터 설정
 
-[여기](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample)에 나오는 Azure Resource Manager 템플릿을 사용하여 클러스터를 만듭니다. 고유한 OMS 작업 영역 이름을 추가해야 합니다. 또한 이 템플릿은 기본적으로 Service Fabric의 미리 보기 빌드(v255.255)에 클러스터를 배포합니다. 즉, 이 빌드는 프로덕션 환경에서 사용할 수 없으며 다른 Service Fabric 버전으로 업그레이드할 수 없습니다. 장기적으로 또는 프로덕션 환경에서 이 템플릿을 사용하려는 경우 버전을 안정적인 버전 번호로 변경합니다.
+[여기](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows)에 나오는 Azure Resource Manager 템플릿을 사용하여 클러스터를 만듭니다. 고유한 OMS 작업 영역 이름을 추가해야 합니다. 또한 이 템플릿은 기본적으로 Service Fabric의 미리 보기 빌드(v255.255)에 클러스터를 배포합니다. 즉, 이 빌드는 프로덕션 환경에서 사용할 수 없으며 다른 Service Fabric 버전으로 업그레이드할 수 없습니다. 장기적으로 또는 프로덕션 환경에서 이 템플릿을 사용하려는 경우 버전을 안정적인 버전 번호로 변경합니다.
 
 클러스터가 설정되면 적절한 인증서를 설치했는지와 클러스터에 연결할 수 있는지 확인합니다.
 

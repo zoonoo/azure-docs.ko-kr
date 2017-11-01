@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning Workbench에서 가장 짧은 기간 동안 가장 높은 정확도의 실행을 확인하는 방법 | Microsoft Docs"
+title: "Azure Machine Learning Workbench에서 가장 짧은 기간 동안 가장 높은 정확도의 실행 확인 | Microsoft Docs"
 description: "Azure Machine Learning Workbench를 사용하여 CLI를 통해 최고의 정확도를 찾는 종단 간 사용 사례"
 services: machine-learning
 author: totekp
@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 9e5c2cc0b9ec17154c5280850d971308abfc2eb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
-# <a name="how-to-find-runs-with-the-best-accuracy-and-lowest-duration"></a>가장 짧은 기간 동안 가장 높은 정확도의 실행을 확인하는 방법
-다수의 실행 중 한 가지 사용 사례는 최고 정확도의 실행을 찾는 것입니다. 한 가지 방법은 [JMESPath](http://jmespath.org/) 쿼리와 함께 CLI(명령줄 인터페이스 )를 사용하는 것입니다. Azure CLI에서 JMESPath를 사용하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)를 참조하세요. 다음 예제에서는 정밀도 값이 0, 0.98, 1, 1인 네 개의 실행이 작성됩니다. `Threshold = .03`인 `[MaxAccuracy-Threshold, MaxAccuracy]` 범위에 있으면 실행이 필터링됩니다.
+# <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>가장 짧은 기간 동안 가장 높은 정확도의 실행 확인
+다수의 실행 중 한 가지 사용 사례는 최고 정확도의 실행을 찾는 것입니다. 한 가지 방법은 [JMESPath](http://jmespath.org/) 쿼리와 함께 CLI(명령줄 인터페이스 )를 사용하는 것입니다. Azure CLI에서 JMESPath를 사용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0에서 JMESPath 쿼리 사용](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조하세요. 다음 예제에서는 정밀도 값이 0, 0.98, 1, 1인 네 개의 실행이 작성됩니다. `Threshold = .03`인 `[MaxAccuracy-Threshold, MaxAccuracy]` 범위에 있으면 실행이 필터링됩니다.
 
 ## <a name="sample-data"></a>샘플 데이터
-`Accuracy` 값이 있는 기존 실행이 없는 경우 아래 단계에서 쿼리를 위한 실행을 생성합니다.
+`Accuracy` 값을 사용하는 기존 실행이 없는 경우 다음 단계에서 쿼리를 위한 실행을 생성합니다.
 
-먼저 워크벤치에서 Python 파일을 만들고 이름을 `log_accuracy.py`로 지정하고 다음 코드를 붙여넣습니다.
+먼저 Azure Machine Learning Workbench에서 Python 파일을 만들고 이름을 `log_accuracy.py`로 지정한 후 다음 코드를 붙여 넣습니다.
 ```python
 from azureml.logging import get_azureml_logger
 
@@ -45,9 +45,9 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-마지막으로 워크벤치에서 CLI를 열고 `python run.py` 명령을 실행하여 네 가지 실험을 제출합니다. 스크립트가 끝나면 `Run History` 탭에 네 가지 실행이 더 표시됩니다.
+마지막으로 Workbench에서 CLI를 열고 `python run.py` 명령을 실행하여 네 가지 실험을 제출합니다. 스크립트가 끝나면 `Run History` 탭에 네 가지 실행이 더 표시됩니다.
 
-## <a name="querying-the-run-history"></a>실행 기록 쿼리하기
+## <a name="query-the-run-history"></a>실행 기록 쿼리
 첫 번째 명령은 최대 정확도 값을 찾습니다.
 ```powershell
 az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -58,9 +58,9 @@ az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> 엄격한 상한값 확인을 원할 경우 쿼리 형식은 다음과 같습니다. ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> 엄격한 상한값 확인을 원할 경우 쿼리 형식은 ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``입니다.
 
-Powershell을 사용하는 경우 아래 코드는 로컬 변수를 사용하여 임계값 및 최대 정확도를 저장합니다.
+Powershell을 사용하는 경우 다음 코드는 로컬 변수를 사용하여 임계값 및 최대 정확도를 저장합니다.
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -69,4 +69,4 @@ az ml history list --query $find_runs_query
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 로깅에 대한 자세한 내용은 [Azure Machine Learning Workbench의 실행 기록 및 모델 메트릭을 사용하는 방법](how-to-use-run-history-model-metrics.md)을 참조하세요.    
+로깅에 대한 자세한 내용은 [Azure Machine Learning Workbench의 실행 기록 및 모델 메트릭을 사용하는 방법](how-to-use-run-history-model-metrics.md)을 참조하세요.    

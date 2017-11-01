@@ -3,7 +3,7 @@ title: "Azure Functions에서 프록시 사용 | Microsoft Docs"
 description: "Azure Functions 프록시를 사용하는 방법의 개요"
 services: functions
 documentationcenter: 
-author: mattchenderson
+author: alexkarcher-msft
 manager: cfowler
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: mahender
-ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alkarche
+ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Azure Functions 프록시 사용(미리 보기)
 
@@ -28,18 +28,6 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 Azure Functions 프록시를 구성하고 사용하는 방법을 설명합니다. 이 기능을 사용하면 다른 리소스에서 구현된 함수 앱에 끝점을 지정할 수 있습니다. 이러한 프록시를 사용하면 클라이언트에 대해 단일 API 화면을 계속 제공하면서 큰 API를 여러 개의 함수 앱으로 나눌 수 있습니다(마이크로 서비스 아키텍처 참조).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-
-## <a name="enable"></a>Azure Functions 프록시 사용
-
-프록시는 기본적으로 사용하도록 설정되어 있지 않습니다. 이 기능이 사용되지 않도록 설정된 동안에도 프록시를 만들 수 있지만 실행되지 않습니다. 프록시를 사용하도록 설정하려면 다음을 수행합니다.
-
-1. [Azure Portal]을 열고 함수 앱으로 이동합니다.
-2. **함수 앱 설정**을 선택합니다.
-3. **Azure Functions 프록시 사용(미리 보기)**을 **설정**으로 지정합니다.
-
-새 기능을 사용할 수 있게 되면 여기로 돌아와 프록시 런타임을 업데이트할 수도 있습니다.
-
 
 ## <a name="create"></a>프록시 만들기
 
@@ -206,6 +194,16 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 ```
 > [!NOTE] 
 > 이 예제에서 분문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
+
+## <a name="enable"></a>Azure Functions 프록시 사용
+
+이제 프록시는 기본적으로 사용하도록 설정됩니다. 이전 버전의 프록시 미리 보기를 사용하고 있으며 프록시를 사용하지 않도록 설정한 경우 프록시 실행을 위해 수동으로 프록시를 한 번 사용하도록 설정해야 합니다.
+
+1. [Azure Portal]을 열고 함수 앱으로 이동합니다.
+2. **함수 앱 설정**을 선택합니다.
+3. **Azure Functions 프록시 사용(미리 보기)**을 **설정**으로 지정합니다.
+
+새 기능을 사용할 수 있게 되면 여기로 돌아와 프록시 런타임을 업데이트할 수도 있습니다.
 
 [Azure Portal]: https://portal.azure.com
 [HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

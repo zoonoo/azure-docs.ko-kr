@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
-이 문서에서는 데이터 관리 게이트웨이를 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
+이 문서에서는 데이터 관리 게이트웨이/통합을 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
 
 > [!NOTE]
-> 이 문서에서는 사용자가 이미 데이터 관리 게이트웨이에 대한 기본 사항을 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
+> 이 문서에서는 사용자가 이미 Integration Runtime(이전의 데이터 관리 게이트웨이)에 대한 기본 사항을 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
 
 >**이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다**. 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
 
@@ -155,14 +155,21 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 - 고가용성을 보장하려면 노드를 둘 이상 추가합니다.  
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 인증서 요구 사항
-게이트웨이 노드 간의 통신 보안에 사용되는 TLS/SSL 인증서에 대한 요구 사항은 다음과 같습니다.
+Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증서에 대한 요구 사항은 다음과 같습니다.
 
-- 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다.
-- 모든 게이트웨이 노드에서 이 인증서를 신뢰해야 합니다. 
-- 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
+- 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다. 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
+- 각 Integration Runtime 노드는 자격 증명 관리자 응용 프로그램을 실행하는 클라이언트 컴퓨터 뿐만 아니라 이 인증서를 신뢰해야 합니다. 
+> [!NOTE]
+> 자격 증명 관리자 응용 프로그램은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/개인 데이터 저장소와 동일한 네트워크 내의 어떤 컴퓨터에서도 실행할 수 있습니다.
+- 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
+- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.
-- CNG 키를 사용하는 인증서는 지원하지 않습니다.
-- 와일드카드 인증서가 지원됩니다. 
+- CNG 키를 사용하는 인증서는 지원되지 않습니다. CNG 키를 사용하는 인증서는 지원되지 않습니다.
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>FAQ: 언제 이 암호화를 사용하지 않도록 설정하나요?
+암호화를 사용하도록 설정하며 인프라에 특정 비용이 추가되므로(공용 인증서 소유) 다음과 같은 경우에는 암호화를 사용하도록 설정하지 않아도 됩니다.
+- Integration Runtime이 신뢰할 수 있는 네트워크 또는 IP/Sec 같은 투명한 암호화가 사용되는 네트워크에서 실행되는 경우. 이 채널 통신이 신뢰할 수 있는 네트워크 내로 제한되므로 추가 암호화는 필요하지 않을 수 있습니다.
+- Integration Runtime이 프로덕션 환경에서 실행되지 않는 경우. TLS/SSL 인증서 비용을 줄이는 데 도움이 될 수 있습니다.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>다중 노드 게이트웨이 모니터링

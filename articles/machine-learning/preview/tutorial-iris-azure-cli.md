@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/15/2017
+ms.openlocfilehash: 453c774c97b77dd7829a50fa5e5668d06f817a1d
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -73,86 +73,91 @@ PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 
 그런 다음 Azure 리소스에 액세스하여 관리하도록 CLI에서 올바른 컨텍스트를 설정해야 합니다.
  
-```bash
-az login
-az account set -s d128f140-94e6-1206-80a7-954b9d27d007
+```azure-cli
+# log in
+$ az login
+
+# list all subscriptions
+$ az account list -o table
+
+# set the current subscription
+$ az account set -s <subscription id or name>
 ```
 
-> [!TIP]
-> 모든 구독 목록을 가져오려면 다음을 실행합니다. 
->```
->az account list -o table
->```
-
 ## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>2단계. 새 Azure Machine Learning 실험 계정 및 작업 영역 만들기
-새로운 실험 계정과 작업 영역을 만드는 것으로 시작합니다. 실험 계정 및 작업 영역에 대한 자세한 내용은 [Azure Machine Learning 개념](overview-general-concepts.md)을 참조하세요. 
+새로운 실험 계정과 작업 영역을 만드는 것으로 시작합니다. 실험 계정 및 작업 영역에 대한 자세한 내용은 [Azure Machine Learning 개념](overview-general-concepts.md)을 참조하세요.
 
 > [!NOTE]
-> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 실험 계정 이름은 새 저장소 계정을 대신 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"amlsampleexp라는 저장소 계정이 이미 사용되었습니다."_라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 사용할 수 있습니다.
+> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 기존 저장소 계정을 지정하지 않으면 실험 계정 이름이 새 저장소 계정을 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"\<storage_account_name>이라는 저장소 계정이 이미 사용되었습니다."_라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 제공할 수 있습니다.
 
-```bash
-az group create --name amlsample --location eastus2
-az ml account experimentation create --name amlsampleexp --resource-group amlsample
-az ml account experimentation create --name amlsampleexp --resource-group amlsample --storage /subscriptions/6d48cffb-b787-47bd-8d20-1696afa33b67/resourceGroups/existing/providers/Microsoft.Storage/storageAccounts/mystorageacct
-az ml workspace create --name amlsamplew --account amlsampleexp --resource-group amlsample
+```azure-cli
+# create a resource group 
+$ az group create --name <resource group name> --location <supported Azure region>
+
+# create a new experimentation account with a new storage account
+$ az ml account experimentation create --name <experimentation account name> --resource-group <resource group name>
+
+# create a new experimentation account with an existing storage account
+$ az ml account experimentation create --name <experimentation account name>  --resource-group <resource group name> --storage <storage account Azure Resource ID>
+
+# create a workspace in the experimentation account
+az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
 ## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>2.a단계(선택 사항) 공동 작업자와 작업 영역 공유
 여기서는 작업 영역에 대한 액세스를 공동 작업자와 공유하는 방법을 살펴봅니다. 실험 계정 또는 프로젝트에 대한 액세스를 공유하는 단계는 동일합니다. Azure 리소스 ID를 가져오는 방법만 업데이트해야 합니다.
 
-```bash
-az ml workspace show --name amlsamplew --account amlsampleexp --resource-group amlsample 
-az role assignment create --assignee ahgyger@microsoft.com --role owner --scope "/subscriptions/d128f140-94e6-4175-87a7-954b9d27db16/resourceGroups/amlsample/providers/Microsoft.MachineLearningExperimentation/accounts/amlsampleexp/workspaces/amlsamplew"
+```azure-cli
+# find the workspace Azure Resource ID
+$az ml workspace show --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
+
+# add Bob to this workspace as a new owner
+$az role assignment create --assignee bob@contoso.com --role owner --scope <workspace Azure Resource ID>
 ```
 
 > [!TIP]
-> 공동 작업자의 별칭이 아닌 실제 이메일 주소를 사용해야 합니다. 
+> 위 명령의 `bob@contoso.com`은 현재 구독이 속하는 디렉터리의 유효한 Azure AD identity여야 합니다.
 
 ## <a name="step-3-create-a-new-project"></a>3단계. 새 프로젝트 만들기
 다음 단계는 새 프로젝트를 만드는 것입니다. 새 프로젝트를 시작하는 데는 여러 가지 방법이 있습니다.
 
 ### <a name="create-a-new-blank-project"></a>비어 있는 새 프로젝트 만들기
 
-```bash
-az ml project create --name 9_25_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\
+```azure-cli
+# create a new project
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path>
 ```
 
-### <a name="create-a-new-project-with-template-files"></a>템플릿 파일을 사용하여 새 프로젝트 만들기
-템플릿 파일은 샘플이 아니지만 새 프로젝트에 프레임을 제공합니다. 프로젝트에는 `train.py`과 `score.py`의 두 파일이 미리 채워져 있습니다.
+### <a name="create-a-new-project-with-a-default-project-template"></a>기본 프로젝트 템플릿을 사용하여 새 프로젝트 만들기
+기본 템플릿을 사용하여 새 프로젝트를 만들 수 있습니다.
 
-```bash
-az ml project create --name 9_25_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --template
+```azure-cli
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>클라우드 Git 리포지토리와 연결된 새 프로젝트 만들기
-클라우드 Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 실행 기록 분기에서 프로젝트 콘텐츠의 스냅숏이 Git 커밋으로 만들어집니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
+VSTS(Visual Studio Team Service) Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Machine Learning에서는 버전 관리로 Git를 사용하여 빈 팀 프로젝트(VSTS)만 지원합니다.
+> Azure Machine Learning은 VSTS에서 만들어진 빈 Git 리포지토리만 지원합니다.
 
+```azure-cli
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+```
 > [!TIP]
-> "리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음"이라는 오류가 발생하는 경우, VSTS(보안, 개인 액세스 토큰 추가)에서 보안 토큰을 만들고, 프로젝트를 만들 때 __vststoken__ 인수를 사용할 수 있습니다. 
+> "리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음"이라는 오류가 발생하는 경우, VSTS(_보안_, _개인 액세스 토큰 추가_ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 
 
-```bash
-az ml project create --name 9_25_2 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --repo https://ahgyger.visualstudio.com/AMLWorkbench/_git/9_25 --vststoken m2fholwwrcn7u4nrdqfxx007u5rztjfhgofnemvuvtue6pbwo3sa
+### <a name="sample_create"></a>샘플에서 새 프로젝트 만들기
+이 예제에서는 샘플 프로젝트를 템플릿으로 사용하여 새 프로젝트를 만듭니다.
+
+```azure-cli
+# List the project samples, find the Classifying Iris sample
+$ az ml project sample list
+
+# Create a new project from the sample
+az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
 ```
-
-### <a name="sample_create"></a>온라인 샘플에서 새 프로젝트 만들기
-이 예제에서는 GitHub 프로젝트의 템플릿을 사용하며, 새 프로젝트를 만들 때 이 템플릿을 사용합니다. 
-
-```bash
-# List the project samples
-az ml project sample list
-
-# Create a new project from a sample
-az ml project create --name 9_25_3 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\ --repo https://ahgyger.visualstudio.com/AMLWorkbench/_git/9_25 --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
-```
-
-프로젝트를 만들었으면 다음 단계로 진행하기 전에 디렉터리를 변경합니다.
-
-```bash
-cd c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\9_25_1
-```
+프로젝트를 만든 후 `cd` 명령을 사용하여 프로젝트 디렉터리로 이동합니다.
 
 ## <a name="step-4-run-the-training-experiment"></a>4 단계 학습 실험 실행 
 아래 단계에서는 아이리스 샘플이 포함된 프로젝트가 있다고 가정합니다([온라인 샘플에서 새 프로젝트 만들기](#sample_create) 참조).
@@ -160,95 +165,95 @@ cd c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\9_25_1
 ### <a name="prepare-your-environment"></a>환경 준비 
 아이리스 샘플의 경우 matplotlib을 설치해야 합니다.
 
-```bash
-pip install matplotlib
+```azure-cli
+$ pip install matplotlib
 ```
 
 ###  <a name="submit-the-experiment"></a>실험 제출
 
-```bash
+```azure-cli
 # Execute the file
-az ml experiment submit --run-configuration local iris_sklearn.py
+$ az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
 ### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>내림차순 정규화 속도로 실험 반복
 몇 가지 창의적인 기능을 사용하면 다양한 정규화 속도로 실험을 제출하는 Python 스크립트를 쉽게 준비할 수 있습니다. (올바른 프로젝트 경로를 가리키도록 파일을 편집해야 할 수도 있습니다.)
 
-```bash
-python run.py
+```azure-cli
+$ python run.py
 ```
 
 ## <a name="step-5-view-run-history"></a>5단계. 실행 기록 보기
 다음 명령은 실행된 이전 실행을 모두 나열합니다. 
 
-```bash
-az ml history list -o table
+```azure-cli
+$ az ml history list -o table
 ```
 위의 명령을 실행하면 이 프로젝트에 속한 모든 실행의 목록이 표시됩니다. 정확도 및 정규화 속도 메트릭도 나열되어 있음을 알 수 있습니다. 이렇게 하면 목록에서 최상의 실행을 쉽게 파악할 수 있습니다.
 
 ## <a name="step-5a-view-attachment-created-by-a-given-run"></a>5.a단계 지정된 실행으로 만든 첨부 파일 보기 
-특정 실행과 관련된 첨부 파일을 보려면 실행 기록 info 명령을 사용할 수 있습니다.
+특정 실행과 관련된 첨부 파일을 보려면 실행 기록 info 명령을 사용할 수 있습니다. 위의 목록에서 특정 실행의 실행 ID를 찾습니다.
 
-```bash
-az ml history info --run 9_16_4_1505589545267 --artifact driver_log
+```azure-cli
+$ az ml history info --run <run id> --artifact driver_log
 ```
 
 실행에서 아티팩트를 다운로드하려면 다음 명령을 사용할 수 있습니다.
 
-```bash
+```azure-cli
 # Stream a given attachment 
-az ml history info --run <run id> --artifact <artifact location>
+$ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## <a name="step-6-promote-artifacts-of-a-run"></a>6단계. 실행의 아티팩트 승격 
 만든 실행 중 하나에 더 나은 AUC가 있으므로 이를 사용하여 프로덕션 환경에 배포할 점수 매기기 웹 서비스를 만들려고 합니다. 이렇게 하려면 먼저 아티팩트를 자산으로 승격해야 합니다.
 
-```bash
-az ml history promote --run 9_25_1505346632975 --artifact-path outputs/model.pkl --name model.pkl
+```azure-cli
+$ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
 ```
 
-이렇게 하면 프로젝트 디렉터리에 pickle.link가 포함된 __assets__ 폴더가 생성됩니다. 이 링크 파일은 승격된 파일의 버전을 추적하는 데 사용됩니다.
+이렇게 하면 `model.pkl.link` 파일을 포함하는 프로젝트 디렉터리에 `assets` 폴더가 만들어집니다. 이 링크 파일은 승격된 자산을 참조하는 데 사용됩니다.
 
 ## <a name="step-7-download-the-files-to-be-operationalized"></a>7단계. 조작 가능한 파일 다운로드
-이제 예측 웹 서비스를 만드는 데 사용할 수 있도록 승격된 파일을 다운로드해야 합니다. 
+이제 예측 웹 서비스를 만드는 데 사용할 수 있도록 승격된 모델을 다운로드해야 합니다. 
 
-```bash
-az ml asset download --link-file assets\pickle.link -d asset_download
+```azure-cli
+$ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
 ## <a name="step-8-setup-your-model-management-environment"></a>8단계: 모델 관리 환경 설정 
 웹 서비스를 배포할 환경을 만듭니다. Docker를 사용하여 로컬 컴퓨터에서 웹 서비스를 실행할 수 있습니다. 또는 대규모 작업을 위해 ACS 클러스터에 배포합니다. 
 
-```bash
-# Create new environment
-az ml env setup -l eastus2 -n amlsamplesenv
+```azure-cli
+# Create new local operationalization environment
+$ az ml env setup -l <supported Azure region> -n <env name>
 # Once setup is complete, set your environment for current context
-az ml env set -g amlsamplesenvrg -n amlsamplesenv
+$ az ml env set -g <resource group name> -n <env name>
 ```
 
 ## <a name="step-9-create-a-model-management-account"></a>9단계. 모델 관리 계정 만들기 
 모델 관리 계정은 프로덕션 환경에서 모델을 배포하고 추적하는 데 필요합니다. 
 
-```bash
-az ml account modelmanagement create -n amlsamplesacct -g amlsamplesenvrg -l eastus2
+```azure-cli
+$ az ml account modelmanagement create -n <model management account name> -g <resource group name> -l <supported Azure region>
 ```
 
 ## <a name="step-10-create-a-web-service"></a>10단계. 웹 서비스 만들기
 다음으로 배포한 모델을 사용하여 예측을 반환하는 웹 서비스를 만듭니다. 
 
-```bash
-az ml service create realtime -m modelfilename -f score.py -r python –n amlsamplews
+```azure-cli
+$ az ml service create realtime -m asset_download/model.pkl -f score.py -r python –n <web service name>
 ```
 
 ## <a name="step-10-run-the-web-service"></a>10단계. 웹 서비스 실행
 이전 단계의 결과에서 웹 서비스 ID를 사용하여 웹 서비스를 호출하고 테스트할 수 있습니다. 
 
-```
+```azure-cli
 # Get web service usage infomration
-az ml service usage realtime -i <web service id>
+$ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:
-az ml service run realtime -i <web service id> -d <input data>
+$ az ml service run realtime -i <web service id> -d <input data>
 ```
 
 ## <a name="deleting-all-the-resources"></a>모든 리소스 삭제 
@@ -256,9 +261,8 @@ az ml service run realtime -i <web service id> -d <input data>
 
 이렇게 하려면 모든 리소스를 보유한 리소스 그룹을 삭제하기만 하면 됩니다. 
 
-```bash
-az group delete --name amlsample
-az group delete --name amlsamplesenvrg
+```azure-cli
+az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -271,4 +275,3 @@ az group delete --name amlsamplesenvrg
 > * 모델 관리용 모델 관리 계정 만들기
 > * 웹 서비스를 배포할 환경 만들기
 > * 웹 서비스 배포 및 새 데이터로 점수 매기기
-

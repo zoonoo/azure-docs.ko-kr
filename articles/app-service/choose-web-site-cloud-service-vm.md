@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, 가상 컴퓨터, Service Fabric 및 Cloud Services 비교
 ## <a name="overview"></a>개요
@@ -40,7 +40,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | 다시 배포하지 않고 대규모 컴퓨터로 확장 |X | | |X | |
 | 웹 서버 인스턴스는 콘텐츠와 구성을 공유하므로 확장 시 다시 배포하거나 다시 구성하지 않아도 됩니다. |X | | |X | |
 | 여러 배포 환경(프로덕션 및 스테이징) |X |X | |X |Service Fabric을 사용하면 앱에 대해 여러 환경을 유지하거나 여러 버전의 앱을 함께 배포할 수 있습니다. |
-| 자동 OS 업데이트 관리 |X |X | | |자동 OS 업데이트는 향후 Service Fabric 릴리스에서 제공될 예정입니다. |
+| 자동 OS 업데이트 관리 |X |X | | |POA(패치 오케스트레이션 응용 프로그램)를 통해 부분적으로 사용 가능하며 향후 완전히 지원될 예정입니다. |
 | 원활한 플랫폼 전환(32비트와 64비트 간을 쉽게 이동) |X |X | | | |
 | GIT, FTP를 사용하여 코드 배포 |X | |X | | |
 | 웹 배포를 사용하여 코드 배포 |X | |X | |Cloud Services에서는 웹 배포를 사용하여 개별 역할 인스턴스로 업데이트를 배포할 수 있습니다. 그러나 역할의 초기 배포에는 웹 배포를 사용할 수 없으며 업데이트에 웹 배포를 사용하는 경우에는 각 역할 인스턴스로 업데이트를 개별 배포해야 합니다. 프로덕션 환경의 클라우드 서비스 SLA를 충족하려면 여러 인스턴스가 필요합니다. |

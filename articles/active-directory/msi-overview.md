@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 10/17/2017
 ms.author: skwan
-ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 
@@ -51,11 +51,14 @@ Azure 가상 컴퓨터에서 관리 서비스 ID가 작동하는 방식의 예�
 | MSI 사용 리소스에서 | 학습할 방법 |
 | ------- | -------- |
 | Azure VM(Windows) | [Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 SAS를 통해 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure SQL 액세스](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Windows VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-windows-vm-access-nonaad.md) |
 | Azure VM(Linux)   | [Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [Linux VM 관리 서비스 ID를 사용하여 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [Linux VM 관리 서비스 ID를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-linux-vm-access-nonaad.md) |
+|                    | [Linux VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [ VM 관리 서비스 ID를 사용하여 SAS를 통해 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Linux VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure 앱 서비스  | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 
@@ -82,6 +85,7 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 | Azure 리소스 관리자 | https://management.azure.com/ | 사용 가능 | 2017년 9월 | [Azure 포털](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
 | Azure 키 자격 증명 모음 | https://vault.azure.net/ | 사용 가능 | 2017년 9월 | |
 | Azure 데이터 레이크 | https://datalake.azure.net/ | 사용 가능 | 2017년 9월 | |
+| Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 10월 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>관리 서비스 ID의 비용은 어느 정도인가요?
 

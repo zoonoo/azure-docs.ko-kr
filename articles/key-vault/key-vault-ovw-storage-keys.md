@@ -8,12 +8,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/14/2017
-ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/12/2017
+ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 
@@ -25,7 +25,7 @@ Azure Storage 계정에 대한 일반적인 내용은 [Azure storage 계정 정�
 
 ## <a name="supporting-interfaces"></a>인터페이스 지원
 
-Azure Storage 계정 키 기능은 처음에 REST, .NET/C# 및 PowerShell 인터페이스를 통해 제공됩니다. 자세한 내용은 [Key Vault 참조](https://docs.microsoft.com/azure/key-vault/)를 참조하세요.
+[Key Vault 개발자 가이드](key-vault-developers-guide.md#coding-with-key-vault)에서 프로그래밍 및 스크립팅 인터페이스의 전체 목록 및 해당 링크를 찾을 수 있습니다.
 
 
 ## <a name="what-key-vault-manages"></a>Key Vault에서 관리하는 사항
@@ -99,15 +99,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>RBAC(역할 기반 액세스 제어) 권한 설정
 
-Key Vault에 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 다음 단계를 따라 이러한 권한을 설정하세요.
+Azure Key Vault 응용 프로그램 ID는 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 다음 단계를 따라 이러한 권한을 설정하세요.
 
-- Key Vault의 ObjectId를 가져옵니다. 
+- Azure Key Vault ID의 ObjectId 가져오기: 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     또는
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Azure Key Vault ID에 저장소 키 운영자 역할을 할당합니다. 
 
@@ -131,14 +127,14 @@ Key Vault에 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 �
 ### <a name="get-a-service-principal"></a>서비스 주체 가져오기
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-위 명령의 출력에는 ServicePrincipal(이름: *yourServicePrincipalId*)이 포함됩니다. 
+위 명령의 출력에는 ServicePrincipal(이름: *yourKeyVaultServicePrincipalId*)이 포함됩니다. 
 
 ### <a name="set-permissions"></a>권한 설정
 
-저장소 권한을 *모두*로 설정했는지 확인합니다. 다음 명령을 사용하여 yourUserPrincipalId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
+저장소 권한을 *모두*로 설정했는지 확인합니다. 다음 명령을 사용하여 yourKeyVaultServicePrincipalId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
 
 ```powershell
 Get-AzureRmADUser -SearchString "your name"
@@ -146,7 +142,7 @@ Get-AzureRmADUser -SearchString "your name"
 이제 자신의 이름을 검색하고 관련된 ObjectId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>액세스 허용
@@ -154,7 +150,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincip
 관리되는 저장소 계정 및 SAS 정의를 만들려면 먼저 Key Vault 서비스에 저장소 계정 액세스 권한을 제공해야 합니다.
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### <a name="create-storage-account"></a>저장소 계정 만들기

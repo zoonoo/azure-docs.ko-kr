@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d62bc24a0439aa8c11ced9d5f42917f9b6de1f24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>지속성 함수의 상태 저장 단일 항목 - Counter 샘플
 
@@ -67,12 +67,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > `ContinueAsNew` 메서드에는 영구 오케스트레이션 이외의 다른 사용 사례가 있습니다. 자세한 내용은 [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)을 참조하세요.
 
-## <a name="running-the-sample"></a>샘플 실행
+## <a name="run-the-sample"></a>샘플 실행
 
-샘플에 포함된 HTTP 트리거 함수를 사용하면 다음 HTTP POST 요청을 통해 오케스트레이션을 시작할 수 있습니다. `counterState`가 0(`int`의 기본값)에서 시작될 수 있도록 이 요청에는 내용이 없습니다.
+다음 HTTP POST 요청을 전송하여 오케스트레이션을 시작할 수 있습니다. `counterState`가 0(`int`의 기본값)에서 시작될 수 있도록 이 요청에는 내용이 없습니다.
 
 ```
-POST http://{host}/orchestrators/E3_Counter HTTP/1.1
+POST http://{host}/orchestrators/E3_Counter
 Content-Length: 0
 ```
 
@@ -82,13 +82,17 @@ Content-Length: 719
 Content-Type: application/json; charset=utf-8
 Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{
+  "id":"bcf6fb5067b046fbb021b52ba7deae5a",
+  "statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 **E3_Counter** 인스턴스가 시작되는 즉시 `RaiseEventAsync`를 사용하거나 202 응답에서 참조된 **sendEventUrl** HTTP POST 웹후크를 사용하여 이벤트를 보낼 때까지 기다립니다. 유효한 `eventName` 값에는 *incr*, *decr* 및 *end*가 포함됩니다.
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
+POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Type: application/json
 Content-Length: 6
 
@@ -128,14 +132,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 > [!WARNING]
 > 이 문서를 작성하는 시점에서 외부 이벤트 또는 종료 요청과 같은 메시지를 동시에 처리하는 동안 `ContinueAsNew`를 호출할 때 알려진 경합 상태가 있습니다. 이러한 경합 상태에 대한 최신 정보는 이 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues/67)를 참조하세요.
 
-## <a name="wrapping-up"></a>요약
-
-이 시점에서 지속성 함수의 고급 기능 중 일부, 특히 `WaitForExternalEvent` 및 `ContinueAsNew`를 더 잘 이해할 수 있습니다. 이러한 도구를 사용하면 카운터 및 집계기와 같은 다양한 형태의 "상태 저장 단일 항목"을 작성할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
+
+이 샘플은 [외부 이벤트](durable-functions-external-events.md)를 처리하고 [상태 저장 단일 항목](durable-functions-singletons.md)에서 [내부 오케스트레이션](durable-functions-eternal-orchestrations.md)을 구현합니다. 다음 샘플에서는 외부 이벤트 및 [지속형 타이머](durable-functions-timers.md)를 사용하여 인간 상호 작용을 처리하는 방법을 보여 줍니다.
 
 > [!div class="nextstepaction"]
 > [인간 상호 작용 샘플 실행](durable-functions-phone-verification.md)
-
-
-

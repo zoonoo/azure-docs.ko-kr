@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 9eacb57b5a00ff11739695ed3311be0c638ba25f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22e4d491bfb9e61294ccdaaa36abbf38b9b662ac
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell 기능 및 도구
 
@@ -91,7 +91,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 |**범주**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure 도구     |[Azure PowerShell(4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
+|Azure 도구     |[Azure PowerShell(4.4.0)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)<br> [Azure CLI(2.0.18)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |텍스트 편집기    |vim<br> nano                             |
 |패키지 관리자 |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |소스 제어  |git                                      |
@@ -109,5 +109,6 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md) <br>
+[Azure Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md)
+
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/)

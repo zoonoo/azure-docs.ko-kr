@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -76,7 +76,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 ### <a name="syntax"></a>구문
 
-다음 복사 작업의 템플릿은 모두 사용된 지원 속성의 목록입니다. 시나리오에 적합한 항목을 지정합니다.
+복사 작업의 다음 템플릿은 지원되는 속성의 전체 목록을 포함합니다. 시나리오에 적합한 속성을 지정하세요.
 
 ```json
 "activities":[
@@ -107,7 +107,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
             "translator":
             {
                 "type": "TabularTranslator",
-                "ColumnMappings": "<column mapping>"
+                "columnMappings": "<column mapping>"
             },
             "cloudDataMovementUnits": <number>,
             "parallelCopies": <number>,

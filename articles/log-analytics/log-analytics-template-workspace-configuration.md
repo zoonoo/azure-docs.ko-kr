@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -36,6 +36,17 @@ ms.lasthandoff: 10/11/2017
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
 이 문서에서는 템플릿에서 수행할 수 있는 몇 가지 구성을 보여 주는 템플릿 샘플을 제공합니다.
+
+## <a name="api-versions"></a>API 버전
+이 문서의 예제는 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)에 대한 것입니다.  레거시 작업 영역을 사용하려면 쿼리 구문을 레거시 언어로 변경하고 각 리소스에 대한 API 버전을 변경해야 합니다.  다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
+
+| 리소스 | 리소스 종류 | 레거시 API 버전 | 업그레이드된 API 버전 |
+|:---|:---|:---|:---|
+| 작업 영역   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
+| 검색      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| 데이터 원본 | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| 해결 방법    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
 다음 템플릿 샘플에서는 다음 작업의 방법을 보여 줍니다.
@@ -122,7 +133,7 @@ ms.lasthandoff: 10/11/2017
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -134,7 +145,7 @@ ms.lasthandoff: 10/11/2017
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -144,7 +155,7 @@ ms.lasthandoff: 10/11/2017
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

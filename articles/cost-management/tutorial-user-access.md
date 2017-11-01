@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -49,6 +49,8 @@ Azure 계약 또는 계정을 등록할 때 관리자 권한이 있는 계정이
 
 ![사용자 액세스 권한 이 있는 새 사용자 추가](.\media\tutorial-user-access\new-user-access.png)
 
+사용자를 추가하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
+
 ## <a name="create-entities"></a>엔터티 만들기
 
 비용 엔터티 계층 구조를 정의할 때 조직의 구조를 식별하는 것이 좋습니다.
@@ -67,6 +69,10 @@ Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 
 
 완료되면 엔터티를 **저장**합니다.
 
+
+비용 엔터티 계층 구조를 만드는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 비용 엔터티 계층 구조 만들기](https://youtu.be/dAd9G7u0FmU)를 참조하세요.
+
+Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

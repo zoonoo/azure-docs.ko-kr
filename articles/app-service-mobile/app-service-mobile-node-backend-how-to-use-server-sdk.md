@@ -3,8 +3,8 @@ title: "Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법 | Mi
 description: "Azure 앱 서비스 모바일 앱용 Node.js 백 엔드 서버 SDK를 사용하는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Azure 모바일 앱 Node.js SDK를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -793,9 +793,13 @@ Node.js 모바일 백 엔드 문제 해결에서 시작하는 다음 문서를 �
 Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세스합니다.  내부적으로 Azure 모바일 앱 Node.js SDK는 진단 로깅에 [윈스턴] 을 사용합니다.  [Azure Portal]에서 디버그 모드를 사용하거나 **MS_DebugMode** 앱 설정을 true로 설정하여 로깅이 자동으로 활성화합니다. 생성된 로그는 [Azure Portal]의 진단 로그에 표시됩니다.
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>방법: Azure 포털에서 테이블로 간편하게 작업
-포털에서 쉬운 테이블을 통해 포털에서 테이블을 만들고 작업할 수 있습니다. 앱 서비스 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다.
+포털에서 쉬운 테이블을 통해 포털에서 테이블을 만들고 작업할 수 있습니다. 데이터 집합을 CSV 형식의 쉬운 테이블로 업로드할 수 있습니다. Azure Mobile Apps 백 엔드의 시스템 속성 이름과 충돌하는 속성 이름(CSV 데이터 집합)은 사용할 수 없습니다. 시스템 속성 이름은 다음과 같습니다.
+* createdAt
+* updatedAt
+* deleted
+* 버전
 
-백 엔드 사이트 설정에서 **쉬운 테이블** 을 클릭하면 테이블을 추가, 수정 또는 삭제할 수 있습니다. 테이블의 데이터를 볼 수 있습니다.
+앱 서비스 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다. 백 엔드 사이트 설정에서 **쉬운 테이블** 을 클릭하면 테이블을 추가, 수정 또는 삭제할 수 있습니다. 테이블의 데이터를 볼 수 있습니다.
 
 ![쉬운 테이블 작업](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 

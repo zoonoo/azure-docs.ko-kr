@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 | PhysicalDisk(디스크당) | 디스크 쓰기 바이트/초 |
 | 메모리 | Available MBytes |
 | PagingFile | % 사용량 |
-| 프로세스(합계) | % Processor Time |
+| 프로세서(합계) | % Processor Time |
 | 프로세스(서비스당) | % Processor Time |
 | 프로세스(서비스당) | ID 프로세스 |
 | 프로세스(서비스당) | 프로세스 바이트 |
@@ -48,6 +48,11 @@ ms.lasthandoff: 10/11/2017
 | 프로세스(서비스당) | 가상 바이트 |
 | 프로세스(서비스당) | 작업 집합 |
 | 프로세스(서비스당) | 작업 집합 - 개인 |
+| 네트워크 인터페이스(모든 인스턴스) | Output Queue Length |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Discarded |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Received Discarded |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Errors |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Received Errors |
 
 ## <a name="net-applications-and-services"></a>.NET 응용 프로그램 및 서비스
 

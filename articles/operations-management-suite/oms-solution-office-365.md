@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Office 365 솔루션
 
@@ -280,11 +280,11 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 | 쿼리 | 설명 |
 | --- | --- |
-|Office 365 구독의 모든 작업 수 |`Type = OfficeActivity | measure count() by Operation` |
-|SharePoint 사이트 사용량|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
-|사용자 유형별 파일 액세스 작업|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
-|특정 키워드를 사용한 검색|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
-|Exchange에서 외부 작업 모니터링|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+|Office 365 구독의 모든 작업 수 |Type = OfficeActivity &#124; measure count() by Operation |
+|SharePoint 사이트 사용량|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
+|사용자 유형별 파일 액세스 작업|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|특정 키워드를 사용한 검색|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|Exchange에서 외부 작업 모니터링|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
 
 
 

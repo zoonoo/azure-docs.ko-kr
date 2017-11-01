@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dce8c3132b60b0b0c44f9f9d1e9cf01f68fa280
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
 커넥터는 Azure AD 응용 프로그램 프록시를 가능하게 만듭니다. 커넥터는 간단하고 배포 및 유지 관리가 쉬우며 기능이 매우 강력합니다. 이 문서에서는 커넥터가 무엇인지, 어떤 방식으로 작동하는지, 어떻게 하면 배포를 최적화할 수 있는지 살펴봅니다. 
 
-## <a name="what-is-an-application-proxy-connector"></a>응용 프로그램 프록시 커넥터란
+## <a name="what-is-an-application-proxy-connector"></a>응용 프로그램 프록시 커넥터란?
 
 커넥터는 온-프레미스에서 응용 프로그램 프록시 서비스로의 아웃바운드 연결을 용이하게 하는 경량 에이전트입니다. 커넥터는 백 엔드 응용 프로그램에 대한 액세스 권한이 있는 Windows Server에 설치해야 합니다. 커넥터를 커넥터 그룹으로 나누고, 각 그룹이 특정 응용 프로그램에 대한 트래픽을 처리하게 만들 수 있습니다. 커넥터는 자동으로 부하를 분산하며 네트워크 구조를 최적화하는 데 도움이 될 수 있습니다. 
 
@@ -78,10 +78,10 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*이 컴퓨터의 연결은 200개로 제한됩니다. 다른 모든 컴퓨터에서 기본적으로 연결을 200개로 제한했습니다.
+\* 이 컴퓨터의 연결은 800개로 제한됩니다. 다른 모든 컴퓨터에서 기본적으로 연결을 200개로 제한했습니다.
  
 >[!NOTE]
->기본 구성 제한은 200개입니다(2, 4, 8개 코어의 경우).  16개 코어를 테스트하는 동안 연결 제한은 800로 변경되었습니다. 4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.  
+>4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.  
 
 ## <a name="security-and-networking"></a>보안 및 네트워킹
 

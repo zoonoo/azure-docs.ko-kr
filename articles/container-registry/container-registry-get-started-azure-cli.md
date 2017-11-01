@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 레지스트리 만들기
 
@@ -43,21 +43,26 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-Azure Container Registry는 `Basic`, `Managed_Basic`, `Managed_Standard` 및 `Managed_Premium`의 몇몇 SKU에서 사용할 수 있습니다. `Managed_*` SKU는 관리되는 저장소 및 웹후크와 고급 기능을 제공하긴 하지만, 현재 미리 보기로 제공되며 일부 Azure 지역에서는 사용할 수 없습니다. 이 빠른 시작에서는 모든 지역에서 사용할 수 있는 `Basic` SKU를 선택합니다.
+이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU](container-registry-skus.md)를 참조하세요.
+
+Azure Container Registry는 `Basic`, `Managed_Basic`, `Managed_Standard` 및 `Managed_Premium`의 몇몇 SKU에서 사용할 수 있습니다. `Managed_*` SKU는 관리되는 저장소 및 웹후크와 같은 고급 기능을 제공하긴 하지만, 현재 Azure CLI를 사용할 경우 일부 Azure 지역에서 사용할 수 없습니다. 이 빠른 시작에서는 모든 지역에서 사용할 수 있는 `Basic` SKU를 선택합니다.
+
+>[!NOTE]
+> 관리되는 레지스트리는 현재 모든 지역에서 사용할 수 있습니다. 그러나 최신 버전의 Azure CLI는 모든 지역에 관리되는 레지스트리를 만들 수 있도록 아직 지원하지 않습니다. 이러한 지원은 Azure CLI의 다음 버전에서 사용할 수 있습니다. 해당 릴리스 전에는 [Azure Portal](container-registry-get-started-portal.md)을 사용하여 관리되는 레지스트리를 만드세요.
 
 [az acr create](/cli/azure/acr#create) 명령을 사용하여 ACR 인스턴스를 만듭니다.
 
 레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 레지스트리를 만들면 출력은 다음과 비슷합니다.
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -83,7 +88,7 @@ az acr create --name myContainerRegistry007 --resource-group myResourceGroup --a
 
 컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 이렇게 하려면 [az acr login](/cli/azure/acr#login) 명령을 사용합니다.
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -99,19 +104,19 @@ docker pull microsoft/aci-helloworld
 
 이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. 다음 명령을 실행하여 ACR 인스턴스의 로그인 서버 이름을 반환합니다.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 태그를 지정합니다. *<acrLoginServer>*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 마지막으로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *<acrLoginServer>*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -125,7 +130,7 @@ az acr repository list -n <acrname> -o table
 
 출력:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -139,7 +144,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 출력:
 
-```Result
+```bash
+Result
 --------
 v1
 ```

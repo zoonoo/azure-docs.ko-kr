@@ -7,13 +7,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -52,40 +52,61 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
 
-코드에서 Azure 주요 자격 증명 모음을 사용하여 작업하기 전에 다음 문서에 설명된 대로 REST, 리소스 관리자 템플릿, PowerShell 또는 CLI를 통해 자격 증명 모음을 만들고 관리할 수 있습니다.
+Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-- [REST를 사용하여 주요 자격 증명 모음 만들기 및 관리](https://docs.microsoft.com/rest/api/keyvault/)
-- [PowerShell을 사용하여 키 자격 증명 모음 만들기 및 관리](key-vault-get-started.md)
-- [CLI를 사용하여 키 자격 증명 모음 만들기 및 관리](key-vault-manage-with-cli2.md)
+MSI에 대한 자세한 내용은 [Azure 리소스용 MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)를 참조하세요.
+
+AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
+
+Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
+
+- [CLI를 사용하여 Key Vault 만들기 및 관리](key-vault-manage-with-cli2.md)
+- [PowerShell을 사용하여 Key Vault 만들기 및 관리](key-vault-get-started.md)
 - [Azure Resource Manager 템플릿을 통한 Key Vault 만들기 및 암호 추가](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [REST를 사용하여 Key Vault 만들기 및 관리](https://docs.microsoft.com/rest/api/keyvault/)
 
-> [!NOTE]
-> 주요 자격 증명 모음에 대한 작업은 AAD를 통해 인증되고 자격 증명 모음당 정의되는 주요 자격 증명 모음의 액세스 정책을 통해 권한이 부여됩니다.
 
 ## <a name="coding-with-key-vault"></a>주요 자격 증명 모음을 사용한 코딩
 
-프로그래머를 위한 키 자격 증명 모음 관리 시스템은 REST를 기반으로 여러 인터페이스로 구성됩니다. REST 인터페이스를 통해 키, 암호 및 인증서를 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. [Key Vault REST API 참조](https://docs.microsoft.com/rest/api/keyvault/). 
+프로그래머를 위한 Key Vault 관리 시스템은 인터페이스로 구성됩니다. 이 섹션에는 모든 언어에 대한 링크와 일부 코드 예제가 포함되어 있습니다. 
 
-### <a name="supported-programming-languages"></a>지원되는 프로그래밍 언어
+### <a name="supported-programming-and-scripting-languages"></a>지원되는 프로그래밍 및 스크립팅 언어
+
+#### <a name="rest"></a>REST (영문)
+
+REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
+
+[Key Vault REST API 참조](https://docs.microsoft.com/rest/api/keyvault/). 
 
 #### <a name="net"></a>.NET
 
-- [Key Vault에 대한 .NET API 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Key Vault에 대한 .NET API 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 .NET SDK의 2.x 버전에 대한 자세한 내용은 [릴리스 정보](key-vault-dotnet2api-release-notes.md)를 참조하세요.
 
 #### <a name="java"></a>자바
 
-- [Key Vault용 Java SDK](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+[Key Vault용 Java SDK](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
-Node.js에서 자격 증명 모음 관리 API와 자격 증명 모음 개체 API는 별개입니다. Key Vault 관리를 사용하면 주요 자격 증명 모음을 만들고 업데이트할 수 있습니다. Key Vault 운영 API는 키, 암호, 인증서 등의 자격 증명 모음 개체 작업에 사용됩니다. 
+Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. 다음 개요 문서에서는 둘 다에 액세스할 수 있습니다. 
 
-- [Key Vault 관리에 대한 Node.js API 참조](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Key Vault 작업에 대한 Node.js API 참조](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+[Node.js용 Azure Key Vault 모듈](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-### <a name="quick-start"></a>빠른 시작
+#### <a name="python"></a>Python
+
+[Python용 Azure Key Vault 라이브러리](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
+#### <a name="azure-cli-2"></a>Azure CLI 2
+
+[Key Vault용 Azure CLI](https://docs.microsoft.com/cli/azure/keyvault)
+
+#### <a name="azure-powershell"></a>Azure PowerShell 
+
+[Key Vault용 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+
+### <a name="quick-start-guides"></a>빠른 시작 가이드
 
 - [주요 자격 증명 모음 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Node.js에서 Key Vault 시작](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)

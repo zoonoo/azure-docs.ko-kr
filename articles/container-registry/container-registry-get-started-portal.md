@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 
@@ -39,11 +39,13 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-01]
 
-**레지스트리 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**에 ‘Classic’을 선택합니다. **만들기**를 선택하여 ACR 인스턴스를 배포합니다.
+**레지스트리 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**에 ‘Basic’을 선택합니다. **만들기**를 선택하여 ACR 인스턴스를 배포합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-03]
 
-Azure Container Registry는 `Classic`, `Basic`, `Standard` 및 `Premium`의 몇몇 SKU에서 사용할 수 있습니다. `Basic`, `Standard` 및 `Premium`은 관리되는 저장소 및 웹후크와 같은 고급 기능을 제공하긴 하지만, 현재 미리 보기로 제공되며 일부 Azure 지역에서는 사용할 수 없습니다. 이 빠른 시작에서는 모든 지역에서 사용할 수 있는 `Classic` SKU를 선택합니다.
+이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU](container-registry-skus.md)를 참조하세요.
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 **배포 성공** 메시지가 표시되면 포털에서 컨테이너 레지스트리를 선택한 다음, **선택키**를 선택합니다.
 

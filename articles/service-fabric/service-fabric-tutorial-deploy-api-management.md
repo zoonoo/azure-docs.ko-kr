@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Service Fabric을 사용하여 API Management 배포
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
@@ -42,11 +42,11 @@ ms.lasthandoff: 10/11/2017
 - Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 설치합니다.
 - Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+- Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2017](http://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
+- Linux 클러스터를 배포하는 경우 [Linux](service-fabric-get-started-linux.md) 또는 [MacOS](service-fabric-get-started-mac.md)에서 Java 개발 환경을 설정합니다.  [Service Fabric CLI](service-fabric-cli.md)를 설치합니다. 
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure에 로그인 및 구독 선택
-이 자습서에서는 [Azure PowerShell][azure-powershell]을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
- 
-Azure 계정에 로그인하고 구독을 선택합니다.
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure에 로그인하고 구독 선택
+Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
 
 ```powershell
 Login-AzureRmAccount
@@ -193,9 +193,9 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Service Fabric 백 엔드 서비스 배포
 
-이제 Service Fabric이 API Management에 대한 백 엔드로 구성되었으므로 Service Fabric 서비스로 트래픽을 전송하는 API에 대한 백 엔드 정책을 작성할 수 있습니다. 그러나 먼저 Service Fabric에서 실행 중이며 요청을 수락할 서비스가 있어야 합니다.
+이제 Service Fabric이 API Management에 대한 백 엔드로 구성되었으므로 Service Fabric 서비스로 트래픽을 전송하는 API에 대한 백 엔드 정책을 작성할 수 있습니다. 그러나 먼저 Service Fabric에서 실행 중이며 요청을 수락할 서비스가 있어야 합니다.  이전에 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만든 경우 .NET Service Fabric 서비스를 배포합니다.  이전에 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 만든 경우 Java Service Fabric 서비스를 배포합니다.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>HTTP 끝점이 있는 Service Fabric 서비스 만들기
+### <a name="deploy-a-net-service-fabric-service"></a>.NET Service Fabric 서비스 배포
 
 이 자습서에서는 기본 웹 API 프로젝트 템플릿을 사용하여 기본적인 상태 비저장 ASP.NET Core 신뢰할 수 있는 서비스를 만듭니다. 이렇게 하면 서비스의 HTTP 끝점을 Azure API Management를 통해 노출합니다.
 
@@ -203,9 +203,7 @@ print(response.text)
 /api/values
 ```
 
-[ASP.NET Core 개발에 대한 개발 환경을 설정](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core)하는 것으로 시작합니다.
-
-개발 환경이 설정되면 Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 만듭니다.
+Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 만듭니다.
 
  1. Visual Studio에서 파일 -> 새 프로젝트를 선택합니다.
  2. 클라우드에서 Service Fabric 응용 프로그램 템플릿을 선택하고 이름을 **"ApiApplication"**으로 지정합니다.
@@ -233,9 +231,45 @@ print(response.text)
 
     Azure에서 API Management를 통해 노출될 끝점입니다.
 
- 7. 마지막으로, Azure에서 응용 프로그램을 클러스터에 배포합니다. [Visual Studio를 사용하여](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box) 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 끝점(예: `mycluster.westus.cloudapp.azure.com:19000`)을 제공하여 Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다.
+ 7. 마지막으로, Azure에서 응용 프로그램을 클러스터에 배포합니다. [Visual Studio를 사용하여](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box) 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 끝점(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)을 제공하여 Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다.
 
 `fabric:/ApiApplication/WebApiService`로 명명된 ASP.NET Core 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
+
+### <a name="create-a-java-service-fabric-service"></a>Java Service Fabric 서비스 만들기
+이 자습서에서는 사용자에게 메시지를 다시 표시하는 기본 웹 서버를 배포합니다. 에코 서버 샘플 응용 프로그램에는 Azure API Management를 통해 노출하는 서비스의 HTTP 끝점이 포함됩니다.
+
+1. Java 시작 샘플을 복제합니다.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*을 편집합니다. 서비스가 포트 8081에서 수신 대기하도록 끝점을 업데이트합니다.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. *ServiceManifest.xml*을 저장한 후 EchoServer1.0 응용 프로그램을 빌드합니다.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. 응용 프로그램을 클러스터에 배포합니다.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   `fabric:/EchoServerApplication/EchoServerService`로 명명된 Java 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
+
+5. 브라우저를 열고 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage를 입력하면 "[version 1.0]Hello World !!!"가 표시됩니다.
+
 
 ## <a name="create-an-api-operation"></a>API 작업 만들기
 

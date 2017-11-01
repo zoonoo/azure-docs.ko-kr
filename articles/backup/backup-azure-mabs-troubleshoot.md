@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ef808e933d1c3ff88e18766cd3a29138959297a
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -65,13 +65,14 @@ ms.lasthandoff: 10/11/2017
 ## <a name="backup"></a>백업
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 백업 | 복제본이 불일치 | 복제본 불일치 원인에 대한 자세한 내용과 관련 제안 사항은 [여기](https://technet.microsoft.com/library/cc161593.aspx)에서 확인할 수 있습니다. <br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 여부를 확인하세요. </li><li> DPM/MABS 서버의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다. </li><li> 보호된 서버에서 볼륨 섀도 복사 서비스의 상태를 확인합니다. 비활성 상태인 경우 수동으로 시작하도록 설정하거나 서버에서 서비스를 시작합니다. 그런 다음 DPM/MABS 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
+| 백업 | 복제본이 불일치 | 그룹 보호 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인하세요. 복제본 불일치 원인에 대한 자세한 내용과 관련 제안 사항은 [여기](https://technet.microsoft.com/library/cc161593.aspx)에서 확인하세요. <br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 여부를 확인하세요. </li><li> DPM/MABS 서버의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다. </li><li> 보호된 서버에서 볼륨 섀도 복사 서비스의 상태를 확인합니다. 비활성 상태인 경우 수동으로 시작하도록 설정하거나 서버에서 서비스를 시작합니다. 그런 다음 DPM/MABS 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
 | 백업 | 작업을 실행하는 동안 예기치 않은 오류가 발생했습니다. 장치가 준비되지 않았습니다. | **제품에 표시된 권장 작업이 작동하지 않는 경우**, <br> <ol><li>섀도 복사 저장소 공간을 보호 그룹의 항목에서 무제한으로 설정하고 일관성 검사를 실행합니다. <br></li> 또는 <li>기존 보호 그룹을 삭제하고 안에 개별 항목이 들어 있는 새로운 그룹을 여러 개 만듭니다.</li></ol> |
 | 백업 | 시스템 상태만 백업하는 경우 보호된 컴퓨터에 시스템 상태 백업을 저장하기에 충분한 여유 공간이 있는지 확인합니다. | <ol><li>보호된 컴퓨터에 WSB가 설치되어 있는지 확인합니다.</li><li>시스템 상태에 대해 보호된 컴퓨터에 충분한 공간이 있는지 확인합니다. 이 작업을 수행하는 가장 쉬운 방법은 보호된 컴퓨터로 이동하여 WSB를 열고 선택 항목을 클릭하고 BMR을 선택하는 것입니다. 그러면 UI에 이 작업을 위해 얼마나 많은 공간이 필요한지 표시됩니다. WSB를 열고 -> 로컬 백업 -> 백업 일정 -> 백업 구성 선택 -> 전체 서버를 선택합니다(크기가 표시됨). 검증에 이 크기를 사용합니다.</li></ol>
 | 백업 | 온라인 복구 지점 생성 실패 | "Miscrosoft Azure Backup Agent에서 선택한 볼륨의 스냅숏을 만들 수 없습니다." 오류 메시지가 표시되면 복제본 및 복구 지점 볼륨에서 공간을 늘려 보세요.
 | 백업 | 온라인 복구 지점 생성 실패 | "Windows Azure Backup Agent에서 OBEngine 서비스에 연결할 수 없습니다." 오류 메시지가 나타나면 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 "net start OBEngine" 명령을 사용하여 OBEngine 서비스를 시작합니다.
 | 백업 | 온라인 복구 지점 생성 실패 | "이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화의 암호를 구성하십시오." 오류 메시지가 표시되면 암호화에 사용할 암호를 구성하세요. 실패하면 <br> <ol><li>스크래치 위치가 존재하는지 여부를 확인합니다. 레지스트리 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config에 언급된 위치에 "ScratchLocation" 이름이 존재해야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록하세요. **암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관하세요.**</li><ol>
 | 백업 | BMR에 대한 백업 실패 | BMR 크기가 매우 큰 경우 일부 응용 프로그램 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
+| 백업 | 새 MABS 서버에서 VMWare VM을 다시 보호할 경우 추가할 수 있는 VM으로 표시되지 않습니다. | VMWare 속성은 사용 중지된 이전 MABS 서버에 지정됩니다. 이 문제를 해결하려면 VCenter(SC-VMM에 해당)에서 '요약' 탭, '사용자 지정 특성'으로 이동합니다.  'DPMServer' 값에서 이전 MABS 서버 이름을 삭제합니다.  새 MABS 서버로 다시 이동한 후 PG를 수정합니다.  ‘새로 고침’ 단추를 사용하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다. |
 | 백업 | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | [여기](https://technet.microsoft.com/library/hh757911.aspx)에 제안된 대로 바이러스 백신 설정을 수정해 봅니다.|
 | 백업 | VMware VM에 대한 온라인 복구 지점 생성 작업에 실패했습니다. DPM이 ChangeTracking 정보를 가져오는 동안 VMware에서 오류가 발생했습니다. ErrorCode - FileFaultFault(ID 33621) |  1. 영향을 받는 VM에 대해 VMWare에서 ctk 재설정 <br/> 독립 디스크가 VMWare에 준비되어 있지 않은지 확인 <br/> 영향을 받는 VM에 대한 보호를 중지하고 새로 고침 단추로 다시 보호 <br/> 영향을 받는 VM에 대해 CC 실행|
 

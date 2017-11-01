@@ -3,7 +3,7 @@ title: "Azure Functions Queue Storage 바인딩 | Microsoft Docs"
 description: "Azure Functions에서 Azure Storage 트리거 및 바인딩을 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 8f7227071edc519e588d55a9f06b77aeaf31aa37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b68ce106ceb25d19ee0bbde287891d553a448560
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Azure Functions Queue Storage 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>다음 단계
 
-Queue Storage 트리거 및 바인딩을 사용하는 함수의 예제는 [Azure 서비스에 연결된 Azure Function 만들기](functions-create-an-azure-connected-function.md)를 참조하세요.
+Queue Storage 트리거 및 바인딩을 사용하는 함수의 예제는 [Azure Queue Storage에 의해 트리거되는 함수 만들기](functions-create-storage-queue-triggered-function.md)를 참조하세요.
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

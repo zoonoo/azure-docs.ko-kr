@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: sethm
-ms.openlocfilehash: 470246469297d5fa95eba2b147d5304e74c0003f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 프로그래밍 방식으로 전체 프레임 워크 .NET API에서 [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 속성으로 플래그를 설정합니다. Azure Resource Manager API를 사용하면 값이 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 속성으로 설정됩니다.
 
-중복 검색 시간 기록은 큐 및 토픽의 경우 기본값이 30초이며 최대값은 40분입니다. 이 설정은 Azure Portal의 큐 및 토픽 속성 창에서 변경할 수 있습니다.
+중복 검색 시간 기록은 큐 및 토픽의 경우 기본값이 30초이며 최대값은 7일입니다. 이 설정은 Azure Portal의 큐 및 토픽 속성 창에서 변경할 수 있습니다.
 
 ![][2]
 

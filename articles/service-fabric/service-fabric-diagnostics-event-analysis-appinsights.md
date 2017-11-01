@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -38,6 +38,9 @@ AI 리소스를 만들려면 Azure Marketplace로 이동하고 "Application Insi
 
 ### <a name="configuring-ai-with-wad"></a>WAD를 사용하여 AI 구성
 
+>[!NOTE]
+>이는 해당 시점의 Windows 클러스터에만 적용됩니다.
+
 WAD에서 Azure AI로 데이터를 전송하는 두 가지 기본적인 방법이 있습니다. 이 방법은 [이 문서](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)에 설명된 대로 AI 싱크를 WAD 구성에 추가하여 이루어집니다.
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portal에서 클러스터를 만들 때 AI 계측 키 추가
@@ -50,7 +53,7 @@ WAD에서 Azure AI로 데이터를 전송하는 두 가지 기본적인 방법�
 
 Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 포함하여 "Sink"를 추가합니다.
 
-1. 싱크 구성을 추가합니다.
+1. `DiagnosticMonitorConfiguration` 선언이 완료된 직후에 싱크 구성을 추가합니다.
 
     ```json
     "SinksConfig": {
@@ -64,7 +67,7 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
     ```
 
-2. "WadCfg"의 "DiagnosticMonitorConfiguration"에 다음 줄을 추가하여 DiagnosticMonitorConfiguration에 Sink를 포함합니다.
+2. `WadCfg`의 `DiagnosticMonitorConfiguration`에 다음 줄을 추가하여(`EtwProviders` 선언 직전) `DiagnosticMonitorConfiguration`에 Sink를 포함합니다.
 
     ```json
     "sinks": "applicationInsights"

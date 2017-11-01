@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 64699db16eaa55d6206f7631ced3072e21cd2074
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fed181a004ba6a5ea35dcbe1366e7d48342c96d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>개별 Azure 구독 등록 및 비용 데이터 보기
 
@@ -36,9 +36,11 @@ Azure 구독을 사용하여 Cloudyn에서 개발한 Azure Cost Management에 �
 6. 사용 약관에 동의하면 정보의 유효성을 검사하고 **다음**을 클릭합니다.
 7. **추가 데이터 수집** 페이지에서 **다음**을 클릭하여 Cloudyn이 Azure 리소스 데이터를 수집할 권한을 부여합니다. 수집되는 데이터에는 구독의 사용량, 성능, 청구 및 태그 데이터가 포함됩니다.  
     ![추가 데이터 수집](./media/quick-register-azure-sub/gather-additional.png)
-9. 브라우저는 Cloudyn의 로그인 페이지로 이동합니다. Azure 구독 자격 증명으로 로그인합니다.
+8. 브라우저는 Cloudyn의 로그인 페이지로 이동합니다. Azure 구독 자격 증명으로 로그인합니다.
 9. **Cloudyn으로 이동**을 클릭하여 Cloudyn 포털을 연 다음 **계정 관리** 페이지에서 Azure 구독 계정 정보가 표시됩니다.  
     ![계정 관리](./media/quick-register-azure-sub/accounts-mgt.png)
+
+Azure 구독을 등록하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management에서 사용할 디렉터리 GUID 및 비용 ID 찾기](https://youtu.be/PaRjnyaNGMI)를 참조하세요.
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
@@ -47,4 +49,4 @@ Azure 구독을 사용하여 Cloudyn에서 개발한 Azure Cost Management에 �
 이 빠른 시작에서는 Azure 구독 정보를 사용하여 Cost Management에 등록했습니다. 또한 Cloudyn 포털에 로그인하여 비용 데이터 보기를 시작했습니다. Cloudyn으로 Azure Cost Management에 대한 자세한 내용을 보려면 Cost Management의 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [비용 데이터 보기](./tutorial-review-usage.md)
+> [사용량 및 비용 검토](./tutorial-review-usage.md)

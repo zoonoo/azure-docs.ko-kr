@@ -12,36 +12,39 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4e1935a7830b8174796ac12792fbbc0ed110d081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="data-prep-python-extensions"></a>데이터 준비 Python 확장
-기본 제공 기능 사이의 격차를 해소하기 위해 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
+# <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
+기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
 
 ## <a name="custom-code-steps"></a>사용자 지정 코드 단계 
-데이터 준비에는 사용자가 코드를 작성할 수는 다음과 같은 사용자 지정 단계가 있습니다. 
-1. 파일 판독기*
-2. 기록기*
-3. 열 추가
-4. 고급 필터
-5. 데이터 흐름 변환
-6. 파티션 변환
+데이터 준비에는 사용자가 코드를 작성할 수는 다음과 같은 사용자 지정 단계가 있습니다.
 
-*이러한 단계는 현재 Spark 실행에서 지원되지 않습니다. 
+* 파일 판독기*
+* 기록기*
+* 열 추가
+* 고급 필터
+* 데이터 흐름 변환
+* 파티션 변환
+
+*이러한 단계는 현재 Spark 실행에서 지원되지 않습니다.
 
 ## <a name="code-block-types"></a>코드 블록 형식 
 이러한 각 단계에 대해 두 개의 코드 블록 형식이 지원됩니다. 첫째, 있는 그대로 실행되는 기본 Python 식이 지원됩니다. 둘째, 제공한 코드에서 알려진 서명을 사용하여 특정 함수를 호출하는 Python 모듈이 지원됩니다.
 
-예를 들어 다음 두 가지 방식으로 다른 열의 로그를 계산하는 새 열을 추가할 수 있습니다. 먼저 식을 사용하면 다음과 같습니다. 
+예를 들어 다음 두 가지 방식으로 다른 열의 로그를 계산하는 새 열을 추가할 수 있습니다.
+
+식 
 
 ```python    
     math.log(row["Score"])
 ```
 
-모듈을 사용하면 다음과 같습니다. 
+모듈 
     
 ```python
 def newvalue(row): 
@@ -49,12 +52,14 @@ def newvalue(row):
 ```
 
 
-모듈 모드의 열 추가 변형은 행 변수를 허용하고 열에 대한 값을 반환하는 `newvalue`라는 함수를 찾으려고 합니다. 이 모듈에는 다른 함수, 가져오기 등을 사용하여 임의의 Python 코드 수량을 포함할 수 있습니다. 
+모듈 모드의 열 추가 변형은 행 변수를 허용하고 열에 대한 값을 반환하는 `newvalue`라는 함수를 찾으려고 합니다. 이 모듈에는 다른 함수, 가져오기 등을 사용하여 임의의 Python 코드 수량을 포함할 수 있습니다.
 
 각 확장 지점에 대한 세부 정보는 다음 섹션에 설명되어 있습니다. 
 
 ## <a name="imports"></a>가져오기 
-식 블록 형식을 사용하는 경우에도 코드에 import 문을 추가할 수 있지만 모두 코드 맨 위 줄에 그룹화해야 합니다. 올바른 코드: 
+식 블록 형식을 사용하는 경우 여전히 코드에 **import** 문을 추가할 수 있습니다. 이러한 문은 코드 맨 위 줄에 그룹화되어야 합니다.
+
+올바른 코드 
 
 ```python
 import math 
@@ -63,7 +68,7 @@ math.log(row["Score"])
 ```
  
 
-오류:  
+오류  
 
 ```python
 import math  
@@ -72,7 +77,7 @@ import numpy
 ```
  
  
-모듈 블록 형식을 사용하는 경우 'import' 문을 사용하기 위한 모든 일반 Python 규칙을 따를 수 있습니다. 
+모듈 블록 형식을 사용하는 경우 **import** 문을 사용하기 위한 모든 일반 Python 규칙을 따를 수 있습니다. 
 
 ## <a name="default-imports"></a>기본 가져오기
 다음 import는 코드에 항상 포함되며 사용할 수 있습니다. 다시 가져올 필요는 없습니다. 
@@ -88,13 +93,13 @@ import scipy as sp
 ```
   
 
-## <a name="installing-new-packages"></a>새 패키지 설치
+## <a name="install-new-packages"></a>새 패키지 설치
 기본적으로 설치되지 않는 패키지를 사용하려면 먼저 데이터 준비에서 사용되는 환경에 설치해야 합니다. 이 설치는 설치를 실행하려는 로컬 컴퓨터 및 모든 계산 대상에서 수행해야 합니다.
 
 계산 대상에서 패키지를 설치하려면 프로젝트의 루트 아래에 있는 aml_config 폴더의 conda_dependencies.yml 파일을 수정해야 합니다.
 
 ### <a name="windows"></a>Windows 
-Windows에서 해당 위치를 찾는 방법은 python의 앱별 설치와 해당 스크립트 디렉터리를 찾는 것입니다. 기본 위치는 다음과 같습니다.  
+Windows에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크립트 디렉터리를 찾습니다. 기본 위치는 다음과 같습니다.  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
 
@@ -107,7 +112,7 @@ Windows에서 해당 위치를 찾는 방법은 python의 앱별 설치와 해�
 `pip install <libraryname> `
 
 ### <a name="mac"></a>Mac 
-Mac에서 해당 위치를 찾으려면 python의 앱별 설치와 해당 스크립트 디렉터리를 찾는 것입니다. 기본 위치는 다음과 같습니다. 
+Mac에서 해당 위치를 찾으려면 Python의 앱별 설치와 해당 스크립트 디렉터리를 찾습니다. 기본 위치는 다음과 같습니다. 
 
 `/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
 
@@ -120,9 +125,9 @@ Mac에서 해당 위치를 찾으려면 python의 앱별 설치와 해당 스크
 `./pip install <libraryname>`
 
 ## <a name="column-data"></a>열 데이터 
-열 데이터는 점 표기법을 사용하거나 키-값 표기법을 사용하여 행에서 액세스할 수 있습니다. 공백이나 특수 문자가 포함된 열 이름은 점 표기법을 사용하여 액세스할 수 없습니다. `row` 변수는 항상 두 모드의 python 확장(모듈 및 식)에서 정의해야 합니다. 
+열 데이터는 점 표기법을 사용하거나 키-값 표기법을 사용하여 행에서 액세스할 수 있습니다. 공백이나 특수 문자가 포함된 열 이름은 점 표기법을 사용하여 액세스할 수 없습니다. `row` 변수는 항상 두 모드의 Python 확장(모듈 및 식)에서 정의해야 합니다. 
 
-예제: 
+예 
 
 ```python
     row.ColumnA + row.ColumnB  
@@ -131,25 +136,26 @@ Mac에서 해당 위치를 찾으려면 python의 앱별 설치와 해당 스크
 
 ## <a name="file-reader"></a>파일 판독기 
 ### <a name="purpose"></a>목적 
-이 확장 지점에서 데이터 흐름으로 파일을 읽는 프로세스를 완벽하게 제어할 수 있습니다. 시스템에서는 코드를 호출하고 처리해야 하는 파일 목록에 전달하며, 코드는 Pandas 데이터 프레임을 만들고 반환해야 합니다. 
+파일 판독기 확장 지점에서 데이터 흐름으로 파일을 읽는 프로세스를 완벽하게 제어할 수 있습니다. 시스템은 코드를 호출하고 처리해야 하는 파일 목록을 전달합니다. 코드는 Pandas 데이터 프레임을 만들어 반환해야 합니다. 
 
 >[!NOTE]
 >이 확장 지점은 Spark에서 작동하지 않습니다. 
 
 
 ### <a name="how-to-use"></a>사용 방법 
-데이터 원본 열기 마법사에서 이 확장 지점에 액세스합니다. 첫 번째 페이지에서 파일을 선택하고 파일 위치를 선택합니다. '파일 매개 변수 선택' 페이지에서 파일 형식을 드롭다운하고 '사용자 지정 파일(스크립트)'을 선택합니다. 
+**데이터 원본 열기** 마법사에서 이 확장 지점에 액세스합니다. 첫 번째 페이지에서 **파일**을 선택하고 파일 위치를 선택합니다. **파일 매개 변수 선택** 페이지의 **파일 형식** 드롭다운 목록에서 **사용자 지정 파일(스크립트)**을 선택합니다. 
 
-코드에는 읽어야 하는 파일에 대한 정보가 포함된 'df'라는 Pandas 데이터 프레임이 제공됩니다. 여러 파일이 포함된 디렉터리를 열기로 선택한 경우 데이터 프레임에 둘 이상의 행이 포함됩니다.  
+코드에는 읽어야 하는 파일에 대한 정보가 포함된 “df”라는 Pandas 데이터 프레임이 제공됩니다. 여러 파일이 포함된 디렉터리를 열기로 선택한 경우 데이터 프레임에 둘 이상의 행이 포함됩니다.  
 
-이 데이터 프레임에는 다음과 같은 열이 있습니다. 
-- Path – 읽을 파일입니다.
-- PathHint – 파일이 있는 위치를 알려줍니다. 값: 'Local', 'AzureBlobStorage', 'AzureDataLakeStorage'
-- AuthenticationType – 파일에 액세스하는 데 사용되는 인증 유형입니다. 값: 'None', 'SasToken', 'OAuthToken'
-- AuthenticationValue - None 또는 사용할 토큰을 포함합니다.
+이 데이터 프레임에는 다음과 같은 열이 있습니다.
+
+- Path: 읽을 파일입니다.
+- PathHint: 파일이 있는 위치를 알려줍니다. 값: Local, AzureBlobStorage 및 AzureDataLakeStorage
+- AuthenticationType: 파일에 액세스하는 데 사용되는 인증 유형입니다. 값: None, SasToken 및 OAuthToken
+- AuthenticationValue: None 또는 사용할 토큰을 포함합니다.
 
 ### <a name="syntax"></a>구문 
-식: 
+식 
 
 ```python
     paths = df['Path'].tolist()  
@@ -157,7 +163,7 @@ Mac에서 해당 위치를 찾으려면 python의 앱별 설치와 해당 스크
 ```
 
 
-모듈:  
+모듈  
 ```python
 PathHint = Local  
 def read(df):  
@@ -169,23 +175,23 @@ def read(df):
 
 ## <a name="writer"></a>기록기 
 ### <a name="purpose"></a>목적 
-이러한 기록기 확장 지점에서 데이터 흐름으로부터 파일을 쓰는 프로세스를 완벽하게 제어할 수 있습니다. 시스템에서는 코드를 호출하고 데이터 프레임을 전달하며, 코드는 해당 데이터 프레임을 사용하여 사용자가 원하는 방법으로 데이터를 쓸 수 있습니다. 
+이러한 기록기 확장 지점에서 데이터 흐름으로부터 파일을 쓰는 프로세스를 완벽하게 제어할 수 있습니다. 시스템은 코드를 호출하고 데이터 프레임을 전달합니다. 코드는 해당 데이터 프레임을 사용하여 사용자가 원하는 방식으로 데이터를 쓸 수 있습니다. 
 
 >[!NOTE]
->이 기록기 확장 지점은 Spark에서 작동하지 않습니다. 
+>이 기록기 확장 지점은 Spark에서 작동하지 않습니다.
 
 
 ### <a name="how-to-use"></a>사용 방법 
-'데이터 흐름 쓰기(스크립트)' 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 변환 메뉴에서 사용할 수 있습니다. 
+데이터 흐름 쓰기(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 **변환** 메뉴에서 사용할 수 있습니다.
 
 ### <a name="syntax"></a>구문 
-식: 
+식
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
 ```
 
-모듈을 사용하면 다음과 같습니다.
+모듈
 
 ```python
 def write(df):  
@@ -194,23 +200,23 @@ def write(df):
 ```
  
  
-이 사용자 지정 쓰기 블록은 단계 목록 중간에 존재할 수 있으므로 모듈을 사용하는 경우 쓰기 함수가 진행되는 단계에 대한 입력이 되는 데이터 프레임을 반환해야 합니다. 
+이 사용자 지정 쓰기 블록은 단계 목록 중간에 있을 수 있습니다. 모듈을 사용하는 경우 쓰기 함수는 다음 단계에 대한 입력이 되는 데이터 프레임을 반환해야 합니다. 
 
 ## <a name="add-column"></a>열 추가 
 ### <a name="purpose"></a>목적
-이 확장 지점에서는 새 열을 계산하는 Python을 작성할 수 있습니다. 작성하는 코드에는 전체 행에 액세스할 수 있습니다. 각 행에 대해 새 열 값을 반환해야 합니다. 
+열 추가 확장 지점에서는 새 열을 계산하는 Python을 작성할 수 있습니다. 작성하는 코드에는 전체 행에 액세스할 수 있습니다. 각 행에 대해 새 열 값을 반환해야 합니다. 
 
 ### <a name="how-to-use"></a>사용 방법
-'열 추가(스크립트)' 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 열 상황에 맞는 메뉴와 최상위 변환 메뉴에서 사용할 수 있습니다. 
+열 추가(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. **열** 상황에 맞는 메뉴와 최상위 **변환** 메뉴에서 사용할 수 있습니다. 
 
 ### <a name="syntax"></a>구문
-식: 
+식
 
 ```python
     math.log(row["Score"])
 ```
 
-모듈을 사용하면 다음과 같습니다. 
+모듈 
 
 ```python
 def newvalue(row):  
@@ -220,20 +226,20 @@ def newvalue(row):
 
 ## <a name="advanced-filter"></a>고급 필터
 ### <a name="purpose"></a>목적 
-이 확장 지점에서는 사용자 지정 필터를 작성할 수 있습니다. 전체 행에 액세스할 수 있으며 코드는 True(행 포함) 또는 False(행 제외)를 반환해야 합니다. 
+고급 필터 확장 지점에서는 사용자 지정 필터를 작성할 수 있습니다. 전체 행에 액세스할 수 있으며 코드는 True(행 포함) 또는 False(행 제외)를 반환해야 합니다. 
 
 ### <a name="how-to-use"></a>사용 방법
-'고급 필터(스크립트)' 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 변환 메뉴에서 사용할 수 있습니다. 
+고급 필터(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 **변환** 메뉴에서 사용할 수 있습니다. 
 
 ### <a name="syntax"></a>구문
 
-식: 
+식
 
 ```python
     row["Score"] > 95
 ```
 
-모듈을 사용하면 다음과 같습니다.  
+모듈  
 
 ```python
 def includerow(row):  
@@ -243,18 +249,18 @@ def includerow(row):
 
 ## <a name="transform-dataflow"></a>데이터 흐름 변환
 ### <a name="purpose"></a>목적 
-이 확장 지점에서는 데이터 흐름을 완전히 변환할 수 있습니다. 처리하려는 모든 열 및 행이 포함된 Pandas 데이터 프레임에 액세스할 수 있으며 코드에서는 새 데이터가 있는 Pandas 데이터 프레임을 반환해야 합니다. 
+데이터 흐름 변환 확장 지점에서는 데이터 흐름을 완전히 변환할 수 있습니다. 처리하는 모든 열 및 행이 포함된 Pandas 데이터 프레임에 액세스할 수 있습니다. 코드는 새 데이터를 포함하는 Pandas 데이터 프레임을 반환해야 합니다. 
 
 >[!NOTE]
 >Python에서 이 확장이 사용되는 경우 Pandas 데이터 프레임의 메모리로 모든 데이터가 로드되어야 합니다. 
-
-Spark에서는 모든 데이터가 단일 작업자 노드에 수집됩니다. 따라서 데이터가 매우 크면 작업자의 메모리가 부족할 수 있습니다. 이 방법을 사용할 때는 주의하세요.
+>
+>Spark에서는 모든 데이터가 단일 작업자 노드에 수집됩니다. 데이터가 매우 큰 경우 작업자는 메모리가 부족할 수 있습니다. 이 방법을 사용할 때는 주의하세요.
 
 ### <a name="how-to-use"></a>사용 방법 
-'데이터 흐름 변환(스크립트)' 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 변환 메뉴에서 사용할 수 있습니다. 
+데이터 흐름 변환(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 **변환** 메뉴에서 사용할 수 있습니다. 
 ### <a name="syntax"></a>구문 
 
-식: 
+식
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -262,7 +268,7 @@ Spark에서는 모든 데이터가 단일 작업자 노드에 수집됩니다. �
 ```
  
 
-모듈을 사용하면 다음과 같습니다. 
+모듈 
 
 ```python
 def transform(df):  
@@ -274,18 +280,18 @@ def transform(df):
 
 ## <a name="transform-partition"></a>파티션 변환  
 ### <a name="purpose"></a>목적 
-이 확장 지점에서는 데이터 흐름의 파티션을 변환할 수 있습니다. 해당 파티션에 대한 모든 열 및 행이 포함된 Pandas 데이터 프레임에 액세스할 수 있으며 코드에서는 새 데이터가 있는 Pandas 데이터 프레임을 반환해야 합니다. 
+파티션 변환 확장 지점에서는 데이터 흐름의 파티션을 변환할 수 있습니다. 해당 파티션에 대한 모든 열 및 행이 포함된 Pandas 데이터 프레임에 액세스할 수 있습니다. 코드는 새 데이터를 포함하는 Pandas 데이터 프레임을 반환해야 합니다. 
 
 >[!NOTE]
 >Python에서는 데이터 크기에 따라 단일 파티션 또는 여러 파티션이 생성될 수 있습니다. Spark에서는 지정된 작업자 노드는 파티션에 대한 데이터를 보유하는 데이터 프레임을 사용하게 됩니다. 두 경우 모두 전체 데이터 집합에 액세스할 수 있다고 가정할 수는 없습니다. 
 
 
 ### <a name="how-to-use"></a>사용 방법
-'파티션 변환(스크립트)' 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 변환 메뉴에서 사용할 수 있습니다. 
+파티션 변환(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. 최상위 **변환** 메뉴에서 사용할 수 있습니다. 
 
 ### <a name="syntax"></a>구문 
 
-식: 
+식 
 
 ```python
     df['partition-id'] = index  
@@ -294,7 +300,7 @@ def transform(df):
 ```
  
 
-모듈을 사용하면 다음과 같습니다. 
+모듈 
 
 ```python
 def transform(df, index):
@@ -307,9 +313,9 @@ def transform(df, index):
 
 ## <a name="datapreperror"></a>DataPrepError  
 ### <a name="error-values"></a>오류 값  
-데이터 준비에는 오류 값 개념이 존재합니다. 이러한 오류 값은 생성된 것이며 존재 이유는 <link to error values doc>에 설명되어 있습니다. 
+데이터 준비에는 오류 값 개념이 존재합니다. 
 
-사용자 지정 python 코드에 오류 값이 발생할 수 있습니다. `DataPrepError`라는 Python 클래스의 인스턴스입니다. 이 클래스는 Python 예외를 래핑하며, 원래 값을 처리할 때 발생한 오류에 대한 정보와 원래 값을 포함하는 몇 개의 속성을 갖습니다. 
+사용자 지정 Python 코드에 오류 값이 발생할 수 있습니다. `DataPrepError`라는 Python 클래스의 인스턴스입니다. 이 클래스는 Python 예외를 래핑하며 몇 가지 속성을 갖습니다. 속성은 원래 값이 처리될 때 발생한 오류와 원래 값에 대한 정보를 포함합니다. 
 
 
 ### <a name="datapreperror-class-definition"></a>DataPrepError 클래스 정의
@@ -318,7 +324,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-일반적으로 데이터 준비 python 프레임워크의 DataPrepError 생성은 다음과 같습니다. 
+일반적으로 데이터 준비 Python 프레임워크의 DataPrepError 생성은 다음과 같습니다. 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
@@ -328,10 +334,10 @@ DataPrepError({
 }) 
 ``` 
 #### <a name="how-to-use"></a>사용 방법 
-확장 지점에서 Python을 실행하여, 이전의 생성 방법을 사용하여 DataPrepError를 반환 값으로 생성할 수 있습니다. 확장 지점에 데이터를 처리할 때 DataPrepError가 발생할 가능성이 훨씬 더 높습니다. 이 시점에서 사용자 지정 Python 코드는 DataPrepError를 유효한 데이터 형식으로 처리해야 합니다. 
+확장 지점에서 Python을 실행하여, 이전의 생성 방법을 사용하여 DataPrepError를 반환 값으로 생성할 수 있습니다. 확장 지점에 데이터가 처리될 때 DataPrepError가 발생할 가능성이 훨씬 더 높습니다. 이 시점에서 사용자 지정 Python 코드는 DataPrepError를 유효한 데이터 형식으로 처리해야 합니다.
 
 #### <a name="syntax"></a>구문 
-식:  
+식 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 
@@ -344,7 +350,7 @@ DataPrepError({
     else: 
         row["Score"] 
 ``` 
-모듈:  
+모듈 
 ```python 
 def newvalue(row): 
     if (isinstance(row["Score"], DataPrepError)): 

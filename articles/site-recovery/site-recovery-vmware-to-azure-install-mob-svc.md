@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>모바일 서비스(VMware/Azure 물리적 서버) 설치
 Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버에 모바일 서비스를 배포할 수 있습니다.
@@ -93,8 +93,12 @@ Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수행하�
 
 1. Azure Portal에서 <Your Vault> -> 복제된 항목 보기로 이동합니다.
 2. **구성 서버**를 최신 버전으로 업데이트한 경우 읽을 수 있는 *새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다.라는 알림이 표시됩니다. 클릭하여 설치합니다.*
+   
+     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. 알림을 클릭하여 가상 컴퓨터 선택 페이지를 엽니다.
 4. 모바일 서비스를 업그레이드하려는 가상 컴퓨터를 선택하고 확인 단추를 클릭합니다.
+
+     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
 5. 선택한 가상 컴퓨터 각각에 대한 모바일 서비스 업데이트 작업을 시작합니다.
 
 > [!NOTE]

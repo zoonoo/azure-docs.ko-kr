@@ -15,11 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b62900b780884c241d96f0bed8e93a1a0927cfe3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
 
@@ -88,6 +88,6 @@ Windows PC, XBOX 또는 Office 앱과 같은 모든 데스크톱 버전의 Micro
 이번에는 Windows Phone의 Microsoft Authenticator에 대한 이 기능을 개발하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-Microsoft Authenticator 앱을 다운로드하지 않은 경우 확인하세요. 앱은 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있고 휴대폰 로그인은 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)용 Microsoft Authenticator 앱에서 사용할 수 있습니다.
+Microsoft Authenticator 앱을 다운로드하지 않은 경우 확인하세요. 앱은 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있고 휴대폰 로그인은 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)용 Microsoft Authenticator 앱에서 사용할 수 있습니다.
 
 일반적으로 앱에 대한 질문이 있으면 [Microsoft Authenticator FAQ](microsoft-authenticator-app-faq.md)를 살펴보세요.
