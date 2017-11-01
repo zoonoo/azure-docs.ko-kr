@@ -76,7 +76,7 @@ ms.lasthandoff: 10/24/2017
    mvn package spring-boot:run
    ```
 
-1. Http://localhost:8080으로 이동하거나 다음 `curl` 명령을 사용하여 웹앱을 테스트합니다.
+1. http://localhost:8080 으로 이동하거나 다음`curl` 명령을 사용하여 웹앱을 테스트합니다.
    ```
    curl http://localhost:8080
    ```
