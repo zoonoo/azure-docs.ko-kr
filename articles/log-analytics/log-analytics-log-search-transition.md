@@ -11,20 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 10/06/2017
 ms.author: bwren
-ms.openlocfilehash: 50713d69f6dce6b7b154b6b4a6df3f679eb7b7c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Azure Log Analytics 새로운 쿼리 언어로 전환
-
-> [!NOTE]
-> [Azure Log Analytics 작업 영역을 새 로그 검색으로](log-analytics-log-search-upgrade.md) 업그레이드에서 새 Log Analytics 쿼리 언어에 대해 자세히 알아보고 작업 영역을 업그레이드하는 절차를 확인할 수 있습니다.
-
-이 문서는 이미 레거시 언어에 잘 알고 있는 경우에 Log Analytics에 대한 새로운 쿼리 언어로의 전환에 관한 지원을 제공합니다.
+Log Analytics는 최근에 새로운 쿼리 언어를 구현했습니다.  이 문서는 이미 레거시 언어에 잘 알고 있고 약간의 도움이 필요한 사용자에게 Log Analytics에 대한 이 언어로 전환하기 위한 지원을 제공합니다.
 
 ## <a name="language-converter"></a>언어 변환기
 
