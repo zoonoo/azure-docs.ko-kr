@@ -19,6 +19,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
+      href: powershell-samples.md
     - name: 관리되는 응용 프로그램 솔루션
       href: sample-projects.md
 - name: 방법 가이드

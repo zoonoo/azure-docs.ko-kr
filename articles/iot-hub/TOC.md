@@ -86,6 +86,7 @@
 ### 장치에서 파일 업로드
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 ### 쌍 장치 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
