@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 10/27/2017
 ms.author: skwan
-ms.openlocfilehash: f2cfef1c2aed90e111d06fc3090973e093fd7a4f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 1b13255c2bbb0d97c33851b89d071036c47e9cfa
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 자습서에서는 새 Windows VM을 만듭니다.  기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
 1.  Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
-2.  **계산**을 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
+2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
 3.  가상 컴퓨터 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 컴퓨터에 로그인하는 데 사용하는 자격 증명입니다.
 4.  드롭다운에서 가상 컴퓨터의 적절한 **구독**을 선택합니다.
 5.  가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
@@ -133,7 +133,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL Server에 대해 Azure AD 인증 사용
 
-그룹을 만들고 그룹 구성원 자격에 VM MSI를 추가했으므로 다음 단계를 사용하여 [SQL Server에 대해 Azure AD 인증을 구성](/azure/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)할 수 있습니다.
+그룹을 만들고 그룹 구성원 자격에 VM MSI를 추가했으므로 다음 단계를 사용하여 [SQL Server에 대해 Azure AD 인증을 구성](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)할 수 있습니다.
 
 1.  Azure Portal의 왼쪽 탐색 영역에서 **SQL Server**를 선택합니다.
 2.  Azure AD 인증에 사용할 SQL Server를 클릭합니다.

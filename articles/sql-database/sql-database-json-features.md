@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database JSON 기능 | Microsoft Docs"
-description: "Azure SQL 데이터베이스에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다."
+description: "Azure SQL Database에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다."
 services: sql-database
 documentationcenter: 
 author: jovanpop-msft
@@ -12,31 +12,31 @@ ms.custom: develop databases
 ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: jovanpop
-ms.workload: NA
+ms.workload: On Demand
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8877b0bb779501df003ce11d66d9625c2f99e9ce
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 데이터베이스의 JSON 기능 시작
-Azure SQL 데이터베이스를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
+# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
+Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
 
 JSON은 최신 웹 및 모바일 응용 프로그램에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에는 JSON을 반환하거나 사용하는 REST 끝점이 있습니다.
 
-Azure SQL 데이터베이스를 사용하여 JSON 데이터를 쉽게 사용하고 데이터베이스를 최신 서비스와 통합할 수 있습니다.
+Azure SQL Database를 사용하여 JSON 데이터를 쉽게 사용하고 데이터베이스를 최신 서비스와 통합할 수 있습니다.
 
 ## <a name="overview"></a>개요
-Azure SQL 데이터베이스는 JSON 데이터를 사용하기 위한 다음과 같은 함수를 제공합니다.
+Azure SQL Database는 JSON 데이터를 사용하기 위한 다음과 같은 함수를 제공합니다.
 
 ![JSON 함수](./media/sql-database-json-features/image_1.png)
 
 JSON 텍스트가 있는 경우 JSON에서 데이터를 추출하거나 기본 제공 함수 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 및 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)을 사용하여 JSON 형식이 제대로 지정되었는지 확인할 수 있습니다. [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 함수를 사용하면 JSON 텍스트 내의 값을 업데이트할 수 있습니다. 고급 쿼리 및 분석을 위해 [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 함수는 JSON 개체의 배열을 행 집합을 변환할 수 있습니다. 모든 SQL 쿼리는 반환된 결과 집합에서 실행할 수 있습니다. 마지막으로 관계형 테이블에 저장된 데이터의 형식을 JSON 텍스트로 지정할 수 있는 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 절이 있습니다.
 
 ## <a name="formatting-relational-data-in-json-format"></a>관계형 데이터 형식을 JSON으로 지정
-데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. Azure SQL 데이터베이스의 결과 형식을 JSON으로 지정하는 응용 프로그램 코드를 작성하거나, 테이블 형식 쿼리 결과를 변환한 다음 개체를 JSON 형식으로 직렬화하는 JSON 직렬화 라이브러리를 더 이상 포함할 필요가 없습니다. 대신, FOR JSON 절을 사용하여 Azure SQL 데이터베이스에서 SQL 쿼리 결과의 형식을 JSON으로 지정한 후 응용 프로그램에서 직접 사용할 수 있습니다.
+데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. Azure SQL Database의 결과 형식을 JSON으로 지정하는 응용 프로그램 코드를 작성하거나, 테이블 형식 쿼리 결과를 변환한 다음 개체를 JSON 형식으로 직렬화하는 JSON 직렬화 라이브러리를 더 이상 포함할 필요가 없습니다. 대신, FOR JSON 절을 사용하여 Azure SQL Database에서 SQL 쿼리 결과의 형식을 JSON으로 지정한 후 응용 프로그램에서 직접 사용할 수 있습니다.
 
 다음 예제에서 Sales.Customer 테이블의 행은 FOR JSON 절을 사용하여 JSON으로 형식이 지정됩니다.
 
@@ -112,7 +112,7 @@ Customer 데이터를 가져온 다음 관련 Orders 목록을 인출하는 별�
 ## <a name="working-with-json-data"></a>JSON 데이터 작업
 엄격하게 구조화된 데이터가 없거나, 복잡한 하위 개체, 배열 또는 계층적 데이터가 있거나, 시간이 지나면서 데이터 구조가 변화할 경우 JSON 형식을 사용하면 복잡한 데이터 구조를 나타내는 데 도움이 될 수 있습니다.
 
-JSON은 Azure SQL 데이터베이스에서 다른 문자열 형식처럼 사용할 수 있는 텍스트 형식입니다. JSON 데이터를 표준 NVARCHAR로 전송하거나 저장할 수 있습니다.
+JSON은 Azure SQL Database에서 다른 문자열 형식처럼 사용할 수 있는 텍스트 형식입니다. JSON 데이터를 표준 NVARCHAR로 전송하거나 저장할 수 있습니다.
 
 ```
 CREATE TABLE Products (
@@ -134,7 +134,7 @@ END
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Azure SQL 데이터베이스의 문자열 데이터를 사용하는 모든 클라이언트 쪽 언어 또는 라이브러리에서도 JSON 데이터를 사용할 수 있습니다. JSON은 메모리 최적화 테이블 또는 시스템 버전 테이블같이 NVARCHAR 형식을 지원하는 모든 테이블에 저장할 수 있습니다. JSON을 사용할 경우 클라이언트 쪽 코드 또는 데이터베이스 계층에 어떤 제약도 적용되지 않습니다.
+Azure SQL Database의 문자열 데이터를 사용하는 모든 클라이언트 쪽 언어 또는 라이브러리에서도 JSON 데이터를 사용할 수 있습니다. JSON은 메모리 최적화 테이블 또는 시스템 버전 테이블같이 NVARCHAR 형식을 지원하는 모든 테이블에 저장할 수 있습니다. JSON을 사용할 경우 클라이언트 쪽 코드 또는 데이터베이스 계층에 어떤 제약도 적용되지 않습니다.
 
 ## <a name="querying-json-data"></a>JSON 데이터 쿼리
 Azure SQL 테이블에 저장된 JSON으로 형식이 지정된 데이터가 있는 경우 JSON 함수를 통해 SQL 쿼리에서 이 데이터를 사용할 수 있습니다.
@@ -157,7 +157,7 @@ JSON_QUERY 함수는 JSON_VALUE와 비슷합니다. JSON_VALUE와 달리 이 함
 
 JSON_MODIFY 함수를 사용하여 이전 값을 덮어쓰는 새 값뿐만 아니라 업데이트해야 하는 JSON 텍스트의 값 경로를 지정할 수도 있습니다. 이러한 방식으로 전체 구조를 다시 구문 분석하지 않고 JSON 텍스트를 쉽게 업데이트할 수 있습니다.
 
-JSON은 표준 텍스트로 저장되므로 텍스트 열에 저장된 값의 형식이 올바를 것으로 보장할 수 없습니다. JSON 열에 저장된 텍스트는 표준 Azure SQL 데이터베이스 check 제약 조건 및 ISJSON 함수를 사용하여 올바르게 형식이 지정되었는지 확인할 수 있습니다.
+JSON은 표준 텍스트로 저장되므로 텍스트 열에 저장된 값의 형식이 올바를 것으로 보장할 수 없습니다. JSON 열에 저장된 텍스트는 표준 Azure SQL Database check 제약 조건 및 ISJSON 함수를 사용하여 올바르게 형식이 지정되었는지 확인할 수 있습니다.
 
 ```
 ALTER TABLE Products
@@ -168,7 +168,7 @@ ALTER TABLE Products
 입력 텍스트가 JSON으로 올바르게 형식이 지정되면 ISJSON 함수는 값 1을 반환합니다. JSON 열이 삽입되거나 업데이트될 때마다 이 제약 조건은 새 텍스트 값이 잘못된 형식의 JSON이 아닌지 확인합니다.
 
 ## <a name="transforming-json-into-tabular-format"></a>JSON을 테이블 형식으로 변환
-Azure SQL 데이터베이스에서는 JSON 컬렉션을 테이블 형식으로 변환하고 JSON 데이터를 로드 또는 쿼리할 수 있습니다.
+Azure SQL Database에서는 JSON 컬렉션을 테이블 형식으로 변환하고 JSON 데이터를 로드 또는 쿼리할 수 있습니다.
 
 OPENJSON은 JSON 텍스트를 구문 분석하고, JSON 개체의 배열을 찾고, 배열의 요소를 반복하고, 배열의 각 요소에 대한 출력 결과에 하나의 행을 반환하는 테이블 값 함수입니다.
 

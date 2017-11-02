@@ -9,19 +9,19 @@ editor:
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 6a91ea2251ea3b748faba5c97765bfded9c00234
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7432bf00aa4d97d8dbc4b92a6a836698ee2b84d7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>새 범위 또는 키에 대해 분할된 데이터베이스를 추가하기
 이미 존재하는 분할된 데이터베이스 맵의 경우 응용 프로그램은 대개 새 키 또는 키 범위에서 예상되는 데이터를 처리할 새로운 분할된 데이터베이스를 추가하기만 하면 됩니다. 예를 들어 테넌트 ID를 기준으로 분할된 응용 프로그램이 새로운 테넌트에 대한 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 또는 월별로 분할된 데이터의 경우 새로운 달이 시작되기 전에 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 
 

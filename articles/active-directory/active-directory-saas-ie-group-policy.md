@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b402ae326ab34ec71ad9de966e22be00045fee3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06e55977eb2840c8325d70a9fdfd95023bbf380d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
 이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
@@ -29,19 +29,19 @@ ms.lasthandoff: 10/11/2017
 액세스 패널 확장은 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 및 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998)에도 사용할 수 있으며 설치에 관리자 권한이 필요하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* [Active Directory 도메인 서비스](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
+* [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
 * 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>1단계: 배포 지점 만들기
 먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. 관리자 권한으로 서버에 로그온합니다.
-2. **서버 관리자** 창에서 **파일 및 저장소 서비스**로 이동합니다.
+2. **서버 관리자** 창에서 **파일 및 Storage 서비스**로 이동합니다.
    
-    ![파일 및 저장소 서비스 열기](./media/active-directory-saas-ie-group-policy/files-services.png)
+    ![파일 및 Storage 서비스 열기](./media/active-directory-saas-ie-group-policy/files-services.png)
 3. **공유** 탭으로 이동합니다. 그런 다음 **태스크** > **새 공유...**를 클릭합니다.
    
-    ![파일 및 저장소 서비스 열기](./media/active-directory-saas-ie-group-policy/shares.png)
+    ![파일 및 Storage 서비스 열기](./media/active-directory-saas-ie-group-policy/shares.png)
 4. **새 공유 마법사** 를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)
 5. Windows Installer 패키지(.msi 파일)[Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)를 다운로드합니다.
 6. 설치 관리자 패키지를 공유의 원하는 위치에 복사합니다.
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 7. 클라이언트 컴퓨터가 공유에서 설치 관리자 패키지에 액세스할 수 있는지 확인합니다. 
 
 ## <a name="step-2-create-the-group-policy-object"></a>2단계: 그룹 정책 개체 만들기
-1. Active Directory 도메인 서비스(ADDS) 설치를 호스팅하는 서버에 로그온합니다.
+1. Active Directory Domain Services(ADDS) 설치를 호스팅하는 서버에 로그온합니다.
 2. 서버 관리자에서 **도구** > **그룹 정책 관리**로 이동합니다.
    
     ![도구 > 그룹 정책 관리로 이동](./media/active-directory-saas-ie-group-policy/tools-gpm.png)

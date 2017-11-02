@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: bbe2b0096424cc120968aad8d60dc0395adc9cb4
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 8e395153fc9907107156c3412e5e0de554c83750
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
 복구 워크플로에 대한 응용 프로그램 준비의 유효성 검사를 정기적으로 수행하는 것이 좋습니다. 응용 프로그램 동작과 데이터 손실의 영향 및/또는 장애 조치(failover)와 관련된 중단을 검사하는 것은 적절한 엔지니어링 실무입니다. 또한 대부분의 업계 표준에서 비즈니스 연속성 인증의 일부로 요구하는 사항이기도 합니다.
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/13/2017
 * 복구
 * 복구 후 응용 프로그램 무결성 검사
 
-[비즈니스 연속성을 위한 응용 프로그램 설계](sql-database-business-continuity.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 아래에 Azure SQL 데이터베이스와 관련하여 재해 복구 훈련을 수행하는 모범 사례가 설명되어 있습니다.
+[비즈니스 연속성을 위한 응용 프로그램 설계](sql-database-business-continuity.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 아래에 Azure SQL Database와 관련하여 재해 복구 훈련을 수행하는 모범 사례가 설명되어 있습니다.
 
 ## <a name="geo-restore"></a>지역 복원
 재해 복구 훈련을 수행할 때 잠재적인 데이터 손실을 방지하려면, 프로덕션 환경의 복사본을 만들고 이를 응용 프로그램의 장애 조치 워크플로를 검사하는 데 사용하는 방법으로 훈련을 수행하는 것이 좋습니다.
@@ -61,6 +61,6 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="next-steps"></a>다음 단계
 * 비즈니스 연속성 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)
-* Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
+* Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.  

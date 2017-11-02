@@ -10,17 +10,17 @@ editor:
 ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.openlocfilehash: 68eadf7a7eef4ba5e6bcd9af1279227a01efdf70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ff5c479cfcf1e861a82205eef93dfee01cb4a2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
    ![서버 이름 및 로그인 자격 증명 입력](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > 네트워크 환경에 따라 SQL 데이터베이스 서버에서 클라이언트 IP 주소에서 트래픽을 허용하지 않는 경우 연결할 수 없거나 연결이 끊길 수 있습니다. [Azure 포털](https://portal.azure.com/)로 이동하고 SQL Server를 클릭하고 서버를 클릭하며 설정 아래에서 방화벽을 클릭하고 클라이언트 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 구성 방법](sql-database-configure-firewall-settings.md) 을 참조하세요.
+   > 네트워크 환경에 따라 SQL Database 서버에서 클라이언트 IP 주소에서 트래픽을 허용하지 않는 경우 연결할 수 없거나 연결이 끊길 수 있습니다. [Azure 포털](https://portal.azure.com/)로 이동하고 SQL Server를 클릭하고 서버를 클릭하며 설정 아래에서 방화벽을 클릭하고 클라이언트 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 구성 방법](sql-database-configure-firewall-settings.md) 을 참조하세요.
    > 
    > 
 5. **데이터베이스 및 테이블 선택** 대화 상자에서 목록에서 작업할 데이터베이스를 선택한 후 작업할 테이블 또는 뷰(**vGetAllCategories** 선택)를 클릭한 후 **다음**을 클릭합니다.
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* 고급 쿼리 및 분석을 위해 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-ssms.md) 하는 방법에 대해 알아보세요.
+* 고급 쿼리 및 분석을 위해 [SQL Server Management Studio를 사용하여 SQL Database에 연결](sql-database-connect-query-ssms.md) 하는 방법에 대해 알아보세요.
 * [탄력적 풀](sql-database-elastic-pool.md)의 이점에 대해 알아보세요.
-* [백 엔드에서 SQL 데이터베이스에 연결할 웹 응용 프로그램을 만드는](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md)방법에 대해 알아보세요.
+* [백 엔드에서 SQL Database에 연결할 웹 응용 프로그램을 만드는](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md)방법에 대해 알아보세요.
 

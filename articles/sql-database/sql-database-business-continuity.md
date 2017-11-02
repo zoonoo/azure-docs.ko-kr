@@ -1,6 +1,6 @@
 ---
 title: "클라우드 무중단 업무 방식 - 데이터베이스 복구 - SQL Database | Microsoft Docs"
-description: "Azure SQL 데이터베이스에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다."
+description: "Azure SQL Database에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다."
 keywords: "무중단 업무 방식, 클라우드 무중단 업무 방식, 데이터베이스 재해 복구, 데이터베이스 복구"
 services: sql-database
 documentationcenter: 
@@ -13,22 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL 데이터베이스의 비즈니스 연속성 개요
+# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
-이 개요에서는 Azure SQL 데이터베이스에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 응용 프로그램을 사용할 수 없게 만들 수 있는 중단 이벤트에서의 복구와 관련된 옵션, 권장 사항 및 자습서에 대해 알아봅니다. 사용자 또는 응용 프로그램 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 응용 프로그램에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
+이 개요에서는 Azure SQL Database에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 응용 프로그램을 사용할 수 없게 만들 수 있는 중단 이벤트에서의 복구와 관련된 옵션, 권장 사항 및 자습서에 대해 알아봅니다. 사용자 또는 응용 프로그램 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 응용 프로그램에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 
-## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 SQL 데이터베이스 기능
+## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 SQL Database 기능
 
-SQL 데이터베이스는 자동화된 백업 및 선택적 데이터베이스 복제를 비롯한 여러 가지 비즈니스 연속성 기능을 제공합니다. 이러한 기능은 최근 트랜잭션에 대한 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성을 갖습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택할 수 있습니다. 대부분의 시나리오에서 이러한 옵션을 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 응용 프로그램이 완벽하게 복구되기까지 허용되는 최대 시간(RTO(복구 시간 목표))을 이해해야 합니다. 중단 이벤트 후 복구될 때 응용 프로그램이 손실을 허용할 수 있는 최신 데이터 업데이트의 최대 크기(시간 간격)(RPO(복구 지점 목표))도 이해해야 합니다.
+SQL Database는 자동화된 백업 및 선택적 데이터베이스 복제를 비롯한 여러 가지 비즈니스 연속성 기능을 제공합니다. 이러한 기능은 최근 트랜잭션에 대한 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성을 갖습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택할 수 있습니다. 대부분의 시나리오에서 이러한 옵션을 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 응용 프로그램이 완벽하게 복구되기까지 허용되는 최대 시간(RTO(복구 시간 목표))을 이해해야 합니다. 중단 이벤트 후 복구될 때 응용 프로그램이 손실을 허용할 수 있는 최신 데이터 업데이트의 최대 크기(시간 간격)(RPO(복구 지점 목표))도 이해해야 합니다.
 
 다음 테이블에서 세 가지 가장 일반적인 시나리오에 대한 ERT 및 RPO를 비교합니다.
 
@@ -36,7 +36,7 @@ SQL 데이터베이스는 자동화된 백업 및 선택적 데이터베이스 �
 | --- | --- | --- | --- |
 | 백업에서 특정 시점 복원 |7일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 |ERT < 12시간, RPO < 1시간 |ERT < 12시간, RPO < 1시간 |ERT < 12시간, RPO < 1시간 |
-| Azure 백업 자격 증명 모음에서 복원 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |
+| Azure Backup 자격 증명 모음에서 복원 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |
 | 활성 지역 복제 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>데이터베이스 백업을 사용하여 데이터베이스 복구
@@ -104,7 +104,7 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Azure 백업 자격 증명 모음에서 복원
+### <a name="restore-from-azure-backup-vault"></a>Azure Backup 자격 증명 모음에서 복원
 자동화된 백업에 대한 현재 보존 기간 외에 데이터 손실이 발생하고 장기 보존을 위해 데이터베이스를 구성하는 경우 Azure Backup Vault의 주간 백업에서 새 데이터베이스로 복원할 수 있습니다. 이 시점에서 원본 데이터베이스를 복원된 데이터베이스로 바꾸거나 복원된 데이터베이스에서 필요한 데이터를 원본 데이터베이스로 복사할 수 있습니다. 이전 버전의 주요 응용 프로그램 업그레이드하기 전에 데이터베이스를 검색해야 할 경우 감사자 또는 법적 순서의 요청을 충족한다면 Azure Backup Vault에 저장된 전체 백업을 사용하여 데이터베이스를 만들 수 있습니다.  자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Azure 지역 데이터 센터 가동 중단 상태에서 다른 지역으로 데이터베이스 복구

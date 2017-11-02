@@ -9,20 +9,20 @@ author: torsteng
 ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: ffd0f1ab8694a0397dceca5dfabbe7a9bdd9a387
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
-분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL 데이터베이스의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
+분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL Database의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 
 ## <a name="configuring-certificates"></a>인증서 구성
 인증서는 두 가지 방법으로 구성합니다. 
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/13/2017
 
 액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다. 
 
-해당 형식에 대한 설명은 네트워크 액세스 제어 목록 설명서에 나와 있습니다.
+해당 형식에 대한 설명은 네트워크 Access Control 목록 설명서에 나와 있습니다.
 예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
 
     <AccessControl name="Retricted">
@@ -223,7 +223,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 * 신뢰할 수 있는 루트 인증 기관 저장소로 인증서를 가져옵니다.
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>클라이언트 인증서 기반 인증 해제
-클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure 가상 네트워크)이 없는 한 서비스 끝점에 대한 공용 액세스가 허용됩니다.
+클라이언트 인증서 기반 인증만 지원되며, 이를 사용하지 않으면 다른 메커니즘(예: Microsoft Azure Virtual Network)이 없는 한 서비스 끝점에 대한 공용 액세스가 허용됩니다.
 
 서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
 
@@ -434,9 +434,9 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 9. 모든 대화 상자 창에서 **확인** 을 클릭합니다.
 
 ## <a name="upload-certificate"></a>인증서 업로드
-[Azure 포털](https://portal.azure.com/)
+[Azure Portal](https://portal.azure.com/)
 
-1. **클라우드 서비스**를 선택합니다.
+1. **Cloud Services**를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
 3. 최상위 메뉴에서 **인증서**를 클릭합니다.
 4. 아래쪽 메뉴 모음에서 **업로드**를 클릭합니다.

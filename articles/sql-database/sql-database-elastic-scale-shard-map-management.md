@@ -9,17 +9,17 @@ editor:
 ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f626cf417d8b3f1761f3c900d49039b3ff83b093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 604690325fd755dcf5c997cc281fe9e5825c51a4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 응용 프로그램을 **분할 키**의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스는 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다( **shardlet**라고도 함). 
@@ -162,7 +162,7 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 
 분할된 데이터베이스, 분할된 데이터베이스 맵, 분할된 데이터베이스 매핑 등을 추가/변경하는 등 분할된 데이터베이스 맵을 관리하려는 경우 **ShardMapManager**를 인스턴스화해야 하며, 이때 **GSM 데이터베이스 및 분할된 데이터베이스로 사용되는 각 데이터베이스 모두에 대해 읽기/쓰기 권한이 있는 자격 증명**을 사용해야 합니다. 이 자격 증명은 분할된 데이터베이스 맵 정보를 입력하거나 변경할 뿐만 아니라 새로운 분할된 데이터베이스에 LSM 테이블을 생성할 때 GSM 및 LSM에서 테이블에 쓸 수 있도록 허용해야 합니다.  
 
-[탄력적 데이터베이스 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
+[Elastic Database 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
 ### <a name="only-metadata-affected"></a>영향을 받는 메타데이터만
 **ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다.  탄력적 데이터베이스 도구에 포함된 **분할-병합** 도구는 분할된 데이터베이스 간의 실제 데이터 이동을 조정하면서 이러한 API를 사용합니다. [Elastic Database 분할/병합 도구를 사용하여 확장하기](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
@@ -280,7 +280,7 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 ## <a name="data-dependent-routing"></a>데이터 종속 라우팅
 분할된 데이터베이스 맵 관리자는 앱별 작업을 수행하기 위해 데이터베이스 연결이 필요한 응용 프로그램에서 대부분 사용됩니다. 이러한 연결은 올바른 데이터베이스와 연결되어야 합니다. 이를 **데이터 종속 라우팅**이라고 합니다. 이러한 응용 프로그램의 경우 GSM 데이터베이스에 대한 읽기 전용 액세스 권한이 있는 자격 증명을 사용하여 팩터리의 분할된 데이터베이스 맵 관리자 개체를 인스턴스화합니다. 이후 연결에 대한 개별 요청은 적합한 분할된 데이터베이스에 연결하는 데 필요한 자격 증명을 제공합니다.
 
-읽기 전용 자격 증명으로 열린 **ShardMapManager** 를 사용하는 이러한 응용 프로그램은 맵 또는 매핑을 변경할 수 없습니다. 이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다. [탄력적 데이터베이스 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
+읽기 전용 자격 증명으로 열린 **ShardMapManager** 를 사용하는 이러한 응용 프로그램은 맵 또는 매핑을 변경할 수 없습니다. 이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다. [Elastic Database 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
 자세한 내용은 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. 
 

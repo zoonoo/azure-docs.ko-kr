@@ -13,22 +13,22 @@ ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
+ms.workload: Active
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
+# <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL Database로 SQL Server 데이터베이스 마이그레이션
 이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
 
 두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
 
 > [!NOTE]
-> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)를 참조하세요.
+> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)를 참조하세요.
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>방법 1: 마이그레이션하는 동안 가동 중지 시간을 사용한 마이그레이션
@@ -67,18 +67,18 @@ ms.lasthandoff: 10/13/2017
 
 이 솔루션을 사용하려면 마이그레이션할 SQL Server 인스턴스에서 Azure SQL Database를 구독자로 구성합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자). 
 
-트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL 데이터베이스에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 응용 프로그램이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL 데이터베이스는 현재 프로덕션 시스템입니다.
+트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL Database에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL Database를 가리키도록 응용 프로그램의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 응용 프로그램이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL Database는 현재 프로덕션 시스템입니다.
 
  ![SeedCloudTR 다이어그램](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 > [!TIP]
-> 또한 트랜잭션 복제를 사용하여 데이터베이스의 하위 집합을 마이그레이션할 수 있습니다. 사용자가 Azure SQL 데이터베이스로 복제하는 게시물을 복제되는 데이터베이스의 테이블 하위 집합으로 제한할 수 있습니다. 복제되는 각 테이블에 대해 데이터를 행의 하위 집합 및/또는 열의 하위 집합으로 제한할 수 있습니다.
+> 또한 트랜잭션 복제를 사용하여 데이터베이스의 하위 집합을 마이그레이션할 수 있습니다. 사용자가 Azure SQL Database로 복제하는 게시물을 복제되는 데이터베이스의 테이블 하위 집합으로 제한할 수 있습니다. 복제되는 각 테이블에 대해 데이터를 행의 하위 집합 및/또는 열의 하위 집합으로 제한할 수 있습니다.
 >
 
 ### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>트랜잭션 복제 워크플로를 사용하여 SQL Database로 마이그레이션
 
 > [!IMPORTANT]
-> Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 SQL Server Management Studio를 사용합니다. 이전 버전의 SQL Server Management Studio는 SQL 데이터베이스를 구독자로 설정할 수 없습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 SQL Server Management Studio를 사용합니다. 이전 버전의 SQL Server Management Studio는 SQL Database를 구독자로 설정할 수 없습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 
 1. 배포 설정
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/13/2017
 ## <a name="resolving-database-migration-compatibility-issues"></a>데이터베이스 마이그레이션 호환성 문제 해결
 원본 데이터베이스의 SQL Server 버전 및 마이그레이션하려는 데이터베이스의 복잡성에 따라 매우 다양한 호환성 문제가 발견될 수 있습니다. 이전 버전의 SQL Server에는 보다 많은 호환성 문제가 있습니다. 사용자가 선택한 검색 엔진을 사용하는 대상이 지정된 인터넷 검색 외에도 다음 리소스를 사용해 보세요.
 
-* [Azure SQL 데이터베이스에서 지원되지 않는 하는 SQL Server 데이터베이스 기능](sql-database-transact-sql-information.md)
+* [Azure SQL Database에서 지원되지 않는 하는 SQL Server 데이터베이스 기능](sql-database-transact-sql-information.md)
 * [SQL Server 2016에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
 * [SQL Server 2014에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
 * [SQL Server 2012에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)

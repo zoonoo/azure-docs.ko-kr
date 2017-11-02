@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다.
 
-이 빠른 시작에서는 Azure CLI 버전 2.0.12 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+이 빠른 시작에서는 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
@@ -45,10 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU](container-registry-skus.md)를 참조하세요.
 
-Azure Container Registry는 `Basic`, `Managed_Basic`, `Managed_Standard` 및 `Managed_Premium`의 몇몇 SKU에서 사용할 수 있습니다. `Managed_*` SKU는 관리되는 저장소 및 웹후크와 같은 고급 기능을 제공하긴 하지만, 현재 Azure CLI를 사용할 경우 일부 Azure 지역에서 사용할 수 없습니다. 이 빠른 시작에서는 모든 지역에서 사용할 수 있는 `Basic` SKU를 선택합니다.
-
->[!NOTE]
-> 관리되는 레지스트리는 현재 모든 지역에서 사용할 수 있습니다. 그러나 최신 버전의 Azure CLI는 모든 지역에 관리되는 레지스트리를 만들 수 있도록 아직 지원하지 않습니다. 이러한 지원은 Azure CLI의 다음 버전에서 사용할 수 있습니다. 해당 릴리스 전에는 [Azure Portal](container-registry-get-started-portal.md)을 사용하여 관리되는 레지스트리를 만드세요.
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 [az acr create](/cli/azure/acr#create) 명령을 사용하여 ACR 인스턴스를 만듭니다.
 

@@ -2,8 +2,8 @@
 2. VNet 페이지의 **설정** 섹션에서 **서브넷**을 클릭하여 서브넷 페이지를 확장합니다.
 3. **서브넷** 페이지의 맨 위에서 **+게이트웨이 서브넷**을 클릭하여 **서브넷 추가** 페이지를 엽니다.
 
-  ![게이트웨이 서브넷 추가](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addgwsub.png "게이트웨이 서브넷 추가")
 4. 서브넷의 **이름**에 'GatewaySubnet' 값이 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 GatewaySubnet 값이 필요합니다. 자동으로 채워진 **주소 범위** 값을 구성 요구 사항과 일치하도록 조정합니다.
 
-  ![게이트웨이 서브넷 추가](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addsub2.png "게이트웨이 서브넷 추가")
 5. 서브넷을 만들려면 페이지 아래쪽에서 **확인**을 클릭합니다.

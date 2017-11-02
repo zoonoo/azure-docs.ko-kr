@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 그룹 관리 | Microsoft Docs"
 description: "Azure Active Directory를 사용하여 Azure 사용자를 관리하기 위해 그룹을 만들고 관리하는 방법."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: d1f5451c-3807-423c-8bac-2822d27b893f
@@ -17,11 +17,11 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: a29bc68e966a3706af557af0c626d369d04149aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33483f0db5fed9606fd531d03a6f7ddd2332fc6d
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Azure Active Directory에서 그룹 관리
 > [!div class="op_single_selector"]

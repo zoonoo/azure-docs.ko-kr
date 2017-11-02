@@ -12,17 +12,17 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: On Demand
 ms.date: 04/14/2017
 ms.author: sashan
-ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbd54a2a309874c81d8384d789bebe4f94c97adf
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
-Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능을 제공합니다.
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
+Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
 * [활성 지역 복제](sql-database-geo-replication-overview.md)
 * [지역 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -35,7 +35,7 @@ Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능�
 * 새로운 주 서버가 될 수 있는 다른 지역의 논리 서버를 식별합니다. 활성 지역 복제를 사용할 경우 이러한 서버가 하나 이상이 될 수 있으며 각각이 보조 서버입니다. 지역 복원의 경우 일반적으로 데이터베이스가 있는 지역과 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 있는 서버입니다.
 * 사용자가 새로운 주 데이터베이스에 액세스하는 데 필요한 서버 수준 방화벽 규칙을 식별하고 경우에 따라 정의합니다.
 * 연결 문자열을 변경하거나 DNS 항목을 변경하는 것과 같이 사용자를 새로운 주 서버로 리디렉션하는 방법을 결정합니다.
-* 새로운 주 서버의 master 데이터베이스에 있어야 하는 로그인을 식별하고 필요에 따라 만든 후, 이러한 로그인(있는 경우)이 master 데이터베이스에서 적절한 권한이 있는지 확인합니다. 자세한 내용은 [재해 복구 후 Azure SQL 데이터베이스 보안](sql-database-geo-replication-security-config.md)
+* 새로운 주 서버의 master 데이터베이스에 있어야 하는 로그인을 식별하고 필요에 따라 만든 후, 이러한 로그인(있는 경우)이 master 데이터베이스에서 적절한 권한이 있는지 확인합니다. 자세한 내용은 [재해 복구 후 Azure SQL Database 보안](sql-database-geo-replication-security-config.md)
 * 새로운 주 데이터베이스에 매핑하기 위해 업데이트해야 하는 경고 규칙을 식별합니다.
 * 현재 주 데이터베이스에 대한 감사 구성을 문서화합니다.
 * [재해 복구 훈련](sql-database-disaster-recovery-drills.md)을 수행합니다. 지역 복원 기능에 대해 가동 중단을 시뮬레이션하려면 원본 데이터베이스를 삭제하거나 이름을 바꿔 응용 프로그램 연결 오류를 발생시킬 수 있습니다. 활성 지역 복제의 중단을 시뮬레이션하려면 데이터베이스에 연결된 웹 응용 프로그램 또는 가상 컴퓨터를 사용하지 않도록 설정하거나 데이터베이스를 장애 조치하여 응용 프로그램 연결 오류를 발생시킬 수 있습니다.
@@ -45,7 +45,7 @@ Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능�
 
 1. 응용 프로그램 계층에서 데이터베이스로 영구적인 연결 실패
 2. Azure 포털에 광범위한 영향이 있는 지역 내 인시던트에 대한 경고가 표시됩니다.
-3. Azure SQL 데이터베이스 서버는 성능이 저하됨으로 표시됩니다.
+3. Azure SQL Database 서버는 성능이 저하됨으로 표시됩니다.
 
 가동 중지 시간에 대한 응용 프로그램 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 연결 문자열을 변경하는 방법에 대한 자세한 내용은 [연결 라이브러리](sql-database-libraries.md)에 대한 적절한 개발 언어를 참조하세요.
 
 ### <a name="configure-firewall-rules"></a>방화벽 규칙 구성
-서버 및 데이터베이스에서 구성된 방화벽 규칙이 주 데이터베이스와 주 서버에서 구성된 방화벽 규칙과 일치하는지 확인해야 합니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
+서버 및 데이터베이스에서 구성된 방화벽 규칙이 주 데이터베이스와 주 서버에서 구성된 방화벽 규칙과 일치하는지 확인해야 합니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL Database)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ### <a name="configure-logins-and-database-users"></a>로그인 및 데이터베이스 사용자 구성
 응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)을 참조하세요.
@@ -96,7 +96,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 자세한 내용은 [Database 감사](sql-database-auditing.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
+* Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)
 * 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
 

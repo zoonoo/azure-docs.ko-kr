@@ -4,7 +4,7 @@ description: "Azure Analysis Services의 데이터 모델에 지원되는 데이
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 Azure Analysis Services는 조직의 클라우드 및 온-프레미스 데이터 원본에 대한 연결을 지원합니다. 지원되는 데이터 원본이 항상 추가되고 있습니다. 자주 확인하세요. 
@@ -29,7 +29,7 @@ Azure Analysis Services는 조직의 클라우드 및 온-프레미스 데이터
 | 클라우드  |
 |---|
 | Azure Blob Storage*  |
-| Azure SQL 데이터베이스  |
+| Azure SQL Database  |
 | Azure Data Warehouse |
 
 
@@ -59,8 +59,8 @@ Azure SQL Database 같은 클라우드 데이터 원본에 연결되는 데이�
 ### <a name="cloud"></a>클라우드
 | **데이터 원본** | **메모리 내** | **DirectQuery** |
 |  --- | --- | --- |
-| Azure SQL 데이터 웨어하우스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 |
-| Azure SQL 데이터베이스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 | |
+| Azure SQL Data Warehouse |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 |
+| Azure SQL Database |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 | |
 
 ### <a name="on-premises-via-gateway"></a>온-프레미스(게이트웨이 사용)
 |**데이터 원본** | **메모리 내** | **DirectQuery** |

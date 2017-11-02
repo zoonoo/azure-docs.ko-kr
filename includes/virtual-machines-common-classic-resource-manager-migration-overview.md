@@ -9,13 +9,13 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 ## <a name="supported-resources-for-migration"></a>마이그레이션에 지원되는 리소스
 이들 클래식 IaaS 리소스는 마이그레이션 시 지원됩니다.
 
-* 가상 컴퓨터
+* Virtual Machines
 * 가용성 집합
-* 클라우드 서비스
-* 저장소 계정
-* 가상 네트워크
-* VPN 게이트웨이
-* Express 경로 게이트웨이_(가상 네트워크 전용으로 동일한 구독 내)_
+* Cloud Services
+* Storage 계정
+* Virtual Network
+* VPN Gateway
+* ExpressRoute 게이트웨이_(Virtual Network 전용으로 동일한 구독 내)_
 * 네트워크 보안 그룹 
 * 경로 테이블 
 * 예약된 IP 
@@ -25,7 +25,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 
 * 가상 컴퓨터 마이그레이션(가상 네트워크가 아님)
 * 가상 컴퓨터 마이그레이션(가상 네트워크에서)
-* 저장소 계정 마이그레이션
+* Storage 계정 마이그레이션
 * 연결되지 않은 리소스(네트워크 보안 그룹, 경로 테이블 및 예약된 IP)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 컴퓨터 마이그레이션(가상 네트워크가 아님)
@@ -52,8 +52,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 >
 >
 
-### <a name="storage-accounts-migration"></a>저장소 계정 마이그레이션
-원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. 가상 컴퓨터 및 가상 네트워크에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
+### <a name="storage-accounts-migration"></a>Storage 계정 마이그레이션
+원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
 
 > [!NOTE]
 > Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다.
@@ -73,11 +73,10 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 | 리소스 공급자 | 기능 | 권장 사항 |
 | --- | --- | --- |
-| Compute | 연결되지 않은 가상 컴퓨터 디스크 | 이들 디스크 뒤에 있는 VHD Blob은 저장소 계정을 마이그레이션할 때 마이그레이션됩니다. |
-| Compute | 가상 컴퓨터 이미지 | 이들 디스크 뒤에 있는 VHD Blob은 저장소 계정을 마이그레이션할 때 마이그레이션됩니다. |
+| Compute | 연결되지 않은 가상 컴퓨터 디스크 | 이들 디스크 뒤에 있는 VHD Blob은 Storage 계정을 마이그레이션할 때 마이그레이션됩니다. |
+| Compute | 가상 컴퓨터 이미지 | 이들 디스크 뒤에 있는 VHD Blob은 Storage 계정을 마이그레이션할 때 마이그레이션됩니다. |
 | 네트워크 | 끝점 ACL. | 끝점 ACL을 제거하고 마이그레이션을 다시 시도합니다. |
-| 네트워크 | ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 가상 네트워크  | 마이그레이션을 시작하기 전에 VPN Gateway를 제거한 후 마이그레이션이 완료되면 VPN Gateway를 다시 만듭니다. [ExpressRoute 마이그레이션](../articles/expressroute/expressroute-migration-classic-resource-manager.md)에 대해 자세히 알아봅니다.|
-| 네트워크 | 응용 프로그램 게이트웨이 | 마이그레이션을 시작하기 전에 Application Gateway를 제거한 후 마이그레이션이 완료되면 Application Gateway를 다시 만듭니다. |
+| 네트워크 | Application Gateway | 마이그레이션을 시작하기 전에 Application Gateway를 제거한 후 마이그레이션이 완료되면 Application Gateway를 다시 만듭니다. |
 | 네트워크 | VNet 피어링을 사용하는 가상 네트워크 | Virtual Network를 리소스 관리자로 마이그레이션한 다음 피어를 마이그레이션합니다. [VNet 피어링](../articles/virtual-network/virtual-network-peering-overview.md)에 대해 자세히 알아보세요. | 
 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성
@@ -85,21 +84,21 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 | 부여 | 구성 | 권장 사항 |
 | --- | --- | --- |
-| 리소스 관리자 |클래식 리소스에 대한 RBAC(역할 기반 액세스 제어) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
-| 계산 |VM과 연결된 여러 서브넷 |서브넷만 참조하도록 서브넷 구성을 업데이트합니다. |
-| 계산 |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 컴퓨터 |VM을 삭제할 수 있습니다(선택 사항). |
-| 계산 |경고, 자동 크기 조정 정책이 있는 가상 컴퓨터 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |
-| 계산 |XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) |이 기능은 지원되지 않습니다. 마이그레이션을 계속하려면 가상 컴퓨터에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다. |
-| 계산 |프리미엄 저장소를 사용한 부팅 진단 |마이그레이션을 계속하기 전에 VM에 대한 부팅 진단 기능을 비활성화합니다. 마이그레이션이 완료된 후에 Resource Manager 스택에서 부팅 진단을 재활성화할 수 있습니다. 또한 스크린샷 및 직렬 로그에 대해 사용되는 blob은 그러한 blob에 대해 요금이 부과되지 않도록 삭제해야 합니다. |
-| 계산 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다. |
-| 계산 | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |
-| 계산 | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 가상 컴퓨터에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
-| 계산 | 백업 또는 스냅숏 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 가상 컴퓨터에 설치됩니다. 이러한 Virtual Machines를 마이그레이션하려면 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)의 지침을 따르세요.  |
+| 리소스 관리자 |클래식 리소스에 대한 RBAC(역할 기반 Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
+| Compute |VM과 연결된 여러 서브넷 |서브넷만 참조하도록 서브넷 구성을 업데이트합니다. |
+| Compute |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 컴퓨터 |VM을 삭제할 수 있습니다(선택 사항). |
+| Compute |경고, 자동 크기 조정 정책이 있는 가상 컴퓨터 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |
+| Compute |XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) |이 기능은 지원되지 않습니다. 마이그레이션을 계속하려면 가상 컴퓨터에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다. |
+| Compute |프리미엄 저장소를 사용한 부팅 진단 |마이그레이션을 계속하기 전에 VM에 대한 부팅 진단 기능을 비활성화합니다. 마이그레이션이 완료된 후에 Resource Manager 스택에서 부팅 진단을 재활성화할 수 있습니다. 또한 스크린샷 및 직렬 로그에 대해 사용되는 blob은 그러한 blob에 대해 요금이 부과되지 않도록 삭제해야 합니다. |
+| Compute | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다. |
+| Compute | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |
+| Compute | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 Virtual Machines에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
+| Compute | 백업 또는 스냅숏 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 가상 컴퓨터에 설치됩니다. 이러한 Virtual Machines를 마이그레이션하려면 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)의 지침을 따르세요.  |
 | 네트워크 |가상 컴퓨터와 웹/작업자 역할이 포함된 가상 네트워크 |현재는 지원되지 않습니다. 마이그레이션하기 전에 웹/작업자 역할을 자체 Virtual Network로 이동하세요. 클래식 Virtual Network가 마이그레이션되면 마이그레이션된 Azure Resource Manager Virtual Network가 이전과 비슷한 구성을 얻기 위해 클래식 Virtual Network와 페어링될 수 있습니다.|
 | 네트워크 | 클래식 ExpressRoute 회로 |현재는 지원되지 않습니다. 이러한 회로는 IaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 이에 대한 자세한 내용은 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.|
-| Azure 앱 서비스 |앱 서비스 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
+| Azure App Service |App Service 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure HDInsight |HDInsight Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Microsoft Dynamics Lifecycle Services |Dynamics Lifecycle Services에서 관리하는 가상 컴퓨터가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure AD Domain Services |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure RemoteApp |Azure RemoteApp 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
-| Azure API 관리 |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 가동 중지 시간이 없는 API Management 배포의 VNET을 변경하세요. |
+| Azure API Management |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 가동 중지 시간이 없는 API Management 배포의 VNET을 변경하세요. |

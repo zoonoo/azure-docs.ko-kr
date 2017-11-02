@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 086f73fd07e9ef24dd7fe776851e1a9402233f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
@@ -47,9 +47,9 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 
 Azure Managed Disks는 저장소 계정을 관리하지 않아도 되기 때문에 VM 관리를 간소화합니다. Managed Disks는 가용성 집합에서 VM의 안정성을 향상시킨다는 장점도 있습니다. 가용성 집합에서 여러 VM의 디스크는 단일 실패 지점을 방지하기 위해 충분히 서로 격리되어야 합니다. 서로 다른 저장소 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 저장소 배율 단위 오류의 영향을 제한합니다. 필요에 따라 두 가지 유형의 저장소 옵션 중에 하나를 선택할 수 있습니다. 
  
-- [프리미엄 Managed Disks](../../storage/common/storage-premium-storage.md)는 I/O 집약적인 워크로드를 실행하는 가상 컴퓨터에 대한 고성능의 짧은 대기 시간 디스크 지원을 제공하는 반도체 드라이브(SSD) 기반 저장소 미디어입니다. 프리미엄 Managed Disks로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.  
+- [프리미엄 Managed Disks](premium-storage.md)는 I/O 집약적인 워크로드를 실행하는 가상 컴퓨터에 대한 고성능의 짧은 대기 시간 디스크 지원을 제공하는 반도체 드라이브(SSD) 기반 저장소 미디어입니다. 프리미엄 Managed Disks로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.  
 
-- [표준 Managed Disks](../../storage/common/storage-standard-storage.md)는 하드 디스크 드라이브(HDD) 기반 저장소 미디어이며 개발/테스트를 비롯하여 성능 변화에 덜 민감하고 자주 발생되지 않는 액세스 워크로드에 가장 적합합니다.  
+- [표준 Managed Disks](standard-storage.md)는 하드 디스크 드라이브(HDD) 기반 저장소 미디어이며 개발/테스트를 비롯하여 성능 변화에 덜 민감하고 자주 발생되지 않는 액세스 워크로드에 가장 적합합니다.  
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Managed Disks로 마이그레이션 계획 수립
 
@@ -63,7 +63,7 @@ Azure Managed Disks를 사용할 수 있는 위치를 선택합니다. 프리미
 ### <a name="vm-sizes"></a>VM 크기
 
 프리미엄 Managed Disks를 마이그레이션하는 경우 VM 크기를 VM이 위치한 지역에서 제공하는 Premium Storage 지원 가능 크기로 업데이트해야 합니다. Premium Storage를 사용할 수 있는 VM 크기를 검토합니다. Azure VM 크기 사양은 [가상 컴퓨터의 크기](sizes.md)에 나열되어 있습니다.
-프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
+Premium Storage와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 ### <a name="disk-sizes"></a>디스크 크기
 

@@ -1,6 +1,6 @@
 ---
 title: "SQL Database에 대한 XEvent 이벤트 파일 코드 | Microsoft Docs"
-description: "Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure 저장소는 이 시나리오의 필수 부분입니다."
+description: "Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure Storage는 이 시나리오의 필수 부분입니다."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -10,17 +10,17 @@ tags:
 ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: 8477c9825161cb2ae8ca17227cd544183bcaafb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/11/2017
 
 확장 이벤트에 대한 정보를 캡처하고 보고하는 확실한 방법을 위한 전체 코드 샘플이 필요할 수 있습니다.
 
-Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure 저장소 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
+Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure Storage 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
 
 이 항목에서는 2단계 코드 샘플을 제공합니다.
 
-* 클라우드에서 Azure 저장소 컨테이너를 만드는 PowerShell.
+* 클라우드에서 Azure Storage 컨테이너를 만드는 PowerShell.
 * Transact-SQL:
   
-  * Azure 저장소 컨테이너를 이벤트 파일 대상에 할당합니다.
+  * Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
   * 이벤트 세션 등을 만들고 시작합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -53,7 +53,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
   
   * 이 모듈은 **New-AzureStorageAccount**등의 명령을 제공합니다.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure 저장소 컨테이너용 PowerShell 코드
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
 이 PowerShell은 2단계 코드 샘플의 1단계입니다.
 
@@ -233,7 +233,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 스크립트가 종료될 때 PowerShell 스크립트가 인쇄하는 몇 가지 명명된 값을 기록해 둡니다. 다음 2단계에서 Transact-SQL 스크립트로 해당 값을 편집해야 합니다.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2단계: Azure 저장소 컨테이너를 사용하는 Transact-SQL 코드
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2단계: Azure Storage 컨테이너를 사용하는 Transact-SQL 코드
 
 * 이 코드 샘플의 1단계에서 Azure Storage 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
 * 다음으로, 2단계에서 다음 Transact-SQL 스크립트는 컨테이너를 사용해야 합니다.
@@ -524,11 +524,11 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 * **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
 * **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=**에 지정된 Http 값을 **C:\myfile.xel**와 같은 전체 경로 문자열로 바꾸겠습니다.
   
-  * Azure 저장소 계정은 사용하지 않습니다.
+  * Azure Storage 계정은 사용하지 않습니다.
 
 ## <a name="more-information"></a>자세한 정보
 
-Azure 저장소 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
+Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 * [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](http://msdn.microsoft.com/library/azure/dd135715.aspx)

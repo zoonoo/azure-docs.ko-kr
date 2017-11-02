@@ -10,17 +10,17 @@ keywords: "sql 성능 튜닝, 데이터베이스 성능 튜닝, sql 성능 튜�
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: v-shysun
-ms.openlocfilehash: 39d85e7c1c45dd1bb28705ae06c4b5364b8baf37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb344bf9e87ef1a8f469268211588e51696164e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -41,7 +41,7 @@ Azure SQL Database를 사용하면 데이터베이스 사용량을 쉽게 모니
 이러한 보고서 또는 뷰를 사용하여 몇 가지 문제를 파악하는 경우 Azure SQL Database의 성능을 향상시키는 데 사용할 수 있는 기술을 찾으려면 [성능 지침 항목](sql-database-performance-guidance.md)을 참조하세요.
 
 > [!IMPORTANT] 
-> Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 >
 
 ## <a name="optimize-database-to-improve-performance"></a>데이터베이스 최적화로 성능 개선

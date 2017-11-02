@@ -1,6 +1,6 @@
 ---
 title: "SQL 오류 코드 - 데이터베이스 연결 오류 | Microsoft Docs"
-description: "일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL 데이터베이스 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. "
+description: "일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL Database 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. "
 keywords: "SQL 오류 코드, 액세스 SQL, 데이터베이스 연결 오류, SQL 오류 코드"
 services: sql-database
 documentationcenter: 
@@ -10,27 +10,27 @@ editor:
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: sstein
-ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
-이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL 데이터베이스에 특정되며 Microsoft SQL Server에 적용되지 않습니다.
+이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제, 탄력적 풀 및 기타 오류를 포함하여 SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL Database에 특정되며 Microsoft SQL Server에 적용되지 않습니다.
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>데이터베이스 연결 오류, 일시적인 오류 및 기타 임시 오류
-다음 표에서는 연결 끊김 오류와 응용 프로그램에서 SQL 데이터베이스에 액세스하려고 할 때 발생할 수 있는 기타 일시적인 오류에 대한 SQL 오류 코드를 보여줍니다. Azure SQL 데이터베이스에 연결하는 방법에 대한 시작 자습서를 보려면 [Azure SQL 데이터베이스에 연결](sql-database-libraries.md)을 참조하세요.
+다음 표에서는 연결 끊김 오류와 응용 프로그램에서 SQL Database에 액세스하려고 할 때 발생할 수 있는 기타 일시적인 오류에 대한 SQL 오류 코드를 보여줍니다. Azure SQL Database에 연결하는 방법에 대한 시작 자습서를 보려면 [Azure SQL Database에 연결](sql-database-libraries.md)을 참조하세요.
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>가장 일반적인 데이터베이스 연결 오류 및 일시적인 오류
-Azure 인프라에 는 SQL 데이터베이스 서비스에 과도한 워크로드 부하가 발생하는 경우 서버를 동적으로 다시 구성 하는 기능이 있습니다.  이러한 동적인 동작으로 인해 클라이언트 프로그램의 SQL 데이터베이스에 대한 연결이 손실될 수 있습니다. 이러한 종류의 오류 상황을 *일시적 장애*라고 합니다.
+Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하가 발생하는 경우 서버를 동적으로 다시 구성 하는 기능이 있습니다.  이러한 동적인 동작으로 인해 클라이언트 프로그램의 SQL Database에 대한 연결이 손실될 수 있습니다. 이러한 종류의 오류 상황을 *일시적 장애*라고 합니다.
 
 자체 해결을 위한 일시적 오류 시간이 지난 후 연결을 다시 시도할 수 있도록 클라이언트 프로그램에 재시도 논리가 있는 것이 좋습니다.  첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
@@ -44,8 +44,8 @@ Azure 인프라에 는 SQL 데이터베이스 서비스에 과도한 워크로�
 
 다시 시도 논리의 코드 예제는 다음을 참조하십시오.
 
-* [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md) 
-* [SQL 데이터베이스에서 연결 오류 및 일시적 오류를 해결하는 작업](sql-database-connectivity-issues.md)
+* [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md) 
+* [SQL Database에서 연결 오류 및 일시적 오류를 해결하는 작업](sql-database-connectivity-issues.md)
 
 ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
@@ -55,8 +55,8 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
 | 4060 |16 |로그인에서 요청된 데이터베이스 "%.&#x2a;ls"을(를) 열 수 없습니다. 로그인이 실패했습니다. |
-| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 나중에 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197 메시지 내에 포함된 오류 코드(%d)는 발생한 오류 또는 장애 조치의 종류에 대한 추가 정보를 제공합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>SQL Database 서버에 다시 연결하면 데이터베이스의 정상 복사본으로 자동 연결됩니다. 응용 프로그램은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL 데이터베이스에 다시 접속을 시도해야 합니다. |
-| 40501 |20 |서비스가 현재 사용 중입니다. 10초 후 요청을 다시 시도하십시오. 인시던트 ID: %ls. 코드: %d.<br/><br/>자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL 데이터베이스 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
+| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 나중에 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197 메시지 내에 포함된 오류 코드(%d)는 발생한 오류 또는 장애 조치의 종류에 대한 추가 정보를 제공합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>SQL Database 서버에 다시 연결하면 데이터베이스의 정상 복사본으로 자동 연결됩니다. 응용 프로그램은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. |
+| 40501 |20 |서비스가 현재 사용 중입니다. 10초 후 요청을 다시 시도하십시오. 인시던트 ID: %ls. 코드: %d.<br/><br/>자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
 | 40613 |17 |서버의 데이터베이스 '%.&#x2a;ls' '%.&#x2a;ls'을(를) 사용할 수 없습니다. 나중에 연결을 다시 시도하십시오. 문제가 지속되면 고객 지원 서비스에 문의하고 세션 추적 ID '%.&#x2a;ls'을(를) 제공하십시오. |
 | 49918 |16 |요청을 처리할 수 없습니다. 요청을 처리할 리소스가 부족합니다.<br/><br/>서비스가 현재 사용 중입니다. 요청을 나중에 다시 시도하세요. |
 | 49919 |16 |요청을 만들거나 업데이트하는 처리를 할 수 없습니다. 구독 "%ld"에 대해 진행 중인 작업을 너무 많이 만들거나 업데이트합니다.<br/><br/>서비스가 구독 또는 서버에 대한 여러 요청을 만들거나 업데이트하는 처리로 사용 중입니다. 요청은 현재 리소스 최적화에 대해 차단됩니다. 보류 중인 작업에 대해 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)를 쿼리합니다. 만들기 또는 업데이트를 보류 중인 요청이 완료되거나 보류 중인 요청 중 하나를 삭제할 때까지 대기하고 나중에 요청을 다시 시도합니다. |
@@ -64,7 +64,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 | 4221 |16 |'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'에서 긴 대기로 인해 읽기 보조에 대한 로그인에 실패했습니다. 행 버전이 복제본이 재활용될 때 처리 중이었던 트랜잭션에 대해 누락되었기 때문에 로그인에 복제본을 사용할 수 없습니다. 주 복제본에서 활성 트랜잭션을 롤백하거나 커밋하여 문제를 해결할 수 있습니다. 주 복제본에서 긴 쓰기 트랜잭션을 방지하여 이 조건의 발생을 최소화할 수 있습니다. |
 
 ## <a name="database-copy-errors"></a>데이터베이스 복사 오류
-Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다음 오류가 발생할 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류가 발생할 수 있습니다. 자세한 내용은 [Azure SQL Database 복사](sql-database-copy.md)를 참조하세요.
 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
@@ -83,7 +83,7 @@ Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다
 | 40571 |16 |내부 오류로 인해 데이터베이스를 복사하지 못했습니다. 대상 데이터베이스를 삭제하고 나중에 다시 시도하십시오. |
 
 ## <a name="resource-governance-errors"></a>리소스 관리 오류
-다음 오류는 Azure SQL 데이터베이스를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예:
+다음 오류는 Azure SQL Database를 사용하여 작업하는 동안 리소스를 과도하게 사용하여 발생합니다. 예:
 
 * 트랜잭션이 너무 오랫동안 열려 있었습니다.
 * 트랜잭션이 너무 많은 잠금을 보유하고 있습니다.
@@ -96,8 +96,8 @@ Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다
 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
-| 10928 |20 |리소스 ID: %d입니다. 데이터베이스에 대한 %s 제한이 %d이며 이 제한에 도달했습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL 데이터베이스 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
-| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않은 경우 나중에 다시 시도하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL 데이터베이스 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
+| 10928 |20 |리소스 ID: %d입니다. 데이터베이스에 대한 %s 제한이 %d이며 이 제한에 도달했습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
+| 10929 |20 |리소스 ID: %d입니다. %s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)을 참조하세요. 그렇지 않은 경우 나중에 다시 시도하세요.<br/><br/>리소스 ID는 제한에 도달한 리소스를 나타냅니다. 작업자 스레드의 경우 리소스 ID = 1입니다. 세션의 경우 리소스 ID = 2입니다.<br/><br/>이 오류 및 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.<br/>• [Azure SQL Database 리소스 제한](sql-database-service-tiers.md)을 참조하세요. |
 | 40544 |20 |데이터베이스가 크기 할당량에 도달했습니다. 데이터를 분할 또는 삭제하거나 인덱스를 삭제하거나 가능한 해결 방법에 대한 설명서를 참조하십시오. |
 | 40549 |16 |실행 시간이 긴 트랜잭션이 있으므로 세션이 종료됩니다. 트랜잭션 실행 시간을 줄이십시오. |
 | 40550 |16 |너무 많은 잠금을 획득하여 세션이 종료되었습니다. 단일 트랜잭션에서 읽기 또는 수정 행 수를 줄이십시오. |

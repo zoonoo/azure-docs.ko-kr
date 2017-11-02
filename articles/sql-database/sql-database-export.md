@@ -12,14 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 4427b74f205dcd2eabf825bbfc345279dc303f96
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 2291088b3d8e50f4e8143bf8560580e89db4cae3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/12/2017
 
 ![데이터베이스 내보내기](./media/sql-database-export/database-export.png)
 
-내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **가져오기/내보내기** 기록을 클릭합니다.
+내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **Import/Export** 기록을 클릭합니다.
 
 ![내보내기 기록](./media/sql-database-export/export-history.png)
 ![내보내기 기록 상태](./media/sql-database-export/export-history2.png)

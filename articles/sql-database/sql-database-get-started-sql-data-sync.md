@@ -9,17 +9,18 @@ editor:
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: douglasl
+ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Azure SQL 데이터 동기화 시작(미리 보기)
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
@@ -31,9 +32,6 @@ SQL 데이터 동기화의 개요는 [데이터 동기화](sql-database-sync-dat
 SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 문서를 참조하세요.
 -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-> [!NOTE]
-> 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 .PDF로 제공됩니다. [여기](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)에서 다운로드하세요.
 
 ## <a name="step-1---create-sync-group"></a>1단계 - 동기화 그룹 만들기
 
@@ -200,7 +198,6 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 SQL Database 및 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
--   [전체 SQL 데이터 동기화 기술 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
--   [SQL 데이터베이스 개요](sql-database-technical-overview.md)
+-   [SQL Database 개요](sql-database-technical-overview.md)
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

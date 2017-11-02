@@ -83,21 +83,18 @@ foreach ($g in $groups)
 *리소스의 중복되지 않는 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
 
 ```powershell
-$groups = Get-AzureRmResourceGroup
-foreach ($g in $groups)
-{
-    if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName
-        foreach ($r in $resources)
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
         {
-            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-            foreach ($key in $g.Tags.Keys)
-            {
-                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
-            }
-            $resourcetags += $g.Tags
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
         }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```

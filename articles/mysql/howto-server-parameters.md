@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: a18f163cbea0dac0d8272eaa24d0d2e03542c6ca
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -41,7 +41,7 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 | 기본 100  | 2560 | 100 | 
 | 표준 100 | 2560 | 200 | 
 | 표준 200 | 5120 | 400 | 
-| 표준 400 | 10240 | 400 | 
+| 표준 400 | 10240 | 800 | 
 | 표준 800 | 20480 | 1600 |
 
 버전 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 및 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html)에 대한 기타 서버 매개 변수 기본값

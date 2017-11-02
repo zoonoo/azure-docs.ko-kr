@@ -3,7 +3,7 @@ title: "클래식 포털 Azure AD 앱 프록시 커넥터 | Microsoft Docs"
 description: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: LizCasey
 manager: femila
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: fc65c4053c45d9c16c62ee0fe65924133a4bb94a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09e161effb595b993cc87b3a1c3773bdb5a6ca5a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 > [!div class="op_single_selector"]

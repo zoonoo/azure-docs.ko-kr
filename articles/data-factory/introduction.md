@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼
 ![데이터 팩터리의 최상위 수준 보기](media/introduction/big-picture.png)
 
 > [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 데이터 팩터리 버전 1 서비스를 사용 중인 경우 [데이터 팩터리 버전 1 소개](v1/data-factory-introduction.md)를 참조하세요.
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 소개](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반적으로 다음 네 단계를 수행합니다.
@@ -89,7 +89,7 @@ Azure Data Factory 버전 2는 원래 Azure Data Factory 데이터 이동 및 �
     - 파이프라인 내에서 작업 분기
     - 매개 변수
         - 요청 시 또는 트리거에서 파이프라인을 호출하는 동안 파이프라인 수준에서 매개 변수를 정의하고 인수를 전달할 수 있습니다.
-        - 파이프라인에 전달된 인수를 작업에 사용할 수 있습니다.
+        - 파이프라인에 전달되는 인수를 작업에 사용할 수 있습니다.
     - 사용자 지정 상태 전달
         - 상태를 포함한 작업 출력을 파이프라인의 이후 작업에서 사용할 수 있습니다.
     - 컨테이너 루프화
@@ -132,7 +132,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 이 방식의 장점은 파이프라인을 통해 각각을 개별적으로 관리하는 대신 하나의 집합으로써 활동을 관리할 수 있다는 점입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
 
 ### <a name="activity"></a>작업
-작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. 데이터 팩터리는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
+작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
 
 ### <a name="datasets"></a>데이터 집합
 데이터 집합은 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. 

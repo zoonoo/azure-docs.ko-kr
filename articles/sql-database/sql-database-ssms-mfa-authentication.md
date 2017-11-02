@@ -13,14 +13,14 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 09/29/2017
 ms.author: rickbyh
-ms.openlocfilehash: dd27dbd5e725748efcca23096273f1a2d526c2b5
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: bd5a7a117ec6c4a4b75fcced3f2b5987004c83d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)
 Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 
@@ -42,7 +42,7 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원   
 Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 공동 작업이란?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원에 속하며 해당 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)이 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉 MyDatabase)에 대해 이 그룹을 만들어야 합니다. 데이터베이스 사용자가 만들어지면 사용자 `steve@gmail.com`이 SSMS 인증 옵션 `Active Directory – Universal with MFA support`를 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 상자를 확인하고 SSMS **연결 속성** 대화 상자에 AD 도메인 이름 `contosotest.onmicrosoft.com`을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
 
-## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>SQL 데이터베이스 및 SQL Data Warehouse에 대한 유니버설 인증 제한 사항
+## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증 제한 사항
 - SSMS 및 SqlPackage.exe는 현재 Active Directory 유니버설 인증을 통해 MFA에서 사용할 수 있는 유일한 도구입니다.
 - SSMS 버전 17.2는 MFA를 통한 유니버설 인증을 사용하는 다중 사용자 동시 액세스를 지원합니다. 버전 17.0 및 17.1은 유니버설 인증을 사용한 SSMS 인스턴스에 대한 로그인을 단일 Azure Active Directory 계정으로 제한합니다.  다른 Azure AD 계정으로 로그인하려면 SSMS의 다른 인스턴스를 사용해야 합니다. (이 제한은 Active Directory 유니버설 인증으로 제한됩니다. Active Directory 암호 인증, Active Directory 통합 인증 또는 SQL Server 인증을 사용하여 다른 서버에 로그인할 수 있습니다.)
 - SSMS는 개체 탐색기, 쿼리 편집기 및 쿼리 저장소 시각화에 대해 Active Directory 유니버설 인증을 지원합니다.

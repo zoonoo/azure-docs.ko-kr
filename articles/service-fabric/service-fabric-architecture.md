@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 3cf019bf9a08574c984e92985452df438f3eeb77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d1f9d6136622e0e9fc1e725d8230dbedd6af24a
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="service-fabric-architecture"></a>서비스 패브릭 아키텍처
 서비스 패브릭은 계층화된 하위 시스템으로 빌드됩니다. 이러한 하위 시스템을 사용하여 다음 특징을 가진 응용 프로그램을 작성할 수 있습니다.

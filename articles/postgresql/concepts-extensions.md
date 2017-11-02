@@ -9,30 +9,30 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: faa6d72645fafeb2551795effd87232f0e3e0fe0
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 후에 확장은 기본 제공 기능으로 작동할 수 있습니다. PostgreSQL 확장에 대한 자세한 내용은 [관련 개체를 확장으로 패키지](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)를 참조하세요.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 대해 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서 [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서 [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
 
-PostgreSQL용 Azure 데이터베이스는 여기에 나열된 대로 주요 확장의 일부만 지원합니다. 나열되지 않은 확장은 지원되지 않습니다. PostgreSQL용 Azure 데이터베이스 서비스로 고유한 확장을 만들 수는 없습니다.
+PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주요 확장의 일부만 지원합니다. 나열되지 않은 확장은 지원되지 않습니다. PostgreSQL용 Azure 데이터베이스 서비스로 고유한 확장을 만들 수는 없습니다.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 지원하는 확장
-다음 표에는 PostgreSQL용 Azure 데이터베이스에서 현재 지원하는 표준 PostgreSQL 확장이 나와 있습니다. 이 정보를 pg\_available\_extensions를 쿼리하여 얻을 수도 있습니다.
+다음 표에는 PostgreSQL용 Azure 데이터베이스에서 현재 지원하는 표준 PostgreSQL 확장이 나와 있습니다. 이 정보를 `pg\_available\_extensions`를 쿼리하여 얻을 수도 있습니다.
 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
 | **확장** | **설명** |
 |---|---|
-| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 자동으로 암호화된 암호에 대한 데이터 형식을 제공합니다 |
-| [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식 제공 |
+| [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 자동으로 암호화된 암호에 대한 데이터 형식을 제공합니다. |
+| [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | 키/값 쌍 집합을 저장하기 위한 데이터 형식을 제공합니다. |
 | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. |
@@ -73,7 +73,7 @@ PostgreSQL용 Azure 데이터베이스는 여기에 나열된 대로 주요 확�
 > [!div class="mx-tableFixed"]
 | **확장** | **설명** |
 |---|---|
-| [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어 |
+| [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
@@ -87,7 +87,7 @@ PostgreSQL용 Azure 데이터베이스는 여기에 나열된 대로 주요 확�
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 튜플 수준 통계를 표시하는 방법을 제공합니다. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 외부 PostgreSQL 서버에 저장된 데이터에 액세스하는 데 사용되는 외부 데이터 래퍼입니다. |
 
-### <a name="postgis"></a>PostGIS
+### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
 | **확장** | **설명** |

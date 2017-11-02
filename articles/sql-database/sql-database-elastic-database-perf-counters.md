@@ -9,22 +9,22 @@ editor:
 ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
-ms.openlocfilehash: 60bb26fe6833998137ede71b363d5d40479a4c60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>분할된 맵 관리자에 대한 성능 카운터
 [분할된 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 대한 성능은 특히, [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 사용하는 경우에 캡처할 수 있습니다. 카운터는 Microsoft.Azure.SqlDatabase.ElasticScale.Client 클래스의 메서드를 사용하여 만들 수 있습니다.  
 
-카운터는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업의 성능을 추적하는 데 사용됩니다. 이러한 카운터는 “탄력적 데이터베이스: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
+카운터는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 작업의 성능을 추적하는 데 사용됩니다. 이러한 카운터는 “Elastic Database: 분할된 관리" 범주 아래 성능 모니터에서 액세스할 수 있습니다.
 
 **최신 버전은**[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 참고 항목: [최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
 * 성능 카운터 인스턴스는 프로세스 마다 생성됩니다. 응용 프로그램 작동이 중단되거나 분할된 맵이 캐시에서 제거되면 성능 카운터 인스턴스가 삭제됩니다.  
 
 ### <a name="see-also"></a>참고 항목: 
-[탄력적 데이터베이스 기능 개요](sql-database-elastic-scale-introduction.md)  
+[Elastic Database 기능 개요](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

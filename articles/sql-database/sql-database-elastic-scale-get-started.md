@@ -9,17 +9,17 @@ editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 600334c58ce62a1e53e8a57dd1566bd211249164
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>탄력적 데이터베이스 도구 시작하기
 이 문서에서는 샘플 앱을 실행하도록 지원하여 개발자 환경을 소개합니다. 이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 이 샘플은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 기능을 보여 줍니다.
