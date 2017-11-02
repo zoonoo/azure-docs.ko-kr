@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ad92789bc0ceca674b59dccfc8436ce097e99f05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -192,7 +192,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 > OData 복합 데이터 형식 예: 개체는 지원되지 않습니다.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON 예: OData 소스에서 Azure Blob으로 데이터 복사
-다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 OData 소스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
+다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 OData 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
 1. [OData](#linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
@@ -219,7 +219,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 }
 ```
 
-**Azure 저장소 연결된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```json
 {

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 문제 해결
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -32,9 +32,9 @@ Azure VM(가상 컴퓨터)과의 네트워크 연결 문제가 발생하는 경�
 
 경로 테이블은 서브넷과 연결되며 해당 서브넷의 모든 NIC(네트워크 인터페이스)에서 유효합니다. 다음 유형의 경로를 각 네트워크 인터페이스에 적용할 수 있습니다.
 
-* **시스템 경로:** 기본적으로 Azure VNet(가상 네트워크)에서 생성된 모든 서브넷에는 로컬 VNet 트래픽, VPN Gateway를 통한 온-프레미스 트래픽 및 인터넷 트래픽을 허용하는 시스템 경로 테이블이 있습니다. 또한 피어링된 VNet에 대한 시스템 경로도 있습니다.
-* **BGP 경로:** Express 경로 또는 사이트 간 VPN 연결을 통해 네트워크 인터페이스로 전파됩니다. [VPN Gateway가 있는 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 및 [Express 경로 개요](../expressroute/expressroute-introduction.md) 문서를 읽어 BGP 라우팅에 대해 자세히 알아봅니다.
-* **UDR(사용자 정의 경로):** 네트워크 가상 어플라이언스를 사용하거나 사이트 간 VPN을 통해 온-프레미스 네트워크로 트래픽을 강제 터널링하는 경우 UDR(사용자 정의 경로)이 서브넷 경로 테이블에 연결될 수 있습니다. UDR에 익숙하지 않은 경우 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined-routes) 문서를 읽어보세요.
+* **시스템 경로:** 기본적으로 Azure VNet(Virtual Network)에서 생성된 모든 서브넷에는 로컬 VNet 트래픽, VPN Gateway를 통한 온-프레미스 트래픽 및 인터넷 트래픽을 허용하는 시스템 경로 테이블이 있습니다. 또한 피어링된 VNet에 대한 시스템 경로도 있습니다.
+* **BGP 경로:** ExpressRoute 또는 사이트 간 VPN 연결을 통해 네트워크 인터페이스로 전파됩니다. [VPN Gateway가 있는 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 및 [ExpressRoute 개요](../expressroute/expressroute-introduction.md) 문서를 읽어 BGP 라우팅에 대해 자세히 알아봅니다.
+* **UDR(사용자 정의 경로):** 네트워크 가상 어플라이언스를 사용하거나 사이트 간 VPN을 통해 온-프레미스 네트워크로 트래픽을 강제 터널링하는 경우 UDR(사용자 정의 경로)이 서브넷 경로 테이블에 연결될 수 있습니다. UDR에 익숙하지 않은 경우 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined) 문서를 읽어보세요.
 
 네트워크 인터페이스에 적용할 수 있는 다양한 경로를 사용하는 경우 유효한 집계 경로를 파악하기 어려울 수 있습니다. VM 네트워크 연결 문제를 해결하려면 Azure Resource Manager 배포 모델에서 네트워크 인터페이스에 대한 모든 유효 경로를 볼 수 있습니다.
 

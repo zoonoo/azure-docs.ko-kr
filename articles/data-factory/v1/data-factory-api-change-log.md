@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f324f73b5b22e0a58736a2f9d431d5c79dd7e9ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92623b504341572e1b6fae18ba612bcab20162f1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="feature-additions"></a>기능 추가 사항
 * 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 형식이 추가되었습니다.
 * [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
-  * PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터를 복사할 수 있도록 합니다.
+  * PolyBase를 사용하여 SQL Data Warehouse로 데이터를 복사할 수 있도록 합니다.
 
 ## <a name="version-461"></a>버전 4.6.1
 ### <a name="bug-fixes"></a>버그 수정
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="version-440"></a>버전 4.4.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * 다음 연결된 서비스 유형이 복사 작업에 대한 데이터 원본 및 싱크로 추가되었습니다.
-  * [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). 개념 정보 및 예제는 [Azure 저장소 SAS 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 를 참조하세요.
+  * [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). 개념 정보 및 예제는 [Azure Storage SAS 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 를 참조하세요.
 
 ## <a name="version-430"></a>버전 4.3.0
 ### <a name="feature-additions"></a>기능 추가 사항
@@ -183,5 +183,5 @@ ms.lasthandoff: 10/11/2017
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL 데이터 웨어하우스에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
-* 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  
+* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL Data Warehouse에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
+* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure SQL Data Warehouse 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  

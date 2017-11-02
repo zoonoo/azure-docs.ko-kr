@@ -1,6 +1,6 @@
 ---
 title: "Azure 테이블 간 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory를 사용하여 Azure 테이블 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
+description: "Azure Data Factory를 사용하여 Azure Table Storage 간 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ddcde7e0c0f665eac9d749107db107e652c0be1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 다음 섹션에서는 Azure Table Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다. 
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
-Azure Blob 저장소를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure 저장소 연결된 서비스는 Azure 저장소에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure 저장소 SAS(공유 액세스 서명) 연결된 서비스는 Azure 저장소에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
+Azure Blob 저장소를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure Storage 연결된 서비스는 Azure Storage에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure Storage SAS(공유 액세스 서명) 연결된 서비스는 Azure Storage에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
@@ -130,7 +130,7 @@ DivisionID는 파티션 키로 지정됩니다.
 }
 ```
 ## <a name="json-examples"></a>JSON 예
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure 테이블 저장소 및 Azure Blob 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 **직접** 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Table Storage 및 Azure Blob 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 **직접** 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>예제: Azure 테이블에서 Azure Blob으로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
@@ -472,7 +472,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
+Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure Table service에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
 
 | OData 데이터 형식 | .NET 형식 | 세부 정보 |
 | --- | --- | --- |

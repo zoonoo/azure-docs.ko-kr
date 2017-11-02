@@ -4,7 +4,7 @@ description: "PowerShell 사용한 Azure Analysis Services 관리입니다."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 385dd7798893447817dfc2c3a3538a13409ab6e3
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/12/2017
 ## <a name="permissions"></a>권한
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정에는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
-AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또는 스케줄러를 실행하는 계정이 [Azure 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-what-is.md)의 리소스에 대한 소유자 역할에도 속해야 합니다. 
+AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또는 스케줄러를 실행하는 계정이 [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)의 리소스에 대한 소유자 역할에도 속해야 합니다. 
 
 ## <a name="server-operations"></a>서버 작업 
 Azure Analysis Services cmdlet은 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 구성 요소 모듈에 포함되어 있습니다. AzureRM cmdlet 모듈을 설치하려면 PowerShell 갤러리의 [Azure Resource Manager cmdlet](/powershell/azure/overview)을 참조하세요.

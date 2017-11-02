@@ -1,6 +1,6 @@
 ---
 title: "Azure Blob Storage 간 데이터 복사 | Microsoft Docs"
-description: "Azure Data Factory에서 Blob 데이터를 복사하는 방법을 알아봅니다. 샘플 사용: Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법입니다."
+description: "Azure Data Factory에서 Blob 데이터를 복사하는 방법을 알아봅니다. 샘플 사용: Azure Blob Storage 및 Azure SQL Database 간에 데이터를 복사하는 방법입니다."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 25b259b0733723e49f7ff953151c953bf9b05199
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f4e0c68542cc38e1c0d90c6589e97134c3845f8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="get-started"></a>시작
 다른 도구/API를 사용하여 Azure Blob Storage 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 이 문서에는 Azure Blob Storage 위치에서 다른 Azure Blob Storage 위치로 데이터를 복사하기 위한 파이프라인을 만드는 [연습](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) 과정이 나와 있습니다. Azure Blob Storage에서 Azure SQL Server Database로 데이터를 복사하기 위한 파이프라인 생성에 대한 자습서를 보려면 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 이 문서에는 Azure Blob Storage 위치에서 다른 Azure Blob Storage 위치로 데이터를 복사하기 위한 파이프라인을 만드는 [연습](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) 과정이 나와 있습니다. Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하기 위한 파이프라인 생성에 대한 자습서를 보려면 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
 또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API**를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 다음 섹션에서는 Azure Blob Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
-Azure Storage를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure 저장소 연결된 서비스는 Azure 저장소에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure 저장소 SAS(공유 액세스 서명) 연결된 서비스는 Azure 저장소에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
+Azure Storage를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure Storage 연결된 서비스는 Azure Storage에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure Storage SAS(공유 액세스 서명) 연결된 서비스는 Azure Storage에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
@@ -170,7 +170,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 | false |flattenHierarchy |다음 구조를 가진 원본 폴더 Folder1의 경우: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/><br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다. |
 | false |mergeFiles |다음 구조를 가진 원본 폴더 Folder1의 경우: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1과 File2의 파일 내용이 자동 생성된 파일 이름을 사용하는 파일 하나로 병합됩니다. File1에 대해 자동으로 생성된 이름<br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>연습: 복사 마법사를 사용하여 Blob 저장소 간 데이터 복사
+## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>연습: 복사 마법사를 사용하여 Blob Storage 간 데이터 복사
 Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴보겠습니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다. 
 
 ### <a name="prerequisites"></a>필수 조건
@@ -240,7 +240,7 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
     4. 아래쪽의 **스키마** 탭을 클릭하면 원본 파일의 데이터를 보고 복사 마법사가 추론한 스키마를 볼 수 있습니다.
     5. 구분 기호를 검토하고 데이터를 미리 본 후에 **다음**을 클릭합니다.
     ![복사 도구 - 파일 형식 설정](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
-8. **대상 데이터 저장소 페이지**에서 **Azure Blob Storage**를 선택하고 **다음**을 클릭합니다. 이 연습에서는 Azure Blob 저장소를 원본 및 대상 데이터 저장소로 사용하고 있습니다.    
+8. **대상 데이터 저장소 페이지**에서 **Azure Blob Storage**를 선택하고 **다음**을 클릭합니다. 이 연습에서는 Azure Blob Storage를 원본 및 대상 데이터 저장소로 사용하고 있습니다.    
     ![복사 도구 - 대상 데이터 저장소 선택](media/data-factory-azure-blob-connector/select-destination-data-store.png)
 9. **Azure Blob 저장소 계정 지정** 페이지에서 다음을 수행합니다.
    1. **연결 이름** 필드에 **AzureStorageLinkedService**를 입력합니다.
@@ -463,7 +463,7 @@ BlobSource 및 BlobSink에서 지원하는 속성에 대한 자세한 내용은 
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>Blob Storage로/에서 데이터를 복사하는 JSON 예제  
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob Storage 및 Azure SQL Database 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
 ### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>JSON 예제: Blob Storage에서 SQL Database로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
@@ -489,7 +489,7 @@ BlobSource 및 BlobSink에서 지원하는 속성에 대한 자세한 내용은 
   }
 }
 ```
-**Azure 저장소 연결된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```json
 {
@@ -637,7 +637,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
   }
 }
 ```
-**Azure 저장소 연결된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```json
 {

@@ -2,21 +2,21 @@
 title: "Azure Site Recovery(미리 보기)를 사용하여 보조 Azure 지역에 복제된 Azure VM 장애 조치(failover) 및 장애 복구(failback)"
 description: "Azure Site Recovery를 사용하여 Azure VM 복제를 보조 Azure 지역에 장애 조치(failover) 및 장애 복구(failback)하는 방법을 알아봅니다."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구(미리 보기)
 

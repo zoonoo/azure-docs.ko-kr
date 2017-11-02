@@ -9,13 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -210,7 +211,7 @@ VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바�
 
 1. **응용 프로그램 복제** > **원본**을 클릭합니다.
 2. **원본**에서 구성 서버를 선택합니다.
-3. **컴퓨터 형식**에서 **가상 컴퓨터**를 선택합니다.
+3. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
 5. 프로세스 서버(구성 서버)를 선택합니다. 그런 다음 **확인**을 클릭합니다.
 6. **대상**에서 장애 조치 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. 장애 조치 VM에 대해 Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.

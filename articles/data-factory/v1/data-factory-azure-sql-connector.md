@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f5e9a44458eefe2205c53c044431d1d42218d819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e57003582dc6190b79e1b4eea38ec4adc1c521c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +67,7 @@ Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 �
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **AzureSqlDatabase** |예 |
-| connectionString |connectionString 속성에 대한 Azure SQL 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 기본 인증만 지원됩니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 기본 인증만 지원됩니다. |예 |
 
 > [!IMPORTANT]
 > 데이터베이스 서버인 [Azure SQL Database 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용하여 온-프레미스 데이터 원본을 포함한 Azure 외부에서 Azure SQL 데이터베이스로 데이터를 복사하는 경우 데이터를 Azure SQL Database로 보내는 컴퓨터에 대한 적절한 IP 주소 범위를 구성합니다.
@@ -81,7 +81,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 Azure SQL 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
+| tableName |연결된 서비스가 참조하는 Azure SQL Database 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -102,7 +102,7 @@ Azure SQL Database에서 데이터를 이동하는 경우 복사 작업의 원�
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
 
-**sqlReaderQuery** 이 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
+**sqlReaderQuery** 이 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL Database 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
 
 sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 (`select column1, column2 from mytable`) 쿼리를 작성하는 데 사용되어 Azure SQL Database에 대해 실행합니다. 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
@@ -174,7 +174,7 @@ GO
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>SQL Database로/에서 데이터를 복사하는 JSON 예제
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob Storage 및 Azure SQL Database 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
 ### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>예제: Azure SQL Database에서 Azure Blob에 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
@@ -362,7 +362,7 @@ GO
    }
 }
 ```
-위의 예에서는 SqlSource에 대해 **sqlReaderQuery** 가 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
+위의 예에서는 SqlSource에 대해 **sqlReaderQuery** 가 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL Database 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
 
 sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL Database에 대해 실행합니다. 예: `select column1, column2 from mytable` 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 

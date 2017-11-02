@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 날짜 테이
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 94ea44091c8a7befaf0c82349c47dce7a36c1fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>단원 3: 날짜 테이블로 표시
 

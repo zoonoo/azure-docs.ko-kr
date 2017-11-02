@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 4c5c8aacd2d104b8d6074b90eeffc32b29fc50f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite의 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -283,6 +283,7 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 - 미국 동부
 - 서유럽
 - 미국 중서부
+- 동남아시아
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제

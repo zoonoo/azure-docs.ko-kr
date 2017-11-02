@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d3ffa343a91aaad632705f24bcb357b7b20386d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
-| indexName | Azure 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
+| indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -120,7 +120,7 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 4.  [AzureSearchIndex](#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 4.  [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 및 [AzureSearchIndexSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
-이 샘플은 온-프레미스 SQL Server 데이터베이스에서 Azure 검색 인덱스로 1시간마다 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+이 샘플은 온-프레미스 SQL Server 데이터베이스에서 Azure Search 인덱스로 1시간마다 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 첫 번째 단계로 온-프레미스 컴퓨터에서 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
@@ -187,7 +187,7 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 
 **Azure Search 출력 데이터 집합:**
 
-이 샘플은 **products**라는 Azure 검색 인덱스에 데이터를 복사합니다. Data Factory는 인덱스를 만들지 않습니다. 이 샘플을 테스트하려면 이 이름의 인덱스를 만듭니다. 입력 데이터 집합과 동일한 개수의 열이 있는 Azure 검색 인덱스를 만듭니다. 새 항목은 1시간마다 Azure 검색 인덱스에 추가됩니다.
+이 샘플은 **products**라는 Azure Search 인덱스에 데이터를 복사합니다. Data Factory는 인덱스를 만들지 않습니다. 이 샘플을 테스트하려면 이 이름의 인덱스를 만듭니다. 입력 데이터 집합과 동일한 개수의 열이 있는 Azure Search 인덱스를 만듭니다. 새 항목은 1시간마다 Azure Search 인덱스에 추가됩니다.
 
 ```JSON
 {

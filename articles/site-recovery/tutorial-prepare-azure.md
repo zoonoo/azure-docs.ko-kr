@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: 506b625905abf52963230a787af66f956bc292b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
 
@@ -43,7 +44,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 - 선택한 리소스 그룹에서 가상 컴퓨터를 만들 수 있는 권한
 - 선택한 가상 네트워크에서 가상 컴퓨터를 만들 수 있는 권한
-- 선택한 저장소 계정에 대한 쓰기 권한
+- 선택한 Storage 계정에 대한 쓰기 권한
 
 기본 제공되는 ‘가상 컴퓨터 참가자’ 역할에는 이 권한이 있습니다. Azure Site Recovery 작업을 관리할 수 있는 권한도 있어야 합니다. ‘Site Recovery 참가자’ 역할에는 Recovery Services 자격 증명 모음에서 Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다.
 
@@ -89,7 +90,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
    - 네트워크 주소 범위 10.0.0.0/24를 지정합니다.
    - 이 자습서에서는 서브넷이 필요 없습니다.
    - 만든 네트워크를 배치할 구독을 선택합니다.
-   - 위치 **유럽 서부**를 선택합니다. 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
+   - 위치 **유럽 서부**를 선택합니다. 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 3. **만들기**를 클릭합니다.
 
    ![create-network](media/tutorial-prepare-azure/create-network.png)

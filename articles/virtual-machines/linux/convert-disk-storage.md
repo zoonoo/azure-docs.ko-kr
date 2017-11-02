@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 0380b4aaa23b4aaba4c67d05e2d62f3ef41d6a32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22c2c194cb839c3ec9e3e851768ca19bc6fc443
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환
 
-Managed Disks는 [프리미엄](../../storage/storage-premium-storage.md)(SSD 기반) 및 [표준](../../storage/storage-standard-storage.md)(HDD 기반)이라는 두 가지 저장소 옵션을 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 두 가지 옵션 사이를 쉽게 전환할 수 있습니다. 이 기능은 관리되지 않는 디스크에 사용할 수 없습니다. 하지만 두 옵션 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 [프리미엄](../windows/premium-storage.md)(SSD 기반) 및 [표준](../windows/standard-storage.md)(HDD 기반)이라는 두 가지 저장소 옵션을 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 두 가지 옵션 사이를 쉽게 전환할 수 있습니다. 이 기능은 관리되지 않는 디스크에 사용할 수 없습니다. 하지만 두 옵션 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
 이 문서는 Azure CLI를 사용하여 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법을 설명합니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli.md)를 참조하세요. 
 

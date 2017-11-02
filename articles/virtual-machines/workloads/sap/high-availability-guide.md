@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e6a68ad090789c95dda6d18f649ae3bcfa671c5
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: ae90fe1d6d9e91bffa3fd4c6a7d79d069ab604a2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -380,7 +380,7 @@ ms.lasthandoff: 10/13/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -727,7 +727,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 프로덕션 SAP 시스템의 경우 Azure 사이트 간 VPN 또는 Azure ExpressRoute를 사용하여 [회사 네트워크 연결(크로스-프레미스)][planning-guide-2.2]를 통해 Azure 가상 컴퓨터를 배포합니다.
 
 > [!NOTE]
-> Azure 가상 네트워크 인스턴스를 사용할 수 있습니다. 가상 네트워크 및 서브넷은 이미 생성되고 준비되어 있습니다.
+> Azure Virtual Network 인스턴스를 사용할 수 있습니다. 가상 네트워크 및 서브넷은 이미 생성되고 준비되어 있습니다.
 >
 >
 
@@ -760,7 +760,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   SAP Azure Resource Manager 템플릿은 Azure 가상 네트워크 및 서브넷을 자동으로 만듭니다.
 
 > [!NOTE]
-> 또한 동일한 Azure 가상 네트워크 인스턴스에 Active Directory 및 DNS에 대한 하나 이상의 전용 가상 컴퓨터를 배포해야 합니다. 이 템플릿이 이러한 가상 컴퓨터를 만들지는 않습니다.
+> 또한 동일한 Azure Virtual Network 인스턴스에 Active Directory 및 DNS에 대한 하나 이상의 전용 가상 컴퓨터를 배포해야 합니다. 이 템플릿이 이러한 가상 컴퓨터를 만들지는 않습니다.
 >
 >
 

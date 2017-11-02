@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 - [시나리오 아키텍처 및 구성 요소](concepts-hyper-v-to-secondary-architecture.md)를 검토합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 검토합니다.
-- VMM 서버 및 Hyper-V 호스트에서 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md#on-premises-servers)을 준수하는지 확인합니다.
+- VMM 서버 및 Hyper-V 호스트에서 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 - 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)을 준수하는지 확인합니다.
 - 네트워크 매핑용 VMM 서버를 준비합니다.
 
@@ -61,7 +61,7 @@ VMM을 다음과 같이 준비합니다.
 2. 원본 Hyper-V 호스트의 VM을 원본 VM 네트워크에 연결합니다. 
 
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 

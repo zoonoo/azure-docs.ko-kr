@@ -4,7 +4,7 @@ description: "Azure에서 Analysis Services 서버 관리자를 관리하는 방
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: a1b58125dafdf73f245b6a8cd0f4917513b22ea9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a42baf9fd880264e4130c009f27935a4743de21
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 그룹이어야 합니다. Azure Portal 또는 SSMS의 서버 속성에서 서버에 대한 제어 블레이드의 **Analysis Services 관리자**를 사용하면 서버 관리자를 관리할 수 있습니다. 
@@ -41,5 +41,5 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>다음 단계 
 [인증 및 사용자 권한](analysis-services-manage-users.md)  
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
-[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)  
+[역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md)  
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 6577002b9db50d94c10f01b147fcd33159ef9611
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -250,7 +250,7 @@ ms.lasthandoff: 10/13/2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -398,7 +398,7 @@ Azure Marketplace에서 Microsoft 또는 타사에서 제공하는 이미지를 
 Azure Marketplace에서 이미지를 사용하여 새 가상 컴퓨터를 만드는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다.
 
 1.  <https://portal.azure.com/#create/hub>로 이동합니다.  또는 Azure Portal 메뉴에서 **+새로 만들기**를 선택합니다.
-2.  **계산**을 선택한 다음 배포할 운영 체제 유형을 선택합니다. 예를 들어, Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12), Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다. 기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
+2.  **Compute**를 선택한 다음 배포할 운영 체제 유형을 선택합니다. 예를 들어, Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12), Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다. 기본 목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. 전체 목록을 보려면 **모두 보기**를 선택합니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
 3.  다음 페이지에서 약관을 검토합니다.
 4.  **배포 모델 선택** 목록에서 **Resource Manager**를 선택합니다.
 5.  **만들기**를 선택합니다.
@@ -420,7 +420,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 컴퓨터를 만드
   * **저장소**
     * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
     * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
-    * **저장소 계정**: 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
+    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
   * **네트워크**
     * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 컴퓨터를 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
     * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 컴퓨터에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 컴퓨터에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
@@ -911,7 +911,7 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 스크립트 출력에는 다음 정보가 포함됩니다.
 
 * OS 디스크 및 모든 추가 데이터 디스크에 대한 모니터링이 구성되었다는 확인이 표시됩니다.
-* 다음 두 개의 메시지는 특정 저장소 계정에 대한 저장소 메트릭의 구성을 확인합니다.
+* 다음 두 개의 메시지는 특정 Storage 계정에 대한 Storage 메트릭의 구성을 확인합니다.
 * 출력 한 줄에는 모니터링 구성의 실제 업데이트 상태가 표시됩니다.
 * 출력의 또 다른 줄은 구성이 배포되거나 업데이트되었음을 확인해 줍니다.
 * 출력의 마지막 줄은 정보 제공용이며, 모니터링 구성을 테스트 하는 옵션을 표시합니다.

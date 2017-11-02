@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: bbee77e669f49bdebb57121df8672a9253945b3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: cfd44f7f06faa7d1d00efa9427dbf5d1d0a89ef1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 - 반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
 
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 

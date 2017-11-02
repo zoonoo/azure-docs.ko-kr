@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -162,7 +162,7 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.  
 
-1. 가상 컴퓨터에 저장소를 추가합니다. 자세한 내용은 [저장소 추가](../../../storage/common/storage-premium-storage.md)를 참조하세요.
+1. 가상 컴퓨터에 저장소를 추가합니다. 자세한 내용은 [저장소 추가](../premium-storage.md)를 참조하세요.
 
    두 가상 컴퓨터에 두 개 이상의 데이터 디스크가 필요합니다.
 
@@ -349,7 +349,7 @@ Azure 가상 컴퓨터에서 클러스터는 한 번에 하나의 클러스터 �
 
    - **이름**: 부하 분산 장치를 식별하는 이름입니다.
    - **형식**: 부하 분산 장치는 공개 또는 개인일 수 있습니다. 동일한 VNET 내에서 개인 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 응용 프로그램은 개인 부하 분산 장치를 사용할 수 있습니다. 응용 프로그램에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
-   - **가상 네트워크**: 가상 컴퓨터와 동일한 네트워크입니다.
+   - **Virtual Network**: 가상 컴퓨터와 동일한 네트워크입니다.
    - **서브넷**: 가상 컴퓨터와 동일한 서브넷입니다.
    - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    - **구독:** 사용자의 Azure 구독입니다.

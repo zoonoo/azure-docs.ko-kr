@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: f16692d1241082dddb9f8687d18f6bf1c1aba2eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbc81edd24ee714fbb173ed395a2f2fc91773fff
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="azure-storage-replication"></a>Azure 저장소 복제
+# <a name="azure-storage-replication"></a>Azure Storage 복제
 Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 선택한 복제 옵션에 따라 동일한 데이터 센터 내 또는 보조 데이터 센터에 데이터를 복사합니다. 일시적인 하드웨어 오류가 발생할 경우에 대비하여 복제를 통해 데이터를 보호하고 응용 프로그램 가동 시간을 유지합니다. 보조 데이터 센터에 데이터를 복제하면 기본 위치에서 발생하는 치명적인 오류로부터 보호됩니다.
 
-복제를 사용하면 저장소 계정은 오류 상황에서도 [저장소용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
+복제를 사용하면 Storage 계정은 오류 상황에서도 [Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
 
 저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
 
@@ -42,10 +42,10 @@ RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정을 만드�
 | 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
-다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
+다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 > [!NOTE]
-> 프리미엄 저장소는 LRS(로컬 중복 저장소)만 지원합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](../storage-premium-storage.md)를 참조하세요.
+> Premium Storage는 LRS(로컬 중복 저장소)만 지원합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine에 대한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요.
 >
 
 ## <a name="locally-redundant-storage"></a>로컬 중복 저장소
@@ -67,7 +67,7 @@ ZRS를 사용하려는 고객은 다음을 알고 있어야 합니다.
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
 읽기 액세스 지역 중복 저장소(RA-GRS)는 GRS에서 제공한 두 지역에 걸쳐 복제하는 것 외에도 보조 위치에서 데이터에 대한 읽기 전용 액세스를 제공하여 저장소 계정의 가용성을 최대화합니다.
 
-보조 지역에서 데이터를 읽기 전용 액세스를 설정할 때 데이터는 저장소 계정에 대한 기본 끝점 뿐만 아니라 보조 끝점에서 사용할 수 있습니다. 보조 끝점은 기본 끝점과 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다. 예를 들어, Blob 서비스에 대한 기본 끝점이 `myaccount.blob.core.windows.net`인 경우, 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대한 액세스 키는 기본 및 보조 끝점에 대해 동일합니다.
+보조 지역에서 데이터를 읽기 전용 액세스를 설정할 때 데이터는 저장소 계정에 대한 기본 끝점 뿐만 아니라 보조 끝점에서 사용할 수 있습니다. 보조 끝점은 기본 끝점과 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다. 예를 들어, Blob service에 대한 기본 끝점이 `myaccount.blob.core.windows.net`인 경우, 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대한 액세스 키는 기본 및 보조 끝점에 대해 동일합니다.
 
 고려 사항:
 
@@ -81,7 +81,7 @@ ZRS를 사용하려는 고객은 다음을 알고 있어야 합니다.
 <a id="howtochange"></a>
 #### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. 내 저장소 계정의 지역에서 복제 유형을 변경하려면 어떻게 하나요?
 
-   [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) 또는 여러 저장소 클라이언트 라이브러리 중 하나를 프로그래밍 방식으로 사용하여 저장소 계정의 지역에서 복제 유형을 LRS, GRS 및 RA-GRS 간에 변경할 수 있습니다. ZRS 계정은 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
+   [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) 또는 여러 Storage 클라이언트 라이브러리 중 하나를 프로그래밍 방식으로 사용하여 Storage 계정의 지역에서 복제 유형을 LRS, GRS 및 RA-GRS 간에 변경할 수 있습니다. ZRS 계정은 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
 
 <a id="changedowntime"></a>
 #### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. 저장소 계정의 복제 유형을 변경하면 중단 시간이 발생하나요?
@@ -101,7 +101,7 @@ ZRS를 사용하려는 고객은 다음을 알고 있어야 합니다.
 <a id="lastsynctime"></a>
 #### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. 주 지역에서 보조 지역으로 데이터를 복제하는 데 시간이 얼마나 걸리는지 확인하는 방법이 있나요?
    
-   RA-GRS 저장소를 사용하는 경우 저장소 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 쓰기는 읽기에 사용 또는 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)을 사용하거나 REST API를 사용하여 프로그래밍 방식으로 또는 저장소 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다. 
+   RA-GRS 저장소를 사용하는 경우 저장소 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 쓰기는 읽기에 사용 또는 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)을 사용하거나 REST API를 사용하여 프로그래밍 방식으로 또는 Storage 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다. 
 
 <a id="outage"></a>
 #### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. 주 지역에 가동 중단이 있는 경우 보조 지역으로 어떻게 전환할 수 있나요?

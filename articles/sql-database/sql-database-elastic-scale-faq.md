@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL 탄력적인 확장 FAQ | Microsoft Docs"
-description: "Azure SQL 데이터베이스의 탄력적인 확장에 대한 질문과 대답을 제공합니다."
+description: "Azure SQL Database의 탄력적인 확장에 대한 질문과 대답을 제공합니다."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -9,17 +9,17 @@ editor:
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a2f73df00dd706699b20062d443af3bb88b6ef4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="elastic-database-tools-faq"></a>탄력적 데이터베이스 도구 FAQ
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>분할 및 분할 안 함 키당 단일 테넌트가 있는 경우 스키마 정보에 대한 분할 키를 채우려면 어떻게 해야 하나요?
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 아니요, 분할된 데이터베이스 맵 관리자(예: **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**)는 한 번만 만들면 됩니다.  응용 프로그램 시작 시 응용 프로그램에서 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 호출을 사용해야 합니다.  이러한 호출은 응용 프로그램 도메인당 하나만 있어야 합니다.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>탄력적 데이터베이스 도구 사용과 관련된 질문이 있는 경우 답변을 받으려면 어떻게 해야 하나요?
-[Azure SQL 데이터베이스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에서 문의하세요.
+[Azure SQL Database 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에서 문의하세요.
 
 #### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>분할 키를 사용하여 데이터베이스에 연결하는 경우 동일한 분할의 다른 분할 키에 대한 데이터도 쿼리할 수 있습니다.  의도한 동작인가요?
 탄력적인 확장 API는 분할 키에 맞는 데이터베이스 연결을 제공하지만 분할 키 필터링 기능을 제공하지 않습니다.  필요한 경우 쿼리에 **WHERE** 절을 추가하여 범위를 제공된 분할 키로 제한하세요.

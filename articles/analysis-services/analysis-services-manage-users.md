@@ -4,7 +4,7 @@ description: "Azure Analysis Services의 인증 및 사용자 권한에 대해 �
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: owend
-ms.openlocfilehash: e9667afff1bdc351e0ed5cd94bb5fcf946b46f3b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 Azure Analysis Services는 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용합니다. Azure Analysis Services 서버를 만들거나, 관리하거나, 이 서버에 연결하는 모든 사용자는 동일한 구독의 [Azure AD 테넌트](../active-directory/active-directory-administer.md)에 유효한 사용자 ID가 있어야 합니다.
@@ -69,7 +69,7 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 
 ![Azure Portal의 액세스 제어](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-이 수준의 역할은 포털에서 완료할 수 있거나 Azure Resource Manager 템플릿을 사용하여 작업을 수행해야 하는 사용자 또는 계정에 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)를 참조하세요. 
+이 수준의 역할은 포털에서 완료할 수 있거나 Azure Resource Manager 템플릿을 사용하여 작업을 수행해야 하는 사용자 또는 계정에 적용됩니다. 자세한 내용은 [역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md)을 참조하세요. 
 
 
 ## <a name="database-roles"></a>데이터베이스 역할
@@ -85,4 +85,4 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory/active-directory-manage-groups.md)   
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [서버 관리자 관리](analysis-services-server-admins.md)  
-[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)  
+[역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md)  

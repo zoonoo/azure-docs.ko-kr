@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 리소스 제한 | Microsoft Docs"
-description: "이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다."
+description: "이 페이지에서는 Azure SQL Database에 대한 몇 가지 일반적인 리소스 제한을 설명합니다."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,16 +12,16 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 581948164acef2fe8894e58fb8c8da7772c4cbd9
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-sql-database-resource-limits"></a>Azure SQL 데이터베이스 리소스 제한
+# <a name="azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>단일 데이터베이스: 저장소 크기 및 성능 수준
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/12/2017
 * **프리미엄** 또는 **프리미엄 RS**에서 **표준** 계층으로 다운그레이드할 때는 (1) 데이터베이스의 최대 크기가 대상 성능 수준에서 지원되고 (2) 최대 크기가 대상 성능 수준의 포함된 저장소 용량을 초과하는 경우 추가 저장소 비용이 적용됩니다. 예를 들어 최대 크기가 500GB인 P1 데이터베이스 크기를 S3으로 줄이는 경우 S3이 최대 크기인 500GB를 지원하고 포함된 저장소 크기는 250GB에 불과하므로 추가 저장소 비용이 적용됩니다. 따라서 추가 저장소 크기는 500GB – 250GB = 250GB입니다. 추가 저장소 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 실제 사용된 공간의 크기가 포함된 저장소의 크기보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다. 
 * [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드합니다(일반 지침). 다른 버전으로 업그레이드할 때 보조 데이터베이스를 먼저 업그레이드해야 합니다.
 * [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 다운그레이드하는 경우 보조 데이터베이스를 다운그레이드하기 전에 먼저 해당 주 데이터베이스를 원하는 성능 계층으로 다운그레이드합니다(일반 지침). 다른 버전으로 다운그레이드할 때 주 데이터베이스를 먼저 다운그레이드해야 합니다.
-* 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운그레이드하는 경우 백업 보존 기간이 더 짧아집니다. [Azure SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
+* 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운그레이드하는 경우 백업 보존 기간이 더 짧아집니다. [Azure SQL Database Backup](sql-database-automated-backups.md)을 참조하세요.
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>단일 데이터베이스: 최대 크기가 1TB보다 큰 경우 P11 및 P15의 제한 사항
@@ -84,7 +84,7 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
+탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
@@ -115,7 +115,7 @@ P11 및 P15 데이터베이스에 대해 1TB보다 더 큰 최대 크기는 미�
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>데이터베이스 및 탄력적 풀 리소스 한계에 도달하면 어떻게 되나요?
 
-### <a name="compute-dtus-and-edtus"></a>계산(DTU 및 eDTU)
+### <a name="compute-dtus-and-edtus"></a>Compute(DTU 및 eDTU)
 
 데이터베이스 계산 사용량(DTU 및 eDTU로 측정)이 높아지면 쿼리 대기 시간이 늘어나고 시간이 초과될 수 있습니다. 이러한 상황에서는 쿼리가 서비스에서 대기될 수 있으며 리소스가 사용 가능해질 경우 실행될 수 있게 리소스가 제공됩니다.
 높은 계산 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.

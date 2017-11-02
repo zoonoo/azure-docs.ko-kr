@@ -4,7 +4,7 @@ description: "테이블 형식 데이터 모델 호환성 수준을 이해합니
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41bf697cd1d91ea0ba56ed6fad0e5b9c442ecec2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 테이블 형식 모델에 대한 호환성 수준
 

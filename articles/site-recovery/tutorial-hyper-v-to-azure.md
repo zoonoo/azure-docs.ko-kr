@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d43fb03ce1c54a47315b8c3a5c83ec2082bcab9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -82,7 +82,7 @@ Azure 계정에 VM을 복제하는 데 필요한 권한이 있는지 확인합�
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 저장소에서 Azure VM을 만듭니다.
 - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
-- 저장소 계정은 표준 또는 [프리미엄](../storage/common/storage-premium-storage.md)일 수 있습니다.
+- 저장소 계정은 표준 또는 [프리미엄](../virtual-machines/windows/premium-storage.md)일 수 있습니다.
 - 프리미엄 계정을 설정하는 경우 로그 데이터에 추가 표준 계정이 필요합니다.
 
 ### <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
@@ -122,7 +122,7 @@ VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.m
 2. [VM 네트워크](https://docs.microsoft.com/system-center/vmm/network-virtual)를 논리 네트워크에 연결합니다.
 3. VM을 VM 네트워크에 연결합니다.
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -185,7 +185,7 @@ Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서�
 
 1. 설치 마법사에서 **필수 구성 요소 확인**을 클릭하고 **다음**을 클릭합니다. 누락된 필수 구성 요소는 자동으로 설치됩니다.
 
-    ![필수 구성 요소 복구 서비스 에이전트](./media/tutorial-hyper-v-to-azure/hyperv-agent-prerequisites.png)
+    ![필수 구성 요소 Recovery Services 에이전트](./media/tutorial-hyper-v-to-azure/hyperv-agent-prerequisites.png)
 3. **설치 설정**에서 설치 위치 및 캐시 위치를 수락하거나 수정합니다. 캐시 드라이브에는 5GB 이상의 저장 공간이 필요합니다. 600GB 이상의 여유 공간이 있는 드라이브를 사용하는 것이 좋습니다. **설치**를 클릭합니다.
 4. **설치**에서, 설치가 완료되면 **닫기**를 클릭하여 마법사를 마칩니다.
 
@@ -193,7 +193,7 @@ Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서�
 
 VM을 복제하려면 Hyper-V 호스트에서 실행되는 Recovery Services 에이전트가 인터넷을 통해 Azure에 액세스할 수 있어야 합니다. 프록시를 통해 인터넷에 액세스하는 경우 다음과 같이 프록시를 설정합니다.
 
-1. Hyper-V 호스트에서 Microsoft Azure 백업 MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
+1. Hyper-V 호스트에서 Microsoft Azure Backup MMC 스냅인을 엽니다. 기본적으로 Microsoft Azure Backup에 대한 바로 가기가 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin에 있습니다.
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 3. **프록시 구성** 탭에서 프록시 정보를 지정합니다.
 
@@ -251,7 +251,7 @@ VMM을 사용하는 경우 네트워크 매핑을 설정합니다.
 3. **복사 빈도**에서 초기 복제 후 델타 데이터를 복제할 빈도(30초 마다, 5분마다 또는 15분마다)를 지정합니다.
 
     > [!NOTE]
-    >  Premium Storage로 복제하는 경우 30초 빈도가 지원되지 않습니다. Premium Storage에서 지원하는 blob당 스냅숏 수(100)에 따라 제한이 결정됩니다. [자세히 알아봅니다](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
+    >  Premium Storage로 복제하는 경우 30초 빈도가 지원되지 않습니다. Premium Storage에서 지원하는 blob당 스냅숏 수(100)에 따라 제한이 결정됩니다. [자세히 알아봅니다](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob).
 
 4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 보호된 컴퓨터를 이 기간 내의 모든 지점으로 복구할 수 있습니다.
 5. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 빈도(1-12시간)를 지정합니다. Hyper-V에서는 다음 두 가지 유형의 스냅숏을 사용합니다.

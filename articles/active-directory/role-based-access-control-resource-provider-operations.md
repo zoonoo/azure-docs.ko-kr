@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에서는 각 Microsoft Azure Resource Manager 리소스 공급자에 대해 사용할 수 있는 작업을 설명합니다. 이러한 작업은 Azure의 리소스에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어) 권한을 제공하기 위해 사용자 지정 역할에서 사용할 수 있습니다. 여기에 제공되는 목록이 전체 목록은 아니며 각 공급자가 업데이트될 때 작업이 추가되거나 제거될 수 있습니다. 작업 문자열은 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 형식을 따릅니다. 전체 및 현재 목록을 보려면 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다.
+이 문서에서는 각 Microsoft Azure Resource Manager 리소스 공급자에 대해 사용할 수 있는 작업을 설명합니다. 이러한 작업은 Azure의 리소스에 대해 보다 세분화된 RBAC(역할 기반 Access Control) 권한을 제공하기 위해 사용자 지정 역할에서 사용할 수 있습니다. 여기에 제공되는 목록이 전체 목록은 아니며 각 공급자가 업데이트될 때 작업이 추가되거나 제거될 수 있습니다. 작업 문자열은 `Microsoft.<ProviderName>/<ChildResourceType>/<action>` 형식을 따릅니다. 전체 및 현재 목록을 보려면 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 |/service/restore/action|사용자가 제공한 저장소 계정의 지정된 컨테이너에서 API Management 서비스를 복원합니다.|
 |/service/managedeployments/action|SKU/단위를 변경하고 API Management 서비스의 지역별 배포를 추가 또는 제거합니다.|
 |/service/getssotoken/action|API Management 서비스 레거시 포털에 관리자로 로그인하는 데 사용할 수 있는 SSO 토큰을 가져옵니다.|
-|/service/applynetworkconfigurationupdates/action|가상 네트워크에서 실행되는 Microsoft.ApiManagement 리소스를 업데이트하여 업데이트된 네트워크 설정을 선택합니다.|
+|/service/applynetworkconfigurationupdates/action|Virtual Network에서 실행되는 Microsoft.ApiManagement 리소스를 업데이트하여 업데이트된 네트워크 설정을 선택합니다.|
 |/service/operationresults/read|장기 실행 작업의 현재 상태를 가져옵니다.|
 |/service/networkStatus/read|리소스의 네트워크 액세스 상태를 가져옵니다.|
 |/service/loggers/read|로거 목록을 가져오거나 로거 세부 정보를 가져옵니다.|
@@ -167,31 +167,6 @@ ms.lasthandoff: 10/11/2017
 |/service/reports/byTime/read|기간별로 집계된 보고서를 가져옵니다.|
 |/service/reports/byApi/read|API별로 집계된 보고서를 가져옵니다.|
 |/service/reports/byProduct/read|제품별로 집계된 보고서를 가져옵니다.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| 작업 | 설명 |
-|---|---|
-|/appidentities/Read|게이트웨이에 등록된 리소스(웹 사이트)를 반환합니다.|
-|/appidentities/Write|새 앱 ID를 만듭니다.|
-|/appidentities/Delete|기존 앱 ID를 삭제합니다.|
-|/deploymenttemplates/listMetadata/Action|API 앱 패키지와 연결된 UI 메타데이터를 나열합니다.|
-|/deploymenttemplates/generate/Action|API 앱 인스턴스를 프로비전하는 배포 템플릿을 반환합니다.|
-|/gateways/Read|게이트웨이 인스턴스를 반환합니다.|
-|/gateways/Write|새 게이트웨이 만들거나 기존 게이트웨이를 업데이트합니다.|
-|/gateways/Delete|기존 게이트웨이 인스턴스를 삭제합니다.|
-|/gateways/listLoginUris/Action|토큰 저장소를 채우고 OAuth 로그인 URI를 반환합니다.|
-|/gateways/listKeys/Action|게이트웨이 암호를 반환합니다.|
-|/gateways/tokens/Write|지정한 이름을 가진 새 Zumo 토큰을 만듭니다.|
-|/gateways/registrations/Read|게이트웨이에 등록된 리소스(웹 사이트)를 반환합니다.|
-|/gateways/registrations/Write|게이트웨이에 리소스(웹 사이트)를 등록합니다.|
-|/gateways/registrations/Delete|게이트웨이에 리소스(웹 사이트)를 등록 취소합니다.|
-|/apiapps/Read|API 앱 인스턴스를 반환합니다.|
-|/apiapps/Write|새 API 앱을 만들거나 기존 API 앱을 업데이트합니다.|
-|/apiapps/Delete|기존 API 앱 인스턴스를 삭제합니다.|
-|/apiapps/listStatus/Action|API 앱 상태를 반환합니다.|
-|/apiapps/listKeys/Action|API 앱 암호를 반환합니다.|
-|/apiapps/apidefinitions/Read|API 앱의 API 정의를 반환합니다.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -293,13 +268,13 @@ ms.lasthandoff: 10/11/2017
 
 | 작업 | 설명 |
 |---|---|
-|/register/action|배치 리소스 공급자에 대한 구독을 등록하고 배치 계정을 만들도록 설정합니다.|
-|/batchAccounts/write|새 배치 계정을 만들거나 기존 배치 계정을 업데이트합니다.|
-|/batchAccounts/read|배치 계정을 나열하거나 배치 계정의 속성을 가져옵니다.|
-|/batchAccounts/delete|배치 계정을 삭제합니다.|
-|/batchAccounts/listkeys/action|배치 계정에 대한 액세스 키를 나열합니다.|
-|/batchAccounts/regeneratekeys/action|배치 계정에 대한 액세스 키를 다시 생성합니다.|
-|/batchAccounts/syncAutoStorageKeys/action|배치 계정에 대해 구성된 자동 저장소 계정의 액세스 키를 동기화합니다.|
+|/register/action|Batch 리소스 공급자에 대한 구독을 등록하고 Batch 계정을 만들도록 설정합니다.|
+|/batchAccounts/write|새 Batch 계정을 만들거나 기존 Batch 계정을 업데이트합니다.|
+|/batchAccounts/read|Batch 계정을 나열하거나 Batch 계정의 속성을 가져옵니다.|
+|/batchAccounts/delete|Batch 계정을 삭제합니다.|
+|/batchAccounts/listkeys/action|Batch 계정에 대한 액세스 키를 나열합니다.|
+|/batchAccounts/regeneratekeys/action|Batch 계정에 대한 액세스 키를 다시 생성합니다.|
+|/batchAccounts/syncAutoStorageKeys/action|Batch 계정에 대해 구성된 자동 저장소 계정의 액세스 키를 동기화합니다.|
 |/batchAccounts/applications/read|응용 프로그램을 나열하거나 응용 프로그램의 속성을 가져옵니다.|
 |/batchAccounts/applications/write|새 응용 프로그램을 만들거나 기존 응용 프로그램을 업데이트합니다.|
 |/batchAccounts/applications/delete|응용 프로그램을 삭제합니다.|
@@ -307,7 +282,7 @@ ms.lasthandoff: 10/11/2017
 |/batchAccounts/applications/versions/write|새 응용 프로그램 패키지를 만들거나 기존 응용 프로그램 패키지를 업데이트합니다.|
 |/batchAccounts/applications/versions/activate/action|응용 프로그램 패키지를 활성화합니다.|
 |/batchAccounts/applications/versions/delete|응용 프로그램 패키지를 삭제합니다.|
-|/locations/quotas/read|지정된 Azure 지역에서 지정된 구독의 배치 할당량을 가져옵니다.|
+|/locations/quotas/read|지정된 Azure 지역에서 지정된 구독의 Batch 할당량을 가져옵니다.|
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -746,10 +721,10 @@ ms.lasthandoff: 10/11/2017
 |/accounts/firewallRules/read|방화벽 규칙에 대한 정보를 가져옵니다.|
 |/accounts/firewallRules/write|방화벽 규칙을 만들거나 업데이트합니다.|
 |/accounts/firewallRules/delete|방화벽 규칙을 삭제합니다.|
-|/accounts/storageAccounts/read|DataLakeAnalytics 계정에 대한 연결된 저장소 계정을 가져옵니다.|
-|/accounts/storageAccounts/write|DataLakeAnalytics 계정에 저장소 계정을 연결합니다.|
-|/accounts/storageAccounts/delete|DataLakeAnalytics 계정에서 저장소 계정을 연결 해제합니다.|
-|/accounts/storageAccounts/Containers/read|저장소 계정의 컨테이너를 가져옵니다.|
+|/accounts/storageAccounts/read|DataLakeAnalytics 계정에 대한 연결된 Storage 계정을 가져옵니다.|
+|/accounts/storageAccounts/write|DataLakeAnalytics 계정에 Storage 계정을 연결합니다.|
+|/accounts/storageAccounts/delete|DataLakeAnalytics 계정에서 Storage 계정을 연결 해제합니다.|
+|/accounts/storageAccounts/Containers/read|Storage 계정의 컨테이너를 가져옵니다.|
 |/accounts/storageAccounts/Containers/listSasTokens/action|저장소 컨테이너에 대한 SAS 토큰을 나열합니다.|
 |/accounts/dataLakeStoreAccounts/read|DataLakeAnalytics 계정에 대한 연결된 DataLakeStore 계정을 가져옵니다.|
 |/accounts/dataLakeStoreAccounts/write|DataLakeAnalytics 계정에 DataLakeStore 계정을 연결합니다.|
@@ -1361,7 +1336,7 @@ ms.lasthandoff: 10/11/2017
 |/Vaults/delete|자격 증명 모음 삭제 작업에서는 '자격 증명 모음' 형식의 지정된 Azure 리소스를 삭제합니다.|
 |/Vaults/refreshContainers/read|컨테이너 목록을 새로 고칩니다.|
 |/Vaults/backupJobsExport/operationResults/read|내보내기 작업의 작업 결과를 반환합니다.|
-|/Vaults/backupOperationResults/read|Recovery Services 자격 증명 모음의 백업 작업 결과를 반환합니다.|
+|/Vaults/backupOperationResults/read|Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다.|
 |/Vaults/monitoringAlerts/read|Recovery Services 자격 증명 모음에 대한 경고를 받습니다.|
 |/Vaults/monitoringAlerts/{uniqueAlertId}/read|경고에 대한 세부 정보를 가져옵니다.|
 |/Vaults/backupSecurityPIN/read|Recovery Services 자격 증명 모음에 대한 보안 PIN 정보를 반환합니다.|
@@ -1429,7 +1404,7 @@ ms.lasthandoff: 10/11/2017
 |/Vaults/extendedInformation/read|확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다.|
 |/Vaults/extendedInformation/write|확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다.|
 |/Vaults/extendedInformation/delete|확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다.|
-|/Vaults/backupManagementMetaData/read|Recovery Services 자격 증명 모음의 백업 관리 메타데이터를 반환합니다.|
+|/Vaults/backupManagementMetaData/read|Recovery Services 자격 증명 모음의 Backup 관리 메타데이터를 반환합니다.|
 |/Vaults/backupProtectionContainers/read|구독에 속하는 컨테이너를 모두 반환합니다.|
 |/Vaults/backupFabrics/operationResults/read|작업의 상태를 반환합니다.|
 |/Vaults/backupFabrics/protectionContainers/read|등록된 모든 컨테이너를 반환합니다.|
@@ -1437,7 +1412,7 @@ ms.lasthandoff: 10/11/2017
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/read|보호된 항목의 개체 정보를 반환합니다.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/write|백업 보호 항목을 만듭니다.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/delete|보호된 항목을 삭제합니다.|
-|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/backup/action|보호 항목 백업을 수행합니다.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/backup/action|보호 항목 Backup을 수행합니다.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationResults/read|보호 항목에 대해 수행된 작업의 결과를 가져옵니다.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationStatus/read|보호 항목에 대해 수행된 작업의 상태를 반환합니다.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/read|보호 항목의 복구 지점을 가져옵니다.|
@@ -1450,7 +1425,7 @@ ms.lasthandoff: 10/11/2017
 |/Vaults/tokenInfo/read|Recovery Services 자격 증명 모음에 대한 토큰 정보를 반환합니다.|
 |/vaults/replicationAlertSettings/read|경고 설정을 읽습니다.|
 |/vaults/replicationAlertSettings/write|경고 설정을 만들거나 업데이트합니다.|
-|/Vaults/backupOperations/read|Recovery Services 자격 증명 모음의 백업 작업 상태를 반환합니다.|
+|/Vaults/backupOperations/read|Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다.|
 |/Vaults/storageConfig/read|Recovery Services 자격 증명 모음에 대한 저장소 구성을 반환합니다.|
 |/Vaults/storageConfig/write|Recovery Services 자격 증명 모음에 대한 저장소 구성을 업데이트합니다.|
 |/Vaults/backupUsageSummaries/read|Recovery Services의 보호된 항목 및 보호된 서버에 대한 요약을 반환합니다.|
@@ -1562,7 +1537,7 @@ ms.lasthandoff: 10/11/2017
 |/jobcollections/jobs/write|작업을 만들거나 업데이트합니다.|
 |/jobcollections/jobs/delete|작업을 삭제합니다.|
 |/jobcollections/jobs/run/action|작업을 실행합니다.|
-|/jobcollections/jobs/generateLogicAppDefinition/action|스케줄러 작업을 기반으로 하여 논리 앱 정의를 생성합니다.|
+|/jobcollections/jobs/generateLogicAppDefinition/action|Scheduler 작업을 기반으로 하여 논리 앱 정의를 생성합니다.|
 |/jobcollections/jobs/jobhistories/read|작업 내역을 가져옵니다.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1790,7 +1765,7 @@ ms.lasthandoff: 10/11/2017
 |/storageAccounts/regeneratekey/action|지정된 저장소 계정에 대한 액세스 키를 다시 생성합니다.|
 |/storageAccounts/read|저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다.|
 |/storageAccounts/listAccountSas/action|지정된 저장소 계정에 대한 계정 SAS 토큰을 반환합니다.|
-|/storageAccounts/listServiceSas/action|저장소 서비스 SAS 토큰|
+|/storageAccounts/listServiceSas/action|Storage 서비스 SAS 토큰|
 |/storageAccounts/services/diagnosticSettings/write|저장소 계정 진단 설정을 만들거나 업데이트합니다.|
 |/skus/read|Microsoft Storage에서 지원하는 SKU를 나열합니다.|
 |/usages/read|지정한 구독의 리소스에 대한 한도 및 현재 사용 수를 반환합니다.|
@@ -1817,13 +1792,13 @@ ms.lasthandoff: 10/11/2017
 |/Managers/write|자격 증명 모음 만들기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 만듭니다.|
 |/Managers/read|자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다.|
 |/Managers/delete|자격 증명 모음 삭제 작업에서는 '자격 증명 모음' 형식의 지정된 Azure 리소스를 삭제합니다.|
-|/managers/storageAccountCredentials/write|저장소 계정 자격 증명을 만들거나 업데이트합니다.|
-|/managers/storageAccountCredentials/read|저장소 계정 자격 증명을 나열하거나 가져옵니다.|
-|/managers/storageAccountCredentials/delete|저장소 계정 자격 증명을 삭제합니다.|
-|/managers/storageAccountCredentials/listAccessKey/action|저장소 계정 자격 증명의 액세스 키를 나열합니다.|
-|/managers/accessControlRecords/read|액세스 제어 레코드를 나열하거나 가져옵니다.|
-|/managers/accessControlRecords/write|액세스 제어 레코드를 만들거나 업데이트합니다.|
-|/managers/accessControlRecords/delete|액세스 제어 레코드를 삭제합니다.|
+|/managers/storageAccountCredentials/write|Storage 계정 자격 증명을 만들거나 업데이트합니다.|
+|/managers/storageAccountCredentials/read|Storage 계정 자격 증명을 나열하거나 가져옵니다.|
+|/managers/storageAccountCredentials/delete|Storage 계정 자격 증명을 삭제합니다.|
+|/managers/storageAccountCredentials/listAccessKey/action|Storage 계정 자격 증명의 액세스 키를 나열합니다.|
+|/managers/accessControlRecords/read|Access Control 레코드를 나열하거나 가져옵니다.|
+|/managers/accessControlRecords/write|Access Control 레코드를 만들거나 업데이트합니다.|
+|/managers/accessControlRecords/delete|Access Control 레코드를 삭제합니다.|
 |/managers/metrics/read|메트릭을 나열하거나 가져옵니다.|
 |/managers/bandwidthSettings/read|대역폭 설정을 나열합니다(8000 시리즈만 해당).|
 |/managers/bandwidthSettings/write|새 대역폭 설정을 만들거나 대역폭 설정을 업데이트합니다(8000 시리즈만 해당).|
@@ -1855,9 +1830,9 @@ ms.lasthandoff: 10/11/2017
 |/managers/devices/chapSettings/write|CHAP 설정을 만들거나 업데이트합니다.|
 |/managers/devices/chapSettings/read|CHAP 설정을 나열하거나 가져옵니다.|
 |/managers/devices/chapSettings/delete|CHAP 설정을 삭제합니다.|
-|/managers/devices/backupScheduleGroups/read|백업 일정 그룹을 나열하거나 가져옵니다.|
-|/managers/devices/backupScheduleGroups/write|백업 일정 그룹을 만들거나 업데이트합니다.|
-|/managers/devices/backupScheduleGroups/delete|백업 일정 그룹을 삭제합니다.|
+|/managers/devices/backupScheduleGroups/read|Backup 일정 그룹을 나열하거나 가져옵니다.|
+|/managers/devices/backupScheduleGroups/write|Backup 일정 그룹을 만들거나 업데이트합니다.|
+|/managers/devices/backupScheduleGroups/delete|Backup 일정 그룹을 삭제합니다.|
 |/managers/devices/updateSummary/read|업데이트 요약을 나열하거나 가져옵니다.|
 |/managers/devices/migrationSourceConfigurations/<br>import/action|마이그레이션 위한 원본 구성을 가져옵니다.|
 |/managers/devices/migrationSourceConfigurations/<br>startMigrationEstimate/action|마이그레이션 프로세스 기간을 예측하는 작업을 시작합니다.|
@@ -1896,13 +1871,13 @@ ms.lasthandoff: 10/11/2017
 |/managers/devices/iscsiservers/disks/metrics/read|메트릭을 나열하거나 가져옵니다.|
 |/managers/devices/iscsiservers/disks/metricsDefinitions/read|메트릭 정의를 나열하거나 가져옵니다.|
 |/managers/devices/iscsiservers/metricsDefinitions/read|메트릭 정의를 나열하거나 가져옵니다.|
-|/managers/devices/backups/read|백업 세트를 나열하거나 가져옵니다.|
-|/managers/devices/backups/delete|백업 세트를 삭제합니다.|
+|/managers/devices/backups/read|Backup 세트를 나열하거나 가져옵니다.|
+|/managers/devices/backups/delete|Backup 세트를 삭제합니다.|
 |/managers/devices/backups/restore/action|백업 세트에서 모든 볼륨을 복원합니다.|
 |/managers/devices/backups/elements/clone/action|백업 요소를 사용하여 공유 또는 볼륨을 복제합니다.|
-|/managers/devices/backupPolicies/write|새 백업 정책을 만들거나 백업 정책을 업데이트합니다(8000 시리즈만 해당).|
-|/managers/devices/backupPolicies/read|백업 정책을 나열합니다(8000 시리즈만 해당).|
-|/managers/devices/backupPolicies/delete|기존 백업 정책을 삭제합니다(8000 시리즈만 해당).|
+|/managers/devices/backupPolicies/write|새 Backup 정책을 만들거나 Backup 정책을 업데이트합니다(8000 시리즈만 해당).|
+|/managers/devices/backupPolicies/read|Backup 정책을 나열합니다(8000 시리즈만 해당).|
+|/managers/devices/backupPolicies/delete|기존 Backup 정책을 삭제합니다(8000 시리즈만 해당).|
 |/managers/devices/backupPolicies/backup/action|정책으로 보호되는 모든 볼륨의 요청 시 백업을 만들기 위해 수동 백업을 수행합니다.|
 |/managers/devices/backupPolicies/schedules/write|새 일정을 만들거나 일정을 업데이트합니다.|
 |/managers/devices/backupPolicies/schedules/read|일정을 나열합니다.|
@@ -1980,7 +1955,7 @@ ms.lasthandoff: 10/11/2017
 |/hostingenvironments/workerpools/metrics/read|호스팅 환경 Workerpools 메트릭을 가져옵니다.|
 |/hostingenvironments/workerpools/skus/read|호스팅 환경 Workerpools SKU를 가져옵니다.|
 |/hostingenvironments/workerpools/usages/read|호스팅 환경 Workerpools 사용 현황을 가져옵니다.|
-|/hostingenvironments/sites/read|호스팅 환경 웹앱을 가져옵니다.|
+|/hostingenvironments/sites/read|호스팅 환경 Web Apps를 가져옵니다.|
 |/hostingenvironments/serverfarms/read|호스팅 환경 App Service 계획을 가져옵니다.|
 |/hostingenvironments/usages/read|호스팅 환경 사용 현황을 가져옵니다.|
 |/hostingenvironments/capacities/read|호스팅 환경 용량을 가져옵니다.|
@@ -2009,41 +1984,41 @@ ms.lasthandoff: 10/11/2017
 |/sites/slotsdiffs/Action|웹앱 및 슬롯 간 구성 차이를 가져옵니다.|
 |/sites/applySlotConfig/Action|대상 슬롯의 웹앱 슬롯 구성을 현재 웹앱에 적용합니다.|
 |/sites/resetSlotConfig/Action|웹앱 구성을 다시 설정합니다.|
-|/sites/functions/action|합수 웹앱입니다.|
-|/sites/listsyncfunctiontriggerstatus/action|함수 트리거 상태 동기화 웹앱을 나열합니다.|
-|/sites/networktrace/action|네트워크 추적 웹앱입니다.|
-|/sites/newpassword/action|Newpassword 웹앱입니다.|
-|/sites/sync/action|웹앱을 동기화합니다.|
-|/sites/operationresults/read|웹앱 작업 결과를 가져옵니다.|
-|/sites/webjobs/read|웹앱 Webjob을 가져옵니다.|
-|/sites/backup/read|웹앱 백업을 가져옵니다.|
-|/sites/backup/write|웹앱 백업을 업데이트합니다.|
-|/sites/metricdefinitions/read|웹앱 메트릭 정의를 가져옵니다.|
-|/sites/metrics/read|웹앱 메트릭을 가져옵니다.|
-|/sites/continuouswebjobs/delete|웹앱 연속 웹 작업을 삭제합니다.|
-|/sites/continuouswebjobs/read|웹앱 연속 웹 작업을 가져옵니다.|
-|/sites/continuouswebjobs/start/action|웹앱 연속 웹 작업을 시작합니다.|
-|/sites/continuouswebjobs/stop/action|웹앱 연속 웹 작업을 중지합니다.|
-|/sites/domainownershipidentifiers/read|웹앱 도메인 소유권 식별자를 가져옵니다.|
-|/sites/domainownershipidentifiers/write|웹앱 도메인 소유권 식별자를 업데이트합니다.|
-|/sites/premieraddons/delete|웹앱 프리미어 추가 기능을 삭제합니다.|
-|/sites/premieraddons/read|웹앱 프리미어 추가 기능을 가져옵니다.|
-|/sites/premieraddons/write|웹앱 프리미어 추가 기능을 업데이트합니다.|
-|/sites/triggeredwebjobs/delete|웹앱 트리거 Webjob을 삭제합니다.|
-|/sites/triggeredwebjobs/read|웹앱 트리거 Webjob을 가져옵니다.|
-|/sites/triggeredwebjobs/run/action|웹앱 트리거 Webjob을 실행합니다.|
-|/sites/hostnamebindings/delete|웹앱 호스트 이름 바인딩을 삭제합니다.|
-|/sites/hostnamebindings/read|웹앱 호스트 이름 바인딩을 가져옵니다.|
-|/sites/hostnamebindings/write|웹앱 호스트 이름 바인딩을 업데이트합니다.|
-|/sites/virtualnetworkconnections/delete|웹앱 가상 네트워크 연결을 삭제합니다.|
-|/sites/virtualnetworkconnections/read|웹앱 가상 네트워크 연결을 가져옵니다.|
-|/sites/virtualnetworkconnections/write|웹앱 가상 네트워크 연결을 업데이트합니다.|
-|/sites/virtualnetworkconnections/gateways/read|웹앱 가상 네트워크 연결 게이트웨이를 가져옵니다.|
-|/sites/virtualnetworkconnections/gateways/write|웹앱 가상 네트워크 연결 게이트웨이를 업데이트합니다.|
-|/sites/publishxml/read|웹앱 게시 XML을 가져옵니다.|
-|/sites/hybridconnectionrelays/read|웹앱 하이브리드 연결 릴레이를 가져옵니다.|
-|/sites/perfcounters/read|웹앱 성능 카운터를 가져옵니다.|
-|/sites/usages/read|웹앱 사용 현황을 가져옵니다.|
+|/sites/functions/action|합수 Web Apps입니다.|
+|/sites/listsyncfunctiontriggerstatus/action|함수 트리거 상태 동기화 Web Apps를 나열합니다.|
+|/sites/networktrace/action|네트워크 추적 Web Apps입니다.|
+|/sites/newpassword/action|Newpassword Web Apps입니다.|
+|/sites/sync/action|Web Apps를 동기화합니다.|
+|/sites/operationresults/read|Web Apps 작업 결과를 가져옵니다.|
+|/sites/webjobs/read|Web Apps Webjob을 가져옵니다.|
+|/sites/backup/read|Web Apps Backup을 가져옵니다.|
+|/sites/backup/write|Web Apps Backup을 업데이트합니다.|
+|/sites/metricdefinitions/read|Web Apps 메트릭 정의를 가져옵니다.|
+|/sites/metrics/read|Web Apps 메트릭을 가져옵니다.|
+|/sites/continuouswebjobs/delete|Web Apps 연속 웹 작업을 삭제합니다.|
+|/sites/continuouswebjobs/read|Web Apps 연속 웹 작업을 가져옵니다.|
+|/sites/continuouswebjobs/start/action|Web Apps 연속 웹 작업을 시작합니다.|
+|/sites/continuouswebjobs/stop/action|Web Apps 연속 웹 작업을 중지합니다.|
+|/sites/domainownershipidentifiers/read|Web Apps 도메인 소유권 식별자를 가져옵니다.|
+|/sites/domainownershipidentifiers/write|Web Apps 도메인 소유권 식별자를 업데이트합니다.|
+|/sites/premieraddons/delete|Web Apps 프리미어 추가 기능을 삭제합니다.|
+|/sites/premieraddons/read|Web Apps 프리미어 추가 기능을 가져옵니다.|
+|/sites/premieraddons/write|Web Apps 프리미어 추가 기능을 업데이트합니다.|
+|/sites/triggeredwebjobs/delete|Web Apps 트리거 Webjob을 삭제합니다.|
+|/sites/triggeredwebjobs/read|Web Apps 트리거 Webjob을 가져옵니다.|
+|/sites/triggeredwebjobs/run/action|Web Apps 트리거 Webjob을 실행합니다.|
+|/sites/hostnamebindings/delete|Web Apps 호스트 이름 바인딩을 삭제합니다.|
+|/sites/hostnamebindings/read|Web Apps 호스트 이름 바인딩을 가져옵니다.|
+|/sites/hostnamebindings/write|Web Apps 호스트 이름 바인딩을 업데이트합니다.|
+|/sites/virtualnetworkconnections/delete|Web Apps Virtual Network 연결을 삭제합니다.|
+|/sites/virtualnetworkconnections/read|Web Apps Virtual Network 연결을 가져옵니다.|
+|/sites/virtualnetworkconnections/write|Web Apps Virtual Network 연결을 업데이트합니다.|
+|/sites/virtualnetworkconnections/gateways/read|Web Apps Virtual Network 연결 게이트웨이를 가져옵니다.|
+|/sites/virtualnetworkconnections/gateways/write|Web Apps Virtual Network 연결 게이트웨이를 업데이트합니다.|
+|/sites/publishxml/read|Web Apps 게시 XML을 가져옵니다.|
+|/sites/hybridconnectionrelays/read|Web Apps 하이브리드 연결 릴레이를 가져옵니다.|
+|/sites/perfcounters/read|Web Apps 성능 카운터를 가져옵니다.|
+|/sites/usages/read|Web Apps 사용 현황을 가져옵니다.|
 |/sites/slots/Write|새 웹앱 슬롯을 만들거나 기존 웹앱 슬롯을 업데이트합니다.|
 |/sites/slots/Delete|기존 웹앱 슬롯을 삭제합니다.|
 |/sites/slots/backup/Action|새 웹앱 슬롯 백업을 만듭니다.|
@@ -2057,92 +2032,92 @@ ms.lasthandoff: 10/11/2017
 |/sites/slots/applySlotConfig/Action|대상 슬롯의 웹앱 슬롯 구성을 현재 슬롯에 적용합니다.|
 |/sites/slots/resetSlotConfig/Action|웹앱 슬롯 구성을 다시 설정합니다.|
 |/sites/slots/Read|웹앱 배포 슬롯의 속성을 가져옵니다.|
-|/sites/slots/newpassword/action|Newpassword 웹앱 슬롯입니다.|
-|/sites/slots/sync/action|웹앱 슬롯을 동기화합니다.|
-|/sites/slots/operationresults/read|웹앱 슬롯 작업 결과를 가져옵니다.|
-|/sites/slots/webjobs/read|웹앱 슬롯 Webjob을 가져옵니다.|
-|/sites/slots/backup/write|웹앱 슬롯 백업을 업데이트합니다.|
-|/sites/slots/metricdefinitions/read|웹앱 슬롯 메트릭 정의를 가져옵니다.|
-|/sites/slots/metrics/read|웹앱 슬롯 메트릭을 가져옵니다.|
-|/sites/slots/continuouswebjobs/delete|웹앱 슬롯 연속 웹 작업을 삭제합니다.|
-|/sites/slots/continuouswebjobs/read|웹앱 슬롯 연속 웹 작업을 가져옵니다.|
-|/sites/slots/continuouswebjobs/start/action|웹앱 슬롯 연속 웹 작업을 시작합니다.|
-|/sites/slots/continuouswebjobs/stop/action|웹앱 슬롯 연속 웹 작업을 중지합니다.|
-|/sites/slots/premieraddons/delete|웹앱 슬롯 프리미어 추가 기능을 삭제합니다.|
-|/sites/slots/premieraddons/read|웹앱 슬롯 프리미어 추가 기능을 가져옵니다.|
-|/sites/slots/premieraddons/write|웹앱 슬롯 프리미어 추가 기능을 업데이트합니다.|
-|/sites/slots/triggeredwebjobs/delete|웹앱 슬롯 트리거 Webjob을 삭제합니다.|
-|/sites/slots/triggeredwebjobs/read|웹앱 슬롯 트리거 Webjob을 가져옵니다.|
-|/sites/slots/triggeredwebjobs/run/action|웹앱 슬롯 트리거 Webjob을 실행합니다.|
-|/sites/slots/hostnamebindings/delete|웹앱 슬롯 호스트 이름 바인딩을 삭제합니다.|
-|/sites/slots/hostnamebindings/read|웹앱 슬롯 호스트 이름 바인딩을 가져옵니다.|
-|/sites/slots/hostnamebindings/write|웹앱 슬롯 호스트 이름 바인딩을 업데이트합니다.|
-|/sites/slots/phplogging/read|웹앱 슬롯 Phplogging을 가져옵니다.|
-|/sites/slots/virtualnetworkconnections/delete|웹앱 슬롯 가상 네트워크 연결을 삭제합니다.|
-|/sites/slots/virtualnetworkconnections/read|웹앱 슬롯 가상 네트워크 연결을 가져옵니다.|
-|/sites/slots/virtualnetworkconnections/write|웹앱 슬롯 가상 네트워크 연결을 업데이트합니다.|
-|/sites/slots/virtualnetworkconnections/gateways/write|웹앱 슬롯 가상 네트워크 연결 게이트웨이를 업데이트합니다.|
-|/sites/slots/usages/read|웹앱 슬롯 사용 현황을 가져옵니다.|
-|/sites/slots/hybridconnection/delete|웹앱 슬롯 하이브리드 연결을 삭제합니다.|
-|/sites/slots/hybridconnection/read|웹앱 슬롯 하이브리드 연결을 가져옵니다.|
-|/sites/slots/hybridconnection/write|웹앱 슬롯 하이브리드 연결을 업데이트합니다.|
+|/sites/slots/newpassword/action|Newpassword Web Apps 슬롯입니다.|
+|/sites/slots/sync/action|Web Apps 슬롯을 동기화합니다.|
+|/sites/slots/operationresults/read|Web Apps 슬롯 작업 결과를 가져옵니다.|
+|/sites/slots/webjobs/read|Web Apps 슬롯 Webjob을 가져옵니다.|
+|/sites/slots/backup/write|Web Apps 슬롯 백업을 업데이트합니다.|
+|/sites/slots/metricdefinitions/read|Web Apps 슬롯 메트릭 정의를 가져옵니다.|
+|/sites/slots/metrics/read|Web Apps 슬롯 메트릭을 가져옵니다.|
+|/sites/slots/continuouswebjobs/delete|Web Apps 슬롯 연속 웹 작업을 삭제합니다.|
+|/sites/slots/continuouswebjobs/read|Web Apps 슬롯 연속 웹 작업을 가져옵니다.|
+|/sites/slots/continuouswebjobs/start/action|Web Apps 슬롯 연속 웹 작업을 시작합니다.|
+|/sites/slots/continuouswebjobs/stop/action|Web Apps 슬롯 연속 웹 작업을 중지합니다.|
+|/sites/slots/premieraddons/delete|Web Apps 슬롯 프리미어 추가 기능을 삭제합니다.|
+|/sites/slots/premieraddons/read|Web Apps 슬롯 프리미어 추가 기능을 가져옵니다.|
+|/sites/slots/premieraddons/write|Web Apps 슬롯 프리미어 추가 기능을 업데이트합니다.|
+|/sites/slots/triggeredwebjobs/delete|Web Apps 슬롯 트리거 Webjob을 삭제합니다.|
+|/sites/slots/triggeredwebjobs/read|Web Apps 슬롯 트리거 Webjob을 가져옵니다.|
+|/sites/slots/triggeredwebjobs/run/action|Web Apps 슬롯 트리거 Webjob을 실행합니다.|
+|/sites/slots/hostnamebindings/delete|Web Apps 슬롯 호스트 이름 바인딩을 삭제합니다.|
+|/sites/slots/hostnamebindings/read|Web Apps 슬롯 호스트 이름 바인딩을 가져옵니다.|
+|/sites/slots/hostnamebindings/write|Web Apps 슬롯 호스트 이름 바인딩을 업데이트합니다.|
+|/sites/slots/phplogging/read|Web Apps 슬롯 Phplogging을 가져옵니다.|
+|/sites/slots/virtualnetworkconnections/delete|Web Apps 슬롯 Virtual Network 연결을 삭제합니다.|
+|/sites/slots/virtualnetworkconnections/read|Web Apps 슬롯 Virtual Network 연결을 가져옵니다.|
+|/sites/slots/virtualnetworkconnections/write|Web Apps 슬롯 Virtual Network 연결을 업데이트합니다.|
+|/sites/slots/virtualnetworkconnections/gateways/write|Web Apps 슬롯 Virtual Network 연결 게이트웨이를 업데이트합니다.|
+|/sites/slots/usages/read|Web Apps 슬롯 사용 현황을 가져옵니다.|
+|/sites/slots/hybridconnection/delete|Web Apps 슬롯 하이브리드 연결을 삭제합니다.|
+|/sites/slots/hybridconnection/read|Web Apps 슬롯 하이브리드 연결을 가져옵니다.|
+|/sites/slots/hybridconnection/write|Web Apps 슬롯 하이브리드 연결을 업데이트합니다.|
 |/sites/slots/config/Read|웹앱 슬롯의 구성 설정을 가져옵니다.|
 |/sites/slots/config/list/Action|게시 자격 증명, 앱 설정 및 연결 문자열과 같은 웹앱 슬롯 보안 중요 설정을 나열합니다.|
 |/sites/slots/config/Write|웹앱 슬롯의 구성 설정을 업데이트합니다.|
-|/sites/slots/config/delete|웹앱 슬롯 구성을 삭제합니다.|
-|/sites/slots/instances/read|웹앱 슬롯 인스턴스를 가져옵니다.|
-|/sites/slots/instances/processes/read|웹앱 슬롯 인스턴스 프로세스를 가져옵니다.|
-|/sites/slots/instances/deployments/read|웹앱 슬롯 인스턴스 배포를 가져옵니다.|
+|/sites/slots/config/delete|Web Apps 슬롯 구성을 삭제합니다.|
+|/sites/slots/instances/read|Web Apps 슬롯 인스턴스를 가져옵니다.|
+|/sites/slots/instances/processes/read|Web Apps 슬롯 인스턴스 프로세스를 가져옵니다.|
+|/sites/slots/instances/deployments/read|Web Apps 슬롯 인스턴스 배포를 가져옵니다.|
 |/sites/slots/sourcecontrols/Read|웹앱 슬롯의 소스 제어 구성 설정을 가져옵니다.|
 |/sites/slots/sourcecontrols/Write|웹앱 슬롯의 소스 제어 구성 설정을 업데이트합니다.|
 |/sites/slots/sourcecontrols/Delete|웹앱 슬롯의 소스 제어 구성 설정을 삭제합니다.|
-|/sites/slots/restore/read|웹앱 슬롯 복원을 가져옵니다.|
-|/sites/slots/analyzecustomhostname/read|웹앱 슬롯 사용자 지정 호스트 이름 분석을 가져옵니다.|
+|/sites/slots/restore/read|Web Apps 슬롯 복원을 가져옵니다.|
+|/sites/slots/analyzecustomhostname/read|Web Apps 슬롯 사용자 지정 호스트 이름 분석을 가져옵니다.|
 |/sites/slots/backups/Read|웹앱 슬롯 백업의 속성을 가져옵니다.|
-|/sites/slots/backups/list/action|웹앱 슬롯 백업을 나열합니다.|
-|/sites/slots/backups/restore/action|웹앱 슬롯 백업을 복원합니다.|
-|/sites/slots/deployments/delete|웹앱 슬롯 배포를 삭제합니다.|
-|/sites/slots/deployments/read|웹앱 슬롯 배포를 가져옵니다.|
-|/sites/slots/deployments/write|웹앱 슬롯 배포를 업데이트합니다.|
-|/sites/slots/deployments/log/read|웹앱 슬롯 배포 로그를 가져옵니다.|
-|/sites/hybridconnection/delete|웹앱 하이브리드 연결을 삭제합니다.|
-|/sites/hybridconnection/read|웹앱 하이브리드 연결을 가져옵니다.|
-|/sites/hybridconnection/write|웹앱 하이브리드 연결을 업데이트합니다.|
-|/sites/recommendationhistory/read|웹앱 권장 사항 기록을 가져옵니다.|
+|/sites/slots/backups/list/action|Web Apps 슬롯 백업을 나열합니다.|
+|/sites/slots/backups/restore/action|Web Apps 슬롯 백업을 복원합니다.|
+|/sites/slots/deployments/delete|Web Apps 슬롯 배포를 삭제합니다.|
+|/sites/slots/deployments/read|Web Apps 슬롯 배포를 가져옵니다.|
+|/sites/slots/deployments/write|Web Apps 슬롯 배포를 업데이트합니다.|
+|/sites/slots/deployments/log/read|Web Apps 슬롯 배포 로그를 가져옵니다.|
+|/sites/hybridconnection/delete|Web Apps 하이브리드 연결을 삭제합니다.|
+|/sites/hybridconnection/read|Web Apps 하이브리드 연결을 가져옵니다.|
+|/sites/hybridconnection/write|Web Apps 하이브리드 연결을 업데이트합니다.|
+|/sites/recommendationhistory/read|Web Apps 권장 사항 기록을 가져옵니다.|
 |/sites/recommendations/Read|웹앱에 대한 권장 사항 목록을 가져옵니다.|
-|/sites/recommendations/disable/action|웹앱 권장 사항을 사용하지 않도록 설정합니다.|
+|/sites/recommendations/disable/action|Web Apps 권장 사항을 사용하지 않도록 설정합니다.|
 |/sites/config/Read|웹앱 구성 설정을 가져옵니다.|
 |/sites/config/list/Action|게시 자격 증명, 앱 설정 및 연결 문자열과 같은 웹앱 보안 중요 설정을 나열합니다.|
 |/sites/config/Write|웹앱 구성 설정을 업데이트합니다.|
-|/sites/config/delete|웹앱 구성을 삭제합니다.|
-|/sites/instances/read|웹앱 인스턴스를 가져옵니다.|
-|/sites/instances/processes/delete|웹앱 인스턴스 프로세스를 삭제합니다.|
-|/sites/instances/processes/read|웹앱 인스턴스 프로세스를 가져옵니다.|
-|/sites/instances/deployments/read|웹앱 인스턴스 배포를 가져옵니다.|
+|/sites/config/delete|Web Apps 구성을 삭제합니다.|
+|/sites/instances/read|Web Apps 인스턴스를 가져옵니다.|
+|/sites/instances/processes/delete|Web Apps 인스턴스 프로세스를 삭제합니다.|
+|/sites/instances/processes/read|Web Apps 인스턴스 프로세스를 가져옵니다.|
+|/sites/instances/deployments/read|Web Apps 인스턴스 배포를 가져옵니다.|
 |/sites/sourcecontrols/Read|웹앱의 소스 제어 구성 설정을 가져옵니다.|
 |/sites/sourcecontrols/Write|웹앱의 소스 제어 구성 설정을 업데이트합니다.|
 |/sites/sourcecontrols/Delete|웹앱의 소스 제어 구성 설정을 삭제합니다.|
-|/sites/restore/read|웹앱 복원을 가져옵니다.|
+|/sites/restore/read|Web Apps 복원을 가져옵니다.|
 |/sites/analyzecustomhostname/read|사용자 지정 호스트 이름을 분석합니다.|
 |/sites/backups/Read|웹앱 백업의 속성을 가져옵니다.|
-|/sites/backups/list/action|웹앱 백업을 나열합니다.|
-|/sites/backups/restore/action|웹앱 백업을 복원합니다.|
-|/sites/snapshots/read|웹앱 스냅숏을 가져옵니다.|
-|/sites/functions/delete|웹앱 함수를 삭제합니다.|
-|/sites/functions/listsecrets/action|비밀 웹앱 함수를 나열합니다.|
-|/sites/functions/read|웹앱 함수를 가져옵니다.|
-|/sites/functions/write|웹앱 함수를 업데이트합니다.|
-|/sites/deployments/delete|웹앱 배포를 삭제합니다.|
-|/sites/deployments/read|웹앱 배포를 가져옵니다.|
-|/sites/deployments/write|웹앱 배포를 업데이트합니다.|
-|/sites/deployments/log/read|웹앱 배포 로그를 가져옵니다.|
-|/sites/diagnostics/read|웹앱 진단을 가져옵니다.|
-|/sites/diagnostics/workerprocessrecycle/read|웹앱 진단 작업자 프로세스 재활용을 가져옵니다.|
-|/sites/diagnostics/workeravailability/read|웹앱 진단 Workeravailability를 가져옵니다.|
-|/sites/diagnostics/runtimeavailability/read|웹앱 진단 런타임 가용성을 가져옵니다.|
-|/sites/diagnostics/cpuanalysis/read|웹앱 진단 Cpuanalysis를 가져옵니다.|
-|/sites/diagnostics/servicehealth/read|웹앱 진단 서비스 상태를 가져옵니다.|
-|/sites/diagnostics/frebanalysis/read|웹앱 진단 FREB 분석을 가져옵니다.|
+|/sites/backups/list/action|Web Apps Backup을 나열합니다.|
+|/sites/backups/restore/action|Web Apps Backup을 복원합니다.|
+|/sites/snapshots/read|Web Apps 스냅숏을 가져옵니다.|
+|/sites/functions/delete|Web Apps 함수를 삭제합니다.|
+|/sites/functions/listsecrets/action|비밀 Web Apps 함수를 나열합니다.|
+|/sites/functions/read|Web Apps 함수를 가져옵니다.|
+|/sites/functions/write|Web Apps 함수를 업데이트합니다.|
+|/sites/deployments/delete|Web Apps 배포를 삭제합니다.|
+|/sites/deployments/read|Web Apps 배포를 가져옵니다.|
+|/sites/deployments/write|Web Apps 배포를 업데이트합니다.|
+|/sites/deployments/log/read|Web Apps 배포 로그를 가져옵니다.|
+|/sites/diagnostics/read|Web Apps 진단을 가져옵니다.|
+|/sites/diagnostics/workerprocessrecycle/read|Web Apps 진단 작업자 프로세스 재활용을 가져옵니다.|
+|/sites/diagnostics/workeravailability/read|Web Apps 진단 Workeravailability를 가져옵니다.|
+|/sites/diagnostics/runtimeavailability/read|Web Apps 진단 런타임 가용성을 가져옵니다.|
+|/sites/diagnostics/cpuanalysis/read|Web Apps 진단 Cpuanalysis를 가져옵니다.|
+|/sites/diagnostics/servicehealth/read|Web Apps 진단 서비스 상태를 가져옵니다.|
+|/sites/diagnostics/frebanalysis/read|Web Apps 진단 FREB 분석을 가져옵니다.|
 |/availablestacks/read|사용 가능한 스택을 가져옵니다.|
 |/isusernameavailable/read|사용자 이름을 사용할 수 있는지를 확인합니다.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/Read|API 목록을 가져옵니다.|
@@ -2160,27 +2135,27 @@ ms.lasthandoff: 10/11/2017
 |/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Delete|API Acl을 삭제합니다.|
 |/serverfarms/Read|App Service 계획의 속성을 가져옵니다.|
 |/serverfarms/Write|새 App Service 계획을 만들거나 기존 App Service 계획을 업데이트합니다.|
-|/serverfarms/Delete|기존 앱 서비스 계획 삭제|
-|/serverfarms/restartSites/Action|App Service 계획의 모든 웹앱을 다시 시작합니다.|
+|/serverfarms/Delete|기존 App Service 계획 삭제|
+|/serverfarms/restartSites/Action|App Service 계획의 모든 Web Apps를 다시 시작합니다.|
 |/serverfarms/operationresults/read|App Service 계획 작업 결과를 가져옵니다.|
 |/serverfarms/capabilities/read|App Service 계획 기능을 가져옵니다.|
 |/serverfarms/metricdefinitions/read|App Service 계획 메트릭 정의를 가져옵니다.|
 |/serverfarms/metrics/read|App Service 계획 메트릭을 가져옵니다.|
 |/serverfarms/hybridconnectionplanlimits/read|App Service 계획 하이브리드 연결 계획 제한을 가져옵니다.|
-|/serverfarms/virtualnetworkconnections/read|App Service 계획 가상 네트워크 연결을 가져옵니다.|
-|/serverfarms/virtualnetworkconnections/routes/delete|App Service 계획 가상 네트워크 연결 경로를 삭제합니다.|
-|/serverfarms/virtualnetworkconnections/routes/read|App Service 계획 가상 네트워크 연결 경로를 가져옵니다.|
-|/serverfarms/virtualnetworkconnections/routes/write|App Service 계획 가상 네트워크 연결 경로를 업데이트합니다.|
-|/serverfarms/virtualnetworkconnections/gateways/write|App Service 계획 가상 네트워크 연결 게이트웨이를 업데이트합니다.|
+|/serverfarms/virtualnetworkconnections/read|App Service 계획 Virtual Network 연결을 가져옵니다.|
+|/serverfarms/virtualnetworkconnections/routes/delete|App Service 계획 Virtual Network 연결 경로를 삭제합니다.|
+|/serverfarms/virtualnetworkconnections/routes/read|App Service 계획 Virtual Network 연결 경로를 가져옵니다.|
+|/serverfarms/virtualnetworkconnections/routes/write|App Service 계획 Virtual Network 연결 경로를 업데이트합니다.|
+|/serverfarms/virtualnetworkconnections/gateways/write|App Service 계획 Virtual Network 연결 게이트웨이를 업데이트합니다.|
 |/serverfarms/firstpartyapps/settings/delete|App Service 계획 자사 앱 설정을 삭제합니다.|
 |/serverfarms/firstpartyapps/settings/read|App Service 계획 자사 앱 설정을 가져옵니다.|
 |/serverfarms/firstpartyapps/settings/write|App Service 계획 자사 앱 설정을 업데이트합니다.|
-|/serverfarms/sites/read|App Service 계획 웹앱을 가져옵니다.|
+|/serverfarms/sites/read|App Service 계획 Web Apps를 가져옵니다.|
 |/serverfarms/workers/reboot/action|App Service 계획 작업자를 다시 부팅합니다.|
 |/serverfarms/hybridconnectionrelays/read|App Service 계획 하이브리드 연결 릴레이를 가져옵니다.|
 |/serverfarms/skus/read|App Service 계획 SKU를 가져옵니다.|
 |/serverfarms/usages/read|App Service 계획 사용 현황을 가져옵니다.|
-|/serverfarms/hybridconnectionnamespaces/relays/sites/read|App Service 계획 하이브리드 연결 네임스페이스 릴레이 웹앱을 가져옵니다.|
+|/serverfarms/hybridconnectionnamespaces/relays/sites/read|App Service 계획 하이브리드 연결 네임스페이스 릴레이 Web Apps를 가져옵니다.|
 |/ishostnameavailable/read|호스트 이름을 사용할 수 있는지를 확인합니다.|
 |/connectionGateways/Read|연결 게이트웨이 목록을 가져옵니다.|
 |/connectionGateways/Write|연결 게이트웨이를 만들거나 업데이트합니다.|
@@ -2209,7 +2184,7 @@ ms.lasthandoff: 10/11/2017
 |/sourcecontrols/read|소스 제어를 가져옵니다.|
 |/sourcecontrols/write|소스 제어를 업데이트합니다.|
 |/managedhostingenvironments/read|관리되는 호스팅 환경을 가져옵니다.|
-|/managedhostingenvironments/sites/read|관리되는 호스팅 환경 웹앱을 가져옵니다.|
+|/managedhostingenvironments/sites/read|관리되는 호스팅 환경 Web Apps를 가져옵니다.|
 |/managedhostingenvironments/serverfarms/read|관리되는 호스팅 환경 App Service 계획을 가져옵니다.|
 |/locations/managedapis/read|위치 관리되는 AAPI를 가져옵니다.|
 |/locations/apioperations/read|위치 API 작업을 가져옵니다.|
