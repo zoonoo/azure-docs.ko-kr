@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates in Azure Stack | Microsoft Docs
-description: Learn how to use Azure Resource Manager templates in Azure Stack to provision resources.
+title: "Azure 스택에서 Azure 리소스 관리자 템플릿을 사용 하 여 | Microsoft Docs"
+description: "리소스를 제공 하려면 Azure 스택에서 Azure 리소스 관리자 템플릿을 사용 하는 방법을 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,65 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Use Azure Resource Manager templates in Azure Stack
+# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack에서 Azure Resource Manager 템플릿 사용
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation. You can also redeploy templates to make changes to the resources in the resource group.
+Azure 리소스 관리자 템플릿 배포 및 조정를 단일 작업에서 응용 프로그램에 대 한 모든 리소스를 프로 비전 합니다. 리소스 그룹에 리소스를 변경 하려면 서식 파일을 다시 배포할 수 있습니다.
 
-These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
+이러한 템플릿은 Microsoft Azure Stack 포털, PowerShell, 명령줄 및 Visual Studio에서 배포할 수 있습니다.
 
-The following quickstart templates are available on [GitHub](http://aka.ms/azurestackgithub):
+다음 빠른 시작 템플릿은에서 사용할 수 있는 [GitHub](http://aka.ms/azurestackgithub):
 
-## <a name="deploy-sharepoint-non-high-availability"></a>Deploy SharePoint (non-high availability)
-Use the PowerShell DSC extension to create a SharePoint 2013 farm that includes the following resources:
+## <a name="deploy-sharepoint-non-high-availability"></a>SharePoint 배포(비-고가용성) 배포
+PowerShell DSC 확장을 사용 하 여 다음 리소스를 포함 하는 SharePoint 2013 팜을 만들려면:
 
-* A virtual network
-* Three storage accounts
-* Two external load balancers
-* One VM configured as a domain controller for a new forest with a single domain
-* One VM configured as a SQL Server 2014 stand-alone server
-* One VM configured as a one machine SharePoint 2013 farm
+* 가상 네트워크
+* 저장소 계정 3개
+* 외부 부하 분산 장치 2개
+* 단일 도메인이 포함 된 새 포리스트의 도메인 컨트롤러로 구성 하는 하나의 VM
+* SQL Server 2014 독립 실행형 서버로 하나의 VM이 구성됨
+* 한 컴퓨터의 SharePoint 2013 팜으로 하나의 VM이 구성됨
 
-## <a name="deploy-ad-non-high-availability"></a>Deploy AD (non-high availability)
-Use the PowerShell DSC extension to create an AD domain controller server that includes the following resources:
+## <a name="deploy-ad-non-high-availability"></a>AD (비 고가용성) 배포
+다음 리소스를 포함 하는 AD 도메인 컨트롤러 서버를 만들려면 PowerShell DSC 확장을 사용 합니다.
 
-* A virtual network
-* One storage account
-* One external load balancer
-* One VM configured as a domain controller for a new forest with a single domain
+* 가상 네트워크
+* 저장소 계정 1개
+* 외부 부하 분산 장치 1개
+* 단일 도메인이 포함 된 새 포리스트의 도메인 컨트롤러로 구성 하는 하나의 VM
 
-## <a name="deploy-adsql-non-high-availability"></a>Deploy AD/SQL (non-high availability)
-Use the PowerShell DSC extension to create a SQL Server 2014 stand-alone server that includes the following resources:
+## <a name="deploy-adsql-non-high-availability"></a>AD/SQL 배포(비-고가용성)
+다음 리소스를 포함 하는 SQL Server 2014 독립 실행형 서버를 만들려면 PowerShell DSC 확장을 사용 합니다.
 
-* A virtual network
-* Two storage accounts
-* One external load balancer
-* One VM configured as a domain controller for a new forest with a single domain
-* One VM configured as a SQL Server 2014 stand-alone server
+* 가상 네트워크
+* 두 저장소 계정
+* 외부 부하 분산 장치 1개
+* 단일 도메인이 포함 된 새 포리스트의 도메인 컨트롤러로 구성 하는 하나의 VM
+* SQL Server 2014 독립 실행형 서버로 하나의 VM이 구성됨
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
-Use the PowerShell DSC extension to configure an existing virtual machine Local Configuration Manager (LCM) and register it to an Azure Automation Account DSC Pull Server.
+PowerShell DSC 확장을 사용하여 기존 가상 컴퓨터 로컬 구성 관리자(LCM)를 구성하고 Azure Automation 계정 DSC 끌어오기 서버에 등록합니다.
 
-## <a name="create-a-virtual-machine-from-a-user-image"></a>Create a virtual machine from a user image
-Create a virtual machine from a custom user image. This template also deploys a virtual network (with DNS), public IP address, and a network interface.
+## <a name="create-a-virtual-machine-from-a-user-image"></a>사용자 이미지에서 가상 컴퓨터 만들기
+사용자 지정 사용자 이미지에서 가상 컴퓨터를 만듭니다. 이 템플릿은 가상 네트워크(DNS 사용), 공용 IP 주소 및 네트워크 인터페이스도 배포합니다.
 
-## <a name="simple-vm"></a>Simple VM
-Deploy a Windows VM that includes a virtual network (with DNS), public IP address, and a network interface.
+## <a name="simple-vm"></a>단순 VM
+DNS) (포함 된 가상 네트워크, 공용 IP 주소 및 네트워크 인터페이스를 포함 하는 Windows VM을 배포 합니다.
 
-## <a name="cancel-a-running-template-deployment"></a>Cancel a running template deployment
-To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
+## <a name="cancel-a-running-template-deployment"></a>실행 중인 템플릿 배포 취소
+실행 중인 템플릿 배포를 취소 하려면 사용 하 여는 `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with the portal](azure-stack-deploy-template-portal.md)
+## <a name="next-steps"></a>다음 단계
+[포털을 사용하여 템플릿 배포](azure-stack-deploy-template-portal.md)
 
-[Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-
+[Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)
 

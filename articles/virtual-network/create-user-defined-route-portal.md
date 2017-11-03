@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: d037b793609c359cccebd8dbea917516abf16fce
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>사용자 정의 경로 만들기 - Azure Portal
 
-이 자습서에서는 네트워크 가상 어플라이언스를 통해 두 [가상 네트워크](virtual-networks-overview.md) 서브넷 간의 트래픽을 라우팅하는 사용자 정의 경로를 만드는 방법에 대해 알아봅니다. 네트워크 가상 어플라이언스는 방화벽과 같은 네트워크 응용 프로그램을 실행하는 가상 컴퓨터입니다. Azure 가상 네트워크에서 배포할 수 있는 사전 구성된 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요.
+이 자습서에서는 네트워크 가상 어플라이언스를 통해 두 [가상 네트워크](virtual-networks-overview.md) 서브넷 간의 트래픽을 라우팅하는 사용자 정의 경로를 만드는 방법에 대해 알아봅니다. 네트워크 가상 어플라이언스는 방화벽과 같은 네트워크 응용 프로그램을 실행하는 가상 컴퓨터입니다. Azure 가상 네트워크에 배포할 수 있는 미리 구성된 네트워크 가상 어플라이언스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)를 참조하세요.
 
-가상 네트워크에서 서브넷을 만들면 Azure는 모든 서브넷의 리소스가 다음 그림과 같이 서로 통신할 수 있도록 하는 기본 [시스템 경로](virtual-networks-udr-overview.md#system-routes)를 만듭니다.
+가상 네트워크에서 서브넷을 만들면 다음 그림과 같이 Azure에서 모든 서브넷의 리소스가 서로 통신할 수 있게 하는 기본 [시스템 경로](virtual-networks-udr-overview.md#system-routes)를 만듭니다.
 
 ![기본 경로](./media/create-user-defined-route/default-routes.png)
 
-이 자습서에서는 다음 그림과 같이 공개, 비공개 및 DMZ 서브넷을 사용하여 가상 네트워크를 만듭니다. 일반적으로 웹 서버는 공개 서브넷에 배포되고 응용 프로그램이 데이터베이스 서버는 비공개 서브넷에 배포될 수 있습니다. DMZ 서브넷에서 네트워크 가상 어플라이언스의 역할을 할 가상 컴퓨터를 만들고, 선택적으로 각 서브넷에는 네트워크 가상 어플라이언스를 통해 통신하는 가상 컴퓨터를 만듭니다. 공개 및 비공개 서브넷 간의 모든 트래픽은 다음 그림처럼 어플라이언스를 통해 라우팅됩니다.
+이 자습서에서는 다음 그림과 같이 공용, 사설 및 DMZ 서브넷을 사용하여 가상 네트워크를 만듭니다. 일반적으로 웹 서버는 공용 서브넷에 배포할 수 있으며, 응용 프로그램 또는 데이터베이스 서버는 사설 서브넷에 배포할 수 있습니다. DMZ 서브넷에서 네트워크 가상 어플라이언스 역할을 수행할 가상 컴퓨터를 만들고, 필요에 따라 네트워크 가상 어플라이언스를 통해 통신하는 각 서브넷에서 가상 컴퓨터를 만듭니다. 다음 그림과 같이 공용 서브넷과 사설 서브넷 간의 모든 트래픽은 어플라이언스를 통해 라우팅됩니다.
 
 ![사용자 정의 경로](./media/create-user-defined-route/user-defined-routes.png)
 
-이 문서에서는 사용자 정의 경로를 만들 때 사용하는 것이 좋은 배포 모델인 Resource Manager 배포 모델을 통해 사용자 정의 경로를 만드는 단계를 설명합니다. 사용자 정의 경로(클래식)를 만들어야 하는 경우 [사용자 정의 경로(클래식) 만들기](virtual-network-create-udr-classic-ps.md)를 참조하세요. Azure 배포 모델에 대해 잘 모르는 경우에는 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 개요](virtual-networks-udr-overview.md#user-defined-routes)를 참조하세요.
+이 문서에서는 Resource Manager 배포 모델을 통해 사용자 정의 경로를 만드는 단계를 제공합니다. 이 모델은 사용자 정의 경로를 만들 때 사용하는 것이 좋습니다. 사용자 정의 경로(클래식)를 만들어야 하는 경우 [사용자 정의 경로 만들기(클래식)](virtual-network-create-udr-classic-ps.md)를 참조하세요. Azure 배포 모델에 대해 잘 모르는 경우에는 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 개요](virtual-networks-udr-overview.md#user-defined)를 참조하세요.
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>경로 및 네트워크 가상 어플라이언스 만들기
 
@@ -142,10 +142,10 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="validate-routing"></a>라우팅 확인
 
-1. 아직 완료하지 않은 경우 [경로 및 네트워크 가상 어플라이언스 만들기](#create-routes-and-network-virtual-appliance)를 완료합니다.
-2. 다음 상자에서 **사용해 보기**를 클릭하여 Azure Cloud Shell을 엽니다. 메시지가 나타나면 [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 Azure에 로그인합니다. Azure 계정이 없으면 [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다. Azure Cloud Shell은 Azure 명령줄 인터페이스가 사전 설치된 무료 Bash 셸입니다. 
+1. 아직 수행하지 않은 경우 [경로 및 네트워크 가상 어플라이언스 만들기](#create-routes-and-network-virtual-appliance)의 단계를 완료합니다.
+2. 다음 상자에서 **사용해 보세요** 단추를 클릭하여 Azure Cloud Shell을 엽니다. 메시지가 표시되면 [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 Azure에 로그인합니다. Azure 계정이 없으면 [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다. Azure Cloud Shell은 미리 설치된 Azure 명령줄 인터페이스가 있는 무료 Bash 셸입니다. 
 
-    다음 스크립트는 *공개* 서브넷과 *비공개* 서브넷에 각각 하나씩 두 개의 가상 컴퓨터를 만듭니다. 또한 스크립트는 NVA의 운영 체제 내에서 네트워크 인터페이스에 대한 IP 전달을 활성화하여 운영 체제가 네트워크 인터페이스를 통해 트래픽을 라우팅할 수 있게 합니다. 프로덕션 NVA는 일반적으로 트래픽을 라우팅하기 전에 검사하지만 이 자습서에서는 간단한 NVA가 트래픽을 검사하지 않고 라우팅합니다. 
+    다음 스크립트에서는 *공용* 서브넷과 *사설* 서브넷에 각각 하나씩 두 개의 가상 컴퓨터를 만듭니다. 또한 이 스크립트를 사용하면 운영 체제에서 네트워크 인터페이스를 통해 트래픽을 라우팅할 수 있도록 NVA 운영 체제 내의 네트워크 인터페이스에 대한 IP 전달을 사용하도록 설정합니다. 프로덕션 NVA는 일반적으로 트래픽을 라우팅하기 전에 검사하지만, 이 자습서에서는 간단한 NVA에서 트래픽을 검사하지 않고 라우팅합니다. 
 
     다음의 **Linux** 또는 **Windows** 스크립트에서 **복사** 단추를 클릭하여 스크립트 콘텐츠를 텍스트 편집기에 붙여넣습니다. *adminPassword* 변수의 암호를 변경한 다음 Azure Cloud Shell에 스크립트를 붙여넣습니다. [경로 및 네트워크 가상 어플라이언스 만들기](#create-routes-and-network-virtual-appliance)의 6단계에서 네트워크 가상 어플라이언스를 만들 때 선택한 운영 체제에 대한 스크립트를 실행합니다. 
 
@@ -259,29 +259,29 @@ ms.lasthandoff: 10/20/2017
       --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
     ```
 
-3. 공개 및 비공개 서브넷에서 가상 컴퓨터 간의 통신을 확인합니다. 
+3. 공용 및 사설 서브넷의 가상 컴퓨터 간의 통신에 대한 유효성을 검사합니다. 
 
     - *myVm-Public* 가상 컴퓨터의 공용 IP 주소에 대한 [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm)(Linux) 또는 [원격 데스크톱](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm)(Windows) 연결을 엽니다.
-    - *myVm-Public* 가상 컴퓨터의 명령 프롬프트에서 `ping myVm-Private`를 입력합니다. NVA가 공개 서브넷에서 비공개 서브넷으로 트래픽을 라우팅하므로 회신을 받게 됩니다.
-    - *myVm-Public* 가상 컴퓨터에서 공개 및 비공개 서브넷의 가상 컴퓨터 간에 추적 경로를 실행합니다. 공개 및 비공개 서브넷에서 가상 컴퓨터에 설치한 운영 체제에 따라 다음과 같은 적절한 명령을 입력합니다.
+    - *myVm-Public* 가상 컴퓨터의 명령 프롬프트에서 `ping myVm-Private`를 입력합니다. NVA에서 트래픽을 공용 서브넷에서 사설 서브넷으로 라우팅하므로 회신을 받습니다.
+    - *myVm-Public* 가상 컴퓨터에서 공용 서브넷과 사설 서브넷의 가상 컴퓨터 간의 추적 경로를 실행합니다. 공용 서브넷 및 사설 서브넷의 가상 컴퓨터에 설치된 운영 체제에 따라 다음과 같은 적절한 명령을 입력합니다.
         - **Windows**: 명령 프롬프트에서 `tracert myvm-private` 명령을 실행합니다.
         - **Ubuntu**: `tracepath myvm-private` 명령을 실행합니다.
-      트래픽은 10.0.2.4(NVA)를 통해 10.0.1.4(비공개 서브넷의 가상 컴퓨터)에 전달됩니다. 
+      트래픽은 10.0.1.4(사설 서브넷의 가상 컴퓨터)에 도달하기 전에 10.0.2.4(NVA)를 통해 전달합니다. 
     - *myVm-Private* 가상 컴퓨터에 연결하고 *myVm-Public* 가상 컴퓨터를 ping하여 이전 단계를 완료합니다. 추적 경로는 통신이 10.0.2.4를 통해 10.0.0.4(공개 서브넷의 가상 컴퓨터)에 도달하는 과정을 보여 줍니다.
-    - **선택 사항**: Azure 내 두 가상 컴퓨터 간의 다음 홉에 대한 유효성을 검사하려면 Azure Network Watcher의 다음 홉 기능을 사용합니다. Network Watcher를 사용하기 전에 먼저 사용할 지역에 대한 [Azure Network Watcher 인스턴스를 만들어야](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 합니다. 이 자습서에서는 미국 동부 지역이 사용됩니다. 이 지역에 대한 Network Watcher 인스턴스를 사용 설정한 후 다음 명령을 입력하여 공개 및 비공개 서브넷에서 가상 컴퓨터 간의 다음 홉 정보를 확인합니다.
+    - **선택 사항**: Azure 내 두 가상 컴퓨터 간의 다음 홉에 대한 유효성을 검사하려면 Azure Network Watcher의 다음 홉 기능을 사용합니다. Network Watcher를 사용하기 전에 먼저 사용할 지역에 대한 [Azure Network Watcher 인스턴스를 만들어야](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 합니다. 이 자습서에서는 미국 동부 지역을 사용합니다. 이 지역에 대한 Network Watcher 인스턴스를 사용 설정한 후 다음 명령을 입력하여 공개 및 비공개 서브넷에서 가상 컴퓨터 간의 다음 홉 정보를 확인합니다.
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
         ```
 
-       출력은 *10.0.2.4*를 **nextHopIpAddress**로 반환하고 *VirtualAppliance*를 **nextHopType**로 반환합니다. 
+       출력에서는 *10.0.2.4*를 **nextHopIpAddress**로, *VirtualAppliance*를 **nextHopType**으로 반환합니다. 
 
 > [!NOTE]
-> 이 자습서의 개념을 설명하기 위해 공용 및 개인 서브넷 가상 컴퓨터에 공용 IP 주소가 할당되며, 두 가상 컴퓨터 모두에 대해 모든 네트워크 포트 액세스가 Azure 내에서 활성화됩니다. 프로덕션용 가상 컴퓨터를 만들 때 공용 IP 주소를 할당하지 않을 수도 있고, 네트워크 가상 어플라이언스를 그 앞에 전개하거나 서브넷, 네트워크 인터페이스 또는 그 둘 다에 네트워크 보안 그룹을 할당하여 비공개 서브넷으로 가는 네트워크 트래픽을 필터링할 수도 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요.
+> 이 자습서의 개념을 설명하기 위해 공용 및 개인 서브넷 가상 컴퓨터에 공용 IP 주소가 할당되며, 두 가상 컴퓨터 모두에 대해 모든 네트워크 포트 액세스가 Azure 내에서 활성화됩니다. 프로덕션 환경에서 사용할 가상 컴퓨터를 만들 때 공용 IP 주소를 할당할 수 없으며, 네트워크 가상 어플라이언스를 앞에 배포하거나 서브넷, 네트워크 인터페이스 또는 둘 다에 네트워크 보안 그룹을 할당하여 사설 서브넷에 대한 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-이 자습서에서는 두 서브넷이 있는 기존의 가상 네트워크가 필요합니다. 다음 상자에서 **사용해 보기** 단추를 클릭하여 가상 네트워크를 빠르게 만듭니다. **사용해 보기** 단추를 클릭하면 [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이 열립니다. Cloud Shell은 PowerShell 또는 Bash 셸을 실행하지만 이 섹션에서는 Bash 셸을 사용하여 가상 네트워크를 만듭니다. Bash 셸에는 Azure 명령줄 인터페이스가 설치되어 있습니다. Cloud Shell에 의해 프롬프트가 표시되면 [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 Azure에 로그인합니다. Azure 계정이 없으면 [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다. 이 자습서에 사용된 가상 네트워크를 만들려면 다음 상자에서 **복사** 단추를 클릭한 다음 Azure Cloud Shell에 스크립트를 붙여넣습니다.
+이 자습서에서는 두 서브넷이 있는 기존 가상 네트워크가 필요합니다. 다음 상자에서 **사용해 보세요** 단추를 클릭하여 가상 네트워크를 빠르게 만듭니다. **사용해 보세요** 단추를 클릭하면 [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이 열립니다. Cloud Shell에서 PowerShell 또는 Bash 셸을 실행하지만, 이 섹션에서는 Bash 셸을 사용하여 가상 네트워크를 만듭니다. Bash 셸에는 Azure 명령줄 인터페이스가 설치되어 있습니다. Cloud Shell에서 메시지가 표시되면 [Azure 계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)을 사용하여 Azure에 로그인합니다. Azure 계정이 없으면 [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)에 등록할 수 있습니다. 이 자습서에 사용된 가상 네트워크를 만들려면 다음 상자에서 **복사** 단추를 클릭한 다음 Azure Cloud Shell에 스크립트를 붙여넣습니다.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -311,7 +311,7 @@ az network vnet subnet create \
   --resource-group $rgName
 ```
 
-포털, PowerShell 또는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크를 만드는 방법은 [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
+포털, PowerShell 또는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
 ## <a name="delete-resources"></a>리소스 삭제
 
@@ -324,5 +324,5 @@ az network vnet subnet create \
 ## <a name="next-steps"></a>다음 단계
 
 - [고가용성 네트워크 가상 어플라이언스](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json)를 만듭니다.
-- 네트워크 가상 어플라이언스에는 종종 여러 개의 네트워크 인터페이스와 IP 주소가 할당됩니다. [기존 가상 컴퓨터에 네트워크 인터페이스를 추가](virtual-network-network-interface-vm.md#vm-add-nic)하고 [기존 네트워크 인터페이스에 IP 주소를 추가](virtual-network-network-interface-addresses.md#add-ip-addresses)하는 방법에 대해 알아보세요. 모든 가상 컴퓨터 크기에 두 개 이상의 네트워크 인터페이스를 연결할 수 있지만 각 가상 컴퓨터 크기는 최대 네트워크 인터페이스 수를 지원합니다. 각 가상 컴퓨터 크기가 지원하는 네트워크 인터페이스 수를 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터 크기를 확인하세요. 
-- [사이트 간 VPN 연결](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 온-프레미스 터널 트래픽을 강제 실행하는 사용자 정의 경로를 만듭니다.
+- 네트워크 가상 어플라이언스에는 종종 여러 개의 네트워크 인터페이스와 IP 주소가 할당됩니다. [기존 가상 컴퓨터에 네트워크 인터페이스를 추가](virtual-network-network-interface-vm.md#vm-add-nic)하고 [기존 네트워크 인터페이스에 IP 주소를 추가](virtual-network-network-interface-addresses.md#add-ip-addresses)하는 방법에 대해 알아보세요. 모든 가상 컴퓨터 크기에는 둘 이상의 네트워크 인터페이스가 연결될 수 있지만, 각 가상 컴퓨터 크기에는 최대 네트워크 인터페이스 수가 지원됩니다. 각 가상 컴퓨터 크기가 지원하는 네트워크 인터페이스 수를 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 컴퓨터 크기를 확인하세요. 
+- [사이트 간 VPN 연결](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 온-프레미스에서 터널 트래픽을 강제로 적용하는 사용자 정의 경로를 만듭니다.

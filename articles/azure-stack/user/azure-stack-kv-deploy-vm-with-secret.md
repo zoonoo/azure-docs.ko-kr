@@ -1,6 +1,6 @@
 ---
-title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
-description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
+title: "Azure 스택에 안전 하 게 저장 된 암호를 사용 하 여 VM 배포 | Microsoft Docs"
+description: "Azure 스택 키 자격 증명 모음에 저장 된 암호를 사용 하는 VM을 배포 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,34 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Create a virtual machine by retrieving the password stored in a Key Vault
+# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>키 자격 증명 모음에 저장 된 암호를 검색 하 여 가상 컴퓨터 만들기
 
-When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
+를 배포 하는 동안 암호 같은 보안 값을 전달 해야 하는 경우는 스택 Azure 키 자격 증명 모음에는 암호로 해당 값을 저장 하 고 Azure 리소스 관리자 템플릿을에서 참조할 수 있습니다. 하지 필요 수동으로 암호를 입력 하는 리소스를 배포할 때마다 지정할 수도 있습니다 있는 사용자 작업을 수행한 또는 서비스 사용자는 암호에 액세스할 수 있습니다. 
 
-In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+이 문서에서는 우리 과정을 단계별로 주요 자격 증명 모음에 저장 된 암호를 검색 하 여 Azure 스택의 Windows 가상 컴퓨터를 배포 하는 데 필요한 단계. 따라서 템플릿 매개 변수 파일에 일반 텍스트 암호 입력 되지 됩니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>필수 조건
  
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
+* 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 해야 합니다.  
+* [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)  
+* [Azure 스택 사용자의 PowerShell 환경을 구성 합니다.](azure-stack-powershell-configure-user.md)
 
-The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
+다음 단계를 키 자격 증명 모음에 저장 된 암호를 검색 하 여 가상 컴퓨터를 만드는 데 필요한 프로세스를 설명 합니다.
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template.
+1. 비밀 키 자격 증명 모음을 만듭니다.
+2. Azuredeploy.parameters.json 파일을 업데이트 합니다.
+3. 템플릿을 배포합니다.
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>키 자격 증명 모음 암호 만들기
 
-The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+다음 스크립트는 주요 자격 증명 모음을 만들고는 암호로 키 자격 증명 모음에 암호를 저장 합니다. 사용 하 여는 `-EnabledForDeployment` 주요 자격 증명 모음을 만들 때 매개 변수입니다. 이 매개 변수는 키 자격 증명 모음에서 Azure 리소스 관리자 템플릿을 참조할 수 있도록 합니다.
 
 ```powershell
 
@@ -69,13 +68,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Deploy Windows virtual machine with password in key vault template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Download the [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+앞의 스크립트를 실행 하면 출력 비밀 URI를 포함 합니다. 이 URI를 적어 둡니다. 참조 해야는 [주요 자격 증명 모음 서식 파일에 암호를 가진 가상 컴퓨터를 Windows 배포](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv)합니다. 다운로드는 [101-vm-secure-암호](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 개발 컴퓨터에는 폴더입니다. 이 폴더에는 `azuredeploy.json` 및 `azuredeploy.parameters.json` 파일을 다음 단계에서 필요 합니다.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+수정 된 `azuredeploy.parameters.json` 환경 값에 따라 파일입니다. 특별 한 관심의 매개 변수는 자격 증명 모음 이름, 자격 증명 모음 리소스 그룹 및 암호 (앞의 스크립트에서 생성) 대로 URI입니다. 다음 파일은 매개 변수 파일의 예:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json 파일 업데이트
 
-Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machine values as per your environment. The following JSON file shows an example of the template parameters file: 
+KeyVault uri가 secretName, 사용자 환경에 따라 가상 컴퓨터 값의 adminUsername azuredeploy.parameters.json 파일을 업데이트 합니다. 다음 JSON 파일 템플릿 매개 변수 파일의 예를 보여 줍니다. 
 
 ```json
 {
@@ -104,9 +103,9 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
 
 ```
 
-## <a name="template-deployment"></a>Template deployment
+## <a name="template-deployment"></a>템플릿 배포
 
-Now deploy the template by using the following PowerShell script:
+다음 PowerShell 스크립트를 사용 하 여 템플릿을 배포 이제:
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -115,14 +114,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
-When the template is deployed successfully, it results in the following output:
+템플릿이 성공적으로 배포 되 면 그 결과 다음과 같은 출력:
 
-![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
+![배포 출력](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
+## <a name="next-steps"></a>다음 단계
+[키 자격 증명 모음 샘플 응용 프로그램 배포](azure-stack-kv-sample-app.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[주요 자격 증명 모음 인증서를 사용 하 여 VM 배포](azure-stack-kv-push-secret-into-vm.md)
 

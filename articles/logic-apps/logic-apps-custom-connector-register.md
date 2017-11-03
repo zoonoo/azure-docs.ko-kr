@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2c384e27798bc4920ef73af1084600fdc4047f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e3d88abe751b37700590cc68c458f208d5868d2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-custom-connectors-in-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 커넥터 등록
 
@@ -151,6 +151,8 @@ REST API를 빌드하고 인증을 설정하고 OpenAPI 정의 파일 또는 Pos
    ![커넥터 정의](./media/logic-apps-custom-connector-register/definition.png)
 
 2. 선택적으로, 기존 작업 및 트리거를 편집하거나 새 작업을 추가하려면 이러한 단계를 계속 진행합니다.
+
+<a name="add-action-or-trigger"></a> 
 
 #### <a name="edit-or-add-actions-for-your-connector"></a>커넥터에 대한 작업 편집 또는 추가
 

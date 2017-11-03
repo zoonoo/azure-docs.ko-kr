@@ -13,14 +13,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 5d24ec2f0979283d3040a2f08fa8e681fab26fdd
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/13/2017
 | :-- | --: |--:| --:| --:| 
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|서비스 장애로 인한 데이터 손실을 최대 5분 동안 허용할 수 있는 워크로드|
 |작동 시간 SLA|99.99%|99.99%|99.99%|미리 보기에 있는 동안 해당 없음|
-|백업 보존|7 일|35일|35일|35일|
+|Backup 보존|7 일|35일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|중간|
 |IO 처리량|낮음  | 중간 | 표준보다 높음|프리미엄과 동일|
 |IO 대기 시간|프리미엄보다 높음|프리미엄보다 높음|기본 및 표준보다 낮음|프리미엄과 동일|
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/13/2017
 ||||||
 
 > [!IMPORTANT]
-> \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+> \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
 >
 > \* 프리미엄 계층의 경우 현재 미국 동부 2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > 

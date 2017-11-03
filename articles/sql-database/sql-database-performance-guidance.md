@@ -12,14 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: 31130c261bb7ee12b38e199c2a3bb71d7f8fc4b8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 
@@ -78,7 +78,7 @@ Azure SQL Database 서비스 계층이 응용 프로그램의 성능 안정성�
 Azure Portal에서 제공되는 다음 도구는 SQL Database를 사용하여 성능 문제를 분석하고 해결하는 데 도움이 될 수 있습니다.
 
 * [쿼리 성능 Insight](sql-database-query-performance.md)
-* [SQL 데이터베이스 관리자](sql-database-advisor.md)
+* [SQL Database 관리자](sql-database-advisor.md)
 
 Azure Portal에 이러한 도구와 사용 방법에 대한 자세한 정보가 있습니다. 먼저 Azure Portal의 도구를 사용하여 보다 효율적으로 문제를 진단 및 해결하려고 시도하는 것이 좋습니다. 특별한 경우 인덱스 누락 및 쿼리 튜닝을 위해 다음에 설명하는 수동 튜닝 방법을 사용할 것을 권장합니다.
 
@@ -255,7 +255,7 @@ SQL Server에서 공통적으로 적용되고 Azure SQL Database에도 적용되
 Azure SQL Database는 상용 하드웨어에서 실행되므로 기존 온-프레미스 SQL Server 설치보다 단일 데이터베이스에 대한 용량 한도가 낮습니다. 일부 고객은 분할 기법을 사용하여 데이터베이스 작업이 Azure SQL Database의 단일 데이터베이스 한도를 초과할 경우 여러 데이터베이스에서 해당 작업을 분담하게 합니다. 현재 Azure SQL Database에 분할 기법을 사용하는 대부분의 고객은 여러 데이터베이스에서 단일 규격으로 데이터를 분할합니다. 이 방식에서는 OLTP 응용 프로그램이 스키마 내에서 하나의 행 또는 작은 행 그룹에만 적용되는 트랜잭션을 수행하는 경우가 많다는 점을 이해해야 합니다.
 
 > [!NOTE]
-> 이제 SQL Database는 분할을 지원하기 위한 라이브러리를 제공합니다. 자세한 내용은 [탄력적 데이터베이스 클라이언트 라이브러리 개요](sql-database-elastic-database-client-library.md)를 참조하세요.
+> 이제 SQL Database는 분할을 지원하기 위한 라이브러리를 제공합니다. 자세한 내용은 [Elastic Database 클라이언트 라이브러리 개요](sql-database-elastic-database-client-library.md)를 참조하세요.
 > 
 > 
 

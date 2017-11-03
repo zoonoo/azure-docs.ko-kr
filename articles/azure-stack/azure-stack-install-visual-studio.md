@@ -1,6 +1,6 @@
 ---
-title: Install Visual Studio and connect to Azure Stack | Microsoft Docs
-description: Learn the steps required to install Visual Studio and connect to Azure Stack
+title: "Visual Studio를 설치 하 고 Azure 스택에 연결 | Microsoft Docs"
+description: "Visual Studio를 설치 하 고 Azure 스택에 연결 하는 데 필요한 단계에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,46 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5487125095f05b2fbfa9489c5b4733f61c0212d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio를 설치 하 고 Azure 스택에 연결
 
-# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Install Visual Studio and connect to Azure Stack
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Visual Studio를 사용 하 여 작성 하 고 Azure 리소스 관리자 배포에 [템플릿](user/azure-stack-arm-templates.md) Azure 스택의 합니다. 사용할 수 있습니다이 문서에 설명 된 단계를 Visual Studio 설치에서 [Azure 스택 개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)를 통해 연결 된 경우는 Windows 기반 외부 클라이언트와 주고 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)합니다. 다음이 단계는 Visual Studio 2015 Community Edition의 새 설치를 수행 합니다. 에 대해 자세히 알아보세요 [공존](https://msdn.microsoft.com/library/ms246609.aspx) 다른 Visual Studio 버전 간에 합니다.
 
-Use Visual Studio to author and deploy Azure Resource Manager [templates](user/azure-stack-arm-templates.md) in Azure Stack. You can use the steps described in this article to install Visual Studio either from [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are connected through [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). These steps perform a new installation of Visual Studio 2015 Community Edition. Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+## <a name="install-visual-studio"></a>Visual Studio 설치
+1. 다운로드 및 실행 된 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)합니다.             
+2. 검색할 **2.9.6-Microsoft Azure SDK와 Visual Studio Community 2015**, 클릭 **추가**, 및 **설치**합니다.
 
-## <a name="install-visual-studio"></a>Install Visual Studio
-1. Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
-2. Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, click **Add**, and **Install**.
+    ![WebPI 스크린샷 설치 단계](./media/azure-stack-install-visual-studio/image1.png) 
 
-    ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
+3. 제거는 **Microsoft Azure PowerShell** Azure SDK의 일부로 설치 된 합니다.
 
-3. Uninstall the **Microsoft Azure PowerShell** that is installed as part of the Azure SDK.
+    ![Azure PowerShell에 대 한 추가/제거 프로그램 인터페이스의 스크린 샷](./media/azure-stack-install-visual-studio/image2.png) 
 
-    ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
+4. [Azure Stack용 PowerShell 설치](azure-stack-powershell-install.md)
 
-4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
+5. 설치가 완료 되는 운영 체제를 다시 시작 합니다.
 
-5. Restart the operating system after the installation completes.
+## <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
-## <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+1. Visual Studio를 시작합니다.
 
-1. Launch Visual Studio.
+2. **보기** 메뉴 선택 **클라우드 탐색기**합니다.
 
-2. From the **View** menu, select **Cloud Explorer**.
+3. 새 창에서 선택 **계정 추가** 및 Azure Active Directory 자격 증명을 사용 하 여 로그인 합니다.  
+    ![클라우드 탐색기의 스크린 샷에서 한 번에 로그인 하 고 Azure 스택에 연결](./media/azure-stack-install-visual-studio/image6.png)
 
-3. In the new pane, select **Add Account** and sign in with your Azure Active Directory credentials.  
-    ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+로그인 한 다음을 할 수 있습니다 [템플릿을 배포할](user/azure-stack-deploy-template-visual-studio.md) 하거나 사용자 고유의 템플릿을 만들 수 있는 사용 가능한 리소스 유형과 리소스 그룹을 찾습니다.  
 
-Once logged in, you can [deploy templates](user/azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
+## <a name="next-steps"></a>다음 단계
 
-## <a name="next-steps"></a>Next Steps
-
- - [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
-
+ - [Azure Stack용 템플릿 개발](user/azure-stack-develop-templates.md)

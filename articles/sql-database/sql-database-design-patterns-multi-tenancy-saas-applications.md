@@ -13,14 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure SQL Database에 대한 디자인 패턴
 이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다. 또한 고려해야 하는 요인 및 서로 다른 디자인 패턴의 장단점도 설명합니다. Azure SQL Database의 탄력적 풀 및 탄력적 도구를 사용하면 다른 목표도 달성하면서 특정 요구 사항을 충족할 수 있습니다.
@@ -107,7 +107,7 @@ ms.lasthandoff: 10/13/2017
 ## <a name="multi-tenancy-support-in-azure-sql-database"></a>Azure SQL Database에서 다중 테넌트 지원
 Azure SQL Database는 그림 2에 제시한 다중 테넌트 응용 프로그램 패턴을 모두 지원합니다. 탄력적 풀을 사용하는 경우에는 테넌트별 데이터베이스 방식의 격리 이점과 효율적인 리소스 공유 기능이 모두 제공되는 응용 프로그램 패턴도 사용 가능합니다(그림 3의 오른쪽 위 사분면 참조). 탄력적 데이터베이스 도구와 SQL Database의 기능은 많은 데이터베이스를 포함하는 응용 프로그램(그림 3에서 어둡게 표시된 영역에 나와 있음)을 개발 및 운영하는 비용을 줄이는 데 도움이 될 수 있습니다. 이러한 도구는 복수 데이터베이스 패턴을 사용하는 응용 프로그램을 구축 및 관리하는 데 도움이 될 수 있습니다.
 
-![Azure SQL 데이터베이스의 패턴](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
+![Azure SQL Database의 패턴](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
 그림 3: Azure SQL Database의 다중 테넌트 응용 프로그램 패턴
 
@@ -124,7 +124,7 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 | | [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 데이터 배포를 관리하고 테넌트를 데이터베이스에 매핑합니다. |
 
 ## <a name="shared-models"></a>공유 모델
-앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 단일 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL 데이터베이스는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
+앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 단일 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL Database는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
 
 | 응용 프로그램 요구 사항 | SQL 데이터베이스 기능 |
 | --- | --- |
@@ -148,7 +148,7 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 
 비용 효율적이고 확장성 있는 데이터베이스 솔루션을 위해 탄력적 풀을 사용하는 샘플 앱으로 [SaaS에 대한 탄력적 풀 사용자 지정 대시보드](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) 를 만듭니다.
 
-Azure SQL 데이터베이스 도구를 사용하여 [규모 확장할 기존 데이터베이스를 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)합니다.
+Azure SQL Database 도구를 사용하여 [규모 확장할 기존 데이터베이스를 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)합니다.
 
 Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들기](sql-database-elastic-pool-manage-portal.md)를 참조하세요.  
 
@@ -158,7 +158,7 @@ Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들
 
 * [Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램 배포 및 탐색 - Wingtip SaaS](sql-database-saas-tutorial.md)
 * [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
-* [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
+* [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 * [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Azure Active Directory 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
@@ -166,5 +166,5 @@ Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 방문하세요. [SQL 데이터베이스 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
+궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 방문하세요. [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
 

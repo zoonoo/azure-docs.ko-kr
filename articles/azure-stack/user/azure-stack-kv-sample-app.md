@@ -1,6 +1,6 @@
 ---
-title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
-description: Use a sample app to work with Azure Stack Key Vault
+title: "응용 프로그램이 Azure 스택 키 자격 증명 모음 암호를 검색할 수 있도록 | Microsoft Docs"
+description: "Azure 스택 주요 자격 증명 모음을 사용 하는 샘플 응용 프로그램을 사용 하 여"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>키 및 키 자격 증명 모음에 저장 된 암호를 사용 하는 샘플 응용 프로그램
 
-# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Sample application that uses keys and secrets stored in a key vault
+이 문서에서는 보여줍니다 스택에서 Azure 주요 자격 증명 모음에서 키와 암호를 검색 하는 예제 응용 프로그램 (HelloKeyVault)를 실행 하는 방법.
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+## <a name="prerequisites"></a>필수 조건 
 
-## <a name="prerequisites"></a>Prerequisites 
+다음 필수 구성 요소에서 실행 하거나는 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), 또는 Windows 기반 외부 클라이언트에서 있다면 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* 설치 [Azure 스택 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
+* 다운로드는 [Azure 스택을 사용 하는 데 필요한 도구](azure-stack-powershell-download.md)합니다. 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="create-and-get-the-key-vault-and-application-settings"></a>만들기 및 주요 자격 증명 모음 및 응용 프로그램 설정 가져오기
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Create and get the key vault and application settings
-
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+먼저, Azure 스택의 주요 자격 증명 모음 만들기를 Azure Active Directory (Azure AD)에 응용 프로그램을 등록 합니다. 수 만들고 Azure 포털 또는 PowerShell을 사용 하 여 주요 자격 증명 모음을 등록 합니다. 이 문서에서는 PowerShell 방식으로 태스크를 수행 합니다. 기본적으로이 PowerShell 스크립트는 Active Directory에 새 응용 프로그램을 만듭니다. 그러나 기존 응용 프로그램 중 하나 사용할 수도 있습니다. 에 대 한 값을 제공 해야는 `aadTenantName` 및 `applicationPassword` 변수입니다. 에 대 한 값을 지정 하지 않으면는 `applicationPassword` 변수를이 스크립트 임의의 암호를 생성 합니다. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -126,28 +124,27 @@ Write-Host
 
 ``` 
 
-The following screenshot shows the output of the previous script:
+다음 스크린 샷에서 앞의 스크립트의 출력을 보여 줍니다.
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![응용 프로그램 구성](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
+메모는 **VaultUrl**, **AuthClientId**, 및 **AuthClientSecret** 앞의 스크립트에서 반환 된 값입니다. 이러한 값을 사용 하 여 HelloKeyVault 응용 프로그램을 실행 합니다.
 
-## <a name="download-and-run-the-sample-application"></a>Download and run the sample application
+## <a name="download-and-run-the-sample-application"></a>다운로드 하 여 샘플 응용 프로그램 실행
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Azure에서 주요 자격 증명 모음 샘플을 다운로드 [키 자격 증명 모음 클라이언트 샘플](https://www.microsoft.com/en-us/download/details.aspx?id=45343) 페이지. 개발 워크스테이션에.zip 파일의 압축을 풉니다. 샘플 폴더 내에서 두 개의 샘플 있습니다. 이 항목의 HellpKeyVault 샘플을 사용합니다. 찾아는 **Microsoft.Azure.KeyVault.Samples** > **샘플** > **HelloKeyVault** 폴더를 연 HelloKeyVault 응용 프로그램 Visual studio 합니다. 
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+HelloKeyVault\App.config 파일을 열고 값을 바꿀는 <appSettings> 인 요소는 **VaultUrl**, **AuthClientId**, 및 **AuthClientSecret** 값 앞의 스크립트에서 반환 합니다. 기본적으로 App.config에 대 한 자리 표시자 *AuthCertThumbprint*를 사용 하지만 *AuthClientSecret* 대신 합니다. 설정을 대체 한 후 솔루션을 다시 작성 하 고 응용 프로그램을 시작 합니다.
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+![앱 설정](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+응용 프로그램 Azure AD에 로그인 하 고 해당 토큰을 사용 하 여 Azure 스택의 주요 자격 증명 모음에 인증할 수 있습니다. 응용 프로그램 만들기, 암호화, 줄 바꿈 및 키 및 키 자격 증명 모음의 암호에서 삭제와 같은 작업을 수행 합니다. 특정 매개 변수를 같은 전달할 수도 있습니다 *암호화* 및 *해독* 응용 프로그램에 하면 응용 프로그램 자격 증명 모음에 대 한 작업만 실행 합니다. 
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+## <a name="next-steps"></a>다음 단계
+[Key Vault 암호를 사용하여 VM 배포](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[주요 자격 증명 모음 인증서를 사용 하 여 VM 배포](azure-stack-kv-push-secret-into-vm.md)
 
 
 

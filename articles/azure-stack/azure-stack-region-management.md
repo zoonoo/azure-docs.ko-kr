@@ -1,6 +1,6 @@
 ---
-title: Region management in Azure Stack | Microsoft Docs
-description: Overview of region management in Azure Stack.
+title: "Azure Stack의 지역 관리 | Microsoft Docs"
+description: "Azure Stack의 지역 관리를 간략하게 설명합니다."
 services: azure-stack
 documentationcenter: 
 author: efemmano
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: efemmano
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-management-in-azure-stack"></a>Region management in Azure Stack
+# <a name="region-management-in-azure-stack"></a>Azure Stack의 지역 관리
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
+Azure 스택에 개념이 영역을 Azure 스택 인프라를 구성 하는 하드웨어 리소스를 구성 하는 논리적 엔터티입니다. 영역 관리 내 Azure 스택 인프라가 수명 주기를 성공적으로 운영 하는 데 필요한 모든 리소스를 찾을 수 있습니다.
 
-One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. Each Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
+하나의 통합 된 시스템 배포 (라고 하는 *Azure 스택 클라우드*)는 단일 지역을 구성 합니다. 각 Azure 스택 개발 키트에 이라는 하나의 영역 **로컬**합니다. 를 사용 하는 두 번째 Azure 스택 통합 시스템을 배포 하거나 별도 하드웨어에서 개발 키트의 다른 인스턴스를 설정 하는 경우이 Azure 스택 클라우드 다른 영역입니다.
 
-## <a name="information-available-through-the-region-management-tile"></a>Information available through the Region management tile
-Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+## <a name="information-available-through-the-region-management-tile"></a>영역 관리 타일을 통해 사용할 수 있는 정보
+Azure 스택 집합이에 제공 관리 기능 영역에서 **지역 관리** 바둑판식으로 배열입니다. 이 타일은 기본 대시보드 관리자 포털에서 Azure 스택 운영자에 게 사용할 수 있습니다. 이 타일을 통해 모니터링 하 고 Azure 스택 국가 및 지역별은 해당 구성 요소를 업데이트할 수 있습니다.
 
- ![The region management tile](media/azure-stack-manage-region/image1.png)
+ ![지역 관리 타일](media/azure-stack-manage-region/image1.png)
 
- If you click a region in the Region management tile, you can access the following information:
+ 영역 관리 타일의 영역을 클릭 하면 다음 정보를 액세스할 수 있습니다.
 
-  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+  ![영역 관리 블레이드의 창 설명](media/azure-stack-manage-region/image2.png)
 
-1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
+1. **리소스 메뉴**합니다. 여기에서 특정 인프라 관리 영역에 액세스할 수 있습니다 및 보기 및 저장소 계정 및 가상 네트워크와 같은 사용자 리소스를 관리 합니다.
 
-2. **Alerts**. This tile lists system-wide alerts and provides details on each of those alerts.
+2. **경고**. 이 타일은 시스템 수준 경고를 나열하고 각 경고에 대한 세부 정보를 제공합니다.
 
-3. **Updates**. In this tile, you can view the current version of your Azure Stack infrastructure.
+3. **업데이트**. 이 타일에 Azure 스택 인프라의 현재 버전을 볼 수 있습니다.
 
-4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
+4. **리소스 공급자**. 리소스 공급자는 Azure Stack을 실행하는 데 필요한 구성 요소에서 제공하는 테넌트 기능을 관리하는 장소입니다. 각 리소스 공급자는 관리 환경이 제공 됩니다. 이 환경에는 특정 공급자에 대한 경고, 메트릭 및 리소스 공급자에 한정된 기타 관리 기능이 포함될 수 있습니다.
  
-5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, do **not** do this in a development kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability.
+5. **인프라 역할**. 인프라 역할은 Azure Stack을 실행하는 데 필요한 구성 요소입니다. 경고를 보고 하는 인프라 역할에 대해서만 나열 됩니다. 역할을 클릭하면 특정 역할과 연결된 경고 및 이 역할이 실행되고 있는 역할 인스턴스를 볼 수 있습니다. 시작 하는 기능 이지만를 다시 시작 또는 인프라 역할 인스턴스를 종료를 수행 **하지** 개발 키트 환경에서이 작업을 수행 합니다. 다중 노드 환경을 대해서만 이러한 옵션은 디자인 되었습니다. 인프라 역할당 둘 이상의 역할 인스턴스는 합니다. 개발 키트에서 역할 인스턴스 (특히 AzS Xrp01)를 다시 시작 하면 시스템이 불안정 합니다.
 
-## <a name="next-steps"></a>Next steps
-[Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+## <a name="next-steps"></a>다음 단계
+[상태 모니터 및 경고를 Azure 스택](azure-stack-monitor-health.md)
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
-
+[Azure 스택에서 업데이트를 관리](azure-stack-updates.md)
 
 
 

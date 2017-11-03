@@ -9,17 +9,17 @@ editor:
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: cfdf50bdf1eece98a02cdbe56e52e1b2dda2b200
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -43,7 +43,7 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 메트릭 및 진단 로깅을 사용하려면 선택한 데이터가 수집되는 Azure 리소스를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
 - Log Analytics
-- Event Hubs
+- Event Hubs(영문)
 - 저장소 
 
 새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 저장소 리소스를 선택한 후에는 수집할 데이터를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
@@ -214,7 +214,7 @@ SQL Database 메트릭 및 진단 로그는 포털에서 기본 제공되는 **E
 선택한 데이터가 Event Hubs로 스트리밍되면 고급 모니터링 시나리오를 사용할 수 있는 단계에 한 단계 더 가까워집니다. Event Hubssms 이벤트 파이프라인의 프런트 도어 역할을 합니다. 데이터가 Event Hub에 수집되면 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs는 해당 이벤트 소비에서 이벤트 스트림 프로덕션을 분리합니다. 이러한 방식으로 이벤트 소비자는 자체 일정에 따라 이벤트를 액세스할 수 있습니다. Event Hubs에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure Event Hubs란?](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
 스트림 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
@@ -475,7 +475,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 Event Hubs에 대해 알아보려면 다음을 확인합니다.
 
-* [Azure 이벤트 허브 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Storage에 대해 자세히 알아보려면 [Storage에서 메트릭 및 진단 로그 다운로드하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)을 참조하세요.

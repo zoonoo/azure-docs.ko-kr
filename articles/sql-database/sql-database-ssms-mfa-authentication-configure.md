@@ -13,14 +13,14 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: cc9a319f26ada65837ff9010ef6feefdda3d70b6
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성 
 
@@ -37,7 +37,7 @@ Azure SQL Database 다단계 인증에 대한 개요는 [SQL Database 및 SQL Da
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>SSMS를 통한 유니버설 인증을 사용하여 연결
 
-다음 단계에서는 최신 SSMS를 사용하여 SQL 데이터베이스 또는 SQL Data Warehouse에 연결하는 방법을 설명합니다.
+다음 단계에서는 최신 SSMS를 사용하여 SQL Database 또는 SQL Data Warehouse에 연결하는 방법을 설명합니다.
 
 1. 유니버설 인증을 사용하여 연결하려면 **서버에 연결** 대화 상자에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. **Active Directory 유니버설 인증**이 표시되면 최신 SSMS이 아닌 것입니다.  
    ![1mfa-universal-connect][1]  

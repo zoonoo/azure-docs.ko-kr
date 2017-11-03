@@ -1,6 +1,6 @@
 ---
 title: "백업에서 Azure SQL Database 복원 | Microsoft Docs"
-description: "Azure SQL 데이터베이스를 이전 시점(최대 35일)에 롤백할 수 있는 특정 시점 복원에 대해 알아봅니다."
+description: "Azure SQL Database를 이전 시점(최대 35일)에 롤백할 수 있는 특정 시점 복원에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: 64cc1db78dd6f50c07ca79f8ab0bf29fdbbead22
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -121,7 +121,7 @@ Azure Portal을 사용하여 [보존 기간](sql-database-service-tiers.md) 중�
 
 ### <a name="azure-portal"></a>Azure 포털
 
-Azure Portal을 사용하여 해당 [보존 기간](sql-database-service-tiers.md) 동안 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음 **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **백업**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
+Azure Portal을 사용하여 해당 [보존 기간](sql-database-service-tiers.md) 동안 데이터베이스를 지역 복원하려면 SQL Databases 페이지를 연 다음 **추가**를 클릭합니다. **Select source**(소스 선택) 텍스트 상자에서 **Backup**을 선택합니다. 선택한 서버 또는 지역에서 복구를 수행할 백업을 지정합니다. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>자동화된 백업을 사용하여 프로그래밍 방식으로 복구 수행
 앞서 설명한 것처럼 Azure Portal 외에, Azure PowerShell 또는 REST API를 사용하여 데이터베이스 복구를 프로그래밍 방식으로 수행할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다.

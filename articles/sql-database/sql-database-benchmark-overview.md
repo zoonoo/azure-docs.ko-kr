@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL 데이터베이스 벤치마크 개요"
-description: "이 항목은 Azure SQL 데이터베이스의 성능 측정에 사용된 Azure SQL 데이터베이스 벤치마크에 대해 설명합니다."
+title: "Azure SQL Database 벤치마크 개요"
+description: "이 항목은 Azure SQL Database의 성능 측정에 사용된 Azure SQL Database 벤치마크에 대해 설명합니다."
 services: sql-database
 documentationcenter: na
 author: jan-eng
@@ -12,18 +12,18 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 57178352e0a402f3559c94ce25f125dcbefd1374
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43ab7ed75313863d2912063169ccc089af6052c2
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL 데이터베이스 벤치마크 개요
+# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database 벤치마크 개요
 ## <a name="overview"></a>개요
-Microsoft Azure SQL 데이터베이스는 여러 성능 수준의 3가지 [서비스 계층](sql-database-service-tiers.md) 을 제공합니다. 각 성능 수준은 증가된 리소스 집합 또는 더욱 높은 처리량을 제공하도록 설계된 '성능'을 제공합니다.
+Microsoft Azure SQL Database는 여러 성능 수준의 3가지 [서비스 계층](sql-database-service-tiers.md) 을 제공합니다. 각 성능 수준은 증가된 리소스 집합 또는 더욱 높은 처리량을 제공하도록 설계된 '성능'을 제공합니다.
 
 각 성능 수준별 증가된 성능으로 데이터베이스 성능이 얼마나 증가되는지 수량화하는 것이 중요합니다. 이를 위해 Microsoft는 ASDB(Azure SQL Database Benchmark)를 개발했습니다. 벤치마크는 모든 OLTP 워크로드에서 찾을 수 있는 혼합된 기본 작업을 실행합니다. Microsoft는 각 성능 수준에서 실행되는 데이터베이스에 대해 달성된 처리량을 측정합니다.
 
@@ -124,10 +124,10 @@ ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하�
 | Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
 
 ## <a name="conclusion"></a>결론
-Azure SQL 데이터베이스 벤치마크는 사용 가능한 다양한 서비스 계층과 성능 수준에서 실행되는 Azure SQL 데이터베이스의 상대적 성능을 측정합니다. 벤치마크는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 혼합을 실행합니다. 벤치마크는 실제 성능을 측정함으로써, 각 수준에서 단순히 CPU 속도, 메모리 크기, IOPS와 같은 리소스를 나열하는 경우에 비해 성능 수준의 변화가 처리량에 미치는 영향을 더욱 의미 있는 평가를 제공할 수 있습니다. Microsoft는 앞으로 계속해서 벤치마크의 범위를 넓히고 제공하는 데이터를 확대할 것입니다.
+Azure SQL Database 벤치마크는 사용 가능한 다양한 서비스 계층과 성능 수준에서 실행되는 Azure SQL Database의 상대적 성능을 측정합니다. 벤치마크는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 혼합을 실행합니다. 벤치마크는 실제 성능을 측정함으로써, 각 수준에서 단순히 CPU 속도, 메모리 크기, IOPS와 같은 리소스를 나열하는 경우에 비해 성능 수준의 변화가 처리량에 미치는 영향을 더욱 의미 있는 평가를 제공할 수 있습니다. Microsoft는 앞으로 계속해서 벤치마크의 범위를 넓히고 제공하는 데이터를 확대할 것입니다.
 
 ## <a name="resources"></a>리소스
-[SQL 데이터베이스 소개](sql-database-technical-overview.md)
+[SQL Database 소개](sql-database-technical-overview.md)
 
 [서비스 계층 및 성능 수준](sql-database-service-tiers.md)
 

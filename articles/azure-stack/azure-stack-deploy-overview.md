@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: "Azure 스택 개발 키트 배포 빠른 시작 | Microsoft Docs"
+description: "Azure 스택 개발 키트를 배포 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,28 +15,26 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54d16b57526241544ae50c9b8e10a8add667916b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack 개발 키트 배포 빠른 시작
 
-*Applies to: Azure Stack Development Kit*
+*적용 대상: Azure 스택 개발 키트*
 
-The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+[Azure 스택 개발 키트](azure-stack-poc.md) 를 평가 하 여 Azure 스택 기능 및 서비스를 보여 줍니다. 배포할 수 있는 테스트 및 개발 환경입니다. 실행 해야 환경 하드웨어를 준비 하 고 (몇 시간 걸릴 됩니다) 일부 스크립트를 실행 합니다. 그 후 Azure 스택 관리 및 제공 테스트 관리자 및 사용자 포털 서명할 수 있습니다. 
 
-1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+1. [**하드웨어, 소프트웨어 및 네트워크 계획**](azure-stack-deploy.md)합니다. 개발 키트 (개발 키트 호스트)를 호스트 하는 컴퓨터 하드웨어, 소프트웨어 및 네트워크 요구 사항을 충족 해야 합니다. 또한 Azure Active Directory 또는 Active Directory Federation Services를 사용 하 여 간에 선택 해야 합니다. 설치 프로세스를 원활 하 게 실행 하 여 배포를 시작 하기 전에 이러한 필수 구성이 요소를 준수 해야 합니다. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+2. [**다운로드 하 고 배포 패키지를 압축**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit)합니다. 개발 키트 호스트 또는 다른 컴퓨터에 배포 패키지를 다운로드할 수 있습니다. 추출 된 배포 파일 다른 컴퓨터를 사용 하 여 개발 키트 호스트에 대 한 하드웨어 요구 사항을 줄일 수 있으므로 60GB의 사용 가능한 디스크 공간을 차지 합니다.
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+3. [**개발 키트 호스트 준비** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) 설치 관리자를 사용 하 여 합니다. 이 단계를 개발 키트 호스트 (가상 하드 드라이브에서 부팅 가능한 운영 체제와 Azure 스택 포함 된 파일을 설치 하는 데 사용) Cloudbuilder.vhdx 부팅 됩니다.
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+4. [**개발 키트 배포** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) 개발 키트 호스트에 있습니다.
 
-5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
+5. Azure 스택 배포에서 Azure Active Directory를 실행 해야 [Azure와 함께 Azure 스택 등록](azure-stack-register.md) 수 있도록 [Azure 마켓플레이스 항목을 다운로드](azure-stack-download-azure-marketplace-item.md) Azure 스택에 합니다.
 
-After completing these steps, you’ll have a development kit environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal. You can then start deploying resource providers, creating [offers](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), and populating the Azure Stack [marketplace](azure-stack-marketplace.md).
-
+다음이 단계를 완료 한 후 포털 관리자와 사용자 모두 사용 하 여 개발 키트 환경을 해야 합니다. 그러면 할 수 [연결 하 고 로그인](azure-stack-connect-azure-stack.md) 포털에 있습니다. 리소스 공급자를 배포, 만들기 시작할 수 있습니다 [제공](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), 하 고 Azure 스택 채우기 [마켓플레이스](azure-stack-marketplace.md)합니다.

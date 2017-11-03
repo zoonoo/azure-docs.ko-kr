@@ -1,6 +1,6 @@
 ---
-title: Offering services in Azure Stack | Microsoft Docs
-description: As a cloud operator, you can offer services to your users.
+title: "Azure 스택에서 서비스를 제공 합니다. | Microsoft Docs"
+description: "클라우드 연산자로 사용자에 게 서비스를 제공할 수 있습니다."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,36 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Overview of offering services in Azure Stack
+# <a name="overview-of-offering-services-in-azure-stack"></a>Azure 스택에서 서비스 제공의 개요
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
+[Microsoft Azure 스택](azure-stack-poc.md) 는 데이터 센터에서 서비스를 제공할 수 있도록 하는 하이브리드 클라우드 플랫폼입니다. 서비스 공급자로 테 넌 트에 서비스를 제공할 수 있습니다. 기업 또는 정부 기관 내에서 직원에 게 온-프레미스 서비스를 제공할 수 있습니다. 배달할 수 있는 서비스를 포함 하지만로 제한 되지 않습니다.
 
-- Platform as a Service (PaaS) services like App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
+- 플랫폼 서비스 (PaaS) 서비스로 응용 프로그램 서비스, 모바일 앱, API 앱, API 함수, SQL, MySQL 등입니다.
 
-You can even combine services to integrate and build complex solutions for different users.
+통합 한 여러 사용자에 대해 복잡 한 솔루션을 작성 하는 서비스를 결합할 수도 있습니다.
 
-To deliver these services to your users, you must create [plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
+이러한 서비스를 사용자에 게 제공 하려면 만들어야 [계획과 제안, 할당량](azure-stack-plan-offer-quota-overview.md)합니다. 사용자가 다음 서비스를 사용 하 여 서비스를 구독할 수 있습니다.
 
-## <a name="plan-your-service-offers"></a>Plan your service offers
+## <a name="plan-your-service-offers"></a>계획 서비스 제공
 
-When you’re planning your offers, keep the following points in mind:
+해당 제공을 계획할 때는 다음 사항을 염두에서에 둬야 합니다.
 
-**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To create a trial offer, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
+**평가판 제안**: 그런 다음 추가 서비스를 업그레이드할 수 있는 새 사용자가 갖게 하기 위한 평가판을 사용할 수 있습니다. 평가판 제품을 만들려면 작은 만들 [기본 계획](azure-stack-plan-offer-quota-overview.md#base-plan) 선택적 더 큰 추가 기능 플랜과 합니다.
 
-**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. To help performance, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview.md#plans) to cap usage.
+**용량 계획**: 사용자가 많은 양의 리소스를 현재 위치와 모든 사용자에 대 한 시스템을 방해 하는 방법에 대 한 문제가 발생할 수 있습니다. 성능을 위해 수 [계획 할당량 구성](azure-stack-plan-offer-quota-overview.md#plans) 캡을 사용 하도록 합니다.
 
-**Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
+**공급자에 위임**: 다른 사용자를 사용자 환경에서 서비스를 만들 수를 부여할 수 있습니다. 예를 들어 서비스 공급자 인 경우 할 수 있습니다 [위임](azure-stack-delegated-provider.md) 프로그램 대리점에는이 기능입니다. 또는 사용 하는 조직의 다른 사업부/자회사에 위임할 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about offers, plans, quotas, and subscriptions](azure-stack-plan-offer-quota-overview.md)
-
+## <a name="next-steps"></a>다음 단계
+[제안, 계획, 할당량 및 구독에 대 한 자세한 정보](azure-stack-plan-offer-quota-overview.md)
 

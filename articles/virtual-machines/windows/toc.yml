@@ -31,7 +31,7 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 컴퓨터 백업
+    - name: 9 - 가상 컴퓨터 Backup
       href: tutorial-backup-vms.md
     - name: 10 - VM 모니터링 및 업데이트
       href: tutorial-monitoring.md
@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 - 팀 서비스 CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - SSL로 웹 서버 보안
+    - name: 13 - SQL\IIS 설치\.NET 스택
+      href: tutorial-iis-sql.md
+    - name: 14 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
 - name: 샘플
   items:
@@ -55,6 +57,27 @@
       href: regions-and-availability.md
     - name: VM 유형 및 크기
       href: sizes.md
+      items:
+        - name: 범용 가상 컴퓨터
+          href: sizes-general.md
+          items:
+            - name: B-시리즈 버스터블
+              href: b-series-burstable.md
+        - name: Compute에 최적화
+          href: sizes-compute.md
+        - name: 메모리에 최적화
+          href: sizes-memory.md
+        - name: Storage에 최적화
+          href: sizes-storage.md
+        - name: GPU에 최적화
+          href: sizes-gpu.md
+          items:
+            - name: GPU 드라이버 설정
+              href: n-series-driver-setup.md
+        - name: 고성능 계산
+          href: sizes-hpc.md
+        - name: Azure 계산 단위(ACU)
+          href: sizes-general.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 저장소
@@ -69,7 +92,7 @@
       href: security-policy.md
     - name: 모니터링
       href: monitor.md
-    - name: 백업 및 복구
+    - name: Backup 및 복구
       href: backup-recovery.md
     - name: 고성능 컴퓨팅
       href: high-performance-computing.md
@@ -360,7 +383,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: 계산 REST
+    - name: Compute REST
       href: /rest/api/compute
     - name: Managed Disks REST
       href: /rest/api/manageddisks
