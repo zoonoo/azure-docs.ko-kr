@@ -8,30 +8,30 @@ author: ddove
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="getting-started-with-elastic-database-jobs"></a>탄력적 데이터베이스 작업 시작
-Azure SQL 데이터베이스에 대한 탄력적 데이터베이스 작업(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. Elastic Database 작업 기능에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.
+# <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
+Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면 자동으로 다시 시도하여 최종 완료를 보장하는 동시에 여러 데이터베이스에 걸친 T-SQL 스크립트를 안정적으로 실행할 수 있습니다. Elastic Database 작업 기능에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.
 
 이 문서에는 [Elastic Database 도구 시작](sql-database-elastic-scale-get-started.md)의 샘플의 확장이 나와 있습니다. 완료되면 관련 데이터베이스 그룹을 관리하는 작업을 만들고 관리하는 방법을 살펴봅니다. 탄력적 작업의 이점을 활용하기 위해 탄력적 확장 도구를 사용할 필요는 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[탄력적 데이터베이스 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
+[Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들 수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
-1. **탄력적 데이터베이스 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
+1. **Elastic Database 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
    ![명령 프롬프트](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
@@ -249,7 +249,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>사용자 지정 실행 정책 만들기
-탄력적 데이터베이스 작업은 작업을 시작할 때 적용할 수 있는 사용자 지정 실행 정책 만들기를 지원합니다.
+Elastic Database 작업은 작업을 시작할 때 적용할 수 있는 사용자 지정 실행 정책 만들기를 지원합니다.
 
 실행 정책은 현재 다음과 같은 정의를 허용합니다.
 
@@ -297,9 +297,9 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="cancel-a-job"></a>작업 취소
-탄력적 데이터베이스 작업은 작업 취소 요청을 지원합니다.  Elastic Database 작업이 현재 실행 중인 작업에 대한 취소 요청을 감지하는 경우 작업을 중지하려고 합니다.
+Elastic Database 작업은 작업 취소 요청을 지원합니다.  Elastic Database 작업이 현재 실행 중인 작업에 대한 취소 요청을 감지하는 경우 작업을 중지하려고 합니다.
 
-탄력적 데이터베이스 작업이 취소를 수행할 수 있는 방법에는 다음 두 가지가 있습니다.
+Elastic Database 작업이 취소를 수행할 수 있는 방법에는 다음 두 가지가 있습니다.
 
 1. 현재 실행 중인 작업 취소: 작업이 현재 실행되는 동안 취소가 감지되면 현재 실행 중인 작업 측면 내에서 취소가 시도됩니다.  예를 들어 현재 장기 실행 쿼리를 수행하는 동안 취소가 시도되면 쿼리를 취소하려고 합니다.
 2. 태스크 재시도 취소: 태스크 실행이 시작되기 전에 제어 스레드에서 취소가 감지되면 제어 스레드는 태스크를 시작하지 않고 요청이 취소된 것으로 선언합니다.
@@ -314,7 +314,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>이름 및 작업 기록으로 작업 삭제
-탄력적 데이터베이스 작업은 비동기 작업 삭제를 지원합니다. 작업을 삭제되도록 표시할 수 있으며, 작업에 대한 모든 작업 실행이 완료된 후 작업 및 모든 작업 기록이 삭제됩니다. 활성 작업 실행은 자동으로 취소되지 않습니다.  
+Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을 삭제되도록 표시할 수 있으며, 작업에 대한 모든 작업 실행이 완료된 후 작업 및 모든 작업 기록이 삭제됩니다. 활성 작업 실행은 자동으로 취소되지 않습니다.  
 
 활성 작업 실행을 취소하려면 Stop-AzureSqlJobExecution을 호출해야 합니다.
 
@@ -326,7 +326,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="create-a-custom-database-target"></a>사용자 지정 데이터베이스 대상 만들기
-실행에 직접 사용하거나 사용자 지정 데이터베이스 그룹에 포함할 수 있는 탄력적 데이터베이스 작업에서 사용자 지정 데이터베이스 대상을 정의할 수 있습니다. **탄력적 풀** 은 PowerShell API를 통해 직접 지원되지 않으므로 풀에 있는 모든 데이터베이스를 포함하는 사용자 지정 데이터베이스 컬렉션 대상 및 사용자 지정 데이터베이스 대상을 만듭니다.
+실행에 직접 사용하거나 사용자 지정 데이터베이스 그룹에 포함할 수 있는 Elastic Database 작업에서 사용자 지정 데이터베이스 대상을 정의할 수 있습니다. **탄력적 풀** 은 PowerShell API를 통해 직접 지원되지 않으므로 풀에 있는 모든 데이터베이스를 포함하는 사용자 지정 데이터베이스 컬렉션 대상 및 사용자 지정 데이터베이스 대상을 만듭니다.
 
 원하는 데이터베이스 정보가 반영되도록 다음 변수를 설정합니다.
 
@@ -382,7 +382,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="data-collection-across-databases"></a>데이터베이스에서 데이터 수집
-**탄력적 데이터베이스 작업** 은 데이터베이스 그룹에 대한 쿼리 실행을 지원하고 지정된 데이터베이스 테이블에 결과를 보냅니다. 각 데이터베이스의 쿼리 결과를 볼 수 있으면 테이블을 쿼리할 수 있습니다. 이는 많은 데이터베이스에서 쿼리를 실행하는 비동기 메커니즘을 제공합니다. 데이터베이스 중 하나를 일시적으로 사용할 수 없는 경우와 같은 오류 사례는 재시도를 통해 자동으로 처리됩니다.
+**Elastic Database 작업** 은 데이터베이스 그룹에 대한 쿼리 실행을 지원하고 지정된 데이터베이스 테이블에 결과를 보냅니다. 각 데이터베이스의 쿼리 결과를 볼 수 있으면 테이블을 쿼리할 수 있습니다. 이는 많은 데이터베이스에서 쿼리를 실행하는 비동기 메커니즘을 제공합니다. 데이터베이스 중 하나를 일시적으로 사용할 수 없는 경우와 같은 오류 사례는 재시도를 통해 자동으로 처리됩니다.
 
 반환된 결과 집합의 스키마와 일치하는 지정된 대상 테이블이 아직 없는 경우 자동으로 만들어집니다. 스크립트 실행에서 여러 결과 집합이 반환되는 경우 Elastic Database 작업은 제공된 대상 테이블에 첫 번째 결과 집합만 보냅니다.
 
@@ -465,9 +465,9 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 이제 Excel의 데이터 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합 도구 및 BI과 연결하기 위해 서버 이름, 데이터베이스 이름, 자격 증명과 연결 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
 
 ### <a name="cost"></a>비용
-탄력적 데이터베이스 쿼리 기능을 사용 하는 것은 무료입니다. 그러나, 지금 이 기능은 분할된 데이터베이스처럼 모든 서비스계층에서만 사용 가능한게 아니라, 끝점처럼 프리미엄 데이터베이스에서만 사용 가능합니다.
+Elastic Database 쿼리 기능을 사용 하는 것은 무료입니다. 그러나, 지금 이 기능은 분할된 데이터베이스처럼 모든 서비스계층에서만 사용 가능한게 아니라, 끝점처럼 프리미엄 데이터베이스에서만 사용 가능합니다.
 
-가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+가격 정보는 [SQL Database 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

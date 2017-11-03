@@ -2,7 +2,7 @@
   href: manage-access-to-azure-resources.md
 - name: Azure의 리소스 액세스
   href: active-directory-understanding-resource-access.md
-- name: 역할 기반 액세스 제어(RBAC)
+- name: 역할 기반 Access Control(RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: 액세스 할당 관리
@@ -44,7 +44,7 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM에 대한 MSI 구성
       items:
-        - name: Azure 포털 사용
+        - name: Azure Portal 사용
           href: msi-qs-configure-portal-windows-vm.md
         - name: PowerShell 사용
           href: msi-qs-configure-powershell-windows-vm.md
@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI 사용
           href: msi-howto-assign-access-cli.md
+    - name: VM MSI를 사용하여 Azure Data Lake Store에 액세스
+      items:
+        - name: Windows VM에서
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Linux VM에서
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: VM MSI를 사용하여 Azure Resource Manager에 액세스
       items:
         - name: Windows VM에서

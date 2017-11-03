@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 8143cf739f475ebfa6e65dc43945174304ffbb3b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -228,7 +228,7 @@ ms.lasthandoff: 10/19/2017
 |ServiceDescriptionCacheLimit | int, 기본값: 0 |정적| 이름 지정 저장소 서비스의 LRU 서비스 설명 캐시에 유지되는 최대 항목 수(제한하지 않을 경우 0으로 설정). |
 |RepairInterval | time(초), 기본값: 5 |정적| 시간 간격은 초 단위로 지정합니다. 기관 소유자와 이름 소유자 간의 이름 지정 불일치 복구가 시작되는 간격 |
 |MaxNamingServiceHealthReports | int, 기본값: 10 |동적|한 번에 이름 지정 저장소 서비스에서 비정상 상태로 보고하는 느린 작업의 최대 수. 0인 경우 모든 느린 작업이 전송됩니다. |
-| MaxMessageSize |int, 기본값: 4*1024*1024 |정적|이름 지정을 사용할 때 클라이언트 노드 통신에 대한 최대 메시지 크기. DOS 공격을 낮추려는 경우 기본값은 4MB입니다. |
+| MaxMessageSize |int, 기본값: 4\*1024\*1024 |정적|이름 지정을 사용할 때 클라이언트 노드 통신에 대한 최대 메시지 크기. DOS 공격을 낮추려는 경우 기본값은 4MB입니다. |
 | MaxFileOperationTimeout |시간(초), 기본값: 30 |동적|시간 간격은 초 단위로 지정합니다. 파일 저장소 서비스 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. |
 | MaxOperationTimeout |time(초), 기본값: 600 |동적|시간 간격은 초 단위로 지정합니다. 클라이언트 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. |
 | MaxClientConnections |int, 기본값: 1000 |동적|게이트웨이당 허용되는 최대 클라이언트 연결 수. |

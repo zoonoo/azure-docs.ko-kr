@@ -112,24 +112,23 @@
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 
-## [암호 관리](active-directory-passwords-overview.md)
+## 암호 관리
+### [암호 개요](active-directory-passwords-overview.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
-### [라이선스 SSPR](active-directory-passwords-licensing.md)
-### [SSPR 배포](active-directory-passwords-best-practices.md)
+### [SSPR 작동 방법](active-directory-passwords-how-it-works.md)
+### [SSPR 배포 가이드](active-directory-passwords-best-practices.md)
+### [SSPR 정책](active-directory-passwords-policy.md)
+### [SSPR 사용자 지정](active-directory-passwords-customize.md)
+### [SSPR 데이터 요구 사항](active-directory-passwords-data.md)
+### [SSPR 보고](active-directory-passwords-reporting.md)
 ### IT 관리자: 암호 재설정
 #### [Azure 포털](active-directory-users-reset-password-azure-portal.md)
 #### [Azure 클래식 포털](active-directory-create-users-reset-password.md)
-### [SSPR 정책 이해](active-directory-passwords-policy.md)
-### [암호 재설정 이해](active-directory-passwords-how-it-works.md)
-### [SSPR 사용자 지정](active-directory-passwords-customize.md)
-### [SSPR에 사용된 데이터](active-directory-passwords-data.md)
-### [SSPR에 대한 보고](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [라이선스 SSPR](active-directory-passwords-licensing.md)
 ### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
-### [암호 해시 동기화](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [문제 해결](active-directory-passwords-troubleshoot.md)
 ### [FAQ](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [FAQ](active-directory-conditional-faqs.md)
-#### [클래식 포털](active-directory-conditional-access.md)
-##### [시작](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [암호 없이 인증](active-directory-azureadjoin-passport.md)

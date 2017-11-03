@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
-ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처 이해
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)을 참조하세요.
@@ -99,7 +99,7 @@ Azure AD의 Graph API를 사용하는 응용 프로그램은 읽기 쓰기 일�
  >쓰기는 논리 세션의 읽기가 실행된 보조 복제본으로 즉시 복제됩니다.
  >
 
-**백업 보호**
+**Backup 보호**
 
 디렉터리는 고객에 의해 실수로 삭제된 경우 사용자 및 테넌트를 쉽게 복구하기 위해 하드 삭제 대신 소프트 삭제를 구현합니다. 테넌트 관리자가 실수로 사용자를 삭제하면 실행을 취소하고 삭제된 사용자를 복원할 수 있습니다. 
 

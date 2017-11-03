@@ -1,6 +1,9 @@
 # [개요](active-directory-b2c-overview.md)
 
 # 시작
+## [Azure AD B2C 웹앱 시험 사용](active-directory-b2c-quickstarts-web-app.md)
+## [Azure AD B2C 데스크톱 앱 시험 사용](active-directory-b2c-quickstarts-desktop-app.md)
+## [Azure AD B2C 단일 페이지 앱 시험 사용](active-directory-b2c-quickstarts-spa.md)
 ## [Azure AD B2C 디렉터리 만들기](active-directory-b2c-get-started.md)
 ## [응용 프로그램 등록](active-directory-b2c-app-registration.md)
 ## [기본 제공 정책](active-directory-b2c-reference-policies.md)

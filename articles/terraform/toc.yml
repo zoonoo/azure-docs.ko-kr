@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: 인프라를 사용하여 VM 확장 집합 프로비전
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: 개념
   items:
     - name: Cloud Shell 통합

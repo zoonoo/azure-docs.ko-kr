@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 작업에 대한 재해 복구
       href: site-recovery-workload.md
+    - name: Azure Site Recovery를 사용하여 마이그레이션
+      href: site-recovery-migrate-to-azure.md
     - name: Azure에서 Azure로 네트워킹(미리 보기)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Azure로 장애 조치(failover) 후 VM 연결
@@ -104,9 +106,9 @@
         - name: Azure로 VMware 복제를 위한 Deployment Planner 도구
           href: site-recovery-deployment-planner.md
         - name: Azure로 Hyper-V 복제를 위한 용량 계획
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Azure로 Hyper-V 복제를 위한 Capacity Planner 도구
           href: site-recovery-capacity-planner.md
+        - name: Azure로 Hyper-V 복제를 위한 Capacity Planner 도구
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: VMware 복제를 위한 프로세스 서버 확장
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: 온-프레미스 사이트 간에 Hyper-V 복제를 위한 성능 크기 조정 테스트
@@ -181,7 +183,9 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: 마이그레이션
       items:
-        - name: 다른 Azure 지역으로 마이그레이션된 컴퓨터 복제
+        - name: 다른 Azure 지역에 Azure VM 마이그레이션
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: 마이그레이션 이후 다른 Azure 지역에 컴퓨터 복제
           href: site-recovery-azure-to-azure-after-migration.md
     - name: 워크로드
       items:

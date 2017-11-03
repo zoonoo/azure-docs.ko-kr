@@ -24,6 +24,7 @@
 ### [참조 데이터 사용](stream-analytics-use-reference-data.md)
 ### [쿼리 테스트](stream-analytics-test-query.md)
 ### [JavaScript UDF 통합](stream-analytics-javascript-user-defined-functions.md)
+### [JavaScript UDA 통합](stream-analytics-javascript-user-defined-aggregates.md)
 ### [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [출력 만들기](stream-analytics-define-outputs.md)
 ### [Data Lake Store로 출력](stream-analytics-data-lake-output.md)

@@ -35,7 +35,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg'
-            text: Azure 포털
+            text: Azure Portal
             href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json'
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg'
@@ -73,6 +73,7 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">VM 모니터링</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">VM에 대한 보안 관리</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Visual Studio를 사용하여 연속 통합 파이프라인 만들기</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">SQL\IIS 설치\.NET 스택</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">SSL을 사용하여 웹 서버 보안</a>
   - title: Pluralsight 비디오 교육 체험
     items:
