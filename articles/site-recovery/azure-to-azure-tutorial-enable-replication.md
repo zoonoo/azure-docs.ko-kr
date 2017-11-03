@@ -2,21 +2,21 @@
 title: "Azure Site Recovery(미리 보기)를 사용하여 보조 Azure 지역에 Azure VM의 재해 복구 설정"
 description: "Azure Site Recovery 서비스를 사용하여 다른 Azure 지역에 Azure VM의 재해 복구를 설정하는 방법을 알아봅니다."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c9cb2bfe459421ee6e28b9d83dffc569b7592c1f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 2608e0e0c87df1e7c6d034cf0977ed0e16b128cf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/25/2017
 이 자습서에서는 Azure VM의 보조 Azure 지역에 재해 복구를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 복구 서비스 자격 증명 모음 만들기
+> * Recovery Services 자격 증명 모음 만들기
 > * 대상 리소스 설정 확인
 > * VM에 대해 아웃바운드 액세스 설정
 > * VM에 대한 복제 사용

@@ -3,7 +3,7 @@ title: "Application Insights를 사용하여 Azure에서 라이브 웹앱 프로
 description: "적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
-ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mbullwin
+ms.openlocfilehash: f6669d90878398dcd4592df97180dcd59b146350
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 10/17/2017
 
 [Azure Application Insights](app-insights-overview.md)의 프로파일링 도구를 사용하여 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. 앱에서 제공한 라이브 요청의 자세한 프로필을 보여 주고 가장 많은 시간을 사용하는 '실행 부하 과다 경로'를 강조 표시합니다. 서로 다른 응답 시간을 갖는 예제를 자동으로 선택합니다. 프로파일러는 오버헤드를 최소화하기 위해 다양한 기법을 사용합니다.
 
-프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
+프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure App Services에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>프로파일러 활성화
@@ -174,7 +174,7 @@ CPU는 명령을 실행 중입니다.
 
 다음 몇 가지 사항으로 확인할 수 있습니다.
 
-1. 웹앱 서비스 계획이 기본 계층 이상인지 확인합니다.
+1. 웹App Service 계획이 기본 계층 이상인지 확인합니다.
 2. 웹앱에서 Application Insights SDK 2.2 베타 이상이 활성화되었는지 확인합니다.
 3. 웹앱에 Application Insights SDK에서 사용하는 동일한 계측 키를 가진 APPINSIGHTS_INSTRUMENTATIONKEY 설정이 있는지 확인합니다.
 4. 웹앱이 .NET Framework 4.6에서 실행 중인지 확인합니다.

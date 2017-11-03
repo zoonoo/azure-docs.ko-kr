@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>일반 SQL 커넥터 기술 참조
 이 문서에서는 일반 SQL 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -291,7 +291,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * **SP 이름 추가**: 개체가 해당 테이블에서 삽입하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
 * **SP 이름 업데이트**: 개체가 해당 테이블에서 업데이트하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
 * **SP 이름 삭제**: 개체가 해당 테이블에서 삭제하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
-* 저장 프로시저에 매개 변수 값으로 사용되는 스키마에서 선택된 특성입니다. 예를 들어, `EmployeeName: INPUT: @EmployeeName` (EmployeeName을 커넥터 스키마에서 선택하고 내보내기를 수행하는 동안 커넥터가 해당 값을 바꿉니다.)
+* 저장 프로시저에 매개 변수 값으로 사용되는 스키마에서 선택된 특성입니다. 예를 들어, `@EmployeeName: INPUT: EmployeeName` (EmployeeName을 커넥터 스키마에서 선택하고 내보내기를 수행하는 동안 커넥터가 해당 값을 바꿉니다.)
 * 매개 변수가 있는 저장 프로시저를 실행하려면 매개 변수를 `[Name]:[Direction]:[Value]` 형식으로 제공합니다. 별도 줄에 각 매개 변수를 입력합니다.(Ctrl + Enter를 사용하여 새 줄 가져옴)
 
 **SQL query**  

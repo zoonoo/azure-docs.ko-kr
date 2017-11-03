@@ -3,7 +3,7 @@ title: "Azure Application Insights에 대한 미리 보기 기본 설정 지정 
 description: "Azure Application Insights 개발 팀에서는 새 환경을 제공합니다. Azure Portal에서 미리 보려는 새로운 환경을 설정할 수 있습니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: bwren
-ms.openlocfilehash: d3929698cb3f3520b838bcaf88da6dca0c93c806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: f39ed880003c6ead0e720b730e6b70a4287b5f3f
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Azure Application Insights에 예정 된 변경 내용 미리 보기 
 

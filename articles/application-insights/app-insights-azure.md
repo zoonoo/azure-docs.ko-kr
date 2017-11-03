@@ -3,7 +3,7 @@ title: "Microsoft Azure 앱용 Application Insights | Microsoft Docs"
 description: "Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: bwren
-ms.openlocfilehash: a78ee0877de717210d5c9140c6957d271a2b2453
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 071e7099e57ed7156799af4ffb49cccbd003052d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-for-microsoft-azure-apps"></a>Microsoft Azure 앱용 Application Insights
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 어떤 유형의 앱이 있습니까?
 
 * [Azure 웹앱](app-insights-asp-net.md)
-* [Azure 클라우드 서비스 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
+* [Azure Cloud Services 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
 * [Azure 외부 응용 프로그램](app-insights-overview.md)
 
 추가 원격 분석

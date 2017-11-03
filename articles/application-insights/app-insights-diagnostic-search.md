@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 Search 사용 | Microsoft Docs"
 description: "웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
-ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
@@ -42,9 +42,9 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 ### <a name="in-visual-studio"></a>Visual Studio에서
 
-Visual Studio에는 Application Insights 검색 창도 있습니다. 이 창은 디버그 중인 응용 프로그램에 의해 생성된 원격 분석 이벤트를 표시하는 데 가장 유용합니다. 하지만 게시된 앱에서 수집된 이벤트를 Azure Portal에 표시할 수도 있습니다.
+Visual Studio에는 Application Insights Search 창도 있습니다. 이 창은 디버그 중인 응용 프로그램에 의해 생성된 원격 분석 이벤트를 표시하는 데 가장 유용합니다. 하지만 게시된 앱에서 수집된 이벤트를 Azure Portal에 표시할 수도 있습니다.
 
-Visual Studio에서 검색 창을 엽니다.
+Visual Studio에서 Search 창을 엽니다.
 
 ![Visual Studio에서 열린 Application Insights 검색](./media/app-insights-diagnostic-search/32.png)
 

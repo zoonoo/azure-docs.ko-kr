@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 리소스, 역할 및 액세스 제어 
 description: "조직 Insights의 소유자, 참여자 및 읽기 권한자입니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: bwren
-ms.openlocfilehash: c979a8bfbeecacc7c0bbc112e02a4b68e874c219
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 [Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 <a name="resource-group"></a>
 
-* [**리소스 그룹**][group] - 모든 리소스가 하나의 그룹에 속해 있습니다. 그룹은 특히 액세스 제어에 대한 관련 리소스를 간편하게 관리할 수 있는 방법입니다. 예를 들어 한 리소스 그룹에 웹 앱, 앱을 모니터링할 Application Insights 리소스, 내보낸 데이터를 보관할 저장소 리소스를 모두 집어넣을 수 있습니다.
+* [**리소스 그룹**][group] - 모든 리소스가 하나의 그룹에 속해 있습니다. 그룹은 특히 액세스 제어에 대한 관련 리소스를 간편하게 관리할 수 있는 방법입니다. 예를 들어 한 리소스 그룹에 Web App, 앱을 모니터링할 Application Insights 리소스, 내보낸 데이터를 보관할 저장소 리소스를 모두 집어넣을 수 있습니다.
 
     ![찾아보기, 리소스 그룹을 차례로 선택한 다음 그룹을 선택합니다.](./media/app-insights-resources-roles-access-control/11-group.png)
 

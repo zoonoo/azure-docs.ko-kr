@@ -3,7 +3,7 @@ title: "Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mi
 description: "다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
-ms.openlocfilehash: d07a0c81f89100c378456bbea8dca1c009cc8d77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
@@ -137,7 +137,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
-## <a name="automation-with-powershell"></a>PowerShell을 사용한 자동화
+## <a name="automation-with-powershell"></a>PowerShell을 사용한 Automation
 IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
 
 먼저 Application Insights 모듈을 가져옵니다.

@@ -11,16 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f07c4ddd59942889e9fe9c65343da2df59b64a1b
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다.
+
+
 이 문서에서는 Azure Data Factory 엔터티(파이프라인, 활동, 데이터 집합 및 연결된 서비스)를 정의하기 위한 JSON 스키마와 예제를 제공합니다.  
 
 ## <a name="pipeline"></a>파이프라인 
@@ -333,7 +337,7 @@ structure:
 | 정책 이름 | 설명 | 에 적용 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |해당 없음 |
-| minimumRows |**Azure SQL Database** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL 데이터베이스</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
+| minimumRows |**Azure SQL Database** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
 
 **예제:**
 
@@ -374,7 +378,7 @@ structure:
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure 검색](#azure-search) |
+| &nbsp; |[Azure Search](#azure-search) |
 | &nbsp; |[Azure Table Storage](#azure-table-storage) |
 | **데이터베이스** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -399,12 +403,12 @@ structure:
 | &nbsp; |[Salesforce](#salesforce) |
 | &nbsp; |[웹 테이블](#web-table) |
 
-## <a name="azure-blob-storage"></a>데이터 이동
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ### <a name="linked-service"></a>연결된 서비스
 연결된 서비스에는 두 가지 유형, 즉 Azure Storage 연결된 서비스와 Azure Storage SAS 연결된 서비스가 있습니다.
 
-#### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **계정 키**를 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage 연결된 서비스를 만듭니다. Azure Storage 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorage**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.  
 
 | 속성 | 설명 | 필수 |
@@ -426,11 +430,11 @@ structure:
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure 저장소 SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure 저장소 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| sasUri |BLOB, 컨테이너, 테이블 등의 Azure 저장소 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
+| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
 
 ##### <a name="example"></a>예제
 
@@ -925,14 +929,14 @@ Azure Cosmos DB에 데이터를 복사하는 경우 복사 작업의 **sink type
 
 자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#copy-activity-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDatabase**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| connectionString |connectionString 속성에 대한 Azure SQL 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 #### <a name="example"></a>예제
 ```json
@@ -954,7 +958,7 @@ Azure SQL Database 데이터 집합을 정의하려면 데이터 집합의 **typ
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 Azure SQL 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
+| tableName |연결된 서비스가 참조하는 Azure SQL Database 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
 
@@ -1096,14 +1100,14 @@ Azure SQL Database에 데이터를 복사하는 경우 복사 활동의 **sink t
 
 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#copy-activity-properties) 문서를 참조하세요. 
 
-## <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
+## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure SQL Data Warehouse 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDW**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| connectionString |connectionString 속성에 대한 Azure SQL 데이터 웨어하우스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 
 
@@ -1275,7 +1279,7 @@ Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **
 
 자세한 내용은 [Azure SQL Data Warehouse 커넥터](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) 문서를 참조하세요. 
 
-## <a name="azure-search"></a>Azure 검색
+## <a name="azure-search"></a>Azure Search
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure Search 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSearch**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
@@ -1308,7 +1312,7 @@ Azure Search 데이터 집합을 정의하려면 데이터 집합의 **type**을
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
-| indexName | Azure 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
+| indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
 
 #### <a name="example"></a>예제
 
@@ -1389,7 +1393,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 ### <a name="linked-service"></a>연결된 서비스
 연결된 서비스에는 두 가지 유형, 즉 Azure Storage 연결된 서비스와 Azure Storage SAS 연결된 서비스가 있습니다.
 
-#### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **계정 키**를 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage 연결된 서비스를 만듭니다. Azure Storage 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorage**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.  
 
 | 속성 | 설명 | 필수 |
@@ -1412,12 +1416,12 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
-Azure 저장소 SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure 저장소 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
+Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 저장소의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 저장소 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.   
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **AzureStorageSas** |예 |
-| sasUri |BLOB, 컨테이너, 테이블 등의 Azure 저장소 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
+| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
 
 **예제:**
 
@@ -4814,11 +4818,11 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 ## <a name="compute-environments"></a>계산 환경
 다음 표에서는 Data Factory에서 지원하는 계산 환경과 이러한 환경에서 실행할 수 있는 변환 활동을 나열합니다. 관심 있는 계산 링크를 클릭하여 연결된 서비스에서 데이터 팩터리에 연결하기 위한 JSON 스키마를 확인하세요. 
 
-| 컴퓨팅 환경 | 활동 |
+| Compute 환경 | 활동 |
 | --- | --- |
 | [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), [Hadoop 스트리밍 활동](#hdinsight-streaming-activityd), [Spark 활동](#hdinsight-spark-activity) |
-| [Azure 배치](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
-| [Azure 기계 학습](#azure-machine-learning) | [Machine Learning 배치 실행 활동](#machine-learning-batch-execution-activity), [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity) |
+| [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
+| [Azure 기계 학습](#azure-machine-learning) | [Machine Learning Batch 실행 활동](#machine-learning-batch-execution-activity), [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics) |[데이터 레이크 분석 U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[저장 프로시저](#stored-procedure-activity) |
 
@@ -4858,7 +4862,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 }
 ```
 
-자세한 내용은 [계산 연결된 서비스](data-factory-compute-linked-services.md)을 참조하세요. 
+자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)을 참조하세요. 
 
 ## <a name="existing-azure-hdinsight-cluster"></a>기존 Azure HDInsight 클러스터
 Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다. 이 연결된 서비스에서는 데이터 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), [Hadoop 스트리밍 활동](#hdinsight-streaming-activityd), [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다. 
@@ -4893,11 +4897,11 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 }
 ```
 
-## <a name="azure-batch"></a>Azure 배치
-Azure 배치 연결된 서비스를 만들어 데이터 팩터리에 가상 컴퓨터(VM)의 배치 풀을 등록할 수 있습니다. Azure 일괄 처리 또는 Azure HDInsight를 사용하여 .NET 사용자 지정 활동을 실행할 수 있습니다. 이 연결된 서비스에서 [.NET 사용자 지정 활동](#net-custom-activity)을 실행할 수 있습니다. 
+## <a name="azure-batch"></a>Azure Batch
+Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 컴퓨터(VM)의 Batch 풀을 등록할 수 있습니다. Azure Batch 또는 Azure HDInsight를 사용하여 .NET 사용자 지정 활동을 실행할 수 있습니다. 이 연결된 서비스에서 [.NET 사용자 지정 활동](#net-custom-activity)을 실행할 수 있습니다. 
 
 ### <a name="linked-service"></a>연결된 서비스
-다음 표에서는 Azure 배치 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
+다음 표에서는 Azure Batch 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
@@ -4905,7 +4909,7 @@ Azure 배치 연결된 서비스를 만들어 데이터 팩터리에 가상 컴�
 | accountName |Azure Batch 계정의 이름 |예 |
 | accessKey |Azure Batch 계정에 대한 선택키 |예 |
 | poolName |가상 컴퓨터의 풀 이름입니다. |예 |
-| linkedServiceName |Azure 일괄 처리 연결된 서비스와 관련된 Azure 저장소 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. |예 |
+| linkedServiceName |Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. |예 |
 
 
 #### <a name="json-example"></a>JSON 예제
@@ -4926,7 +4930,7 @@ Azure 배치 연결된 서비스를 만들어 데이터 팩터리에 가상 컴�
 ```
 
 ## <a name="azure-machine-learning"></a>Azure 기계 학습
-Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 Machine Learning 배치 점수 매기기 끝점을 등록합니다. 이 연결된 서비스에서는 두 가지 데이터 변환 활동, 즉 [Machine Learning 배치 실행 활동](#machine-learning-batch-execution-activity)과, [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity)을 실행할 수 있습니다. 
+Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 Machine Learning 배치 점수 매기기 끝점을 등록합니다. 이 연결된 서비스에서는 두 가지 데이터 변환 활동, 즉 [Machine Learning Batch 실행 활동](#machine-learning-batch-execution-activity)과, [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity)을 실행할 수 있습니다. 
 
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 Azure Machine Learning 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
@@ -4990,7 +4994,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 }
 ```
 
-## <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+## <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](#stored-procedure-activity) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 
 
 ### <a name="linked-service"></a>연결된 서비스
@@ -4998,7 +5002,7 @@ Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| connectionString |connectionString 속성에 대한 Azure SQL 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 #### <a name="json-example"></a>JSON 예제
 
@@ -5016,15 +5020,15 @@ Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의
 
 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#linked-service-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
-Azure SQL 데이터 웨어하우스 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 
+## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+Azure SQL Data Warehouse 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure SQL Data Warehouse 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDW**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| connectionString |connectionString 속성에 대한 Azure SQL 데이터 웨어하우스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |connectionString 속성에 대한 Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 #### <a name="json-example"></a>JSON 예제
 
@@ -5109,11 +5113,11 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 [HDInsight MapReduce 작업](#hdinsight-mapreduce-activity) | Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다.
 [HDInsight 스트리밍 작업](#hdinsight-streaming-activity) | Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다.
 [HDInsight Spark 작업](#hdinsight-spark-activity) | Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 
-[Machine Learning Batch 실행 작업](#machine-learning-batch-execution-activity) | Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 배치 실행 활동을 사용하면 Machine Learning 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다. 
+[Machine Learning Batch 실행 작업](#machine-learning-batch-execution-activity) | Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 Batch 실행 활동을 사용하면 Machine Learning 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다. 
 [Machine Learning 업데이트 리소스 작업](#machine-learning-update-resource-activity) | 시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 업데이트 리소스 활동을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.
 [저장 프로시저 작업](#stored-procedure-activity) | Data Factory 파이프라인에서 저장 프로시저 활동을 사용하여 엔터프라이즈 또는 Azure VM에 있는 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
 [Data Lake Analytics U-SQL 활동](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다.  
-[.NET 사용자 지정 작업](#net-custom-activity) | Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure 배치 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 
+[.NET 사용자 지정 작업](#net-custom-activity) | Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 
 
      
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
@@ -5392,7 +5396,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 활동에 대한 자세한 내용은 [Spark 활동](data-factory-spark.md) 문서를 참조하세요.  
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch 실행 작업
-Azure ML 배치 실행 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution**이어야 합니다. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure ML Batch 실행 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution**이어야 합니다. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 속성 | 설명 | 필수 
 -------- | ----------- | --------
@@ -5456,7 +5460,7 @@ trainedModelName | 다시 학습된 모델의 이름입니다. | 예 |
 trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 집합입니다. | 예 | 
 
 ### <a name="json-example"></a>JSON 예제
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure ML 배치 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 집합입니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure ML Batch 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 집합입니다.
 
 
 ```json
@@ -5585,19 +5589,19 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 저장 프로시저 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **SqlServerStoredProcedure**여야 합니다. 다음 연결된 서비스 중 하나를 만들고 해당 연결된 서비스의 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다.
 
 - SQL Server 
-- Azure SQL 데이터베이스
-- Azure SQL 데이터 웨어하우스
+- Azure SQL Database
+- Azure SQL Data Warehouse
 
 활동의 type을 SqlServerStoredProcedure로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스의 저장 프로시저 이름을 지정합니다. |예 |
+| storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스 또는 Azure SQL Data Warehouse의 저장 프로시저 이름을 지정합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 
 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 
 
-출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. 출력 데이터 집합은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 집합은 파이프라인에서 다른 작업에 의한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다.  
+출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. 출력 데이터 집합은 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 집합은 파이프라인에서 다른 작업에 의한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다.  
 
 ### <a name="json-example"></a>JSON 예제
 
@@ -5628,7 +5632,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 자세한 내용은 [저장 프로시저 활동](data-factory-stored-proc-activity.md)을 참조하세요. 
 
 ## <a name="net-custom-activity"></a>.NET 사용자 지정 작업
-.NET 사용자 지정 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **DotNetActivity**여야 합니다. Azure HDInsight 연결된 서비스 또는 Azure 배치 연결된 서비스를 만들고 해당 연결된 서비스의 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 DotNetActivity로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+.NET 사용자 지정 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **DotNetActivity**여야 합니다. Azure HDInsight 연결된 서비스 또는 Azure Batch 연결된 서비스를 만들고 해당 연결된 서비스의 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 DotNetActivity로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
  
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
