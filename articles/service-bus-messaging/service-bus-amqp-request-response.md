@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
 이 항목에서는 Microsoft Azure Service Bus 요청/응답 기반 작업 목록을 정의합니다. 이 정보는 AMQP Management Version 1.0 초안을 기반으로 합니다.  
   
-Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0](service-bus-amqp-protocol-guide.md)을 참조하세요.  
+Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0][AMQP 1.0 프로토콜 가이드]를 참조하세요.  
   
 ## <a name="concepts"></a>개념  
   
@@ -618,9 +618,9 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 AMQP 및 Service Bus에 대해 자세히 알아보려면 다음 링크를 방문하세요.
 
 * [Service Bus AMQP 개요]
-* [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
+* [AMQP 1.0 프로토콜 가이드]
 * [Windows Server용 Service Bus의 AMQP]
 
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
-[Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 프로토콜 가이드]: service-bus-amqp-protocol-guide.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.asp

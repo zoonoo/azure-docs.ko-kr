@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
-ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,13 +86,13 @@ path | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환�
 ```
 호환되지 않는 행을 기록하도록 구성할 경우 `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` 경로에 로그 파일이 생깁니다. 
 
-이 로그 파일에서 건너뛴 행을 확인하고 호환되지 않는 원인을 알 수 있습니다.
+로그 파일은 csv 파일만 될 수 있습니다. 건너뛴 원래 데이터는 필요한 경우 쉼표를 열 구분 기호로 사용하여 기록됩니다. 로그 파일에서 원래의 원본 데이터에 "ErrorCode" 및 "ErrorMessage" 등의 두 열을 더할 수 있습니다. 여기서 비호환의 근본 원인을 파악할 수 있습니다. ErrorCode 및 ErrorMessage는 큰따옴표를 사용하여 인용됩니다. 
 
-원본 데이터와 해당 오류가 파일에 모두 기록됩니다. 로그 파일 내용의 예는 다음과 같습니다.
+로그 파일 내용의 예는 다음과 같습니다.
 
 ```
-data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
+data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
 ## <a name="next-steps"></a>다음 단계

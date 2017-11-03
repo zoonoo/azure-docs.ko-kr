@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0d2644903181cd2e20166feae4f90ddd4037fa8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 앱 서비스의 인증 및 권한 부여
 ## <a name="what-is-app-service-authentication--authorization"></a>앱 서비스 인증/권한 부여란?
@@ -26,10 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 앱 서비스는 페더레이션된 ID를 사용하며 여기서 타사 ID 공급자는 계정을 저장하고 사용자를 인증합니다. 응용 프로그램은 앱에서 해당 정보 자체를 저장할 필요가 없도록 공급자의 ID 정보를 사용합니다. 앱 서비스는 기본적으로 Azure Active Directory, Facebook, Google, Microsoft 계정 및 Twitter와 같은 다섯 가지 ID 공급자를 지원합니다. 앱은 개수에 관계 없이 이러한 ID 공급자를 사용하여 최종 사용자에게 로그인 방법에 대한 옵션을 제공할 수 있습니다. 기본 지원을 확장하려면 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수 있습니다.
 
-지금 바로 시작하려는 경우 다음 자습서 중 하나를 참조하세요.
-
-* [iOS 앱][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova])에 인증 추가
-* [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
+바로 시작하려면 다음 자습서 중 하나를 참조하세요. [iOS 앱에 인증 추가][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova])
 
 ## <a name="how-authentication-works-in-app-service"></a>앱 서비스에서 인증이 작동하는 방식
 ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 구성하여 응용 프로그램에 대해 알아야 합니다. ID 공급자가 ID 및 암호를 제공하면 사용자는 그 정보를 앱 서비스에 입력해야 합니다. 이로써 앱 서비스가 ID 공급자에서 인증 토큰 같은 사용자 어설션 유효성을 검사할 수 있도록 트러스트 관계를 완료합니다.
@@ -79,7 +76,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 
 * 인증된 요청만 응용 프로그램에 도달하도록 허용합니다.
   
-    브라우저에서 익명 요청을 받으면 앱 서비스는 사용자가 로그인할 수 있도록 사용자가 선택한 ID 공급자의 페이지로 리디렉션됩니다. 모바일 장치에서 요청이 오면 HTTP *401 권한 없음* 응답이 반환됩니다.
+    브라우저가 익명 요청을 보내면 App Service는 사용자가 로그인할 수 있도록 사용자가 선택한 ID 공급자의 페이지로 리디렉션됩니다. 모바일 장치에서 요청이 오면 HTTP *401 권한 없음* 응답이 반환됩니다.
   
     이 옵션을 사용하면 앱에서 인증 코드를 작성할 필요가 전혀 없습니다. 세부적인 권한 부여가 필요한 경우 해당 사용자에 대한 정보를 코드에 사용할 수 있습니다.
 * 모든 요청이 응용 프로그램에 도달하도록 허용하지만 인증된 요청을 유효성 검사하고 HTTP 헤더에 인증 정보를 전달합니다.
@@ -114,11 +111,6 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 * [Twitter 로그인을 사용하도록 앱을 구성하는 방법][Twitter]
 
 여기에 제공된 것 이외의 ID 시스템을 사용하려는 경우 [Mobile Apps .NET 서버 SDK에서 사용자 지정 인증 지원 미리 보기][custom-auth]를 사용할 수 있습니다. 이 미리 보기는 Web Apps, Mobile Apps 또는 API Apps에 사용할 수 있습니다.
-
-### <a name="web-applications"></a>웹 응용 프로그램
-다음 자습서는 웹 응용 프로그램에 인증을 추가하는 방법을 보여 줍니다.
-
-* [Azure App Service 시작 - 2부][web-getstarted]
 
 ### <a name="mobile-applications"></a>모바일 응용 프로그램
 다음 자습서는 서버 지향 흐름을 사용하여 모바일 클라이언트에 인증을 추가하는 방법을 보여 줍니다.

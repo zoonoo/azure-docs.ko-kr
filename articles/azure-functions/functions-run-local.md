@@ -3,7 +3,7 @@ title: "로컬로 Azure Functions 개발 및 실행 | Microsoft Docs"
 description: "Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 Azure Functions를 코딩 및 테스트하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -142,7 +142,7 @@ local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도
 
 **AzureWebJobsStorage**에 유효한 저장소 연결 문자열이 설정되어 있지 않으면 다음 오류 메시지가 표시됩니다.  
 
->local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionary fetch-app-settings <functionAppName>'을 실행하거나 local.settings.json에 연결 문자열을 지정할 수 있습니다.
+>local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings <functionAppName>'를 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다. 
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -266,13 +266,13 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 쿼리 문자열에서 데이터를 전달하는 브라우저에서 GET 요청을 만들 수 있습니다. 다른 모든 HTTP 메서드에서 cURL, Fiddler, Postman 또는 비슷한 HTTP 테스트 도구를 사용해야 합니다.  
 
 #### <a name="non-http-triggered-functions"></a>HTTP가 아닌 트리거된 함수
-HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 끝점을 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 이 끝점을 호출하면 함수를 트리거합니다. 필요에 따라 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
+HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 끝점을 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 끝점을 호출하면 함수를 트리거합니다. 필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
 
-다음 관리자 끝점을 호출하여 HTTP POST 요청을 포함하는 HTTP가 아닌 함수를 트리거합니다.
+다음 관리자 끝점을 호출하여 HTTP가 아닌 함수를 트리거합니다.
 
     http://localhost:{port}/admin/functions/{function_name}
 
-함수의 관리자 끝점에 테스트 데이터를 전달할 수 있지만 POST 요청 메시지의 본문에서 데이터를 제공해야 합니다. 메시지 본문에는 다음 JSON 형식이 필요합니다.
+함수의 관리자 끝점에 테스트 데이터를 전달하려면 POST 요청 메시지의 본문에서 데이터를 제공해야 합니다. 메시지 본문에는 다음 JSON 형식이 필요합니다.
 
 ```JSON
 {

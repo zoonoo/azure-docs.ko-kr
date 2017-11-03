@@ -4,7 +4,7 @@ description: "StorSimple 장치 관리자 서비스를 사용하여 사용량, I
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다.
+
 ## <a name="overview"></a>개요
 StorSimple 장치 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 특정 장치를 모니터링할 수 있습니다. I/O 성능, 수용작업량 사용률, 네트워크 처리량 및 장치 성능 메트릭을 기준으로 사용자 지정 차트를 만들고 해당 항목을 대시보드에 고정할 수 있습니다. 자세한 내용은 [포털 대시보드 사용자 지정](../azure-portal/azure-portal-dashboards.md)으로 이동합니다.
 
@@ -29,7 +30,7 @@ StorSimple 장치 관리자 서비스를 사용하여 StorSimple 솔루션 내�
 ## <a name="capacity"></a>용량
 **수용작업량**은 프로비전된 공간 및 장치에 남은 공간을 추적합니다. 나머지 수용작업량은 로컬로 고정되었거나 계층화 것으로 표시됩니다.
 
-프로비전된 수용작업량 및 나머지 수용작업량은 계층화된 볼륨 및 로컬 고정 볼륨으로 분류됩니다. 각 볼륨의 경우 프로비전된 수용작업량 및 장치의 나머지 수용작업량이 표시됩니다.
+프로비전된 수용작업량 및 나머지 수용작업량은 계층화된 볼륨 및 로컬 고정 볼륨으로 분류됩니다. 각 볼륨의 경우 프로비전된 용량 및 장치의 나머지 용량이 표시됩니다.
 
 ![IO 수용작업량](./media/storsimple-8000-monitor-device/device-capacity.png)
 
@@ -44,6 +45,19 @@ StorSimple 장치 관리자 서비스를 사용하여 StorSimple 솔루션 내�
 * 지난 90일간
 * 지난해
 
+두 가지 주요 메트릭인 증가 및 범위는 사용량 차트에서 보고됩니다. 범위는 선택한 기간(예: 최근 7일) 동안 보고된 사용량의 최대값 및 최소값을 의미합니다.
+
+증가는 선택한 기간 동안 첫 번째 날부터 마지막 날까지 사용량의 증가를 의미합니다. 
+
+다음과 같은 수식으로 증가 및 범위를 나타낼 수도 있습니다.
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 사용된 기본, 클라우드 및 로컬 저장소는 다음과 같이 설명할 수 있습니다.
 

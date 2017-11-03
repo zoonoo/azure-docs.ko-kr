@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
 
 Azure CLI를 사용하여 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다.
 
-템플릿 파일을 만들고 Batch 풀, 작업, 태스크를 만들 수 있는 Azure CLI에서 사용할 수 있습니다. 작업 입력 파일은 다운로드한 Batch 계정 및 작업 출력 파일과 연결된 저장소 계정에 쉽게 업로드할 수 있습니다.
+Azure CLI로 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크 만들기에 사용합니다. 작업 입력 파일은 다운로드한 Batch 계정 및 작업 출력 파일과 연결된 저장소 계정에 쉽게 업로드할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -50,10 +50,10 @@ Batch 템플릿은 [Azure CLI의 기존 Batch 지원](https://docs.microsoft.com
 
 Azure CLI를 설치하는 방법은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-Azure CLI를 설치하면 Batch 확장은 다음 CLI 명령을 사용하여 설치될 수 있습니다.
+Azure CLI를 설치하면 최신 Batch 확장 버전은 다음 CLI 명령을 사용하여 설치될 수 있습니다.
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 Batch 확장에 대한 자세한 내용은 [ Windows, Mac 및 Linux용 Microsoft Azure Batch CLI 확장](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux)을 참조하세요.
@@ -106,7 +106,7 @@ ffmpeg를 설치한 Linux VM의 풀을 만들고 사용할 풀 ID 문자열 및 
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

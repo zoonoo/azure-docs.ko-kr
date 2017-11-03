@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 조건 중 하나가 참인 경우 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크(VNet)에 조인해야 합니다. 
@@ -26,6 +26,9 @@ ms.lasthandoff: 10/11/2017
 - Azure-SSIS 통합 런타임에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.
 
  Azure Data Factory 버전 2(미리 보기)를 사용하면 Azure-SSIS 통합 런타임을 클래식 VNet에 조인할 수 있습니다. 현재 Azure Resource Manager VNet은 아직 지원되지 않습니다. 하지만 다음 섹션의 설명대로 작업할 수 있습니다. 
+
+ > [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 VNet에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet에 조인해야 합니다. SSIS 카탈로그가 VNet에 없는 Azure SQL Database에서 호스트되는 경우 적절한 포트를 열어야 합니다. SSIS 카탈로그가 클래식 VNet에 있는 Azure SQL 관리되는 인스턴스에서 호스트되는 경우 Azure-SSIS IR을 Azure SQL 관리되는 인스턴스가 있는 클래스-클래식 VNet 연결과 동일한 클래식 VNet (또는) 다른 클래식 VNet에 조인할 수 있습니다. 다음 섹션에 자세한 내용이 제공됩니다.  
 

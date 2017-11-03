@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07c4ddd59942889e9fe9c65343da2df59b64a1b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 이 문서에서는 Azure Data Factory 엔터티(파이프라인, 활동, 데이터 집합 및 연결된 서비스)를 정의하기 위한 JSON 스키마와 예제를 제공합니다.  
@@ -82,9 +82,9 @@ ms.lasthandoff: 10/11/2017
 | 태그 | 설명 | 필수 |
 | --- | --- | --- |
 | name |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
-| 설명 |활동의 용도를 설명하는 텍스트입니다. |예 |
+| 설명 |활동의 용도를 설명하는 텍스트입니다. |아니요 |
 | type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
-| inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |예 |
+| inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
 | linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 활동, Azure Machine Learning 활동 및 저장 프로시저 활동의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
 | typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |아니요 |

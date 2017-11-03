@@ -1,6 +1,6 @@
 ---
-title: "Linux 배포의 Azure Web App - 사용자 지정 이미지 또는 기본 제공 플랫폼 이미지 중에서 선택  | Microsoft Docs"
-description: "사용자 지정 Docker 컨테이너 배포 및 기본 제공 응용 프로그램 프레임워크 중 하나를 결정하는 방법"
+title: "Linux 배포의 Azure App Service - 사용자 지정 이미지 또는 기본 제공 플랫폼 이미지 중에서 선택  | Microsoft Docs"
+description: "사용자 지정 Docker 컨테이너 배포와 Linux의 App Service를 위한 기본 제공 응용 프로그램 프레임워크 중 하나를 결정하는 방법"
 keywords: "azure app service, 웹앱, linux, oss"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>사용자 지정 이미지 또는 기본 제공 플랫폼 이미지
 
-[Linux의 Web App](app-service-linux-intro.md)은 웹에 게시된 응용 프로그램을 가져오기 위한 두 가지 서로 다른 경로를 제공합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 웹에 게시된 응용 프로그램을 가져오는 두 가지 서로 다른 경로를 제공합니다.
 
 - **사용자 지정 이미지 배포**: 즉시 실행 가능한 패키지에 모든 파일 및 종속성을 포함하는 Docker 이미지로 앱을 “Docker화”합니다.
 - **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 저장소에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.

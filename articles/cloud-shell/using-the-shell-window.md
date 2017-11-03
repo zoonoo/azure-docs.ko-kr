@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: fb242abfbea79bc8c242a7a89b3d775cf74a0617
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59cd03f6e04e9b096fe740e8a7140e602c0baa58
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
 
@@ -56,10 +56,10 @@ Cloud Shell을 사용하면 각 세션이 별도의 Bash 프로세스로 존재�
 
 ## <a name="changing-the-text-size"></a>텍스트 크기 변경
 ![](media/using-the-shell-window/text-size.png)
-* 창의 왼쪽 상단에서 설정 아이콘을 클릭한 다음 "텍스트 크기" 옵션 위로 마우스를 가져가 원하는 텍스트 크기를 선택합니다.
+* 창의 왼쪽 상단에서 설정 아이콘을 클릭한 다음 "텍스트 크기" 옵션 위로 마우스를 가져가 원하는 텍스트 크기를 선택합니다. 선택 사항이 세션 전반에서 유지됩니다.
 
 ## <a name="exit-command"></a>종료 명령
-`exit`를 실행하면 활성 세션이 종료됩니다. 이 동작은 기본적으로 상호 작용 없이 10분 후에 발생합니다.
+`exit`를 실행하면 활성 세션이 종료됩니다. 이 동작은 기본적으로 상호 작용 없이 20분 후에 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

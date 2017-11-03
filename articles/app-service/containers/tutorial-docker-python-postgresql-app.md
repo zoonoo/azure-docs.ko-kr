@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
-Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 기본 Docker Python 웹앱을 만드는 방법을 보여 줍니다. 또한 이 앱을 PostgreSQL 데이터베이스에 연결합니다. 완료되면 [App Service Web Apps](../app-service-web-overview.md)의 Docker 컨테이너 내에서 Python Flask 응용 프로그램을 실행하게 됩니다.
+Web App for Containers는 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Azure에서 기본 Docker Python 웹앱을 만드는 방법을 보여 줍니다. 또한 이 앱을 PostgreSQL 데이터베이스에 연결합니다. 완료되면 [Linux의 App Service](app-service-linux-intro.md)의 Docker 컨테이너 내에서 Python Flask 응용 프로그램을 실행하게 됩니다.
 
-![Azure App Service의 Docker Python Flask 앱](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
+![Linux의 App Service의 Docker Python Flask 앱](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
 macOS에서 다음 단계를 수행하면 됩니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
  
@@ -71,7 +71,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 
 ### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-터미널 창을 열고 `CD`를 사용하여 작업 디렉터리로 이동합니다.  
+터미널 창을 열고 `CD`를 사용하여 작업 디렉터리로 이동합니다.
 
 다음 명령을 실행하여 샘플 리포지토리를 복제하고 *0.1-initialapp* 릴리스로 이동합니다.
 
@@ -124,15 +124,15 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-이제 Azure CLI 2.0을 사용하여 Azure App Service에서 Python 응용 프로그램을 호스팅하는 데 필요한 리소스를 만들려고 합니다.  [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 
+이제 Azure CLI 2.0을 사용하여 Web App for Containers에서 Python 응용 프로그램을 호스트하는 데 필요한 리소스를 만들려고 합니다.  [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```azurecli
-az login 
-``` 
-   
+az login
+```
+
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create)를 사용하여 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 만듭니다. 
+[az group create](/cli/azure/group#create)를 사용하여 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 만듭니다.
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -225,7 +225,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 
 *\q*를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
-### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Azure PostgreSQL 데이터베이스에 대해 로컬로 응용 프로그램 테스트 
+### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Azure PostgreSQL 데이터베이스에 대해 로컬로 응용 프로그램 테스트
 
 이제 복제된 Github 리포지토리의 *app* 폴더로 돌아가서 데이터베이스 환경 변수를 업데이트하여 Python Flask 응용 프로그램을 실행할 수 있습니다.
 
@@ -304,6 +304,7 @@ az acr create --name <registry_name> --resource-group myResourceGroup --location
 ```
 
 출력
+
 ```json
 {
   "adminUserEnabled": false,
@@ -366,9 +367,9 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
+[az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다.
 
-[!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
+[!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
 다음 예제에서는 S1 가격 책정 계층을 사용하여 *myAppServicePlan*이라는 Linux 기반 App Service 계획을 만듭니다.
 
@@ -378,7 +379,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
 
-```json 
+```json
 {
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -412,23 +413,23 @@ App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 �
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 }
-``` 
+```
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다. 
+[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다.
 
-웹앱은 코드를 배포할 호스팅 공간을 제공하고, 배포된 응용 프로그램을 확인할 수 있도록 URL도 제공합니다. 웹앱을 만드는 데 사용합니다. 
+웹앱은 코드를 배포할 호스팅 공간을 제공하고, 배포된 응용 프로그램을 확인할 수 있도록 URL도 제공합니다. 웹앱을 만드는 데 사용합니다.
 
-다음 명령에서 *\<app_name>* 자리 표시자를 고유한 앱 이름으로 바꿉니다. 이 이름은 웹앱에 대한 URL의 일부이므로 Azure App Service의 모든 앱에서 고유해야 합니다. 
+다음 명령에서 *\<app_name>* 자리 표시자를 고유한 앱 이름으로 바꿉니다. 이 이름은 웹앱에 대한 URL의 일부이므로 Azure App Service의 모든 앱에서 고유해야 합니다.
 
 ```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-웹앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
+웹앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
 
-```json 
+```json
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -447,7 +448,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 자습서의 앞부분에서 환경 변수를 정의하여 PostgreSQL 데이터베이스에 연결했습니다.
 
-App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config#set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다. 
+App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config#set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
 
 다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. 또한 *PORT* 변수를 통해 Docker 컨테이너에서 PORT 5000을 매핑하여 PORT 80에서 HTTP 트래픽을 수신합니다.
 
@@ -455,7 +456,7 @@ App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config#se
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
-### <a name="configure-docker-container-deployment"></a>Docker 컨테이너 배포 구성 
+### <a name="configure-docker-container-deployment"></a>Docker 컨테이너 배포 구성
 
 AppService는 Docker 컨테이너를 자동으로 다운로드하여 실행할 수 있습니다.
 
@@ -552,5 +553,5 @@ http://<app_name>.azurewebsites.net
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

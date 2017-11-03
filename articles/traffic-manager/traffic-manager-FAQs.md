@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -251,6 +251,10 @@ Traffic Manager는 끝점의 DNS 이름으로 응답합니다. IPv6 끝점을 �
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>동일한 지역에서 둘 이상의 웹앱에 Traffic Manager를 사용할 수 있습니까?
 
 일반적으로 Traffic Manager는 다른 지역에 배포된 응용 프로그램에 트래픽을 보내는 데 사용됩니다. 그러나 응용 프로그램이 동일한 지역에 둘 이상의 배포를 가지는 곳에 사용될 수도 있습니다. Traffic Manager Azure 끝점은 동일한 Traffic Manager 프로필에 추가되는 동일한 Azure 지역에서 둘 이상의 웹앱 끝점을 허용하지 않습니다.
+
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Traffic Manager 프로필의 Azure 끝점을 다른 리소스 그룹으로 이동하려면 어떻게 해야 하나요?
+
+Traffic Manager 프로필과 연결된 Azure 끝점은 리소스 ID를 사용하여 추적됩니다. 끝점으로 사용되는 Azure 리소스(공용 IP, Classic Cloud Service, WebApp, 또는 중첩되어 사용된 기타 Traffic Manager 프로필)가 다른 리소스 그룹으로 이동되면 리소스 ID도 변경됩니다. 이 시나리오의 경우 현재로서는 프로필에 먼저 끝점을 삭제한 다음 다시 추가하여 Traffic Manager 프로필을 업데이트해야 합니다. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -116,7 +116,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 **App Service 계획 구성** 대화 상자에서 다음 설정을 사용하여 새 App Service 계획을 구성합니다.
 
-![앱 서비스 계획 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+![App Service 계획 만들기](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
@@ -148,7 +148,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 **확인**을 클릭합니다. **SQL Database 구성** 대화 상자를 아직 닫지 마세요.
 
-### <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
+### <a name="create-a-sql-database"></a>SQL Database 만들기
 
 **SQL Database 구성** 대화 상자에서 다음을 수행합니다. 
 
@@ -378,7 +378,7 @@ Azure 웹앱을 마우스 오른쪽 단추로 다시 클릭하고 **설정 보�
 
 브라우저에서 *http://&lt;your app name>.azurewebsites.net*에 있는 웹앱으로 다시 이동한 다음, Azure에서 할 일 목록 응용 프로그램 주위를 클릭해 보세요. 추적 메시지가 Visual Studio의 **출력** 창으로 스트리밍됩니다.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

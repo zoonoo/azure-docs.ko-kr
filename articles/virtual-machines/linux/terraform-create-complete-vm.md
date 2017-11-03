@@ -15,20 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: a4a418a3b277d41b62aa049941a4c65e3bb82808
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd19c6bbf767fd954ad5c5a733f78ba3a1ee1f58
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 컴퓨터 인프라 만들기
+
 Terraform을 사용하면 Azure에서 완전한 인프라를 정의하고 만들 수 있습니다. 일관되고 재현 가능한 방식으로 Azure 리소스를 만들고 구성하는 Terraform 템플릿을 이해하기 쉬운 형태로 빌드할 수 있습니다. 이 문서에서는 Terraform을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Terraform을 설치하고 구성하는](terraform-install-configure.md) 방법도 알아봅니다.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Azure 연결 및 리소스 그룹 만들기
+
 Terraform 템플릿의 각 섹션을 살펴보겠습니다. 복사하여 붙여넣을 수 있는 [Terraform 템플릿](#complete-terraform-script)의 전체 버전을 확인할 수 있습니다.
 
-`provider` 섹션은 Azure 공급자를 사용하도록 Terraform에 알립니다. *subscription_id*, *client_id*, *client_secret* 및 *tenant_id*에 대한 값을 가져오려면 [Terraform 설치 및 구성](terraform-install-configure.md)을 참조하세요. 값에 대한 환경 변수를 만드는 경우 이 섹션을 포함하지 않습니다.
+`provider` 섹션은 Azure 공급자를 사용하도록 Terraform에 알립니다. *subscription_id*, *client_id*, *client_secret* 및 *tenant_id*에 대한 값을 가져오려면 [Terraform 설치 및 구성](terraform-install-configure.md)을 참조하세요. 
+
+> [!TIP]
+> 값에 대한 환경 변수를 만들거나 [Azure Cloud Shell Bash 환경](/azure/cloud-shell/overview)을 사용하는 경우 이 섹션에서 변수 선언을 포함시킬 필요가 없습니다.
 
 ```tf
 provider "azurerm" {
@@ -39,10 +44,10 @@ provider "azurerm" {
 }
 ```
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 섹션에서는 `eastus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```tf
-resource "azurerm_resource_group" "myResourceGroup" {
+resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "East US"
 
@@ -52,8 +57,7 @@ resource "azurerm_resource_group" "myResourceGroup" {
 }
 ```
 
-추가 섹션에서 *${azurerm_resource_group.myterraform.name}*을 사용하여 리소스 그룹을 참조합니다.
-
+추가 섹션에서 *${azurerm_resource_group.myterraformgroup.name}*을 사용하여 리소스 그룹을 참조합니다.
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVnet*이라는 가상 네트워크를 만듭니다.
@@ -63,20 +67,19 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
         environment = "Terraform Demo"
     }
 }
 ```
-
 다음 섹션에서는 *myVnet* 가상 네트워크에 *mySubnet*이라는 서브넷을 만듭니다.
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
-    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
     virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.2.0/24"
 }
@@ -90,7 +93,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "East US"
-    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
@@ -107,8 +110,8 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
-    
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    ;
     security_rule {
         name                       = "SSH"
         priority                   = 1001
@@ -135,7 +138,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -158,7 +161,7 @@ VM을 위한 부트 진단을 저장하려면 저장소 계정이 필요합니�
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = "${azurerm_resource_group.myterraform.name}"
+        resource_group = "${azurerm_resource_group.myterraformgroup.name}"
     }
     
     byte_length = 8
@@ -170,9 +173,10 @@ resource "random_id" "randomId" {
 ```tf
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "East US"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"
+    account_tier = "Standard"
 
     tags {
         environment = "Terraform Demo"
@@ -182,13 +186,16 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
-마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 최신 *Ubuntu 16.04-LTS* 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 *azureuser*라는 사용자가 만들어집니다. SSH 키 데이터는 *ssh_keys* 섹션에서 제공됩니다.
+
+마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 최신 *Ubuntu 16.04-LTS* 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 *azureuser*라는 사용자가 만들어집니다.
+
+ SSH 키 데이터는 *ssh_keys* 섹션에서 제공됩니다. *key_data* 필드에 유효한 공용 SSH 키를 제공합니다.
 
 ```tf
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "East US"
-    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
 
@@ -248,7 +255,7 @@ provider "azurerm" {
 }
 
 # Create a resource group if it doesn’t exist
-resource "azurerm_resource_group" "myterraform" {
+resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "East US"
 
@@ -262,7 +269,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
         environment = "Terraform Demo"
@@ -272,7 +279,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 # Create subnet
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
-    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
     virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.1.0/24"
 }
@@ -281,7 +288,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "East US"
-    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
@@ -293,7 +300,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     
     security_rule {
         name                       = "SSH"
@@ -316,7 +323,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = "East US"
-    resource_group_name       = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name       = "${azurerm_resource_group.myterraformgroup.name}"
     network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
@@ -335,7 +342,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = "${azurerm_resource_group.myterraform.name}"
+        resource_group = "${azurerm_resource_group.myterraformgroup.name}"
     }
     
     byte_length = 8
@@ -344,7 +351,7 @@ resource "random_id" "randomId" {
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "East US"
     account_type        = "Standard_LRS"
 
@@ -357,7 +364,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "East US"
-    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
 
@@ -420,18 +427,8 @@ Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
 
-azurerm_resource_group.myterraform: Refreshing state... (ID: /subscriptions/guid/resourceGroups/myResourceGroup)
-azurerm_public_ip.myterraformips: Refreshing state... (ID: /subscriptions/guid...t.Network/publicIPAddresses/myPublicIP)
-azurerm_virtual_network.myterraformnetwork: Refreshing state... (ID: /subscriptions/guid...crosoft.Network/virtualNetworks/myVnet)
-azurerm_subnet.myterraformsubnet: Refreshing state... (ID: /subscriptions/guid...irtualNetworks/myVnet/subnets/mySubnet)
-azurerm_network_interface.myterraformnic: Refreshing state... (ID: /subscriptions/guid...rosoft.Network/networkInterfaces/myNIC)
-azurerm_virtual_machine.myterraformvm: Refreshing state... (ID: /subscriptions/guid...Microsoft.Compute/virtualMachines/myVM)
 
-The Terraform execution plan has been generated and is shown below.
-Resources are shown in alphabetical order for quick scanning. Green resources
-will be created (or destroyed and then created if an existing resource
-exists), yellow resources are being changed in-place, and red resources
-will be destroyed. Cyan entries are data sources to be read.
+...
 
 Note: You didn’t specify an “-out” parameter to save this plan, so when
 “apply” is called, Terraform can’t guarantee this is what will execute.
@@ -464,7 +461,7 @@ Terraform이 완료되면 VM 인프라가 준비됩니다. [az vm show](/cli/azu
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
 ```
 
-그런 다음 정상적으로 VM에 SSH할 수 있습니다.
+그런 다음 VM에 SSH할 수 있습니다.
 
 ```bash
 ssh azureuser@<publicIps>

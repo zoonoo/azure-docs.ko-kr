@@ -3,7 +3,7 @@ title: "Linux VM MSI를 사용하여 Azure Key Vault 액세스"
 description: "Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fcce3b557b7105abcd704f740823c0cb4441b43
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-azure-key-vault"></a>Linux VM에서 MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows 가상 컴퓨터에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows 가상 컴퓨터에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다. 부트스트랩 역할을 하는 Key Vault를 사용하면 클라이언트 응용 프로그램에서 비밀을 사용하여 Azure AD(Active Directory)로 보호되지 않는 리소스에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
+
+다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Linux 가상 컴퓨터에서 MSI를 사용하도록 설정 
@@ -44,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **계산**을 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
-3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하여 VM에 로그인할 수 있습니다.
+3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -70,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Key Vault에 저장된 비밀 액세스 권한을 VM에 부여  
 
-코드는 MSI를 사용하여 Azure Active Directory 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. 그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. Azure AD 인증을 지원하지 않는 서비스에서 MSI를 사용하려는 경우 해당 서비스에 필요한 자격 증명을 Azure Key Vault에 저장하고 MSI를 사용하여 Key Vault에 인증해 자격 증명을 검색할 수 있습니다. 
+코드는 MSI를 사용하여 Azure Active Directory 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. 그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스와 함께 MSI를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 MSI를 사용하여 Key Vault에 액세스하여 자격 증명을 검색합니다. 
 
 먼저 Key Vault를 만들고 VM ID에 Key Vault 액세스 권한을 부여해야 합니다.   
 
@@ -87,14 +89,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음으로는 VM에서 실행되는 코드를 사용하여 나중에 비밀을 검색할 수 있도록 Key Vault에 암호를 추가합니다. 
 
-1. **모든 리소스**를 선택하고 방금 만든 Key Vault를 찾아서 선택합니다. 
+1. **모든 리소스**를 선택하고 만든 Key Vault를 찾아서 선택합니다. 
 2. **비밀**을 선택하고 **추가**를 클릭합니다. 
 3. **업로드 옵션**에서 **수동**을 선택합니다. 
 4. 비밀의 이름과 값을 입력합니다.  원하는 어떤 값이나 입력할 수 있습니다. 
 5. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능**은 **예**로 유지합니다. 
 6. **만들기**를 클릭하여 비밀을 만듭니다. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>VM ID를 사용하여 액세스 토큰을 가져온 다음 Key Vault에서 비밀을 검색하는 데 사용  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>VM ID를 사용하여 액세스 토큰을 가져온 다음 Key Vault에서 비밀을 검색하는 데 사용  
 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다.  Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다.   
  

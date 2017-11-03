@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다.
@@ -407,6 +407,93 @@ Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 | properties.LastScaleActionTime | 자동 크기 조정이 수행된 시간의 타임스탬프입니다. |
 | status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | 자동 크기 조정의 경우 대개 null입니다. |
+| eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
+| submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
+| subscriptionId |Azure 구독 ID입니다. |
+
+## <a name="security"></a>보안
+이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
+
+### <a name="sample-event"></a>샘플 이벤트
+```json
+{
+    "channels": "Operation",
+    "correlationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "description": "Suspicious double extension file executed. Machine logs indicate an execution of a process with a suspicious double extension.\r\nThis extension may trick users into thinking files are safe to be opened and might indicate the presence of malware on the system.",
+    "eventDataId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "eventName": {
+        "value": "Suspicious double extension file executed",
+        "localizedValue": "Suspicious double extension file executed"
+    },
+    "category": {
+        "value": "Security",
+        "localizedValue": "Security"
+    },
+    "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
+    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "level": "Informational",
+    "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "operationName": {
+        "value": "Microsoft.Security/locations/alerts/activate/action",
+        "localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Security",
+        "localizedValue": "Microsoft.Security"
+    },
+    "resourceType": {
+        "value": "Microsoft.Security/locations/alerts",
+        "localizedValue": "Microsoft.Security/locations/alerts"
+    },
+    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": null
+    },
+    "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
+    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "properties": {
+        "accountLogonId": "0x2r4",
+        "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "domainName": "hpc",
+        "parentProcess": "unknown",
+        "parentProcess id": "0",
+        "processId": "6988",
+        "processName": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "userName": "myUser",
+        "UserSID": "S-3-2-12",
+        "ActionTaken": "Detected",
+        "Severity": "High"
+    },
+    "relatedEvents": []
+}
+
+```
+
+### <a name="property-descriptions"></a>속성 설명
+| 요소 이름 | 설명 |
+| --- | --- |
+| channels | 항상 “Operation”입니다. |
+| CorrelationId | 문자열 형식의 GUID입니다. |
+| 설명 |보안 이벤트에 대한 정적 텍스트 설명입니다. |
+| eventDataId |보안 이벤트의 고유 식별자입니다. |
+| eventName |보안 이벤트의 이름입니다. |
+| id |보안 이벤트의 고유 리소스 식별자입니다. |
+| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 또는 “Verbose” 값 중 하나입니다. |
+| resourceGroupName |리소스의 리소스 그룹 이름입니다. |
+| resourceProviderName |Azure Security Center의 리소스 공급자 이름입니다. 항상 "Microsoft.Security"입니다. |
+| resourceType |보안 이벤트를 생성한 리소스 유형(예: "Microsoft.Security/locations/alerts")입니다. |
+| resourceId |보안 경고의 리소스 ID입니다. |
+| operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
+| operationName |작업의 이름입니다. |
+| properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. 이러한 속성은 보안 경고 유형에 따라 다릅니다. Security Center에서 제공되는 경고 유형에 대한 설명은 [이 페이지](../security-center/security-center-alerts-type.md)를 참조하세요. |
+| properties.Severity |심각도 수준입니다. 가능한 값은 "High", "Medium" 또는 "Low"입니다. |
+| status |작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus | 보안 이벤트의 경우 일반적으로 null입니다. |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |

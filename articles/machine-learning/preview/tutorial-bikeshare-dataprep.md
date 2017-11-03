@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>자전거 공유 자습서: Azure Machine Learning Workbench에서 고급 데이터 준비
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -210,7 +210,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
    ![열 제거 옵션의 이미지](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>데이터 형식 변경 및 오류 제거
-1. 열 헤더를 선택하면서 동시에 __Ctrl__ 키를 누르면 한 번에 여러 열을 선택할 수 있습니다. 이를 사용하여 다음 열 헤더를 선택합니다.
+1. 열 헤더를 선택한 상태에서 __Ctrl (Mac의 경우 Command ⌘)__을 누르면 동시에 여러 열을 선택할 수 있습니다. 이를 사용하여 다음 열 헤더를 선택합니다.
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -262,6 +262,9 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
    > [!NOTE]
    > Azure ML Workbench는 사용자가 제공하는 예제에 따라 프로그램을 합성하고 나머지 행에서 동일한 프로그램을 적용합니다. 다른 모든 행은 사용자가 제공한 예제에 따라 자동으로 채워집니다. 또한 Workbench는 데이터를 분석하고 에지 사례를 식별하려고 합니다. 
 
+   > [!IMPORTANT]
+   > 현재 버전의 Workbench에서는 Mac에서 에지 사례의 식별이 작동하지 않을 수 있습니다. Mac에서 아래의 __3단계__ 및 __4단계__를 건너뜁니다. 대신 모든 행에 파생값이 채워지면 __확인__을 누릅니다.
+   
 3. 그리드 위에 있는 **데이터 분석** 텍스트는 Workbench에서 에지 사례를 검색하고 있음을 나타냅니다. 작업을 완료하면 상태가 **다음 제안된 행 검토** 또는 **제안 없음**으로 변경됩니다. 이 예제에서 **다음 제안된 행 검토**가 반환됩니다.
 
 4. 제안된 변경 내용을 검토하려면 **다음 제안된 행 검토**를 선택합니다. (필요한 경우)검토하고 수정해야 하는 셀이 화면에서 강조 표시됩니다.
@@ -290,6 +293,12 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
    Workbench는 사용자가 입력한 예제에 따라 변환을 결정합니다. 이 예제에서 결과적으로 날짜 형식이 변경되고 두 시간 창과 연결됩니다.
 
    ![예제 '2015년 1월 1일 오전 12시~오전 2시의 이미지](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+
+   > [!IMPORTANT]
+   > Mac에서 아래의 __8단계__ 대신 다음 단계를 따릅니다.
+   >
+   > * `Feb 01, 2015 12AM-2AM`이 포함된 첫 번째 셀로 이동합니다. __행 15__입니다. 값을 `Jan 02, 2015 12AM-2AM`으로 수정하고 __Enter__를 누릅니다. 
+   
 
 8. 상태가 **데이터 분석**에서 **다음 제안된 행 검토**로 변경되기를 기다립니다. 이 작업은 몇 초 정도 걸릴 수 있습니다. 상태 링크를 선택하여 제안된 행으로 이동합니다. 
 
@@ -392,7 +401,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 1. **시작 스테이션 위도** 및 **시작 스테이션 경도** 열을 다중 선택합니다. 열 중 하나를 마우스 오른쪽 단추로 클릭한 다음 **맵**을 선택합니다.
 
     > [!TIP]
-    > 다중 선택을 사용하려면 __Ctrl__ 키를 누른 채 각 열의 헤더를 선택합니다.
+    > 다중 선택을 사용하려면 __Ctrl__ 키(Mac의 경우 Command ⌘)를 누른 채 각 열의 헤더를 선택합니다.
 
     ![맵 시각화의 이미지](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -506,6 +515,11 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
     ![예제 데이터의 이미지](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
+   > [!IMPORTANT]
+   > Mac에서 아래의 __3단계__ 대신 다음 단계를 따릅니다.
+   >
+   > * `Jan 01, 2017 1AM-2AM`이 포함된 첫 번째 셀로 이동합니다. __행 14__입니다. 값을 `Jan 01, 2017 12AM-2AM`으로 수정하고 __Enter__를 누릅니다. 
+
 3. 응용 프로그램이 모든 행에 대한 값을 계산할 때까지 기다립니다. 이 작업은 몇 초 정도 걸릴 수 있습니다. 분석이 완료되면 __다음 제안된 행 검토__ 링크를 사용하여 데이터를 검토합니다.
 
    ![검토 링크를 사용하여 완성된 분석의 이미지](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -557,7 +571,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
     ![기간 열의 이미지](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. **날짜 시간 범위** 및 **rDate 시간 범위** 열을 제거하려면 **Ctrl** 키를 누르고 각 열 헤더를 선택합니다. 마우스 오른쪽 단추로 클릭한 후 **열 삭제**를 선택합니다.
+3. **날짜 시간 범위** 및 **rDate 시간 범위** 열을 제거하려면 **Ctrl** 키(Mac에서 Command ⌘)를 누르고 각 열 헤더를 선택합니다. 마우스 오른쪽 단추로 클릭한 후 **열 삭제**를 선택합니다.
 
 ## <a name="read-data-from-python"></a>Python의 데이터를 읽기
 

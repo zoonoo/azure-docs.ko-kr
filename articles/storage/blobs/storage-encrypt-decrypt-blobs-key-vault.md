@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: a2a3a4773d33fe6b8589ad8d9d219acda4d1015e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
@@ -86,7 +86,7 @@ AppSettings를 App.Config에 추가합니다.
 </appSettings>
 ```
 
-다음 `using` 문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
+다음 `using` 지시문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

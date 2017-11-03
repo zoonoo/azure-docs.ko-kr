@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service Web App for Containers에 대한 SSH 지원 | Microsoft Docs"
-description: "Azure Web App for Containers에 SSH를 사용하는 경우에 대해 자세히 알아봅니다."
+title: "Linux의 Azure App Service에 대한 SSH 지원 | Microsoft Docs"
+description: "Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다."
 keywords: "azure app service, 웹앱, linux, oss"
 services: app-service
 documentationcenter: 
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="ssh-support-for-azure-web-app-for-containers"></a>Azure App Service Web App for Containers에 대한 SSH 지원
+# <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)는 네트워크 서비스를 안전하게 사용하기 위한 암호화 네트워크 프로토콜입니다. 이 방법은 명령줄에서 원격으로 안전하게 컴퓨터에 로그인하고 원격으로 관리 명령을 실행하는 데 가장 일반적으로 사용됩니다.
 
-Web App for Containers는 새 웹앱의 런타임 스택에 사용되는 각 기본 제공 Docker 이미지를 통해 앱 컨테이너에 SSH 지원을 제공합니다. 
+Linux의 App Service는 새 웹앱의 런타임 스택에 사용되는 기본 제공 Docker 이미지가 있는 앱 컨테이너에 SSH 지원을 제공합니다.
 
 ![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -45,18 +45,17 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
 
 ![SSH 연결](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
-
 ## <a name="ssh-support-with-custom-docker-images"></a>사용자 지정 Docker 이미지를 사용한 SSH 지원
 
 사용자 지정 Docker 이미지로 Azure Portal에서 컨테이너 및 클라이언트 간 SSH 통신을 지원하려면 Docker 이미지에 대해 다음 단계를 수행합니다.
 
-이러한 단계는 Azure App Service 리포지토리에 예제로 표시됩니다([여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3/) 참조).
+이 단계는 Azure App Service 리포지토리에 [예제](https://github.com/Azure-App-Service/node/blob/master/6.9.3/)로 나와 있습니다.
 
-1. 이미지에 대한 Dockerfile의 [`RUN` 명령](https://docs.docker.com/engine/reference/builder/#run)에 `openssh-server` 설치를 포함하고 루트 계정에 대한 암호를 `"Docker!"`로 설정합니다. 
+1. 이미지에 대한 Dockerfile의 [`RUN` 명령](https://docs.docker.com/engine/reference/builder/#run)에 `openssh-server` 설치를 포함하고 루트 계정에 대한 암호를 `"Docker!"`로 설정합니다.
 
     > [!NOTE]
     > 이 구성을 사용하면 컨테이너에 대한 외부 연결이 허용되지 않습니다. SSH는 게시 자격 증명을 사용하여 인증되는 Kudu/SCM 사이트를 통해서만 액세스할 수 있습니다.
-    
+
     ```docker
     # ------------------------
     # SSH Server support
@@ -66,13 +65,13 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
+1. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
 
     > [!NOTE]
     > *sshd_config* 파일에 다음이 포함되어야 하며 이러한 항목이 없으면 연결이 실패합니다. 
     > * `Ciphers`에는 다음 중 하나 이상이 포함되어야 합니다. `aes128-cbc,3des-cbc,aes256-cbc`
     > * `MACs`에는 다음 중 하나 이상이 포함되어야 합니다. `hmac-sha1,hmac-sha1-96`
-    
+
     ```docker
     COPY sshd_config /etc/ssh/
     ```
@@ -83,7 +82,7 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
     EXPOSE 2222 80
     ```
 
-1. ssh 서비스를 시작합니다. [여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)에 제공되는 예제는 */bin* 디렉터리의 셸 스크립트를 사용합니다.
+1. */bin* 디렉터리의 셸 스크립트를 사용하여 [ssh 서비스를 시작](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)해야 합니다.
 
     ```bash
     #!/bin/bash
@@ -104,7 +103,7 @@ Dockerfile은 [`CMD` 명령](https://docs.docker.com/engine/reference/builder/#c
 
 Web App for Containers에 대한 자세한 내용은 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Containers용 Azure Web App에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
-* [Azure Web App for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
-* [Azure Web App for Containers에서 Ruby 사용](quickstart-ruby.md)
+* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
+* [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)

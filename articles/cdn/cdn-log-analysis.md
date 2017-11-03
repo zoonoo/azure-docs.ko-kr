@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: v-semcev
-ms.openlocfilehash: af396e9f8847421d529c32956216cfc47294edb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04e5499011e72dfcc20dff370d5d837227ed29b6
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN 사용 패턴 분석
 
@@ -26,7 +26,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="verizon-core-reports"></a>Verizon 코어 보고서
 
-Verizon 표준 또는 Verizon 프리미엄 프로필을 사용하는 Azure CDN 사용자로써 Verizon 보조 포털에서 Verizon 코어 보고서를 볼 수 있습니다. Verizon 보조 포털은 다양한 그래프 및 보기를 제공하며 Azure Portal에서 **관리** 옵션을 통해 액세스할 수 있습니다. 자세한 내용은 [Verizon의 코어 보고서](cdn-analyze-usage-patterns.md)를 참조하세요.
+Verizon 표준 또는 Verizon 프리미엄 프로필을 사용하는 Azure CDN 사용자로써 Verizon 보조 포털에서 Verizon 코어 보고서를 볼 수 있습니다. Verizon 코어 보고서는 Azure Portal에서 **관리** 옵션을 통해 액세스할 수 있고 다양한 그래프 및 보기를 제공합니다. 자세한 내용은 [Verizon의 코어 보고서](cdn-analyze-usage-patterns.md)를 참조하세요.
+
+## <a name="verizon-custom-reports"></a>Verizon 사용자 지정 보고서
+
+Verizon 표준 또는 Verizon 프리미엄 프로필을 사용하는 Azure CDN 사용자는 Verizon 보조 포털에서 Verizon 사용자 지정 보고서를 볼 수 있습니다. Verizon 사용자 지정 보고서는 Azure Portal에서 **관리** 옵션을 통해 액세스할 수 있습니다. Verizon 사용자 지정 보고서 페이지는 Azure CDN 프로필에 속한 에지 CName 각각에 전송된 적중 또는 데이터의 수를 보여줍니다. 시간에 따라 데이터를 HTTP 응답 코드 또는 캐시 상태별로 그룹화할 수 있습니다. 자세한 내용은 [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)를 참조하세요.
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Azure 진단 로그를 통한 코어 분석
 

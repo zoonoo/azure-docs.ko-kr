@@ -1,6 +1,6 @@
 ---
 title: "최신 Azure 게스트 OS 릴리스에 대해 알아보기 | Microsoft Docs"
-description: "Azure  Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
+description: "Azure Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -106,7 +106,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
 
-.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -133,7 +133,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
 **Windows Server 2012**
 
-.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -160,7 +160,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
 
-.NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -203,7 +203,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="guest-os-release-information"></a>게스트 OS 릴리스 정보
 게스트 OS 릴리스에 있어서 중요한 날짜 세 개는 **릴리스** 날짜, **비활성화** 날짜 및 **만료** 날짜입니다. 포털에 있고 대상 게스트 OS로 선택할 수 있는 게스트 OS는 사용 가능한 것으로 간주됩니다. 게스트 OS가 **비활성화** 날짜에 도달하면 Azure에서 제거됩니다. 그러나 해당 게스트 OS를 대상으로 하는 모든 클라우드 서비스는 계속 정상적으로 작동합니다.
 
-**비활성화** 날짜와 **만료** 날짜 사이의 기간 동안 한 게스트 OS에서 다른 게스트 OS로 간편하게 전환할 수 있습니다. 게스트 OS로 *자동*을 사용하는 경우 항상 최신 버전이 유지되므로 만료에 대해 걱정할 필요가 없습니다.
+**비활성화** 날짜와 **만료** 날짜 사이의 기간 동안 한 게스트 OS에서 다른 게스트 OS로 간편하게 전환할 수 있습니다. 게스트 OS로 *자동* 을 사용하는 경우 항상 최신 버전이 유지되므로 만료에 대해 걱정할 필요가 없습니다.
 
 **만료** 날짜가 지났는데 여전히 해당 게스트 OS를 사용 중인 Cloud Service는 중지, 삭제 또는 강제 업그레이드됩니다. 사용 중지 정책에 대한 자세한 내용은 [여기][retirepolicy]서 확인할 수 있습니다.
 
@@ -228,7 +228,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 게스트 OS에 대한 구성에는 문자열에서 보여주는 MSRC 패치가 해당 릴리스에 대한 것으로 간주된 날짜와 함께 여기에 포함된 동일한 정보가 있습니다. 이 예에서는 Windows Server 2008 R2에 대한 MSRC 패치가 생성되며 2012년 8월포함이 고려되었습니다. 특히 해당 버전의 Windows Server에 적용되는 패치만 포함됩니다. 예를 들어 MSRC 패치가 Microsoft office에 적용되는 경우, 해당 제품이 Windows Server 기본 이미지의 일부가 아니므로 포함되지 않습니다.
 
 ## <a name="guest-os-system-update-process"></a>게스트 OS 시스템 업데이트 프로세스
-이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기 때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대한 모든 관련 MSRC 패치를 포함합니다.
+이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대한 모든 관련 MSRC 패치를 포함합니다.
 
 Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 제한 또는 시간 재부팅에 대한 계획을 설정하고 있습니다.
 

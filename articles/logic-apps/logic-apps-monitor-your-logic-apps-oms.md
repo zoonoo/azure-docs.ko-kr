@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>OMS(Operations Management Suite) 및 Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 정보 활용
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 논리 앱 실행에 관한 더 많은 정보를 포함한 요약을 보려면 **논리 앱 관리** 타일을 선택합니다.
 
-   여기에서 논리 앱 실행은 이름이나 실행 상태로 그룹화됩니다.
+   여기에서 논리 앱 실행은 이름이나 실행 상태로 그룹화됩니다. 논리 앱 실행에 대한 작업 또는 트리거의 오류에 대한 세부 정보도 볼 수 있습니다.
 
    ![논리 앱 실행에 대한 상태 요약](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -107,8 +107,16 @@ ms.lasthandoff: 10/11/2017
 
    ![논리 앱 또는 상태에 대한 실행 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   > [!NOTE]
-   > **다시 제출** 열은 다시 제출된 실행에서 발생한 실행에 대해 “예”를 표시합니다.
+   이 페이지에는 두 가지 고급 옵션이 있습니다.
+   * **추적된 속성:** 이 열에서는 논리 앱에 대해 작업별로 그룹화되어 추적된 속성을 보여 줍니다. 추적된 속성을 보려면 **보기**를 선택합니다. 열 필터를 사용하여 추적된 속성을 검색할 수 있습니다.
+   
+     ![논리 앱에 대해 추적된 속성 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     추적된 속성이 새로 추가되어 처음으로 표시되는 데 10-15분 정도 걸릴 수 있습니다. [논리 앱에 추적된 속성을 추가하는 방법](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)을 알아보세요.
+
+   * **다시 제출:** 실패했거나 성공했거나 계속 실행 중인 하나 이상의 논리 앱 실행을 다시 제출할 수 있습니다. 다시 제출하려는 실행에 대한 확인란을 선택하고 **다시 제출**을 선택합니다. 
+
+     ![논리 앱 실행 다시 제출](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 4. 이러한 결과를 필터링하기 위해 클라이언트와 서버 쪽 필터링을 모두 수행할 수 있습니다.
 
@@ -122,14 +130,23 @@ ms.lasthandoff: 10/11/2017
    
      ![시간 변경 창](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. 특정 실행에 대한 모든 작업 및 세부 정보를 보려면 행을 선택하여 로그 검색 페이지를 엽니다. 
+5. 특정 실행에 대한 모든 작업 및 관련 세부 정보를 보려면 해당 논리 앱 실행에 대한 행을 선택합니다.
 
-   * 이 정보를 테이블로 보려면 **테이블**을 선택합니다.
+   다음은 특정 논리 앱 실행에 대한 모든 작업을 보여 주는 예입니다.
+
+   ![논리 앱 실행에 대한 작업 보기](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+   
+6. 결과 페이지에서 결과 뒤에 있는 쿼리를 보거나 모든 결과를 보려면 [로그 검색] 페이지가 열리는 **모든 참조**를 선택합니다.
+   
+   ![결과에 대한 모든 참조 페이지](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   
+   [로그 검색] 페이지에서 다음을 수행합니다.
+   * 테이블에서 조회 결과를 보려면 **테이블**을 선택합니다.
    * 검색 창에서 쿼리 문자열을 편집하여 쿼리를 변경할 수 있습니다. 
    향상된 경험을 위해 **고급 분석**을 선택합니다.
 
      ![논리 앱 실행에 대한 작업 및 세부 정보 보기](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
+     
      여기 Azure Log Analytics 페이지에서 쿼리를 업데이트하고 테이블의 결과를 볼 수 있습니다. 
      이 쿼리는 [Kusto 쿼리 언어](https://docs.loganalytics.io/docs/Language-Reference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다. 
 
@@ -138,3 +155,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [B2B 메시지 모니터링](../logic-apps/logic-apps-monitor-b2b-message.md)
+

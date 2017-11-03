@@ -1,11 +1,11 @@
 ---
-title: "Azure Web App for Containers 소개 | Microsoft Docs"
-description: "Azure Web App for Containers에 대해 알아봅니다."
+title: "Linux의 App Service 소개 | Microsoft Docs"
+description: "Linux의 Azure App Service에 대해 알아봅니다."
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -16,23 +16,26 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: bdfaf0cd7d4bb44b877a9f14891e540fd789b6c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-web-app-for-containers"></a>Azure Web App for Containers 소개
+# <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
-[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Web App for Containers를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
+[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
 
 ## <a name="languages"></a>언어
 
-|Node.js|PHP|.NET Core|루비|
-|:------------------:|:---:|:---------:|:----:|
-|4.4, 4.5|5.6|1.0-1.1|2.3|
-|6.2, 6.6, 6.9-6.11|7.0|||
-|8.0-8.1||||
+Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 응용 프로그램에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
+
+| 언어 | 지원되는 버전 |
+|---|---|
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| PHP | 5.6, 7.0 |
+| .NET Core | 1.0, 1.1 |
+| 루비 | 2.3 |
 
 ## <a name="deployments"></a>배포
 
@@ -67,7 +70,7 @@ Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능�
 
 가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 아직 사용할 수 없습니다. 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-Web App for Containers는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Web App for Containers에 대한 중요한 제한 사항입니다.
+Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 다음은 Linux의 App Service에 대한 중요한 제한 사항입니다.
 
 * 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
 * 비 Linux Web Apps을 포함하는 리소스 그룹에 Web App for Containers를 만드는 경우 기존 App Service 계획과 다른 지역에 App Service 계획을 만들어야 합니다.
@@ -87,13 +90,13 @@ Web App for Containers는 [기본 및 표준](https://azure.microsoft.com/pricin
 
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
-* [Containers용 Azure Web App에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
-* [Azure App Service Web App for Containers에서 .NET Core 사용](quickstart-dotnetcore.md)
-* [Azure App Service Web App for Containers에서 Ruby 사용](quickstart-ruby.md)
+* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-custom-docker-image.md)
+* [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
+* [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
 * [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
-* [Azure App Service Web App for Containers에 대한 SSH 지원](app-service-linux-ssh-support.md)
+* [Linux의 Azure App Service에 대한 SSH 지원](app-service-linux-ssh-support.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Azure Web App for Containers를 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
+* [Web App for Containers를 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

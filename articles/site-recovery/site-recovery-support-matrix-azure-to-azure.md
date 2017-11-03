@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -145,8 +145,8 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
-최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
-최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 OS 디스크 크기 | 2048GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 데이터 디스크 크기 | 4,095GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
 임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)를 참조하세요.
 디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.

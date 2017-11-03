@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: billmath
-ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/119/2017
+ms.author: barclayn
+ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 커넥터 기술 참조
 이 문서에서는 Lotus Domino 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -39,7 +39,7 @@ Lotus Domino 커넥터를 사용하면 IBM Lotus Domino 서버를 통해 동기�
 | 연결된 데이터 원본 |서버:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | 시나리오 |<li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li> |
 | 작업 |<li>전체 및 델타 가져오기</li><li>내보내기</li><li>HTTP 암호에 대한 암호 설정 및 변경</li> |
-| 스키마 |<li>사람(로밍 사용자, 연락처(인증서가 없는 사람))</li><li>그룹</li><li>리소스(리소스, 회의실, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li> |
+| 스키마 |<li>사람(로밍 사용자, 연락처(인증서가 없는 사람))</li><li>그룹</li><li>리소스(리소스, 회의실, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li><li>조직 및 OU(조직 구성 단위)로 최대 250개의 사용자 지정 인증자 지원</li> |
 
 Lotus Domino 커넥터는 Lotus Notes 클라이언트를 사용하여 Lotus Domino 서버와 통신합니다. 이 종속성의 결과로 지원되는 Lotus Notes 클라이언트는 동기화 서버에 설치되어야 합니다. 클라이언트와 서버 간의 통신은 Lotus Notes .NET Interop(Interop.domino.dll) 인터페이스를 통해 구현됩니다. 이 인터페이스는 Microsoft.NET 플랫폼과 Lotus Notes 클라이언트 간의 통신을 용이하게 하고 Lotus Domino 문서 및 뷰에 대한 액세스를 지원합니다. 또한 델타 가져오기의 경우(선택한 델타 가져오기 방법에 따라) c++ 네이티브 인터페이스를 사용할 수 있습니다.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="type-of-azure-virtual-network"></a>Azure 가상 네트워크 유형
 * **Resource Manager 가상 네트워크**: Azure AD Domain Services는 Azure Resource Manager를 사용하여 만든 가상 네트워크에서 활성화될 수 있습니다.
-* 클래식 Azure 가상 네트워크에서 Azure AD 도메인 서비스를 활성화할 수 있습니다. 그러나 클래식 가상 네트워크에 대한 지원은 곧 중단될 예정입니다. 새로 만든 관리되는 도메인에 Resource Manager 가상 네트워크를 사용하는 것이 좋습니다.
+* 클래식 Azure Virtual Network에서 Azure AD Domain Services를 활성화할 수 없습니다.
 * 다른 가상 네트워크를 Azure AD Domain Services가 활성화된 가상 네트워크에 연결할 수 있습니다. 자세한 내용은 [네트워크 연결](active-directory-ds-networking.md#network-connectivity) 섹션을 참조하세요.
 * **지역 가상 네트워크**: 기존 가상 네트워크를 사용할 계획인 경우 해당 네트워크가 지역 가상 네트워크인지 확인합니다.
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 ![권장되는 서브넷 디자인](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="best-practices-for-choosing-a-subnet"></a>서브넷을 선택하기 위한 모범 사례
+### <a name="guidelines-for-choosing-a-subnet"></a>서브넷 선택 지침
 * **Azure 가상 네트워크 내 별도 전용 서브넷**에 Azure AD Domain Services를 배포합니다.
 * 관리되는 도메인 전용 서브넷에는 NSG를 적용하지 않습니다. 전용 서브넷에 NSG를 적용해야 하는 경우 **도메인을 서비스하고 관리하는 데 필요한 포트를 차단하지 마십시오**.
 * 관리되는 도메인의 전용 서브넷에서 사용할 수 있는 IP 주소의 수를 지나치게 제한하지 않습니다. 이 제한으로 인해 서비스에서 두 도메인 컨트롤러를 관리되는 도메인에 사용할 수 없게 됩니다.
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 
 관리되는 도메인에서 원격으로 PowerShell을 사용하여 관리 작업을 수행하는 데 포트 5986을 사용합니다. 관리되는 도메인의 도메인 컨트롤러는 일반적으로 이 포트에서 수신하지 않습니다. 서비스는 관리 또는 유지 관리 작업을 관리되는 도메인에서 수행해야 하는 경우에만 관리되는 도메인 컨트롤러에서 이 포트를 엽니다. 작업이 완료되는 즉시 서비스는 관리되는 도메인 컨트롤러에서 이 포트를 종료합니다.
 
-관리되는 도메인에 대한 원격 데스크톱 연결에 포트 3389를 사용합니다. 이 포트도 관리되는 도메인에서 주로 꺼진 상태로 유지됩니다. 이 서비스를 사용하면 문제를 해결하기 위해 관리되는 도메인에 연결해야 하는 경우에만 이 포트를 사용할 수 있으며 일반적으로 시작한 서비스 요청에 대한 응답으로 시작됩니다. 원격으로 PowerShell을 사용하여 관리 및 모니터링 작업을 수행하므로 이 메커니즘은 지속적으로 사용되지 않습니다. 이 포트는 고급 문제 해결을 위해 관리되는 도메인에 원격으로 연결해야 하는 드문 경우에만 사용됩니다. 문제 해결 작업이 완료되는 즉시 포트가 닫힙니다.
+관리되는 도메인에 대한 원격 데스크톱 연결에 포트 3389를 사용합니다. 이 포트도 관리되는 도메인에서 주로 꺼진 상태로 유지됩니다. 이 서비스를 사용하면 문제를 해결하기 위해 관리되는 도메인에 연결해야 하는 경우에만 이 포트를 사용할 수 있으며 시작한 서비스 요청에 대한 응답으로 시작됩니다. 원격으로 PowerShell을 사용하여 관리 및 모니터링 작업을 수행하므로 이 메커니즘은 지속적으로 사용되지 않습니다. 이 포트는 고급 문제 해결을 위해 관리되는 도메인에 원격으로 연결해야 하는 드문 경우에만 사용됩니다. 문제 해결 작업이 완료되는 즉시 포트가 닫힙니다.
 
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Azure AD Domain Services를 사용하는 가상 네트워크에 대한 샘플 NSG

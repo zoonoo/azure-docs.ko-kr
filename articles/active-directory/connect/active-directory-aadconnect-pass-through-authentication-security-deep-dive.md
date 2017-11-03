@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -91,6 +91,8 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반 정보는 [보�
 4. Azure AD는 등록 요청에서 액세스 토큰의 유효성을 검사하고 요청이 전역 관리자로부터 온 것인지 확인합니다.
 5. Azure AD는 다시 인증 에이전트로 디지털 ID 인증서를 서명하여 발급합니다.
     - 인증서는 **Azure AD의 루트 CA(인증 기관)**를 사용하여 서명됩니다. 이 CA는 Windows의 **신뢰할 수 있는 루트 인증 기관** 저장소에 _없습니다_.
+    - 이 CA는 통과 인증 기능에서만 사용됩니다. 인증 에이전트를 등록하는 동안 CSR 서명에 대해 사용됩니다.
+    - 이 CA는 Azure AD의 다른 서비스에서 사용되지 않습니다.
     - 인증서의 제목(**고유 이름 또는 DN**)은 **테넌트 ID**로 설정됩니다. 테넌트를 고유하게 식별하는 GUID입니다. 이렇게 하면 인증서를 테넌트에만 사용하도록 범위가 지정됩니다.
 6. Azure AD는 인증 에이전트의 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL Database에 저장합니다.
 7. 5단계에서 발행한 인증서는 **Windows 인증서 저장소**(특히 **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)** 위치)의 온-프레미스 서버에 저장되며 인증 에이전트 및 업데이트 프로그램 응용 프로그램 모두에 사용됩니다.
@@ -133,6 +135,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대한 일반 정보는 [보�
 9. 인증 에이전트는 ID를 사용하여 공개 키에 고유한 암호화된 암호 값을 찾고 개인 키를 사용하여 암호 해독합니다.
 10. 인증 에이전트는 **[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)**(**dwLogonType** 매개 변수를 **LOGON32_LOGON_NETWORK**로 설정)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성 검사를 시도합니다. 
     - 이는 페더레이션 로그인 시나리오에서 사용자 로그인을 위해 AD FS(Active Directory Federation Service)에서 사용한 API와 동일합니다.
+    - 도메인 컨트롤러를 찾으려는 Windows Server의 표준 확인 프로세스를 사용합니다.
 11. 인증 에이전트는 Active Directory에서 결과를 받습니다(성공, 사용자 이름 또는 암호 불일치, 암호 만료, 사용자 잠김 등).
 12. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증에서는 등록하는 동안 이전에 인증 에이전트에 발급된 것과 동일한 인증서를 사용합니다.
 13. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.

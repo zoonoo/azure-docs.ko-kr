@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -29,10 +29,9 @@ ms.lasthandoff: 10/11/2017
 - [자격 증명이 손실된 사용자](#leaked-credentials) 
 - [익명 IP 주소에서 로그인](#sign-ins-from-anonymous-ip-addresses) 
 - [비정상적 위치로 불가능한 이동](#impossible-travel-to-atypical-locations) 
-- [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations)
 - [감염된 장치에서 로그인](#sign-ins-from-infected-devices) 
 - [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations)(**Azure Active Directory Premium P2** 버전 전용)
 
 ![위험 이벤트](./media/active-directory-reporting-risk-events/91.png)
 

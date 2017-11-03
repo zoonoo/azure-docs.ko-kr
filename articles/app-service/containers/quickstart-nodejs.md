@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Linux 컨테이너에서 Node.js 웹앱 만들기 | Microsoft Docs"
-description: "몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다."
+title: "Linux의 Azure App Service에서 Node.js 만들기 | Microsoft Docs"
+description: "몇 분 안에 Linux의 Azure App Service에서 첫 번째 Node.js Hello World를 배포합니다."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 571ae5eabae93cf0a7fa98110f8329eac1a74b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5346e9d872f852502890d4bd2868b5343e0045c8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서 Node.js 웹앱 만들기 
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 웹앱 만들기
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Node.js 앱을 컨테이너용 Azure Web App에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 Node.js 코드를 배포합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작은 기본 제공 이미지를 사용하여 Linux의 App Service에 Node.js 앱을 배포하는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 기본 제공 이미지로 웹앱을 만들고 Git을 사용하여 웹앱에 Node.js 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -78,11 +78,11 @@ npm start
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>웹앱 만들기
+## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
 
-사이트로 이동하여 새로 만든 웹앱을 봅니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,11 +134,11 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
+Node.js 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**축하합니다.** App Service에 첫 번째 Node.js 앱을 배포했습니다.
+**축하합니다.** Linux의 App Service에 첫 번째 Node.js 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 

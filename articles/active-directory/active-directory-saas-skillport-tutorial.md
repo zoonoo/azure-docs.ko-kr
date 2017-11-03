@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>자습서: Skillport와 Azure Active Directory 통합
 
@@ -110,20 +110,23 @@ Skillport에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 URL을 입력합니다.
       
-      EU 데이터 센터: `https://<subdomain>.skillport.eu`
+      EU 데이터 센터: `https://adfs.skillport.eu`
    
-      미국 데이터 센터: `https://<subdomain>.skillport.com`
-   
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
-    
-      EU 데이터 센터: `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      미국 데이터 센터: `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      미국 데이터 센터: `https://sso.skillport.com`
 
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Skillport 클라이언트 지원 팀](https://www.skillsoft.com/contact.asp)에 문의하세요.
+    b. **식별자** 텍스트 상자에 URL을 입력합니다.
+      
+      EU 데이터 센터: `http://adfs.skillport.eu/adfs/services/trust`
+   
+      미국 데이터 센터: `https://sso.skillport.com`
+   
+    c. **회신 URL** 텍스트 상자에 URL을 입력합니다.
+    
+      EU 데이터 센터: ` https://adfs.skillport.eu/adfs/ls/`
+    
+      미국 데이터 센터: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 

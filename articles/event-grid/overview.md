@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -25,8 +25,6 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
 
 ![Event Grid 기능 모델](./media/overview/event-grid-functional-model.png)
-
-현재, Blob Storage는 게시자로 공개적으로 사용할 수 없습니다. Storage Blob 이벤트에 응답하려면 미리 보기 릴리스에 등록해야 합니다. 자세한 내용은 [Blob 저장 이벤트를 사용자 지정 웹 끝점으로 라우팅(미리 보기)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)을 참조하세요.
 
 ## <a name="concepts"></a>개념
 
@@ -64,6 +62,7 @@ Azure는 게시자 및 처리기를 모두 포함한 다양한 서비스를 사�
 * 리소스 그룹(관리 작업)
 * Azure 구독(관리 작업)
 * Event Hubs
+* 저장소 Blob
 * 사용자 지정 토픽
 
 올해 다른 Azure 서비스가 추가될 예정입니다.
@@ -118,6 +117,8 @@ Event Grid의 비용은 백만 작업당 $0.60(미리 보기 중 $0.30)이며, �
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Storage Blob 이벤트 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Event Grid를 사용하여 Storage Blob 이벤트에 응답합니다.
 * [사용자 지정 이벤트 만들기 및 구독](custom-event-quickstart.md)  
   Azure Event Grid 빠른 시작을 사용하여 사용자 지정 이벤트를 끝점으로 보내는 방법을 확인할 수 있습니다.
 * [Logic Apps를 이벤트 처리기로 사용](monitor-virtual-machine-changes-event-grid-logic-app.md)  

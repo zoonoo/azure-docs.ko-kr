@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-System Center DPM 백업 파일 및 애플리케이션 데이터 DPM에 백업된 데이터는 테이프나 디스크에 저장하거나 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다. DPM 은 Azure 백업과 다음과 같이 상호작용합니다.
+[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview)는 파일 및 응용 프로그램 데이터를 백업합니다. 지원되는 워크로드에 대한 자세한 정보는 [여기](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix)에서 찾을 수 있습니다. DPM에 백업된 데이터는 테이프나 디스크에 저장하거나 Microsoft Azure Backup을 사용하여 Azure에 백업할 수 있습니다. DPM 은 Azure 백업과 다음과 같이 상호작용합니다.
 
 * **물리적 서버 또는 온-프레미스 가상 컴퓨터로 배포하는 DPM** — DPM을 물리적 서버 또는 온-프레미스 Hyper-V 가상 컴퓨터로 배포하는 경우, 디스크나 테이프 백업에 더해 데이터를 복구 서비스 자격 증명 모음에 백업할 수 있습니다.
 * **Azure 가상 컴퓨터로 배포하는 DPM** — System Center 2012 R2 업데이트 3부터 DPM을 Azure 가상 컴퓨터로 배포할 수 있습니다. DPM을 Azure 가상 컴퓨터로 배포하는 경우, 데이터를 DPM Azure 가상 컴퓨터에 연결된 Azure 디스크에 백업하거나 데이터 저장소를 복구 서비스 자격 증명 모음에 백업하여 오프로드할 수 있습니다.
@@ -60,6 +60,15 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 2. **보관 자격 증명 다운로드** - DPM 서버를 복구 서비스 자격 증명 모음에 등록하는 데 사용하는 자격 증명을 다운로드합니다.
 3. **Azure 백업 에이전트 설치** - Azure 백업에서 각 DPM 서버에 에이전트를 설치합니다.
 4. **서버 등록** - 복구 서비스 자격 증명 모음에 DPM 서버를 등록합니다.
+
+## <a name="key-definitions"></a>주요 정의
+DPM용 Azure에서 백업에 대한 몇 가지 주요 정의는 다음과 같습니다.
+
+1. **자격 증명 모음** — 자격 증명 모음은 Azure Backup 서비스의 식별된 자격 증명 모음에 백업 데이터를 보내도록 컴퓨터를 인증하는 데 필요합니다. 자격 증명 모음에서 다운로드할 수 있고 48시간 동안 유효합니다.
+2. **암호** - 암호는 클라우드에 대한 백업을 암호화하는 데 사용됩니다. 이 파일은 복구 작업에 필요하므로 안전한 위치에 저장하십시오.
+3. **보안 PIN** - 자격 증명 모음의 [보안 설정](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature)을 사용하는 경우 보안 PIN은 중요한 백업 작업을 수행하는 데 필요합니다. Multi-Factor Authentication은 다른 보안 계층을 추가합니다. 
+4. **복구 폴더** - 클라우드의 백업이 클라우드 복구 중에 일시적으로 다운로드되는 구입니다. 해당 크기는 병렬로 복구하려는 백업 항목의 크기와 동일해야 합니다.
+
 
 ### <a name="1-create-a-recovery-services-vault"></a>1. 복구 서비스 자격 증명 모음 만들기
 복구 서비스 자격 증명 모음을 만들려면:

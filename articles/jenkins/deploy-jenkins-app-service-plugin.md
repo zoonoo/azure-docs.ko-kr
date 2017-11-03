@@ -15,24 +15,25 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 778fe746f1e8dff1d1c80b6ba7d8f10cc2bfacee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
+
 Azure에 Java 웹앱을 배포하려면 [Jenkins 파이프라인](/azure/jenkins/execute-cli-jenkins-pipeline)의 Azure CLI를 사용하거나 [Azure App Service Jenkins 플러그 인](https://plugins.jenkins.io/azure-app-service)을 사용할 수 있습니다. Jenkins 플러그 인 버전 1.0은 다음을 통해 Azure App Service의 Web Apps 기능을 사용하여 지속적인 배포를 지원합니다.
 * Git 및 FTP.
 * Linux의 Web Apps용 Docker.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Git 및 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성. 
-> * 컨테이너용 Web Apps를 배포하도록 Jenkins 구성. 
-
+> * Git 및 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성.
+> * Web App for Containers를 배포하도록 Jenkins 구성.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Jenkins 인스턴스 만들기 및 구성
+
 Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음 필수 Jenkins 플러그 인이 포함된 [솔루션 템플릿](install-jenkins-solution-template.md)으로 시작합니다.
 
 * [Jenkins Git 클라이언트 플러그 인](https://plugins.jenkins.io/git-client) 버전 2.4.6 
@@ -51,7 +52,7 @@ sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-컨테이너용 Web Apps에 배포하려면 Jenkins 마스터 또는 빌드에 사용되는 VM 에이전트에 Docker를 설치하십시오. 지침은 [Ubuntu에 Docker 설치](https://docs.docker.com/engine/installation/linux/ubuntu/)를 참조하세요.
+Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사용되는 VM 에이전트에 Docker를 설치합니다. 지침은 [Ubuntu에 Docker 설치](https://docs.docker.com/engine/installation/linux/ubuntu/)를 참조하세요.
 
 ##<a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
 
@@ -128,7 +129,7 @@ Azure App Service Jenkins 플러그 인은 파이프 라인을 지원합니다. 
 6. **스크립트 경로** 값을 **Jenkinsfile_ftp_plugin**으로 업데이트합니다.
 7. **저장**을 선택하고 작업을 실행합니다.
 
-## <a name="configure-jenkins-to-deploy-web-apps-for-containers"></a>컨테이너용 Web Apps를 배포하도록 Jenkins 구성
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Web App for Containers를 배포하도록 Jenkins 구성
 
 Linux의 Web Apps는 Docker를 사용하여 배포를 지원합니다. Docker를 사용하여 웹앱을 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화하는 Dockerfile을 제공해야 합니다. 그러면 Jenkins 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
@@ -168,7 +169,7 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 12. 파일 업로드 방법과 비슷한 방법으로, **프로덕션** 이외의 다른 **슬롯** 이름을 선택할 수 있습니다.
 13. 프로젝트를 만들고 빌드합니다. 컨테이너 이미지가 레지스트리로 푸시되고 웹앱이 배포됩니다.
 
-### <a name="deploy-web-apps-for-containers-by-using-jenkins-pipeline"></a>Jenkins 파이프라인을 사용하여 컨테이너용 Web Apps 배포
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Jenkins 파이프라인을 사용하여 Web App for Containers 배포
 
 1. GitHub 인터페이스에서 **Jenkinsfile_container_plugin** 파일을 엽니다. 파일을 편집하려면 연필 아이콘을 선택합니다. 줄 11 및 12에서 각각 웹앱에 대한 **resourceGroup** 및 **webAppName** 정의를 업데이트합니다.
     ```java
@@ -176,15 +177,15 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
     def webAppName = '<myAppName>'
     ```
 
-2. 줄 13을 컨테이너 레지스트리 서버로 변경합니다.   
+2. 줄 13을 컨테이너 레지스트리 서버로 변경합니다.
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. 줄 16을 Jenkins 인스턴스의 자격 증명 ID를 사용하도록 변경합니다.  
+3. 줄 16을 Jenkins 인스턴스의 자격 증명 ID를 사용하도록 변경합니다.
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### <a name="create-a-jenkins-pipeline"></a>Jenkins 파이프라인 만들기    
 
@@ -234,4 +235,4 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
 
 > [!div class="checklist"]
 > * FTP를 통해 Azure App Service를 배포하도록 Jenkins 구성 
-> * 컨테이너용 Web Apps에 배포하도록 Jenkins 구성 
+> * Web App for Containers에 배포하도록 Jenkins 구성 

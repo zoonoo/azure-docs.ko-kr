@@ -1,6 +1,6 @@
 ---
 title: "다중 테넌트 SaaS 응용 프로그램 및 Azure SQL Database에 대한 디자인 패턴 | Microsoft Docs"
-description: "이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 데이터베이스 응용 프로그램에 대해 고려해야 하는 요구 사항과 일반적인 데이터 아키텍처 패턴을 설명하고 이러한 패턴과 관련된 다양한 장단점을 설명합니다. 그리고 Azure SQL Database가 탄력적 풀 및 탄력적 도구를 통해 다른 기능도 동일하게 제공하면서 이러한 요구 사항의 처리를 지원하는 방법도 설명합니다."
+description: "클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure SQL Database에 대한 디자인 패턴
 이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다. 또한 고려해야 하는 요인 및 서로 다른 디자인 패턴의 장단점도 설명합니다. Azure SQL Database의 탄력적 풀 및 탄력적 도구를 사용하면 다른 목표도 달성하면서 특정 요구 사항을 충족할 수 있습니다.

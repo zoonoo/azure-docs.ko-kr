@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: sethm
-ms.openlocfilehash: 2c509b56282ace92e536dc85f1a28f83a4701940
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Azure Service Bus 지리적 재해 복구(미리 보기)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/12/2017
 
 [서비스 버스 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례](service-bus-outages-disasters.md) 문서에서는 "중단" 및 "재해"를 이해하기 쉽게 구분하고 있습니다. 이러한 구분은 매우 중요합니다. *중단*은 Azure Service Bus를 일시적으로 사용할 수 없는 것으로, 메시징 저장소와 같은 서비스의 일부 구성 요소나 전체 데이터 센터에 영향을 줄 수 있습니다. 그렇지만 문제가 해결되면 Service Bus가 다시 사용할 수 있는 상태가 됩니다. 일반적으로 중단으로 인해 메시지나 기타 데이터가 손실되지는 않습니다. 이러한 중단의 예로 데이터 센터의 전원 장애를 들 수 있습니다.
 
-*재해*란 Service Bus [배율 단위](service-bus-architecture.md#service-bus-scale-units) 또는 데이터 센터의 영구적인 손실을 의미합니다. 데이터 센터는 다시 사용할 수 있게 될 수도, 그렇지 않을 수도 있고 몇 시간 또는 며칠 동안 다운될 수도 있습니다. 일반적으로 재해가 발생하면 메시지나 기타 데이터의 일부 또는 전체를 잃게 됩니다. 재해의 예로는 화재, 홍수 또는 지진이 있습니다.
+*재해*란 Service Bus [확장 단위](service-bus-architecture.md#service-bus-scale-units) 또는 데이터센터의 영구적이거나 장기적인 손실을 의미합니다. 데이터 센터는 다시 사용할 수 있게 될 수도, 그렇지 않을 수도 있고 몇 시간 또는 며칠 동안 다운될 수도 있습니다. 재해의 예로는 화재, 홍수 또는 지진이 있습니다. 영구적 재해는 일부 메시지 또는 기타 데이터의 손실을 유발할 수 있습니다. 그러나 대부분의 경우에는 데이터 손실이 없으며 메시지는 데이터 센터를 백업하면 복구할 수 있습니다.
 
 Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션입니다. 이 문서에 설명된 개념 및 워크플로는 재해 시나리오에 적용되며 일시적이거나 임시적인 중단이 아닙니다.  
 
@@ -45,7 +45,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 -  *메타데이터*: Azure Service Bus의 개체를 나타내는 것입니다. 현재 메타데이터만 지원합니다.
 
--  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다. 다시 사용할 수 있는 상태가 되면 이전의 주 네임스페이스에서 메시지를 끌어온 다음 네임스페이스를 삭제해야 합니다. 다른 장애 조치(Failover)를 만들려면 새 보조 네임스페이스를 페어링에 추가합니다.
+-  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다. 다시 사용할 수 있는 상태가 되면 이전의 주 네임스페이스에서 메시지를 끌어온 다음 네임스페이스를 삭제해야 합니다. 다른 장애 조치(Failover)를 만들려면 새 보조 네임스페이스를 페어링에 추가합니다. 장애 조치 후 이전 기본 네임스페이스를 다시 사용하려는 경우 먼저 네임스페이스에서 모든 기존 엔터티를 제거해야 합니다. 이렇게 하기 전에 모든 메시지를 반드시 수신해야 합니다.
 
 ## <a name="failover-workflow"></a>장애 조치 워크플로
 

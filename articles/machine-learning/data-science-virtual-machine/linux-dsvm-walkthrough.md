@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 0decb8918a544114316569720aa5deede692d5f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 가상 컴퓨터를 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 가상 컴퓨터)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 컴퓨터 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 가상 컴퓨터 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -32,7 +32,8 @@ Linux 데이터 과학 가상 컴퓨터를 사용하려면 먼저 다음이 있�
 
 * **Azure 구독**. 아직 없을 경우 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 * [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* [X2Go](http://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요. 
+* [X2Go](http://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
+* 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 집합 다운로드

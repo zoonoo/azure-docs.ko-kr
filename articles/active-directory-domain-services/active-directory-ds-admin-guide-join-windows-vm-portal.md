@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
-> [!div class="op_single_selector"]
-> * [Azure Portal - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 컴퓨터를 배포하는 방법을 보여줍니다. 그런 다음 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여줍니다.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>1단계: Windows Server 가상 컴퓨터 만들기
@@ -57,7 +49,7 @@ Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에
 
     > [!TIP]
     > **적합한 가상 네트워크 및 서브넷을 선택합니다.**
-    > 관리되는 도메인을 배포한 가상 네트워크 또는 가상 네트워크 피어링을 사용하여 연결된 가상 네트워크 중 하나를 선택합니다. 다른 가상 네트워크를 선택하는 경우 관리되는 도메인에 가상 네트워크를 연결할 수 없습니다.
+    > 관리되는 도메인을 배포한 가상 네트워크 또는 가상 네트워크 피어링을 사용하여 연결된 가상 네트워크 중 하나를 선택합니다. 연결되지 않은 가상 네트워크를 선택하면 관리되는 도메인에 가상 컴퓨터를 조인할 수 없습니다.
     > 관리되는 도메인을 전용 서브넷에 배포하는 것이 좋습니다. 따라서 관리되는 도메인을 활성화한 서브넷을 선택하지 않습니다.
 
 7. **구매** 페이지에서 설정을 검토하고 **확인**을 클릭하여 가상 컴퓨터를 배포할 수 있습니다.
@@ -128,7 +120,7 @@ Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려
 자격 증명을 사용하는 데 문제가 있고 도메인에 가입할 수 없는 경우 다음 단계를 참조하세요.
 
 * UPN 형식을 사용하여 자격 증명을 지정해 봅니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 지나치게 긴 경우 사용자 계정에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 사용자 계정에 대한 SAMAccountName 형식은 온-프레미스 도메인에서 사용하거나 예상하는 것과 다를 수 있습니다.
-* 'AAD DC 관리자' 그룹에 속한 사용자 계정의 자격 증명을 사용하여 컴퓨터를 관리되는 도메인에 가입해 봅니다.
+* 'AAD DC 관리자' 그룹에 속한 사용자 계정의 자격 증명을 사용해 봅니다.
 * 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md) 했는지 확인합니다.
 * 로그인하려면 Azure AD에 구성된 대로 사용자의 UPN(예: 'bob@domainservicespreview.onmicrosoft.com')을 사용해야 합니다.
 * 시작 가이드에 지정된 대로 암호 동기화가 완료될 때까지 충분히 기다려야 합니다.

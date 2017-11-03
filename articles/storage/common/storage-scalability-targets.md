@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 저장소 확장성 및 성능 목표
 ## <a name="overview"></a>개요
@@ -36,8 +36,27 @@ ms.lasthandoff: 10/11/2017
 
 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Blob, 큐, 테이블 및 파일에 대한 확장성 목표
+## <a name="scalability-targets-for-a-storage-account"></a>저장소 계정의 확장성 목표
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## <a name="azure-blob-storage-scale-targets"></a>Azure Blob 크기 조정 목표
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
+Azure File 및 Azure File Sync의 크기 조정 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조하세요.
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="azure-file-sync-scale-targets"></a>Azure File Sync 크기 조정 목표
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## <a name="azure-queue-storage-scale-targets"></a>Azure Queue 저장소 크기 조정 목표
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## <a name="azure-table-storage-scale-targets"></a>Azure Table 저장소 크기 조정 목표
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>가상 컴퓨터 디스크에 대한 확장성 목표
@@ -53,27 +72,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
-## <a name="scalability-targets-for-azure-resource-manager"></a>Azure 리소스 관리자에 대한 확장성 목표
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-## <a name="partitions-in-azure-storage"></a>Azure 저장소의 파티션
-Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터를 보유한 모든 개체는 파티션에 속하며 파티션 키로 식별됩니다. 파티션은 Azure 저장소 부하가 어떻게 서버의 blob, 메시지, 엔터티 및 파일을 해당 개체의 트래픽 요구를 충족하도록 분산할지 결정합니다. 파티션 키는 고유하며 blob, 메시지 또는 엔터티를 찾는 데 사용됩니다.
-
-위의 테이블에 표시된 [표준 저장소 계정의 확장성 목표](#standard-storage-accounts) 는 각 서비스에 대한 단일 파티션의 성능 목표를 나열합니다.
-
-파티션은 각 저장소 서비스의 부하 분산 및 확장성에 다음과 같은 방식으로 영향을 줍니다:
-
-* **Blob**: blob의 파티션 키는 계정 이름 + 컨테이너 이름 + blob 이름입니다. 이는 blob의 로드에 필요한 경우 각 blob에 자체 파티션을 둘 수 있음을 의미합니다. 액세스를 확장하기 위해 blob을 여러 서버에 분산시킬 수 있지만 단일 blob은 단일 서버에 의해서만 처리될 수 있습니다. Blob 컨테이너에서 blob를 논리적으로 그룹화하는 반면 해당 그룹화에는 파티션이 적용되지 않습니다.
-* **파일**: 파일에 대한 파티션 키는 계정 이름 + 파일 공유 이름입니다. 즉, 파일 공유의 모든 파일도 단일 파티션에 포함됩니다.
-* **메시지**: 메시지의 파티션 키는 계정 이름 + 큐 이름이므로 큐에 있는 모든 메시지를 단일 파티션으로 그룹화하고 단일 서버를 통해 제공합니다. 서로 다른 큐는 부하를 분산하는 다른 서버에 의해 처리될 수 있지만 하나의 저장소 계정은 다수의 큐를 가질 수 있습니다.
-* **엔터티**: 엔터티의 파티션 키는 계정 이름 + 테이블 이름 + 파티션 키이며, 여기서 파티션 키는 사용자 정의가 필요한 **PartitionKey** 속성의 값입니다. 동일한 파티션 키 값을 가진 모든 엔터티는 같은 파티션으로 그룹화 되며 같은 파티션 서버에 의해 처리됩니다. 이는 응용 프로그램 디자인에서 이해해야 할 중요한 사항입니다. 응용 프로그램은 엔터티를 단일 파티션으로 그룹화하는 데이터 액세스 이점과 여러 파티션에서 엔터티를 분산시키는 경우의 확장성 이점을 조정해야 합니다.  
-
-테이블의 엔터티 그룹을 단일 파티션으로 그룹화하는 경우 가장 큰 장점은 하나의 파티션이 단일 서버에 존재하므로 동일한 파티션의 엔터티에서 원자성 배치 작업을 수행할 수 있다는 점입니다. 따라서 엔터티 그룹에 대해 배치 작업을 수행하려는 경우 동일한 파티션 키를 가진 엔터티를 그룹화하는 것이 좋습니다. 
-
-반면, 동일한 테이블에 있지만 파티션 키가 서로 다른 엔터티는 서로 다른 서버에 부하를 분산시켜 확장성을 높일 수 있습니다.
-
-테이블 분할 전략 디자인에 대한 자세한 권장 사항은 [여기](https://msdn.microsoft.com/library/azure/hh508997.aspx)에서 확인할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 * [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)

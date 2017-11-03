@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 72e9e2e10992d928dcfd85538497ba12c6e1c6f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Data Lake Store로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -66,13 +66,17 @@ ms.lasthandoff: 10/11/2017
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-        
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>클라이언트 암호를 사용하여 서비스 간 인증
 .NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure Data Lake Store 웹 응용 프로그램의 클라이언트 암호/키를 사용하여 응용 프로그램을 Data Lake Store에 **비 대화형**으로 인증할 수 있습니다. 
@@ -81,14 +85,16 @@ ms.lasthandoff: 10/11/2017
     {    
         // Service principal / appplication authentication with client secret / key
         // Use the client ID of an existing AAD "Web App" application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
-        var domain = "<AAD-directory-domain>";
-        var webApp_clientId = "<AAD-application-clientid>";
-        var clientSecret = "<AAD-application-client-secret>";
-        var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-        var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
+        var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
+        var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
+
+앞의 코드 조각은 도우미 함수 `GetCreds_SPI_SecretKey`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey)에서 사용할 수 있습니다.
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
@@ -99,15 +105,16 @@ ms.lasthandoff: 10/11/2017
     {
         // Service principal / application authentication with certificate
         // Use the client ID and certificate of an existing AAD "Web App" application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
-        var domain = "<AAD-directory-domain>";
-        var webApp_clientId = "<AAD-application-clientid>";
-        var clientCert = <AAD-application-client-certificate>
-        var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-        var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
+        var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
+        var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
+앞의 코드 조각은 도우미 함수 `GetCreds_SPI_Cert`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert)에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 서비스 간 인증을 사용하여 .NET SDK로 Azure Data Lake Store를 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Azure Data Lake Store와 함께 사용하는 방법을 살펴볼 수 있습니다.

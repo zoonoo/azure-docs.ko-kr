@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 010/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
-P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
+P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다. 이 문서는 Resource Manager 배포 모델에 적용됩니다.
 
 ## <a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
 
@@ -36,7 +36,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 Windows 및 Mac 장치로 구성된 혼합 클라이언트 환경인 경우 SSTP 및 IKEv2를 모두 구성합니다.
 
 >[!NOTE]
->P2S의 IKEv2는 현재 미리 보기로 제공되고 있습니다.
+>P2S용 IKEv2는 현재 미리 보기로 있으며 Resource Manager 배포 모델에서 사용할 수 있습니다.
 >
 
 ## <a name="authentication"></a>P2S VPN 클라이언트는 어떻게 인증됩니까?

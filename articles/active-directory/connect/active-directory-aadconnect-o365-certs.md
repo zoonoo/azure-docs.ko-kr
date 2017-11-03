@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -158,9 +158,18 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 > [!NOTE]
 > contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 **SupportMultipleDomain** 스위치를 사용해야 합니다. 자세한 내용은 [여러 최상위 도메인에 대한 지원](active-directory-aadconnect-multiple-domains.md)을 참조하세요.
 >
->
+
 
 ## Azure AD Connect를 사용하여 Azure AD 트러스트 복구 <a name="connectrenew"></a>
 Azure AD Connect를 사용하여 AD FS 팜/Azure AD 트러스트를 구성했다면 Azure AD Connect을 사용하여 토큰 서명 인증서에 대한 어떤 작업을 할 필요가 있는지 감지할 수 있습니다. 인증서를 갱신해야 하는 경우 Azure AD Connect를 사용하여 이렇게 할 수 있습니다.
 
 자세한 내용은 [트러스트 복구](active-directory-aadconnect-federation-management.md)를 참조합니다.
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>AD FS와 Azure AD 인증서 업데이트 단계
+토큰 서명 인증서는 표준 X509 인증서이며 페더레이션 서버에서 발급하는 모든 토큰을 안전하게 서명하는 데 사용됩니다. 토큰 암호 해독 인증서는 표준 X509 인증서이며 들어오는 토큰의 암호를 해독하는 데 사용됩니다. 
+
+기본적으로 AD FS는 초기 구성 시 및 인증서의 만료 날짜가 도달하는 경우 토큰 서명 및 토큰 암호 해독 인증서를 자동으로 생성하도록 구성되어 있습니다.
+
+Azure AD는 현재 인증서가 만료되기 전 30일 동안 페더레이션 서비스 메타데이터에서 새 인증서를 검색하려고 시도합니다. 해당 시점에 새 인증서를 사용할 수 없는 경우에 Azure AD는 매일 기본 간격으로 메타데이터를 계속 모니터링합니다. 새 인증서를 메타데이터에서 사용할 수 있게 되는 즉시 도메인에 대한 페더레이션 설정은 새 인증서 정보로 업데이트됩니다. `Get-MsolDomainFederationSettings`를 사용하여 NextSigningCertificate/SigningCertificate에서 새 인증서를 표시하는지를 확인할 수 있습니다.
+
+AD FS에서 토큰 서명 인증서에 대한 자세한 내용은 [AD FS에 대한 토큰 서명 및 토큰 암호 해독 인증서 가져오기 및 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)을 참조하세요.

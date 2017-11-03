@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 서비스 | Microsoft Docs"
-description: "SQL Database 서비스 계층에 대해 자세히 알아보기"
+description: "성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d24ec2f0979283d3040a2f08fa8e681fab26fdd
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층이란?
 

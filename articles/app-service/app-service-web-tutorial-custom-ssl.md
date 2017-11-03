@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9d9f5950f7e692181e59870e6e508486131517ce
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -139,7 +139,7 @@ _mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍
 
 OpenSSL을 사용하여 인증서 요청을 생성한 경우 개인 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file>_ 및 _&lt;merged-certificate-file>_을 사용자의 개인 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "탄력적 데이터베이스 작업 도구를 제거하는 방법"
-description: "탄력적 데이터베이스 작업 도구를 제거하는 방법"
+description: "PowerShell의 Azure Portal을 사용하여 Elastic Database 작업 구성 요소를 설치 제거하는 방법에 대해 알아보십시오."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: ae7f0bce452a0a86f6f1e4d9b0c93a0fa1727f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62204def565d45f230b034e8d593ae10cb971813
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>탄력적 데이터베이스 작업 구성 요소 제거
-**탄력적 데이터베이스 작업** 구성 요소를 제거할 수 있습니다.
+Azure Portal 또는 PowerShell을 사용하여 **Elastic Database 작업** 구성 요소를 제거할 수 있습니다.
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Azure 포털을 사용하여 탄력적 데이터베이스 작업 구성 요소 제거
 1. [Azure 포털](https://portal.azure.com/)을 엽니다.

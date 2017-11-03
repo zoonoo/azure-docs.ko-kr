@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Linux 컨테이너에서 PHP 웹앱 만들기 | Microsoft Docs"
-description: "몇 분 안에 Azure App Service Web Apps에서 첫 번째 PHP Hello World를 배포합니다."
+title: "PHP 웹앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs"
+description: "몇 분 안에 Linux의 App Service에서 첫 번째 PHP Hello World를 배포합니다."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Azure의 Linux 컨테이너에서 PHP 웹앱 만들기 
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 웹앱 만들기
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 PHP 앱을 컨테이너용 Azure Web App에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 PHP 코드를 배포합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 PHP 앱을 Linux의 Azure App Service에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 기본 제공 이미지로 웹앱을 만들고 Git을 사용하여 웹앱에 PHP 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱]](media/quickstart-php/hello-world-in-browser.png)
 
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다. 
+Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -71,19 +71,17 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>웹앱 만들기
+## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-사이트로 이동하여 새로 만든 웹앱을 봅니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
 ![빈 웹앱 페이지](media/quickstart-php/app-service-web-service-created.png)
-
-git 배포를 활성화하여 Linux 컨테이너에 새 빈 웹앱을 만들었습니다.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -120,11 +118,11 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 http://<app_name>.azurewebsites.net
 ```
 
-PHP 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
+PHP 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-php/hello-world-in-browser.png)
 
-**축하합니다.** App Service에 첫 번째 PHP 앱을 배포했습니다.
+**축하합니다.** Linux의 App Service에 첫 번째 PHP 앱을 배포했습니다.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>로컬로 코드 업데이트 및 다시 배포
 

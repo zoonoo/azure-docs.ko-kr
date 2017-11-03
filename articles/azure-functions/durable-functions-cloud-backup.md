@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -97,12 +97,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > 이 예제는 I/O 작업을 `activityTrigger` 함수로 이동하는 완벽한 예제입니다. 작업을 여러 VM에 분산할 수 있을 뿐만 아니라 진행 상황에 대한 검사점 설정의 이점을 얻을 수도 있습니다. 어떤 이유로든 호스트 프로세스가 종료되면 이미 완료된 업로드를 알 수 있습니다.
 
-## <a name="running-the-sample"></a>샘플 실행
+## <a name="run-the-sample"></a>샘플 실행
 
-샘플에 포함된 HTTP 트리거 함수를 사용하면 다음 HTTP POST 요청을 통해 오케스트레이션을 시작할 수 있습니다.
+다음 HTTP POST 요청을 전송하여 오케스트레이션을 시작할 수 있습니다.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > 호출하는 `HttpStart` 함수는 JSON 형식의 콘텐츠에서만 작동합니다. 이러한 이유로 `Content-Type: application/json` 헤더가 필요하며 디렉터리 경로는 JSON 문자열로 인코딩됩니다.
 
-그러면 `E2_BackupSiteContent` 오케스트레이터를 트리거하고 `D:\home\LogFiles` 문자열을 매개 변수로 전달합니다. 응답에서는 이 백업 작업의 상태를 가져오는 링크를 제공합니다.
+이 HTTP 요청은 `E2_BackupSiteContent` 오케스트레이터를 트리거하고 `D:\home\LogFiles` 문자열을 매개 변수로 전달합니다. 응답에서는 이 백업 작업의 상태를 가져오는 링크를 제공합니다.
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>다음 단계
 
-이제는 지속성 함수의 핵심 오케스트레이션 기능에 대해 더 많이 이해해야 합니다. 다음에 나오는 샘플은 고급 기능 및 시나리오로 이동합니다.
+이 예제는 팬아웃/팬인 패턴의 구현 방법을 보여 줍니다. 다음 예제는 [외부 오케스트레이션](durable-functions-eternal-orchestrations.md)에서 [상태를 저장하는 단일 항목](durable-functions-singletons.md) 패턴을 구현하는 방법을 보여줍니다.
 
 > [!div class="nextstepaction"]
 > [상태 저장 단일 항목 샘플 실행](durable-functions-counter.md)
-
-

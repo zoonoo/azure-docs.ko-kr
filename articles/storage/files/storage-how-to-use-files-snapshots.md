@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>Azure 파일 공유 스냅숏 작업(미리 보기)
 Azure 파일 공유 스냅숏(미리 보기)은 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다. 공유 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 공유 스냅숏을 사용하면 특정 시점에서 표시된 대로 공유를 백업할 수 있습니다. 이 문서에서는 Azure 파일 공유 스냅숏을 만들고 관리 및 삭제하는 방법에 대해 알아봅니다. 공유 스냅숏에 대해 더 자세히 알아보려면 [공유 스냅숏 개요](storage-snapshots-files.md) 또는 [스냅숏 FAQ](storage-files-faq.md)를 참조하세요.
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>공유 스냅숏을 나열하고 공유 스냅숏 내용을 찾아본 다음 스냅숏에서 복원합니다.
 
-REST, 클라이언트 라이브러리, PowerShell 및 포털을 통해 Windows에서 “이전 버전”을 사용하여 파일 공유와 연결된 공유 스냅셧을 열거할 수 있습니다. Azure 파일 공유가 탑재된 후 SMB "이전 버전" 통합을 사용하여 파일의 모든 이전 버전을 볼 수 있습니다. Azure 파일 공유가 탑재된 후 SMB "이전 버전" 통합을 사용하여 디렉터리의 모든 이전 버전을 볼 수 있습니다. 다음 몇몇 섹션에서는 Azure Portal, Windows 및 Azure CLI 2.0을 사용하여 공유 스냅숏을 나열하고 찾아보고 복원하는 방법을 알아봅니다.
+## <a name="common-share-snapshot-operations"></a>공통 공유 스냅숏 작업
+
+REST, 클라이언트 라이브러리, PowerShell 및 포털을 통해 Windows에서 “이전 버전” 탭을 사용하여 파일 공유와 연결된 공유 스냅셧을 열거할 수 있습니다. Azure File share가 탑재되면 Windows에서 "이전 버전" 탭을 사용하여 파일의 모든 이전 버전을 볼 수 있습니다. 다음 섹션에서는 Azure Portal, Windows 및 Azure CLI 2.0을 사용하여 공유 스냅숏을 나열하고 찾아보고 복원하는 방법을 알아봅니다.
 
 ### <a name="share-snapshot-operations-in-portal"></a>포털에서 공유 스냅숏 작업
 

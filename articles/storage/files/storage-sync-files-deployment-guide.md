@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9f9ff0674fd4e3f9b0598a982d81681eaa6d1997
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b31b6ae413f72c626e2601ba860aad44ddaa29cd
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-deploy-azure-file-sync-preview"></a>Azure 파일 동기화를 배포하는 방법(미리 보기)
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -117,6 +117,9 @@ Azure 파일 동기화 에이전트 설치의 최종 단계에서 서버 등록 
 - **사용 가능한 볼륨 공간**: 서버 끝점이 있는 볼륨에 예약하려는 사용 가능한 공간의 크기입니다. 예를 들어 단일 서버 끝점이 있는 볼륨에서 사용 가능한 볼륨 공간을 50%로 설정하는 경우 데이터 양의 절반 정도가 Azure Files로 계층화됩니다. 클라우드 계층화를 사용하도록 설정할지 여부에 관계없이, Azure 파일 공유는 항상 동기화 그룹에 데이터의 전체 복사본을 유지합니다.
 
 “만들기”를 클릭하여 서버 끝점을 추가합니다. 파일은 이제 Azure 파일 공유 및 Windows Server와 동기화된 상태를 유지합니다. 
+
+> [!Important]  
+> 동기화 그룹에 포함된 클라우드 또는 서버 끝점을 변경할 수 있고, 파일이 동기화 그룹에 포함된 다른 끝점과 동기화되도록 할 수 있습니다. 클라우드 끝점(Azure Files 공유)을 직접 변경하는 경우 먼저 Azure Files 동기화 변경 검색 작업에서 변경 내용을 검색해야 합니다. Azure File Sync 변경 검색 작업은 클라우드 끝점에 대해 24시간에 한 번씩 시작됩니다. 자세한 내용은 [Azure Files FAQ](storage-files-faq.md#afs-change-detection)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화 서버 끝점 추가/제거](storage-sync-files-server-endpoint.md)

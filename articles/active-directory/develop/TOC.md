@@ -108,5 +108,6 @@
 #### [인증서 자격 증명](active-directory-certificate-credentials.md)
 ### [범위](active-directory-v2-scopes.md)
 # 리소스
+## [도움말 보기](active-directory-develop-help-support.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

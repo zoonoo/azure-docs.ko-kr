@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 1a1c9a96b772868e2c832e9ff57874038c0db2d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 * 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
+## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
 
@@ -351,7 +351,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 [클래식에서 Resource Manager 배포 모델로 Express 경로 회로 이동](expressroute-howto-move-arm.md)의 지침을 검토합니다.
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Express 경로 회로 프로비전 해제 및 삭제
+## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
 
 ExpressRoute 회로의 프로비전을 해제하고 삭제하려면 다음 조건을 알고 있어야 합니다.
 

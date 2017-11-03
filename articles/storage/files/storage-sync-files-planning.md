@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d626f71aa21cea562ef6c9554c05e6de027e7f4d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -45,11 +45,14 @@ Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
+### <a name="server-endpoint"></a>서버 끝점
+서버 끝점은 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 끝점이 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 끝점에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+
 ### <a name="cloud-endpoint"></a>클라우드 끝점
 클라우드 끝점은 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 끝점, 즉 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
 
-### <a name="server-endpoint"></a>서버 끝점
-서버 끝점은 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 끝점이 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 끝점에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+> [!Important]  
+> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원하지만 Azure 파일 공유에서 변경된 사항은 Azure File Sync 변경 검색 작업으로 먼저 발견되어야 합니다. 이 작업은 24시간마다 한 번씩 클라우드 끝점용으로 시작됩니다. 자세한 내용은 [Azure 파일 FAQ](storage-files-faq.md#afs-change-detection)를 참조하세요.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화 
 클라우드 계층화는 Azure 파일 동기화의 선택적 기능으로, 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 Azure Files의 파일에 대한 URL을 나타내는 포인터 또는 재분석 지점으로 로컬로 대체합니다. 계층화된 파일은 NTFS에서 “오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure 파일 동기화는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: wgries
-ms.openlocfilehash: b11cd632fc4735648581e77eb2570dd32604067d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c4f997b994bb337ad8a886d7ad09791cb587d4f9
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Files은 완벽하게 관리되기 때문에 프로덕션 시나리오에서 이를 배포하면 파일 서버 또는 NAS 장치를 훨씬 쉽게 배포하고 관리할 수 있습니다. 이 문서에서는 조직 내에서 프로덕션 용도로 Azure 파일 공유를 배포할 때 고려해야 할 항목을 다룹니다.
@@ -63,7 +63,7 @@ Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 
     * SMB 3.0 암호화를 지원하는 클라이언트는 암호화된 채널을 통해 데이터를 송신 및 수신합니다.
     * SMB 3.0을 지원하지 않는 클라이언트는 암호화되지 않은 SMB 2.1 또는 SMB 3.0을 통해 내부 데이터 센터와 통신할 수 있습니다. 클라이언트가 암호화되지 않은 SMB 2.1 또는 SMB 3.0을 통해 데이터 센터와 통신하는 것은 허용되지 않습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
-* 미사용 암호화: 모든 데이터가 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 저장소 비용이 증가하거나 성능이 저하되지 않습니다. 
+* 미사용 암호화([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 기본 Azure Storage 플랫폼에서 SSE(Storage Service Encryption)을 구현하는 과정 중에 있습니다. 즉 모든 저장소 계정에서 기본적으로 암호화가 사용될 것입니다. 기본적으로 미사용 암호화가 적용된 지역에서 새 저장소 계정을 만들면 아무 것도 사용하도록 설정할 필요가 없습니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 저장소 비용이 증가하거나 성능이 저하되지 않습니다. 
 * 암호화된 데이터 전송 시 선택적 요구 사항: 이를 선택하면 Azure Files은 암호화되지 않은 채널을 통한 데이터 액세스를 허용하지 것입니다. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다. 
 
     > [!Important]  

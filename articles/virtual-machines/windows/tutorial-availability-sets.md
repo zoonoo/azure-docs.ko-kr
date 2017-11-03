@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3657f222e1f52d341cd05532e29ed4924b308e6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 503657d6e6e22560b94d4a1cbbc2a74651d1ee7a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="how-to-use-availability-sets"></a>가용성 집합 사용 방법
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 10/11/2017
 > * 가용성 집합 만들기
 > * 가용성 집합에서 VM 만들기
 > * 사용 가능한 VM 크기 확인
+> * Azure Advisor 확인
 
 이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
@@ -88,9 +89,36 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
     -Location EastUS `
-    -Name MYvNET `
+    -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
+    
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -Location eastus `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability `
+    -SecurityRules $nsgRuleRDP
+    
+# Apply the network security group to a subnet
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 for ($i=1; $i -le 2; $i++)
 {
@@ -100,23 +128,6 @@ for ($i=1; $i -le 2; $i++)
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
-
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-        -Name myNetworkSecurityGroupRuleRDP$i `
-        -Protocol Tcp `
-        -Direction Inbound `
-        -Priority 1000 `
-        -SourceAddressPrefix * `
-        -SourcePortRange * `
-        -DestinationAddressPrefix * `
-        -DestinationPortRange 3389 `
-        -Access Allow
-
-   $nsg = New-AzureRmNetworkSecurityGroup `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name myNetworkSecurityGroup$i `
-        -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
@@ -176,6 +187,13 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+## <a name="check-azure-advisor"></a>Azure Advisor 확인 
+
+또한 Azure Advisor를 사용하여 VM의 가용성을 개선하는 방법에 대한 자세한 정보를 볼 수 있습니다. Azure Advisor를 통해 Azure 배포를 최적화하기 위한 모범 사례를 따를 수 있습니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
+
+[Azure Portal](https://portal.azure.com)에 로그인하고, **추가 서비스**를 선택하고, **관리자**를 입력합니다. Advisor 대시보드에 선택한 구독에 대한 개인화된 권장 사항이 표시됩니다. 자세한 내용은 [Azure Advisor 시작](../../advisor/advisor-get-started.md)을 참조하세요.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -184,6 +202,7 @@ Get-AzureRmVMSize `
 > * 가용성 집합 만들기
 > * 가용성 집합에서 VM 만들기
 > * 사용 가능한 VM 크기 확인
+> * Azure Advisor 확인
 
 가상 컴퓨터 확장 집합에 대해 알아보려면 다음 자습서로 이동합니다.
 

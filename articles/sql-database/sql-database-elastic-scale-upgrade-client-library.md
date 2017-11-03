@@ -1,6 +1,6 @@
 ---
 title: "최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드 | Microsoft Docs"
-description: "Nuget을 사용하여 앱 및 라이브러리 업그레이드"
+description: "Elastic Database 클라이언트 라이브러리를 업그레이드하려면 Nuget을 사용합니다."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0334f701548d938c98aaa2a946b1e5e892c0700
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드
-[Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 새 버전은 Visual Studio의 NuGetand 및 NuGetPackage 관리자 인터페이스를 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
+[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 의 새 버전은 Visual Studio의 NuGetand 및 NuGetPackage 관리자 인터페이스를 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
 
 **최신 버전은**[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다.
 

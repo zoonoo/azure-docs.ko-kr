@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -28,8 +28,9 @@ ms.lasthandoff: 10/11/2017
 
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - Edge 브라우저는 지원되지 않습니다.
-- 특히 공유 컴퓨터 시나리오에서 Office 클라이언트의 라이선스 활성화로 인해 사용자에 대한 추가 로그인 메시지가 표시됩니다.
-- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. and 
+- 특히 공유 컴퓨터 시나리오에서 Office 클라이언트 시작으로 인해 사용자에 대한 추가 로그인 메시지가 표시됩니다. 사용자는 자주 자신의 사용자 이름을 입력해야 하지만 암호를 입력할 필요는 없습니다.
+- 원활한 SSO에 성공하면 사용자에게 "로그인 유지"를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 SharePoint 및 OneDrive 매핑 시나리오가 작동하지 않습니다.
+- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - Internet Explorer에서 향상된 보호 모드가 설정되어 있을 때는 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 30개 이상의 AD 포리스트를 동기화하면 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)하여 해결할 수 있습니다.

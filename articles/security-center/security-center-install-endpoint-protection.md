@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Security Center를 사용하여 Endpoint Protection 문제 관리
 Azure Security Center는 맬웨어 방지 보호의 상태를 모니터링하여 Endpoint Protection 문제 블레이드 아래에서 해당 내용을 보고합니다. Security Center에서는 VM(가상 컴퓨터) 및 컴퓨터를 맬웨어 방지 위협에 취약하게 만들 수 있는 검색된 위협, 불충분한 보호 수준 등의 문제가 강조 표시됩니다. **Endpoint Protection 문제** 아래의 정보를 사용하면 확인된 문제를 해결하기 위한 계획을 파악할 수 있습니다.
@@ -33,6 +33,11 @@ Security Center에서 보고하는 Endpoint Protection 문제는 다음과 같�
    - 실시간 보호 없음 - 이러한 VM과 컴퓨터에 맬웨어 방지 솔루션이 설치되어 있기는 하지만 해당 솔루션이 실시간 보호용으로 구성되어 있지 않습니다.   서비스가 사용하지 않도록 설정되어 있거나, 솔루션이 지원되지 않아 Security Center가 상태를 가져올 수 없는 것일 수 있습니다. 지원되는 솔루션 목록은 [파트너 통합](security-center-partner-integration.md)을 참조하세요.
    - 보고하지 않음 - 맬웨어 방지 솔루션이 설치되어 있기는 하지만 데이터를 보고하지 않습니다.
    - 알 수 없음 - 맬웨어 방지 솔루션이 설치되어 있기는 하지만 해당 상태를 알 수 없거나, 알 수 없는 오류가 보고됩니다.
+
+   > [!NOTE]
+   > Security Center와 통합된 끝점 보호 보안 솔루션 목록은 [보안 솔루션 통합](security-center-partner-integration.md#integrated-azure-security-solutions)을 참조하세요.
+   >
+   >
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다.  환경이 맬웨어 방지 위협에 취약한 경우 **권장 사항**과 **계산** 아래에 이 권장 사항이 표시됩니다. **Endpoint Protection 문제 대시보드**를 보려면 계산 워크플로를 따라야 합니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 341b3860e103f54d97d325e18fc17f4895f804f0
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포
 
@@ -153,6 +153,8 @@ Linux 게이트웨이 장치에서 [Docker를 설치]합니다.
 ## <a name="next-steps"></a>다음 단계
 
 연결된 팩터리 미리 구성된 솔루션의 아키텍처에 대한 자세한 내용은 [연결된 팩터리 미리 구성된 솔루션 연습][lnk-walkthrough]을 참조하세요.
+
+[OPC 게시자 참조 구현](iot-suite-connected-factory-publisher.md)에 대해 살펴봅니다.
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -140,9 +140,28 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 ### <a name="storage-limits"></a>저장소 제한
 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>저장소 서비스 제한
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### <a name="azure-blob-storage-limits"></a>Azure Blob 저장소 용량 한도
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### <a name="azure-files-limits"></a>Azure Files 한도
+Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage/files/storage-files-scale-targets.md)를 참조하세요.
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### <a name="azure-file-sync-limits"></a>Azure File Sync 한도
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### <a name="azure-table-storage-limits"></a>Azure Table 저장소 용량 한도
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한 
@@ -159,9 +178,6 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### <a name="storage-resource-provider-limits"></a>저장소 리소스 공급자 제한
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### <a name="cloud-services-limits"></a>클라우드 서비스 제한
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -289,4 +305,3 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
-

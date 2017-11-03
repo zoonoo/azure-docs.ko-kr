@@ -1,6 +1,6 @@
 ---
 title: "규모가 확장된 클라우드 데이터베이스 관리 | Microsoft Docs"
-description: "탄력적 데이터베이스 작업 서비스를 설명합니다."
+description: "데이터베이스 그룹에 대해 스크립트를 실행하려면 Elastic Database 작업 서비스를 사용합니다."
 metakeywords: azure sql database elastic databases
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74618179fe169b968e822cd9c563410560244848
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **탄력적 데이터베이스 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.

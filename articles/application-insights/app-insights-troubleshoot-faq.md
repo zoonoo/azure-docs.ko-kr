@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: 0b6f9e8192a4c6808beb61acb0f93ef5ec73e956
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff3a0b5f64adff535123cf0ea8ca766ed2b8d5be
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 * HTTP 요청
 * [종속성](app-insights-asp-net-dependencies.md). 호출: SQL Database, 외부 서비스(Azure Cosmos DB, 테이블, Blob Storage 및 큐)에 대한 HTTP 호출. 
 * [예외](app-insights-asp-net-exceptions.md) 및 스택 추적.
-* [성능 카운터](app-insights-performance-counters.md) - [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하는 경우 Azure 모니터링(app-insights-azure-web-apps.md) 또는 [Application Insights collectd 기록기](app-insights-java-collectd.md).
+* [성능 카운터](app-insights-performance-counters.md) - [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하는 경우 [Azure 모니터링](app-insights-azure-web-apps.md) 또는 [Application Insights collectd 기록기](app-insights-java-collectd.md).
 * 코딩하는 [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md).
 * 적절한 수집기를 구성한 경우 [추적 로그](app-insights-asp-net-trace-logs.md).
 
@@ -186,7 +186,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 * JavaScript SDK는 웹 클라이언트에서 사용자 쿠키를 설정하여 다시 방문하는 사용자와 그룹 작업에 대한 세션 쿠키를 식별합니다.
 * 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)할 수 있습니다.
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
-* 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
+* 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
 
 ## <a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
 | 표시 내용 | 시작 방법 | 원하는 이유 |

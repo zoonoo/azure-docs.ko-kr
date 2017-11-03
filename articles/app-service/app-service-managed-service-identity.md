@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure Managed Service Identity(공개 미리 보기)를 사용하는 방법
 
@@ -149,6 +149,9 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 
 
 이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response)과 동일합니다.
+
+> [!NOTE] 
+> 환경 변수는 프로세스가 처음 시작될 때 설정되므로 응용 프로그램에 대해 관리되는 서비스 ID를 활성화한 후에는 코드에 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 위해 응용 프로그램을 다시 시작하거나 코드를 재배포해야 할 수 있습니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
 예제 요청은 다음과 유사할 수 있습니다.

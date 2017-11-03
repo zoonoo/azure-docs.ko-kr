@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
@@ -29,16 +29,19 @@ ms.lasthandoff: 10/11/2017
 *  [Azure 데이터 팩터리를 사용하여 온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>현재 버전(2.10.6347.7)
+## <a name="current-version"></a>현재 버전 
+여기에서 릴리스 정보를 더 이상 유지하지 않습니다. [여기](https://go.microsoft.com/fwlink/?linkid=853077)에서 최신 릴리스 정보 가져오기
 
+
+
+
+## <a name="earlier-versions"></a>이전 버전
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>향상된 기능
 - 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
 - 이제 HDFS 커넥터는 SSL 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
 - 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
-
-
-## <a name="earlier-versions"></a>이전 버전
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능

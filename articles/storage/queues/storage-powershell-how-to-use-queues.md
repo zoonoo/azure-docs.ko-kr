@@ -1,6 +1,6 @@
 ---
 title: "PowerShell을 사용하여 Azure Queue Storage에서 작업 수행 | Microsoft Docs"
-description: "자습서 - PowerShell을 사용하여 Azure Queue Storage에서 작업 수행"
+description: "PowerShell을 사용하여 Azure Queue Storage에서 작업을 수행하는 방법"
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -11,18 +11,18 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 357d8db329a6a3c782753804d681029fdb07b5f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85678452e84a65bd81472396f8ebbb91091a2095
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
-Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 자습서에서는 일반 큐 저장소 작업을 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 자세한 내용은 [Azure 큐 소개](storage-queues-introduction.md)를 참조하세요. 이 방법 문서에서는 일반 큐 저장소 작업을 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 큐 만들기
@@ -32,7 +32,9 @@ Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 > * 메시지 삭제 
 > * 큐 삭제
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 방법에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+
+큐에 대한 데이터 평면의 PowerShell cmdlet는 없습니다. 메시지 추가, 메시지 읽기, 메시지 삭제 등과 같은 데이터 평면 작업을 수행하려면 PowerShell에서 노출되는 .NET 저장소 클라이언트 라이브러리를 사용해야 합니다. 메시지 개체를 만든 다음 AddMessage 등의 명령을 사용하여 해당 메시지에 대한 작업을 수행합니다. 이 문서에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -44,7 +46,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>위치의 목록 검색
 
-사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이 자습서에서는 **eastus**를 사용합니다. 이를 나중에 사용할 수 있도록 변수 **위치**에 저장합니다.
+사용하려는 위치를 모르는 경우 사용 가능한 위치를 나열할 수 있습니다. 목록이 표시되면 사용할 위치를 찾습니다. 이 연습에서는 **eastus**를 사용합니다. 이를 나중에 사용할 수 있도록 변수 **위치**에 저장합니다.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -71,8 +73,7 @@ $storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
+  -SkuName Standard_LRS
 
 $ctx = $storageAccount.Context
 ```
@@ -104,7 +105,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐에 메시지를 추가하려면 먼저 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 클래스의 새 인스턴스를 만듭니다. 그런 다음, [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
+큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 저장소 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 클래스의 새 메시지 개체 인스턴스를 만듭니다. 그런 다음, [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
 다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다.
 
@@ -130,11 +131,11 @@ $queue.CloudQueue.AddMessage($QueueMessage)
 
 메시지는 선입선출(FIFO) 순서로 읽힙니다. 이는 보장되지 않습니다. 큐에서 메시지를 읽으면 큐를 보는 모든 다른 프로세스는 표시되지 않습니다. 이는 하드웨어 또는 소프트웨어 실패로 인해 코드가 메시지 처리에 실패하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와 다시 시도하도록 합니다.  
 
-이 **표시 안 함 시간**은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다. 
+이 **표시 안 함 시간 제한**은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다. 
 
 코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 메서드를 호출하면 큐에서 다음 메시지를 가져옵니다. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 메서드를 호출합니다. 
 
-다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage**를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
+다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간 제한) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage**를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -178,7 +179,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법을 포함하여 PowerShell과 함께 기본 큐 저장소 관리에 대해 알아봅니다.
+이 방법 문서에서는 다음 방법을 포함하여 PowerShell과 함께 기본 큐 저장소 관리에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 큐 만들기

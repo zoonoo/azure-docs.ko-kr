@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 통과 인증: 스마트 잠금
 
@@ -42,6 +42,9 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 
 1.  Azure AD의 잠금 임계값은 AD의 계정 잠금 임계값보다 _작아야_ 합니다. AD의 계정 잠금 임계값은 Azure AD의 잠금 임계값보다 2-3배 이상은 크게 설정하는 것이 좋습니다.
 2.  Azure AD의 잠금 기간(초 단위)이 AD의 다음 시간 이후 계정 잠금 재설정(분 단위)보다 _길어야_ 합니다.
+
+>[!IMPORTANT]
+>현재 관리자는 사용자의 클라우드 계정이 스마트 잠금 기능에서 잠긴 경우 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>AD 계정 잠금 정책 확인
 

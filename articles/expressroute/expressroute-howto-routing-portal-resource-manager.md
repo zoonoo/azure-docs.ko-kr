@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 55ccadfea55b8098ee58dcaef942f6ba54093665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be25e9ffab4fee79b8d9cc6c88c6ffb3e852af0d
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -39,97 +39,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다.
+ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-## <a name="azure-private-peering"></a>Azure 개인 피어링
-
-이 섹션은 ExpressRoute 회로에 Azure 개인 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-### <a name="to-create-azure-private-peering"></a>Azure 개인 피어링을 만들려면
-
-1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다.
-
-  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. 회로에 Azure 개인 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
-
-  * 기본 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
-  * 보조 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
-  * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-  * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
-  * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
-3. 다음 예제와 같이 Azure 개인 피어링 행을 선택합니다.
-
-  ![개인](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. 개인 피어링을 구성합니다. 다음 이미지는 구성 예를 보여줍니다.
-
-  ![개인 피어링 구성](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. 모든 매개 변수를 지정한 후에 구성을 저장합니다. 구성이 성공적으로 수락되고 나면 다음 예와 유사한 내용을 볼 수 있습니다.
-
-  ![개인 피어링 저장](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
-
-### <a name="to-view-azure-private-peering-details"></a>Azure 개인 피어링 세부 정보를 보려면
-
-피어링을 선택하면 Azure 개인 피어링의 속성을 볼 수 있습니다.
-
-![개인 피어링 보기](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
-
-### <a name="to-update-azure-private-peering-configuration"></a>Azure 개인 피어링 구성을 업데이트하려면
-
-피어링의 행을 선택하고 피어링 속성을 수정할 수 있습니다.
-
-![개인 피어링 업데이트](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-
-### <a name="to-delete-azure-private-peering"></a>Azure 개인 피어링을 삭제하려면
-
-다음 이미지처럼 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
-
-![개인 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
-
-## <a name="azure-public-peering"></a>Azure 공용 피어링
-
-이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
-
-1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다.
-
-  ![공용 피어링 나열](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. 회로에 Azure 공용 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
-
-  * 기본 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
-  * 보조 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
-  * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-  * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
-  * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
-3. 다음 이미지와 같이 Azure 공용 피어링 행을 선택합니다.
-
-  ![공용 피어링 행 선택](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. 공용 피어링을 구성합니다. 다음 이미지는 구성 예를 보여줍니다.
-
-  ![공용 피어링 구성](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. 모든 매개 변수를 지정한 후에 구성을 저장합니다. 구성이 성공적으로 수락되고 나면 다음 예와 유사한 내용을 볼 수 있습니다.
-
-  ![공용 피어링 구성 저장](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
-### <a name="to-view-azure-public-peering-details"></a>Azure 공용 피어링 세부 정보를 보려면
-
-피어링을 선택하면 Azure 공용 피어링의 속성을 볼 수 있습니다.
-
-![공용 피어 링 속성 보기](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
-### <a name="to-update-azure-public-peering-configuration"></a>Azure 공용 피어링 구성을 업데이트하려면
-
-피어링의 행을 선택하고 피어링 속성을 수정할 수 있습니다.
-
-![공용 피어링 행 선택](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-
-### <a name="to-delete-azure-public-peering"></a>Azure 공용 피어링을 삭제하려면
-
-다음 예제와 같이 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
-
-![공용 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
-
-## <a name="microsoft-peering"></a>Microsoft 피어링
+## <a name="msft"></a>Microsoft 피어링
 
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -140,7 +52,9 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft 피어링을 만들려면
 
-1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다.
+[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
+
+1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Microsoft 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 다음 단계를 사용하여 구성을 계속합니다.
 
   ![Microsoft 피어링 나열](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. 회로에 Microsoft 피어링을 구성합니다. 진행하기 전에 다음 정보가 있는지 확인합니다.
@@ -174,23 +88,111 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-view-microsoft-peering-details"></a>Microsoft 피어링 세부 정보를 보려면
+### <a name="getmsft"></a>Microsoft 피어링 세부 정보를 보려면
 
 피어링을 선택하면 Azure 공용 피어링의 속성을 볼 수 있습니다.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### <a name="to-update-microsoft-peering-configuration"></a>Microsoft 피어링 구성을 업데이트하려면
+### <a name="updatemsft"></a>Microsoft 피어링 구성을 업데이트하려면
 
 피어링의 행을 선택하고 피어링 속성을 수정할 수 있습니다.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-delete-microsoft-peering"></a>Microsoft 피어링을 삭제하려면
+### <a name="deletemsft"></a>Microsoft 피어링을 삭제하려면
 
 다음 이미지처럼 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+
+## <a name="private"></a>Azure 개인 피어링
+
+이 섹션은 ExpressRoute 회로에 Azure 개인 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
+
+### <a name="to-create-azure-private-peering"></a>Azure 개인 피어링을 만들려면
+
+1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 다음 단계를 사용하여 구성을 계속합니다.
+
+  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+2. 회로에 Azure 개인 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
+
+  * 기본 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
+  * 보조 링크에 대한 /30 서브넷입니다. 서브넷은 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
+  * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
+  * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
+  * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
+3. 다음 예제와 같이 Azure 개인 피어링 행을 선택합니다.
+
+  ![개인](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+4. 개인 피어링을 구성합니다. 다음 이미지는 구성 예를 보여줍니다.
+
+  ![개인 피어링 구성](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+5. 모든 매개 변수를 지정한 후에 구성을 저장합니다. 구성이 성공적으로 수락되고 나면 다음 예와 유사한 내용을 볼 수 있습니다.
+
+  ![개인 피어링 저장](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+
+### <a name="getprivate"></a>Azure 개인 피어링 세부 정보를 보려면
+
+피어링을 선택하면 Azure 개인 피어링의 속성을 볼 수 있습니다.
+
+![개인 피어링 보기](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+
+### <a name="updateprivate"></a>Azure 개인 피어링 구성을 업데이트하려면
+
+피어링의 행을 선택하고 피어링 속성을 수정할 수 있습니다.
+
+![개인 피어링 업데이트](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+
+### <a name="deleteprivate"></a>Azure 개인 피어링을 삭제하려면
+
+다음 이미지처럼 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
+
+![개인 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+
+## <a name="public"></a>Azure 공용 피어링
+
+이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
+
+### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
+
+1. ExpressRoute 회로를 구성합니다. 계속하기 전에 연결 공급자에 의해 회로가 완전이 프로비전되었는지 확인합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 다음 단계를 사용하여 구성을 계속합니다.
+
+  ![공용 피어링 나열](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+2. 회로에 Azure 공용 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
+
+  * 기본 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
+  * 보조 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
+  * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
+  * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
+  * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
+3. 다음 이미지와 같이 Azure 공용 피어링 행을 선택합니다.
+
+  ![공용 피어링 행 선택](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+4. 공용 피어링을 구성합니다. 다음 이미지는 구성 예를 보여줍니다.
+
+  ![공용 피어링 구성](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+5. 모든 매개 변수를 지정한 후에 구성을 저장합니다. 구성이 성공적으로 수락되고 나면 다음 예와 유사한 내용을 볼 수 있습니다.
+
+  ![공용 피어링 구성 저장](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+
+### <a name="getpublic"></a>Azure 공용 피어링 세부 정보를 보려면
+
+피어링을 선택하면 Azure 공용 피어링의 속성을 볼 수 있습니다.
+
+![공용 피어 링 속성 보기](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+
+### <a name="updatepublic"></a>Azure 공용 피어링 구성을 업데이트하려면
+
+피어링의 행을 선택하고 피어링 속성을 수정할 수 있습니다.
+
+![공용 피어링 행 선택](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+
+### <a name="deletepublic"></a>Azure 공용 피어링을 삭제하려면
+
+다음 예제와 같이 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
+
+![공용 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
 ## <a name="next-steps"></a>다음 단계
 

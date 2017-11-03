@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -82,7 +82,10 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
 
 - 텍스트 클러스터링 변환은 Mac에서 지원되지 않습니다.
 
-- RevoScalePy 라이브러리는 Windows 또는 Linux(Docker 컨테이너)에서 지원되지 않습니다. macOS에서는 지원되지 않습니다.
+- RevoScalePy 라이브러리는 (Docker 컨테이너의) Windows 또는 Linux에서만 지원됩니다. macOS에서는 지원되지 않습니다.
+
+## <a name="file-name-too-long-on-windows"></a>Windows에서 파일 이름이 너무 깁니다.
+Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 다소 잘못된 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 오류 “읽기: 연결이 거부되었습니다”
 로컬 Docker 컨테이너에 대해 실행할 때 경우에 따라 다음과 같은 오류가 표시될 수 있습니다. 

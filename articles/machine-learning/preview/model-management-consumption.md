@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: fc4d793bcf402a3e742fae2b2c0052f2d60d1b47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.
@@ -102,6 +102,7 @@ namespace MyFirstService
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(SERVICE_URL);
+            //For local web service, comment out this line.
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", API_KEY);
 
             var inputJson = new List<RequestPayload>();
@@ -147,7 +148,7 @@ namespace MyFirstService
 Python을 사용하여 실시간 웹 서비스에 요청을 보냅니다. 
 
 1. 새 Python 파일에 다음 코드 샘플을 복사합니다.
-2. data, url 및 api_key 매개 변수를 업데이트합니다.
+2. data, url 및 api_key 매개 변수를 업데이트합니다. 로컬 웹 서비스의 경우 'Authorization' 헤더를 제거합니다.
 3. 코드를 실행합니다. 
 
 ```python

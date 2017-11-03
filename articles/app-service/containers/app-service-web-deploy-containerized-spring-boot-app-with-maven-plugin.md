@@ -1,6 +1,6 @@
 ---
-title: "Azure Web Apps의 Maven 플러그 인을 사용하여 컨테이너화된 Spring Boot 앱을 Azure에 배포하는 방법"
-description: "Azure Web Apps의 Maven 플러그 인을 사용하여 Spring Boot 앱을 Azure에 배포하는 방법을 알아봅니다."
+title: "Web App for Containers용 Maven 플러그 인을 사용하여 컨테이너화된 Spring Boot 앱을 Azure에 배포하는 방법"
+description: "Web App for Containers용 Maven 플러그 인을 사용하여 Spring Boot 앱을 Azure에 배포하는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.openlocfilehash: b2de785746c8598d9d6954487b06018af3cfcc52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0329aa9b88c7542ab3235a104a0652cd217ff872
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Azure Web Apps의 Maven 플러그 인을 사용하여 컨테이너화된 Spring Boot 앱을 Azure에 배포하는 방법
+# <a name="how-to-use-the-maven-plugin-for-web-app-for-containers-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Web App for Containers용 Maven 플러그 인을 사용하여 컨테이너화된 Spring Boot 앱을 Azure에 배포하는 방법
 
-[Apache Maven](http://maven.apache.org/)에서 [Azure Web Apps의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin)은 Maven 프로젝트에 Azure App Service의 원활한 통합을 제공하고 Azure App Service에 웹앱을 배포하는 개발자를 위한 프로세스를 간소화합니다.
+[Apache Maven](http://maven.apache.org/)용 [Web App for Containers의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin)은 Azure App Service를 Maven 프로젝트에 원활하게 통합하고 개발자가 Azure App Service에 웹앱을 배포하는 프로세스를 간소화합니다.
 
-이 문서에서는 Azure Web Apps의 Maven 플러그 인을 사용하여 Azure App Services에 Docker 컨테이너의 샘플 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다.
+이 문서에서는 Web App for Containers용 Maven 플러그 인을 사용하여 Docker 컨테이너의 샘플 Spring Boot 응용 프로그램을 Web App for Containers에 배포하는 방법을 보여줍니다.
 
 > [!NOTE]
 >
-> Azure Web Apps의 Maven 플러그 인은 현재 미리 보기로 사용할 수 있습니다. 지금은 FTP 게시만 지원되지만 향후에 기능이 추가될 계획입니다.
+> Web App for Containers용 Maven 플러그 인은 현재 미리 보기로 사용할 수 있습니다. 지금은 FTP 게시만 지원되지만 향후에 기능이 추가될 계획입니다.
 >
 
 ## <a name="prerequisites"></a>필수 조건
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 > 이 자습서의 가상화 요구 사항으로 인해 가상 컴퓨터에는 이 문서의 단계를 따를 수 없습니다. 따라서 가상화 기능이 사용하도록 설정된 물리적 컴퓨터를 사용해야 합니다.
 >
 
-## <a name="clone-the-sample-spring-boot-on-docker-web-app"></a>Docker 웹앱에 샘플 Spring Boot 복제
+## <a name="clone-the-sample-spring-boot-application"></a>샘플 Spring Boot 응용 프로그램 복제
 
 이 섹션에서는 컨테이너화된 Spring Boot 응용 프로그램을 복제하고 로컬로 테스트합니다.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/11/2017
    cd /users/robert/SpringBoot
    ```
 
-1. [Spring Boot on Docker 시작하기] 샘플 프로젝트를 방금 만든 디렉터리에 복제합니다. 예:
+1. 만든 디렉터리에 [Spring Boot with Docker] 샘플 프로젝트를 복제합니다. 예:
    ```shell
    git clone https://github.com/microsoft/gs-spring-boot-docker
    ```
@@ -155,7 +155,7 @@ ms.lasthandoff: 10/11/2017
    `<client>` | 서비스 사용자의 `appId` 값을 포함합니다.
    `<tenant>` | 서비스 사용자의 `tenant` 값을 포함합니다.
    `<key>` | 서비스 사용자의 `password` 값을 포함합니다.
-   `<environment>` | 대상 Azure 클라우드 환경을 정의합니다. 이 예에서는 `AZURE`입니다. (환경의 전체 목록은 [Azure Web Apps의 Maven 플러그 인] 설명서에서 제공됩니다.)
+   `<environment>` | 대상 Azure 클라우드 환경을 정의합니다. 이 예에서는 `AZURE`입니다. (환경의 전체 목록은 [Web App for Containers용 Maven 플러그 인] 설명서에 제공됩니다.)
 
 1. *settings.xml* 파일을 저장하고 닫습니다.
 
@@ -181,7 +181,7 @@ Docker 계정이 있는 경우 Docker 컨테이너 이미지를 로컬에서 빌
       mvn clean package docker:build
       docker push
       ```
-   
+
    * [Maven용 Docker 플러그 인]이 설치되어 있는 경우 `-DpushImage` 매개 변수를 사용하여 컨테이너 이미지를 Docker 허브에 자동으로 빌드할 수 있습니다.
       ```shell
       mvn clean package docker:build -DpushImage
@@ -216,15 +216,15 @@ Docker 계정이 있는 경우 Docker 컨테이너 이미지를 로컬에서 빌
    </plugin>
    ```
 
-Maven 플러그 인에 대해 수정할 수 있는 여러 값이 있으며 이러한 각 요소에 대한 자세한 설명을 [Azure Web Apps의 Maven 플러그 인] 설명서에서 사용할 수 있습니다. 즉, 이 문서에서 강조 표시된 값은 여러 개입니다.
+Maven 플러그 인에 대해 수정할 수 있는 여러 값이 있으며 이러한 각 요소에 대한 자세한 설명은 [Web App for Containers용 Maven 플러그 인] 설명서에 제공됩니다. 즉, 이 문서에서 강조 표시된 값은 여러 개입니다.
 
 요소 | 설명
 ---|---|---
-`<version>` | [Azure Web Apps의 Maven 플러그 인] 버전을 지정합니다. [Maven 중앙 리포지토리](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22)에 나열된 버전을 검사하여 최신 버전을 사용하고 있는지 확인해야 합니다.
+`<version>` | [Web App for Containers용 Maven 플러그 인] 버전을 지정합니다. [Maven 중앙 리포지토리](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22)에 나열된 버전을 검사하여 최신 버전을 사용하고 있는지 확인해야 합니다.
 `<authentication>` | Azure에 대한 인증 정보를 지정합니다. 이 예제에서는 `azure-auth`이 포함된 `<serverId>` 요소를 포함합니다. Maven에서는 해당 값을 사용하여 이 문서의 이전 섹션에 정의된 Maven *settings.xml* 파일에서 Azure 서비스 주체 값을 조회합니다.
 `<resourceGroup>` | 대상 리소스 그룹, 즉, 이 예에서 `maven-plugin`을 지정합니다. 리소스 그룹이 아직 존재하지 않는 경우 배포 중에 만들어집니다.
 `<appName>` | 웹앱에 대한 대상 이름을 지정합니다. 이 예제에서는 대상 이름은 `maven-linux-app-${maven.build.timestamp}`이며 이 예제에서 충돌을 피하기 위해 여기에 `${maven.build.timestamp}` 접미사가 추가됩니다. (타임스탬프는 선택 사항입니다. 앱 이름에 대한 고유한 문자열을 지정할 수 있습니다.)
-`<region>` | 대상 지역을 지정합니다. 이 예제에서는 `westus`입니다. (전체 목록은 [Azure Web Apps의 Maven 플러그 인] 설명서에서 제공됩니다.)
+`<region>` | 대상 지역을 지정합니다. 이 예제에서는 `westus`입니다. (전체 목록은 [Web App for Containers용 Maven 플러그 인] 설명서에서 제공됩니다.)
 `<appSettings>` | Maven에 대한 고유한 설정을 지정하여 Azure에 웹앱을 배포할 때 사용합니다. 이 예제에서 `<property>` 요소는 앱에 대한 포트를 지정하는 자식 요소의 이름/값 쌍을 포함합니다.
 
 > [!NOTE]
@@ -252,7 +252,7 @@ Maven은 Azure에 웹앱을 배포합니다. 웹앱이 아직 없는 경우 생�
 >
 > *pom.xml* 파일의 `<region>` 요소에서 지정한 지역이 배포를 시작할 때 서버를 충분히 사용할 수 없는 경우 다음 예제와 비슷한 오류가 표시될 수 있습니다.
 >
-> ```
+> ```bash
 > [INFO] Start deploying to Web App maven-linux-app-20170804...
 > [INFO] ------------------------------------------------------------------------
 > [INFO] BUILD FAILURE
@@ -303,11 +303,11 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 이 문서에서 설명하는 다양한 기술에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Web Apps의 Maven 플러그 인]
+* [Web App for Containers용 Maven 플러그 인]
 
 * [Azure CLI에서 Azure에 로그인](/azure/xplat-cli-connect)
 
-* [Azure Web Apps의 Maven 플러그 인을 사용하여 Spring Boot 앱을 Azure App Service에 배포하는 방법](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
+* [Web App for Containers용 Maven 플러그 인을 사용하여 Spring Boot 앱을 Linux의 Azure App Service에 배포하는 방법](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
 
 * [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -329,9 +329,9 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 [Maven]: http://maven.apache.org/
 [MSDN 구독자 혜택]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Boot on Docker 시작하기]: https://github.com/spring-guides/gs-spring-boot-docker
+[Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
-[Azure Web Apps의 Maven 플러그 인]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[Web App for Containers용 Maven 플러그 인]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

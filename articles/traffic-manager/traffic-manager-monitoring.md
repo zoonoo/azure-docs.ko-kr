@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 
@@ -131,7 +131,7 @@ Traffic Manager는 비정상 끝점을 포함하는 모든 끝점의 상태를 �
 
 * **우선 순위**. 끝점은 우선 순위가 정해진 목록을 구성합니다. 목록에 사용 가능한 첫 번째 끝점은 항상 반환됩니다. 끝점 상태가 Degraded면 사용 가능한 다음 끝점이 반환됩니다.
 * **가중치 적용**. 사용 가능한 모든 끝점이 할당된 가중치 및 다른 사용 가능한 끝점의 가중치를 기반으로 임의로 선택됩니다.
-* **성능**. 최종 사용자에게 가장 가까운 끝점이 반환됩니다. 해당 끝점을 사용할 수 없는 경우 나머지 사용 가능한 모든 끝점에서 임의로 끝점이 선택됩니다. 임의 끝점을 선택하면 가장 가까운 다음 끝점이 오버로드될 때 발생할 수 있는 연속 오류를 방지할 수 있습니다. [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)을 사용하여 성능 트래픽 라우팅에 대한 대체 장애 조치 계획을 구성할 수 있습니다.
+* **성능**. 최종 사용자에게 가장 가까운 끝점이 반환됩니다. 해당 끝점을 사용할 수 없는 경우 Traffic Manager가 트래픽을 다음으로 가까운 Azure 지역의 끝점으로 이동합니다. [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)을 사용하여 성능 트래픽 라우팅에 대한 대체 장애 조치 계획을 구성할 수 있습니다.
 * **지리적**. 쿼리 요청 IP에 따라 지리적 위치를 제공하도록 매핑된 끝점이 반환됩니다. 해당 끝점을 사용할 수 없는 경우 지리적 위치는 프로필의 한 끝점에만 매핑할 수 있으므로 장애 조치(failover)할 다른 끝점이 선택되지 않습니다(자세한 내용은 [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method) 참조). 모범 사례로, 지리적 라우팅을 사용하는 경우 고객이 둘 이상의 끝점을 프로필 끝점으로 지정하여 중첩된 Traffic Manager 프로필을 사용하는 것이 좋습니다.
 
 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법](traffic-manager-routing-methods.md)을 참조하세요.

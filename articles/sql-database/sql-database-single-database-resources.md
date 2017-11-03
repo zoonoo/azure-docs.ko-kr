@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 단일 데이터베이스 | Microsoft Docs"
-description: "단일 Azure SQL Database를 관리합니다."
+description: "단일 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 및 저장 용량을 관리합니다."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 8393d175f58b031dff2ab4c00b73c09b2e4908d5
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스에 대한 리소스를 관리합니다.
 
@@ -101,7 +101,7 @@ Azure SQL Database 서비스 계층, 성능 수준 및 저장소 용량을 설�
 |[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
 |[데이터베이스 - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
 |[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - 업데이트]((/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Update](/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 
 
 

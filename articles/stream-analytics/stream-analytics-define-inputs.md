@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>데이터 연결: 이벤트에서 Stream Analytics으로의 데이터 스트림 입력에 대해 알아보기
 Stream Analytics 작업에 대한 데이터 연결은 데이터 원본의 이벤트 스트림이며 작업의 *입력*으로 참조됩니다. Stream Analytics는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 비롯한 Azure 데이터 스트림 원본과 높은 수준으로 통합됩니다. 이러한 입력 원본은 분석 작업과 동일한 Azure 구독 또는 다른 구독에서 가져올 수 있습니다.
@@ -37,7 +37,7 @@ Stream Analytics은 *참조 데이터*라는 입력도 지원합니다. 고정�
 
 ## <a name="compression"></a>압축
 
-Azure Stream Analytics는 곧 모든 데이터 스트림 입력 원본(Event Hubs, IoT Hub 및 Blob Storage)에 압축 기능을 배포할 예정입니다. 이 기능은 Azure Portal의 **새 입력** 블레이드에 새 드롭다운 옵션을 추가하므로 선택적으로 데이터 스트림을 압축하도록 선택할 수 있습니다. 지원되는 유형은 현재 None, GZip 및 Deflate 압축입니다. 
+Azure Stream Analytics는 모든 데이터 스트림 입력 원본(Event Hub, IoT Hub 및 Blob Storage)에서 압축을 지원합니다. 이 기능은 Azure Portal의 **새 입력** 블레이드에 새 드롭다운 옵션을 추가하므로 선택적으로 데이터 스트림을 압축하도록 선택할 수 있습니다. 지원되는 유형은 현재 None, GZip 및 Deflate 압축입니다. 
 
 압축은 Avro 직렬화와 함께 지원되지 않으며 참조 데이터에 적용되지 않습니다. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Event Hub를 IoT Hub Route의 끝점으로 사용하는 경우에는 [GetMetadataPropertyValue 함수](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx)를 사용하여 IoT Hub 메타데이터에 액세스할 수 있습니다.
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>IoT Hub에서 데이터 스트림 입력 만들기
 Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게시-구독 이벤트 처리기입니다.

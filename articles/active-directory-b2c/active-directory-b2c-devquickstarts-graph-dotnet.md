@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccd8bf902f707390f80e3c377e60dd35d535b4b5
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: Graph API 사용
+# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
+
+>[!NOTE]
+>현재 Azure AD B2C 디렉터리에서 사용자를 관리하려면 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396)를 사용해야 합니다.
+
 Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주요 예제는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션해야 할 수 있습니다. 고유한 페이지에서 사용자 등록을 호스팅하고 백그라운드에서 Azure AD B2C 디렉터리에 사용자 계정을 만들려고 할 수 있습니다. 이러한 형식의 태스크는 사용자 계정을 만들고 읽고 업데이트 및 삭제하는 기능이 필요합니다. Azure AD Graph API를 사용하여 이 태스크를 수행할 수 있습니다.
 
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 있습니다.

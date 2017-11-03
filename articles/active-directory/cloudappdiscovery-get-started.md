@@ -1,35 +1,35 @@
 ---
-title: "Azure Active Directory에서 Cloud App Discovery 설정 | Microsoft Docs"
-description: "Cloud App Discovery를 사용한 응용 프로그램 찾기 및 관리, 이점 및 작동 방식에 대한 정보를 제공합니다."
+title: "Azure Active Directory에서 Cloud App Discovery 서비스 설정 | Microsoft Docs"
+description: "Cloud App Discovery를 사용하여 응용 프로그램을 찾고 관리하여 클라우드 사용 및 섀도 IT에 대한 실행 가능한 정보를 제공합니다."
 services: active-directory
 keywords: "Cloud App Discovery, 응용 프로그램 관리"
 documentationcenter: 
 author: curtand
 manager: femila
+tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD에서 Cloud App Discovery 설정
 
-Azure AD의 새 Cloud App Discovery 향상이 이제 Azure Active Directory Premium P1 라이선스를 통해 제공됩니다. 이러 향상은 Microsoft Cloud App Security와의 통합을 기반으로 합니다. Cloud App Discovery는 트래픽 로그를 15,000여 클라우드 앱의 Cloud App Security 카탈로그와 비교하여 클라우드 사용 및 섀도 IT에 대한 최신 정보를 제공합니다. 
+Azure AD의 Cloud App Discovery는 이제 Microsoft Cloud App Security에서 사용할 수 있는 데이터와의 통합을 기반으로 합니다. Cloud App Discovery는 트래픽 로그를 15,000개 이상의 클라우드 앱으로 구성된 Cloud App Security 카탈로그와 비교하여 클라우드 사용 및 섀도 IT에 대한 지속적인 정보를 제공합니다. 이 문서에서는 설치 프로세스를 설명하고, 각 단계에 대한 자세한 정보에 연결되는 링크를 제공합니다. 또한 방화벽 및 프록시 정보와 로그 파일 지원에 대해서도 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-조직에 제품 사용을 위한 Azure AD Premium P1 라이선스가 있어야 합니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
-
-Cloud App Discovery를 설정하려면 Azure Active Directory의 전역 관리자이거나 보안 읽기 권한자이어야 합니다. 관리자 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 앱에서 동일한 권한을 갖습니다.
+* 조직에 제품 사용을 위한 Azure AD Premium P1 라이선스가 있어야 합니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+* Cloud App Discovery를 설정하려면 Azure Active Directory의 전역 관리자이거나 보안 읽기 권한자이어야 합니다.
 
 ## <a name="setup-steps"></a>설정 단계
 
@@ -65,7 +65,7 @@ Cloud App Discovery는 트래픽 로그에서 데이터를 사용합니다. 로�
 * 클라우드 앱 사용량 패턴 관련 정보를 위해 업로드 또는 다운로드된 크기
 * 수행 작업(허용/차단) 
 
-Cloud App Discovery는 로그에 포함되지 않는 특성을 표시하거나 분석할 수 없습니다. 예를 들어 **Cisco ASA 방화벽** 표준 로그 형식은 **트랜잭션당 업로드 된 바이트 크기**, **사용자 이름** 또는 **대상 URL**은 포함하지 않고 대상 IP 주소만 포함합니다. 따라서 이 데이터 원본에서 클라우드 앱에 대한 정보가 적을 수 있습니다. Cisco ASA 방화벽의 경우 정보 수준을 6.1로 설정합니다.
+Cloud App Discovery는 로그에 포함되지 않은 특성을 표시하거나 분석할 수 없습니다. 예를 들어 **Cisco ASA 방화벽** 표준 로그 형식은 **트랜잭션당 업로드 된 바이트 크기**, **사용자 이름** 또는 **대상 URL**은 포함하지 않고 대상 IP 주소만 포함합니다. 따라서 이 데이터 원본에서 클라우드 앱에 대한 정보가 적을 수 있습니다. Cisco ASA 방화벽의 경우 정보 수준을 6.1로 설정합니다.
 
 Cloud App Discovery 보고서를 생성하려면 트래픽 로그가 다음 조건에 맞아야 합니다.
 

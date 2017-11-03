@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 새 로그 검색 FAQ 및 알려진 문제
 
@@ -94,6 +94,18 @@ ms.lasthandoff: 10/11/2017
 [Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털](log-analytics-log-search-portals.md)에서 두 포털의 비교를 볼 수 있습니다.  각 포털은 분명한 이점이 있으므로 자신의 요구 사항에 가장 적합한 포털을 선택할 수 있습니다.  두 포털 모두 고급 분석 포털에서 쿼리를 작성하고 뷰 디자이너와 같은 다른 위치에 붙여넣을 수 있습니다.  이를 수행할 때 [고려해야 할 문제](log-analytics-log-search-portals.md#advanced-analytics-portal)를 읽어보세요.
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>질문: 업그레이드 후 쿼리 실행을 시도하는 중 오류가 발생했고 보기에도 오류가 표시됩니다.
+
+업그레이드 후 브라우저가 Log Analytics 쿼리를 실행하려면 다음 주소에 액세스해야 합니다.  브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
+
+| Uri | IP | 포트 |
+|:---|:---|:---|
+| portal.loganalytics.io | 동적 | 80,443 |
+| api.loganalytics.io    | 동적 | 80,443 |
+| docs.loganalytics.io   | 동적 | 80,443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>질문: PowerBI 통합에서 변경되는 사항이 있나요?
@@ -103,10 +115,12 @@ ms.lasthandoff: 10/11/2017
 현재 Power BI로 내보낼 수 있는 Log Analytics 쿼리에 대한 크기 제한은 8MB입니다.  이 한도는 나중에 상향 조정될 예정입니다.
 
 
-##<a name="powershell-cmdlets"></a>PowerShell cmdlet
+## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>질문: 제가 업그레이드를 수행한 후에 로그 검색 PowerShell cmdlet이 업데이트되었습니까?
-[Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults)는 새 검색 언어로 아직 업그레이드되지 않았습니다.  작업 영역을 업그레이드한 후에도 이 cmdlet으로 레거시 쿼리 언어를 계속 사용합니다.  cmdlet이 업데이트되면 업데이트된 해당 설명서를 사용할 수 있게 됩니다.
+모든 작업 영역에 대한 업그레이드가 완료되면 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults)가 지원되지 않습니다.  [Invoke-LogAnalyticsQuery cmdlet](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets)를 사용하여 업그레이드된 작업 영역에서 로그 검색을 수행합니다.
+
+
 
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
@@ -159,11 +173,9 @@ Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하�
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>질문: 내 작업 영역을 업그레이드하지 않으면 어떻게 되나요?  
 향후 몇 개월 이내에 레거시 로그 검색은 사용되지 않을 예정입니다. 이 시점까지 업그레이드하지 않은 작업 영역은 자동으로 업그레이드됩니다.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>질문: 업그레이드를 선택하지 않았는데도 내 작업 영역이 업그레이드되었습니다! 어떻게 된 건가요?  
-해당 작업 영역의 다른 관리자의 작업 영역을 업그레이드했을 수 있습니다. 새 언어가 일반 공급 상태가 되면 모든 작업 영역은 자동으로 업그레이드됩니다.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>질문: 업그레이드 후 되돌릴 수 있나요?
+일반 공급 이전에는 업그레이드 후 작업 영역을 되돌릴 수 있습니다.  이제 새 언어가 일반 공급에 이르렀으므로 기존 플랫폼을 사용 중지해 나가면서 이 기능이 제거되었습니다.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>질문: 실수로 업그레이드를 해서 취소하고 모든 항목을 다시 복원해야 합니다. 어떻게 해야 하나요?  
-걱정하실 필요가 없습니다.  업그레이드 전에 작업 영역의 스냅숏이 생성되었으므로 해당 스냅숏을 복원하면 됩니다. 하지만 업그레이드 후에 저장한 검색, 경고 또는 보기는 손실됩니다.  작업 영역 환경을 복원하려면 [업그레이드 후에 다시 원래대로 되돌릴 수 있나요?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)의 절차를 따르세요.
 
 
 ## <a name="views"></a>뷰

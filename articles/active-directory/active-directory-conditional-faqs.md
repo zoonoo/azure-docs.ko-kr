@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb16a92feee0937edeff1c00e0babe85176a79f
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 조건부 액세스 FAQ
 
@@ -56,8 +56,8 @@ B2B(Business-to-Business) 공동 작업 사용자에 대한 정책이 적용됩�
 
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Microsoft Teams에 대해 조건부 액세스 정책이 어떻게 작동하나요?
 
-Microsoft Teams는 모임, 일정, 파일 공유 등의 핵심 생산성 시나리오를 위해 Exchange Online 및 SharePoint Online을 많이 사용합니다. 이러한 클라우드 앱에 대해 설정된 조건부 액세스 정책은 사용자가 로그인할 때 Microsoft Teams에 적용됩니다.
+Microsoft Teams는 모임, 일정, 파일 공유 등의 핵심 생산성 시나리오를 위해 Exchange Online 및 SharePoint Online을 많이 사용합니다. 이러한 클라우드 앱에 대해 설정된 조건부 액세스 정책은 사용자가 Microsoft Teams에 직접 로그인할 때 Microsoft Teams에 적용됩니다.
 
-Microsoft Teams는 Azure Active Directory 조건부 액세스 정책에서 별도의 클라우드 앱으로도 지원됩니다. 클라우드 앱에 대해 설정된 조건부 액세스 정책은 사용자가 로그인할 때 Microsoft Teams에 적용됩니다.
+Microsoft Teams는 Azure Active Directory 조건부 액세스 정책에서 별도의 클라우드 앱으로도 지원됩니다. 클라우드 앱에 대해 설정된 조건부 액세스 정책은 사용자가 로그인할 때 Microsoft Teams에 적용됩니다. 그러나 Exchange Online 및 SharePoint Online 등의 다른 앱에 대한 정확한 정책이 없으면 사용자가 해당 리소스에 계속하여 직접 액세스할 수 있습니다.
 
-Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 응용 프로그램에 제공합니다. 
+Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 응용 프로그램에 제공합니다.

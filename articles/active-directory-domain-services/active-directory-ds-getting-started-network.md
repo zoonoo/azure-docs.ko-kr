@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -31,7 +31,11 @@ ms.lasthandoff: 10/11/2017
 다음 구성 작업은 Azure 가상 네트워크를 만들고 그 안에 전용 서브넷을 만드는 것입니다. 가상 네트워크 내의 이 서브넷에서 Azure Active Directory Domain Services를 사용하도록 설정합니다. 기존 가상 네트워크를 선택하고 그 안에 전용 서브넷을 만들 수도 있습니다.
 
 1. **가상 네트워크**를 클릭하여 가상 네트워크를 선택합니다.
-2. **가상 네트워크 선택** 블레이드에서 기존 가상 네트워크를 모두 확인할 수 있습니다. 리소스 그룹에 속한 가상 네트워크 및 **기본 사항** 마법사 페이지에서 선택한 Azure 위치만 표시됩니다.
+    > [!NOTE]
+    > **클래식 가상 네트워크는 새로운 배포에서 지원되지 않습니다.** 클래식 가상 네트워크는 새로운 배포에서 지원되지 않습니다. 클래식 가상 네트워크에 배포된 기존의 관리되는 도메인은 계속 지원됩니다. 기존 관리되는 도메인을 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 마이그레이션하는 기능을 조만간 제공할 것입니다.
+    >
+
+2. **가상 네트워크 선택** 페이지에서 기존 가상 네트워크를 모두 확인할 수 있습니다. 리소스 그룹에 속한 가상 네트워크 및 **기본 사항** 마법사 페이지에서 선택한 Azure 위치만 표시됩니다.
 3. Azure AD Domain Services를 사용하도록 설정해야 하는 가상 네트워크를 선택합니다. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다.
 
   > [!TIP]

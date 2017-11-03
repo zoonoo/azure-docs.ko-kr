@@ -3,7 +3,7 @@ title: "Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터
 description: "Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅"
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 66f0a9b591b812a52dc6037dcfcb64a2c250f05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mikejo
+ms.openlocfilehash: a303e080bc847daf023eed2e9ba1ffc31e340160
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터 디버깅
 Visual Studio는 Azure 클라우드 서비스와 가상 컴퓨터 디버깅에 여러 가지 옵션을 제공합니다.
@@ -26,13 +26,13 @@ Visual Studio는 Azure 클라우드 서비스와 가상 컴퓨터 디버깅에 �
 ## <a name="debug-your-cloud-service-on-your-local-computer"></a>로컬 컴퓨터에서 클라우드 서비스 디버그
 Azure 계산 에뮬레이터를 사용하여 로컬 컴퓨터에서 클라우드 서비스 디버그하면 시간과 돈을 절약할 수 있습니다. 배포하기 전에 로컬로 서비스를 디버깅하면, 계산 시간이 소요되지 않고 안정성과 성능을 향상할 수 있습니다. 그러나, Azure 자체에서 클라우드 서비스를 실행하는 경우, 일부 오류가 발생할 수 있습니다. 서비스를 게시하거나 역할 인스턴스에 디버거를 연결할 때 원격 디버깅을 사용하면 이 오류들을 디버그할 수 있습니다.
 
-에뮬레이터가 로컬 환경에서 Azure 계산 서비스를 시뮬레이트 및 실행하여 클라우드 서비스를 배포하기 전에 테스트 및 디버그할 수 있습니다. 에뮬레이터는 역할 인스턴스의 수명 주기를 처리하고 로컬 저장소 같은 시뮬레이트된 리소스에 대한 액세스를 제공합니다. Visual Studio에서 서비스를 디버그하거나 실행할 때, 에뮬레이터가 백그라운드 응용 프로그램으로 자동으로 시작되고, 서비스가 에뮬레이터에 배포됩니다. 로컬 환경에서 서비스가 실행되는 것을 보기 위해 에뮬레이터를 사용할 수 있습니다.  에뮬레이터의 정식 버전 또는 Express 버전을 사용할 수 있습니다. (Azure 2.3부터 에뮬레이터의 Express 버전은 기본값입니다.) [로컬로 클라우드 서비스를 실행 및 디버그할 때 에뮬레이터 익스프레스 사용](vs-azure-tools-emulator-express-debug-run.md)을 참조하세요.
+에뮬레이터가 로컬 환경에서 Azure Compute 서비스를 시뮬레이트 및 실행하여 클라우드 서비스를 배포하기 전에 테스트 및 디버그할 수 있습니다. 에뮬레이터는 역할 인스턴스의 수명 주기를 처리하고 로컬 저장소 같은 시뮬레이트된 리소스에 대한 액세스를 제공합니다. Visual Studio에서 서비스를 디버그하거나 실행할 때, 에뮬레이터가 백그라운드 응용 프로그램으로 자동으로 시작되고, 서비스가 에뮬레이터에 배포됩니다. 로컬 환경에서 서비스가 실행되는 것을 보기 위해 에뮬레이터를 사용할 수 있습니다.  에뮬레이터의 정식 버전 또는 Express 버전을 사용할 수 있습니다. (Azure 2.3부터 에뮬레이터의 Express 버전은 기본값입니다.) [로컬로 클라우드 서비스를 실행 및 디버그할 때 에뮬레이터 익스프레스 사용](vs-azure-tools-emulator-express-debug-run.md)을 참조하세요.
 
 ### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>로컬 컴퓨터에서 클라우드 서비스를 디버그 하려면
-1. 메뉴 항목에서 **디버그**를 선택하고 Azure 클라우드 서비스 프로젝트를 실행하여 **디버깅을 시작**합니다. F5를 눌러도 디버깅을 시작할 수 있습니다. 계산 에뮬레이터가 시작한다는 메시지가 표시됩니다. 에뮬레이터를 시작할 때 시스템 트레이 아이콘을 확인합니다.
+1. 메뉴 항목에서 **디버그**를 선택하고 Azure 클라우드 서비스 프로젝트를 실행하여 **디버깅을 시작**합니다. F5를 눌러도 디버깅을 시작할 수 있습니다. Compute 에뮬레이터가 시작한다는 메시지가 표시됩니다. 에뮬레이터를 시작할 때 시스템 트레이 아이콘을 확인합니다.
 
     ![시스템 트레이의 Azure 에뮬레이터](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
-2. 알림 영역에서 Azure 아이콘에 대한 바로 가기 메뉴를 연 다음 **계산 에뮬레이터 UI 표시**를 선택하여 계산 에뮬레이터에 대한 사용자 인터페이스를 표시합니다.
+2. 알림 영역에서 Azure 아이콘에 대한 바로 가기 메뉴를 연 다음 **Compute 에뮬레이터 UI 표시**를 선택하여 계산 에뮬레이터에 대한 사용자 인터페이스를 표시합니다.
 
     UI의 왼쪽 창에서는 현재 계산 에뮬레이터와 각 서비스를 실행하는 역할 인스턴스가 배포되는 서비스를 보여줍니다. 오른쪽 창에서 수명 주기, 로깅 및 진단 정보를 표시하는 서비스 또는 역할을 선택할 수 있습니다. 포함된 창의 위쪽 여백에 포커스를 맞추면 오른쪽 창에 맞게 확장됩니다.
 3. **디버그** 메뉴의 명령을 선택하고 코드의 중단점을 설정하여 응용 프로그램의 단계를 진행합니다. 디버거에서 응용 프로그램을 통해 단계를 진행하면 응용 프로그램의 현재 상태로 창이 업데이트됩니다. 디버깅을 중지하면 응용 프로그램 배포가 삭제됩니다. 응용 프로그램이 웹 역할을 포함하고 웹 브라우저를 시작하도록 시작 동작 속성을 설정하면, Visual Studio는 브라우저에서 웹 응용 프로그램을 시작합니다. 서비스 구성에서 역할의 인스턴스 수를 변경한 경우, 클라우드 서비스를 중지하고 역할의 이러한 새 인스턴스를 디버깅할 수 있도록 디버깅을 다시 시작해야 합니다.
@@ -100,7 +100,7 @@ Visual Studio의 서버 탐색기를 사용하여 Azure 가상 컴퓨터에서 �
 >
 
 ### <a name="to-debug-an-azure-virtual-machine"></a>Azure 가상 컴퓨터를 디버그하려면
-1. 서버 탐색기에서 가상 컴퓨터 노드를 확장하고 디버깅하려는 가상 컴퓨터의 노드를 선택합니다.
+1. 서버 탐색기에서 Virtual Machines 노드를 확장하고 디버깅하려는 Virtual Machines의 노드를 선택합니다.
 2. 컨텍스트 메뉴를 열고 **디버깅 사용**을 선택합니다. 가상 컴퓨터 상에 디버깅 사용을 확인하는 메시지가 나오면 **예**를 선택합니다.
 
     디버깅을 사용할 수 있도록 Azure가 원격 디버깅 확장을 가상 컴퓨터에 설치합니다.
@@ -133,7 +133,7 @@ Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있�
 
     **참고:** Azure 계정에 로그인하지 않은 경우, 로그인하라는 메시지가 표시됩니다.
 
-1. 가상 컴퓨터에 대한 다양한 설정을 선택하고 **확인**을 선택합니다. 자세한 내용은 [가상 컴퓨터](http://go.microsoft.com/fwlink/?LinkId=623033) 를 참조하세요.
+1. 가상 컴퓨터에 대한 다양한 설정을 선택하고 **확인**을 선택합니다. 자세한 내용은 [Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=623033)를 참조하세요.
 
     DNS 이름으로 입력한 이름이 가상 컴퓨터의 이름이 됩니다.
 

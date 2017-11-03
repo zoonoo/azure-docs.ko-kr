@@ -3,7 +3,7 @@ title: "Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정 | Micr
 description: "Visual Studio에서 Azure 클라우드 서비스 및 VM(가상 컴퓨터) 디버깅을 위해 진단을 설정하는 방법을 설명합니다."
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 8e8cef539ef69d75642c43121202d3b713ddc8f7
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: mikejo
+ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정
 Azure 클라우드 서비스 또는 가상 컴퓨터 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 설정할 수 있습니다. 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처합니다. 진단 데이터는 사용자가 선택한 저장소 계정으로 전송됩니다. Azure의 진단 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대해 진단 로깅 사용](app-service/web-sites-enable-diagnostic-log.md)을 참조하세요.
@@ -80,7 +80,7 @@ Visual Studio에서는 배포하기 전에 에뮬레이터에서 서비스를 �
     ![사용할 저장소 계정 지정](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 4. **저장소 연결 문자열 만들기** 대화 상자에서 Azure Storage 에뮬레이터, Azure 구독을 사용하여 연결할지, 아니면 직접 자격 증명을 입력할지 여부를 지정합니다.
    
-    ![저장소 계정 대화 상자](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
+    ![Storage 계정 대화 상자](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
    
    * **Microsoft Azure Storage 에뮬레이터**를 선택하면 연결 문자열은 `UseDevelopmentStorage=true`로 설정됩니다.
    * **구독**을 선택하는 경우 사용할 Azure 구독을 선택하고 계정 이름을 입력할 수 있습니다. Azure 구독을 관리하려면 **계정 관리**를 선택합니다.
@@ -100,7 +100,7 @@ Visual Studio에서 Azure Virtual Machines에 대한 진단 데이터를 수집�
 ### <a name="to-turn-on-diagnostics-on-azure-virtual-machines"></a>Azure Virtual Machines에서 진단을 켜려면
 
 1. 서버 탐색기에서 Azure 노드를 선택하고 아직 연결되어 있지 않은 경우 Azure 구독에 연결합니다.
-2. **가상 컴퓨터** 노드를 확장합니다. 새 가상 컴퓨터를 만들거나 기존 노드를 선택할 수 있습니다.
+2. **Virtual Machines** 노드를 확장합니다. 새 가상 컴퓨터를 만들거나 기존 노드를 선택할 수 있습니다.
 3. 원하는 가상 컴퓨터에 대한 바로 가기 메뉴에서 **구성**을 선택합니다. 가상 컴퓨터 구성 대화 상자가 나타납니다.
    
     ![Azure Virtual Machine 구성](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)

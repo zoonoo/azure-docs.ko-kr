@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 09/15/2017
-ms.openlocfilehash: 43b124fc3eb72adc5d299b218c9e16ec83d1a240
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6b673527d77550d4213e6d742156ccc525f6b44
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 
 ![항공 이미지 분류 실제 시나리오에 대한 계통도](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[단계별 지침](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/)은 데이터 전송 및 종속성 설치를 포함하여 Azure 저장소 계정 및 Spark 클러스터 생성과 준비하는 과정을 안내하는 것으로 시작합니다. 그런 다음 교육 작업을 시작하고 결과 모델의 성능을 비교하는 방법을 설명합니다. 마지막으로, 선택한 모델을 Spark 클러스터의 큰 이미지 집합에 적용하여 로컬에서 예측 결과 분석하는 방법을 보여 줍니다.
+이 단계별 지침은 데이터 전송 및 종속성 설치를 포함하여 Azure Storage 계정 및 Spark 클러스터 생성과 준비하는 과정을 안내합니다. 그런 다음 교육 작업을 시작하고 결과 모델의 성능을 비교하는 방법을 설명합니다. 마지막으로, 선택한 모델을 Spark 클러스터의 큰 이미지 집합에 적용하여 로컬에서 예측 결과 분석하는 방법을 보여 줍니다.
 
 
 ## <a name="set-up-the-execution-environment"></a>실행 환경 설정
@@ -78,55 +78,62 @@ ms.lasthandoff: 10/11/2017
 1. Azure Machine Learning Workbench 프로젝트에서 File -> Open Command Prompt를 클릭하여 명령줄 인터페이스(CLI)를 엽니다.
 1. 명령줄 인터페이스에서 다음 명령을 실행하여 Azure 계정에 로그인합니다.
 
-    ````
+    ```
     az login
     ```
 
-    You are asked to visit a URL and type in a provided temporary code; the website requests your Azure account credentials.
+    URL을 방문하고 제공된 임시 코드를 입력해야 하며 웹 사이트가 Azure 계정 자격 증명을 요청합니다.
     
-1. When login is complete, return to the CLI and run the following command to determine which Azure subscriptions are available to your Azure account:
+1. 로그인 완료되면 CLI 돌아가 다음 명령을 실행하여 Azure 계정에 사용할 수 있는 Azure 구독을 확인합니다.
 
     ```
     az account list
     ```
 
-    This command lists all subscriptions associated with your Azure account. Find the ID of the subscription you would like to use. Write the subscription ID where indicated in the following command, then set the active subscription by executing the command:
+    이 명령은 Azure 계정과 연결된 모든 구독을 나열합니다. 사용하려는 구독 ID를 찾습니다. 다음 명령에서 표시된 위치에 구독 ID를 기입한 다음 명령을 실행하여 활성 구독을 설정합니다.
 
     ```
     az account set --subscription [subscription ID]
     ```
 
-1. The Azure resources created in this example are stored together in an Azure resource group. Choose a unique resource group name and write it where indicated, then execute both commands to create the Azure resource group:
+1. 이 예제에서 만든 Azure 리소스는 Azure 리소스 그룹에 함께 저장됩니다. 고유한 리소스 그룹 이름을 선택하고 두 명령을 실행하여 Azure 리소스 그룹을 만듭니다.
 
     ```
     set AZURE_RESOURCE_GROUP=[resource group name]
     az group create --location eastus --name %AZURE_RESOURCE_GROUP%
     ```
 
-#### Create the storage account
+#### <a name="create-the-storage-account"></a>저장소 계정 만들기
 
-We now create the storage account that hosts project files that must be accessed by the HDInsight Spark.
+이제 HDInsight Spark에서 액세스해야 하는 프로젝트 파일을 호스트하는 저장소 계정을 만듭니다.
 
-1. Choose a unique storage account name and write it where indicated in the following `set` command, then create an Azure storage account by executing both commands:
+1. 고유한 저장소 계정 이름을 선택하 고 다음 `set` 명령의 표시된 위치에 쓴 다음 두 명령을 실행하여 Azure Storage 계정을 만듭니다.
 
     ```
     set STORAGE_ACCOUNT_NAME=[storage account name]
     az storage account create --name %STORAGE_ACCOUNT_NAME% --resource-group %AZURE_RESOURCE_GROUP% --sku Standard_LRS
     ```
 
-1. Issue the following command to list the storage account keys:
+1. 다음 명령을 실행하여 저장소 계정 키를 검색합니다.
 
     ```
     az storage account keys list --resource-group %AZURE_RESOURCE_GROUP% --account-name %STORAGE_ACCOUNT_NAME%
     ```
 
-    Record the value of `key1` as the storage key in the following command, then run the command to store the value.
+    다음 명령에서 `key1` 값을 저장소 키로 기록한 다음 명령을 실행하여 값을 저장합니다.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
-1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility. Ensure that the AzCopy executable is on your system path by typing "AzCopy" and pressing Enter to show its documentation.
-1. Issue the following commands to copy all of the sample data, pretrained models, and model training scripts to the appropriate locations in your storage account:
+1. 원하는 텍스트 편집기에서 Azure Machine Learning Workbench 프로젝트의 하위 디렉터리 "Code"로부터 `settings.cfg` 파일을 로드하고 표시된 대로 저장소 계정 이름과 키를 삽입합니다. 파일의 수정된 줄은 다음과 유사하게 나타납니다.
+    ```
+    [Settings]
+        # Credentials for the Azure Storage account
+        storage_account_name = storacctname
+        storage_account_key = kpI...88 chars total...Q==
+    ```
+    `settings.cfg` 파일을 저장하고 닫습니다.
+1. [AzCopy](http://aka.ms/downloadazcopy) 유틸리티가 없으면 다운로드하여 설치합니다. "AzCopy" 입력 후 Enter 키를 눌러 설명을 표시하여 시스템 경로에 AzCopy 실행 파일이 있는지 확인합니다.
+1. 다음 명령을 실행하여 예제 데이터, 미리 학습된 모델 및 모델 학습 스크립트를 모두 저장소 계정의 적절한 위치에 복사합니다.
 
     ```
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/test /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/test /DestKey:%STORAGE_ACCOUNT_KEY% /S
@@ -135,15 +142,15 @@ We now create the storage account that hosts project files that must be accessed
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/pretrainedmodels /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/pretrainedmodels /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Expect file transfer to take up to 20 minutes. While you wait, you can proceed to the following section. You may need to open another Command Line Interface through Workbench and redefine the temporary variables there.
+    파일 전송은 최대 20분이 예상됩니다. 기다리는 동안 다음 섹션으로 진행할 수 있습니다. 워크벤치를 통해 다른 명령줄 인터페이스를 열어 임시 변수를 재정의해야 할 수 있습니다.
 
-#### Create the HDInsight Spark cluster
+#### <a name="create-the-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터 만들기
 
-Our recommended method to create an HDInsight cluster uses the HDInsight Spark cluster Resource Manager template included in the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project.
+권장되는 HDInsight 클러스터 만들기 방법은 이 프로젝트의 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" 하위 폴더에 있는 HDInsight Spark 클러스터 Resource Manager 템플릿을 사용하는 것입니다. 
 
-1. The HDInsight Spark cluster template is the "template.json" file under the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project. By default, the template creates a Spark cluster with 40 worker nodes. If you must adjust that number, open the template in your favorite text editor and replace all instances of "40" with the worker node number of your choice.
-    - You may encounter out-of-memory errors if the number of worker nodes you choose is small. To combat memory errors, you may run the training and operationalization scripts on a subset of the available data as described later in this document.
-2. Choose a unique name and password for the HDInsight cluster and write them where indicated in the following command. Then create the cluster by issuing the following command:
+1. HDInsight Spark 클러스터 템플릿은 이 프로젝트의 하위 폴더 "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning"에 있는 "template.json" 파일입니다. 기본적으로 템플릿은 40 작업자 노드가 있는 Spark 클러스터를 만듭니다. 이 숫자를 조정해야 할 경우, 원하는 텍스트 편집기에서 템플릿을 열고 모든 “40” 인스턴스를 원하는 작업자 노드 수로 바꿉니다.
+    - 선택한 작업자 노드 수 작으면 메모리 부족 오류가 발생할 수 있습니다. 메모리 오류를 방지하기 위해 이 문서의 뒷부분에 설명된 대로 사용 가능한 데이터의 하위 집합에서 교육 및 연산화 스크립트를 실행할 수 있습니다.
+2. HDInsight 클러스터에 고유한 이름 및 암호를 선택하고 다음 명령의 표시된 위치에 씁니다. 다음 명령을 실행하여 클러스터를 만듭니다.
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -151,120 +158,120 @@ Our recommended method to create an HDInsight cluster uses the HDInsight Spark c
     az group deployment create --resource-group %AZURE_RESOURCE_GROUP% --name hdispark --template-file "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning\template.json" --parameters storageAccountName=%STORAGE_ACCOUNT_NAME%.blob.core.windows.net storageAccountKey=%STORAGE_ACCOUNT_KEY% clusterName=%HDINSIGHT_CLUSTER_NAME% clusterLoginPassword=%HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
-Your cluster's deployment may take up to 30 minutes (including provisioning and script action execution).
+클러스터 배포는 최대 30분이 걸릴 수 있습니다(프로비전 및 스크립트 동작 실행 포함).
 
-### Prepare the Azure Machine Learning Workbench execution environment
+### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Azure Machine Learning Workbench 실행 환경 준비
 
-#### Register the HDInsight cluster as an Azure Machine Learning Workbench compute target
+#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Machine Learning Workbench에서 계산 대상으로 HDInsight 클러스터 등록
 
-Once HDInsight cluster creation is complete, register the cluster as a compute target for your project as follows:
+HDInsight 클러스터를 만들고 나면 다음과 같이 클러스터를 프로젝트의 계산 대상으로 등록합니다.
 
-1.  Issue the following command from the Azure Machine Learning Command Line Interface:
+1.  Azure Machine Learning 명령줄 인터페이스에서 다음 명령을 실행합니다.
 
     ```
     az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
     ```
 
-    This command adds two files, `myhdi.runconfig` and `myhdi.compute`, to your project's `aml_config` folder.
+    이 명령은 두 파일(`myhdi.runconfig` 및 `myhdi.compute`)을 프로젝트의 `aml_config` 폴더에 추가합니다.
 
-1. Open the `myhdi.compute` file in your favorite text editor. Modify the `yarnDeployMode: cluster` line to read `yarnDeployMode: client`, then save and close the file.
-1. Run the following command to prepare your environment for use:
+1. 원하는 텍스트 편집기에서 `myhdi.compute` 파일을 엽니다. `yarnDeployMode: cluster` 줄을 수정하여 `yarnDeployMode: client`를 읽은 다음 저장하고 파일을 닫습니다.
+1. 다음 명령을 실행하여 환경을 사용하도록 준비합니다.
    ```
    az ml experiment prepare -c myhdi
    ```
 
-#### Install local dependencies
+#### <a name="install-local-dependencies"></a>로컬 종속성 설치
 
-Open a CLI from Azure Machine Learning Workbench and install dependencies needed for local execution by issuing the following command:
+Azure Machine Learning Workbench에서 CLI를 열고 다음 명령을 실행하여 로컬 실행에 필요한 종속성을 설치합니다.
 
 ```
 pip install matplotlib azure-storage==0.36.0 pillow scikit-learn
 ```
 
-## Data acquisition and understanding
+## <a name="data-acquisition-and-understanding"></a>데이터 취득 및 이해
 
-This scenario uses publicly available aerial imagery data from the [National Agriculture Imagery Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) at 1-meter resolution. We have generated sets of 224 pixel x 224 pixel PNG files cropped from the original NAIP data and sorted according to land use labels from the [National Land Cover Database](https://www.mrlc.gov/nlcd2011.php). A sample image with label "Developed" is shown at full size:
+이 시나리오에서는 [NAIP(National Agriculture Imagery Program)](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/)에서 공개 제공하는 1미터 해상도 항공 이미지 데이터를 사용합니다. 원본 NAIP 데이터에서 잘라낸 224 x 224 픽셀 PNG 파일 집합을 생성하고 [National Land Cover Database](https://www.mrlc.gov/nlcd2011.php)의 토지 사용 레이블에 따라 정렬했습니다. 레이블이 "Developed"(개발됨)인 샘플 이미지가 전체 크기로 표시됩니다.
 
-![A sample tile of developed land](media/scenario-aerial-image-classification/sample-tile-developed.png)
+![개발된 토지 샘플 타일](media/scenario-aerial-image-classification/sample-tile-developed.png)
 
-Class-balanced sets of ~44k and 11k images are used for model training and validation, respectively. We demonstrate model deployment on a ~67k image set tiling Middlesex County, MA -- home of Microsoft's New England Research and Development (NERD) center. For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+~44k 및 11k 이미지의 클래스 분산 집합을 각각 모델 학습과 유효성 검사에 사용합니다. Microsoft NERD(New England Research and Development) 센터가 있는 Middlesex County(MA) 타일 ~67k 이미지 집합에서의 모델 배포를 설명합니다. 이러한 이미지 집합의 구성 방식에 대한 자세한 내용은 [상세 이미지 분류 GIT 리포지토리](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)를 참조하세요.
 
-![Location of Middlesex County, Massachusetts](media/scenario-aerial-image-classification/middlesex-ma.png)
+![매사추세츠 주 미들섹스 카운티의 위치](media/scenario-aerial-image-classification/middlesex-ma.png)
 
-During setup, the aerial image sets used in this example were transferred to the storage account that you created. The training, validation, and operationalization images are all 224 pixel x 224 pixel PNG files at a resolution of one pixel per square meter. The training and validation images have been organized into subfolders based on their land use label. (The land use labels of the operationalization images are unknown and in many cases ambiguous; some of these images contain multiple land types.) For more information on how these image sets were constructed, see the [Embarrassingly Parallel Image Classification git repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+설치 중에, 만들어진 저장소 계정에 이 예에서 사용된 항공 이미지 집합이 전송되었습니다. 학습, 유효성 검사 및 연산화 이미지는 모두 평방미터당 1픽셀 해상도의 224 x 224 픽셀 PNG 파일입니다. 학습 및 유효성 검사 이미지는 토지 사용 레이블에 따라 하위 폴더에 구성되었습니다. 연산화 이미지의 토지 사용 레이블은 알 수 없으며 대부분의 경우 모호합니다. 이 이미지 중 상당수에는 여러 토지 유형이 포함되어 있습니다. 이러한 이미지 집합의 구성 방식에 대한 자세한 내용은 [상세 이미지 분류 GIT 리포지토리](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)를 참조하세요.
 
-To view example images in your Azure storage account (optional):
-1. Log in to the [Azure portal](https://portal.azure.com).
-1. Search for the name of your storage account in the search bar along the top of your screen. Click on your storage account in the search results.
-2. Click on the "Blobs" link in the storage account's main pane.
-3. Click on the container named "train." You should see a list of directories named according to land use.
-4. Click on any of these directories to load the list of images it contains.
-5. Click on any image and download it to view the image.
-6. If desired, click on the containers named "test" and "middlesexma2016" to view their contents as well.
+Azure Storage 계정에서 예제 이미지를 보려면(선택 사항)
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. 화면 맨 위의 검색 표시줄에서 저장소 계정의 이름을 검색합니다. 검색 결과에서 저장소 계정을 클릭합니다.
+2. 저장소 계정의 기본 창에서 "Blob" 링크를 클릭합니다.
+3. 이름이 "train"인 컨테이너를 클릭합니다. 그러면 토지 사용에 따라 명령된 디렉터리 목록이 표시됩니다.
+4. 이 디렉터리 중 하나를 클릭하여 그 안에 들어 있는 이미지 목록을 로드합니다.
+5. 이미지를 클릭하고 다운로드하여 봅니다.
+6. 원하는 경우 이름이 "test" 및 "middlesexma2016"인 컨테이너를 클릭하여 그 콘텐츠도 함께 확인합니다.
 
-## Modeling
+## <a name="modeling"></a>모델링
 
-### Training models with MMLSpark
-The `run_mmlspark.py` script in the "Code\02_Modeling" subfolder of the Workbench project is used to train an [MMLSpark](https://github.com/Azure/mmlspark) model for image classification. The script first featurizes the training set images using an image classifier DNN pretrained on the ImageNet dataset (either AlexNet or an 18-layer ResNet). The script then uses the featurized images to train an MMLSpark model (either a random forest or a logistic regression model) to classify the images. The test image set is then featurized and scored with the trained model. The accuracy of the model's predictions on the test set is calculated and logged to Azure Machine Learning Workbench's run history feature. Finally, the trained MMLSpark model and its predictions on the test set are saved to blob storage.
+### <a name="training-models-with-mmlspark"></a>MMLSpark를 통한 모델 교육
+워크벤치 프로젝트의 "Code\02_Modeling" 하위 폴더에 있는 `run_mmlspark.py` 스크립트를 사용하여 이미지 분류를 위해 [MMLSpark](https://github.com/Azure/mmlspark) 모델을 교육합니다. 이 스크립트는 먼저 ImageNet 데이터 집합(AlexNet 또는 18레이어 ResNet)에서 미리 학습된 이미지 분류자 DNN을 사용하여 학습 집합 이미지를 특성화합니다. 그런 다음 특성화된 이미지를 사용하여 이미지를 분류하도록 MMLSpark 모델을 교육합니다(임의 포리스트 또는 논리적 회귀 모델). 그러면 테스트 이미지 집합이 특성화되고 학습된 모델과 함께 채점됩니다. 테스트 집합의 모델 예측 정확도가 계산되어 Azure Machine Learning Workbench 실행 기록 특징에 기록됩니다. 마지막으로, 학습된 MMLSpark 모델 및 테스트 집합에 대한 예측이 BLOB Storage에 저장됩니다.
 
-Select a unique output model name for your trained model, a pretrained model type, and an MMLSpark model type. Write your selections where indicated in the following command template, then begin retraining by executing the command from an Azure ML Command Line Interface:
+학습된 모델, 미리 학습된 모델 형식 및 MMLSpark 모델 형식에 대해 고유한 출력 모델 이름을 선택합니다. 다음 명령 템플릿의 표시된 위치에 선택을 기입한 다음 Azure ML 명령줄 인터페이스에서 명령을 실행하여 재교육을 시작합니다.
 
 ```
 az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --mmlspark_model_type {randomforest,logisticregression}
 ```
 
-An additional `--sample_frac` parameter can be used to train and test the model with a subset of available data. Using a small sample fraction decreases runtime and memory requirements at the expense of trained model accuracy. For more information on this and other parameters, run `python Code\02_Modeling\run_mmlspark.py -h`.
+추가 `--sample_frac` 매개 변수를 사용하여 사용 가능한 데이터의 하위 집합으로 모델을 교육 및 테스트할 수 있습니다. 작은 샘플 조각을 사용하면 런타임과 메모리 요구 사항은 줄어들지만 학습된 모델의 정확도는 떨어집니다. 이 항목과 다른 매개 변수에 대한 자세한 내용을 보려면 `python Code\02_Modeling\run_mmlspark.py -h`를 실행하세요.
 
-Users are encouraged to run this script several times with different input parameters. The performance of the resulting models can then be compared in Azure Machine Learning Workbench's Run History feature.
+다양한 입력 매개 변수를 사용하여 이 스크립트를 여러 차례 실행하는 것이 좋습니다. 그런 다음 결과 모델의 성능을 Azure Machine Learning Workbench 실행 기록 기능에서 비교할 수 있습니다.
 
-### Comparing model performance using the Workbench Run History feature
+### <a name="comparing-model-performance-using-the-workbench-run-history-feature"></a>워크벤치 실행 기록 기능을 사용한 모델 성능 비교
 
-After you have executed two or more training runs of either type, navigate to the Run History feature in Workbench by clicking the clock icon along the left-hand menu bar. Select `run_mmlspark.py` from the list of scripts at left. A pane loads comparing the test set accuracy for all runs. To see more detail, scroll down and click on the name of an individual run.
+유형의 학습 실행을 두 차례 이상 실행한 후에는 왼쪽 메뉴 표시줄에 있는 시계 아이콘을 클릭하여 워크벤치의 실행 기록 기능으로 이동할 수 있습니다. 왼쪽의 스크립트 목록에서 `run_mmlspark.py`를 선택합니다. 창에 모든 실행에 대한 테스트 집합 정확도 비교가 로드됩니다. 자세한 내용을 보려면 아래로 스크롤하여 개별 실행의 이름을 클릭합니다.
 
-## Deployment
+## <a name="deployment"></a>배포
 
-To apply one of your trained models to aerial images tiling Middlesex County, MA using remote execution on HDInsight, insert your desired model's name into the following command and execute it:
+HDInsight에서 원격 실행을 사용하여 학습된 모델 중 하나를 Middlesex County, MA 타일의 항공 이미지에 적용하려면 원하는 모델의 이름을 다음 명령에 삽입하고 실행합니다.
 
 ```
 az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --config_filename Code/settings.cfg --output_model_name [trained model name chosen earlier]
 ```
 
-An additional `--sample_frac` parameter can be used to operationalize the model with a subset of available data. Using a small sample fraction decreases runtime and memory requirements at the expense of prediction completeness. For more information on this and other parameters, run `python Code\03_Deployment\batch_score_spark -h`.
+추가 `--sample_frac` 매개 변수를 사용하여 사용 가능한 데이터의 하위 집합으로 모델을 연산화할 수 있습니다. 작은 샘플 조각을 사용하면 런타임과 메모리 요구 사항은 줄어들지만 예측 완성도는 떨어집니다. 이 항목과 다른 매개 변수에 대한 자세한 내용을 보려면 `python Code\03_Deployment\batch_score_spark -h`를 실행하세요.
 
-This script writes the model's predictions to your storage account. The predictions can be examined as described in the next section.
+이 스크립트는 저장소 계정에 모델의 예측을 기록합니다. 다음 섹션에 설명된 대로 예측을 조사할 수 있습니다.
 
-## Visualization
+## <a name="visualization"></a>시각화
 
-The "Model prediction analysis" Jupyter notebook in the "Code\04_Result_Analysis" subfolder of the Workbench project visualizes a model's predictions. Load and run the notebook as follows:
-1. Open the project in Workbench and click on the folder ("Files") icon along the left-hand menu to load the directory listing.
-2. Navigate to the "Code\04_Result_Analysis" subfolder and click on the notebook named "Model prediction analysis." A preview rendering of the notebook should be displayed.
-3. Click "Start Notebook Server" to load the notebook.
-4. In the first cell, enter the name of the model whose results you would like to analyze where indicated.
-5. Click on "Cell -> Run All" to execute all cells in the notebook.
-6. Read along with the notebook to learn more about the analyses and visualizations it presents.
+워크벤치 프로젝트의 "Code\04_Result_Analysis" 하위 폴더에 있는 "Model prediction analysis" Jupyter 노트북은 모델 예측을 시각화합니다. 다음과 같이 노트북을 로드하여 실행합니다.
+1. 워크벤치에서 프로젝트를 열고 왼쪽 메뉴의 폴더("Files") 아이콘을 클릭하여 디렉터리 목록을 로드합니다.
+2. "Code\04_Result_Analysis" 하위 폴더로 이동하고 이름이 "Model prediction analysis"인 노트북을 클릭합니다. 노트북의 미리 보기 렌더링이 표시됩니다.
+3. "Start Notebook Server"를 클릭하여 노트북을 로드합니다.
+4. 첫 번째 셀에서 표시된 위치에 결과를 분석하고자 하는 모델의 이름을 입력합니다.
+5. "셀 -> 모두 실행"을 클릭하여 노트북의 모든 셀을 실행합니다.
+6. 노트북을 따라 읽어가며 제시된 분석과 시각화에 대한 자세한 내용을 확인합니다.
 
-## Cleanup
-When you have completed the example, we recommend that you delete all of the resources you have created by executing the following command from the Azure Command Line Interface:
+## <a name="cleanup"></a>정리
+이 예제를 완료한 후에는 Azure 명령줄 인터페이스에서 다음 명령을 실행하여, 만든 모든 리소스를 삭제하는 것이 좋습니다.
 
   ```
   az group delete --name %AZURE_RESOURCE_GROUP%
   ```
 
-## References
+## <a name="references"></a>참조
 
-- [The Embarrassingly Parallel Image Classification repository](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
-   - Describes dataset construction from freely available imagery and labels
-- [MMLSpark](https://github.com/Azure/mmlspark) GitHub repository
-   - Contains additional examples of model training and evaluation with MMLSpark
+- [상세 병렬 이미지 분류 리포지토리](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
+   - 무료로 제공되는 이미지 및 레이블을 통해 데이터 집합 구성 설명
+- [MMLSpark](https://github.com/Azure/mmlspark) GitHub 리포지토리
+   - MMLSpark를 통한 모델 교육 및 평가의 추가적인 예제 제공
 
-## Conclusions
+## <a name="conclusions"></a>결론
 
-Azure Machine Learning Workbench helps data scientists easily deploy their code on remote compute targets. In this example, local code was deployed for remote execution on an HDInsight cluster. Azure Machine Learning Workbench's run history feature tracked the performance of multiple models and helped us identify the most accurate model. Workbench's Jupyter notebooks feature helped visualize our models' predictions in an interactive, graphical environment.
+Azure Machine Learning Workbench를 통해 데이터 과학자들은 원격 컴퓨터 대상에 코드를 간편하게 배포할 수 있습니다. 이 예제에서는 HDInsight 클러스터에서 원격 실행을 위해 로컬 코드가 배포되었습니다. Azure Machine Learning Workbench의 실행 기록 기능은 여러 모델의 성능을 추적하고 가장 정확한 모델을 밝히는 데 도움이 되었습니다. 워크벤치의 Jupyter 노트북 기능은 대화형 그래픽 환경에서 모델의 예측을 시각화하는 데 도움이 되었습니다.
 
-## Next steps
-To dive deeper into this example:
-- In Azure Machine Learning Workbench's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
-- Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
-- Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
-- Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
-- Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
+## <a name="next-steps"></a>다음 단계
+이 예제에 대해 자세히 알아보려면
+- Azure Machine Learning Workbench의 실행 기록 기능에서 기어 기호를 클릭하여 표시할 그래프와 메트릭을 선택합니다.
+- `run_logger`를 호출하는 문에 대한 예제 스크립트를 살펴봅니다. 각각의 메트릭이 어떻게 기록되는지 확인합니다.
+- `blob_service`를 호출하는 문에 대한 예제 스크립트를 살펴봅니다. 학습된 모델과 예측이 클라우드에서 어떻게 저장 및 검색되는지 확인합니다.
+- BLOB Storage 계정에서 만든 컨테이너의 내용을 탐색합니다. 어떤 스크립트나 명령이 각 파일 그룹의 생성을 담당하는지 확인합니다.
+- 학습 스크립트를 수정하여 다른 MMLSpark 모델 형식을 교육하거나 모델 하이퍼 매개 변수를 변경합니다. 실행 기록 기능을 사용하여 변경에 따라 모델의 정확도가 높아졌는지 또는 낮아졌는지 판단합니다.

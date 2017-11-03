@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 응용 프로그램을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -30,7 +30,7 @@ Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터�
 필요에 따라 SSL 연결 적용을 사용하지 않도록 설정할 수 있습니다. Microsoft Azure는 항상 향상된 보안을 위해 **SSL 연결 적용** 설정을 사용하는 것을 권장합니다.
 
 ### <a name="using-the-azure-portal"></a>Azure 포털 사용
-PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **Save**를 클릭합니다. 
+PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **저장**을 클릭합니다. 
 
 ![연결 보안 - SSL 적용 사용 안 함](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
@@ -59,11 +59,11 @@ PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하�
 #### <a name="for-linux-os-x-or-unix"></a>Linux, OS X 또는 Unix
 OpenSSL 라이브러리는 [OpenSSL Software Foundation](http://www.openssl.org)에서 직접 소스 코드로 제공됩니다. 다음 지침에서는 Linux PC에 OpenSSL을 설치하는 데 필요한 단계를 안내합니다. 이 문서에서는 Ubuntu 12.04 이상에서 작동하는 것으로 알려진 명령을 사용합니다.
 
-터미널 세션을 열고 OpenSSL을 설치합니다.
+터미널 세션을 열고 OpenSSL을 다운로드합니다.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
-다운로드 패키지에서 파일 압축을 풉니다.
+다운로드한 패키지에서 파일 압축을 풉니다.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
@@ -113,7 +113,7 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
 
 > [!NOTE]
 > 현재 서비스에 연결된 상태에서 "sslmode=verify-full"을 사용하는 경우 연결이 다음과 같은 오류로 실패하는 알려진 문제가 있습니다. _“&lt;region&gt;.control.database.windows.net”에 대한 서버 인증서(및 7개 다른 이름)가 호스트 이름 “&lt;servername&gt;.postgres.database.azure.com”과 일치하지 않습니다._
-> "sslmode=verify-full"이 필요한 경우 서버 명명 규칙 **&lt;servername&gt;.database.windows.net**을 연결 문자열 호스트 이름으로 사용하세요. 나중에 이 제한을 제거할 예정입니다. 다른 [SSL 모드](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS)를 사용하여 연결하면 기본 호스트 명명 규칙 **&lt;servername&gt;.postgres.database.azure.com**을 계속 사용해야 합니다.
+> "sslmode=verify-full"이 필요한 경우 서버 명명 규칙 **&lt;servername&gt;.database.windows.net**을 연결 문자열의 호스트 이름으로 사용하세요. 나중에 이 제한을 제거할 예정입니다. 다른 [SSL 모드](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS)를 사용하여 연결하면 기본 호스트 명명 규칙 **&lt;servername&gt;.postgres.database.azure.com**을 계속 사용해야 합니다.
 
 #### <a name="using-psql-command-line-utility"></a>psql 명령줄 유틸리티 사용
 다음 예제에서는 psql 명령줄 유틸리티를 사용하여 PostgreSQL 서버에 성공적으로 연결하는 방법을 보여 줍니다. 만든 `root.crt` 파일과 `sslmode=verify-ca` 또는 `sslmode=verify-full` 옵션을 사용합니다.
@@ -141,4 +141,4 @@ SSL을 통해 안전하게 연결하도록 pgAdmin 4를 구성하려면 `SSL mod
 ![pgAdmin - 연결 - SSL 모드 Require 스크린샷](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>다음 단계
-[용 Azure 데이터베이스를 위한 연결 라이브러리](concepts-connection-libraries.md) 후에 다양한 응용 프로그램 연결 옵션 검토
+[Azure Database for PostgreSQL을 위한 연결 라이브러리](concepts-connection-libraries.md)에 따라 다양한 응용 프로그램 연결 옵션 검토

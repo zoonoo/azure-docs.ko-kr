@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -43,7 +43,11 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
 1. Azure AD Connect를 실행할, Windows Server 2012 R2 이상이 실행되는 서버를 식별합니다. 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트에 서버를 추가합니다.
-2. 이전 단계에서 식별한 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.557.0 이상인지 확인합니다.
+2. 이전 단계에서 식별한 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.644.0 이상인지 확인합니다.
+
+    >[!NOTE]
+    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 **암호 해시 동기화**와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
+
 3. 독립 실행형 인증 에이전트를 실행할, Windows Server 2012 R2 이상이 실행되는 추가 서버를 식별합니다. 인증 에이전트 버전이 1.5.193.0 이상이어야 합니다. 로그인 요청의 고가용성을 보장하려면 이 서버가 필요합니다. 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트에 서버를 추가합니다.
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성해야 합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 **아웃바운드** 요청을 만들 수 있는지 확인합니다.
@@ -87,7 +91,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 ![Azure AD Connect - 사용자 로그인](./media/active-directory-aadconnect-sso/sso3.png)
 
-Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 경로 사용), Azure AD Connect에서 **사용자 로그인 변경 페이지**를 선택하고 **다음**을 클릭합니다. 그런 다음 **통과 인증**을 로그온 방법으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치되고 테넌트에서 기능이 사용됩니다.
+Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 경로 사용), Azure AD Connect에서 **사용자 로그인 변경** 작업을 선택하고 **다음**을 클릭합니다. 그런 다음 **통과 인증**을 로그온 방법으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치되고 테넌트에서 기능이 사용됩니다.
 
 ![Azure AD Connect - 사용자 로그인 변경](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

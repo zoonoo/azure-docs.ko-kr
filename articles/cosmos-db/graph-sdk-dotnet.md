@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 10/17/2017
 ms.author: mimig
-ms.openlocfilehash: b84fe1036a50b5672f5b5f4d6df2f67a25a1be4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d6ba5794e4a3e431abd72a780b60b9e59e9f4db
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API: 다운로드 및 릴리스 정보
 
@@ -32,6 +32,15 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
+
+#### <a name="bug-fixes"></a>버그 수정
+* 필요에 따라 로드에 고정`appsettings.json`(`netstandard1.6`)
+
+#### <a name="whats-new"></a>새로운 기능
+* Microsoft.Azure.Graphs를 대상 플랫폼 AnyCPU로 전환합니다.
+* `net461` 패키지 매니페스트에서 Mono 어셈블리를 제거합니다.
 
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
 
@@ -74,6 +83,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [0.3.1-preview](#0.3.1-preview) |2017년 10월 17일 |--- |
 | [0.3.0-preview](#0.3.0-preview) |2017년 10월 2일 |--- |
 | [0.2.4-preview](#0.2.4-preview) |2017년 8월 4일 |--- |
 | [0.2.2-preview](#0.2.2-preview) |2017년 6월 23일 |--- |

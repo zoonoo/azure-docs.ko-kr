@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Odbc**로 설정해야 합니다. | 예 |
-| connectionString | 자격 증명 부분을 제외한 연결 문자열입니다. 다음 섹션의 예제를 참조하세요. | 예 |
+| connectionString | 자격 증명 부분을 제외한 연결 문자열입니다. `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN on IR machine>;"`을 통해 Integration Runtime 컴퓨터에 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(이에 따라 연결된 서비스에서 자격 증명 부분도 계속 지정해야 함).| 예 |
 | authenticationType | ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. | 예 |
 | userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
 | 암호 | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
@@ -71,11 +71,11 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -100,11 +100,11 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -240,23 +240,29 @@ ODBC 호환 데이터 저장소에 데이터를 복사하려면 복사 작업의
 ]
 ```
 
-## <a name="ge-historian-source"></a>GE Historian 원본
+## <a name="ibm-informix-source"></a>IBM Informix 원본
 
-다음 예제와 같이 [GE Proficy Historian(현재 GE Historian)](http://www.geautomation.com/products/proficy-historian) 데이터 저장소를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
+일반 ODBC 커넥터를 사용하여 IBM Informix 데이터베이스에서 데이터를 복사할 수 있습니다.
+
+데이터 저장소에 액세스할 수 있는 컴퓨터에서 자체 호스팅 통합 런타임을 설정합니다. Integration Runtime은 Informix용 ODBC 드라이버를 사용하여 데이터 저장소에 연결합니다. 따라서 같은 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 예를 들어 "IBM INFORMIX ODBC 드라이버(64비트)"를 사용할 수 있습니다. 자세한 내용은 [필수 조건](#prerequisites) 섹션을 참조하세요.
+
+Data Factory 솔루션에서 Informix 원본을 사용하기 전에 [연결 문제 해결](#troubleshoot-connectivity-issues) 섹션의 지침을 사용하여 Integration Runtime에서 데이터 저장소에 연결할 수 있는지 확인합니다.
+
+다음 예제와 같이 IBM Informix 데이터 저장소를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
 
 ```json
 {
-    "name": "HistorianLinkedService",
+    "name": "InformixLinkedService",
     "properties":
     {
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
-                "value": "<GE Historian store connection string or DSN>"
+                "value": "<Informix connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -271,9 +277,83 @@ ODBC 호환 데이터 저장소에 데이터를 복사하려면 복사 작업의
 }
 ```
 
+복사 작업에서 ODBC 데이터 저장소를 원본/싱크 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
+
+## <a name="microsoft-access-source"></a>Microsoft Access 원본
+
+일반 ODBC 커넥터를 사용하여 Microsoft Access 데이터베이스에서 데이터를 복사할 수 있습니다.
+
+데이터 저장소에 액세스할 수 있는 컴퓨터에서 자체 호스팅 통합 런타임을 설정합니다. Integration Runtime은 Microsoft Access용 ODBC 드라이버를 사용하여 데이터 저장소에 연결합니다. 따라서 같은 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 자세한 내용은 [필수 조건](#prerequisites) 섹션을 참조하세요.
+
+Data Factory 솔루션에서 Microsoft Access 원본을 사용하기 전에 [연결 문제 해결](#troubleshoot-connectivity-issues) 섹션의 지침을 사용하여 Integration Runtime에서 데이터 저장소에 연결할 수 있는지 확인합니다.
+
+다음 예제와 같이 Microsoft Access 데이터베이스를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+복사 작업에서 ODBC 데이터 저장소를 원본/싱크 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
+
+## <a name="ge-historian-source"></a>GE Historian 원본
+
+일반 ODBC 커넥터를 사용하여 GE Historian에서 데이터를 복사할 수 있습니다.
+
 데이터 저장소에 액세스할 수 있는 컴퓨터에서 자체 호스팅 통합 런타임을 설정합니다. 통합 런타임은 GE Historian용 ODBC 드라이버를 사용하여 데이터 저장소에 연결합니다. 따라서 같은 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 자세한 내용은 [필수 조건](#prerequisites) 섹션을 참조하세요.
 
-Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 통합 런타임에서 다음 섹션의 지침을 사용하여 데이터 저장소에 연결할 수 있는지 여부를 확인합니다.
+Data Factory 솔루션에서 GE Historian 원본을 사용하기 전에 [연결 문제 해결](#troubleshoot-connectivity-issues) 섹션의 지침을 사용하여 Integration Runtime에서 데이터 저장소에 연결할 수 있는지 확인합니다.
+
+다음 예제와 같이 Microsoft Access 데이터베이스를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
+
+```json
+{
+    "name": "HistorianLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<GE Historian store connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 복사 작업에서 ODBC 데이터 저장소를 원본/싱크 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
 
@@ -282,6 +362,12 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 통�
 >[!NOTE]
 >SAP HANA 데이터 저장소에서 데이터를 복사하려면 네이티브 [SAP HANA 커넥터](connector-sap-hana.md)를 참조하세요. SAP HANA로 데이터를 복사하려면 이 지침에 따라 ODBC 커넥터를 사용하세요. 따라서 형식이 다른 SAP HANA 커넥터 및 ODBC 커넥터에 대한 연결된 서비스는 재사용할 수 없습니다.
 >
+
+일반 ODBC 커넥터를 사용하여 SAP HANA 데이터베이스에 데이터를 복사할 수 있습니다.
+
+데이터 저장소에 액세스할 수 있는 컴퓨터에서 자체 호스팅 통합 런타임을 설정합니다. 통합 런타임은 SAP HANA용 ODBC 드라이버를 사용하여 데이터 저장소에 연결합니다. 따라서 같은 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 자세한 내용은 [필수 조건](#prerequisites) 섹션을 참조하세요.
+
+Data Factory 솔루션에서 SAP HANA 싱크를 사용하기 전에 [연결 문제 해결](#troubleshoot-connectivity-issues) 섹션의 지침을 사용하여 Integration Runtime에서 데이터 저장소에 연결할 수 있는지 확인합니다.
 
 다음 예제와 같이 SAP HANA 데이터 저장소를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
 
@@ -293,11 +379,11 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 통�
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -311,10 +397,6 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 통�
     }
 }
 ```
-
-데이터 저장소에 액세스할 수 있는 컴퓨터에서 자체 호스팅 통합 런타임을 설정합니다. 통합 런타임은 SAP HANA용 ODBC 드라이버를 사용하여 데이터 저장소에 연결합니다. 따라서 같은 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 자세한 내용은 [필수 조건](#prerequisites) 섹션을 참조하세요.
-
-Data Factory 솔루션에서 SAP HANA 싱크를 사용하기 전에 통합 런타임에서 다음 섹션의 지침을 사용하여 데이터 저장소에 연결할 수 있는지 여부를 확인합니다.
 
 복사 작업에서 ODBC 데이터 저장소를 원본/싱크 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
 

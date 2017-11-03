@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 079bb22aa76b8354f79400ced4e04dc971ea249a
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 응용 프로그램 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -24,11 +24,11 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 
 ## <a name="step-2-bind-ssl"></a>2단계: SSL 바인딩
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL로 MySQL 워크벤치를 사용하는 서버에 연결
-SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자의 MySQL Workbench에서 **SSL** 탭으로 이동합니다. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다.
-![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
+![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png) 기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL로 MySQL CLI를 사용하는 서버에 연결
-MySQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.
+SSL 인증서를 바인딩하는 다른 방법은 다음 명령을 실행하여 MySQL 명령줄 인터페이스를 사용하는 것입니다.
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
@@ -52,6 +52,7 @@ mysql> status
 출력을 검토하여 연결이 암호화되었는지 확인합니다. **SSL: 사용 중인 암호 그룹은 AES256-SHA**를 표시해야 합니다. 
 
 ## <a name="sample-code"></a>샘플 코드
+응용 프로그램에서 SSL을 통해 Azure Database for MySQL에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 ### <a name="php"></a>PHP
 ```
 $conn = mysqli_init();

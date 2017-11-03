@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
-*SqlFilter*는 [SqlFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 평가되는 SQL 언어 기반 필터 식을 나타냅니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.  
+*SqlFilter* 개체는 [SqlFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 평가되는 SQL 언어 기반 필터 식을 나타냅니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.  
   
  이 항목에서는 SqlFilter 문법에 대한 세부 정보를 나열합니다.  
   
@@ -280,5 +280,6 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 클래스(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 클래스(.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

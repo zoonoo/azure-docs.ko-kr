@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2017
 ms.author: genli
-ms.openlocfilehash: 8f3d6fc56b64d81d5f9b73772ddf2a4ab9adf64b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60da4d7f418e2aac6ed6d41092486d2ccdaf940c
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 온-프레미스에서 Microsoft Azure로 Windows VM(가상 컴퓨터)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure에서는 VHD 파일 형식의 고정된 크기의 디스크를 가진 1세대 VM만 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
@@ -427,4 +427,5 @@ VM에 연결된 데이터 디스크가 있는 경우 Temporal 드라이브 볼�
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
+* [Windows Azure 가상 컴퓨터 정품 인증 문제 해결](troubleshoot-activation-problems.md)
 

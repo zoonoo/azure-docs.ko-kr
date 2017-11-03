@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ public class MyClass {
 
 반환 값은 가장 간단한 형식의 출력입니다. 즉 모든 형식의 값을 반환하고 Azure Functions 런타임에서 이 반환 값을 실제 형식(예: HTTP 응답)으로 다시 마샬링합니다. `functions.json`에서는 출력 바인딩의 이름으로 `$return`을 사용합니다.
 
-여러 출력 값을 생성하려면 `azure-functions-java-core` 패키지에 정의된 `OutputParameter<T>` 형식을 사용합니다. HTTP 응답을 만들고 메시지도 큐로 푸시해야 하는 경우 다음과 같이 작성할 수 있습니다.
+여러 출력 값을 생성하려면 `azure-functions-java-core` 패키지에 정의된 `OutputBinding<T>` 형식을 사용합니다. HTTP 응답을 만들고 메시지도 큐로 푸시해야 하는 경우 다음과 같이 작성할 수 있습니다.
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-그리고 `function.json`에 출력 바인딩을 정의합니다.
+여기에서 `function.json`에 출력 바인딩을 정의해야 합니다.
 
 ```json
 {
@@ -251,10 +252,10 @@ public class MyClass {
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

@@ -3,7 +3,7 @@ title: "Azure Functions 호스팅 계획 비교 | Microsoft Docs"
 description: "Azure Functions 소비 계획과 App Service 계획 중 하나를 선택하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1aa05bffb711351e0ddc544a476751690265de9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 호스팅 계획 비교
 
 ## <a name="introduction"></a>소개
 
-Azure Functions는 소비 계획 및 Azure App Service 계획 두 가지 모드로 실행할 수 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음 코드가 실행되지 않을 때 축소합니다. 따라서 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 이 문서에서는 소비 계획을 중점적으로 살펴봅니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
+Azure Functions는 소비 계획 및 Azure App Service 계획 두 가지 모드로 실행할 수 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음 코드가 실행되지 않을 때 축소합니다. 따라서 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 앱 모델을 중점적으로 살펴봅니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
 
 Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 

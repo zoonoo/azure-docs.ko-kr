@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 6557046f43c33c0184f8345d9a63d8f7970ba650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99fb80d5cafc8fd20f5048de305fef99bf49c286
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -37,7 +37,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 다음 중 한 가지 방법으로 인증서를 얻을 수 있습니다.
 - *루트 CA(인증 기관)*에서 X.509 인증서를 구입합니다. 이 방법은 프로덕션 환경에 권장됩니다.
 또는
-- [OpenSSL](https://www.openssl.org/)과 같은 타사 도구를 사용하여 자체적인 X.509 인증서를 만듭니다. 이 방법은 테스트 및 개발 목적으로 사용할 수 있습니다. [X.509 인증서 만들기](iot-hub-security-x509-create-certificates.md#createcerts) 및 [X.509 인증서 체인 만들기](iot-hub-security-x509-create-certificates.md#createcertchain) 섹션은 OpenSSL을 사용하여 인증서를 만드는 샘플 PowerShell 스크립트를 단계적으로 설명합니다. 이 자습서의 나머지 부분에서는 *방법* 가이드의 OpenSSL 환경 설정을 사용하여 Azure IoT Hub의 종단 간 X.509 보안을 단계별로 안내합니다.
+- [OpenSSL](https://www.openssl.org/)과 같은 타사 도구를 사용하여 자체적인 X.509 인증서를 만듭니다. 이 방법은 테스트 및 개발 목적으로 사용할 수 있습니다. [PowerShell을 사용하여 X.509 인증서를 만드는 방법](iot-hub-security-x509-create-certificates.md) 문서의 *X.509 인증서 만들기* 및 *X.509 인증서 체인 만들기* 섹션은 OpenSSL 및 PowerShell을 사용하여 인증서를 작성하는 샘플 PowerShell 스크립트를 단계별로 안내합니다. PowerShell 대신 **Bash** 셸을 사용하려면 [CA 인증서 관리 샘플](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)에서 관련 섹션을 참조하세요. 이 자습서의 나머지 부분에서는 *방법* 가이드의 OpenSSL 환경 설정을 사용하여 Azure IoT Hub의 종단 간 X.509 보안을 단계별로 안내합니다.
 
 
 <a id="registercerts"></a>

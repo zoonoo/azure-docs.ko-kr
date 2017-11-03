@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1dacbc59704d16451a5268c0aa4df2ab4e5b3112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > 챌린지 응답이 수락되고 타이머가 더 이상 만료될 필요가 없으면 위의 예제와 같이 [CancellationTokenSource를 사용하여 타이머를 취소](durable-functions-timers.md)하는 것이 중요합니다.
 
-## <a name="sending-the-sms-message"></a>SMS 메시지 보내기
+## <a name="send-the-sms-message"></a>SMS 메시지 전송
 
 **E4_SendSmsChallenge** 함수는 Twilio 바인딩을 사용하여 4자리 코드가 있는 SMS 메시지를 최종 사용자에게 보냅니다. *function.json*은 다음과 같이 정의됩니다.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 이 **E4_SendSmsChallenge** 함수는 프로세스가 충돌하거나 재생되는 경우에도 한 번만 호출됩니다. 이는 최종 사용자가 여러 개의 SMS 메시지를 받지 않으려고 하기 때문에 좋습니다. `challengeCode` 반환 값은 자동으로 유지되므로 오케스트레이터 함수는 항상 올바른 코드를 인식하고 있습니다.
 
-## <a name="running-the-sample"></a>샘플 실행
+## <a name="run-the-sample"></a>샘플 실행
 
 샘플에 포함된 HTTP 트리거 함수를 사용하여 다음 HTTP POST 요청을 전송함으로써 오케스트레이션을 시작할 수 있습니다.
 
@@ -152,10 +152,6 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## <a name="wrapping-up"></a>요약
-
-이 시점에서 지속성 함수의 고급 기능 중 일부, 특히 `WaitForExternalEvent` 및 `CreateTimer`를 더 잘 이해할 수 있습니다. 이러한 기능을 `Task.WaitAny`와 결합하여 신뢰할 수 있는 시간 제한 시스템을 구현하는 방법을 살펴보았습니다. 이 시스템은 종종 실제 사람들과 상호 작용하는 데 유용합니다.
-
 ## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
 
 다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
@@ -164,6 +160,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [지속성 함수 바인딩](durable-functions-bindings.md)
+이 예제는 지속성 함수의 고급 기능, 특히 `WaitForExternalEvent` 및 `CreateTimer`에 대해 보여주었습니다. 이러한 기능을 `Task.WaitAny`와 결합하여 신뢰할 수 있는 시간 제한 시스템을 구현하는 방법을 살펴보았습니다. 이 시스템은 종종 실제 사람들과 상호 작용하는 데 유용합니다. 특정 항목을 자세히 다루는 일련의 문서를 읽고 지속성 함수를 사용하는 방법에 대해 자세히 배울 수 있습니다.
 
+> [!div class="nextstepaction"]
+> [시리즈의 첫 번째 문서로 이동](durable-functions-bindings.md)

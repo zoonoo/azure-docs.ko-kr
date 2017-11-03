@@ -1,6 +1,6 @@
 ---
-title: "컨테이너용 Azure Web App에서 Node.js 및 MongoDB 웹앱 빌드 | Microsoft Docs"
-description: "컨테이너용 Azure Web App에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 앱을 만드는 방법을 알아봅니다."
+title: "Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성 | Microsoft Docs"
+description: "Linux의 Azure App Service에서 작동하며 MongoDB 연결 문자열로 Cosmos DB 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,25 +12,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/31/2017
+ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a92b2875df3ceaeb4de21f24aa484196a82d825d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 Node.js 및 MongoDB 웹앱 빌드
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 웹앱 작성
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 웹앱을 만들고 MongoDB 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 컨테이너용 Web App에서 실행됩니다. 간편하게 하기 위해 샘플 응용 프로그램은 [MEAN.js 웹 프레임워크](http://meanjs.org/)를 사용합니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Node.js 웹앱을 만들어서 MongoDB 데이터베이스에 로컬로 연결한 다음 MongoDB API를 사용하여 CosmosDB 데이터베이스에 연결된 Azure에 배포하는 방법을 보여줍니다. 완료되면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 Linux의 App Service에서 실행됩니다. 간편하게 하기 위해 샘플 응용 프로그램은 [MEAN.js 웹 프레임워크](http://meanjs.org/)를 사용합니다.
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure에서 MongoDB 데이터베이스 만들기
+> * Azure에서 MongoDB API를 사용하여 CosmosDB 데이터베이스 만들기
 > * Node.js 앱을 MongoDB에 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 1. [Git 설치](https://git-scm.com/)
 1. [Node.js v6.0 이상 및 NPM 설치](https://nodejs.org/)
 1. [Gulp.js 설치](http://gulpjs.com/)([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started)에 필요)
-1. [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,9 +58,9 @@ ms.lasthandoff: 10/11/2017
 mongo
 ```
 
-연결이 성공한다면 MongoDB 데이터베이스가 이미 실행 중입니다. 그렇지 않으면 [MongoDB Community Edition 설치](https://docs.mongodb.com/manual/administration/install-community/)의 단계에 따라 로컬 MongoDB 데이터베이스가 시작되었는지 확인합니다. MongoDB가 주로 설치되어 있지만 `mongod`를 실행하여 시작해야 합니다. 
+연결이 성공한다면 MongoDB 데이터베이스가 이미 실행 중입니다. 그렇지 않으면 [MongoDB Community Edition 설치](https://docs.mongodb.com/manual/administration/install-community/)의 단계에 따라 로컬 MongoDB 데이터베이스가 시작되었는지 확인합니다. MongoDB가 주로 설치되어 있지만 `mongod`를 실행하여 시작해야 합니다.
 
-MongoDB 데이터베이스를 테스트했으면 터미널에서 `Ctrl+C`를 입력합니다. 
+MongoDB 데이터베이스를 테스트했으면 터미널에서 `Ctrl+C`를 입력합니다.
 
 ## <a name="create-local-nodejs-app"></a>로컬 Node.js 앱 만들기
 
@@ -68,9 +68,9 @@ MongoDB 데이터베이스를 테스트했으면 터미널에서 `Ctrl+C`를 입
 
 ### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
+터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
@@ -90,7 +90,7 @@ npm start
 
 config.domain 경고를 무시합니다. 앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
 
-```
+```txt
 --
 MEAN.JS - Development Environment
 
@@ -110,7 +110,7 @@ MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터�
 
 **관리자 > 문서 관리**를 선택하여 문서를 추가합니다.
 
-언제든지 Node.js를 중지하려면 터미널에서 `Ctrl+C`를 입력합니다. 
+언제든지 Node.js를 중지하려면 터미널에서 `Ctrl+C`를 입력합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -122,7 +122,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기
 
@@ -148,7 +148,7 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
   },
   "databaseAccountOfferType": "Standard",
   "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
-  "failoverPolicies": 
+  "failoverPolicies":
   ...
   < Output truncated for readability >
 }
@@ -156,7 +156,7 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
 
 ## <a name="connect-app-to-production-mongodb"></a>프로덕션 MongoDB에 앱 연결
 
-이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 Cosmos DB 데이터베이스에 연결합니다. 
+이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 Cosmos DB 데이터베이스에 연결합니다.
 
 ### <a name="retrieve-the-database-key"></a>데이터베이스 키 검색
 
@@ -180,9 +180,10 @@ Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 `primaryMasterKey`의 값을 복사합니다. 이 정보는 다음 단계에서 필요합니다.
 
 <a name="devconfig"></a>
+
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
 
-로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다. 
+로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다.
 
 다음 코드를 이 파일에 복사합니다. 2개의 *\<cosmosdb_name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꾸고 *\<primary_master_key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
 
@@ -194,11 +195,11 @@ module.exports = {
 };
 ```
 
-[Cosmos DB에서 SSL을 요구](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하므로 `ssl=true` 옵션이 필요합니다. 
+[Cosmos DB에서 SSL을 요구](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하므로 `ssl=true` 옵션이 필요합니다.
 
 변경 내용을 저장합니다.
 
-### <a name="test-the-application-in-production-mode"></a>프로덕션 모드에서 응용 프로그램 테스트 
+### <a name="test-the-application-in-production-mode"></a>프로덕션 모드에서 응용 프로그램 테스트
 
 로컬 터미널 창에서 다음 명령을 실행하여 프로덕션 환경에 대한 스크립트를 축소하고 패키지합니다. 이 프로세스는 프로덕션 환경에 필요한 파일을 생성합니다.
 
@@ -212,7 +213,7 @@ gulp prod
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 응용 프로그램을 Azure에 로드합니다. 
+`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 응용 프로그램을 Azure에 로드합니다.
 
 앱이 로드되면 프로덕션 환경에서 실행 중인지 확인해야 합니다.
 
@@ -227,31 +228,31 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-브라우저에서 `http://localhost:8443`으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 사용자 만들기와 로그인에 성공하면 앱에서 Azure의 Cosmos DB 데이터베이스에 데이터를 쓰고 있습니다. 
+브라우저에서 `http://localhost:8443`으로 이동합니다. 위쪽 메뉴에서 **등록**을 클릭하고 테스트 사용자를 만듭니다. 사용자 만들기와 로그인에 성공하면 앱에서 Azure의 Cosmos DB 데이터베이스에 데이터를 쓰고 있습니다.
 
-터미널에서 `Ctrl+C`를 입력하여 Node.js를 중지합니다. 
+터미널에서 `Ctrl+C`를 입력하여 Node.js를 중지합니다.
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
 이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure App Service에 배포합니다.
 
-### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성 
+### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
 [!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>웹앱 만들기
+### <a name="create-a-linux-based-web-app"></a>Linux 기반 웹앱 만들기
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
+[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 
 _config/env/local-production.js_가 Git 리포지토리에 없기 때문입니다. 따라서 Azure 웹앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
 
-앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 명령을 사용합니다. 
+앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 명령을 사용합니다.
 
 다음 예제에서는 Azure 웹앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
@@ -292,32 +293,32 @@ remote: Handling node.js deployment.
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
-``` 
+```
 
-배포 프로세스에서 `npm install` 후에 [Gulp](http://gulpjs.com/)를 실행하는 것을 알 수 있습니다. App Service는 배포 중에 Gulp 또는 Grunt 작업을 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 두 개가 루트 디렉터리에 들어 있습니다. 
+배포 프로세스에서 `npm install` 후에 [Gulp](http://gulpjs.com/)를 실행하는 것을 알 수 있습니다. App Service는 배포 중에 Gulp 또는 Grunt 작업을 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 두 개가 루트 디렉터리에 들어 있습니다.
 
 - _.deployment_ - 이 파일은 App Service에서 `bash deploy.sh`를 사용자 지정 배포 스크립트로 실행하게 만듭니다.
-- _deploy.sh_ - 사용자 지정 배포 스크립트입니다. 파일을 검토 하는 경우 실행 되도록 표시 됩니다 `gulp prod` 후 `npm install` 및 `bower install`합니다. 
+- _deploy.sh_ - 사용자 지정 배포 스크립트입니다. 파일을 검토 하는 경우 실행 되도록 표시 됩니다 `gulp prod` 후 `npm install` 및 `bower install`합니다.
 
 이 방식으로 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 언제든지 Azure Web App을 다시 시작하면 App Service에서 이 자동화 작업을 다시 실행하지 않습니다.
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기 
+### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
 
-웹 브라우저를 사용하여 배포된 웹앱으로 이동합니다. 
+웹 브라우저를 사용하여 배포된 웹앱으로 이동합니다.
 
-```bash 
-http://<app_name>.azurewebsites.net 
-``` 
+```bash
+http://<app_name>.azurewebsites.net
+```
 
-위쪽 메뉴에서 **등록**을 클릭하고 더미 사용자를 만듭니다. 
+위쪽 메뉴에서 **등록**을 클릭하고 더미 사용자를 만듭니다.
 
-앱에서 성공적으로 만든 사용자로 자동 로그인하면 Azure의 MEAN.js 앱이 MongoDB(Cosmos DB) 데이터베이스에 연결된 것입니다. 
+성공한 후 만들어진 사용자로 앱이 자동 로그인되면 Azure의 MEAN.js 앱이 Cosmos DB 데이터베이스 MongoDB API에 연결된 것입니다.
 
 ![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-**관리자 > 문서 관리**를 선택하여 문서를 추가합니다. 
+**관리자 > 문서 관리**를 선택하여 문서를 추가합니다.
 
-**축하합니다.** Azure App Service에서 데이터 기반 Node.js 응용 프로그램을 실행합니다.
+**축하합니다.** Linux의 Azure App Service에서 데이터 기반 Node.js 앱이 실행되고 있습니다.
 
 ## <a name="update-data-model-and-redeploy"></a>데이터 모델 업데이트 및 다시 배포
 
@@ -431,7 +432,7 @@ NODE_ENV=production node server.js
 
 ![문서에 추가된 주석 필드](./media/tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-터미널에서 `Ctrl+C`를 입력하여 Node.js를 중지합니다. 
+터미널에서 `Ctrl+C`를 입력하여 Node.js를 중지합니다.
 
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
@@ -463,12 +464,13 @@ git push azure master
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
+
 ## <a name="next-steps"></a>다음 단계
 
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Azure에서 MongoDB 데이터베이스 만들기
+> * Azure에서 MongoDB API를 사용하여 CosmosDB 데이터베이스 만들기
 > * Node.js 앱을 MongoDB에 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
@@ -477,5 +479,5 @@ git push azure master
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)

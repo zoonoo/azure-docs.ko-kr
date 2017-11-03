@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
 이 문서는 Microsoft 클라우드의 다음 서비스를 비교하고 대조하며 비즈니스 프로세스의 자동화 및 통합 문제를 모두 해결할 수 있습니다.
@@ -50,7 +50,7 @@ Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통
 | 대상 |사무실 작업자, 비즈니스 사용자 |IT 전문가, 개발자 |
 | 시나리오 |셀프서비스 |중요 업무용 |
 | 디자인 도구 |브라우저 및 모바일 앱에서 UI만 해당 |브라우저 내부 및 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [코드 보기](../logic-apps/logic-apps-author-definitions.md) 사용 가능 |
-| DevOps |애드혹, 프로덕션에서 개발 |소스 제어, 테스트, 지원 및 [Azure 리소스 관리](../logic-apps/logic-apps-arm-provision.md) |
+| DevOps |애드혹, 프로덕션에서 개발 |소스 제어, 테스트, 지원 및 [Azure 리소스 관리](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | 관리자 환경 |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com/](https://portal.azure.com) |
 | 보안 |표준 사례: 중요한 데이터에 대한 [데이터 독립성](https://wikipedia.org/wiki/Technological_Sovereignty), [휴지 상태의 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등 |Azure의 보안 보증: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) 등 |
 
@@ -66,6 +66,7 @@ Azure Functions와 Azure App Service WebJobs는 둘 다 *코드 중심* 통합 �
 
 Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 자연스러운 진화입니다. 향상된 기능은 다음과 같습니다. 
 
+* [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 앱 모델
 * 간소화된 개발, 테스트 및 브라우저에서 직접 코드를 실행합니다.
 * 더 많은 Azure 서비스 및 타사 서비스([GitHub WebHooks](https://developer.github.com/webhooks/creating/)등)와 통합을 기본 제공합니다.
 * 사용량 과금이므로 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에 대한 요금을 지불할 필요가 없습니다.

@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 보안 개요 | Microsoft Docs"
-description: "인증, 권한 부여, 연결 보안, 암호화 및 규정 준수와 관련하여 클라우드 및 SQL Server 온-프레미스 간의 차이점을 포함하여 Azure SQL 데이터베이스 및 SQL Server 보안에 대해 알아봅니다."
+description: "클라우드와 온-프레미스 SQL Server 간 차이를 포함하여 Azure SQL Database 및 SQL Server 보안에 대해 알아보세요."
 services: sql-database
 documentationcenter: 
 author: tmullaney
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c69b98e1abf0b6bc953c9c80b9e031319becff9f
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="securing-your-sql-database"></a>SQL 데이터베이스 보안 설정
 

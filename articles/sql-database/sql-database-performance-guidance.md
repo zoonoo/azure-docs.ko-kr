@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 성능 튜닝 지침 | Microsoft Docs"
-description: "이 문서는 응용 프로그램에 대해 선택할 서비스 계층을 결정하는 데 도움이 될 수 있습니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝하는 방법도 권고합니다."
+description: "Azure SQL Database 쿼리 성능을 높이기 위한 권장 사항 사용 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31130c261bb7ee12b38e199c2a3bb71d7f8fc4b8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 

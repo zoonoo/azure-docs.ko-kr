@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9cb2bfe459421ee6e28b9d83dffc569b7592c1f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정(미리 보기)
 
@@ -129,7 +129,11 @@ Site Recovery는 구독 및 리소스 그룹/클라우드 서비스와 연결된
 
 Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만듭니다. 요구 사항에 따라 설정을 변경할 수 있습니다.
 
+1. 대상 설정을 보려면 **설정**을 클릭합니다.
+2. 기본 대상 설정을 재정의하려면 **사용자 지정**을 클릭합니다. 
+
 ![설정 구성](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **대상 위치**: 재해 복구에 사용되는 대상 지역입니다. 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
 
@@ -142,7 +146,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 - **대상 저장소 계정**: 기본적으로 Site Recovery는 대상 지역에 새 저장소 계정을 만들어서 원본 VM 저장소 계정을 미러링합니다.
 
-- **대상 가용성 집합**: 기본적으로 Site Recovery는 “asr” 접미사를 사용하여 대상 지역에 새 가용성 집합을 만듭니다.
+- **대상 가용성 집합**: 기본적으로 Site Recovery는 “asr” 접미사를 사용하여 대상 지역에 새 가용성 집합을 만듭니다. VM이 원본 영역에 있는 집합의 일부인 경우 가용성 집합만 추가할 수 있습니다.
 
 - **복제 정책 이름**: 정책 이름입니다.
 

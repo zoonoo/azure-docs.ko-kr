@@ -12,22 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="analyzers-in-azure-search"></a>Azure Search의 분석기
 
-*분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 인덱싱 중 분석기는 *토큰화된 용어* 인덱스에 기록되는 *토큰*으로 텍스트를 변환합니다. 검색 중에 분석기는 *쿼리 용어*에 대해 동일한 변환을 수행하여 인덱스에서 일치하는 용어를 검색하는 기반을 제공합니다.
-
-다음 변환은 분석 중에 일반적으로 발생합니다.
+*분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 다음 변환은 분석 중에 일반적으로 발생합니다.
 
 + 필수적이지 않은 단어(중지 단어) 및 문장 부호가 제거됩니다.
 + 구 및 하이픈을 넣은 단어는 구성 요소 부분으로 분류됩니다.
 + 대문자 단어는 소문자가 됩니다.
 + 단어는 시제에 관계 없이 일치를 찾을 수 있도록 루트 양식으로 세분화됩니다.
+
+언어 분석기는 입력된 텍스트를 정보 저장 및 검색 시 효율적인 원시 형태 또는 루트 형태로 변환합니다. 변환은 인덱싱 중 인덱스가 빌드될 때, 그리고 검색 중 인덱스 읽기가 수행될 때 발생합니다. 두 작업에서 동일한 텍스트 분석기를 사용하면 예상되는 검색 결과를 얻을 확률이 큽니다.
 
 Azure Search에서는 [표준 Lucene 분석기](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 기본 분석기로 사용합니다. 필드별로 기본 분석기를 재정의할 수 있습니다. 이 문서에서는 선택 옵션에 대해 설명하고 사용자 지정 분석에 대한 모범 사례를 제공합니다. 또한 주요 시나리오에 대한 예제 구성을 보여 줍니다.
 
@@ -53,12 +53,12 @@ Azure Search에서는 [표준 Lucene 분석기](https://lucene.apache.org/core/4
 
 3. 필드 정의에 분석기를 추가하면 인덱스에 대해 쓰기 작업이 발생합니다. 기존 인덱스에 **analyzer**를 추가할 경우 다음 단계를 확인합니다.
  
- | 시나리오 | 단계 |
- |----------|-------|
- | 새 필드 추가 | 스키마에 아직 필드가 존재하지 않으면 변경할 필드가 없습니다. 새 필드에 대한 콘텐츠를 제공하는 문서를 추가하거나 업데이트할 때마다 텍스트 분석이 이루어집니다. 이 작업에 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용합니다.|
- | 기존 인덱싱된 필드에 분석기를 추가합니다. | 해당 필드에 대해 반전된 텍스트를 처음부터 다시 만들고 이 필드에 대한 문서 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index) [만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 중인 인덱스의 경우 수정된 정의를 제공하는 새 필드를 만들어 사용하기 시작해야 합니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 통합합니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
+ | 시나리오 | 영향 | 단계 |
+ |----------|--------|-------|
+ | 새 필드 추가 | 최소 | 스키마에 아직 필드가 존재하지 않으면 인덱스에 실제로 존재하는 필드가 없는 것이므로 변경할 필드가 없습니다. 이 작업에 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용합니다.|
+ | 기존 인덱싱된 필드에 분석기를 추가합니다. | 다시 빌드 | 해당 필드에 대해 반전된 인덱스를 처음부터 다시 만들고 이 필드에 대한 콘텐츠를 다시 인덱싱해야 합니다. <br/> <br/>개발 중인 인덱스의 경우 인덱스를 [삭제하고](https://docs.microsoft.com/rest/api/searchservice/delete-index) [만들어](https://docs.microsoft.com/rest/api/searchservice/create-index) 새 필드 정의를 선택합니다. <br/> <br/>프로덕션 중인 인덱스의 경우 수정된 정의를 제공하는 새 필드를 만들어 사용하기 시작해야 합니다. [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 및 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 통합합니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다. |
 
-## <a name="best-practices"></a>모범 사례
+## <a name="tips-and-best-practices"></a>팁 및 모범 사례
 
 이 섹션에서는 분석기 작동 방식에 대한 조언을 제공합니다.
 
@@ -72,12 +72,13 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 
 표준 분석기를 재정의하려면 인덱스를 다시 빌드해야 합니다. 가능하면 프로덕션 환경에 인덱스를 이동하기 전에 활성 개발 중 사용할 분석기를 결정합니다.
 
-### <a name="compare-analyzers-side-by-side"></a>분석기 병렬 비교
+### <a name="inspect-tokenized-terms"></a>토큰화된 용어 검사
 
-[API 분석](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)을 사용하는 것이 좋습니다. 응답은 제공한 텍스트에 특정 분석기에 의해 생성되므로 토큰으로 구성되어 있습니다. 
+검색에서 예상되는 결과가 반환되지 않은 경우, 쿼리에 입력된 용어와 인덱스의 토큰화된 용어의 토큰이 같지 않기 때문일 가능성이 큽니다. 토큰이 같지 않으면 일치하는 결과가 반환되지 않습니다. 토크나이저 출력을 검사할 때는 조사 도구로 [분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)를 사용하는 것이 좋습니다. 응답은 해당 분석기에 의해 생성되는 토큰으로 구성됩니다.
 
-> [!Tip]
-> [검색 분석기 데모](http://alice.unearth.ai/)에서는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교합니다. 제공한 각 검색 입력의 경우 각 분석기의 결과가 인접한 창에 표시됩니다.
+### <a name="compare-english-analyzers"></a>영어 분석기 비교
+
+[검색 분석기 데모](http://alice.unearth.ai/)는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교하여 보여 주는 타사 데모 앱입니다. 인덱스가 수정되었습니다. 잘 알려진 이야기의 텍스트가 포함되어 있습니다. 사용자가 입력한 각 검색 입력에 대해 각 분석기의 결과가 인접한 창에 표시되어 분석기별로 동일한 문자열을 어떤 식으로 처리하는지 살펴볼 수 있습니다. 
 
 ## <a name="examples"></a>예
 

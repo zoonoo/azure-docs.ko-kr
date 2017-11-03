@@ -1,5 +1,19 @@
-7-- 제목: Azure Database for MySQL에서 지원되는 버전 | Microsoft Docs 설명: Azure Database for MySQL에서 지원되는 버전에 대해 설명합니다.
-services: mysql author: v-chenyh ms.author: v-chenyh manager: jhubbard editor: jasonwhowell ms.service: mysql-database ms.topic: article ms.date: 05/10/2017
+---
+title: "MySQL용 Azure 데이터베이스에서 지원되는 버전 | Microsoft Docs"
+description: "MySQL용 Azure 데이터베이스에서 지원되는 버전에 대해 설명합니다."
+services: mysql
+author: v-chenyh
+ms.author: v-chenyh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.topic: article
+ms.date: 05/10/2017
+ms.openlocfilehash: da7a5b48a68626f06aef23729f55ba52029779d7
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
 MySQL용 Azure 데이터베이스는 InnoDB 엔진을 사용하여 MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/)에서 개발되었습니다.  MySQL용 Azure 데이터베이스는 현재 다음 버전을 지원합니다.

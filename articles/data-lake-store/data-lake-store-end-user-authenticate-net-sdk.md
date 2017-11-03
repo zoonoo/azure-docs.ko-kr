@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: a2a9754b462e39713e6580baab84c064237306a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Data Lake Store로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -66,13 +66,17 @@ ms.lasthandoff: 10/11/2017
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
+        
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 .NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 네이티브 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Data Lake Store로 응용 프로그램을 **대화형으로** 인증할 수 있습니다. 다시 말해서, Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
@@ -81,18 +85,22 @@ ms.lasthandoff: 10/11/2017
     
     private static void Main(string[] args)
     {
-        // User login via interactive popup
-        // Use the client ID of an existing AAD native application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-        var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-        var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
-        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-        var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
+        //User login via interactive popup
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        string TOKEN_CACHE_PATH = System.IO.Path.Combine(MY_DOCUMENTS, "my.tokencache");
+        var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
+        var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+        var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
 
 위의 코드 조각에 대해 몇 가지 알아야 할 사항이 있습니다.
 
-* 자습서를 신속하게 완료할 수 있도록 이 코드 조각은 기본적으로 모든 Azure 구독에서 사용할 수 있는 Microsoft Azure Active Directory 도메인 및 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
+* 선행 코드 조각은 도우미 함수 `GetTokenCache` 및 `GetCreds_User_Popup`을(를) 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache)에서 사용할 수 있습니다.
+* 이 코드 조각은 자습서를 신속하게 완료할 수 있도록 기본적으로 모든 Azure 구독에서 사용할 수 있는 원시 응용 프로그램 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
 * 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 테넌트 ID, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Data Lake Store를 사용하여 최종 사용자 인증을 위한 Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md)를 참조하세요.
 
   

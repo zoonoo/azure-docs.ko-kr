@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -220,8 +220,5 @@ Windows 8.1 장치를 사용하는 경우 **PC 설정**> **네트워크** > **�
 그리고 **yourdomain.com**은 Azure Active Directory로 구성한 도메인 이름(예: contoso.com)입니다.
 **Set-AdfsRelyingPartyWebContent** cmdlet에 전달하는 HTML 콘텐츠에서 줄 바꿈을 모두 제거해야 합니다(있는 경우).
 
-이제 사용자가 Azure Active Directory 장치 등록 서비스에 등록되지 않은 장치에서 응용 프로그램에 액세스하면 아래 스크린샷과 비슷한 페이지가 표시됩니다.
-
-![사용자가 자신의 장치를 Azure AD에 등록하지 않은 경우의 오류 스크린샷](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+이제 사용자가 Azure Active Directory 장치 등록 서비스에 등록되지 않은 장치에서 응용 프로그램에 액세스하면 오류가 표시됩니다.
 

@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Blob Storage 이벤트에 대응(미리 보기)
 
@@ -20,21 +20,9 @@ Azure Blob Storage 이벤트를 통해 응용 프로그램에서 최신 서버�
 
 일반적인 Blob Storage 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다.  비동기 파일 업로드는 이벤트에 매우 적합합니다.  변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
+Event Grid는 현재 미리 보기 상태에 있으며 ***미국 중서부*** 또는 ***미국 서부 2*** 위치의 계정에서 사용할 수 있습니다.  예제를 간단히 살펴보려면 [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](storage-blob-event-quickstart.md) 문서를 참조하세요.
+
 ![Event Grid 모델](./media/storage-blob-event-overview/event-grid-functional-model.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="join-the-preview"></a>미리 보기에 연결
-Blob Storage 이벤트는 미리 보기가 가능합니다.  사용자는 구독에 대해 다음 명령을 실행하여 미리 보기에 연결하도록 요청할 수 있습니다.
-```azurecli-interactive
-az provider register --namespace  Microsoft.EventGrid
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-사용 가능한 용량이 있을 시 구독이 미리 보기 프로그램에 추가됩니다.  요청 상태는 다음 명령을 실행하여 모니터링할 수 있습니다.
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-등록 상태가 "Registered"(등록됨)로 변경되면 미리 보기 프로그램에 연결되도록 허용된 것이며, ***West Central US*** 또는 ***West US 2*** 지역의 계정에 대해 Blob Storage 이벤트를 구독할 수 있습니다.  예제를 간단히 살펴보려면 [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](storage-blob-event-quickstart.md) 문서를 참조하세요.
 
 ## <a name="blob-storage-accounts"></a>Blob Storage 계정
 Blob Storage 이벤트는 [Blob Storage 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)에서 사용할 수 있습니다(범용 저장소 계정으로는 사용 불가).  Blob 저장소 계정은 Azure 저장소에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 저장소 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기)에서 서버 등록/등록 취소
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -58,7 +58,11 @@ Azure 파일 동기화의 *동기화 그룹*에서 Windows Server를 *서버 끝
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다.
 
 ### <a name="register-the-server-using-the-server-registration-ui"></a>서버 등록 UI를 사용하여 서버 등록
-1. Azure 파일 동기화 에이전트 설치를 완료한 후 바로 서버 등록 UI가 시작되지 않은 경우에는 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`를 실행하여 수동으로 해당 UI를 시작할 수 있습니다.
+
+> [!Important]  
+> 클라우드 솔루션 공급자 구독은 서버 등록 UI를 사용할 수 없습니다. 대신 PowerShell을 사용합니다(이 섹션 아래).
+
+1. Azure File Sync 에이전트 설치를 완료한 후 바로 서버 등록 UI가 시작되지 않은 경우에는 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`를 실행하여 수동으로 해당 UI를 시작할 수 있습니다.
 2. *로그인*을 클릭하여 Azure 구독에 액세스합니다. 
 
     ![서버 등록 UI 대화 상자 열기](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -73,6 +77,15 @@ Azure 파일 동기화의 *동기화 그룹*에서 Windows Server를 *서버 끝
 
 > [!Important]  
 > 서버가 장애 조치(failover) 클러스터의 멤버인 경우 각 서버는 서버 등록을 실행해야 합니다. Azure Portal에서 등록된 서버로 표시되면 Azure 파일 동기화는 자동으로 각 노드를 동일한 장애 조치(failover) 클러스터의 멤버로 인식하고 적절하게 그룹화합니다.
+
+### <a name="register-the-server-with-powershell"></a>PowerShell로 서버 등록
+PowerShell을 통해 서버 등록을 수행할 수도 있습니다. 클라우드 솔루션 공급자 구독에서 지원되는 유일한 서버 등록 방법입니다.
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>저장소 동기화 서비스에서 서버 등록 취소
 저장소 동기화 서비스에서 서버 등록을 취소하려면 여러 단계를 수행해야 합니다. 서버를 제대로 등록 취소하는 방법을 살펴보겠습니다.

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/14/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure Virtual Machine Scale Sets에 대한 FAQ
 
@@ -459,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 개인 저장소 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 저장소 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)을 참조하세요.
 
 
-
-
-
-
-
 ## <a name="networking"></a>네트워킹
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
@@ -648,7 +643,15 @@ VM이 2개 미만인 가상 컴퓨터 확장 집합을 만드는 또 다른 경�
 
 자세한 내용은 [가상 컴퓨터 확장 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Azure OMS(Operations Management Suite)와 확장 집합을 통합할 수 있나요?
 
+예, 확장 집합 VM에서 OMS 확장을 설치하여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+OMS 포털에서 필수 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
+
+참고: 확장 집합 _upgradePolicy_를 수동으로 설정한 경우 이에 대한 업그레이드를 호출하여 집합의 모든 VM에 확장을 적용해야 합니다. CLI에서는 _az vmss update-instances_입니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

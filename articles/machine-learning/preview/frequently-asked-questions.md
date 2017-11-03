@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -108,7 +108,7 @@ Azure Machine Learning 모델 관리는 데이터 과학자와 개발 운영팀�
 
 **온-프레미스와 클라우드 배포 시나리오를 모두 지원합니까?**
 
-예. Docker 컨테이너를 통해 로컬 및 온-프레미스 배포 시나리오를 지원합니다. 로컬 실행 대상은 단일 노드 Docker 배포, [ML 서비스 포함 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop 또는 Spark를 포함합니다. 또한 Azure Container Service와 Kubernetes, HDInsight 또는 Spark를 통한 클러스터형 배포를 포함하여 Docker를 통한 클라우드 배포도 지원합니다. Edge 시나리오는 Docker 컨테이너 및 Azure IOT Edge를 통해 지원됩니다. 
+예. Docker 컨테이너를 통해 온-프레미스 및 클라우드 배포 시나리오를 지원합니다. 로컬 실행 대상은 단일 노드 Docker 배포, [ML 서비스 포함 Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop 또는 Spark를 포함합니다. 또한 Azure Container Service와 Kubernetes, HDInsight 또는 Spark를 통한 클러스터형 배포를 포함하여 Docker를 통한 클라우드 배포도 지원합니다. Edge 시나리오는 Docker 컨테이너 및 Azure IOT Edge를 통해 지원됩니다. 
 
 **다른 호스트에서 Azure Machine Learning CLI를 사용하여 만든 Docker 이미지를 실행할 수 있나요?**
 

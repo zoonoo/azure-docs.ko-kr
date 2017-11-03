@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 8c794b8c919fe286c3917927a44d64aa84771f28
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>거래 업체에 X12 메시지를 일괄 전송
 
@@ -113,6 +113,9 @@ X12 메시지에 대한 일괄 처리는 다른 메시지와 마찬가지로 일
 7.  수신자 논리 앱을 만들었으니 논리 앱을 저장합니다.
 
     ![논리 앱 저장](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > 파티션 한도는 5,000개 메시지 또는 80MB입니다. 두 조건 중 하나가 충족될 경우 사용자 정의 조건에 맞지 않더라도 일괄 처리가 해제될 수 있습니다.
 
 <a name="sender"></a>
 

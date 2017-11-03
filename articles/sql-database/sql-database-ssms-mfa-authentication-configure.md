@@ -1,6 +1,6 @@
 ---
 title: "Multi-Factor Authentication 구성 - Azure SQL | Microsoft Docs"
-description: "SQL 데이터베이스 및 SQL Data Warehouse용 SSMS에서 Multi-Factor Authentication 사용"
+description: "SQL Database 및 SQL Data Warehouse에 대해 SSMS와 함께 Multi-Factor Authentication을 사용하는 방법에 대해 알아보세요."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: f244fc5dada77d6601710b374aa6edeb607b11d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9a319f26ada65837ff9010ef6feefdda3d70b6
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/22/2017
+ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 95e31d0ca5983e0946ad6fb993e7a89a6a63d2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
 이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
@@ -33,8 +33,7 @@ Site Recovery는 온-프레미스 가상 컴퓨터 및 물리적 서버에서 Az
 * **물리적 서버**: Site Recovery는 Windows 또는 Linux를 실행하는 물리적 서버를 보호할 수 있습니다.
 * **VMware 가상 컴퓨터**: Site Recovery는 VMware VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다.
 
-### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Site Recovery는 Azure Resource Manager 모델을 지원합니까?
-Site Recovery는 Resource Manager를 지원하는 Azure Portal에서 사용할 수 있습니다. Site Recovery는 Azure 클래식 포털에서 레거시 배포를 지원합니다. 클래식 포털에서는 새 자격 증명 모음을 만들 수 없으며 새로운 기능은 지원되지 않습니다.
+
 
 ### <a name="can-i-replicate-azure-vms"></a>Azure VM을 복제할 수 있나요?
 예, Azure 지역 간에 지원되는 Azure VM을 복제할 수 있습니다. [자세히 알아보기](site-recovery-azure-to-azure.md).
@@ -55,7 +54,7 @@ Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라
 Site Recovery를 사용하여 지원되는 VM 또는 물리적 서버에서 실행되는 대부분의 워크로드를 보호할 수 있습니다. Site Recovery는 응용 프로그램 인식 복제를 제공하므로 앱을 지능형 상태로 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat 등의 선두 공급 업체 제품과 긴밀하게 작동합니다. [자세히 알아봅니다](site-recovery-workload.md) .
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Hyper-V 호스트가 VMM 클라우드에 있어야 합니까?
-보조 데이터 센터에 복제하려는 경우 Hyper-V VM은 VMM 클라우드에 위치한 Hyper-V 호스트 서버에 있어야 합니다. Azure로 복제하려는 경우 VMM 클라우드 존재 여부와 상관없이 Hyper-V 호스트 서버에서 VM을 복제할 수 있습니다. [자세히 알아보기](site-recovery-hyper-v-site-to-azure.md).
+보조 데이터 센터에 복제하려는 경우 Hyper-V VM은 VMM 클라우드에 위치한 Hyper-V 호스트 서버에 있어야 합니다. Azure로 복제하려는 경우 VMM 클라우드 존재 여부와 상관없이 VM을 복제할 수 있습니다. Azure로 Hyper-V 복제에 대해 [자세히 알아보세요](tutorial-hyper-v-to-azure.md).
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>VMM 서버가 하나밖에 없는 경우 VMM을 사용하여 Site Recovery를 배포할 수 있습니까?
 
@@ -132,8 +131,7 @@ Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked
 * [Hyper-V VM을 VMM 없이 Azure PowerShell Resource Manager로 복제](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
-* **Azure 클래식 포털**: Azure 클래식 포털에서 Site Recovery를 배포하는 경우 [표준 지역 중복 저장소 계정](../storage/common/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다. 프리미엄 저장소는 현재 지원되지 않습니다. 계정은 Site Recovery 자격 증명 모음과 동일한 지역에 있어야 합니다.
-* **Azure Portal**: Azure Portal에서 Site Recovery를 배포하는 경우 LRS 또는 GRS 저장소 계정이 있어야 합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 이제 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
+LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
 
 ### <a name="how-often-can-i-replicate-data"></a>데이터를 얼마나 자주 복제할 수 있나요?
 * **Hyper-V:** Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
@@ -160,8 +158,7 @@ Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked
 예. 배포 문서에서 대역폭 제한에 대해 더 자세히 검토할 수 있습니다.
 
 * [VMware VM 및 물리적 서버를 복제하기 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
-* [VMM 클라우드에서 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-vmm-to-azure.md#capacity-planning)
-* [VMM 없이 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-hyper-v-site-to-azure.md)
+* [Azure에 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>장애 조치(failover)
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Azure로 장애 조치(failover)하는 경우 장애 조치(failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까?

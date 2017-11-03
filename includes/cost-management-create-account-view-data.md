@@ -31,3 +31,5 @@ Azure Cost Management by Cloudyn에서는 모든 클라우드 리소스 데이�
 리소스 종류를 마우스 오른쪽 단추로 클릭하고 **비용 엔터티**를 선택하여 리소스를 사용한 비용 엔터티 및 서비스를 봅니다. DevOps의 VM 및 작업자 서비스는 이 예제에서 각각 $486.60과 $435.71을 사용했습니다. 두 항목의 총비용은 $922입니다.
 
 ![비용 엔터티 및 서비스](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+클라우드 청구 데이터를 보는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 개발한 Azure Cost Management를 사용하여 클라우드 청구 데이터 분석](https://youtu.be/G0pvI3iLH-Y)을 참조하세요.

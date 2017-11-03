@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>지속성 함수 개요(Azure Functions)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 상태는 지속성 함수 런타임에서 관리되므로 사용자는 자신의 상태 추적 메커니즘을 구현할 필요가 없습니다.
 
-지속성 함수 확장에는 장기 실행 오케스트레이션을 관리하기 위한 기본 제공 웹후크가 있지만, 사용자 고유의 함수 트리거(예: HTTP, 큐 또는 Event Hub) 및 `orchestrationClient` 바인딩을 사용하여 이 패턴을 직접 구현할 수 있습니다.
+지속성 함수 확장에는 장기 실행 오케스트레이션을 관리하기 위한 기본 제공 웹후크가 있지만, 사용자 고유의 함수 트리거(예: HTTP, 큐 또는 Event Hub) 및 `orchestrationClient` 바인딩을 사용하여 이 패턴을 직접 구현할 수 있습니다. 예를 들어 큐 메시지를 사용하여 종료를 트리거할 수 있습니다.  또는 생성된 키를 인증에 사용하는 기본 제공 웹후크 대신 Azure Active Directory 인증 정책으로 보호된 HTTP 트리거를 사용할 수 있습니다. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ public static async Task<HttpResponseMessage> Run(
 
 ![상태 저장 단일 항목 다이어그램](media/durable-functions-overview/stateful-singleton.png)
 
-지속성 함수는 행위자 모델의 구현이 아니지만 오케스트레이터 함수에는 동일한 런타임 특징이 많이 있습니다. 예를 들어 장기 실행(영구), 상태 저장, 안정성, 단일 스레드, 위치 투명성 및 전역 주소 지정 가능성이 있습니다. 따라서 오케스트레이터 함수는 별도의 프레임워크를 요구하지 않고도 "행위자"와 같은 시나리오에 유용합니다.
+지속성 함수는 행위자 모델의 구현이 아니지만 오케스트레이터 함수에는 동일한 런타임 특징이 많이 있습니다. 예를 들어 장기 실행(영구), 상태 저장, 안정성, 단일 스레드, 위치 투명성 및 전역 주소 지정 가능성이 있습니다. 따라서 오케스트레이터 함수는 "행위자"와 같은 시나리오에 유용합니다.
 
 일반 함수는 상태 비저장이므로 상태 저장 단일 항목 패턴을 구현하는 데 적합하지 않습니다. 그러나 지속성 함수 확장은 상태 저장 단일 항목 패턴을 비교적 쉽게 구현할 수 있습니다. 다음 코드는 카운터를 구현하는 간단한 오케스트레이터 함수입니다.
 

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: ab5547ef76121aa395168844bd69759613ffc045
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 800199b3d1d91d700d26f988a4d49713028de1ce
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: 암호에 복잡성 요구 사항 구성
+
+> [!NOTE]
+> **이 기능은 미리 보기 상태입니다.**  [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com)에 연락하여 테스트 테넌트에 이 기능을 사용하도록 설정할 것을 요청하세요.
 
 Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용자가 제공하는 암호에 복잡성 요구 사항을 변경하도록 지원합니다.  기본적으로 Azure AD B2C는 `Strong` 암호를 사용합니다.  또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다.
 

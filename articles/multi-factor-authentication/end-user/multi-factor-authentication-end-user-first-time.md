@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b5233b7b667998f6fd3ff8a5db1946b120211c1
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
 2단계 인증은 다른 사람이 침입하기 어렵게 만들어 계정을 보호하는 추가 보안 단계입니다. 이 문서를 읽고 있다면 아마도 회사 또는 학교 관리자로부터 Multi-Factor Authentication에 대한 전자 메일을 받았을 것입니다. 또는 로그인을 시도했고 추가 보안 검증을 설정하라는 메시지를 받았을 수도 있습니다. 해당되는 경우 **자동 등록 프로세스를 완료해야만 로그인할 수 있습니다**.
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="set-up-your-account"></a>계정 설정
 
-IT 부서에서 2단계 인증을 사용하여 시작하도록 요청하는 경우 **Your admin has required that you set up this account for additional secuirty verification**(관리자의 요청에 따라 이 계정에 추가 보안 확인을 설정해야 합니다)가 표시된 화면이 나타납니다.
+회사에서 2단계 인증을 사용하여 시작하도록 요청하는 경우 **Your admin has required that you set up this account for additional secuirty verification**(관리자의 요청에 따라 이 계정에 추가 보안 확인을 설정해야 합니다)가 표시된 화면이 나타납니다.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time/first.png)
 

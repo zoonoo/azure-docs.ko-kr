@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cae11f53df768daf5846ac719a45715709326d76
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.com) 또는 Microsoft 계정(예: bsimon@outlook.com)의 추가 보안 수준을 제공합니다.
@@ -91,10 +91,10 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 
-### <a name="add-an-account-to-the-app-using-touch-id"></a>Touch ID를 사용하여 앱에 계정 추가
-IOS의 Microsoft Authenticator 앱은 Touch ID를 지원합니다.  Azure Multi-Factor Authentication을 사용하면 조직에서 장치에 대해 PIN을 요청할 수 있습니다. Touch ID를 사용할 경우 iOS 사용자는 PIN을 입력할 필요가 없습니다. 대신 지문을 스캔하고 **승인**을 선택할 수 있습니다.
+### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>장치의 지문이나 안면 인식 기능을 사용하여 앱에 계정 추가
+조직에서는 인증 시도를 완료하기 위해 PIN을 요구할 수 있습니다. Microsoft Authenticator 앱에서는 PIN 대신 장치의 지문이나 안면 인식 기능을 사용할 수 있습니다. 앱에서 최초 확인 시 이 기능을 설정하기 위해 Touch ID(iOS) 또는 지문 인식을 대신 사용하는 옵션이 표시됩니다. 
 
-Microsoft Authenticator를 통한 Touch ID 설정은 간단합니다. PIN을 사용하여 일반 확인 인증을 완료합니다. 장치에서 Touch ID를 지원하는 경우 Microsoft Authenticator는 자동으로 해당 계정에 대해 Touch ID를 설정합니다.
+Microsoft Authenticator에 Touch ID를 설정하려면 PIN을 사용하여 일반 확인 시도를 완료해야 합니다. Microsoft Authenticator가 자동으로 Touch ID를 지원하는 장치에 대해 해당 기능을 설정합니다. 
 
 ![Touch ID 설정 확인](./media/authenticator-app-how-to/touchid1.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -101,6 +101,13 @@ HealthEvents          :
 * **SourceId**: System.PLB
 * **Property**: **용량**으로 시작합니다.
 * **다음 단계**: 제공된 메트릭을 확인하고 노드에서 현재 용량을 검토합니다.
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>리소스 거버넌스 메트릭의 노드 용량 불일치
+클러스터 매니페스트에 정의된 노드 용량이 리소스 거버넌스 메트릭의 실제 노드 용량(메모리 및 CPU 코어)보다 크면 System.Hosting에서 경고를 보고합니다. [리소스 거버넌스](service-fabric-resource-governance.md)를 사용하는 첫 번째 서비스 패키지가 지정된 노드에 등록하면 상태 보고서가 표시됩니다.
+
+* **SourceId**: System.Hosting
+* **속성**: ResourceGovernance
+* **다음 단계**: 거버넌스가 적용된 서비스 패키지가 예상대로 적용되지 않고 [리소스 거버넌스](service-fabric-resource-governance.md)가 올바르게 작동하지 않기 때문에 문제가 될 수 있습니다. 클러스터 매니페스트를 해당 메트릭의 올바른 노드 용량으로 업데이트하거나 아예 지정하지 않고 Service Fabric이 사용 가능한 리소스를 자동으로 검색하도록 합니다.
 
 ## <a name="application-system-health-reports"></a>응용 프로그램 시스템 상태 보고서
 클러스터 관리자 서비스를 나타내는 **System.CM**은 응용 프로그램에 대한 정보를 관리하는 기관입니다.
@@ -815,6 +822,13 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 * **SourceId**: System.Hosting
 * **Property**: **FabricUpgradeValidation** 접두사를 포함하고 업그레이드 버전을 포함합니다.
 * **Description**: 발생한 오류를 가리킵니다.
+
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>리소스 거버넌스 메트릭의 노드 용량이 정의되지 않음
+클러스터 매니페스트에 노드 용량이 정의되지 않았고 자동 검색 구성이 해제되어 있으면 System.Hosting에서 경고를 보고합니다. [리소스 거버넌스](service-fabric-resource-governance.md)를 사용하는 서비스 패키지가 지정된 노드에 등록할 때마다 Service Fabric에서 상태 경고를 제공합니다.
+
+* **SourceId**: System.Hosting
+* **속성**: ResourceGovernance
+* **다음 단계**: 사용 가능한 리소스의 자동 검색이 실행되도록 클러스터 매니페스트를 변경하는 것이 좋습니다. 또는 클러스터 매니페스트에서 해당 메트릭의 지정된 노드 용량을 올바르게 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [서비스 패브릭 상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)

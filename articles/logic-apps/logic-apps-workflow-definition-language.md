@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 10/11/2017
 |식|평가|  
 |----------------|----------------|  
 |"@function('Hello')"|첫 번째 매개 변수로 Hello 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
-|"@function('It's Cool!')"|첫 번째 매개 변수로 'It's Cool!' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
+|"@function('It''s Cool!')"|첫 번째 매개 변수로 'It's Cool!' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
 |"@function().prop1"|정의의 `myfunction` 멤버에서 prop1 속성 값을 반환합니다.|  
 |"@function('Hello').prop1"|첫 번째 매개 변수로 'Hello' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출하고 개체의 prop1 속성을 반환합니다.|  
 |"@function(parameters('Hello'))"|Hello 매개 변수를 평가하고 값을 함수에 전달합니다.|  

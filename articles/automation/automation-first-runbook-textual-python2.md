@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 26a1681e662814fbe513bec1b8d2bc040885d632
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -214,3 +214,4 @@ async_vm_start.wait()
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 * Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
 * Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python)를 참조하세요.
+* 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python)를 참조하세요.

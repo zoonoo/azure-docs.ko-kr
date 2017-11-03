@@ -1,5 +1,5 @@
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
-아니요. BGP는 **표준** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
+아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Azure 정책 기반 VPN 게이트웨이에 BGP를 사용할 수 있나요?
 아니요. BGP는 경로 기반 VPN 게이트웨이에서만 지원됩니다.

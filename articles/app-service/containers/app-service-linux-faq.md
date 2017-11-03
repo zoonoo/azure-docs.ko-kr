@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service Web App for Containers 관련 FAQ | Microsoft Docs"
-description: "Azure App Service Web App for Containers 관련 FAQ입니다."
+title: "Linux의 Azure App Service에 대한 FAQ | Microsoft Docs"
+description: "Linux의 Azure App Service에 대한 FAQ."
 keywords: "Azure App Service, 웹앱, faq, linux, oss"
 services: app-service
 documentationCenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-app-service-web-app-for-containers-faq"></a>Azure App Service Web App for Containers 관련 FAQ
+# <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
-Azure Web Apps for Containers를 릴리스하면서 현재 플랫폼에 기능을 추가하고 플랫폼을 더욱 개선하기 위한 작업을 진행하고 있습니다. 이 문서는 고객이 최근에 요청한 질문에 대한 대답을 제공합니다.
+Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가하고 플랫폼을 더욱 개선하기 위한 작업을 진행하고 있습니다. 이 문서는 고객이 최근에 요청한 질문에 대한 대답을 제공합니다.
 
 질문이 있으면 문서에 남겨주세요. 최대한 신속하게 답변을 드리겠습니다.
 
@@ -55,7 +55,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 **Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원하나요?**
 
-**A:** Azure Container Registry 또는 DockerHub 이미지에 대한 연속 통합/배포를 설정하려면 [Azure Web App for Containers를 사용하여 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+Azure Container Registry 또는 DockerHub 이미지에 대한 연속 통합/배포를 설정하려면 [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
 
 **스테이징 환경이 지원되나요?**
 
@@ -94,7 +94,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 **개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
-개인 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 사용합니다.
+개인 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)를 사용합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
@@ -134,6 +134,6 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Web App for Containers란?](app-service-linux-intro.md)
+* [Linux의 Azure App Service란?](app-service-linux-intro.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Azure Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)
+* [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)

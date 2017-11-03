@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a07ff578c6afeedc6f3806d52bfe5aef6945c04
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
 
@@ -31,8 +31,8 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 
 트래픽 보기를 사용하여 다음을 수행할 수 있습니다.
 - 사용자 기반이 있는 위치를 이해합니다(로컬 DNS 확인자 수준 세분성까지).
-- 이러한 영역에서 시작된 트래픽의 양
-- 이러한 사용자가 경험한 대표적 대기 시간.
+- 이 지역에서 생성된 트래픽 볼륨을 확인합니다(Azure Traffic Manager가 처리하는 DNS 쿼리로 관찰).
+-  이러한 사용자가 경험한 대표적 대기 시간 정보를 파악합니다.
 - 이러한 각 사용자 기반에서 끝점이 있는 Azure 지역까지 구체적인 트래픽 패턴을 심층 탐구합니다. 
 
 예를 들어 트래픽 보기를 사용하여 많은 수의 트래픽이 발생하지만 높은 대기 시간 문제를 겪고 있는 지역을 이해할 수 있습니다. 다음으로 새 Azure 지역에 대한 확장 계획을 세울 때 이 정보를 참조하여 사용자들이 대기 시간 문제를 덜 겪도록 할 수 있습니다.

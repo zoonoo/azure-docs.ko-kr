@@ -1,6 +1,6 @@
 ---
-title: "컨테이너용 Azure Web App에 대한 사용자 지정 Docker 이미지 사용 | Microsoft Docs"
-description: "Containers용 Azure Web Apps에 사용자 지정 Docker 이미지를 사용하는 방법"
+title: "Web App for Containers에 사용자 지정 Docker 이미지 사용 - Azure | Microsoft Docs"
+description: "Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법."
 keywords: "azure app service, 웹앱, linux, docker, 컨테이너"
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Containers용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
 [Containers용 Web App](app-service-linux-intro.md)은 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에서 기본 제공 Docker 이미지를 제공합니다. Containers용 Web App은 Docker 컨테이너 기술을 활용하여 기본 제공 이미지와 사용자 지정 이미지를 PaaS(platform as a service)로 모두 호스팅합니다. 이 자습서에서는 Containers용 Web App에서 사용할 사용자 지정 Docker 이미지를 빌드하는 방법을 알아봅니다. 이 작업은 해당 언어에 기본 제공 이미지가 없거나 응용 프로그램에 기본 제공 이미지 내에서 제공되지 않는 특정 구성이 필요한 경우 일반적인 패턴입니다.
 
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>컨테이너용 Web App 만들기
 
-Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 응용 프로그램을 호스트할 수 있습니다. 컨테이너용 Web App을 만들려면 그룹, 서비스 계획 및 웹앱 자체를 만드는 Azure CLI 명령을 실행해야 합니다. 먼저 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 실행하고 위치 및 고유한 이름에 전달합니다.
+Linux의 Azure App Service를 사용하여 클라우드에서 네이티브 Linux 응용 프로그램을 호스트할 수 있습니다. 컨테이너용 Web App을 만들려면 그룹, 서비스 계획 및 웹앱 자체를 만드는 Azure CLI 명령을 실행해야 합니다. 먼저 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 실행하고 위치 및 고유한 이름에 전달합니다.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ az group create --location "West Europe" --name myResourceGroup
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ az appservice plan create --name myServicePlan --resource-group myResourceGroup 
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-축하합니다. Containers용 Azure Web App에 사용자 지정 Docker 이미지를 구성했습니다.
+축하합니다. Web App for Containers에 사용자 지정 Docker 이미지가 구성되었습니다.
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>개인 레지스트리(선택 사항)에 Docker 이미지 푸시
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 
 ## <a name="next-steps"></a>다음 단계
 
-[Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
+[Linux의 Azure App Service에 대한 FAQ](app-service-linux-faq.md)

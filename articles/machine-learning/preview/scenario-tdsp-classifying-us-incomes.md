@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>TDSP(Team Data Science Process) 프로젝트에서 소득 분류
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 * [FAQ - 시작 방법](frequently-asked-questions.md)
 * [개요](overview-what-is-azure-ml.md)
 * [설치](quickstart-installation.md)
-* [실행](experiment-execution-configuration.md)
+* [실행](experimentation-service-configuration.md)
 * [TDSP 사용](https://aka.ms/how-to-use-tdsp-in-aml)
 * [파일 읽기 및 쓰기](how-to-read-write-files.md)
 * [Azure Machine Learning에서 Git 사용](using-git-ml-project.md)
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
 ### <a name="execution"></a>실행
-이 예제에서 코드를 **로컬 계산 환경**에서 실행합니다. [실행 옵션](experiment-execution-configuration.md)에 대한 자세한 내용은 Azure Machine Learning 문서를 참조합니다.
+이 예제에서 코드를 **로컬 계산 환경**에서 실행합니다. [실행 옵션](experimentation-service-configuration.md)에 대한 자세한 내용은 Azure Machine Learning 문서를 참조합니다.
 
 로컬 Python 런타임에서 Python 스크립트를 쉽게 실행할 수 있습니다.
 

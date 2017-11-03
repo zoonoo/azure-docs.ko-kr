@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/22/2017
+ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: 5824347cbfd80ce2d21e256f4ce6e6fe2201792f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5853b7f4af02e096a0678de14abd5c0b3d7ab0c
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
@@ -38,7 +38,7 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | **SQL Server 기능** | **Azure SQL Database에서 지원** | 
 | --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조|
-| [AlwaysOn 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 아니요 - [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md) 참조 |
+| [AlwaysOn 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 고가용성은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-geo-replication-overview.md)에서 설명합니다. |
 | [데이터베이스 연결](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 아니요 |
 | [응용 프로그램 역할](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | 예 |
 | [BACPAC 파일(내보내기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 - [SQL Database 내보내기](sql-database-export.md) 참조 |
@@ -63,15 +63,15 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [데이터베이스 스냅숏](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 아니요 |
 | [데이터 형식](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | 예 |  
 | [DBCC 문](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | 대부분 - 개별 문 참조 |
-| [DDL 문](https://docs.microsoft.com/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조
+| [DDL 문](https://docs.microsoft.com/sql/t-sql/statements/statements) | 예 |
 | [DDL 트리거](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | 데이터베이스에만 해당 |
 | [분산된 트랜잭션 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) 참조 |
-| [DML 문](https://docs.microsoft.com/sql/t-sql/queries/queries) | 대부분 - 개별 문 참조 |
-| [DML 트리거](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
+| [DML 문](https://docs.microsoft.com/sql/t-sql/queries/queries) | 예 |
+| [DML 트리거](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 | 
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 일부 - 개별 DMV 참조 |
 | [이벤트 알림](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 아니요 - [경고](sql-database-insights-alerts-portal.md) 참조 |
 | [식](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |예 |
-| [확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - 개별 이벤트 참조 |
+| [확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 |
 | [확장된 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 아니요 |
 | [파일 및 파일 그룹](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 |
 | [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 |
@@ -82,16 +82,16 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [JSON 데이터 지원](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | 예 |
 | [언어 요소](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  
 | [연결된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) 참조 |
-| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 아니요 - [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md) 참조 |
+| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 고가용성은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-geo-replication-overview.md)에서 설명합니다. |
 | [MDS(Master Data Services)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 아니요 |
 | [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아니요 |
 | [시스템 데이터 수정](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 아니요 |
-| [온라인 인덱스 작업](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 지원됨 - 서비스 계층에 의해 제한된 트랜잭션 크기 |
+| [온라인 인덱스 작업](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 예 |
 | [연산자](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | 대부분 - 개별 연산자 참조 |
 | [지정 시간 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 예 - [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 |
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 아니요 |
 | [정책 기반 관리](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 아니요 |
-| [조건자](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 대부분 - 개별 조건자 참조 |
+| [조건자](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 예 |
 | [R 서비스](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 미리 보기 릴리스, [기계 학습의 새로운 기능](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)을 참조하세요.  |
 | [리소스 관리자](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 아니요 |
 | [RESTORE 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 아니요 | 
@@ -104,9 +104,9 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [Set 문](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | 대부분 - 개별 문 참조 
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | 예 |
 | [SQL Server 에이전트](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 아니요 - [탄력적 작업](sql-database-elastic-jobs-getting-started.md) 참조 |
-| [SSAS(SQL Server Analysis Services)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 아니요 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 참조 |
+| [SSAS(SQL Server Analysis Services)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 참조 |
 | [SQL Server 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 아니요 - [SQL Database 감사](sql-database-auditing.md) 참조 |
-| [SSIS(SQL Server Integration Services)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 아니요 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 참조 |
+| [SSIS(SQL Server Integration Services)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 참조 |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 예 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 |
 | [SQL Server 복제](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [트랜잭션 및 스냅숏 복제 구독자만 해당](sql-database-cloud-migrate.md) |
@@ -121,7 +121,7 @@ Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비�
 | [임시 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | 예 |
 | [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 예 | 
 | [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 |
-| [Windows Server 장애 조치(failover) 클러스터링](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 아니요 - [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md) 참조 |
+| [Windows Server 장애 조치(failover) 클러스터링](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 고가용성은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-geo-replication-overview.md)에서 설명합니다. |
 | [XML 인덱스](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | 예 |
 
 ## <a name="next-steps"></a>다음 단계

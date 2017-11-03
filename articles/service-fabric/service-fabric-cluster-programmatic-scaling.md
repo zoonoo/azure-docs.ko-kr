@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
@@ -29,7 +29,7 @@ Azure에서 Service Fabric 클러스터의 크기를 조정하는 방법에 대�
 
 - 수동으로 크기를 조정하려면 로그인하여 크기 조정 작업을 명시적으로 요청해야 합니다. 크기 조정 작업을 자주 또는 예기치 않은 시점에 수행해야 하는 경우에는 이 방법이 좋지 않을 수 있습니다.
 - 자동 크기 조정 규칙은 가상 컴퓨터 확장 집합에서 인스턴스를 제거할 때 노드 형식의 내구성 수준이 Silver 또는 Gold가 아닌 한 연결된 Service Fabric 클러스터에서 해당 노드의 지식을 제거하지 않습니다. 자동 크기 조정 규칙은 Service Fabric 수준이 아닌 확장 집합 수준에서 작동하기 때문에 Service Fabric 노드를 정상적으로 종료하지 않아도 자동 크기 조정 규칙이 Service Fabric 노드를 제거할 수 있습니다. 이 강제 노드 제거는 규모 감축 작업 후 'ghost' Service Fabric 노드 상태를 남깁니다. 개인(또는 서비스)은 Service Fabric 클러스터에서 제거된 노드 상태를 주기적으로 정리해야 합니다.
-  - 내구성 수준이 Gold 또는 Silver인 노드 유형은 제거된 노드를 자동으로 정리합니다.  
+  - 내구성 수준이 Gold 또는 Silver인 노드 유형은 제거된 노드를 자동으로 정리하므로 추가 정리가 필요하지 않습니다.
 - 자동 크기 조정 규칙이 지원되는 [여러 메트릭](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)이 있지만 아직은 제한된 집합입니다. 이 집합에 포함되지 않는 일부 메트릭을 기반으로 하는 크기 조정이 필요한 시나리오의 경우 자동 크기 조정 규칙은 좋은 옵션이 아닐 수 있습니다.
 
 이러한 제한에 따라 보다 사용자 지정된 자동 크기 조정 모델을 구현하고자 할 수 있습니다. 
@@ -46,7 +46,7 @@ Service Fabric 클러스터 자체와 상호 작용하려면 [System.Fabric.Fabr
 물론 크기를 조정하기 위해 클러스터에서 크기 조정 코드를 서비스로 실행할 필요는 없습니다. `IAzure` 및 `FabricClient`는 각각 연결된 Azure 리소스에 원격으로 연결하기 때문에 Service Fabric 응용 프로그램 외부에서 실행되는 콘솔 응용 프로그램 또는 Windows 서비스는 손쉽게 크기 조정 서비스가 될 수 있습니다. 
 
 ## <a name="credential-management"></a>자격 증명 관리
-크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 컴퓨터 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 응용 프로그램을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 집합에 액세스해야 합니다. 로그인하려면 [Azure CLI 2.0](https://github.com/azure/azure-cli)으로 만든 [서비스 주체](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md#creating-a-service-principal-in-azure)를 사용하면 됩니다.
+크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 컴퓨터 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 응용 프로그램을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 집합에 액세스해야 합니다. 로그인하려면 [Azure CLI 2.0](https://github.com/azure/azure-cli)으로 만든 [서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 사용하면 됩니다.
 
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 
@@ -85,7 +85,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-또는 PowerShell cmdlet을 통해 가상 컴퓨터 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss)는 가상 컴퓨터 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성에 저장됩니다. 용량을 원하는 값으로 변경한 후 Azure에서 [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss) 명령을 통해 가상 컴퓨터 확장 집합을 업데이트할 수 있습니다.
+또는 PowerShell cmdlet을 통해 가상 컴퓨터 확장 집합 크기를 관리할 수도 있습니다. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)는 가상 컴퓨터 확장 집합 개체를 검색할 수 있습니다. 현재 용량은 `.sku.capacity` 속성을 통해 사용할 수 있습니다. 용량을 원하는 값으로 변경한 후 Azure에서 [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 명령을 통해 가상 컴퓨터 확장 집합을 업데이트할 수 있습니다.
 
 노드를 수동으로 추가하는 경우 확장 집합 인스턴스만 추가하면 새로운 Service Fabric 노드를 시작할 수 있습니다. 확장 집합 템플릿에는 새 인스턴스를 자동으로 Service Fabric 클러스터에 조인하는 확장 기능이 포함되어 있기 때문입니다. 
 
@@ -105,7 +105,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-*시드* 노드는 더 큰 인스턴스 ID가 먼저 제거되는 규칙을 따르지 않는 경우도 있다는 점에 주의해야 합니다.
+시드 노드가 다르므로 더 큰 인스턴스 ID를 먼저 제거하는 규칙을 반드시 따라야 하는 것은 아닙니다.
 
 제거할 노드를 찾았으면 이전과 동일한 `FabricClient` 인스턴스 및 `IAzure` 인스턴스를 사용하여 노드를 비활성화하고 제거할 수 있습니다.
 

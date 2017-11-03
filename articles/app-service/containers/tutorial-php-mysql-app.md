@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c5f9f813a3bf1f041b4cd6979b9615e46be5cfb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure에서 PHP 및 MySQL 웹앱 빌드
 
-[컨테이너용 Web App](app-service-linux-intro.md)은 Linux 운영 체제를 사용하여 확장성이 매우 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 작업이 완료되면 [Laravel](https://laravel.com/) 앱이 컨테이너용 Web App에서 실행됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PHP 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Laravel](https://laravel.com/) 앱이 Linux의 App Service에서 실행됩니다.
 
 ![Azure App Service에서 실행 중인 PHP 앱](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -192,7 +192,6 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 > [!NOTE]
 > MySQL용 Azure 데이터베이스(미리 보기)에서는 현재 Azure 서비스 연결만 제한하지 않습니다. Azure의 IP 주소는 동적으로 할당되므로 모든 IP 주소를 사용하도록 설정하는 것이 좋습니다. 이 서비스는 미리 보기로 있으며, 데이터베이스를 보호하기 위해 더 나은 방법을 제공하도록 계획되어 있습니다.
 >
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>로컬에서 프로덕션 MySQL 서버에 연결
 
@@ -327,7 +326,7 @@ git commit -m "database.php updates"
 
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 

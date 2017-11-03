@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 28c589b6821526fa6b91dc558a08ef2fb68f97df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -115,7 +115,7 @@ public static async Task<List<string>> Run(
 
   비결정적 작업은 작업 함수에서 수행되어야 합니다. 여기에는 다른 입력 또는 출력 바인딩과의 상호 작용이 포함됩니다. 이렇게 하면 모든 비결정적 값이 첫 번째 실행에서 한 번 생성되고 실행 기록에 저장됩니다. 그런 다음 후속 실행에서 저장된 값을 자동으로 사용합니다.
 
-* 오케스트레이터 코드는 **비차단**이어야 합니다. 예를 들어 `Thread.Sleep` 또는 이와 동등한 API가 없습니다.
+* 오케스트레이터 코드는 **비차단**이어야 합니다. 예를 들어 I/O가 없거나 `Thread.Sleep` 또는 해당 API에 대한 호출이 없음을 의미합니다.
 
   오케스트레이터가 지연해야 하는 경우 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API를 사용할 수 있습니다.
 

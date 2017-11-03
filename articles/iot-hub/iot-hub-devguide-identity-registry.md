@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 10/11/2017
 ID 레지스트리에 저장된 장치 ID는 대/소문자를 구분합니다.
 
 높은 수준에서 ID 레지스트리는 장치 ID 리소스의 REST를 지원하는 컬렉션입니다. ID 레지스트리에 항목을 추가하면 IoT Hub가 진행 중인 클라우드-장치 메시지를 포함하는 큐 등의 장치별 리소스 집합을 만듭니다.
-
-### <a name="when-to-use"></a>사용하는 경우
 
 다음과 같은 작업이 필요할 때 ID 레지스트리를 사용합니다.
 
@@ -80,8 +78,7 @@ ID 레지스트리에서 ID의 **상태** 속성을 업데이트하여 장치를
 
 [IoT Hub 리소스 공급자 끝점][lnk-endpoints]에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리로 장치 ID를 대량으로 가져올 수 있습니다. 가져오기는 고객이 제공한 Blob 컨테이너의 데이터를 사용하여 장치 ID 데이터를 ID 레지스트리에 쓰는 장기 실행 작업입니다.
 
-* API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 참조하세요.
-* 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
+API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 참조하세요. 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
 
 ## <a name="device-provisioning"></a>장치 프로비전
 
@@ -143,17 +140,13 @@ iothub-message-schema | deviceLifecycleNotification |
 }
 ```
 
-## <a name="reference-topics"></a>참조 항목:
-
-다음 참조 항목에서는 ID 레지스트리에 대한 자세한 정보를 제공합니다.
-
 ## <a name="device-identity-properties"></a>장치 ID 속성
 
 장치 ID는 다음 속성을 사용하여 JSON 문서로 표시됩니다.
 
 | 속성 | 옵션 | 설명 |
 | --- | --- | --- |
-| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다. |
+| deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 장치를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |

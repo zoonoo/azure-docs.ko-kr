@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Log Analytics에서 경고 규칙에 작업 추가
 [경고가 Log Analytics에서 생성](log-analytics-alerts.md)될 때 하나 이상의 작업을 수행하는 [경고 규칙 구성](log-analytics-alerts.md)의 옵션이 있습니다.  이 문서에서는 사용 가능한 다양한 작업 및 각 종류를 구성하는 세부 정보를 설명합니다.
@@ -112,10 +112,10 @@ Runbook 작업에는 다음 표의 속성이 필요합니다.
 
 Runbook 작업은 [웹후크](../automation/automation-webhooks.md)를 사용하여 Runbook을 시작합니다.  경고 규칙을 만들 때 이름 **OMS 경고 수정** 에 이어 GUID를 가진 Runbook에 대해 새 웹후크가 자동으로 생성됩니다.  
 
-Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 변수](../automation/automation-webhooks.md)는 해당 경고를 생성한 로그 검색의 결과를 포함한 경고의 세부 정보를 포함합니다.  Runbook이 경고의 속성에 액세스하려면 **$WebhookData**를 매개 변수로 정의해야 합니다.  이 경고는 **$WebhookData**의 **RequestBody** 속성에서 **SearchResults**라고 하는 단일 속성에서 json 형식으로 사용할 수 있습니다.  이 항목은 다음 표의 속성을 가집니다.
+Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 변수](../automation/automation-webhooks.md)는 해당 경고를 생성한 로그 검색의 결과를 포함한 경고의 세부 정보를 포함합니다.  Runbook이 경고의 속성에 액세스하려면 **$WebhookData**를 매개 변수로 정의해야 합니다.  경고 데이터는 **$WebhookData**의 **RequestBody** 속성에 있는 **SearchResult**(표준 페이로드를 사용한 Runbook 작업 및 webhook 작업) 또는 **SearchResults**(**IncludeSearchResults":true**를 포함하여 사용자 지정 페이로드를 사용한 webhook 작업)라는 단일 속성에 JSON 형식으로 제공됩니다.  이 항목은 다음 표의 속성을 가집니다.
 
 >[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Runbook 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.  아래 [샘플](#sample-payload)에서 예를 볼 수 있습니다.
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 Runbook 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.  아래 [샘플](#sample-payload)에서 예를 볼 수 있습니다.  
 
 | 노드 | 설명 |
 |:--- |:--- |
@@ -123,14 +123,19 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 | __metadata |레코드 수 및 검색 결과 상태를 포함하는 경고 관련 정보입니다. |
 | value |검색 결과의 각 레코드에 대해 개별 항목입니다.  항목의 상세 정보는 레코드의 속성 및 값과 일치합니다. |
 
-예를 들어, 다음 Runbook은 로그 검색에서 반환된 레코드를 추출하고 각 레코드 유형에 따라 서로 다른 속성을 할당합니다.  Runbook은 JSON에서 **RequestBody**를 변환하여 시작되므로 PowerShell의 개체로 작동할 수 있습니다.
+예를 들어 다음 Runbook은 로그 검색에서 반환된 레코드를 추출하고 각 레코드 유형에 따라 서로 다른 속성을 할당합니다.  Runbook은 JSON에서 **RequestBody**를 변환하여 시작되므로 PowerShell의 개체로 작동할 수 있습니다.
+
+>[!NOTE]
+> 두 Runbook은 모두 표준 페이로드를 사용한 Runbook 작업 및 webhook 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  사용자 지정 페이로드를 사용하여 webhook 응답에서 Runbook이 호출된 경우 이 속성을 **SearchResults**로 변경해야 합니다.
+
+다음 Runbook은 [레거시 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)의 페이로드를 사용합니다.
 
     param ( 
         [object]$WebhookData
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -152,11 +157,61 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
         }
     }
 
+다음 Runbook은 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)의 페이로드를 사용합니다.
+
+    param ( 
+        [object]$WebhookData
+    )
+
+    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
+
+    # Get all metadata properties    
+    $AlertRuleName = $RequestBody.AlertRuleName
+    $AlertThresholdOperator = $RequestBody.AlertThresholdOperator
+    $AlertThresholdValue = $RequestBody.AlertThresholdValue
+    $AlertDescription = $RequestBody.Description
+    $LinktoSearchResults =$RequestBody.LinkToSearchResults
+    $ResultCount =$RequestBody.ResultCount
+    $Severity = $RequestBody.Severity
+    $SearchQuery = $RequestBody.SearchQuery
+    $WorkspaceID = $RequestBody.WorkspaceId
+    $SearchWindowStartTime = $RequestBody.SearchIntervalStartTimeUtc
+    $SearchWindowEndTime = $RequestBody.SearchIntervalEndtimeUtc
+    $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
+
+    # Get detailed search results
+    if($RequestBody.SearchResult -ne $null)
+    {
+        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+
+        foreach ($SearchResultRow in $SearchResultRows)
+        {   
+            $Column = 0
+            $Record = New-Object –TypeName PSObject 
+        
+            foreach ($SearchResultColumn in $SearchResultColumns)
+            {
+                $Name = $SearchResultColumn.name
+                $ColumnValue = $SearchResultRow[$Column]
+                $Record | Add-Member –MemberType NoteProperty –Name $name –Value $ColumnValue -Force
+                        
+                $Column++
+            }
+
+            # Include code to work with the record. 
+            # For example $Record.Computer to get the computer property from the record.
+            
+        }
+    }
+
+
 
 ## <a name="sample-payload"></a>샘플 페이로드
 이 섹션은 기존 및 [업그레이드된 Log Analytics 작업 영역](log-analytics-log-search-upgrade.md)에서 웹후크 및 Runbook 작업에 대한 샘플 페이로드를 보여줍니다.
 
 ### <a name="webhook-actions"></a>웹후크 작업
+두 예제는 모두 표준 페이로드를 사용한 webhook 작업의 결과를 포함하는 속성인 **SearchResult**를 사용합니다.  webhook가 검색 결과를 포함하는 사용자 지정 페이로드를 사용한 경우 이 속성은 **SearchResults**가 됩니다.
 
 #### <a name="legacy-workspace"></a>기존 작업 영역.
 다음은 기존 작업 영역에서 웹후크 작업에 대한 샘플 페이로드입니다.
@@ -376,7 +431,7 @@ Runbook의 매개 변수를 직접 채울 수는 없으나 [$WebhookData 매개 
 다음은 기존 작업 영역에서 Runbook 작업에 대한 샘플 페이로드입니다.
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",

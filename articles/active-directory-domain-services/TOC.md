@@ -1,6 +1,8 @@
 # 개요
 ## [Azure AD Domain Services란?](active-directory-ds-overview.md)
-## [이 서비스의 대상](active-directory-ds-comparison.md)
+## 사용자에게 적합한가요?
+### [Windows Server AD와 비교](active-directory-ds-comparison.md)
+### [Azure AD 조인과 비교](active-directory-ds-compare-with-azure-ad-join.md)
 ## [기능](active-directory-ds-features.md)
 ## [시나리오](active-directory-ds-scenarios.md)
 ## [동기화 작동 방법](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [SharePoint 서버에 대한 프로필 동기화 지원 구성](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos 제한 위임 구성](active-directory-ds-enable-kcd.md)
 ### [Azure AD 응용 프로그램 프록시 배포](active-directory-ds-deploy-azure-app-proxy.md)
+## [관리되는 도메인 삭제](active-directory-ds-disable-aadds.md)
 ## 문제 해결
 ### [FAQ](active-directory-ds-faqs.md)
 ### [문제 해결 가이드](active-directory-ds-troubleshooting.md)

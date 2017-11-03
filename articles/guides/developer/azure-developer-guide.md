@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -105,11 +105,10 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
 대부분의 응용 프로그램은 데이터를 저장해야 하므로 Azure에서 응용 프로그램을 호스트하는 방법에 관계없이 다음 저장소 및 데이터 서비스 중 하나 이상을 고려합니다.
 
--   **Azure SQL Database**: 클라우드에서 관계형 표 형식 데이터를 저장하기 위한 Azure 기반 Microsoft SQL Server 엔진 버전입니다. SQL Database는 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 무중단 업무 방식, 데이터 보호 기능을 제공합니다.
+-   **Azure Cosmos DB**: 포괄적인 SLA로 사용자가 지리 지역 수에 따라 처리량 및 저장소를 탄력적으로 조정할 수 있도록 설계된 전역적으로 분산된 다중 모델 데이터베이스 서비스입니다. 
+    >**사용하는 경우:** 응용 프로그램에 여러 잘 정의된 일관성 모델이 있는 MongoDB 등과 같은 문서, 테이블 또는 그래프 데이터베이스가 필요할 때 
 
-    >**사용 시기**: 응용 프로그램에 참조 무결성 데이터 저장소, 트랜잭션 지원 및 TSQL 쿼리 지원이 필요한 경우
-
-    >**시작하기**: [Azure Portal을 사용하여 빠르게 SQL Database를 만듭니다](../../sql-database/sql-database-get-started.md).
+    >**시작하기**: [Azure Cosmos DB 웹앱을 빌드합니다](../../cosmos-db/create-documentdb-dotnet.md). MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
 
 -   **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
 
@@ -117,10 +116,12 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**시작하기**: 저장소 유형([Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)) 중 하나를 선택합니다.
 
--   **Azure DocumentDB**: 완벽하게 관리되고 확장 가능한 NoSQL 데이터베이스 서비스로, 개체 데이터에 대해 SQL 쿼리 기능을 수행합니다. 기존 MongoDB 드라이버를 사용하여 DocumentDB에 액세스할 수 있습니다.
-    >**사용 시기:** 응용 프로그램에서 JSON 문서에 대해 SQL 쿼리를 실행할 수 있어야 하거나 MongoDB를 사용할 경우
+-   **Azure SQL Database**: 클라우드에서 관계형 표 형식 데이터를 저장하기 위한 Azure 기반 Microsoft SQL Server 엔진 버전입니다. SQL Database는 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 무중단 업무 방식, 데이터 보호 기능을 제공합니다.
 
-    >**시작하기**: [DocumentDB C# 콘솔 응용 프로그램을 빌드합니다](../../documentdb/documentdb-get-started.md). MongoDB 개발자인 경우 [MongoDB에 대한 DocumentDB 프로토콜 지원](../../documentdb/documentdb-protocol-mongodb.md)을 참조하세요.
+    >**사용 시기**: 응용 프로그램에 참조 무결성 데이터 저장소, 트랜잭션 지원 및 TSQL 쿼리 지원이 필요한 경우
+
+    >**시작하기**: [Azure Portal을 사용하여 빠르게 SQL Database를 만듭니다](../../sql-database/sql-database-get-started.md).
+
 
 [Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 BizTalk Services의 [하이브리드 연결](../../biztalk-services/integration-hybrid-connection-overview.md)을 사용하면 App Service 호스트된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 응용 프로그램에서 Azure 데이터 및 저장소 서비스에 연결할 수도 있습니다.
 

@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 2f3ca2e694fd9952319a70477e9887c332b08044
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>변경 내용을 유지하고 큰 파일 사용
-Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experiment-execution-configuration.md)를 참조하세요. 
+Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experimentation-service-configuration.md)를 참조하세요. 
 
 대상에서 실행하려면 프로젝트 폴더를 계산 대상으로 복사해야 합니다. 이 목적을 위해 로컬 임시 폴더를 사용하는 로컬 실행도 수행해야 합니다. 
 
@@ -143,7 +143,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 이러한 폴더에 직접 입력 데이터를 배치할 수 있으며, 해당 컴퓨터의 로컬 또는 Docker 실행에서 이러한 폴더를 선택할 수 있을 것으로 예상할 수 있습니다. 또한 로컬 또는 Docker 실행에서 이 폴더에 파일을 쓸 수 있으며, 해당 폴더에서 파일이 지속되어 실행 주기 동안 유지될 것으로 예상할 수 있습니다.
 
-자세한 내용은 [Azure Machine Learning Workbench 실행 구성 파일](experiment-execution-configuration-reference.md)을 참조하세요.
+자세한 내용은 [Azure Machine Learning Workbench 실행 구성 파일](experimentation-service-configuration-reference.md)을 참조하세요.
 
 >[!NOTE]
 >`AZUREML_NATIVE_SHARE_DIRECTORY` 환경 변수는 HDInsight 계산 컨텍스트에서 지원되지 않습니다. 그러나 연결된 Blob Storage에 저장소에 파일을 쓰고 읽을 때 명시적으로 절대 Azure Blob Storage 경로를 사용하면 간단하게 동일한 결과를 얻을 수 있습니다.
@@ -195,5 +195,5 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 Azure Machine Learning은 전체 프로젝트 폴더를 대상 계산 컨텍스트로 복사하여 스크립트를 실행하므로 큰 입력, 출력 및 중간 파일에 특별히 주의해야 합니다. 대규모 파일 트랜잭션을 위해 특수한 출력 폴더, `AZUREML_NATIVE_SHARE_DIRECTORY` 환경 변수를 통해 액세스 가능한 공유 폴더 또는 외부 영구 저장소를 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Machine Learning Workbench 실행 구성 파일](experiment-execution-configuration-reference.md) 문서를 검토합니다.
+- [Azure Machine Learning Workbench 실행 구성 파일](experimentation-service-configuration-reference.md) 문서를 검토합니다.
 - [아이리스 분류](tutorial-classifying-iris-part-1.md) 자습서 프로젝트에서 어떤 방식으로 outputs 폴더를 사용하여 학습된 모델을 유지하는지 살펴봅니다.

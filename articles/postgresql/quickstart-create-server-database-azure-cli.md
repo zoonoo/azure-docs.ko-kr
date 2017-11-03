@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 06/13/2017
-ms.openlocfilehash: d78243abc140c7b3f0b99bdf56821b7920568550
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f51964687e2fbbcca4f5623b56997dc8acfa78a6
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 PostgreSQL용  Azure Database 만들기
 PostgreSQL용  Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에서 PostgreSQL용 Azure Database 서버를 만드는 방법을 살펴봅니다.
@@ -24,6 +24,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+
+CLI를 로컬로 실행 중인 경우 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 명령을 사용하여 사용자 계정에 로그인해야 합니다.
+```azurecli-interactive
+az login
+```
 
 구독이 여러 개인 경우 리소스가 과금될 적절한 구독을 선택합니다. [az account set](/cli/azure/account#set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
 ```azurecli-interactive
@@ -126,7 +131,7 @@ CREATE DATABASE mypgsqldb;
 GUI 도구 _pgAdmin_을 사용하여 Azure PostgreSQL 서버에 연결하려면
 1.  클라이언트 컴퓨터에서 _pgAdmin_ 응용 프로그램을 실행합니다. _pgAdmin_은 http://www.pgadmin.org/에서 설치할 수 있습니다.
 2.  **빠른 링크** 메뉴에서 **새 서버 추가**를 선택합니다.
-3.  **만들기-서버** 대화 상자의 **일반** 탭에서서버에 대해 고유하면서 익숙한 이름을 입력합니다. **Azure PostgreSQL 서버**라고 하겠습니다.
+3.  **만들기-서버** 대화 상자의 **일반** 탭에서 서버에 대해 고유하면서 익숙한 이름을 입력합니다. **Azure PostgreSQL 서버**라고 하겠습니다.
  ![pgAdmin 도구 - 만들기 - 서버](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
 4.  **만들기 - 서버** 대화 상자의 **연결** 탭에서 
     - **호스트 이름/주소** 상자에 정규화된 서버 이름(예: **mypgserver 20170401.postgres.database.azure.com**)을 입력합니다. 

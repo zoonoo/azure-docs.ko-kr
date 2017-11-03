@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash 기능 및 도구
 
@@ -52,8 +52,8 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 
 |Category   |이름   |
 |---|---|
-|Linux 셸 인터프리터|Bash<br> sh               |
-|Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [배치 Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
+|Linux 도구            |bash<br> sh<br> tmux<br> dig<br>               |
+|Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [배치 Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
 |텍스트 편집기           |vim<br> nano<br> emacs       |
 |소스 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
@@ -65,11 +65,11 @@ Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` �
 
 |language   |버전   |
 |---|---|
-|.NET       |1.01       |
+|.NET       |2.0.0       |
 |Go         |1.7        |
 |자바       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell  |[6.0(베타)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0(베타)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 및 3.5(기본값)|
 
 ## <a name="next-steps"></a>다음 단계

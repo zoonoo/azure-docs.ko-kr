@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
-이 문서에서는 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
+이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
 
 
 ## <a name="avoid-long-running-functions"></a>장기 실행 함수 방지
