@@ -49,7 +49,7 @@ System Center가 이미 설치되어있는 경우 이러한 구성 요소를 OMS
 ## <a name="oms-services"></a>OMS 서비스
 OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다.  각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-|| 부여 | 설명 |
+|| 서비스 | 설명 |
 |:--|:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | 실제 컴퓨터와 가상 컴퓨터를 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 | ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 컴퓨터에 대한 구성을 적용합니다. |
