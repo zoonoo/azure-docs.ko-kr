@@ -1,6 +1,6 @@
 ---
-title: Manage Key Vault in Azure Stack using PowerShell | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack using PowerShell.
+title: "PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리 | Microsoft Docs"
+description: "PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음을 관리 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,77 +14,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d1ce9f81006809aa3c3c07744298a8194971e0b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: e920ee20268f5f43592e5a27fe82dcf27cb85af1
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2017
 ---
+# <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리
 
-# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Manage Key Vault in Azure Stack using PowerShell
+이 문서에서는 만들기 및 PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리를 시작 합니다. 이 문서에 설명 된 키 자격 증명 모음 PowerShell cmdlet은 Azure PowerShell SDK의 일부분으로 사용할 수 있습니다. 다음 섹션에 설명 하는 데 필요한 PowerShell cmdlet:
+   - 자격 증명 모음을 만듭니다. 
+   - 저장 하 고 암호화 키 및 암호를 관리 합니다. 
+   - 사용자 또는 자격 증명 모음에서 작업을 호출 응용 프로그램에 권한을 부여 합니다. 
 
-This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. The Key Vault PowerShell cmdlets described in this article are available as a part of the Azure PowerShell SDK. The following sections describe the PowerShell cmdlets that are required to create a vault, store, and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
+## <a name="prerequisites"></a>필수 조건
+* Azure 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 합니다.
+* [Azure 스택에 대 한 PowerShell을 설치](azure-stack-powershell-install.md)합니다.  
+* [Azure 스택 사용자의 PowerShell 환경을 구성](azure-stack-powershell-configure-user.md)합니다.
 
-## <a name="prerequisites"></a>Prerequisites
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>주요 자격 증명 모음 작업에 대 한 테 넌 트 구독을 사용 하도록 설정
 
-## <a name="enable-your-tenant-subscription-for-vault-operations"></a>Enable your tenant subscription for vault operations
-
-Before you can issue any operations against a key vault, you need to ensure that your tenant subscription is enabled for vault operations. To verify, run the following command:
+주요 자격 증명 모음에 대 한 모든 작업을 실행 하려면 테 넌 트 구독 자격 증명 모음 작업에 대해 설정 되어 있는지 확인 해야 합니다. 자격 증명 모음 작업 활성화 되어 있는지를 확인 하려면 다음 명령을 실행 합니다.
 
 ```PowerShell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
-**Output**
+**출력**
 
-If your subscription is enabled for vault operations, the output shows “RegistrationState” equals “Registered” for all resource types of a key vault.
+자격 증명 모음 작업에 구독을 사용할 경우 출력에 "RegistrationState"가 "등록 된" 주요 자격 증명 모음의 모든 리소스 종류에 대 한 표시.
 
-![registration state](media/azure-stack-kv-manage-powershell/image1.png)
+![등록 상태](media/azure-stack-kv-manage-powershell/image1.png)
 
-If that’s not the case, invoke the following command to register the Key Vault service in your subscription:
+자격 증명 모음 작업을 사용할 경우에 구독에서 키 자격 증명 모음 서비스를 등록 하려면 다음 명령을 호출 합니다.
 
 ```PowerShell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
-**Output**
+**출력**
 
-If the registration is successful, the following output is returned:
+등록에 성공 하면 다음 출력이 표시 됩니다.
 
-![register](media/azure-stack-kv-manage-powershell/image2.png)
+![등록](media/azure-stack-kv-manage-powershell/image2.png) "구독 'Microsoft.KeyVault' 네임 스페이스를 사용 하는 등록 되지 않았습니다."와 같은 오류가, 주요 자격 증명 모음 명령을 호출 하는 경우 발생할 수 있습니다 오류가 발생 하는 경우 있는지 확인 [주요 자격 증명 모음 리소스 공급자를 사용 하도록 설정](#enable-your-tenant-subscription-for-vault-operations) 이전에 언급 된 지침에 따라 합니다.
 
-The following sections assume Key Vault service is registered within the user subscription. When invoking key vault commands, if you get an error- "The subscription is not registered to use namespace ‘Microsoft.KeyVault" then, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant-subscription-for-vault-operations) as per instructions mentioned earlier.
+## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
 
-## <a name="create-a-key-vault"></a>Create a key vault 
-
-Before you create a key vault, create a resource group so that all key vault related resources exist in a resource group. Use the following command to create a new resource group:
+주요 자격 증명 모음 만들기 전에 리소스 그룹에 있는 주요 자격 증명 모음에 관련 된 리소스의 모든 리소스 그룹을 만듭니다. 다음 명령을 사용 하 여 새 리소스 그룹 만들기:
 
 ```PowerShell
 New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 ```
 
-**Output**
+**출력**
 
-![new resource group](media/azure-stack-kv-manage-powershell/image3.png)
+![새 리소스 그룹](media/azure-stack-kv-manage-powershell/image3.png)
 
-Now, use the **New-AzureRMKeyVault** command to create a key vault in the resource group that you created earlier. This command reads three mandatory parameters- resource group name, key vault name, and geographic location. 
+이제 사용 하 여는 **새로 AzureRMKeyVault** 앞에서 만든 리소스 그룹에서 주요 자격 증명 모음을 만드는 명령입니다. 이 명령은 세 가지 필수 매개 변수를 읽습니다: 리소스 그룹 이름, 주요 자격 증명 모음 이름 및 지리적 위치입니다. 
 
-Run the following command to create a key vault:
+주요 자격 증명 모음을 만들려면 다음 명령을 실행 합니다.
 
 ```PowerShell
 New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -Location local -verbose
 ```
-**Output**
+**출력**
 
-![new kv](media/azure-stack-kv-manage-powershell/image4.png)
+![새로운 Key Vault](media/azure-stack-kv-manage-powershell/image4.png)
 
-The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it uses the **Vault URI** property shown in the output. For example, the vault URI here is **https://vault01.vault.local.azurestack.external**. Applications interacting with this key vault through REST API must use this URI.
+이 명령의 출력에는 만든 키 자격 증명 모음의 속성이 표시 됩니다. 사용 하 여 응용 프로그램에서이 자격 증명이 모음에 액세스할 때는 **자격 증명 모음 URI** 출력에 표시 된 속성입니다. 예를 들어, 자격 증명 모음 식별자 URI (Uniform Resource)에이 경우 "https://vault01.vault.local.azurestack.external"입니다. 이 키 자격 증명 모음 REST API를 통해 상호 작용 하는 응용 프로그램이 URI를 사용 해야 합니다.
 
-In ADFS-based deployments, when you create a key vault by using PowerShell, you might receive a warning that says "Access policy is not set. No user or application has access permission to use this vault". To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
+Active Directory Federation services (AD FS)-PowerShell을 사용 하 여 자격 증명 모음 키를 만들 때 기반된 배포, "액세스 정책을 설정 되지 않았습니다 없다는 경고가 나타날 수 있습니다. 사용자나 응용 프로그램에 액세스 권한이이 자격 증명이 모음을 사용 하도록 합니다. " 이 문제를 해결 하려면 자격 증명 모음에 대 한 액세스 정책을 사용 하 여 설정 된 [Set-azurermkeyvaultaccesspolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) 명령:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
@@ -95,75 +94,75 @@ $objectSID = $adUser.SID.Value
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
-## <a name="manage-keys-and-secrets"></a>Manage keys and secrets
+## <a name="manage-keys-and-secrets"></a>키 및 암호 관리
 
-After creating a vault, use the following steps to create and manage keys and secrets within the vault.
+자격 증명 모음을 만든 후 만들고 키 및 자격 증명 모음 내에서 암호를 관리 하려면 다음 단계를 사용 합니다.
 
-### <a name="create-a-key"></a>Create a key
+### <a name="create-a-key"></a>키 만들기
 
-Use the **Add-AzureKeyVaultKey** command to create or import a software protected key in a key vault. 
+사용 하 여는 **Add-azurekeyvaultkey** 을 만들거나 키 자격 증명 모음에는 소프트웨어 보호 키를 가져오는 명령입니다. 
 
 ```PowerShell
 Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destination Software
 ```
-The **Destination** parameter is used to specify that the key is software protected. When the key is successfully created, the command outputs the details of the created key.
+**대상** 소프트웨어 보호 키 임을 지정 하려면 매개 변수를 사용 합니다. 키 성공적으로 만들어지면 명령이 만든된 키의 세부 정보를 출력 합니다.
 
-**Output**
+**출력**
 
-![New Key](media/azure-stack-kv-manage-powershell/image5.png)
+![새 키](media/azure-stack-kv-manage-powershell/image5.png)
 
-You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values that are specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
+이제 해당 URI를 사용 하 여 만든된 키를 참조할 수 있습니다. 을 만들거나 기존 키와 동일한 이름을 가진 키를 가져올 경우 원래 키 새 키에 지정 된 값으로 업데이트 됩니다. 키의 버전 별로 URI를 사용 하 여 이전 버전에 액세스할 수 있습니다. 예: 
 
-* Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
-* Use **https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
+* "Https://vault10.vault.local.azurestack.external:443/키/key01"를 사용 하 여 항상 최신 버전을 가져옵니다. 
+* "Https://vault010.vault.local.azurestack.external:443/키/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"를 사용 하 여이 특정 버전 가져오기.
 
-### <a name="get-a-key"></a>Get a key
+### <a name="get-a-key"></a>키 가져오기
 
-Use the **Get-AzureKeyVaultKey** command to read a key and its details.
+사용 하 여는 **Get AzureKeyVaultKey** 키와 해당 세부 정보를 읽으려면 명령입니다.
 
 ```PowerShell
 Get-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01”
 ```
 
-### <a name="create-a-secret"></a>Create a secret
+### <a name="create-a-secret"></a>비밀 만들기
 
-Use the **Set-AzureKeyVaultSecret** command to create or update a secret in a vault. A secret is created if it doesn’t already exist, and a new version of the secret is created if it already exists.
+사용 하 여는 **집합 AzureKeyVaultSecret** 을 만들거나 업데이트할 암호 자격 증명 모음에 명령 합니다. 암호는 존재 하지 않는 경우에 생성 됩니다. 암호의 새 버전이 이미 있는 경우에 생성 됩니다.
 
 ```PowerShell
 $secretvalue = ConvertTo-SecureString “User@123” -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01” -SecretValue $secretvalue
 ```
 
-**Output**
+**출력**
 
-![create secret](media/azure-stack-kv-manage-powershell/image6.png)
+![비밀 만들기](media/azure-stack-kv-manage-powershell/image6.png)
 
-### <a name="get-a-secret"></a>Get a secret
+### <a name="get-a-secret"></a>암호를 받을
 
-Use the **Get-AzureKeyVaultSecret** command to read a secret in a key vault. This command can return all or specific versions of a secret. 
+사용 하 여는 **Get AzureKeyVaultSecret** 명령을 키 자격 증명 모음에 암호를 읽을 수 있습니다. 이 명령은 모든 반환할 수 있습니다 또는 특정 버전의 암호입니다. 
 
 ```PowerShell
 Get-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01”
 ```
 
-After creating keys and secrets, you can authorize external applications to use them.
+키 및 암호를 만든 후 사용 하는 외부 응용 프로그램 권한을 부여할 수 있습니다.
 
-## <a name="authorize-an-application-to-use-a-key-or-secret"></a>Authorize an application to use a key or secret
+## <a name="authorize-an-application-to-use-a-key-or-secret"></a>키 또는 암호를 사용 하도록 응용 프로그램 권한 부여
 
-To authorize an application to access a key or secret in the key vault, use the **Set-AzureRmKeyVaultAccessPolicy** command.
-For example, if your vault name is ContosoKeyVault and the application you want to authorize has a Client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed. Run the following command to authorize the application. Optionally, you can specify the **PermissionsToKeys** parameter to set permissions for a user, application, or a security group:
+사용 하 여는 **Set-azurermkeyvaultaccesspolicy** 키 또는 암호 키 자격 증명 모음에 액세스 하는 응용 프로그램 권한을 부여 하는 명령입니다.
+다음 예제에서는 자격 증명 모음 이름은 *ContosoKeyVault* 을 인증 하려면 응용 프로그램에의 클라이언트 ID 및 *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*합니다. 응용 프로그램을 인증 하려면 다음 명령을 실행 합니다. 선택적으로 지정할 수는 **PermissionsToKeys** 매개 변수를 사용자, 응용 프로그램 또는 보안 그룹에 대 한 사용 권한을 설정 합니다.
 
 ```PowerShell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
-If you want to authorize that same application to read secrets in your vault, run the following cmdlet:
+자격 증명 모음에서 암호를 읽을 수 동일 응용 프로그램에 권한을 부여 하려면 다음 cmdlet을 실행 합니다.
 
 ```PowerShell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 
-## <a name="next-steps"></a>Next Steps
-* [Deploy a VM with password stored in a Key Vault](azure-stack-kv-deploy-vm-with-secret.md)  
-* [Deploy a VM with certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md) 
+## <a name="next-steps"></a>다음 단계
+* [주요 자격 증명 모음에 저장 된 암호는 VM을 배포 합니다.](azure-stack-kv-deploy-vm-with-secret.md) 
+* [주요 자격 증명 모음에 저장 된 인증서로는 VM을 배포 합니다.](azure-stack-kv-push-secret-into-vm.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with the portal in Azure Stack | Microsoft Docs
-description: Learn how to use the Azure Stack portal to deploy templates.
+title: "Azure 스택에서 포털을 사용 하 여 템플릿을 배포 | Microsoft Docs"
+description: "Azure Stack 포털을 사용하여 템플릿을 배포하는 방법에 대해 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,29 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 630d86ed7e3558ae2c8a62f4e1a94f10ca11812d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-using-the-azure-stack-portal"></a>Deploy templates using the Azure Stack portal
+# <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack 포털을 사용하여 템플릿 배포
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Use the portal to deploy Azure Resource Manager templates to the Azure Stack development kit.
+Azure 스택 개발 키트를 Azure 리소스 관리자 템플릿을 배포 하는 포털을 사용 합니다.
 
-Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
+리소스 관리자 템플릿 배포 및 조정를 단일 작업에서 응용 프로그램에 대 한 모든 리소스를 프로 비전 합니다.
 
-1. Log in to the portal, click **New**, click **Custom**, and then click **Template deployment**.
-2. Click **Edit template**, then paste your JSON template code into the blade, and then click **Save**.
-3. Click **Edit parameters**, type values for the parameters listed, and then click **OK**.
-4. Click **Subscription**, choose the subscription you want to use, and then click **OK**.
-5. Click **Resource group**, choose an existing resource group or create a new one, and then click **OK**.
-6. Click **Create**. A new tile on the dashboard tracks the progress of your template deployment.
+1. 포털에 로그인을 클릭 **새로**, 클릭 **사용자 지정**, 클릭 하 고 **템플릿 배포**합니다.
+2. 클릭 **템플릿 편집**블레이드를 붙여 JSON 템플릿 코드를 한 다음 클릭 **저장**합니다.
+3. 클릭 **매개 변수 편집**, 나열 된 매개 변수에 대 한 값을 입력 하 고 클릭 **확인**합니다.
+4. 클릭 **구독**를 사용 하 고 클릭 하려는 구독 선택 **확인**합니다.
+5. 클릭 **리소스 그룹**, 기존 리소스 그룹을 선택 하거나 새 대시보드를 만든 하 고 클릭 **확인**합니다.
+6. **만들기**를 클릭합니다. 대시보드의 새 타일은 템플릿 배포의 진행 상태를 추적합니다.
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-
+## <a name="next-steps"></a>다음 단계
+[PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
 

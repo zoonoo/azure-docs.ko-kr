@@ -1,6 +1,6 @@
 ---
-title: Manage Key Vault in Azure Stack using PowerShell | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack using PowerShell.
+title: "포털을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리 | Microsoft Docs"
+description: "포털을 사용 하 여 Azure 스택의 주요 자격 증명 모음을 관리 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,93 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 41cbe1526368dd88fe98f92937c6ef2b65f24682
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: d263cbcc81be37eaedfdb771436fd13ef25362f8
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2017
 ---
+# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>포털을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리
 
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Manage Key Vault in Azure Stack using the portal
+Azure 스택 포털을 사용 하 여 Azure 스택의 주요 자격 증명 모음을 관리할 수 있습니다. 이 문서를 사용 하면 시작을 만들고 Azure 스택의 주요 자격 증명 모음을 관리할 수 있습니다. 
 
-You can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage Key Vault in Azure Stack. 
+## <a name="prerequisites"></a>필수 조건  
 
-## <a name="prerequisites"></a>Prerequisites  
-
-* You must must subscribe to an offer that includes the Key Vault service.  
+Azure 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 합니다.
  
-## <a name="create-a-key-vault"></a>Create a key vault 
+## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
 
-1. Sign in to the user portal(https://portal.local.azurestack.external).  
+1. 에 로그인 하 고 [사용자 포털](https://portal.local.azurestack.external)합니다.  
 
-2. From the dashboard, click **New > Security + Identity > Key Vault**.  
+2. 선택, 대시보드에서 **새로** > **보안 + Id** > **키 자격 증명 모음**합니다.  
 
-    ![KV screen](media/azure-stack-kv-manage-portal/image1.png)  
+    ![주요 자격 증명 모음 화면](media/azure-stack-kv-manage-portal/image1.png)  
 
-3. On the **Create Key Vault** blade, assign a **Name** for your vault. Vault name can contain only alphanumeric characters, the special character hyphen (-), and it shouldn’t start with a number.  
+3. 에 **키 자격 증명 모음 만들기** 창에서 할당 한 **이름** 자격 증명 모음에 대 한 합니다. 자격 증명 모음 이름은 영숫자 문자 및 특수 문자 하이픈 (-)만 포함할 수 있습니다. 숫자로 시작 해서는 안 됩니다.  
 
-4. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down.  
+4. 선택 된 **구독** 사용 가능한 구독 목록에서 합니다. 키 자격 증명 모음 서비스를 제공 하는 모든 구독 드롭 다운 목록에 표시 됩니다.  
 
-5. Select an existing **Resource Group** or create a new one.  
+5. 기존 선택 **리소스 그룹** 하거나 새로 만듭니다.  
 
-6. Select the **Pricing tier**.  
+6. 선택 된 **가격 책정 계층**합니다.  
     >[!NOTE]
-    > Key vaults in Azure Stack Development Kit support **Standard** SKU only.
+    > Azure 스택 개발 키트 지원에서 자격 증명 모음 키 **표준** Sku만 합니다.
 
-7. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
+7. 기존 중 하나를 선택 **액세스 정책** 하거나 새로 만듭니다. 액세스 정책은 사용 하면이 자격 증명이 모음과 작업을 수행 하는 사용자, 응용 프로그램 또는 보안 그룹에 대 한 사용 권한을 부여할 수 있습니다.  
 
-8. Optionally, choose an **Advanced access policy** to enable the features like access to Virtual Machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
+8. 필요에 따라 선택 된 **고급 액세스 권한 정책** 기능을 활성화 하려면 가상 컴퓨터 (Vm)에 배포에 대 한 액세스와 같은 템플릿 배포에 대 한 리소스 관리자에 액세스 하 고 볼륨 암호화에 대 한 Azure 디스크 암호화에 대 한 액세스. 
   
-9.  After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
+9.  설정을 구성한 후에 선택 **확인**를 선택한 후 **만들기**합니다. 주요 자격 증명 모음 배포를 시작합니다. 
 
-## <a name="manage-keys-and-secrets"></a>Manage keys and secrets
+## <a name="manage-keys-and-secrets"></a>키 및 암호 관리
 
-After you create a vault, use the following steps to create and manage keys and secrets within the vault.
+자격 증명 모음을 만든 후 만들고 키 및 자격 증명 모음 내에서 암호를 관리 하려면 다음 단계를 사용 합니다.
 
-## <a name="create-a-key"></a>Create a key
+### <a name="create-a-key"></a>키 만들기
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
+1. 에 로그인 하 고 [사용자 포털](https://portal.local.azurestack.external)합니다.  
 
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
+2. 선택, 대시보드에서 **모든 리소스**, 이전에 만든 키 자격 증명 모음 키를 선택한 다음 선택에서 **키** 바둑판식으로 배열입니다.  
 
-3. From the **Keys** blade, click **Add**. 
+3. 에 **키** 창 선택 **추가**합니다. 
 
-4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or **Restore Backup** key.  
+4. 에 **키를 만들** 창의 목록에서 **옵션**, 키를 만드는 데 사용할 방법을 선택 합니다. 할 수 있습니다 **생성** 새 키를 **업로드** 기존 키, 고객 또는 사용 하 여 **백업 복원** 키의 백업을 선택 하려면.  
 
-5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
+5. 입력 한 **이름** 트 키에 대 한 합니다. 키 이름은 영숫자로 특수 문자 하이픈 (-)를 포함할 수 있습니다.  
 
-6. Optionally, configure **Set activation date** and **Set expiration date** values for your key.  
+6. 필요에 따라 구성의 **활성화 날짜 설정** 및 **만료 날짜 설정** 트 키에 대 한 값입니다.  
 
-7. Click **Create** to start the deployment.  
+7. 선택 **만들기** 배포를 시작 합니다.  
 
-After the key is successfully created, you can select it from the **Keys** blade and view or modify its properties. The properties section contains the **Key Identifier**, a URI by which external applications can access this key. To limit operations on this key, configure settings under **Permitted operations**.
+키를 성공적으로 만들어지면 아래를 선택할 수 있습니다 **키** 및 확인 하거나 해당 속성을 수정 합니다. 속성 섹션에 포함 되어는 **키 식별자**, 되는 식별자 URI (Uniform Resource) 외부 응용 프로그램 기준이이 키에 액세스할 수 있습니다. 이 키에 대 한 작업을 최소화 하려면 아래에 있는 설정을 구성 **허용 된 작업**합니다.
 
-![URI key](media/azure-stack-kv-manage-portal/image4.png)  
+![URI 키](media/azure-stack-kv-manage-portal/image4.png)  
 
-## <a name="create-a-secret"></a>Create a secret 
+### <a name="create-a-secret"></a>비밀 만들기 
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Secrets** tile.  
+1. 에 로그인 하 고 [사용자 포털](https://portal.local.azurestack.external)합니다.  
+2. 선택, 대시보드에서 **모든 리소스**, 이전에 만든 키 자격 증명 모음 키를 선택한 다음 선택에서 **비밀** 바둑판식으로 배열입니다.  
 
-3. From the **Secrets** blade, click **Add**.  
+3. 아래 **비밀**선택, **추가**합니다.  
 
-4. On the **Create a secret** blade, from the list of **Upload options**, choose an option by which you want to create a secret. You can create a secret **Manually** by entering a value for the secret, or by uploading a **Certificate** from your local machine.  
+4. 아래 **암호 만들기**, 목록에서 **업로드 옵션**, 암호를 만들려고 할 수 있는 옵션을 선택 합니다. 암호를 만들 수 있습니다 **수동으로** 암호 또는 업로드에 대 한 값을 입력 한 **인증서** 로컬 컴퓨터에서 합니다.  
 
-5. Enter a **Name** for the secret. The secret name can contain only alphanumeric characters and the special character hyphen (-).  
+5. 입력 한 **이름** 보안에 대 한 합니다. 암호 이름이 영숫자 문자만 특수 문자 하이픈 (-)를 포함할 수 있습니다.  
 
-6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** values for the secret.  
+6. 필요에 따라 지정는 **콘텐츠 형식**에 대 한 값을 구성 하 고 **활성화 날짜 설정** 및 **만료 날짜 설정** 보안에 대 한 합니다.  
 
-7. Click Create to start the deployment.  
+7. 선택 **만들기** 배포를 시작 합니다.  
 
-After the secret is successfully created, you can select it from the **Secrets** blade and view or modify its properties. The properties section contains **Secret Identifier**, a URI by which external applications can access this secret. 
+암호로 성공적으로 만들어지면 아래를 선택할 수 있습니다 **비밀** 및 확인 하거나 해당 속성을 수정 합니다. 속성 섹션에 포함 되어는 **암호 식별자**은 외부 응용 프로그램이이 암호를 액세스할 수 있는 URI입니다. 
 
-![URI secret](media/azure-stack-kv-manage-portal/image5.png) 
+![URI 암호](media/azure-stack-kv-manage-portal/image5.png) 
 
 
-## <a name="next-steps"></a>Next Steps
-* [Deploy a VM by retrieving the password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
-* [Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
-
+## <a name="next-steps"></a>다음 단계
+* [주요 자격 증명 모음에 저장 된 암호를 검색 하 여 VM 배포](azure-stack-kv-deploy-vm-with-secret.md) 
+* [주요 자격 증명 모음에 저장 된 인증서를 사용 하 여 VM을 배포합니다](azure-stack-kv-push-secret-into-vm.md)     
 
 

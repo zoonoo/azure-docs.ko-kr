@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: "Azure 스택 키 자격 증명 모음 소개 | Microsoft Docs"
+description: "Azure 스택 키 자격 증명 모음 키 및 암호를 관리 하는 방법에 대해 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>주요 자격 증명 모음에서 Azure 스택 소개
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>필수 조건 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Azure 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 합니다.  
+* [PowerShell Azure 스택을 사용 하도록 구성 된](azure-stack-powershell-configure-user.md)합니다.
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>주요 자격 증명 모음 기본 사항
+Azure 스택의 주요 자격 증명 모음에는 암호화 키를 보호 하 고 암호 클라우드 응용 프로그램 및 서비스를 사용 합니다. 자격 증명 모음 키를 사용 하 여 암호화할 수 있습니다 키와 암호를 같은:
+   * 인증 키 
+   * Storage 계정 키
+   * 데이터 암호화 키
+   * .pfx 파일
+   * 암호
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 원활하게 마이그레이션할 수 있습니다. 보안 관리자는 필요한 경우 권한을 키로 부여(및 해지)할 수 있습니다.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Azure 스택 구독 사용 하 여 모든 사용자가 만들고 사용할 수 있는 주요 자격 증명 모음입니다. 키 자격 증명 모음에는 개발자와 보안 관리자 혜택, 있지만 조직에 대 한 다른 Azure 스택 서비스를 관리 하는 연산자 구현을 관리할 수 있습니다. 예를 들어 Azure 스택 연산자는 Azure 스택 구독으로 로그인 할 수는 키를 저장 한 다음 이러한 운영 작업을 담당 하는 조직에 대 한 자격 증명 모음을 만듭니다.
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* 만들거나 키 또는 암호를 가져옵니다.
+* 취소 또는 키 또는 암호를 삭제 합니다.
+* 사용자 또는 응용 프로그램을 다음 관리 하거나 해당 키와 암호를 사용할 수 있도록 키 자격 증명 모음에 액세스 권한을 부여 합니다.
+* 키 사용 구성 (예를 들어, 서명 또는 암호화) 합니다.
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+그런 다음 연산자 (Uri)를 응용 프로그램에서 호출할 Uniform Resource Identifier와 개발자를 제공할 수 있습니다. 연산자는 보안 관리자 키 사용 로깅 정보를 제공할 수도 있습니다.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+개발자는 API를 사용하여 직접 키를 관리할 수도 있습니다. 자세한 내용은 키 자격 증명 모음 개발자 가이드를 참조 하세요.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>시나리오
+다음 시나리오는 설명 방법을 주요 자격 증명 모음 보안 관리자 및 개발자의 요구를 충족할 수 있습니다.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Azure 스택 응용 프로그램 개발자
+**문제:** 서명 및 암호화 키를 사용 하는 Azure 스택에 대 한 응용 프로그램을 작성 합니다. 이러한 키를 내 응용 프로그램에서 외부 솔루션은 지리적으로 분산 하는 응용 프로그램에 적합 합니다.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**문:** 키 자격 증명 모음에 저장 되 고 필요한 경우는 URI에서 호출 합니다.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Saas ()으로 소프트웨어에 대 한 개발자
+**문제:** 내 고객의 키와 암호에 대 한 책임이 나 잠재적인 책임 않겠습니다. 수행할 가장 좋은 경우를 제공 하는 핵심 소프트웨어 기능을 수행 하 집중할 수 있도록 고객 소유 하 고 해당 키를 관리 합니다.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**문:** 고객 Azure 스택에 자체 키를 가져올 수 있습니다 및 다음으로 관리 관리 합니다. 
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+### <a name="chief-security-officer-cso"></a>Chief 보안 책임자 (CSO)
+**문제:** 내 조직 키 수명 주기를 제어 하며 키 사용을 모니터링할 수 있는지 확인 하고자 합니다.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**문:** 키 자격 증명 모음은 Microsoft 참조 하지 않거나 키를 추출할 수 있도록 설계 되었습니다. 응용 프로그램을 고객의 키를 사용 하 여 암호화 작업을 수행 해야 하는 경우 키 자격 증명 모음에서 응용 프로그램을 대신 하 여 키를 사용 합니다. 응용 프로그램에서 고객의 키를 표시하지 않습니다. 여러 Azure 스택 서비스 및 리소스를 사용 하지만 Azure 스택의 단일 위치에서 키를 관리할 수 있습니다. 자격 증명 모음 지원 및 응용 프로그램을 사용할 수 자격 증명 모음에에서 있는 Azure 스택, 지역 것에 관계 없이 단일 인터페이스를 제공 합니다.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>다음 단계
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [포털을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리](azure-stack-kv-manage-portal.md)  
+* [PowerShell을 사용 하 여 Azure 스택의 주요 자격 증명 모음 관리](azure-stack-kv-manage-powershell.md)
 

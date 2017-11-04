@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Development Kit release notes | Microsoft Docs
-description: 
+title: "Microsoft Azure 스택 개발 키트 릴리스 정보 | Microsoft Docs"
+description: "향상 된 기능, 수정 및 Azure 스택 개발 키트에 대 한 알려진된 문제입니다."
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -12,84 +12,125 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 11/01/2017
+ms.author: twooley
+ms.openlocfilehash: 81ccb4a731b71f87bccb2f2a0e333443428f32ee
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2bd93faf01c5d1790989a0231020ce8340eff57d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
+# <a name="azure-stack-development-kit-release-notes"></a>Azure 스택 개발 키트 릴리스 정보
 
-# <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Development Kit release notes
+*적용 대상: Azure 스택 개발 키트*
 
-*Applies to: Azure Stack Development Kit*
+이러한 릴리스 정보에서는 향상 된 기능, 수정 및 Azure 스택 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모르는 경우 다음을 할 수 있습니다 [포털을 사용 하 여](azure-stack-updates.md#determine-the-current-version)합니다.
 
-These release notes provide information on new features and known issues.
+## <a name="build-201710201"></a>빌드 20171020.1
 
-## <a name="release-build-201706271"></a>Release Build 20170627.1
-Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-version) release, Azure Stack Proof of Concept has been renamed to Azure Stack Development Kit.  Like the Azure Stack POC, Azure Stack Development Kit is intended to be a development and evaluation environment used to explore Azure Stack features, and provide a development platform for Azure Stack.
+### <a name="improvements-and-fixes"></a>향상된 기능 및 수정 프로그램
 
-### <a name="whats-new"></a>What's new
-- You can now use CLI 2.0 to manage Azure Stack resources from a commandline on popular operating systems.
-- DSV2 virtual machine sizes enable template portability between Azure and Azure Stack.
-- Cloud operators can preview the capacity management experience within the capacity management blade.
-- You can now use the Azure Diagnostics extension to gather diagnostic data from your virtual machines.  Capturing this data is useful when analyzing workload performance and for investigating issues.
-- A new [deployment experience](azure-stack-run-powershell-script.md) replaces previous scripted steps for deployment.  The new deployment experience provides a common graphical interface through the entire deployment lifecycle.
-- Microsoft Accounts (MSA) are now supported during deployment.
-- Multi-Factor Authentication (MFA) is now supported during deployment.  Previously, MFA must be disabled during deployment.
+개선 사항 및 20171020.1 빌드에서 수정의 목록을 보려면 참조는 [개선 사항 및 수정](azure-stack-update-1710.md#improvements-and-fixes) Azure 스택에 대 한 1710 릴리스 정보의 섹션 시스템을 통합 합니다. "추가 품질 개선 사항 및 수정" 섹션에 나열 된 항목 중 일부 통합형된 시스템에만 적용 됩니다.
 
-### <a name="known-issues"></a>Known issues
-#### <a name="deployment"></a>Deployment
-* You may notice deployment taking longer than previous releases. 
-* Get-AzureStackLogs generates diagnostic logs, however, does not log progress to the console.
-* You must use the new [deployment experience](azure-stack-run-powershell-script.md) to deploy Azure Stack, or deployment may fail.
-* Deployments using the *PublicVLANID* parameter will fail.
+또한 다음 수정 프로그램 만들 수 있습니다.
+- 계산 리소스 공급자에서 알 수 없는 상태를 표시 하는 위치는 문제가 해결 되었습니다.
+- 여기서 할당량 나타나지 않을 수 있습니다는 관리자 포털에서 만들고 계획 세부 정보를 보려면 나중에 시도 후에 문제가 해결 되었습니다.
 
-#### <a name="portal"></a>Portal
-* You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
-* Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
-* When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
-* The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
-* You will receive repeated notifications for syndicated marketplace items that have completed downloading.
-* You are not able to view permissions to your subscription using the Azure Stack portals.  As a work-around, you can verify permissions using Powershell.
-* You must add `-TenantID` as a flag when exporting a completed deployment as an automation script from the portal.
+### <a name="known-issues"></a>알려진 문제
 
-#### <a name="services"></a>Services
-* Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
-* There is no marketplace experience for creating virtual machine scale sets, though they can be created via template.
-* You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
-* VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
-* A tenant must have an existing storage account before creating a new Azure Function.
-* VM may fail and report "Cannot bind argument to parameter 'VM Network Adapter' because it is null."  Redeployment of the virtual machine succeeds.  
-* Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions. 
-* You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
-* Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
-* Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
-* It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
-* Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
-* AzureRM PowerShell 1.2.10 requires extra configuration steps:
-    * Run this after running Add-AzureRMEnvironment for Azure AD deployments.  Provide the Name and GraphAudience values using the output from `Add-AzureRMEnvironment`.
-      
-      ```PowerShell
-      Set-AzureRmEnvironment -Name <Environment Name> -GraphAudience <Graph Endpoint URL>
-      ```
-    * Run this after running Add-AzureRMEnvironment for AD FS deployments.  Provide the Name and GraphAudience values using the output of `Add-AzureRMEnvironment`.
-      
-      ```PowerShell
-      Set-AzureRmEnvironment <Environment Name> -GraphAudience <Graph Endpoint URL> -EnableAdfsAuthentication:$true
-      ```
-    
-    As an example, the following is used for an Azure AD environment:
+#### <a name="powershell"></a>PowerShell
+- 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하는 방법에 대 한 정보에 대 한 버전 참조는 [마이그레이션 가이드](https://aka.ms/azspowershellmigration)합니다.
+ 
+#### <a name="deployment"></a>배포
+- IP 주소를 통해 시간 서버를 배포 하는 동안 지정 해야 합니다.
 
-    ```PowerShell
-      Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
-    ```
+#### <a name="infrastructure-management"></a>인프라 관리
+- 인프라 백업에 사용 하지 마십시오는 **인프라 백업** 블레이드입니다.
+- 베이스 보드 관리 컨트롤러 (BMC) IP 주소와 모델의 배율 단위 노드는 중요 한 정보에 표시 되지 않습니다. Azure 스택 개발 키트에이 동작이 필요 합니다.
 
-#### <a name="fabric"></a>Fabric
-* The compute resource provider displays an unknown state.
-* The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.
-* The restart action on Compute controller infrastructure role (AzS-XRP01 instance) should not be used.
-* The Infrastructure backup blade should not be used.
+#### <a name="portal"></a>포털
+- 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 포털의 오른쪽 위 모서리에서 톱니 바퀴형 아이콘을 선택 하 고 다음 선택 **기본 설정을 복원**합니다.
+- 리소스 그룹의 속성을 볼 때의 **이동** 단추가 비활성화 됩니다. 이 동작은 사용할 수 있습니다. 구독 간 리소스 그룹 이동 현재 지원 되지 않습니다.
+-  모든 워크플로에 드롭 다운 목록에서 구독, 리소스 그룹 또는 위치 선택 되는 위치에 대 한 다음 문제 중 하나 이상이 발생할 수 있습니다.
 
+   - 목록 맨 위에 있는 빈 행을 볼 수 있습니다. 여전히 예상 대로 항목을 선택할 수 있습니다.
+   - 드롭다운 목록에 있는 항목의 목록이 긴 경우 수 항목 이름 중 하나를 볼 수 없습니다.
+   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다. 
+
+   마지막 두 개의 문제를 해결 하려면 구독 또는 리소스 그룹 (경우 것)의 이름을 입력할 수 있습니다 또는 PowerShell을 대신 사용할 수 있습니다.
+
+- 표시 됩니다는 **활성화 필요** Azure 스택 개발 키트를 등록 해야 한다는 경고 성 알림입니다. 이 동작은 사용할 수 있습니다.
+- 에 **활성화 필요** 경고 세부 정보, 경고에 대 한 링크를 클릭 하지 마십시오는 **AzureBridge** 구성 요소입니다. 이렇게 하면는 **개요** 블레이드는를 로드 하려고 실패 및 시간 초과 되지 않습니다.
+- 관리자 포털에 표시 될 수 있습니다는 **테 넌 트를 가져오는 동안 오류가 발생** 의 오류는 **알림** 영역입니다. 이 오류를 안전 하 게 무시할 수 있습니다.
+- 분리 된 리소스에서 사용자 구독 결과 삭제 합니다. 이 문제를 해결 먼저 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
+- Azure 스택 포털을 사용 하 여 구독에 대 한 사용 권한을 볼 수 없는 합니다. 이 문제를 해결 PowerShell을 사용 하 여 사용 권한을 확인할 수 있습니다.
+ 
+#### <a name="marketplace"></a>Marketplace
+- 사용 하 여 Azure 스택 마켓플레이스 항목을 추가 하려고 하면는 **Azure에서 추가** 옵션을 일부 항목 다운로드에 대 한 표시 될 수 있습니다.
+- 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
+ 
+#### <a name="compute"></a>Compute
+- 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다. 
+- 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
+- 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
+- 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
+
+#### <a name="networking"></a>네트워킹
+- 포털을 사용 하 여 공용 IP 주소와 부하 분산 장치를 만들 수 없습니다. 이 문제를 해결를 부하 분산 장치를 만드는 PowerShell을 사용할 수 있습니다.
+- 네트워크 부하 분산 장치를 만들 때 네트워크 주소 변환 (NAT) 규칙을 만들어야 합니다. 이렇게 하지 않으면 부하 분산 장치를 만들면 NAT 규칙을 추가 하려고 할 때 오류가 받게 합니다.
+- 아래 **네트워킹**누르면, **연결** VPN 연결을 설정 하려면 **VNet 대 VNet** 가능한 연결 유형으로 나열 됩니다. 이 옵션을 선택 하지 마십시오. 현재만 **사이트 (IPsec)** 옵션은 지원 됩니다.
+ 
+#### <a name="sqlmysql"></a>SQL/MySQL 
+- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다. 
+- SQL 및 MySQL 리소스 공급자가 수행 되지 않은 서버 호스팅에 직접 항목의 생성은 지원 되지 않으며 일치 하지 않는 상태가 될 수 있습니다.
+
+#### <a name="app-service"></a>App Service
+- 사용자는 구독에 해당 첫 번째 Azure 기능을 만들기 전에 저장소 리소스 공급자를 등록 해야 합니다.
+ 
+#### <a name="usage-and-billing"></a>사용량 및 결제
+- 동일한 공용 IP 주소 사용 현황 측정기 데이터 표시 *EventDateTime* 대신 각 레코드에 대 한 값은 *TimeDate* 레코드를 만들 때 보여 주는 스탬프입니다. 현재 공용 IP 주소 사용 정확한 계정 작업을 수행 하려면이 데이터를 사용할 수 없습니다.
+
+## <a name="build-201709283"></a>빌드 20170928.3
+
+### <a name="known-issues"></a>알려진 문제
+
+#### <a name="powershell"></a>PowerShell
+- 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하는 방법에 대 한 정보에 대 한 버전 참조는 [마이그레이션 가이드](https://aka.ms/azspowershellmigration)합니다.
+
+#### <a name="deployment"></a>배포
+- IP 주소를 통해 시간 서버를 배포 하는 동안 지정 해야 합니다.
+
+ #### <a name="infrastructure-management"></a>인프라 관리
+- 인프라 백업에 사용 하지 마십시오는 **인프라 백업** 블레이드입니다.
+- 계산 리소스 공급자를 알 수 없는 상태로 표시 됩니다.
+- 베이스 보드 관리 컨트롤러 (BMC) IP 주소와 모델의 배율 단위 노드는 중요 한 정보에 표시 되지 않습니다. Azure 스택 개발 키트에이 동작이 필요 합니다. 
+   
+#### <a name="portal"></a>포털
+- 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 포털의 오른쪽 위 모서리에서 톱니 바퀴형 아이콘을 선택 하 고 다음 선택 **기본 설정을 복원**합니다.
+- 리소스 그룹의 속성을 볼 때의 **이동** 단추가 비활성화 됩니다. 이 동작은 사용할 수 있습니다. 구독 간 리소스 그룹 이동 현재 지원 되지 않습니다.
+- 표시 됩니다는 **활성화 필요** Azure 스택 개발 키트를 등록 해야 한다는 경고 성 알림입니다. 이 동작은 사용할 수 있습니다.
+- 에 **활성화 필요** 경고 세부 정보, 경고에 대 한 링크를 클릭 하지 마십시오는 **AzureBridge** 구성 요소입니다. 이렇게 하면는 **개요** 블레이드는를 로드 하려고 실패 및 시간 초과 되지 않습니다.
+- 할당량 수 표시 되지 관리자 포털에서 만들고 나중에 볼 하려고 계획 세부 정보. 이 문제를 해결에서 **서비스 및 할당량**, 클릭 **추가**, 새 항목을 추가 합니다.
+- 분리 된 리소스에서 사용자 구독 결과 삭제 합니다. 이 문제를 해결 먼저 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
+- Azure 스택 포털을 사용 하 여 구독에 대 한 사용 권한을 확인할 수 없는 합니다. 이 문제를 해결 Powershell을 사용 하 여 사용 권한을 확인할 수 있습니다.
+  
+#### <a name="marketplace"></a>Marketplace
+- 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
+ 
+#### <a name="compute"></a>Compute
+- 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다.
+- 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
+- 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
+
+#### <a name="networking"></a>네트워킹
+- 포털을 사용 하 여 공용 IP 주소와 부하 분산 장치를 만들 수 없습니다. 이 문제를 해결를 부하 분산 장치를 만드는 PowerShell을 사용할 수 있습니다.
+- 네트워크 부하 분산 장치를 만들 때 네트워크 주소 변환 (NAT) 규칙을 만들어야 합니다. 이렇게 하지 않으면 부하 분산 장치를 만들면 NAT 규칙을 추가 하려고 할 때 오류가 받게 합니다.
+- 아래 **네트워킹**누르면, **연결** VPN 연결을 설정 하려면 **VNet 대 VNet** 가능한 연결 유형으로 나열 됩니다. 이 옵션을 선택 하지 마십시오. 현재만 **사이트 (IPsec)** 옵션은 지원 됩니다.
+
+
+#### <a name="sqlmysql"></a>SQL/MySQL
+- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다. 
+- SQL 및 MySQL 리소스 공급자가 수행 되지 않은 서버 호스팅에 직접 항목의 생성은 지원 되지 않으며 일치 하지 않는 상태가 될 수 있습니다.
+
+#### <a name="app-service"></a>App Service
+- 사용자는 구독에 해당 첫 번째 Azure 기능을 만들기 전에 저장소 리소스 공급자를 등록 해야 합니다.

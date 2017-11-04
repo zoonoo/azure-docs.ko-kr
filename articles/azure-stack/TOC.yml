@@ -19,13 +19,21 @@
       href: azure-stack-tutorial-app-service.md
 - name: 개념
   items:
+    - name: 고려 사항 계획
+      href: azure-stack-planning-considerations.md
     - name: 서비스 정책
       href: azure-stack-servicing-policy.md
     - name: 릴리스 정보
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: 개발 키트 릴리스 정보
+          href: azure-stack-asdk-release-notes.md
+        - name: 통합된 시스템 릴리스 정보
+          items:
+            - name: 1710 업데이트
+              href: azure-stack-update-1710.md
     - name: 주요 기능 및 개념
       href: azure-stack-key-features.md
-    - name: Azure Stack 개발 키트 아키텍처
+    - name: 개발 키트 아키텍처
       href: azure-stack-architecture.md
     - name: 관리 기본 사항
       href: azure-stack-manage-basics.md
@@ -37,6 +45,8 @@
           href: azure-stack-deploy.md
         - name: 배포
           href: azure-stack-run-powershell-script.md
+        - name: 'PowerShell 설치 '
+          href: azure-stack-powershell-configure-quickstart.md
         - name: 등록
           href: azure-stack-register.md
         - name: Azure Stack에 연결
@@ -47,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: 데이터 센터 통합
       items:
-        - name: DNS 통합
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: ID
+          href: azure-stack-integrate-identity.md
         - name: 끝점 게시
           href: azure-stack-integrate-endpoints.md
+        - name: 보안
+          href: azure-stack-integrate-security.md
     - name: 관리
       items:
         - name: 지역 관리
@@ -79,6 +93,8 @@
               href: azure-stack-updates.md
             - name: 업데이트 적용
               href: azure-stack-apply-updates.md
+            - name: 업데이트 상태 모니터링
+              href: azure-stack-monitor-update.md
         - name: 상태 및 경고 모니터링
           href: azure-stack-monitor-health.md
         - name: 네트워크 리소스 관리
@@ -89,8 +105,14 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: 하드웨어 교체
           items:
+            - name: 노드 작업
+              href: azure-stack-node-actions.md
+            - name: 노드를 대체 합니다.
+              href: azure-stack-replace-node.md
             - name: 디스크 교체
               href: azure-stack-replace-disk.md
+            - name: 구성 요소 교체
+              href: azure-stack-replace-component.md
     - name: '보안, 규정 준수 및 ID'
       items:
         - name: 보안 개요
@@ -133,10 +155,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL 리소스 공급자 배포
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: SQL 데이터베이스 만들기
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: 호스팅 서버 추가
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: App Service를 PaaS로 제공
           items:
             - name: Azure Stack 개요에 대한 App Service
               href: azure-stack-app-service-overview.md
+            - name: 용량 계획
+              href: azure-stack-app-service-capacity-planning.md
             - name: 시작하기 전에
               href: azure-stack-app-service-before-you-get-started.md
             - name: App Service 리소스 공급자 배포
@@ -149,7 +177,7 @@
               href: azure-stack-app-service-configure-deployment-sources.md
         - name: 마켓플레이스 채우기
           items:
-            - name: 마켓플레이스 개요
+            - name: Marketplace 개요
               href: azure-stack-marketplace.md
             - name: 마켓플레이스 항목 다운로드
               href: azure-stack-download-azure-marketplace-item.md

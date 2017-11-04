@@ -1,6 +1,6 @@
 ---
-title: Manage updates in Azure Stack overview | Microsoft Docs
-description: Learn about update management for Azure Stack integrated systems.
+title: "Azure 스택 개요에서 업데이트를 관리 | Microsoft Docs"
+description: "Azure 스택 통합 시스템에 대 한 업데이트 관리에 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,57 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Manage updates in Azure Stack overview
+# <a name="manage-updates-in-azure-stack-overview"></a>Azure 스택 개요에 대 한 업데이트 관리
 
-*Applies to: Azure Stack integrated systems*
+*적용 대상: Azure 스택 시스템 통합*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Microsoft은 Azure 스택 통합 시스템을 정기적으로에 대 한 업데이트 패키지를 해제 합니다. Microsoft 소프트웨어 업데이트의 각 릴리스에 단일 업데이트 패키지로 제공 됩니다. Azure 스택 연산자로 쉽게 가져올 수 있습니다, 설치 및 이러한 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+(Oem) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트 OEM 하드웨어 공급 업체에서 별도 패키지로 전달 되 고 Microsoft 업데이트에서 별도로 관리 됩니다.
 
-To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
+지원에는 시스템을 유지 하기 위해 Azure 스택 특정 버전 수준으로 업데이트를 유지 해야 합니다. 검토 하 고 있는지 확인은 [정책 서비스는 Azure 스택](azure-stack-servicing-policy.md)합니다.
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+> Azure 스택 개발 키트를 Azure 스택 업데이트 패키지를 적용할 수 없습니다. 통합된 시스템에 대 한 업데이트 패키지를 설계 되었습니다.
 
-## <a name="the-update-resource-provider"></a>The Update resource provider
+## <a name="the-update-resource-provider"></a>리소스 공급자 업데이트
 
-Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
+Azure 스택 Microsoft 소프트웨어 업데이트의 적용을 오케스트레이션 하는 업데이트 리소스 공급자가 포함 되어 있습니다. 이 리소스 공급자 업데이트 모든 물리적 호스트, 서비스 패브릭 응용 프로그램 및 런타임, 및 모든 인프라 가상 컴퓨터 및 해당 관련된 서비스 간에 적용 되도록 합니다.
 
-As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+업데이트를 설치 하는 대로 업데이트 프로세스 대상 Azure 스택 (예: 물리적 호스트 및 가상 컴퓨터 인프라)의 다양 한 하위 시스템으로의 개략적인 상태를 쉽게 볼 수 있습니다.
 
-## <a name="plan-for-updates"></a>Plan for updates
+## <a name="plan-for-updates"></a>업데이트에 대 한 계획
 
-We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+모든 유지 관리 작업의 사용자에 게 알림 및 예약 하 일반 유지 관리 기간 동안 업무 외 시간을 가능한 것이 좋습니다. 유지 관리 작업 테 넌 트 작업 및 포털 작업이 모두에 영향을 줄 수 있습니다.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+## <a name="using-the-update-tile-to-manage-updates"></a>업데이트 타일을 사용 하 여 업데이트를 관리
+관리자 포털에서 업데이트를 관리 하는 것은 간단 합니다. Azure 스택 연산자 업데이트 타일을 대시보드에 이동 수 있습니다.
 
-- view important information such as the current version.
-- install updates, and monitor progress.
-- review update history for previously installed updates.
+- 현재 버전 등 중요 한 정보를 봅니다.
+- 업데이트를 설치 하 고 진행률을 모니터링 합니다.
+- 이전에 설치 된 업데이트에 대 한 업데이트 기록을 검토 합니다.
  
-## <a name="determine-the-current-version"></a>Determine the current version
+## <a name="determine-the-current-version"></a>현재 버전 확인
 
-The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
+업데이트 타일에는 현재 버전의 Azure 스택을 표시 합니다. 관리자 포털에서 다음 방법 중 하나를 사용 하 여 업데이트 되 고 타일을 얻을 수 있습니다.
 
-- On the dashboard, view the current version in the **Update** tile.
+- 현재 버전을 보려면 대시보드에서 **업데이트** 바둑판식으로 배열입니다.
  
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+   ![기본 대시보드 타일 업데이트](./media/azure-stack-updates/image1.png)
  
-- On the **Region management** tile, click the region name. View the current version in the **Update** tile.
+- 에 **지역 관리** 타일에서 영역 이름을 클릭 합니다. 현재 버전을 볼는 **업데이트** 바둑판식으로 배열입니다.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack servicing policy](azure-stack-servicing-policy.md) 
-- [Region management in Azure Stack](azure-stack-region-management.md)     
-
+- [정책 서비스는 azure 스택](azure-stack-servicing-policy.md) 
+- [Azure 스택의 영역 관리](azure-stack-region-management.md)     
 
 

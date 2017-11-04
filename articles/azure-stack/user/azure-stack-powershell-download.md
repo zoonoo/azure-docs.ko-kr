@@ -1,6 +1,6 @@
 ---
-title: Download Azure Stack tools from GitHub | Microsoft Docs
-description: Learn how to download tools required to work with Azure Stack.
+title: "GitHub에서 Azure 스택 도구를 다운로드 합니다. | Microsoft Docs"
+description: "Azure 스택을 사용 하는 데 필요한 도구를 다운로드 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 69ca030d1b7601df424fa9446e1d194a3f6bd50a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="download-azure-stack-tools-from-github"></a>GitHub에서 Azure 스택 도구 다운로드
 
-# <a name="download-azure-stack-tools-from-github"></a>Download Azure Stack tools from GitHub
+AzureStack 도구는 관리 및 Azure 스택에 리소스를 배포 하는 데 사용할 수 있는 PowerShell 모듈을 호스팅하는 GitHub 리포지토리입니다. 다운로드 및 VPN 연결을 설정 하려는 경우 Azure 스택 개발 키트를 또는 windows 기반 외부 클라이언트에 이러한 PowerShell 모듈을 사용할 수 있습니다. 이러한 도구를 얻으려면 GitHub 리포지토리를 복제 하거나 AzureStack 도구 폴더를 다운로드 합니다. 
 
-AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download and use these PowerShell modules to the Azure Stack Development Kit, or to a windows-based external client if you are planning to establish VPN connectivity. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder. 
-
-To clone the repository, download [Git](https://git-scm.com/download/win) for Windows, open a Command Prompt window and run the following script:
+리포지토리를 복제 하려면 다운로드 [Git](https://git-scm.com/download/win) windows 명령 프롬프트 창을 열고 다음 스크립트를 실행 합니다.
 
 ```PowerShell
 # Change directory to the root directory 
@@ -39,7 +37,7 @@ git clone https://github.com/Azure/AzureStack-Tools.git --recursive
 cd AzureStack-Tools
 ```
 
-To download the tools folder, run the following script:
+Tools 폴더를 다운로드 하려면 다음 스크립트를 실행 합니다.
 
 ```PowerShell
 # Change directory to the root directory 
@@ -60,19 +58,18 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionalities-provided-by-the-modules"></a>Functionalities provided by the modules
+## <a name="functionalities-provided-by-the-modules"></a>모듈에서 제공 되는 기능
 
-The AzureStack-Tools repository contains PowerShell modules that support the following functionalities for Azure Stack:  
+AzureStack 도구 저장소 Azure 스택에 대 한 다음과 같은 기능을 지 원하는 PowerShell 모듈이 포함 되어 있습니다.  
 
-| Functionality | Description | who can use this module? |
+| 기능 | 설명 | 이 모듈을 사용할 수 있는? |
 | --- | --- | --- |
-| [Cloud capabilities](azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Cloud administrators and users. |
-| [Resource Manager policy for Azure Stack](azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud administrators and users |
-| [Connecting to Azure Stack](azure-stack-connect-azure-stack.md) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. | Cloud administrators and users |
-| [Template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
+| [클라우드 기능](azure-stack-validate-templates.md) | 이 모듈을 사용 하 여 클라우드의 클라우드 기능을 얻으려고 합니다. 예를 들어 Azure 스택 및이 모듈을 사용 하 여 Azure 클라우드에 대 한 API 버전, Azure 리소스 관리자 리소스, VM 확장 등과 같은 클라우드 기능을 얻을 수 있습니다. | 클라우드 관리자와 사용자입니다. |
+| [리소스 관리자 정책에 대 한 Azure 스택](azure-stack-policy-module.md) | Azure 스택 동일한 버전 관리 및 서비스 가용성과 함께 Azure 구독 또는 Azure 리소스 그룹을 구성 하려면이 모듈을 사용 합니다. | 클라우드 관리자 및 사용자 |
+| [Azure 스택에 연결](azure-stack-connect-azure-stack.md) | 이 모듈을 사용 하 여 PowerShell 통해 Azure 스택 인스턴스에 연결 하 고 Azure 스택에 VPN 연결을 구성 합니다. | 클라우드 관리자 및 사용자 |
+| [서식 파일 유효성 검사기](azure-stack-validate-templates.md) | 이 모듈 Azure 스택에 기존 또는 새 템플릿을 배포 하는 경우 확인을 사용 합니다. | 클라우드 관리자 및 사용자 |
 
 
-## <a name="next-steps"></a>Next steps
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)   
-* [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)  
-
+## <a name="next-steps"></a>다음 단계
+* [Azure 스택 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)   
+* [VPN을 통해 Azure 스택 개발 키트를 연결 합니다.](azure-stack-connect-azure-stack.md)  

@@ -1,6 +1,6 @@
 ---
-title: Tools for Azure Stack storage
-description: Learn about Azure Stack storage data transfer tools
+title: "Azure 스택 저장소 용 도구"
+description: "Azure 스택 저장소 데이터에 대 한 자세한 내용은 전송 도구"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,81 +14,80 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tools-for-azure-stack-storage"></a>Tools for Azure Stack Storage
+# <a name="tools-for-azure-stack-storage"></a>Azure 스택 저장소 용 도구
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
+Microsoft Azure 스택 디스크, blob, 테이블, 큐 및 계정 관리 기능에 대 한 저장소 서비스를 제공합니다. Azure 저장소 도구 집합을 관리 하거나 Azure 스택 저장소에서 데이터를 이동 하려는 경우 사용할 수 있습니다. 이 문서에서는 사용할 수 있는 도구의 간략 한 개요를 제공 합니다.
 
-The tool that works best for you depends on your requirements:
-* [AzCopy](#azcopy)
+적합 한 도구 요구 사항에 따라 달라 집니다.
+* [AZCopy](#azcopy)
 
-    A storage-specific command-line utility that you can download to copy data from one object to another within your storage account, or between storage accounts.
+    다른 저장소 계정 내 또는 저장소 계정 간에 개체에서를 복사 하려면 다운로드할 수 있는 저장소 관련 명령줄 유틸리티입니다.
 
 * [Azure PowerShell](#azure-powershell)
 
-    A task-based command-line shell and scripting language designed especially for system administration.
+    작업 기반 명령줄 셸 및 스크립트 언어 시스템 관리를 위해 특별히 설계 되었습니다.
 
 * [Azure CLI](#azure-cli)
 
-    An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
+    Azure 및 Azure 스택 플랫폼을 사용 하기 위한 명령 집합을 제공 하는 오픈 소스, 플랫폼 간 도구입니다.
 
-* [Microsoft Storage Explorer (Preview)](#microsoft-azure-storage-explorer)
+* [Microsoft 저장소 탐색기 (미리 보기)](#microsoft-azure-storage-explorer)
 
-    An easy to use standalone app with a user interface.
+    사용자 인터페이스를 사용 하 여 사용 하기 쉬운 독립 실행형 앱입니다.
 
-Due to the Storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+Azure 및 Azure 스택 간에 저장소 서비스 차이 때문에 다음 섹션에서 설명 하는 각 도구에 대 한 몇 가지 특정 요구 사항이 있을 수 있습니다. Azure 스택 저장소와 Azure 저장소 간의 비교를 참조 하십시오. [Azure 스택 저장소: 차이점과 고려 사항을](azure-stack-acs-differences.md)합니다.
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy is a command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two version of the AzCopy: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
+AzCopy는 Microsoft Azure Blob 및 최적의 성능으로 간단한 명령을 사용 하 여 테이블 저장소에서 데이터를 복사 하도록 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다. 두 버전의는 AzCopy는: Windows 및 Linux에서 AzCopy에 AzCopy 합니다. Azure 스택 Windows 버전을 지원합니다. 
  
-### <a name="download-and-install-azcopy"></a>Download and install AzCopy 
-[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md). 
+### <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치 
+[다운로드](https://aka.ms/azcopyforazurestack) AzCopy Azure 스택에 대 한 지원 되는 Windows 버전입니다. 설치 하 고 Azure와 같은 방식으로 Azure 스택에 AzCopy를 사용할 수 있습니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/common/storage-use-azcopy.md)합니다. 
 
-### <a name="azcopy-command-examples-for-data-transfer"></a>AzCopy command examples for data transfer
-The following examples demonstrate a few typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/storage-use-azcopy.md). 
-#### <a name="download-all-blobs-to-local-disk"></a>Download all blobs to local disk
+### <a name="azcopy-command-examples-for-data-transfer"></a>데이터 전송에 대 한 AzCopy 명령 예제
+다음 예제에서는 Azure 스택 blob에서 데이터를 복사 하기 위한 몇 가지 일반적인 시나리오를 보여 줍니다. 자세한 내용은 참고 [AzCopy 명령줄 유틸리티를 사용 하 여 데이터를 전송](../../storage/storage-use-azcopy.md)합니다. 
+#### <a name="download-all-blobs-to-local-disk"></a>로컬 디스크에 모든 blob를 다운로드 합니다.
 ```azcopy
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-#### <a name="upload-single-file-to-virtual-directory"></a>Upload single file to virtual directory 
+#### <a name="upload-single-file-to-virtual-directory"></a>가상 디렉터리에 단일 파일 업로드 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Move data between Azure and Azure Stack Storage 
-Asynchronous data transfer between Azure Storage and Azure Stack is not supported. you need to specify the transfer with the `/SyncCopy` option. 
+#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 스택 저장소 및 Azure 간 데이터 이동 
+Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정 하는 `/SyncCopy` 옵션입니다. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
-### <a name="azcopy-known-issues"></a>Azcopy Known issues
-* Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.
-* Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the `/SyncCopy` option to copy the data.
-* The Linux version of Azcopy is not supported for Azure Stack Storage. 
+### <a name="azcopy-known-issues"></a>Azcopy의 알려진 문제
+* 파일 저장소에 대해 AzCopy 연산을 사용할 수 없는 경우 파일 저장소가 아직 사용할 수 없기 때문에 Azure 스택
+* Azure 저장소 및 Azure 스택 간에 비동기 데이터 전송을 지원 되지 않습니다. 사용 하 여 전송을 지정할 수는 `/SyncCopy` 옵션 데이터를 복사 합니다.
+* Azure 스택 저장소에 대 한 Azcopy의 Linux 버전 지원 되지 않습니다. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
+Azure PowerShell은 모두 Azure 및 Azure 스택 서비스를 관리 하기 위한 cmdlet을 제공 하는 모듈입니다. 시스템 관리를 위해 특별히 설계된 작업 기반 명령줄 셸 및 스크립트 언어입니다.
 
-### <a name="install-and-configure-powershell-for-azure-stack"></a>Install and Configure PowerShell for Azure Stack
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
+### <a name="install-and-configure-powershell-for-azure-stack"></a>PowerShell 설치 및 구성에 대 한 Azure 스택
+Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합니다. 자세한 내용은 참조 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 및 [Azure 스택 사용자의 PowerShell 환경을 구성](azure-stack-powershell-configure-user.md) 자세한 합니다.
 
-### <a name="powershell-sample-script-for-azure-stack"></a>PowerShell Sample script for Azure Stack 
-This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+### <a name="powershell-sample-script-for-azure-stack"></a>Azure 스택에 대 한 PowerShell 예제 스크립트 
+이 샘플 성공적으로 사용 한다고 가정 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md)합니다. 이 스크립트 conplete 구성을 도움말과 Azure 스택 테 넌 트에 게 로컬 PowerShell environemnt에 사용자 계정을 추가 하려면 자격 증명을 요청 합니다. 그런 다음 스크립트는 기본 Azure 구독을 설정, Azure에서 새 저장소 계정을 만드는,이 새 저장소 계정에서 새 컨테이너 만들기 및 해당 컨테이너에 기존 이미지 파일 (blob)을 업로드 합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 새 대상 디렉터리를 만들고 이미지 파일을 다운로드합니다.
 
-1. Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
-3. Open **Windows PowerShell ISE** and **Run as Administrator**, click **File** > **New** to create a new script file.
-4. Copy the script below and paste to the new script file.
-5. Update the script variables based on your configuration settings. 
-6. Note: this script has to be run under the root of downloaded **AzureStack_Tools**. 
+1. 설치 [Azure 스택 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
+2. 다운로드는 [Azure 스택을 사용 하는 데 필요한 도구](azure-stack-powershell-download.md)합니다.  
+3. 열기 **Windows PowerShell ISE** 및 **관리자 권한으로 실행**, 클릭 **파일** > **새로** 새 스크립트 파일을 만듭니다.
+4. 아래의 스크립트를 복사한 새 스크립트 파일에 붙여 넣습니다.
+5. 구성 설정에 따라 스크립트 변수를 업데이트 합니다. 
+6. 참고:이 스크립트의 루트에서 실행 되도록에 다운로드 한 **AzureStack_Tools**합니다. 
 
 ```PowerShell 
 # begin
@@ -155,10 +154,10 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell Known Issues 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+### <a name="powershell-known-issues"></a>PowerShell의 알려진 문제 
+Azure 스택에 대 한 호환 되는 Azure PowerShell 모듈은 현재 버전 1.2.10입니다. 최신 버전의 Azure PowerShell에서 차이가 있습니다. 이러한 차이 저장소 서비스 작업에 영향을 줍니다.
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* 반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전 1.2.10에 두 개의 속성이: `Key1` 및 `Key2`, 현재 Azure 버전은 모든 account 키를 포함 하는 배열을 반환 하는 반면, 합니다.
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -171,22 +170,22 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.10
    -AccountName "MyStorageAccount").Key1
 
    ```
-   For more information, see [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+   자세한 내용은 참조 [Get AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0)합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
-The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 
+Azure CLI에는 Azure의 Azure 리소스를 관리 하기 위한 명령줄 환경을 합니다. MacOS, Linux 및 Windows에 설치 하 고 명령줄에서 실행할 수 있습니다. 
 
-Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
+관리 하 고 명령줄에서 Azure 리소스를 관리 하 고 Azure 리소스 관리자에 대해 작동 하는 자동화 스크립트를 작성 하기 위한 azure CLI 최적화 됩니다. 여러 가지 다양 한 데이터 액세스를 포함 하 여 Azure 스택 포털의 동일한 기능을 제공 합니다.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../../storage/storage-azure-cli.md)
+Azure 스택 Azure CLI 버전 2.0 필요합니다. 설치 하 고 Azure 스택에 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 [설치 하 고 Azure 스택 CLI 구성](azure-stack-connect-cli.md)합니다. Azure 스택 저장소 계정의 리소스를 사용 하는 여러 작업을 수행할 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure 저장소](../../storage/storage-azure-cli.md)
 
-### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI sample script for Azure Stack 
-Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container, lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify. Before you run this script, make sure you successfully connect and login to the target Azure Stack. 
-1. Open your favorite text editor, then copy and paste the preceding script into the editor.
-2. Update the script's variables to reflect your configuration settings. 
-3. After you've updated the necessary variables, save the script and exit your editor. The next steps assume you've named your script my_storage_sample.sh.
-4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
-5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
+### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure 스택에 대 한 azure CLI 샘플 스크립트 
+CLI 설치 및 구성을 완료 하면 Azure 스택 저장소 리소스와 상호 작용 하는 작은 셸 샘플 스크립트를 작성 하려면 다음 단계를 시도할 수 있습니다. 스크립트 먼저 저장소 계정에 새 컨테이너를 만듭니다 (blob)으로 해당 컨테이너에 기존 파일을 업로드, 컨테이너의 모든 blob을 나열 하 고 마지막으로, 대상 지정 하는 로컬 컴퓨터에 해당 파일을 다운로드 합니다. 이 스크립트를 실행 하기 전에 성공적으로 연결 되었는지 확인 하 고 Azure 스택 대상에 로그인 합니다. 
+1. 원하는 텍스트 편집기를 연 다음 앞서의 스크립트를 복사하여 편집기에 붙여넣습니다.
+2. 스크립트의 변수 구성 설정을 반영 하도록 업데이트 합니다. 
+3. 필요한 변수를 업데이트한 후 해당 스크립트를 저장하고 편집기를 종료합니다. 다음 단계에서는 스크립트 my_storage_sample.sh 이름을 지정한 가정 합니다.
+4. 필요한 경우 다음과 같이 스크립트를 실행 가능으로 표시합니다. `chmod +x my_storage_sample.sh`
+5. 스크립트를 실행합니다. 예를 들어 Bash에서는 `./my_storage_sample.sh`입니다.
 
 ```bash
 #!/bin/bash
@@ -221,18 +220,17 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
 
-Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure 저장소 탐색기는 Microsoft에서 독립 실행형 앱입니다. Azure 저장소 및 Azure 스택 저장소 데이터를 모두 사용 하 여 Windows, macOS 및 Linux에서 쉽게 사용할 수 있습니다. 쉽게 Azure 스택 저장소 데이터를 관리 하는 방법을 원하는 다음 Microsoft Azure 저장소 탐색기를 사용 하십시오.
 
-For more information about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+Azure 스택 사용 하려면 Azure 저장소 탐색기를 구성 하는 방법에 대 한 자세한 내용은 참조 [스택 Azure 구독에 저장소 탐색기 연결](azure-stack-storage-connect-se.md)합니다.
 
-For more information about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+Microsoft Azure 저장소 탐색기에 대 한 자세한 내용은 참조 하세요. [저장소 탐색기 (미리 보기) 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
-## <a name="next-steps"></a>Next steps
-* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
-
+## <a name="next-steps"></a>다음 단계
+* [저장소 탐색기는 스택 Azure 구독에 연결](azure-stack-storage-connect-se.md)
+* [저장소 탐색기 (미리 보기) 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [일관 된 azure 저장소: 차이점과 고려 사항](azure-stack-acs-differences.md)
+* [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)
 

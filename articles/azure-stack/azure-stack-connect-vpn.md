@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Stack to Azure using VPN
-description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
+title: "Azure 스택 VPN을 사용 하 여 Azure에 연결"
+description: "Azure 스택에서 가상 네트워크 VPN을 사용 하 여 Azure에서 가상 네트워크에 연결 하는 방법."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,220 +14,219 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Connect Azure Stack to Azure using VPN
+# <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure 스택 VPN을 사용 하 여 Azure에 연결
 
-*Applies to: Azure Stack integrated systems*
+*적용 대상: Azure 스택 시스템 통합*
 
-This article shows you how to create a site-to-site VPN to connect a virtual network in Azure Stack to a virtual network in Azure.
+이 문서는 스택에서 Azure 가상 네트워크를 Azure의 가상 네트워크에 연결할 사이트 간 VPN을 만드는 방법을 보여 줍니다.
 
-### <a name="connection-diagram"></a>Connection diagram
-The following diagram shows what the connection configuration should look like when you’re done:
+### <a name="connection-diagram"></a>연결 다이어그램
+다음 다이어그램을 보여 줍니다 연결 구성 해야 완료 되 면:
 
-![Site-to-site VPN connection configuration](media/azure-stack-connect-vpn/image2.png)
+![사이트 간 VPN 연결 구성](media/azure-stack-connect-vpn/image2.png)
 
-### <a name="before-you-begin"></a>Before you begin
-To complete the connection configuration, make sure you have the following items before you begin:
+### <a name="before-you-begin"></a>시작하기 전에
+연결 구성을 완료 하려면를 시작 하기 전에 다음 항목이 있는지 확인 하십시오.
 
-* An Azure Stack integrated systems (multi-node) deployment that is directly connected to the Internet. This means that your External Public IP Address range must be directly reachable from the public Internet.
-* A valid Azure subscription.  If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
+* Azure 스택 직접 인터넷에 연결 된 시스템 (다중 노드) 배포를 통합 합니다. 즉, 외부 공용 IP 주소 범위는 공용 인터넷에서 직접 연결할 수 여야 합니다.
+* 유효한 Azure 구독입니다.  Azure 구독이 없는 경우 만들 수 있습니다는 [여기에서 Azure 계정이 있음](https://azure.microsoft.com/free/?b=17.06)합니다.
 
-## <a name="network-example-values-table"></a>Network example values table
-The network example values table shows the sample values that are used in this article. You can use these values or you can refer to them to better understand the examples in this article.
+## <a name="network-example-values-table"></a>네트워크 예에서는 값 테이블
+네트워크 예제 값 표는이 문서에 사용 되는 샘플 값을 보여줍니다. 이러한 값을 사용할 수 또는이 문서의 예제를 보다 잘 이해 하기 위해 참조할 수 있습니다.
 
-**Network example values table**
+**네트워크 예에서는 값 테이블**
 |   |Azure Stack|Azure|
 |---------|---------|---------|
-|Virtual network name     |Azs-VNet|AzureVNet |
-|Virtual network address space |10.1.0.0/16|10.100.0.0/16|
-|Subnet name     |FrontEnd|FrontEnd|
-|Subnet address range|10.1.0.0/24 |10.100.0.0/24 |
-|Gateway subnet     |10.1.1.0/24|10.100.1.0/24|
+|가상 네트워크 이름     |Azs VNet|AzureVNet |
+|가상 네트워크 주소 공간 |10.1.0.0/16|10.100.0.0/16|
+|서브넷 이름     |FrontEnd|FrontEnd|
+|서브넷 주소 범위|10.1.0.0/24 |10.100.0.0/24 |
+|게이트웨이 서브넷      |10.1.1.0/24|10.100.1.0/24|
 
-## <a name="create-the-network-resources-in-azure"></a>Create the network resources in Azure
+## <a name="create-the-network-resources-in-azure"></a>Azure에서 네트워크 리소스 만들기
 
-First you create the network resources for Azure. The following instructions show how to create the resources by using the [Azure portal](http://portal.azure.com/).
+먼저 Azure에 대 한 네트워크 리소스를 만듭니다. 다음 지침을 사용 하 여 리소스를 만드는 방법을 보여는 [Azure 포털](http://portal.azure.com/)합니다.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
+### <a name="create-the-virtual-network-and-vm-subnet"></a>가상 네트워크 및 VM 서브넷 만들기
 
-1. Sign in to the [Azure portal](http://portal.azure.com/) using your Azure account.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. Use the information from the network configuration table to identify the values for Azure **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-6. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
-7. Select the **Location** of your VNet.  If you're using the example values, select **East US** or use another location if you prefer.
-8. Select **Pin to dashboard**.
-9. Select **Create**.
+1. 에 로그인 하는 [Azure 포털](http://portal.azure.com/) Azure 계정을 사용 합니다.
+2. 사용자 포털에서 선택 **새로**합니다.
+3. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+4. 선택 **가상 네트워크**합니다.
+5. 네트워크 구성 테이블에서 정보를 사용 하 여 Azure에 대 한 값을 확인 하려면 **이름**, **주소 공간**, **서브넷 이름**, 및 **서브넷 주소 범위**합니다.
+6. 에 대 한 **리소스 그룹**, 새 리소스 그룹을 만들거나 이미 있는 경우 하나를 선택 **기존 항목 사용**합니다.
+7. 선택 된 **위치** VNet의 합니다.  예제 값을 사용 하는 경우 선택 **미국 동부** 하거나 원하는 경우 다른 위치를 사용 합니다.
+8. **대시보드에 고정**을 선택합니다.
+9. **만들기**를 선택합니다.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual network resource you created (**AzureVNet**) from the dashboard.
-2. On the **Settings** section, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.100.0.0/24**.
-6. Select **OK** to create the gateway subnet.
+### <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
+1. 만든 가상 네트워크 리소스를 엽니다 (**AzureVNet**) 대시보드에서.
+2. 에 **설정** 섹션에서 **서브넷**합니다.
+3. 선택 **게이트웨이 서브넷** 를 가상 네트워크에 게이트웨이 서브넷을 추가 합니다.
+4. 서브넷의 이름은 **GatewaySubnet**이라고 기본으로 설정됩니다.
+   게이트웨이 서브넷은 특별하며 제대로 작동하려면 특정 이름이 있어야 합니다.
+5. 에 **주소 범위** 필드에서 주소 확인 **10.100.0.0/24**합니다.
+6. 선택 **확인** 게이트웨이 서브넷을 만들려고 합니다.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure portal, select **New**.  
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azure-GW**.
-5. To choose a virtual network, select **Virtual network**. Then select **AzureVnet** from the list.
-6. Select **Public IP address**. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azure-GW-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
+1. Azure 포털에서 선택 **새로**합니다.  
+2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
+4. **이름**, 형식 **Azure GW**합니다.
+5. 가상 네트워크를 선택 하려면 선택 **가상 네트워크**합니다. 그런 다음 선택 **AzureVnet** 목록에서 합니다.
+6. 선택 **공용 IP 주소**합니다. 경우는 **공용 IP 주소 선택** 섹션 열리고 **새로 만들기**합니다.
+7. **이름**, 형식 **Azure-GW-PiP**를 선택한 후 **확인**합니다.
+8. 기본적으로에 대 한 **VPN 유형을**, **경로 기반** 을 선택 합니다.
+    유지 된 **경로 기반** VPN 유형입니다.
+9. **구독** 및 **위치**가 올바른지 확인합니다. 리소스를 대시보드에 고정할 수 있습니다. **만들기**를 선택합니다.
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
+### <a name="create-the-local-network-gateway-resource"></a>로컬 네트워크 게이트웨이 리소스 만들기
 
-1. In the Azure portal, select **New**. 
-4. Go to **Marketplace**, and then select **Networking**.
-5. From the list of resources, select **Local network gateway**.
-6. In **Name**, type **Azs-GW**.
-7. In **IP address**, type the public IP address for your Azure Stack Virtual Network Gateway that is listed earlier in the network configuration table.
-8. In **Address Space**, from Azure Stack, type the **10.0.10.0/23** address space for **AzureVNet**.
-9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
+1. Azure 포털에서 선택 **새로**합니다. 
+4. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+5. 리소스 목록에서 선택 **로컬 네트워크 게이트웨이**합니다.
+6. **이름**, 형식 **Azs GW**합니다.
+7. **IP 주소**, 프로그램 Azure 스택 가상 네트워크 게이트웨이에 대 한 네트워크 구성 테이블의 앞부분에 나열 된 공용 IP 주소를 입력 합니다.
+8. **주소 공간**, Azure 스택에서 입력는 **10.0.10.0/23** 주소 공간에 대 한 **AzureVNet**합니다.
+9. 되어 있는지 확인 프로그램 **구독**, **리소스 그룹**, 및 **위치** 한 다음 선택 **만들기**합니다.
 
-## <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basic** settings section, for the **Connection type**, choose **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section, select **Virtual network gateway**, and then select **Azure-GW**.
-7. Select **Local network gateway**, and then select **Azs-GW**.
-8. In **Connection name**, type **Azure-Azs**.
-9. In **Shared key (PSK)**, type **12345**. If you choose a different value, remember that it *must* match the value for the shared key that you create on the other end of the connection. Select **OK**.
-10. Review the **Summary** section, and then select **OK**.
+## <a name="create-the-connection"></a>연결 만들기
+1. 사용자 포털에서 선택 **새로**합니다. 
+2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+3. 리소스 목록에서 선택 **연결**합니다.
+4. 에 **기본** 설정 섹션에 대 한는 **연결 유형**, 선택 **사이트 (IPSec)**합니다.
+5. 선택 된 **구독**, **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.
+6. 에 **설정** 섹션에서 **가상 네트워크 게이트웨이**를 선택한 후 **Azure GW**합니다.
+7. 선택 **로컬 네트워크 게이트웨이**를 선택한 후 **Azs GW**합니다.
+8. **연결 이름**, 형식 **Azure Azs**합니다.
+9. **공유 키 (PSK)**, 형식 **12345**합니다. 다른 값을 선택 하면 해당 it 기억 *해야* 연결의 반대쪽 끝에서 만든 공유 키에 대 한 값과 일치 합니다. **확인**을 선택합니다.
+10. 검토는 **요약** 섹션을 선택한 후 **확인**합니다.
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-Create a virtual machine in Azure now, and put it on your VM subnet in your virtual network.
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+이제 Azure에서 가상 컴퓨터 만들기 및 가상 네트워크에 VM 서브넷에 배치 합니다.
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, for **Name**, type **AzureVM**.
-5. Type a valid username and password. You use this account to sign in to the virtual machine after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, select a virtual machine size for this instance, and then select **Select**.
-8. On the **Settings** section, you can accept the defaults. Make sure that the **AzureVnet** virtual network is selected, and verify that the subnet is set to **10.0.20.0/24**. Select **OK**.
-9. Review the settings on the **Summary** section, and then select **OK**.
+1. Azure 포털에서 선택 **새로**합니다.
+2. 로 이동 **마켓플레이스**를 선택한 후 **계산**합니다.
+3. 가상 컴퓨터 이미지의 목록에서 선택 된 **Windows Server 2016 데이터 센터 Eval** 이미지입니다.
+4. 에 **기본 사항** 섹션에 대 한 **이름**, 형식 **AzureVM**합니다.
+5. 유효한 사용자 이름과 암호를 입력 합니다. 만든 후 가상 컴퓨터에 로그인 하려면이 계정을 사용 합니다.
+6. 제공 된 **구독**, **리소스 그룹**, 및 **위치**, 선택한 후 **확인**합니다.
+7. 에 **크기** 섹션에서이 인스턴스에 대 한 가상 컴퓨터 크기를 선택한 다음 선택 **선택**합니다.
+8. 에 **설정을** 섹션에서 기본값을 사용할 수 있습니다. 다음 사항을 확인는 **AzureVnet** 가상 네트워크를 선택한 서브넷으로 설정 되어 있는지 확인 하십시오. **10.0.20.0/24**합니다. **확인**을 선택합니다.
+9. 설정을 검토는 **요약** 섹션을 선택한 후 **확인**합니다.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Create the network resources in Azure Stack
-Next you create the network resources in Azure Stack.
+## <a name="create-the-network-resources-in-azure-stack"></a>Azure 스택 네트워크 리소스를 만듭니다
+이제 Azure 스택의 네트워크 리소스를 만듭니다.
 
-### <a name="sign-in-as-a-user"></a>Sign in as a user
-A service administrator can sign in as a user to test the plans, offers, and subscriptions that their users might use. If you don’t already have one, [create a user account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-user"></a>사용자로 로그인
+서비스 관리자는 테스트 계획, 혜택 및 사용자가 사용할 수 있는 구독에 사용자로 로그인 수 있습니다. 하나를 모를 경우 [사용자 계정 만들기](azure-stack-add-new-user-aad.md) 에 로그인 합니다.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Use a user account to sign in to the user portal.
-2. In the user portal, select **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>가상 네트워크 및 VM 서브넷 만들기
+1. 사용자 포털에 로그인 하려면 사용자 계정을 사용 합니다.
+2. 사용자 포털에서 선택 **새로**합니다.
 
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![새 가상 네트워크 만들기](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values from the network configuration table.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+3. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+4. 선택 **가상 네트워크**합니다.
+5. 에 대 한 **이름**, **주소 공간**, **서브넷 이름**, 및 **서브넷 주소 범위**, 네트워크 구성 테이블에서 값을 사용 합니다.
+6. **구독**, 이전에 만든 구독 나타납니다.
+7. 에 대 한 **리소스 그룹**, 리소스 그룹을 만들 하거나 이미 있는 경우 하나를 선택 **기존 항목 사용**합니다.
+8. 기본 위치를 확인합니다.
+9. **대시보드에 고정**을 선택합니다.
+10. **만들기**를 선택합니다.
 
-### <a name="create-the-gateway-subnet"></a>Create the gateway subnet
-1. On the dashboard, open the Azs-VNet virtual network resource you created.
-2. On the **Settings** section, select **Subnets**.
-3. To add a gateway subnet to the virtual network, select **Gateway Subnet**.
+### <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
+1. 대시보드를 만든 Azs VNet 가상 네트워크 리소스를 엽니다.
+2. 에 **설정** 섹션에서 **서브넷**합니다.
+3. 게이트웨이 서브넷에 가상 네트워크를 추가 하려면 선택 **게이트웨이 서브넷**합니다.
    
-    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![게이트웨이 서브넷 추가](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. By default, the subnet name is set to **GatewaySubnet**.
-   Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
-5. In **Address range**, verify that the address is **10.1.1.0/24**.
-6. Select **OK** to create the gateway subnet.
+4. 기본적으로 서브넷 이름 설정 **GatewaySubnet**합니다.
+   게이트웨이 서브넷은 특별 합니다. 사용 해야 올바르게 작동 하려면는 *GatewaySubnet* 이름입니다.
+5. **주소 범위**, 주소 인지 확인 **10.1.1.0/24**합니다.
+6. 선택 **확인** 게이트웨이 서브넷을 만들려고 합니다.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure Stack portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, type **Azs-GW**.
-5. Select the **Virtual network** item to choose a virtual network.
-   Select **Azs-VNet** from the list.
-6. Select the **Public IP address** menu item. When the **Choose public IP address** section opens, select **Create new**.
-7. In **Name**, type **Azs-GW-PiP**, and then select **OK**.
-8.  By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
+1. Azure 스택 포털에서 선택 **새로**합니다. 
+2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
+4. **이름**, 형식 **Azs GW**합니다.
+5. 선택 된 **가상 네트워크** 항목 가상 네트워크를 선택 합니다.
+   선택 **Azs VNet** 목록에서 합니다.
+6. 선택 된 **공용 IP 주소** 메뉴 항목입니다. 경우는 **공용 IP 주소 선택** 섹션 열리고 **새로 만들기**합니다.
+7. **이름**, 형식 **Azs-GW-PiP**를 선택한 후 **확인**합니다.
+8.  기본적으로에 대 한 **VPN 유형을**, **경로 기반** 을 선택 합니다.
+    유지 된 **경로 기반** VPN 유형입니다.
+9. **구독** 및 **위치**가 올바른지 확인합니다. 리소스를 대시보드에 고정할 수 있습니다. **만들기**를 선택합니다.
 
-### <a name="create-the-local-network-gateway"></a>Create the local network gateway
-The notion of a *local network gateway* in Azure Stack is a bit different than in an Azure deployment.
+### <a name="create-the-local-network-gateway"></a>로컬 네트워크 게이트웨이 만들기
+개념을 *로컬 네트워크 게이트웨이* Azure 스택은 Azure 배포 보다 조금 다릅니다.
 
-In an Azure deployment, a local network gateway represents an on-premises (at the user location) physical device, that you use to connect to a virtual network gateway in Azure. In Azure Stack, both ends of the connection are virtual network gateways!
+Azure 배포에서 로컬 네트워크 게이트웨이 Azure에서 가상 네트워크 게이트웨이에 연결 하는 데 사용 하는 온-프레미스 (사용자 위치)에 물리적 장치를 나타냅니다. Azure 스택 연결의 양쪽 끝에는 가상 네트워크 게이트웨이 됩니다!
 
-A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. 
+보다 일반적으로이 대해 생각 하는 방법은 로컬 네트워크 게이트웨이 리소스에 항상 연결의 다른 쪽 끝에서 원격 게이트웨이 나타냅니다 것입니다. 
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
-1. Sign in to the Azure Stack portal.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. From the list of resources, select **local network gateway**.
-5. In **Name**, type **Azure-GW**.
-6. In **IP address**, type the Public IP Address for the virtual network gateway in Azure **Azure-GW-PiP**. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.0.20.0/23**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** are correct, and then select **Create**.
+### <a name="create-the-local-network-gateway-resource"></a>로컬 네트워크 게이트웨이 리소스 만들기
+1. Azure 스택 포털에 로그인 합니다.
+2. 사용자 포털에서 선택 **새로**합니다.
+3. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+4. 리소스 목록에서 선택 **로컬 네트워크 게이트웨이**합니다.
+5. **이름**, 형식 **Azure GW**합니다.
+6. **IP 주소**, Azure에서 가상 네트워크 게이트웨이에 대 한 공용 IP 주소를 입력 **Azure-GW-PiP**합니다. 이 주소는 네트워크 구성 테이블의 앞부분에 나오는 나타납니다.
+7. **주소 공간**, 만든 Azure VNET에서 주소 공간에 대 한 입력 **10.0.20.0/23**합니다.
+8. 되어 있는지 확인 프로그램 **구독**, **리소스 그룹**, 및 **위치** 한 다음 선택 **만들기**합니다.
 
-### <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**.
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basics** settings section, for the **Connection type**, select **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** section,  select **Virtual network gateway**, and then select **Azs-GW**.
-7. Select **Local network gateway**, and then select **Azure-GW**.
-8. In **Connection Name**, type **Azs-Azure**.
-9. In **Shared key (PSK)**, type **12345**, and then select **OK**.
-10. On the **Summary** section, select **OK**.
+### <a name="create-the-connection"></a>연결 만들기
+1. 사용자 포털에서 선택 **새로**합니다.
+2. 로 이동 **마켓플레이스**를 선택한 후 **네트워킹**합니다.
+3. 리소스 목록에서 선택 **연결**합니다.
+4. 에 **기본 사항** 설정 섹션에 대 한는 **연결 유형**선택, **사이트 (IPSec)**합니다.
+5. 선택 된 **구독**, **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.
+6. 에 **설정** 섹션에서 **가상 네트워크 게이트웨이**를 선택한 후 **Azs GW**합니다.
+7. 선택 **로컬 네트워크 게이트웨이**를 선택한 후 **Azure GW**합니다.
+8. **연결 이름**, 형식 **Azs Azure**합니다.
+9. **공유 키 (PSK)**, 형식 **12345**를 선택한 후 **확인**합니다.
+10. 에 **요약** 섹션에서 **확인**합니다.
 
-### <a name="create-a-vm"></a>Create a VM
-To validate the data that travels through the VPN connection, you need to create virtual machines on each end to send and receive data through the VPN tunnel. 
+### <a name="create-a-vm"></a>VM 만들기
+VPN 연결을 통해 전송 되는 데이터의 유효성을 검사할 VPN 터널을 통해 데이터를 받거나 보내기 위해 양 끝에 가상 컴퓨터를 만드는 데 필요 합니다. 
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** section, in **Name**, type **Azs-VM**.
-5. Type a valid username and password. You use this account to sign in to the VM after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** section, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** section, accept the defaults. Make sure that the **Azs-VNet** virtual network is selected. Verify that the subnet is set to **10.1.0.0/24**. Then select **OK**.
-9. On the **Summary** section, review the settings, and then select **OK**.
+1. Azure 포털에서 선택 **새로**합니다.
+2. 로 이동 **마켓플레이스**를 선택한 후 **계산**합니다.
+3. 가상 컴퓨터 이미지의 목록에서 선택 된 **Windows Server 2016 데이터 센터 Eval** 이미지입니다.
+4. 에 **기본 사항** 섹션의 **이름**, 형식 **Azs VM**합니다.
+5. 유효한 사용자 이름과 암호를 입력 합니다. 만든 후 VM에 로그인 하려면이 계정을 사용 합니다.
+6. 제공 된 **구독**, **리소스 그룹**, 및 **위치**, 선택한 후 **확인**합니다.
+7. 에 **크기** 가상 컴퓨터 크기를 선택이 인스턴스에 대 한 섹션을 선택한 후 **선택**합니다.
+8. 에 **설정** 섹션에서 기본값을 사용 합니다. 다음 사항을 확인는 **Azs VNet** 가상 네트워크를 선택 합니다. 서브넷으로 설정 되어 있는지 확인 하십시오. **10.1.0.0/24**합니다. 그런 다음 **확인**을 선택합니다.
+9. 에 **요약** 섹션에서 설정을 검토 한 다음 선택 **확인**합니다.
 
 
-## <a name="test-the-connection"></a>Test the connection
-Now that the site-to-site connection is established, you should validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in Azure Stack. Then, ping the virtual machine that you created in Azure. 
+## <a name="test-the-connection"></a>연결 테스트
+사이트 간 연결이 설정 되 했으므로 트래픽 흐름이 진행 되므로 얻을 수 있는지를 확인 해야 합니다. 확인을 위해 Azure 스택에서 만든 가상 컴퓨터 중 하나에 로그인 합니다. 그런 다음 Azure에서 만든 가상 컴퓨터를 ping 합니다. 
 
-To make sure that you send the traffic through the site-to-site connection, ping the Direct IP (DIP) address of the virtual machine on the remote subnet, not the VIP. To do this, find the DIP address on the other end of the connection. Save the address for later use.
+사이트 간 연결을 통해 트래픽을 보내는 하려면 VIP 하지 원격 서브넷에 가상 컴퓨터의 직접 IP (DIP) 주소를 ping 합니다. 이 작업을 수행 하려면 연결의 반대쪽 끝에서 DIP 주소가 찾습니다. 나중에 사용할 주소를 저장 합니다.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Sign in to the user VM in Azure Stack
-1. Sign in to the Azure Stack portal.
-2. In the left navigation bar, select **Virtual Machines**.
-3. In the list of VMs, find **Azs-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**, and then open the Azs-VM.rdp file.
+### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>사용자 스택 Azure에서에서 VM에 로그인
+1. Azure 스택 포털에 로그인 합니다.
+2. 왼쪽된 탐색 모음에서 선택 **가상 컴퓨터**합니다.
+3. Vm의 목록에서 찾을 **Azs VM** 는 이전에 만든 하 고 선택 합니다.
+4. 가상 컴퓨터에 대 한 섹션을 클릭 하 여 **연결**, Azs VM.rdp 파일을 엽니다.
    
-     ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. In the output, find the **IPv4 Address**, and then save the address for later use. This is the address that you will ping from Azure. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should fall within the **10.0.10.0/24** subnet that you created previously.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+     ![연결 단추](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+5. 가상 컴퓨터를 만들 때 구성한 계정으로 로그인 합니다.
+6. 관리자 권한 열고 **Windows PowerShell** 창.
+7. **ipconfig /all**을 입력합니다.
+8. 출력에서 찾을 **IPv4 주소**, 나중에 사용할 주소를 저장 합니다. 이 주소가 Azure에서 ping 합니다. 예제 환경의 경우 주소가 **10.0.10.4**이지만 사용자의 환경에서는 주소가 다를 수 있습니다. 내에서 속해 있어야 합니다.는 **10.0.10.0/24** 이전에 만든 서브넷입니다.
+9. 가상 컴퓨터를 ping 응답을 허용 하는 방화벽 규칙을 만들려면 다음 PowerShell 명령을 실행 합니다.
 
    ```powershell
    New-NetFirewallRule `
@@ -235,16 +234,16 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Sign in to the tenant VM in Azure
-1. Sign in to the Azure portal.
-2. In the left navigation bar, click **Virtual Machines**.
-3. From the list of virtual machines, find **Azure-VM** that you created previously, and then select it.
-4. On the section for the virtual machine, click **Connect**.
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Type **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example environment, the address is **10.0.20.4**, but your address might be different.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+### <a name="sign-in-to-the-tenant-vm-in-azure"></a>테 넌 트 Azure에서 VM에 로그인
+1. Azure 포털에 로그인합니다.
+2. 왼쪽된 탐색 모음에서 **가상 컴퓨터**합니다.
+3. 가상 컴퓨터의 목록에서 찾을 **Azure VM** 는 이전에 만든 하 고 선택 합니다.
+4. 가상 컴퓨터에 대 한 섹션을 클릭 하 여 **연결**합니다.
+5. 가상 컴퓨터를 만들 때 구성한 계정으로 로그인 합니다.
+6. 관리자 권한 열고 **Windows PowerShell** 창.
+7. **ipconfig /all**을 입력합니다.
+8. 내에 포함 되는 IPv4 주소 표시 되어야 **10.0.20.0/24**합니다. 예제 환경에서의 주소는 **10.0.20.4**, 하지만 사용자의 주소는 다를 수 있습니다.
+9. 가상 컴퓨터를 ping 응답을 허용 하는 방화벽 규칙을 만들려면 다음 PowerShell 명령을 실행 합니다.
 
    ```powershell
    New-NetFirewallRule `
@@ -252,21 +251,21 @@ To make sure that you send the traffic through the site-to-site connection, ping
     –Protocol ICMPv4
    ```
 
-10. From the virtual machine in Azure, ping the virtual machine in Azure Stack, through the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you noted in your lab. You should see a result that looks like the following screenshot:
+10. Azure에서 가상 컴퓨터에서 Azure 스택의 터널을 통해 가상 컴퓨터를 ping 합니다. 이 위해 Azs VM에서 기록한 DIP를 ping 합니다.
+   이 예에서는 환경에서 **10.0.10.4**, 있지만 랩에서 기록해둔 주소를 ping 해야 합니다. 다음 스크린 샷에서 같은 결과가 나타납니다.
    
-    ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. A reply from the remote virtual machine indicates a successful test! You can close the virtual machine window. To test your connection, you can try other kinds of data transfers like a file copy.
+    ![성공적인 ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. 원격 가상 컴퓨터의 회신을 성공적으로 수행한 테스트를 나타냅니다! 가상 컴퓨터 창을 닫을 수 있습니다. 연결을 테스트 하려면 다른 종류의 파일 복사를 같은 데이터 전송을 시도할 수 있습니다.
 
-### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Viewing data transfer statistics through the gateway connection
-If you want to know how much data passes through your site-to-site connection, this information is available on the **Connection** section. This test is also another way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>게이트웨이 연결을 통한 데이터 전송 통계 보기
+사이트 간 연결을 통해 전달 데이터의 양을 확인 하려는 경우이 정보는에서 사용할 수는 **연결** 섹션. 이 테스트 방금 전송 받은 ping이 VPN 연결을 통해가 실제로 확인 하는 다른 방법은 이기도 합니다.
 
-1. While you're signed in to the user virtual machine in Azure Stack, use your user account to sign in to the user portal.
-2. Go to **All resources**, and then select the **Azs-Azure** connection. **Connections** appears.
-4. On the **Connection** section, the statistics for **Data in** and **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
+1. Azure 스택의 사용자 가상 컴퓨터에 로그인 되어 있는 동안 사용자 포털에 로그인 하려면 사용자 계정을 사용 합니다.
+2. 로 이동 **모든 리소스**를 선택한 후는 **Azs Azure** 연결 합니다. **연결** 나타납니다.
+4. 에 **연결** 섹션에 대 한 통계 **데이터에** 및 **데이터 출력** 나타납니다. 다음 스크린샷에 추가 파일 전송 되는 많은 되는 특성이 합니다. 일부 0이 아닌 값이 있는 표시 되어야 합니다.
    
-    ![Data in and out](media/azure-stack-connect-vpn/Connection.png)
+    ![데이터 시작 및 종료](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+[Azure 및 Azure에 앱 배포 스택](azure-stack-solution-pipeline.md)

@@ -1,6 +1,6 @@
 ---
-title: Using the privileged endpoint in Azure Stack | Microsoft Docs
-description: Shows how to use the privileged endpoint in Azure Stack (for an Azure Stack operator).
+title: "권한 있는 끝점을 사용 하 여 Azure 스택의 | Microsoft Docs"
+description: "(Azure 스택 연산자)에 대 한 Azure 스택에서 권한 있는 끝점을 사용 하는 방법을 보여 줍니다."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,58 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9769b12064216680bb1b2db8c1fd7449927c7771
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Using the privileged endpoint in Azure Stack
+# <a name="using-the-privileged-endpoint-in-azure-stack"></a>권한 있는 끝점을 사용 하 여 Azure 스택
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-As an Azure Stack operator, you should use the administrator portal, PowerShell, or Azure Resource Manager APIs for most day-to-day management tasks. However, for some less common operations, you need to use the *privileged endpoint*. This endpoint is a pre-configured remote PowerShell console that provides you with just enough capabilities to help you perform a required task. The endpoint leverages PowerShell JEA (Just Enough Administration) to expose only a restricted set of cmdlets. To access the privileged endpoint and invoke the restricted set of cmdlets, a low-privileged account is used. No administrator accounts are required. For additional security, scripting is not allowed.
+Azure 스택 연산자로 가장 일상적인 관리 작업에 대 한 관리자 포털, PowerShell 또는 Azure 리소스 관리자 Api를 사용 해야 합니다. 그러나 일부 덜 일반적인 작업에 대 한 사용 해야는 *권한 있는 끝점*합니다. 이 끝점은 필요한 작업을 수행할 수 있도록 충분 한 기능을 제공 하는 미리 구성 된 원격 PowerShell 콘솔. 끝점의 cmdlet 집합을 제한 된 노출 하도록 PowerShell JEA (Just Enough Administration)를 활용 합니다. 권한 있는 끝점에 액세스 하 고 제한 된 여러 cmdlet 호출 하려면 권한이 낮은 계정 사용 됩니다. 없는 관리자 계정이 필요 합니다. 추가 보안에 대 한 스크립팅을 허용 되지 않습니다.
 
-You can use the privileged endpoint to perform tasks such as the following:
+다음과 같은 작업을 수행 하는 권한 있는 끝점을 사용할 수 있습니다.
 
-- To perform low-level tasks, such as [collecting diagnostic logs](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics#log-collection-tool).
-- To perform many post-deployment datacenter integration tasks for integrated systems, such as adding Domain Name System (DNS) forwarders after deployment, setting up Graph integration, Active Directory Federation Services (AD FS) integration, certificate rotation, etc.
-- To work with Support to obtain temporary, high-level access for in-depth troubleshooting of an integrated system. 
+- 와 같은 하위 수준 작업을 수행 하려면 [진단 로그를 수집](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics#log-collection-tool)합니다.
+- 그래프 통합, Active Directory Federation Services (AD FS) 통합, 인증서를 설정 하는 배포 후 전달자 DNS 도메인 이름 ()를 추가 하는 등의 통합 된 시스템에 대 한 여러 데이터 센터 배포 후 통합 작업을 수행 하려면 회전, 등입니다.
+- 통합된 된 시스템의 심층 문제 해결에 대 한 임시, 높은 수준의 액세스를 지 원하는 작업입니다. 
 
-The privileged endpoint logs every action (and its corresponding output) that you perform in the PowerShell session. This provides full transparency and complete auditing of operations. You can retain these log files for future auditing purposes.
+권한 있는 끝점에는 모든 작업 (및 해당 출력) PowerShell 세션에서 수행 하는 기록 합니다. 완전히 투명 하 고 작업의 전체 감사를 제공 합니다. 향후 감사 용도로 이러한 로그 파일을 유지할 수 있습니다.
 
 > [!NOTE]
-> In Azure Stack Development Kit (ASDK), you can run some of the commands available in the privileged endpoint directly from a PowerShell session on the development kit host. However, you may want to test out some operations using the privileged endpoint, such as log collection, because this is the only method available to perform certain operations in an integrated systems environment.
+> Azure 스택 개발 키트 (ASDK)를 실행할 수 있습니다 일부 권한 있는 끝점에서 사용할 수 있는 명령은 PowerShell 세션에서 직접 개발 키트 호스트. 그러나 다음이 통합된 시스템 환경에서 특정 작업을 수행할 수 있기 때문에 로그 컬렉션과 같은 권한 있는 끝점을 사용 하 여 일부 작업을 테스트 하는 것이 좋습니다.
 
-## <a name="access-the-privileged-endpoint"></a>Access the privileged endpoint
+## <a name="access-the-privileged-endpoint"></a>권한 있는 끝점에 액세스
 
-You access the privileged endpoint through a remote PowerShell session on the virtual machine that hosts the privileged endpoint. In the ASDK, this virtual machine is named AzS-ERCS01. If you’re using an integrated system, there are three instances of the privileged endpoint, each running inside a virtual machine (*Prefix*-ERCS01, *Prefix*-ERCS02, or *Prefix*-ERCS03) on different hosts for resiliency. 
+권한 있는 끝점을 호스트 하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해 권한 있는 끝점에 액세스할 수 있습니다. ASDK,이 가상 컴퓨터 이름이 AzS ERCS01입니다. 세 개의 인스턴스가 없는 통합된 시스템을 사용 하는 경우 권한 있는 끝점의 각 내부에서 실행 중인 가상 컴퓨터 (*접두사*-ERCS01, *접두사*-ERCS02, 또는 *접두사*-ERCS03) 복구를 위한 서로 다른 호스트에 있습니다. 
 
-Before you begin this procedure for an integrated system, make sure you can access a privileged endpoint either by IP address, or through DNS. After initial deployment of Azure Stack, you can access the privileged endpoint only by IP address because DNS integration is not yet set up. Your OEM hardware vendor will provide you with a JSON file named "AzureStackStampDeploymentInfo" that contains the privileged endpoint IP addresses.
+통합된 된 시스템에 대해이 절차를 시작 하기 전에 IP 주소 또는 DNS를 통해 권한 있는 끝점에 액세스할 수 있는지 확인 합니다. Azure 스택의 초기 배포 후 DNS 통합 아직 설정 되어 있지 않으므로 IP 주소를 통해서만 권한 있는 끝점에 액세스할 수 있습니다. OEM 하드웨어 공급 업체 권한 있는 끝점 IP 주소를 포함 하는 "AzureStackStampDeploymentInfo" 라는 JSON 파일을 제공 합니다.
 
-We recommend that you connect to the privileged endpoint only from the hardware lifecycle host or from a dedicated, locked down computer, like a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+연결 좋습니다 권한 있는 끝점에는 전용된 잠긴된 컴퓨터 또는 하드웨어 수명 주기 호스트 에서만에서 like는 [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)합니다.
 
-1. Do either of the following depending on your environment:
+1. 사용자 환경에 따라 다음 중 하나를 수행 합니다.
 
-    - On an integrated system, run the following command to add the privileged endpoint as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
+    - 통합된 된 시스템에 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 신뢰할 수 있는 호스트로 권한 있는 끝점을 추가 하려면 다음 명령을 실행 합니다.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - If you’re running the ADSK, sign in to the development kit host.
+    - 개발 키트 호스트에는 ADSK를 실행 하는 경우에 로그인 합니다.
 
-2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the privileged endpoint:
+2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 관리자 권한 Windows PowerShell 세션을 엽니다. 권한 있는 끝점을 호스트 하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
-    - On an integrated system:
+    - 통합 시스템:
       ````PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
-      The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts a privileged endpoint. 
-    - If you’re running the ADSK:
+      `ComputerName` 매개 변수는 IP 주소 또는 권한 있는 끝점을 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름이 될 수 있습니다. 
+    - ADSK 실행 하는 경우:
      
       ````PowerShell
         $cred = Get-Credential
@@ -73,59 +72,58 @@ We recommend that you connect to the privileged endpoint only from the hardware 
         Enter-PSSession -ComputerName azs-ercs01`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
-   When prompted, use the following credentials:
+   대화 상자가 나타나면 다음 자격 증명을 사용 합니다.
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
-      - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+      - **사용자 이름**: CloudAdmin 계정 형식 지정  **&lt;* Azure 스택 도메인*&gt;\cloudadmin** 합니다. (ASDK에 대 한 사용자 이름이 **azurestack\cloudadmin**.)
+      - **암호**: AzureStackAdmin 도메인 관리자 계정에 대 한 설치 중에 제공 된 동일한 암호를 입력 합니다.
     
-3.  After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
+3.  연결 된 후의 프롬프트로 바뀝니다  **[*이름 지정 IP 주소 또는 ERCS VM*]: PS > * * 또는 **[azs ercs01]: PS >**환경에 따라 합니다. 여기에서는 실행 `Get-Command` 사용 가능한 cmdlet의 목록을 볼 수 있습니다.
 
-    ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/getcommandoutput.png)
+    ![Get-command cmdlet 출력 사용할 수 있는 명령 목록 표시](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
-    Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
+    이러한 cmdlet 중 많은 통합된 시스템 환경 (예: 데이터 센터 통합과 관련 cmdlet)에 사용 됩니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
 
-    - Clear-Host
-    - Close-PrivilegedEndpoint
-    - Exit-PSSession
-    - Get-AzureStackLog
-    - Get-AzureStackStampInformation
-    - Get-Command
-    - Get-FormatData
+    - Clear-host
+    - 닫기 PrivilegedEndpoint
+    - Exit-pssession
+    - Get AzureStackLog
+    - Get AzureStackStampInformation
+    - Get 명령
+    - Get-formatdata
     - Get-Help
-    - Get-ThirdPartyNotices
-    - Measure-Object
-    - New-CloudAdminUser
-    - Out-Default
-    - Remove-CloudAdminUser
-    - Select-Object
-    - Set-CloudAdminUserPassword
-    - Stop-AzureStack
-    - Get-ClusterLog
+    - Get ThirdPartyNotices
+    - 측정값 개체
+    - 새 CloudAdminUser
+    - Out-default
+    - CloudAdminUser 제거
+    - 개체 선택
+    - 집합 CloudAdminUserPassword
+    - 중지 AzureStack
+    - Get-clusterlog
 
-4.  Because scripting is not allowed, you can’t use tab completion for parameter values. To get the list of parameters for a given cmdlet, run the following command:
+4.  스크립팅 허용 되지 않으므로 매개 변수 값에 대 한 탭 완성 기능을 사용할 수 없습니다. 특정된 cmdlet에 대 한 매개 변수 목록의 가져오려면 다음 명령을 실행 합니다.
 
     ````PowerShell
     Get-Command <cmdlet_name> -Syntax
     ```` 
-    If you try any type of script operation, the operation fails with the error **ScriptsNotAllowed**. This is expected behavior.
+    모든 유형의 스크립트 작업을 시도 하면 오류가 발생 하 여 작업이 실패 **ScriptsNotAllowed**합니다. 이는 정상적인 동작입니다.
 
-## <a name="close-the-privileged-endpoint-session"></a>Close the privileged endpoint session
+## <a name="close-the-privileged-endpoint-session"></a>권한 있는 끝점 세션 닫기
 
- As mentioned earlier, the privileged endpoint logs every action (and its corresponding output) that you perform in the PowerShell session. You should close the session by using the  `Close-PrivilegedEndpoint` cmdlet. This cmdlet correctly closes the endpoint, and transfers the log files to an external file share for retention.
+ 앞에서 언급 한 대로 모든 작업 (및 해당 출력) PowerShell 세션에서 수행 하는 권한 있는 끝점 기록 합니다. 사용 하 여 세션을 닫아야는 `Close-PrivilegedEndpoint` cmdlet. 이 cmdlet는 끝점을 올바르게 닫고 보존에 대 한 외부 파일 공유에 로그 파일을 전송 합니다.
 
-To close the endpoint session:
+세션을 종료할지 끝점:
 
-1. Create an external file share that is accessible by the privileged endpoint. In a development kit environment, you can just create a file share on the development kit host.
-2. Run the `Close-PrivilegedEndpoint` cmdlet. 
-3. You're prompted for a path on which to store the transcript log file. Specify the file share that you created earlier, in the format &#92;&#92;*servername*&#92;*sharename*. If you don’t specify a path, the cmdlet fails and the session remains open. 
+1. 권한 있는 끝점에서 액세스할 수 있는 외부 파일 공유를 만듭니다. 개발 키트 환경에서는 개발 키트 호스트에만 파일 공유를 만들 수 있습니다.
+2. 실행 된 `Close-PrivilegedEndpoint` cmdlet. 
+3. 기록 로그 파일을 저장 하는 경로 대해 묻는 메시지가 나타납니다. 형식 &#92; # 92에서 앞에서 만든 파일 공유를 지정 합니다. *servername*&#92; *sharename*합니다. 경로 지정 하지 않으면 cmdlet이 실패 하면 및 세션이 열린 상태로 유지 됩니다. 
 
-    ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/closeendpoint.png)
+    ![대 본 대상 경로 지정 하는 위치를 보여 주는 닫기 PrivilegedEndpoint cmdlet 출력](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-After the transcript log files are successfully transferred to the file share, they're automatically deleted from the privileged endpoint. If you close the privileged endpoint session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the privileged endpoint. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
+기록 로그 파일에 파일 공유에 성공적으로 전송, 후 자동으로 권한 있는 끝점에서 삭제 합니다. Cmdlet을 사용 하 여 권한 있는 끝점 세션을 닫으면 `Exit-PSSession` 또는 `Exit`, 또는 PowerShell 콘솔 닫기만, 기록 로그를 파일 공유로 전송 하지 않고 있습니다. 권한 있는 끝점에 있는 상태로 유지 됩니다. 다음에 실행할 때 `Close-PrivilegedEndpoint` 파일 공유를 포함 하 고, 기록 로그에서 이전 세션 전송도 합니다.
 
-## <a name="next-steps"></a>Next steps
-[Azure Stack diagnostic tools](azure-stack-diagnostics.md)
-
+## <a name="next-steps"></a>다음 단계
+[Azure 스택 진단 도구](azure-stack-diagnostics.md)
 
 
 

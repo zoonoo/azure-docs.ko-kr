@@ -1,6 +1,6 @@
 ---
-title: Create a Windows virtual machine on Azure Stack using Azure CLI | Microsoft Docs
-description: Learn how to create a Windows VM on Azure Stack using Azure CLI
+title: "Azure 스택 Azure CLI를 사용 하 여 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
+description: "Azure CLI를 사용 하 여 Azure 스택에 Windows VM을 만드는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -15,34 +15,33 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 3a4d6f23bd8824636b3babe208add92db6aab537
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 196bf4351ebd2bf977102571de385edae6f9612b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Azure 스택 Azure CLI를 사용 하 여 Windows 가상 컴퓨터 만들기
 
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Create a Windows virtual machine on Azure Stack using Azure CLI
+Azure CLI는 사용 하 여을 만들어 명령줄에서 Azure 스택 리소스를 관리 합니다. Azure 스택에서 Windows Server 2016 가상 컴퓨터를 만드는 Azure CLI를 사용 하 여이 가이드 정보입니다. 가상 컴퓨터를 만든 후 원격 데스크톱을 IIS 설치를 사용 하 여 연결에서는 다음 기본 웹 사이트를 확인 합니다. 
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Windows Server 2016 virtual machine in Azure Stack. Once the virtual machine is created, you will connect with Remote Desktop, Install IIS, then view the default website. 
+## <a name="prerequisites"></a>필수 조건 
 
-Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
+* Azure 스택 연산자 Azure 스택 마켓플레이스에 "Windows Server 2016" 이미지에 추가 되었는지 확인 합니다.  
 
-Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+* Azure 스택 특정 버전의 Azure CLI를 만들고 리소스를 관리 해야 합니다. Azure 스택에 대해 구성 된 Azure CLI를 설정 하지 않은 경우의 단계에 따라 [설치 및 구성 Azure CLI](azure-stack-connect-cli.md)합니다.
 
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-## <a name="create-a-resource-group"></a>Create a resource group
-
-A resource group is a logical container into which Azure Stack resources are deployed and managed. Use the [az group create](/cli/azure/group#create) command to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value. The following example creates a resource group named myResourceGroup in the local location.
+리소스 그룹은 리소스는 Azure 스택에 배포 되 고 관리 하는 논리 컨테이너입니다. Azure 스택 또는 개발 키트에서 실행 하는 시스템을 통합는 [az 그룹 만들기](/cli/azure/group#create) 리소스 그룹을 만드는 명령입니다. 이 문서에서 모든 변수에 대 한 값을 할당할 것, 되었거나 다른 값을 할당할 그대로 사용할 수 있습니다. 다음 예제에서는 로컬 위치에 myResourceGroup 명명 된 리소스 그룹을 만듭니다.
 
 ```cli
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 
-Create a VM by using the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the password. Update these values to something appropriate to your environment. These values are needed when connecting to the virtual machine.
+[az vm create](/cli/azure/vm#create) 명령을 사용하여 VM을 만듭니다. 다음 예제에서는 myVM이라는 VM을 만듭니다. 이 예제에서는 관리 사용자 이름에 대 한 Demouser 사용 및 Demouser@123 암호로 합니다. 이러한 값을 사용자 환경에 적절한 값으로 업데이트합니다. 가상 컴퓨터에 연결할 때 이러한 값이 필요 합니다.
 
 ```cli
 az vm create \
@@ -55,49 +54,46 @@ az vm create \
   --location local
 ```
 
-When the VM is created, make note of the *PublicIPAddress* parameter that is output, which you will use to access the VM.
+VM이 만들어지면 기록해는 *PublicIPAddress* 매개 변수를 출력 하는 VM에 액세스 하는 데 사용할 합니다.
  
-## <a name="open-port-80-for-web-traffic"></a>Open port 80 for web traffic
+## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
 
-By default, only RDP connections are allowed to a Windows virtual machine deployed in Azure Stack. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+기본적으로 Azure 스택에 배포 된 Windows 가상 컴퓨터에 RDP 연결만 허용 됩니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-virtual-machine"></a>Connect to virtual machine
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+다음 명령을 사용하여 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 공용 IP 주소로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```
 mstsc /v <Public IP Address>
 ```
 
-## <a name="install-iis-using-powershell"></a>Install IIS using PowerShell
+## <a name="install-iis-using-powershell"></a>PowerShell을 사용하여 IIS 설치
 
-Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+이제 Azure VM에 로그인했으므로 IIS를 설치하고 웹 트래픽을 허용하는 로컬 방화벽 규칙을 사용하려면 PowerShell의 단일 줄을 사용할 수 있습니다. PowerShell 프롬프트를 열고 다음 명령을 실행합니다.
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>View the IIS welcome page
+## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the public IP address you documented above to visit the default page. 
+IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 볼 수 있습니다. 위에 설명한 공용 IP 주소를 사용하여 기본 페이지를 방문해야 합니다. 
 
-![IIS default site](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![IIS 기본 사이트](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
 
-## <a name="clean-up-resources"></a>Clean up resources
+## <a name="clean-up-resources"></a>리소스 정리
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```cli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Create a virtual machine by using password stored in key vault](azure-stack-kv-deploy-vm-with-secret.md)
-
-[To learn about Storage in Azure Stack](azure-stack-storage-overview.md)
-
+이 빠른 시작에서는 간단한 Windows 가상 컴퓨터 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.

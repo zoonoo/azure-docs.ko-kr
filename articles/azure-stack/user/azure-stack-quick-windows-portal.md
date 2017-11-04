@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Quick Start - Create a Windows virtual machine
-description: Azure Stack Quick Start - Create a Windows VM using the portal
+title: "Azure 스택 빠른 시작-Windows 가상 컴퓨터 만들기"
+description: "Azure 스택 빠른 시작-포털을 사용 하는 Windows VM 만들기"
 services: azure-stack
 author: ErikjeMS
 manager: byronr
@@ -9,45 +9,42 @@ ms.topic: azure-stack
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2c9aba69d8f1999f7086bd2bcd44d1c1472abec7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Azure 스택 포털과 Windows 가상 컴퓨터 만들기
 
-# <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Create a Windows virtual machine with the Azure Stack portal
+Azure 스택 포털을 사용 하 여 Windows 가상 컴퓨터를 만들 수 있습니다. 이 포털은 수, 구성, 만들고 있는 리소스를 관리 하는 브라우저 기반 사용자 인터페이스.
 
-You can create a Windows virtual machine by using the Azure Stack portal. The portal is a browser-based user interface where you can create, configure, and manage resources.
+## <a name="sign-in-to-the-azure-stack-portal"></a>Azure 스택 포털에 로그인
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Sign in to the Azure Stack portal
+Azure 스택 포털에 로그인 합니다. Azure 스택 포털의 주소에 따라 Azure 스택 제품에 연결 하는 다릅니다.
 
-Sign in to the Azure Stack portal. The address of the Azure Stack portal depends on which Azure Stack product you are connecting to:
+* Azure 스택 개발 키트 (ASDK)에 대 한 이동: https://portal.local.azurestack.external 합니다.
+* Azure 스택 통합 하는 시스템에 대 한 Azure 스택 연산자를 제공 하는 URL로 이동 합니다.
 
-* For the Azure Stack Development Kit (ASDK) go to: https://portal.local.azurestack.external.
-* For an Azure Stack integrated system, go to the URL that your Azure Stack operator provided.
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-
-1. Click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**. If you don't see **Windows Server 2016 Datacenter Eval** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article. 
+1. 클릭 **새** > **계산** > **Windows Server 2016 데이터 센터 Eval** > **만들**합니다. 표시 되지 않으면 **Windows Server 2016 데이터 센터 Eval** 항목, 귀하가 Azure 스택 운영자에 게 문의 하십시오. 요청은에 추가할 시장에 설명 된 대로 [Azure 스택 시장에 Windows Server 2016 VM 이미지를 추가](../azure-stack-add-default-image.md) 문서. 
     ![](media/azure-stack-quick-windows-portal/image01.png)
-2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.
+2. 아래 **기본 사항**, 입력 **이름**, **사용자 이름**, 및 **암호**합니다. **구독**을 선택합니다. 만들기는 **리소스 그룹**, 기존 하나를 선택을 선택 하거나는 **위치**, 클릭 하 고 **확인**합니다.
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
-3. Under **Choose a size**, click **A1 Standard** > **Select**.
+3. 아래 **크기 선택**, 클릭 **표준 D1** > **선택**합니다.
     ![](media/azure-stack-quick-windows-portal/image03.png)
-4. Under **Settings**, accept the defaults and click **OK**.
+4. 아래 **설정**기본값을 그대로 사용 하 고 클릭 **확인**합니다.
     ![](media/azure-stack-quick-windows-portal/image04.png)
-5. Under **Summary**, click **OK** to create the virtual machine. 
+5. 아래 **요약**, 클릭 **확인** 가상 컴퓨터를 만듭니다. 
     ![](media/azure-stack-quick-windows-portal/image05.png)
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+6. 새 가상 컴퓨터를 보려면 클릭 **모든 리소스**, 다음 가상 컴퓨터를 검색 하 고 해당 이름을 클릭 합니다.
     ![](media/azure-stack-quick-windows-portal/image06.png)
 
-## <a name="clean-up-resources"></a>Clean up resources
+## <a name="clean-up-resources"></a>리소스 정리
 
-When you no longer need the virtual machine, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine page and click **Delete**.
+가상 컴퓨터를 더 이상 해야 하는 경우 리소스 그룹, 가상 컴퓨터 및 모든 관련된 리소스를 삭제 합니다. 이렇게 하려면 가상 컴퓨터 페이지에서 리소스 그룹을 선택 하 고 클릭 **삭제**합니다.
 
-## <a name="next-steps"></a>Next steps
-In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
-
+## <a name="next-steps"></a>다음 단계
+이 빠른 시작에서는 간단한 Windows 가상 컴퓨터 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.

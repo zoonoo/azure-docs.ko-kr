@@ -1,6 +1,6 @@
 ---
-title: Enable multi-tenancy in Azure Stack | Microsoft Docs
-description: Learn how to support multiple Azure Active Directory directories in Azure Stack
+title: "Azure 스택에서 다중 테 넌 트를 사용 하도록 설정 | Microsoft Docs"
+description: "Azure 스택에서 여러 Azure Active Directory 디렉터리를 지원 하는 방법을 알아봅니다"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -13,44 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a90057b43e3f2074e72f3d0f896b35b4884368b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="enable-multi-tenancy-in-azure-stack"></a>Azure 스택에서 다중 테 넌 트를 사용 하도록 설정
 
-# <a name="enable-multi-tenancy-in-azure-stack"></a>Enable multi-tenancy in Azure Stack
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Azure 스택에서 서비스를 사용 하려면 다중 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure 스택을 구성할 수 있습니다. 예를 들어, 다음 시나리오를 고려해 보십시오.
 
-You can configure Azure Stack to support users from multiple Azure Active Directory (Azure AD) tenants to use services in Azure Stack. As an example, consider the following scenario:
+ - Azure 스택이 설치 되어 contoso.onmicrosoft.com의 서비스 관리자가 있습니다.
+ - Mary가 게스트 사용자가 있는 fabrikam.onmicrosoft.com, 디렉터리 관리자입니다. 
+ - Mary의 회사에서 회사에서 IaaS 및 PaaS 서비스를 수신 하며 게스트 디렉터리 (fabrikam.onmicrosoft.com)에서 사용자가 로그인 하 고 contoso.onmicrosoft.com에서 스택에서 Azure 리소스를 사용할 수 있도록 합니다.
 
- - You are the Service Administrator of contoso.onmicrosoft.com, where Azure Stack is installed.
- - Mary is the Directory Administrator of fabrikam.onmicrosoft.com, where guest users are located. 
- - Mary's company receives IaaS and PaaS services from your company, and needs to allow users from the guest directory (fabrikam.onmicrosoft.com) to sign in and use Azure Stack resources in contoso.onmicrosoft.com.
+이 가이드는 데 필요한이 시나리오의 맥락에서 Azure 스택 다중 테 넌 트를 구성 하는 단계를 제공 합니다.  이 시나리오에서는 메리에 로그인 하 여 Contoso에서 Azure 스택 배포에서 서비스를 사용 하는 Fabrikam에서 사용자가 사용할 수 있도록 단계를 완료 해야 합니다.  
 
-This guide provides the steps required, in the context of this scenario, to configure multi-tenancy in Azure Stack.  In this scenario, you and Mary must complete steps to enable users from Fabrikam to sign in and consume services from the Azure Stack deployment in Contoso.  
-
-## <a name="before-you-begin"></a>Before you begin
-There are a few pre-requisites to account for before you configure multi-tenancy in Azure Stack:
+## <a name="before-you-begin"></a>시작하기 전에
+필수 구성 요소에 맞게 Azure 스택에서 다중 테 넌 트를 구성 하기 전에 몇 가지 있습니다.
   
- - You and Mary must coordinate administrative steps across both the directory Azure Stack is installed in (Contoso), and the guest directory (Fabrikam).  
- - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-admin.md) PowerShell for Azure Stack.
- - [Download the Azure Stack Tools](azure-stack-powershell-download.md), and import the Connect and Identity modules:
+ - Azure 스택 (Contoso)에 설치 된 디렉터리와 게스트 디렉터리 (Fabrikam) 간에 메리 관리 단계를 조정 해야 합니다.  
+ - 작업이 있는지 확인 [설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-admin.md) Azure 스택에 대 한 PowerShell.
+ - [Azure 스택 도구 다운로드](azure-stack-powershell-download.md), 연결 및 Id 모듈을 가져옵니다.
 
     ````PowerShell
         Import-Module .\Connect\AzureStack.Connect.psm1
         Import-Module .\Identity\AzureStack.Identity.psm1
     ```` 
- - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
+ - Mary는 필요 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure 스택에 대 한 액세스. 
 
-## <a name="configure-azure-stack-directory"></a>Configure Azure Stack directory
-In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
+## <a name="configure-azure-stack-directory"></a>Azure 스택 디렉터리 구성
+이 섹션에서는 Azure 스택 Fabrikam Azure AD 디렉터리 테 넌 트 로부터 로그인을 허용 하도록 구성할 수 있습니다.
 
-### <a name="onboard-guest-directory-tenant"></a>Onboard guest directory tenant
-Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
+### <a name="onboard-guest-directory-tenant"></a>온보드 게스트 디렉터리 테 넌 트
+다음, 온보드 게스트 디렉터리 테 넌 트 (Fabrikam) Azure 스택에 있습니다.  이 단계에서는 Azure 리소스 관리자가 사용자 및 게스트 디렉터리 테 넌 트의 서비스 사용자를 허용 하도록 구성 합니다.
 
 ````PowerShell
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
@@ -69,11 +67,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 
 
-## <a name="configure-guest-directory"></a>Configure guest directory
-After you complete steps in the Azure Stack directory, Mary must provide consent to Azure Stack accessing the guest directory and register Azure Stack with the guest directory. 
+## <a name="configure-guest-directory"></a>게스트의 디렉터리 구성
+Azure 스택 디렉터리의 단계를 완료 한 후 Mary 게스트 디렉터리에 액세스 하는 Azure 스택에 동의 제공 하 고 Azure 스택 게스트 디렉터리에 등록 해야 합니다. 
 
-### <a name="registering-azure-stack-with-the-guest-directory"></a>Registering Azure Stack with the guest directory
-Once the guest directory administrator has provided consent for Azure Stack to access Fabrikam's directory, they must register Azure Stack with Fabrikam's directory tenant.
+### <a name="registering-azure-stack-with-the-guest-directory"></a>게스트 디렉터리와 Azure 스택을 등록 하는 중입니다.
+게스트 디렉터리 관리자가 Fabrikam의 디렉터리에 액세스할 수 있는 Azure 스택에 대 한 동의 제공한, 일단 Fabrikam의 디렉터리 테 넌 트와 Azure 스택을 등록 해야 합니다.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"
@@ -86,13 +84,12 @@ Register-AzSWithMyDirectoryTenant `
  -DirectoryTenantName $guestDirectoryTenantName ` 
  -Verbose 
 ````
-## <a name="direct-users-to-sign-in"></a>Direct users to sign in
-Now that you and Mary have completed the steps to onboard Mary's directory, Mary can direct Fabrikam users to sign in.  Fabrikam users (that is, users with the fabrikam.onmicrosoft.com suffix) sign in by visiting https://portal.local.azurestack.external.  
+## <a name="direct-users-to-sign-in"></a>사용자가 로그인 하려면
+과 메리 온보드 Mary의 디렉터리에 단계를 완료 했으므로 Mary는 Fabrikam의 사용자가 로그인 할를 보낼 수 있습니다.  Fabrikam 사용자 (즉, fabrikam.onmicrosoft.com 접미사와 함께 사용자)는 https://portal.local.azurestack.external를 방문 하 여 로그인 합니다.  
 
-Mary will direct any [foreign principals](../active-directory/active-directory-understanding-resource-access.md) in the Fabrikam directory (that is, users in the Fabrikam directory without the suffix of fabrikam.onmicrosoft.com) to sign in using https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  If they do not use this URL, they are sent to their default directory (Fabrikam) and receive an error that says their admin has not consented.
+Mary는 초보자 모든 [외래 주체](../active-directory/active-directory-understanding-resource-access.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com 접미사 없이 Fabrikam 디렉터리의 사용자)에 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com를 사용 하 여 로그인 합니다.  이 URL을 사용 하지 않으면 해당 기본 디렉터리 (Fabrikam)에 전송 되 고 관리자가 동의 하지 한다는 오류가 표시 있습니다.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>다음 단계
 
-- [Manage delegated providers](azure-stack-delegated-provider.md)
-- [Azure Stack key concepts](azure-stack-key-features.md)
-
+- [위임 된 공급자 관리](azure-stack-delegated-provider.md)
+- [Azure 스택 주요 개념](azure-stack-key-features.md)

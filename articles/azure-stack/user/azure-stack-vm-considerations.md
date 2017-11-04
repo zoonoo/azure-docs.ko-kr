@@ -1,6 +1,6 @@
 ---
-title: Differences and considerations for virtual machines in Azure Stack | Microsoft Docs
-description: Learn about differences and considerations when working with virtual machines in Azure Stack.
+title: "차이점 및 스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항 | Microsoft Docs"
+description: "스택에서 Azure 가상 컴퓨터와 작업 하는 경우의 차이점과 고려 사항에 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,56 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerations for Virtual Machines in Azure Stack
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+가상 컴퓨터는 Azure 스택에서 제공 하는 확장 가능한 컴퓨팅 리소스는 요청입니다. 가상 컴퓨터를 사용 하는 경우에 Azure에서 사용할 수 있는 기능 및 Azure 스택 간에 차이가 있습니다 이해 해야 합니다. 이 문서에서는 가상 컴퓨터와 Azure 스택의 해당 기능에 대 한 고유 고려 사항에 대 한 개요를 제공 합니다. Azure 스택와 Azure 간의 대략적인 차이 대 한 자세한 내용은 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
 
-Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. When you use Virtual Machines, you must understand that there are differences between the features that are available in Azure and Azure Stack. This article provides an overview of the unique considerations for Virtual Machines and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+## <a name="cheat-sheet-virtual-machine-differences"></a>치트 시트: 가상 컴퓨터의 차이점
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Cheat sheet: Virtual machine differences
-
-| Feature | Azure (global) | Azure Stack |
+| 기능 | Azure (global) | Azure Stack |
 | --- | --- | --- |
-| Virtual machine images | The Azure Marketplace contains images that you can use to create a virtual machine. See the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) page to view the list of images that are available in the Azure Marketplace. | By default, there aren’t any images available in the Azure Stack marketplace. The Azure Stack cloud administrator should publish or download images to the Azure Stack marketplace before users can use them. |
-| Virtual machine sizes | Azure supports a wide variety of sizes for virtual machines. To learn about the available sizes and options, refer to the [Windows virtual machines sizes](../../virtual-machines/virtual-machines-windows-sizes.md) and [Linux virtual machine sizes](../../virtual-machines/linux/sizes.md) topics. | Azure Stack supports a subset of Virtual Machine sizes that are available in Azure. To view the list of supported sizes, refer to the [virtual machine sizes](#virtual-machine-sizes) section of this article. |
-| Virtual machine quotas | [Quota limits](../../azure-subscription-service-limits.md#service-specific-limits) are set by Microsoft | The Azure Stack cloud administrator must assign quotas before they offer virtual machines to their users. |
-| Virtual machine extensions |Azure supports a wide variety of virtual machine extensions. To learn about the available extensions, refer to the [virtual machine extensions and features](../../virtual-machines/windows/extensions-features.md) topic.| Azure Stack supports a subset of extensions that are available in Azure and each of the extension have specific versions. The Azure Stack cloud administrator can choose which extensions to be made available to for their users. To view the list of supported extensions, refer to the [virtual machine extensions](#virtual-machine-extensions) section of this article. |
-| Virtual machine network | Public IP addresses assigned to tenant virtual machine are accessible over the Internet.<br><br><br>Azure Virtual Machines has a fixed DNS name | Public IP addresses assigned to a tenant virtual machine are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect to a virtual machine that is created in Azure Stack.<br><br>Virtual machines created within a specific Azure Stack instance have a DNS name based on the value that is configured by the cloud administrator. |
-| Virtual machine storage | Supports [managed disks.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks are not yet supported in Azure Stack. |
-| API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
-|Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Single fault domain<br>Single update domain<br>No managed disk support|
-|Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
+| 가상 컴퓨터 이미지 | Azure 마켓플레이스는 가상 컴퓨터를 만드는 데 사용할 수 있는 이미지를 포함 합니다. 참조는 [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) 페이지 Azure 마켓플레이스에서 사용할 수 있는 이미지 목록을 볼 수 있습니다. | 기본적으로 없습니다 이미지 사용할 수 있는 Azure 스택 시장에서. Azure 스택 클라우드 관리자에 게시 하거나 사용자가 사용 전에 Azure 스택 마켓플레이스 이미지를 다운로드 해야 합니다. |
+| 가상 컴퓨터 크기 | Azure 가상 컴퓨터에 대 한 다양 한 크기를 지원합니다. 에 사용 가능한 크기와 옵션에 대 한 자세한 참조는 [Windows 가상 컴퓨터 크기](../../virtual-machines/virtual-machines-windows-sizes.md) 및 [Linux 가상 컴퓨터 크기](../../virtual-machines/linux/sizes.md) 항목입니다. | Azure 스택 Azure에서 사용할 수 있는 가상 컴퓨터 크기의 하위 집합을 지원 합니다. 지원 되는 크기의 목록을 보려면를 참조는 [가상 컴퓨터 크기](#virtual-machine-sizes) 이 문서의 섹션. |
+| 가상 컴퓨터 할당량 | [할당량 한도](../../azure-subscription-service-limits.md#service-specific-limits) Microsoft에서 설정 | 가상 컴퓨터 사용자에 게 제공 하기 전에 Azure 스택 클라우드 관리자가 할당량을 할당 해야 합니다. |
+| 가상 컴퓨터 확장 |Azure 가상 컴퓨터 확장의 다양 한 지원합니다. 에 사용 가능한 확장에 대 한 자세한 참조는 [가상 컴퓨터 확장 및 기능](../../virtual-machines/windows/extensions-features.md) 항목입니다.| Azure 스택 Azure에서 사용할 수 있는 확장의 하위 집합을 지원 하 고 각 확장의 특정 버전을 보유 합니다. Azure 스택 클라우드 관리자가 사용자에 게 사용할 수 있게 되는 확장을 선택할 수 있습니다. 지원 되는 확장 목록을 보려면를 참조는 [가상 컴퓨터 확장](#virtual-machine-extensions) 이 문서의 섹션. |
+| 가상 컴퓨터 네트워크 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는 인터넷을 통해 액세스할 수 있습니다.<br><br><br>Azure 가상 컴퓨터의 고정된 DNS 이름 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는만 스택 개발 키트 Azure 환경 내에서 액세스할 수 있습니다. 사용자를 통해 Azure 스택 개발 키트를 액세스할 수 있어야 합니다. [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 또는 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure 스택에 만들어지는 가상 컴퓨터에 연결 합니다.<br><br>특정 Azure 스택 인스턴스 내에서 만든 가상 컴퓨터 클라우드 관리자가 구성 된 값에 따라 DNS 이름이 있습니다. |
+| 가상 컴퓨터 저장소 | 지원 [디스크를 관리 합니다.](../../virtual-machines/windows/managed-disks-overview.md) | 관리 되는 디스크는 Azure 스택의 아직 지원 되지 않습니다. |
+| API 버전 | Azure는 항상 모든 가상 컴퓨터 기능에 대 한 최신 API 버전을 갖습니다. | Azure 스택 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전 목록을 보려면를 참조는 [API 버전](#api-versions) 이 문서의 섹션. |
+|가상 컴퓨터 가용성 집합|여러 오류 도메인 (2 또는 3 / 지역당)<br>여러 업데이트 도메인<br>관리 디스크 지원|단일 장애 도메인<br>단일 업데이트 도메인<br>관리 되는 디스크 지원 되지 않습니다|
+|가상 컴퓨터 확장 집합|자동 크기 조정 지원|자동 크기 조정 지원 되지 않습니다.<br>더 많은 인스턴스 크기 포털, 리소스 관리자 템플릿 또는 PowerShell을 사용 하 여 집합에 추가 합니다.
 
-## <a name="virtual-machine-sizes"></a>Virtual machine sizes 
+## <a name="virtual-machine-sizes"></a>가상 컴퓨터 크기 
 
-The Azure Stack Development Kit supports the following sizes: 
+Azure 스택 개발 키트는 다음 크기를 지원합니다. 
 
-| Type | Size | Range of supported sizes |
+| 형식 | 크기 | 지원 되는 크기의 범위 |
 | --- | --- | --- |
-|General purpose |Basic A|A0-A4|
-|General purpose |Standard A|A0-A7|
-|General purpose |Standard D|D1-D4|
-|General purpose |Standard Dv2|D1v2-D5v2|
-|Memory optimized|D-series|D11-D14|
-|Memory optimized |Dv2-series|D11v2-D14v2|
+|범용 가상 컴퓨터 |Basic A|A0 A4|
+|범용 가상 컴퓨터 |표준 A|A0-A7|
+|범용 가상 컴퓨터 |표준 D|D1 D4|
+|범용 가상 컴퓨터 |표준 Dv2|D1v2 D5v2|
+|메모리에 최적화|D 시리즈|D11 D14|
+|메모리에 최적화 |Dv2 시리즈|D11v2 D14v2|
 
-Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
+가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 예를 들어, 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 양을 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
 
-## <a name="virtual-machine-extensions"></a>Virtual machine extensions 
+## <a name="virtual-machine-extensions"></a>가상 컴퓨터 확장 
 
- The Azure Stack Development Kit supports the following virtual machine extension versions:
+ Azure 스택 개발 키트 다음 가상 컴퓨터 확장 버전을 지원합니다.
 
-![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
+![VM 확장](media/azure-stack-vm-considerations/vm-extensions.png)
 
-Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
+Azure 스택 환경에서 사용할 수 있는 가상 컴퓨터 확장 목록을 가져오려면 다음 PowerShell 스크립트 사용 하세요.
 
 ```powershell 
 Get-AzureRmVmImagePublisher -Location local | `
@@ -73,13 +71,13 @@ Get-AzureRmVmImagePublisher -Location local | `
   Format-Table -Property * -AutoSize 
 ```
 
-## <a name="api-versions"></a>API versions 
+## <a name="api-versions"></a>API 버전 
 
-Virtual machine features in Azure Stack Development Kit support the following API versions:
+Azure 스택 개발 키트에 가상 컴퓨터 기능이 다음 API 버전을 지원합니다.
 
-![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
+![VM 리소스 종류](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
-You can use the following PowerShell script to get the API versions for the virtual machine features that are available in your Azure Stack environment:
+Azure 스택 환경에서 사용할 수 있는 가상 컴퓨터 기능에 대 한 API 버전을 가져오려는 다음 PowerShell 스크립트를 사용할 수 있습니다.
 
 ```powershell 
 Get-AzureRmResourceProvider | `
@@ -88,9 +86,8 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
-The list of supported resource types and API versions may vary if the cloud operator updates your Azure Stack environment to a newer version.
+지원 되는 리소스 종류 및 API 버전 목록을 통해 클라우드 운영자는 새 버전으로 Azure 스택 환경을 업데이트 하는 경우 달라질 수 있습니다.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Create a Windows virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)
-
+[Azure 스택에서 PowerShell을 사용한 Windows 가상 컴퓨터 만들기](azure-stack-quick-create-vm-windows-powershell.md)

@@ -1,6 +1,6 @@
 ---
-title: Using the administrator portal in Azure Stack | Microsoft Docs
-description: As an Azure Stack operator, learn how to use the administrator portal.
+title: "관리자 포털을 사용 하 여 Azure 스택의 | Microsoft Docs"
+description: "Azure 스택 연산자 관리자 포털을 사용 하는 방법에 설명 합니다."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,73 +14,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="using-the-administrator-portal-in-azure-stack"></a>Using the administrator portal in Azure Stack
+# <a name="using-the-administrator-portal-in-azure-stack"></a>관리자 포털을 사용 하 여 Azure 스택
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-There are two portals in Azure Stack; the administrator portal and the user portal (sometimes referred to as the *tenant* portal). As an Azure Stack operator, you can use the administrator portal for day-to-day management and operations of Azure Stack. 
+포털은 두 개가 Azure 스택의; 관리 포털 및 사용자 포털 (라고도 *테 넌 트* 포털). Azure 스택 연산자로 Azure 스택의 작업과 일상적인 관리에 대 한 관리자 포털을 사용할 수 있습니다. 
 
-## <a name="access-the-administrator-portal"></a>Access the administrator portal
+## <a name="access-the-administrator-portal"></a>관리자 포털에 액세스
 
-For a development kit environment, you need to first make sure that you can [connect to the development kit host](azure-stack-connect-azure-stack.md) through Remote Desktop Connection or through a virtual private network (VPN).
+먼저 수 있는 인지 확인 해야 개발 키트 환경에 대 한 [개발 키트 호스트에 연결할](azure-stack-connect-azure-stack.md) 가상 사설망 (VPN) 또는 원격 데스크톱 연결을 통해.
 
-To access the administrator portal, browse to the portal URL and sign in by using the credentials of an Azure Stack operator. For an integrated system, the portal URL varies based on the region name and external fully qualified domain name (FQDN) of your Azure Stack deployment.
+관리자 포털에 액세스 하려면 찾아보기를 포털 URL과 Azure 스택 연산자의 자격 증명을 사용 하 여 로그인 합니다. 통합된 된 시스템에 대 한 URL 다릅니다 포털 영역 이름 및 스택 Azure 배포의 외부 정규화 된 도메인 이름 (FQDN)에 따라.
 
-| Environment | Administrator Portal URL |   
+| Environment | 관리자 포털 URL |   
 | -- | -- | 
-| Development kit| https://adminportal.local.azurestack.external  |
-| Integrated systems | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| 개발 키트| https://adminportal.local.azurestack.external  |
+| 통합 시스템 | https://adminportal 합니다. &lt; *지역*&gt;.&lt; *FQDN*&gt; | 
 | | |
 
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
+ ![관리자 포털](media/azure-stack-manage-portals/image1.png)
 
-In the administrator portal, you can do things such as:
+관리자 포털에서와 같은 작업을 수행할 수 있습니다.
 
-* manage the infrastructure (including system health, updates, capacity, etc.)
-* populate the marketplace
-* create plans and offers
-* create subscriptions for users
+* (시스템 상태, 업데이트, 용량 등을 포함 합니다.) 인프라 관리
+* 마켓플레이스 채우기
+* 계획 및 제안 만들기
+* 사용자에 대 한 구독 만들기
 
-In the **Quickstart tutorial** tile, there are links to online documentation for the most common tasks.
+에 **빠른 시작 자습서** 타일에서 가장 일반적인 작업에 대 한 온라인 설명서를 링크 합니다.
  
-Although there is the ability for an operator to create resources such as virtual machines, virtual networks, and storage accounts in the administrator portal, you should [sign in to the user portal](user/azure-stack-use-portal.md) to create and test resources. (The **Create a virtual machine** link in the quickstart tutorial tile has you create a virtual machine in the administrator portal, but this procedure is only to validate Azure Stack after initial deployment.)
+해야 하는 기능 관리자 포털에서 가상 컴퓨터, 가상 네트워크 및 저장소 계정과 같은 리소스를 만들려는 연산자에 대 한 경우에 [사용자 포털에 로그인](user/azure-stack-use-portal.md) 만들기 및 리소스를 테스트 합니다. (의 **가상 컴퓨터를 만들** 빠른 시작 자습서 타일에는 링크에는 관리자 포털에서 가상 컴퓨터를 만들 수 있지만 Azure 스택 초기 배포 후의 유효성 검사에이 절차는.)
 
-## <a name="subscription-behavior"></a>Subscription behavior
+## <a name="subscription-behavior"></a>구독 동작
  
-There is only one subscription that is available in the administrator portal. This subscription is the *Default Provider Subscription*. You can't add any other subscriptions for use in the administrator portal.
+관리자 포털에서 사용할 수 있는 구독 하나만 있습니다. 이 구독은 *공급자 구독 기본*합니다. 관리자 포털에서 사용 하기 위해 다른 구독을 추가할 수 없습니다.
 
-As an Azure Stack operator, you can add subscriptions for your users (including yourself) from the administrator portal. Users (including yourself) can access and use these subscriptions from the user portal. The user portal does not provide access to any of the administrative or operational capabilities of the administrator portal.
+Azure 스택 연산자로 관리자 포털에서 사용자가 (자신 포함)에 대 한 구독을 추가할 수 있습니다. 사용자 (자신 포함) 액세스 하 고 사용자 포털에서 이러한 구독을 사용할 수 있습니다. 사용자 포털 관리자 포털의 관리 또는 작동 기능에 대 한 액세스를 제공 하지 않습니다.
 
-The administrator and user portals are backed by separate instances of Azure Resource Manager. Because of the Resource Manager separation, subscriptions do not cross portals. For example, if you as an Azure Stack operator signs in to the user portal, you can't access the Default Provider Subscription. Therefore, you don't have access to any administrative functions. You can create subscriptions for yourself from public offers, but you are considered a tenant user.
+관리자 및 사용자 포털은 Azure 리소스 관리자의 개별 인스턴스에 의해 지원 됩니다. 리소스 관리자 분리로 인해 구독에는 포털 교차 하지 않는 합니다. 예를 들어 사용자 포털에 로그인 하면 Azure 스택 연산자로 사용 하는 경우 기본 공급자 구독을 액세스할 수 없습니다. 따라서 관리 기능에 액세스할이 필요는 없습니다. 공용 제공에서 자신에 대 한 구독을 만들 수 있지만 테 넌 트 사용자로 간주 됩니다.
 
   >[!NOTE]
-  In the development kit environment, if a user belongs to the same tenant directory as the Azure Stack operator, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, from the administrator portal, they can't add subscriptions or access offers that are made available to them in the user portal.
+  개발 키트 환경에서 Azure 스택 연산자와 동일한 테 넌 트 디렉터리에 사용자가 속할 경우 하지 차단 된 관리자 포털에 로그인 합니다. 그러나 이러한는 관리 기능 중 하나를 액세스할 수 없습니다. 또한 관리자 포털에서 구독 또는 액세스 제공 하는 사용자 포털에서 사용할 수는 추가할 수는 없습니다.
 
-## <a name="administrator-portal-tips"></a>Administrator portal tips
+## <a name="administrator-portal-tips"></a>관리자 포털 팁
 
-### <a name="customize-the-dashboard"></a>Customize the dashboard
+### <a name="customize-the-dashboard"></a>대시보드 사용자 지정
 
-The dashboard contains a set of default tiles. You can click **Edit dashboard** to modify the default dashboard, or click **New dashboard** to add custom dashboards. You can easily add tiles to the dashboard. For example, you can click **New**, right-click **Offers + Plans**, and then click **Pin to dashboard**.
+대시보드 기본 타일 집합이 포함 되어 있습니다. 클릭할 수 있는 **대시보드 편집** 기본 대시보드를 수정 하거나 클릭 **새 대시보드** 사용자 지정 대시보드를 추가 합니다. 대시보드에 타일을 쉽게 추가할 수 있습니다. 클릭 수는 예를 들어 **새로**를 마우스 오른쪽 단추로 클릭 **제공 + 계획**, 클릭 하 고 **대시보드에 고정**합니다.
 
-### <a name="quick-access-to-online-documentation"></a>Quick access to online documentation
+### <a name="quick-access-to-online-documentation"></a>온라인 설명서에 대 한 빠른 액세스
 
-To access the Azure Stack operator documentation, click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **Help + support**.
+Azure 스택 연산자 설명서에 액세스 하려면 관리 포털의 오른쪽 위 모서리에 도움말 및 지원 (물음표) 아이콘을 클릭 한 다음 클릭 **도움말 + 지원**합니다.
 
-### <a name="quick-access-to-help-and-support"></a>Quick access to help and support
+### <a name="quick-access-to-help-and-support"></a>도움말 및 지원에 대 한 빠른 액세스
 
-If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this does either of the following:
+관리자 포털의 오른쪽 위 모서리에 있는 도움말 및 지원 아이콘 (물음표)를 클릭 한 다음 클릭 하는 경우 **새로운 지원 요청**,이 다음 중 하나:
 
-- If you're using an integrated system, this action opens a site where you can directly open a support ticket with Microsoft Customer Support Services (CSS). Refer to the "Where to get support" section of [Azure Stack administration basics](azure-stack-manage-basics.md) to understand when you should go through Microsoft support or through your original equipment manufacturer (OEM) hardware vendor support.
-- If you’re using the development kit, this action opens the Azure Stack forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
+- 통합된 시스템을 사용 하는 경우 열 수 있는 직접 지원 티켓와 Microsoft 고객 지원 서비스 (CSS) 사이트에 열립니다. "Where 지원을 받는" 섹션을 참조 [Azure 스택 관리 기본 사항](azure-stack-manage-basics.md) 이해 (oem) 면 하드웨어 공급 업체 지원 또는 Microsoft 기술 지원 서비스를 통해 이동 해야 하 합니다.
+- 개발 키트를 사용 하 여이 작업 직접 Azure 스택 포럼 사이트를 엽니다. 이러한 포럼 정기적으로 모니터링 됩니다. 개발 키트 평가 환경 이기 때문에 Microsoft CSS 통해 제공 되는 공식 지원 되지 않습니다.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-- [Region management in Azure Stack](azure-stack-region-management.md)
-
+- [Azure 스택의 영역 관리](azure-stack-region-management.md)

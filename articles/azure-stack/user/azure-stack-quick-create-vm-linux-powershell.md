@@ -1,6 +1,6 @@
 ---
-title: Create a Linux virtual machine by using PowerShell in Azure Stack | Microsoft Docs
-description: Create a Linux virtual machine with PowerShell in Azure Stack.
+title: "Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 | Microsoft Docs"
+description: "Azure 스택에서 PowerShell과 함께 Linux 가상 컴퓨터를 만듭니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -15,30 +15,29 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 63dbb9a4aadfce92346c84cf6d0df8c860e68a3b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 579246a2f5aefda0d48cea235d74f196cd814331
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 
 
-# <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Create a Linux virtual machine by using PowerShell in Azure Stack 
+*적용 대상: Azure 스택 시스템 통합*
 
-*Applies to: Azure Stack integrated systems*
+Azure PowerShell은 만들고 관리할 리소스 또는 스크립트는 명령줄에서 Azure 스택에 사용 됩니다.  Azure 스택에서 Ubuntu server를 실행 중인 가상 컴퓨터를 만들려면는 PowerShell을 사용 하 여이 가이드 정보.
 
-Azure PowerShell is used to create and manage resource in Azure Stack from a commandline or in scripts.  This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack.
+## <a name="prerequisites"></a>필수 조건 
 
-Before you begin, make sure that your Azure Stack operator has added the “Ubuntu Server 16.04 LTS” image to the Azure Stack marketplace.  
+* Azure 스택 연산자 Azure 스택 마켓플레이스에 "Ubuntu Server 16.04 LTS" 이미지에 추가 되었는지 확인 합니다.  
 
-Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
+* Azure 스택 특정 버전의 Azure PowerShell을 만들고 관리 하는 리소스를 필요 합니다. Azure 스택에 대해 구성 된 PowerShell가 없는 경우에 로그인는 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), 또는 Windows 기반 외부 클라이언트 있다면 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 단계에 따라 [ 설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-user.md) PowerShell 합니다.    
 
-Finally, a public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).  
+* Windows 사용자 프로필의.ssh 디렉터리에 이름이 id_rsa.pub 사용 하 여 공용 SSH 키를 만들어야 합니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 참조 하십시오. [Windows에서 만드는 SSH 키](../../virtual-machines/linux/ssh-from-windows.md)합니다.  
 
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-## <a name="create-resource-group"></a>Create resource group
-
-A resource group is a logical container into which Azure Stack resources are deployed and managed. Use the following code block to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value.
+리소스 그룹은 리소스는 Azure 스택에 배포 되 고 관리 하는 논리 컨테이너입니다. 개발 키트 또는 Azure 스택 통합 시스템에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수에 대 한 값을 할당할 것, 되었거나 다른 값을 할당할 그대로 사용할 수 있습니다.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -50,9 +49,9 @@ New-AzureRmResourceGroup `
   -Location $location 
 ```
 
-## <a name="create-storage-resources"></a>Create storage resources
+## <a name="create-storage-resources"></a>저장소 리소스 만들기
 
-Create a storage account, and a storage container to store the Ubuntu Server 16.04 LTS image.
+저장소 계정 및 Ubuntu Server 16.04 LTS 이미지를 저장할 저장소 컨테이너를 만듭니다.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -77,9 +76,9 @@ $container = New-AzureStorageContainer `
   -Permission Blob 
 ```
 
-## <a name="create-networking-resources"></a>Create networking resources
+## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
-Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine.
+가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공 하는 데 사용 됩니다.
 
 ```powershell
 # Create a subnet configuration
@@ -105,9 +104,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ```
 
-### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Create a network security group and a network security group rule
+### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>네트워크 보안 그룹 및 네트워크 보안 그룹 규칙 만들기
 
-The network security group secures the virtual machine by using inbound and outbound rules. Let’s create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
+네트워크 보안 그룹 인바운드 및 아웃 바운드 규칙을 사용 하 여 가상 컴퓨터를 보호 합니다. 포트 3389 들어오는 원격 데스크톱 연결을 허용 하도록에 대 한 인바운드 규칙 및 포트 80에 들어오는 웹 트래픽을 허용 하는 인바운드 규칙을 만들어 보겠습니다.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -125,8 +124,8 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Create a network card for the virtual machine
-The network card connects the virtual machine to a subnet, network security group, and public IP address.
+### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 컴퓨터에 대한 네트워크 카드 만들기
+네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -139,8 +138,8 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
-Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration.
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+가상 컴퓨터 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다.
 
 ```powershell
 # Define a credential object.
@@ -197,32 +196,29 @@ New-AzureRmVM `
   -VM $VirtualMachine 
 ```
 
-## <a name="connect-to-virtual-machine"></a>Connect to virtual machine
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
-After the deployment has completed, create an SSH connection with the virtual machine. Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) command to return the public IP address of the virtual machine.
+배포가 완료된 후 가상 컴퓨터에 대한 SSH 연결을 만듭니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 컴퓨터의 공용 IP 주소를 반환합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](http://www.putty.org/) to create the connection.
+SSH 설치 된 시스템에서 다음 명령을 사용 하 여 가상 컴퓨터에 연결 합니다. Windows에서 작업 하는 경우 사용할 수 있습니다 [Putty](http://www.putty.org/) 연결을 만듭니다.
 
 ```
 ssh <Public IP Address>
 ```
 
-When prompted, the login user name is azureuser. If a passphrase was entered when creating SSH keys, you need to enter this as well.
+메시지가 표시 되 면 로그인 사용자 이름이 azureuser를 되었습니다. SSH 키를 만들 때 암호가 입력된 경우 이 암호도 입력해야 합니다.
 
-## <a name="clean-up-resources"></a>Clean up resources
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) command to remove the resource group, VM, and all related resources:
+## <a name="clean-up-resources"></a>리소스 정리
+필요 없는 경우 사용할 수 없습니다는 [제거 AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 명령을 VM을 리소스 그룹을 제거 하 고 모든 관련 리소스:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Create a virtual machine by using password stored in key vault](azure-stack-kv-deploy-vm-with-secret.md)
-
-[To learn about Storage in Azure Stack](azure-stack-storage-overview.md)
-
+이 빠른 시작 간단한 Linux 가상 컴퓨터를 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.

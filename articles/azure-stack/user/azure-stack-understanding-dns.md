@@ -1,6 +1,6 @@
 ---
-title: Understanding DNS in Azure Stack | Microsoft Docs
-description: Understanding DNS features and capabilities in Azure Stack
+title: "Azure 스택에 있는 DNS 이해 | Microsoft Docs"
+description: "Azure 스택의 기능 및 DNS 기능 이해"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Introducing iDNS for Azure Stack
+# <a name="introducing-idns-for-azure-stack"></a>Azure 스택에 대 한 Idn 소개
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-iDNS is a feature in Azure Stack that allows you to resolve external DNS names (such as http://www.bing.com).
-It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address, without having to provide custom DNS server entries.
+Idn은 Azure 스택 (예: http://www.bing.com) 외부 DNS 이름을 확인할 수 있는 기능입니다.
+또한 내부 가상 네트워크 이름을 등록할 수 있습니다. 이렇게 하면 사용자 지정 DNS 서버 항목을 제공 하지 않고도 Vm IP 주소 대신 이름으로 동일한 가상 네트워크에서 해결할 수 있습니다.
 
-It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
+결코 있는 Azure에서 가능한 이지만 Windows Server 2016 및 Azure 스택에서 사용할 수 있는 너무 합니다.
 
-## <a name="what-does-idns-do"></a>What does iDNS do?
-With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries.
+## <a name="what-does-idns-do"></a>Idn의 기능은 무엇입니까?
+Azure 스택의 Idn와 사용자 지정 DNS 서버 항목을 지정할 필요 없이 다음과 같은 기능을 가져옵니다.
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* 테 넌 트 작업에 대 한 DNS 이름 확인 서비스를 공유합니다.
+* 이름 확인 및 테 넌 트 가상 네트워크 내에서 DNS 등록에 대 한 권한 있는 DNS 서비스입니다.
+* 테 넌 트 Vm에서에서 인터넷 이름 확인 방법에 대 한 재귀 DNS 서비스입니다. 테 넌 트는 더 이상 인터넷 (예를 들어 www.bing.com) 이름을 확인 하기 위해 사용자 지정 DNS 항목을 지정 해야 합니다.
 
-You can still bring your own DNS and use custom DNS servers if you want. But now, if you just want to be able to resolve Internet DNS names and be able to connect to other virtual machines in the same virtual network, you don’t need to specify anything and it will just work.
+사용자 고유의 DNS bring 하 고 원하는 경우 사용자 지정 DNS 서버를 사용할 수 있습니다. 하지만 이제, 방금 경우 인터넷 DNS 이름을 지정 하 고 동일한 가상 네트워크의 다른 가상 컴퓨터에 연결할 수 없습니다, 이외의 설정을 지정 하지 않아도 및 하기만 하면 작동을 확인할 수 있습니다.
 
-## <a name="what-does-idns-not-do"></a>What does iDNS not do?
-What iDNS does not allow you to do is create a DNS record for a name that can be resolved from outside the virtual network.
+## <a name="what-does-idns-not-do"></a>Idn 하지 무엇입니까?
+가상 네트워크 외부에서 확인 될 수 있는 이름에 대 한 DNS 레코드 만들기는 어떤 Idn 할 수 없습니다.
 
-In Azure, you have the option of specifying a DNS name label that can be associated with a public IP address. You can choose the label (prefix), but Azure chooses the suffix, which is based on the region in which you create the public IP address.
+Azure에서 공용 IP 주소와 연결 될 수 있는 DNS 이름 레이블을 지정 하는 옵션도 있습니다. 레이블 (접두사)을 선택할 수는 있지만 Azure 공용 IP 주소를 만들 수 있는 영역을 기반으로 하는 접미사를 선택 합니다.
 
-![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![스크린샷의 DNS 이름 레이블](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-In the image above, Azure will create an “A” record in DNS for the DNS name label specified under the zone **westus.cloudapp.azure.com**. The prefix and the suffix together compose a Fully Qualified Domain Name (FQDN) that can be resolved from anywhere on the public Internet.
+위의 그림에서 Azure "A" dns에서에 대 한 레코드는 영역 아래에 지정 된 DNS 이름 레이블 만듭니다 **westus.cloudapp.azure.com**합니다. 접두사와 함께 접미사는 완벽 하 게 정규화 된 도메인 이름 (FQDN) 수를 확인할 위치는 공용 인터넷에서 구성 합니다.
 
-Azure Stack only supports iDNS for internal name registration, so it cannot do the following.
+Azure 스택 지원 Idn 내부 이름 등록에 대 한 되므로 다음 수행할 수 없습니다.
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external).
-* Create a DNS zone (such as Contoso.com).
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
-
+* 기존 호스트 된 DNS 영역 (예를 들어 local.azurestack.external)에서 DNS 레코드를 만듭니다.
+* DNS 영역을 (예: Contoso.com)을 만듭니다.
+* 사용자 고유의 사용자 지정 DNS 영역에서 레코드를 만듭니다.
+* 도메인 이름 구매를 지원 합니다.
 

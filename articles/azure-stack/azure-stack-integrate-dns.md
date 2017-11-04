@@ -1,143 +1,143 @@
 ---
-title: Azure Stack datacenter integration - DNS
-description: Learn how to integrate Azure Stack DNS with your datacenter DNS
+title: "Azure 스택 데이터 센터 통합-DNS"
+description: "Azure 스택 DNS DNS 데이터 센터와 통합 하는 방법에 알아봅니다"
 services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bf41e2458ade0bc770eb0f9cd327f752e08358a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
+# <a name="azure-stack-datacenter-integration---dns"></a>Azure 스택 데이터 센터 통합-DNS
 
-# <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack datacenter integration - DNS
+*적용 대상: Azure 스택 시스템 통합*
 
-*Applies to: Azure Stack integrated systems*
+Azure 스택 끝점에 액세스할 수 있게 되기를 (`portal`, `adminportal`, `management`, `adminmanagement`등.)  외부 Azure 스택에서 Azure 스택에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버와 Azure 스택 DNS 서비스를 통합 해야 합니다.
 
-To be able to access Azure Stack endpoints (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  from outside Azure Stack, you need to integrate the Azure Stack DNS services with the DNS servers that host the DNS zones you want to use in Azure Stack.
-
-## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS namespace
-You are required to provide some important information related to DNS when you deploy Azure Stack.
+## <a name="azure-stack-dns-namespace"></a>Azure 스택 DNS 네임 스페이스
+Azure 스택을 배포할 때 DNS와 관련 된 몇 가지 중요 한 정보를 제공 하면 됩니다.
 
 
-|Field  |Description  |Example|
+|필드  |설명  |예제|
 |---------|---------|---------|
-|Region|The geographic location of your Azure Stack deployment.|`east`|
-|External Domain Name|The name of the zone you want to use for your Azure Stack deployment.|`cloud.fabrikam.com`|
-|Internal Domain Name|The name of the internal zone that is used for infrastructure services in Azure Stack.  It is Directory Service-integrated and private (not reachable from outside the Azure Stack deployment).|`azurestack.local`|
-|DNS Forwarder|DNS servers that are used to forward DNS queries, DNS zones and records that are hosted outside Azure Stack, either on the corporate intranet or public internet.|`10.57.175.34`<br>`8.8.8.8`|
-|Naming Prefix (Optional)|The naming prefix you want your Azure Stack infrastructure role instance machine names to have.  If not provided, the default is `azs`.|`azs`|
+|지역|Azure 스택 배포의 지리적 위치입니다.|`east`|
+|외부 도메인 이름|Azure 스택 배포에 사용할 영역을의 이름입니다.|`cloud.fabrikam.com`|
+|내부 도메인 이름|스택에서 Azure 인프라 서비스에 사용 되는 내부 영역의 이름입니다.  디렉터리 서비스 통합 하 고 개인 (연결할 수 없음에서 외부 Azure 스택 배포).|`azurestack.local`|
+|DNS 전달자|DNS 쿼리, DNS 영역 및 회사 인트라넷 또는 공용 인터넷에서 Azure 스택 외부에서 호스팅되는 레코드를 전달 하는 데 사용 되는 DNS 서버입니다.|`10.57.175.34`<br>`8.8.8.8`|
+|(선택 사항) 접두사 이름 지정|Azure 스택 인프라 역할 인스턴스 컴퓨터 이름을 원하는 명명 접두사입니다.  을 지정 하지 않으면 기본값은 `azs`합니다.|`azs`|
 
-The fully qualified domain name (FQDN) of your Azure Stack deployment and endpoints is the combination of the Region parameter and the External Domain Name parameter. Using the values from the examples in the previous table, the FQDN for this Azure Stack deployment would be the following name:
+Azure 스택 배포 및 끝점의 정규화 된 도메인 이름 (FQDN)은 영역 매개 변수 및 외부 도메인 이름 매개 변수 조합 합니다. 사용 하 여 예제에서 값은 앞의 표에서,이 Azure 스택 배포에 대 한 FQDN 것 다음 이름:
 
 `east.cloud.fabrikam.com`
 
-As such, examples of some of the endpoints for this deployment would look like the following URLs:
+따라서이 배포에 대 한 끝점의 예는 다음 Url 같습니다.
 
 `https://portal.east.cloud.fabrikam.com`
 
 `https://adminportal.east.cloud.fabrikam.com`
 
-To use this example DNS namespace for an Azure Stack deployment, the following conditions are required:
+Azure 스택 배포에 대 한이 예제에서는 DNS 네임 스페이스를 사용 하려면 다음과 같은 요소가 필요 합니다.
 
-- The zone `fabrikam.com` is registered either with a domain registrar, an internal corporate DNS server, or both, depending on your name resolution requirements.
-- The child domain `cloud.fabrikam.com` exists under the zone `fabrikam.com`.
-- The DNS servers that host the zones `fabrikam.com` and `cloud.fabrikam.com` can be reached from the Azure Stack deployment.
+- 영역 `fabrikam.com` 도메인 등록 기관, 회사 내부 DNS 서버 또는 사용자 이름 확인 요구 사항에 따라 둘 다를 사용 하 여 등록 됩니다.
+- 자식 도메인 `cloud.fabrikam.com` 영역 아래 `fabrikam.com`합니다.
+- 영역을 호스트 하는 DNS 서버 `fabrikam.com` 및 `cloud.fabrikam.com` Azure 스택 배포에서 연결할 수 있습니다.
 
-To be able to resolve DNS names for Azure Stack endpoints and instances from outside Azure Stack, you need to integrate the DNS servers that host the external DNS zone for Azure Stack with the DNS servers that host the parent zone you want to use.
+Azure 스택 끝점 및 외부 Azure 스택에서 인스턴스에 대 한 DNS 이름을 확인할 수 있으려면 사용 하려면 부모 영역을 호스트 하는 DNS 서버와 함께 Azure 스택에 대 한 외부 DNS 영역을 호스팅하는 DNS 서버를 통합 해야 합니다.
 
 
-## <a name="resolution-and-delegation"></a>Resolution and delegation
+## <a name="resolution-and-delegation"></a>확인 및 위임
 
-There are two types of DNS servers:
+DNS 서버에는 다음 두 가지 유형이 있습니다.
 
-- An authoritative DNS server hosts DNS zones. It answers DNS queries for records in those zones only.
-- A recursive DNS server does not host DNS zones. It answers all DNS queries by calling authoritative DNS servers to gather the data it needs.
+- 권한 있는 DNS 서버는 DNS 영역을 호스트 합니다. 해당 영역의 레코드에 대한 DNS 쿼리에만 대답합니다.
+- 재귀 DNS 서버는 DNS 영역을 호스팅하지 않습니다. 권한이 있는 DNS 서버를 호출하고 필요한 데이터를 수집하여 모든 DNS 쿼리에 응답합니다.
 
-Azure Stack includes both authoritative and recursive DNS servers. The recursive servers are used to resolve names of everything except for the internal private zone and the external public DNS zone for that Azure Stack deployment. 
+Azure 스택 권한이 모두 포함 및 재귀 DNS 서버입니다. 재귀 서버는 해당 Azure 스택 배포에 대 한 내부 개인 영역과 외부 공용 DNS 영역을 제외한 모든 항목의 이름을 확인 하기 위해 사용 됩니다. 
 
-![Azure Stack DNS architecture](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Azure 스택 DNS 아키텍처](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
-## <a name="resolving-external-dns-names-from-azure-stack"></a>Resolving external DNS names from Azure Stack
+## <a name="resolving-external-dns-names-from-azure-stack"></a>Azure 스택에서 외부 DNS 이름 확인
 
-To resolve DNS names for endpoints outside Azure Stack (for example: www.bing.com), you need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For deployment, DNS servers that Azure Stack forwards requests to are required in the Deployment Worksheet (in the DNS Forwarder field). Provide at least two servers in this field for fault tolerance. Without these values, Azure Stack deployment fails.
+Azure 스택 외부 끝점에 대 한 DNS 이름을 확인 하기 위해 (예: www.bing.com), Azure 스택 Azure 스택 권한을 보유 하지 않은 DNS 요청을 전달 하는 데 사용할 수 있는 DNS 서버를 제공 해야 합니다. 배포의 경우 Azure 스택 요청을 전달 하는 DNS 서버 (DNS 전달자 필드)에 배포 워크시트에 필요 합니다. 내결함성에 대 한이 필드에 두 개 이상의 서버를 제공 합니다. 이러한 값이 없는 Azure 스택 배포가 실패합니다.
 
-### <a name="adding-dns-forwarding-servers-after-deployment"></a>Adding DNS forwarding servers after deployment
+### <a name="configure-conditional-dns-forwarding"></a>조건부 DNS 전달 구성
 
-If you or your ISP updates your DNS infrastructure, you might want to register additional DNS servers. To add DNS servers to forward recursive requests, you must use the privileged endpoint.
+> [!IMPORTANT]
+> 이 AD FS 배포에만 적용 됩니다.
 
-For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
+기존 DNS 인프라와 이름 확인을 사용 하도록 설정 하려면 조건부 전달을 구성 합니다.
 
-1. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for CloudAdmin authentication.
+조건 전달자를 추가 하려면 권한 있는 끝점을 사용 해야 합니다.
+
+이 절차에서는 Azure 스택의 권한 있는 끝점과 통신할 수 있는 데이터 센터 네트워크의 컴퓨터를 사용 합니다.
+
+1. 관리자 권한 Windows PowerShell 세션 (관리자 권한으로 실행)를 열고 권한 있는 끝점의 IP 주소에 연결 합니다. CloudAdmin 인증에 대 한 자격 증명을 사용 합니다.
 
    ```
    $cred=Get-Credential 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
-2. After you connect to the privileged endpoint, run the following PowerShell command. Substitute the sample values provided with your domain name and IP addresses of the DNS servers you want to use.
+2. 권한 있는 끝점에 연결한 후 다음 PowerShell 명령을 실행 합니다. 도메인 이름 및 사용 하려는 DNS 서버의 IP 주소와 함께 제공 되는 샘플 값으로 대체 합니다.
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 
-After you run this command, Azure Stack services and user virtual machines that use Azure Stack DNS will be able to resolve the names of Azure Stack endpoints such as the portal and API endpoints, and any public IP addresses that have a DNS name label.
+## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>외부 Azure 스택에서 Azure 스택 DNS 이름 확인
+권한 있는 서버가 외부 DNS 영역 정보를 포함 하는 것과 및 모든 사용자가 만든 영역입니다. 영역 위임 또는 외부 Azure 스택에서 Azure 스택 DNS 이름을 확인 하기 위해 조건부 전달 수 있도록 이러한 서버와 통합 합니다.
 
-## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Resolving Azure Stack DNS names from outside Azure Stack
-The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. Integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
+## <a name="get-dns-server-external-endpoint-information"></a>DNS 서버 외부 끝점 정보 가져오기
 
-## <a name="get-dns-server-external-endpoint-information"></a>Get DNS Server external endpoint information
+DNS 인프라와 Azure 스택 배포와 통합 하려면 다음 정보가 필요 합니다.
 
-To integrate your Azure Stack deployment with your DNS infrastructure, you need the following information:
+- DNS 서버 Fqdn
+- DNS 서버 IP 주소
 
-- DNS server FQDNs
-- DNS server IP addresses
-
-The FQDNs for the Azure Stack DNS servers have the following format:
+Azure 스택 DNS 서버에 대 한 Fqdn에는 다음 형식을 갖습니다.
 
 `<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>`
 
 `<NAMINGPREFIX>-ns02.<REGION>.<EXTERNALDOMAINNAME>`
 
-Using the sample values, the FQDNs for the DNS servers are:
+샘플 값을 DNS에 대 한 Fqdn을 사용 하 여 서버는 같습니다.
 
 `azs-ns01.east.cloud.fabrikam.com`
 
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-This information is also created at the end of all Azure Stack deployments in a file named `AzureStackStampDeploymentInfo.json`. This file is located in the `C:\CloudDeployment\logs` folder of the Deployment virtual machine. If you’re not sure what values were used for your Azure Stack deployment, you can get the values from here.
+이 정보는 라는 파일에 모든 Azure 스택 배포의 끝에 작성도 `AzureStackStampDeploymentInfo.json`합니다. 이 파일은 `C:\CloudDeployment\logs` 배포 가상 컴퓨터의 폴더입니다. Azure 스택 배포에 사용 된 어떤 값 확실 하지 않은 경우에 여기에서 값을 가져올 수 있습니다.
 
-If the Deployment virtual machine is no longer available or is inaccessible, you can obtain the values by connecting to the privileged endpoint and running the `Get-AzureStackInfo` PowerShell cmdlet. For more information about the privileged endpoint, see (insert link to article here).
+가상 컴퓨터 배포를 더 이상 사용할 수 없거나 액세스할 수, 하는 경우 권한 있는 끝점에 연결 하 고 실행 하 여 값을 얻을 수 없습니다는 `Get-AzureStackInfo` PowerShell cmdlet. 권한 있는 끝점에 대 한 자세한 내용은 (insert 여기 문서에 연결)을 참조 하십시오.
 
-## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Setting up conditional forwarding to Azure Stack
+## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Azure 스택 조건부 전달 설정
 
-The simplest and most secure way to integrate Azure Stack with your DNS infrastructure is to do conditional forwarding of the zone from the server that hosts the parent zone. This approach is recommended if you have direct control over the DNS servers that host the parent zone for your Azure Stack external DNS namespace.
+Azure 스택 DNS 인프라와 통합 하 간단 하 고 가장 안전한 방법은 부모 영역을 호스트 하는 서버에서 영역의 조건부 전달 작업을 수행 하는 것입니다. Azure 스택 외부 DNS 네임 스페이스에 대 한 DNS 서버에 대해 직접적인 제어 부모 영역을 호스트 하는 경우이 방법은 권장 됩니다.
 
-If you’re not familiar with how to do conditional forwarding with DNS, see the following TechNet article: [Assign a Conditional Forwarder for a Domain Name](https://technet.microsoft.com/library/cc794735), or the documentation specific to your DNS solution.
+Dns 조건부 전달 하는 방법을 잘 모르는 경우 다음 TechNet 문서 참조: [도메인 이름에 대 한 조건 전달자 할당](https://technet.microsoft.com/library/cc794735), 또는 DNS 솔루션에 특정 한 설명서입니다.
 
-In scenarios where you specified your external Azure Stack DNS Zone to look like a child domain of your corporate domain name, conditional forwarding cannot be used. DNS delegation must be configured.
+회사 도메인 이름의 하위 도메인 모양 외부 Azure 스택 DNS 영역이 지정 된 있는 시나리오에서는 조건부 전달을 사용할 수 없습니다. DNS 위임을 구성 해야 합니다.
 
-Example:
+예제:
 
-- Corporate DNS Domain Name: `contoso.com`
-- Azure Stack External DNS Domain Name: `azurestack.contoso.com`
+- 회사 DNS 도메인 이름:`contoso.com`
+- Azure 스택 외부 DNS 도메인 이름:`azurestack.contoso.com`
 
-## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegating the external DNS zone to Azure Stack
+## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Azure 스택 외부 DNS 영역 위임
 
-For DNS names to be resolvable from outside an Azure Stack deployment, you need to set up DNS delegation.
+DNS 이름은 Azure 스택 배포 외부에서 확인할 수에 대 한 DNS 위임을 설정 해야 합니다.
 
-Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar's DNS management page, edit the NS records and replace the NS records for the zone with the ones in Azure Stack.
+각 등록 기관에는 도메인에 대한 이름 서버 레코드를 변경하는 자체 DNS 관리 도구가 있습니다. 등록자의 DNS 관리 페이지에서 NS 레코드를 편집 하 고 Azure 스택에 있는 것으로 영역에 대 한 NS 레코드를 바꿉니다.
 
-Most DNS registrars require you to provide a minimum of two DNS servers to complete the delegation.
+대부분의 DNS 등록 기관 최소 위임을 완료 하려면 두 명의 DNS 서버가 제공 하도록 요구 합니다.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
-
+[Azure 스택 데이터 센터 통합-Identity](azure-stack-integrate-identity.md)

@@ -1,6 +1,6 @@
 ---
-title: Create a Windows virtual machine by using PowerShell in Azure Stack | Microsoft Docs
-description: Create a Windows virtual machine with PowerShell in Azure Stack.
+title: "Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
+description: "Azure 스택에서 PowerShell과 함께 Windows 가상 컴퓨터를 만듭니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -15,28 +15,27 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 97ada8795ff0200c487062c6ec3347c7421ba91d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 42e126ffefd75669d90ea3ff1d3939028f71159c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
 
-# <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Create a Windows virtual machine by using PowerShell in Azure Stack
+*적용 대상: Azure 스택 시스템 통합*
 
-*Applies to: Azure Stack integrated systems*
+Azure 스택에서 Windows Server 2016 가상 컴퓨터를 만드는 PowerShell을 사용 하 여이 가이드 정보입니다. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다. 
 
-This guide details using PowerShell to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN. 
+## <a name="prerequisites"></a>필수 조건 
 
-Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
+* Azure 스택 연산자 Azure 스택 마켓플레이스에 "Windows Server 2016" 이미지에 추가 되었는지 확인 합니다.  
 
-Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
+* Azure 스택 특정 버전의 Azure PowerShell을 만들고 관리 하는 리소스를 필요 합니다. Azure 스택에 대해 구성 된 PowerShell를 설정 하지 않은 경우의 단계에 따라 [설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-user.md) PowerShell 합니다.    
 
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-## <a name="create-a-resource-group"></a>Create a resource group
-
-A resource group is a logical container into which Azure Stack resources are deployed and managed. Use the following code block to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value.  
+리소스 그룹은 리소스는 Azure 스택에 배포 되 고 관리 하는 논리 컨테이너입니다. 개발 키트 또는 Azure 스택 통합 시스템에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수에 대 한 값을 할당할 것, 되었거나 다른 값을 할당할 그대로 사용할 수 있습니다.  
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -48,9 +47,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Create storage resources 
+## <a name="create-storage-resources"></a>저장소 리소스 만들기 
 
-Create a storage account, and a storage container to store the Windows Server 2016 image.
+저장소 계정 및 Windows Server 2016 이미지를 저장할 저장소 컨테이너를 만듭니다.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -75,9 +74,9 @@ $container = New-AzureStorageContainer `
   -Permission Blob
 ```
 
-## <a name="create-networking-resources"></a>Create networking resources
+## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
-Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine.  
+가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공 하는 데 사용 됩니다.  
 
 ```powershell
 # Create a subnet configuration
@@ -102,9 +101,9 @@ $pip = New-AzureRmPublicIpAddress `
   -Name "mypublicdns$(Get-Random)"
 ```
 
-### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Create a network security group and a network security group rule
+### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>네트워크 보안 그룹 및 네트워크 보안 그룹 규칙 만들기
 
-The network security group secures the virtual machine by using inbound and outbound rules. Lets create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
+네트워크 보안 그룹 인바운드 및 아웃 바운드 규칙을 사용 하 여 가상 컴퓨터를 보호 합니다. 포트 3389 들어오는 원격 데스크톱 연결을 허용 하도록에 대 한 인바운드 규칙 및 포트 80에 들어오는 웹 트래픽을 허용 하는 인바운드 규칙을 만들 수 있습니다.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -139,9 +138,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb 
 ```
  
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Create a network card for the virtual machine
+### <a name="create-a-network-card-for-the-virtual-machine"></a>가상 컴퓨터에 대한 네트워크 카드 만들기
 
-The network card connects the virtual machine to a subnet, network security group, and public IP address.
+네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -154,9 +153,9 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 
-Create a virtual machine configuration. The configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, credentials.
+가상 컴퓨터 구성을 만듭니다. 구성에 가상 컴퓨터 이미지, 크기, 자격 증명 등 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -205,47 +204,46 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
-To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
+이전 단계에서 만든 가상 컴퓨터에 원격으로 하려면 해당 공용 IP 주소가 필요 합니다. 가상 컴퓨터의 공용 IP 주소를 얻기 위해 다음 명령을 실행 합니다. 
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-Use the following command to create a Remote Desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the username and password that you used when creating the virtual machine.
+다음 명령을 사용 하 여 가상 컴퓨터와 원격 데스크톱 세션을 만듭니다. IP 주소를 가상 컴퓨터의 publicIPAddress 바꿉니다. 대화 상자가 나타나면 사용자 이름 및 가상 컴퓨터를 만들 때 사용한 암호를 입력 합니다.
 
 ```powershell
 mstsc /v <publicIpAddress>
 ```
 
-## <a name="install-iis-via-powershell"></a>Install IIS via PowerShell
+## <a name="install-iis-via-powershell"></a>PowerShell을 통해 IIS 설치
 
-Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+이제 Azure VM에 로그인했으므로 IIS를 설치하고 웹 트래픽을 허용하는 로컬 방화벽 규칙을 사용하려면 PowerShell의 단일 줄을 사용할 수 있습니다. PowerShell 프롬프트를 열고 다음 명령을 실행합니다.
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>View the IIS welcome page
+## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
+IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 볼 수 있습니다. 위에 설명한 *publicIpAddress*를 사용하여 기본 페이지를 방문해야 합니다. 
 
-![IIS default site](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
+![IIS 기본 사이트](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
 
 
-## <a name="delete-the-virtual-machine"></a>Delete the virtual machine
+## <a name="delete-the-virtual-machine"></a>가상 컴퓨터 삭제
 
-When no longer needed, use the following command to remove the resource group that contains the virtual machine and its related resources:
+더 이상 필요 없는, 가상 컴퓨터와 해당 관련된 리소스를 포함 하는 리소스 그룹을 제거 하려면 다음 명령을 사용 합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup `
   -Name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-To learn about Storage in Azure Stack, refer to the [storage overview](azure-stack-storage-overview.md) topic.
-
+이 빠른 시작에서는 간단한 Windows 가상 컴퓨터 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
 
