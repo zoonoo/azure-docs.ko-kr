@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 19f9686de9face1e53fc84eac23381eadc9fb5cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4fb60bde7599daa0ac9d7704c398adcdb0d471
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -30,6 +30,9 @@ ms.lasthandoff: 10/11/2017
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [빠른 시작: Azure Data Factory 버전 2를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다. 
 
@@ -83,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정 및 주문형 Azure HDInsight 클러스터를 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 시나리오에 사용되는 [데이터 저장소](data-factory-data-movement-activities.md)/[계산 서비스](data-factory-compute-linked-services.md)를 식별하고 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결합니다.  
 
-### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 Azure Storage 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
 
 1. **GetStartedDF**에 대한 **데이터 팩터리** 블레이드에서 **작성 및 배포**를 클릭합니다. 데이터 팩터리 편집기가 표시되어야 합니다.
@@ -92,9 +95,9 @@ ms.lasthandoff: 10/11/2017
 2. **새 데이터 저장소**를 클릭하고 **Azure storage**를 선택합니다.
 
    ![새 데이터 저장소 - Azure Storage - 메뉴](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
-3. 편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+3. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
-   ![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   ![Azure Storage 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 5. 명령 모음에서 **배포** 를 클릭하여 연결된 서비스를 배포합니다.
 
@@ -153,7 +156,7 @@ ms.lasthandoff: 10/11/2017
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure 저장소 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.   
 
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 1. **데이터 팩터리 편집기**의 명령 모음에서 **... 추가**를 클릭하고 **새 데이터 집합**을 클릭하고 **Azure Blob Storage**를 선택합니다.
@@ -383,7 +386,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 1. Azure **데이터 팩터리**를 만들었습니다.
 2. 두 개의 **연결된 서비스**를 만들었습니다.
-   1. **Azure 저장소** 연결된 서비스입니다.
+   1. **Azure Storage** 연결된 서비스입니다.
    2. **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
 3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다.
 4. **HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.

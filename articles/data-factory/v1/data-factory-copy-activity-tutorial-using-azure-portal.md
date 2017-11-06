@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 91c9f6d495655dd4ae267125836881d0948c13b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ff1206296103f1bc4710c857c648b100c37f17e
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Portal을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
-> 
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [버전 2 설명서의 복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
@@ -118,7 +120,7 @@ AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 �
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 
-### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다.  
 
 1. **Data Factory** 블레이드에서 **작성자 및 배포** 타일을 클릭합니다.
@@ -132,14 +134,14 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ![편집기 새 데이터 저장소 단추](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정의 계정 이름 및 계정 키 값으로 바꿉니다. 
    
-    ![편집기 Blob 저장소 JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
+    ![편집기 Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 4. 도구 모음에서 **배포** 를 클릭합니다. 이제 트리 보기에서 배포된 **AzureStorageLinkedService** 가 표시됩니다. 
    
-    ![편집기 Blob 저장소 배포](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
+    ![편집기 Blob Storage 배포](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
     연결된 서비스 정의의 JSON 속성에 대한 자세한 내용은 [Azure Blob Storage 커넥터](data-factory-azure-blob-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 연결된 서비스 만들기
+### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Azure SQL Database에 대한 연결된 서비스 만들기
 이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 이 섹션에서 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. 
 
 1. **Data Factory 편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure SQL Database**를 선택합니다. 오른쪽 창에 Azure SQL 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
@@ -402,7 +404,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
 
 1. Azure **Data Factory**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
-   1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다.     
+   1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage** 연결된 서비스입니다.     
    2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다. 
 3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합** 을 만들었습니다.
 4. 원본으로 **BlobSource**를 사용하고 싱크로 **SqlSink**를 사용하는 **복사 작업**으로 **파이프라인**을 만들었습니다.  

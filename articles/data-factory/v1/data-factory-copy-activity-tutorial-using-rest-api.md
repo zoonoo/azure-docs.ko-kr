@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a573bb9880b70ea994fe622226987563f18e1a9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [버전 2 설명서의 복사 작업 자습서](../quickstart-create-data-factory-rest-api.md)를 참조하세요. 
 
 이 문서에서는 REST API를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
@@ -379,7 +382,7 @@ AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 �
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 
-### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다. 
@@ -483,7 +486,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     Write-Host $results
     ```
 
-**축하합니다.** Azure Blob 저장소에서 Azure SQL 데이터베이스에 데이터를 복사하는 파이프라인으로 Azure Data Factory를 성공적으로 만들었습니다.
+**축하합니다.** Azure Blob Storage에서 Azure SQL 데이터베이스에 데이터를 복사하는 파이프라인으로 Azure Data Factory를 성공적으로 만들었습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 이 단계에서는 데이터 팩터리 REST API를 사용하여 파이프라인에 의해 생성되는 조각을 모니터링합니다.

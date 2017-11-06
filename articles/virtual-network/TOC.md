@@ -1,14 +1,14 @@
 # 개요
 ## [가상 네트워크](virtual-networks-overview.md)
-## [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)
+## [라우팅](virtual-networks-udr-overview.md)
 ## [가상 네트워크 피어링](virtual-network-peering-overview.md)
 ## [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)
 ## [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md)
 ## [보안](security-overview.md)
 ## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
-## [FAQ](virtual-networks-faq.md)
 ## [IP 주소 지정](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS 보호](ddos-protection-overview.md)
+## [FAQ](virtual-networks-faq.md)
 ## 클래식
 ### [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)
 ### [액세스 제어 목록](virtual-networks-acl.md)
@@ -190,10 +190,10 @@
 
 
 # 관련 항목
-## [가상 컴퓨터](/azure/virtual-machines/)
-## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Azure DNS](/azure/dns/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [ExpressRoute](/azure/expressroute/)

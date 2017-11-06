@@ -29,7 +29,7 @@ sections:
             href: /azure/container-instances/container-instances-quickstart
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure 포털
+            text: Azure Portal
             href: /azure/container-instances/container-instances-quickstart-portal
   - title: 단계별 자습서
     items:
@@ -48,6 +48,6 @@ sections:
         className: cardsD
         items:
           - title: 명령줄
-            html: '<p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
+            html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance/get-azurermcontainergroup">PowerShell</a></p>
           - title: REST (영문)
             html: <p><a href="/rest/api/container-instances">REST API 참조</a></p>

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: aee8e183a05ae3817e814d027cf268bee71324c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5bc299e6efee2e74529b08b58fd913c6b329b06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -31,6 +31,10 @@ ms.lasthandoff: 10/11/2017
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
+
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [빠른 시작: Azure Data Factory 버전 2를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 이 문서에서는 Azure PowerShell을 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
@@ -97,7 +101,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정 및 주문형 Azure HDInsight 클러스터를 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 시나리오에 사용되는 데이터 저장소/계산 서비스를 식별하고 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결합니다.
 
-### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 동일한 Azure Storage 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
 
 1. C:\ADFGetStarted 폴더에 다음과 같은 내용으로 StorageLinkedService.json이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStarted 폴더를 만듭니다.
@@ -134,7 +138,7 @@ ms.lasthandoff: 10/11/2017
     자습서 도중에 Azure PowerShell을 닫은 경우 자습서를 완료하려면 다음에 Azure PowerShell을 시작할 때 **Get-AzureRmDataFactory** cmdlet을 실행해야 합니다.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
-이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [연결된 서비스 계산](data-factory-compute-linked-services.md) 을 참조하세요.
+이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)를 참조하세요.
 
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **HDInsightOnDemandLinkedService**.json이라는 JSON 파일을 만듭니다.
 
@@ -177,7 +181,7 @@ ms.lasthandoff: 10/11/2017
     ```
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure 저장소 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.
 
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **InputTable.json**이라는 JSON 파일을 만듭니다.
@@ -400,7 +404,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 1. Azure **데이터 팩터리**를 만들었습니다.
 2. 두 개의 **연결된 서비스**를 만들었습니다.
-   1. **Azure 저장소** 연결된 서비스입니다.
+   1. **Azure Storage** 연결된 서비스입니다.
    2. **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
 3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다.
 4. **HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.

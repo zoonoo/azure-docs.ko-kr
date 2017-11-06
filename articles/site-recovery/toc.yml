@@ -79,8 +79,6 @@
   items:
     - name: 재해 복구
       items:
-        - name: 다중 테넌트를 지원하는 VMware VM에서 Azure로
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Hyper-V VM에서 Azure로
           href: tutorial-hyper-v-to-azure.md
         - name: 물리적 서버에서 Azure로
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: 다중 테넌트를 지원하는 VMware VM에서 Azure로
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: 용량 및 크기 조정
       items:
         - name: Azure로 VMware 복제를 위한 용량 계획
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: 파일 서버
+          href: file-server-disaster-recovery.md
         - name: IIS 기반 웹 응용 프로그램
           href: site-recovery-iis.md
         - name: Citrix XenApp 및 XenDesktop

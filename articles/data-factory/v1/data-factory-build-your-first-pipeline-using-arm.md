@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 1778a4af004afd45464e37e198d78b4f0977c1c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4681e2f2552589e310f80cbf763bd453c0eba84
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
-> 
+ 
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [빠른 시작: Azure Data Factory 버전 2를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="in-this-tutorial"></a>자습서 내용
 | 엔터티 | 설명 |
 | --- | --- |
-| Azure 저장소 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. |
+| Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. |
 | HDInsight 주문형 연결된 서비스 |주문형 HDInsight 클러스터를 데이터 팩터리에 연결합니다. 이 클러스터는 사용자가 데이터를 처리할 수 있도록 자동으로 생성되며 처리 작업이 완료되면 삭제됩니다. |
 | Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
 | Azure Blob 출력 데이터 집합 |Azure Storage 연결된 서비스 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
@@ -379,13 +381,13 @@ dataFactoryName은 다음과 같이 정의됩니다.
 ### <a name="defining-data-factory-entities"></a>데이터 팩터리 엔터티 정의
 다음 데이터 팩터리 엔터티는 JSON 템플릿에 정의됩니다. 
 
-* [Azure 저장소 연결된 서비스](#azure-storage-linked-service)
+* [Azure Storage 연결된 서비스](#azure-storage-linked-service)
 * [HDInsight 주문형 연결된 서비스](#hdinsight-on-demand-linked-service)
 * [Azure Blob 입력 데이터 집합](#azure-blob-input-dataset)
 * [Azure Blob 출력 데이터 집합:](#azure-blob-output-dataset)
 * [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
 
 ```json
@@ -408,7 +410,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
 **connectionString**은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStroageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight 주문형 연결된 서비스
-HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [연결된 서비스 계산](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
+HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
 
 ```json
 {

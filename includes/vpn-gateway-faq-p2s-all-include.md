@@ -8,6 +8,7 @@
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
+* Windows Server 2016(64비트 전용)
 * Windows 10
 * Mac용 OSX 버전 10.11(El Capitan)
 * Mac용 macOS 버전 10.12(Sierra)

@@ -1,5 +1,5 @@
 ---
-title: "연결된 공장 Azure IoT Suite 솔루션 연습 | Microsoft Docs"
+title: "연결된 팩터리 솔루션 연습 - Azure | Microsoft Docs"
 description: "공장 및 해당 아키텍처에 연결된 Azure IoT 미리 구성된 솔루션에 대한 설명입니다."
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 

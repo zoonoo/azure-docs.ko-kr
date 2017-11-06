@@ -134,6 +134,8 @@
       items:
         - name: 보관
           href: monitoring-archive-diagnostic-logs.md
+        - name: Log Analytics에 보내기
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Event Hubs로 스트림
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Resource Manager 템플릿을 사용하여 진단 설정 사용

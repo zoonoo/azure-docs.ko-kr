@@ -71,15 +71,10 @@
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### [Azure Portal을 사용하여 정책 할당](resource-manager-policy-portal.md)
 ### [스크립트를 사용하여 정책 할당](resource-manager-policy-create-assign.md)
 ### 예
 #### [태그](resource-manager-policy-tags.md)
 #### [명명 규칙](resource-manager-policy-naming-convention.md)
-#### [네트워크](resource-manager-policy-network.md)
-#### [저장소](resource-manager-policy-storage.md)
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## 감사
 ### [활동 로그 보기](resource-group-audit.md)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Iris 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -89,7 +89,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
 5. 이 스크립트는 모델에 필요한 입력 데이터 스키마를 캡처하는 **outputs** 폴더에 JSON 파일을 만듭니다.
 
-6. Machine Learning Workbench 창 오른쪽에 있는 작업 창을 확인합니다. 최신 **iris\_score.py** 작업에 녹색 **완료됨** 상태가 표시될 때까지 기다립니다. 그런 다음 최신 작업 실행에 대한 **iris\_score.py [1]** 하이퍼링크를 클릭하여 **iris_score.py**의 실행 세부 정보를 봅니다. 
+6. Machine Learning Workbench 창 오른쪽에 있는 작업 창을 확인합니다. 최신 **iris-score.py** 작업에 녹색 **완료됨** 상태가 표시될 때까지 기다립니다. 그런 다음 최신 작업 실행에 대한 **iris_score.py[1]** 하이퍼링크를 클릭하여 **iris_score.py**의 실행 세부 정보를 확인합니다. 
 
 7. [실행 속성] 페이지의 **출력** 섹션에서 새로 만든 **service_schema.json** 파일을 선택합니다. 파일을 **선택**하고 **다운로드**를 클릭합니다. 파일을 프로젝트 루트 폴더에 저장합니다.
 
@@ -120,6 +120,9 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
    ```
 
 이제 모델을 조작할 환경이 준비되었습니다.
+
+>[!NOTE]
+>모델을 배포하려면 소유자에게 Azure 구독에 대한 액세스 권한이 있어야 합니다.
 
 ## <a name="prepare-to-operationalize-locally"></a>로컬에서 조작 준비
 _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너에서 실행합니다.
@@ -201,7 +204,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 1. 다음 명령을 사용하여 실시간 웹 서비스를 만듭니다.
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    그러면 나중에 사용할 수 있는 웹 서비스 ID가 생성됩니다.
 
@@ -241,7 +244,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    매니페스트를 만들려면 다음 명령을 사용하고, 이전 단계의 모델 ID 출력을 제공합니다.
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    이 명령은 매니페스트 ID를 생성합니다.
 

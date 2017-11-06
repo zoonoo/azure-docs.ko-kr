@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery란 무엇인가요? | Microsoft Docs"
+title: "Azure Site Recovery란? | Microsoft Docs"
 description: "Azure Site Recovery 서비스의 개요를 제공하고 배포 시나리오를 요약합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>사이트 복구란?
+# <a name="about-site-recovery"></a>Site Recovery란?
 
 Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 서비스에 대한 빠른 개요를 제공합니다.
 
@@ -62,19 +63,15 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 **지원됨** | **세부 정보**
 --- | ---
-**무엇을 복제할 수 있습니까?** | Azure 지역 간 Azure VM(미리 보기)<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux)를 Azure에 복제<br/<br/> 온-프레미스 VMware VM, Hyper-V VM, 물리적 서버를 보조 사이트에 복제 Hyper-V VM를 보조 사이트에 복제하는 것은 Hyper-V 호스트가 System Center VMM에서 관리되는 경우에만 지원됩니다.
+**무엇을 복제할 수 있습니까?** | Azure 지역 간 Azure VM 복제<br/><br/>  Azure에 온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux) 복제<br/><br/> VMM(Virtual Machine Manager)에 온-프레미스 VMware VM, Hyper-V VM, 물리적 서버 복제
 **어떤 지역이 Site Recovery에 지원됩니까?** | [지원되는 지역](https://azure.microsoft.com/regions/services/) |
-**복제된 컴퓨터에 필요한 운영 체제는 무엇입니까?** | [Azure VM 요구 사항](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[VMware VM 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM의 경우 Azure 및 Hyper-V에서 지원하는 [게스트 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)가 지원됩니다.<br/><br/> [물리적 서버 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**복제된 컴퓨터에 필요한 운영 체제는 무엇입니까?** | [Azure VM 요구 사항](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware VM 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM의 경우 Azure 및 Hyper-V에서 지원하는 [게스트 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)가 지원됩니다.<br/><br/> [물리적 서버 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **어떤 VMware 서버/호스트가 필요합니까?** | VMware VM은 [지원되는 vSphere 호스트/vCenter 서버](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에 있을 수 있습니다.
-**어떤 워크로드를 복제할 수 있습니까?** | 지원되는 복제 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
+
+**어떤 워크로드를 복제할 수 있습니까?** 지원되는 복제 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
 
 
-## <a name="azure-portal-considerations"></a>Azure Portal 고려 사항
-
-* Site Recovery는 [Azure Portal](https://portal.azure.com)에서 배포할 수 있습니다.
-* Azure 클래식 포털에서 기존 서비스 관리 모델을 사용하여 Site Recovery를 관리할 수 있습니다.
-- 클래식 포털은 기존 Site Recovery 배포를 유지하는 데에만 사용해야 합니다. 클래식 포털에서는 새 자격 증명 모음을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [워크로드 지원](site-recovery-workload.md)에 대해 자세히 알아보세요.
-* [지역 간 Azure VM 복제](site-recovery-azure-to-azure.md), [Azure에 VMware 복제](vmware-walkthrough-overview.md) 또는 [Azure에 Hyper-V 복제](hyper-v-site-walkthrough-overview.md)를 시작합니다.
+* [워크로드 지원](site-recovery-workload.md)에 대해 자세히 알아봅니다.
+* [지역 간 Azure VM 복제](azure-to-azure-quickstart.md)를 시작합니다. 

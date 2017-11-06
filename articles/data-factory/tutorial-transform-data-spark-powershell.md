@@ -11,16 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2017
+ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: 93031615b271e542d8832b980a40ca25d1cd6d5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78fc72826229ef5d246884db868757dadd2deed2
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
-Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### <a name="this-tutorial"></a>이 자습서
+
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -82,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - Azure Storage 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스 - 이 저장소는 주문형 HDInsight 클러스터에서 사용됩니다. 실행될 Spark 스크립트도 포함되어 있습니다. 
 - 주문형 HDInsight 연결된 서비스 - Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고, Spark 프로그램을 실행한 다음, 미리 구성된 시간 동안 유휴 상태가 되면 이 HDInsight 클러스터를 삭제합니다. 
 
-### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 원하는 편집기를 사용하여 JSON 파일을 만들고, 다음과 같은 Azure Storage 연결된 서비스의 JSON 정의를 복사하고, 파일을 **MyStorageLinkedService.json**으로 저장합니다.  
 
 ```json

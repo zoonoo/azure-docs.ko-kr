@@ -1,6 +1,6 @@
 ---
 title: "보안 센터 계획 및 작업 가이드| Microsoft Docs"
-description: "이 문서는 Azure 보안 센터 도입 전 계획과 일상 운영과 관련한 고려 사항을 지원합니다."
+description: "이 문서는 Azure Security Center 도입 전 계획과 일상 운영과 관련한 고려 사항을 지원합니다."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-security-center-planning-and-operations-guide"></a>Azure 보안 센터 계획 및 작업 가이드
+# <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
 
     
 ## <a name="planning-guide"></a>계획 가이드
 이 가이드에서는 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터의 사용을 최적화하기 위해 따를 수 있는 일련의 단계 및 작업을 다룹니다. Security Center를 완벽하게 활용하려면 조직의 서로 다른 개인 또는 팀이 보안 개발 및 운영, 모니터링, 관리 및 사고 대응 요구에 맞게 서비스를 사용하는 방법에 대해 이해하는 것이 중요합니다. 보안 센터의 사용을 계획할 때 고려할 주요 영역은 다음과 같습니다.
 
-* 보안 역할 및 액세스 제어
+* 보안 역할 및 Access Control
 * 보안 정책 및 권장 사항
 * 데이터 수집 및 저장
 * 진행 중인 비 Azure 리소스
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/19/2017
 
 
 > [!NOTE]
-> [Azure 보안 센터 FAQ(질문과 대답)](security-center-faq.md) 설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
+> [Azure Security Center FAQ(질문과 대답)](security-center-faq.md) 설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
 > 
 
 ## <a name="security-roles-and-access-controls"></a>보안 역할 및 액세스 제어
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/19/2017
 * 공격 여부 조사
 * 클라우드 워크로드 소유자와 함께 해결책 적용 
 
-Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용합니다. 사용자가 Security Center를 열면 액세스한 리소스와 관련된 정보만 표시됩니다. 이는 구독 또는 리소스가 속한 리소스 그룹에 대한 소유자, 참가자 또는 읽기 권한자의 역할이 사용자에게 할당된다는 것을 의미합니다. 이러한 역할 외에도 두 개의 특정한 Security Center 역할이 있습니다.
+Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../active-directory/role-based-access-control-configure.md)를 사용합니다. 사용자가 Security Center를 열면 액세스한 리소스와 관련된 정보만 표시됩니다. 이는 구독 또는 리소스가 속한 리소스 그룹에 대한 소유자, 참가자 또는 읽기 권한자의 역할이 사용자에게 할당된다는 것을 의미합니다. 이러한 역할 외에도 두 개의 특정한 Security Center 역할이 있습니다.
 
 - **보안 읽기 권한자**: 이 역할에 속하는 사용자는 권장 사항, 경고, 정책 및 상태를 포함하는 Security Center 구성을 볼 수 있지만 변경할 수는 없습니다.
 - **보안 관리자**: 보안 읽기 권한자와 동일하지만 보안 정책을 업데이트하고 권장 사항 및 경고를 해제할 수 있습니다.
@@ -171,7 +171,7 @@ Azure Security Center에서 만든 작업 영역의 경우 데이터는 30일 �
 
 ## <a name="onboarding-non-azure-resources"></a>비 Azure 리소스 온보딩
 
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 비 Azure 리소스를 등록하는 방법에 대한 자세한 내용은 [향상된 보안을 위해 Azure Security Center에 온보딩](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers)을 참고하세요.
+Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 비Azure 리소스를 등록하는 방법에 대한 자세한 내용은 [보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers)을 참고하세요.
 
 ## <a name="ongoing-security-monitoring"></a>지속적인 보안 모니터링
 보안 센터 권장 사항의 최초 구성과 적용 후에는 보안 센터 운영 프로세스를 고려합니다.
@@ -183,7 +183,7 @@ Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 
 > [!NOTE]
 > Security Center는 일반 작동 프로시저를 방해하지 않으면서 배포를 소극적으로 모니터링하고 사용자가 설정한 보안 정책에 따라 권장 사항을 제공합니다.
 
-현재 Azure 환경에 Security Center를 사용하도록 처음으로 설정할 때는 모든 권장 사항을 검토해야 합니다. 이 작업은 **권장 사항** 타일에서 또는 리소스별(**계산**, **네트워킹**, **저장소 및 데이터**, **응용 프로그램**)로 수행할 수 있습니다.
+현재 Azure 환경에 Security Center를 사용하도록 처음으로 설정할 때는 모든 권장 사항을 검토해야 합니다. 이 작업은 **권장 사항** 타일에서 또는 리소스별(**Compute**, **네트워킹**, **Storage 및 데이터**, **응용 프로그램**)로 수행할 수 있습니다.
 
 모든 권장 사항을 해결한 후에는 해결된 모든 리소스에 대해 **방지** 섹션이 녹색이어야 합니다. 이 시점에서는 리소스 보안 상태와 권장 사항 타일에서의 변경 사항을 기준으로 조치를 취하면 되므로 지속적인 모니터링이 더 용이해집니다.
 
@@ -198,7 +198,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 ![주요 영역](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. 가상 컴퓨터의 경우 **방지** 섹션에서 **계산**을 클릭합니다. 데이터를 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **개요** 탭 및 **모니터링 권장 사항** 섹션에 표시됩니다.
+1. 가상 컴퓨터의 경우 **방지** 섹션에서 **Compute**를 클릭합니다. 데이터를 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **개요** 탭 및 **모니터링 권장 사항** 섹션에 표시됩니다.
 2. 새 리소스에 대한 보안 위협이 있다면 무엇인지를 확인하기 위해 **권장 사항** 을 봅니다.
 3. 새 VM이 환경에 추가되면 운영 체제만 최초로 설치되는 것이 매우 일반적입니다. 리소스 소유자는 이러한 VM에서 사용할 다른 앱을 배포하는 데 다소 시간이 걸릴 수 있습니다.  이상적으로는 이 워크로드의 최종 목적을 파악하고 있어야 합니다. 응용 프로그램 서버가 됩니까? 이 새 워크로드의 용도에 맞게 적절한 **보안 정책**을 사용하도록 설정할 수 있으며, 이 워크플로의 세 번째 단계에 해당합니다.
 4. 새 리소스가 Azure 환경에 추가되면 **보안 경고** 타일에 새 경고가 표시될 수 있습니다. 항상 이 타일에 새 경고가 있는지 확인하고 보안 센터 권장 사항에 따라 조치를 취합니다.
@@ -207,7 +207,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 ![작업](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
-1. **방지** 섹션 패널은 주요 리소스에 대한 신속한 액세스를 제공합니다. 이 옵션을 사용하여 계산, 네트워킹, 저장소와 데이터 및 응용 프로그램을 모니터링합니다.
+1. **방지** 섹션 패널은 주요 리소스에 대한 신속한 액세스를 제공합니다. 이 옵션을 사용하여 Compute, 네트워킹, Storage와 데이터 및 응용 프로그램을 모니터링합니다.
 2. **권장 사항** 패널에서 Security Center 권장 사항을 검토할 수 있습니다. 지속적인 모니터링이 이루어질 때는 매일 권장 사항이 있는 것이 아닙니다. 이것은 최초 Security Center 설정 시 모든 권장 사항을 해결했기 때문에 정상입니다. 따라서 매일 이 섹션에 새 정보가 있는 것은 아니며 필요에 따라 액세스하면 됩니다.
 3. **감지** 섹션은 매우 자주 또는 매우 드물게 변경될 수 있습니다. 항상 보안 경고를 검토하고 보안 센터 권장 사항에 따라 조치를 취합니다.
 
@@ -257,9 +257,9 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터를 도입하도록 계획하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
-* [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
+* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 85855a3696529eae4f977e9e75800d6fa32b7cc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3523f17b5b39da94177038584d983aa3592199f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
-> 
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [버전 2 설명서의 복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Data Factory를 만드는 방법을 보여 줍니다. 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
@@ -53,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 | 엔터티 | 설명 |
 | --- | --- |
-| Azure 저장소 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage는 원본 데이터 저장소이고 Azure SQL Database는 자습서의 복사 작업에 대한 싱크 데이터 저장소입니다. 복사 작업을 위한 입력 데이터가 포함된 저장소 계정을 지정합니다. |
+| Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage는 원본 데이터 저장소이고 Azure SQL Database는 자습서의 복사 작업에 대한 싱크 데이터 저장소입니다. 복사 작업을 위한 입력 데이터가 포함된 저장소 계정을 지정합니다. |
 | Azure SQL Database 연결된 서비스 |Azure SQL Database를 데이터 팩터리에 연결합니다. 복사 작업에 대한 출력 데이터를 보유하는 Azure SQL Database를 지정합니다. |
 | Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
 | Azure SQL 출력 데이터 집합 |Azure SQL 연결된 서비스를 참조하세요. Azure SQL 연결된 서비스는 Azure SQL Server를 말하며 Azure SQL 데이터 집합은 출력 데이터를 가진 테이블의 이름을 지정합니다. |
@@ -380,13 +382,13 @@ dataFactoryName은 다음과 같이 정의됩니다.
 ### <a name="defining-data-factory-entities"></a>데이터 팩터리 엔터티 정의
 다음 데이터 팩터리 엔터티는 JSON 템플릿에 정의됩니다. 
 
-1. [Azure 저장소 연결된 서비스](#azure-storage-linked-service)
+1. [Azure Storage 연결된 서비스](#azure-storage-linked-service)
 2. [Azure SQL 연결된 서비스](#azure-sql-database-linked-service)
 3. [Azure Blob 데이터 집합](#azure-blob-dataset)
 4. [Azure SQL 데이터 집합](#azure-sql-dataset)
 5. [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다. 이 섹션의 Azure 저장소 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
 
 ```json

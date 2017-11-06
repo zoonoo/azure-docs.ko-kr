@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ac70959b4582ace8c8f34e71caccd61f640aabfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.lasthandoff: 10/11/2017
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [버전 2 설명서의 복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 이 문서에서는 Microsoft Visual Studio를 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
@@ -89,14 +92,14 @@ Azure SQL 연결된 서비스는 Azure SQL 데이터베이스를 데이터 팩�
 
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 계산 서비스 목록은 [연결된 계산 서비스](data-factory-compute-linked-services.md) 를 참조하세요. 이 자습서에서는 계산 서비스를 사용하지 않습니다. 
 
-### <a name="create-the-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+### <a name="create-the-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **솔루션 탐색기**에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고, **추가**를 가리킨 다음, **새 항목**을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다. 
    
     ![새 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
 3. `<accountname>` 및 `<accountkey>`*를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 
    
-    ![Azure 저장소 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+    ![Azure Storage 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
     연결된 서비스 정의의 JSON 속성에 대한 자세한 내용은 [Azure Blob Storage 커넥터](data-factory-azure-blob-connector.md#linked-service-properties) 문서를 참조하세요.
@@ -363,7 +366,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
 1. Azure **Data Factory**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
-   1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다.     
+   1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage** 연결된 서비스입니다.     
    2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다. 
 3. 파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합**을 만들었습니다.
 4. 원본으로 **BlobSource**를 사용하고 싱크로 **SqlSink**를 사용하는 **복사 작업**으로 **파이프라인**을 만들었습니다. 
@@ -396,7 +399,7 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음 단�
 ## <a name="use-configuration-files"></a>구성 파일 사용
 각 환경마다 다르게 연결된 서비스/테이블/파이프라인에 대한 속성을 구성하기 위해 Visual Studio의 구성 파일을 사용할 수 있습니다.
 
-Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey에 대한 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 동작을 수행할 수 있습니다.
+Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey에 대한 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 동작을 수행할 수 있습니다.
 
 ```json
 {
@@ -432,13 +435,13 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }
     ```
 
-    이 예제에서는 Azure 저장소 연결된 서비스 및 Azure SQL 연결된 서비스의 connectionString 속성을 구성합니다. 이름을 지정하는 구문은 [JsonPath](http://goessner.net/articles/JsonPath/)입니다.   
+    이 예제에서는 Azure Storage 연결된 서비스 및 Azure SQL 연결된 서비스의 connectionString 속성을 구성합니다. 이름을 지정하는 구문은 [JsonPath](http://goessner.net/articles/JsonPath/)입니다.   
 
     JSON에 다음 코드와 같은 값의 배열을 가진 속성이 있는 경우:  
 

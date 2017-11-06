@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란 무엇인가요?
 
@@ -105,7 +105,7 @@ Azure Machine Learning Workbench는 Windows와 macOS 모두에서 지원되는 �
 
 실험 서비스는 재현 가능한 결과와 격리된 상태에서 스크립트를 실행할 수 있도록 가상 환경을 생성합니다. 실행 기록 정보를 기록하고 사용자에게 기록을 시각적으로 제공합니다. 실험 실행 외에 최상의 모델을 쉽게 선택할 수 있습니다. 
 
-자세한 내용은 [실험 실행 구성](experiment-execution-configuration.md)을 참조하세요.
+자세한 내용은 [실험 서비스 구성](experimentation-service-configuration.md)을 참조하세요.
 
 ## <a name="azure-machine-learning-model-management-service"></a>Azure Machine Learning 모델 관리 서비스
 

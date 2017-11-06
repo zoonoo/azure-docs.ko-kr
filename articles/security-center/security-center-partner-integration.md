@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: yurid
-ms.openlocfilehash: 847a872661bea31b774814188c7707260a16e620
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -32,10 +32,24 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
-- Endpoint Protection([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec 및 [Azure Cloud Services와 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware), Windows Defender 및 SCEP(System Center Endpoint Protection))
+- 끝점 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender 및 SCEP(System Center Endpoint Protection))
 - 웹 응용 프로그램 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) 및 [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - 취약성 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+
+끝점 보호 통합 환경은 솔루션에 따라 다를 수 있습니다. 다음 표에는 각 솔루션의 환경에 대한 자세한 정보가 나와 있습니다.
+
+| 끝점 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
+|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
+| Trend Micro - 모든 버전         | Windows Server 제품군                 | 확장을 통해                | 예                       |
+| Symantec v12+                     | Windows Server 제품군                 | 아니요                           | 예                        |
+| MacAfee                           | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
+
+
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 다음을 비롯한 다른 보안 데이터 원본에 연결할 수 있습니다.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: 테이블 API 소개
 
@@ -38,10 +38,10 @@ Aravind Ramachandran이 Azure Cosmos DB용 테이블 API를 시작하는 방법�
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>프리미엄 및 표준 테이블 API
-현재 테이블 저장소를 사용하는 경우 Azure Cosmos DB의 "프리미엄 테이블" 미리 보기로 이동하면 다음과 같은 이점이 있습니다.
+## <a name="table-offerings"></a>Table 제품
+현재 Azure Table Storage를 사용하는 경우 Azure Cosmos DB Table API(미리 보기)로 이동하면 다음과 같은 이점이 있습니다.
 
-| | Azure 테이블 저장소 | Azure Cosmos DB: Table Storage(미리 보기) |
+| | Azure Table Storage | Azure Cosmos DB Table API(미리 보기) |
 | --- | --- | --- |
 | 대기 시간 | 빠르지만 대기 시간에 대한 상한이 없습니다. | 읽기/쓰기에 대한 1자리 밀리초 대기 시간이 지원됩니다(전 세계의 모든 규모에 대해 99번째 백분위수에서 10ms 미만의 읽기 및 15ms 미만의 쓰기 대기 시간 지원). |
 | 처리량 | 가변 처리량 모델입니다. 테이블의 확장 제한은 20,000개 작업/초입니다. | SLA를 통해 지원하는 [테이블당 예약된 전용 처리량](request-units.md)으로 확장성이 뛰어납니다. 계정에는 처리량에 대한 상한이 없으며, 테이블당 1,000만 개 이상 작업/초를 지원합니다. |

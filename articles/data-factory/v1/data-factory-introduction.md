@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fcfea96516e0cde6329ef9dd4b9024a1b448c5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/21/2017
 > * [버전 2 - 미리 보기](../introduction.md)
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [데이터 팩터리 V2 소개](../introduction.md)를 참조하세요.
+> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [데이터 팩터리 V2 소개](../introduction.md)를 참조하세요.
 
 
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
@@ -77,7 +77,7 @@ Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파
 클라우드에서 SQL Server와 같은 온-프레미스 원본에 변환된 데이터를 제공합니다. 또는 이를 BI, 분석 도구 및 기타 응용 프로그램에 의한 소비를 위해 클라우드 저장소 원본에 유지합니다.
 
 ## <a name="key-components"></a>핵심 구성 요소
-Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데이터 팩터리)가 있을 수 있습니다. Azure Data Factory는 네 가지 핵심 구성 요소로 구성됩니다. 이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다. 
+Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 네 가지 핵심 구성 요소로 구성됩니다. 이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다. 
 
 ### <a name="pipeline"></a>파이프라인
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 활동 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 

@@ -15,41 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 320190488bb4c7b8192421f9dd50a5264f558584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8600dc91a5c32c0f290310903e60c6ac6fa2bfe7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## <a name="azure-iot-suite"></a>Azure IoT Suite
-Microsoft Azure IoT Suite는 미리 구성된 확장 가능 솔루션 집합을 통해 빠르게 시작할 수 있는 엔터프라이즈급 솔루션입니다. 이러한 솔루션은 [원격 모니터링][lnk-preconfigured-solutions], [예측 유지 관리][lnk-predictive-maintenance] 및 [연결된 공장][lnk-connected-factory] 같은 일반적인 IoT 시나리오를 처리합니다. 이러한 솔루션은 이 문서에서 설명한 IoT 솔루션 아키텍처의 구현입니다.
-
-미리 구성된 솔루션은 완전하고 작동 가능하며 다음을 포함하는 포괄적 솔루션입니다.
-
-- 시작을 위한 시뮬레이션된 장치
-- 미리 구성된 Azure 서비스(예: [Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning] 및 [Azure Storage][Azure storage])
-- 솔루션 특정 관리 콘솔 
-
-미리 구성된 솔루션은 프로덕션에 사용할 준비가 된 입증된 코드를 포함하며 이 코드는 고유한 특정 IoT 시나리오를 구현하도록 사용자 지정하고 확장할 수 있습니다.
-
-또한 다수의 미리 구성된 솔루션에서 사용하는 [Azure IoT Hub][Azure IoT Hub] 서비스에도 관심이 있을 수 있습니다. [Azure IoT Hub][Azure IoT Hub]는 미리 구성된 솔루션 아키텍처에서 사용되는 장치와 클라우드 간에 안전하고 안정적인 양방향 통신을 제공합니다.
-
 ## <a name="next-steps"></a>다음 단계
-IoT Suite 및 미리 구성된 솔루션에 대해 계속 알아보려면 다음 리소스를 탐색합니다.
 
-* [Azure IoT Suite란?][lnk-whatissuite]
-* [미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?][lnk-whatarepreconfigured]
+이제 일반적인 IoT 아키텍처에 대해 알아보았으므로 [Microsoft Azure IoT 옵션](iot-suite-options.md)에서 Microsoft Azure IoT 제품을 사용하여 다양한 구현 옵션을 살펴봅니다.
 
-[lnk-whatissuite]: iot-suite-overview.md
-[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+개별 Azure IoT 서비스에 대한 자세한 내용은 다음을 참조하세요.
 
-[lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
-[Azure storage]: https://azure.microsoft.com/documentation/services/storage/
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-connected-factory]: iot-suite-connected-factory-overview.md
+* [Azure IoT Suite란?](iot-suite-what-are-preconfigured-solutions.md)
+* [Microsoft IoT Central이란?](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)
+* [Azure IoT Hub란?](../iot-hub/iot-hub-what-is-iot-hub.md)

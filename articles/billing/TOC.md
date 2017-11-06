@@ -35,9 +35,9 @@
 ### [Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [청구서에 따른 구독에 대한 요금 지불](billing-how-to-pay-by-invoice.md)
 ## 문제 해결
-### [등록 문제](billing-troubleshoot-azure-sign-up-issues.md)
-### [거부된 카드](billing-credit-card-fails-during-azure-sign-up.md)
-### [로그인 문제](billing-cannot-login-subscription.md)
+### [등록 문제](https://support.microsoft.com/en-us/help/4042959)
+### [거부된 카드](https://support.microsoft.com/en-us/help/4042960)
+### [로그인 문제](https://support.microsoft.com/en-us/help/4042961)
 ### [구독을 찾을 수 없음](billing-no-subscriptions-found.md)
 ### [Enterprise 비용 보기 사용 안 함](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

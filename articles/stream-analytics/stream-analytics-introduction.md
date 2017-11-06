@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics란 무엇인가요?
 
@@ -63,7 +63,7 @@ Stream Analytics는 스트림 수집을 위해 [Azure Event Hubs](https://azure.
 
 여러 방향으로 Stream Analytics 작업 출력을 라우팅합니다. Azure Blob, Azure SQL Database, Azure Data Lake Store 또는 Azure Cosmos DB와 같은 저장소에 작성합니다. 거기에서 Azure HDInsight를 사용하여 일괄 처리 분석을 실행할 수 있습니다. 또는 이벤트 허브, Azure Service Bus, 큐와 같은 다른 프로세스가 사용하도록 다른 서비스로 또는 시각화를 위해 Power BI로 출력을 보냅니다.
 
-### <a name="easy-to-use"></a>용이성
+### <a name="simple-to-use"></a>간편한 사용
 
 변형을 정의하기 위해 프로그램 없이 정교한 분석을 만들 수 있는 단순하고 선언적인 [Stream Analytics 쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998.aspx)를 사용할 수 있습니다. 쿼리 언어는 스트리밍 데이터를 입력으로 사용합니다. 그런 다음 데이터를 필터링 및 정렬하고, 값을 집계하고, 계산을 수행하고, 데이터를 조인(스트림 내에서 또는 참조 데이터에 조인)하고, 지리 공간 함수를 사용할 수 있습니다. IntelliSense 및 구문 검사를 사용하여 포털에서 쿼리를 편집할 수 있으며 라이브 스트림에서 추출할 수 있는 샘플 데이터를 사용하여 쿼리를 테스트할 수 있습니다.
 
@@ -71,22 +71,21 @@ Stream Analytics는 스트림 수집을 위해 [Azure Event Hubs](https://azure.
 
 추가 함수를 정의하고 호출하여 쿼리 언어의 기능을 확장할 수 있습니다. Azure Machine Learning 솔루션을 활용하기 위해 Azure Machine Learning 서비스에서 함수 호출을 정의할 수 있습니다. Stream Analytics 쿼리의 일부로 복잡 한 계산을 수행하기 위해 JavaScript 사용자 정의 함수(UDF)를 통합할 수도 있습니다.
 
-### <a name="scalability"></a>확장성
+### <a name="scalable"></a>확장성
 
 Stream Analytics는 들어오는 데이터를 초당 최대 1GB의 속도로 처리할 수 있습니다. [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 및 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)와 통합하면 작업에서 연결된 장치, 클릭 스트림 및 로그 파일에서 발생하는 초당 수백만 개의 이벤트를 수집할 수 있습니다. 이벤트 허브의 파티션 기능을 사용 하면 계산을 논리 단계로 분할할 수 있고, 좀 더 분할하면 확장성을 높일 수 있습니다.
 
 ### <a name="low-cost"></a>저렴한 비용
 
-클라우드 서비스로서 Stream Analytics는 저렴한 비용으로 사용할 수 있도록 최적화되어 있습니다. 스트리밍 단위 사용법 및 시스템에 의해 처리되는 데이터의 양에 따라 비용을 지불합니다. 사용량은 처리된 이벤트의 용량과 Stream Analytics 작업을 처리하기 위해 클러스터 내에 프로비전된 계산 능력의 양에 따라 결정됩니다.
+클라우드 서비스인 Stream Analytics는 비용에 최적화되어 있습니다. 스트리밍 단위 사용량 및 데이터 처리량에 따라 비용을 지불합니다. 사용량은 처리된 이벤트의 양과 작업 클러스터 내에서 프로비전된 계산 능력의 양에 따라 결정됩니다.
 
-### <a name="reliability-quick-recovery-and-repeatability"></a>안정성, 빠른 복구 및 반복성
+### <a name="reliable"></a>안정성
 
-클라우드에서 관리되는 서비스로서 Stream Analytics는 데이터 손실을 방지하고 비즈니스 연속성을 제공합니다. 오류가 발생한 경우 서비스는 기본 제공 복구 기능을 제공합니다. 이 서비스는 내부적으로 상태를 유지하는 기능을 통해 이벤트를 보관할 수 있는 경우 반복 가능한 결과를 제공하고, 향후에도 항상 동일한 결과를 제공하면서 처리를 다시 적용할 수 있습니다. 이를 통해 특정 시점으로 복구하고 근본 원인 분석, 가상 분석 등을 수행하는 경우 계산을 조사할 수 있습니다.
+관리 서비스인 Stream Analytics는 데이터 손실을 방지하고 비즈니스 연속성을 제공합니다. 오류가 발생한 경우 서비스는 기본 제공 복구 기능을 제공합니다. 이 서비스는 내부적으로 상태를 유지하는 기능을 통해 이벤트를 보관할 수 있는 경우 반복 가능한 결과를 제공하고, 향후에도 항상 동일한 결과를 제공하면서 처리를 다시 적용할 수 있습니다. 이를 통해 특정 시점으로 복구하고 근본 원인 분석, 가상 분석 등을 수행하는 경우 계산을 조사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [IoT 장치의 입력 및 쿼리로 시험](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)하여 시작합니다.
 * 전화 메타데이터를 검사하여 사기성 호출을 찾는 [종단 간 Stream Analytics 솔루션](stream-analytics-real-time-fraud-detection.md)을 빌드합니다.
-* Stream Analytics용 SQL형 쿼리 언어와 [window 함수](stream-analytics-window-functions.md)와 고유한 개념에 대해 자세히 알아보세요.
 * [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)에서 Stream Analytics에 대한 질문의 답변을 찾아보세요.
 
