@@ -149,7 +149,7 @@ LiquidFiles에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     e. [이름 식별자 형식] 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** 값을 입력합니다.
 
-    f. [Authn Context](인증 컨텍스트) 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport** 값을 입력합니다.
+    f. [Authn Context] \(인증 컨텍스트) 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport** 값을 입력합니다.
 
     g. **Save**를 클릭합니다.  
 
